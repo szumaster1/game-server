@@ -6,7 +6,6 @@ import core.tools.StringUtils;
 /**
  * The unique machine information of an account.
  * @author Vexia
- *
  */
 public class UIDInfo {
 
@@ -41,10 +40,11 @@ public class UIDInfo {
 
     /**
      * Constructs a new {@code UIDInfo} {@code Object}
-     * @param ip the ip.
+     *
+     * @param ip       the ip.
      * @param compName the computer name.
-     * @param mac the mac.
-     * @param serial the serial.
+     * @param mac      the mac.
+     * @param serial   the serial.
      */
     public UIDInfo(String ip, String compName, String mac, String serial) {
         this.ip = ip;
@@ -55,6 +55,7 @@ public class UIDInfo {
 
     /**
      * Translates the unique info from another object.
+     *
      * @param other the other information.
      */
     public void translate(UIDInfo other) {
@@ -66,6 +67,7 @@ public class UIDInfo {
 
     /**
      * Converts a to string in format mode for an admin or mod.
+     *
      * @return the string.
      */
     public String toString(Player player, Player target) {
@@ -84,6 +86,7 @@ public class UIDInfo {
 
     /**
      * Gets the compName.
+     *
      * @return the compName
      */
     public String getCompName() {
@@ -92,6 +95,7 @@ public class UIDInfo {
 
     /**
      * Gets the ip.
+     *
      * @return the ip
      */
     public String getIp() {
@@ -100,6 +104,7 @@ public class UIDInfo {
 
     /**
      * Gets the mac.
+     *
      * @return the mac
      */
     public String getMac() {
@@ -108,6 +113,7 @@ public class UIDInfo {
 
     /**
      * Gets the serial.
+     *
      * @return the serial
      */
     public String getSerial() {

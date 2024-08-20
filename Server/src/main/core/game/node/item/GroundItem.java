@@ -41,6 +41,7 @@ public class GroundItem extends Item {
 
     /**
      * Constructs a new {@code GroundItem} {@code Object}.
+     *
      * @param item The item
      */
     public GroundItem(Item item) {
@@ -49,7 +50,8 @@ public class GroundItem extends Item {
 
     /**
      * Constructs a new {@code GroundItem} {@code Object}.
-     * @param item The item.
+     *
+     * @param item     The item.
      * @param location The location.
      */
     public GroundItem(Item item, Location location) {
@@ -58,9 +60,10 @@ public class GroundItem extends Item {
 
     /**
      * Constructs a new {@code GroundItem} {@code Object}.
-     * @param item The item.
+     *
+     * @param item     The item.
      * @param location The location.
-     * @param player The player who dropped this item.
+     * @param player   The player who dropped this item.
      */
     public GroundItem(Item item, Location location, Player player) {
         this(item, location, 200, player);
@@ -74,9 +77,10 @@ public class GroundItem extends Item {
 
     /**
      * Constructs a new {@code GroundItem} {@code Object}.
-     * @param item The item.
+     *
+     * @param item     The item.
      * @param location The location.
-     * @param player The player who dropped this item.
+     * @param player   The player who dropped this item.
      */
     public GroundItem(Item item, Location location, int decay, Player player) {
         super(item.getId(), item.getAmount(), item.getCharge());
@@ -98,6 +102,7 @@ public class GroundItem extends Item {
 
     /**
      * Checks if the ground item is private.
+     *
      * @return {@code True} if so.
      */
     public boolean isPrivate() {
@@ -111,6 +116,7 @@ public class GroundItem extends Item {
 
     /**
      * Checks if this item was dropped by the player.
+     *
      * @param p The player.
      * @return {@code True} if so.
      */
@@ -124,6 +130,7 @@ public class GroundItem extends Item {
 
     /**
      * Gets the dropper.
+     *
      * @return The dropper.
      */
     public Player getDropper() {
@@ -132,6 +139,7 @@ public class GroundItem extends Item {
 
     /**
      * Sets the dropper.
+     *
      * @param player The player who dropped this item.
      */
     public void setDropper(Player player) {
@@ -140,6 +148,7 @@ public class GroundItem extends Item {
 
     /**
      * Gets the ticks.
+     *
      * @return The ticks.
      */
     public int getTicks() {
@@ -148,6 +157,7 @@ public class GroundItem extends Item {
 
     /**
      * Gets the decayTime.
+     *
      * @return The decayTime.
      */
     public int getDecayTime() {
@@ -156,6 +166,7 @@ public class GroundItem extends Item {
 
     /**
      * Sets the decayTime.
+     *
      * @param decayTime The decayTime to set.
      */
     public void setDecayTime(int decayTime) {
@@ -164,6 +175,7 @@ public class GroundItem extends Item {
 
     /**
      * Gets the autoSpawn.
+     *
      * @return The autoSpawn.
      */
     public boolean isAutoSpawn() {
@@ -172,6 +184,7 @@ public class GroundItem extends Item {
 
     /**
      * Gets the remainPrivate.
+     *
      * @return The remainPrivate.
      */
     public boolean isRemainPrivate() {
@@ -180,6 +193,7 @@ public class GroundItem extends Item {
 
     /**
      * Sets the remainPrivate.
+     *
      * @param remainPrivate The remainPrivate to set.
      */
     public void setRemainPrivate(boolean remainPrivate) {
@@ -188,6 +202,7 @@ public class GroundItem extends Item {
 
     /**
      * Gets the removed.
+     *
      * @return The removed.
      */
     public boolean isRemoved() {
@@ -196,6 +211,7 @@ public class GroundItem extends Item {
 
     /**
      * Sets the removed.
+     *
      * @param removed The removed to set.
      */
     public void setRemoved(boolean removed) {
@@ -205,6 +221,7 @@ public class GroundItem extends Item {
     public int getDropperUid() {
         return dropperUid;
     }
+
     @Override
     public String toString() {
         return "GroundItem [dropper=" + (dropper != null ? dropper.getUsername() : dropper) + ", ticks=" + ticks + ", decayTime=" + decayTime + ", remainPrivate=" + remainPrivate + ", removed=" + removed + "]";

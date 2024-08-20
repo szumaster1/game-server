@@ -120,6 +120,7 @@ public final class Settings {
 
     /**
      * Constructs a new {@code Settings} {@code Object}.
+     *
      * @param player The player.
      */
     public Settings(Player player) {
@@ -150,6 +151,7 @@ public final class Settings {
 
     /**
      * Toggles the attack style index.
+     *
      * @param index The index.
      */
     public void toggleAttackStyleIndex(int index) {
@@ -166,8 +168,9 @@ public final class Settings {
 
     /**
      * Sets the chat settings.
-     * @param pub The public chat setting.
-     * @param priv The private chat setting.
+     *
+     * @param pub   The public chat setting.
+     * @param priv  The private chat setting.
      * @param trade The trade setting.
      */
     public void updateChatSettings(int pub, int priv, int trade) {
@@ -187,8 +190,9 @@ public final class Settings {
 
     /**
      * Sets the chat settings.
-     * @param pub The public chat setting.
-     * @param priv The private chat setting.
+     *
+     * @param pub   The public chat setting.
+     * @param priv  The private chat setting.
      * @param trade The trade setting.
      */
     public void setChatSettings(int pub, int priv, int trade) {
@@ -199,6 +203,7 @@ public final class Settings {
 
     /**
      * Writes the settings on the byte buffer.
+     *
      * @param buffer The byte buffer.
      */
     public void save(ByteBuffer buffer) {
@@ -217,6 +222,7 @@ public final class Settings {
 
     /**
      * Parses the settings from the byte buffer.
+     *
      * @param buffer The byte buffer.
      */
     public void parse(ByteBuffer buffer) {
@@ -253,24 +259,24 @@ public final class Settings {
         }
     }
 
-    public void parse(JSONObject settingsData){
-        brightness = Integer.parseInt( settingsData.get("brightness").toString());
-        musicVolume = Integer.parseInt( settingsData.get("musicVolume").toString());
-        soundEffectVolume = Integer.parseInt( settingsData.get("soundEffectVolume").toString());
-        areaSoundVolume = Integer.parseInt( settingsData.get("areaSoundVolume").toString());
+    public void parse(JSONObject settingsData) {
+        brightness = Integer.parseInt(settingsData.get("brightness").toString());
+        musicVolume = Integer.parseInt(settingsData.get("musicVolume").toString());
+        soundEffectVolume = Integer.parseInt(settingsData.get("soundEffectVolume").toString());
+        areaSoundVolume = Integer.parseInt(settingsData.get("areaSoundVolume").toString());
         singleMouseButton = (boolean) settingsData.get("singleMouse");
         disableChatEffects = (boolean) settingsData.get("disableChatEffects");
         splitPrivateChat = (boolean) settingsData.get("splitPrivate");
         acceptAid = (boolean) settingsData.get("acceptAid");
         runToggled = (boolean) settingsData.get("runToggled");
-        publicChatSetting = Integer.parseInt( settingsData.get("publicChatSetting").toString());
-        privateChatSetting = Integer.parseInt( settingsData.get("privateChatSetting").toString());
-        clanChatSetting = Integer.parseInt( settingsData.get("clanChatSetting").toString());
-        tradeSetting = Integer.parseInt( settingsData.get("tradeSetting").toString());
-        assistSetting = Integer.parseInt( settingsData.get("assistSetting").toString());
-        runEnergy = Double.parseDouble( settingsData.get("runEnergy").toString());
-        specialEnergy = Integer.parseInt( settingsData.get("specialEnergy").toString());
-        attackStyleIndex = Integer.parseInt( settingsData.get("attackStyle").toString());
+        publicChatSetting = Integer.parseInt(settingsData.get("publicChatSetting").toString());
+        privateChatSetting = Integer.parseInt(settingsData.get("privateChatSetting").toString());
+        clanChatSetting = Integer.parseInt(settingsData.get("clanChatSetting").toString());
+        tradeSetting = Integer.parseInt(settingsData.get("tradeSetting").toString());
+        assistSetting = Integer.parseInt(settingsData.get("assistSetting").toString());
+        runEnergy = Double.parseDouble(settingsData.get("runEnergy").toString());
+        specialEnergy = Integer.parseInt(settingsData.get("specialEnergy").toString());
+        attackStyleIndex = Integer.parseInt(settingsData.get("attackStyle").toString());
         player.getProperties().setRetaliating((boolean) settingsData.get("retaliation"));
     }
 
@@ -283,6 +289,7 @@ public final class Settings {
 
     /**
      * Toggles the special attack bar.
+     *
      * @param enable If the special attack should be enabled.
      */
     public void setSpecialToggled(boolean enable) {
@@ -292,6 +299,7 @@ public final class Settings {
 
     /**
      * Checks if the special attack bar is toggled.
+     *
      * @return {@code True} if so.
      */
     public boolean isSpecialToggled() {
@@ -300,6 +308,7 @@ public final class Settings {
 
     /**
      * Drains an amount of special attack energy.
+     *
      * @param amount The amount to drain.
      * @return {@code True} if succesful, {@code false} if the special attack
      * energy amount hasn't changed after calling this method.
@@ -319,6 +328,7 @@ public final class Settings {
 
     /**
      * Sets the special energy amount.
+     *
      * @param value The amount to set.
      */
     public void setSpecialEnergy(int value) {
@@ -328,6 +338,7 @@ public final class Settings {
 
     /**
      * Gets the amount of special energy left.
+     *
      * @return The amount of energy.
      */
     public int getSpecialEnergy() {
@@ -393,6 +404,7 @@ public final class Settings {
     /**
      * Decreases the run energy with the given amount (drain parameter). <br> To
      * increase, use a negative drain value.
+     *
      * @param drain The drain amount.
      */
     public void updateRunEnergy(double drain) {
@@ -432,6 +444,7 @@ public final class Settings {
 
     /**
      * Gets the weight.
+     *
      * @return The weight.
      */
     public double getWeight() {
@@ -440,6 +453,7 @@ public final class Settings {
 
     /**
      * Gets the brightness.
+     *
      * @return The brightness.
      */
     public int getBrightness() {
@@ -448,6 +462,7 @@ public final class Settings {
 
     /**
      * Sets the brightness.
+     *
      * @param brightness The brightness to set.
      */
     public void setBrightness(int brightness) {
@@ -457,6 +472,7 @@ public final class Settings {
 
     /**
      * Gets the musicVolume.
+     *
      * @return The musicVolume.
      */
     public int getMusicVolume() {
@@ -465,6 +481,7 @@ public final class Settings {
 
     /**
      * Sets the musicVolume.
+     *
      * @param musicVolume The musicVolume to set.
      */
     public void setMusicVolume(int musicVolume) {
@@ -474,6 +491,7 @@ public final class Settings {
 
     /**
      * Gets the soundEffectVolume.
+     *
      * @return The soundEffectVolume.
      */
     public int getSoundEffectVolume() {
@@ -482,6 +500,7 @@ public final class Settings {
 
     /**
      * Sets the soundEffectVolume.
+     *
      * @param soundEffectVolume The soundEffectVolume to set.
      */
     public void setSoundEffectVolume(int soundEffectVolume) {
@@ -491,6 +510,7 @@ public final class Settings {
 
     /**
      * Gets the areaSoundVolume.
+     *
      * @return The areaSoundVolume.
      */
     public int getAreaSoundVolume() {
@@ -499,6 +519,7 @@ public final class Settings {
 
     /**
      * Sets the areaSoundVolume.
+     *
      * @param areaSoundVolume The areaSoundVolume to set.
      */
     public void setAreaSoundVolume(int areaSoundVolume) {
@@ -508,6 +529,7 @@ public final class Settings {
 
     /**
      * Gets the singleMouseButton.
+     *
      * @return The singleMouseButton.
      */
     public boolean isSingleMouseButton() {
@@ -516,6 +538,7 @@ public final class Settings {
 
     /**
      * Gets the disableChatEffects.
+     *
      * @return The disableChatEffects.
      */
     public boolean isDisableChatEffects() {
@@ -524,6 +547,7 @@ public final class Settings {
 
     /**
      * Gets the splitPrivateChat.
+     *
      * @return The splitPrivateChat.
      */
     public boolean isSplitPrivateChat() {
@@ -532,6 +556,7 @@ public final class Settings {
 
     /**
      * Gets the acceptAid.
+     *
      * @return The acceptAid.
      */
     public boolean isAcceptAid() {
@@ -543,6 +568,7 @@ public final class Settings {
 
     /**
      * Gets the runToggled.
+     *
      * @return The runToggled.
      */
     public boolean isRunToggled() {
@@ -551,6 +577,7 @@ public final class Settings {
 
     /**
      * Gets the publicChatSetting.
+     *
      * @return The publicChatSetting.
      */
     public int getPublicChatSetting() {
@@ -559,6 +586,7 @@ public final class Settings {
 
     /**
      * Sets the publicChatSetting.
+     *
      * @param publicChatSetting The publicChatSetting to set.
      */
     public void setPublicChatSetting(int publicChatSetting) {
@@ -568,6 +596,7 @@ public final class Settings {
 
     /**
      * Gets the privateChatSetting.
+     *
      * @return The privateChatSetting.
      */
     public int getPrivateChatSetting() {
@@ -576,6 +605,7 @@ public final class Settings {
 
     /**
      * Sets the privateChatSetting.
+     *
      * @param privateChatSetting The privateChatSetting to set.
      */
     public void setPrivateChatSetting(int privateChatSetting) {
@@ -585,6 +615,7 @@ public final class Settings {
 
     /**
      * Gets the clanChatSetting.
+     *
      * @return The clanChatSetting.
      */
     public int getClanChatSetting() {
@@ -593,6 +624,7 @@ public final class Settings {
 
     /**
      * Sets the clanChatSetting.
+     *
      * @param clanChatSetting The clanChatSetting to set.
      */
     public void setClanChatSetting(int clanChatSetting) {
@@ -602,6 +634,7 @@ public final class Settings {
 
     /**
      * Gets the tradeSetting.
+     *
      * @return The tradeSetting.
      */
     public int getTradeSetting() {
@@ -610,6 +643,7 @@ public final class Settings {
 
     /**
      * Sets the tradeSetting.
+     *
      * @param tradeSetting The tradeSetting to set.
      */
     public void setTradeSetting(int tradeSetting) {
@@ -619,6 +653,7 @@ public final class Settings {
 
     /**
      * Gets the assistSetting.
+     *
      * @return The assistSetting.
      */
     public int getAssistSetting() {
@@ -627,6 +662,7 @@ public final class Settings {
 
     /**
      * Sets the assistSetting.
+     *
      * @param assistSetting The assistSetting to set.
      */
     public void setAssistSetting(int assistSetting) {
@@ -650,6 +686,7 @@ public final class Settings {
 
     /**
      * Gets the attackStyleIndex.
+     *
      * @return The attackStyleIndex.
      */
     public int getAttackStyleIndex() {
@@ -658,6 +695,7 @@ public final class Settings {
 
     /**
      * Sets the attackStyleIndex.
+     *
      * @param attackStyleIndex The attackStyleIndex to set.
      */
     public void setAttackStyleIndex(int attackStyleIndex) {

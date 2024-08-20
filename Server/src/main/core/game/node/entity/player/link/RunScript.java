@@ -22,13 +22,14 @@ public abstract class RunScript {
      * Constructs a new {@code RunScript} {@code Object}.
      */
     public RunScript() {
-        /**
+        /*
          * empty.
          */
     }
 
     /**
      * Handles the run script.
+     *
      * @return the return.
      */
     public abstract boolean handle();
@@ -49,6 +50,7 @@ public abstract class RunScript {
 
     /**
      * Sets the player.
+     *
      * @param player the player.
      */
     public void setPlayer(Player player) {

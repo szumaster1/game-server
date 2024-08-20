@@ -154,6 +154,7 @@ public final class Properties {
 
     /**
      * Constructs a new {@code Properties} {@code Object}.
+     *
      * @param entity
      */
     public Properties(Entity entity) {
@@ -185,6 +186,7 @@ public final class Properties {
 
     /**
      * Gets a combat animation by the index.
+     *
      * @param index the index.
      * @return the animation.
      */
@@ -194,6 +196,7 @@ public final class Properties {
 
     /**
      * Gets the entity.
+     *
      * @return The entity.
      */
     public Entity getEntity() {
@@ -202,6 +205,7 @@ public final class Properties {
 
     /**
      * Gets the teleporting.
+     *
      * @return The teleporting.
      */
     public boolean isTeleporting() {
@@ -210,6 +214,7 @@ public final class Properties {
 
     /**
      * Sets the teleporting.
+     *
      * @param teleporting The teleporting to set.
      */
     public void setTeleporting(boolean teleporting) {
@@ -219,6 +224,7 @@ public final class Properties {
     /**
      * Gets the combatLevel. <br> Deprecated Due to summoning-based combat level
      * not being calculated in.
+     *
      * @return The combatLevel.
      */
     @Deprecated
@@ -228,6 +234,7 @@ public final class Properties {
 
     /**
      * Gets the current combat level.
+     *
      * @return The combat level.
      */
     public int getCurrentCombatLevel() {
@@ -246,6 +253,7 @@ public final class Properties {
 
     /**
      * Sets the combatLevel.
+     *
      * @param combatLevel The combatLevel to set.
      */
     public void setCombatLevel(int combatLevel) {
@@ -254,6 +262,7 @@ public final class Properties {
 
     /**
      * Gets the attackStyle.
+     *
      * @return The attackStyle.
      */
     public WeaponInterface.AttackStyle getAttackStyle() {
@@ -262,6 +271,7 @@ public final class Properties {
 
     /**
      * Sets the attackStyle.
+     *
      * @param attackStyle The attackStyle to set.
      */
     public void setAttackStyle(WeaponInterface.AttackStyle attackStyle) {
@@ -270,6 +280,7 @@ public final class Properties {
 
     /**
      * Gets the teleportLocation.
+     *
      * @return The teleportLocation.
      */
     public Location getTeleportLocation() {
@@ -278,6 +289,7 @@ public final class Properties {
 
     /**
      * Sets the teleportLocation.
+     *
      * @param teleportLocation The teleportLocation to set.
      */
     public void setTeleportLocation(Location teleportLocation) {
@@ -286,6 +298,7 @@ public final class Properties {
 
     /**
      * Gets the spawnLocation.
+     *
      * @return The spawnLocation.
      */
     public Location getSpawnLocation() {
@@ -294,6 +307,7 @@ public final class Properties {
 
     /**
      * Sets the spawnLocation.
+     *
      * @param spawnLocation The spawnLocation to set.
      */
     public void setSpawnLocation(Location spawnLocation) {
@@ -302,6 +316,7 @@ public final class Properties {
 
     /**
      * Gets the bonuses.
+     *
      * @return The bonuses.
      */
     public int[] getBonuses() {
@@ -310,6 +325,7 @@ public final class Properties {
 
     /**
      * Sets the bonuses.
+     *
      * @param bonuses The bonuses to set.
      */
     public void setBonuses(int[] bonuses) {
@@ -318,6 +334,7 @@ public final class Properties {
 
     /**
      * Gets the last animation end.
+     *
      * @return The last animation end.
      */
     public long getLastAnimationEnd() {
@@ -326,6 +343,7 @@ public final class Properties {
 
     /**
      * Gets the combatPulse.
+     *
      * @return The combatPulse.
      */
     public CombatPulse getCombatPulse() {
@@ -334,14 +352,16 @@ public final class Properties {
 
     /**
      * Sets the combatPulse.
+     *
      * @return The void.
      */
     public void setCombatPulse(CombatPulse combatPulse) {
-        this.combatPulse = (CombatPulse)combatPulse;
+        this.combatPulse = (CombatPulse) combatPulse;
     }
 
     /**
      * Gets the retaliating.
+     *
      * @return The retaliating.
      */
     public boolean isRetaliating() {
@@ -350,6 +370,7 @@ public final class Properties {
 
     /**
      * Sets the retaliating.
+     *
      * @param retaliating The retaliating to set.
      */
     public void setRetaliating(boolean retaliating) {
@@ -358,6 +379,7 @@ public final class Properties {
 
     /**
      * Gets the attackSpeed.
+     *
      * @return The attackSpeed.
      */
     public int getAttackSpeed() {
@@ -366,6 +388,7 @@ public final class Properties {
 
     /**
      * Sets the attackSpeed.
+     *
      * @param attackSpeed The attackSpeed to set.
      */
     public void setAttackSpeed(int attackSpeed) {
@@ -374,6 +397,7 @@ public final class Properties {
 
     /**
      * Gets the attackAnimation.
+     *
      * @return The attackAnimation.
      */
     public Animation getAttackAnimation() {
@@ -382,6 +406,7 @@ public final class Properties {
 
     /**
      * Sets the attackAnimation.
+     *
      * @param attackAnimation The attackAnimation to set.
      */
     public void setAttackAnimation(Animation attackAnimation) {
@@ -390,6 +415,7 @@ public final class Properties {
 
     /**
      * Gets the defenceAnimation.
+     *
      * @return The defenceAnimation.
      */
     public Animation getDefenceAnimation() {
@@ -398,6 +424,7 @@ public final class Properties {
 
     /**
      * Sets the defenceAnimation.
+     *
      * @param defenceAnimation The defenceAnimation to set.
      */
     public void setDefenceAnimation(Animation defenceAnimation) {
@@ -406,6 +433,7 @@ public final class Properties {
 
     /**
      * Sets the spell.
+     *
      * @param spell The spell to set.
      */
     public void setSpell(CombatSpell spell) {
@@ -417,6 +445,7 @@ public final class Properties {
 
     /**
      * Gets the spell.
+     *
      * @return The spell.
      */
     public CombatSpell getSpell() {
@@ -453,6 +482,7 @@ public final class Properties {
 
     /**
      * Gets the deathAnimation.
+     *
      * @return The deathAnimation.
      */
     public Animation getDeathAnimation() {
@@ -461,6 +491,7 @@ public final class Properties {
 
     /**
      * Sets the deathAnimation.
+     *
      * @param deathAnimation The deathAnimation to set.
      */
     public void setDeathAnimation(Animation deathAnimation) {
@@ -469,6 +500,7 @@ public final class Properties {
 
     /**
      * Gets the multiZone.
+     *
      * @return The multiZone.
      */
     public boolean isMultiZone() {
@@ -477,6 +509,7 @@ public final class Properties {
 
     /**
      * Sets the multiZone.
+     *
      * @param multiZone The multiZone to set.
      */
     public void setMultiZone(boolean multiZone) {
@@ -485,6 +518,7 @@ public final class Properties {
 
     /**
      * Gets the safeZone.
+     *
      * @return The safeZone.
      */
     public boolean isSafeZone() {
@@ -493,6 +527,7 @@ public final class Properties {
 
     /**
      * Sets the safeZone.
+     *
      * @param safeZone The safeZone to set.
      */
     public void setSafeZone(boolean safeZone) {
@@ -501,6 +536,7 @@ public final class Properties {
 
     /**
      * Gets the combatTimeOut.
+     *
      * @return The combatTimeOut.
      */
     public int getCombatTimeOut() {
@@ -509,6 +545,7 @@ public final class Properties {
 
     /**
      * Sets the combatTimeOut.
+     *
      * @param combatTimeOut The combatTimeOut to set.
      */
     public void setCombatTimeOut(int combatTimeOut) {
@@ -517,6 +554,7 @@ public final class Properties {
 
     /**
      * Gets the npcWalkable.
+     *
      * @return The npcWalkable.
      */
     public boolean isNPCWalkable() {
@@ -525,6 +563,7 @@ public final class Properties {
 
     /**
      * Sets the npcWalkable.
+     *
      * @param npcWalkable The npcWalkable to set.
      */
     public void setNPCWalkable(boolean npcWalkable) {
@@ -533,6 +572,7 @@ public final class Properties {
 
     /**
      * Gets the rangeAnimation.
+     *
      * @return the rangeAnimation
      */
     public Animation getRangeAnimation() {
@@ -541,6 +581,7 @@ public final class Properties {
 
     /**
      * Sets the rangeAnimation.
+     *
      * @param rangeAnimation the rangeAnimation to set.
      */
     public void setRangeAnimation(Animation rangeAnimation) {
@@ -549,6 +590,7 @@ public final class Properties {
 
     /**
      * Gets the magicAnimation.
+     *
      * @return the magicAnimation
      */
     public Animation getMagicAnimation() {
@@ -557,6 +599,7 @@ public final class Properties {
 
     /**
      * Sets the magicAnimation.
+     *
      * @param magicAnimation the magicAnimation to set.
      */
     public void setMagicAnimation(Animation magicAnimation) {
@@ -565,6 +608,7 @@ public final class Properties {
 
     /**
      * Gets the protectStyle.
+     *
      * @return the protectStyle.
      */
     public CombatStyle getProtectStyle() {
@@ -573,6 +617,7 @@ public final class Properties {
 
     /**
      * Sets the protectStyle.
+     *
      * @param protectStyle the protectStyle to set
      */
     public void setProtectStyle(CombatStyle protectStyle) {

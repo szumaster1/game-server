@@ -33,6 +33,7 @@ public abstract class ItemPlugin implements Plugin<Object> {
 
     /**
      * Registers items to this plugin.
+     *
      * @param ids the ids.
      */
     public void register(int... ids) {
@@ -43,9 +44,10 @@ public abstract class ItemPlugin implements Plugin<Object> {
 
     /**
      * Called when the item is removed from the player.
+     *
      * @param player the player.
-     * @param item the item.
-     * @param type the type. (1=drop)
+     * @param item   the item.
+     * @param type   the type. (1=drop)
      */
     public void remove(Player player, Item item, int type) {
 
@@ -53,9 +55,10 @@ public abstract class ItemPlugin implements Plugin<Object> {
 
     /**
      * Checks if the item can be picked up.
+     *
      * @param player the player.
-     * @param item the item.
-     * @param type the pickup type (1=ground, 2=telegab)
+     * @param item   the item.
+     * @param type   the pickup type (1=ground, 2=telegab)
      * @return {@code True} if so.
      */
     public boolean canPickUp(Player player, GroundItem item, int type) {
@@ -64,10 +67,11 @@ public abstract class ItemPlugin implements Plugin<Object> {
 
     /**
      * Checks if the item can be made as a drop.
-     * @param item the item.
+     *
+     * @param item   the item.
      * @param player the player.
-     * @param npc TODO
-     * @param l the location.
+     * @param npc    TODO
+     * @param l      the location.
      * @return
      */
     public boolean createDrop(Item item, Player player, NPC npc, Location l) {
@@ -76,8 +80,9 @@ public abstract class ItemPlugin implements Plugin<Object> {
 
     /**
      * Changes an item if needed.
+     *
      * @param item the item.
-     * @param npc the npc.
+     * @param npc  the npc.
      * @return the item.
      */
     public Item getItem(Item item, NPC npc) {
@@ -86,6 +91,7 @@ public abstract class ItemPlugin implements Plugin<Object> {
 
     /**
      * Gets the death item.
+     *
      * @param item the item.
      * @return the item.
      */

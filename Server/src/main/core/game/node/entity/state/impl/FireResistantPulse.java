@@ -30,8 +30,9 @@ public class FireResistantPulse extends StatePulse {
 
     /**
      * Constructs a new {@Code FireResistantPulse} {@Code Object}
+     *
      * @param entity the entity.
-     * @param ticks the ticks.
+     * @param ticks  the ticks.
      */
     public FireResistantPulse(Entity entity, int ticks, int currentTick, boolean extended) {
         super(entity, ticks);
@@ -61,7 +62,7 @@ public class FireResistantPulse extends StatePulse {
 
     @Override
     public boolean pulse() {
-        if(extended && currentTick == 0 && END_TIME < 1200){
+        if (extended && currentTick == 0 && END_TIME < 1200) {
             END_TIME += 600;
         }
         if (entity instanceof Player) {

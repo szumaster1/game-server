@@ -11,44 +11,62 @@ import org.json.simple.JSONObject
 class GlobalData {
     // Number of charges for replenishing run energy
     private var runReplenishCharges: Int = 0
+
     // Number of charges for low alchemy
     private var lowAlchemyCharges: Int = 0
+
     // Number of uses for forging
     private var forgingUses: Int = 0
+
     // Number of ecto charges
     private var ectoCharges: Int = 0
+
     // Current stage of the player in the test
     private var playerTestStage: Int = 0
+
     // Loots obtained from Barrows
     private var barrowsLoots: Int = 0
+
     // Points for loot sharing
     private var lootSharePoints: Int = 0
+
     // Current stage of the tutorial
     private var tutorialStage: Int = 0
 
     @JvmField
     // Number of Karamja bananas
     var karamjaBananas: Int = 0
+
     // Saved X coordinate
     private var savedX: Int = 0
+
     // Saved Y coordinate
     private var savedY: Int = 0
+
     // Saved height coordinate
     private var savedH: Int = 0
+
     // Amount of tasks
     private var taskAmount: Int = 0
+
     // Points earned from tasks
     private var taskPoints: Int = 0
+
     // ID of the god book
     private var godBook: Int = -1
+
     // Amount of Zaf's items
     private var zafAmount: Int = 8
+
     // Essence teleporter status
     private var essenceTeleporter: Int = 0
+
     // Damage from recoil
     private var recoilDamage: Int = 40
+
     // Charges for the hunter cape
     private var hunterCapeCharges: Int = 0
+
     // Array to count bosses
     private var bossCounters: IntArray = IntArray(25)
 
@@ -60,83 +78,118 @@ class GlobalData {
 
     // Delay for home teleportation
     private var homeTeleportDelay: Long = 0
+
     // Time for assistance
     private var assistTime: Long = 0
+
     // Ping time for chat
     private var chatPing: Long = 0
+
     // Time for claiming tutor rewards
     private var tutorClaim: Long = 0
+
     // Delay for magic skill cape
     private var magicSkillCapeDelay: Long = 0
+
     // Delay for hunter cape
     private var hunterCapeDelay: Long = 0
+
     // Delay for charming
     private var charmingDelay: Long = 0
+
     // Delay for overcharging
     private var overChargeDelay: Long = 0
+
     // Delay for loot sharing
     private var lootShareDelay: Long = 0
+
     // Duration for double experience
     private var doubleExp: Long = 0
+
     // Delay for global teleportation
     private var globalTeleporterDelay: Long = 0
+
     // Delay for star sprite
     var starSpriteDelay: Long = 0
+
     // Delay for replenishing run energy
     private var runReplenishDelay: Long = 0
+
     // Delay for low alchemy
     private var lowAlchemyDelay: Long = 0
+
     // Delay for minigame teleportation
     private var minigameTeleportDelay: Long = 0
+
     // Delay for stealing silk
     private var silkSteal: Long = 0
+
     // Time for Zaf's items
     private var zafTime: Long = 0
+
     // Delay for double experience
     private var doubleExpDelay: Long = 0
+
     // Delay for dropping items
     private var dropDelay: Long = 0
 
     // Status of Luthas' task
     private var luthasTask: Boolean = false
+
     // Status of the tied Lumbridge rope
     private var lumbridgeRope: Boolean = false
+
     // Status of the apprentice interaction
     private var apprentice: Boolean = false
+
     // Status of Fritz's glass
     private var fritzGlass: Boolean = false
+
     // Status of Wydin's employee
     private var wydinEmployee: Boolean = false
+
     // Status of Draynor recording
     private var draynorRecording: Boolean = false
+
     // Status of Grand Exchange tutorial
     private var geTutorial: Boolean = false
+
     // Status of joining the monastery
     private var joinedMonastery: Boolean = false
+
     // Status of disabling the death screen
     private var disableDeathScreen: Boolean = false
+
     // Status of disabling news notifications
     private var disableNews: Boolean = false
 
     // Status of enabling the bone crusher
     private var enableBoneCrusher: Boolean = false
+
     // Status of enabling the coin machine
     private var enableCoinMachine: Boolean = false
+
     // Status of enabling the charm collector
     private var enableCharmCollector: Boolean = false
+
     // Status of disabling macros
     private var macroDisabled: Boolean = false
 
     // Array to hold rewards for stronghold
     private var strongHoldRewards: BooleanArray = BooleanArray(4)
+
     // Array to track read plaques
     var readPlaques: BooleanArray = BooleanArray(7)
+
     // Array to hold abyss data
     private var abyssData: BooleanArray = BooleanArray(4)
+
     // Array to hold travel logs
     private var travelLogs: BooleanArray = BooleanArray(45)
+
     // Array to hold god books
     private var godBooks: BooleanArray = BooleanArray(3)
+
     // Array to hold god pages
     private var godPages: BooleanArray = BooleanArray(4)
 

@@ -54,6 +54,7 @@ public final class ImpactHandler {
 
     /**
      * Constructs a new {@code ImpactHandler} {@code Object}.
+     *
      * @param entity The entity.
      */
     public ImpactHandler(Entity entity) {
@@ -62,9 +63,10 @@ public final class ImpactHandler {
 
     /**
      * Manually hits the entity.
+     *
      * @param source The entity dealing the hit.
-     * @param hit The amount to hit.
-     * @param type The hitsplat type.
+     * @param hit    The amount to hit.
+     * @param type   The hitsplat type.
      * @return The impact object.
      */
     public Impact manualHit(Entity source, int hit, HitsplatType type) {
@@ -76,10 +78,11 @@ public final class ImpactHandler {
 
     /**
      * Manually hits the entity.
+     *
      * @param source The entity dealing the hit.
-     * @param hit The amount to hit.
-     * @param type The hitsplat type.
-     * @param ticks The delay before handling the hit.
+     * @param hit    The amount to hit.
+     * @param type   The hitsplat type.
+     * @param ticks  The delay before handling the hit.
      * @return The impact object (or null if a pulse got submitted).
      */
     public Impact manualHit(final Entity source, int hit, final HitsplatType type, int ticks) {
@@ -99,9 +102,10 @@ public final class ImpactHandler {
 
     /**
      * Handles an impact.
+     *
      * @param source The impact-dealing entity.
-     * @param hit The hit amount.
-     * @param style The combat style used to deal the impact.
+     * @param hit    The hit amount.
+     * @param style  The combat style used to deal the impact.
      * @return The impact object created.
      */
     public Impact handleImpact(Entity source, int hit, CombatStyle style) {
@@ -110,10 +114,11 @@ public final class ImpactHandler {
 
     /**
      * Handles an impact.
+     *
      * @param source The impact-dealing entity.
-     * @param hit The hit amount.
-     * @param style The combat style used to deal the impact.
-     * @param state The battle state.
+     * @param hit    The hit amount.
+     * @param style  The combat style used to deal the impact.
+     * @param state  The battle state.
      * @return The impact object created.
      */
     public Impact handleImpact(Entity source, int hit, CombatStyle style, BattleState state) {
@@ -122,11 +127,12 @@ public final class ImpactHandler {
 
     /**
      * Handles an impact.
+     *
      * @param source The impact-dealing entity.
-     * @param hit The hit amount.
-     * @param style The combat style used to deal the impact.
-     * @param state The battle state.
-     * @param type The hitsplat type.
+     * @param hit    The hit amount.
+     * @param style  The combat style used to deal the impact.
+     * @param state  The battle state.
+     * @param type   The hitsplat type.
      * @return The impact object created.
      */
     public Impact handleImpact(Entity source, int hit, CombatStyle style, BattleState state, HitsplatType type) {
@@ -135,11 +141,12 @@ public final class ImpactHandler {
 
     /**
      * Handles an impact.
+     *
      * @param source The impact-dealing entity.
-     * @param hit The hit amount.
-     * @param style The combat style used to deal the impact.
-     * @param state The battle state.
-     * @param type The hitsplat type.
+     * @param hit    The hit amount.
+     * @param style  The combat style used to deal the impact.
+     * @param state  The battle state.
+     * @param type   The hitsplat type.
      * @return The impact object created.
      */
     public Impact handleImpact(Entity source, int hit, final CombatStyle style, final BattleState state, HitsplatType type, boolean secondary) {
@@ -155,7 +162,7 @@ public final class ImpactHandler {
         if (disabledTicks > GameWorld.getTicks()) {
             return null;
         }
-        if (entity instanceof Player && !(entity instanceof AIPlayer) && !(entity.getAttribute("tutorial:complete",false))) {
+        if (entity instanceof Player && !(entity instanceof AIPlayer) && !(entity.getAttribute("tutorial:complete", false))) {
             Impact impact = new Impact(source, 0, style, HitsplatType.MISS);
             impactQueue.add(impact);
             return impact;
@@ -223,8 +230,9 @@ public final class ImpactHandler {
 
     /**
      * Handles the recoil effect.
+     *
      * @param attacker The attacker.
-     * @param hit The hit to handle.
+     * @param hit      The hit to handle.
      */
     public void handleRecoilEffect(Entity attacker, int hit) {
         int damage = (int) Math.ceil(hit * 0.1);
@@ -247,6 +255,7 @@ public final class ImpactHandler {
 
     /**
      * Gets the player who's dealt the most damage.
+     *
      * @param killer The killer.
      * @return The player.
      */
@@ -284,6 +293,7 @@ public final class ImpactHandler {
 
     /**
      * Gets the npc impact log.
+     *
      * @return The npc impact log.
      */
     public Map<Entity, Integer> getNpcImpactLog() {
@@ -292,6 +302,7 @@ public final class ImpactHandler {
 
     /**
      * Gets the player impact log.
+     *
      * @return The player impact log.
      */
     public Map<Integer, Integer> getPlayerImpactLog() {
@@ -300,6 +311,7 @@ public final class ImpactHandler {
 
     /**
      * Checks if the entity needs a hit update.
+     *
      * @return {@code True} if so.
      */
     public boolean isHitUpdate() {
@@ -308,6 +320,7 @@ public final class ImpactHandler {
 
     /**
      * Gets the hitsplats.
+     *
      * @return The hitsplats.
      */
     public Queue<Impact> getImpactQueue() {
@@ -316,6 +329,7 @@ public final class ImpactHandler {
 
     /**
      * Gets the disabledTicks.
+     *
      * @return The disabledTicks.
      */
     public int getDisabledTicks() {
@@ -331,6 +345,7 @@ public final class ImpactHandler {
 
     /**
      * Represents an impact.
+     *
      * @author Emperor
      */
     public static class Impact {
@@ -357,10 +372,11 @@ public final class ImpactHandler {
 
         /**
          * Constructs a new {@code ImpactHandler} {@code Object}.
+         *
          * @param source The impact-dealing entity.
          * @param amount The hit amount.
-         * @param style The combat style used to deal the hit.
-         * @param type The hitsplat type.
+         * @param style  The combat style used to deal the hit.
+         * @param type   The hitsplat type.
          */
         public Impact(Entity source, int amount, CombatStyle style, HitsplatType type) {
             this.source = source;
@@ -371,6 +387,7 @@ public final class ImpactHandler {
 
         /**
          * Gets the source.
+         *
          * @return The source.
          */
         public Entity getSource() {
@@ -379,6 +396,7 @@ public final class ImpactHandler {
 
         /**
          * Gets the amount.
+         *
          * @return The amount.
          */
         public int getAmount() {
@@ -387,6 +405,7 @@ public final class ImpactHandler {
 
         /**
          * Gets the style.
+         *
          * @return The style.
          */
         public CombatStyle getStyle() {
@@ -395,6 +414,7 @@ public final class ImpactHandler {
 
         /**
          * Gets the type.
+         *
          * @return The type.
          */
         public HitsplatType getType() {

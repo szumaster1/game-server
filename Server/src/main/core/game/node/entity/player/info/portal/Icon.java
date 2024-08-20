@@ -27,7 +27,8 @@ public enum Icon {
 
     /**
      * Constructs a new {@Code Icons} {@Code Object}
-     * @param id the id.
+     *
+     * @param id      the id.
      * @param indexId the indexid.
      */
     private Icon(int id, int indexId) {
@@ -37,6 +38,7 @@ public enum Icon {
 
     /**
      * Gets an icon for the id.
+     *
      * @param id the id.
      * @return the id.S
      */
@@ -51,6 +53,7 @@ public enum Icon {
 
     /**
      * Gets the id.
+     *
      * @return the id
      */
     public int getId() {
@@ -59,6 +62,7 @@ public enum Icon {
 
     /**
      * Gets the indexId.
+     *
      * @return the indexId
      */
     public int getIndexId() {

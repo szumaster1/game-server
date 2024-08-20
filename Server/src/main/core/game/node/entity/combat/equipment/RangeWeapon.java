@@ -62,13 +62,14 @@ public final class RangeWeapon {
 
     /**
      * Constructs a new {@code RangeWeapon} {@code Object}.
-     * @param itemId The item id.
-     * @param animation The animation.
-     * @param attackSpeed The attack speed.
+     *
+     * @param itemId         The item id.
+     * @param animation      The animation.
+     * @param attackSpeed    The attack speed.
      * @param ammunitionSlot The ammunition's equipment slot, or -1 if not worn.
-     * @param type The weapon type.
-     * @param dropAmmo If the ammunition should be dropped.
-     * @param ammunition The possible ammunition vector list.
+     * @param type           The weapon type.
+     * @param dropAmmo       If the ammunition should be dropped.
+     * @param ammunition     The possible ammunition vector list.
      */
     public RangeWeapon(int itemId, Animation animation, int attackSpeed, int ammunitionSlot, int type, boolean dropAmmo, List<Integer> ammunition) {
         this.itemId = itemId;
@@ -82,6 +83,7 @@ public final class RangeWeapon {
 
     /**
      * Populates the range weapons mapping.
+     *
      * @return {@code True}.
      */
     public static boolean initialize() {
@@ -137,6 +139,7 @@ public final class RangeWeapon {
 
     /**
      * Gets the range weapons mapping.
+     *
      * @return The range weapons.
      */
     public static Map<Integer, RangeWeapon> getRangeWeapons() {
@@ -145,6 +148,7 @@ public final class RangeWeapon {
 
     /**
      * Gets a range weapon instance from the mapping.
+     *
      * @param id The item id.
      * @return The instance.
      */
@@ -196,6 +200,7 @@ public final class RangeWeapon {
 
     /**
      * Gets the weapon type.
+     *
      * @return The weapon type.
      */
     public Weapon.WeaponType getWeaponType() {

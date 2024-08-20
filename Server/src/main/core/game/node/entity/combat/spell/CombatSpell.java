@@ -67,17 +67,18 @@ public abstract class CombatSpell extends MagicSpell {
 
     /**
      * Constructs a new {@code CombatSpell} {@Code Object}
-     * @param type The spell type.
-     * @param book The spell book.
-     * @param level The level required.
+     *
+     * @param type           The spell type.
+     * @param book           The spell book.
+     * @param level          The level required.
      * @param baseExperience The base experience.
-     * @param castAudio The Audio id of the casting Audio.
-     * @param impactAudio The Audio id of the impact Audio.
-     * @param animation the cast animation.
-     * @param startGraphic The start graphic.
-     * @param projectile The projectile.
-     * @param endGraphic The end graphic.
-     * @param runes The runes required to cast this spell.
+     * @param castAudio      The Audio id of the casting Audio.
+     * @param impactAudio    The Audio id of the impact Audio.
+     * @param animation      the cast animation.
+     * @param startGraphic   The start graphic.
+     * @param projectile     The projectile.
+     * @param endGraphic     The end graphic.
+     * @param runes          The runes required to cast this spell.
      */
     public CombatSpell(SpellType type, SpellBookManager.SpellBook book, int level, double baseExperience, int castAudio, int impactAudio, Animation animation, Graphic startGraphic, Projectile projectile, Graphic endGraphic, Item... runes) {
         super(book, level, baseExperience, animation, startGraphic, new Audio(castAudio, 1, 0), runes);
@@ -89,18 +90,20 @@ public abstract class CombatSpell extends MagicSpell {
 
     /**
      * Gets the maximum impact amount of this spell.
+     *
      * @param entity The entity.
      * @param victim The victim.
-     * @param state The battle state.
+     * @param state  The battle state.
      * @return The maximum impact amount.
      */
     public abstract int getMaximumImpact(Entity entity, Entity victim, BattleState state);
 
     /**
      * Starts the effect of this spell (if any).
+     *
      * @param entity The entity.
      * @param victim The victim.
-     * @param state The battle state.
+     * @param state  The battle state.
      */
     public void fireEffect(Entity entity, Entity victim, BattleState state) {
 
@@ -108,9 +111,10 @@ public abstract class CombatSpell extends MagicSpell {
 
     /**
      * Gets a list of possible targets for a multihitting spell.
+     *
      * @param entity The caster of the spell.
      * @param target The victim.
-     * @param max The max amount of victims.
+     * @param max    The max amount of victims.
      * @return The list of targets.
      */
     public List<Entity> getMultihitTargets(Entity entity, Entity target, int max) {
@@ -130,9 +134,10 @@ public abstract class CombatSpell extends MagicSpell {
 
     /**
      * Visualizes the impact.
+     *
      * @param entity The entity.
      * @param target The target.
-     * @param state The battle state.
+     * @param state  The battle state.
      */
     public void visualizeImpact(Entity entity, Entity target, BattleState state) {
         if (state.getEstimatedHit() == -1) {
@@ -197,16 +202,18 @@ public abstract class CombatSpell extends MagicSpell {
 
     /**
      * Gets the targets list.
+     *
      * @param entity The entity
      * @param target The target.
      * @return The targets array.
      */
     public BattleState[] getTargets(Entity entity, Entity target) {
-        return new BattleState[] { new BattleState(entity, target) };
+        return new BattleState[]{new BattleState(entity, target)};
     }
 
     /**
      * Gets the accuracy modifier.
+     *
      * @return The accuracy modifier.
      */
     public double getAccuracyMod() {
@@ -229,6 +236,7 @@ public abstract class CombatSpell extends MagicSpell {
 
     /**
      * Gets the splash graphic.
+     *
      * @return The splash graphic.
      */
     public Graphic getSplashGraphic() {

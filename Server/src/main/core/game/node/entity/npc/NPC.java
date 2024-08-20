@@ -40,7 +40,6 @@ import core.game.world.repository.Repository;
 import static core.game.system.command.sets.StatsAttributeSetKt.STATS_BASE;
 import static core.game.system.command.sets.StatsAttributeSetKt.STATS_ENEMIES_KILLED;
 
-
 /**
  * Represents a non-player character.
  * @author Emperor
@@ -1053,6 +1052,15 @@ public class NPC extends Entity {
      */
     public boolean isNeverWalks() {
         return neverWalks;
+    }
+
+    /**
+     * Gets the nextWalk.
+     *
+     * @return the nextWalk
+     */
+    public int getNextWalk() {
+        return nextWalk;
     }
 
     /**

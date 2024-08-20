@@ -11,7 +11,7 @@ import core.game.node.entity.combat.equipment.DegradableEquipment;
  * Represents an item.
  * @author Emperor
  */
-public class Item extends Node{
+public class Item extends Node {
 
     /**
      * The identification hash (itemId << 16 | charge)
@@ -40,6 +40,7 @@ public class Item extends Node{
 
     /**
      * Constructs a new fully charged {@code Item} {@code Object}.
+     *
      * @param id The item id.
      */
     public Item(int id) {
@@ -48,7 +49,8 @@ public class Item extends Node{
 
     /**
      * Constructs a new fully charged {@code Item} {@code Object}.
-     * @param id The item id.
+     *
+     * @param id     The item id.
      * @param amount The amount.
      */
     public Item(int id, int amount) {
@@ -57,7 +59,8 @@ public class Item extends Node{
 
     /**
      * Constructs a new {@code Item} {@code Object}.
-     * @param id The item id.
+     *
+     * @param id     The item id.
      * @param amount The amount.
      * @param charge The charge.
      */
@@ -73,6 +76,7 @@ public class Item extends Node{
 
     /**
      * Gets this item as a ground item.
+     *
      * @return The item.
      */
     public Item getDropItem() {
@@ -85,6 +89,7 @@ public class Item extends Node{
 
     /**
      * Gets the operate option handler.
+     *
      * @return The option handler for the operate option.
      */
     public OptionHandler getOperateHandler() {
@@ -93,6 +98,7 @@ public class Item extends Node{
 
     /**
      * Gets the value of the item.
+     *
      * @return The value.
      */
     public long getValue() {
@@ -116,6 +122,7 @@ public class Item extends Node{
 
     /**
      * Gets a copy of the item.
+     *
      * @return The item copy.
      */
     public Item copy() {
@@ -124,6 +131,7 @@ public class Item extends Node{
 
     /**
      * Gets the item id of the exchange item for this item.
+     *
      * @return The note item id, if this item is unnoted, or the unnoted item id
      * if this item is noted.
      */
@@ -169,6 +177,7 @@ public class Item extends Node{
 
     /**
      * Checks if the item has atleast one charge left.
+     *
      * @return {@code True} if so.
      */
     public boolean isCharged() {
@@ -198,6 +207,7 @@ public class Item extends Node{
 
     /**
      * Sets the id hash.
+     *
      * @param hash the hash to set
      */
     public void setIdHash(int hash) {
@@ -206,6 +216,7 @@ public class Item extends Node{
 
     /**
      * Checks if the item has a wrapper plugin.
+     *
      * @return {@code True} if so.
      */
     public boolean hasItemPlugin() {
@@ -214,6 +225,7 @@ public class Item extends Node{
 
     /**
      * Gets the item plugin.
+     *
      * @return the plugin.
      */
     public ItemPlugin getPlugin() {
@@ -225,6 +237,7 @@ public class Item extends Node{
 
     /**
      * Gets the definition.
+     *
      * @return The definition.
      */
     public ItemDefinition getDefinition() {
@@ -233,6 +246,7 @@ public class Item extends Node{
 
     /**
      * Sets the definition.
+     *
      * @param definition The definition to set.
      */
     public void setDefinition(ItemDefinition definition) {
@@ -241,6 +255,7 @@ public class Item extends Node{
 
     /**
      * Gets the slot of this item.
+     *
      * @return The container slot, or {@code -1} if the item wasn't added to a
      * container.
      */

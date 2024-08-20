@@ -50,6 +50,7 @@ public final class Prayer {
 
     /**
      * Method used to toggle a prayer.
+     *
      * @param type the type of prayer.
      */
     public final boolean toggle(final PrayerType type) {
@@ -93,6 +94,7 @@ public final class Prayer {
 
     /**
      * Starts the retribution effect.
+     *
      * @param killer The entity who killed this player.
      */
     public void startRetribution(Entity killer) {
@@ -128,25 +130,25 @@ public final class Prayer {
     }
 
     public void tick() {
-        if(!getActive().isEmpty()) prayerActiveTicks ++;
+        if (!getActive().isEmpty()) prayerActiveTicks++;
         else prayerActiveTicks = 0;
 
-        if(prayerActiveTicks > 0 && prayerActiveTicks % 2 == 0){
-            if(getPlayer().getSkills().getPrayerPoints() == 0){
+        if (prayerActiveTicks > 0 && prayerActiveTicks % 2 == 0) {
+            if (getPlayer().getSkills().getPrayerPoints() == 0) {
                 playAudio(getPlayer(), Sounds.PRAYER_DRAIN_2672);
                 getPlayer().sendMessage("You have run out of prayer points; you must recharge at an altar.");
                 reset();
                 return;
             }
             double amountDrain = 0;
-            for(PrayerType type : getActive()){
+            for (PrayerType type : getActive()) {
                 double drain = type.getDrain();
-                double bonus = (1/30f) * getPlayer().getProperties().getBonuses()[12];
+                double bonus = (1 / 30f) * getPlayer().getProperties().getBonuses()[12];
                 drain = drain * (1 + bonus);
                 drain = 0.6 / drain;
                 amountDrain += drain;
             }
-            if(SkillcapePerks.isActive(SkillcapePerks.DIVINE_FAVOR, getPlayer()) && RandomFunction.random(100) <= 10){
+            if (SkillcapePerks.isActive(SkillcapePerks.DIVINE_FAVOR, getPlayer()) && RandomFunction.random(100) <= 10) {
                 amountDrain = 0;
             }
 
@@ -156,6 +158,7 @@ public final class Prayer {
 
     /**
      * Gets the skill bonus for the given skill id.
+     *
      * @param skillId The skill id.
      * @return The bonus for the given skill.
      */
@@ -173,6 +176,7 @@ public final class Prayer {
 
     /**
      * Method used to check if we're permitted to toggle this prayer.
+     *
      * @param type the type.
      * @return <code>True</code> if permitted to be toggled.
      */
@@ -183,6 +187,7 @@ public final class Prayer {
     /**
      * Method used to return value of {@code True} if the {@link #active}
      * prayers contains the prayer type.
+     *
      * @param type the type of prayer.
      * @return {@code True} if so.
      */
@@ -192,6 +197,7 @@ public final class Prayer {
 
     /**
      * Gets the player.
+     *
      * @return The player.
      */
     public Player getPlayer() {
@@ -200,6 +206,7 @@ public final class Prayer {
 
     /**
      * Gets the active prayers.
+     *
      * @return The active.
      */
     public List<PrayerType> getActive() {

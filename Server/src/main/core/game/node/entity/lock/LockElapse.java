@@ -10,6 +10,7 @@ public interface LockElapse {
 
     /**
      * Called when a custom reward lock has elapsed.
+     *
      * @param node The node.
      * @param lock The custom reward lock.
      */

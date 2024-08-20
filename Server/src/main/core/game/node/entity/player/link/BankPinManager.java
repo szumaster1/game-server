@@ -24,7 +24,6 @@ import java.util.concurrent.TimeUnit;
 
 import static core.api.ContentAPIKt.*;
 
-
 /**
  * Manages the players bank pin.
  * @author Vexia, Emperor
@@ -34,7 +33,7 @@ public class BankPinManager {
     /**
      * THe setting messages to display on default.
      */
-    private static final String[] SETTINGS_MESSAGES = { "Customers are reminded that", "they should NEVER tell", "anyone their Bank PINs or", "passwords, nor should they", "ever enter their PINs on any", "website form.", null, "Have you read the PIN guide", "on the website?", null, null, null, null };
+    private static final String[] SETTINGS_MESSAGES = {"Customers are reminded that", "they should NEVER tell", "anyone their Bank PINs or", "passwords, nor should they", "ever enter their PINs on any", "website form.", null, "Have you read the PIN guide", "on the website?", null, null, null, null};
 
     /**
      * The pin child constants.
@@ -116,18 +115,18 @@ public class BankPinManager {
         }
     }
 
-    public void parse(JSONObject data){
-        if(data.containsKey("pin")) {
+    public void parse(JSONObject data) {
+        if (data.containsKey("pin")) {
             pin = data.get("pin").toString();
         }
-        if(data.containsKey("status")){
-            int st = Integer.parseInt( data.get("status").toString());
+        if (data.containsKey("status")) {
+            int st = Integer.parseInt(data.get("status").toString());
             status = PinStatus.values()[st];
         }
-        if(data.containsKey("pendingDelay")){
+        if (data.containsKey("pendingDelay")) {
             this.pendingDelay = Long.parseLong(data.get("pendingDelay").toString());
         }
-        if(data.containsKey("tryDelay")){
+        if (data.containsKey("tryDelay")) {
             this.tryDelay = Long.parseLong(data.get("tryDelay").toString());
         }
         longRecovery = (boolean) data.get("longRecovery");
@@ -154,6 +153,7 @@ public class BankPinManager {
 
     /**
      * Sends the messages.
+     *
      * @param messages the messages.
      */
     private void sendMessages(String... messages) {
@@ -172,6 +172,7 @@ public class BankPinManager {
 
     /**
      * Used to open a component type that requires pin unlocking.
+     *
      * @param buttonId the buttonId.
      */
     public void openType(int buttonId) {
@@ -198,6 +199,7 @@ public class BankPinManager {
 
     /**
      * Opens the interface for the id.
+     *
      * @param buttonId the button id.
      */
     private void openForId(int buttonId) {
@@ -214,6 +216,7 @@ public class BankPinManager {
 
     /**
      * Handles the confirmation interface.
+     *
      * @param button the button.
      */
     public void handleConfirmInterface(int button) {
@@ -262,6 +265,7 @@ public class BankPinManager {
 
     /**
      * Opens the set bank PIN confirmation screen.
+     *
      * @param show If we should show the confirm screen.
      */
     public void toggleConfirmInterface(boolean show) {
@@ -285,6 +289,7 @@ public class BankPinManager {
 
     /**
      * Updates the temporary pin.
+     *
      * @param button the button.
      */
     public void updateTempPin(int button) {
@@ -336,6 +341,7 @@ public class BankPinManager {
 
     /**
      * Handles a pin stage.
+     *
      * @param stage the stage.
      */
     public void handlePinStage(int stage) {
@@ -390,7 +396,7 @@ public class BankPinManager {
             if (success) {
                 setPin();
             }
-            openSettings(success ? new String[] { "You have requested that a", "PIN be set on your bank", "account. This will take effect", "in another " + getRecoveryDelay() + " days.", "", "If you wish to cancel this PIN,", "please use the button", "on the left." } : new String[] { "Those numbers did not", "match.", "", "Your PIN has not been set;", "please try again if you wish", "to set a new PIN." });
+            openSettings(success ? new String[]{"You have requested that a", "PIN be set on your bank", "account. This will take effect", "in another " + getRecoveryDelay() + " days.", "", "If you wish to cancel this PIN,", "please use the button", "on the left."} : new String[]{"Those numbers did not", "match.", "", "Your PIN has not been set;", "please try again if you wish", "to set a new PIN."});
             return;
         }
         shuffleDigits();
@@ -462,6 +468,7 @@ public class BankPinManager {
 
     /**
      * Sets the pin.
+     *
      * @param pin the pin.
      */
     public void setPin(String pin) {
@@ -482,6 +489,7 @@ public class BankPinManager {
 
     /**
      * Checks if the pin is an easy guess.
+     *
      * @return {@code True} if so.
      */
     private boolean isEasyGuess() {
@@ -509,6 +517,7 @@ public class BankPinManager {
 
     /**
      * Checks the temporary pin match.
+     *
      * @return {@code True} if matched.
      */
     private boolean checkTempPin() {
@@ -522,6 +531,7 @@ public class BankPinManager {
 
     /**
      * Gets the pending
+     *
      * @return the pending days.
      */
     public int getPendingDays() {
@@ -533,6 +543,7 @@ public class BankPinManager {
 
     /**
      * Gets the stage of the pin setting.
+     *
      * @return the stage.
      */
     public int getStage() {
@@ -552,6 +563,7 @@ public class BankPinManager {
 
     /**
      * Sets the chaning pin.
+     *
      * @param state the changing state.
      */
     public void setChangingState(int state) {
@@ -560,6 +572,7 @@ public class BankPinManager {
 
     /**
      * Gets the long recovery delay.
+     *
      * @return the delay.
      */
     public int getRecoveryDelay() {
@@ -568,6 +581,7 @@ public class BankPinManager {
 
     /**
      * Checks if the manager has a pin.
+     *
      * @return the pin.
      */
     public boolean hasPin() {
@@ -576,6 +590,7 @@ public class BankPinManager {
 
     /**
      * Checks if there is a pending pin.
+     *
      * @return {@code True} if so.
      */
     public boolean hasPendingPin() {
@@ -584,6 +599,7 @@ public class BankPinManager {
 
     /**
      * Gets the pin.
+     *
      * @return the pin.
      */
     public String getPin() {
@@ -592,6 +608,7 @@ public class BankPinManager {
 
     /**
      * Gets the unlocked.
+     *
      * @return the unlocked
      */
     public boolean isUnlocked() {
@@ -603,6 +620,7 @@ public class BankPinManager {
 
     /**
      * Sets the baunlocked.
+     *
      * @param unlocked the unlocked to set.
      */
     public void setUnlocked(boolean unlocked) {
@@ -611,6 +629,7 @@ public class BankPinManager {
 
     /**
      * Gets the player.
+     *
      * @return the player
      */
     public Player getPlayer() {
@@ -619,6 +638,7 @@ public class BankPinManager {
 
     /**
      * Gets the longRecovery.
+     *
      * @return the longRecovery
      */
     public boolean isLongRecovery() {
@@ -627,6 +647,7 @@ public class BankPinManager {
 
     /**
      * Sets the status.
+     *
      * @param status the status.
      */
     public void setStatus(PinStatus status) {
@@ -635,6 +656,7 @@ public class BankPinManager {
 
     /**
      * Sets the balongRecovery.
+     *
      * @param longRecovery the longRecovery to set.
      */
     public void setLongRecovery(boolean longRecovery) {
@@ -659,6 +681,7 @@ public class BankPinManager {
 
     /**
      * Checks if the pin is blocked.
+     *
      * @return {@code True} if so.
      */
     public boolean isPinBlocked() {
@@ -667,6 +690,7 @@ public class BankPinManager {
 
     /**
      * Gets the PIN lock ticks.
+     *
      * @return The PIN lock ticks.
      */
     public int getPinSeconds() {
@@ -682,6 +706,7 @@ public class BankPinManager {
 
     /**
      * Gets the tries.
+     *
      * @return the tries
      */
     public int getTries() {
@@ -690,6 +715,7 @@ public class BankPinManager {
 
     /**
      * Sets the batries.
+     *
      * @param tries the tries to set.
      */
     public int setTries(int tries) {
@@ -699,6 +725,7 @@ public class BankPinManager {
 
     /**
      * Gets the tryDelay.
+     *
      * @return the tryDelay
      */
     public long getTryDelay() {
@@ -707,6 +734,7 @@ public class BankPinManager {
 
     /**
      * Sets the batryDelay.
+     *
      * @param tryDelay the tryDelay to set.
      */
     public void setTryDelay(long tryDelay) {
@@ -715,11 +743,11 @@ public class BankPinManager {
 
     /**
      * A pin status.
+     *
      * @author Vexia/k
      */
     public enum PinStatus {
         NO_PIN() {
-
             @Override
             public void draw(BankPinManager manager, Player player) {
                 drawString(player, "NO PIN set", 69);
@@ -747,11 +775,10 @@ public class BankPinManager {
             @Override
             public String[] getMessages(BankPinManager manager) {
                 int days = manager.getPendingDays();
-                return new String[] { "You have requested that a", "PIN be set on your bank", "account. This will take effect", "in another " + days + " day" + (days > 1 ? "s" : "") + ".", "", "If you wish to cancel this", "PIN, please use the button", "on the left." };
+                return new String[]{"You have requested that a", "PIN be set on your bank", "account. This will take effect", "in another " + days + " day" + (days > 1 ? "s" : "") + ".", "", "If you wish to cancel this", "PIN, please use the button", "on the left."};
             }
         },
         ACTIVE() {
-
             @Override
             public void draw(BankPinManager manager, Player player) {
                 drawString(player, "You have a PIN", 69);
@@ -767,6 +794,7 @@ public class BankPinManager {
 
         /**
          * Draws the status on the interface.
+         *
          * @param player the player.
          */
         public void draw(BankPinManager manager, Player player) {
@@ -775,6 +803,7 @@ public class BankPinManager {
 
         /**
          * Gets the login message.
+         *
          * @param manager the manager.
          * @return the message.
          */
@@ -784,9 +813,10 @@ public class BankPinManager {
 
         /**
          * Draws a string.
+         *
          * @param player the player.
          * @param string the string.
-         * @param line the line.
+         * @param line   the line.
          */
         public static void drawString(Player player, String string, int line) {
             player.getPacketDispatch().sendString(string, 14, line);
@@ -794,8 +824,9 @@ public class BankPinManager {
 
         /**
          * Removes the lines.
+         *
          * @param player the player.
-         * @param lines the lines.
+         * @param lines  the lines.
          */
         public static void removeLines(Player player, int... lines) {
             for (int line : lines) {
@@ -805,6 +836,7 @@ public class BankPinManager {
 
         /**
          * Gets the messages to display.
+         *
          * @return the messages.
          */
         public String[] getMessages(BankPinManager manager) {

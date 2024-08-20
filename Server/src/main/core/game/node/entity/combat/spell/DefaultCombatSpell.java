@@ -27,6 +27,7 @@ public final class DefaultCombatSpell extends CombatSpell {
 
     /**
      * Constructs a new {@code DefaultCombatSpell} {@code Object}.
+     *
      * @param npc The NPC.
      */
     public DefaultCombatSpell(NPC npc) {

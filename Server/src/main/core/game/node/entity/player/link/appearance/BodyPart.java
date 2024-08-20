@@ -1,6 +1,5 @@
 package core.game.node.entity.player.link.appearance;
 
-
 import org.json.simple.JSONObject;
 
 import java.nio.ByteBuffer;

@@ -19,10 +19,8 @@ import core.api.consts.Components;
 import static core.api.ContentAPIKt.log;
 import static core.api.ContentAPIKt.*;
 
-
 /**
  * Manages a player's interfaces.
- *
  * @author Emperor
  */
 public final class InterfaceManager {

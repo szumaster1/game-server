@@ -15,7 +15,6 @@ import java.util.Date;
 
 import static core.api.ContentAPIKt.*;
 
-
 /**
  * Represents the class used to handle the assist requesting of a {@link Player}.
  * @author Vexia

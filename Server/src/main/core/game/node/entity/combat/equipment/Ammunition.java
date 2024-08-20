@@ -56,11 +56,12 @@ public final class Ammunition {
 
     /**
      * Constructs a new {@code Ammunition} object.
-     * @param itemId The item id.
-     * @param startGraphics The start graphics.
+     *
+     * @param itemId          The item id.
+     * @param startGraphics   The start graphics.
      * @param darkBowGraphics The dark bow start graphics.
-     * @param projectile The projectile.
-     * @param poisonDamage The poison damage the ammunition can do.
+     * @param projectile      The projectile.
+     * @param poisonDamage    The poison damage the ammunition can do.
      */
     public Ammunition(int itemId, Graphic startGraphics, Graphic darkBowGraphics, Projectile projectile, int poisonDamage) {
         this.itemId = itemId;
@@ -72,6 +73,7 @@ public final class Ammunition {
 
     /**
      * Loads all the {@code Ammunition} info to the mapping.
+     *
      * @return {@code True}.
      */
     public static final boolean initialize() {
@@ -130,6 +132,7 @@ public final class Ammunition {
 
     /**
      * Gets the ammunition mapping.
+     *
      * @return The mapping.
      */
     public static Map<Integer, Ammunition> getAmmunition() {
@@ -138,6 +141,7 @@ public final class Ammunition {
 
     /**
      * Gets an ammunition object from the mapping.
+     *
      * @param id The ammo id.
      * @return The ammunition object.
      */
@@ -182,6 +186,7 @@ public final class Ammunition {
 
     /**
      * Gets the effect.
+     *
      * @return the effect
      */
     public BoltEffect getEffect() {
@@ -190,6 +195,7 @@ public final class Ammunition {
 
     /**
      * Sets the baeffect.
+     *
      * @param effect the effect to set.
      */
     public void setEffect(BoltEffect effect) {

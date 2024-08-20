@@ -67,37 +67,38 @@ public final class QuestData {
         populateDesertTreasureNode();
     }
 
-    public void parse(JSONObject data){
+    public void parse(JSONObject data) {
         JSONArray dl = (JSONArray) data.get("draynorLever");
-        for(int i = 0; i < dl.size(); i++){
+        for (int i = 0; i < dl.size(); i++) {
             draynorLever[i] = (boolean) dl.get(i);
         }
         JSONArray drs = (JSONArray) data.get("dragonSlayer");
-        for(int i = 0; i < drs.size(); i++){
+        for (int i = 0; i < drs.size(); i++) {
             dragonSlayer[i] = (boolean) drs.get(i);
         }
-        dragonSlayerPlanks = Integer.parseInt( data.get("dragonSlayerPlanks").toString());
+        dragonSlayerPlanks = Integer.parseInt(data.get("dragonSlayerPlanks").toString());
         JSONArray des = (JSONArray) data.get("demonSlayer");
-        for(int i = 0; i < des.size(); i++){
+        for (int i = 0; i < des.size(); i++) {
             demonSlayer[i] = (boolean) des.get(i);
         }
         JSONArray ca = (JSONArray) data.get("cooksAssistant");
-        for(int i = 0; i < ca.size(); i++){
+        for (int i = 0; i < ca.size(); i++) {
             cooksAssistant[i] = (boolean) ca.get(i);
         }
         gardenerAttack = (boolean) data.get("gardenerAttack");
         talkedDrezel = (boolean) data.get("talkedDrezel");
         JSONArray dtn = (JSONArray) data.get("desertTreasureNode");
-        for (int i = 0; i < dtn.size(); i++){
+        for (int i = 0; i < dtn.size(); i++) {
             JSONObject item = (JSONObject) dtn.get(i);
             desertTreasure[i] = new Item(Integer.parseInt(item.get("id").toString()), Integer.parseInt(item.get("amount").toString()));
         }
         witchsExperimentKilled = (boolean) data.get("witchsExperimentKilled");
-        witchsExperimentStage = Integer.parseInt( data.get("witchsExperimentStage").toString());
+        witchsExperimentStage = Integer.parseInt(data.get("witchsExperimentStage").toString());
     }
 
     /**
      * Saves the desert treasure node.
+     *
      * @param buffer The buffer.
      */
     private final void saveDesertTreasureNode(ByteBuffer buffer) {
@@ -111,6 +112,7 @@ public final class QuestData {
 
     /**
      * Gets the draynorLever.
+     *
      * @return The draynorLever.
      */
     public boolean[] getDraynorLevers() {
@@ -119,6 +121,7 @@ public final class QuestData {
 
     /**
      * Gets the dragon slayer items.
+     *
      * @return the dragon slayer.
      */
     public boolean[] getDragonSlayerItems() {
@@ -127,6 +130,7 @@ public final class QuestData {
 
     /**
      * Gets the value of a inserted dragon slayer item.
+     *
      * @param name the name.
      * @return the value of the item being inserted.
      */
@@ -136,6 +140,7 @@ public final class QuestData {
 
     /**
      * Gets the dragon slayer attribute.
+     *
      * @param name the name.
      * @return the value of the attribute.
      */
@@ -145,7 +150,8 @@ public final class QuestData {
 
     /**
      * Method used to set a dragon slayer attribute.
-     * @param name the name.
+     *
+     * @param name  the name.
      * @param value the value.
      */
     public void setDragonSlayerAttribute(String name, boolean value) {
@@ -154,6 +160,7 @@ public final class QuestData {
 
     /**
      * Gets the cooks assistant attribute value.
+     *
      * @param name the name.
      * @return the value.
      */
@@ -163,7 +170,8 @@ public final class QuestData {
 
     /**
      * Method used to set a cooks assistant attribute.
-     * @param name the name.
+     *
+     * @param name  the name.
      * @param value the value.
      */
     public void setCooksAssistant(String name, boolean value) {
@@ -172,6 +180,7 @@ public final class QuestData {
 
     /**
      * Gets the dragonSlayerPlanks.
+     *
      * @return The dragonSlayerPlanks.
      */
     public int getDragonSlayerPlanks() {
@@ -180,6 +189,7 @@ public final class QuestData {
 
     /**
      * Sets the dragonSlayerPlanks.
+     *
      * @param i The dragonSlayerPlanks to set.
      */
     public void setDragonSlayerPlanks(int i) {
@@ -188,6 +198,7 @@ public final class QuestData {
 
     /**
      * Gets the demonSlayer.
+     *
      * @return The demonSlayer.
      */
     public boolean[] getDemonSlayer() {
@@ -196,6 +207,7 @@ public final class QuestData {
 
     /**
      * Gets the cooksAssistant.
+     *
      * @return The cooksAssistant.
      */
     public boolean[] getCooksAssistant() {
@@ -204,6 +216,7 @@ public final class QuestData {
 
     /**
      * Gets the gardenerAttack.
+     *
      * @return The gardenerAttack.
      */
     public boolean isGardenerAttack() {
@@ -212,6 +225,7 @@ public final class QuestData {
 
     /**
      * Sets the gardenerAttack.
+     *
      * @param gardenerAttack The gardenerAttack to set.
      */
     public void setGardenerAttack(boolean gardenerAttack) {
@@ -220,6 +234,7 @@ public final class QuestData {
 
     /**
      * Gets the talkedDrezel.
+     *
      * @return The talkedDrezel.
      */
     public boolean isTalkedDrezel() {
@@ -228,6 +243,7 @@ public final class QuestData {
 
     /**
      * Sets the talkedDrezel.
+     *
      * @param talkedDrezel The talkedDrezel to set.
      */
     public void setTalkedDrezel(boolean talkedDrezel) {
@@ -249,6 +265,7 @@ public final class QuestData {
 
     /**
      * Gets the desert treasure item.
+     *
      * @param index The index.
      * @return The item.
      */
@@ -261,8 +278,9 @@ public final class QuestData {
 
     /**
      * Sets the desert treasure item.
+     *
      * @param index The index.
-     * @param item The item to set.
+     * @param item  The item to set.
      */
     public void setDesertTreasureItem(int index, Item item) {
         if (index < 0 || index > desertTreasure.length) {
@@ -278,6 +296,7 @@ public final class QuestData {
     public void setWitchsExperimentStage(int witchsExperimentStage) {
         this.witchsExperimentStage = witchsExperimentStage;
     }
+
     public boolean isWitchsExperimentKilled() {
         return witchsExperimentKilled;
     }

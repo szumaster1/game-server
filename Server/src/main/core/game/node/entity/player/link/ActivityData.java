@@ -125,34 +125,34 @@ public final class ActivityData {
          */
     }
 
-    public void parse(JSONObject data){
-        pestPoints = Integer.parseInt( data.get("pestPoints").toString());
-        warriorGuildTokens = Integer.parseInt( data.get("warriorGuildTokens").toString());
-        bountyHunterRate = Integer.parseInt( data.get("bountyHunterRate").toString());
-        bountyRogueRate = Integer.parseInt( data.get("bountyRogueRate").toString());
-        barrowKills = Integer.parseInt( data.get("barrowKills").toString());
+    public void parse(JSONObject data) {
+        pestPoints = Integer.parseInt(data.get("pestPoints").toString());
+        warriorGuildTokens = Integer.parseInt(data.get("warriorGuildTokens").toString());
+        bountyHunterRate = Integer.parseInt(data.get("bountyHunterRate").toString());
+        bountyRogueRate = Integer.parseInt(data.get("bountyRogueRate").toString());
+        barrowKills = Integer.parseInt(data.get("barrowKills").toString());
         JSONArray bb = (JSONArray) data.get("barrowBrothers");
-        for(int i = 0; i < bb.size(); i++){
+        for (int i = 0; i < bb.size(); i++) {
             barrowBrothers[i] = (boolean) bb.get(i);
         }
-        barrowTunnelIndex = Integer.parseInt( data.get("barrowTunnelIndex").toString());
-        kolodionStage = Integer.parseInt( data.get("kolodionStage").toString());
+        barrowTunnelIndex = Integer.parseInt(data.get("barrowTunnelIndex").toString());
+        kolodionStage = Integer.parseInt(data.get("kolodionStage").toString());
         JSONArray gc = (JSONArray) data.get("godCasts");
-        for(int i = 0; i < gc.size(); i++){
+        for (int i = 0; i < gc.size(); i++) {
             godCasts[i] = Integer.parseInt(gc.get(i).toString());
         }
-        kolodionBoss = Integer.parseInt( data.get("kolodionBoss").toString());
+        kolodionBoss = Integer.parseInt(data.get("kolodionBoss").toString());
         elnockSupplies = (boolean) data.get("elnockSupplies");
-        lastBorkBattle =  Long.parseLong(data.get("lastBorkBattle").toString());
+        lastBorkBattle = Long.parseLong(data.get("lastBorkBattle").toString());
         startedMta = (boolean) data.get("startedMta");
         lostCannon = (boolean) data.get("lostCannon");
         JSONArray pp = (JSONArray) data.get("pizazzPoints");
-        for(int i = 0 ; i < pp.size(); i++){
+        for (int i = 0; i < pp.size(); i++) {
             pizazzPoints[i] = Integer.parseInt(pp.get(i).toString());
         }
         bonesToPeaches = (boolean) data.get("bonesToPeaches");
-        solvedMazes = Integer.parseInt( data.get("solvedMazes").toString());
-        fogRating = Integer.parseInt( data.get("fogRating").toString());
+        solvedMazes = Integer.parseInt(data.get("solvedMazes").toString());
+        fogRating = Integer.parseInt(data.get("fogRating").toString());
         borkKills = Byte.parseByte(data.get("borkKills").toString());
         hardcoreDeath = (boolean) data.get("hardcoreDeath");
         topGrabbed = (boolean) data.get("topGrabbed");
@@ -160,6 +160,7 @@ public final class ActivityData {
 
     /**
      * Gets the elnockSupplies.
+     *
      * @return The elnockSupplies.
      */
     public boolean isElnockSupplies() {
@@ -168,6 +169,7 @@ public final class ActivityData {
 
     /**
      * Sets the elnockSupplies.
+     *
      * @param elnockSupplies The elnockSupplies to set.
      */
     public void setElnockSupplies(boolean elnockSupplies) {
@@ -176,6 +178,7 @@ public final class ActivityData {
 
     /**
      * Increases the pest points.
+     *
      * @param pestPoints the pest points to increase with.
      */
     public void increasePestPoints(int pestPoints) {
@@ -188,6 +191,7 @@ public final class ActivityData {
 
     /**
      * Decreases the pest points.
+     *
      * @param pestPoints the pest points to increase with.
      */
     public void decreasePestPoints(int pestPoints) {
@@ -196,6 +200,7 @@ public final class ActivityData {
 
     /**
      * Gets the pest points.
+     *
      * @return the pest points.
      */
     public int getPestPoints() {
@@ -204,6 +209,7 @@ public final class ActivityData {
 
     /**
      * Sets the pest points.
+     *
      * @param pestPoints the pest points.
      */
     public void setPestPoints(int pestPoints) {
@@ -212,6 +218,7 @@ public final class ActivityData {
 
     /**
      * Gets the warriorGuildTokens.
+     *
      * @return The warriorGuildTokens.
      */
     public int getWarriorGuildTokens() {
@@ -220,6 +227,7 @@ public final class ActivityData {
 
     /**
      * Sets the warriorGuildTokens.
+     *
      * @param warriorGuildTokens The warriorGuildTokens to set.
      */
     public void setWarriorGuildTokens(int warriorGuildTokens) {
@@ -228,6 +236,7 @@ public final class ActivityData {
 
     /**
      * Updates the warrior guild tokens.
+     *
      * @param amount The amount to increase with.
      */
     public void updateWarriorTokens(int amount) {
@@ -236,6 +245,7 @@ public final class ActivityData {
 
     /**
      * Gets the bountyHunterRate.
+     *
      * @return The bountyHunterRate.
      */
     public int getBountyHunterRate() {
@@ -244,6 +254,7 @@ public final class ActivityData {
 
     /**
      * Increments the bountyHunterRate.
+     *
      * @param rate The rate to set.
      */
     public void updateBountyHunterRate(int rate) {
@@ -252,6 +263,7 @@ public final class ActivityData {
 
     /**
      * Gets the bountyRogueRate.
+     *
      * @return The bountyRogueRate.
      */
     public int getBountyRogueRate() {
@@ -260,6 +272,7 @@ public final class ActivityData {
 
     /**
      * Increments the bountyRogueRate.
+     *
      * @param rate The rate to set.
      */
     public void updateBountyRogueRate(int rate) {
@@ -268,6 +281,7 @@ public final class ActivityData {
 
     /**
      * Gets the barrowBrothers.
+     *
      * @return The barrowBrothers.
      */
     public boolean[] getBarrowBrothers() {
@@ -276,6 +290,7 @@ public final class ActivityData {
 
     /**
      * Sets the barrowBrothers.
+     *
      * @param barrowBrothers The barrowBrothers to set.
      */
     public void setBarrowBrothers(boolean[] barrowBrothers) {
@@ -284,6 +299,7 @@ public final class ActivityData {
 
     /**
      * Gets the barrowKills.
+     *
      * @return The barrowKills.
      */
     public int getBarrowKills() {
@@ -292,6 +308,7 @@ public final class ActivityData {
 
     /**
      * Sets the barrowKills.
+     *
      * @param barrowKills The barrowKills to set.
      */
     public void setBarrowKills(int barrowKills) {
@@ -303,6 +320,7 @@ public final class ActivityData {
 
     /**
      * Gets the barrowTunnelIndex.
+     *
      * @return The barrowTunnelIndex.
      */
     public int getBarrowTunnelIndex() {
@@ -311,6 +329,7 @@ public final class ActivityData {
 
     /**
      * Sets the barrowTunnelIndex.
+     *
      * @param barrowTunnelIndex The barrowTunnelIndex to set.
      */
     public void setBarrowTunnelIndex(int barrowTunnelIndex) {
@@ -319,6 +338,7 @@ public final class ActivityData {
 
     /**
      * Sets the kolodion stage.
+     *
      * @param stage the stage.
      */
     public void setKolodionStage(int stage) {
@@ -327,6 +347,7 @@ public final class ActivityData {
 
     /**
      * Checks if they have started kolodion.
+     *
      * @return {@code True} if so.
      */
     public boolean hasStartedKolodion() {
@@ -335,6 +356,7 @@ public final class ActivityData {
 
     /**
      * Checks if the stage is killed.
+     *
      * @return {@code True} if so.
      */
     public boolean hasKilledKolodion() {
@@ -343,6 +365,7 @@ public final class ActivityData {
 
     /**
      * Checks if they have recieved the reward.
+     *
      * @return {@code True if so.}
      */
     public boolean hasRecievedKolodionReward() {
@@ -351,6 +374,7 @@ public final class ActivityData {
 
     /**
      * Gets the godCasts.
+     *
      * @return The godCasts.
      */
     public int[] getGodCasts() {
@@ -359,6 +383,7 @@ public final class ActivityData {
 
     /**
      * Gets the kolodionBoss.
+     *
      * @return The kolodionBoss.
      */
     public int getKolodionBoss() {
@@ -367,6 +392,7 @@ public final class ActivityData {
 
     /**
      * Sets the kolodionBoss.
+     *
      * @param kolodionBoss The kolodionBoss to set.
      */
     public void setKolodionBoss(int kolodionBoss) {
@@ -375,6 +401,7 @@ public final class ActivityData {
 
     /**
      * Gets the lastBorkBattle.
+     *
      * @return the lastBorkBattle
      */
     public long getLastBorkBattle() {
@@ -383,6 +410,7 @@ public final class ActivityData {
 
     /**
      * Sets the balastBorkBattle.
+     *
      * @param lastBorkBattle the lastBorkBattle to set.
      */
     public void setLastBorkBattle(long lastBorkBattle) {
@@ -391,6 +419,7 @@ public final class ActivityData {
 
     /**
      * Checks if the player has killed bork.
+     *
      * @return {@code True if so.}
      */
     public boolean hasKilledBork() {
@@ -399,6 +428,7 @@ public final class ActivityData {
 
     /**
      * Gets the lostCannon.
+     *
      * @return the lostCannon
      */
     public boolean isLostCannon() {
@@ -407,6 +437,7 @@ public final class ActivityData {
 
     /**
      * Sets the balostCannon.
+     *
      * @param lostCannon the lostCannon to set.
      */
     public void setLostCannon(boolean lostCannon) {
@@ -415,6 +446,7 @@ public final class ActivityData {
 
     /**
      * Gets the startedMta.
+     *
      * @return the startedMta
      */
     public boolean isStartedMta() {
@@ -423,6 +455,7 @@ public final class ActivityData {
 
     /**
      * Sets the bastartedMta.
+     *
      * @param startedMta the startedMta to set.
      */
     public void setStartedMta(boolean startedMta) {
@@ -431,6 +464,7 @@ public final class ActivityData {
 
     /**
      * Increments the pizazz points.
+     *
      * @param index the index.
      */
     public void incrementPizazz(int index) {
@@ -439,7 +473,8 @@ public final class ActivityData {
 
     /**
      * Increments the pizzaz points.
-     * @param index the index.
+     *
+     * @param index  the index.
      * @param amount the amount.
      */
     public void incrementPizazz(int index, int amount) {
@@ -448,7 +483,8 @@ public final class ActivityData {
 
     /**
      * Decrements the pizzaz points.
-     * @param index the index.
+     *
+     * @param index  the index.
      * @param amount the amount.
      */
     public void decrementPizazz(int index, int amount) {
@@ -457,6 +493,7 @@ public final class ActivityData {
 
     /**
      * Increments the pizazz points.
+     *
      * @param index the index.
      */
     public void decrementPizazz(int index) {
@@ -466,6 +503,7 @@ public final class ActivityData {
     /**
      * Gets the pizzaz points in the index. tele=0, alchemist=1, 2=enchant,
      * 3=grave
+     *
      * @param index the index.
      * @return the value.
      */
@@ -475,6 +513,7 @@ public final class ActivityData {
 
     /**
      * Gets the pizazzPoints.
+     *
      * @return the pizazzPoints
      */
     public int[] getPizazzPoints() {
@@ -483,6 +522,7 @@ public final class ActivityData {
 
     /**
      * Sets the bapizazzPoints.
+     *
      * @param pizazzPoints the pizazzPoints to set.
      */
     public void setPizazzPoints(int[] pizazzPoints) {
@@ -491,6 +531,7 @@ public final class ActivityData {
 
     /**
      * Gets the bonesToPeaches.
+     *
      * @return the bonesToPeaches
      */
     public boolean isBonesToPeaches() {
@@ -499,6 +540,7 @@ public final class ActivityData {
 
     /**
      * Sets the babonesToPeaches.
+     *
      * @param bonesToPeaches the bonesToPeaches to set.
      */
     public void setBonesToPeaches(boolean bonesToPeaches) {
@@ -507,6 +549,7 @@ public final class ActivityData {
 
     /**
      * Gets the solvedMazes.
+     *
      * @return the solvedMazes
      */
     public int getSolvedMazes() {
@@ -515,6 +558,7 @@ public final class ActivityData {
 
     /**
      * Sets the solvedMazes.
+     *
      * @param solvedMazes the solvedMazes to set.
      */
     public void setSolvedMazes(int solvedMazes) {
@@ -523,6 +567,7 @@ public final class ActivityData {
 
     /**
      * Gets the fogRating.
+     *
      * @return the fogRating
      */
     public int getFogRating() {
@@ -531,6 +576,7 @@ public final class ActivityData {
 
     /**
      * Sets the fogRating.
+     *
      * @param fogRating the fogRating to set.
      */
     public void setFogRating(int fogRating) {
@@ -539,6 +585,7 @@ public final class ActivityData {
 
     /**
      * Gets the borkKills.
+     *
      * @return the borkKills.
      */
     public byte getBorkKills() {
@@ -547,6 +594,7 @@ public final class ActivityData {
 
     /**
      * Sets the borkKills.
+     *
      * @param borkKills the borkKills to set
      */
     public void setBorkKills(byte borkKills) {
@@ -555,6 +603,7 @@ public final class ActivityData {
 
     /**
      * gets the current value of an Hardcore Iron Man's death status
+     *
      * @return the value of a Hardcore Iron Man's death status
      */
     public boolean getHardcoreDeath() {
@@ -564,10 +613,14 @@ public final class ActivityData {
     public void setHardcoreDeath(boolean hardcoreDeath) {
         this.hardcoreDeath = hardcoreDeath;
     }
-    public void setTopGrabbed(boolean topGrabbed){
+
+    public void setTopGrabbed(boolean topGrabbed) {
         this.topGrabbed = topGrabbed;
     }
-    public boolean isTopGrabbed(){return topGrabbed;}
+
+    public boolean isTopGrabbed() {
+        return topGrabbed;
+    }
 
     public int getKolodionStage() {
         return kolodionStage;

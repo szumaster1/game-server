@@ -28,30 +28,36 @@ class TradeModule
      * If the container has been retained.
      */
     var isRetained = false
+
     /**
      * Represents the player instance.
      */
     var player: Player? = player
         private set
+
     /**
      * Represents the target instance.
      */
     var target: Player? = target
         private set
+
     /**
      * Represents the container of this session.
      */
     var container: TradeContainer? = null
         private set
+
     /**
      * Represents if this session has accepted.
      */
     var isAccepted = false
         private set
+
     /**
      * Represents if the trade is modified.
      */
     var isModified = false
+
     /**
      * Represents the stage of the trade(0=started, 1=second accept)
      */
@@ -355,8 +361,14 @@ class TradeModule
 
         PlayerMonitor.logTrade(module.player!!, module.target!!, pContainer, oContainer)
 
-        (AIRepository.PulseRepository[module.player!!.username.lowercase()]?.botScript as DoublingMoney?)?.itemsReceived(module.target!!, oContainer)
-        (AIRepository.PulseRepository[module.target!!.username.lowercase()]?.botScript as DoublingMoney?)?.itemsReceived(module.player!!, pContainer)
+        (AIRepository.PulseRepository[module.player!!.username.lowercase()]?.botScript as DoublingMoney?)?.itemsReceived(
+            module.target!!,
+            oContainer
+        )
+        (AIRepository.PulseRepository[module.target!!.username.lowercase()]?.botScript as DoublingMoney?)?.itemsReceived(
+            module.player!!,
+            pContainer
+        )
 
         addContainer(module.player, oContainer)
         addContainer(module.target, pContainer)

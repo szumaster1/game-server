@@ -27,7 +27,6 @@ import java.util.stream.IntStream;
 import static core.api.ContentAPIKt.*;
 import static core.tools.GlobalsKt.colorize;
 
-
 /**
  * Login configuration.
  */
@@ -58,7 +57,7 @@ public final class LoginConfiguration {
      */
     public static void configureLobby(Player player) {
         player.updateSceneGraph(true);
-        if (!player.isArtificial() && player.getAttribute("tutorial:complete",false) && player.getAttribute("login_type", LoginType.NORMAL_LOGIN) != LoginType.RECONNECT_TYPE) {
+        if (!player.isArtificial() && player.getAttribute("tutorial:complete", false) && player.getAttribute("login_type", LoginType.NORMAL_LOGIN) != LoginType.RECONNECT_TYPE) {
             sendLobbyScreen(player);
         } else {
             configureGameWorld(player);
@@ -72,8 +71,8 @@ public final class LoginConfiguration {
      */
     public static void sendLobbyScreen(Player player) {
         messModel = autoSelect();
-        for(Player p : Repository.getLobbyPlayers()){
-            if(p.getName().equals(player.getName())){
+        for (Player p : Repository.getLobbyPlayers()) {
+            if (p.getName().equals(player.getName())) {
                 p.clear();
                 Repository.getLobbyPlayers().remove(p);
                 break;
@@ -118,7 +117,7 @@ public final class LoginConfiguration {
         player.getPlayerFlags().setUpdateSceneGraph(true);
         player.getPacketDispatch().sendInterfaceConfig(226, 1, true);
 
-        if(player.getGlobalData().getTestStage() == 3 && !player.getEmoteManager().isUnlocked(Emotes.SAFETY_FIRST)){
+        if (player.getGlobalData().getTestStage() == 3 && !player.getEmoteManager().isUnlocked(Emotes.SAFETY_FIRST)) {
             player.getEmoteManager().unlock(Emotes.SAFETY_FIRST);
         }
 
@@ -157,7 +156,7 @@ public final class LoginConfiguration {
          * if (TutorialSession.getExtension(player).getStage() != 73) {
          *     TutorialStage.load(player, TutorialSession.getExtension(player).getStage(), true);
          * }
-        */
+         */
     }
 
     /**
@@ -203,7 +202,7 @@ public final class LoginConfiguration {
      * @param player the player
      */
     public static final void config(final Player player) {
-        if(!player.isArtificial())
+        if (!player.isArtificial())
             log(LoginConfiguration.class, Log.INFO, "configuring player " + player.getUsername());
         player.getInventory().refresh();
         player.getEquipment().refresh();
@@ -220,7 +219,7 @@ public final class LoginConfiguration {
         player.getInterfaceManager().close();
         player.getEmoteManager().refresh();
         player.getInterfaceManager().openInfoBars();
-        if(!player.isArtificial())
+        if (!player.isArtificial())
             log(LoginConfiguration.class, Log.INFO, "finished configuring player " + player.getUsername());
     }
 
@@ -251,7 +250,7 @@ public final class LoginConfiguration {
 
     private final static int autoSelect() {
         boolean contains = IntStream.of(MESSAGE_MODEL).anyMatch(x -> x == GameWorld.getSettings().getMessage_model());
-        return contains ? GameWorld.getSettings().getMessage_model():MESSAGE_MODEL[new Random().nextInt(MESSAGE_MODEL.length)];
+        return contains ? GameWorld.getSettings().getMessage_model() : MESSAGE_MODEL[new Random().nextInt(MESSAGE_MODEL.length)];
     }
 
     /**

@@ -1,6 +1,7 @@
 package core.game.node.entity.player.link;
 
 import core.game.node.entity.player.Player;
+
 import java.nio.ByteBuffer;
 
 /**
