@@ -9,7 +9,7 @@ import core.plugin.ClassScanner;
 import core.plugin.Initializable;
 
 /**
- * Black knights fortress.
+ * Black knights fortress quest.
  */
 @Initializable
 public final class BlackKnightsFortress extends Quest {

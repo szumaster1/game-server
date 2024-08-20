@@ -11,7 +11,7 @@ import static core.api.ContentAPIKt.getVarp;
 import static core.api.ContentAPIKt.removeAttribute;
 
 /**
- * Wolf whistle.
+ * Wolf whistle quest.
  */
 @Initializable
 public class WolfWhistle extends Quest {

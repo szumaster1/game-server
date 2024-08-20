@@ -10,7 +10,7 @@ import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC
 
 /**
- * Represents the Sir kuam ferentse dialogue file.
+ * Represents the Sir Kuam Ferentse dialogue file.
  */
 class SirKuamFerentseDialogueFile(private val dialogueNum: Int = 0) : DialogueBuilderFile() {
 

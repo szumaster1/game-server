@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Fishing platform jeb dialogue.
+ * Represents the Fishing platform Jeb dialogue.
  */
 @Initializable
 class FishingPlatformJebDialogue(player: Player? = null) : Dialogue(player) {

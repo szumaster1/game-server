@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Represents the Gwd zilyana swing handler.
+ * Represents the Gwd Zilyana swing handler.
  */
 public class GWDZilyanaSwingHandler extends CombatSwingHandler {
 
@@ -26,7 +26,7 @@ public class GWDZilyanaSwingHandler extends CombatSwingHandler {
     private static final Graphic MAGIC_END_GRAPHIC = new Graphic(1207);
 
     /**
-     * Instantiates a new Gwd zilyana swing handler.
+     * Instantiates a new Gwd Zilyana swing handler.
      */
     public GWDZilyanaSwingHandler() {
         super(CombatStyle.MAGIC);

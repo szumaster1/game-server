@@ -7,7 +7,7 @@ import core.game.dialogue.DialogueBuilderFile
 import core.game.dialogue.FacialExpression
 
 /**
- * Represents the Miss cheevers dialogue file.
+ * Represents the Miss Cheevers dialogue file.
  */
 class MissCheeversDialogueFile(private val dialogueNum: Int = 0) : DialogueBuilderFile() {
 

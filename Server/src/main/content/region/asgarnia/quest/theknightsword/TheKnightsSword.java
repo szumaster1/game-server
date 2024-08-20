@@ -8,7 +8,7 @@ import core.game.node.item.Item;
 import core.plugin.Initializable;
 
 /**
- * The knights sword.
+ * The knights sword quest.
  */
 @Initializable
 public class TheKnightsSword extends Quest {

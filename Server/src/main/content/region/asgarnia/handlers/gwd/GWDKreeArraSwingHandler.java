@@ -21,7 +21,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Represents the Gwd kree arra swing handler.
+ * Represents the Gwd Kree Arra swing handler.
  */
 public final class GWDKreeArraSwingHandler extends CombatSwingHandler {
 
@@ -31,7 +31,7 @@ public final class GWDKreeArraSwingHandler extends CombatSwingHandler {
     private static final Graphic END_GRAPHIC = new Graphic(80, 96);
 
     /**
-     * Instantiates a new Gwd kree arra swing handler.
+     * Instantiates a new Gwd Kree Arra swing handler.
      */
     public GWDKreeArraSwingHandler() {
         super(CombatStyle.RANGE);

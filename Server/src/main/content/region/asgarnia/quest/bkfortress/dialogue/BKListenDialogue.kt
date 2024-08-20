@@ -14,7 +14,7 @@ import core.game.world.update.flag.context.Animation
 import core.plugin.Initializable
 
 /**
- * B k listen dialogue.
+ * Represents the Black Knights listen dialogue.
  */
 @Initializable
 class BKListenDialogue(player: Player? = null) : Dialogue(player) {

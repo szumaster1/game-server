@@ -11,7 +11,7 @@ import core.game.node.entity.npc.NPC
 import core.tools.END_DIALOGUE
 
 /**
- * Represents the Door plateau dialogue file.
+ * Represents the Door Plateau dialogue file.
  */
 class DoorPlateauDialogueFile(val door: Int) : DialogueFile() {
 

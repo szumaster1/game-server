@@ -7,7 +7,7 @@ import core.game.node.entity.npc.NPC
 import core.tools.END_DIALOGUE
 
 /**
- * Represents the Crafting guild door.
+ * Represents the Crafting Guild door dialogue file.
  */
 class CraftingGuildDoor(val it: Int) : DialogueFile() {
 

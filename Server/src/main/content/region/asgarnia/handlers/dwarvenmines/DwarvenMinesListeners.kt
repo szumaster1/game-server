@@ -16,14 +16,14 @@ import core.game.node.item.Item
 import core.tools.END_DIALOGUE
 
 /**
- * Represents the Dwarven mines listeners.
+ * Represents the Dwarven Mines listeners.
  */
 class DwarvenMinesListeners : InteractionListener {
 
     override fun defineListeners() {
 
         /**
-         * Handling the Dwarven mines train cart ride.
+         * Handling the Dwarven Mines train cart ride.
          */
         on(Scenery.TRAIN_CART_7029, IntType.SCENERY, "ride") { player, _ ->
             var visitedKeldagrim = player.getAttribute("keldagrim-visited", false)

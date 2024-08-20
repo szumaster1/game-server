@@ -8,7 +8,7 @@ import core.plugin.Initializable;
 import org.jetbrains.annotations.NotNull;
 
 /**
- * Witch house.
+ * Witch house quest.
  */
 @Initializable
 public class WitchHouse extends Quest {

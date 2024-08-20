@@ -13,7 +13,7 @@ import core.plugin.Initializable;
 import static core.api.ContentAPIKt.removeAttribute;
 
 /**
- * Pirates treasure.
+ * Pirates treasure quest.
  */
 @Initializable
 public final class PiratesTreasure extends Quest {

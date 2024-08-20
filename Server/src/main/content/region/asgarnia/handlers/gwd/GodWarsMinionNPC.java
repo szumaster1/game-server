@@ -11,7 +11,7 @@ import core.game.world.map.Location;
 import core.plugin.Initializable;
 
 /**
- * Represents the God wars minion npc.
+ * Represents the God wars minion NPC.
  */
 @Initializable
 public final class GodWarsMinionNPC extends AbstractNPC {

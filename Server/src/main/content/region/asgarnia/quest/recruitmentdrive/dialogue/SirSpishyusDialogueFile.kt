@@ -12,7 +12,7 @@ import core.game.dialogue.DialogueBuilderFile
 import core.game.dialogue.FacialExpression
 
 /**
- * Represents the Sir spishyus dialogue file.
+ * Represents the Sir Spishyus dialogue file.
  */
 class SirSpishyusDialogueFile(private val dialogueNum: Int = 0) : DialogueBuilderFile() {
     override fun create(b: DialogueBuilder) {

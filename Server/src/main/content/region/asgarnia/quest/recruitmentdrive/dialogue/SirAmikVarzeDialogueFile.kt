@@ -8,7 +8,7 @@ import core.game.dialogue.DialogueBuilderFile
 import core.game.dialogue.FacialExpression
 
 /**
- * Represents the Sir amik varze dialogue file.
+ * Represents the Sir Amik Varze dialogue file.
  */
 class SirAmikVarzeDialogueFile : DialogueBuilderFile() {
 

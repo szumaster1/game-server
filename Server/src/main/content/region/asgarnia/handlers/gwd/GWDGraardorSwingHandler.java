@@ -21,7 +21,7 @@ import java.util.List;
 import static core.api.ContentAPIKt.*;
 
 /**
- * Represents the Gwd graardor swing handler.
+ * Represents the Gwd Graardor swing handler.
  */
 public final class GWDGraardorSwingHandler extends CombatSwingHandler {
 

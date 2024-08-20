@@ -13,13 +13,13 @@ import core.plugin.ClassScanner;
 import core.plugin.Initializable;
 
 /**
- * Goblin diplomacy.
+ * Goblin diplomacy quest.
  */
 @Initializable
 public class GoblinDiplomacy extends Quest {
 
     /**
-     * The constant NAME.
+     * The quest name.
      */
     public static final String NAME = "Goblin Diplomacy";
 

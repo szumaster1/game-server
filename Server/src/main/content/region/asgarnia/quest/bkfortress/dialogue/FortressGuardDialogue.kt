@@ -15,7 +15,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Fortress guard dialogue.
+ * Represents the Fortress guard dialogue.
  */
 @Initializable
 class FortressGuardDialogue(player: Player? = null) : Dialogue(player) {

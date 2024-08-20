@@ -10,7 +10,7 @@ import core.game.node.entity.skill.Skills
 import core.plugin.Initializable
 
 /**
- * Troll stronghold quest.
+ * Troll Stronghold quest.
  */
 @Initializable
 class TrollStronghold : Quest("Troll Stronghold", 128, 127, 1, Vars.VARP_QUEST_TROLL_SRONGHOLD_PROGRESS, 0, 1, 50) {
@@ -55,7 +55,7 @@ class TrollStronghold : Quest("Troll Stronghold", 128, 127, 1, Vars.VARP_QUEST_T
             if (stage >= 5) {
                 line(player, "I have defeated the !!Troll Champion??", line++, true)
             } else if (stage >= 3) {
-                line(player, "I have to defeat the !!Troll Champion??", line++)
+                line(player, "I have accepted the !!Troll Champion's?? challenge.", line++)
             }
             if (stage in 5..7) {
                 line++

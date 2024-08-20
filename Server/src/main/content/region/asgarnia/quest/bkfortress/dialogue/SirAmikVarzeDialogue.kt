@@ -12,7 +12,7 @@ import core.game.node.item.GroundItemManager
 import core.game.node.item.Item
 
 /**
- * Sir amik varze dialogue.
+ * Represents the Sir Amik Varze dialogue.
  */
 class SirAmikVarzeDialogue(player: Player? = null) : Dialogue(player) {
 

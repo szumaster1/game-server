@@ -16,7 +16,7 @@ import core.game.world.map.Location
 import core.plugin.Initializable
 
 /**
- * Sir leye NPC.
+ * Represents the Sir Leye NPC.
  */
 @Initializable
 class SirLeyeNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id, location) {
@@ -85,6 +85,7 @@ class SirLeyeNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id, loca
             clearHintIcon(killer)
             setAttribute(killer, RecruitmentDrive.ATTRIBUTE_RD_STAGE_PASSED, true)
             openDialogue(killer, SirKuamFerentseDialogueFile(1), NPC(NPCs.SIR_KUAM_FERENTSE_2284))
+            removeAttribute(killer, SirKuamFerentseDialogueFile.ATTRIBUTE_SPAWN_NPC)
         }
         clear()
         super.finalizeDeath(killer)

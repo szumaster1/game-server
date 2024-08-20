@@ -21,7 +21,7 @@ import core.game.world.update.flag.context.Graphic
 import core.plugin.Plugin
 
 /**
- * Black knight fortress quest plugin.
+ * Represents the Black knight fortress quest plugin.
  */
 class BKFortressPlugin : OptionHandler() {
 

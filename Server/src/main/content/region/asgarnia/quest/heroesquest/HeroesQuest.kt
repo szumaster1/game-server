@@ -10,7 +10,7 @@ import core.game.node.entity.skill.Skills
 import core.plugin.Initializable
 
 /**
- * Heroes' Quest
+ * Heroes' Quest.
  */
 @Initializable
 class HeroesQuest : Quest("Heroes' Quest", 75, 74, 1, Vars.VARP_QUEST_HEROES_QUEST_PROGRESS, 0, 1, 15) {

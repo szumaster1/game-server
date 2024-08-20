@@ -24,7 +24,7 @@ import static core.api.ContentAPIKt.getPathableRandomLocalCoordinate;
 import static core.api.ContentAPIKt.sendGraphics;
 
 /**
- * Represents the God wars npc.
+ * Represents the God wars NPC.
  */
 @Initializable
 public final class GodWarsNPC extends AbstractNPC {

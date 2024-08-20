@@ -9,7 +9,7 @@ import core.game.dialogue.DialogueBuilderFile
 import core.game.dialogue.FacialExpression
 
 /**
- * Represents the Sir tiffy cashien dialogue file.
+ * Represents the Sir Tiffy Cashien dialogue file.
  */
 class SirTiffyCashienDialogueFile : DialogueBuilderFile() {
     override fun create(b: DialogueBuilder) {

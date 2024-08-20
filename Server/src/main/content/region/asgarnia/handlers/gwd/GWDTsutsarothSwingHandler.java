@@ -16,7 +16,7 @@ import core.tools.RandomFunction;
 import static core.api.ContentAPIKt.applyPoison;
 
 /**
- * Represents the Gwd tsutsaroth swing handler.
+ * Represents the Gwd Tsutsaroth swing handler.
  */
 public final class GWDTsutsarothSwingHandler extends CombatSwingHandler {
 
@@ -26,7 +26,7 @@ public final class GWDTsutsarothSwingHandler extends CombatSwingHandler {
     private boolean special;
 
     /**
-     * Instantiates a new Gwd tsutsaroth swing handler.
+     * Instantiates a new Gwd Tsutsaroth swing handler.
      */
     public GWDTsutsarothSwingHandler() {
         super(CombatStyle.MELEE);

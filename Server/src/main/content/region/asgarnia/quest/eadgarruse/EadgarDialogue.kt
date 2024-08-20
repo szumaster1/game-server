@@ -11,7 +11,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Eadgar dialogue.
+ * Represents the Eadgar dialogue.
  */
 @Initializable
 class EadgarDialogue(player: Player? = null) : Dialogue(player) {

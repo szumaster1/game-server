@@ -9,7 +9,7 @@ import core.game.interaction.InteractionListener
 import core.game.node.entity.player.Player
 
 /**
- * Combination scroll.
+ * Represents the Combination scroll.
  */
 class CombinationScroll : InteractionListener {
 

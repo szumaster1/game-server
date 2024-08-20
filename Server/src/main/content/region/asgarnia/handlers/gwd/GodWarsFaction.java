@@ -6,7 +6,7 @@ import core.game.node.entity.player.Player;
 import static core.api.ContentAPIKt.hasGodItem;
 
 /**
- * Represents the The enum God wars faction.
+ * Represents the enum of the God wars faction.
  */
 public enum GodWarsFaction {
     /**
