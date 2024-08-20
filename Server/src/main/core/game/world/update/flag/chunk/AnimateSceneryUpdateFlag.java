@@ -13,6 +13,7 @@ public final class AnimateSceneryUpdateFlag extends UpdateFlag<Animation> {
 
     /**
      * Constructs a new {@code AnimateSceneryUpdateFlag} {@code Object}.
+     *
      * @param context The animation.
      */
     public AnimateSceneryUpdateFlag(Animation context) {

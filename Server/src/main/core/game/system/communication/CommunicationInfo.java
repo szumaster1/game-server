@@ -103,6 +103,7 @@ public final class CommunicationInfo {
 
     /**
      * Saves the communication info.
+     *
      * @param table The SQL table to update.
      */
     public void save(SQLTable table) {
@@ -125,11 +126,12 @@ public final class CommunicationInfo {
 
     /**
      * Parses the communication info from the database.
+     *
      * @param table The sql table to parse.
      */
     public void parse(SQLTable table) {
         String[] tokens = null;
-        if (table.getColumn("contacts").getValue() != null ) {
+        if (table.getColumn("contacts").getValue() != null) {
             String contacts = (String) table.getColumn("contacts").getValue();
             if (!contacts.isEmpty()) {
                 String[] datas = contacts.split("~");
@@ -145,7 +147,7 @@ public final class CommunicationInfo {
                 }
             }
         }
-        if (table.getColumn("blocked").getValue() != null ) {
+        if (table.getColumn("blocked").getValue() != null) {
             String blocked = (String) table.getColumn("blocked").getValue();
             if (!blocked.isEmpty()) {
                 tokens = blocked.split(",");
@@ -165,7 +167,7 @@ public final class CommunicationInfo {
         int ordinal = 0;
         for (int i = 0; i < tokens.length; i++) {
             ordinal = Integer.parseInt(tokens[i]);
-            if (ordinal < 0 || ordinal > ClanRank.values().length -1) {
+            if (ordinal < 0 || ordinal > ClanRank.values().length - 1) {
                 continue;
             }
             rank = ClanRank.values()[ordinal];
@@ -217,6 +219,7 @@ public final class CommunicationInfo {
 
     /**
      * Roar temp
+     *
      * @param buffer
      */
     public void parsePrevious(ByteBuffer buffer) {
@@ -238,8 +241,9 @@ public final class CommunicationInfo {
 
     /**
      * Sends a message to the target.
-     * @param player The player sending the message.
-     * @param target The target.
+     *
+     * @param player  The player sending the message.
+     * @param target  The target.
      * @param message The message to send.
      */
     public static void sendMessage(Player player, String target, String message) {
@@ -253,6 +257,7 @@ public final class CommunicationInfo {
 
     /**
      * Adds a contact.
+     *
      * @param contact The contact to add.
      */
     public static void add(Player player, String contact) {
@@ -291,8 +296,9 @@ public final class CommunicationInfo {
 
     /**
      * Removes a contact.
+     *
      * @param contact The contact to remove.
-     * @param block If the contact should be removed from the block list.
+     * @param block   If the contact should be removed from the block list.
      */
     public static void remove(Player player, String contact, boolean block) {
         if (contact.isEmpty()) {
@@ -331,6 +337,7 @@ public final class CommunicationInfo {
 
     /**
      * Adds a blocked contact.
+     *
      * @param contact The contact to block.
      */
     public static void block(Player player, String contact) {
@@ -360,7 +367,8 @@ public final class CommunicationInfo {
 
     /**
      * Updates the clan rank of a certain contact.
-     * @param contact The contact.
+     *
+     * @param contact  The contact.
      * @param clanRank The clan rank to set.
      */
     public static void updateClanRank(Player player, String contact, ClanRank clanRank) {
@@ -388,7 +396,8 @@ public final class CommunicationInfo {
 
     /**
      * Checks if the player has the contact added.
-     * @param player The player.
+     *
+     * @param player  The player.
      * @param contact The contact.
      * @return {@code True} if so.
      */
@@ -398,6 +407,7 @@ public final class CommunicationInfo {
 
     /**
      * Checks if the target should be shown as online.
+     *
      * @param name The target's name.
      * @return {@code True} if so.
      */
@@ -411,6 +421,7 @@ public final class CommunicationInfo {
 
     /**
      * Checks if the target should be shown as online.
+     *
      * @param target The target.
      * @return {@True} if so.
      */
@@ -435,6 +446,7 @@ public final class CommunicationInfo {
 
     /**
      * Gets the contacts value.
+     *
      * @return The contacts.
      */
     public Map<String, Contact> getContacts() {
@@ -443,6 +455,7 @@ public final class CommunicationInfo {
 
     /**
      * Gets the blocked value.
+     *
      * @return The blocked.
      */
     public List<String> getBlocked() {
@@ -451,6 +464,7 @@ public final class CommunicationInfo {
 
     /**
      * Gets the clanName value.
+     *
      * @return The clanName.
      */
     public String getClanName() {
@@ -459,6 +473,7 @@ public final class CommunicationInfo {
 
     /**
      * Sets the clanName value.
+     *
      * @param clanName The clanName to set.
      */
     public void setClanName(String clanName) {
@@ -467,6 +482,7 @@ public final class CommunicationInfo {
 
     /**
      * Gets the currentClan value.
+     *
      * @return The currentClan.
      */
     public String getCurrentClan() {
@@ -475,6 +491,7 @@ public final class CommunicationInfo {
 
     /**
      * Sets the currentClan value.
+     *
      * @param currentClan The currentClan to set.
      */
     @Deprecated
@@ -484,6 +501,7 @@ public final class CommunicationInfo {
 
     /**
      * Gets the joinRequirement value.
+     *
      * @return The joinRequirement.
      */
     public ClanRank getJoinRequirement() {
@@ -492,6 +510,7 @@ public final class CommunicationInfo {
 
     /**
      * Sets the joinRequirement value.
+     *
      * @param joinRequirement The joinRequirement to set.
      */
     public void setJoinRequirement(ClanRank joinRequirement) {
@@ -500,6 +519,7 @@ public final class CommunicationInfo {
 
     /**
      * Gets the messageRequirement value.
+     *
      * @return The messageRequirement.
      */
     public ClanRank getMessageRequirement() {
@@ -508,6 +528,7 @@ public final class CommunicationInfo {
 
     /**
      * Sets the messageRequirement value.
+     *
      * @param messageRequirement The messageRequirement to set.
      */
     public void setMessageRequirement(ClanRank messageRequirement) {
@@ -516,6 +537,7 @@ public final class CommunicationInfo {
 
     /**
      * Gets the kickRequirement value.
+     *
      * @return The kickRequirement.
      */
     public ClanRank getKickRequirement() {
@@ -524,6 +546,7 @@ public final class CommunicationInfo {
 
     /**
      * Sets the kickRequirement value.
+     *
      * @param kickRequirement The kickRequirement to set.
      */
     public void setKickRequirement(ClanRank kickRequirement) {
@@ -532,6 +555,7 @@ public final class CommunicationInfo {
 
     /**
      * Gets the lootRequirement value.
+     *
      * @return The lootRequirement.
      */
     public ClanRank getLootRequirement() {
@@ -540,6 +564,7 @@ public final class CommunicationInfo {
 
     /**
      * Sets the lootRequirement value.
+     *
      * @param lootRequirement The lootRequirement to set.
      */
     public void setLootRequirement(ClanRank lootRequirement) {
@@ -548,6 +573,7 @@ public final class CommunicationInfo {
 
     /**
      * Gets the clan.
+     *
      * @return the clan
      */
     public ClanRepository getClan() {
@@ -556,6 +582,7 @@ public final class CommunicationInfo {
 
     /**
      * Sets the clan.
+     *
      * @param clan the clan to set.
      */
     public void setClan(ClanRepository clan) {
@@ -565,6 +592,7 @@ public final class CommunicationInfo {
 
     /**
      * Gets the lootShare.
+     *
      * @return the lootShare
      */
     public boolean isLootShare() {
@@ -573,6 +601,7 @@ public final class CommunicationInfo {
 
     /**
      * Sets the lootShare.
+     *
      * @param lootShare the lootShare to set.
      */
     public void setLootShare(boolean lootShare) {
@@ -602,7 +631,7 @@ public final class CommunicationInfo {
         int ordinal;
         for (int i = 0; i < tokens.length; i++) {
             ordinal = Integer.parseInt(tokens[i]);
-            if (ordinal < 0 || ordinal > ClanRank.values().length -1) {
+            if (ordinal < 0 || ordinal > ClanRank.values().length - 1) {
                 continue;
             }
             rank = ClanRank.values()[ordinal];

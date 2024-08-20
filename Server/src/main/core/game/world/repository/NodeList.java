@@ -8,9 +8,8 @@ import java.util.Iterator;
 
 /**
  * A class which represents a list of nodes.
- * @author Graham Edgecombe, Emperor
- *
  * @param <E> The type of Node.
+ * @author Graham Edgecombe, Emperor
  */
 public class NodeList<E extends Node> implements Collection<E>, Iterable<E> {
 
@@ -26,6 +25,7 @@ public class NodeList<E extends Node> implements Collection<E>, Iterable<E> {
 
     /**
      * Creates a Node list with the specified capacity.
+     *
      * @param capacity The capacity.
      */
     public NodeList(int capacity) {
@@ -34,6 +34,7 @@ public class NodeList<E extends Node> implements Collection<E>, Iterable<E> {
 
     /**
      * Gets a Node.
+     *
      * @param index The index.
      * @return The Node.
      */
@@ -49,6 +50,7 @@ public class NodeList<E extends Node> implements Collection<E>, Iterable<E> {
 
     /**
      * Gets the index of a Node.
+     *
      * @return The index in the list.
      */
     public int indexOf(Node node) {
@@ -57,6 +59,7 @@ public class NodeList<E extends Node> implements Collection<E>, Iterable<E> {
 
     /**
      * Gets the next free id.
+     *
      * @return The next free id.
      */
     private int getNextId() {
@@ -140,6 +143,7 @@ public class NodeList<E extends Node> implements Collection<E>, Iterable<E> {
 
     /**
      * Removes the node on this index.
+     *
      * @param index The index.
      * @return {@code True} if a node got removed.
      */
@@ -203,7 +207,9 @@ public class NodeList<E extends Node> implements Collection<E>, Iterable<E> {
         return size;
     }
 
-    public int length(){ return nodes.length;}
+    public int length() {
+        return nodes.length;
+    }
 
     @Override
     public Node[] toArray() {

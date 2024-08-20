@@ -11,6 +11,7 @@ public interface MovementHook {
 
     /**
      * Called when an entity has moved.
+     *
      * @param e The moving entity.
      * @param l The location.
      * @return {@code True} if no further hooks should be called.

@@ -38,6 +38,7 @@ public class Path {
 
     /**
      * Walks this path.
+     *
      * @param entity The entity.
      */
     public void walk(Entity entity) {
@@ -52,6 +53,7 @@ public class Path {
 
     /**
      * Gets the succesful.
+     *
      * @return The succesful.
      */
     public boolean isSuccessful() {
@@ -60,6 +62,7 @@ public class Path {
 
     /**
      * Sets the succesful.
+     *
      * @param succesful The succesful to set.
      */
     public void setSuccesful(boolean succesful) {
@@ -68,6 +71,7 @@ public class Path {
 
     /**
      * Gets the points.
+     *
      * @return The points.
      */
     public Deque<Point> getPoints() {
@@ -76,6 +80,7 @@ public class Path {
 
     /**
      * Sets the points.
+     *
      * @param points The points to set.
      */
     public void setPoints(Deque<Point> points) {
@@ -84,6 +89,7 @@ public class Path {
 
     /**
      * Gets the moveNear.
+     *
      * @return The moveNear.
      */
     public boolean isMoveNear() {
@@ -92,6 +98,7 @@ public class Path {
 
     /**
      * Sets the moveNear.
+     *
      * @param moveNear The moveNear to set.
      */
     public void setMoveNear(boolean moveNear) {

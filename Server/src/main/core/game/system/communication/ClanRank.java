@@ -19,8 +19,9 @@ public enum ClanRank {
 
     /**
      * Constructs a new {@code ClanRank} {@code Object}.
+     *
      * @param value The rank value.
-     * @param info The requirement info.
+     * @param info  The requirement info.
      */
     private ClanRank(int value, String info) {
         this.value = value;
@@ -29,6 +30,7 @@ public enum ClanRank {
 
     /**
      * Gets the value.
+     *
      * @return The value.
      */
     public int getValue() {
@@ -37,6 +39,7 @@ public enum ClanRank {
 
     /**
      * Gets the info.
+     *
      * @return The info.
      */
     public String getInfo() {

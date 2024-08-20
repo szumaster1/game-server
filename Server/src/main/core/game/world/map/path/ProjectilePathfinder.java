@@ -165,9 +165,10 @@ public final class ProjectilePathfinder extends Pathfinder {
 
     /**
      * Gets the direction.
+     *
      * @param startX The startX.
      * @param startY The startY.
-     * @param end The end direction.
+     * @param end    The end direction.
      * @return The direction.
      */
     private static Direction[] getDirection(int startX, int startY, Location end) {
@@ -175,24 +176,24 @@ public final class ProjectilePathfinder extends Pathfinder {
         int endY = end.getY();
         if (startX == endX) {
             if (startY > endY) {
-                return new Direction[] { Direction.SOUTH };
+                return new Direction[]{Direction.SOUTH};
             } else if (startY < endY) {
-                return new Direction[] { Direction.NORTH };
+                return new Direction[]{Direction.NORTH};
             }
         } else if (startY == endY) {
             if (startX > endX) {
-                return new Direction[] { Direction.WEST };
+                return new Direction[]{Direction.WEST};
             }
-            return new Direction[] { Direction.EAST };
+            return new Direction[]{Direction.EAST};
         } else {
             if (startX < endX && startY < endY) {
-                return new Direction[] { Direction.NORTH_EAST, Direction.EAST, Direction.NORTH };
+                return new Direction[]{Direction.NORTH_EAST, Direction.EAST, Direction.NORTH};
             } else if (startX < endX && startY > endY) {
-                return new Direction[] { Direction.SOUTH_EAST, Direction.EAST, Direction.SOUTH };
+                return new Direction[]{Direction.SOUTH_EAST, Direction.EAST, Direction.SOUTH};
             } else if (startX > endX && startY < endY) {
-                return new Direction[] { Direction.NORTH_WEST, Direction.WEST, Direction.NORTH };
+                return new Direction[]{Direction.NORTH_WEST, Direction.WEST, Direction.NORTH};
             } else if (startX > endX && startY > endY) {
-                return new Direction[] { Direction.SOUTH_WEST, Direction.WEST, Direction.SOUTH };
+                return new Direction[]{Direction.SOUTH_WEST, Direction.WEST, Direction.SOUTH};
             }
         }
         return new Direction[0];

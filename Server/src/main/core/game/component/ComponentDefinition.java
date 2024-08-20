@@ -47,9 +47,10 @@ public final class ComponentDefinition {
 
     /**
      * Parses the definition values from a result set.
+     *
      * @throws SQLException The exception if thrown.
      */
-    public ComponentDefinition parse(String type, String walkable, String tabIndex){
+    public ComponentDefinition parse(String type, String walkable, String tabIndex) {
         setType(InterfaceType.values()[Integer.parseInt(type)]);
         setWalkable(Boolean.parseBoolean(walkable));
         setTabIndex(Integer.parseInt(tabIndex));
@@ -58,6 +59,7 @@ public final class ComponentDefinition {
 
     /**
      * Gets the component definitions for the component id.
+     *
      * @param componentId The component id.
      * @return The component definitions.
      */
@@ -71,7 +73,8 @@ public final class ComponentDefinition {
 
     /**
      * Add a plugin to a definition.
-     * @param id the id.
+     *
+     * @param id     the id.
      * @param plugin the plugin.
      */
     public static void put(int id, ComponentPlugin plugin) {
@@ -80,6 +83,7 @@ public final class ComponentDefinition {
 
     /**
      * Gets the definitions mapping.
+     *
      * @return The definitions mapping.
      */
     public static Map<Integer, ComponentDefinition> getDefinitions() {
@@ -88,6 +92,7 @@ public final class ComponentDefinition {
 
     /**
      * Gets the plugin.
+     *
      * @return The plugin.
      */
     public ComponentPlugin getPlugin() {
@@ -96,6 +101,7 @@ public final class ComponentDefinition {
 
     /**
      * Sets the plugin.
+     *
      * @param plugin The plugin to set.
      */
     public void setPlugin(ComponentPlugin plugin) {
@@ -104,6 +110,7 @@ public final class ComponentDefinition {
 
     /**
      * Gets the window pane id.
+     *
      * @param resizable If the player is using resizable mode.
      * @return The window pane id.
      */
@@ -113,6 +120,7 @@ public final class ComponentDefinition {
 
     /**
      * Gets the child id.
+     *
      * @param resizable If the player is using resizable mode.
      * @return The child id.
      */
@@ -122,6 +130,7 @@ public final class ComponentDefinition {
 
     /**
      * Gets the type.
+     *
      * @return the type
      */
     public InterfaceType getType() {
@@ -130,6 +139,7 @@ public final class ComponentDefinition {
 
     /**
      * Sets the batype.
+     *
      * @param type the type to set.
      */
     public void setType(InterfaceType type) {
@@ -138,6 +148,7 @@ public final class ComponentDefinition {
 
     /**
      * Gets the walkable.
+     *
      * @return the walkable
      */
     public boolean isWalkable() {
@@ -146,6 +157,7 @@ public final class ComponentDefinition {
 
     /**
      * Sets the bawalkable.
+     *
      * @param walkable the walkable to set.
      */
     public void setWalkable(boolean walkable) {
@@ -154,6 +166,7 @@ public final class ComponentDefinition {
 
     /**
      * Gets the tabIndex.
+     *
      * @return the tabIndex
      */
     public int getTabIndex() {
@@ -162,6 +175,7 @@ public final class ComponentDefinition {
 
     /**
      * Sets the batabIndex.
+     *
      * @param tabIndex the tabIndex to set.
      */
     public void setTabIndex(int tabIndex) {

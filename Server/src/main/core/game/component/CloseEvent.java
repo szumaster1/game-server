@@ -13,8 +13,7 @@ public interface CloseEvent {
      *
      * @param player The player.
      * @param c      The component.
-     * @return {@code True} if successful, {@code false} if the component should
-     * remain open.
+     * @return {@code True} if successful, {@code false} if the component should remain open.
      */
     boolean close(Player player, Component c);
 

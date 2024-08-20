@@ -49,6 +49,7 @@ public class MessageLog {
     /**
      * Constructs a new {@code MessageLog} {@code Object} with uniqueLogging
      * mode disabled.
+     *
      * @param capacity The capacity (-1 for no capacity).
      */
     public MessageLog(int capacity) {
@@ -57,7 +58,8 @@ public class MessageLog {
 
     /**
      * Constructs a new {@code MessageLog} {@code Object}.
-     * @param capacity The capacity (-1 for no capacity).
+     *
+     * @param capacity      The capacity (-1 for no capacity).
      * @param uniqueLogging If all messages logged should be unique.
      */
     public MessageLog(int capacity, boolean uniqueLogging) {
@@ -68,7 +70,8 @@ public class MessageLog {
 
     /**
      * Adds a message to the cache.
-     * @param message The message.
+     *
+     * @param message   The message.
      * @param timeStamp If the message should be time stamped.
      */
     public void log(String message, boolean timeStamp) {
@@ -87,6 +90,7 @@ public class MessageLog {
 
     /**
      * Writes the logged data to the file.
+     *
      * @param fileName The name of the file to write on.
      */
     public void write(String fileName) {
@@ -118,6 +122,7 @@ public class MessageLog {
 
     /**
      * Gets the messages.
+     *
      * @return The messages.
      */
     public List<String> getMessages() {
@@ -126,6 +131,7 @@ public class MessageLog {
 
     /**
      * Sets the messages.
+     *
      * @param messages The messages to set.
      */
     public void setMessages(List<String> messages) {
@@ -134,6 +140,7 @@ public class MessageLog {
 
     /**
      * Gets the capacity.
+     *
      * @return The capacity.
      */
     public int getCapacity() {

@@ -21,6 +21,7 @@ public class ZoneBuilder implements StartupListener {
 
     /**
      * Configures the map zone.
+     *
      * @param zone The map zone.
      */
     public static void configure(MapZone zone) {

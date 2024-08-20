@@ -10,6 +10,7 @@ public interface Zone {
 
     /**
      * Checks if the entity can enter this map zone.
+     *
      * @param e The entity.
      * @return {@code True} if so.
      */
@@ -17,7 +18,8 @@ public interface Zone {
 
     /**
      * Called when the entity leaves this map zone.
-     * @param e The entity.
+     *
+     * @param e      The entity.
      * @param logout If the entity is logging out.
      * @return {@code True} if the entity can leave.
      */

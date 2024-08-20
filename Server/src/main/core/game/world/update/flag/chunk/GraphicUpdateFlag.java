@@ -18,7 +18,8 @@ public final class GraphicUpdateFlag extends UpdateFlag<Graphic> {
 
     /**
      * Constructs a new {@code GraphicUpdateFlag} {@code Object}.
-     * @param graphic The graphic.
+     *
+     * @param graphic  The graphic.
      * @param location The location.
      */
     public GraphicUpdateFlag(Graphic graphic, Location location) {

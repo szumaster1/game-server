@@ -54,7 +54,8 @@ public abstract class MapZone implements Zone {
 
     /**
      * Constructs a new {@code MapZone} {@code Object}.
-     * @param name The name.
+     *
+     * @param name         The name.
      * @param overlappable If the zone can be overlapped.
      */
     public MapZone(String name, boolean overlappable, ZoneRestriction... restrictions) {
@@ -85,6 +86,7 @@ public abstract class MapZone implements Zone {
 
     /**
      * Checks if the player can logout.
+     *
      * @param p The player.
      * @return {@code True} if so.
      */
@@ -94,7 +96,8 @@ public abstract class MapZone implements Zone {
 
     /**
      * Called when an entity dies.
-     * @param e The entity dying.
+     *
+     * @param e      The entity dying.
      * @param killer The killer.
      * @return {@code True} if the death got handled by this zone handler.
      */
@@ -104,7 +107,8 @@ public abstract class MapZone implements Zone {
 
     /**
      * Handles an interaction.
-     * @param e The entity.
+     *
+     * @param e      The entity.
      * @param target The target to interact with.
      * @param option The option.
      * @return {@code True} if the option got handled.
@@ -113,16 +117,19 @@ public abstract class MapZone implements Zone {
         return false;
     }
 
-    public boolean handleUseWith(Player player, Item used, Node with){return false;}
+    public boolean handleUseWith(Player player, Item used, Node with) {
+        return false;
+    }
 
     /**
      * Handles an reward button.
-     * @param player The player.
+     *
+     * @param player      The player.
      * @param interfaceId The interface id.
-     * @param buttonId The button id.
-     * @param slot The slot.
-     * @param itemId The item id.
-     * @param opcode The packet opcode.
+     * @param buttonId    The button id.
+     * @param slot        The slot.
+     * @param itemId      The item id.
+     * @param opcode      The packet opcode.
      * @return {@code True} if the button got handled.
      */
     public boolean actionButton(Player player, int interfaceId, int buttonId, int slot, int itemId, int opcode) {
@@ -131,9 +138,10 @@ public abstract class MapZone implements Zone {
 
     /**
      * Checks if the entity is able to continue attacking the target.
-     * @param e the attacking entity.
-     * @param target The target.
-     * @param style The combat style used.
+     *
+     * @param e       the attacking entity.
+     * @param target  The target.
+     * @param style   The combat style used.
      * @param message If a message should be send.
      * @return {@code True} if so.
      */
@@ -143,8 +151,9 @@ public abstract class MapZone implements Zone {
 
     /**
      * If multi-zone boundaries should be ignored.
+     *
      * @param attacker The attacker.
-     * @param victim The victim.
+     * @param victim   The victim.
      * @return {@code True} if the entity can attack regardless of multicombat.
      */
     public boolean ignoreMultiBoundaries(Entity attacker, Entity victim) {
@@ -153,8 +162,9 @@ public abstract class MapZone implements Zone {
 
     /**
      * Checks if the entity can attack the target.
-     * @param e The attacking entity.
-     * @param t The target.
+     *
+     * @param e       The attacking entity.
+     * @param t       The target.
      * @param message If a message should be sent.
      * @return {@code True} if the entity can continue attacking.
      */
@@ -185,9 +195,10 @@ public abstract class MapZone implements Zone {
 
     /**
      * Checks if the entity can teleport.
-     * @param e The entity.
+     *
+     * @param e    The entity.
      * @param type The teleport type (0=spell, 1=item, 2=object, 3=npc -1=
-     * force)
+     *             force)
      * @return {@code True} if so.
      */
     public boolean teleport(Entity e, int type, Node node) {
@@ -196,7 +207,8 @@ public abstract class MapZone implements Zone {
 
     /**
      * Checks if the death should start.
-     * @param e the entity.
+     *
+     * @param e      the entity.
      * @param killer the killer.
      * @return {@code True} if so.
      */
@@ -206,7 +218,8 @@ public abstract class MapZone implements Zone {
 
     /**
      * Checks if a request can be made in this zone.
-     * @param type the type.
+     *
+     * @param type   the type.
      * @param target the target.
      * @return {@code True} if so.
      */
@@ -216,9 +229,10 @@ public abstract class MapZone implements Zone {
 
     /**
      * Checks if the entity can move.
-     * @param e The entity.
+     *
+     * @param e    The entity.
      * @param from The current location.
-     * @param to The destination location.
+     * @param to   The destination location.
      * @return {@code True} if so.
      */
     public boolean move(Entity e, Location from, Location to) {
@@ -227,8 +241,9 @@ public abstract class MapZone implements Zone {
 
     /**
      * Parses a command in this map zone.
-     * @param player the player.
-     * @param name the name.
+     *
+     * @param player    the player.
+     * @param name      the name.
      * @param arguments the arguments.
      * @return {@code True} if so.
      */
@@ -238,7 +253,8 @@ public abstract class MapZone implements Zone {
 
     /**
      * Called when an entity changed location.
-     * @param e The entity.
+     *
+     * @param e    The entity.
      * @param last The previous location the entity was standing on.
      */
     public void locationUpdate(Entity e, Location last) {
@@ -248,12 +264,16 @@ public abstract class MapZone implements Zone {
     /**
      * Configures this map zone.
      */
-    public void configure(){};
+    public void configure() {
+    }
+
+    ;
 
     /**
      * Cleans items from a players inventory, equipment and bank.
+     *
      * @param player the player.
-     * @param items the items.
+     * @param items  the items.
      */
     public void cleanItems(Player player, Item[] items) {
         if (player == null) {
@@ -277,7 +297,8 @@ public abstract class MapZone implements Zone {
 
     /**
      * Sends a message to the entity (if it is a player).
-     * @param e The entity.
+     *
+     * @param e       The entity.
      * @param message The message.
      */
     protected static void message(Entity e, String message) {
@@ -289,6 +310,7 @@ public abstract class MapZone implements Zone {
 
     /**
      * Registers this mapzone in the appropriate regions.
+     *
      * @param borders The borders of this zone.
      */
     public void register(ZoneBorders borders) {
@@ -311,6 +333,7 @@ public abstract class MapZone implements Zone {
 
     /**
      * Registers this zone in the region for the given id.
+     *
      * @param regionId The region id.
      */
     public void registerRegion(int regionId) {
@@ -319,8 +342,9 @@ public abstract class MapZone implements Zone {
 
     /**
      * Registers a region with zone borders and the region id.
+     *
      * @param regionId the region id.
-     * @param borders the borders.
+     * @param borders  the borders.
      */
     public void registerRegion(int regionId, ZoneBorders borders) {
         Region r = RegionManager.forId(regionId);
@@ -331,12 +355,13 @@ public abstract class MapZone implements Zone {
 
     /**
      * Unregisters the borders in a region.
+     *
      * @param regionId The region id.
      */
     public void unregisterRegion(int regionId) {
         Region r = RegionManager.forId(regionId);
         if (r != null) {
-            for (Iterator<RegionZone> it = r.getRegionZones().iterator(); it.hasNext();) {
+            for (Iterator<RegionZone> it = r.getRegionZones().iterator(); it.hasNext(); ) {
                 if (it.next().getZone() == this) {
                     it.remove();
                 }
@@ -353,6 +378,7 @@ public abstract class MapZone implements Zone {
 
     /**
      * Gets the name.
+     *
      * @return The name.
      */
     public String getName() {
@@ -361,6 +387,7 @@ public abstract class MapZone implements Zone {
 
     /**
      * Sets the name.
+     *
      * @param name The name to set.
      */
     public void setName(String name) {
@@ -369,6 +396,7 @@ public abstract class MapZone implements Zone {
 
     /**
      * Gets the overlappable.
+     *
      * @return The overlappable.
      */
     public boolean isOverlappable() {
@@ -377,6 +405,7 @@ public abstract class MapZone implements Zone {
 
     /**
      * Sets the overlappable.
+     *
      * @param overlappable The overlappable to set.
      */
     public void setOverlappable(boolean overlappable) {
@@ -385,6 +414,7 @@ public abstract class MapZone implements Zone {
 
     /**
      * Gets the uid.
+     *
      * @return The uid.
      */
     public int getUid() {
@@ -393,6 +423,7 @@ public abstract class MapZone implements Zone {
 
     /**
      * Sets the uid.
+     *
      * @param uid The uid to set.
      */
     public void setUid(int uid) {
@@ -401,6 +432,7 @@ public abstract class MapZone implements Zone {
 
     /**
      * Gets the fireRandoms.
+     *
      * @return The fireRandoms.
      */
     public boolean isFireRandoms() {
@@ -410,6 +442,7 @@ public abstract class MapZone implements Zone {
     /**
      * If the zone is dynamicly added and removed. Non-location based zones will
      * typicly return true.
+     *
      * @return {@code false} on default.
      */
     public boolean isDynamicZone() {
@@ -418,6 +451,7 @@ public abstract class MapZone implements Zone {
 
     /**
      * Adds a restriction flag.
+     *
      * @param restriction The restriction flag.
      */
     public void addRestriction(ZoneRestriction restriction) {
@@ -426,6 +460,7 @@ public abstract class MapZone implements Zone {
 
     /**
      * Adds a restriction flag.
+     *
      * @param flag The restriction flag.
      */
     public void addRestriction(int flag) {
@@ -434,6 +469,7 @@ public abstract class MapZone implements Zone {
 
     /**
      * Checks if the restriction was flagged.
+     *
      * @param flag The restriction flag.
      * @return {@code True} if so.
      */
@@ -443,6 +479,7 @@ public abstract class MapZone implements Zone {
 
     /**
      * Gets the restriction.
+     *
      * @return The restriction.
      */
     public int getRestriction() {
@@ -451,6 +488,7 @@ public abstract class MapZone implements Zone {
 
     /**
      * Gets the type.
+     *
      * @return The type.
      */
     public int getZoneType() {
@@ -459,6 +497,7 @@ public abstract class MapZone implements Zone {
 
     /**
      * Sets the type.
+     *
      * @param type The type to set.
      */
     public void setZoneType(int type) {

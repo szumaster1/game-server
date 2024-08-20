@@ -17,39 +17,60 @@ import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 
-
 /**
- * Dynamic region.
+ * Represents a dynamically constructed region.
+ * @author Emperor
  */
 public final class DynamicRegion extends Region {
 
+    /**
+     * The reserved areas.
+     */
     private static final List<ZoneBorders> RESERVED_AREAS = new ArrayList<>(20);
 
+    /**
+     * The region id of the copied region.
+     */
     private final int regionId;
 
+    /**
+     * The region chunks.
+     */
     private final RegionChunk[][][] chunks;
 
+    /**
+     * The zone borders.
+     */
     private ZoneBorders borders;
 
+    /**
+     * If the dynamic region is a multiway combat zone.
+     */
     private boolean multicombat;
 
+    /**
+     * If the region is permanent.
+     */
     private boolean permanent;
 
+    /**
+     * An array of linked regions.
+     */
     private DynamicRegion[] linked;
 
+    /**
+     * The parent region (used for linking regions).
+     */
     private DynamicRegion parentRegion;
 
-    /**
-     * The Np cs.
-     */
     public ArrayList<NPC> NPCs = new ArrayList<>(10);
 
     /**
-     * Instantiates a new Dynamic region.
+     * Constructs a new {@code DynamicRegion} {@code Object}.
      *
-     * @param regionId the region id
-     * @param x        the x
-     * @param y        the y
+     * @param regionId The region id of the region to copy.
+     * @param x        The x-coordinate.
+     * @param y        The y-coordinate.
      */
     public DynamicRegion(int regionId, int x, int y) {
         super(x, y);
@@ -58,11 +79,6 @@ public final class DynamicRegion extends Region {
         RegionManager.resetFlags(getId());
     }
 
-    /**
-     * Instantiates a new Dynamic region.
-     *
-     * @param borders the borders
-     */
     public DynamicRegion(@NotNull ZoneBorders borders) {
         this(-1, borders.getSouthWestX() >> 6, borders.getSouthWestY() >> 6);
         setBorders(borders);
@@ -71,10 +87,10 @@ public final class DynamicRegion extends Region {
     }
 
     /**
-     * Create dynamic region.
+     * Creates a dynamic region copy of the region id.
      *
-     * @param regionId the region id
-     * @return the dynamic region
+     * @param regionId The region id.
+     * @return The dynamic region.
      */
     public static DynamicRegion create(int regionId) {
         int x = (regionId >> 8) << 6;
@@ -83,11 +99,11 @@ public final class DynamicRegion extends Region {
     }
 
     /**
-     * Create dynamic region.
+     * Creates a dynamic region copy of two regions and everything in between.
      *
-     * @param regionOne the region one
-     * @param regionTwo the region two
-     * @return the dynamic region
+     * @param regionOne The first region.
+     * @param regionTwo The second/last region.
+     * @return The new region.
      */
     public static DynamicRegion create(int regionOne, int regionTwo) {
         int x = (regionOne >> 8) << 6;
@@ -98,10 +114,10 @@ public final class DynamicRegion extends Region {
     }
 
     /**
-     * Create dynamic region [ ].
+     * Copies the zone into a new dynamic region.
      *
-     * @param copy the copy
-     * @return the dynamic region [ ]
+     * @param copy The zone to copy.
+     * @return The dynamic region.
      */
     public static DynamicRegion[] create(ZoneBorders copy) {
         int baseX = copy.getSouthWestX() >> 6;
@@ -139,11 +155,11 @@ public final class DynamicRegion extends Region {
     }
 
     /**
-     * Reserve area zone borders.
+     * Finds and reserves borders for a new dynamic region area.
      *
-     * @param sizeX the size x
-     * @param sizeY the size y
-     * @return the zone borders
+     * @param sizeX The x-size of the region (in chunks).
+     * @param sizeY The y-size of the region (in chunks).
+     * @return The zone borders.
      */
     public static ZoneBorders reserveArea(int sizeX, int sizeY) {
         ZoneBorders borders = findZoneBorders(sizeX, sizeY);
@@ -152,11 +168,11 @@ public final class DynamicRegion extends Region {
     }
 
     /**
-     * Find zone borders zone borders.
+     * Finds free borders for a new dynamic region area.
      *
-     * @param sizeX the size x
-     * @param sizeY the size y
-     * @return the zone borders
+     * @param sizeX The x-size of the region (in chunks).
+     * @param sizeY The y-size of the region (in chunks).
+     * @return The zone borders.
      */
     public static ZoneBorders findZoneBorders(int sizeX, int sizeY) {
         int x = 0;
@@ -194,11 +210,11 @@ public final class DynamicRegion extends Region {
     }
 
     /**
-     * Copy dynamic region.
+     * Copies (but does not initialize) a region.
      *
-     * @param regionId the region id
-     * @param to       the to
-     * @return the dynamic region
+     * @param regionId The id of the region to copy.
+     * @param to       The location to copy the region to.
+     * @return The {@code DynamicRegion} object.
      */
     public static DynamicRegion copy(int regionId, Location to) {
         int regionX = ((regionId >> 8) & 0xFF) << 6;
@@ -226,9 +242,10 @@ public final class DynamicRegion extends Region {
     }
 
     /**
-     * Link.
+     * Links regions with this region as parent region.
      *
-     * @param regions the regions
+     * @param regions The regions to link.
+     * @warning This region will be flagged as active!
      */
     public void link(DynamicRegion... regions) {
         for (DynamicRegion r : regions) {
@@ -239,7 +256,7 @@ public final class DynamicRegion extends Region {
     }
 
     /**
-     * Toggle multicombat.
+     * Toggles the multiway combat flag.
      */
     public void toggleMulticombat() {
         if (multicombat) {
@@ -256,16 +273,17 @@ public final class DynamicRegion extends Region {
     }
 
     /**
-     * Sets music id.
+     * Sets the music id for this region.
      *
-     * @param musicId the music id
+     * @param musicId The music id.
      */
     public void setMusicId(int musicId) {
         getMusicZones().add(new MusicZone(musicId, borders));
     }
 
     /**
-     * Rotate.
+     * Rotates the region 90% clockwise.
+     * TODO: Finish this
      */
     public void rotate() {
         for (int z = 0; z < 4; z++) {
@@ -282,12 +300,12 @@ public final class DynamicRegion extends Region {
     }
 
     /**
-     * Sets chunk.
+     * Sets a region chunk (without setting objects/clipping flags).
      *
-     * @param z     the z
-     * @param x     the x
-     * @param y     the y
-     * @param chunk the chunk
+     * @param z     The plane.
+     * @param x     The chunk x (0-8).
+     * @param y     The chunk y (0-8).
+     * @param chunk The chunk to set.
      */
     public void setChunk(int z, int x, int y, RegionChunk chunk) {
         chunks[z][x][y] = chunk;
@@ -298,13 +316,13 @@ public final class DynamicRegion extends Region {
     }
 
     /**
-     * Replace chunk.
+     * Replaces a region chunk.
      *
-     * @param z          the z
-     * @param x          the x
-     * @param y          the y
-     * @param chunk      the chunk
-     * @param fromRegion the from region
+     * @param z          The plane.
+     * @param x          The x-coordinate of the chunk. (0-7)
+     * @param y          The y-coordinate of the chunk. (0-7)
+     * @param chunk      The chunk to replace with.
+     * @param fromRegion The region the chunk is copied from.
      */
     public void replaceChunk(int z, int x, int y, RegionChunk chunk, Region fromRegion) {
         Region.load(DynamicRegion.this);
@@ -387,80 +405,77 @@ public final class DynamicRegion extends Region {
     }
 
     /**
-     * Get chunks region chunk [ ] [ ] [ ].
+     * Gets the chunks.
      *
-     * @return the region chunk [ ] [ ] [ ]
+     * @return The chunks.
      */
     public RegionChunk[][][] getChunks() {
         return chunks;
     }
 
     /**
-     * Gets borders.
+     * Gets the borders.
      *
-     * @return the borders
+     * @return The borders.
      */
     public ZoneBorders getBorders() {
         return borders;
     }
 
     /**
-     * Sets borders.
+     * Sets the borders.
      *
-     * @param borders the borders
+     * @param borders The borders to set.
      */
     public void setBorders(ZoneBorders borders) {
         this.borders = borders;
     }
 
     /**
-     * Is multicombat boolean.
+     * Gets the multicombat.
      *
-     * @return the boolean
+     * @return The multicombat.
      */
     public boolean isMulticombat() {
         return multicombat;
     }
 
     /**
-     * Sets multicombat.
+     * Sets the multicombat.
      *
-     * @param multicombat the multicombat
+     * @param multicombat The multicombat to set.
      */
     public void setMulticombat(boolean multicombat) {
         this.multicombat = multicombat;
     }
 
     /**
-     * Is permanent boolean.
+     * Gets the permanent value.
      *
-     * @return the boolean
+     * @return The permanent.
      */
     public boolean isPermanent() {
         return permanent;
     }
 
     /**
-     * Sets permanent.
+     * Sets the permanent value.
      *
-     * @param permanent the permanent
+     * @param permanent The permanent to set.
      */
     public void setPermanent(boolean permanent) {
         this.permanent = permanent;
     }
 
     /**
-     * Gets parent.
+     * Gets the parentRegion value.
      *
-     * @return the parent
+     * @return The parentRegion.
      */
     public DynamicRegion getParent() {
         return parentRegion;
     }
 
-    /**
-     * Clear.
-     */
     public void clear() {
         for (NPC n : NPCs) {
             n.clear();

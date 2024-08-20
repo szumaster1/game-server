@@ -49,6 +49,7 @@ public final class Viewport {
 
     /**
      * Updates the entity's viewport.
+     *
      * @param entity The entity.
      */
     public void updateViewport(Entity entity) {
@@ -68,6 +69,7 @@ public final class Viewport {
 
     /**
      * Removes the entity from the viewingPlanes.
+     *
      * @param entity The entity.
      */
     public void remove(Entity entity) {
@@ -91,6 +93,7 @@ public final class Viewport {
 
     /**
      * Gets the region.
+     *
      * @return The region.
      */
     public Region getRegion() {
@@ -99,6 +102,7 @@ public final class Viewport {
 
     /**
      * Sets the region.
+     *
      * @param region The region to set.
      */
     public void setRegion(Region region) {
@@ -107,6 +111,7 @@ public final class Viewport {
 
     /**
      * Gets the chunks.
+     *
      * @return The chunks.
      */
     public RegionChunk[][] getChunks() {
@@ -115,6 +120,7 @@ public final class Viewport {
 
     /**
      * Sets the chunks.
+     *
      * @param chunks The chunks to set.
      */
     public void setChunks(RegionChunk[][] chunks) {
@@ -123,6 +129,7 @@ public final class Viewport {
 
     /**
      * Gets the viewingPlanes.
+     *
      * @return The viewingPlanes.
      */
     public List<RegionPlane> getViewingPlanes() {
@@ -138,6 +145,7 @@ public final class Viewport {
 
     /**
      * Gets the currentPlane.
+     *
      * @return The currentPlane.
      */
     public RegionPlane getCurrentPlane() {
@@ -146,6 +154,7 @@ public final class Viewport {
 
     /**
      * Sets the currentPlane.
+     *
      * @param currentPlane The currentPlane to set.
      */
     public void setCurrentPlane(RegionPlane currentPlane) {

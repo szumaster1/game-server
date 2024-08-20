@@ -19,7 +19,6 @@ import core.api.consts.Items;
 
 /**
  * Handles the zones for an entity.
- *
  * @author Emperor
  */
 public final class ZoneMonitor {

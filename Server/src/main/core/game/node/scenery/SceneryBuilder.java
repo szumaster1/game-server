@@ -15,7 +15,6 @@ import static core.api.ContentAPIKt.log;
 
 /**
  * An aiding class for object constructing/removing.
- *
  * @author Emperor
  */
 public final class SceneryBuilder {
@@ -152,11 +151,11 @@ public final class SceneryBuilder {
     /**
      * Replaces a scenery object with a temporary one before a new scenery is constructed.
      *
-     * @param remove The scenery object that needs to be removed.
-     * @param temporary The temporary scenery object that will replace the removed one.
-     * @param construct The new scenery object that will be constructed.
+     * @param remove       The scenery object that needs to be removed.
+     * @param temporary    The temporary scenery object that will replace the removed one.
+     * @param construct    The new scenery object that will be constructed.
      * @param restoreTicks The number of ticks to wait before restoring the original scenery.
-     * @param clip A boolean indicating whether to clip the scenery or not.
+     * @param clip         A boolean indicating whether to clip the scenery or not.
      * @return Returns true if the replacement was successful, false otherwise.
      */
     public static boolean replaceWithTempBeforeNew(Scenery remove, Scenery temporary, Scenery construct, int restoreTicks, final boolean clip) {
@@ -239,7 +238,8 @@ public final class SceneryBuilder {
 
     /**
      * Removes all objects within a box
-     * @param objectId - the object id to remove
+     *
+     * @param objectId  - the object id to remove
      * @param southWest
      * @param northEast
      * @return
@@ -252,7 +252,7 @@ public final class SceneryBuilder {
         int differenceY = northEast.getY() - southWest.getY();
 
         for (int x = 0; x <= differenceX; x++) {
-            for (int y = 0; y <= differenceY; y++){
+            for (int y = 0; y <= differenceY; y++) {
                 Scenery object = new Scenery(objectId, Location.create(southWest.getX() + x, southWest.getY() + y, southWest.getZ()));
                 remove(object);
             }

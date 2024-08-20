@@ -73,7 +73,7 @@ public class Region {
     /**
      * Keeps track of players and time in region for tolerance purposes
      */
-    private final HashMap<String,Long> tolerances = new HashMap<>();
+    private final HashMap<String, Long> tolerances = new HashMap<>();
 
     /**
      * If the region is active.
@@ -112,6 +112,7 @@ public class Region {
 
     /**
      * Constructs a new {@code Region} {@code Object}.
+     *
      * @param x The x-coordinate of the region.
      * @param y The y-coordinate of the region.
      */
@@ -133,6 +134,7 @@ public class Region {
 
     /**
      * Gets the base location.
+     *
      * @return The base location.
      */
     public Location getBaseLocation() {
@@ -141,6 +143,7 @@ public class Region {
 
     /**
      * Adds a region zone to this region.
+     *
      * @param zone The region zone.
      */
     public void add(RegionZone zone) {
@@ -169,6 +172,7 @@ public class Region {
 
     /**
      * Adds a player to this region.
+     *
      * @param player The player.
      */
     public void add(Player player) {
@@ -179,6 +183,7 @@ public class Region {
 
     /**
      * Adds an npc to this region.
+     *
      * @param npc The npc.
      */
     public void add(NPC npc) {
@@ -187,6 +192,7 @@ public class Region {
 
     /**
      * Removes an NPC from this region.
+     *
      * @param npc The NPC.
      */
     public void remove(NPC npc) {
@@ -199,6 +205,7 @@ public class Region {
 
     /**
      * Removes a player from this region.
+     *
      * @param player The player.
      */
     public void remove(Player player) {
@@ -210,12 +217,13 @@ public class Region {
     /**
      * Checks if player is tolerated by enemies in this region
      */
-    public boolean isTolerated(Player player){
+    public boolean isTolerated(Player player) {
         return System.currentTimeMillis() - tolerances.getOrDefault(player.getUsername(), System.currentTimeMillis()) > TimeUnit.MINUTES.toMillis(10);
     }
 
     /**
      * Checks if the region is inactive, if so it will start the inactivity flagging.
+     *
      * @return {@code True} if the region is inactive.
      */
     public boolean checkInactive() {
@@ -224,6 +232,7 @@ public class Region {
 
     /**
      * Checks if the region is inactive.
+     *
      * @param runPulse If the pulse for flagging the region as inactive should be ran.
      * @return {@code True} if so.
      */
@@ -248,6 +257,7 @@ public class Region {
 
     /**
      * Checks if this region has the inactivity flagging pulse running.
+     *
      * @return {@code True} if so.
      */
     public boolean isPendingRemoval() {
@@ -290,6 +300,7 @@ public class Region {
 
     /**
      * Loads the flags for a region.
+     *
      * @param r The region.
      */
     public static void load(Region r) {
@@ -298,7 +309,8 @@ public class Region {
 
     /**
      * Loads the flags for a region.
-     * @param r The region.
+     *
+     * @param r     The region.
      * @param build if all objects in this region should be stored (rather than just the ones with options).
      */
     public static void load(Region r, boolean build) {
@@ -311,7 +323,7 @@ public class Region {
             int regionId = dynamic ? ((DynamicRegion) r).getRegionId() : r.getId();
             int regionX = regionId >> 8 & 0xFF;
             int regionY = regionId & 0xFF;
-            int mapscapeId = Cache.getIndexes()[5].getArchiveId("m" + regionX + "_"+ regionY);
+            int mapscapeId = Cache.getIndexes()[5].getArchiveId("m" + regionX + "_" + regionY);
 
             if (mapscapeId < 0 && !dynamic) {
                 r.setLoaded(true);
@@ -355,6 +367,7 @@ public class Region {
 
     /**
      * Unloads a region.
+     *
      * @param r The region.
      */
     public static boolean unload(Region r, boolean force) {
@@ -386,6 +399,7 @@ public class Region {
 
     /**
      * Checks if the region is being viewed by a player.
+     *
      * @return {@code True} if so.
      */
     public boolean isViewed() {
@@ -396,6 +410,7 @@ public class Region {
 
     /**
      * Increments the view amount.
+     *
      * @return The view amount after incrementing.
      */
     public int incrementViewAmount() {
@@ -406,6 +421,7 @@ public class Region {
 
     /**
      * Decrements the amount of viewers.
+     *
      * @return The view amount after decrementing.
      */
     public int decrementViewAmount() {
@@ -420,6 +436,7 @@ public class Region {
 
     /**
      * Gets the active.
+     *
      * @return The active.
      */
     public boolean isActive() {
@@ -428,9 +445,10 @@ public class Region {
 
     /**
      * Sets the active.
+     *
      * @param active The active to set.
      * @deprecated This should not be used, instead use the {@link #flagInactive()},
-     * 				{@link #flagActive()} & {@link #checkInactive()} methods to safely change the activity state.
+     * {@link #flagActive()} & {@link #checkInactive()} methods to safely change the activity state.
      */
     @Deprecated
     public void setActive(boolean active) {
@@ -439,6 +457,7 @@ public class Region {
 
     /**
      * Gets the region id.
+     *
      * @return The region id.
      */
     public int getId() {
@@ -447,6 +466,7 @@ public class Region {
 
     /**
      * Gets the real region id (this returns the copied region id for dynamic regions).
+     *
      * @return The region  id.
      */
     public int getRegionId() {
@@ -455,6 +475,7 @@ public class Region {
 
     /**
      * Gets the x.
+     *
      * @return The x.
      */
     public int getX() {
@@ -463,6 +484,7 @@ public class Region {
 
     /**
      * Gets the y.
+     *
      * @return The y.
      */
     public int getY() {
@@ -471,6 +493,7 @@ public class Region {
 
     /**
      * Gets the planes.
+     *
      * @return The planes.
      */
     public RegionPlane[] getPlanes() {
@@ -486,6 +509,7 @@ public class Region {
 
     /**
      * Gets the region-wide music track
+     *
      * @return The music entry
      */
     public MusicEntry getMusic() {
@@ -494,6 +518,7 @@ public class Region {
 
     /**
      * Gets the regionZones.
+     *
      * @return The regionZones.
      */
     public List<RegionZone> getRegionZones() {
@@ -502,6 +527,7 @@ public class Region {
 
     /**
      * Gets the musicZones.
+     *
      * @return The musicZones.
      */
     public List<MusicZone> getMusicZones() {
@@ -510,6 +536,7 @@ public class Region {
 
     /**
      * Gets the object count.
+     *
      * @return The object count.
      */
     public int getObjectCount() {
@@ -518,6 +545,7 @@ public class Region {
 
     /**
      * Sets the object count.
+     *
      * @param objectCount The object count.
      */
     public void setObjectCount(int objectCount) {
@@ -526,6 +554,7 @@ public class Region {
 
     /**
      * Gets the hasFlags.
+     *
      * @return The hasFlags.
      */
     public boolean isHasFlags() {
@@ -534,6 +563,7 @@ public class Region {
 
     /**
      * Sets the hasFlags.
+     *
      * @param hasFlags The hasFlags to set.
      */
     public void setHasFlags(boolean hasFlags) {
@@ -542,6 +572,7 @@ public class Region {
 
     /**
      * Sets the region time out duration.
+     *
      * @param ticks The amount of ticks before the region is flagged as inactive.
      */
     public void setRegionTimeOut(int ticks) {
@@ -550,6 +581,7 @@ public class Region {
 
     /**
      * Gets the loaded.
+     *
      * @return The loaded.
      */
     public boolean isLoaded() {
@@ -558,6 +590,7 @@ public class Region {
 
     /**
      * Sets the loaded.
+     *
      * @param loaded The loaded to set.
      */
     public void setLoaded(boolean loaded) {
@@ -566,6 +599,7 @@ public class Region {
 
     /**
      * Sets the viewAmount.
+     *
      * @param viewAmount The viewAmount to set.
      */
     public void setViewAmount(int viewAmount) {
@@ -574,6 +608,7 @@ public class Region {
 
     /**
      * Gets the build.
+     *
      * @return the build
      */
     public boolean isBuild() {
@@ -582,6 +617,7 @@ public class Region {
 
     /**
      * Sets the build.
+     *
      * @param build the build to set.
      */
     public void setBuild(boolean build) {
@@ -590,6 +626,7 @@ public class Region {
 
     /**
      * Gets the updateAllPlanes value.
+     *
      * @return The updateAllPlanes.
      */
     public boolean isUpdateAllPlanes() {
@@ -598,6 +635,7 @@ public class Region {
 
     /**
      * Sets the updateAllPlanes value.
+     *
      * @param updateAllPlanes The updateAllPlanes to set.
      */
     public void setUpdateAllPlanes(boolean updateAllPlanes) {

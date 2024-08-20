@@ -56,6 +56,7 @@ public final class DuplicationLog extends MessageLog {
 
     /**
      * Gets the probability of duping (scale from 0 - 3).
+     *
      * @return The probability (where 3 is very likely and 0 is very unlikely).
      */
     public int getProbability() {
@@ -72,6 +73,7 @@ public final class DuplicationLog extends MessageLog {
     /**
      * Checks if the player's actions should be logged (to find cause of
      * duping).
+     *
      * @return {@code True} if so.
      */
     public boolean isLoggingFlagged() {
@@ -80,6 +82,7 @@ public final class DuplicationLog extends MessageLog {
 
     /**
      * Adds a flag.
+     *
      * @param flag The flag to add.
      */
     public void flag(int flag) {
@@ -91,6 +94,7 @@ public final class DuplicationLog extends MessageLog {
 
     /**
      * Gets the flag.
+     *
      * @return The flag.
      */
     public int getFlag() {
@@ -99,6 +103,7 @@ public final class DuplicationLog extends MessageLog {
 
     /**
      * Gets the lastIncreaseFlag.
+     *
      * @return The lastIncreaseFlag.
      */
     public long getLastIncreaseFlag() {
@@ -107,6 +112,7 @@ public final class DuplicationLog extends MessageLog {
 
     /**
      * Sets the lastIncreaseFlag.
+     *
      * @param lastIncreaseFlag The lastIncreaseFlag to set.
      */
     public void setLastIncreaseFlag(long lastIncreaseFlag) {

@@ -77,9 +77,10 @@ public enum Direction {
 
     /**
      * Constructs a new {@code Direction} {@code Object}.
-     * @param stepX The x-offset to move a step.
-     * @param stepY The y-offset to move a step.
-     * @param value The direction value.
+     *
+     * @param stepX     The x-offset to move a step.
+     * @param stepY     The y-offset to move a step.
+     * @param value     The direction value.
      * @param traversal The traversal flags.
      */
     Direction(int stepX, int stepY, int value, int... traversal) {
@@ -91,6 +92,7 @@ public enum Direction {
 
     /**
      * Gets the direction.
+     *
      * @param rotation The int value.
      * @return The direction.
      */
@@ -106,6 +108,7 @@ public enum Direction {
     /**
      * Gets the walk point for a direction. <br> The point will be the offset to
      * the location the node is facing.
+     *
      * @param direction The direction.
      * @return The point.
      */
@@ -115,8 +118,9 @@ public enum Direction {
 
     /**
      * Gets the direction.
+     *
      * @param location The start location.
-     * @param l The end location.
+     * @param l        The end location.
      * @return The direction.
      */
     public static Direction getDirection(Location location, Location l) {
@@ -125,6 +129,7 @@ public enum Direction {
 
     /**
      * Gets the direction for movement.
+     *
      * @param diffX The difference between 2 x-coordinates.
      * @param diffY The difference between 2 y-coordinates.
      * @return The direction.
@@ -153,8 +158,9 @@ public enum Direction {
 
     /**
      * Gets the direction for the given walking flag.
+     *
      * @param walkingFlag The walking flag.
-     * @param rotation The rotation.
+     * @param rotation    The rotation.
      * @return The direction, or null if the walk flag was 0.
      */
     public static Direction forWalkFlag(int walkingFlag, int rotation) {
@@ -180,6 +186,7 @@ public enum Direction {
 
     /**
      * Gets the opposite dir.
+     *
      * @return the direction.
      */
     public Direction getOpposite() {
@@ -188,8 +195,9 @@ public enum Direction {
 
     /**
      * Gets the most logical direction.
+     *
      * @param location The start location.
-     * @param l The end location.
+     * @param l        The end location.
      * @return The most logical direction.
      */
     public static Direction getLogicalDirection(Location location, Location l) {
@@ -209,6 +217,7 @@ public enum Direction {
 
     /**
      * Method used to go to clue the anme.
+     *
      * @param direction the direction.
      * @return the name.
      */
@@ -218,6 +227,7 @@ public enum Direction {
 
     /**
      * Method used to get the direction to an integer.
+     *
      * @return the integer.
      */
     public int toInteger() {
@@ -226,6 +236,7 @@ public enum Direction {
 
     /**
      * Gets the stepX.
+     *
      * @return The stepX.
      */
     public int getStepX() {
@@ -234,6 +245,7 @@ public enum Direction {
 
     /**
      * Gets the stepY.
+     *
      * @return The stepY.
      */
     public int getStepY() {
@@ -242,6 +254,7 @@ public enum Direction {
 
     /**
      * Checks if traversal is permitted for this direction.
+     *
      * @param l The location.
      * @return {@code True} if so.
      */
@@ -259,18 +272,43 @@ public enum Direction {
         int dx, dy;
         boolean ret = true;
         for (int f : traversal) {
-            switch(f) {
-                case 0x12c0120: dx = 0; dy = 1; break; // north
-                case 0x12c0180: dx = 1; dy = 0; break; // east
-                case 0x12c01e0: dx = 1; dy = 1; break; // northeast
-                case 0x12c0102: dx = 0; dy = -1; break; // south
-                case 0x12c0183: dx = 1; dy = -1; break; // southeast
-                case 0x12c0108: dx = -1; dy = 0; break; // west
-                case 0x12c010e: dx = -1; dy = -1; break; // southwest
-                case 0x12c0138: dx = -1; dy = 1; break; // northwest
-                default: return false;
+            switch (f) {
+                case 0x12c0120:
+                    dx = 0;
+                    dy = 1;
+                    break; // north
+                case 0x12c0180:
+                    dx = 1;
+                    dy = 0;
+                    break; // east
+                case 0x12c01e0:
+                    dx = 1;
+                    dy = 1;
+                    break; // northeast
+                case 0x12c0102:
+                    dx = 0;
+                    dy = -1;
+                    break; // south
+                case 0x12c0183:
+                    dx = 1;
+                    dy = -1;
+                    break; // southeast
+                case 0x12c0108:
+                    dx = -1;
+                    dy = 0;
+                    break; // west
+                case 0x12c010e:
+                    dx = -1;
+                    dy = -1;
+                    break; // southwest
+                case 0x12c0138:
+                    dx = -1;
+                    dy = 1;
+                    break; // northwest
+                default:
+                    return false;
             }
-            int flag = clipMaskSupplier.getClippingFlag(z, x+dx, y+dy);
+            int flag = clipMaskSupplier.getClippingFlag(z, x + dx, y + dy);
             if ((flag & f) != 0) {
                 ret = false;
             }
@@ -280,6 +318,7 @@ public enum Direction {
 
     /**
      * Sets the traversal.
+     *
      * @param traversal The traversal to set.
      */
     private void setTraversal(int[] traversal) {

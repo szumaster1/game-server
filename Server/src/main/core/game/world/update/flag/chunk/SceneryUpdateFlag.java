@@ -24,6 +24,7 @@ public class SceneryUpdateFlag extends UpdateFlag<Object> {
 
     /**
      * Constructs a new {@code ObjectUpdateFlag} {@code Object}.
+     *
      * @param object The object to update.
      * @param remove If we should remove the object.
      */

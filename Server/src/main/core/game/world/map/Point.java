@@ -38,6 +38,7 @@ public final class Point {
 
     /**
      * Constructs a new {@code Point} {@code Object}.
+     *
      * @param x The x-coordinate.
      * @param y The y-coordinate.
      */
@@ -47,8 +48,9 @@ public final class Point {
 
     /**
      * Constructs a new {@code Point} {@code Object}.
-     * @param x The x-coordinate.
-     * @param y The y-coordinate.
+     *
+     * @param x         The x-coordinate.
+     * @param y         The y-coordinate.
      * @param direction The direction.
      */
     public Point(int x, int y, Direction direction) {
@@ -57,11 +59,12 @@ public final class Point {
 
     /**
      * Constructs a new {@code Point} {@code Object}.
-     * @param x The x-coordinate.
-     * @param y The y-coordinate.
+     *
+     * @param x         The x-coordinate.
+     * @param y         The y-coordinate.
      * @param direction The direction.
-     * @param diffX The difference x between previous and current point.
-     * @param diffY The difference y between previous and current point.
+     * @param diffX     The difference x between previous and current point.
+     * @param diffY     The difference y between previous and current point.
      */
     public Point(int x, int y, Direction direction, int diffX, int diffY) {
         this.x = x;
@@ -73,11 +76,12 @@ public final class Point {
 
     /**
      * Constructs a new {@code Point} {@code Object}.
-     * @param x The x-coordinate.
-     * @param y The y-coordinate.
-     * @param direction The direction.
-     * @param diffX The difference x between previous and current point.
-     * @param diffY The difference y between previous and current point.
+     *
+     * @param x           The x-coordinate.
+     * @param y           The y-coordinate.
+     * @param direction   The direction.
+     * @param diffX       The difference x between previous and current point.
+     * @param diffY       The difference y between previous and current point.
      * @param runDisabled If running is disabled for this walking point.
      */
     public Point(int x, int y, Direction direction, int diffX, int diffY, boolean runDisabled) {
@@ -87,6 +91,7 @@ public final class Point {
 
     /**
      * Gets the x.
+     *
      * @return The x.
      */
     public int getX() {
@@ -95,6 +100,7 @@ public final class Point {
 
     /**
      * Gets the y.
+     *
      * @return The y.
      */
     public int getY() {
@@ -103,6 +109,7 @@ public final class Point {
 
     /**
      * Gets the direction.
+     *
      * @return The direction.
      */
     public Direction getDirection() {
@@ -111,6 +118,7 @@ public final class Point {
 
     /**
      * Gets the diffX.
+     *
      * @return The diffX.
      */
     public int getDiffX() {
@@ -119,6 +127,7 @@ public final class Point {
 
     /**
      * Gets the diffY.
+     *
      * @return The diffY.
      */
     public int getDiffY() {
@@ -127,6 +136,7 @@ public final class Point {
 
     /**
      * Gets the runDisabled.
+     *
      * @return The runDisabled.
      */
     public boolean isRunDisabled() {
@@ -135,6 +145,7 @@ public final class Point {
 
     /**
      * Sets the runDisabled.
+     *
      * @param runDisabled The runDisabled to set.
      */
     public void setRunDisabled(boolean runDisabled) {

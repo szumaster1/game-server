@@ -14,7 +14,8 @@ public enum MapDistance {
     /**
      * The sound packet sending distance.
      */
-    SOUND(5), ;
+    SOUND(5),
+    ;
 
     /**
      * The distance.
@@ -23,6 +24,7 @@ public enum MapDistance {
 
     /**
      * Constructs a new {@code MapDistance} {@code Object}.
+     *
      * @param distance The distance (in tiles).
      */
     private MapDistance(int distance) {
@@ -31,6 +33,7 @@ public enum MapDistance {
 
     /**
      * Gets the distance.
+     *
      * @return the distance.
      */
     public int getDistance() {

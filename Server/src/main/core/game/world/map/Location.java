@@ -35,6 +35,7 @@ public final class Location extends Node {
 
     /**
      * Constructs a new {@code Location} {@code Object}.
+     *
      * @param x The x-coordinate.
      * @param y The y-coordinate.
      * @param z The z-coordinate.
@@ -52,6 +53,7 @@ public final class Location extends Node {
 
     /**
      * Constructs a new {@code Location} {@code Object}
+     *
      * @param x The x-coordinate.
      * @param y The y-coordinate.
      */
@@ -61,11 +63,12 @@ public final class Location extends Node {
 
     /**
      * Constructs a new {@code Location} {@code Object}.
-     * @param x The x-coordinate.
-     * @param y The y coordinate.
-     * @param z The z-coordinate.
+     *
+     * @param x          The x-coordinate.
+     * @param y          The y coordinate.
+     * @param z          The z-coordinate.
      * @param randomizer The amount we should randomize the x and y coordinates
-     * with (x + random(randomizer), y + random(randomizer)).
+     *                   with (x + random(randomizer), y + random(randomizer)).
      */
     public Location(int x, int y, int z, int randomizer) {
         this(x + RandomFunction.getRandom(randomizer), y + RandomFunction.getRandom(randomizer), z);
@@ -73,6 +76,7 @@ public final class Location extends Node {
 
     /**
      * Construct a new Location.
+     *
      * @param x The x-coordinate.
      * @param y The y-coordinate.
      * @param z The z-coordinate.
@@ -88,6 +92,7 @@ public final class Location extends Node {
 
     /**
      * Creates a new instance of the given location.
+     *
      * @param location The given location.
      * @return The new instance.
      */
@@ -98,8 +103,9 @@ public final class Location extends Node {
     /**
      * Creates a location instance with coordinates being the difference between
      * {@code other} & {@code location}.
+     *
      * @param location The first location.
-     * @param other The other location.
+     * @param other    The other location.
      * @return The delta location.
      */
     public static Location getDelta(Location location, Location other) {
@@ -108,8 +114,9 @@ public final class Location extends Node {
 
     /**
      * Gets a random location near the main location.
-     * @param main The main location.
-     * @param radius The radius.
+     *
+     * @param main      The main location.
+     * @param radius    The radius.
      * @param reachable If the locations should be able to reach eachother.
      * @return The location.
      */
@@ -137,6 +144,7 @@ public final class Location extends Node {
     /**
      * Checks if this location is right next to the node (assuming the node is
      * size 1x1).
+     *
      * @param node The node to check.
      * @return {@code True} if this location is 1 tile north, west, south or
      * east of the node location.
@@ -154,6 +162,7 @@ public final class Location extends Node {
 
     /**
      * Gets the region id.
+     *
      * @return The region id.
      */
     public int getRegionId() {
@@ -162,6 +171,7 @@ public final class Location extends Node {
 
     /**
      * Compares the users region with the one given
+     *
      * @return True if user is in given region
      */
     public boolean isInRegion(int region) {
@@ -170,6 +180,7 @@ public final class Location extends Node {
 
     /**
      * Gets the location incremented by the given coordinates.
+     *
      * @param dir The direction to transform this location.
      * @return The location.
      */
@@ -179,7 +190,8 @@ public final class Location extends Node {
 
     /**
      * Gets the location incremented by the given coordinates.
-     * @param dir The direction to transform this location.
+     *
+     * @param dir   The direction to transform this location.
      * @param steps The amount of steps to move in this direction.
      * @return The location.
      */
@@ -189,6 +201,7 @@ public final class Location extends Node {
 
     /**
      * Gets the location incremented by the given coordinates.
+     *
      * @param l incremental location
      * @return The location.
      */
@@ -198,9 +211,10 @@ public final class Location extends Node {
 
     /**
      * Gets the location incremented by the given coordinates.
+     *
      * @param diffX The x-difference.
      * @param diffY The y-difference.
-     * @param z The height difference.
+     * @param z     The height difference.
      * @return The location.
      */
     public Location transform(int diffX, int diffY, int z) {
@@ -209,6 +223,7 @@ public final class Location extends Node {
 
     /**
      * Checks if the other location is within viewing distance.
+     *
      * @param other The other location.
      * @return If you're within the other distance.
      */
@@ -218,8 +233,9 @@ public final class Location extends Node {
 
     /**
      * Returns if a player is within a specified distance.
+     *
      * @param other The other location.
-     * @param dist The amount of distance.
+     * @param dist  The amount of distance.
      * @return If you're within the other distance.
      */
     public boolean withinDistance(Location other, int dist) {
@@ -229,14 +245,15 @@ public final class Location extends Node {
 
         int a = (other.x - x);
         int b = (other.y - y);
-        double product = Math.sqrt((a*a) + (b*b));
+        double product = Math.sqrt((a * a) + (b * b));
         return product <= dist;
     }
 
     /**
      * Returns if a player is within a specified distance using max norm distance.
+     *
      * @param other The other location.
-     * @param dist The amount of distance.
+     * @param dist  The amount of distance.
      * @return If you're within the other distance.
      */
     public boolean withinMaxnormDistance(Location other, int dist) {
@@ -252,6 +269,7 @@ public final class Location extends Node {
 
     /**
      * Returns the distance between you and the other.
+     *
      * @param other The other location.
      * @return The amount of distance between you and other.
      */
@@ -263,7 +281,8 @@ public final class Location extends Node {
 
     /**
      * Returns the distance between the first and the second specified distance.
-     * @param first The first location.
+     *
+     * @param first  The first location.
      * @param second The other location.
      * @return The amount of distance between first and other.
      */
@@ -279,14 +298,14 @@ public final class Location extends Node {
     public ArrayList<Location> getSurroundingTiles() {
         ArrayList<Location> locs = new ArrayList<>();
 
-        locs.add(transform(-1,-1,0));//SW
-        locs.add(transform(0,-1,0)); //S
-        locs.add(transform(1,-1,0)); //SE
-        locs.add(transform(1,0,0)); //E
-        locs.add(transform(1,1,0)); //NE
-        locs.add(transform(0,1,0)); //N
-        locs.add(transform(-1,1,0));//NW
-        locs.add(transform(-1,0,0));//W
+        locs.add(transform(-1, -1, 0));//SW
+        locs.add(transform(0, -1, 0)); //S
+        locs.add(transform(1, -1, 0)); //SE
+        locs.add(transform(1, 0, 0)); //E
+        locs.add(transform(1, 1, 0)); //NE
+        locs.add(transform(0, 1, 0)); //N
+        locs.add(transform(-1, 1, 0));//NW
+        locs.add(transform(-1, 0, 0));//W
 
         return locs;
     }
@@ -306,20 +325,21 @@ public final class Location extends Node {
      */
     public ArrayList<Location> get3x3Tiles() {
         ArrayList<Location> locs = new ArrayList<>();
-        locs.add(transform(0,0,0)); //Center
-        locs.add(transform(0,1,0)); //N
-        locs.add(transform(1,1,0)); //NE
-        locs.add(transform(1,0,0)); //E
-        locs.add(transform(1,-1,0)); //SE
-        locs.add(transform(0,-1,0)); //S
-        locs.add(transform(-1,-1,0));//SW
-        locs.add(transform(-1,0,0));//W
-        locs.add(transform(-1,1,0));//NW
+        locs.add(transform(0, 0, 0)); //Center
+        locs.add(transform(0, 1, 0)); //N
+        locs.add(transform(1, 1, 0)); //NE
+        locs.add(transform(1, 0, 0)); //E
+        locs.add(transform(1, -1, 0)); //SE
+        locs.add(transform(0, -1, 0)); //S
+        locs.add(transform(-1, -1, 0));//SW
+        locs.add(transform(-1, 0, 0));//W
+        locs.add(transform(-1, 1, 0));//NW
         return locs;
     }
 
     /**
      * Gets the x position on the region chunk.
+     *
      * @return The x position on the region chunk.
      */
     public int getChunkOffsetX() {
@@ -330,6 +350,7 @@ public final class Location extends Node {
 
     /**
      * Gets the y position on the region chunk.
+     *
      * @return The y position on the region chunk.
      */
     public int getChunkOffsetY() {
@@ -340,6 +361,7 @@ public final class Location extends Node {
 
     /**
      * Gets the base location for the chunk this location is in.
+     *
      * @return The base location.
      */
     public Location getChunkBase() {
@@ -348,6 +370,7 @@ public final class Location extends Node {
 
     /**
      * Gets the region x-coordinate.
+     *
      * @return The region x-coordinate.
      */
     public int getRegionX() {
@@ -356,6 +379,7 @@ public final class Location extends Node {
 
     /**
      * Gets the region y-coordinate.
+     *
      * @return The region y-coordinate.
      */
     public int getRegionY() {
@@ -364,6 +388,7 @@ public final class Location extends Node {
 
     /**
      * Gets the local x-coordinate on the current region in [0, 64).
+     *
      * @return The local x-coordinate.
      */
     public int getLocalX() {
@@ -372,6 +397,7 @@ public final class Location extends Node {
 
     /**
      * Gets the local y-coordinate on the current region in [0, 64).
+     *
      * @return The local y-coordinate.
      */
     public int getLocalY() {
@@ -380,6 +406,7 @@ public final class Location extends Node {
 
     /**
      * Gets the scene x-coordinate in [48, 55] (note that 104/2 = 52).
+     *
      * @return The local x-coordinate.
      */
     public int getSceneX() {
@@ -388,6 +415,7 @@ public final class Location extends Node {
 
     /**
      * Gets the local y-coordinate in [48, 55] (note that 104/2 = 52).
+     *
      * @return The local y-coordinate.
      */
     public int getSceneY() {
@@ -396,6 +424,7 @@ public final class Location extends Node {
 
     /**
      * Gets the local x-coordinate.
+     *
      * @param loc The location containing the regional coordinates.
      * @return The local x-coordinate.
      */
@@ -405,6 +434,7 @@ public final class Location extends Node {
 
     /**
      * Gets the local y-coordinate.
+     *
      * @param loc The location containing the regional coordinates.
      * @return The local y-coordinate.
      */
@@ -414,6 +444,7 @@ public final class Location extends Node {
 
     /**
      * Gets the chunk's x-coordinate (0-7).
+     *
      * @return The x in the (8x8) region.
      */
     public int getChunkX() {
@@ -422,6 +453,7 @@ public final class Location extends Node {
 
     /**
      * Gets the chunk's y-coordinate (0-7).
+     *
      * @return The y in the (8x8) region.
      */
     public int getChunkY() {
@@ -439,6 +471,7 @@ public final class Location extends Node {
 
     /**
      * Checks if these coordinates equal this location.
+     *
      * @param x the x.
      * @param y the y.
      * @param z the x.
@@ -470,6 +503,7 @@ public final class Location extends Node {
 
     /**
      * Gets the x.
+     *
      * @return The x.
      */
     public int getX() {
@@ -478,6 +512,7 @@ public final class Location extends Node {
 
     /**
      * Sets the x.
+     *
      * @param x The x to set.
      */
     public void setX(int x) {
@@ -486,6 +521,7 @@ public final class Location extends Node {
 
     /**
      * Gets the y.
+     *
      * @return The y.
      */
     public int getY() {
@@ -494,6 +530,7 @@ public final class Location extends Node {
 
     /**
      * Sets the y.
+     *
      * @param y The y to set.
      */
     public void setY(int y) {
@@ -502,6 +539,7 @@ public final class Location extends Node {
 
     /**
      * Gets the z.
+     *
      * @return The z.
      */
     public int getZ() {
@@ -510,6 +548,7 @@ public final class Location extends Node {
 
     /**
      * Sets the z.
+     *
      * @param z The z to set.
      */
     public void setZ(int z) {
@@ -557,7 +596,7 @@ public final class Location extends Node {
         return Direction.valueOf(sb.toString());
     }
 
-    public Location transform (Vector vector) {
+    public Location transform(Vector vector) {
         return Location.create(this.x + (int) Math.floor(vector.getX()), this.y + (int) Math.floor(vector.getY()));
     }
 }

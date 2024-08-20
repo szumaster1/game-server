@@ -63,6 +63,7 @@ public enum CommandSet {
 
     /**
      * Checks if the player can use this set.
+     *
      * @param player the player.
      */
     public boolean validate(final Player player) {
@@ -71,8 +72,9 @@ public enum CommandSet {
 
     /**
      * Interprets and incoming command by dispatching it to it's plugins.
-     * @param player the player.
-     * @param name the name.
+     *
+     * @param player    the player.
+     * @param name      the name.
      * @param arguments the arguments.
      * @return <code>True</code> if the command was interpreted.
      */
@@ -100,6 +102,7 @@ public enum CommandSet {
 
     /**
      * Gets the list of plugins of this command set.
+     *
      * @return the plugins of this set.
      */
     public List<CommandPlugin> getPlugins() {

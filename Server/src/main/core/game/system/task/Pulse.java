@@ -3,8 +3,7 @@ package core.game.system.task;
 import core.game.node.Node;
 
 /**
- * Represents a pulse object (a task executed once every 600ms on the
- * MajorUpdateWorker thread).
+ * Represents a pulse object (a task executed once every 600ms on the MajorUpdateWorker thread).
  * @author Emperor
  */
 public abstract class Pulse implements Runnable {
@@ -38,6 +37,7 @@ public abstract class Pulse implements Runnable {
 
     /**
      * Constructs a new {@code Pulse} object.
+     *
      * @param delay The delay.
      */
     public Pulse(int delay) {
@@ -46,7 +46,8 @@ public abstract class Pulse implements Runnable {
 
     /**
      * Constructs a new {@code Pulse} object.
-     * @param delay The delay.
+     *
+     * @param delay  The delay.
      * @param checks The nodes that have to be active for the pulse to continue.
      */
     public Pulse(int delay, Node... checks) {
@@ -56,13 +57,15 @@ public abstract class Pulse implements Runnable {
 
     @Override
     public void run() {
-        if(update()){
+        if (update()) {
             //GameWorld.TASKS.remove(this);
         }
     }
 
-    /**s
+    /**
+     * s
      * Called when the world pulses, once every 600ms.
+     *
      * @return {@code True} if this {@code Pulse} is finished and can be removed,
      * {@code false} if not.
      */
@@ -81,7 +84,7 @@ public abstract class Pulse implements Runnable {
                     stop();
                     return true;
                 }
-            } catch (Exception e){
+            } catch (Exception e) {
                 e.printStackTrace();
                 stop();
                 return true;
@@ -93,6 +96,7 @@ public abstract class Pulse implements Runnable {
 
     /**
      * Checks if one of the node checks is inactive.
+     *
      * @return {@code True} if so.
      */
     public boolean hasInactiveNode() {
@@ -110,6 +114,7 @@ public abstract class Pulse implements Runnable {
 
     /**
      * Called after the delay has passed.
+     *
      * @return {@code True} if the pulse has finished and should be removed.
      */
     public abstract boolean pulse();
@@ -117,6 +122,7 @@ public abstract class Pulse implements Runnable {
     /**
      * Checks if this pulse should be terminated so the new pulse (represented
      * in string format) can run.
+     *
      * @param pulse The pulse to run in string format.
      * @return {@code True} if this pulse should be removed (default).
      */
@@ -126,8 +132,9 @@ public abstract class Pulse implements Runnable {
 
     /**
      * Adds a node check.
+     *
      * @param index The index.
-     * @param n The node.
+     * @param n     The node.
      */
     public void addNodeCheck(int index, Node n) {
         checks[index] = n;
@@ -135,6 +142,7 @@ public abstract class Pulse implements Runnable {
 
     /**
      * Gets a node check.
+     *
      * @param index The index.
      * @return The node.
      */
@@ -165,6 +173,7 @@ public abstract class Pulse implements Runnable {
 
     /**
      * Checks if the pulse is still running.
+     *
      * @return {@code True} if the pulse is still running.
      */
     public boolean isRunning() {
@@ -173,6 +182,7 @@ public abstract class Pulse implements Runnable {
 
     /**
      * Gets the delay of this {@code Pulse}.
+     *
      * @return The delay.
      */
     public int getDelay() {
@@ -181,6 +191,7 @@ public abstract class Pulse implements Runnable {
 
     /**
      * Sets the delay.
+     *
      * @param delay The delay.
      */
     public void setDelay(int delay) {
@@ -189,6 +200,7 @@ public abstract class Pulse implements Runnable {
 
     /**
      * Sets the amount of ticks passed.
+     *
      * @param ticks The amount of ticks passed in this pulse.
      */
     public void setTicksPassed(int ticks) {
@@ -197,6 +209,7 @@ public abstract class Pulse implements Runnable {
 
     /**
      * Gets the amount of ticks passed.
+     *
      * @return The amount of ticks passed so far.
      */
     public int getTicksPassed() {

@@ -3,8 +3,7 @@ package core.game.system.task;
 import core.game.node.Node;
 
 /**
- * Represents "Node pulse", which is used to execute methods with node
- * parameters.
+ * Represents "Node pulse", which is used to execute methods with node parameters.
  * @author Emperor
  */
 public abstract class NodeTask {
@@ -28,6 +27,7 @@ public abstract class NodeTask {
 
     /**
      * Constructs a new {@code NodeTask} {@Code Object}
+     *
      * @param ticks The ticks.
      */
     public NodeTask(int ticks) {
@@ -36,8 +36,9 @@ public abstract class NodeTask {
 
     /**
      * Called when the pulse starts.
+     *
      * @param node The base node.
-     * @param n The other nodes.
+     * @param n    The other nodes.
      */
     public void start(Node node, Node... n) {
 
@@ -45,8 +46,9 @@ public abstract class NodeTask {
 
     /**
      * Runs the task.
+     *
      * @param node The base node.
-     * @param n The other nodes.
+     * @param n    The other nodes.
      * @return {@code True} if the pulse (if this is used in a pulse) should
      * stop.
      */
@@ -54,8 +56,9 @@ public abstract class NodeTask {
 
     /**
      * Called when the pulse is stopped.
+     *
      * @param node The base node.
-     * @param n The other nodes.
+     * @param n    The other nodes.
      */
     public void stop(Node node, Node... n) {
 
@@ -63,9 +66,10 @@ public abstract class NodeTask {
 
     /**
      * Checks if the node task pulse should be removed for a duplicate.
-     * @param s The command string.
+     *
+     * @param s    The command string.
      * @param node The base node.
-     * @param n The other nodes.
+     * @param n    The other nodes.
      */
     public boolean removeFor(String s, Node node, Node... n) {
         return true;
@@ -73,8 +77,9 @@ public abstract class NodeTask {
 
     /**
      * Schedules the node task.
+     *
      * @param node The base node.
-     * @param n The other nodes.
+     * @param n    The other nodes.
      * @return The pulse used for this task.
      */
     public Pulse schedule(final Node node, final Node... n) {
@@ -108,6 +113,7 @@ public abstract class NodeTask {
 
     /**
      * Gets the Pulse for this Task
+     *
      * @return the Pulse
      */
     public Pulse getPulse() {
@@ -116,6 +122,7 @@ public abstract class NodeTask {
 
     /**
      * Gets the ticks.
+     *
      * @return the ticks.
      */
     public int getTicks() {

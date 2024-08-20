@@ -31,8 +31,9 @@ public class HitMark {
 
     /**
      * Constructs a new {@code HitMark} {@code Object}.
+     *
      * @param damage The amount of damage.
-     * @param type The hit type;
+     * @param type   The hit type;
      * @param entity The entity.
      */
     public HitMark(int damage, int type, Entity entity) {
@@ -50,6 +51,7 @@ public class HitMark {
 
     /**
      * Gets the damage.
+     *
      * @return The damage.
      */
     public int getDamage() {
@@ -58,6 +60,7 @@ public class HitMark {
 
     /**
      * Gets the type.
+     *
      * @return The type.
      */
     public int getType() {
@@ -73,6 +76,7 @@ public class HitMark {
 
     /**
      * Gets the lifepoints.
+     *
      * @return The lifepoints.
      */
     public int getLifepoints() {
@@ -81,6 +85,7 @@ public class HitMark {
 
     /**
      * Sets the lifepoints.
+     *
      * @param lifepoints The lifepoints to set.
      */
     public void setLifepoints(int lifepoints) {

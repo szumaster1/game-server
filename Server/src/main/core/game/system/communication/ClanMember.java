@@ -13,6 +13,7 @@ public final class ClanMember {
 
     /**
      * Constructs a new {@code ClanMember} {@code Object}.
+     *
      * @param rank The clan rank.
      */
     public ClanMember(ClanRank rank) {
@@ -21,6 +22,7 @@ public final class ClanMember {
 
     /**
      * Gets the rank.
+     *
      * @return The rank.
      */
     public ClanRank getRank() {
@@ -29,6 +31,7 @@ public final class ClanMember {
 
     /**
      * Sets the rank.
+     *
      * @param rank The rank to set.
      */
     public void setRank(ClanRank rank) {

@@ -14,6 +14,7 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import static core.api.ContentAPIKt.*;
 
 /**
@@ -74,10 +75,11 @@ public class Scenery extends Node {
 
     /**
      * Constructs a new scenery.
+     *
      * @param id The object id.
-     * @param x The object x-coordinate.
-     * @param y The object y-coordinate.
-     * @param z The object z-coordinate.
+     * @param x  The object x-coordinate.
+     * @param y  The object y-coordinate.
+     * @param z  The object z-coordinate.
      */
     public Scenery(int id, int x, int y, int z) {
         this(id, Location.create(x, y, z), 10, 0);
@@ -85,7 +87,8 @@ public class Scenery extends Node {
 
     /**
      * Constructs a new scenery.
-     * @param id The object id.
+     *
+     * @param id       The object id.
      * @param location The object's location.
      */
     public Scenery(int id, Location location) {
@@ -94,7 +97,8 @@ public class Scenery extends Node {
 
     /**
      * Constructs a new scenery.
-     * @param id The object id.
+     *
+     * @param id       The object id.
      * @param location The object's location.
      * @param rotation The object's rotation.
      */
@@ -108,11 +112,12 @@ public class Scenery extends Node {
 
     /**
      * Constructs a new {@code GameObject} {@code Object}.
-     * @param id The object id.
-     * @param x The x-coordinate.
-     * @param y The y-coordinate.
-     * @param z The z-coordinate.
-     * @param type The object type.
+     *
+     * @param id       The object id.
+     * @param x        The x-coordinate.
+     * @param y        The y-coordinate.
+     * @param z        The z-coordinate.
+     * @param type     The object type.
      * @param rotation The rotation.
      */
     public Scenery(int id, int x, int y, int z, int type, int rotation) {
@@ -121,8 +126,9 @@ public class Scenery extends Node {
 
     /**
      * Constructs a new {@code GameObject} {@code Object}.
-     * @param id The object id.
-     * @param type The object type.
+     *
+     * @param id       The object id.
+     * @param type     The object type.
      * @param rotation The rotation.
      */
     public Scenery(int id, int type, int rotation) {
@@ -131,9 +137,10 @@ public class Scenery extends Node {
 
     /**
      * Constructs a new {@code GameObject} {@code Object}.
-     * @param id The object id.
+     *
+     * @param id       The object id.
      * @param location The location.
-     * @param type The object type.
+     * @param type     The object type.
      * @param rotation The rotation.
      */
     public Scenery(int id, Location location, int type, int rotation) {
@@ -171,10 +178,14 @@ public class Scenery extends Node {
     /**
      * Called when an object is removed.
      */
-    public void remove() {};
+    public void remove() {
+    }
+
+    ;
 
     /**
      * Gets the current x-size.
+     *
      * @return The current size.
      */
     public int getSizeX() {
@@ -186,6 +197,7 @@ public class Scenery extends Node {
 
     /**
      * Gets the current y-size.
+     *
      * @return The current size.
      */
     public int getSizeY() {
@@ -205,6 +217,7 @@ public class Scenery extends Node {
 
     /**
      * Gets the child object shown for the current player.
+     *
      * @param player The player.
      * @return The child object.
      */
@@ -222,8 +235,9 @@ public class Scenery extends Node {
 
     /**
      * Sets the child object index.
+     *
      * @param player The player.
-     * @param index The child object.
+     * @param index  The child object.
      */
     public void setChildIndex(Player player, int index) {
         SceneryDefinition def = getDefinition();
@@ -242,6 +256,7 @@ public class Scenery extends Node {
 
     /**
      * Gets a transformed object of this object.
+     *
      * @param id The new object id.
      * @return The constructed scenery.
      */
@@ -251,7 +266,8 @@ public class Scenery extends Node {
 
     /**
      * Gets a transformed object of this object.
-     * @param id The new object id.
+     *
+     * @param id       The new object id.
      * @param rotation The new rotation.
      * @return The constructed scenery.
      */
@@ -261,7 +277,8 @@ public class Scenery extends Node {
 
     /**
      * Gets a transformed object of this object.
-     * @param id The new object id.
+     *
+     * @param id       The new object id.
      * @param rotation The new rotation.
      * @param location The new location.
      * @return The constructed scenery.
@@ -272,9 +289,10 @@ public class Scenery extends Node {
 
     /**
      * Gets a transformed object of this object.
-     * @param id The new object id.
+     *
+     * @param id       The new object id.
      * @param rotation The new rotation.
-     * @param type The object type.
+     * @param type     The object type.
      * @return The constructed scenery.
      */
     public Scenery transform(int id, int rotation, int type) {
@@ -283,6 +301,7 @@ public class Scenery extends Node {
 
     /**
      * If the object is permanent.
+     *
      * @return {@code True} if so.
      */
     public boolean isPermanent() {
@@ -291,6 +310,7 @@ public class Scenery extends Node {
 
     /**
      * Gets this scenery as Constructed object.
+     *
      * @return The {@link Constructed} object.
      */
     public Constructed asConstructed() {
@@ -332,6 +352,7 @@ public class Scenery extends Node {
 
     /**
      * Gets the definition.
+     *
      * @return The definition.
      */
     public SceneryDefinition getDefinition() {
@@ -359,6 +380,7 @@ public class Scenery extends Node {
 
     /**
      * Gets the restorePulse.
+     *
      * @return The restorePulse.
      */
     public Pulse getRestorePulse() {
@@ -367,6 +389,7 @@ public class Scenery extends Node {
 
     /**
      * Sets the restorePulse.
+     *
      * @param restorePulse The restorePulse to set.
      */
     public void setRestorePulse(Pulse restorePulse) {
@@ -375,6 +398,7 @@ public class Scenery extends Node {
 
     /**
      * Gets the charge.
+     *
      * @return The charge.
      */
     public int getCharge() {
@@ -383,6 +407,7 @@ public class Scenery extends Node {
 
     /**
      * Sets the charge.
+     *
      * @param charge The charge to set.
      */
     public void setCharge(int charge) {
@@ -391,6 +416,7 @@ public class Scenery extends Node {
 
     /**
      * Gets the destructionPulse.
+     *
      * @return The destructionPulse.
      */
     public Pulse getDestructionPulse() {
@@ -399,6 +425,7 @@ public class Scenery extends Node {
 
     /**
      * Sets the destructionPulse.
+     *
      * @param destructionPulse The destructionPulse to set.
      */
     public void setDestructionPulse(Pulse destructionPulse) {
@@ -414,6 +441,7 @@ public class Scenery extends Node {
 
     /**
      * Gets the childs.
+     *
      * @return The childs.
      */
     public Scenery[] getChilds() {
@@ -422,6 +450,7 @@ public class Scenery extends Node {
 
     /**
      * Gets the wrapper.
+     *
      * @return The wrapper.
      */
     public Scenery getWrapper() {
@@ -433,6 +462,7 @@ public class Scenery extends Node {
 
     /**
      * Sets the wrapper.
+     *
      * @param wrapper The wrapper to set.
      */
     public void setWrapper(Scenery wrapper) {

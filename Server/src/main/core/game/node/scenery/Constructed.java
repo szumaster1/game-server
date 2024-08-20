@@ -21,10 +21,11 @@ public class Constructed extends Scenery {
 
     /**
      * Constructs a new Constructed object.
+     *
      * @param id The object id.
-     * @param x The object x-coordinate.
-     * @param y The object y-coordinate.
-     * @param z The object z-coordinate.
+     * @param x  The object x-coordinate.
+     * @param y  The object y-coordinate.
+     * @param z  The object z-coordinate.
      */
     public Constructed(int id, int x, int y, int z) {
         super(id, Location.create(x, y, z), 10, 0);
@@ -32,7 +33,8 @@ public class Constructed extends Scenery {
 
     /**
      * Constructs a new Constructed object.
-     * @param id The object id.
+     *
+     * @param id       The object id.
      * @param location The object's location.
      */
     public Constructed(int id, Location location) {
@@ -41,7 +43,8 @@ public class Constructed extends Scenery {
 
     /**
      * Constructs a new Constructed object.
-     * @param id The object id.
+     *
+     * @param id       The object id.
      * @param location The object's location.
      * @param rotation The object's rotation.
      */
@@ -51,11 +54,12 @@ public class Constructed extends Scenery {
 
     /**
      * Constructs a new {@code Constructed} {@code Object}.
-     * @param id The object id.
-     * @param x The x-coordinate.
-     * @param y The y-coordinate.
-     * @param z The z-coordinate.
-     * @param type The object type.
+     *
+     * @param id       The object id.
+     * @param x        The x-coordinate.
+     * @param y        The y-coordinate.
+     * @param z        The z-coordinate.
+     * @param type     The object type.
      * @param rotation The rotation.
      */
     public Constructed(int id, int x, int y, int z, int type, int rotation) {
@@ -64,8 +68,9 @@ public class Constructed extends Scenery {
 
     /**
      * Constructs a new {@code Constructed} {@code Object}.
-     * @param id The object id.
-     * @param type The object type.
+     *
+     * @param id       The object id.
+     * @param type     The object type.
      * @param rotation The rotation.
      */
     public Constructed(int id, int type, int rotation) {
@@ -74,9 +79,10 @@ public class Constructed extends Scenery {
 
     /**
      * Constructs a new {@code Constructed} {@code Object}.
-     * @param id The object id.
+     *
+     * @param id       The object id.
      * @param location The location.
-     * @param type The object type.
+     * @param type     The object type.
      * @param rotation The rotation.
      */
     public Constructed(int id, Location location, int type, int rotation) {
@@ -95,6 +101,7 @@ public class Constructed extends Scenery {
 
     /**
      * Gets the replaced.
+     *
      * @return The replaced.
      */
     public Scenery getReplaced() {
@@ -103,6 +110,7 @@ public class Constructed extends Scenery {
 
     /**
      * Sets the replaced.
+     *
      * @param replaced The replaced to set.
      */
     public void setReplaced(Scenery replaced) {

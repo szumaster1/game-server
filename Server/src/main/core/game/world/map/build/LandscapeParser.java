@@ -7,21 +7,22 @@ import core.game.world.map.Location;
 import core.game.world.map.Region;
 import core.game.world.map.RegionManager;
 import core.game.world.map.RegionPlane;
+import core.game.system.config.ObjectConfigParser;
 
 import java.nio.ByteBuffer;
 
 /**
- * Landscape parser.
+ * A utility class used for parsing landscapes.
+ * @author Emperor
  */
 public final class LandscapeParser {
 
     /**
-     * Parse.
+     * Parses the landscape.
      *
-     * @param r            the r
-     * @param mapscape     the mapscape
-     * @param buffer       the buffer
-     * @param storeObjects the store objects
+     * @param r            The region.
+     * @param mapscape     The mapscape data.
+     * @param storeObjects If all objects should be stored (rather than just the objects with options).
      */
     public static void parse(Region r, byte[][][] mapscape, ByteBuffer buffer, boolean storeObjects) {
         int objectId = -1;
@@ -61,19 +62,19 @@ public final class LandscapeParser {
     }
 
     /**
-     * Add scenery.
+     * Adds a scenery temporarily.
      *
-     * @param object the object
+     * @param object The object to add.
      */
     public static void addScenery(Scenery object) {
         addScenery(object, false);
     }
 
     /**
-     * Add scenery.
+     * Adds a scenery.
      *
-     * @param object    the object
-     * @param landscape the landscape
+     * @param object    The object to add.
+     * @param landscape If the object should be added permanent.
      */
     public static void addScenery(Scenery object, boolean landscape) {
         Location l = object.getLocation();
@@ -81,14 +82,12 @@ public final class LandscapeParser {
     }
 
     /**
-     * Flag scenery.
+     * Flags a scenery on the plane's clipping flags.
      *
-     * @param plane        the plane
-     * @param localX       the local x
-     * @param localY       the local y
-     * @param object       the object
-     * @param landscape    the landscape
-     * @param storeObjects the store objects
+     * @param plane        The plane.
+     * @param object       The object.
+     * @param landscape    If we are adding this scenery permanent.
+     * @param storeObjects If all objects should be stored (rather than just the objects with options).
      */
     public static void flagScenery(RegionPlane plane, int localX, int localY, Scenery object, boolean landscape, boolean storeObjects) {
         Region.load(plane.getRegion());
@@ -99,22 +98,14 @@ public final class LandscapeParser {
             addPlaneObject(plane, object, localX, localY, landscape, storeObjects);
         }
 
-        if (!applyClippingFlagsFor(plane, localX, localY, object)) return;
+        if (!applyClippingFlagsFor(plane, localX, localY, object))
+            return;
 
         if (!storeObjects && !add && (!def.getChildObject(null).getName().equals("null"))) {
             addPlaneObject(plane, object, localX, localY, landscape, false);
         }
     }
 
-    /**
-     * Apply clipping flags for boolean.
-     *
-     * @param plane  the plane
-     * @param localX the local x
-     * @param localY the local y
-     * @param object the object
-     * @return the boolean
-     */
     public static boolean applyClippingFlagsFor(RegionPlane plane, int localX, int localY, Scenery object) {
         SceneryDefinition def = object.getDefinition();
         int sizeX;
@@ -157,6 +148,15 @@ public final class LandscapeParser {
         return true;
     }
 
+    /**
+     * Adds an object to the region plane.
+     *
+     * @param plane     The region plane.
+     * @param object    The object to add.
+     * @param localX    The local x-coordinate.
+     * @param localY    The local y-coordinate.
+     * @param landscape The landscape.
+     */
     private static void addPlaneObject(RegionPlane plane, Scenery object, int localX, int localY, boolean landscape, boolean storeAll) {
         if (landscape && !storeAll) {
             Scenery current = plane.getObjects()[localX][localY];
@@ -168,10 +168,10 @@ public final class LandscapeParser {
     }
 
     /**
-     * Remove scenery scenery.
+     * Removes a scenery.
      *
-     * @param object the object
-     * @return the scenery
+     * @param object The object.
+     * @return The removed scenery.
      */
     public static Scenery removeScenery(Scenery object) {
         if (!object.isRenderable()) {

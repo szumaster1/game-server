@@ -89,6 +89,7 @@ public final class ClanRepository {
 
     /**
      * Constructs a new {@code ClanRepository} {@code Object}.
+     *
      * @param owner The owner of the clan.
      */
     public ClanRepository(String owner) {
@@ -97,6 +98,7 @@ public final class ClanRepository {
 
     /**
      * Enters the clan chat.
+     *
      * @param player The player.
      * @return {@code True} if the player successfully entered the clan chat.
      */
@@ -147,7 +149,7 @@ public final class ClanRepository {
         if (WorldCommunicator.isEnabled()) {
             return;
         }
-        for (Iterator<ClanEntry> it = players.iterator(); it.hasNext();) {
+        for (Iterator<ClanEntry> it = players.iterator(); it.hasNext(); ) {
             ClanEntry entry = it.next();
             Player player = entry.getPlayer();
             boolean remove = disable;
@@ -168,6 +170,7 @@ public final class ClanRepository {
 
     /**
      * Checks if a player is banned.
+     *
      * @param name The player's name.
      * @return {@code True} if so.
      */
@@ -184,7 +187,8 @@ public final class ClanRepository {
 
     /**
      * Sends a message to all players in the chat.
-     * @param player The player sending the message.
+     *
+     * @param player  The player sending the message.
      * @param message The message to send.
      */
     public void message(Player player, String message) {
@@ -200,7 +204,7 @@ public final class ClanRepository {
             }
         }
         PlayerMonitor.logChat(player, "clan", message);
-        for (Iterator<ClanEntry> it = players.iterator(); it.hasNext();) {
+        for (Iterator<ClanEntry> it = players.iterator(); it.hasNext(); ) {
             ClanEntry entry = it.next();
             Player p = entry.getPlayer();
             if (p != null) {
@@ -211,6 +215,7 @@ public final class ClanRepository {
 
     /**
      * Kicks a player from this chat.
+     *
      * @param player the player.
      * @param target the victim.
      */
@@ -242,6 +247,7 @@ public final class ClanRepository {
 
     /**
      * Represents the method to leave a clan.
+     *
      * @param player the player.
      * @param remove If the player should be removed from the list.
      */
@@ -251,6 +257,7 @@ public final class ClanRepository {
 
     /**
      * Represents the method to leave a clan.
+     *
      * @param player the player.
      * @param remove If the player should be removed from the list.
      */
@@ -277,6 +284,7 @@ public final class ClanRepository {
 
     /**
      * Ranks a member of this chat.
+     *
      * @param name The name of the member.
      * @param rank The rank to set.
      */
@@ -296,7 +304,7 @@ public final class ClanRepository {
      * Updates the clan chat for all players in this clan.
      */
     public void update() {
-        for (Iterator<ClanEntry> it = players.iterator(); it.hasNext();) {
+        for (Iterator<ClanEntry> it = players.iterator(); it.hasNext(); ) {
             ClanEntry e = it.next();
             if (e.getWorldId() == GameWorld.getSettings().getWorldId() && e.getPlayer() != null) {
                 PacketRepository.send(UpdateClanChat.class, new ClanContext(e.getPlayer(), this, false));
@@ -306,6 +314,7 @@ public final class ClanRepository {
 
     /**
      * Gets the clan rank for the given clan entry.
+     *
      * @param entry The clan entry.
      * @return The rank.
      */
@@ -322,6 +331,7 @@ public final class ClanRepository {
 
     /**
      * Gets the rank of the player.
+     *
      * @param player The player.
      * @return The clan rank.
      */
@@ -341,6 +351,7 @@ public final class ClanRepository {
 
     /**
      * Opens the clan settings for the player.
+     *
      * @param player The player.
      */
     public static void openSettings(Player player) {
@@ -353,6 +364,7 @@ public final class ClanRepository {
 
     /**
      * Updates the clan settings for the player.
+     *
      * @param player The player.
      */
     public void updateSettings(Player player) {
@@ -367,6 +379,7 @@ public final class ClanRepository {
 
     /**
      * Loads the clan data.
+     *
      * @param owner The owner of the clan to load.
      * @return The clan data.
      */
@@ -376,7 +389,8 @@ public final class ClanRepository {
 
     /**
      * Loads the clan data.
-     * @param owner The owner of the clan to load.
+     *
+     * @param owner  The owner of the clan to load.
      * @param create If the clan should be created if it doesn't exist.
      * @return The clan data.
      */
@@ -414,6 +428,7 @@ public final class ClanRepository {
 
     /**
      * Checks if this clan chat is the default clan chat.
+     *
      * @return {@code True} if so.
      */
     public boolean isDefault() {
@@ -422,6 +437,7 @@ public final class ClanRepository {
 
     /**
      * Gets the default clan chat.
+     *
      * @return The default clan chat.
      */
     public static ClanRepository getDefault() {
@@ -438,6 +454,7 @@ public final class ClanRepository {
 
     /**
      * Gets the currently loaded clans.
+     *
      * @return The clans.
      */
     public static Map<String, ClanRepository> getClans() {
@@ -446,6 +463,7 @@ public final class ClanRepository {
 
     /**
      * Gets the list of players currently in the clan.
+     *
      * @return The list of players.
      */
     public List<ClanEntry> getPlayers() {
@@ -454,6 +472,7 @@ public final class ClanRepository {
 
     /**
      * Gets the joinRequirement.
+     *
      * @return The joinRequirement.
      */
     public ClanRank getJoinRequirement() {
@@ -462,6 +481,7 @@ public final class ClanRepository {
 
     /**
      * Sets the joinRequirement.
+     *
      * @param joinRequirement The joinRequirement to set.
      */
     public void setJoinRequirement(ClanRank joinRequirement) {
@@ -471,6 +491,7 @@ public final class ClanRepository {
 
     /**
      * Gets the messageRequirement.
+     *
      * @return The messageRequirement.
      */
     public ClanRank getMessageRequirement() {
@@ -479,6 +500,7 @@ public final class ClanRepository {
 
     /**
      * Sets the messageRequirement.
+     *
      * @param messageRequirement The messageRequirement to set.
      */
     public void setMessageRequirement(ClanRank messageRequirement) {
@@ -487,6 +509,7 @@ public final class ClanRepository {
 
     /**
      * Gets the kickRequirement.
+     *
      * @return The kickRequirement.
      */
     public ClanRank getKickRequirement() {
@@ -495,6 +518,7 @@ public final class ClanRepository {
 
     /**
      * Sets the kickRequirement.
+     *
      * @param kickRequirement The kickRequirement to set.
      */
     public void setKickRequirement(ClanRank kickRequirement) {
@@ -504,6 +528,7 @@ public final class ClanRepository {
 
     /**
      * Gets the lootRequirement.
+     *
      * @return The lootRequirement.
      */
     public ClanRank getLootRequirement() {
@@ -512,6 +537,7 @@ public final class ClanRepository {
 
     /**
      * Gets the banned.
+     *
      * @return the banned
      */
     public Map<String, Long> getBanned() {
@@ -520,6 +546,7 @@ public final class ClanRepository {
 
     /**
      * Sets the lootRequirement.
+     *
      * @param lootRequirement The lootRequirement to set.
      */
     public void setLootRequirement(ClanRank lootRequirement) {
@@ -528,6 +555,7 @@ public final class ClanRepository {
 
     /**
      * Gets the owner.
+     *
      * @return The owner.
      */
     public String getOwner() {
@@ -536,6 +564,7 @@ public final class ClanRepository {
 
     /**
      * Gets the name.
+     *
      * @return The name.
      */
     public String getName() {
@@ -544,6 +573,7 @@ public final class ClanRepository {
 
     /**
      * Sets the name.
+     *
      * @param name The name to set.
      */
     public void setName(String name) {
@@ -552,6 +582,7 @@ public final class ClanRepository {
 
     /**
      * Gets the members.
+     *
      * @return The members.
      */
     public Map<String, ClanRank> getRanks() {
@@ -560,6 +591,7 @@ public final class ClanRepository {
 
     /**
      * Gets the clanWar.
+     *
      * @return The clanWar.
      */
     public ActivityPlugin getClanWar() {
@@ -568,6 +600,7 @@ public final class ClanRepository {
 
     /**
      * Sets the clanWar.
+     *
      * @param clanWar The clanWar to set.
      */
     public void setClanWar(ActivityPlugin clanWar) {

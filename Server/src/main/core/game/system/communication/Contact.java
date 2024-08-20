@@ -23,6 +23,7 @@ public final class Contact {
 
     /**
      * Constructs a new {@code Contact} {@code Object}
+     *
      * @param username The username.
      */
     public Contact(String username) {
@@ -31,6 +32,7 @@ public final class Contact {
 
     /**
      * Gets the worldId.
+     *
      * @return the worldId
      */
     public int getWorldId() {
@@ -39,6 +41,7 @@ public final class Contact {
 
     /**
      * Sets the worldId.
+     *
      * @param worldId the worldId to set.
      */
     public void setWorldId(int worldId) {
@@ -47,6 +50,7 @@ public final class Contact {
 
     /**
      * Gets the rank.
+     *
      * @return the rank
      */
     public ClanRank getRank() {
@@ -55,6 +59,7 @@ public final class Contact {
 
     /**
      * Sets the rank.
+     *
      * @param rank the rank to set.
      */
     public void setRank(ClanRank rank) {
@@ -63,6 +68,7 @@ public final class Contact {
 
     /**
      * Gets the username.
+     *
      * @return the username
      */
     public String getUsername() {

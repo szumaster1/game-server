@@ -42,6 +42,7 @@ public class Animation {
 
     /**
      * Constructs a new {@code Animation} {@code Object}.
+     *
      * @param id The animation id.
      */
     public Animation(int id) {
@@ -50,6 +51,7 @@ public class Animation {
 
     /**
      * Constructs a new {@code Animation}.
+     *
      * @param id the id.
      * @return
      */
@@ -59,6 +61,7 @@ public class Animation {
 
     /**
      * Constructs a new {@code Animation} {@code Object}.
+     *
      * @param id The animation id.
      */
     public Animation(int id, Priority priority) {
@@ -67,7 +70,8 @@ public class Animation {
 
     /**
      * Constructs a new {@code Animation} {@code Object}.
-     * @param id The animation id.
+     *
+     * @param id    The animation id.
      * @param delay The animation delay.
      */
     public Animation(int id, int delay) {
@@ -76,7 +80,8 @@ public class Animation {
 
     /**
      * Constructs a new {@code Animation} {@code Object}.
-     * @param id The animation id.
+     *
+     * @param id    The animation id.
      * @param delay The animation delay.
      */
     public Animation(int id, int delay, Priority priority) {
@@ -87,6 +92,7 @@ public class Animation {
 
     /**
      * Gets the animation definitions of this animation.
+     *
      * @return The animation definitions.
      */
     public AnimationDefinition getDefinition() {
@@ -98,6 +104,7 @@ public class Animation {
 
     /**
      * The duration of the animation.
+     *
      * @return The duration in ticks.
      */
     public int getDuration() {
@@ -107,6 +114,7 @@ public class Animation {
 
     /**
      * Get the id.
+     *
      * @return the id
      */
     public int getId() {
@@ -115,6 +123,7 @@ public class Animation {
 
     /**
      * Get the delay.
+     *
      * @return the delay
      */
     public int getDelay() {
@@ -123,6 +132,7 @@ public class Animation {
 
     /**
      * Sets the id.
+     *
      * @param id
      */
     public void setId(int id) {
@@ -138,6 +148,7 @@ public class Animation {
 
     /**
      * Gets the object.
+     *
      * @return The object.
      */
     public Scenery getObject() {
@@ -146,6 +157,7 @@ public class Animation {
 
     /**
      * Sets the object.
+     *
      * @param object The object to set.
      */
     public void setObject(Scenery object) {
@@ -154,6 +166,7 @@ public class Animation {
 
     /**
      * Sets the priority.
+     *
      * @param priority The priority.
      */
     public void setPriority(Priority priority) {

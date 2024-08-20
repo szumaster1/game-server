@@ -38,6 +38,7 @@ public final class SQLColumn {
 
     /**
      * Constructs a new {@code SQLColumn} {@code Object}.
+     *
      * @param name The column name.
      * @param type The data type.
      */
@@ -47,8 +48,9 @@ public final class SQLColumn {
 
     /**
      * Constructs a new {@code SQLColumn} {@code Object}.
-     * @param name The column name.
-     * @param type The data type.
+     *
+     * @param name  The column name.
+     * @param type  The data type.
      * @param parse If the column should be parsed.
      */
     public SQLColumn(String name, Class<?> type, boolean parse) {
@@ -57,11 +59,12 @@ public final class SQLColumn {
 
     /**
      * Constructs a new {@code SQLColumn} {@code Object}.
-     * @param name The column name.
-     * @param type The data type.
+     *
+     * @param name        The column name.
+     * @param type        The data type.
      * @param neverUpdate If this column should never be updated in the
-     * database.
-     * @param parse If the column should be parsed.
+     *                    database.
+     * @param parse       If the column should be parsed.
      */
     public SQLColumn(String name, Class<?> type, boolean neverUpdate, boolean parse) {
         this.name = name;
@@ -72,6 +75,7 @@ public final class SQLColumn {
 
     /**
      * Gets the name.
+     *
      * @return The name.
      */
     public String getName() {
@@ -80,6 +84,7 @@ public final class SQLColumn {
 
     /**
      * Updates the value.
+     *
      * @param value The value.
      */
     public void updateValue(Object value) {
@@ -89,6 +94,7 @@ public final class SQLColumn {
 
     /**
      * Gets the value.
+     *
      * @return The value.
      */
     public Object getValue() {
@@ -97,6 +103,7 @@ public final class SQLColumn {
 
     /**
      * Sets the value.
+     *
      * @param value The value to set.
      */
     public void setValue(Object value) {
@@ -106,6 +113,7 @@ public final class SQLColumn {
 
     /**
      * Gets the changed.
+     *
      * @return The changed.
      */
     public boolean isChanged() {
@@ -114,6 +122,7 @@ public final class SQLColumn {
 
     /**
      * Sets the changed.
+     *
      * @param changed The changed to set.
      */
     public void setChanged(boolean changed) {
@@ -122,6 +131,7 @@ public final class SQLColumn {
 
     /**
      * Gets the type.
+     *
      * @return The type.
      */
     public Class<?> getType() {
@@ -130,6 +140,7 @@ public final class SQLColumn {
 
     /**
      * Gets the neverUpdate.
+     *
      * @return The neverUpdate.
      */
     public boolean isNeverUpdate() {
@@ -138,6 +149,7 @@ public final class SQLColumn {
 
     /**
      * Gets the parse.
+     *
      * @return the parse.
      */
     public boolean isParse() {
@@ -146,6 +158,7 @@ public final class SQLColumn {
 
     /**
      * Sets the parse.
+     *
      * @param parse the parse to set
      */
     public void setParse(boolean parse) {

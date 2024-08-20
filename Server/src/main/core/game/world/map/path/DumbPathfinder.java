@@ -92,7 +92,8 @@ public final class DumbPathfinder extends Pathfinder {
 
     /**
      * Checks traversal for a size 1 entity.
-     * @param points The points list.
+     *
+     * @param points     The points list.
      * @param directions The directions.
      */
     private void checkSingleTraversal(List<Point> points, ClipMaskSupplier clipMaskSupplier, Direction... directions) {
@@ -176,7 +177,8 @@ public final class DumbPathfinder extends Pathfinder {
 
     /**
      * Checks traversal for a size 1 entity.
-     * @param points The points list.
+     *
+     * @param points     The points list.
      * @param directions The directions.
      */
     private void checkDoubleTraversal(List<Point> points, ClipMaskSupplier clipMaskSupplier, Direction... directions) {
@@ -260,14 +262,16 @@ public final class DumbPathfinder extends Pathfinder {
 
     /**
      * Checks traversal for variable size entities.
-     * @param points The points list.
+     *
+     * @param points     The points list.
      * @param directions The directions to check.
-     * @param size The mover size.
+     * @param size       The mover size.
      */
     private void checkVariableTraversal(List<Point> points, Direction[] directions, int size, ClipMaskSupplier clipMaskSupplier) {
         for (Direction dir : directions) {
             found = true;
-            roar: switch (dir) {
+            roar:
+            switch (dir) {
                 case NORTH:
                     if ((clipMaskSupplier.getClippingFlag(z, x, y + size) & 0x12c0138) != 0 || (clipMaskSupplier.getClippingFlag(z, x + (size - 1), y + size) & 0x12c01e0) != 0) {
                         found = false;
@@ -393,6 +397,7 @@ public final class DumbPathfinder extends Pathfinder {
 
     /**
      * Gets the direction.
+     *
      * @param end The end direction.
      * @return The direction.
      */
@@ -401,24 +406,24 @@ public final class DumbPathfinder extends Pathfinder {
         int endY = end.getY();
         if (startX == endX) {
             if (startY > endY) {
-                return new Direction[] { Direction.SOUTH };
+                return new Direction[]{Direction.SOUTH};
             } else if (startY < endY) {
-                return new Direction[] { Direction.NORTH };
+                return new Direction[]{Direction.NORTH};
             }
         } else if (startY == endY) {
             if (startX > endX) {
-                return new Direction[] { Direction.WEST };
+                return new Direction[]{Direction.WEST};
             }
-            return new Direction[] { Direction.EAST };
+            return new Direction[]{Direction.EAST};
         } else {
             if (startX < endX && startY < endY) {
-                return new Direction[] { Direction.NORTH_EAST, Direction.EAST, Direction.NORTH };
+                return new Direction[]{Direction.NORTH_EAST, Direction.EAST, Direction.NORTH};
             } else if (startX < endX && startY > endY) {
-                return new Direction[] { Direction.SOUTH_EAST, Direction.EAST, Direction.SOUTH };
+                return new Direction[]{Direction.SOUTH_EAST, Direction.EAST, Direction.SOUTH};
             } else if (startX > endX && startY < endY) {
-                return new Direction[] { Direction.NORTH_WEST, Direction.WEST, Direction.NORTH };
+                return new Direction[]{Direction.NORTH_WEST, Direction.WEST, Direction.NORTH};
             } else if (startX > endX && startY > endY) {
-                return new Direction[] { Direction.SOUTH_WEST, Direction.WEST, Direction.SOUTH };
+                return new Direction[]{Direction.SOUTH_WEST, Direction.WEST, Direction.SOUTH};
             }
         }
         return new Direction[0];

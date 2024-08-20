@@ -43,6 +43,7 @@ public enum ZoneRestriction {
 
     /**
      * Gets the restriction flag.
+     *
      * @return The flag.
      */
     public int getFlag() {

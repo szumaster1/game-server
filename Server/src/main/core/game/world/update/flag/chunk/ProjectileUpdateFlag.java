@@ -15,6 +15,7 @@ public final class ProjectileUpdateFlag extends UpdateFlag<Projectile> {
 
     /**
      * Constructs a new {@code ProjectileUpdateFlag} {@code Object}.
+     *
      * @param projectile The projectile.
      */
     public ProjectileUpdateFlag(Projectile projectile) {

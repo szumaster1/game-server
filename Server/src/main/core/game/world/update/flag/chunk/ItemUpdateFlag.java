@@ -47,6 +47,7 @@ public final class ItemUpdateFlag extends UpdateFlag<Object> {
 
     /**
      * Constructs a new {@code ItemContext} {@code Object}.
+     *
      * @param item The ground item to update.
      * @param type The update type.
      */
@@ -56,6 +57,7 @@ public final class ItemUpdateFlag extends UpdateFlag<Object> {
 
     /**
      * Constructs a new {@code ItemContext} {@code Object}.
+     *
      * @param item The ground item to update.
      * @param type The update type.
      */
@@ -87,6 +89,7 @@ public final class ItemUpdateFlag extends UpdateFlag<Object> {
 
     /**
      * Checks if we're removing the ground item.
+     *
      * @return {@code True} if so.
      */
     public boolean isRemove() {
@@ -95,6 +98,7 @@ public final class ItemUpdateFlag extends UpdateFlag<Object> {
 
     /**
      * Checks if we're constructing the ground item.
+     *
      * @return {@code True} if so.
      */
     public boolean isConstruct() {
@@ -103,6 +107,7 @@ public final class ItemUpdateFlag extends UpdateFlag<Object> {
 
     /**
      * Checks if we're removing the ground item.
+     *
      * @return {@code True} if so.
      */
     public boolean isAmountUpdate() {

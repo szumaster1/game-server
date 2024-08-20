@@ -20,7 +20,8 @@ public final class RegionZone {
 
     /**
      * Constructs a new {@code RegionZone} {@code Object}.
-     * @param zone The map zone.
+     *
+     * @param zone    The map zone.
      * @param borders The borders.
      */
     public RegionZone(MapZone zone, ZoneBorders borders) {
@@ -30,6 +31,7 @@ public final class RegionZone {
 
     /**
      * Gets the borders.
+     *
      * @return The borders.
      */
     public ZoneBorders getBorders() {
@@ -38,6 +40,7 @@ public final class RegionZone {
 
     /**
      * Gets the zone.
+     *
      * @return The zone.
      */
     public MapZone getZone() {

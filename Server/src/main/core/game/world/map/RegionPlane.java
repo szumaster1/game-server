@@ -83,8 +83,9 @@ public final class RegionPlane {
 
     /**
      * Constructs a new {@code RegionPlane} {@code Object}.
+     *
      * @param region The region.
-     * @param plane The plane.
+     * @param plane  The plane.
      */
     public RegionPlane(Region region, int plane) {
         this.plane = plane;
@@ -102,14 +103,17 @@ public final class RegionPlane {
      * Called at the end of the update sequence, if the region is active.
      */
     public void pulse() {
-        Arrays.stream(chunks).forEach(regionChunks -> {Arrays.stream(regionChunks).filter(Objects::nonNull).forEach(RegionChunk::resetFlags);});
+        Arrays.stream(chunks).forEach(regionChunks -> {
+            Arrays.stream(regionChunks).filter(Objects::nonNull).forEach(RegionChunk::resetFlags);
+        });
     }
 
     /**
      * Adds a scenery.
-     * @param object The object to add.
-     * @param x The x-coordinate.
-     * @param y The y-coordinate.
+     *
+     * @param object    The object to add.
+     * @param x         The x-coordinate.
+     * @param y         The y-coordinate.
      * @param landscape If this object is added through landscape parsing.
      */
     public void add(Scenery object, int x, int y, boolean landscape) {
@@ -124,6 +128,7 @@ public final class RegionPlane {
 
     /**
      * Gets the region chunk.
+     *
      * @param chunkX The chunk base x-coordinate.
      * @param chunkY The chunk base y-coordinate.
      * @return The region chunk.
@@ -145,6 +150,7 @@ public final class RegionPlane {
 
     /**
      * Removes a scenery.
+     *
      * @param x The x-coordinate.
      * @param y The y-coordinate.
      */
@@ -154,8 +160,9 @@ public final class RegionPlane {
 
     /**
      * Removes a scenery.
-     * @param x The x-coordinate.
-     * @param y The y-coordinate.
+     *
+     * @param x        The x-coordinate.
+     * @param y        The y-coordinate.
      * @param objectId The object id.
      */
     public void remove(int x, int y, int objectId) {
@@ -176,8 +183,9 @@ public final class RegionPlane {
 
     /**
      * Sets an object on a chunk.
-     * @param x The regional x-coordinate.
-     * @param y The regional y-coordinate.
+     *
+     * @param x      The regional x-coordinate.
+     * @param y      The regional y-coordinate.
      * @param object The object to set.
      */
     private void setChunkObject(int x, int y, Scenery object) {
@@ -195,6 +203,7 @@ public final class RegionPlane {
 
     /**
      * Gets the scenerys.
+     *
      * @return The scenerys.
      */
     public Scenery[][] getObjects() {
@@ -235,6 +244,7 @@ public final class RegionPlane {
 
     /**
      * Adds an NPC to this region.
+     *
      * @param npc The NPC to add.
      */
     public void add(NPC npc) {
@@ -243,6 +253,7 @@ public final class RegionPlane {
 
     /**
      * Adds a player to this region.
+     *
      * @param player The player.
      */
     public void add(Player player) {
@@ -251,6 +262,7 @@ public final class RegionPlane {
 
     /**
      * Adds an item to this region.
+     *
      * @param item The item.
      */
     public void add(GroundItem item) {
@@ -271,6 +283,7 @@ public final class RegionPlane {
 
     /**
      * Removes an NPC from this region.
+     *
      * @param npc The NPC.
      */
     public void remove(NPC npc) {
@@ -279,6 +292,7 @@ public final class RegionPlane {
 
     /**
      * Removes a player from this region.
+     *
      * @param player The player.
      */
     public void remove(Player player) {
@@ -287,6 +301,7 @@ public final class RegionPlane {
 
     /**
      * Removes an item from this region.
+     *
      * @param item The ground item.
      */
     public void remove(GroundItem item) {
@@ -306,6 +321,7 @@ public final class RegionPlane {
 
     /**
      * Gets the region flags.
+     *
      * @return The flags.
      */
     public RegionFlags getFlags() {
@@ -314,6 +330,7 @@ public final class RegionPlane {
 
     /**
      * Gets the projectileFlags.
+     *
      * @return The projectileFlags.
      */
     public RegionFlags getProjectileFlags() {
@@ -322,21 +339,22 @@ public final class RegionPlane {
 
     /**
      * Gets the npcs.
+     *
      * @return The npcs.
      */
     public List<NPC> getNpcs() {
         return npcs;
     }
 
-    public List<Node> getEntities()
-    {
+    public List<Node> getEntities() {
         List<Node> entities = new ArrayList<>(npcs);
         Arrays.stream(getObjects()).forEach(o -> entities.addAll(Arrays.asList(o)));
-        return  entities;
+        return entities;
     }
 
     /**
      * Gets the players.
+     *
      * @return The players.
      */
     public List<Player> getPlayers() {
@@ -345,6 +363,7 @@ public final class RegionPlane {
 
     /**
      * Gets the plane.
+     *
      * @return The plane.
      */
     public int getPlane() {
@@ -353,6 +372,7 @@ public final class RegionPlane {
 
     /**
      * Gets the region.
+     *
      * @return The region.
      */
     public Region getRegion() {
@@ -361,6 +381,7 @@ public final class RegionPlane {
 
     /**
      * Gets an object from a region chunk.
+     *
      * @param x The region x-coordinate.
      * @param y The region y-coordinate.
      * @return The scenery.
@@ -371,8 +392,9 @@ public final class RegionPlane {
 
     /**
      * Gets an object from a region chunk.
-     * @param x The region x-coordinate.
-     * @param y The region y-coordinate.
+     *
+     * @param x        The region x-coordinate.
+     * @param y        The region y-coordinate.
      * @param objectId The object id.
      * @return The scenery.
      */
@@ -391,6 +413,7 @@ public final class RegionPlane {
 
     /**
      * Gets an object from a region chunk.
+     *
      * @param x The region x-coordinate.
      * @param y The region y-coordinate.
      * @return The scenery.
@@ -403,8 +426,9 @@ public final class RegionPlane {
 
     /**
      * Gets a ground item from this plane.
+     *
      * @param itemId The item id.
-     * @param l The location.
+     * @param l      The location.
      * @param player The player.
      * @return The item.
      */
@@ -426,6 +450,7 @@ public final class RegionPlane {
 
     /**
      * Gets the region chunks.
+     *
      * @return The chunks.
      */
     public RegionChunk[][] getChunks() {

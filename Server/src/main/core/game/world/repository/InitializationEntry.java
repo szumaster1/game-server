@@ -20,6 +20,7 @@ public class InitializationEntry {
 
     /**
      * Constructs a new {@code InitializationEntry} {@code Object}.
+     *
      * @param node The node.
      */
     public InitializationEntry(Node node) {
@@ -28,9 +29,10 @@ public class InitializationEntry {
 
     /**
      * Constructs a new {@code InitializationEntry} {@code Object}.
-     * @param node The node.
+     *
+     * @param node    The node.
      * @param removal If the node should be removed from the game, rather than
-     * added.
+     *                added.
      */
     public InitializationEntry(Node node, boolean removal) {
         this.node = node;
@@ -39,6 +41,7 @@ public class InitializationEntry {
 
     /**
      * Initializes the node.
+     *
      * @return The node instance.
      */
     public Node initialize() {
@@ -64,6 +67,7 @@ public class InitializationEntry {
 
     /**
      * Gets the node.
+     *
      * @return The node.
      */
     public Node getNode() {
@@ -72,6 +76,7 @@ public class InitializationEntry {
 
     /**
      * Gets the removal.
+     *
      * @return The removal.
      */
     public boolean isRemoval() {
@@ -80,6 +85,7 @@ public class InitializationEntry {
 
     /**
      * Sets the removal.
+     *
      * @param removal The removal to set.
      */
     public void setRemoval(boolean removal) {

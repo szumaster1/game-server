@@ -26,6 +26,7 @@ public class ClanEntry {
 
     /**
      * Constructs a new {@code ClanEntry} {@code Object}
+     *
      * @param player The player.
      */
     public ClanEntry(Player player) {
@@ -36,7 +37,8 @@ public class ClanEntry {
 
     /**
      * Constructs a new {@code ClanEntry} {@code Object}
-     * @param name The player's name.
+     *
+     * @param name    The player's name.
      * @param worldId The world id.
      */
     public ClanEntry(String name, int worldId) {
@@ -46,7 +48,7 @@ public class ClanEntry {
 
     @Override
     public boolean equals(Object o) {
-        if(o == null) return false;
+        if (o == null) return false;
         ClanEntry e = (ClanEntry) o;
         if (name != null && !name.equals(e.name)) {
             return false;
@@ -56,6 +58,7 @@ public class ClanEntry {
 
     /**
      * Gets the name.
+     *
      * @return the name
      */
     public String getName() {
@@ -64,6 +67,7 @@ public class ClanEntry {
 
     /**
      * Sets the player.
+     *
      * @param player The player.
      */
     public void setPlayer(Player player) {
@@ -72,6 +76,7 @@ public class ClanEntry {
 
     /**
      * Gets the player.
+     *
      * @return the player
      */
     public Player getPlayer() {
@@ -80,6 +85,7 @@ public class ClanEntry {
 
     /**
      * Gets the worldId.
+     *
      * @return the worldId
      */
     public int getWorldId() {
@@ -88,6 +94,7 @@ public class ClanEntry {
 
     /**
      * Sets the worldId.
+     *
      * @param worldId the worldId to set.
      */
     public void setWorldId(int worldId) {

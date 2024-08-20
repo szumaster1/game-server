@@ -34,7 +34,8 @@ public enum ZoneType {
     /**
      * Barbarian assault zone.
      */
-    BARBARIAN_ASSAULT(5), ;
+    BARBARIAN_ASSAULT(5),
+    ;
 
     /**
      * The zone id.
@@ -43,6 +44,7 @@ public enum ZoneType {
 
     /**
      * Constructs a new {@code ZoneType} {@code Object}.
+     *
      * @param id The zone id.
      */
     ZoneType(int id) {
@@ -51,6 +53,7 @@ public enum ZoneType {
 
     /**
      * Gets the id.
+     *
      * @return The id.
      */
     public int getId() {

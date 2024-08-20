@@ -16,6 +16,7 @@ public final class SQLTable {
 
     /**
      * Constructs a new {@code SQLTable} {@code Object}.
+     *
      * @param columns The columns.
      */
     public SQLTable(SQLColumn... columns) {
@@ -24,6 +25,7 @@ public final class SQLTable {
 
     /**
      * Gets the column for the given name.
+     *
      * @param name The column name.
      * @return The column.
      */
@@ -38,6 +40,7 @@ public final class SQLTable {
 
     /**
      * Gets the changed columns.
+     *
      * @return The columns.
      */
     public List<SQLColumn> getChanged() {
@@ -53,6 +56,7 @@ public final class SQLTable {
 
     /**
      * Gets the columns.
+     *
      * @return The columns.
      */
     public SQLColumn[] getColumns() {

@@ -27,6 +27,7 @@ public class Graphic {
 
     /**
      * Constructs a new {@code Graphics} {@code Object}.
+     *
      * @param id The graphics id.
      */
     public Graphic(int id) {
@@ -35,7 +36,8 @@ public class Graphic {
 
     /**
      * Constructs a new {@code Graphic} {@code Object}.
-     * @param id The graphics id.
+     *
+     * @param id     The graphics id.
      * @param height The graphics height.
      */
     public Graphic(int id, int height) {
@@ -44,9 +46,10 @@ public class Graphic {
 
     /**
      * Constructs a new {@code Graphic} {@code Object}.
-     * @param id The graphics id.
+     *
+     * @param id     The graphics id.
      * @param height The graphics height.
-     * @param delay The graphics delay.
+     * @param delay  The graphics delay.
      */
     public Graphic(int id, int height, int delay) {
         this.id = id;
@@ -56,6 +59,7 @@ public class Graphic {
 
     /**
      * Constructs a new graphic.
+     *
      * @param id The graphic id.
      * @return The graphic instance.
      */
@@ -65,7 +69,8 @@ public class Graphic {
 
     /**
      * Constructs a new graphic.
-     * @param id The graphic id.
+     *
+     * @param id     The graphic id.
      * @param height The graphic height.
      * @return The graphic instance.
      */
@@ -75,8 +80,9 @@ public class Graphic {
 
     /**
      * Sends a graphic on a location.
+     *
      * @param graphic The graphic.
-     * @param l The location.
+     * @param l       The location.
      */
     public static void send(Graphic graphic, Location l) {
         RegionManager.getRegionChunk(l).flag(new GraphicUpdateFlag(graphic, l));
@@ -84,6 +90,7 @@ public class Graphic {
 
     /**
      * Get the graphic id.
+     *
      * @return The graphic id.
      */
     public int getId() {
@@ -92,6 +99,7 @@ public class Graphic {
 
     /**
      * Get the graphic height.
+     *
      * @return The graphic height.
      */
     public int getHeight() {
@@ -100,6 +108,7 @@ public class Graphic {
 
     /**
      * Gets the delay.
+     *
      * @return The delay.
      */
     public int getDelay() {

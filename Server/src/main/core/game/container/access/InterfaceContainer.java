@@ -27,11 +27,11 @@ public class InterfaceContainer {
      * Generates a container/array of items in an interface positioned on the
      * child index.
      *
-     * @param player         , the player we generate this set for
-     * @param itemArray      , the container/array of items we want to display
-     * @param options        , the right-click options we want for the items
-     * @param interfaceIndex , the interface index
-     * @param childIndex     , the child index of the interface where we display the
+     * @param player         The player we generate this set for
+     * @param itemArray      The container/array of items we want to display
+     * @param options        The right-click options we want for the items
+     * @param interfaceIndex The interface index
+     * @param childIndex     The child index of the interface where we display the
      *                       items at.
      * @return The container key.
      */

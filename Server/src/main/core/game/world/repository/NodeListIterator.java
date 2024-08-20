@@ -7,9 +7,8 @@ import java.util.NoSuchElementException;
 
 /**
  * An implementation of an iterator for a node list.
- * @author Graham Edgecombe, Emperor
- *
  * @param <E> The type of node.
+ * @author Graham Edgecombe, Emperor
  */
 public class NodeListIterator<E extends Node> implements Iterator<E> {
 
@@ -40,6 +39,7 @@ public class NodeListIterator<E extends Node> implements Iterator<E> {
 
     /**
      * Creates an node list iterator.
+     *
      * @param nodeList The node list.
      */
     public NodeListIterator(NodeList<E> nodeList) {

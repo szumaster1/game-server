@@ -15,7 +15,12 @@ class GlobalChat : Commands {
 
     override fun defineCommands() {
 
-        define(name = "muteglobal", privilege = Privilege.STANDARD, usage = "", description = "Toggles global chat on or off.") { player, _ ->
+        define(
+            name = "muteglobal",
+            privilege = Privilege.STANDARD,
+            usage = "",
+            description = "Toggles global chat on or off."
+        ) { player, _ ->
             val original = getAttribute(player, ATTR_GLOBAL_MUTE, false)
             setAttribute(player, ATTR_GLOBAL_MUTE, !original)
             sendMessage(player, "Global chat is now ${if (original) "ON" else "OFF"}.")
