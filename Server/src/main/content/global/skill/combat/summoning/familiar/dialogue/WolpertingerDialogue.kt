@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Wolpertinger dialogue.
+ * Represents the Wolpertinger dialogue.
  */
 @Initializable
 class WolpertingerDialogue(player: Player? = null) : Dialogue(player) {

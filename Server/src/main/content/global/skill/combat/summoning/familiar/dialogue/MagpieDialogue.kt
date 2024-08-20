@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Magpie dialogue.
+ * Represents the Magpie dialogue.
  */
 @Initializable
 class MagpieDialogue(player: Player? = null) : Dialogue(player) {

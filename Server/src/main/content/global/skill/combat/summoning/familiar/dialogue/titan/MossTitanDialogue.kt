@@ -10,7 +10,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Moss titan dialogue.
+ * Represents the Moss titan dialogue.
  */
 @Initializable
 class MossTitanDialogue(player: Player? = null) : Dialogue(player) {

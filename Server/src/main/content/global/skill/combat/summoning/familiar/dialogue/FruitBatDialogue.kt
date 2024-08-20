@@ -11,7 +11,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Fruit bat dialogue.
+ * Represents the Fruit bat dialogue.
  */
 @Initializable
 class FruitBatDialogue(player: Player? = null) : Dialogue(player) {

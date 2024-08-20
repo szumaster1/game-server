@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Void ravager dialogue.
+ * Represents the Void ravager dialogue.
  */
 @Initializable
 class VoidRavagerDialogue(player: Player? = null) : Dialogue(player) {

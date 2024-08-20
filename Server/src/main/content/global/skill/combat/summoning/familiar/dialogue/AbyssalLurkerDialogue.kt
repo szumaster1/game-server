@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Abyssal lurker dialogue.
+ * Represents the Abyssal lurker dialogue.
  */
 @Initializable
 class AbyssalLurkerDialogue(player: Player? = null) : Dialogue(player) {

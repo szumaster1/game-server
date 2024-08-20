@@ -11,7 +11,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Praying mantis dialogue.
+ * Represents the Praying mantis dialogue.
  */
 @Initializable
 class PrayingMantisDialogue(player: Player? = null) : Dialogue(player) {

@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Hydra dialogue.
+ * Represents the Hydra dialogue.
  */
 @Initializable
 class HydraDialogue(player: Player? = null) : Dialogue(player) {

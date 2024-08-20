@@ -9,7 +9,7 @@ import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
 
 /**
- * Abyssal titan dialogue.
+ * Represents the Abyssal titan dialogue.
  */
 @Initializable
 class AbyssalTitanDialogue(player: Player? = null) : Dialogue(player) {

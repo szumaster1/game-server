@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Spirit tz kih dialogue.
+ * Represents the Spirit tz kih dialogue.
  */
 @Initializable
 class SpiritTzKihDialogue(player: Player? = null) : Dialogue(player) {

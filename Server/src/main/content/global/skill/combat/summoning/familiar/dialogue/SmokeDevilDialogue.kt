@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Smoke devil dialogue.
+ * Represents the Smoke devil dialogue.
  */
 @Initializable
 class SmokeDevilDialogue(player: Player? = null) : Dialogue(player) {

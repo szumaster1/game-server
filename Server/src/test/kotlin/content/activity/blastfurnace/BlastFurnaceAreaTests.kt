@@ -3,7 +3,7 @@ package content.activity.blastfurnace
 import TestUtils
 import content.minigame.blastfurnace.BlastFurnace
 import content.minigame.blastfurnace.BlastFurnaceListeners
-import content.minigame.blastfurnace.BlastConsts
+import content.minigame.blastfurnace.BlastUtils
 import core.ServerConstants
 import core.api.addItem
 import core.api.amountInInventory
@@ -13,34 +13,34 @@ import core.game.world.map.RegionManager
 import org.json.simple.JSONObject
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
-import org.rs09.consts.Items
+import core.api.consts.Items
 
 class BlastFurnaceAreaTests {
     @Test fun shouldBeAbleToEnterBfArea() {
         TestUtils.getMockPlayer("bf-enterable").use { p ->
             p.skills.setStaticLevel(Skills.SMITHING, 60)
             p.location = Location(2932, 10195, 0)
-            TestUtils.simulateInteraction(p, RegionManager.getObject(BlastConsts.STAIRLOC_ENTRANCE)!!, 0)
+            TestUtils.simulateInteraction(p, RegionManager.getObject(BlastUtils.STAIRLOC_ENTRANCE)!!, 0)
             TestUtils.advanceTicks(5, false)
-            Assertions.assertEquals(BlastConsts.ENTRANCE_LOC, p.location)
+            Assertions.assertEquals(BlastUtils.ENTRANCE_LOC, p.location)
         }
     }
 
     @Test fun shouldBeAbleToLeaveBfArea() {
         TestUtils.getMockPlayer("bf-leavable").use { p ->
-            p.location = BlastConsts.ENTRANCE_LOC
-            TestUtils.simulateInteraction(p, RegionManager.getObject(BlastConsts.STAIRLOC_EXIT)!!, 0)
+            p.location = BlastUtils.ENTRANCE_LOC
+            TestUtils.simulateInteraction(p, RegionManager.getObject(BlastUtils.STAIRLOC_EXIT)!!, 0)
             TestUtils.advanceTicks(5, false)
-            Assertions.assertEquals(BlastConsts.EXIT_LOC, p.location)
+            Assertions.assertEquals(BlastUtils.EXIT_LOC, p.location)
         }
     }
 
     @Test fun shouldNotBeAbleToEnterWithLessThan60Smithing() {
         TestUtils.getMockPlayer("bf-60smith").use { p ->
             p.location = Location(2932, 10195, 0)
-            TestUtils.simulateInteraction(p, RegionManager.getObject(BlastConsts.STAIRLOC_ENTRANCE)!!, 0)
+            TestUtils.simulateInteraction(p, RegionManager.getObject(BlastUtils.STAIRLOC_ENTRANCE)!!, 0)
             TestUtils.advanceTicks(5, false)
-            Assertions.assertNotEquals(BlastConsts.ENTRANCE_LOC, p.location)
+            Assertions.assertNotEquals(BlastUtils.ENTRANCE_LOC, p.location)
         }
     }
 
@@ -60,8 +60,8 @@ class BlastFurnaceAreaTests {
     @Test fun enterWithFeeShouldKickPlayerOutAfter10Minutes() {
         TestUtils.getMockPlayer("bf-fee-kickout").use { p ->
             BlastFurnace.enter(p, true)
-            TestUtils.advanceTicks(BlastConsts.FEE_ENTRANCE_DURATION + 2, false)
-            Assertions.assertNotEquals(BlastConsts.ENTRANCE_LOC, p.location)
+            TestUtils.advanceTicks(BlastUtils.FEE_ENTRANCE_DURATION + 2, false)
+            Assertions.assertNotEquals(BlastUtils.ENTRANCE_LOC, p.location)
         }
     }
 
@@ -69,20 +69,20 @@ class BlastFurnaceAreaTests {
         TestUtils.getMockPlayer("bf-fee-reentry").use { p ->
             BlastFurnace.enter(p, true)
             TestUtils.advanceTicks(2, false)
-            Assertions.assertEquals(BlastConsts.ENTRANCE_LOC, p.location)
-            TestUtils.simulateInteraction(p, RegionManager.getObject(BlastConsts.STAIRLOC_EXIT)!!, 0)
+            Assertions.assertEquals(BlastUtils.ENTRANCE_LOC, p.location)
+            TestUtils.simulateInteraction(p, RegionManager.getObject(BlastUtils.STAIRLOC_EXIT)!!, 0)
             TestUtils.advanceTicks(2, false)
-            Assertions.assertEquals(BlastConsts.EXIT_LOC, p.location)
-            TestUtils.simulateInteraction(p, RegionManager.getObject(BlastConsts.STAIRLOC_ENTRANCE)!!, 0)
+            Assertions.assertEquals(BlastUtils.EXIT_LOC, p.location)
+            TestUtils.simulateInteraction(p, RegionManager.getObject(BlastUtils.STAIRLOC_ENTRANCE)!!, 0)
             TestUtils.advanceTicks(2, false)
-            Assertions.assertEquals(BlastConsts.ENTRANCE_LOC, p.location)
+            Assertions.assertEquals(BlastUtils.ENTRANCE_LOC, p.location)
 
-            p.location = BlastConsts.EXIT_LOC
-            TestUtils.advanceTicks(BlastConsts.FEE_ENTRANCE_DURATION, false)
+            p.location = BlastUtils.EXIT_LOC
+            TestUtils.advanceTicks(BlastUtils.FEE_ENTRANCE_DURATION, false)
             //should not allow free reentry if timer has run out
-            TestUtils.simulateInteraction(p, RegionManager.getObject(BlastConsts.STAIRLOC_ENTRANCE)!!, 0)
+            TestUtils.simulateInteraction(p, RegionManager.getObject(BlastUtils.STAIRLOC_ENTRANCE)!!, 0)
             TestUtils.advanceTicks(2, false)
-            Assertions.assertEquals(BlastConsts.EXIT_LOC, p.location)
+            Assertions.assertEquals(BlastUtils.EXIT_LOC, p.location)
         }
     }
 
@@ -90,11 +90,11 @@ class BlastFurnaceAreaTests {
         TestUtils.getMockPlayer("bf-fee-timeout-notele-outside-bf").use { p ->
             BlastFurnace.enter(p, true)
             TestUtils.advanceTicks(2, false)
-            Assertions.assertEquals(BlastConsts.ENTRANCE_LOC, p.location)
+            Assertions.assertEquals(BlastUtils.ENTRANCE_LOC, p.location)
 
             p.location = ServerConstants.HOME_LOCATION
 
-            TestUtils.advanceTicks(BlastConsts.FEE_ENTRANCE_DURATION, false)
+            TestUtils.advanceTicks(BlastUtils.FEE_ENTRANCE_DURATION, false)
             Assertions.assertEquals(ServerConstants.HOME_LOCATION, p.location)
         }
     }
@@ -111,8 +111,8 @@ class BlastFurnaceAreaTests {
     @Test fun playerShouldNotBeAbleToPlaceMoreOreThanCanFitOnBelt() {
         TestUtils.getMockPlayer("bf-toomuchoreonbelt").use { p ->
             val cont = BlastFurnace.getOreContainer(p)
-            cont.addCoal(BlastConsts.COAL_LIMIT - 15)
-            cont.addOre(Items.IRON_ORE_440, BlastConsts.ORE_LIMIT - 13)
+            cont.addCoal(BlastUtils.COAL_LIMIT - 15)
+            cont.addOre(Items.IRON_ORE_440, BlastUtils.ORE_LIMIT - 13)
 
             addItem(p, Items.COAL_453, 15)
             addItem(p, Items.IRON_ORE_440, 13)
@@ -130,7 +130,7 @@ class BlastFurnaceAreaTests {
     @Test fun beltOreLimitsShouldAccountForCreatedBars() {
         TestUtils.getMockPlayer("bf-baraccountedfor").use { p ->
             val cont = BlastFurnace.getOreContainer(p)
-            cont.addOre(Items.IRON_ORE_440, BlastConsts.ORE_LIMIT - 15)
+            cont.addOre(Items.IRON_ORE_440, BlastUtils.ORE_LIMIT - 15)
             cont.convertToBars()
 
             addItem(p, Items.IRON_ORE_440, 20)

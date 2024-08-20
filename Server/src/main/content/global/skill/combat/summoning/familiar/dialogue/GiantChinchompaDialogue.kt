@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Giant chinchompa dialogue.
+ * Represents the Giant chinchompa dialogue.
  */
 @Initializable
 class GiantChinchompaDialogue(player: Player? = null) : Dialogue(player) {

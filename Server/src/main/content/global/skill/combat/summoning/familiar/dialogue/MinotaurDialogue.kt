@@ -11,7 +11,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Minotaur dialogue.
+ * Represents the Minotaur dialogue.
  */
 @Initializable
 class MinotaurDialogue(player: Player? = null) : Dialogue(player) {

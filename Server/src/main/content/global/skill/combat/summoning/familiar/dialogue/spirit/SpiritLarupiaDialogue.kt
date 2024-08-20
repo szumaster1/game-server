@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Spirit larupia dialogue.
+ * Represents the Spirit larupia dialogue.
  */
 @Initializable
 class SpiritLarupiaDialogue(player: Player? = null) : Dialogue(player) {

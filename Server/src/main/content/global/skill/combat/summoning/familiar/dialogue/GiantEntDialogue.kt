@@ -10,7 +10,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Giant ent dialogue.
+ * Represents the Giant ent dialogue.
  */
 @Initializable
 class GiantEntDialogue(player: Player? = null) : Dialogue(player) {

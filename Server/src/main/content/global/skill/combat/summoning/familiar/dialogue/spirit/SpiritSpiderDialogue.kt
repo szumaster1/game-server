@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Spirit spider dialogue.
+ * Represents the Spirit spider dialogue.
  */
 @Initializable
 class SpiritSpiderDialogue(player: Player? = null) : Dialogue(player) {

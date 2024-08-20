@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Dreadfowl dialogue.
+ * Represents the Dreadfowl dialogue.
  */
 @Initializable
 class DreadfowlDialogue(player: Player? = null) : Dialogue(player) {

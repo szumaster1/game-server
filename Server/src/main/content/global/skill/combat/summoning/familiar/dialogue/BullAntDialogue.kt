@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Bull ant dialogue.
+ * Represents the Bull ant dialogue.
  */
 @Initializable
 class BullAntDialogue(player: Player? = null) : Dialogue(player) {

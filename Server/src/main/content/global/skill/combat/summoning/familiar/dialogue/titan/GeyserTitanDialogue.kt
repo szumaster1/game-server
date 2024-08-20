@@ -12,7 +12,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Geyser titan dialogue.
+ * Represents the Geyser titan dialogue.
  */
 @Initializable
 class GeyserTitanDialogue(player: Player? = null) : Dialogue(player) {

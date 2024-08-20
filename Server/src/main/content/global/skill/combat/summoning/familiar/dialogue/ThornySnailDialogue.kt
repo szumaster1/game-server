@@ -11,7 +11,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Thorny snail dialogue.
+ * Represents the Thorny snail dialogue.
  */
 @Initializable
 class ThornySnailDialogue(player: Player? = null) : Dialogue(player) {

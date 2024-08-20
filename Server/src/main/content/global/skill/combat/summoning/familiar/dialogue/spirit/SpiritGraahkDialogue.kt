@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Spirit graahk dialogue.
+ * Represents the Spirit graahk dialogue.
  */
 @Initializable
 class SpiritGraahkDialogue(player: Player? = null) : Dialogue(player) {

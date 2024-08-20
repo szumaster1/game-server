@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Granite lobster dialogue.
+ * Represents the Granite lobster dialogue.
  */
 @Initializable
 class GraniteLobsterDialogue(player: Player? = null) : Dialogue(player) {

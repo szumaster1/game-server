@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Forge regent dialogue.
+ * Represents the Forge regent dialogue.
  */
 @Initializable
 class ForgeRegentDialogue(player: Player? = null) : Dialogue(player) {

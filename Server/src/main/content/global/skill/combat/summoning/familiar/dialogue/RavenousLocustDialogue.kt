@@ -10,7 +10,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Ravenous locust dialogue.
+ * Represents the Ravenous locust dialogue.
  */
 @Initializable
 class RavenousLocustDialogue(player: Player? = null) : Dialogue(player) {

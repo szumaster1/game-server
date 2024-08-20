@@ -11,7 +11,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Bunyip dialogue.
+ * Represents the Bunyip dialogue.
  */
 @Initializable
 class BunyipDialogue(player: Player? = null) : Dialogue(player) {

@@ -11,7 +11,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Void spinner dialogue.
+ * Represents the Void spinner dialogue.
  */
 @Initializable
 class VoidSpinnerDialogue(player: Player? = null) : Dialogue(player) {

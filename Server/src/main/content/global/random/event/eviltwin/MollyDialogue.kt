@@ -36,11 +36,11 @@ class MollyDialogue(var type: Int) : DialogueFile() {
                 2 -> npc("Thank you for all your help. Take this as a reward.").also { stage++ }
                 3 -> {
                     EvilTwinUtils.cleanup(player!!)
-                    stage = END_DIALOGUE
                     AntiMacro.rollEventLoot(player!!).forEach {
                         addItemOrDrop(player!!, it.id, it.amount)
                         sendItemDialogue(player!!, it.id, "Molly's given you " + it.amount + " " + getItemName(it.id).lowercase() + "s.")
                     }
+                    stage = END_DIALOGUE
                 }
             }
 

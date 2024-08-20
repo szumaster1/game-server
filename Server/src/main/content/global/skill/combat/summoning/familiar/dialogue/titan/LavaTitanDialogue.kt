@@ -18,7 +18,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Lava titan dialogue.
+ * Represents the Lava titan dialogue.
  */
 @Initializable
 class LavaTitanDialogue(player: Player? = null) : Dialogue(player) {

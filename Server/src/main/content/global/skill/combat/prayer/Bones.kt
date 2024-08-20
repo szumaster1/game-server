@@ -3,17 +3,18 @@ package content.global.skill.combat.prayer
 import core.api.consts.Items
 
 /**
- * Bones
+ * Represents the type of bones.
+ * @author Apache Ah64
  *
- * @param itemId Unique identifier for the bone item.
- * @param experience Amount of experience gained from using the bone.
- * @param bonemealId Optional identifier for the associated bonemeal item.
+ * @param itemId The bone item id.
+ * @param experience The experience given by burying the bone.
+ * @param bonemealId The bones' bonemeal item id if applicable.
  * @constructor Bones Enum class representing different types of bones.
  */
 enum class Bones(
-    val itemId: Int, // Unique identifier for the bone item.
-    val experience: Double, // Amount of experience gained from using the bone.
-    val bonemealId: Int? // Optional identifier for the associated bonemeal item.
+    val itemId: Int,
+    val experience: Double,
+    val bonemealId: Int?
 ) {
     /**
      * Bones.
@@ -241,8 +242,16 @@ enum class Bones(
     );
 
     companion object {
+        /**
+         * Holds all bones.
+         */
         private val bones = HashMap<Int, Bones>()
 
+        /**
+         * Gets the bones for the bone meal.
+         * @param itemId the item.
+         * @return the bones.
+         */
         @JvmStatic
         fun forBoneMeal(itemId: Int): Bones? {
             for (bone in values()) {
@@ -253,6 +262,10 @@ enum class Bones(
             return null
         }
 
+        /**
+         * Gets the bone ids.
+         * @return the ids.
+         */
         val array: IntArray
             @JvmStatic get() {
                 val list: MutableList<Int> = ArrayList(20)
@@ -262,11 +275,19 @@ enum class Bones(
                 return list.toIntArray()
             }
 
+        /**
+         * Get the bone.
+         * @param itemId The item id.
+         * @return The bone.
+         */
         @JvmStatic
         fun forId(itemId: Int): Bones? {
             return bones[itemId]
         }
 
+        /**
+         * Construct the bones.
+         */
         init {
             for (bone in values()) {
                 bones[bone.itemId] = bone

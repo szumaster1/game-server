@@ -11,7 +11,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Obsidian golem dialogue.
+ * Represents the Obsidian golem dialogue.
  */
 @Initializable
 class ObsidianGolemDialogue(player: Player? = null) : Dialogue(player) {

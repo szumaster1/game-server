@@ -10,7 +10,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Arctic bear dialogue.
+ * Represents the Arctic bear dialogue.
  */
 @Initializable
 class ArcticBearDialogue(player: Player? = null) : Dialogue(player) {

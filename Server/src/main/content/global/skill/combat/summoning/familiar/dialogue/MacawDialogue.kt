@@ -16,7 +16,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Macaw dialogue.
+ * Represents the Macaw dialogue.
  */
 @Initializable
 class MacawDialogue(player: Player? = null) : Dialogue(player) {
@@ -71,7 +71,7 @@ class MacawDialogue(player: Player? = null) : Dialogue(player) {
 }
 
 /**
- * Macaw dialogue file
+ * Represents the Macaw dialogue file
  *
  * @constructor Macaw dialogue file
  */

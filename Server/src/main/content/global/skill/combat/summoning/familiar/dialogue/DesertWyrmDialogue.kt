@@ -11,7 +11,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Desert wyrm dialogue.
+ * Represents the Desert wyrm dialogue.
  */
 @Initializable
 class DesertWyrmDialogue(player: Player? = null) : Dialogue(player) {

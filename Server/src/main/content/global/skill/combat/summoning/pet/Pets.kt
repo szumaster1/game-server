@@ -25,11 +25,11 @@ enum class Pets(
     @JvmField val grownItemId: Int,         // ID for the grown pet item
     @JvmField val overgrownItemId: Int,     // ID for the overgrown pet item
     @JvmField val babyNpcId: Int,           // NPC ID for the baby pet
-    val grownNpcId: Int,                     // NPC ID for the grown pet
-    val overgrownNpcId: Int,                 // NPC ID for the overgrown pet
-    @JvmField val growthRate: Double,        // Growth rate of the pet
-    @JvmField val summoningLevel: Int,       // Required summoning level for the pet
-    @JvmField vararg val food: Int           // Vararg for food items for the pet
+    val grownNpcId: Int,                    // NPC ID for the grown pet
+    val overgrownNpcId: Int,                // NPC ID for the overgrown pet
+    @JvmField val growthRate: Double,       // Growth rate of the pet
+    @JvmField val summoningLevel: Int,      // Required summoning level for the pet
+    @JvmField vararg val food: Int          // Vararg for food items for the pet
 ) {
     /**
      * Cat

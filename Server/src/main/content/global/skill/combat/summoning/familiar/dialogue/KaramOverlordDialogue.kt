@@ -10,7 +10,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Karam overlord dialogue.
+ * Represents the Karam overlord dialogue.
  */
 @Initializable
 class KaramOverlordDialogue(player: Player? = null) : Dialogue(player) {

@@ -11,7 +11,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Fire giant dialogue.
+ * Represents the Fire giant dialogue.
  */
 @Initializable
 class FireGiantDialogue(player: Player? = null) : Dialogue(player) {

@@ -16,7 +16,7 @@ import core.game.world.update.flag.context.Animation
 import core.plugin.Initializable
 
 /**
- * Kitten interact dialogue.
+ * Represents the Kitten interact dialogue.
  */
 @Initializable
 class KittenInteractDialogue(player: Player? = null) : Dialogue(player) {

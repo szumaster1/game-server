@@ -1,27 +1,38 @@
 package content.global.skill.combat.summoning.pet;
 
 /**
- * Pet details.
+ * A class containing pet details for a certain pet.
+ * @author Emperor
+ * @author Player Name
  */
 public final class PetDetails {
 
+    /**
+     * The hunger rate.
+     */
     private double hunger = 0.0;
+
+    /**
+     * The growth rate.
+     */
     private double growth = 0.0;
+
+    /**
+     * The individual, an in principle arbitrary integer read off of the item's charge slot.
+     */
     private int individual;
 
     /**
-     * Instantiates a new Pet details.
-     *
-     * @param growth the growth
+     * Constructs a new {@code PetDetails} {@code Object}.
+     * @param growth The growth value.
      */
     public PetDetails(double growth) {
         this.growth = growth;
     }
 
     /**
-     * Update hunger.
-     *
-     * @param amount the amount
+     * Increases the hunger value by the given amount.
+     * @param amount The amount.
      */
     public void updateHunger(double amount) {
         hunger += amount;
@@ -31,9 +42,8 @@ public final class PetDetails {
     }
 
     /**
-     * Update growth.
-     *
-     * @param amount the amount
+     * Increases the growth value by the given amount.
+     * @param amount The amount.
      */
     public void updateGrowth(double amount) {
         growth += amount;
@@ -45,36 +55,32 @@ public final class PetDetails {
     }
 
     /**
-     * Gets hunger.
-     *
-     * @return the hunger
+     * Gets the hunger.
+     * @return The hunger.
      */
     public double getHunger() {
         return hunger;
     }
 
     /**
-     * Gets growth.
-     *
-     * @return the growth
+     * Gets the growth.
+     * @return The growth.
      */
     public double getGrowth() {
         return growth;
     }
 
     /**
-     * Sets individual.
-     *
-     * @param individual the individual
+     * Sets the individual.
+     * @param individual The individual to set.
      */
     public void setIndividual(int individual) {
         this.individual = individual;
     }
 
     /**
-     * Gets individual.
-     *
-     * @return the individual
+     * Gets the individual.
+     * @return The individual.
      */
     public int getIndividual() {
         return individual;

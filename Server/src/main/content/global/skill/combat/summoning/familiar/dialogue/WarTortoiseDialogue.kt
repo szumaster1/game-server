@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * War tortoise dialogue.
+ * Represents the War tortoise dialogue.
  */
 @Initializable
 class WarTortoiseDialogue(player: Player? = null) : Dialogue(player) {

@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Talon beast dialogue.
+ * Represents the Talon beast dialogue.
  */
 @Initializable
 class TalonBeastDialogue(player: Player? = null) : Dialogue(player) {

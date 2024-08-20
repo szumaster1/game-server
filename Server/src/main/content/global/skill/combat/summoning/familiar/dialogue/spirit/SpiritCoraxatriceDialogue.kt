@@ -11,7 +11,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Spirit coraxatrice dialogue.
+ * Represents the Spirit coraxatrice dialogue.
  */
 @Initializable
 class SpiritCoraxatriceDialogue(player: Player? = null) : Dialogue(player) {

@@ -13,7 +13,7 @@ import core.plugin.Plugin;
 import static core.api.ContentAPIKt.sendMessage;
 
 /**
- * Agility shortcut.
+ * Abstract class representing an agility shortcut in the game.
  */
 public abstract class AgilityShortcut extends OptionHandler {
     private final int[] ids;
@@ -24,14 +24,14 @@ public abstract class AgilityShortcut extends OptionHandler {
     private final String[] options;
 
     /**
-     * Instantiates a new Agility shortcut.
+     * Constructor for creating an AgilityShortcut with failure chance.
      *
-     * @param ids        the ids
-     * @param level      the level
-     * @param experience the experience
-     * @param canFail    the can fail
-     * @param failChance the fail chance
-     * @param options    the options
+     * @param ids        Array of scenery IDs
+     * @param level      Required agility level
+     * @param experience Experience gained
+     * @param canFail    Indicates if the shortcut can fail
+     * @param failChance Chance of failure
+     * @param options    Options available for the shortcut
      */
     public AgilityShortcut(int[] ids, int level, double experience, boolean canFail, double failChance, String... options) {
         this.ids = ids;
@@ -43,12 +43,12 @@ public abstract class AgilityShortcut extends OptionHandler {
     }
 
     /**
-     * Instantiates a new Agility shortcut.
+     * Constructor for creating an AgilityShortcut without failure chance.
      *
-     * @param ids        the ids
-     * @param level      the level
-     * @param experience the experience
-     * @param options    the options
+     * @param ids        Array of scenery IDs
+     * @param level      Required agility level
+     * @param experience Experience gained
+     * @param options    Options available for the shortcut
      */
     public AgilityShortcut(int[] ids, int level, double experience, String... options) {
         this(ids, level, experience, false, 0.0, options);
@@ -70,20 +70,20 @@ public abstract class AgilityShortcut extends OptionHandler {
     }
 
     /**
-     * Run.
+     * Abstract method to run the agility shortcut.
      *
-     * @param player the player
-     * @param object the object
-     * @param option the option
-     * @param failed the failed
+     * @param player The player using the shortcut
+     * @param object The scenery object associated with the shortcut
+     * @param option The option selected by the player
+     * @param failed Indicates if the attempt failed
      */
     public abstract void run(Player player, Scenery object, String option, boolean failed);
 
     /**
-     * Check requirements boolean.
+     * Checks if the player meets the requirements to use the agility shortcut.
      *
-     * @param player the player
-     * @return the boolean
+     * @param player The player attempting to use the shortcut
+     * @return true if the player meets the requirements, false otherwise
      */
     public boolean checkRequirements(Player player) {
         if (player.getSkills().getLevel(Skills.AGILITY) < level) {
@@ -101,9 +101,9 @@ public abstract class AgilityShortcut extends OptionHandler {
     }
 
     /**
-     * Configure.
+     * Configures the agility shortcut by associating it with scenery definitions.
      *
-     * @param shortcut the shortcut
+     * @param shortcut The agility shortcut to configure
      */
     public void configure(AgilityShortcut shortcut) {
         for (int objectId : shortcut.ids) {
@@ -115,22 +115,22 @@ public abstract class AgilityShortcut extends OptionHandler {
     }
 
     /**
-     * Gets object direction.
+     * Gets the direction of the object based on the provided direction.
      *
-     * @param direction the direction
-     * @return the object direction
+     * @param direction The original direction
+     * @return The new direction
      */
     protected Direction getObjectDirection(Direction direction) {
         return direction == Direction.NORTH ? Direction.EAST : direction == Direction.SOUTH ? Direction.WEST : direction == Direction.EAST ? Direction.NORTH : Direction.SOUTH;
     }
 
     /**
-     * Pipe destination location.
+     * Calculates the destination location for the player when using a pipe.
      *
-     * @param player the player
-     * @param object the object
-     * @param steps  the steps
-     * @return the location
+     * @param player The player using the pipe
+     * @param object The scenery object associated with the pipe
+     * @param steps  The number of steps to move
+     * @return The destination location
      */
     public Location pipeDestination(Player player, Scenery object, int steps) {
         player.faceLocation(object.getLocation());
@@ -153,12 +153,12 @@ public abstract class AgilityShortcut extends OptionHandler {
     }
 
     /**
-     * Agility destination location.
+     * Calculates the destination location for the player when using agility.
      *
-     * @param player the player
-     * @param object the object
-     * @param steps  the steps
-     * @return the location
+     * @param player The player using the agility shortcut
+     * @param object The scenery object associated with the agility shortcut
+     * @param steps  The number of steps to move
+     * @return The destination location
      */
     public Location agilityDestination(Player player, Scenery object, int steps) {
         player.faceLocation(object.getLocation());
@@ -169,7 +169,7 @@ public abstract class AgilityShortcut extends OptionHandler {
     }
 
     /**
-     * Gets level.
+     * Gets the required agility level for this shortcut.
      *
      * @return the level
      */
@@ -178,7 +178,7 @@ public abstract class AgilityShortcut extends OptionHandler {
     }
 
     /**
-     * Gets experience.
+     * Gets the experience gained from using this shortcut.
      *
      * @return the experience
      */
@@ -187,16 +187,16 @@ public abstract class AgilityShortcut extends OptionHandler {
     }
 
     /**
-     * Is can fail boolean.
+     * Checks if the shortcut can fail.
      *
-     * @return the boolean
+     * @return the boolean indicating if it can fail
      */
     public boolean isCanFail() {
         return canFail;
     }
 
     /**
-     * Gets fail chance.
+     * Gets the chance of failure for this shortcut.
      *
      * @return the fail chance
      */
@@ -205,27 +205,27 @@ public abstract class AgilityShortcut extends OptionHandler {
     }
 
     /**
-     * Sets fail chance.
+     * Sets the chance of failure for this shortcut.
      *
-     * @param failChance the fail chance
+     * @param failChance the fail chance to set
      */
     public void setFailChance(double failChance) {
         this.failChance = failChance;
     }
 
     /**
-     * Get ids int [ ].
+     * Gets the array of scenery IDs associated with this shortcut.
      *
-     * @return the int [ ]
+     * @return the array of IDs
      */
     public int[] getIds() {
         return ids;
     }
 
     /**
-     * Get option string [ ].
+     * Gets the array of options available for this shortcut.
      *
-     * @return the string [ ]
+     * @return the array of options
      */
     public String[] getOption() {
         return options;

@@ -11,7 +11,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Sheepdog dialogue.
+ * Represents the Sheepdog dialogue.
  */
 @Initializable
 class SheepdogDialogue(player: Player? = null) : Dialogue(player) {

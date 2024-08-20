@@ -1,16 +1,15 @@
 package content.global.skill.combat.summoning.familiar;
 
-import content.global.skill.combat.summoning.SummoningPouch;
 import content.global.skill.combat.summoning.SummoningScroll;
+import content.global.skill.combat.summoning.familiar.BurdenBeast;
+import content.global.skill.combat.summoning.familiar.FamiliarManager;
+import content.global.skill.combat.summoning.familiar.FamiliarSpecial;
 import content.global.skill.combat.summoning.pet.Pet;
-import core.api.consts.Sounds;
 import core.cache.def.impl.NPCDefinition;
 import core.game.interaction.MovementPulse;
 import core.game.node.entity.Entity;
 import core.game.node.entity.combat.BattleState;
-import core.game.node.entity.combat.CombatPulse;
 import core.game.node.entity.combat.CombatStyle;
-import core.game.node.entity.combat.CombatSwingHandler;
 import core.game.node.entity.combat.equipment.WeaponInterface;
 import core.game.node.entity.impl.Projectile;
 import core.game.node.entity.impl.PulseType;
@@ -20,7 +19,6 @@ import core.game.node.entity.skill.SkillBonus;
 import core.game.node.entity.skill.Skills;
 import core.game.node.item.Item;
 import core.game.system.task.Pulse;
-import core.game.world.GameWorld;
 import core.game.world.map.Location;
 import core.game.world.map.RegionManager;
 import core.game.world.map.path.Pathfinder;
@@ -30,6 +28,12 @@ import core.game.world.update.flag.context.Graphic;
 import core.plugin.Plugin;
 import core.tools.Log;
 import core.tools.RandomFunction;
+import core.game.node.entity.combat.CombatPulse;
+import core.game.node.entity.combat.CombatSwingHandler;
+import core.tools.SystemLogger;
+import core.game.world.GameWorld;
+import content.global.skill.combat.summoning.SummoningPouch;
+import core.api.consts.Sounds;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,69 +41,98 @@ import java.util.List;
 import static core.api.ContentAPIKt.*;
 
 /**
- * Familiar.
+ * Represents a familiar.
+ * @author Emperor
  */
 public abstract class Familiar extends NPC implements Plugin<Object> {
+
     /**
-     * The constant SMALL_SUMMON_GRAPHIC.
+     * The summon graphics for a small familiar.
      */
     protected static final Graphic SMALL_SUMMON_GRAPHIC = Graphic.create(1314);
+
     /**
-     * The constant LARGE_SUMMON_GRAPHIC.
+     * The spawn graphics for a large familiar.
      */
     protected static final Graphic LARGE_SUMMON_GRAPHIC = Graphic.create(1315);
+
     /**
-     * The constant SPECIAL_ANIMATION.
+     * The special animation.
      */
     protected static final Animation SPECIAL_ANIMATION = Animation.create(7660);
+
     /**
-     * The constant SPECIAL_GRAPHIC.
+     * The special graphic.
      */
     protected static final Graphic SPECIAL_GRAPHIC = Graphic.create(1316);
+
     /**
-     * The Owner.
+     * The owner.
      */
     protected Player owner;
+
     /**
-     * The Ticks.
+     * The amount of ticks left.
      */
     protected int ticks;
+
     /**
-     * The Maximum ticks.
+     * The initial amount of ticks.
      */
     protected int maximumTicks;
+
     /**
-     * The Special points.
+     * The amount of special points left.
      */
     protected int specialPoints = 60;
-    private final int pouchId;
-    private final int specialCost;
-    private final SummoningPouch pouch;
-    private CombatSwingHandler combatHandler;
+
     /**
-     * The Combat familiar.
+     * The pouch id.
+     */
+    private final int pouchId;
+
+    /**
+     * The special move cost.
+     */
+    private final int specialCost;
+
+    private final SummoningPouch pouch;
+
+    /**
+     * The combat reward.
+     */
+    private CombatSwingHandler combatHandler;
+
+    /**
+     * If the familiar is a combat familiar.
      */
     protected boolean combatFamiliar;
+
     /**
-     * The Charged.
+     * If the familiars special is charged.
      */
     protected boolean charged;
+
     /**
-     * The Boosts.
+     * The invisible familiar boosts.
      */
     protected List<SkillBonus> boosts = new ArrayList<>(20);
+
+    /**
+     * The attack style.
+     */
     private final int attackStyle;
+
     private boolean firstCall = true;
 
     /**
-     * Instantiates a new Familiar.
-     *
-     * @param owner       the owner
-     * @param id          the id
-     * @param ticks       the ticks
-     * @param pouchId     the pouch id
-     * @param specialCost the special cost
-     * @param attackStyle the attack style
+     * Constructs a new {@code Familiar} {@code Object}.
+     * @param owner The owner.
+     * @param id The NPC id.
+     * @param ticks The ticks left.
+     * @param pouchId The pouch.
+     * @param specialCost The special move cost.
+     * @param attackStyle the style.
      */
     public Familiar(Player owner, int id, int ticks, int pouchId, int specialCost, final int attackStyle) {
         super(id, null);
@@ -114,23 +147,20 @@ public abstract class Familiar extends NPC implements Plugin<Object> {
     }
 
     /**
-     * Instantiates a new Familiar.
-     *
-     * @param owner       the owner
-     * @param id          the id
-     * @param ticks       the ticks
-     * @param pouchId     the pouch id
-     * @param specialCost the special cost
+     * Constructs a new {@code Familiar} {@code Object}.
+     * @param owner The owner.
+     * @param id The NPC id.
+     * @param ticks The ticks left.
+     * @param pouchId The pouch.
+     * @param specialCost The special move cost.
      */
     public Familiar(Player owner, int id, int ticks, int pouchId, int specialCost) {
         this(owner, id, ticks, pouchId, specialCost, WeaponInterface.STYLE_DEFENSIVE);
     }
 
     /**
-     * Init.
-     *
-     * @param loc  the loc
-     * @param call the call
+     * Creates the familiar.
+     * @param loc The location.
      */
     public void init(Location loc, boolean call) {
         location = loc;
@@ -204,7 +234,7 @@ public abstract class Familiar extends NPC implements Plugin<Object> {
     @Override
     public boolean isAttackable(Entity entity, CombatStyle style, boolean message) {
         if (entity == owner) {
-            if (message) {
+            if(message) {
                 owner.getPacketDispatch().sendMessage("You can't just betray your own familiar like that!");
             }
             return false;
@@ -216,13 +246,13 @@ public abstract class Familiar extends NPC implements Plugin<Object> {
         }
         if (!getProperties().isMultiZone()) {
             if (entity instanceof Player && !((Player) entity).getProperties().isMultiZone()) {
-                if (message) {
+                if(message) {
                     ((Player) entity).getPacketDispatch().sendMessage("You have to be in multicombat to attack a player's familiar.");
                 }
                 return false;
             }
             if (entity instanceof Player) {
-                if (message) {
+                if(message) {
                     ((Player) entity).getPacketDispatch().sendMessage("This familiar is not in the a multicombat zone.");
                 }
             }
@@ -230,13 +260,13 @@ public abstract class Familiar extends NPC implements Plugin<Object> {
         }
         if (entity instanceof Player) {
             if (!((Player) entity).getSkullManager().isWilderness()) {
-                if (message) {
+                if(message) {
                     ((Player) entity).getPacketDispatch().sendMessage("You have to be in the wilderness to attack a player's familiar.");
                 }
                 return false;
             }
             if (!owner.getSkullManager().isWilderness()) {
-                if (message) {
+                if(message) {
                     ((Player) entity).getPacketDispatch().sendMessage("This familiar's owner is not in the wilderness.");
                 }
                 return false;
@@ -259,39 +289,36 @@ public abstract class Familiar extends NPC implements Plugin<Object> {
     }
 
     /**
-     * Construct familiar.
-     *
-     * @param owner the owner
-     * @param id    the id
-     * @return the familiar
+     * Constructs a new {@code Familiar} {@code Object}.
+     * @param owner The owner.
+     * @param id The NPC id.
+     * @return The familiar.
      */
     public abstract Familiar construct(Player owner, int id);
 
     /**
-     * Special move boolean.
-     *
-     * @param special the special
-     * @return the boolean
+     * Executes the special move.
+     * @param special The familiar special object.
+     * @return {@code True} if the move was executed.
      */
     protected abstract boolean specialMove(FamiliarSpecial special);
 
     /**
-     * Handle familiar tick.
+     * Handles the familiar special tick.
      */
     protected void handleFamiliarTick() {
     }
 
     /**
-     * Configure familiar.
+     * Configures use with events, and other plugin related content..
      */
     protected void configureFamiliar() {
 
     }
 
     /**
-     * Gets text.
-     *
      * Gets the forced chat text for this familiar.
+     * @return The forced chat text.
      */
     protected String getText() {
         return "";
@@ -306,9 +333,6 @@ public abstract class Familiar extends NPC implements Plugin<Object> {
         }
     }
 
-    /**
-     * Refresh timer.
-     */
     public void refreshTimer() {
         ticks = maximumTicks;
     }
@@ -325,9 +349,7 @@ public abstract class Familiar extends NPC implements Plugin<Object> {
 
     /**
      * Checks if the familiar can execute its special move and does so if able.
-     *
-     * @param special the special
-     * @return the boolean
+     * @param special The familiar special object.
      */
     public boolean executeSpecialMove(FamiliarSpecial special) {
         if (special.getNode() == this) {
@@ -370,12 +392,11 @@ public abstract class Familiar extends NPC implements Plugin<Object> {
 
     /**
      * Sends a familiar hit.
-     *
-     * @param target  the target
-     * @param maxHit  the max hit
-     * @param graphic the graphic
+     * @param target the target.
+     * @param maxHit the max hit.
+     * @param graphics the graphics.
      */
-    public void sendFamiliarHit(final Entity target, final int maxHit, final Graphic graphic) {
+    public void sendFamiliarHit(final Entity target, final int maxHit, final Graphic graphics) {
         final int ticks = 2 + (int) Math.floor(getLocation().getDistance(target.getLocation()) * 0.5);
         getProperties().getCombatPulse().setNextAttack(4);
         GameWorld.getPulser().submit(new Pulse(ticks, this, target) {
@@ -388,8 +409,8 @@ public abstract class Familiar extends NPC implements Plugin<Object> {
                 }
                 state.setEstimatedHit(hit);
                 target.getImpactHandler().handleImpact(owner, hit, CombatStyle.MELEE, state);
-                if (graphic != null) {
-                    target.graphics(graphic);
+                if (graphics != null) {
+                    target.graphics(graphics);
                 }
                 return true;
             }
@@ -398,9 +419,8 @@ public abstract class Familiar extends NPC implements Plugin<Object> {
 
     /**
      * Sends a projectile to the target.
-     *
-     * @param target       the target
-     * @param projectileId the projectile id
+     * @param target the target.
+     * @param projectileId the projectile id.
      */
     public void projectile(final Entity target, final int projectileId) {
         Projectile.magic(this, target, projectileId, 40, 36, 51, 10).send();
@@ -408,21 +428,15 @@ public abstract class Familiar extends NPC implements Plugin<Object> {
 
     /**
      * Sends a familiar hit.
-     *
-     * @param target the target
-     * @param maxHit the max hit
+     * @param maxHit the max hit.
      */
     public void sendFamiliarHit(final Entity target, final int maxHit) {
         sendFamiliarHit(target, maxHit, null);
     }
 
     /**
-     * Checks if this familiar can attack the target
-     * (used mainly for special moves).
-     *
-     * @param target  the target
-     * @param message the message
-     * @return the boolean
+     * Checks if this familiar can attack the target (used mainly for special
+     * moves).
      */
     public boolean canAttack(Entity target, boolean message) {
         if (!target.isAttackable(owner, owner.getProperties().getCombatPulse().getStyle(), true)) {
@@ -447,10 +461,9 @@ public abstract class Familiar extends NPC implements Plugin<Object> {
 
     /**
      * Checks if a familiar can perform a combat special attack.
-     *
-     * @param target  the target
-     * @param message the message
-     * @return the boolean
+     * @param target the target.
+     * @param message show message.
+     * @return {@code True} if so.
      */
     public boolean canCombatSpecial(Entity target, boolean message) {
         if (!canAttack(target, message)) {
@@ -466,10 +479,9 @@ public abstract class Familiar extends NPC implements Plugin<Object> {
     }
 
     /**
-     * Checks if a Familiar can perform a combat special attack.
-     *
-     * @param target the target
-     * @return the boolean
+     * Checks if a faimiliar can perform a combat special attack.
+     * @param target the target.
+     * @return {@code True} if so.
      */
     public boolean canCombatSpecial(Entity target) {
         return canCombatSpecial(target, true);
@@ -477,8 +489,7 @@ public abstract class Familiar extends NPC implements Plugin<Object> {
 
     /**
      * Checks if the owner is attackable.
-     *
-     * @return the boolean
+     * @return {@code True} if so.
      */
     public boolean isOwnerAttackable() {
         if (!owner.getProperties().getCombatPulse().isAttacking() && !owner.inCombat() && !getProperties().getCombatPulse().isAttacking()) {
@@ -490,8 +501,7 @@ public abstract class Familiar extends NPC implements Plugin<Object> {
 
     /**
      * Gets the combat style.
-     *
-     * @return the combat style
+     * @return the style.
      */
     public CombatStyle getCombatStyle() {
         return CombatStyle.MAGIC;
@@ -499,8 +509,7 @@ public abstract class Familiar extends NPC implements Plugin<Object> {
 
     /**
      * Adjusts a players battle state.
-     *
-     * @param state the state
+     * @param state the state.
      */
     public void adjustPlayerBattle(final BattleState state) {
 
@@ -526,8 +535,7 @@ public abstract class Familiar extends NPC implements Plugin<Object> {
 
     /**
      * Checks if the familiar is a combat familiar.
-     *
-     * @return the boolean
+     * @return {@code True} if so.
      */
     public boolean isCombatFamiliar() {
         return combatFamiliar;
@@ -546,19 +554,22 @@ public abstract class Familiar extends NPC implements Plugin<Object> {
 
     /**
      * Calls the familiar.
-     *
-     * @return the boolean
      */
+    //int spamTimer = 0;
     public boolean call() {
         Location destination = getSpawnLocation();
         if (destination == null) {
+            //owner.getPacketDispatch().sendMessage("Your familiar is too big to fit here. Try calling it again when you are standing");
+            //owner.getPacketDispatch().sendMessage("somewhere with more space.");
+            //spamTimer = 50;
             return false;
         }
         setInvisible(owner.getZoneMonitor().isRestricted(ZoneRestriction.FOLLOWERS) && !owner.getLocks().isLocked("enable_summoning"));
         if (isInvisible()) return true;
         getProperties().setTeleportLocation(destination);
         if (!(this instanceof Pet)) {
-            if (firstCall) {
+            if(firstCall) {
+                // TODO: Each familiar has its own initial summon sound that needs to be implemented at some point
                 playAudio(owner, Sounds.SUMMON_NPC_188);
                 firstCall = false;
             } else {
@@ -576,6 +587,7 @@ public abstract class Familiar extends NPC implements Plugin<Object> {
             face(owner);
         }
         if (!isRenderable() && owner.isActive()) {
+            // log(this.getClass(), Log.ERR,  "Familiar in inactive region!");
             getWalkingQueue().update();
             getUpdateMasks().prepare(this);
         }
@@ -584,8 +596,7 @@ public abstract class Familiar extends NPC implements Plugin<Object> {
 
     /**
      * Gets the spawning location of the familiar.
-     *
-     * @return the spawn location
+     * @return The spawn location.
      */
     public Location getSpawnLocation() {
         return RegionManager.getSpawnLocation(owner, this);
@@ -609,8 +620,7 @@ public abstract class Familiar extends NPC implements Plugin<Object> {
 
     /**
      * Updates the special move points.
-     *
-     * @param diff the diff
+     * @param diff The difference to decrease with.
      */
     public void updateSpecialPoints(int diff) {
         specialPoints -= diff;
@@ -624,7 +634,7 @@ public abstract class Familiar extends NPC implements Plugin<Object> {
     public Plugin<Object> newInstance(Object arg) throws Throwable {
         for (int id : getIds()) {
             if (FamiliarManager.getFamiliars().containsKey(id)) {
-                log(this.getClass(), Log.ERR, "Familiar " + id + " was already registered!");
+                log(this.getClass(), Log.ERR,  "Familiar " + id + " was already registered!");
                 return null;
             }
             FamiliarManager.getFamiliars().put(id, this);
@@ -640,8 +650,7 @@ public abstract class Familiar extends NPC implements Plugin<Object> {
 
     /**
      * Gets the charged.
-     *
-     * @return the boolean
+     * @return The charged.
      */
     public boolean isCharged() {
         if (charged) {
@@ -653,9 +662,8 @@ public abstract class Familiar extends NPC implements Plugin<Object> {
 
     /**
      * Gets a familiar boost.
-     *
-     * @param skill the skill
-     * @return the boost
+     * @param skill the skill.
+     * @return the boost.
      */
     public int getBoost(int skill) {
         SkillBonus bonus = null;
@@ -672,46 +680,41 @@ public abstract class Familiar extends NPC implements Plugin<Object> {
     }
 
     /**
-     * Charge.
+     * Charges a familiar.
      */
     public void charge() {
         setCharged(true);
     }
 
     /**
-     * Sets charged.
-     *
-     * @param charged the charged
+     * Sets the charged.
+     * @param charged The charged to set.
      */
     public void setCharged(boolean charged) {
         this.charged = charged;
     }
 
     /**
-     * Is burden beast boolean.
-     *
-     * @return the boolean
+     * Checks if the familiar is a beast of burden.
+     * @return {@code True} if so.
      */
     public boolean isBurdenBeast() {
         return false;
     }
 
-    /**
-     * Is peaceful familiar boolean.
-     *
-     * @return the boolean
-     */
     public boolean isPeacefulFamiliar() {
         return pouch.getPeaceful();
     }
 
     /**
      * Gets the NPC ids.
+     * @return The npc ids.
      */
     public abstract int[] getIds();
 
     /**
      * Gets the pouch id.
+     * @return The pouch id.
      */
     public int getPouchId() {
         return pouchId;
@@ -719,6 +722,7 @@ public abstract class Familiar extends NPC implements Plugin<Object> {
 
     /**
      * Gets the owner.
+     * @return The owner.
      */
     public Player getOwner() {
         return owner;
@@ -726,6 +730,7 @@ public abstract class Familiar extends NPC implements Plugin<Object> {
 
     /**
      * Sets the owner.
+     * @param owner The owner to set.
      */
     public void setOwner(Player owner) {
         this.owner = owner;
@@ -733,6 +738,7 @@ public abstract class Familiar extends NPC implements Plugin<Object> {
 
     /**
      * Gets the combatHandler.
+     * @return The combatHandler.
      */
     public CombatSwingHandler getCombatHandler() {
         return combatHandler;
@@ -740,6 +746,7 @@ public abstract class Familiar extends NPC implements Plugin<Object> {
 
     /**
      * Sets the combatHandler.
+     * @param combatHandler The combatHandler to set.
      */
     public void setCombatHandler(CombatSwingHandler combatHandler) {
         this.combatHandler = combatHandler;
@@ -747,6 +754,7 @@ public abstract class Familiar extends NPC implements Plugin<Object> {
 
     /**
      * Gets the view animation for remote viewing.
+     * @return the animation.
      */
     public Animation getViewAnimation() {
         return null;
@@ -754,21 +762,16 @@ public abstract class Familiar extends NPC implements Plugin<Object> {
 
     /**
      * Gets the exp style.
+     * @return the style.
      */
     public int getAttackStyle() {
         return attackStyle;
     }
 
-    /**
-     * Gets ticks.
-     */
     public int getTicks() {
         return ticks;
     }
 
-    /**
-     * Gets special points.
-     */
     public int getSpecialPoints() {
         return specialPoints;
     }

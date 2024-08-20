@@ -11,7 +11,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Granite crab dialogue.
+ * Represents the Granite crab dialogue.
  */
 @Initializable
 class GraniteCrabDialogue(player: Player? = null) : Dialogue(player) {

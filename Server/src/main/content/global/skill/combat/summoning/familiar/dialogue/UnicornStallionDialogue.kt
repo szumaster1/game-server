@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Unicorn stallion dialogue.
+ * Represents the Unicorn stallion dialogue.
  */
 @Initializable
 class UnicornStallionDialogue(player: Player? = null) : Dialogue(player) {

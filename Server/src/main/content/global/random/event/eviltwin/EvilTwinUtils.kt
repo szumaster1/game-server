@@ -59,6 +59,35 @@ object EvilTwinUtils {
     var currentCrane: Scenery? = null
 
     /**
+     * Starts the Evil Twin random event for the player.
+     *
+     * @param player The player starting the event.
+     * @return True if the event was started successfully, false otherwise.
+     */
+    fun start(player: Player): Boolean {
+        region.add(player)
+        region.setMusicId(612)
+        currentCrane = Scenery(14976, region.baseLocation.transform(14, 12, 0), 10, 0)
+        val color: EvilTwinColors = RandomFunction.getRandomElement(EvilTwinColors.values())
+        val model = RandomFunction.random(5)
+        val hash = color.ordinal or (model shl 16)
+        val npcId = getMollyId(hash)
+        setAttribute(player, randomEvent, hash)
+        mollyNPC = NPC.create(npcId, Location.getRandomLocation(player.location, 1, true))
+        mollyNPC!!.init()
+        sendChat(mollyNPC!!, "I need your help, ${player.username}.")
+        mollyNPC!!.faceTemporary(player, 3)
+        setAttribute(player, originalLocation, player.location)
+        queueScript(player, 4, QueueStrength.SOFT) {
+            teleport(player, mollyNPC!!, hash)
+            mollyNPC!!.locks.lockMovement(3000)
+            openDialogue(player, MollyDialogue(3))
+            return@queueScript stopExecuting(player)
+        }
+        return true
+    }
+
+    /**
      * Teleports the player and the NPC to the Evil Twin region.
      *
      * @param player The player to teleport.
@@ -83,14 +112,15 @@ object EvilTwinUtils {
      * @param player The player to clean up.
      */
     fun cleanup(player: Player) {
-        player.properties.teleportLocation = getAttribute(player, originalLocation, null)
-        PlayerCamera(player).reset()
-        restoreTabs(player)
-        setMinimapState(player, 0)
         craneNPC = null
         success = false
-        clearLogoutListener(player, logout)
+        mollyNPC!!.clear()
+        PlayerCamera(player).reset()
+        restoreTabs(player)
+        player.properties.teleportLocation = getAttribute(player, originalLocation, null)
+        setMinimapState(player, 0)
         removeAttributes(player, randomEvent, originalLocation, crane_x_loc, crane_y_loc)
+        clearLogoutListener(player, logout)
     }
 
     /**

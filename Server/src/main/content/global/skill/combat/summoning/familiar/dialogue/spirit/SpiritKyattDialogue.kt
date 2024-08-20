@@ -17,7 +17,7 @@ import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
 
 /**
- * Spirit kyatt dialogue.
+ * Represents the Spirit kyatt dialogue.
  */
 @Initializable
 class SpiritKyattDialogue(player: Player? = null) : Dialogue(player) {
@@ -58,7 +58,7 @@ class SpiritKyattDialogue(player: Player? = null) : Dialogue(player) {
 }
 
 /**
- * Spirit kyatt dialogue file
+ * Represents the Spirit kyatt dialogue file
  *
  * @constructor Spirit kyatt dialogue file
  */

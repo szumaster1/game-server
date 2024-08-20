@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Pack yak dialogue.
+ * Represents the Pack yak dialogue.
  */
 @Initializable
 class PackYakDialogue(player: Player? = null) : Dialogue(player) {

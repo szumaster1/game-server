@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Spirit dagannoth dialogue.
+ * Represents the Spirit dagannoth dialogue.
  */
 @Initializable
 class SpiritDagannothDialogue(player: Player? = null) : Dialogue(player) {

@@ -14,7 +14,7 @@ import core.plugin.Initializable;
 import core.plugin.Plugin;
 
 /**
- * Spirit kyatt option plugin.
+ * Represents the Spirit kyatt option plugin.
  */
 @Initializable
 public final class SpiritKyattOptionPlugin extends OptionHandler {

@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Spirit terrorbird dialogue.
+ * Represents the Spirit terrorbird dialogue.
  */
 @Initializable
 class SpiritTerrorbirdDialogue(player: Player? = null) : Dialogue(player) {

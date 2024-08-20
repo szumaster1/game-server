@@ -49,7 +49,7 @@ enum class SummoningPouch(
     /**
      * Granite Crab Pouch.
      */
-    GRANITE_CRAB_POUCH(4, 12009, 16, 31.6, 6796, 0.2, 2, false, Item(12158), Item(12155), Item(440), Item(12183, 7)),
+    GRANITE_CRAB_POUCH(4, 12009, 16, 21.6, 6796, 0.2, 2, false, Item(12158), Item(12155), Item(440), Item(12183, 7)),
 
     /**
      * Spirit Mosquito Pouch.

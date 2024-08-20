@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Honey badger dialogue.
+ * Represents the Honey badger dialogue.
  */
 @Initializable
 class HoneyBadgerDialogue(player: Player? = null) : Dialogue(player) {

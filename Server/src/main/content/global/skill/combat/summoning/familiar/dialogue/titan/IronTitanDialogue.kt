@@ -11,7 +11,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Iron titan dialogue.
+ * Represents the Iron titan dialogue.
  */
 @Initializable
 class IronTitanDialogue(player: Player? = null) : Dialogue(player) {

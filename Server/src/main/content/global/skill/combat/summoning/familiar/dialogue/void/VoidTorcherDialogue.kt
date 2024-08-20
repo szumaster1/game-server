@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Void torcher dialogue.
+ * Represents the Void torcher dialogue.
  */
 @Initializable
 class VoidTorcherDialogue(player: Player? = null) : Dialogue(player) {

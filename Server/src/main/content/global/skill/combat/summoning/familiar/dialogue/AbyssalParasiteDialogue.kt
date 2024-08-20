@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Abyssal parasite dialogue.
+ * Represents the Abyssal parasite dialogue.
  */
 @Initializable
 class AbyssalParasiteDialogue(player: Player? = null) : Dialogue(player) {

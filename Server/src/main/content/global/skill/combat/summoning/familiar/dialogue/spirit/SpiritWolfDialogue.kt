@@ -11,7 +11,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Spirit wolf dialogue.
+ * Represents the Spirit wolf dialogue.
  */
 @Initializable
 class SpiritWolfDialogue(player: Player? = null) : Dialogue(player) {

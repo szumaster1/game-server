@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Stranger plant dialogue.
+ * Represents the Stranger plant dialogue.
  */
 @Initializable
 class StrangerPlantDialogue(player: Player? = null) : Dialogue(player) {

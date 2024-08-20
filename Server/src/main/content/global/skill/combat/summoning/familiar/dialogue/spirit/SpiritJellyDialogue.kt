@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Spirit jelly dialogue.
+ * Represents the Spirit jelly dialogue.
  */
 @Initializable
 class SpiritJellyDialogue(player: Player? = null) : Dialogue(player) {

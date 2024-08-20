@@ -14,7 +14,7 @@ import core.tools.RandomFunction
 import core.tools.START_DIALOGUE
 
 /**
- * Steel titan dialogue.
+ * Represents the Steel titan dialogue.
  */
 @Initializable
 class SteelTitanDialogue(player: Player? = null) : Dialogue(player) {
@@ -30,7 +30,7 @@ class SteelTitanDialogue(player: Player? = null) : Dialogue(player) {
 }
 
 /**
- * Steel titan dialogue file
+ * Represents the Steel titan dialogue file
  *
  * @constructor Steel titan dialogue file
  */

@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Ibis dialogue.
+ * Represents the Ibis dialogue.
  */
 @Initializable
 class IbisDialogue(player: Player? = null) : Dialogue(player) {

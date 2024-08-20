@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Void shifter dialogue.
+ * Represents the Void shifter dialogue.
  */
 @Initializable
 class VoidShifterDialogue(player: Player? = null) : Dialogue(player) {
