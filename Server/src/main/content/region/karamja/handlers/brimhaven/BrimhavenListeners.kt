@@ -89,16 +89,20 @@ class BrimhavenListeners : InteractionListener {
         }
 
         // Handle the interaction when the player tries to open the door of the gang office.
+        /*
         on(GANG_OFFICE_DOOR, IntType.SCENERY, "open") { player, _ ->
             openDialogue(player, 789, Repository.findNPC(789)!!)
             return@on true
         }
+        */
 
         // Handle the interaction when the player tries to open the door of the mansion.
+        /*
         on(MANSION_DOOR, IntType.SCENERY, "open") { player, _ ->
             openDialogue(player, 788, Repository.findNPC(788)!!, true)
             return@on true
         }
+        */
 
         // Handle the interaction when the player tries to open the kitchen door of the restaurant.
         on(RESTAURANT_KITCHEN_DOOR, IntType.SCENERY, "open") { player, _ ->

@@ -1,6 +1,9 @@
 package content.region.misthalin.quest.free.shieldofarrav.dialogue
 
+import content.region.asgarnia.quest.heroesquest.dialogue.StravenDialogueFile
 import content.region.misthalin.quest.free.shieldofarrav.ShieldofArrav
+import core.api.consts.NPCs
+import core.api.openDialogue
 import core.game.dialogue.Dialogue
 import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
@@ -8,17 +11,42 @@ import core.game.node.entity.player.link.quest.Quest
 import core.game.node.item.GroundItemManager
 
 /**
- * Represents the Straven dialogue.
+ * Represents the dialogue which handles the Straven NPC.
+ * @author Vexia
  */
 class StravenDialogue(player: Player? = null) : Dialogue(player) {
-
+    /**
+     * Represents the quest instance.
+     */
     private var quest: Quest? = null
+
+
+    override fun newInstance(player: Player?): Dialogue {
+        return StravenDialogue(player)
+    }
 
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
         quest = player.getQuestRepository().getQuest("Shield of Arrav")
         when (quest!!.getStage(player)) {
-            100, 70 -> if (ShieldofArrav.isPhoenix(player)) {
+            100 -> {
+                if (ShieldofArrav.isPhoenix(player)) {
+                    val heroesQuest: Quest = player.getQuestRepository().getQuest("Heroes' Quest")
+                    if (0 < heroesQuest.getStage(player) && heroesQuest.getStage(player) < 100) {
+                        openDialogue(player, StravenDialogueFile(), npc)
+                        return true
+                    }
+                }
+                if (ShieldofArrav.isPhoenix(player)) {
+                    npc("Greetings fellow gang member.")
+                    stage = 10
+                } else {
+                    player.packetDispatch.sendMessage("I wouldn't talk to him if I was you.")
+                    end()
+                }
+            }
+
+            70 -> if (ShieldofArrav.isPhoenix(player)) {
                 npc("Greetings fellow gang member.")
                 stage = 10
             } else {
@@ -26,12 +54,12 @@ class StravenDialogue(player: Player? = null) : Dialogue(player) {
                 end()
             }
 
-            60 -> stage = if (ShieldofArrav.isPhoenixMission(player)) {
+            60 -> if (ShieldofArrav.isPhoenixMission(player)) {
                 npc("How's your little mission going?")
-                200
+                stage = 200
             } else {
                 player("What's through the door?")
-                100
+                stage = 100
             }
 
             else -> player("What's through the door?")
@@ -42,12 +70,12 @@ class StravenDialogue(player: Player? = null) : Dialogue(player) {
     override fun handle(interfaceId: Int, buttonId: Int): Boolean {
         if (quest!!.getStage(player) == 60 && stage >= 200) {
             when (stage) {
-                200 -> stage = if (!player.inventory.containsItem(ShieldofArrav.INTEL_REPORT)) {
+                200 -> if (!player.inventory.containsItem(ShieldofArrav.INTEL_REPORT)) {
                     player("I haven't managed to find the report yet...")
-                    201
+                    stage = 201
                 } else {
                     player("I have the intelligence report!")
-                    204
+                    stage = 204
                 }
 
                 201 -> {
@@ -105,19 +133,17 @@ class StravenDialogue(player: Player? = null) : Dialogue(player) {
         }
         when (quest!!.getStage(player)) {
             100, 70 -> when (stage) {
-                10 -> stage =
-                    if (!player.inventory.containsItem(ShieldofArrav.KEY) && !player.bank.containsItem(
-                            ShieldofArrav.KEY)) {
-                        player("I'm afraid I've lost the key you gave me...")
-                        80
-                    } else {
-                        options(
-                            "I've heard you've got some cool treasure in this place.",
-                            "Any suggestions for where I can go thieving?",
-                            "Where's the Black Arm Gang hideout?"
-                        )
-                        11
-                    }
+                10 -> if (!player.inventory.containsItem(ShieldofArrav.KEY) && !player.bank.containsItem(ShieldofArrav.KEY)) {
+                    player("I'm afraid I've lost the key you gave me...")
+                    stage = 80
+                } else {
+                    options(
+                        "I've heard you've got some cool treasure in this place.",
+                        "Any suggestions for where I can go thieving?",
+                        "Where's the Black Arm Gang hideout?"
+                    )
+                    stage = 11
+                }
 
                 80 -> {
                     npc(
@@ -169,7 +195,7 @@ class StravenDialogue(player: Player? = null) : Dialogue(player) {
                 110 -> {
                     npc(
                         "Oh yeah, we've all stolen some stuff in our time. Those",
-                        "candlesticks down here, for example, were quite a",
+                        "candelsticks down here, for example, were quite a",
                         "challenge to get out of the palace."
                     )
                     stage = 111
@@ -182,7 +208,7 @@ class StravenDialogue(player: Player? = null) : Dialogue(player) {
 
                 112 -> {
                     npc(
-                        "Woah... that's a blast from the past! We stole that years",
+                        "Woah... thats a blast from the past! We stole that years",
                         "and years ago! We don't even have all the shield",
                         "anymore."
                     )
@@ -205,14 +231,18 @@ class StravenDialogue(player: Player? = null) : Dialogue(player) {
             60, 50, 40 -> when (stage) {
                 0 -> {
                     npc(
-                        "Hey! You can't go in there. Only authorised personnel",
+                        "Hey! You can't go in there. Only authories personnel",
                         "of the VTAM Corporation are allowed beyond this point."
                     )
                     stage = 1
                 }
 
                 1 -> {
-                    options("I know who you are!", "How do I get a job with the VTAM corporation?", "Why not?")
+                    options(
+                        "I know who you are!",
+                        "How do I get a job with the VTAM corporation?",
+                        "Why not?"
+                    )
                     stage = 2
                 }
 
@@ -333,7 +363,7 @@ class StravenDialogue(player: Player? = null) : Dialogue(player) {
                 47 -> {
                     npc(
                         "Although having said that, a rival gang of ours, er,",
-                        "theirs, called the Black Arm Gang is supposedly meeting",
+                        "theirs, called the Black Arm Gang is supposedly metting",
                         "a contact from Port Sarim today in the Blue Moon",
                         "Inn."
                     )
@@ -391,7 +421,7 @@ class StravenDialogue(player: Player? = null) : Dialogue(player) {
             else -> when (stage) {
                 0 -> {
                     npc(
-                        "Hey! You can't go in there. Only authorised personnel",
+                        "Hey! You can't go in there. Only authories personnel",
                         "of the VTAM Corporation are allowed beyond this point."
                     )
                     stage = 1
@@ -408,16 +438,19 @@ class StravenDialogue(player: Player? = null) : Dialogue(player) {
         return true
     }
 
+    override fun getIds(): IntArray {
+        return intArrayOf(NPCs.STRAVEN_644)
+    }
+
     /**
-     * Handle default
-     *
-     * @param buttonId
+     * Method used to handle the default dial.
+     * @param buttonId the button id.
      */
     fun handleDefault(buttonId: Int) {
         when (stage) {
             0 -> {
                 npc(
-                    "Hey! You can't go in there. Only authorised personnel",
+                    "Hey! You can't go in there. Only authories personnel",
                     "of the VTAM Corporation are allowed beyond this point."
                 )
                 stage = 1
@@ -430,9 +463,5 @@ class StravenDialogue(player: Player? = null) : Dialogue(player) {
 
             2 -> end()
         }
-    }
-
-    override fun getIds(): IntArray {
-        return intArrayOf(644)
     }
 }

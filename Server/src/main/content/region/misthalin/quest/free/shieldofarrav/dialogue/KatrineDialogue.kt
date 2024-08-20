@@ -1,7 +1,10 @@
 package content.region.misthalin.quest.free.shieldofarrav.dialogue
 
+import content.region.asgarnia.quest.heroesquest.dialogue.KatrineDialogueFile
 import content.region.misthalin.quest.free.shieldofarrav.ShieldofArrav
+import core.api.consts.Items
 import core.api.consts.NPCs
+import core.api.openDialogue
 import core.game.dialogue.Dialogue
 import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
@@ -9,35 +12,59 @@ import core.game.node.entity.player.link.quest.Quest
 import core.game.node.item.Item
 
 /**
- * Represents the Katrine dialogue.
+ * Represents the katrine NPC dialogue.
+ * @author Vexia
  */
 class KatrineDialogue(player: Player? = null) : Dialogue(player) {
-
+    /**
+     * Represents the quest instance.
+     */
     private var quest: Quest? = null
+
+    override fun newInstance(player: Player?): Dialogue {
+        return KatrineDialogue(player)
+    }
 
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
         quest = player.getQuestRepository().getQuest("Shield of Arrav")
-        stage = when (quest!!.getStage(player)) {
-            80, 90, 100, 70 -> if (ShieldofArrav.isPhoenix(player)) {
+        when (quest!!.getStage(player)) {
+            100 -> {
+                if (ShieldofArrav.isBlackArm(player)) {
+                    val heroesQuest: Quest = player.getQuestRepository().getQuest("Heroes' Quest")
+                    if (0 < heroesQuest.getStage(player) && heroesQuest.getStage(player) < 100) {
+                        openDialogue(player, KatrineDialogueFile(), npc)
+                        return true
+                    }
+                }
+                if (ShieldofArrav.isPhoenix(player)) {
+                    npc("You've got some guts coming here, Phoenix guy!")
+                    stage = 200
+                } else {
+                    player("Hey.")
+                    stage = 0
+                }
+            }
+
+            90, 80, 70 -> if (ShieldofArrav.isPhoenix(player)) {
                 npc("You've got some guts coming here, Phoenix guy!")
-                200
+                stage = 200
             } else {
                 player("Hey.")
-                0
+                stage = 0
             }
 
             60 -> if (ShieldofArrav.isBlackArmMission(player)) {
                 npc("Have you got those crossbows for me yet?")
-                200
+                stage = 200
             } else {
                 player("What is this place?")
-                0
+                stage = 0
             }
 
             else -> {
                 player("What is this place?")
-                0
+                stage = 0
             }
         }
         return true
@@ -46,12 +73,12 @@ class KatrineDialogue(player: Player? = null) : Dialogue(player) {
     override fun handle(interfaceId: Int, buttonId: Int): Boolean {
         if (quest!!.getStage(player) == 60 && stage >= 200) {
             when (stage) {
-                200 -> stage = if (!player.inventory.containsItem(CROSSBOWS)) {
+                200 -> if (!player.inventory.containsItem(CROSSBOWS)) {
                     player("No, I haven't found them yet.")
-                    201
+                    stage = 201
                 } else {
                     player("Yes, I have.")
-                    204
+                    stage = 204
                 }
 
                 201 -> {
@@ -227,7 +254,10 @@ class KatrineDialogue(player: Player? = null) : Dialogue(player) {
                 }
 
                 163 -> {
-                    options("Well, you can give me a try can't you?", "Well, people tell me I have an honest face.")
+                    options(
+                        "Well, you can give me a try can't you?",
+                        "Well, people tell me I have an honest face."
+                    )
                     stage = 164
                 }
 
@@ -357,7 +387,7 @@ class KatrineDialogue(player: Player? = null) : Dialogue(player) {
 
                 182 -> {
                     npc(
-                        "If you're not up to a little bit of danger I don't think",
+                        "If you're not up to a little bit of dager I don't think",
                         "you've got anything to offer our gang."
                     )
                     stage = 183
@@ -481,6 +511,9 @@ class KatrineDialogue(player: Player? = null) : Dialogue(player) {
     }
 
     companion object {
-        private val CROSSBOWS = Item(767, 2)
+        /**
+         * Represents the corssbow items.
+         */
+        private val CROSSBOWS = Item(Items.PHOENIX_CROSSBOW_767, 2)
     }
 }

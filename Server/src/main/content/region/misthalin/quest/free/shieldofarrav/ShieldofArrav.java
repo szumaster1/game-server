@@ -1,67 +1,64 @@
 package content.region.misthalin.quest.free.shieldofarrav;
 
-import content.region.misthalin.quest.free.shieldofarrav.dialogue.JonnytheBeardDialogue;
-import core.api.consts.Vars;
 import content.region.misthalin.dialogue.varrock.castle.KingRoaldDialogue;
-import content.region.misthalin.quest.free.shieldofarrav.dialogue.KatrineDialogue;
-import content.region.misthalin.quest.free.shieldofarrav.dialogue.ReldoDialogue;
-import content.region.misthalin.quest.free.shieldofarrav.dialogue.StravenDialogue;
-import content.region.misthalin.quest.free.shieldofarrav.dialogue.WeaponsMasterDialogue;
+import content.region.misthalin.quest.free.shieldofarrav.dialogue.*;
 import content.region.misthalin.quest.free.shieldofarrav.npc.JohnnyBeardNPC;
 import content.region.misthalin.quest.free.shieldofarrav.plugin.CertificatePlugin;
 import content.region.misthalin.quest.free.shieldofarrav.plugin.ShieldArravPlugin;
+import core.api.consts.Vars;
 import core.game.node.entity.player.Player;
 import core.game.node.entity.player.link.quest.Quest;
 import core.game.node.item.Item;
-import core.plugin.ClassScanner;
 import core.plugin.Initializable;
+import core.plugin.ClassScanner;
 
 import static core.api.ContentAPIKt.removeAttribute;
 import static core.api.ContentAPIKt.setAttribute;
 
 /**
- * Represents the Shield of arrav quest.
+ * Represents the shield of arrav quest.
+ * @author Vexia
  */
 @Initializable
 public class ShieldofArrav extends Quest {
 
     /**
-     * The constant BOOK.
+     * Represents the shield of arrav book item.
      */
     public static final Item BOOK = new Item(757);
 
     /**
-     * The constant INTEL_REPORT.
+     * Represents the intel report item.
      */
     public static final Item INTEL_REPORT = new Item(761);
 
     /**
-     * The constant KEY.
+     * Represents the weapon store item key.
      */
     public static final Item KEY = new Item(759);
 
     /**
-     * The constant PHOENIX_SHIELD.
+     * Represents the phoenix shield item.
      */
     public static final Item PHOENIX_SHIELD = new Item(763);
 
     /**
-     * The constant BLACKARM_SHIELD.
+     * Represents the black arm shield item.
      */
     public static final Item BLACKARM_SHIELD = new Item(765);
 
     /**
-     * The constant BLACKARM_CERTIFICATE.
+     * Represents the blackarm certificate item.
      */
     public static final Item BLACKARM_CERTIFICATE = new Item(11174, 2);
 
     /**
-     * The constant PHOENIX_CERTIFICATE.
+     * Represents the phoenix certificate item.
      */
     public static final Item PHOENIX_CERTIFICATE = new Item(11173, 2);
 
     /**
-     * Instantiates a new Shieldof arrav.
+     * Constructs a new {@Code ShieldofArrav} {@Code Object}
      */
     public ShieldofArrav() {
         super("Shield of Arrav", 29, 28, 1, Vars.VARP_QUEST_SHIELD_OF_ARRAV_PROGRESS, 0, 1, 7);
@@ -220,86 +217,104 @@ public class ShieldofArrav extends Quest {
     }
 
     /**
-     * Sets phoenix.
+     * Sets the phoenix gang.
      *
-     * @param player the player
+     * @param player the player.
      */
     public static void setPhoenix(final Player player) {
         setAttribute(player, "/save:phoenix-gang", true);
     }
 
     /**
-     * Sets black arm.
+     * Sets the black arm gang.
      *
-     * @param player the player
+     * @param player the player.
      */
     public static void setBlackArm(final Player player) {
-        setAttribute(player, "/save:black-arm-gang", true);
+        player.setAttribute("/save:black-arm-gang", true);
     }
 
     /**
-     * Is phoenix boolean.
+     * Swaps the gang.
      *
-     * @param player the player
-     * @return the boolean
+     * @param player the player.
+     */
+    public static void swapGang(final Player player) {
+        if (isPhoenix(player)) {
+            player.setAttribute("/save:black-arm-gang", true);
+            player.setAttribute("/save:phoenix-gang", false);
+        } else if (isBlackArm(player)) {
+            player.setAttribute("/save:black-arm-gang", false);
+            player.setAttribute("/save:phoenix-gang", true);
+        } else {
+            player.setAttribute("/save:phoenix-gang", true);
+        }
+    }
+
+    /**
+     * Method used to check if the player is part of the phoenix gang.
+     *
+     * @param player the player.
+     * @return <code>True</code> if so.
      */
     public static boolean isPhoenix(final Player player) {
         return player.getAttribute("phoenix-gang", false);
     }
 
     /**
-     * Is black arm boolean.
+     * Method used to check if the player is part of the black arm gang.
      *
-     * @param player the player
-     * @return the boolean
+     * @param player the player.
+     * @return <code>True</code> if so.
      */
     public static boolean isBlackArm(final Player player) {
         return player.getAttribute("black-arm-gang", false);
     }
 
     /**
-     * Sets phoenix mission.
+     * Method used to set that the player is trying to do the phoennix mission.
      *
-     * @param player the player
+     * @param player the player.
      */
     public static void setPhoenixMission(final Player player) {
-        setAttribute(player, "/save:phoenix-mission", true);
+        player.setAttribute("/save:phoenix-mission", true);
     }
 
     /**
-     * Sets black arm mission.
+     * Method used to set that the player is trying to do the black arm gang
+     * mission.
      *
-     * @param player the player
+     * @param player the player.
      */
     public static void setBlackArmMission(final Player player) {
         setAttribute(player, "/save:blackarm-mission", true);
     }
 
     /**
-     * Is black arm mission boolean.
+     * Method used to check if they're doing the black arm gang mission.
      *
-     * @param player the player
-     * @return the boolean
+     * @param player the player.
+     * @return <code>True</code> if so.
      */
     public static boolean isBlackArmMission(final Player player) {
         return player.getAttribute("blackarm-mission", false);
     }
 
     /**
-     * Is phoenix mission boolean.
+     * Method used to check if they're doing the phoenix gang mission.
      *
-     * @param player the player
-     * @return the boolean
+     * @param player the player.
+     * @return <code>True</code> if so.
      */
     public static boolean isPhoenixMission(final Player player) {
         return player.getAttribute("phoenix-mission", false);
     }
 
     /**
-     * Gets shield.
+     * Gets the shield item.
      *
-     * @param player the player
-     * @return the shield
+     * @param player the player.
+     * @return
      */
     public static final Item getShield(final Player player) {
         return isBlackArm(player) ? BLACKARM_SHIELD : PHOENIX_SHIELD;
