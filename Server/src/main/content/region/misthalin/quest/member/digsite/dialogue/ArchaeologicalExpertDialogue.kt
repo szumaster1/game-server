@@ -1,6 +1,8 @@
 package content.region.misthalin.quest.member.digsite.dialogue
 
+import content.region.desert.quest.deserttreasure.DesertTreasure
 import core.api.*
+import core.api.consts.Items
 import core.game.dialogue.DialogueBuilder
 import core.game.dialogue.DialogueBuilderFile
 import core.api.consts.NPCs
@@ -28,7 +30,52 @@ class ArchaeologicalExpertDialogue (player: Player? = null) : Dialogue(player) {
  * Represents the Archaeological expert dialogue file.
  */
 class ArchaeologicalExpertDialogueFile : DialogueBuilderFile() {
+
     override fun create(b: DialogueBuilder) {
+        b.onQuestStages(DesertTreasure.questName, 3,4,5,6,7,8,9,10,11,12,13,14,15,100)
+            .npcl("Hello again.")
+            .npcl("Was that translation any use to Asgarnia?")
+            .playerl("I think it was, thanks!")
+            .end()
+
+        b.onQuestStages(DesertTreasure.questName, 2)
+            .betweenStage { df, player, _, _ ->
+                addItemOrDrop(player, Items.TRANSLATION_4655)
+            }
+            .npcl("There you go, that book contains the sum of my translating ability. If you would be so kind as to take that back to Asgarnia, I think it will reassure him that he is on the")
+            .npcl("right track for a find of great archaeological importance!")
+            .playerl("Wow! You write really quickly don't you?")
+            .npcl("What can I say? It's a skill I picked up through my many years of taking field notes!")
+            .endWith { _, player ->
+                if(getQuestStage(player, DesertTreasure.questName) == 2) {
+                    setQuestStage(player, DesertTreasure.questName, 3)
+                }
+            }
+
+        b.onPredicate { player -> getQuestStage(player, DesertTreasure.questName) >= 1 }
+            .playerl("Hello, are you Terry Balando?")
+            .npcl("That's right, who wants to know...?")
+            .npcl("Ah yes, I recognise you! You're the fellow who found that strange artefact about Zaros for the museum, aren't you? What can I do for you now?")
+            .playerl("That's right. I was in the desert down by the Bedabin Camp, and I found an archaeologist who asked me to deliver this to you.")
+            .npcl("You spoke to the legendary Asgarnia Smith??? Quickly, let me see what he had to give you! He is always at the forefront of archaeological breakthroughs!")
+            .betweenStage { df, player, _, _ ->
+                if(inInventory(player, Items.ETCHINGS_4654)) {
+                    removeItem(player, Items.ETCHINGS_4654)
+                }
+            }
+            .playerl("So what does the inscription say? Anything interesting?")
+            .npcl("This... this is fascinating! These cuneiforms seem to predate even the settlement we are excavating here... Yes, yes, this is most interesting indeed!")
+            .playerl("Can you translate it for me?")
+            .npc("Well, I am not familiar with this particular language, but", "the similarities inherent in the pictographs seem to show", "a prevalent trend towards a syllabary consistent with", "the phonemes we have discovered in this excavation!")
+            .playerl("Um... So, can you translate it for me or not?")
+            .npcl("Well, unfortunately this is the only example of this particular language I have ever seen, but I might be able to make a rough translation, of sorts...")
+            .npcl("It might be slightly obscure on the finer details, but it should be good enough to understand the rough meaning of what was originally written. Please, just wait a moment, I will write up what I can")
+            .npcl("translate into a journal for you. Then you can take it back to Asgarnia, I think he will be extremely interested in the translation!")
+            .endWith { _, player ->
+                if(getQuestStage(player, DesertTreasure.questName) == 1) {
+                    setQuestStage(player, DesertTreasure.questName, 2)
+                }
+            }
 
         // Fallback dialogue.
         b.onPredicate { _ -> true }

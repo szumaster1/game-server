@@ -41189,7 +41189,7 @@
     "id": "4665"
   },
   {
-    "examine": "Frank's shiny silver coated pot.",
+    "examine": "A silver pot made by Ruantun filled with blood, garlic and spices.",
     "tradeable": "false",
     "name": "Silver pot",
     "archery_ticket_price": "0",
@@ -41198,7 +41198,7 @@
     "id": "4666"
   },
   {
-    "examine": "A silver pot made by Ruantun and blessed on Entrana.",
+    "examine": "A blessed silver pot filled with blood, garlic and spices.",
     "name": "Blessed pot",
     "archery_ticket_price": "0",
     "weight": "2",

@@ -24,11 +24,8 @@ class KharidianDesertListeners : InteractionListener {
         val ANIMATION: Animation = Animation(911)
         const val DRY_CACTUS: Int = 2671
         const val SPAWN_DELAY: Int = 45
-        private const val TUNNEL = Scenery.TUNNEL_6481
-        private const val PORTAL = Scenery.PORTAL_6551
         private const val STAIRS = Scenery.STAIRS_DOWN_28481
         private const val EXIT = Scenery.EXIT_28401
-        private val PYRAMID_ENTRANCE = intArrayOf(Scenery.PYRAMID_ENTRANCE_6545, Scenery.PYRAMID_ENTRANCE_6547)
         private const val FALLEN_PILLAR_1 = Scenery.FALLEN_PILLAR_28515
         private const val FALLEN_PILLAR_2 = Scenery.FALLEN_PILLAR_28516
         private const val CACTUS = Scenery.KHARIDIAN_CACTUS_HEALTHY_2670
@@ -36,25 +33,6 @@ class KharidianDesertListeners : InteractionListener {
     }
 
     override fun defineListeners() {
-
-        // Listener for entering the tunnel
-        on(TUNNEL, IntType.SCENERY, "enter") { player, _ ->
-            teleport(player, Location(3233, 9313, 0))
-            return@on true
-        }
-
-        // Listener for opening the pyramid entrance
-        on(PYRAMID_ENTRANCE, IntType.SCENERY, "open") { player, node ->
-            // sendMessage(player, "A mystical power has sealed this door...")
-            DoorActionHandler.handleAutowalkDoor(player, node.asScenery())
-            return@on true
-        }
-
-        // Listener for using the portal
-        on(PORTAL, IntType.SCENERY, "use") { player, _ ->
-            teleport(player, Location(3233, 2887, 0))
-            return@on true
-        }
 
         // Listener for going up the stairs
         // https://runescape.wiki/w/Battle_of_Ullek

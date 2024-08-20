@@ -190,6 +190,14 @@ enum class SpecialLadders(private val ladderLoc: Location, private val destLoc: 
         ladderLoc = Location.create(2373, 3800, 0),
         destLoc = Location.create(2374, 3800, 2)
     ),
+    KHARIDIAN_DESERT_SUMMONING_UP(
+        ladderLoc = Location.create(3299, 9318, 0),
+        destLoc = Location.create(3303, 2897, 0)
+    ),
+    KHARIDIAN_DESERT_SUMMONING_DOWN(
+        ladderLoc = Location.create(3304, 2897, 0),
+        destLoc = Location.create(3299, 9317, 0)
+    ),
     KELDAGRIM_LIBRARY_UP(
         ladderLoc = Location.create(2865, 10222, 0),
         destLoc = Location.create(2865, 10224, 1)
@@ -322,6 +330,10 @@ enum class SpecialLadders(private val ladderLoc: Location, private val destLoc: 
             finishDiaryTask(player, DiaryType.SEERS_VILLAGE, 1, 3)
         }
     },
+    SHADOW_DUNGEON_UP(
+        ladderLoc = Location.create(2629, 5072, 0),
+        destLoc = Location.create(2548, 3421, 0)
+    ),
     SOPHANEM_ALTAR_LADDER_UP(
         ladderLoc = Location.create(3279, 2771, 1),
         destLoc = Location.create(3279, 2770, 3)
