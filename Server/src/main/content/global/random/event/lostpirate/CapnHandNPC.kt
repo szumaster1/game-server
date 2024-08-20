@@ -39,7 +39,7 @@ class CapnHandNPC(override var loot: WeightBasedTable? = null) : RandomEventNPC(
         if (ticksLeft <= 10) {
             ticksLeft = 10
             if (timeLeft <= getWorldTicks())
-            AntiMacro.terminateEventNpc(player!!)
+            AntiMacro.terminateEventNpc(player)
         }
         super.tick()
         if (!player.viewport.currentPlane.npcs.contains(this)) this.clear()
