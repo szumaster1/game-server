@@ -2,42 +2,60 @@ package content.global.skill.gathering.hunter.bnet;
 
 import core.cache.def.impl.NPCDefinition;
 import core.game.container.impl.EquipmentContainer;
+import core.game.node.entity.skill.Skills;
 import core.game.node.entity.npc.NPC;
 import core.game.node.entity.player.Player;
-import core.game.node.entity.skill.Skills;
 import core.game.node.item.Item;
 import core.game.world.update.flag.context.Graphic;
 
 /**
- * B net node.
+ * A butterfly net node.
+ * @author Vexia
  */
 public class BNetNode {
 
+    /**
+     * The butterfly jar item.
+     */
     private static final Item BUTTERFLY_JAR = new Item(10012);
 
     /**
-     * The constant IMPLING_JAR.
+     * The impling jar item.
      */
     protected static final Item IMPLING_JAR = new Item(11260);
 
+    /**
+     * The npcs related to this node.
+     */
     private final int[] npcs;
 
+    /**
+     * The levels needed.
+     */
     private final int[] levels;
 
+    /**
+     * The experience gained.
+     */
     private final double[] experience;
 
+    /**
+     * The graphics related to the node.
+     */
     private final Graphic[] graphics;
 
+    /**
+     * The reward item.
+     */
     private final Item reward;
 
     /**
-     * Instantiates a new B net node.
+     * Constructs a new {@code ButterflyNetNode} {@code Object}.
      *
-     * @param npcs       the npcs
-     * @param levels     the levels
-     * @param experience the experience
-     * @param graphics   the graphics
-     * @param reward     the reward
+     * @param npcs       the npcs.
+     * @param levels     the levels.
+     * @param experience the experience.
+     * @param graphics   the graphics.
      */
     public BNetNode(int[] npcs, int[] levels, double[] experience, Graphic[] graphics, Item reward) {
         this.npcs = npcs;
@@ -48,10 +66,10 @@ public class BNetNode {
     }
 
     /**
-     * Reward.
+     * Rewards the player.
      *
-     * @param player the player
-     * @param npc    the npc
+     * @param player the player.
+     * @param npc    the npc.
      */
     public void reward(Player player, NPC npc) {
         if (!isBareHand(player)) {
@@ -68,11 +86,10 @@ public class BNetNode {
     }
 
     /**
-     * Message.
+     * Handles a message event.
      *
-     * @param player  the player
-     * @param type    the type
-     * @param success the success
+     * @param type    the type.
+     * @param success the success.
      */
     public void message(Player player, int type, boolean success) {
         if (!success) {
@@ -89,20 +106,20 @@ public class BNetNode {
     }
 
     /**
-     * Has jar boolean.
+     * Checks if the player has a jar.
      *
-     * @param player the player
-     * @return the boolean
+     * @param player the player.
+     * @return {@code True} if so.
      */
     public boolean hasJar(Player player) {
         return player.getInventory().containsItem(getJar());
     }
 
     /**
-     * Has weapon boolean.
+     * Checks if the player has a weapon.
      *
-     * @param player the player
-     * @return the boolean
+     * @param player the player.
+     * @return {@code True} if so.
      */
     public boolean hasWeapon(Player player) {
         Item item = player.getEquipment().get(EquipmentContainer.SLOT_WEAPON);
@@ -110,111 +127,110 @@ public class BNetNode {
     }
 
     /**
-     * Has net boolean.
+     * Checks if the player has a net.
      *
-     * @param player the player
-     * @return the boolean
+     * @param player the player.
+     * @return {@code True} if so.
      */
     public boolean hasNet(Player player) {
         return player.getEquipment().contains(10010, 1) || player.getEquipment().contains(11259, 1);
     }
 
     /**
-     * Is bare hand boolean.
+     * Checks if the player is bare handed.
      *
-     * @param player the player
-     * @return the boolean
+     * @param player the player.
+     * @return {@code} True if so.
      */
     public boolean isBareHand(Player player) {
         return !hasNet(player) && player.getSkills().getLevel(Skills.HUNTER) >= getBareHandLevel() && player.getSkills().getLevel(Skills.AGILITY) >= getAgilityLevel();
     }
 
     /**
-     * Gets experience.
+     * Gets the experience in hunter.
      *
-     * @param player the player
-     * @return the experience
+     * @return the exp.
      */
     public double getExperience(Player player) {
         return experience[0];
     }
 
     /**
-     * Gets level.
+     * Gets the hunter level.
      *
-     * @return the level
+     * @return the level.
      */
     public int getLevel() {
         return levels[0];
     }
 
     /**
-     * Gets agility level.
+     * Gets the agility level.
      *
-     * @return the agility level
+     * @return the level.
      */
     public int getAgilityLevel() {
         return levels[2];
     }
 
     /**
-     * Gets bare hand level.
+     * Gets the bare hand level.
      *
-     * @return the bare hand level
+     * @return the level.
      */
     public int getBareHandLevel() {
         return levels[1];
     }
 
     /**
-     * Get npcs int [ ].
+     * Gets the npcs.
      *
-     * @return the int [ ]
+     * @return The npcs.
      */
     public int[] getNpcs() {
         return npcs;
     }
 
     /**
-     * Get levels int [ ].
+     * Gets the levels.
      *
-     * @return the int [ ]
+     * @return The levels.
      */
     public int[] getLevels() {
         return levels;
     }
 
     /**
-     * Get experiences double [ ].
+     * Gets the experience.
      *
-     * @return the double [ ]
+     * @return The experience.
      */
     public double[] getExperiences() {
         return experience;
     }
 
     /**
-     * Get graphics graphic [ ].
+     * Gets the graphics.
      *
-     * @return the graphic [ ]
+     * @return The graphics.
      */
     public Graphic[] getGraphics() {
         return graphics;
     }
 
     /**
-     * Gets reward.
+     * Gets the reward.
      *
-     * @return the reward
+     * @return The reward.
      */
     public Item getReward() {
         return reward;
     }
 
     /**
-     * Gets jar.
+     * Gets the jar.
      *
-     * @return the jar
+     * @return the jar.
      */
     public Item getJar() {
         return BUTTERFLY_JAR;

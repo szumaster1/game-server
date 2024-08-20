@@ -7,12 +7,16 @@ import core.tools.RandomFunction
 /**
  * Trap hook
  *
- * @param wrapper This property holds a reference to the TrapWrapper instance.
- * @param locations This property contains an array of Location instances.
+ * @param wrapper The wrapper of the hook.
+ * @param locations The locations for the trap to trigger.
  * @constructor Trap hook Represents a new instance of TrapHook with the specified wrapper and locations.
  */
 class TrapHook(val wrapper: TrapWrapper, val locations: Array<Location>) {
 
+    /**
+     * Gets a location by chance for the npc to go to.
+     * @return the location.
+     */
     val chanceLocation: Location?
         get() {
             val chance = wrapper.chanceRate
@@ -25,10 +29,9 @@ class TrapHook(val wrapper: TrapWrapper, val locations: Array<Location>) {
         }
 
     /**
-     * Is hooked
-     *
-     * @param location
-     * @return
+     * Checks if the trap is hooked.
+     * @param location the location.
+     * @return {@code True} if hooked.
      */
     fun isHooked(location: Location): Boolean {
         for (l in locations) {

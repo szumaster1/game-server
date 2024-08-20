@@ -5,9 +5,10 @@ import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 
 /**
- * Box trap node
+ * Handles the box trap node.
+ * @author Vexia
  *
- * @param summoningLevel
+ * @param summoningLevel The summoning level required.
  * @param npcIds Array of NPC IDs associated with the box trap.
  * @param level The level required to use the box trap.
  * @param experience The experience gained from using the box trap.

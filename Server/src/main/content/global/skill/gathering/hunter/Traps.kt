@@ -12,7 +12,8 @@ import core.game.world.update.flag.context.Animation
 import core.tools.Log
 
 /**
- * Traps
+ * Represents a trap type.
+ * @author Vexia
  *
  * @param settings Holds the configuration settings for the trap.
  * @constructor Represents a new instance of the Traps enum.
@@ -98,20 +99,17 @@ enum class Traps(@JvmField val settings: TrapSetting, vararg nodes: TrapNode) {
     val nodes: Array<TrapNode> = nodes as Array<TrapNode>
 
     /**
-     * Create
-     *
-     * @param player
-     * @param node
+     * Creates a trap instance.
+     * @param player the player.
      */
     fun create(player: Player, node: Node) {
         player.pulseManager.run(TrapCreatePulse(player, node, this))
     }
 
     /**
-     * Dismantle
-     *
-     * @param player
-     * @param scenery
+     * Dismantles a trap.
+     * @param player the player.
+     * @param scenery the scenery.
      */
     fun dismantle(player: Player, scenery: Scenery) {
         val instance = HunterManager.getInstance(player)
@@ -129,20 +127,18 @@ enum class Traps(@JvmField val settings: TrapSetting, vararg nodes: TrapNode) {
     }
 
     /**
-     * Investigate
-     *
-     * @param player
-     * @param scenery
+     * Investigates the trap.
+     * @param player the player.
+     * @param scenery the scenery.
      */
     fun investigate(player: Player?, scenery: Scenery?) {
         settings.investigate(player, scenery)
     }
 
     /**
-     * Catch npc
-     *
-     * @param wrapper
-     * @param npc
+     * Called when an npc is hooked.
+     * @param wrapper the wrapper.
+     * @param npc the npc.
      */
     fun catchNpc(wrapper: TrapWrapper, npc: NPC) {
         val trapNode = forNpc(npc)
@@ -153,10 +149,8 @@ enum class Traps(@JvmField val settings: TrapSetting, vararg nodes: TrapNode) {
     }
 
     /**
-     * Add hook
-     *
-     * @param wrapper
-     * @return
+     * Adds a hook.
+     * @param wrapper the wrapper.
      */
     fun addHook(wrapper: TrapWrapper): TrapHook {
         val hook = settings.createHook(wrapper)
@@ -165,10 +159,9 @@ enum class Traps(@JvmField val settings: TrapSetting, vararg nodes: TrapNode) {
     }
 
     /**
-     * For npc
-     *
-     * @param npc
-     * @return
+     * Gets a node by the npc.
+     * @param npc the npc.
+     * @return the node.
      */
     fun forNpc(npc: NPC): TrapNode? {
         for (node in nodes) {
@@ -182,10 +175,9 @@ enum class Traps(@JvmField val settings: TrapSetting, vararg nodes: TrapNode) {
     }
 
     /**
-     * Get by hook
-     *
-     * @param location
-     * @return
+     * Gets the wrapper by the hook.
+     * @param location the location.
+     * @return the wrapper.
      */
     fun getByHook(location: Location): TrapWrapper? {
         for (hook in hooks) {
@@ -197,9 +189,8 @@ enum class Traps(@JvmField val settings: TrapSetting, vararg nodes: TrapNode) {
     }
 
     /**
-     * Get hooks
-     *
-     * @return
+     * Gets the hooks.
+     * @return The hooks.
      */
     fun getHooks(): List<TrapHook> {
         return hooks
@@ -207,10 +198,9 @@ enum class Traps(@JvmField val settings: TrapSetting, vararg nodes: TrapNode) {
 
     companion object {
         /**
-         * For node traps.
-         *
-         * @param node the node
-         * @return the traps
+         * Gets a trap by the node id.
+         * @param node the node.
+         * @return the {@code Traps}.
          */
         @JvmStatic
         fun forNode(node: Node): Traps? {
@@ -247,10 +237,9 @@ enum class Traps(@JvmField val settings: TrapSetting, vararg nodes: TrapNode) {
         }
 
         /**
-         * Get node object.
-         *
-         * @param id the id
-         * @return the object.
+         * Gets a trap node by the id.
+         * @param id the id.
+         * @return the node.
          */
         @JvmStatic
         fun getNode(id: Int): Array<Any>? {

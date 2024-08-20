@@ -4,7 +4,8 @@ import core.game.node.entity.npc.NPC
 import core.game.node.item.Item
 
 /**
- * Falcon catch
+ * Represents a falcon catch.
+ * @author Vexia
  *
  * @param npc Represents the NPC (Non-Player Character) associated with the Falcon catch.
  * @param level Indicates the required level to perform the Falcon catch.
@@ -29,6 +30,11 @@ enum class FalconCatch(val npc: Int, val level: Int, val experience: Double, val
     DASHING_KEBBIT(5100, 69, 156.0, Item(10127));
 
     companion object {
+        /**
+         * Gets the falcon catch.
+         * @param item the item.
+         * @return the falcon catch.
+         */
         fun forItem(item: Item): FalconCatch? {
             for (falconCatch in values()) {
                 if (item.id == falconCatch.item.id) {
@@ -38,6 +44,11 @@ enum class FalconCatch(val npc: Int, val level: Int, val experience: Double, val
             return null
         }
 
+        /**
+         * Gets the falcon catch.
+         * @param npc the npc.
+         * @return the falcon catch.
+         */
         fun forNPC(npc: NPC): FalconCatch? {
             for (falconCatch in values()) {
                 if (npc.id == falconCatch.npc) {

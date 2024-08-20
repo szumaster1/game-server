@@ -5,7 +5,8 @@ import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 
 /**
- * Trap node
+ * Represents a node for a trap.
+ * @author Vexia
  *
  * @param npcIds Array of NPC IDs associated with the trap.
  * @param level Minimum level required to use the trap.

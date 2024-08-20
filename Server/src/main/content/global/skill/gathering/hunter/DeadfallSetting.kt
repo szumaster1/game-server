@@ -14,7 +14,8 @@ import core.game.world.map.Location
 import core.game.world.update.flag.context.Animation
 
 /**
- * Deadfall setting.
+ * Handles a deadfall trap.
+ * @author Vexia
  */
 class DeadfallSetting : TrapSetting(intArrayOf(28935, 19205), arrayOf(Item(946)), intArrayOf(28937, 19206), intArrayOf(10138, 6006, 12574, 341, 2132), "set-trap", 23, -1, Animation(5208), Animation(9726), true) {
 
@@ -93,6 +94,10 @@ class DeadfallSetting : TrapSetting(intArrayOf(28935, 19205), arrayOf(Item(946))
         return HunterManager.getInstance(player).trapAmount > 0
     }
 
+    /**
+     * Gets the list of locations.
+     * @return the locations.
+     */
     private fun getLocations(`object`: Scenery): List<Location> {
         val locs = ArrayList<Location>(20)
         if (`object`.direction == Direction.NORTH) {
@@ -111,6 +116,11 @@ class DeadfallSetting : TrapSetting(intArrayOf(28935, 19205), arrayOf(Item(946))
         return locs
     }
 
+    /**
+     * Gets the log the player has.
+     * @param player the player.
+     * @return the log.
+     */
     private fun getLog(player: Player): Log? {
         for (log in Log.values()) {
             if (player.inventory.contains(log.logId, 1)) {

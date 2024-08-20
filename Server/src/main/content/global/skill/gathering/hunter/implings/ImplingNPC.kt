@@ -17,7 +17,7 @@ import core.tools.Log
 import core.tools.RandomFunction
 
 /**
- * Impling NPC.
+ * Manages the behavior for implings themselves.
  */
 class ImplingNPC : NPCBehavior(*Impling.getIds()) {
     override fun onCreation(self: NPC) {

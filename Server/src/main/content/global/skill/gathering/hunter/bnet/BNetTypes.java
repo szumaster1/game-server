@@ -11,7 +11,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * The enum B net types.
+ * A butterfly net type catch.
+ * @author Vexia
  */
 public enum BNetTypes {
     /**

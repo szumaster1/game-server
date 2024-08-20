@@ -9,7 +9,8 @@ import core.game.node.entity.skill.Skills
 import core.game.node.scenery.Scenery
 
 /**
- * Trap dismantle pulse.
+ * Handles the dismantling of a trap.
+ * @author Vexia
  *
  * @param node The scenery object associated with the trap.
  * @param wrapper The wrapper object that contains trap-related data.

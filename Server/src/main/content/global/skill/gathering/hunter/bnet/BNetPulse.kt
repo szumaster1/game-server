@@ -18,7 +18,8 @@ import core.tools.StringUtils
 import kotlin.random.Random
 
 /**
- * B net pulse
+ * Handles the butterfly net catch pulse.
+ * @author Vexia
  *
  * @param type Represents the type of BNetNode associated with this pulse.
  * @constructor Represents a BNetPulse instance with the specified player, node, and type.
@@ -32,10 +33,8 @@ class BNetPulse(player: Player?, node: NPC?, private val type: BNetNode) : Skill
     private var ticks = 0 // Tracks the number of ticks for the pulse.
 
     /**
-     * Update lumbridge impling task
-     *
-     * @param player The player whose task is being updated.
-     * @return Returns true if the player is in the "puro puro" zone, otherwise false.
+     * Update lumbridge impling task, makes sure we're in puro puro and checks diary entry completion
+     * @returns false if not in puro puro, true and updates diary if in puro puro
      */
     fun updateLumbridgeImplingTask(player: Player): Boolean {
         return player.zoneMonitor.isInZone("puro puro") // Checks if the player is in the specified zone.
@@ -102,6 +101,10 @@ class BNetPulse(player: Player?, node: NPC?, private val type: BNetNode) : Skill
         this.type.message(player, type, success)
     }
 
+    /**
+     * Checks if the player has successfully caught the impling.
+     * @return {@code True} if successful, {@code false} if not.
+     */
     private val isSuccessful: Boolean
         get() {
             var huntingLevel = player.getSkills().getLevel(Skills.HUNTER)

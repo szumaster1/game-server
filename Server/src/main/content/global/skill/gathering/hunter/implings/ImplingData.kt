@@ -8,7 +8,7 @@ import core.game.world.map.build.RegionFlags
 import core.game.world.map.path.ClipMaskSupplier
 
 /**
- * Impling
+ * Implings
  *
  * @param npcId The unique identifier for the NPC (Non-Player Character) associated with the Impling.
  * @param puroId The unique identifier for the Puro Puro location associated with the Impling.
@@ -78,7 +78,7 @@ enum class Impling(val npcId: Int, val puroId: Int) {
 }
 
 /**
- * Impling spawner
+ * Represents the impling spawner.
  *
  * @param npcId The unique identifier for the NPC (Non-Player Character).
  * @param table The weighted table that contains the possible Implings.

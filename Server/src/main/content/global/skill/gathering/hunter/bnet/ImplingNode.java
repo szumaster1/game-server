@@ -1,7 +1,7 @@
 package content.global.skill.gathering.hunter.bnet;
 
-import core.game.node.entity.player.Player;
 import core.game.node.entity.skill.Skills;
+import core.game.node.entity.player.Player;
 import core.game.node.item.ChanceItem;
 import core.game.node.item.Item;
 import core.tools.RandomFunction;
@@ -9,24 +9,30 @@ import core.tools.RandomFunction;
 import java.util.Random;
 
 /**
- * Impling node.
+ * Handles the impling node.
+ * @author Vexia
  */
 public final class ImplingNode extends BNetNode {
 
+    /**
+     * The loot from an imp.
+     */
     private final ChanceItem[] loot;
 
+    /**
+     * The respawn time.
+     */
     private final int respawnTime;
 
     /**
-     * Instantiates a new Impling node.
+     * Constructs a new {@code ImplingNode} {@code Object}.
      *
-     * @param npcs        the npcs
-     * @param level       the level
-     * @param exp         the exp
-     * @param puroExp     the puro exp
-     * @param reward      the reward
-     * @param respawnTime the respawn time
-     * @param loot        the loot
+     * @param npcs    the npcs.
+     * @param level   the level.
+     * @param exp     the exp.
+     * @param puroExp the puro exp.
+     * @param reward  the reward.
+     * @param loot    the loot.
      */
     public ImplingNode(int[] npcs, int level, double exp, double puroExp, Item reward, final int respawnTime, final ChanceItem... loot) {
         super(npcs, new int[]{level}, new double[]{exp, puroExp}, null, reward);
@@ -35,24 +41,24 @@ public final class ImplingNode extends BNetNode {
     }
 
     /**
-     * Instantiates a new Impling node.
+     * Constructs a new {@code ImplingNode} {@code Object}.
      *
-     * @param npcs    the npcs
-     * @param level   the level
-     * @param exp     the exp
-     * @param puroExp the puro exp
-     * @param reward  the reward
-     * @param loot    the loot
+     * @param npcs    the npcs.
+     * @param level   the level.
+     * @param exp     the exp.
+     * @param puroExp the puro exp.
+     * @param reward  the reward.
+     * @param loot    the loot.
      */
     public ImplingNode(int[] npcs, int level, double exp, double puroExp, Item reward, final ChanceItem... loot) {
         this(npcs, level, exp, puroExp, reward, 16, loot);
     }
 
     /**
-     * Loot.
+     * Loots an imp jar.
      *
-     * @param player the player
-     * @param item   the item
+     * @param player the player.
+     * @param item   the item.
      */
     public void loot(final Player player, final Item item) {
         player.lock(1);
@@ -71,6 +77,12 @@ public final class ImplingNode extends BNetNode {
         }
     }
 
+    /**
+     * Checks if the item will break.
+     *
+     * @param player the player.
+     * @return {@code True} if so.
+     */
     private boolean isBroken(Player player) {
         int strengthLevel = player.getSkills().getLevel(Skills.STRENGTH);
         strengthLevel /= 0.5;
@@ -106,18 +118,18 @@ public final class ImplingNode extends BNetNode {
     }
 
     /**
-     * Get loot chance item [ ].
+     * Gets the loot.
      *
-     * @return the chance item [ ]
+     * @return The loot.
      */
     public ChanceItem[] getLoot() {
         return loot;
     }
 
     /**
-     * Gets respawn time.
+     * Gets the respawnTime.
      *
-     * @return the respawn time
+     * @return The respawnTime.
      */
     public int getRespawnTime() {
         return respawnTime;

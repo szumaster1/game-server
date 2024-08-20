@@ -5,7 +5,8 @@ import core.game.node.entity.player.Player
 import core.game.world.update.flag.context.Animation
 
 /**
- * Magic box setting.
+ * Handles the magic box.
+ * @author Vexia
  */
 class MagicBoxSetting : TrapSetting(10025, intArrayOf(19223), intArrayOf(1470, 1472, 1476, 1474), "activate", 19224, Animation.create(5208), Animation.create(9726), 27) {
 

@@ -22,7 +22,8 @@ import core.plugin.Initializable
 import core.plugin.Plugin
 
 /**
- * Falconry activity plugin.
+ * Represents the activity used during falconry practice.
+ * @author Vexia
  */
 @Initializable
 class FalconryActivityPlugin : ActivityPlugin("falconry", false, false, false) {
@@ -58,9 +59,8 @@ class FalconryActivityPlugin : ActivityPlugin("falconry", false, false, false) {
     }
 
     /**
-     * Falconry plugin
-     *
-     * @constructor Falconry plugin
+     * Represents the falconry plugin.
+     * @author Vexia
      */
     @Initializable
     class FalconryPlugin : OptionHandler() {
@@ -141,6 +141,9 @@ class FalconryActivityPlugin : ActivityPlugin("falconry", false, false, false) {
     }
 
     companion object {
+        /**
+         * Method used to remove the items.
+         */
         fun removeItems(player: Player?) {
             removeItem(player!!, Items.FALCONERS_GLOVE_10023, Container.INVENTORY)
             removeItem(player, Items.FALCONERS_GLOVE_10023, Container.EQUIPMENT)

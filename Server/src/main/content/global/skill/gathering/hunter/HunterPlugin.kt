@@ -26,7 +26,8 @@ import core.plugin.Plugin
 import java.util.*
 
 /**
- * Hunter plugin.
+ * Handles the hunter skill.
+ * @author Vexia
  */
 @Initializable
 class HunterPlugin : OptionHandler() {
@@ -114,11 +115,8 @@ class HunterPlugin : OptionHandler() {
     }
 
     /**
-     * Hunting item use with handler
-     *
-     * @constructor Hunting item use with handler
-     *//*
-     * The Hunting item use with handler.
+     * Handles the usage of an item on a trap.
+     * @author Vexia
      */
     class HuntingItemUseWithHandler : UseWithHandler(*ids) {
 
@@ -169,11 +167,8 @@ class HunterPlugin : OptionHandler() {
     }
 
     /**
-     * Hunter item plugin
-     *
-     * @constructor Hunter item plugin
-     *//*
-     * The Hunter item plugin.
+     * Handles a hunter item plugin.
+     * @author Vexia
      */
     class HunterItemPlugin : OptionHandler() {
 
@@ -203,25 +198,17 @@ class HunterPlugin : OptionHandler() {
 
 
         /**
-         * Release type
-         *
-         * @param ids
-         * @constructor Release type
-         *//*
-         * The enum Release type.
+         * A release type.
+         * @author Vexia
          */
         enum class ReleaseType(vararg val ids: Int) {
             /**
-             * Traps
-             *
-             * @constructor Traps
+             * Traps.
              */
             TRAPS(10033, 10034, 10092, 10146, 10147, 10148, 10149),
 
             /**
-             * Butterfly
-             *
-             * @constructor Butterfly
+             * Butterfly.
              */
             BUTTERFLY(10020, 10018, 10016, 10014) {
                 override fun release(player: Player, item: Item) {
@@ -236,10 +223,9 @@ class HunterPlugin : OptionHandler() {
 
 
             /**
-             * Release
-             *
-             * @param player
-             * @param item
+             * Releases an item.
+             * @param player the player.
+             * @param item the item.
              */
             open fun release(player: Player, item: Item) {
                 val multiple = item.amount > 1
@@ -249,6 +235,11 @@ class HunterPlugin : OptionHandler() {
 
 
             companion object {
+                /**
+                 * Handles a release type.
+                 * @param id the id.
+                 * @return the type.
+                 */
                 fun forId(id: Int): ReleaseType? {
                     for (type in values()) {
                         for (i in type.ids) {
@@ -264,11 +255,8 @@ class HunterPlugin : OptionHandler() {
     }
 
     /**
-     * Hunter net plugin
-     *
-     * @constructor Hunter net plugin
-     *//*
-     * The Hunter net plugin.
+     * Handles the catching of a hunter npc with a net.
+     * @author Vexia
      */
     class HunterNetPlugin : OptionHandler() {
 

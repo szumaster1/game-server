@@ -4,7 +4,9 @@ import core.game.node.entity.player.Player
 import core.game.node.item.Item
 
 /**
- * Hunter gear
+ * Represents a set of hunter gear.
+ * @author Vexia
+ *
  *
  * @param chanceRate Represents the probability of a successful hunt with this gear.
  * @constructor Represents the HunterGear enum with a chance rate and associated equipment.
@@ -60,7 +62,11 @@ enum class HunterGear(val chanceRate: Double, vararg equipment: Item) {
     val equipment: Array<Item> = equipment as Array<Item>
 
     companion object {
-
+        /**
+         * Method used to check if the player in the gear.
+         * @param player the player.
+         * @return the gear.
+         */
         @JvmStatic
         fun inGear(player: Player): HunterGear? {
             var contained = 0
@@ -76,7 +82,11 @@ enum class HunterGear(val chanceRate: Double, vararg equipment: Item) {
             }
             return null
         }
-
+        /**
+         * Gets the chance rate the player has.
+         * @param player the player.
+         * @return the rate.
+         */
         @JvmStatic
         fun getChanceRate(player: Player): Double {
             val gear = inGear(player) ?: return 0.0

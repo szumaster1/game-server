@@ -19,7 +19,8 @@ import java.util.List;
 import static core.api.ContentAPIKt.setAttribute;
 
 /**
- * Hunter manager.
+ * Manages the players hunter state.
+ * @author Vexia
  */
 public final class HunterManager implements LoginListener, LogoutListener, EventHook<TickEvent> {
 

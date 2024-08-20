@@ -9,7 +9,8 @@ import core.game.node.scenery.SceneryBuilder
 import core.game.world.update.flag.context.Animation
 
 /**
- * Net trap setting.
+ * Handles the net trap.
+ * @author Vexia
  */
 class NetTrapSetting : TrapSetting(intArrayOf(19652, 19663, 19671, 19679, 28564), arrayOf(Item(303), Item(954)), NetTrap.ids, intArrayOf(10142, 10143, 10144, 10145), "set-trap", 29, -1, Animation(5215), Animation.create(5207), true) {
 

@@ -20,7 +20,8 @@ import core.plugin.Plugin
 import core.tools.RandomFunction
 
 /**
- * Imp box plugin.
+ * Handles the imp box.
+ * @author Taylor
  */
 @Initializable
 class ImpBoxPlugin : OptionHandler() {
@@ -54,7 +55,7 @@ class ImpBoxPlugin : OptionHandler() {
     }
 
     /**
-     * The Imp box dialogue.
+     * Handles talk-to dialogue on the imp box.
      */
     class ImpBoxDialogue : Dialogue {
 
@@ -87,7 +88,7 @@ class ImpBoxPlugin : OptionHandler() {
     }
 
     /**
-     * The Imp interface handler.
+     * Handles the imp interface.
      */
     inner class ImpInterfaceHandler(private var box: Item?) : ComponentPlugin() {
 
@@ -96,14 +97,7 @@ class ImpBoxPlugin : OptionHandler() {
             return this
         }
 
-        override fun handle(
-            player: Player,
-            component: Component,
-            opcode: Int,
-            button: Int,
-            slot: Int,
-            itemId: Int
-        ): Boolean {
+        override fun handle(player: Player, component: Component, opcode: Int, button: Int, slot: Int, itemId: Int): Boolean {
             val item = player.inventory[slot]
             if (item != null) {
                 if (player.bank.canAdd(item) && item.id != box!!.id) {
@@ -134,6 +128,9 @@ class ImpBoxPlugin : OptionHandler() {
 
     companion object {
         private val IDS = intArrayOf(10028, 10027)
+        /**
+         * The message to show when the imp is gone.
+         */
         private const val FINISHING_MESSAGE = "The imp teleports away, taking the item to your bank account."
     }
 }

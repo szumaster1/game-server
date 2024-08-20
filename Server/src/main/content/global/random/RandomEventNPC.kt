@@ -1,10 +1,9 @@
 package content.global.random
 
 import content.global.random.event.surpriseexam.SurpriseExamNPC
-import core.api.*
-import core.api.consts.Graphics
 import core.api.consts.Sounds
-import core.api.utils.WeightBasedTable
+import core.api.playGlobalAudio
+import core.api.poofClear
 import core.game.interaction.MovementPulse
 import core.game.node.entity.impl.PulseType
 import core.game.node.entity.npc.NPC
@@ -13,29 +12,24 @@ import core.game.node.item.Item
 import core.game.world.map.Location
 import core.game.world.map.RegionManager
 import core.game.world.map.path.Pathfinder
+import core.integrations.discord.Discord
+import core.api.utils.WeightBasedTable
 import core.game.world.update.flag.context.Graphic
 import core.tools.secondsToTicks
 import core.tools.ticksToCycles
 import kotlin.random.Random
 import kotlin.reflect.full.createInstance
 
-/**
- * Random event NPC.
- * @author Ceikry
- */
 abstract class RandomEventNPC(id: Int) : NPC(id) {
     lateinit var player: Player
     abstract var loot: WeightBasedTable?
     var spawnLocation: Location? = null
-    val smokeGraphics = Graphic(Graphics.RANDOM_EVENT_PUFF_OF_SMOKE_86)
+    val SMOKE_GRAPHICS = Graphic(86)
     var initialized = false
     var finalized = false
     var timerPaused = false
     var ticksLeft = secondsToTicks(180)
 
-    /**
-     * Create random event npc.
-     */
     open fun create(player: Player, loot: WeightBasedTable? = null, type: String = ""): RandomEventNPC {
         val event = this::class.createInstance()
         if (event is SurpriseExamNPC) event.type = type
@@ -45,9 +39,6 @@ abstract class RandomEventNPC(id: Int) : NPC(id) {
         return event
     }
 
-    /**
-     * Terminate.
-     */
     open fun terminate() {
         pulseManager.clear(PulseType.STANDARD)
         if (initialized && !finalized) {
@@ -57,10 +48,6 @@ abstract class RandomEventNPC(id: Int) : NPC(id) {
         finalized = true
     }
 
-
-    /**
-     * Follow.
-     */
     open fun follow() {
         pulseManager.run((object : MovementPulse(this, player, Pathfinder.DUMB) {
             override fun pulse(): Boolean {
@@ -72,7 +59,7 @@ abstract class RandomEventNPC(id: Int) : NPC(id) {
 
     override fun tick() {
         super.tick()
-        if (player.getAttribute<RandomEventNPC?>("re-npc", null) != this) {
+        if(player.getAttribute<RandomEventNPC?>("re-npc", null) != this){
             terminate()
             return
         }
@@ -83,7 +70,7 @@ abstract class RandomEventNPC(id: Int) : NPC(id) {
         if (!pulseManager.hasPulseRunning() && !finalized) {
             follow()
         }
-        if (!player.isActive || !withinDistance(player, location, 10)) {
+        if (!player.isActive || !player.location.withinDistance(location, 10)) {
             terminate()
         }
         if (ticksLeft <= 0 && initialized) {
@@ -102,24 +89,18 @@ abstract class RandomEventNPC(id: Int) : NPC(id) {
         super.init()
     }
 
-    /**
-     * On time up.
-     */
     open fun onTimeUp() {
         noteAndTeleport()
         terminate()
     }
 
-    /**
-     * Note and teleport.
-     */
     fun noteAndTeleport() {
         player.pulseManager.clear()
         for (item in player.inventory.toArray()) {
             if (item == null) continue
             if (item.definition.isUnnoted) {
-                removeItem(player, item)
-                addItem(player, item.noteChange, item.amount)
+                player.inventory.remove(item)
+                player.inventory.add(Item(item.noteChange, item.amount))
             }
         }
         if (Random.nextBoolean()) {
@@ -127,18 +108,14 @@ abstract class RandomEventNPC(id: Int) : NPC(id) {
         } else {
             player.properties.teleportLocation = Location.create(3212, 9620, 0)
         }
-        player.graphics(smokeGraphics)
-        // Discord.postPlayerAlert(player.username, "Ignored Random.")
+        player.graphics(SMOKE_GRAPHICS)
+        //Discord.postPlayerAlert(player.username, "Ignored Random")
     }
-
 
     override fun clear() {
         super.clear()
         if(player.getAttribute<RandomEventNPC?>("re-npc", null) == this) player.removeAttribute("re-npc")
     }
 
-    /**
-     * Talk to.
-     */
     abstract fun talkTo(npc: NPC)
 }

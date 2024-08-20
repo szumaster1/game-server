@@ -18,7 +18,8 @@ import core.game.world.repository.Repository.findNPC
 import core.tools.RandomFunction
 
 /**
- * Falconry catch pulse
+ * Represents the skill pulse used to catch a kebbit.
+ * @author Vexia
  *
  * @param falconCatch Represents the falcon's catch status.
  * @constructor Represents the falconry catch pulse with player and node parameters.
@@ -117,6 +118,9 @@ class FalconryCatchPulse(player: Player?, node: NPC, private val falconCatch: Fa
         return true
     }
 
+    /**
+     * Sends the projectile.
+     */
     private fun sendProjectile() {
         val projectile = Projectile.create(player, node!!.asNpc(), 918)
         projectile.speed = 80
@@ -126,13 +130,16 @@ class FalconryCatchPulse(player: Player?, node: NPC, private val falconCatch: Fa
         playAudio(player, Sounds.HUNTING_FALCON_FLY_2633)
     }
 
+    /**
+     * Gets the distance of the npc.
+     * @return the distance.
+     */
     val distance: Int
         get() = (2 + player.location.getDistance(node!!.asNpc().location) * 0.5).toInt()
 
     /**
-     * Success
-     *
-     * @return
+     * Checks if the catch was successful.
+     * @return {@code True} if so.
      */
     fun success(): Boolean {
         return if (originalLocation !== node!!.asNpc().location) {

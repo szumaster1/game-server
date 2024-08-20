@@ -9,7 +9,8 @@ import kotlin.math.ceil
 import kotlin.math.min
 
 /**
- * Impling controller.
+ * Manages the high-level behavior of implings in the overworld: Spawning them, clearing them, etc.
+ * NOTE: This does not manage the spawns INSIDE puro-puro. Those are actually handled by JSON.
  */
 class ImplingController : TickListener, Commands {
     override fun tick() {
