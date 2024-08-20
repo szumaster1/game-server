@@ -1,12 +1,10 @@
 package core.game.node.entity.npc.drop;
 
-import content.global.skill.combat.prayer.Bones;
-import core.api.utils.NPCDropTable;
+import static core.api.ContentAPIKt.*;
+
+import content.data.tables.*;
 import core.cache.def.impl.NPCDefinition;
-import core.game.bots.AIPlayer;
-import core.game.bots.AIRepository;
-import core.game.bots.GeneralBotCreator;
-import core.game.ge.GrandExchange;
+import content.global.skill.combat.prayer.Bones;
 import core.game.node.entity.Entity;
 import core.game.node.entity.npc.NPC;
 import core.game.node.entity.player.Player;
@@ -16,55 +14,65 @@ import core.game.node.item.GroundItemManager;
 import core.game.node.item.Item;
 import core.game.world.map.Location;
 import core.game.world.map.RegionManager;
-import core.game.world.repository.Repository;
 import core.tools.RandomFunction;
 import core.tools.StringUtils;
+import core.game.bots.AIPlayer;
+import core.game.bots.AIRepository;
+import core.game.bots.GeneralBotCreator;
+import core.api.utils.NPCDropTable;
+import core.game.ge.GrandExchange;
+import core.game.world.repository.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static core.api.ContentAPIKt.announceIfRare;
-
 /**
- * Npc drop tables.
+ * Holds and handles the NPC drop tables.
+ * @author Emperor
  */
 public final class NPCDropTables {
 
     /**
-     * The constant DROP_RATES.
+     * The drop rates (0=common, 1=uncommon, 2=rare, 3=very rare).
      */
     public static final int[] DROP_RATES = {750, 150, 15, 5};
 
     /**
-     * The constant MESSAGE_NPCS.
+     * The npcs that will display drop messages
      */
     public static final int[] MESSAGE_NPCS = {50, 7133, 7134, 2881, 2882, 2883, 3200, 3340, 6247, 6203, 6260, 6222, 2745, 1160, 8133, 8610, 8611, 8612, 8613, 8614, 6204, 6206, 6208, 6261, 6263, 6265, 6223, 6225, 6227};
 
-    /**
-     * The Table.
-     */
     public NPCDropTable table = new NPCDropTable();
 
+    /**
+     * The NPC definitions.
+     */
     private final NPCDefinition def;
 
+    /**
+     * The main drop table size.
+     */
     private int mainTableSize;
 
+    /**
+     * The mod rate used with this table.
+     */
     private double modRate;
 
     /**
-     * Instantiates a new Npc drop tables.
+     * Constructs a new {@code NPCDropTables} {@code Object}.
      *
-     * @param def the def
+     * @param def The NPC definitions.
      */
     public NPCDropTables(NPCDefinition def) {
         this.def = def;
     }
 
     /**
-     * Drop.
+     * Handles the dropping.
      *
-     * @param npc    the npc
-     * @param looter the looter
+     * @param npc    The NPC dropping the loot.
+     * @param looter The entity gaining the loot.
      */
     public void drop(NPC npc, Entity looter) {
         Player p = looter instanceof Player ? (Player) looter : null;
@@ -73,14 +81,6 @@ public final class NPCDropTables {
         drops.forEach(item -> createDrop(item, p, npc, npc.getDropLocation()));
     }
 
-    /**
-     * Roll list.
-     *
-     * @param npc    the npc
-     * @param looter the looter
-     * @param times  the times
-     * @return the list
-     */
     public List<Item> roll(NPC npc, Entity looter, int times) {
         ArrayList<Item> drops = table.roll(looter, times);
         npc.behavior.onDropTableRolled(npc, looter, drops);
@@ -88,12 +88,12 @@ public final class NPCDropTables {
     }
 
     /**
-     * Create drop.
+     * Creates a dropped item.
      *
-     * @param item   the item
-     * @param player the player
-     * @param npc    the npc
-     * @param l      the l
+     * @param item   The item to drop.
+     * @param player The player getting the loot (or null).
+     * @param npc    the npc.
+     * @param l      The location of the NPC dropping the loot.
      */
     public void createDrop(Item item, Player player, NPC npc, Location l) {
         if (item == null || item.getId() == 0 || l == null || item.getName().equals("null") || player == null) {
@@ -138,12 +138,11 @@ public final class NPCDropTables {
     }
 
     /**
-     * Gets looter.
+     * Gets the looting player.
      *
-     * @param player the player
-     * @param npc    the npc
-     * @param item   the item
-     * @return the looter
+     * @param player the player.
+     * @param item   the item.
+     * @return the player.
      */
     public Player getLooter(Player player, NPC npc, Item item) {
         int itemId = item.getDefinition().isUnnoted() ? item.getId() : item.getNoteChange();
@@ -152,7 +151,7 @@ public final class NPCDropTables {
             List<Player> players = RegionManager.getLocalPlayers(npc, 16);
             List<Player> looters = new ArrayList<>(20);
             for (Player p : players) {
-                if (p != null && p.getCommunication().getClan() != null && p.getCommunication().getClan() == player.getCommunication().getClan() && p.getCommunication().isLootShare() && p.getCommunication().getLootRequirement().ordinal() >= p.getCommunication().getClan().getLootRequirement().ordinal() && npc.getImpactHandler().getNpcImpactLog().containsKey(p)) {
+                if (p != null && p.getCommunication().getClan() != null && p.getCommunication().getClan() == player.getCommunication().getClan() && p.getCommunication().isLootShare() && p.getCommunication().getLootRequirement().ordinal() >= p.getCommunication().getClan().getLootRequirement().ordinal() && !p.getIronmanManager().isIronman()) {
                     looters.add(p);
                 }
             }
@@ -180,6 +179,13 @@ public final class NPCDropTables {
         return player;
     }
 
+    /**
+     * Sends the drop to players within the area.
+     *
+     * @param killer the killer.
+     * @param npcId  the npcId.
+     * @param item   the item.
+     */
     private void sendDropMessage(Player killer, int npcId, Item item) {
         if (!item.getName().toLowerCase().contains("bone") && !item.getName().toLowerCase().contains("ashes")) {
             for (int id : MESSAGE_NPCS) {
@@ -194,6 +200,13 @@ public final class NPCDropTables {
         }
     }
 
+    /**
+     * Handles the bone crusher perk.
+     *
+     * @param player The player
+     * @param item   The item
+     * @return true if successfully added experience.
+     */
     private boolean handleBoneCrusher(Player player, Item item) {
         Bones bone = Bones.forId(item.getId());
         if (bone == null) {
@@ -207,27 +220,27 @@ public final class NPCDropTables {
     }
 
     /**
-     * Gets stabilizer ratio.
+     * Gets the ratio for stabilizing NPC combat difficulty & drop rates.
      *
-     * @return the stabilizer ratio
+     * @return The ratio.
      */
     public double getStabilizerRatio() {
-        return ((double) 1 / (1 + def.getCombatLevel())) * 10;
+        return (1 / (1 + def.getCombatLevel())) * 10;
     }
 
     /**
-     * Gets mod rate.
+     * Gets the modRate.
      *
-     * @return the mod rate
+     * @return The modRate.
      */
     public double getModRate() {
         return modRate;
     }
 
     /**
-     * Sets mod rate.
+     * Sets the modRate.
      *
-     * @param modRate the mod rate
+     * @param modRate The modRate to set.
      */
     public void setModRate(double modRate) {
         this.modRate = modRate;

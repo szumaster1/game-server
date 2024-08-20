@@ -1,20 +1,21 @@
 package core.game.node.entity.npc
 
+import core.game.node.item.Item
 import core.api.ContentInterface
 import core.game.node.entity.Entity
+import core.game.world.map.RegionManager
+import core.game.node.entity.player.Player
 import core.game.node.entity.combat.BattleState
 import core.game.node.entity.combat.CombatStyle
 import core.game.node.entity.combat.CombatSwingHandler
-import core.game.node.entity.player.Player
-import core.game.node.item.Item
-import core.game.world.map.RegionManager
 import core.game.world.map.path.ClipMaskSupplier
 import core.game.world.map.path.Pathfinder
 
 /**
- * NPC behavior.
+ * Represents the NPC behavior.
  */
 open class NPCBehavior(vararg val ids: Int = intArrayOf()) : ContentInterface {
+
     companion object {
         private val idMap = HashMap<Int, NPCBehavior>()
         private val defaultBehavior = NPCBehavior()
@@ -119,7 +120,9 @@ open class NPCBehavior(vararg val ids: Int = intArrayOf()) : ContentInterface {
      * @return whether the attacker should be able to attack this NPC.
      */
     open fun canBeAttackedBy(self: NPC, attacker: Entity, style: CombatStyle, shouldSendMessage: Boolean): Boolean {
-        return !(attacker is Player && !self.definition.hasAction("attack"))
+        if (attacker is Player && !self.definition.hasAction("attack"))
+            return false
+        return true
     }
 
     /**

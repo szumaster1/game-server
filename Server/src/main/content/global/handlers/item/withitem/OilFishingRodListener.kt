@@ -21,6 +21,7 @@ class OilFishingRodListener : InteractionListener {
     private val pestleAndMortar = Items.PESTLE_AND_MORTAR_233
 
     override fun defineListeners() {
+
         // Creating Oily fishing rod interaction.
         onUseWith(IntType.ITEM, blamishOil, fishingRod) { player, used, with ->
             player.pulseManager.run(object : Pulse() {

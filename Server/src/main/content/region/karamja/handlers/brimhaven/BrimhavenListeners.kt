@@ -20,22 +20,9 @@ import core.tools.RandomFunction
 import kotlin.math.ceil
 
 /**
- * Brimhaven listeners.
+ * Represents the Brimhaven listeners.
  */
 class BrimhavenListeners : InteractionListener {
-
-    companion object {
-        private val AGILITY_ARENA = location(2805, 9589, 3)
-        private val AGILITY_ARENA_HUT = location(2809, 3193, 0)
-        private const val AGILITY_ARENA_EXIT_LADDER = Scenery.LADDER_3618
-        private const val AGILITY_ARENA_ENTRANCE_LADDER = Scenery.LADDER_3617
-        private const val TICKET_EXCHANGE_IFACE = Components.AGILITYARENA_TRADE_6
-        private const val RESTAURANT_REAR_DOOR = Scenery.DOOR_1591
-        private const val GANG_OFFICE_DOOR = Scenery.DOOR_2626
-        private const val MANSION_DOOR = Scenery.DOOR_2627
-        private const val RESTAURANT_KITCHEN_DOOR = Scenery.DOOR_2628
-        private const val KARAMBWAN_FISHING_SPOT = NPCs.FISHING_SPOT_1178
-    }
 
     override fun defineListeners() {
 
@@ -88,28 +75,6 @@ class BrimhavenListeners : InteractionListener {
             return@on true
         }
 
-        // Handle the interaction when the player tries to open the door of the gang office.
-        /*
-        on(GANG_OFFICE_DOOR, IntType.SCENERY, "open") { player, _ ->
-            openDialogue(player, 789, Repository.findNPC(789)!!)
-            return@on true
-        }
-        */
-
-        // Handle the interaction when the player tries to open the door of the mansion.
-        /*
-        on(MANSION_DOOR, IntType.SCENERY, "open") { player, _ ->
-            openDialogue(player, 788, Repository.findNPC(788)!!, true)
-            return@on true
-        }
-        */
-
-        // Handle the interaction when the player tries to open the kitchen door of the restaurant.
-        on(RESTAURANT_KITCHEN_DOOR, IntType.SCENERY, "open") { player, _ ->
-            sendMessage(player, "The door is securely closed.")
-            return@on true
-        }
-
         // Handle the interaction when the player tries to fish at the Karambwan fishing spot.
         on(KARAMBWAN_FISHING_SPOT, IntType.NPC, "fish") { player, _ ->
             sendNPCDialogue(player, NPCs.LUBUFU_1171, "Keep off my fishing spot, whippersnapper!", FacialExpression.FURIOUS)
@@ -151,5 +116,15 @@ class BrimhavenListeners : InteractionListener {
             }
             return@on true
         }
+    }
+
+    companion object {
+        private val AGILITY_ARENA = location(2805, 9589, 3)
+        private val AGILITY_ARENA_HUT = location(2809, 3193, 0)
+        private const val AGILITY_ARENA_EXIT_LADDER = Scenery.LADDER_3618
+        private const val AGILITY_ARENA_ENTRANCE_LADDER = Scenery.LADDER_3617
+        private const val TICKET_EXCHANGE_IFACE = Components.AGILITYARENA_TRADE_6
+        private const val RESTAURANT_REAR_DOOR = Scenery.DOOR_1591
+        private const val KARAMBWAN_FISHING_SPOT = NPCs.FISHING_SPOT_1178
     }
 }

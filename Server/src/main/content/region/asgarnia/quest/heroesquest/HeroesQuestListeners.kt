@@ -23,13 +23,11 @@ import core.api.consts.Scenery
 /**
  * Heroes quest listener.
  */
-class HeroesQuestListeners: InteractionListener {
+class HeroesQuestListeners : InteractionListener {
 
     override fun defineListeners() {
         on(Scenery.DOOR_2626, IntType.SCENERY, "open") { player, node ->
-            if (getQuestStage(player, HeroesQuest.questName) >= 2 &&
-                    getAttribute(player, HeroesQuest.attributeGruborLetsYouIn, false) &&
-                    HeroesQuest.isBlackArm(player)) {
+            if (getQuestStage(player, HeroesQuest.questName) >= 2 && getAttribute(player, HeroesQuest.attributeGruborLetsYouIn, false) && HeroesQuest.isBlackArm(player)) {
                 DoorActionHandler.handleAutowalkDoor(player, node.asScenery())
             } else {
                 openDialogue(player, GruborDialogueFile(), NPC(NPCs.GRUBOR_789))
@@ -68,11 +66,13 @@ class HeroesQuestListeners: InteractionListener {
             openDialogue(player, object : DialogueFile() {
                 override fun handle(componentID: Int, buttonID: Int) {
                     when (stage) {
-                        START_DIALOGUE -> sendNPCDialogue(player, NPCs.PIRATE_GUARD_799, "I don't think Mr Grip will like you opening that. That's his private drinks cabinet.") .also { stage++ }
+                        START_DIALOGUE -> sendNPCDialogue(player, NPCs.PIRATE_GUARD_799, "I don't think Mr Grip will like you opening that. That's his private drinks cabinet.").also { stage++ }
+
                         1 -> showTopics(
-                                Topic(FacialExpression.NEUTRAL, "He won't notice me having a quick look.", 2),
-                                Topic(FacialExpression.NEUTRAL, "Ok, I'll leave it.", END_DIALOGUE)
+                            Topic(FacialExpression.NEUTRAL, "He won't notice me having a quick look.", 2),
+                            Topic(FacialExpression.NEUTRAL, "Ok, I'll leave it.", END_DIALOGUE)
                         )
+
                         2 -> end().also {
                             val gripNpc = findNPC(NPCs.GRIP_792)
                             sendChat(gripNpc!!, "Stay out of my drinks cabinet!")
@@ -93,6 +93,7 @@ class HeroesQuestListeners: InteractionListener {
             }
             return@on true
         }
+
         onUseWith(IntType.SCENERY, Items.MISCELLANEOUS_KEY_1586, Scenery.DOOR_2622) { player, used, with ->
             setAttribute(player, HeroesQuest.attributeHasOpenedBackdoor, true)
             DoorActionHandler.handleAutowalkDoor(player, with.asScenery())
@@ -107,21 +108,24 @@ class HeroesQuestListeners: InteractionListener {
             }
             return@on true
         }
+
         onUseWith(IntType.SCENERY, Items.GRIPS_KEY_RING_1588, Scenery.DOOR_2621) { player, used, with ->
             setAttribute(player, HeroesQuest.attributeHasOpenedChestDoor, true)
             DoorActionHandler.handleAutowalkDoor(player, with.asScenery())
             return@onUseWith true
         }
 
-        on(Scenery.CHEST_2632, IntType.SCENERY, "open"){ player, node ->
+        on(Scenery.CHEST_2632, IntType.SCENERY, "open") { player, node ->
             replaceScenery(node as core.game.node.scenery.Scenery, Scenery.CHEST_2633, -1)
             return@on true
         }
-        on(Scenery.CHEST_2633, IntType.SCENERY, "close"){ player, node ->
+
+        on(Scenery.CHEST_2633, IntType.SCENERY, "close") { player, node ->
             replaceScenery(node as core.game.node.scenery.Scenery, Scenery.CHEST_2632, -1)
             return@on true
         }
-        on(Scenery.CHEST_2633, IntType.SCENERY, "search"){ player, node ->
+
+        on(Scenery.CHEST_2633, IntType.SCENERY, "search") { player, node ->
             if (inInventory(player, Items.PETES_CANDLESTICK_1577)) {
                 sendMessage(player, "You search the chest but find nothing.")
             } else {
@@ -154,17 +158,11 @@ class HeroesQuestListeners: InteractionListener {
             return@onUseWith true
         }
 
-        on(Items.BLAMISH_OIL_1582, IntType.ITEM, "drink"){ player, node ->
+        on(Items.BLAMISH_OIL_1582, IntType.ITEM, "drink") { player, _ ->
             sendDialogue(player, "You know... I'd really rather not.")
             return@on true
         }
-        onUseWith(IntType.ITEM, Items.BLAMISH_OIL_1582, Items.FISHING_ROD_307) { player, used, with ->
-            if (removeItem(player, used) && removeItem(player, with)) {
-                sendMessage(player, "You rub the oil into the fishing rod")
-                addItemOrDrop(player, Items.VIAL_229)
-                addItemOrDrop(player, Items.OILY_FISHING_ROD_1585)
-            }
-            return@onUseWith true
-        }
+
     }
+
 }

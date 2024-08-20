@@ -424,6 +424,8 @@ public final class ImpactHandler {
 
     /**
      * Represents the hitsplat types.
+     *
+     * @author Emperor
      */
     public static enum HitsplatType {
         MISS, NORMAL, POISON, DISEASE, NORMAL_1, VENOM;

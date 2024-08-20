@@ -8,6 +8,7 @@ import core.game.dialogue.DialogueBuilder
 import core.game.dialogue.DialogueBuilderFile
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression
+import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
 
@@ -17,8 +18,13 @@ import core.plugin.Initializable
 @Initializable
 class AchiettiesDialogue(player: Player? = null) : Dialogue(player) {
 
-    override fun handle(interfaceId: Int, buttonId: Int): Boolean {
+    override fun open(vararg args: Any?): Boolean {
+        npc = args[0] as NPC
         openDialogue(player, AchiettiesDialogueFile(), npc)
+        return true
+    }
+
+    override fun handle(interfaceId: Int, buttonId: Int): Boolean {
         return true
     }
 

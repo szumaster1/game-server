@@ -23,10 +23,12 @@ class JohnnyBeardNPC : AbstractNPC {
 
     override fun finalizeDeath(killer: Entity) {
         super.finalizeDeath(killer)
-        val p = (killer as Player)
-        val quest = p.getQuestRepository().getQuest("Shield of Arrav")
-        if (quest.getStage(p) == 60 && ShieldofArrav.isPhoenixMission(p) && !p.inventory.containsItem(ShieldofArrav.INTEL_REPORT) && !p.bank.containsItem(ShieldofArrav.INTEL_REPORT)) {
-            GroundItemManager.create(ShieldofArrav.INTEL_REPORT, getLocation(), p)
+        if(killer is Player) {
+            val player = killer.asPlayer()
+            val quest = player.getQuestRepository().getQuest("Shield of Arrav")
+            if (quest.getStage(player) == 60 && ShieldofArrav.isPhoenixMission(player) && !player.inventory.containsItem(ShieldofArrav.INTEL_REPORT) && !player.bank.containsItem(ShieldofArrav.INTEL_REPORT)) {
+                GroundItemManager.create(ShieldofArrav.INTEL_REPORT, getLocation(), player)
+            }
         }
     }
 
