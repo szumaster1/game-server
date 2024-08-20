@@ -7,7 +7,7 @@ import core.game.node.entity.npc.NPCBehavior
 import core.tools.RandomFunction
 
 /**
- * Duck NPC.
+ * Represents the Duck NPC.
  */
 class DuckNPC : NPCBehavior(NPCs.DUCK_46, NPCs.DUCK_2693, NPCs.DUCK_6113) {
 

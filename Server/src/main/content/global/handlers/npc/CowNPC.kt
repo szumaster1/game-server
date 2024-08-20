@@ -7,7 +7,7 @@ import core.game.node.entity.npc.NPCBehavior
 import core.tools.RandomFunction
 
 /**
- * Cow NPC.
+ * Represents the Cow NPC.
  */
 class CowNPC : NPCBehavior(NPCs.COW_81, NPCs.COW_397, NPCs.COW_955, NPCs.COW_CALF_1766, NPCs.COW_1767, NPCs.COW_3309) {
 

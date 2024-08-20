@@ -11,7 +11,7 @@ import core.game.world.map.Location
 import core.plugin.Initializable
 
 /**
- * Highway man NPC.
+ * Represents the Highway man NPC.
  */
 @Initializable
 class HighwayManNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id, location) {

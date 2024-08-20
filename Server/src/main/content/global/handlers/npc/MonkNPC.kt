@@ -14,7 +14,7 @@ import core.plugin.Initializable
 import core.tools.RandomFunction
 
 /**
- * Monk NPC.
+ * Represents the Monk NPC.
  */
 @Initializable
 class MonkNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id, location) {

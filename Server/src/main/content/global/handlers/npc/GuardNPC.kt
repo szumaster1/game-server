@@ -6,7 +6,7 @@ import core.game.world.map.Location
 import core.plugin.Initializable
 
 /**
- * Guard NPC.
+ * Represents the Guard NPC.
  */
 @Initializable
 class GuardNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id, location) {

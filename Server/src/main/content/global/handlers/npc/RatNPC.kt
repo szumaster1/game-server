@@ -12,7 +12,7 @@ import core.game.world.map.Location
 import core.plugin.Initializable
 
 /**
- * Rat NPC.
+ * Represents the Rat NPC.
  */
 @Initializable
 class RatNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id, location) {

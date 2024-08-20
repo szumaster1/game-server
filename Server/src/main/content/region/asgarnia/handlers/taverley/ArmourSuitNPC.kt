@@ -10,7 +10,7 @@ import core.game.world.map.Location
 import core.plugin.Initializable
 
 /**
- * Armour suit NPC.
+ * Armour Suit NPC.
  */
 @Initializable
 class ArmourSuitNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id, location) {

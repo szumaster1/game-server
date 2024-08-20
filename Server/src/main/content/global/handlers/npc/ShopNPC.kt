@@ -7,7 +7,7 @@ import core.game.world.map.Location
 import core.plugin.Initializable
 
 /**
- * Shop NPC.
+ * Represents the Shop NPC.
  */
 @Initializable
 class ShopNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id, location) {

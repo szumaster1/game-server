@@ -13,7 +13,7 @@ import core.tools.RandomFunction
 private val IDS = (NPCs.TOWN_CRIER_6135..NPCs.TOWN_CRIER_6139).toIntArray()
 
 /**
- * Town crier NPC.
+ * Represents the Town crier NPC.
  */
 class TownCrierNPC : NPCBehavior(*IDS) {
 

@@ -9,7 +9,7 @@ import core.game.interaction.InteractionListener
 import core.game.world.map.Location
 
 /**
- * Signpost listener.
+ * Signpost listener handling read interaction around Gielinor.
  */
 class SignpostListener : InteractionListener {
 

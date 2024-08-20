@@ -8,9 +8,9 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 
 /**
- * Doogle leaf listener.
+ * Handling pick-leaf interaction with Doogle bush.
  */
-class DoogleLeafListener : InteractionListener {
+class DoogleBushListener : InteractionListener {
 
     override fun defineListeners() {
         on(Scenery.DOOGLE_BUSH_31155, IntType.SCENERY, "pick-leaf") { player, node ->

@@ -13,7 +13,7 @@ import core.game.node.item.Item
 import core.tools.RandomFunction
 
 /**
- * Crystal chest listeners.
+ * Crystal Chest listeners.
  */
 class CrystalChestListeners : InteractionListener {
 

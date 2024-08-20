@@ -8,7 +8,7 @@ import core.game.interaction.QueueStrength
 import core.game.node.entity.skill.Skills
 
 /**
- * White wolf mountain listener.
+ * White Wolf Mountain listener.
  */
 class WhiteWolfMountainListener : InteractionListener {
 

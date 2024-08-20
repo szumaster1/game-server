@@ -10,7 +10,7 @@ import core.game.node.item.Item
 import core.tools.RandomFunction
 
 /**
- * Chromatic dragon behavior.
+ * Represents the Chromatic dragon behavior.
  */
 class ChromaticDragonBehavior : NPCBehavior(*greenDragons, *blueDragons, *redDragons, *blackDragons) {
 

@@ -15,7 +15,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Blinkin dialogue.
+ * Represents the Blinkin dialogue.
  */
 @Initializable
 class BlinkinDialogue(player: Player? = null) : Dialogue(player) {

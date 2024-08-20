@@ -16,7 +16,7 @@ import core.game.node.entity.player.link.IronmanMode
 import core.game.world.GameWorld
 
 /**
- * Bank deposit box listener.
+ * Represents the Bank deposit box listener.
  */
 class BankDepositBoxListener : InteractionListener {
 

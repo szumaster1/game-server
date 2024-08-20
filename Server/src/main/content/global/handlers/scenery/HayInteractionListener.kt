@@ -11,9 +11,9 @@ import core.game.node.entity.combat.ImpactHandler
 import core.tools.RandomFunction
 
 /**
- * Hay interaction listener.
+ * Handling search interaction with Hay bales.
  */
-class HayInteractionListener : InteractionListener {
+class HayBalesListener : InteractionListener {
 
     override fun defineListeners() {
 

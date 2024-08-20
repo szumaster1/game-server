@@ -7,7 +7,7 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 
 /**
- * Chest listener.
+ * Represents the Chest listener.
  */
 class ChestListener : InteractionListener {
 

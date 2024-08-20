@@ -15,7 +15,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Mrs winkin dialogue.
+ * Represents the Mrs winkin dialogue.
  */
 @Initializable
 class MrsWinkinDialogue(player: Player? = null) : Dialogue(player) {

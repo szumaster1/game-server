@@ -14,7 +14,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Tool leprechaun dialogue.
+ * Represents the Tool leprechaun dialogue.
  */
 @Initializable
 class ToolLeprechaunDialogue(player: Player? = null) : Dialogue(player) {

@@ -12,7 +12,7 @@ import core.plugin.Initializable
 import core.tools.RandomFunction
 
 /**
- * Dark wizard NPC.
+ * Represents the Dark wizard NPC.
  */
 @Initializable
 class DarkWizardNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id, location) {

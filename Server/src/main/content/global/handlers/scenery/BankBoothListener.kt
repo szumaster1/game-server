@@ -17,7 +17,7 @@ import core.game.world.map.Location
 import core.game.world.repository.Repository
 
 /**
- * Bank booth listener.
+ * Represents the Bank booth listener.
  */
 class BankBoothListener : InteractionListener {
 

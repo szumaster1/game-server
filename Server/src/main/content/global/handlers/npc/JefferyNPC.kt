@@ -7,7 +7,7 @@ import core.game.node.entity.npc.NPCBehavior
 import core.game.world.map.Location
 import core.game.world.map.zone.ZoneBorders
 
-val FURNACE_AREA = ZoneBorders(3104, 3498, 3108, 3502)
+private val FURNACE_AREA = ZoneBorders(3104, 3498, 3108, 3502)
 
 /**
  * Jeffery NPC.

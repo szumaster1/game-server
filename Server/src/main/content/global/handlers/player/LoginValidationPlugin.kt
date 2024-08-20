@@ -15,7 +15,7 @@ import core.plugin.PluginType
 import java.util.concurrent.TimeUnit
 
 /**
- * Login validation plugin.
+ * Represents the Login validation plugin.
  */
 @Initializable
 @PluginManifest(type = PluginType.LOGIN)

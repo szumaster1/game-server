@@ -15,7 +15,7 @@ import core.game.world.update.flag.context.Animation
 import core.plugin.Initializable
 
 /**
- * Metal dragon NPC.
+ * Represents the Metal dragon NPC.
  */
 @Initializable
 class MetalDragonNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id, location) {
@@ -43,7 +43,8 @@ class MetalDragonNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id, 
         return intArrayOf(
             NPCs.BRONZE_DRAGON_1590,
             NPCs.IRON_DRAGON_1591,
-            NPCs.STEEL_DRAGON_1592, NPCs.STEEL_DRAGON_3590
+            NPCs.STEEL_DRAGON_1592,
+            NPCs.STEEL_DRAGON_3590,
         )
     }
 
