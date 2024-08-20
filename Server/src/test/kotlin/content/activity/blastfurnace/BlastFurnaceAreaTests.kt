@@ -16,14 +16,11 @@ import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 
 /**
- * Blast furnace area tests
- *
- * @constructor Blast furnace area tests
+ * Blast furnace area tests.
  */
 class BlastFurnaceAreaTests {
     /**
-     * Should be able to enter bf area
-     *
+     * Should be able to enter bf area.
      */
     @Test
     fun shouldBeAbleToEnterBfArea() {
@@ -37,8 +34,7 @@ class BlastFurnaceAreaTests {
     }
 
     /**
-     * Should be able to leave bf area
-     *
+     * Should be able to leave bf area.
      */
     @Test
     fun shouldBeAbleToLeaveBfArea() {
@@ -51,8 +47,7 @@ class BlastFurnaceAreaTests {
     }
 
     /**
-     * Should not be able to enter with less than60smithing
-     *
+     * Should not be able to enter with less than60smithing.
      */
     @Test
     fun shouldNotBeAbleToEnterWithLessThan60Smithing() {
@@ -65,8 +60,7 @@ class BlastFurnaceAreaTests {
     }
 
     /**
-     * Get fee price returns expected values
-     *
+     * Get fee price returns expected values.
      */
     @Test
     fun getFeePriceReturnsExpectedValues() {
@@ -83,8 +77,7 @@ class BlastFurnaceAreaTests {
     }
 
     /**
-     * Enter with fee should kick player out after10minutes
-     *
+     * Enter with fee should kick player out after 10 minutes.
      */
     @Test
     fun enterWithFeeShouldKickPlayerOutAfter10Minutes() {
@@ -96,8 +89,7 @@ class BlastFurnaceAreaTests {
     }
 
     /**
-     * Should be able to leave and enter freely while timer active
-     *
+     * Should be able to leave and enter freely while timer active.
      */
     @Test
     fun shouldBeAbleToLeaveAndEnterFreelyWhileTimerActive() {
@@ -122,8 +114,7 @@ class BlastFurnaceAreaTests {
     }
 
     /**
-     * Player should only be teleported if inside b f area
-     *
+     * Player should only be teleported if inside blast furnace area.
      */
     @Test
     fun playerShouldOnlyBeTeleportedIfInsideBFArea() {
@@ -140,8 +131,7 @@ class BlastFurnaceAreaTests {
     }
 
     /**
-     * Player should be able to place ore on belt
-     *
+     * Player should be able to place ore on belt.
      */
     @Test
     fun playerShouldBeAbleToPlaceOreOnBelt() {
@@ -154,8 +144,7 @@ class BlastFurnaceAreaTests {
     }
 
     /**
-     * Player should not be able to place more ore than can fit on belt
-     *
+     * Player should not be able to place more ore than can fit on belt.
      */
     @Test
     fun playerShouldNotBeAbleToPlaceMoreOreThanCanFitOnBelt() {
@@ -178,8 +167,7 @@ class BlastFurnaceAreaTests {
     }
 
     /**
-     * Belt ore limits should account for created bars
-     *
+     * Belt ore limits should account for created bars.
      */
     @Test
     fun beltOreLimitsShouldAccountForCreatedBars() {
@@ -196,8 +184,7 @@ class BlastFurnaceAreaTests {
     }
 
     /**
-     * Player should be able to only place specific ore on belt
-     *
+     * Player should be able to only place specific ore on belt.
      */
     @Test
     fun playerShouldBeAbleToOnlyPlaceSpecificOreOnBelt() {
@@ -213,8 +200,7 @@ class BlastFurnaceAreaTests {
     }
 
     /**
-     * Player should not be able to place ores they lack the level for
-     *
+     * Player should not be able to place ores they lack the level for.
      */
     @Test
     fun playerShouldNotBeAbleToPlaceOresTheyLackTheLevelFor() {
@@ -226,8 +212,7 @@ class BlastFurnaceAreaTests {
     }
 
     /**
-     * Should not be able to occupy extra bronze slots with more than28tin or copper
-     *
+     * Should not be able to occupy extra bronze slots with more than28tin or copper.
      */
     @Test
     fun shouldNotBeAbleToOccupyExtraBronzeSlotsWithMoreThan28TinOrCopper() {
@@ -253,8 +238,7 @@ class BlastFurnaceAreaTests {
     }
 
     /**
-     * Should not be able to place more than28total non coal ore on the belt
-     *
+     * Should not be able to place more than28total non coal ore on the belt.
      */
     @Test
     fun shouldNotBeAbleToPlaceMoreThan28TotalNonCoalOreOnTheBelt() {
@@ -272,8 +256,7 @@ class BlastFurnaceAreaTests {
     }
 
     /**
-     * Should be able to place28copper and tin ore on the belt
-     *
+     * Should be able to place28copper and tin ore on the belt.
      */
     @Test
     fun shouldBeAbleToPlace28CopperAndTinOreOnTheBelt() {
@@ -291,8 +274,7 @@ class BlastFurnaceAreaTests {
     }
 
     /**
-     * B f area should persist info across player relogs
-     *
+     * Blast furnace area should persist info across player relogs.
      */
     @Test
     fun BFAreaShouldPersistInfoAcrossPlayerRelogs() {

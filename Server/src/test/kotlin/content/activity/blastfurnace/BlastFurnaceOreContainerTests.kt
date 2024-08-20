@@ -8,14 +8,11 @@ import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 
 /**
- * Blast furnace ore container tests
- *
- * @constructor Blast furnace ore container tests
+ * Blast furnace ore container tests.
  */
 class BlastFurnaceOreContainerTests {
     /**
-     * Should be able to add coal
-     *
+     * Should be able to add coal.
      */
     @Test
     fun shouldBeAbleToAddCoal() {
@@ -25,8 +22,7 @@ class BlastFurnaceOreContainerTests {
     }
 
     /**
-     * Add coal should return extra amount if adding more than possible
-     *
+     * Add coal should return extra amount if adding more than possible.
      */
     @Test
     fun addCoalShouldReturnExtraAmountIfAddingMoreThanPossible() {
@@ -36,8 +32,7 @@ class BlastFurnaceOreContainerTests {
     }
 
     /**
-     * Should be able to add ores
-     *
+     * Should be able to add ores.
      */
     @Test
     fun shouldBeAbleToAddOres() {
@@ -47,8 +42,7 @@ class BlastFurnaceOreContainerTests {
     }
 
     /**
-     * Add ore should return extra amount if adding more than possible
-     *
+     * Add ore should return extra amount if adding more than possible.
      */
     @Test
     fun addOreShouldReturnExtraAmountIfAddingMoreThanPossible() {
@@ -58,8 +52,7 @@ class BlastFurnaceOreContainerTests {
     }
 
     /**
-     * Add ore should return extra amount when adding more copper or tin than possible
-     *
+     * Add ore should return extra amount when adding more copper or tin than possible.
      */
     @Test
     fun addOreShouldReturnExtraAmountWhenAddingMoreCopperOrTinThanPossible() {
@@ -71,8 +64,7 @@ class BlastFurnaceOreContainerTests {
     }
 
     /**
-     * Convert to bars should yield expected results
-     *
+     * Convert to bars should yield expected results.
      */
     @Test
     fun convertToBarsShouldYieldExpectedResults() {
@@ -162,8 +154,7 @@ class BlastFurnaceOreContainerTests {
     }
 
     /**
-     * Convert to bars should not consume materials for already filled bar type
-     *
+     * Convert to bars should not consume materials for already filled bar type.
      */
     @Test
     fun convertToBarsShouldNotConsumeMaterialsForAlreadyFilledBarType() {
@@ -179,8 +170,7 @@ class BlastFurnaceOreContainerTests {
     }
 
     /**
-     * Ore container should cleanly serialize and deserialize from json
-     *
+     * Ore container should cleanly serialize and deserialize from json.
      */
     @Test
     fun oreContainerShouldCleanlySerializeAndDeserializeFromJson() {
@@ -202,8 +192,7 @@ class BlastFurnaceOreContainerTests {
     }
 
     /**
-     * Should be able to remove bars
-     *
+     * Should be able to remove bars.
      */
     @Test
     fun shouldBeAbleToRemoveBars() {
@@ -217,8 +206,7 @@ class BlastFurnaceOreContainerTests {
     }
 
     /**
-     * Should not be able to remove more bars than possible
-     *
+     * Should not be able to remove more bars than possible.
      */
     @Test
     fun shouldNotBeAbleToRemoveMoreBarsThanPossible() {
@@ -232,8 +220,7 @@ class BlastFurnaceOreContainerTests {
     }
 
     /**
-     * Convert to bars should return x p reward
-     *
+     * Convert to bars should return x p reward.
      */
     @Test
     fun convertToBarsShouldReturnXPReward() {
@@ -244,8 +231,7 @@ class BlastFurnaceOreContainerTests {
     }
 
     /**
-     * Removing bars with no stock returns null
-     *
+     * Removing bars with no stock returns null.
      */
     @Test
     fun removingBarsWithNoStockReturnsNull() {

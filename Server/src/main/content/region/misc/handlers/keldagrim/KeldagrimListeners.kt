@@ -27,7 +27,6 @@ class KeldagrimListeners : InteractionListener {
         private const val REINALD = NPCs.REINALD_2194
         private const val FUSION_HAMMER = Items.BLAST_FUSION_HAMMER_14478
         private const val FOREMAN = NPCs.BLAST_FURNACE_FOREMAN_2553
-        private const val HIDDEN_TRAPDOOR = Scenery.HIDDEN_TRAPDOOR_28094
         private const val TUNNEL = Scenery.TUNNEL_5014
         private const val INN_KEEPER = NPCs.INN_KEEPER_2176
     }
@@ -70,30 +69,6 @@ class KeldagrimListeners : InteractionListener {
                     teleport(player, Location(2780, 10161), TeleportManager.TeleportType.INSTANT)
                 }
             }
-            return@on true
-        }
-
-        // Travel interaction between Keldagrim and Grand exchange.
-        on(HIDDEN_TRAPDOOR, IntType.SCENERY, "open") { player, _ ->
-            val keldagrimVisited = getAttribute(player, "keldagrim-visited", false)
-            openDialogue(player, object : DialogueFile() {
-                override fun handle(componentID: Int, buttonID: Int) {
-                    when (stage) {
-                        0 -> {
-                            if (!keldagrimVisited) {
-                                sendDialogue(player, "Perhaps I should visit Keldagrim first.").also { stage = END_DIALOGUE }
-                            } else {
-                                options("Travel to Keldagrim", "Nevermind.").also { stage++ }
-                            }
-                        }
-
-                        10 -> when (buttonID) {
-                            1 -> MinecartTravel.goToKeldagrim(player).also { end() }
-                            2 -> end()
-                        }
-                    }
-                }
-            })
             return@on true
         }
 

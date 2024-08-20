@@ -18,13 +18,13 @@ import core.plugin.Initializable
 @Initializable
 class AlfonseTheWaiterDialogue(player: Player? = null) : Dialogue(player) {
 
-    override fun newInstance(player: Player): Dialogue {
-        return AlfonseTheWaiterDialogue(player)
-    }
-
     override fun handle(interfaceId: Int, buttonId: Int): Boolean {
         openDialogue(player, AlfonseTheWaiterDialogueFile(), npc)
         return false
+    }
+
+    override fun newInstance(player: Player?): Dialogue {
+        return AlfonseTheWaiterDialogue(player)
     }
 
     override fun getIds(): IntArray {

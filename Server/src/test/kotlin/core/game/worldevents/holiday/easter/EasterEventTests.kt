@@ -10,8 +10,7 @@ import java.util.*
  */
 class EasterEventTests {
     /**
-     * Event should only trigger in april
-     *
+     * Event should only trigger in april.
      */
     @Test fun eventShouldOnlyTriggerInApril()
     {
@@ -35,8 +34,7 @@ class EasterEventTests {
     }
 
     /**
-     * Get locations for name should return expected list
-     *
+     * Get locations for name should return expected list.
      */
     @Test fun getLocationsForNameShouldReturnExpectedList()
     {
@@ -56,8 +54,7 @@ class EasterEventTests {
     }
 
     /**
-     * Get random location data should return a random location name and list of unique random locations
-     *
+     * Get random location data should return a random location name and list of unique random locations.
      */
     @Test fun getRandomLocationDataShouldReturnARandomLocationNameAndListOfUniqueRandomLocations()
     {
@@ -80,8 +77,7 @@ class EasterEventTests {
     }
 
     /**
-     * Each location group should contain no duplicate locations
-     *
+     * Each location group should contain no duplicate locations.
      */
     @Test fun eachLocationGroupShouldContainNoDuplicateLocations() {
         for (locSet in arrayOf(
@@ -104,8 +100,7 @@ class EasterEventTests {
     }
 
     /**
-     * Gfx for egg should return correct gfx
-     *
+     * Gfx for egg should return correct gfx.
      */
     @Test fun gfxForEggShouldReturnCorrectGfx()
     {

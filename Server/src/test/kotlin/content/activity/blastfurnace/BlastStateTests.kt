@@ -6,14 +6,11 @@ import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 
 /**
- * Blast state tests
- *
- * @constructor Blast state tests
+ * Blast state tests.
  */
 class BlastStateTests {
     /**
-     * Tick passed with coke in stove should increase stove temp
-     *
+     * Tick passed with coke in stove should increase stove temp.
      */
     @Test
     fun tickPassedWithCokeInStoveShouldIncreaseStoveTemp() {
@@ -26,8 +23,7 @@ class BlastStateTests {
     }
 
     /**
-     * Stove temp should never exceed100
-     *
+     * Stove temp should never exceed100.
      */
     @Test
     fun stoveTempShouldNeverExceed100() {
@@ -40,8 +36,7 @@ class BlastStateTests {
     }
 
     /**
-     * Coke should disappear from stove
-     *
+     * Coke should disappear from stove.
      */
     @Test
     fun cokeShouldDisappearFromStove() {
@@ -53,8 +48,7 @@ class BlastStateTests {
     }
 
     /**
-     * Stove temp should lower without coke
-     *
+     * Stove temp should lower without coke.
      */
     @Test
     fun stoveTempShouldLowerWithoutCoke() {
@@ -69,8 +63,7 @@ class BlastStateTests {
     }
 
     /**
-     * Stove temp should never go below0
-     *
+     * Stove temp should never go below0.
      */
     @Test
     fun stoveTempShouldNeverGoBelow0() {
@@ -104,8 +97,7 @@ class BlastStateTests {
     }
 
     /**
-     * Pumping should not transfer heat if pipes broken
-     *
+     * Pumping should not transfer heat if pipes broken.
      */
     @Test
     fun pumpingShouldNotTransferHeatIfPipesBroken() {
@@ -123,8 +115,7 @@ class BlastStateTests {
     }
 
     /**
-     * Pumping should not transfer heat if belt broken
-     *
+     * Pumping should not transfer heat if belt broken.
      */
     @Test
     fun pumpingShouldNotTransferHeatIfBeltBroken() {

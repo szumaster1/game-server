@@ -10,7 +10,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Represents the Guardian mummy dialogue.
+ * Represents the Guardian Mummy dialogue.
  */
 @Initializable
 class GuardianMummyDialogue(player: Player? = null) : Dialogue(player) {

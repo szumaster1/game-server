@@ -30,8 +30,7 @@ class PathfinderTests {
     }
 
     /**
-     * Get occupied tiles should return correct set of tiles that an object occupies at all rotations
-     *
+     * Get occupied tiles should return correct set of tiles that an object occupies at all rotations.
      */
     @Test
     fun getOccupiedTilesShouldReturnCorrectSetOfTilesThatAnObjectOccupiesAtAllRotations() {
@@ -56,8 +55,7 @@ class PathfinderTests {
     }
 
     /**
-     * Movement pulse should stop early if next to a tile occupied by target object
-     *
+     * Movement pulse should stop early if next to a tile occupied by target object.
      */
     @Test
     fun movementPulseShouldStopEarlyIfNextToATileOccupiedByTargetObject() {
@@ -73,8 +71,7 @@ class PathfinderTests {
     }
 
     /**
-     * Movement interaction should trigger
-     *
+     * Movement interaction should trigger.
      */
     @Test
     fun movementInteractionShouldTrigger() {
@@ -123,8 +120,7 @@ class PathfinderTests {
     }
 
     /**
-     * Entity moving to stationary NPC should not idle indefinitely
-     *
+     * Entity moving to stationary NPC should not idle indefinitely.
      */
     @Test
     fun entityMovingToStationaryNPCShouldNotIdleIndefinitely() {
@@ -145,8 +141,7 @@ class PathfinderTests {
     }
 
     /**
-     * Entity target movement pulse should not stop on same tile as entity
-     *
+     * Entity target movement pulse should not stop on same tile as entity.
      */
     @Test
     fun entityTargetMovementPulseShouldNotStopOnSameTileAsEntity() {
@@ -167,8 +162,7 @@ class PathfinderTests {
     }
 
     /**
-     * Entity target movement pulse with explicit params should not stop on same tile
-     *
+     * Entity target movement pulse with explicit params should not stop on same tile.
      */
     @Test
     fun entityTargetMovementPulseWithExplicitParamsShouldNotStopOnSameTile() {
@@ -189,8 +183,7 @@ class PathfinderTests {
     }
 
     /**
-     * Double movement pulse to entity should not stop on same tile
-     *
+     * Double movement pulse to entity should not stop on same tile.
      */
     @Test
     fun doubleMovementPulseToEntityShouldNotStopOnSameTile() {
@@ -217,8 +210,7 @@ class PathfinderTests {
     }
 
     /**
-     * Simulated interaction packet with movement from plugin should not end on same tile
-     *
+     * Simulated interaction packet with movement from plugin should not end on same tile.
      */
     @Test
     fun simulatedInteractionPacketWithMovementFromPluginShouldNotEndOnSameTile() {
@@ -252,8 +244,7 @@ class PathfinderTests {
     }
 
     /**
-     * Simulated interaction packet with movement from listener should not end on same tile
-     *
+     * Simulated interaction packet with movement from listener should not end on same tile.
      */
     @Test
     fun simulatedInteractionPacketWithMovementFromListenerShouldNotEndOnSameTile() {
@@ -282,8 +273,7 @@ class PathfinderTests {
     }
 
     /**
-     * Npc should reliably return to spawn location if too far
-     *
+     * Npc should reliably return to spawn location if too far.
      */
     @Test
     fun npcShouldReliablyReturnToSpawnLocationIfTooFar() {
@@ -303,8 +293,7 @@ class PathfinderTests {
     }
 
     /**
-     * Npc should reliably return to spawn even if region unloaded
-     *
+     * Npc should reliably return to spawn even if region unloaded.
      */
     @Test
     fun npcShouldReliablyReturnToSpawnEvenIfRegionUnloaded() {

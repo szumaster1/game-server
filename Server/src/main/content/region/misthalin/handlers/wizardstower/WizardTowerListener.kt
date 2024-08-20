@@ -20,20 +20,6 @@ import core.game.world.update.flag.context.Graphic
  */
 class WizardTowerListener : InteractionListener {
 
-    companion object {
-        private const val WIZARDS_TOWER_BOOKCASE_1 = Scenery.BOOKCASE_12539
-        private const val WIZARDS_TOWER_BOOKCASE_2 = Scenery.BOOKCASE_12540
-        private const val WIZARDS_TOWER_DEMON_TAUNT = Scenery.RAILING_37668
-        private const val WIZARDS_TOWER_LADDER_DOWN = Scenery.LADDER_2147
-        private const val WIZARDS_TOWER_PORTAL = Scenery.MAGIC_PORTAL_2156
-        private const val DARK_WIZARDS_TOWER_PORTAL = Scenery.MAGIC_PORTAL_2157
-        private const val THORMAC_SORC_HOUSE_PORTAL = Scenery.MAGIC_PORTAL_2158
-        private const val SEDRIDOR_TELEPORT_OPTION = NPCs.SEDRIDOR_300
-        private const val CABINET_BASEMENT_CLOSED = Scenery.CABINET_33062
-        private const val CABINET_BASEMENT_OPEN = Scenery.CABINET_33063
-        private const val LAND_OF_SNOW_PORTAL = Scenery.PORTAL_41681
-    }
-
     override fun defineListeners() {
         /**
          * Handling the player interaction with the bookcases in the Wizard's Tower.
@@ -153,4 +139,19 @@ class WizardTowerListener : InteractionListener {
             return@on true
         }
     }
+
+    companion object {
+        private const val WIZARDS_TOWER_BOOKCASE_1 = Scenery.BOOKCASE_12539
+        private const val WIZARDS_TOWER_BOOKCASE_2 = Scenery.BOOKCASE_12540
+        private const val WIZARDS_TOWER_DEMON_TAUNT = Scenery.RAILING_37668
+        private const val WIZARDS_TOWER_LADDER_DOWN = Scenery.LADDER_2147
+        private const val WIZARDS_TOWER_PORTAL = Scenery.MAGIC_PORTAL_2156
+        private const val DARK_WIZARDS_TOWER_PORTAL = Scenery.MAGIC_PORTAL_2157
+        private const val THORMAC_SORC_HOUSE_PORTAL = Scenery.MAGIC_PORTAL_2158
+        private const val SEDRIDOR_TELEPORT_OPTION = NPCs.SEDRIDOR_300
+        private const val CABINET_BASEMENT_CLOSED = Scenery.CABINET_33062
+        private const val CABINET_BASEMENT_OPEN = Scenery.CABINET_33063
+        private const val LAND_OF_SNOW_PORTAL = Scenery.PORTAL_41681
+    }
+
 }

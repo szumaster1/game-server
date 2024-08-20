@@ -16,9 +16,7 @@ import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 
 /**
- * Death tests
- *
- * @constructor Death tests
+ * Death tests.
  */
 class DeathTests {
     init {
@@ -29,8 +27,7 @@ class DeathTests {
     //Grave requirements source: https://gravecontroller.wiki/w/Gravestone?oldid=854455
 
     /**
-     * Grave utils produce grave should produce correct grave
-     *
+     * Grave utils produce grave should produce correct grave.
      */
     @Test
     fun graveUtilsProduceGraveShouldProduceCorrectGrave() {
@@ -41,8 +38,7 @@ class DeathTests {
     }
 
     /**
-     * Grave initialized with items should initialize correctly
-     *
+     * Grave initialized with items should initialize correctly.
      */
     @Test
     fun graveInitializedWithItemsShouldInitializeCorrectly() {
@@ -71,8 +67,7 @@ class DeathTests {
     }
 
     /**
-     * Grave initialized with no items should not spawn
-     *
+     * Grave initialized with no items should not spawn.
      */
     @Test
     fun graveInitializedWithNoItemsShouldNotSpawn() {
@@ -84,8 +79,7 @@ class DeathTests {
     }
 
     /**
-     * Grave initialized with ectophial and pouches should not keep them
-     *
+     * Grave initialized with ectophial and pouches should not keep them.
      */
     @Test
     fun graveInitializedWithEctophialAndPouchesShouldNotKeepThem() {
@@ -108,8 +102,7 @@ class DeathTests {
     }
 
     /**
-     * Grave initialized with droppable untradables should keep them
-     *
+     * Grave initialized with droppable untradables should keep them.
      */
     @Test
     fun graveInitializedWithDroppableUntradablesShouldKeepThem() {
@@ -126,8 +119,7 @@ class DeathTests {
     }
 
     /**
-     * Grave initialized with destroyable items should not keep them
-     *
+     * Grave initialized with destroyable items should not keep them.
      */
     @Test
     fun graveInitializedWithDestroyableItemsShouldNotKeepThem() {
@@ -143,8 +135,7 @@ class DeathTests {
     }
 
     /**
-     * Grave initialized with releasable items should not keep them
-     *
+     * Grave initialized with releasable items should not keep them.
      */
     @Test
     fun graveInitializedWithReleasableItemsShouldNotKeepThem() {
@@ -162,8 +153,7 @@ class DeathTests {
     }
 
     /**
-     * Grave initialized with item that has drop transform should contain transformed item
-     *
+     * Grave initialized with item that has drop transform should contain transformed item.
      */
     @Test
     fun graveInitializedWithItemThatHasDropTransformShouldContainTransformedItem() {
@@ -171,8 +161,7 @@ class DeathTests {
     }
 
     /**
-     * Grave should serialize and deserialize from json correctly
-     *
+     * Grave should serialize and deserialize from json correctly.
      */
     @Test
     fun graveShouldSerializeAndDeserializeFromJsonCorrectly() {
@@ -206,8 +195,7 @@ class DeathTests {
     }
 
     /**
-     * Grave deserialized from server store should naturally expire
-     *
+     * Grave deserialized from server store should naturally expire.
      */
     @Test
     fun graveDeserializedFromServerStoreShouldNaturallyExpire() {
@@ -244,8 +232,7 @@ class DeathTests {
     }
 
     /**
-     * Regular death should spawn grave with items
-     *
+     * Regular death should spawn grave with items.
      */
     @Test
     fun regularDeathShouldSpawnGraveWithItems() {
@@ -272,8 +259,7 @@ class DeathTests {
     }
 
     /**
-     * Skulled death should not spawn grave
-     *
+     * Skulled death should not spawn grave.
      */
     @Test
     fun skulledDeathShouldNotSpawnGrave() {
@@ -299,8 +285,7 @@ class DeathTests {
     }
 
     /**
-     * Creating new grave with grave already active should destroy old grave
-     *
+     * Creating new grave with grave already active should destroy old grave.
      */
     @Test
     fun creatingNewGraveWithGraveAlreadyActiveShouldDestroyOldGrave() {
@@ -332,8 +317,7 @@ class DeathTests {
     }
 
     /**
-     * Death with only3items should not produce a grave
-     *
+     * Death with only 3 items should not produce a grave.
      */
     @Test
     fun deathWithOnly3ItemsShouldNotProduceAGrave() {
@@ -355,8 +339,7 @@ class DeathTests {
     }
 
     /**
-     * Death inside wilderness should not produce a grave
-     *
+     * Death inside wilderness should not produce a grave.
      */
     @Test
     fun deathInsideWildernessShouldNotProduceAGrave() {
@@ -380,8 +363,7 @@ class DeathTests {
     }
 
     /**
-     * Death with r f d gloves should keep r f d gloves
-     *
+     * Death with RFD gloves should keep RFD gloves.
      */
     @Test
     fun deathWithRFDGlovesShouldKeepRFDGloves() {
@@ -410,8 +392,7 @@ class DeathTests {
     }
 
     /**
-     * Should not be able to drop item on grave
-     *
+     * Should not be able to drop item on grave.
      */
     @Test
     fun shouldNotBeAbleToDropItemOnGrave() {

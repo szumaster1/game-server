@@ -1,5 +1,6 @@
 package content.minigame.sorceressgarden.dialogue
 
+import core.api.consts.NPCs
 import core.api.hasRequirement
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression
@@ -16,8 +17,19 @@ import core.game.world.update.flag.context.Graphic
  */
 class SorceressApprenticeDialogue(player: Player? = null) : Dialogue(player) {
 
-    override fun getIds(): IntArray {
-        return intArrayOf(5532)
+    override fun open(vararg args: Any): Boolean {
+        npc = args[0] as NPC
+        stage = if (player.getSavedData().globalData.hasSpokenToApprentice()) {
+            player(FacialExpression.HALF_GUILTY,
+                "Hey apprentice, do you want to try out",
+                "your teleport skills again?"
+            )
+            0
+        } else {
+            player("Hello. What are you doing?")
+            10
+        }
+        return true
     }
 
     override fun handle(interfaceId: Int, buttonId: Int): Boolean {
@@ -247,19 +259,8 @@ class SorceressApprenticeDialogue(player: Player? = null) : Dialogue(player) {
         return true
     }
 
-    override fun open(vararg args: Any): Boolean {
-        npc = args[0] as NPC
-        stage = if (player.getSavedData().globalData.hasSpokenToApprentice()) {
-            player(FacialExpression.HALF_GUILTY,
-                "Hey apprentice, do you want to try out",
-                "your teleport skills again?"
-            )
-            0
-        } else {
-            player("Hello. What are you doing?")
-            10
-        }
-        return true
+    override fun getIds(): IntArray {
+        return intArrayOf(NPCs.APPRENTICE_5532)
     }
 
     companion object {

@@ -10,9 +10,7 @@ import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 
 /**
- * B f player state tests
- *
- * @constructor B f player state tests
+ * Blast Furnace player state tests.
  */
 class BFPlayerStateTests {
     init {
@@ -20,8 +18,7 @@ class BFPlayerStateTests {
     }
 
     /**
-     * Process ore into bars should do nothing if bars not cooled
-     *
+     * Process ore into bars should do nothing if bars not cooled.
      */
     @Test
     fun processOreIntoBarsShouldDoNothingIfBarsNotCooled() {
@@ -40,8 +37,7 @@ class BFPlayerStateTests {
     }
 
     /**
-     * Process ore into bars should do nothing if bars unchecked
-     *
+     * Process ore into bars should do nothing if bars unchecked.
      */
     @Test
     fun processOreIntoBarsShouldDoNothingIfBarsUnchecked() {
@@ -63,8 +59,7 @@ class BFPlayerStateTests {
     }
 
     /**
-     * Should be able to claim bars
-     *
+     * Should be able to claim bars.
      */
     @Test
     fun shouldBeAbleToClaimBars() {
@@ -81,8 +76,7 @@ class BFPlayerStateTests {
     }
 
     /**
-     * Should not be able to claim more bars than free inventory slots
-     *
+     * Should not be able to claim more bars than free inventory slots.
      */
     @Test
     fun shouldNotBeAbleToClaimMoreBarsThanFreeInventorySlots() {
@@ -101,8 +95,7 @@ class BFPlayerStateTests {
     }
 
     /**
-     * Claim bars should do nothing and grant no item if inventory full
-     *
+     * Claim bars should do nothing and grant no item if inventory full.
      */
     @Test
     fun claimBarsShouldDoNothingAndGrantNoItemIfInventoryFull() {
@@ -121,8 +114,7 @@ class BFPlayerStateTests {
     }
 
     /**
-     * Claim bars should do nothing if bars not cooled
-     *
+     * Claim bars should do nothing if bars not cooled.
      */
     @Test
     fun claimBarsShouldDoNothingIfBarsNotCooled() {

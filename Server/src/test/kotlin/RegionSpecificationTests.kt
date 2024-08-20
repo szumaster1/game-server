@@ -22,8 +22,7 @@ class RegionSpecificationTests {
     }
 
     /**
-     * Should create empty dynamic region when build without args
-     *
+     * Should create empty dynamic region when build without args.
      */
     @Test
     fun shouldCreateEmptyDynamicRegionWhenBuildWithoutArgs() {
@@ -33,8 +32,7 @@ class RegionSpecificationTests {
     }
 
     /**
-     * Should copy existing region if requested
-     *
+     * Should copy existing region if requested.
      */
     @Test
     fun shouldCopyExistingRegionIfRequested() {
@@ -44,8 +42,7 @@ class RegionSpecificationTests {
     }
 
     /**
-     * Should allow filling region with given chunk
-     *
+     * Should allow filling region with given chunk.
      */
     @Test
     fun shouldAllowFillingRegionWithGivenChunk() {
@@ -58,8 +55,7 @@ class RegionSpecificationTests {
     }
 
     /**
-     * Should allow custom rules for filling chunks
-     *
+     * Should allow custom rules for filling chunks.
      */
     @Test
     fun shouldAllowCustomRulesForFillingChunks() {
@@ -78,8 +74,7 @@ class RegionSpecificationTests {
     }
 
     /**
-     * Should allow multiple rules for filling chunks
-     *
+     * Should allow multiple rules for filling chunks.
      */
     @Test
     fun shouldAllowMultipleRulesForFillingChunks() {
@@ -118,8 +113,7 @@ class RegionSpecificationTests {
     }*/
 
     /**
-     * Should allow use existing dynamic region
-     *
+     * Should allow use existing dynamic region.
      */
     @Test
     fun shouldAllowUseExistingDynamicRegion() {
@@ -138,8 +132,7 @@ class RegionSpecificationTests {
     }
 
     /**
-     * Fill chunk contract should allow chunk set callback
-     *
+     * Fill chunk contract should allow chunk set callback.
      */
     @Test
     fun fillChunkContractShouldAllowChunkSetCallback() {

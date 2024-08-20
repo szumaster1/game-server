@@ -105,7 +105,26 @@ class UserAccountInfo(
      * @return An array representation of the user account info
      */
     fun toArray(): Array<Any> {
-        return arrayOf(username, password, uid, rights, credits, ip, lastUsedIp, muteEndTime, banEndTime, contacts, blocked, clanName, currentClan, clanReqs, timePlayed, lastLogin, online, joinDate) // Convert properties to array
+        return arrayOf(
+            username,
+            password,
+            uid,
+            rights,
+            credits,
+            ip,
+            lastUsedIp,
+            muteEndTime,
+            banEndTime,
+            contacts,
+            blocked,
+            clanName,
+            currentClan,
+            clanReqs,
+            timePlayed,
+            lastLogin,
+            online,
+            joinDate
+        ) // Convert properties to array
     }
 
     override fun toString(): String {

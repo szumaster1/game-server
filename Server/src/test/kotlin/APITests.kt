@@ -27,8 +27,7 @@ class APITests {
     }
 
     /**
-     * Test iface settings
-     *
+     * Test iface settings.
      */
     @Test
     fun testIfaceSettings() {
@@ -75,8 +74,7 @@ class APITests {
     }
 
     /**
-     * Test slayer manager save and load and save produces equivalent j s o n
-     *
+     * Test slayer manager save and load and save produces equivalent JSON.
      */
     @Test
     fun testSlayerManagerSaveAndLoadAndSaveProducesEquivalentJSON() {
@@ -101,8 +99,7 @@ class APITests {
     }
 
     /**
-     * Test slayer save and parse produces equivalent
-     *
+     * Test slayer save and parse produces equivalent.
      */
     @Test
     fun testSlayerSaveAndParseProducesEquivalent() {
@@ -125,8 +122,7 @@ class APITests {
     }
 
     /**
-     * Test slayer decrement task amount has no side effects
-     *
+     * Test slayer decrement task amount has no side effects.
      */
     @Test
     fun testSlayerDecrementTaskAmountHasNoSideEffects() {
@@ -159,8 +155,7 @@ class APITests {
     }
 
     /**
-     * Test known problem save parses correctly
-     *
+     * Test known problem save parses correctly.
      */
     @Test
     fun testKnownProblemSaveParsesCorrectly() {
@@ -187,8 +182,7 @@ class APITests {
     }
 
     /**
-     * Line split should split at limit and preserve all words
-     *
+     * Line split should split at limit and preserve all words.
      */
     @Test
     fun lineSplitShouldSplitAtLimitAndPreserveAllWords() {
@@ -229,8 +223,7 @@ class APITests {
     }
 
     /**
-     * Consumable stackable item should not remove stack
-     *
+     * Consumable stackable item should not remove stack.
      */
     @Test
     fun consumableStackableItemShouldNotRemoveStack() {
@@ -255,8 +248,7 @@ class APITests {
     }
 
     /**
-     * Consumable multi piece item should be removed from correct slot
-     *
+     * Consumable multi piece item should be removed from correct slot.
      */
     @Test
     fun consumableMultiPieceItemShouldBeRemovedFromCorrectSlot() {
@@ -293,8 +285,7 @@ class APITests {
     }
 
     /**
-     * Consumable multi piece item should add return item to correct slot
-     *
+     * Consumable multi piece item should add return item to correct slot.
      */
     @Test
     fun consumableMultiPieceItemShouldAddReturnItemToCorrectSlot() {
@@ -348,8 +339,7 @@ class APITests {
     }
 
     /**
-     * Consumable item should not have return item
-     *
+     * Consumable item should not have return item.
      */
     @Test
     fun consumableItemShouldNotHaveReturnItem() {
@@ -416,8 +406,7 @@ class APITests {
     }
 
     /**
-     * Vector to direction should return expected directions
-     *
+     * Vector to direction should return expected directions.
      */
     @Test
     fun vectorToDirectionShouldReturnExpectedDirections() {

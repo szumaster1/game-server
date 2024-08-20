@@ -27,8 +27,7 @@ class ShopTests {
     private var tokkulShop = TestUtils.getMockTokkulShop("Tokkul", Item(Items.DEATH_RUNE_560, 10))
 
     /**
-     * Before each
-     *
+     * Before each.
      */
     @BeforeEach
     fun beforeEach() {
@@ -52,8 +51,7 @@ class ShopTests {
     }
 
     /**
-     * Should sell item to store
-     *
+     * Should sell item to store.
      */
     @Test
     fun shouldSellItemToStore() {
@@ -64,8 +62,7 @@ class ShopTests {
     }
 
     /**
-     * Should not sell unstocked item to standard store
-     *
+     * Should not sell unstocked item to standard store.
      */
     @Test
     fun shouldNotSellUnstockedItemToStandardStore() {
@@ -76,8 +73,7 @@ class ShopTests {
     }
 
     /**
-     * Should sell unstocked item to general store
-     *
+     * Should sell unstocked item to general store.
      */
     @Test
     fun shouldSellUnstockedItemToGeneralStore() {
@@ -88,8 +84,7 @@ class ShopTests {
     }
 
     /**
-     * Should not sell destroyable
-     *
+     * Should not sell destroyable.
      */
     @Test
     fun shouldNotSellDestroyable() {
@@ -100,8 +95,7 @@ class ShopTests {
     }
 
     /**
-     * Should not sell untradeable
-     *
+     * Should not sell untradeable.
      */
     @Test
     fun shouldNotSellUntradeable() {
@@ -112,8 +106,7 @@ class ShopTests {
     }
 
     /**
-     * Should sell unstocked item to general store using low alch base value
-     *
+     * Should sell unstocked item to general store using low alch base value.
      */
     @Test
     fun shouldSellUnstockedItemToGeneralStoreUsingLowAlchBaseValue() {
@@ -159,8 +152,7 @@ class ShopTests {
     }
 
     /**
-     * Should sell unstocked item to high alch store using high alch base value
-     *
+     * Should sell unstocked item to high alch store using high alch base value.
      */
     @Test
     fun shouldSellUnstockedItemToHighAlchStoreUsingHighAlchBaseValue() {
@@ -206,8 +198,7 @@ class ShopTests {
     }
 
     /**
-     * Should sell noted unstocked item for same price as unnoted
-     *
+     * Should sell noted unstocked item for same price as unnoted.
      */
     @Test
     fun shouldSellNotedUnstockedItemForSamePriceAsUnnoted() {
@@ -244,8 +235,7 @@ class ShopTests {
     }
 
     /**
-     * Minimum sell price should be1coin
-     *
+     * Minimum sell price should be1coin.
      */
     @Test
     fun minimumSellPriceShouldBe1Coin() {
@@ -261,8 +251,7 @@ class ShopTests {
     }
 
     /**
-     * Tokkul should be10x less valuable when selling a stocked item
-     *
+     * Tokkul should be10x less valuable when selling a stocked item.
      */
     @Test
     fun tokkulShouldBe10xLessValuableWhenSellingAStockedItem() {
@@ -295,8 +284,7 @@ class ShopTests {
     }
 
     /**
-     * Should sell unstocked item to general store as ironman
-     *
+     * Should sell unstocked item to general store as ironman.
      */
     @Test
     fun shouldSellUnstockedItemToGeneralStoreAsIronman() {
@@ -307,8 +295,7 @@ class ShopTests {
     }
 
     /**
-     * Should sell stack of unstocked items to player stock
-     *
+     * Should sell stack of unstocked items to player stock.
      */
     @Test
     fun shouldSellStackOfUnstockedItemsToPlayerStock() {
@@ -319,8 +306,7 @@ class ShopTests {
     }
 
     /**
-     * Should put sold unstocked items in player stock
-     *
+     * Should put sold unstocked items in player stock.
      */
     @Test
     fun shouldPutSoldUnstockedItemsInPlayerStock() {
@@ -333,8 +319,7 @@ class ShopTests {
     }
 
     /**
-     * Should allow standard player to buy
-     *
+     * Should allow standard player to buy.
      */
     @Test
     fun shouldAllowStandardPlayerToBuy() {
@@ -346,8 +331,7 @@ class ShopTests {
     }
 
     /**
-     * Should allow standard player to buy overstock
-     *
+     * Should allow standard player to buy overstock.
      */
     @Test
     fun shouldAllowStandardPlayerToBuyOverstock() {
@@ -360,8 +344,7 @@ class ShopTests {
     }
 
     /**
-     * Should allow standard player to buy player stock
-     *
+     * Should allow standard player to buy player stock.
      */
     @Test
     fun shouldAllowStandardPlayerToBuyPlayerStock() {
@@ -374,8 +357,7 @@ class ShopTests {
     }
 
     /**
-     * Should not allow ironman to buy overstock
-     *
+     * Should not allow ironman to buy overstock.
      */
     @Test
     fun shouldNotAllowIronmanToBuyOverstock() {
@@ -388,8 +370,7 @@ class ShopTests {
     }
 
     /**
-     * Should not allow ironman to buy player stock
-     *
+     * Should not allow ironman to buy player stock.
      */
     @Test
     fun shouldNotAllowIronmanToBuyPlayerStock() {
@@ -402,8 +383,7 @@ class ShopTests {
     }
 
     /**
-     * Open shop should not throw exception
-     *
+     * Open shop should not throw exception.
      */
     @Test
     fun openShopShouldNotThrowException() {
@@ -413,8 +393,7 @@ class ShopTests {
     }
 
     /**
-     * Should not throw exception when restocking stock with null slot
-     *
+     * Should not throw exception when restocking stock with null slot.
      */
     @Test
     fun shouldNotThrowExceptionWhenRestockingStockWithNullSlot() {
@@ -428,8 +407,7 @@ class ShopTests {
     }
 
     /**
-     * Player stock should never be null
-     *
+     * Player stock should never be null.
      */
     @Test
     fun playerStockShouldNeverBeNull() {
@@ -437,8 +415,7 @@ class ShopTests {
     }
 
     /**
-     * Should allow buying from player stock on multiple rows
-     *
+     * Should allow buying from player stock on multiple rows.
      */
     @Test
     fun shouldAllowBuyingFromPlayerStockOnMultipleRows() {
@@ -456,8 +433,7 @@ class ShopTests {
     }
 
     /**
-     * Invalid stock json should not cause item shift
-     *
+     * Invalid stock json should not cause item shift.
      */
     @Test
     fun invalidStockJsonShouldNotCauseItemShift() {
@@ -468,8 +444,7 @@ class ShopTests {
     }
 
     /**
-     * Buying0stock item from normal stock should not succeed nor deduct gold
-     *
+     * Buying0stock item from normal stock should not succeed nor deduct gold.
      */
     @Test
     fun buying0StockItemFromNormalStockShouldNotSucceedNorDeductGold() {
@@ -512,8 +487,7 @@ class ShopTests {
     }
 
     /**
-     * Buying item with otherwise full inventory still buys the item and takes the coins
-     *
+     * Buying item with otherwise full inventory still buys the item and takes the coins.
      */
     @Test
     fun buyingItemWithOtherwiseFullInventoryStillBuysTheItemAndTakesTheCoins() {

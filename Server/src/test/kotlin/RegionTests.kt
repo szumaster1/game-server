@@ -15,8 +15,7 @@ class RegionTests {
     }
 
     /**
-     * Test region load
-     *
+     * Test region load.
      */
     @Test
     fun testRegionLoad() {
@@ -26,8 +25,7 @@ class RegionTests {
     }
 
     /**
-     * Should have different id for dynamic copy
-     *
+     * Should have different id for dynamic copy.
      */
     @Test
     fun shouldHaveDifferentIdForDynamicCopy() {
@@ -37,8 +35,7 @@ class RegionTests {
     }
 
     /**
-     * Dynamic region creation should not replace original
-     *
+     * Dynamic region creation should not replace original.
      */
     @Test
     fun dynamicRegionCreationShouldNotReplaceOriginal() {
@@ -48,8 +45,7 @@ class RegionTests {
     }
 
     /**
-     * Test dynamic region has same objects
-     *
+     * Test dynamic region has same objects.
      */
     @Test
     fun testDynamicRegionHasSameObjects() {
@@ -62,8 +58,7 @@ class RegionTests {
     }
 
     /**
-     * Test object exists in standard region
-     *
+     * Test object exists in standard region.
      */
     @Test
     fun testObjectExistsInStandardRegion() {
@@ -79,8 +74,7 @@ class RegionTests {
     }
 
     /**
-     * Test object exists in dynamic region
-     *
+     * Test object exists in dynamic region.
      */
     @Test
     fun testObjectExistsInDynamicRegion() {
@@ -98,8 +92,7 @@ class RegionTests {
     }
 
     /**
-     * Test object exists in copied chunk
-     *
+     * Test object exists in copied chunk.
      */
     @Test
     fun testObjectExistsInCopiedChunk() {
@@ -119,8 +112,7 @@ class RegionTests {
     }
 
     /**
-     * Test object exists in copied chunk using build flag
-     *
+     * Test object exists in copied chunk using build flag.
      */
     @Test
     fun testObjectExistsInCopiedChunkUsingBuildFlag() {
@@ -140,8 +132,7 @@ class RegionTests {
     }
 
     /**
-     * Test object exists in copied chunk copied into blank region
-     *
+     * Test object exists in copied chunk copied into blank region.
      */
     @Test
     fun testObjectExistsInCopiedChunkCopiedIntoBlankRegion() {
@@ -162,8 +153,7 @@ class RegionTests {
     }
 
     /**
-     * Test object exists in copied chunk in linked region
-     *
+     * Test object exists in copied chunk in linked region.
      */
     @Test
     fun testObjectExistsInCopiedChunkInLinkedRegion() {

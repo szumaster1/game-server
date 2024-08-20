@@ -33,8 +33,7 @@ class ProductionAuthenticatorTests {
     }
 
     /**
-     * Should reject login with invalid details
-     *
+     * Should reject login with invalid details.
      */
     @Test
     fun shouldRejectLoginWithInvalidDetails() {
@@ -42,8 +41,7 @@ class ProductionAuthenticatorTests {
     }
 
     /**
-     * Login username is not case sensitive
-     *
+     * Login username is not case-sensitive.
      */
     @Test
     fun loginUsernameIsNotCaseSensitive() {
@@ -52,8 +50,7 @@ class ProductionAuthenticatorTests {
     }
 
     /**
-     * Should hash passwords
-     *
+     * Should hash passwords.
      */
     @Test
     fun shouldHashPasswords() {
@@ -61,8 +58,7 @@ class ProductionAuthenticatorTests {
     }
 
     /**
-     * Should not allow banned login
-     *
+     * Should not allow banned login.
      */
     @Test
     fun shouldNotAllowBannedLogin() {
@@ -76,8 +72,7 @@ class ProductionAuthenticatorTests {
     }
 
     /**
-     * Should not allow already online login
-     *
+     * Should not allow already online login.
      */
     @Test
     fun shouldNotAllowAlreadyOnlineLogin() {

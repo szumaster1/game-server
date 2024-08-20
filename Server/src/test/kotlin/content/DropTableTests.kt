@@ -13,9 +13,7 @@ import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 
 /**
- * Drop table tests
- *
- * @constructor Drop table tests
+ * Drop table tests.
  */
 class DropTableTests {
     init {
@@ -23,8 +21,7 @@ class DropTableTests {
     }
 
     /**
-     * Chromatic dragons should drop eggs only after99summoning
-     *
+     * Chromatic dragons should drop eggs only after99summoning.
      */
     @Test
     fun chromaticDragonsShouldDropEggsOnlyAfter99Summoning() {

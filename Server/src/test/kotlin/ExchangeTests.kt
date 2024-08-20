@@ -21,17 +21,9 @@ class ExchangeTests {
             GEDB.init(TEST_DB_PATH)
         }
 
-        fun generateOffer(
-            itemId: Int,
-            amount: Int,
-            price: Int,
-            sale: Boolean,
-            username: String = "test ${System.currentTimeMillis()}",
-            offerState: OfferState = OfferState.REGISTERED
-        ): GrandExchangeOffer {
+        fun generateOffer(itemId: Int, amount: Int, price: Int, sale: Boolean, username: String = "test ${System.currentTimeMillis()}", offerState: OfferState = OfferState.REGISTERED): GrandExchangeOffer {
             val offer = GrandExchangeOffer()
-            val uid =
-                username.hashCode()  // normally this would be the account's uid but in the test we don't have an account
+            val uid = username.hashCode()  // normally this would be the account's uid but in the test we don't have an account
             offer.offerState = offerState
             offer.itemID = itemId
             offer.offeredValue = price
@@ -45,17 +37,9 @@ class ExchangeTests {
             return offer
         }
 
-        fun generateUnsentOffer(
-            itemId: Int,
-            amount: Int,
-            price: Int,
-            sale: Boolean,
-            username: String,
-            offerState: OfferState = OfferState.PENDING
-        ): GrandExchangeOffer {
+        fun generateUnsentOffer(itemId: Int, amount: Int, price: Int, sale: Boolean, username: String, offerState: OfferState = OfferState.PENDING): GrandExchangeOffer {
             val offer = GrandExchangeOffer()
-            val uid =
-                username.hashCode()  // normally this would be the account's uid but in the test we don't have an account
+            val uid = username.hashCode()  // normally this would be the account's uid but in the test we don't have an account
             offer.offerState = offerState
             offer.itemID = itemId
             offer.offeredValue = price
@@ -77,8 +61,7 @@ class ExchangeTests {
     }
 
     /**
-     * Test place offer
-     *
+     * Test place offer.
      */
     @Test
     fun testPlaceOffer() {
@@ -94,8 +77,7 @@ class ExchangeTests {
     }
 
     /**
-     * Test buy first sell after favors sell
-     *
+     * Test buy first sell after favors sell.
      */
     @Test
     fun testBuyFirstSellAfterFavorsSell() {
@@ -110,8 +92,7 @@ class ExchangeTests {
     }
 
     /**
-     * Test sell first buy after favors buy
-     *
+     * Test sell first buy after favors buy.
      */
     @Test
     fun testSellFirstBuyAfterFavorsBuy() {
@@ -126,8 +107,7 @@ class ExchangeTests {
     }
 
     /**
-     * Buyer cannot buy higher sell offer
-     *
+     * Buyer cannot buy higher sell offer.
      */
     @Test
     fun buyerCannotBuyHigherSellOffer() {
@@ -138,8 +118,7 @@ class ExchangeTests {
     }
 
     /**
-     * Many completed offers above default price should influence price upwards
-     *
+     * Many completed offers above default price should influence price upwards.
      */
     @Test
     fun manyCompletedOffersAboveDefaultPriceShouldInfluencePriceUpwards() {
@@ -162,8 +141,7 @@ class ExchangeTests {
     }
 
     /**
-     * Player trading with themselves should not be able to influence prices
-     *
+     * Player trading with themselves should not be able to influence prices.
      */
     @Test
     fun playerTradingWithThemselvesShouldNotBeAbleToInfluencePrices() {
@@ -180,8 +158,7 @@ class ExchangeTests {
     }
 
     /**
-     * Concurrently submitted offers should not throw exceptions
-     *
+     * Concurrently submitted offers should not throw exceptions.
      */
     @Test
     fun concurrentlySubmittedOffersShouldNotThrowExceptions() {
@@ -204,8 +181,7 @@ class ExchangeTests {
     }
 
     /**
-     * Offer with combined noted and unnoted amount should suceed
-     *
+     * Offer with combined noted and unnoted amount should suceed.
      */
     @Test
     fun offerWithCombinedNotedAndUnnotedAmountShouldSuceed() {
@@ -221,8 +197,7 @@ class ExchangeTests {
     }
 
     /**
-     * Offer with only noted amount should succeed
-     *
+     * Offer with only noted amount should succeed.
      */
     @Test
     fun offerWithOnlyNotedAmountShouldSucceed() {
@@ -237,8 +212,7 @@ class ExchangeTests {
     }
 
     /**
-     * Offer with more unnoted items than offer amount should succeed
-     *
+     * Offer with more unnoted items than offer amount should succeed.
      */
     @Test
     fun offerWithMoreUnnotedItemsThanOfferAmountShouldSucceed() {
@@ -253,8 +227,7 @@ class ExchangeTests {
     }
 
     /**
-     * Offer with only unnoted amount should succeed
-     *
+     * Offer with only unnoted amount should succeed.
      */
     @Test
     fun offerWithOnlyUnnotedAmountShouldSucceed() {
@@ -269,8 +242,7 @@ class ExchangeTests {
     }
 
     /**
-     * Offer with not enough noted items should fail
-     *
+     * Offer with not enough noted items should fail.
      */
     @Test
     fun offerWithNotEnoughNotedItemsShouldFail() {
@@ -289,8 +261,7 @@ class ExchangeTests {
     }
 
     /**
-     * Offer with not enough unnoted items should fail
-     *
+     * Offer with not enough unnoted items should fail.
      */
     @Test
     fun offerWithNotEnoughUnnotedItemsShouldFail() {

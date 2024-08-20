@@ -19,7 +19,6 @@ class ItemDefinitionTests {
 
     /**
      * Item high alch is60percent value random item1
-     *
      */
     @Test
     fun itemHighAlchIs60PercentValueRandomItem1() {
@@ -32,7 +31,6 @@ class ItemDefinitionTests {
 
     /**
      * Item high alch is60percent value random item2
-     *
      */
     @Test
     fun itemHighAlchIs60PercentValueRandomItem2() {
@@ -42,7 +40,6 @@ class ItemDefinitionTests {
 
     /**
      * Item high alch is60percent value random item3
-     *
      */
     @Test
     fun itemHighAlchIs60PercentValueRandomItem3() {
@@ -52,7 +49,6 @@ class ItemDefinitionTests {
 
     /**
      * Item high alch is60percent value random item4
-     *
      */
     @Test
     fun itemHighAlchIs60PercentValueRandomItem4() {
@@ -62,7 +58,6 @@ class ItemDefinitionTests {
 
     /**
      * Item low alch is40percent value random item1
-     *
      */
     @Test
     fun itemLowAlchIs40PercentValueRandomItem1() {
@@ -76,7 +71,6 @@ class ItemDefinitionTests {
 
     /**
      * Item low alch is40percent value random item2
-     *
      */
     @Test
     fun itemLowAlchIs40PercentValueRandomItem2() {
@@ -90,7 +84,6 @@ class ItemDefinitionTests {
 
     /**
      * Item low alch is40percent value random item3
-     *
      */
     @Test
     fun itemLowAlchIs40PercentValueRandomItem3() {
@@ -104,7 +97,6 @@ class ItemDefinitionTests {
 
     /**
      * Item low alch is40percent value random item4
-     *
      */
     @Test
     fun itemLowAlchIs40PercentValueRandomItem4() {

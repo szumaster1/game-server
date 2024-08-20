@@ -15,9 +15,7 @@ class QuestTests {
     }
 
     /**
-     * Test quest
-     *
-     * @constructor Test quest
+     * Test quest.
      */
     class TestQuest : Quest("Test Quest", 0, 0, 1, 1, 0, 1, 2) {
         override fun newInstance(`object`: Any?): Quest {
@@ -28,8 +26,7 @@ class QuestTests {
     val testQuest = TestQuest()
 
     /**
-     * Get index should not throw exception
-     *
+     * Get index should not throw exception.
      */
     @Test
     fun getIndexShouldNotThrowException() {
@@ -39,8 +36,7 @@ class QuestTests {
     }
 
     /**
-     * Register should make quest immediately available
-     *
+     * Register should make quest immediately available.
      */
     @Test
     fun registerShouldMakeQuestImmediatelyAvailable() {
@@ -49,8 +45,7 @@ class QuestTests {
     }
 
     /**
-     * Register should make quest immediately available to instances
-     *
+     * Register should make quest immediately available to instances.
      */
     @Test
     fun registerShouldMakeQuestImmediatelyAvailableToInstances() {
@@ -60,8 +55,7 @@ class QuestTests {
     }
 
     /**
-     * Get stage on unstarted quest should not throw exception
-     *
+     * Get stage on unstarted quest should not throw exception.
      */
     @Test
     fun getStageOnUnstartedQuestShouldNotThrowException() {
@@ -73,8 +67,7 @@ class QuestTests {
     }
 
     /**
-     * Set stage on unstarted quest should not throw exception
-     *
+     * Set stage on unstarted quest should not throw exception.
      */
     @Test
     fun setStageOnUnstartedQuestShouldNotThrowException() {
@@ -86,8 +79,7 @@ class QuestTests {
     }
 
     /**
-     * Complete quest should throw exception if already complete
-     *
+     * Complete quest should throw exception if already complete.
      */
     @Test
     fun completeQuestShouldThrowExceptionIfAlreadyComplete() {

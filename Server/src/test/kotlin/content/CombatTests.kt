@@ -12,9 +12,7 @@ import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 
 /**
- * Combat tests
- *
- * @constructor Combat tests
+ * Combat tests.
  */
 class CombatTests {
     init {
@@ -22,8 +20,7 @@ class CombatTests {
     }
 
     /**
-     * Swing handlers flagged as ignore stats should not influence damage
-     *
+     * Swing handlers flagged as ignore stats should not influence damage.
      */
     @Test
     fun swingHandlersFlaggedAsIgnoreStatsShouldNotInfluenceDamage() {
@@ -44,8 +41,7 @@ class CombatTests {
     }
 
     /**
-     * Swing handlers flagged as ignore stats should not influence accuracy
-     *
+     * Swing handlers flagged as ignore stats should not influence accuracy.
      */
     @Test
     fun swingHandlersFlaggedAsIgnoreStatsShouldNotInfluenceAccuracy() {
@@ -75,8 +71,7 @@ class CombatTests {
     }
 
     /**
-     * Swing handlers flagged as ignore prayer should not influence damage
-     *
+     * Swing handlers flagged as ignore prayer should not influence damage.
      */
     @Test
     fun swingHandlersFlaggedAsIgnorePrayerShouldNotInfluenceDamage() {
@@ -102,8 +97,7 @@ class CombatTests {
     }
 
     /**
-     * Swing handlers flagged as ignore prayer should not influence accuracy
-     *
+     * Swing handlers flagged as ignore prayer should not influence accuracy.
      */
     @Test
     fun swingHandlersFlaggedAsIgnorePrayerShouldNotInfluenceAccuracy() {
@@ -136,8 +130,7 @@ class CombatTests {
     }
 
     /**
-     * Chinchompa swing handler ignores stats for damage
-     *
+     * Chinchompa swing handler ignores stats for damage.
      */
     @Test
     fun chinchompaSwingHandlerIgnoresStatsForDamage() {

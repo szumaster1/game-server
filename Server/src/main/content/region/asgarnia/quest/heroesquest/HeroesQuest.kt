@@ -3,6 +3,7 @@ package content.region.asgarnia.quest.heroesquest
 import content.region.misthalin.quest.free.shieldofarrav.ShieldofArrav
 import core.api.*
 import core.api.consts.Items
+import core.api.consts.Vars
 import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.quest.Quest
 import core.game.node.entity.skill.Skills
@@ -12,7 +13,7 @@ import core.plugin.Initializable
  * Heroes' Quest
  */
 @Initializable
-class HeroesQuest : Quest("Heroes' Quest", 75, 74, 1, 188, 0, 1, 15) {
+class HeroesQuest : Quest("Heroes' Quest", 75, 74, 1, Vars.VARP_QUEST_HEROES_QUEST_PROGRESS, 0, 1, 15) {
 
     companion object {
         const val questName = "Heroes' Quest"
@@ -54,7 +55,7 @@ class HeroesQuest : Quest("Heroes' Quest", 75, 74, 1, 188, 0, 1, 15) {
                 isQuestComplete(player, "Lost City"),
                 isQuestComplete(player, "Merlin's Crystal"),
                 isQuestComplete(player, "Dragon Slayer"),
-                getQuestPoints(player) >= 55,
+                getQuestPoints(player) >= 55
             ).all { it }
         }
 
@@ -203,8 +204,6 @@ class HeroesQuest : Quest("Heroes' Quest", 75, 74, 1, 188, 0, 1, 15) {
 
     override fun reset(player: Player) {
         if (getQuestStage(player, questName) == 0) {
-            println("swapping")
-            // For testing: if you set quest stage to 0 twice, it will switch your gang (blackarm <-> phoenix)
             ShieldofArrav.swapGang(player)
         }
     }

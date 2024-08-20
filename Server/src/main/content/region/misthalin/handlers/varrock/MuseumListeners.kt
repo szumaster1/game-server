@@ -19,6 +19,11 @@ import core.game.world.update.flag.context.Animation
  */
 class MuseumListeners : InteractionListener, InterfaceListener, MapArea {
 
+    /**
+     * This function is triggered when an entity enters a specific area.
+     *
+     * @param entity The entity that has entered the area.
+     */
     override fun areaEnter(entity: Entity) {
         if (entity is Player) {
             val player = entity.asPlayer()
@@ -26,6 +31,12 @@ class MuseumListeners : InteractionListener, InterfaceListener, MapArea {
         }
     }
 
+    /**
+     * Area leave function to handle the logic when an entity leaves a specific area.
+     *
+     * @param entity The entity that is leaving the area.
+     * @param logout A boolean indicating whether the entity should be logged out.
+     */
     override fun areaLeave(entity: Entity, logout: Boolean) {
         if (entity is Player) {
             val player = entity.asPlayer()
@@ -80,7 +91,7 @@ class MuseumListeners : InteractionListener, InterfaceListener, MapArea {
         }
 
         /**
-         * Museum stairs.
+         * Handle the museum stairs.
          */
         on(MUSEUM_STAIRS, IntType.SCENERY, "walk-up", "walk-down") { player, node ->
             when (node.id) {
@@ -91,7 +102,7 @@ class MuseumListeners : InteractionListener, InterfaceListener, MapArea {
         }
 
         /**
-         * Museum archaeologists doors.
+         * Handle the Museum archaeologists doors.
          */
         on(MUSEUM_DOOR, IntType.SCENERY, "open") { player, node ->
             DoorActionHandler.handleAutowalkDoor(player, node.asScenery())
@@ -99,7 +110,7 @@ class MuseumListeners : InteractionListener, InterfaceListener, MapArea {
         }
 
         /**
-         * Varrock digsite gates.
+         * Handle the Varrock digsite gates.
          */
         on(MUSEUM_GATE, IntType.SCENERY, "open") { player, node ->
             if (player.location.y >= 3447) {
@@ -111,7 +122,7 @@ class MuseumListeners : InteractionListener, InterfaceListener, MapArea {
         }
 
         /**
-         * All items available for staff clean off incoming samples.
+         * Handling interaction with tool rack that contain all items available for staff clean off incoming samples.
          */
         on(TOOL_RACK, IntType.SCENERY, "take") { player, node ->
             face(player, node)
@@ -138,7 +149,7 @@ class MuseumListeners : InteractionListener, InterfaceListener, MapArea {
         }
 
         /**
-         * On path to digsite gate interaction.
+         * Handle gates on path to digsite.
          */
         on(intArrayOf(Scenery.GATE_24560, Scenery.GATE_24561), IntType.SCENERY, "open") { player, node ->
             if (!isQuestComplete(player, "The Dig Site")) {
@@ -151,7 +162,7 @@ class MuseumListeners : InteractionListener, InterfaceListener, MapArea {
         }
 
         /**
-         * Information booth interacton.
+         * Handle the information booth.
          */
         on(Scenery.INFORMATION_BOOTH_24452, IntType.SCENERY, "look-at") { player, _ ->
             openDialogue(player, NPCs.INFORMATION_CLERK_5938)

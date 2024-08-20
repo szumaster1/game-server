@@ -8,7 +8,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Represents the Wandering impling dialogue.
+ * Represents the Wandering Impling dialogue.
  */
 @Initializable
 class WanderingImplingDialogue(player: Player? = null) : Dialogue(player) {

@@ -23,12 +23,10 @@ class ZoneMonitorTests {
     }
 
     /**
-     * Teleport with glory
+     * Evaluates success of glory teleport using all glory charged items.
      *
-     * @param expected
-     * @param p
-     *//*
-     * Evalutes success of glory teleport using all glory charged items.
+     * @param expected A boolean indicating the expected outcome of the teleportation.
+     * @param p The Player object representing the player attempting the teleport.
      */
     fun teleportWithGlory(expected : Boolean, p : Player) {
         for (id in GLORIES) {
@@ -38,16 +36,13 @@ class ZoneMonitorTests {
     }
 
     /**
-     * Glory teleport success
-     *
-     * @constructor Glory teleport success
+     * Glory teleport success.
      */
     @Nested
     inner class GloryTeleportSuccess {
 
         /**
-         * Success on level21wilderness
-         *
+         * Success on level 21 wilderness.
          */
         @Test
         fun successOnLevel21Wilderness() {
@@ -61,8 +56,7 @@ class ZoneMonitorTests {
         }
 
         /**
-         * Success on level30wilderness
-         *
+         * Success on level 30 wilderness.
          */
         @Test
         fun successOnLevel30Wilderness() {
@@ -76,8 +70,7 @@ class ZoneMonitorTests {
         }
 
         /**
-         * Success on no restrictions
-         *
+         * Success on no restrictions.
          */
         @Test
         fun successOnNoRestrictions() {
@@ -94,16 +87,13 @@ class ZoneMonitorTests {
     }
 
     /**
-     * Glory teleport failure
-     *
-     * @constructor Glory teleport failure
+     * Glory teleport failure.
      */
     @Nested
     inner class GloryTeleportFailure {
 
         /**
-         * Fail on tele block
-         *
+         * Fail on tele block.
          */
         @Test
         fun failOnTeleBlock() {
@@ -115,8 +105,7 @@ class ZoneMonitorTests {
         }
 
         /**
-         * Fail on lock
-         *
+         * Fail on lock.
          */
         @Test
         fun failOnLock() {

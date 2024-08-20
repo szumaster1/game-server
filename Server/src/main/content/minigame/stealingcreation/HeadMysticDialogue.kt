@@ -16,9 +16,11 @@ class HeadMysticDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun handle(interfaceId: Int, buttonId: Int): Boolean {
         when (stage) {
-            0 -> if (!GameWorld.settings!!.isMembers)
+            0 -> if (!GameWorld.settings!!.isMembers) {
                 sendDialogue(player!!, "I'll only talk to you in a members' only world.").also { stage = END_DIALOGUE }
-
+            } else {
+                end()
+            }
         }
         return true
     }

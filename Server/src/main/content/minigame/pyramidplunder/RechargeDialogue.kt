@@ -13,10 +13,7 @@ class RechargeDialogue(player: Player? = null) : Dialogue(player) {
     override fun open(vararg args: Any): Boolean {
         usedSceptre = args[0] as Item
         player.packetDispatch.sendMessage("" + args[0])
-        interpreter.sendDialogue(
-            "Mrrrh, how do you have this? You shouldn't.",
-            "Nevertheless, I can recharge this for you."
-        )
+        interpreter.sendDialogue("Mrrrh, how do you have this? You shouldn't.", "Nevertheless, I can recharge this for you.")
         return true
     }
 

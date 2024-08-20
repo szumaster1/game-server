@@ -17,9 +17,7 @@ import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 
 /**
- * Blood drain tests
- *
- * @constructor Blood drain tests
+ * Blood drain tests.
  */
 class BloodDrainTests {
     init {
@@ -27,8 +25,7 @@ class BloodDrainTests {
     }
 
     /**
-     * Blood drain should not restore prayer
-     *
+     * Blood drain should not restore prayer.
      */
     @Test
     fun bloodDrainShouldNotRestorePrayer() {
@@ -45,8 +42,7 @@ class BloodDrainTests {
     }
 
     /**
-     * Blood drain should damage owner
-     *
+     * Blood drain should damage owner.
      */
     @Test
     fun bloodDrainShouldDamageOwner() {
@@ -66,8 +62,7 @@ class BloodDrainTests {
     }
 
     /**
-     * Blood drain should not heal
-     *
+     * Blood drain should not heal.
      */
     @Test
     fun bloodDrainShouldNotHeal() {
@@ -87,8 +82,7 @@ class BloodDrainTests {
     }
 
     /**
-     * Blood drain should only restore percent of stats
-     *
+     * Blood drain should only restore percent of stats.
      */
     @Test
     fun bloodDrainShouldOnlyRestorePercentOfStats() {
@@ -109,8 +103,7 @@ class BloodDrainTests {
     }
 
     /**
-     * Blood drain should not boost stats
-     *
+     * Blood drain should not boost stats.
      */
     @Test
     fun bloodDrainShouldNotBoostStats() {
@@ -131,8 +124,7 @@ class BloodDrainTests {
     }
 
     /**
-     * Blood drain cures poison and disease
-     *
+     * Blood drain cures poison and disease.
      */
     @Test
     fun bloodDrainCuresPoisonAndDisease() {

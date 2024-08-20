@@ -12,6 +12,12 @@ import java.sql.Timestamp
  * Production authenticator.
  */
 class ProductionAuthenticator : AuthProvider<AccountStorageProvider>() {
+
+    /**
+     * Configures the authenticator with the provided storage provider.
+     *
+     * @param provider The storage provider to configure.
+     */
     override fun configureFor(provider: AccountStorageProvider) {
         storageProvider = provider
         if (provider is SQLStorageProvider) {
@@ -24,6 +30,12 @@ class ProductionAuthenticator : AuthProvider<AccountStorageProvider>() {
         }
     }
 
+    /**
+     * Creates a new account with the provided user account information.
+     *
+     * @param info The user account information to create the account with.
+     * @return True if the account was created successfully, false otherwise.
+     */
     override fun createAccountWith(info: UserAccountInfo): Boolean {
         try {
             info.password = SystemManager.encryption.hashPassword(info.password)
@@ -38,6 +50,13 @@ class ProductionAuthenticator : AuthProvider<AccountStorageProvider>() {
         return true
     }
 
+    /**
+     * Checks the login credentials for a user.
+     *
+     * @param username The username of the account.
+     * @param password The password of the account.
+     * @return A pair containing the authentication response and user account information if successful.
+     */
     override fun checkLogin(username: String, password: String): Pair<AuthResponse, UserAccountInfo?> {
         val info: UserAccountInfo
         try {
@@ -56,10 +75,23 @@ class ProductionAuthenticator : AuthProvider<AccountStorageProvider>() {
         return Pair(AuthResponse.Success, info)
     }
 
+    /**
+     * Checks if the provided password matches the player's password.
+     *
+     * @param player The player whose password is being checked.
+     * @param password The password to check against the player's password.
+     * @return True if the password matches, false otherwise.
+     */
     override fun checkPassword(player: Player, password: String): Boolean {
         return SystemManager.encryption.checkPassword(password, player.details.password)
     }
 
+    /**
+     * Updates the password for the specified user account.
+     *
+     * @param username The username of the account to update.
+     * @param newPassword The new password to set for the account.
+     */
     override fun updatePassword(username: String, newPassword: String) {
         val info = storageProvider.getAccountInfo(username)
         info.password = SystemManager.encryption.hashPassword(newPassword)

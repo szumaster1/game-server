@@ -14,8 +14,7 @@ class PriceIndexTests {
     }
 
     /**
-     * Should allow checking if item can be sold on g e
-     *
+     * Should allow checking if item can be sold on Grand Exchange
      */
     @Test
     fun shouldAllowCheckingIfItemCanBeSoldOnGE() {
@@ -26,7 +25,6 @@ class PriceIndexTests {
 
     /**
      * Should allow banning items
-     *
      */
     @Test
     fun shouldAllowBanningItems() {
@@ -38,7 +36,6 @@ class PriceIndexTests {
 
     /**
      * Should allow value to be influenced
-     *
      */
     @Test
     fun shouldAllowValueToBeInfluenced() {
@@ -50,7 +47,6 @@ class PriceIndexTests {
 
     /**
      * Should allow value to go down with high volume of lower value trades
-     *
      */
     @Test
     fun shouldAllowValueToGoDownWithHighVolumeOfLowerValueTrades() {

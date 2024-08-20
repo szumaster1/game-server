@@ -19,8 +19,7 @@ class DevelopmentAuthenticatorTests {
     }
 
     /**
-     * Should allow checking if account exists
-     *
+     * Should allow checking if account exists.
      */
     @Test
     fun shouldAllowCheckingIfAccountExists() {
@@ -32,8 +31,7 @@ class DevelopmentAuthenticatorTests {
     }
 
     /**
-     * Login with valid account info returns success
-     *
+     * Login with valid account info returns success.
      */
     @Test
     fun loginWithValidAccountInfoReturnsSuccess() {
@@ -44,9 +42,8 @@ class DevelopmentAuthenticatorTests {
     }
 
     /**
-     * Login with invalid account info returns success
-     *
-     *///Development authenticator should work regardless if account exists or not.
+     * Development authenticator should work regardless if account exists or not.
+     */
     @Test
     fun loginWithInvalidAccountInfoReturnsSuccess() {
         val info = UserAccountInfo.createDefault()
@@ -56,8 +53,7 @@ class DevelopmentAuthenticatorTests {
     }
 
     /**
-     * Login username is not case sensitive
-     *
+     * Login username is not case-sensitive.
      */
     @Test
     fun loginUsernameIsNotCaseSensitive() {
@@ -69,9 +65,8 @@ class DevelopmentAuthenticatorTests {
     }
 
     /**
-     * Login to unregistered account creates it
-     *
-     *///Development authenticator should basically bypass needing/creating an account entirely. useful for SP too.
+     * Development authenticator should basically bypass needing/creating an account entirely. useful for SP too.
+     */
     @Test
     fun loginToUnregisteredAccountCreatesIt() {
         authProvider.checkLogin("masterbaggins", "whatever")

@@ -16,9 +16,7 @@ import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 
 /**
- * Equip tests
- *
- * @constructor Equip tests
+ * Equip tests.
  */
 class EquipTests {
     companion object {
@@ -28,8 +26,7 @@ class EquipTests {
     }
 
     /**
-     * Equip should fire equip listeners
-     *
+     * Equip should fire equip listeners.
      */
     @Test
     fun equipShouldFireEquipListeners() {
@@ -49,8 +46,7 @@ class EquipTests {
     }
 
     /**
-     * Unequip should fire unequip listeners
-     *
+     * Unequip should fire unequip listeners.
      */
     @Test
     fun unequipShouldFireUnequipListeners() {
@@ -70,8 +66,7 @@ class EquipTests {
     }
 
     /**
-     * Equipping item that replaces another item should call unequip listeners for the replaced item
-     *
+     * Equipping item that replaces another item should call unequip listeners for the replaced item.
      */
     @Test
     fun equippingItemThatReplacesAnotherItemShouldCallUnequipListenersForTheReplacedItem() {
@@ -93,8 +88,7 @@ class EquipTests {
     }
 
     /**
-     * Equipping item should add unequipped item to existing stack in inventory
-     *
+     * Equipping item should add unequipped item to existing stack in inventory.
      */
     @Test
     fun equippingItemShouldAddUnequippedItemToExistingStackInInventory() {
@@ -113,8 +107,7 @@ class EquipTests {
     }
 
     /**
-     * Equipping item that unequips two items should be allowed with only one initially free slot
-     *
+     * Equipping item that unequips two items should be allowed with only one initially free slot.
      */
     @Test
     fun equippingItemThatUnequipsTwoItemsShouldBeAllowedWithOnlyOneInitiallyFreeSlot() {
@@ -134,8 +127,7 @@ class EquipTests {
     }
 
     /**
-     * Should not be able to equip a2h weapon and a shield at the same time
-     *
+     * Should not be able to equip a2h weapon and a shield at the same time.
      */
     @Test
     fun shouldNotBeAbleToEquipA2HWeaponAndAShieldAtTheSameTime() {
@@ -151,8 +143,7 @@ class EquipTests {
     }
 
     /**
-     * Equipping shield should not unequip one handed weapon
-     *
+     * Equipping shield should not unequip one-handed weapon.
      */
     @Test
     fun equippingShieldShouldNotUnequipOneHandedWeapon() {
@@ -168,8 +159,7 @@ class EquipTests {
     }
 
     /**
-     * Equipping stackable item should add to existing stack in equipment if applicable
-     *
+     * Equipping stackable item should add to existing stack in equipment if applicable.
      */
     @Test
     fun equippingStackableItemShouldAddToExistingStackInEquipmentIfApplicable() {
@@ -182,8 +172,7 @@ class EquipTests {
     }
 
     /**
-     * Swapping equipment should preserve inventory slots
-     *
+     * Swapping equipment should preserve inventory slots.
      */
     @Test
     fun swappingEquipmentShouldPreserveInventorySlots() {
@@ -202,8 +191,7 @@ class EquipTests {
     }
 
     /**
-     * Grave death with equipped item should fire unequip hooks
-     *
+     * Grave death with equipped item should fire unequip hooks.
      */
     @Test
     fun graveDeathWithEquippedItemShouldFireUnequipHooks() {

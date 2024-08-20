@@ -24,6 +24,9 @@ class LostCityListeners : InteractionListener {
 
     override fun defineListeners() {
 
+        /**
+         * Handle Lumbridge shred doors leads player to Zanaris.
+         */
         on(Sceneries.DOOR_2406, IntType.SCENERY, "open") { player, node ->
             DoorActionHandler.handleAutowalkDoor(player, node as Scenery)
             val quest = "Lost City"
@@ -53,6 +56,9 @@ class LostCityListeners : InteractionListener {
             return@on true
         }
 
+        /**
+         * Handle Dramen staff creation.
+         */
         onUseWith(IntType.ITEM, Items.KNIFE_946, Items.DRAMEN_BRANCH_771) { player, _, _ ->
             if (getStatLevel(player, Skills.CRAFTING) < 31) {
                 sendDialogue(player, "You need a crafting level of 31 to do this.")

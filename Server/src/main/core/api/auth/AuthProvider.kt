@@ -27,7 +27,7 @@ abstract class AuthProvider<T : AccountStorageProvider> {
      * @return True if an account can be created with the provided info, false otherwise.
      */
     fun canCreateAccountWith(info: UserAccountInfo): Boolean {
-        // Check if the username is already taken in the storage provider
+        // Check if the username is already taken in the storage provider.
         return !storageProvider.checkUsernameTaken(info.username)
     }
 

@@ -19,7 +19,9 @@ class LostTribeListeners : InteractionListener {
 
     override fun defineListeners() {
 
-        // Listener for opening the chest
+        /**
+         * Listener for opening the chest.
+         */
         on(CHEST, IntType.SCENERY, "open") { player, _ ->
             // Check if the player is at the correct quest stage and has the required key
             if (getQuestStage(player, "Lost Tribe") == 47 && inInventory(player, Items.KEY_423, 1)) {
@@ -40,7 +42,9 @@ class LostTribeListeners : InteractionListener {
             return@on true
         }
 
-        // Listener for pickpocketing Sigmund
+        /**
+         * Handle the pickpocketing Sigmund.
+         */
         on(SIGMUND, IntType.NPC, "pickpocket") { player, _ ->
             player.lock() // Lock the player to prevent other actions
             GameWorld.Pulser.submit(object : Pulse() {
@@ -68,19 +72,25 @@ class LostTribeListeners : InteractionListener {
             return@on true
         }
 
-        // Listener for looking at the brooch
+        /**
+         * Listener for looking at the brooch
+         */
         on(BROOCH, IntType.ITEM, "look-at") { player, _ ->
             openInterface(player, Components.BROOCH_VIEW_50) // Open the brooch viewing interface
             return@on true
         }
 
-        // Listener for reading the goblin book
+        /**
+         * Listener for reading the goblin book
+         */
         on(GOBLIN_BOOK, IntType.ITEM, "read") { player, _ ->
             openInterface(player, Components.GOBLIN_SYMBOL_BOOK_183) // Open the goblin symbol book interface
             return@on true
         }
 
-        // Listener for searching the bookcase
+        /**
+         * Listener for searching the bookcase
+         */
         on(BOOKCASE, IntType.SCENERY, "search") { player, _ ->
             val hasAnBook = hasAnItem(player, Items.GOBLIN_SYMBOL_BOOK_5009).container != null // Check if the player has the goblin book
             if (!hasAnBook && getQuestStage(player, "Lost Tribe") >= 41) {
@@ -91,7 +101,9 @@ class LostTribeListeners : InteractionListener {
             return@on true
         }
 
-        // Listener for searching the crate
+        /**
+         * Listener for searching the crate
+         */
         on(CRATE, IntType.SCENERY, "search") { player, _ ->
             // Check if the player does not have the silverware and is at the correct quest stage
             if (!inInventory(player, Items.SILVERWARE_5011) && getQuestStage(player, "Lost Tribe") == 48) {
@@ -107,7 +119,9 @@ class LostTribeListeners : InteractionListener {
             return@on true
         }
 
-        // Listener for goblin followers
+        /**
+         * Listener for goblin followers
+         */
         on(GOBLIN_FOLLOWERS, IntType.NPC, "follow") { player, node ->
             // Check which goblin is being followed and send the player to the appropriate location
             if (node.asNpc().id == NPCs.MISTAG_2084) {

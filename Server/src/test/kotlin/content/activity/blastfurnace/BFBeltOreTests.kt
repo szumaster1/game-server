@@ -8,9 +8,7 @@ import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 
 /**
- * B f belt ore tests
- *
- * @constructor B f belt ore tests
+ * Blast Furnace ore tests.
  */
 class BFBeltOreTests {
     init {
@@ -18,8 +16,7 @@ class BFBeltOreTests {
     }
 
     /**
-     * Ore should move closer to pot when ticked
-     *
+     * Ore should move closer to pot when ticked.
      */
     @Test
     fun oreShouldMoveCloserToPotWhenTicked() {
@@ -41,8 +38,7 @@ class BFBeltOreTests {
     }
 
     /**
-     * Ore should be added to ore container after reaching end
-     *
+     * Ore should be added to ore container after reaching end.
      */
     @Test
     fun oreShouldBeAddedToOreContainerAfterReachingEnd() {

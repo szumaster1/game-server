@@ -9,9 +9,7 @@ import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 
 /**
- * Listener tests
- *
- * @constructor Listener tests
+ * Listener tests.
  */
 class ListenerTests : InteractionListener {
     init {
@@ -19,8 +17,7 @@ class ListenerTests : InteractionListener {
     }
 
     /**
-     * Double defined listener should throw illegal state exception
-     *
+     * Double defined listener should throw illegal state exception.
      */
     @Test
     fun doubleDefinedListenerShouldThrowIllegalStateException() {
@@ -31,8 +28,7 @@ class ListenerTests : InteractionListener {
     }
 
     /**
-     * Double defined use with should throw illegal state exception
-     *
+     * Double defined use with should throw illegal state exception.
      */
     @Test
     fun doubleDefinedUseWithShouldThrowIllegalStateException() {
@@ -43,8 +39,7 @@ class ListenerTests : InteractionListener {
     }
 
     /**
-     * Conflicting catchall should throw illegal state exception
-     *
+     * Conflicting catchall should throw illegal state exception.
      */
     @Test
     fun conflictingCatchallShouldThrowIllegalStateException() {
@@ -55,8 +50,7 @@ class ListenerTests : InteractionListener {
     }
 
     /**
-     * Specific listener should override catchall listener
-     *
+     * Specific listener should override catchall listener.
      */
     @Test
     fun specificListenerShouldOverrideCatchallListener() {

@@ -13,9 +13,7 @@ import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 
 /**
- * Random event tests
- *
- * @constructor Random event tests
+ * Random event tests.
  */
 class RandomEventTests {
     init {
@@ -23,8 +21,7 @@ class RandomEventTests {
     }
 
     /**
-     * Login should register random event timer
-     *
+     * Login should register random event timer.
      */
     @Test
     fun loginShouldRegisterRandomEventTimer() {
@@ -34,8 +31,7 @@ class RandomEventTests {
     }
 
     /**
-     * Login should set next spawn
-     *
+     * Login should set next spawn.
      */
     @Test
     fun loginShouldSetNextSpawn() {
@@ -48,8 +44,7 @@ class RandomEventTests {
     }
 
     /**
-     * Remaining delay should persist relog
-     *
+     * Remaining delay should persist relog.
      */
     @Test
     fun remainingDelayShouldPersistRelog() {
@@ -62,8 +57,7 @@ class RandomEventTests {
     }
 
     /**
-     * Delay should be restarted once depleted
-     *
+     * Delay should be restarted once depleted.
      */
     @Test
     fun delayShouldBeRestartedOnceDepleted() {
@@ -78,8 +72,7 @@ class RandomEventTests {
     }
 
     /**
-     * Should spawn random event given no restrictions
-     *
+     * Should spawn random event given no restrictions.
      */
     @Test
     fun shouldSpawnRandomEventGivenNoRestrictions() {
@@ -94,8 +87,7 @@ class RandomEventTests {
     }
 
     /**
-     * Should not spawn for artificial player
-     *
+     * Should not spawn for artificial player.
      */
     @Test
     fun shouldNotSpawnForArtificialPlayer() {
@@ -106,8 +98,7 @@ class RandomEventTests {
     }
 
     /**
-     * Teleport and note punishment should not affect already noted items
-     *
+     * Teleport and note punishment should not affect already noted items.
      */
     @Test
     fun teleportAndNotePunishmentShouldNotAffectAlreadyNotedItems() {
@@ -125,8 +116,7 @@ class RandomEventTests {
     }
 
     /**
-     * Teleport and note punishment should note notable unnoted items
-     *
+     * Teleport and note punishment should note notable unnoted items.
      */
     @Test
     fun teleportAndNotePunishmentShouldNoteNotableUnnotedItems() {
@@ -145,8 +135,7 @@ class RandomEventTests {
     }
 
     /**
-     * Teleport and note punishment should not affect unnotable items
-     *
+     * Teleport and note punishment should not affect unnotable items.
      */
     @Test
     fun teleportAndNotePunishmentShouldNotAffectUnnotableItems() {
@@ -164,8 +153,7 @@ class RandomEventTests {
     }
 
     /**
-     * Random event should not spawn in event restricted area
-     *
+     * Random event should not spawn in event restricted area.
      */
     @Test
     fun randomEventShouldNotSpawnInEventRestrictedArea() {
@@ -227,8 +215,7 @@ class RandomEventTests {
 */
 
     /**
-     * Random event system should support pause and unpause
-     *
+     * Random event system should support pause and unpause.
      */
     @Test
     fun randomEventSystemShouldSupportPauseAndUnpause() {
@@ -249,8 +236,7 @@ class RandomEventTests {
     }
 
     /**
-     * Should be able to force random event
-     *
+     * Should be able to force random event.
      */
     @Test
     fun shouldBeAbleToForceRandomEvent() {
@@ -263,8 +249,7 @@ class RandomEventTests {
     }
 
     /**
-     * Should be able to force specific random event
-     *
+     * Should be able to force specific random event.
      */
     @Test
     fun shouldBeAbleToForceSpecificRandomEvent() {
@@ -278,8 +263,7 @@ class RandomEventTests {
     }
 
     /**
-     * Parse anti macro command args should return expected values
-     *
+     * Parse anti-macro command args should return expected values.
      */
     @Test
     fun parseAntiMacroCommandArgsShouldReturnExpectedValues() {

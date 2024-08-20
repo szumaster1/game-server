@@ -17,8 +17,7 @@ class ItemDefTests {
     }
 
     /**
-     * Item defs should have expected values
-     *
+     * Item defs should have expected values.
      */
     @Test
     fun itemDefsShouldHaveExpectedValues() {
@@ -30,11 +29,7 @@ class ItemDefTests {
         }
         for ((id, expectedValue) in knownGood) {
             val def = itemDefinition(id)
-            Assertions.assertEquals(
-                expectedValue,
-                def.value,
-                "Value of ${def.name} (${def.isUnnoted}) does not match known good values!"
-            )
+            Assertions.assertEquals(expectedValue, def.value, "Value of ${def.name} (${def.isUnnoted}) does not match known good values!")
         }
     }
 }

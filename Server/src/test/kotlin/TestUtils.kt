@@ -158,10 +158,10 @@ object TestUtils {
 /**
  * Mock player
  *
- * @property isBot
- * @constructor
+ * @property isBot Indicates whether the player is a bot or a human.
+ * @constructor Initializes a MockPlayer with a name and a bot status.
  *
- * @param name
+ * @param name The name of the player.
  */
 class MockPlayer(name: String, val isBot: Boolean) : Player(PlayerDetails(name)), AutoCloseable {
     var hasInit = false
@@ -182,9 +182,9 @@ class MockPlayer(name: String, val isBot: Boolean) : Player(PlayerDetails(name))
     }
 
     /**
-     * Flag tut complete
+     * This function is responsible for flagging the tutorial as complete.
      *
-     * @param complete
+     * @param complete A Boolean value indicating whether the tutorial is complete or not.
      */
     fun flagTutComplete(complete: Boolean) {
         this.setAttribute("/save:tutorial:complete", complete)

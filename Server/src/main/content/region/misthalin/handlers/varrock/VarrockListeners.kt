@@ -5,6 +5,7 @@ import content.region.misthalin.dialogue.varrock.KnockatDoorDialogue
 import core.GlobalStats
 import core.api.*
 import core.api.consts.*
+import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression
 import core.game.global.action.ClimbActionHandler
 import core.game.global.action.DoorActionHandler
@@ -19,6 +20,8 @@ import core.game.world.map.Location
 import core.game.world.map.zone.MapZone
 import core.game.world.map.zone.ZoneBorders
 import core.game.world.update.flag.context.Animation
+import core.tools.END_DIALOGUE
+import content.region.misc.handlers.keldagrim.MinecartTravel
 import core.tools.Log
 
 /**
@@ -26,20 +29,10 @@ import core.tools.Log
  */
 class VarrockListeners : InteractionListener {
 
-    companion object {
-        private var COUNTER = 0
-        private val BERRIES = intArrayOf(
-            Scenery.CADAVA_BUSH_23625, Scenery.CADAVA_BUSH_23626, Scenery.CADAVA_BUSH_23627,
-            Scenery.REDBERRY_BUSH_23628, Scenery.REDBERRY_BUSH_23629, Scenery.REDBERRY_BUSH_23630
-        )
-    }
-
     override fun defineListeners() {
 
         /**
-         * Thessalia Nitter runs Thessalia's Fine Clothes
-         * and Thessalia's Makeovers in Varrock.
-         * Change clothes interaction.
+         * Handling makeover interaction with Thessalia NPC.
          */
         on(NPCs.THESSALIA_548, IntType.NPC, "change-clothes") { player, _ ->
             openDialogue(player, NPCs.THESSALIA_548, true, true, true)
@@ -47,8 +40,8 @@ class VarrockListeners : InteractionListener {
         }
 
         /**
-         * Broken cart south of Varrock,
-         * starting point for the What Lies Below quest.
+         * Broken cart south of Varrock, starting point for
+         * the What Lies Below quest.
          */
         on(Scenery.BROKEN_CART_23055, IntType.SCENERY, "search") { player, _ ->
             sendDialogueLines(player, "You search the cart but are surprised to find very little there. It's a", "little odd for a travelling trader not to have anything to trade.")
@@ -69,7 +62,7 @@ class VarrockListeners : InteractionListener {
         }
 
         /**
-         * Doors to Guidor NPC that can be found in southeastern Varrock.
+         * Handle doors to Guidor NPC that can be found in southeastern Varrock.
          * He tests the plague sample for you during the Biohazard quest.
          */
         on(Scenery.BEDROOM_DOOR_2032, IntType.SCENERY, "open") { player, node ->
@@ -85,17 +78,20 @@ class VarrockListeners : InteractionListener {
         }
 
         /**
-         * The Champions' Guild doors.
+         * Handle the Champions' Guild doors.
          */
         on(Scenery.DOOR_1805, IntType.SCENERY, "open") { player, node ->
             if (getQuestPoints(player) < 32) {
                 sendDialogue(player, "You have not proved yourself worthy to enter here yet.")
                 sendMessage(player, "The door won't open - you need at least 32 Quest Points.")
             } else {
-                when(player.location.y){
-                    3363 -> sendNPCDialogue(player, NPCs.GUILDMASTER_198, "Greetings bold adventurer. Welcome to the guild of Champions.").also {
-                        DoorActionHandler.handleAutowalkDoor(player, node.asScenery())
+                when (player.location.y) {
+                    3363 -> {
+                        sendNPCDialogue(player, NPCs.GUILDMASTER_198, "Greetings bold adventurer. Welcome to the guild of Champions.").also {
+                            DoorActionHandler.handleAutowalkDoor(player, node.asScenery())
+                        }
                     }
+
                     3362 -> DoorActionHandler.handleAutowalkDoor(player, node.asScenery())
                 }
             }
@@ -103,7 +99,7 @@ class VarrockListeners : InteractionListener {
         }
 
         /**
-         * Interaction with bank service door.
+         * Handle interaction with bank service door.
          */
         on(Scenery.DOOR_24389, IntType.SCENERY, "knock-at") { player, node ->
             openDialogue(player, KnockatDoorDialogue(), node.asScenery())
@@ -111,22 +107,20 @@ class VarrockListeners : InteractionListener {
         }
 
         /**
-         * The Cooks' Guild doors.
+         * Handle the Cooks' Guild doors.
          */
         on(intArrayOf(Scenery.DOOR_2712, Scenery.DOOR_26810), IntType.SCENERY, "open") { player, node ->
-            var requiredItems = anyInEquipment(
-                player,
-                Items.CHEFS_HAT_1949,
-                Items.COOKING_CAPE_9801,
-                Items.COOKING_CAPET_9802,
-                Items.VARROCK_ARMOUR_3_11758
-            )
+            var requiredItems = anyInEquipment(player, Items.CHEFS_HAT_1949, Items.COOKING_CAPE_9801, Items.COOKING_CAPET_9802, Items.VARROCK_ARMOUR_3_11758)
 
             when (node.id) {
                 26810 -> {
                     if (!inEquipment(player, Items.VARROCK_ARMOUR_3_11758) && player.location.x <= 3143) {
-                        sendNPCDialogue(player, NPCs.HEAD_CHEF_847, "The bank's closed. You just can't get the staff these days.")
-                    } else if(getStatLevel(player, Skills.COOKING) == 99){
+                        sendNPCDialogue(
+                            player,
+                            NPCs.HEAD_CHEF_847,
+                            "The bank's closed. You just can't get the staff these days."
+                        )
+                    } else if (getStatLevel(player, Skills.COOKING) == 99) {
                         DoorActionHandler.handleAutowalkDoor(player, node.asScenery())
                     } else {
                         DoorActionHandler.handleAutowalkDoor(player, node.asScenery())
@@ -155,7 +149,7 @@ class VarrockListeners : InteractionListener {
         }
 
         /**
-         * Cadava & Red berries bushes found near Varrock.
+         * Handle Cadava & Red berries bushes picking fruit near Varrock.
          */
         on(BERRIES, IntType.SCENERY, "pick-from") { player, node ->
 
@@ -193,7 +187,7 @@ class VarrockListeners : InteractionListener {
         }
 
         /**
-         * Stray dog "Shoo-away" interaction.
+         * Handle Stray dog NPC interaction.
          */
         on(NPCs.STRAY_DOG_5917, IntType.NPC, "shoo-away") { player, node ->
             val dog = node.asNpc()
@@ -223,6 +217,9 @@ class VarrockListeners : InteractionListener {
         registerMapZone(zone, ZoneBorders(3180, 3420, 3165, 3435))
         registerMapZone(zone, ZoneBorders(3280, 3422, 3266, 3435))
 
+        /**
+         * Handle Varrock singpost interaction.
+         */
         on(Scenery.SIGNPOST_31298, IntType.SCENERY, "read") { player, _ ->
             val pickpocketCount = GlobalStats.getDailyGuardPickpockets()
             log(this::class.java, Log.FINE, "Is equal? ${pickpocketCount == 0}")
@@ -234,12 +231,15 @@ class VarrockListeners : InteractionListener {
             return@on true
         }
 
-        on(17985, IntType.SCENERY, "climb-down"){ player, _ ->
+        /**
+         * Handle entering to the Varrock sewers.
+         */
+        on(17985, IntType.SCENERY, "climb-down") { player, _ ->
             ClimbActionHandler.climb(player, ClimbActionHandler.CLIMB_DOWN, Location(3204, 9910), "You enter the murky sewers.")
             return@on true
         }
 
-        on(Scenery.PORTAL_28780, IntType.SCENERY, "use"){ player, _ ->
+        on(Scenery.PORTAL_28780, IntType.SCENERY, "use") { player, _ ->
             visualize(player, -1, Graphics.CURSE_IMPACT_110)
             queueScript(player, 1, QueueStrength.SOFT) {
                 teleport(player, Location(3326, 5469, 0))
@@ -251,7 +251,7 @@ class VarrockListeners : InteractionListener {
         /**
          * Interaction showing Phoenix Gang plaque interface.
          */
-        on(Scenery.PLAQUE_23636, IntType.SCENERY, "read"){ player, _ ->
+        on(Scenery.PLAQUE_23636, IntType.SCENERY, "read") { player, _ ->
             openInterface(player, Components.SOA_PLAQUE_531)
             return@on true
         }
@@ -260,20 +260,58 @@ class VarrockListeners : InteractionListener {
             if (player.location.z == 2) {
                 ClimbActionHandler.climb(player, Animation(Animations.MULTI_USE_BEND_OVER_827), Location.create(3097, 3432, 1))
             } else {
-                ClimbActionHandler.climb(player, Animation(Animations.MULTI_USE_BEND_OVER_827), Location.create(3096, 3432, 0))
+                ClimbActionHandler.climb(
+                    player,
+                    Animation(Animations.MULTI_USE_BEND_OVER_827),
+                    Location.create(3096, 3432, 0)
+                )
             }
             return@on true
         }
 
-        on(Scenery.DRAWERS_17466, IntType.SCENERY, "open") { player, node ->
+        on(Scenery.DRAWERS_17466, IntType.SCENERY, "open") { _, node ->
             replaceScenery(node.asScenery(), Scenery.DRAWERS_24322, -1)
             return@on true
         }
 
-        on(Scenery.DRAWERS_24322, IntType.SCENERY, "close") { player, node ->
+        on(Scenery.DRAWERS_24322, IntType.SCENERY, "close") { _, node ->
             replaceScenery(node.asScenery(), Scenery.DRAWERS_17466, -1)
             return@on true
         }
+
+        /**
+         * Travel interaction between Keldagrim and Grand exchange.
+         */
+        on(HIDDEN_TRAPDOOR, IntType.SCENERY, "open") { player, _ ->
+            openDialogue(player, object : DialogueFile() {
+                val keldagrimVisited = getAttribute(player, "keldagrim-visited", false)
+                override fun handle(componentID: Int, buttonID: Int) {
+                    when (stage) {
+                        0 -> {
+                            if (!keldagrimVisited) {
+                                sendDialogue(player, "Perhaps I should visit Keldagrim first.").also {
+                                    stage = END_DIALOGUE
+                                }
+                            } else {
+                                options("Travel to Keldagrim", "Nevermind.").also { stage++ }
+                            }
+                        }
+
+                        10 -> when (buttonID) {
+                            1 -> MinecartTravel.goToKeldagrim(player).also { end() }
+                            2 -> end()
+                        }
+                    }
+                }
+            })
+            return@on true
+        }
+    }
+
+    companion object {
+        private var COUNTER = 0
+        private val BERRIES = intArrayOf(Scenery.CADAVA_BUSH_23625, Scenery.CADAVA_BUSH_23626, Scenery.CADAVA_BUSH_23627, Scenery.REDBERRY_BUSH_23628, Scenery.REDBERRY_BUSH_23629, Scenery.REDBERRY_BUSH_23630)
+        private const val HIDDEN_TRAPDOOR = Scenery.HIDDEN_TRAPDOOR_28094
     }
 
 }

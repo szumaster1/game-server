@@ -19,8 +19,7 @@ class TimerTests {
     }
 
     /**
-     * Timer with no flags should not be cleared on death
-     *
+     * Timer with no flags should not be cleared on death.
      */
     @Test
     fun timerWithNoFlagsShouldNotBeClearedOnDeath() {
@@ -44,8 +43,7 @@ class TimerTests {
     }
 
     /**
-     * Timer with clear on death flag should clear on death
-     *
+     * Timer with clear on death flag should clear on death.
      */
     @Test
     fun timerWithClearOnDeathFlagShouldClearOnDeath() {
@@ -69,8 +67,7 @@ class TimerTests {
     }
 
     /**
-     * Skill restore timer should slowly raise lowered stats
-     *
+     * Skill restore timer should slowly raise lowered stats.
      */
     @Test
     fun skillRestoreTimerShouldSlowlyRaiseLoweredStats() {
@@ -86,8 +83,7 @@ class TimerTests {
     }
 
     /**
-     * Skill restore timer should slowly lower boosted stats
-     *
+     * Skill restore timer should slowly lower boosted stats.
      */
     @Test
     fun skillRestoreTimerShouldSlowlyLowerBoostedStats() {
@@ -102,8 +98,7 @@ class TimerTests {
     }
 
     /**
-     * Skill restore timer should raise lowered hp
-     *
+     * Skill restore timer should raise lowered hp.
      */
     @Test
     fun skillRestoreTimerShouldRaiseLoweredHp() {
@@ -117,8 +112,7 @@ class TimerTests {
     }
 
     /**
-     * Skill restore timer should never lower boosted hp
-     *
+     * Skill restore timer should never lower boosted hp.
      */
     @Test
     fun skillRestoreTimerShouldNeverLowerBoostedHp() {

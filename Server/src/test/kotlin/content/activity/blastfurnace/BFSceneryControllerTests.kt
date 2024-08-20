@@ -7,9 +7,7 @@ import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 
 /**
- * B f scenery controller tests
- *
- * @constructor B f scenery controller tests
+ * Blast Furnace scenery controller tests.
  */
 class BFSceneryControllerTests {
     init {
@@ -17,8 +15,7 @@ class BFSceneryControllerTests {
     }
 
     /**
-     * Update broken should replace with correct variants
-     *
+     * Update broken should replace with correct variants.
      */
     @Test
     fun updateBrokenShouldReplaceWithCorrectVariants() {
@@ -38,8 +35,7 @@ class BFSceneryControllerTests {
     }
 
     /**
-     * Stove id should correspond to temperature
-     *
+     * Stove id should correspond to temperature.
      */
     @Test
     fun stoveIdShouldCorrespondToTemperature() {
