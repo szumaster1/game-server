@@ -310,7 +310,7 @@ class VarrockListeners : InteractionListener {
                             }
                         }
 
-                        10 -> when (buttonID) {
+                        1 -> when (buttonID) {
                             1 -> MinecartTravel.goToKeldagrim(player).also { end() }
                             2 -> end()
                         }
