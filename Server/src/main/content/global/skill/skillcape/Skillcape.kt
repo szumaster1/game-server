@@ -130,6 +130,12 @@ enum class Skillcape {
     NONE;
 
     companion object {
+        /**
+         * Function to retrieve a skillcape by its identifier.
+         *
+         * @param id the item id.
+         * @return The player cape with the provided id, or null if not found.
+         */
         fun forId(id: Int): Skillcape {
             return when (id) {
                 9747, 9748 -> ATTACK
