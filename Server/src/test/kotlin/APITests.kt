@@ -1,9 +1,10 @@
 import content.data.consumables.Consumables
 import core.api.IfaceSettingsBuilder
 import core.api.splitLines
-import content.global.skill.slayer.Master
-import content.global.skill.slayer.SlayerManager
-import content.global.skill.slayer.Tasks
+import content.global.skill.support.slayer.SlayerManager
+import content.global.skill.support.slayer.data.SlayerMaster
+import content.global.skill.support.slayer.data.Tasks
+import core.api.consts.Items
 import core.game.node.item.Item
 import core.api.utils.Vector
 import core.game.world.map.Direction
@@ -11,7 +12,6 @@ import org.json.simple.JSONObject
 import org.json.simple.parser.JSONParser
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
-import org.rs09.consts.Items
 
 class APITests {
     var testPlayer: MockPlayer
@@ -72,7 +72,7 @@ class APITests {
         manager.login(testPlayer2)
         manager = SlayerManager.getInstance(testPlayer)
         manager.flags.setPoints(20)
-        manager.flags.setMaster(Master.CHAELDAR)
+        manager.flags.setMaster(SlayerMaster.CHAELDAR)
         manager.flags.setTask(Tasks.SKELETAL_WYVERN)
         manager.flags.setTaskAmount(500)
 
@@ -114,7 +114,7 @@ class APITests {
         manager.flags.setTaskAmount(100)
         manager.flags.taskStreak = 4
         manager.flags.completedTasks = 4
-        manager.flags.setMaster(Master.MAZCHNA)
+        manager.flags.setMaster(SlayerMaster.MAZCHNA)
 
         while(manager.hasTask()) manager.decrementAmount(1)
         manager.flags.taskStreak += 1
@@ -124,7 +124,7 @@ class APITests {
         Assertions.assertEquals(0, manager.flags.getTaskAmount(), "Task amount was not 0!")
         Assertions.assertEquals(5, manager.flags.taskStreak, "Task streak was not 5!")
         Assertions.assertEquals(Tasks.CAVE_BUG, manager.flags.getTask(), "Task was not cave bugs!")
-        Assertions.assertEquals(Master.MAZCHNA, manager.flags.getMaster(), "Master was not Mazchna!")
+        Assertions.assertEquals(SlayerMaster.MAZCHNA, manager.flags.getMaster(), "Master was not Mazchna!")
     }
 
     @Test fun testKnownProblemSaveParsesCorrectly() {
@@ -193,7 +193,7 @@ class APITests {
 
             // Setup
             val consumable = Consumables.getConsumableById(stackableItem.id)
-            consumable.consumable.consume(player.inventory.get(0), player)
+            consumable?.consumable?.consume(player.inventory.get(0), player)
             TestUtils.advanceTicks(2, false)
 
             // Get item in that slot,
@@ -221,7 +221,7 @@ class APITests {
             val lastWholeCake = player.inventory.get(lastWholeCakeContainerIndex)
 
             val consumable = Consumables.getConsumableById(lastWholeCake.id)
-            consumable.consumable.consume(player.inventory.get(lastWholeCakeContainerIndex), player)
+            consumable?.consumable?.consume(player.inventory.get(lastWholeCakeContainerIndex), player)
             TestUtils.advanceTicks(2, false)
 
             // Cake amounts are correct
@@ -255,7 +255,7 @@ class APITests {
             val lastWholePie = player.inventory.get(lastWholePieContainerIndex)
 
             val wholePieConsumable = Consumables.getConsumableById(lastWholePie.id)
-            wholePieConsumable.consumable.consume(player.inventory.get(lastWholePieContainerIndex), player)
+            wholePieConsumable?.consumable?.consume(player.inventory.get(lastWholePieContainerIndex), player)
             TestUtils.advanceTicks(2, false)
 
             // Pie amounts are correct
@@ -274,7 +274,7 @@ class APITests {
             val firstHalfPieContainerIndex = 7
             val firstHalfPie = player.inventory.get(firstHalfPieContainerIndex)
             val halfPieConsumable = Consumables.getConsumableById(firstHalfPie.id)
-            halfPieConsumable.consumable.consume(player.inventory.get(firstHalfPieContainerIndex), player)
+            halfPieConsumable?.consumable?.consume(player.inventory.get(firstHalfPieContainerIndex), player)
             TestUtils.advanceTicks(2, false)
 
             // Pie amounts are correct
@@ -304,18 +304,18 @@ class APITests {
             val lastTrout = player.inventory.get(lastTroutContainerIndex)
 
             val troutConsumable = Consumables.getConsumableById(lastTrout.id)
-            troutConsumable.consumable.consume(player.inventory.get(lastTroutContainerIndex), player)
+            troutConsumable?.consumable?.consume(player.inventory.get(lastTroutContainerIndex), player)
             TestUtils.advanceTicks(4, false)
 
             val sharkConsumable = Consumables.getConsumableById(Items.SHARK_385)
             for (n in 0..7) {
-                sharkConsumable.consumable.consume(player.inventory.get(n + 8), player)
+                sharkConsumable?.consumable?.consume(player.inventory.get(n + 8), player)
                 TestUtils.advanceTicks(4, false)
             }
 
             val lobsterConsumable = Consumables.getConsumableById(Items.LOBSTER_379)
             for (n in 16..23 step 2) {
-                lobsterConsumable.consumable.consume(player.inventory.get(n), player)
+                lobsterConsumable?.consumable?.consume(player.inventory.get(n), player)
                 TestUtils.advanceTicks(4, false)
             }
 
