@@ -7,9 +7,7 @@ import org.junit.jupiter.api.Test
 import java.io.File
 
 /**
- * Item def tests
- *
- * @constructor Item def tests
+ * Item def tests.
  */
 class ItemDefTests {
     val knownGood = HashMap<Int, Int>()

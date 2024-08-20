@@ -5,9 +5,7 @@ import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 
 /**
- * Region tests
- *
- * @constructor Region tests
+ * Region tests.
  */
 class RegionTests {
     companion object {

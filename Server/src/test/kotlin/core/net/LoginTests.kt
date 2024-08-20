@@ -7,9 +7,7 @@ import org.junit.jupiter.api.Test
 import java.nio.ByteBuffer
 
 /**
- * Login tests
- *
- * @constructor Login tests
+ * Login tests.
  */
 class LoginTests {
     /**

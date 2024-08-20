@@ -20,9 +20,7 @@ import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 
 /**
- * Pathfinder tests
- *
- * @constructor Pathfinder tests
+ * Pathfinder tests.
  */
 class PathfinderTests {
     companion object {init {

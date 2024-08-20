@@ -8,9 +8,7 @@ import org.junit.jupiter.api.Test
 import kotlin.math.roundToInt
 
 /**
- * Item definition tests
- *
- * @constructor Item definition tests
+ * Item definition tests.
  */
 class ItemDefinitionTests {
     companion object {

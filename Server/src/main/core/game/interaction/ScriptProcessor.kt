@@ -239,11 +239,7 @@ class ScriptProcessor(val entity: Entity) {
             val sw = StringWriter()
             val pw = PrintWriter(sw)
             e.printStackTrace(pw)
-            log(
-                this::class.java,
-                Log.ERR,
-                "Error processing ${script::class.java.simpleName} - stopping the script. Exception follows: $sw"
-            )
+            log(this::class.java, Log.ERR, "Error processing ${script::class.java.simpleName} - stopping the script. Exception follows: $sw")
             reset()
         }
         currentScript = null
@@ -361,11 +357,7 @@ class ScriptProcessor(val entity: Entity) {
      */
     fun addToQueue(script: Script<*>, strength: QueueStrength) {
         if (script !is QueuedScript && script !is QueuedUseWith) {
-            log(
-                this::class.java,
-                Log.ERR,
-                "Tried to queue ${script::class.java.simpleName} as a queueable script but it's not!"
-            )
+            log(this::class.java, Log.ERR, "Tried to queue ${script::class.java.simpleName} as a queueable script but it's not!")
             return
         }
         if (strength == QueueStrength.STRONG && entity is Player) {

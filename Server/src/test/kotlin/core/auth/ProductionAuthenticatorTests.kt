@@ -9,9 +9,7 @@ import org.junit.jupiter.api.BeforeAll
 import org.junit.jupiter.api.Test
 
 /**
- * Production authenticator tests
- *
- * @constructor Production authenticator tests
+ * Production authenticator tests.
  */
 class ProductionAuthenticatorTests {
     companion object {

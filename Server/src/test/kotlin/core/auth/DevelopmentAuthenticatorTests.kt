@@ -8,9 +8,7 @@ import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 
 /**
- * Development authenticator tests
- *
- * @constructor Development authenticator tests
+ * Development authenticator tests.
  */
 class DevelopmentAuthenticatorTests {
     private val authProvider = DevelopmentAuthenticator()

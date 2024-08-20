@@ -271,19 +271,6 @@ object EvilTwinUtils {
     }
 
     /**
-     * Rewards the player with a random item.
-     *
-     * @param player The player.
-     */
-    fun reward(player: Player) {
-        val item = RandomFunction.getRandomElement(rewards)
-        addItemOrDrop(player, item.id, item.amount)
-        runTask(player, 2) {
-            sendItemDialogue(player, item.id - 1, "Molly's given you " + item.amount + " " + getItemName(item.id).lowercase() + "s.")
-        }
-    }
-
-    /**
      * Gets the Molly NPC ID based on the hash value.
      *
      * @param hash The hash value used to identify the Evil Twin.

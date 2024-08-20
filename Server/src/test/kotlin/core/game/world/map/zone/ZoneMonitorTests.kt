@@ -12,9 +12,7 @@ import org.junit.jupiter.api.Nested
 import org.junit.jupiter.api.Test
 
 /**
- * Zone monitor tests
- *
- * @constructor Zone monitor tests
+ * Zone monitor tests.
  */
 class ZoneMonitorTests {
 

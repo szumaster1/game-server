@@ -6,9 +6,7 @@ import org.junit.jupiter.api.Test
 import java.util.*
 
 /**
- * Easter event tests
- *
- * @constructor Easter event tests
+ * Easter event tests.
  */
 class EasterEventTests {
     /**

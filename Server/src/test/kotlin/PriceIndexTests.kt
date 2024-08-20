@@ -4,9 +4,7 @@ import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 
 /**
- * Price index tests
- *
- * @constructor Price index tests
+ * Price index tests.
  */
 class PriceIndexTests {
     companion object {

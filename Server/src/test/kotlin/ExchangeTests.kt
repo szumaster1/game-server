@@ -9,9 +9,7 @@ import org.junit.jupiter.api.*
 import java.io.File
 
 /**
- * Exchange tests
- *
- * @constructor Exchange tests
+ * Exchange tests.
  */
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 class ExchangeTests {

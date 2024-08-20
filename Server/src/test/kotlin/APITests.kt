@@ -14,9 +14,7 @@ import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 
 /**
- * A p i tests
- *
- * @constructor A p i tests
+ * API tests.
  */
 class APITests {
     var testPlayer: MockPlayer

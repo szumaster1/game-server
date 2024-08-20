@@ -53,7 +53,7 @@ class UpdateSequence
     }
 
     /**
-     * Ends the sequence, calls the [Entity.reset] method..
+     * Ends the sequence, calls the [Entity.reset] method.
      */
     fun end() {
         playersList!!.forEach(Player::reset)

@@ -11,9 +11,7 @@ import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 
 /**
- * Timer tests
- *
- * @constructor Timer tests
+ * Timer tests.
  */
 class TimerTests {
     init {

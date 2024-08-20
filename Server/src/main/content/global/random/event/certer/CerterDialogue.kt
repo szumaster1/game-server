@@ -17,10 +17,7 @@ class CerterDialogue(val initial: Boolean) : DialogueFile() {
     override fun handle(componentID: Int, buttonID: Int) {
         if (initial && !player!!.getAttribute("certer:reward", false)) {
             when (stage) {
-                0 -> npc(
-                    "Ah, hello, ${player!!.username.replaceFirstChar { if (it.isLowerCase()) it.titlecase() else it.toString() }}. Could you", "please help me identify this?"
-                ).also { stage++ }
-
+                0 -> npc("Ah, hello, ${player!!.username.replaceFirstChar { if (it.isLowerCase()) it.titlecase() else it.toString() }}. Could you", "please help me identify this?").also { stage++ }
                 1 -> {
                     end()
                     player!!.interfaceManager.open(Component(CERTER_INTERFACE))

@@ -4,9 +4,7 @@ import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 
 /**
- * Quest tests
- *
- * @constructor Quest tests
+ * Quest tests.
  */
 class QuestTests {
     lateinit var testPlayer: MockPlayer

@@ -10,9 +10,7 @@ import kotlin.math.min
 import kotlin.math.roundToInt
 
 /**
- * Shop tests
- *
- * @constructor Shop tests
+ * Shop tests.
  */
 class ShopTests {
     companion object {

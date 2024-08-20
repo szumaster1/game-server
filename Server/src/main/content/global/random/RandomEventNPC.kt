@@ -118,8 +118,8 @@ abstract class RandomEventNPC(id: Int) : NPC(id) {
         for (item in player.inventory.toArray()) {
             if (item == null) continue
             if (item.definition.isUnnoted) {
-                player.inventory.remove(item)
-                player.inventory.add(Item(item.noteChange, item.amount))
+                removeItem(player, item)
+                addItem(player, item.noteChange, item.amount)
             }
         }
         if (Random.nextBoolean()) {
