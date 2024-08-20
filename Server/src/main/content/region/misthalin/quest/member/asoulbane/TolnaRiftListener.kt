@@ -21,10 +21,19 @@ class TolnaRiftListener : InteractionListener {
     private val SCENERY_RIFT = intArrayOf(13967,13969,3971,13972,13973,13974,13975,13976,13977,13978,13979,13980,13968,13981,13982,13983,13985,13986,13987,13988,13989,13990,13991,13992,13993)
 
     override fun defineListeners() {
+
+        /*
+         * Handle enter the rift.
+         */
+
         on(SCENERY_RIFT, SCENERY, "enter"){ player, _ ->
             sendMessage(player, "You can't just jump down there.")
             return@on true
         }
+
+        /*
+         * Handle use rope on rift.
+         */
 
         onUseWith(SCENERY, Items.ROPE_954, Scenery.RIFT_13975) { player, _, _ ->
             if (!removeItem(player, Item(Items.ROPE_954, 1), Container.INVENTORY)){
@@ -35,6 +44,10 @@ class TolnaRiftListener : InteractionListener {
             }
             return@onUseWith true
         }
+
+        /*
+         * Handle Successfully entering the rift.
+         */
 
         on(Scenery.RIFT_13970, SCENERY, "enter") { player, node ->
             if (getAttribute(player, ASBUtils.ATTRIBUTE_TOLNA_RIFT_ACCESS, false)) {
@@ -62,6 +75,10 @@ class TolnaRiftListener : InteractionListener {
             }
             return@on true
         }
+
+        /*
+         * Handle exit from the rift.
+         */
 
         on(Scenery.ROPE_13999, IntType.SCENERY, "climb-up") { player, _ ->
             ClimbActionHandler.climb(player, Animation(Animations.USE_LADDER_828), Location(3309, 3452, 0))

@@ -21,20 +21,26 @@ class SophanemListeners : InteractionListener {
     }
 
     override fun defineListeners() {
-        // Handling the action when player climbs up the ladder.
+        /*
+         * Handling the action when player climbs up the ladder.
+         */
         on(LADDER_UP, IntType.SCENERY, "climb-up") { player, _ ->
             ClimbActionHandler.climb(player, Animation(828), Location(3315, 2796, 0))
             return@on true
         }
 
-        // Handling the action when player climbs down the ladder.
+        /*
+         * Handling the action when player climbs down the ladder.
+         */
         on(LADDER_DOWN, IntType.SCENERY, "climb-down") { player, _ ->
             if (!hasRequirement(player, "Contact!")) return@on true
             ClimbActionHandler.climb(player, Animation(827), Location(2799, 5160, 0))
             return@on true
         }
 
-        // Handling quest related location, available just for unlocking the music.
+        /*
+         * Handling quest related location, available just for unlocking the music.
+         */
         on(Scenery.DOOR_6614, IntType.SCENERY, "open") { player, _ ->
             lock(player, 3)
             openInterface(player, Components.FADE_TO_BLACK_115)

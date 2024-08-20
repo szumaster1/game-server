@@ -13,13 +13,13 @@ import core.api.consts.Items
 import core.api.consts.NPCs
 
 /**
- * Represents the Digsite workman dialogue.
+ * Represents the Digsite Workman dialogue.
  */
 @Initializable
-class DigsiteWorkmanDialogue (player: Player? = null) : Dialogue(player), InteractionListener {
+class DigsiteWorkmanDialogue(player: Player? = null) : Dialogue(player), InteractionListener {
     override fun handle(interfaceId: Int, buttonId: Int): Boolean {
         npc!!
-        when(stage) {
+        when (stage) {
             START_DIALOGUE -> playerl(FacialExpression.FRIENDLY, "Hello!").also { stage++ }
             1 -> npcl(FacialExpression.FRIENDLY, "Why hello there! What can I do you for?").also { stage++ }
             2 -> showTopics(
@@ -27,32 +27,65 @@ class DigsiteWorkmanDialogue (player: Player? = null) : Dialogue(player), Intera
                 Topic(FacialExpression.FRIENDLY, "I'm not sure.", 6),
                 Topic(FacialExpression.FRIENDLY, "Can I dig around here?", 7),
             )
-            3 -> npcl(FacialExpression.FRIENDLY, "Well, my job involved digging for finds, cleaning them and transporting them for identification.").also { stage++ }
+
+            3 -> npcl(
+                FacialExpression.FRIENDLY,
+                "Well, my job involved digging for finds, cleaning them and transporting them for identification."
+            ).also { stage++ }
+
             4 -> playerl(FacialExpression.FRIENDLY, "Sounds interesting.").also { stage++ }
-            5 -> npcl(FacialExpression.FRIENDLY, "I find it very interesting and very rewarding. So glad to see you're taking an interest in the digsite. Hope to see you out here digging sometime!").also {
+            5 -> npcl(
+                FacialExpression.FRIENDLY,
+                "I find it very interesting and very rewarding. So glad to see you're taking an interest in the digsite. Hope to see you out here digging sometime!"
+            ).also {
                 stage = END_DIALOGUE
             }
-            6 -> npcl(FacialExpression.FRIENDLY, "Well, let me know when you are and I'll do my very best to help you!").also {
+
+            6 -> npcl(
+                FacialExpression.FRIENDLY,
+                "Well, let me know when you are and I'll do my very best to help you!"
+            ).also {
                 stage = END_DIALOGUE
             }
-            7 -> npcl(FacialExpression.FRIENDLY, "You can only use a site you have the appropriate exam level for.").also { stage++ }
+
+            7 -> npcl(
+                FacialExpression.FRIENDLY,
+                "You can only use a site you have the appropriate exam level for."
+            ).also { stage++ }
+
             8 -> playerl(FacialExpression.FRIENDLY, "Appropriate exam level?").also { stage++ }
-            9 -> npcl(FacialExpression.FRIENDLY, "Oh yes, you need to have been trained in the various techniques before you can be allowed to dig for artefacts.").also { stage++ }
+            9 -> npcl(
+                FacialExpression.FRIENDLY,
+                "Oh yes, you need to have been trained in the various techniques before you can be allowed to dig for artefacts."
+            ).also { stage++ }
+
             10 -> playerl(FacialExpression.FRIENDLY, "Ah yes, I understand.").also {
                 stage = END_DIALOGUE
             }
         }
         return true
     }
+
     override fun newInstance(player: Player): Dialogue {
         return DigsiteWorkmanDialogue(player)
     }
+
     override fun getIds(): IntArray {
-        return intArrayOf(NPCs.DIGSITE_WORKMAN_613, NPCs.DIGSITE_WORKMAN_4564, NPCs.DIGSITE_WORKMAN_4565/*, NPCs.DIGSITE_WORKMAN_5958*/)
+        return intArrayOf(
+            NPCs.DIGSITE_WORKMAN_613,
+            NPCs.DIGSITE_WORKMAN_4564,
+            NPCs.DIGSITE_WORKMAN_4565/*, NPCs.DIGSITE_WORKMAN_5958*/
+        )
     }
 
     override fun defineListeners() {
-        onUseWith(IntType.NPC, Items.INVITATION_LETTER_696, NPCs.DIGSITE_WORKMAN_613, NPCs.DIGSITE_WORKMAN_4564, NPCs.DIGSITE_WORKMAN_4565) { player, used, with ->
+        onUseWith(
+            IntType.NPC,
+            Items.INVITATION_LETTER_696,
+            NPCs.DIGSITE_WORKMAN_613,
+            NPCs.DIGSITE_WORKMAN_4564,
+            NPCs.DIGSITE_WORKMAN_4565
+        ) { player, used, with ->
             openDialogue(player, DigsiteWorkmanDialogueFile(), with as NPC)
             return@onUseWith false
         }
@@ -60,7 +93,7 @@ class DigsiteWorkmanDialogue (player: Player? = null) : Dialogue(player), Intera
 }
 
 /**
- * Represents the Digsite workman dialogue file.
+ * Represents the Digsite Workman dialogue file.
  */
 class DigsiteWorkmanDialogueFile : DialogueBuilderFile() {
     override fun create(b: DialogueBuilder) {
@@ -68,10 +101,15 @@ class DigsiteWorkmanDialogueFile : DialogueBuilderFile() {
         // Fallback dialogue.
         b.onPredicate { _ -> true }
             .playerl(FacialExpression.FRIENDLY, "Here, have a look at this...")
-            .npc(FacialExpression.FRIENDLY, "I give permission... blah de blah... err. Okay, that's all in", "order, you may use the mineshaft now. I'll hang onto", "this scroll, shall I?")
+            .npc(
+                FacialExpression.FRIENDLY,
+                "I give permission... blah de blah... err. Okay, that's all in",
+                "order, you may use the mineshaft now. I'll hang onto",
+                "this scroll, shall I?"
+            )
             .endWith { _, player ->
                 removeItem(player, Items.INVITATION_LETTER_696)
-                if(getQuestStage(player, "The Dig Site") == 7) {
+                if (getQuestStage(player, "The Dig Site") == 7) {
                     setQuestStage(player, "The Dig Site", 8)
                 }
             }

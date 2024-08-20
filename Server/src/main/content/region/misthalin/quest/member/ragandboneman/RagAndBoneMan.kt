@@ -11,7 +11,7 @@ import core.game.node.entity.skill.Skills
 import core.plugin.Initializable
 
 /**
- * Represents the Rag and bone man.
+ * Represents the Rag and bone man quest.
  */
 @Initializable
 class RagAndBoneMan : Quest("Rag and Bone Man", 100, 99, 2, 714, 0, 1, 4) {

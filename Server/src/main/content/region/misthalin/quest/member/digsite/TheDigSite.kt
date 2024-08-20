@@ -8,7 +8,7 @@ import core.plugin.Initializable
 import core.api.consts.Items
 
 /**
- * Represents the The dig site.
+ * Represents the The dig site quest.
  */
 @Initializable
 class TheDigSite : Quest("The Dig Site", 47, 46, 2, 131, 0, 1, 9) {

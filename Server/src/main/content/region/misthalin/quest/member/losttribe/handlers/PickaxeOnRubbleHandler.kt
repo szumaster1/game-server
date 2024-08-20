@@ -15,14 +15,7 @@ import core.plugin.Plugin
  * Represents the Pickaxe on rubble handler.
  */
 @Initializable
-class PickaxeOnRubbleHandler : UseWithHandler(
-    Items.BRONZE_PICKAXE_1265,
-    Items.IRON_PICKAXE_1267,
-    Items.STEEL_PICKAXE_1269,
-    Items.MITHRIL_PICKAXE_1273,
-    Items.ADAMANT_PICKAXE_1271,
-    Items.RUNE_PICKAXE_1275
-) {
+class PickaxeOnRubbleHandler : UseWithHandler(Items.BRONZE_PICKAXE_1265, Items.IRON_PICKAXE_1267, Items.STEEL_PICKAXE_1269, Items.MITHRIL_PICKAXE_1273, Items.ADAMANT_PICKAXE_1271, Items.RUNE_PICKAXE_1275) {
 
     override fun newInstance(arg: Any?): Plugin<Any> {
         for (id in arrayOf(6898, 6903, 6904, 6905)) {

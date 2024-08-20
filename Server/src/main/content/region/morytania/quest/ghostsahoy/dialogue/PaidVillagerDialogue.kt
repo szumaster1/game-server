@@ -11,7 +11,7 @@ import core.game.node.item.Item
 import core.tools.END_DIALOGUE
 
 /**
- * Represents the Paid villager dialogue.
+ * Represents the Paid Villager dialogue.
  */
 class PaidVillagerDialogue : DialogueFile() {
 

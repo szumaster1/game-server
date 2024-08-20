@@ -7,7 +7,7 @@ import core.game.component.InterfaceType
 import core.game.interaction.InterfaceListener
 
 /**
- * Balloon control interface.
+ * Represents the Balloon control interface.
  */
 class BalloonControlInterface : InterfaceListener {
     private val BACKGROUND = Components.ZEP_INTERFACE_470

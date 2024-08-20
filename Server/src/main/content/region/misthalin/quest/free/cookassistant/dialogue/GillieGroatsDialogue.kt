@@ -7,7 +7,7 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 
 /**
- * Represents the Gillie groats dialogue.
+ * Represents the Gillie Groats dialogue.
  */
 @Initializable
 class GillieGroatsDialogue(player: Player? = null) : Dialogue(player) {

@@ -21,34 +21,39 @@ import core.game.world.update.flag.context.Graphic
 class WizardTowerListener : InteractionListener {
 
     override fun defineListeners() {
-        /**
+
+        /*
          * Handling the player interaction with the bookcases in the Wizard's Tower.
          */
+
         on(intArrayOf(WIZARDS_TOWER_BOOKCASE_1, WIZARDS_TOWER_BOOKCASE_2), IntType.SCENERY, "search") { player, _ ->
             openDialogue(player, 458543948)
             return@on true
         }
 
-        /**
+        /*
          * Handling ladder interaction.
          */
+
         on(SEDRIDOR_TELEPORT_OPTION, IntType.NPC, "teleport") { player, node ->
             if (!hasRequirement(player, "Rune Mysteries")) return@on true
             EssenceTeleport.teleport((node as NPC), player)
             return@on true
         }
 
-        /**
+        /*
          * Handling ladder interaction.
          */
+
         on(WIZARDS_TOWER_LADDER_DOWN, IntType.SCENERY, "climb-down") { player, _ ->
             teleport(player, location(3104, 9576, 0))
             return@on true
         }
 
-        /**
+        /*
          * Handling the player interaction with railing to taunt the demon.
          */
+
         on(WIZARDS_TOWER_DEMON_TAUNT, IntType.SCENERY, "taunt-through") { player, _ ->
             val demon = findLocalNPC(player, NPCs.LESSER_DEMON_82) ?: return@on true
             forceWalk(demon, player.location, "smart")
@@ -60,9 +65,10 @@ class WizardTowerListener : InteractionListener {
             return@on true
         }
 
-        /**
+        /*
          * Handling interaction with the magic portals.
          */
+
         on(intArrayOf(WIZARDS_TOWER_PORTAL, DARK_WIZARDS_TOWER_PORTAL, THORMAC_SORC_HOUSE_PORTAL), IntType.SCENERY, "enter") { player, node ->
             when (node.id) {
                 WIZARDS_TOWER_PORTAL -> {
@@ -86,18 +92,20 @@ class WizardTowerListener : InteractionListener {
             return@on true
         }
 
-        /**
+        /*
          * Handling the basement cabinet.
          */
+
         on(CABINET_BASEMENT_CLOSED, IntType.SCENERY, "open") { player, node ->
             replaceScenery(node.asScenery(), CABINET_BASEMENT_OPEN, 100)
             playAudio(player, Sounds.OPEN_CABINET_44)
             return@on true
         }
 
-        /**
+        /*
          * Handling the basement cabinet.
          */
+
         on(CABINET_BASEMENT_OPEN, IntType.SCENERY, "close") { player, node ->
             if (getUsedOption(player) == "close") {
                 replaceScenery(node.asScenery(), CABINET_BASEMENT_CLOSED, -1)
@@ -112,9 +120,10 @@ class WizardTowerListener : InteractionListener {
             }
         }
 
-        /**
+        /*
          * Handling exit portal at Land of the snow area.
          */
+
         on(LAND_OF_SNOW_PORTAL, IntType.SCENERY, "exit") { player, node ->
             Projectile.create(node.location, player.location, 109, 15, 10, 0, 10, 0, 2).send()
             GameWorld.Pulser.submit(object : Pulse(1) {

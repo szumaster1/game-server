@@ -14,8 +14,12 @@ import core.tools.START_DIALOGUE
  * Represents the Odd old man dialogue file.
  */
 class OddOldManDialogueFile : DialogueFile() {
-    // BONES_3674 is the Sack on ODD_OLD_MAN_3670
-    // There are probably FacialExpressions for the bone sack, but that's too much work.
+
+    /*
+     * BONES_3674 is the Sack on ODD_OLD_MAN_3670
+     * There are probably FacialExpressions for the bone sack, but that's too much work.
+     */
+
     override fun handle(componentID: Int, buttonID: Int) {
         when (getQuestStage(player!!, "Rag and Bone Man")) {
             0 -> {
@@ -185,17 +189,6 @@ class OddOldManDialogueFile : DialogueFile() {
             }
         }
 
-        /*
-         * Unfortunately from OSRS 2016: https://www.youtube.com/watch?v=31QNg1E0qf0
-         * Wonderful! I'll put this with the rest.
-         * No problem. I'll be back if I find some more.
-         *
-         * This one is closest RS 2012: https://www.youtube.com/watch?v=0I8fNTeAwA8
-         * I have some bones for you...
-         * Great! Let me take a look at them.
-         * Thanks the museum will be so pleased.
-         * Come and see me when you have the rest.
-         */
     }
 
     private fun checkBonesInInventory(player: Player): Boolean {

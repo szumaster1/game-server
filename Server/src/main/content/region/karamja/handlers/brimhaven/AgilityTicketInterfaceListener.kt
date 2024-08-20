@@ -9,7 +9,7 @@ import core.game.node.item.Item
 import core.tools.StringUtils
 
 /**
- * Agility ticket interface listener.
+ * Represents the Agility ticket interface.
  */
 class AgilityTicketInterfaceListener : InterfaceListener {
 

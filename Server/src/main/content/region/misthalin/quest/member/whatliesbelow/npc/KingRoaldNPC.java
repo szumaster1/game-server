@@ -1,5 +1,6 @@
-package content.region.misthalin.quest.member.whatliesbelow;
+package content.region.misthalin.quest.member.whatliesbelow.npc;
 
+import content.region.misthalin.quest.member.whatliesbelow.cutscene.WhatLiesBelowCutscene;
 import core.game.node.entity.combat.BattleState;
 import core.game.node.entity.npc.AbstractNPC;
 import core.game.world.map.Location;

@@ -24,9 +24,10 @@ class RunecraftGuildListeners : InteractionListener {
 
     override fun defineListeners() {
 
-        /**
+        /*
          * Remove and apply goggles to the Runecraft hat.
          */
+
         on(RC_HAT, IntType.ITEM, "Goggles") { player, node ->
             when (node.id) {
                 13626 -> replaceSlot(player, node.asItem().slot, Item(13625))
@@ -39,21 +40,34 @@ class RunecraftGuildListeners : InteractionListener {
             return@on true
         }
 
+        /*
+         * Handle exchange interaction with Elriss.
+         */
+
         on(NPCs.WIZARD_ELRISS_8032, IntType.NPC, "Exchange") { player, _ ->
             openInterface(player, Components.RCGUILD_REWARDS_779)
             return@on true
         }
+
+        /*
+         * Handle opening rc map.
+         */
 
         on(MAP_TABLE, IntType.SCENERY, "Study") { player, _ ->
             openInterface(player, Components.RCGUILD_MAP_780)
             return@on true
         }
 
+        /*
+         * Handle rc portal.
+         */
+
         on(RC_PORTAL, IntType.SCENERY, "Enter") { player, _ ->
 
-            /**
+            /*
              * Wizards' Tower to Runecrafting Guild Portal.
              */
+
             if (getStatLevel(player, Skills.RUNECRAFTING) >= 50 && isQuestComplete(player, "Rune Mysteries")) {
                 if (player.viewport.region.regionId == 12337) {
                     lock(player, 6)
@@ -81,6 +95,10 @@ class RunecraftGuildListeners : InteractionListener {
             }
             return@on true
         }
+
+        /*
+         * Handle interaction with bookcases around guild.
+         */
 
         on(BOOKCASES, IntType.SCENERY, "search") { player, _ ->
             sendMessage(player, "You search the books...")

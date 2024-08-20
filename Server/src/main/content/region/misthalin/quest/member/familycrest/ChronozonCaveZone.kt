@@ -1,4 +1,4 @@
-package content.region.misthalin.quest.member.familycrest.zone
+package content.region.misthalin.quest.member.familycrest
 
 import content.region.misthalin.quest.member.familycrest.npc.ChronozonNPC
 import core.game.node.entity.Entity

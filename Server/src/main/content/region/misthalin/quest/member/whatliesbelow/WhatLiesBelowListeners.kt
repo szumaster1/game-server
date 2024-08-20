@@ -12,6 +12,11 @@ import core.game.interaction.InteractionListener
 class WhatLiesBelowListeners : InteractionListener {
 
     override fun defineListeners() {
+
+        /*
+         * Handle read the Zaff instruction.
+         */
+
         on(Items.ZAFFS_INSTRUCTIONS_11011, IntType.ITEM, "read") { player, _ ->
             openInterface(player, Components.ZAFFS_INSTRUCTIONS_251)
             return@on true

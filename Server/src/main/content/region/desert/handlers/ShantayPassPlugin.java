@@ -54,8 +54,7 @@ public class ShantayPassPlugin extends OptionHandler {
                     return true;
                 }
                 if (player.getAttribute("shantay-jail", false) && player.getLocation().getX() > 3299) {
-                    player.removeAttribute("shantay-jail");//
-                    // if we tele out(witch is allowed) then we need to remove.
+                    player.removeAttribute("shantay-jail");
                 }
                 if (!player.getAttribute("shantay-jail", false)) {
                     DoorActionHandler.handleDoor(player, (Scenery) node);

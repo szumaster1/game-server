@@ -2,7 +2,7 @@ package content.region.misthalin.quest.member.familycrest.dialogue
 
 import core.api.consts.Items
 import core.api.consts.NPCs
-import content.region.misthalin.quest.member.familycrest.util.SwapGauntletsHelper
+import content.region.misthalin.quest.member.familycrest.SwapGauntletsHelper
 import core.api.getAttribute
 import core.game.dialogue.Dialogue
 import core.game.node.entity.npc.NPC

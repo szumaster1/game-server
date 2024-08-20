@@ -62,6 +62,13 @@ class ArchaeologicalExpertListener : InteractionListener {
 class ArchaeologicalExpertListenerDialogueFile(val it: Int) : DialogueBuilderFile() {
 
     companion object {
+        /**
+         * Replace all items of a specific type in the player's inventory.
+         *
+         * @param player The player whose inventory will be modified.
+         * @param originalItem The item type to be replaced.
+         * @param newItem The item type to replace with.
+         */
         fun replaceAll(player: Player, originalItem: Int, newItem: Int) {
             for (a in 0..amountInInventory(player, originalItem)) {
                 if (inInventory(player, originalItem)) {

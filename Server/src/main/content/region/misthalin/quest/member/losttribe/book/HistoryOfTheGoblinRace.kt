@@ -13,7 +13,7 @@ import core.plugin.Initializable
 import core.plugin.Plugin
 
 /**
- * Represents the History of the goblin race.
+ * History of the goblin race.
  */
 @Initializable
 class HistoryOfTheGoblinRace : ComponentPlugin() {

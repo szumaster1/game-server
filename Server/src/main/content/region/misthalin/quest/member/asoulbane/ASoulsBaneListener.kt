@@ -11,6 +11,10 @@ import core.api.consts.Scenery
 class ASoulsBaneListener : InteractionListener {
 
     override fun defineListeners() {
+
+        /*
+         * Handle read sign interaction around the rift.
+         */
         on(Scenery.WARNING_SIGN_14002, IntType.SCENERY, "read") { player, _ ->
             sendDialogueLines(
                 player,

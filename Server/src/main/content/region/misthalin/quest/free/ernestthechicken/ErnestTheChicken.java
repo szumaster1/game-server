@@ -11,7 +11,7 @@ import core.plugin.ClassScanner;
 import core.plugin.Initializable;
 
 /**
- * Represents the Ernest the chicken.
+ * Represents the Ernest the chicken quest.
  */
 @Initializable
 public final class ErnestTheChicken extends Quest {

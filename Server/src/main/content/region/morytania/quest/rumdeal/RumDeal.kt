@@ -9,7 +9,7 @@ import core.game.node.entity.skill.Skills
 import core.plugin.Initializable
 
 /**
- * Rum deal.
+ * Rum deal quest.
  */
 //@Initializable
 class RumDeal : Quest("Rum Deal", 107, 106, 2, Vars.VARP_QUEST_RUM_DEAL_PROGRESS, 0, 1, 19) {

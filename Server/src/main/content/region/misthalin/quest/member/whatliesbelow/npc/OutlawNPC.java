@@ -1,5 +1,6 @@
-package content.region.misthalin.quest.member.whatliesbelow;
+package content.region.misthalin.quest.member.whatliesbelow.npc;
 
+import content.region.misthalin.quest.member.whatliesbelow.WhatLiesBelow;
 import core.game.node.entity.Entity;
 import core.game.node.entity.npc.AbstractNPC;
 import core.game.node.entity.player.Player;

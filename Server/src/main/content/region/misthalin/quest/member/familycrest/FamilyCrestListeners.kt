@@ -129,10 +129,10 @@ class FamilyCrestListeners : InteractionListener {
     }
 
     /**
-     * Do door
+     * Function to handle the interaction with a door.
      *
-     * @param player
-     * @param scenery
+     * @param player The player who is interacting with the door.
+     * @param scenery The scenery object representing the door's environment.
      */
     fun doDoor(player: Player, scenery: Scenery) {
 

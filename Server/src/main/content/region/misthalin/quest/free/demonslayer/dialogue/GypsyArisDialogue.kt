@@ -21,7 +21,7 @@ import core.network.packet.context.CameraContext.CameraType
 import core.network.packet.outgoing.CameraViewPacket
 
 /**
- * Represents the Gypsy aris dialogue.
+ * Represents the Gypsy Aris dialogue.
  */
 class GypsyArisDialogue(player: Player? = null) : Dialogue(player) {
 

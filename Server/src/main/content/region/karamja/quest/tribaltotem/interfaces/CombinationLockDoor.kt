@@ -5,7 +5,7 @@ import core.game.interaction.InterfaceListener
 import core.game.world.map.Location
 
 /**
- * Combination lock door interface listener.
+ * Represents the Combination lock door interface.
  */
 class CombinationLockDoor : InterfaceListener {
 

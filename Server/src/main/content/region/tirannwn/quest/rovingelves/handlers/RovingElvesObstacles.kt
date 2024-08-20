@@ -1,4 +1,4 @@
-package content.region.tirannwn.quest.rovingelves
+package content.region.tirannwn.quest.rovingelves.handlers
 
 import content.global.skill.support.agility.AgilityHandler
 import core.api.hasRequirement

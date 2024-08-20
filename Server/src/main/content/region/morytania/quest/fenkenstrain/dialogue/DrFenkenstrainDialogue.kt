@@ -14,10 +14,11 @@ import core.game.node.item.Item
 import core.plugin.Initializable
 
 /**
- * Represents the Dr fenkenstrain dialogue.
+ * Represents the Dr Fenkenstrain dialogue.
  */
 @Initializable
 class DrFenkenstrainDialogue(player: Player? = null) : Dialogue(player) {
+
     override fun handle(interfaceId: Int, buttonId: Int): Boolean {
         openDialogue(player, DrFenkenstrainDialogueFile(), npc)
         return true
@@ -28,13 +29,12 @@ class DrFenkenstrainDialogue(player: Player? = null) : Dialogue(player) {
     }
 
     override fun getIds(): IntArray {
-        // THE IDs ARE WRONG. 1668 and 1669 are varp controlled Dr Fenkenstrain
         return intArrayOf(NPCs.WEREWOLF_1668, NPCs.WEREWOLF_1669, NPCs.DR_FENKENSTRAIN_1670)
     }
 }
 
 /**
- * Represents the Dr fenkenstrain dialogue file.
+ * Represents the Dr Fenkenstrain dialogue file.
  */
 class DrFenkenstrainDialogueFile : DialogueBuilderFile() {
 

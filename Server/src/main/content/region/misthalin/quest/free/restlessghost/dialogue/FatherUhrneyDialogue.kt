@@ -11,7 +11,7 @@ import core.game.node.item.Item
 import core.plugin.Initializable
 
 /**
- * Represents the Father uhrney dialogue.
+ * Represents the Father Uhrney dialogue.
  */
 @Initializable
 class FatherUhrneyDialogue(player: Player? = null) : Dialogue(player) {

@@ -20,7 +20,10 @@ class NardahListeners : InteractionListener {
 
     override fun defineListeners() {
 
-        // Define listener for interactions with Kazemde.
+        /*
+         * Define listener for interactions with Kazemde.
+         */
+
         on(KAZEMDE_NPC, IntType.NPC, "talk-to", "trade") { player, _ ->
             // Check if the player chose the "trade" option
             if(getUsedOption(player) == "trade") {
@@ -36,7 +39,10 @@ class NardahListeners : InteractionListener {
             return@on true
         }
 
-        // Define listener for interactions with Rokuh.
+        /*
+         * Define listener for interactions with Rokuh.
+         */
+
         on(ROKUH_NPC, IntType.NPC, "talk-to", "trade") { player, _ ->
             // Check if the player chose the "trade" option
             if(getUsedOption(player) == "trade") {

@@ -12,27 +12,27 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 
 /**
- * Represents the Lord rologarth dialogue.
+ * Represents the Lord Rologarth dialogue.
  */
 @Initializable
 class LordRologarthDialogue(player: Player? = null) : Dialogue(player) {
-    override fun newInstance(player: Player): Dialogue {
-        return LordRologarthDialogue(player)
-    }
 
     override fun handle(interfaceId: Int, buttonId: Int): Boolean {
         openDialogue(player, LordRologarthDialogueFile(), npc)
         return false
     }
 
+    override fun newInstance(player: Player): Dialogue {
+        return LordRologarthDialogue(player)
+    }
+
     override fun getIds(): IntArray {
-        // THE IDs ARE WRONG. 1671 and 1672 are varp controlled Lord Rologarth
         return intArrayOf(NPCs.DR_FENKENSTRAIN_1671, NPCs.DR_FENKENSTRAIN_1672, NPCs.FENKENSTRAINS_MONSTER_1673)
     }
 }
 
 /**
- * Represents the Lord rologarth dialogue file.
+ * Represents the Lord Rologarth dialogue file.
  */
 class LordRologarthDialogueFile : DialogueBuilderFile() {
     override fun create(b: DialogueBuilder) {

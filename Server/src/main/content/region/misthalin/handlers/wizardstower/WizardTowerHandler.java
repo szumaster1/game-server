@@ -11,7 +11,7 @@ import core.plugin.Initializable;
 import core.plugin.Plugin;
 
 /**
- * Represents the Wizard tower handler.
+ * Represents the Wizard Tower handler.
  */
 @Initializable
 public final class WizardTowerHandler extends OptionHandler {

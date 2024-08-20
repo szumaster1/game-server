@@ -10,7 +10,7 @@ import core.game.world.GameWorld
 import core.game.world.map.Location
 
 /**
- * Giant lobster NPC.
+ * Represents the Giant lobster NPC.
  */
 class GiantLobsterNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id, location) {
 

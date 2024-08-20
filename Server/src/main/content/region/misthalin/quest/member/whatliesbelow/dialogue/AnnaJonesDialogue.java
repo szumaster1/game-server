@@ -1,5 +1,6 @@
-package content.region.misthalin.quest.member.whatliesbelow;
+package content.region.misthalin.quest.member.whatliesbelow.dialogue;
 
+import content.region.misthalin.quest.member.whatliesbelow.WhatLiesBelow;
 import core.game.dialogue.Dialogue;
 import core.game.node.entity.player.Player;
 import core.game.node.entity.player.link.quest.Quest;

@@ -62,7 +62,7 @@ class HeroesQuestListeners : InteractionListener {
             return@on true
         }
 
-        on(Scenery.CUPBOARD_2636, IntType.SCENERY, "search") { player, node ->
+        on(Scenery.CUPBOARD_2636, IntType.SCENERY, "search") { player, _ ->
             openDialogue(player, object : DialogueFile() {
                 override fun handle(componentID: Int, buttonID: Int) {
                     when (stage) {
@@ -84,7 +84,9 @@ class HeroesQuestListeners : InteractionListener {
             return@on true
         }
 
-        // Mansion backdoor
+        /*
+         * Mansion backdoor
+         */
         on(Scenery.DOOR_2622, IntType.SCENERY, "open") { player, node ->
             if (getAttribute(player, HeroesQuest.attributeHasOpenedBackdoor, false)) {
                 DoorActionHandler.handleAutowalkDoor(player, node.asScenery())
@@ -94,7 +96,7 @@ class HeroesQuestListeners : InteractionListener {
             return@on true
         }
 
-        onUseWith(IntType.SCENERY, Items.MISCELLANEOUS_KEY_1586, Scenery.DOOR_2622) { player, used, with ->
+        onUseWith(IntType.SCENERY, Items.MISCELLANEOUS_KEY_1586, Scenery.DOOR_2622) { player, _, with ->
             setAttribute(player, HeroesQuest.attributeHasOpenedBackdoor, true)
             DoorActionHandler.handleAutowalkDoor(player, with.asScenery())
             return@onUseWith true
@@ -109,23 +111,23 @@ class HeroesQuestListeners : InteractionListener {
             return@on true
         }
 
-        onUseWith(IntType.SCENERY, Items.GRIPS_KEY_RING_1588, Scenery.DOOR_2621) { player, used, with ->
+        onUseWith(IntType.SCENERY, Items.GRIPS_KEY_RING_1588, Scenery.DOOR_2621) { player, _, with ->
             setAttribute(player, HeroesQuest.attributeHasOpenedChestDoor, true)
             DoorActionHandler.handleAutowalkDoor(player, with.asScenery())
             return@onUseWith true
         }
 
-        on(Scenery.CHEST_2632, IntType.SCENERY, "open") { player, node ->
+        on(Scenery.CHEST_2632, IntType.SCENERY, "open") { _, node ->
             replaceScenery(node as core.game.node.scenery.Scenery, Scenery.CHEST_2633, -1)
             return@on true
         }
 
-        on(Scenery.CHEST_2633, IntType.SCENERY, "close") { player, node ->
+        on(Scenery.CHEST_2633, IntType.SCENERY, "close") { _, node ->
             replaceScenery(node as core.game.node.scenery.Scenery, Scenery.CHEST_2632, -1)
             return@on true
         }
 
-        on(Scenery.CHEST_2633, IntType.SCENERY, "search") { player, node ->
+        on(Scenery.CHEST_2633, IntType.SCENERY, "search") { player, _ ->
             if (inInventory(player, Items.PETES_CANDLESTICK_1577)) {
                 sendMessage(player, "You search the chest but find nothing.")
             } else {
@@ -156,11 +158,6 @@ class HeroesQuestListeners : InteractionListener {
                 addItemOrDrop(player, Items.BLAMISH_OIL_1582)
             }
             return@onUseWith true
-        }
-
-        on(Items.BLAMISH_OIL_1582, IntType.ITEM, "drink") { player, _ ->
-            sendDialogue(player, "You know... I'd really rather not.")
-            return@on true
         }
 
     }

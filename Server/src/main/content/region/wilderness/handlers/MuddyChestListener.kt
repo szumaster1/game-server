@@ -34,6 +34,7 @@ class MuddyChestListener : InteractionListener {
         /*
          * Muddy chest interaction.
          */
+
         on(MUDDY_CHEST, IntType.SCENERY, "open") { player, node ->
             val key = Item(Items.MUDDY_KEY_991)
             if (player.inventory.containsItem(key)) {

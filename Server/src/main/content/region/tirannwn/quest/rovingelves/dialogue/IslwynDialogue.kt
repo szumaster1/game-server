@@ -1,5 +1,6 @@
-package content.region.tirannwn.quest.rovingelves
+package content.region.tirannwn.quest.rovingelves.dialogue
 
+import content.region.tirannwn.quest.rovingelves.RovingElves
 import core.game.dialogue.Dialogue
 import core.game.dialogue.DialogueInterpreter
 import core.game.dialogue.FacialExpression

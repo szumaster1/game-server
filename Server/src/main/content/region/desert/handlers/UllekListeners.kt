@@ -9,7 +9,7 @@ import core.game.world.update.flag.context.Animation
 import core.api.consts.Scenery
 
 /**
- * Represents the listeners.
+ * Represents the Ullek listeners.
  */
 class UllekListeners : InteractionListener {
 

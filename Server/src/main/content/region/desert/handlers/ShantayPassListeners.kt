@@ -24,7 +24,11 @@ class ShantayPassListeners : InteractionListener {
     // Method to define interaction listeners
     override fun defineListeners() {
 
-        // Listener for the interaction with the Shantay NPC when the player chooses to buy a pass
+        /*
+         * Listener for the interaction with the Shantay NPC when
+         * the player chooses to buy a pass.
+         */
+
         on(SHANTAY_NPC, IntType.NPC, "buy-pass") { player, node ->
             // Make the NPC face the player for better interaction
             face(node.asNpc(), player, 2)

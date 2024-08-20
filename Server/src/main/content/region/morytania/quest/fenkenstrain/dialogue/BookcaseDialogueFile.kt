@@ -12,9 +12,10 @@ import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
 
 /**
- * Bookcase west.
+ * Represents the Bookcase west.
  */
 class BookcaseWest : DialogueFile() {
+
     override fun handle(componentID: Int, buttonID: Int) {
         when (stage) {
             START_DIALOGUE -> sendDialogueOptions(player!!, "Which book would you like to read?", "1001 Ways To Eat Fried Gizzards", "Practical Gardening For The Headless", "Human Taxidermy for Nincompoops", "The Joy of Gravedigging").also {
@@ -36,7 +37,7 @@ class BookcaseWest : DialogueFile() {
 }
 
 /**
- * Bookcase east dialogue file.
+ * Represents the Bookcase east dialogue file.
  */
 class BookcaseEastDialogueFile : DialogueFile() {
 
@@ -70,7 +71,7 @@ class BookcaseEastDialogueFile : DialogueFile() {
 class ChimneySweepingOnABudgetBook {
     companion object {
 
-        private val TITLE = "Chimney Sweeping on a Budget "
+        private val TITLE = "Chimney Sweeping on a Budget"
         val CONTENTS = arrayOf(
             PageSet(
                 Page(

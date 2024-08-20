@@ -73,7 +73,7 @@ public final class TzhaarCityPlugin extends OptionHandler {
     }
 
     /**
-     * Tzhaar dialogue.
+     * Represents the Tzhaar dialogue.
      */
     public static final class TzhaarDialogue extends Dialogue {
         /**

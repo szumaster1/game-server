@@ -16,7 +16,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Represents the Dr harlow dialogue.
+ * Represents the Dr Harlow dialogue.
  */
 @Initializable
 class DrHarlowDialogue(player: Player? = null) : Dialogue(player) {

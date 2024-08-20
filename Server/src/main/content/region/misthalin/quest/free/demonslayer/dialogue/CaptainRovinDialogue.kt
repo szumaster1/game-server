@@ -8,7 +8,7 @@ import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.quest.Quest
 
 /**
- * Represents the Captain rovin dialogue.
+ * Represents the Captain Rovin dialogue.
  */
 class CaptainRovinDialogue(player: Player? = null) : Dialogue(player) {
 

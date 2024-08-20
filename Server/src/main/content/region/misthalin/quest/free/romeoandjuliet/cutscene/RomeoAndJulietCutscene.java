@@ -13,7 +13,6 @@ import core.network.packet.context.CameraContext.CameraType;
 import core.network.packet.outgoing.CameraViewPacket;
 import core.plugin.Initializable;
 
-
 /**
  * Represents the Romeo and juliet cutscene.
  */

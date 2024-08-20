@@ -20,9 +20,10 @@ class RogueJewelleryListener : InteractionListener {
 
     override fun defineListeners() {
 
-        /**
+        /*
          * Interaction with Rogue NPC in Varrock.
          */
+
         onUseWith(IntType.NPC, JEWELLERY_ITEMS, NPCs.ROGUE_8122) { player, used, _ ->
             if (!hasRequirement(player, "Summer's End")) return@onUseWith false
             val jewellery = RogueJewellery.JewelleryMap[used.id] ?: return@onUseWith true

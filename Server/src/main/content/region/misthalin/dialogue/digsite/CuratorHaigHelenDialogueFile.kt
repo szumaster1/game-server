@@ -15,7 +15,7 @@ import core.api.consts.Items
 import core.api.consts.NPCs
 
 /**
- * Represents the Curator haig helen dialogue file.
+ * Represents the Curator Haig Helen dialogue file.
  */
 class CuratorHaigHelenDialogueFile : DialogueFile() {
 

@@ -20,7 +20,9 @@ import core.plugin.Initializable
  */
 @Initializable
 class SkeletonChampionNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id, location) {
+
     var clearTime = 0
+
     override fun construct(id: Int, location: Location, vararg objects: Any): AbstractNPC {
         return SkeletonChampionNPC(id, location)
     }

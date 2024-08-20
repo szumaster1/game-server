@@ -11,7 +11,7 @@ import core.tools.RandomFunction
 private val TRIBESMAN_NPC = intArrayOf(NPCs.TRIBESMAN_191, NPCs.TRIBESMAN_2496, NPCs.TRIBESMAN_2497)
 
 /**
- * Tribesman NPC.
+ * Represents the Tribesman NPC.
  * @author Szumaster
  */
 class TribesmanNPC : NPCBehavior(*TRIBESMAN_NPC) {

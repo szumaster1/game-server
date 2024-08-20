@@ -18,9 +18,10 @@ class StuffedItemListener : InteractionListener {
 
     override fun defineListeners() {
 
-        /**
+        /*
          * Exchange npc heads for stuffed items.
          */
+
         onUseWith(IntType.NPC, headIds, NPCs.TAXIDERMIST_4246) { player, used, _ ->
             val stuffed = StuffedItem.stuffedItemMap[used.id] ?: return@onUseWith true
             face(findNPC(NPCs.TAXIDERMIST_4246)!!, player, 3)

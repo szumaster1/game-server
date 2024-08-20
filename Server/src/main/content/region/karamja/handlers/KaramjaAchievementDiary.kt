@@ -16,7 +16,7 @@ import core.game.node.entity.player.link.diary.DiaryType
 import core.game.world.map.zone.ZoneBorders
 
 /**
- * Karamja achievement diary.
+ * Represents the Karamja achievement diary.
  */
 class KaramjaAchievementDiary : DiaryEventHookBase(DiaryType.KARAMJA) {
 

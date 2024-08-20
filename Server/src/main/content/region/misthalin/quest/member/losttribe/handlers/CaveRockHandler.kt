@@ -18,7 +18,9 @@ import core.plugin.Plugin
 @Initializable
 class CaveRockHandler : OptionHandler() {
 
-    // Creates a new instance of the plugin and registers the "look-at" option for specific scenery items.
+    /*
+     * Creates a new instance of the plugin and registers the "look-at" option for specific scenery items.
+     */
     override fun newInstance(arg: Any?): Plugin<Any> {
         for (i in Scenery.SYMBOL_6921..Scenery.SYMBOL_6924) {
             // Assigns the current instance as the handler for the "look-at" option of the scenery item.
@@ -27,7 +29,9 @@ class CaveRockHandler : OptionHandler() {
         return this
     }
 
-    // Handles the player's interaction with the scenery node based on the selected option.
+    /*
+     * Handles the player's interaction with the scenery node based on the selected option.
+     */
     override fun handle(player: Player?, node: Node?, option: String?): Boolean {
         // Checks if the player is null; if so, returns false to indicate no action was taken.
         player ?: return false

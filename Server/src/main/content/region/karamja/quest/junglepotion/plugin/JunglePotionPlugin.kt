@@ -73,7 +73,7 @@ class JunglePotionPlugin : OptionHandler() {
     }
 
     /**
-     * Jogre cavern dialogue.
+     * Represents the Jogre cavern dialogue.
      */
     class JogreCavernDialogue : Dialogue {
 

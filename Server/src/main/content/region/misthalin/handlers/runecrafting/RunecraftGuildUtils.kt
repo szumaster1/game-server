@@ -28,7 +28,7 @@ object RunecraftGuildUtils {
 
     val TALLYS = Talisman.values().map { it.talisman.id }.toIntArray()
 
-    /**
+    /*
      * Check for omni talisman reward.
      */
     fun checkReward(player: Player) {

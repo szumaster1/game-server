@@ -21,6 +21,51 @@ import core.game.world.update.flag.context.Animation
  */
 class BoneGrinderListener : InteractionListener {
 
+    override fun defineListeners() {
+
+        /*
+         * Handle the bone loader/hopper fill option.
+         */
+
+        on(Scenery.LOADER_11162, IntType.SCENERY, "fill") { player, _ ->
+            handleFill(player)
+        }
+
+        /*
+         * Handle the wheel's wind option.
+         */
+
+        on(Scenery.BONE_GRINDER_11163, IntType.SCENERY, "wind") { player, _ ->
+            handleWind(player)
+        }
+
+        /*
+         * Handle the wheel's status option.
+         */
+
+        on(Scenery.BONE_GRINDER_11163, IntType.SCENERY, "status") { player, _ ->
+            handleStatus(player)
+        }
+
+        /*
+         * Handle the bin's empty option.
+         */
+
+        on(Scenery.BIN_11164, IntType.SCENERY, "empty") { player, _ ->
+            handleEmpty(player)
+        }
+
+        /*
+         * Handle Bone -> Hopper.
+         */
+
+        onUseWith(IntType.SCENERY, Scenery.LOADER_11162, *boneIDs) { player, _, _ ->
+            handleFill(player)
+            return@onUseWith true
+        }
+
+    }
+
     companion object {
         private const val LOADED_BONE_KEY = "/save:bonegrinder-bones"
         private const val BONE_HOPPER_KEY = "/save:bonegrinder-hopper"
@@ -31,47 +76,6 @@ class BoneGrinderListener : InteractionListener {
         private val SCOOP_ANIM = Animation(Animations.FILL_POT_WITH_BONEMEAL_1650)
 
         private val boneIDs = Bones.values().map { it.itemId }.toIntArray()
-    }
-
-
-    override fun defineListeners() {
-
-        /**
-         * Handle the bone loader/hopper fill option.
-         */
-        on(Scenery.LOADER_11162, IntType.SCENERY, "fill") { player, _ ->
-            handleFill(player)
-        }
-
-        /**
-         * Handle the wheel's wind option.
-         */
-        on(Scenery.BONE_GRINDER_11163, IntType.SCENERY, "wind") { player, _ ->
-            handleWind(player)
-        }
-
-        /**
-         * Handle the wheel's status option.
-         */
-        on(Scenery.BONE_GRINDER_11163, IntType.SCENERY, "status") { player, _ ->
-            handleStatus(player)
-        }
-
-        /**
-         * Handle the bin's empty option.
-         */
-        on(Scenery.BIN_11164, IntType.SCENERY, "empty") { player, _ ->
-            handleEmpty(player)
-        }
-
-        /**
-         * Handle Bone -> Hopper.
-         */
-        onUseWith(IntType.SCENERY, Scenery.LOADER_11162, *boneIDs) { player, _, _ ->
-            handleFill(player)
-            return@onUseWith true
-        }
-
     }
 
     /**

@@ -32,28 +32,11 @@ class WizardMizgogDialogueFile : DialogueFile() {
                     2 -> player("Give me a quest or else!").also { stage = 20 }
                     3 -> player("Just stop messing around and give me a quest!").also { stage = 30 }
                 }
-
                 10 -> npc("Well seeing as you asked nicely... I could do with some", "help.").also { stage++ }
-                11 -> npc(
-                    "The wizard Grayzag next door decided he didn't like",
-                    "me so he enlisted an army of hundreds of imps."
-                ).also { stage++ }
-
-                12 -> npc(
-                    "The imps stole all sorts of my things. Most of these",
-                    "things I don't really care about, just eggs and balls of",
-                    "string and things."
-                ).also { stage++ }
-
-                13 -> npc(
-                    "But they stole my four magical beads. There was a red",
-                    "one, a yellow one, a black one, and a white one."
-                ).also { stage++ }
-
-                14 -> npc(
-                    "These imps have now spread out all over the kingdom.",
-                    "Could you get my beads back for me?"
-                ).also { stage++ }
+                11 -> npc("The wizard Grayzag next door decided he didn't like", "me so he enlisted an army of hundreds of imps.").also { stage++ }
+                12 -> npc("The imps stole all sorts of my things. Most of these", "things I don't really care about, just eggs and balls of", "string and things.").also { stage++ }
+                13 -> npc("But they stole my four magical beads. There was a red", "one, a yellow one, a black one, and a white one.").also { stage++ }
+                14 -> npc("These imps have now spread out all over the kingdom.", "Could you get my beads back for me?").also { stage++ }
 
                 15 -> options("I'll try.", "I've better things to do than chase imps.").also { stage++ }
                 16 -> when (buttonID) {
@@ -74,10 +57,7 @@ class WizardMizgogDialogueFile : DialogueFile() {
 
             10 -> when (stage) {
                 0 -> npc("So how are you doing finding my beads?").also { stage++ }
-                1 -> if (!player!!.inventory.containsItem(Item(1476)) && !player!!.inventory.containsItem(Item(1470)) && !player!!.inventory.containsItem(
-                        Item(1472)
-                    ) && !player!!.inventory.containsItem(Item(1474))
-                ) {
+                1 -> if (!player!!.inventory.containsItem(Item(1476)) && !player!!.inventory.containsItem(Item(1470)) && !player!!.inventory.containsItem(Item(1472)) && !player!!.inventory.containsItem(Item(1474))) {
                     player("I've not found any yet.")
                     stage = 2
                 } else if (player!!.inventory.containItems(1474, 1470, 1472, 1476)) {
@@ -87,24 +67,9 @@ class WizardMizgogDialogueFile : DialogueFile() {
                     player("I have found some of your beads.")
                     stage = 3
                 }
-
-                2 -> npc(
-                    "Well get on with it. I've lost a white bead, a read bead, a",
-                    "black bead, and a yellow bead. Go kill some imps!"
-                ).also { stage = END_DIALOGUE }
-
-                3 -> npc(
-                    "Come back when you have them all. The colour of the",
-                    "four beads that I need are red, yellow, black, and white.",
-                    "Go chase some imps!"
-                ).also { stage = END_DIALOGUE }
-
-                4 -> npc(
-                    "Give them here and I'll check that they really are MY",
-                    "beads, before I give you your reward. You'll like it, it's",
-                    "an amulet of accuracy."
-                ).also { stage++ }
-
+                2 -> npc("Well get on with it. I've lost a white bead, a read bead, a", "black bead, and a yellow bead. Go kill some imps!").also { stage = END_DIALOGUE }
+                3 -> npc("Come back when you have them all. The colour of the", "four beads that I need are red, yellow, black, and white.", "Go chase some imps!").also { stage = END_DIALOGUE }
+                4 -> npc("Give them here and I'll check that they really are MY", "beads, before I give you your reward. You'll like it, it's", "an amulet of accuracy.").also { stage++ }
                 5 -> sendDialogueLines(player!!, "You give four coloured beads to Wizard Mizgog.").also { stage++ }
                 6 -> {
                     if (player!!.inventory.remove(Item(1476), Item(1470), Item(1472), Item(1474))) {
@@ -119,31 +84,20 @@ class WizardMizgogDialogueFile : DialogueFile() {
                                 when (counter++) {
                                     1 -> {
                                         findLocalNPC(player!!, NPCs.WIZARD_MIZGOG_706)?.let {
-                                            face(
-                                                it,
-                                                location(3102, 3163, 2)
-                                            )
+                                            face(it, location(3102, 3163, 2))
                                         }
                                     }
 
                                     2 -> {
                                         findLocalNPC(player!!, NPCs.WIZARD_MIZGOG_706)?.let {
-                                            animate(
-                                                it,
-                                                Animation(4285)
-                                            )
+                                            animate(it, Animation(4285))
                                         }
                                         playGlobalAudio(player!!.location, Sounds.MIZGOG_PLACEBEADS_1632, 20)
                                     }
 
                                     6 -> {
                                         playGlobalAudio(player!!.location, Sounds.CURSE_LIFT_1634, 50)
-                                        replaceScenery(core.game.node.scenery.Scenery(
-                                                16169,
-                                                Location(3102, 3163, 2),
-                                                10,
-                                                1
-                                            ), 16170, 80)
+                                        replaceScenery(core.game.node.scenery.Scenery(16169, Location(3102, 3163, 2), 10, 1), 16170, 80)
                                     }
 
                                     7 -> {

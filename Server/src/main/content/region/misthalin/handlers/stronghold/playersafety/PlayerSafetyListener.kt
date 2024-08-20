@@ -42,13 +42,13 @@ class PlayerSafetyListener : InteractionListener {
         /*
          * Listener for taking the exam using the test paper item.
          */
+
         on(Items.TEST_PAPER_12626, IntType.ITEM, "take exam") { player, _ ->
             if (player.savedData.globalData.getTestStage() == 2) {
-                // Notify player that they have already completed the test.
                 sendDialogue(player, "You have already completed the test. Hand it in to Professor Henry for marking.")
             } else {
                 // Open the exam interface for the player.
-                openInterface(player, 697)
+                openInterface(player, Components.PLAYER_SAFETY_EXAM_697)
             }
             return@on true
         }
@@ -56,8 +56,8 @@ class PlayerSafetyListener : InteractionListener {
         /*
          * Listener for talking to students (NPCs).
          */
+
         on((7151..7157).toIntArray(), IntType.NPC, "Talk-to") { player, _ ->
-            // Notify player that the student is focused on their work.
             sendDialogue(player, "This student is trying to focus on their work.")
             return@on true
         }
@@ -65,8 +65,8 @@ class PlayerSafetyListener : InteractionListener {
         /*
          * Using the jail teleport scenery.
          */
+
         on(29603, IntType.SCENERY, "use") { player, _ ->
-            // Teleport player to the specified jail location.
             teleport(player, Location.create(3082, 4229, 0))
             if (!player.musicPlayer.hasUnlocked(Music.INCARCERATION_494)) {
                 player.musicPlayer.unlock(Music.INCARCERATION_494)
@@ -77,8 +77,8 @@ class PlayerSafetyListener : InteractionListener {
         /*
          * Leaving the jail scenery.
          */
+
         on(29602, IntType.SCENERY, "leave") { player, _ ->
-            // Teleport player to the exit location.
             teleport(player, Location.create(3074, 3456, 0))
             return@on true
         }
@@ -86,15 +86,14 @@ class PlayerSafetyListener : InteractionListener {
         /*
          * Climbing up the jail scenery.
          */
+
         on(29589, IntType.SCENERY, "climb-up") { player, _ ->
             if (player.globalData.hasReadPlaques()) {
-                // Teleport player if they have read the plaques.
                 if (!player.musicPlayer.hasUnlocked(Music.EXAM_CONDITIONS_492)) {
                     player.musicPlayer.unlock(Music.EXAM_CONDITIONS_492)
                 }
                 teleport(player, Location.create(3083, 3452, 0))
             } else {
-                // Notify player that they need to read the jail plaques first.
                 sendMessage(player, "You need to read the jail plaques before the guard will allow you upstairs.")
             }
             return@on true
@@ -103,12 +102,11 @@ class PlayerSafetyListener : InteractionListener {
         /*
          * Opening the exam room door.
          */
+
         on(29732, IntType.SCENERY, "open") { player, node ->
             if (player.globalData.getTestStage() > 0) {
-                // Handle door action if the player is eligible.
                 DoorActionHandler.handleAutowalkDoor(player, node.asScenery())
             } else {
-                // Notify player that the door is locked.
                 sendMessage(player, "The door is locked.")
             }
             return@on true
@@ -117,8 +115,8 @@ class PlayerSafetyListener : InteractionListener {
         /*
          * Climbing down the jail scenery.
          */
+
         on(29592, IntType.SCENERY, "climb-down") { player, _ ->
-            // Teleport player to the specified location when climbing down.
             teleport(player, Location.create(3086, 4247, 0))
             return@on true
         }
@@ -126,12 +124,11 @@ class PlayerSafetyListener : InteractionListener {
         /*
          * Entering the crevice scenery.
          */
+
         on(29728, IntType.SCENERY, "enter") { player, _ ->
             if (getAttribute(player, ATTRIBUTE_CLIMB_CREVICE, false)) {
-                // Teleport player if they have climbed the crevice.
                 teleport(player, Location.create(3159, 4279, 3))
             } else {
-                // Notify player that they cannot enter the crevice.
                 sendMessage(player, "There's no way down.")
             }
             return@on true
@@ -140,6 +137,7 @@ class PlayerSafetyListener : InteractionListener {
         /*
          * Climbing the crevice scenery.
          */
+
         on(29729, IntType.SCENERY, "climb") { player, _ ->
             if (!getAttribute(player, ATTRIBUTE_CLIMB_CREVICE, false)) {
                 // Set attribute indicating the player has climbed the crevice.
@@ -153,49 +151,49 @@ class PlayerSafetyListener : InteractionListener {
         /*
          * Reading plaques interaction.
          */
+
         on((29595..29601).toIntArray(), IntType.SCENERY, "Read-plaque on") { player, node ->
             player.lock() // Prevent client crash during reading.
             read(player, node) // Call the read function to handle plaque reading.
             return@on true
         }
 
-        /**
+        /*
          * Listener for using a specific scenery.
          */
+
         on(29623, IntType.SCENERY, "use") { player, _ ->
             // Teleport player to the specified location.
             teleport(player, Location.create(3077, 4235, 0))
             return@on true
         }
 
-        /**
+        /*
          * Listener for pulling a specific scenery.
          */
+
         on(29730, IntType.SCENERY, "pull") { player, _ ->
-            // Notify player of the sound of cogs and gears moving.
             sendMessage(player, "You hear the cogs and gears moving and a distant unlocking sound.")
-            // Set variable indicating a mechanism has been activated.
             setVarp(player, 1203, (1 shl 29) or (1 shl 26), true)
             return@on true
         }
 
-        /**
+        /*
          * Listener for pulling another scenery.
          */
+
         on(29731, IntType.SCENERY, "pull") { player, _ ->
-            // Notify player of the sound of locks falling into place.
             sendMessage(player, "You hear cogs and gears moving and the sound of heavy locks falling into place.")
-            // Set variable indicating another mechanism has been activated.
             setVarp(player, 1203, 1 shl 29, true)
             return@on true
         }
 
-        /**
+        /*
          * Listener for opening jail doors in different locations.
          */
+
         on(29624, IntType.SCENERY, "open") { player, _ ->
             if (getVarp(player, 1203) and (1 shl 26) == 0) {
-                // Notify player that the door is locked.
                 sendMessage(player, "The door seems to be locked by some kind of mechanism.")
                 return@on true
             }
@@ -219,119 +217,110 @@ class PlayerSafetyListener : InteractionListener {
             return@on true
         }
 
-        /**
-         * Listener for climbing down the stairs between the 1st and 2nd floors.
+        /*
+         * Climbing down the stairs between the 1st and 2nd floors.
          */
+
         on(29667, IntType.SCENERY, "climb-down") { player, _ ->
-            // Teleport player to the specified location when climbing down.
             teleport(player, Location.create(3160, 4249, 1))
             return@on true
         }
 
-        /**
-         * Listener for climbing up the stairs between the 1st and 2nd floors.
+        /*
+         * Climbing up the stairs between the 1st and 2nd floors.
          */
+
         on(29668, IntType.SCENERY, "climb-up") { player, _ ->
-            // Teleport player to the specified location when climbing up.
             teleport(player, Location.create(3158, 4250, 2))
             return@on true
         }
 
-        /**
-         * Listener for climbing down another set of stairs.
+        /*
+         * Climbing down another set of stairs.
          */
+
         on(29663, IntType.SCENERY, "climb-down") { player, _ ->
-            // Teleport player to the specified location when climbing down.
             teleport(player, Location.create(3160, 4246, 1))
             return@on true
         }
 
-        /**
-         * Listener for climbing up another set of stairs.
+        /*
+         * Climbing up another set of stairs.
          */
+
         on(29664, IntType.SCENERY, "climb-up") { player, _ ->
-            // Teleport player to the specified location when climbing up.
             teleport(player, Location.create(3158, 4245, 2))
             return@on true
         }
 
-        /**
-         * Listener for climbing down yet another set of stairs.
+        /*
+         * Climbing down yet another set of stairs.
          */
+
         on(29655, IntType.SCENERY, "climb-down") { player, _ ->
-            // Teleport player to the specified location when climbing down.
             teleport(player, Location.create(3146, 4246, 1))
             return@on true
         }
 
-        /**
-         * Listener for climbing up yet another set of stairs.
+        /*
+         * Climbing up yet another set of stairs.
          */
+
         on(29656, IntType.SCENERY, "climb-up") { player, _ ->
-            // Teleport player to the specified location when climbing up.
             teleport(player, Location.create(3149, 4244, 2))
             return@on true
         }
 
-        /**
-         * Listener for climbing down another set of stairs.
+        /*
+         * Climbing down another set of stairs.
          */
+
         on(29659, IntType.SCENERY, "climb-down") { player, _ ->
-            // Teleport player to the specified location when climbing down.
             teleport(player, Location.create(3146, 4249, 1))
             return@on true
         }
 
-        /**
-         * Listener for climbing up another set of stairs.
+        /*
+         * Climbing up another set of stairs.
          */
+
         on(29660, IntType.SCENERY, "climb-up") { player, _ ->
-            // Teleport player to the specified location when climbing up.
             teleport(player, Location.create(3148, 4250, 2))
             return@on true
         }
 
-        /**
-         * Listener for opening a specific scenery.
+        /*
+         * Opening a specific scenery.
          */
+
         on(29577, IntType.SCENERY, "open") { player, _ ->
-            // Set variable indicating a specific state for the player.
             setVarbit(player, 4499, 1, true)
             return@on true
         }
 
-        /**
-         * Listener for searching a specific scenery.
+        /*
+         * Searching a specific scenery.
          */
+
         on(29578, IntType.SCENERY, "search") { player, _ ->
             if (player.globalData.getTestStage() == 3) {
-                // Check if the player has enough inventory space.
                 if ((freeSlots(player) == 0) or ((freeSlots(player) == 1) and !inInventory(player, Items.COINS_995))) {
-                    // Notify player that they do not have enough inventory space.
                     sendDialogue(player, "You do not have enough inventory space!")
                 } else {
-                    // Unlock the safety emote and add items to the player's inventory.
                     player.emoteManager.unlock(Emotes.SAFETY_FIRST)
                     addItem(player, Items.COINS_995, 10000)
                     addItem(player, Items.SAFETY_GLOVES_12629)
-                    // Notify player of the items found in the chest.
                     sendItemDialogue(player, Items.SAFETY_GLOVES_12629, "You open the chest to find a large pile of gold, along with a pair of safety gloves. ")
                     player.globalData.setTestStage(4) // Update the test stage for the player.
                 }
             } else {
-                // Check if the player already has the safety gloves.
                 if (hasAnItem(player, Items.SAFETY_GLOVES_12629).exists()) {
-                    // Notify player that the chest is empty.
                     sendDialogue(player, "The chest is empty")
                 } else {
-                    // Check if the player has enough inventory space.
                     if (freeSlots(player) == 0) {
-                        // Notify player that they do not have enough inventory space.
                         sendDialogue(player, "You do not have enough inventory space!")
                     } else {
-                        // Notify player of the safety gloves found in the chest.
                         sendItemDialogue(player, Items.SAFETY_GLOVES_12629, "You open the chest to find a pair of safety gloves. ")
-                        // Add the safety gloves to the player's inventory.
                         addItem(player, Items.SAFETY_GLOVES_12629)
                     }
                 }
@@ -347,8 +336,7 @@ class PlayerSafetyListener : InteractionListener {
      * @param plaque The plaque node being read.
      */
     fun read(player: Player, plaque: Node) {
-        if (plaque !is Scenery) return // Ensure the plaque is of type Scenery.
-        // Open the chatbox interface corresponding to the plaque ID.
+        if (plaque !is Scenery) return
         player.interfaceManager.openChatbox(DTI_MAP[plaque.id]!!)
     }
 
@@ -357,43 +345,30 @@ class PlayerSafetyListener : InteractionListener {
      */
     class PlaqueInterfaceListener : InterfaceListener {
 
-        // Holds the current cutscene instance related to the plaque.
         var scene: PlaqueCutscene? = null
 
-        // Defines the interface listeners for various plaque interactions.
         override fun defineInterfaceListeners() {
-            // Iterates through the DTI_MAP values with their indices.
             for ((index, iface) in DTI_MAP.values.withIndex()) {
-                // Sets up the onClose listener for the interface.
                 onClose(iface) { player, _ ->
-                    // Ends the current cutscene without a fade effect.
                     scene?.endWithoutFade()
-                    // Marks the plaque as read for the player.
                     player.globalData.readPlaques[index] = true
-                    return@onClose true // Indicates successful closure of the interface.
+                    return@onClose true
                 }
 
-                // Sets up the onOpen listener for the interface.
                 onOpen(iface) { player, component ->
-                    // Initializes a new PlaqueCutscene instance with the player and component.
                     scene = PlaqueCutscene(player, component)
-                    // Starts the cutscene.
                     scene?.start(false)
-                    return@onOpen true // Indicates successful opening of the interface.
+                    return@onOpen true
                 }
 
-                // Sets up a listener for button interactions on the interface.
+
                 on(iface) { player, _, _, buttonID, _, _ ->
-                    // If thumbs up is clicked.
                     if (buttonID == 2) {
-                        // Unlocks the player.
                         player.unlock()
-                        // Increments the stage of the cutscene.
                         scene?.incrementStage()
-                        // Closes the chatbox for the player.
                         player.interfaceManager.closeChatbox()
                     }
-                    return@on true // Indicates successful handling of the button interaction.
+                    return@on true
                 }
             }
         }

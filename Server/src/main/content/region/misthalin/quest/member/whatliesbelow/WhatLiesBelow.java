@@ -1,5 +1,6 @@
 package content.region.misthalin.quest.member.whatliesbelow;
 
+import content.region.misthalin.quest.member.whatliesbelow.handlers.WhatLiesBelowHandler;
 import core.api.consts.Items;
 import core.game.node.entity.player.Player;
 import core.game.node.entity.player.link.quest.Quest;
@@ -11,7 +12,7 @@ import core.plugin.Initializable;
 import static core.api.ContentAPIKt.setVarp;
 
 /**
- * Represents the What lies below.
+ * Represents the What lies below quest.
  */
 @Initializable
 public class WhatLiesBelow extends Quest {

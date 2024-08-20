@@ -11,10 +11,11 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 
 /**
- * Represents the Gardener ghost dialogue.
+ * Represents the Gardener Ghost dialogue.
  */
 @Initializable
 class GardenerGhostDialogue(player: Player? = null) : Dialogue(player) {
+
     override fun handle(interfaceId: Int, buttonId: Int): Boolean {
         val gardenerGhost = npc as GardenerGhostNPC
         if (gardenerGhost.target == player) {
@@ -41,7 +42,7 @@ class GardenerGhostDialogue(player: Player? = null) : Dialogue(player) {
 }
 
 /**
- * Represents the Gardener ghost dialogue file.
+ * Represents the Gardener Ghost dialogue file.
  */
 class GardenerGhostDialogueFile : DialogueBuilderFile() {
     override fun create(b: DialogueBuilder) {

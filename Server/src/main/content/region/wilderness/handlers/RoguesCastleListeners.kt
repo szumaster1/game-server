@@ -21,29 +21,31 @@ import core.tools.RandomFunction
  */
 class RoguesCastleListeners : InteractionListener {
 
-    companion object {
-        private val CHEST_ANIM = getAnimation(Animations.HUMAN_OPEN_CHEST_536)
-        private val FLOOR_1_CHESTS = intArrayOf(14773,14774)
-        private val FLOOR_2_CHESTS = intArrayOf(38834,38835)
-        private const val JAIL_DOORS = 38837
-    }
-
     override fun defineListeners() {
 
-        // Handling interaction with jail doors.
+        /*
+         * Handling interaction with jail doors.
+         */
+
         on(JAIL_DOORS, IntType.SCENERY, "open") { player, _ ->
             sendMessage(player, "The door is locked.")
             return@on true
         }
 
-        // Handling interaction with chest (1 floor).
+        /*
+         * Handling interaction with chest (1 floor).
+         */
+
         on(FLOOR_1_CHESTS, IntType.SCENERY, "open") { player, node ->
             val scenery = node.asScenery()
             openChest(player, scenery)
             return@on true
         }
 
-        // Handling interaction with chest (1 floor).
+        /*
+         * Handling interaction with chest (1 floor).
+         */
+
         on(FLOOR_1_CHESTS, IntType.SCENERY, "search") { player, node ->
             val scenery = node.asScenery()
             if (getCharge(scenery) == 0) {
@@ -62,13 +64,19 @@ class RoguesCastleListeners : InteractionListener {
             return@on true
         }
 
-        // Handling interaction with chest (2nd floor).
+        /*
+         * Handling interaction with chest (2nd floor).
+         */
+
         on(FLOOR_2_CHESTS, IntType.SCENERY, "open") { player, _ ->
             sendMessage(player, "This chest appears to be locked.")
             return@on true
         }
 
-        // Handling interaction with chest (2nd floor).
+        /*
+         * Handling interaction with chest (2nd floor).
+         */
+
         on(FLOOR_2_CHESTS, IntType.SCENERY, "pick-lock") { player, node ->
             val scenery = node.asScenery()
             if (!inInventory(player, Items.LOCKPICK_1523)) {
@@ -104,7 +112,10 @@ class RoguesCastleListeners : InteractionListener {
             return@on true
         }
 
-        // Handling interaction with chest (2nd floor).
+        /*
+         * Handling interaction with chest (2nd floor).
+         */
+
         on(FLOOR_2_CHESTS, IntType.SCENERY, "search") { player, node ->
             val scenery = node.asScenery()
 
@@ -123,6 +134,13 @@ class RoguesCastleListeners : InteractionListener {
 
             return@on true
         }
+    }
+
+    companion object {
+        private val CHEST_ANIM = getAnimation(Animations.HUMAN_OPEN_CHEST_536)
+        private val FLOOR_1_CHESTS = intArrayOf(14773,14774)
+        private val FLOOR_2_CHESTS = intArrayOf(38834,38835)
+        private const val JAIL_DOORS = 38837
     }
 
     /**

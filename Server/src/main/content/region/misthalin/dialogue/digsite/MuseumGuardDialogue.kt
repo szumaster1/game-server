@@ -9,7 +9,7 @@ import core.tools.START_DIALOGUE
 import core.api.consts.NPCs
 
 /**
- * Represents the Museum guard dialogue.
+ * Represents the Museum Guard dialogue.
  */
 @Initializable
 class MuseumGuardDialogue (player: Player? = null) : Dialogue(player) {

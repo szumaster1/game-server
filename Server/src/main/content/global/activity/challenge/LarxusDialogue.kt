@@ -14,6 +14,7 @@ import core.tools.START_DIALOGUE
 
 /**
  * Represents the Larxus dialogue.
+ * @author Vexia
  */
 @Initializable
 class LarxusDialogue(player: Player? = null) : Dialogue(player) {

@@ -9,7 +9,7 @@ import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
 
 /**
- * Represents the Duke horacio lost tribe dialogue.
+ * Represents the Duke Horacio lost tribe dialogue.
  */
 class DukeHoracioLostTribeDialogue(val questStage: Int) : DialogueFile() {
 

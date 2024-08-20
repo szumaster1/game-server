@@ -24,7 +24,7 @@ import core.api.consts.NPCs
 import core.api.consts.Scenery
 
 /**
- * Represents the The dig site listeners.
+ * Represents the Dig site listeners.
  */
 class TheDigSiteListeners : InteractionListener {
 
@@ -136,28 +136,40 @@ class TheDigSiteListeners : InteractionListener {
 
     override fun defineListeners() {
 
-        // 3: Certificate Level 1
+        /*
+         * 3: Certificate Level 1.
+         */
+
         on(Items.LEVEL_1_CERTIFICATE_691, ITEM, "look-at") { player, _ ->
             openInterface(player, 440)
             setInterfaceText(player, player.username, 440, 5)
             return@on true
         }
 
-        // 3: Certificate Level 2
+        /*
+         * 3: Certificate Level 2.
+         */
+
         on(Items.LEVEL_2_CERTIFICATE_692, ITEM, "look-at") { player, _ ->
             openInterface(player, 441)
             setInterfaceText(player, player.username, 441, 5)
             return@on true
         }
 
-        // 3: Certificate Level 3
+        /*
+         * 3: Certificate Level 3.
+         */
+
         on(Items.LEVEL_3_CERTIFICATE_693, ITEM, "look-at") { player, _ ->
             openInterface(player, 444)
             setInterfaceText(player, player.username, 444, 5)
             return@on true
         }
 
-        // 3 Green: Pickpocket Animal Skull from Digsite Workman
+        /*
+         * 3 Green: Pickpocket Animal Skull from Digsite Workman.
+         */
+
         on(intArrayOf(NPCs.DIGSITE_WORKMAN_613, NPCs.DIGSITE_WORKMAN_4564, NPCs.DIGSITE_WORKMAN_4565), NPC, "steal-from") { player, node ->
 
             if (getStatLevel(player, Skills.THIEVING) < 25) {
@@ -241,19 +253,29 @@ class TheDigSiteListeners : InteractionListener {
             return@on true
         }
 
-        // 3 Purple: Pickpocket student.
+        /*
+         * 3 Purple: Pickpocket student.
+         */
+
         on(NPCs.STUDENT_617, NPC, "pickpocket") { player, _ ->
             sendDialogue(player, "I don't think I should try to steal from this poor student.")
             // Technically you can steal the teddy back from her. But why?
             return@on true
         }
 
-        // 3 Purple: Search Bush for Teddy Bear (but wrong bushes)
+        /*
+         * 3 Purple: Search Bush for Teddy Bear (but wrong bushes).
+         */
+
         on(Scenery.BUSH_2357, SCENERY, "search") { player, _ ->
             sendMessage(player, "You search the bush... You find nothing of interest.")
             return@on true
         }
-        // 3 Purple: Search Bush for Teddy Bear (the correct bush)
+
+        /*
+         * 3 Purple: Search Bush for Teddy Bear (the correct bush).
+         */
+
         on(Scenery.BUSH_2358, SCENERY, "search") { player, _ ->
             openDialogue(player, object : DialogueFile() {
                 override fun handle(componentID: Int, buttonID: Int) {
@@ -273,7 +295,10 @@ class TheDigSiteListeners : InteractionListener {
         }
 
 
-        // 8/9: Pouring CHEMICAL_COMPOUND_707 on brick. Transitions to stage 11.
+        /*
+         * 8/9: Pouring CHEMICAL_COMPOUND_707 on brick. Transitions to stage 11.
+         */
+
         onUseWith(NPC, Items.CUP_OF_TEA_712, NPCs.PANNING_GUIDE_620) { player, used, with ->
             if (removeItem(player, used)) {
                 sendNPCDialogue(player, with.id, "Ah! Lovely! You can't beat a good cuppa! You're free to pan all you want.")
@@ -281,6 +306,10 @@ class TheDigSiteListeners : InteractionListener {
             }
             return@onUseWith true
         }
+
+        /*
+         * Handle panning tray interaction with point.
+         */
 
         onUseWith(SCENERY, Items.PANNING_TRAY_677, Scenery.PANNING_POINT_2363) { player, used, _ ->
             if (getAttribute(player, TheDigSite.attributePanningGuideTea, false)) {
@@ -309,7 +338,11 @@ class TheDigSiteListeners : InteractionListener {
             }
             return@onUseWith true
         }
-        // 3 Brown: Search Panning Point for Special Cup
+
+        /*
+         * 3 Brown: Search Panning Point for Special Cup.
+         */
+
         on(Scenery.PANNING_POINT_2363, SCENERY, "pan") { player, _ ->
             if (getAttribute(player, TheDigSite.attributePanningGuideTea, false)) {
                 if (inInventory(player, Items.PANNING_TRAY_677)) {
@@ -341,12 +374,20 @@ class TheDigSiteListeners : InteractionListener {
             }
             return@on true
         }
-        // 3 Brown: Empty tray
+
+        /*
+         * 3 Brown: Empty tray.
+         */
+
         on(Items.PANNING_TRAY_677, ITEM, "search") { player, _ ->
             sendMessage(player, "The panning tray is empty.")
             return@on true
         }
-        // 3 Brown: Search Panning Point for Special Cup
+
+        /*
+         * 3 Brown: Search Panning Point for Special Cup.
+         */
+
         on(Items.PANNING_TRAY_679, ITEM, "search") { player, used ->
             sendMessage(player, "You search the contents of the tray.")
             if (removeItem(player, used)) {
@@ -369,9 +410,11 @@ class TheDigSiteListeners : InteractionListener {
             return@on true
         }
 
-        // 3-End: Soil trowel digging. Very complex.
-        onUseWith(SCENERY, Items.TROWEL_676, Scenery.SOIL_2376, Scenery.SOIL_2377, Scenery.SOIL_2378) { player, _, _ ->
+        /*
+         * 3-End: Soil trowel digging. Very complex.
+         */
 
+        onUseWith(SCENERY, Items.TROWEL_676, Scenery.SOIL_2376, Scenery.SOIL_2377, Scenery.SOIL_2378) { player, _, _ ->
             val level3DigRight = ZoneBorders(3370, 3437, 3377, 3442)
             val level3DigLeft = ZoneBorders(3350, 3404, 3357, 3412)
             if (level3DigRight.insideBorder(player.location) || level3DigLeft.insideBorder(player.location)) {
@@ -503,7 +546,10 @@ class TheDigSiteListeners : InteractionListener {
             return@onUseWith true
         }
 
-        // 8: North East Winch goes to Doug Deeping
+        /*
+         * 8: North East Winch goes to Doug Deeping.
+         */
+
         on(Scenery.WINCH_2350, SCENERY, "operate") { player, _ ->
             if (getQuestStage(player, "The Dig Site") >= 11) {
                 sendMessage(player, "You try to climb down the rope...")
@@ -539,7 +585,10 @@ class TheDigSiteListeners : InteractionListener {
             return@on true
         }
 
-        // 8: Tie rope to winch
+        /*
+         * 8: Tie rope to winch.
+         */
+
         onUseWith(IntType.SCENERY, Items.ROPE_954, Scenery.WINCH_2350) { player, used, _ ->
             if (removeItem(player, used)) {
                 if (getQuestStage(player, "The Dig Site") >= 8) {
@@ -559,13 +608,19 @@ class TheDigSiteListeners : InteractionListener {
             return@onUseWith true
         }
 
-        // 8: Climb back out
+        /*
+         * 8: Climb back out.
+         */
+
         on(Scenery.ROPE_2352, SCENERY, "climb-up") { player, _ ->
             teleport(player, Location(3370, 3427))
             return@on true
         }
 
-        // 8: West Winch goes to Skeletons, Explosion and Stone Tablet
+        /*
+         * 8: West Winch goes to Skeletons, Explosion and Stone Tablet.
+         */
+
         on(Scenery.WINCH_2351, SCENERY, "operate") { player, _ ->
             if (getQuestStage(player, "The Dig Site") >= 11) {
                 sendMessage(player, "You try to climb down the rope...")
@@ -600,7 +655,10 @@ class TheDigSiteListeners : InteractionListener {
         }
 
 
-        // 8: Tie rope to winch
+        /*
+         * 8: Tie rope to winch.
+         */
+
         onUseWith(IntType.SCENERY, Items.ROPE_954, Scenery.WINCH_2351) { player, used, _ ->
             if (removeItem(player, used)) {
                 if (getQuestStage(player, "The Dig Site") >= 8) {
@@ -620,12 +678,19 @@ class TheDigSiteListeners : InteractionListener {
             return@onUseWith true
         }
 
-        // 8: Climb back out
+        /*
+         * 8: Climb back out.
+         */
+
         on(Scenery.ROPE_2353, SCENERY, "climb-up") { player, _ ->
             teleport(player, Location(3354, 3417))
             return@on true
         }
 
+
+        /*
+         * handle read the invitation letter item.
+         */
 
         on(Items.INVITATION_LETTER_696, ITEM, "read") { player, _ ->
             sendPlayerDialogue(player, "It says, 'I give permission for the bearer... to use the mine shafts on site. - signed Terrance Balando, Archaeological Expert, City of Varrock.")
@@ -634,7 +699,10 @@ class TheDigSiteListeners : InteractionListener {
         }
 
 
-        // 8: Investigating brick. Transitions to stage 9.
+        /*
+         * 8: Investigating brick. Transitions to stage 9.
+         */
+
         on(Scenery.BRICK_2362, SCENERY, "search") { player, _ ->
             if (getQuestStage(player, "The Dig Site") == 8) {
                 sendPlayerDialogue(player, "Hmmm, there's a room past these bricks. If I could move them out of the way then I could find out what's inside. Maybe there's someone around here who can help...", FacialExpression.THINKING)
@@ -650,13 +718,19 @@ class TheDigSiteListeners : InteractionListener {
         }
 
 
-        // 8/9: Chest open
+        /*
+         * 8/9: Chest open.
+         */
+
         on(Scenery.CHEST_2361, SCENERY, "search") { player, _ ->
             sendMessage(player, "The chest is locked.")
             return@on true
         }
 
-        // 8/9: Chest open with key
+        /*
+         * 8/9: Chest open with key.
+         */
+
         onUseWith(IntType.SCENERY, Items.CHEST_KEY_709, Scenery.CHEST_2361) { player, used, with ->
             if (!removeItem(player, used)) {
                 return@onUseWith false
@@ -668,7 +742,11 @@ class TheDigSiteListeners : InteractionListener {
         }
 
 
-        // 8/9: Specimen tray mainly to find charcoal. No quest stage limit as long as you have a specimen jar.
+        /*
+         * 8/9: Specimen tray mainly to find charcoal.
+         * No quest stage limit as long as you have a specimen jar.
+         */
+
         on(Scenery.SPECIMEN_TRAY_2375, SCENERY, "search") { player, _ ->
             if (inInventory(player, Items.SPECIMEN_JAR_669)) {
                 sendMessage(player, "You sift through the earth in the tray.")
@@ -684,13 +762,20 @@ class TheDigSiteListeners : InteractionListener {
             return@on true
         }
 
+        /*
+         * Handle search the chest.
+         */
+
         on(Scenery.CHEST_2360, SCENERY, "search") { player, _ ->
             addItemOrDrop(player, Items.CHEMICAL_POWDER_700)
             sendItemDialogue(player, Items.CHEMICAL_POWDER_700, "You find some unusual powder inside...")
             return@on true
         }
 
-        // 8/9 Getting unidentified liquid (Do not shift this code down. This somehow gets overwritten.)
+        /*
+         * 8/9 Getting unidentified liquid (Do not shift this code down. This somehow gets overwritten.)
+         */
+
         onUseWith(SCENERY, Items.VIAL_229, Scenery.BARREL_17297) { player, used, _ ->
             if (removeItem(player, used)) {
                 addItemOrDrop(player, Items.UNIDENTIFIED_LIQUID_702)
@@ -707,26 +792,38 @@ class TheDigSiteListeners : InteractionListener {
             return@onUseWith true
         }
 
-        // 8/9 Barrel open
+        /*
+         * 8/9 Barrel open.
+         */
+
         on(Scenery.BARREL_17296, SCENERY, "search", "open") { player, _ ->
             sendPlayerDialogue(player, "Mmmm... The lid is shut tight; I'll have to find something to lever it off.", FacialExpression.THINKING)
             return@on true
         }
 
-        // 8/9 Barrel opened with trowel
+        /*
+         * 8/9 Barrel opened with trowel.
+         */
+
         onUseWith(SCENERY, Items.TROWEL_676, Scenery.BARREL_17296) { player, _, _ ->
             sendPlayerDialogue(player, "Great! It's opened it.")
             setVarbit(player, TheDigSite.barrelVarbit, 1)
             return@onUseWith true
         }
 
-        // 8/9 Open barrel search
+        /*
+         * 8/9 Open barrel search.
+         */
+
         on(Scenery.BARREL_17297, SCENERY, "search") { player, _ ->
             sendPlayerDialogue(player, "I can't pick this up with my bare hands! I'll need something to put it in. It looks and smells rather dangerous though, so it'll need to be something small and capable of containing dangerous chemicals.", FacialExpression.THINKING)
             return@on true
         }
 
-        // 8/9 Mixed chem 1
+        /*
+         * 8/9 Mixed chem 1.
+         */
+
         onUseWith(ITEM, Items.AMMONIUM_NITRATE_701, Items.NITROGLYCERIN_703) { player, used, with ->
             if (getStatLevel(player, Skills.HERBLORE) < 10) {
                 sendMessage(player, "You need level 10 Herblore to combine the chemicals.")
@@ -740,7 +837,10 @@ class TheDigSiteListeners : InteractionListener {
             return@onUseWith true
         }
 
-        // 8/9 Mixed chem 2
+        /*
+         * 8/9 Mixed chem 2.
+         */
+
         onUseWith(ITEM, Items.MIXED_CHEMICALS_705, Items.GROUND_CHARCOAL_704) { player, used, with ->
             if (getStatLevel(player, Skills.HERBLORE) < 10) {
                 sendMessage(player, "You need level 10 Herblore to combine the chemicals.")
@@ -754,7 +854,10 @@ class TheDigSiteListeners : InteractionListener {
             return@onUseWith true
         }
 
-        // 8/9 Mixed chem 3
+        /*
+         * 8/9 Mixed chem 3.
+         */
+
         onUseWith(ITEM, Items.MIXED_CHEMICALS_706, Items.ARCENIA_ROOT_708) { player, used, with ->
             if (getStatLevel(player, Skills.HERBLORE) < 10) {
                 sendMessage(player, "You need level 10 Herblore to combine the chemicals.")
@@ -769,7 +872,10 @@ class TheDigSiteListeners : InteractionListener {
             return@onUseWith true
         }
 
-        // 8/9: Pouring CHEMICAL_COMPOUND_707 on brick. Transitions to stage 10.
+        /*
+         * 8/9: Pouring CHEMICAL_COMPOUND_707 on brick. Transitions to stage 10.
+         */
+
         onUseWith(SCENERY, Items.CHEMICAL_COMPOUND_707, Scenery.BRICK_2362) { player, used, _ ->
             if (getQuestStage(player, "The Dig Site") == 9) {
                 if (removeItem(player, used)) {
@@ -782,7 +888,10 @@ class TheDigSiteListeners : InteractionListener {
             return@onUseWith true
         }
 
-        // 10: Lighting brick. Transitions to stage 11.
+        /*
+         * 10: Lighting brick. Transitions to stage 11.
+         */
+
         onUseWith(SCENERY, Items.TINDERBOX_590, Scenery.BRICK_2362) { player, _, _ ->
             if (getQuestStage(player, "The Dig Site") == 10) {
                 setQuestStage(player, "The Dig Site", 11)
@@ -833,7 +942,10 @@ class TheDigSiteListeners : InteractionListener {
             return@onUseWith true
         }
 
-        // 12: Stone tablet get.
+        /*
+         * 12: Stone tablet get.
+         */
+
         on(Scenery.STONE_TABLET_17367, SCENERY, "take") { player, _ ->
             setVarbit(player, TheDigSite.tabletVarbit, 1)
             addItemOrDrop(player, Items.STONE_TABLET_699)
@@ -841,12 +953,19 @@ class TheDigSiteListeners : InteractionListener {
             return@on true
         }
 
+        /*
+         * Handle read the stone tablet.
+         */
+
         on(Items.STONE_TABLET_699, ITEM, "read") { player, _ ->
             sendPlayerDialogue(player, "It says: Tremble mortal, before the altar of our dread lord Zaros.")
             return@on true
         }
 
-        // Dropping Liquids
+        /*
+         * Dropping Liquids.
+         */
+
         on(Items.UNIDENTIFIED_LIQUID_702, ITEM, "empty") { player, node ->
             if (removeItem(player, node)) {
                 addItemOrDrop(player, Items.VIAL_229)

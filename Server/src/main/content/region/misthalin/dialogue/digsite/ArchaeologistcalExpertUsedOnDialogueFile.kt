@@ -10,7 +10,7 @@ import core.api.consts.Items
 import core.game.dialogue.DialogueFile
 
 /**
- * Represents the Archaeologistcal expert dialogue file.
+ * Represents the Archaeologistcal Expert dialogue file.
  */
 class ArchaeologistcalExpertUsedOnDialogueFile(val it: Int) : DialogueFile() {
 

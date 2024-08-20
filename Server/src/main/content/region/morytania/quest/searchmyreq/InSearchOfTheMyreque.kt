@@ -7,8 +7,9 @@ import core.game.node.entity.player.link.quest.Quest
 import core.api.consts.Items
 
 /**
- * In search of the myreque.
+ * In search of the myreque quest.
  */
+//@Initializable
 class InSearchOfTheMyreque : Quest("In Search of the Myreque", 80, 79, 2, Vars.VARP_QUEST_IN_SEARCH_OF_MYREQUE_PROGRESS, 0, 1, 101) {
 
     companion object {

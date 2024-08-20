@@ -12,6 +12,7 @@ import core.tools.END_DIALOGUE
  */
 @Initializable
 class LaunaDialogue(player: Player? = null) : Dialogue(player) {
+
     override fun open(vararg args: Any?): Boolean {
         player("Hi there.").also { stage++ }
         return true

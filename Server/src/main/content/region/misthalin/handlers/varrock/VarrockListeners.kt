@@ -31,27 +31,30 @@ class VarrockListeners : InteractionListener {
 
     override fun defineListeners() {
 
-        /**
+        /*
          * Handling makeover interaction with Thessalia NPC.
          */
+
         on(NPCs.THESSALIA_548, IntType.NPC, "change-clothes") { player, _ ->
             openDialogue(player, NPCs.THESSALIA_548, true, true, true)
             return@on true
         }
 
-        /**
+        /*
          * Broken cart south of Varrock, starting point for
          * the What Lies Below quest.
          */
+
         on(Scenery.BROKEN_CART_23055, IntType.SCENERY, "search") { player, _ ->
             sendDialogueLines(player, "You search the cart but are surprised to find very little there. It's a", "little odd for a travelling trader not to have anything to trade.")
             return@on true
         }
 
-        /**
+        /*
          * The shed provides an alternate entrance to the
          * Edgeville Dungeon, entering north of the Hill Giant room.
          */
+
         on(Scenery.DOOR_1804, IntType.SCENERY, "open") { player, node ->
             if (!inInventory(player, Items.BRASS_KEY_983)) {
                 sendMessage(player, "This door is locked.")
@@ -61,10 +64,11 @@ class VarrockListeners : InteractionListener {
             return@on true
         }
 
-        /**
+        /*
          * Handle doors to Guidor NPC that can be found in southeastern Varrock.
          * He tests the plague sample for you during the Biohazard quest.
          */
+
         on(Scenery.BEDROOM_DOOR_2032, IntType.SCENERY, "open") { player, node ->
             if (!anyInEquipment(player, Items.PRIEST_GOWN_426, Items.PRIEST_GOWN_428) && getQuestStage(player, "Biohazard") >= 11) {
                 openDialogue(player, GuidorsWifeDialogueFile())
@@ -77,9 +81,10 @@ class VarrockListeners : InteractionListener {
             return@on true
         }
 
-        /**
+        /*
          * Handle the Champions' Guild doors.
          */
+
         on(Scenery.DOOR_1805, IntType.SCENERY, "open") { player, node ->
             if (getQuestPoints(player) < 32) {
                 sendDialogue(player, "You have not proved yourself worthy to enter here yet.")
@@ -98,17 +103,19 @@ class VarrockListeners : InteractionListener {
             return@on true
         }
 
-        /**
+        /*
          * Handle interaction with bank service door.
          */
+
         on(Scenery.DOOR_24389, IntType.SCENERY, "knock-at") { player, node ->
             openDialogue(player, KnockatDoorDialogue(), node.asScenery())
             return@on true
         }
 
-        /**
+        /*
          * Handle the Cooks' Guild doors.
          */
+
         on(intArrayOf(Scenery.DOOR_2712, Scenery.DOOR_26810), IntType.SCENERY, "open") { player, node ->
             var requiredItems = anyInEquipment(player, Items.CHEFS_HAT_1949, Items.COOKING_CAPE_9801, Items.COOKING_CAPET_9802, Items.VARROCK_ARMOUR_3_11758)
 
@@ -148,9 +155,10 @@ class VarrockListeners : InteractionListener {
             return@on true
         }
 
-        /**
+        /*
          * Handle Cadava & Red berries bushes picking fruit near Varrock.
          */
+
         on(BERRIES, IntType.SCENERY, "pick-from") { player, node ->
 
             if (node.id == 23630 || node.id == 23627) {
@@ -186,9 +194,10 @@ class VarrockListeners : InteractionListener {
             return@on true
         }
 
-        /**
+        /*
          * Handle Stray dog NPC interaction.
          */
+
         on(NPCs.STRAY_DOG_5917, IntType.NPC, "shoo-away") { player, node ->
             val dog = node.asNpc()
             face(player, node)
@@ -217,9 +226,10 @@ class VarrockListeners : InteractionListener {
         registerMapZone(zone, ZoneBorders(3180, 3420, 3165, 3435))
         registerMapZone(zone, ZoneBorders(3280, 3422, 3266, 3435))
 
-        /**
+        /*
          * Handle Varrock singpost interaction.
          */
+
         on(Scenery.SIGNPOST_31298, IntType.SCENERY, "read") { player, _ ->
             val pickpocketCount = GlobalStats.getDailyGuardPickpockets()
             log(this::class.java, Log.FINE, "Is equal? ${pickpocketCount == 0}")
@@ -231,9 +241,10 @@ class VarrockListeners : InteractionListener {
             return@on true
         }
 
-        /**
+        /*
          * Handle entering to the Varrock sewers.
          */
+
         on(17985, IntType.SCENERY, "climb-down") { player, _ ->
             ClimbActionHandler.climb(player, ClimbActionHandler.CLIMB_DOWN, Location(3204, 9910), "You enter the murky sewers.")
             return@on true
@@ -248,9 +259,10 @@ class VarrockListeners : InteractionListener {
             return@on true
         }
 
-        /**
+        /*
          * Interaction showing Phoenix Gang plaque interface.
          */
+
         on(Scenery.PLAQUE_23636, IntType.SCENERY, "read") { player, _ ->
             openInterface(player, Components.SOA_PLAQUE_531)
             return@on true
@@ -279,9 +291,10 @@ class VarrockListeners : InteractionListener {
             return@on true
         }
 
-        /**
+        /*
          * Travel interaction between Keldagrim and Grand exchange.
          */
+
         on(HIDDEN_TRAPDOOR, IntType.SCENERY, "open") { player, _ ->
             openDialogue(player, object : DialogueFile() {
                 val keldagrimVisited = getAttribute(player, "keldagrim-visited", false)

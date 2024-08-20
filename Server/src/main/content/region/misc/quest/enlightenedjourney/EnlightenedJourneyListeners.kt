@@ -13,11 +13,12 @@ import core.game.node.item.Item
  */
 class EnlightenedJourneyListeners : InteractionListener {
 
-    companion object {
-        const val BASKET = Scenery.BASKET_19132
-    }
-
     override fun defineListeners() {
+
+        /*
+         * Handle using branches on basket.
+         */
+
         onUseWith(IntType.SCENERY, Items.WILLOW_BRANCH_5933, BASKET) { player, _, _ ->
             if (getQuestStage(player, "Enlightened Journey") >= 7) return@onUseWith true
             if (!removeItem(player, Item(Items.WILLOW_BRANCH_5933, 12))) {
@@ -28,5 +29,9 @@ class EnlightenedJourneyListeners : InteractionListener {
             }
             return@onUseWith true
         }
+    }
+
+    companion object {
+        const val BASKET = Scenery.BASKET_19132
     }
 }

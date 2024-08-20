@@ -19,37 +19,16 @@ import core.game.world.update.flag.context.Animation
  */
 class KaramjaListeners : InteractionListener {
 
-    companion object {
-        // Define the locations and IDs of various objects and NPCs.
-        private val MUSA_POINT_DUNGEON = Location(2856, 9567, 0)
-        private val VOLCANO_RIM = Location(2856, 3167, 0)
-        private val PINEAPPLE_PLANT = intArrayOf(Scenery.PINEAPPLE_PLANT_1408, Scenery.PINEAPPLE_PLANT_1409, Scenery.PINEAPPLE_PLANT_1410, Scenery.PINEAPPLE_PLANT_1411, Scenery.PINEAPPLE_PLANT_1412, Scenery.PINEAPPLE_PLANT_1413)
-        private val CUSTOM_OFFICERS = intArrayOf(NPCs.CUSTOMS_OFFICER_380, NPCs.CUSTOMS_OFFICER_381)
-        private const val MUSA_POINT_DUNGEON_ENTRANCE = Scenery.ROCKS_492
-        private const val MUSA_POINT_DUNGEON_EXIT = Scenery.CLIMBING_ROPE_1764
-        private const val PICK_PINEAPPLE_ANIMATION = 2282
-        private const val PINEAPPLE = Items.PINEAPPLE_2114
-        private const val SHAKE_TREE_ANIMATION = 2572
-        private const val PALM_LEAF = Items.PALM_LEAF_2339
-        private const val PALM_TREE_FULL = Scenery.LEAFY_PALM_TREE_2975
-        private const val PALM_TREE_EMPTY = Scenery.LEAFY_PALM_TREE_2976
-        private const val BANANA_TREE = Scenery.BANANA_TREE_2078
-        private const val JIMINUA = NPCs.JIMINUA_560
-        private const val NOTED_PURE_ESSENCE = Items.PURE_ESSENCE_7937
-        private const val TIADECHE = NPCs.TIADECHE_1164
-        private const val SLASH_SOUND = Sounds.MACHETE_SLASH_1286
-        private const val WALK_ANIMATION = Animations.HUMAN_WALK_SHORT_819
-        private const val SWIPE_WITH_MACHETE = Animations.SWIPE_WITH_MACHETE_TAI_BWO_WANNAI_CLEANUP_2382
-        private val MACHETE_ID = intArrayOf(Items.MACHETE_975, Items.JADE_MACHETE_6315, Items.OPAL_MACHETE_6313, Items.RED_TOPAZ_MACHETE_6317)
-        private val JUNGLE_BUSH = intArrayOf(Scenery.JUNGLE_BUSH_2892, Scenery.JUNGLE_BUSH_2893)
-    }
-
-    // Check if the player has the required item in their equipment or inventory.
+    /*
+     * Check if the player has the required item in their equipment or inventory.
+     */
     private fun checkRequirement(player: Player): Boolean {
         return anyInEquipment(player, *MACHETE_ID) || anyInInventory(player, *MACHETE_ID)
     }
 
-    // Get the appropriate animation based on the item used.
+    /*
+     * Get the appropriate animation based on the item used.
+     */
     private fun getAnimation(item: Int): Animation {
         return when (item) {
             Items.MACHETE_975 -> Animation.create(Animations.MACHETE_910)
@@ -62,9 +41,10 @@ class KaramjaListeners : InteractionListener {
 
     override fun defineListeners() {
 
-        /**
+        /*
          * Interaction with jungle bushes.
          */
+
         on(JUNGLE_BUSH, IntType.SCENERY, "chop-down") { player, node ->
             val randomChop = (1..5).random()
             val chopDown = getAttribute(player, "chop-bush", randomChop)
@@ -100,9 +80,10 @@ class KaramjaListeners : InteractionListener {
             return@on true
         }
 
-        /**
+        /*
          * Interaction with custom officers.
          */
+
         on(CUSTOM_OFFICERS, IntType.NPC, "pay-fare") { player, node ->
             if (!isQuestComplete(player, "Pirate's Treasure")) {
                 openDialogue(player, node.asNpc().id, node)
@@ -113,18 +94,20 @@ class KaramjaListeners : InteractionListener {
             return@on true
         }
 
-        /**
+        /*
          * Interaction with Musa Point dungeon entrance.
          */
+
         on(MUSA_POINT_DUNGEON_ENTRANCE, IntType.SCENERY, "climb-down") { player, _ ->
             ClimbActionHandler.climb(player, ClimbActionHandler.CLIMB_DOWN, MUSA_POINT_DUNGEON)
             sendMessage(player, "You climb down through the pot hole.")
             return@on true
         }
 
-        /**
+        /*
          * Interaction with Musa Point dungeon exit.
          */
+
         on(MUSA_POINT_DUNGEON_EXIT, IntType.SCENERY, "climb-up") { player, _ ->
             ClimbActionHandler.climb(player, ClimbActionHandler.CLIMB_UP, VOLCANO_RIM)
             sendMessage(player, "You climb up the hanging rope...")
@@ -132,9 +115,10 @@ class KaramjaListeners : InteractionListener {
             return@on true
         }
 
-        /**
+        /*
          * Interaction with pineapple plants.
          */
+
         on(PINEAPPLE_PLANT, IntType.SCENERY, "pick") { player, node ->
             if (!hasSpaceFor(player, Item(PINEAPPLE))) {
                 sendMessage(player, "You don't have enough space in your inventory.")
@@ -154,17 +138,19 @@ class KaramjaListeners : InteractionListener {
             return@on true
         }
 
-        /**
+        /*
          * Interaction with banana trees.
          */
+
         on(BANANA_TREE, IntType.SCENERY, "search") { player, _ ->
             sendMessage(player, "There are no bananas left on the tree.")
             return@on true
         }
 
-        /**
+        /*
          * Interaction with full palm trees.
          */
+
         on(PALM_TREE_FULL, IntType.SCENERY, "Shake") { player, node ->
             queueScript(player, 0, QueueStrength.WEAK) { stage: Int ->
                 when (stage) {
@@ -189,9 +175,10 @@ class KaramjaListeners : InteractionListener {
             return@on true
         }
 
-        /**
+        /*
          * Un-note essences interaction with Jiminua NPC.
          */
+
         onUseWith(IntType.NPC, NOTED_PURE_ESSENCE, JIMINUA) { player, used, _ ->
             assert(used.id == Items.PURE_ESSENCE_7937)
             val ess: Int = amountInInventory(player, Items.PURE_ESSENCE_7937)
@@ -225,13 +212,38 @@ class KaramjaListeners : InteractionListener {
             return@onUseWith true
         }
 
-        /**
+        /*
          * Trade interaction with NPC Tiadeche NPC.
          */
+
         on(TIADECHE, IntType.NPC, "trade") { player, _ ->
             if (!hasRequirement(player, "Tai Bwo Wannai Trio")) return@on true
             openNpcShop(player, TIADECHE)
             return@on true
         }
+    }
+
+    companion object {
+        private val MUSA_POINT_DUNGEON = Location(2856, 9567, 0)
+        private val VOLCANO_RIM = Location(2856, 3167, 0)
+        private val PINEAPPLE_PLANT = intArrayOf(Scenery.PINEAPPLE_PLANT_1408, Scenery.PINEAPPLE_PLANT_1409, Scenery.PINEAPPLE_PLANT_1410, Scenery.PINEAPPLE_PLANT_1411, Scenery.PINEAPPLE_PLANT_1412, Scenery.PINEAPPLE_PLANT_1413)
+        private val CUSTOM_OFFICERS = intArrayOf(NPCs.CUSTOMS_OFFICER_380, NPCs.CUSTOMS_OFFICER_381)
+        private const val MUSA_POINT_DUNGEON_ENTRANCE = Scenery.ROCKS_492
+        private const val MUSA_POINT_DUNGEON_EXIT = Scenery.CLIMBING_ROPE_1764
+        private const val PICK_PINEAPPLE_ANIMATION = 2282
+        private const val PINEAPPLE = Items.PINEAPPLE_2114
+        private const val SHAKE_TREE_ANIMATION = 2572
+        private const val PALM_LEAF = Items.PALM_LEAF_2339
+        private const val PALM_TREE_FULL = Scenery.LEAFY_PALM_TREE_2975
+        private const val PALM_TREE_EMPTY = Scenery.LEAFY_PALM_TREE_2976
+        private const val BANANA_TREE = Scenery.BANANA_TREE_2078
+        private const val JIMINUA = NPCs.JIMINUA_560
+        private const val NOTED_PURE_ESSENCE = Items.PURE_ESSENCE_7937
+        private const val TIADECHE = NPCs.TIADECHE_1164
+        private const val SLASH_SOUND = Sounds.MACHETE_SLASH_1286
+        private const val WALK_ANIMATION = Animations.HUMAN_WALK_SHORT_819
+        private const val SWIPE_WITH_MACHETE = Animations.SWIPE_WITH_MACHETE_TAI_BWO_WANNAI_CLEANUP_2382
+        private val MACHETE_ID = intArrayOf(Items.MACHETE_975, Items.JADE_MACHETE_6315, Items.OPAL_MACHETE_6313, Items.RED_TOPAZ_MACHETE_6317)
+        private val JUNGLE_BUSH = intArrayOf(Scenery.JUNGLE_BUSH_2892, Scenery.JUNGLE_BUSH_2893)
     }
 }

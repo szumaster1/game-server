@@ -11,12 +11,22 @@ import core.game.world.map.Location
  * Represents the Dragon slayer listeners
  */
 class DSListeners : InteractionListener {
+
     override fun defineListeners() {
+
+        /*
+         * Handle opening cell.
+         */
+
         on(Scenery.CELL_DOOR_40184, IntType.SCENERY, "open") { player, _ ->
             sendMessage(player, "It's locked tight.")
             return@on true
         }
-        // Talk to Wormbrain
+
+        /*
+         * Talk to Wormbrain.
+         */
+
         setDest(IntType.NPC, intArrayOf(NPCs.WORMBRAIN_745), "talk-to") { player, node ->
             val npc = node.asNpc()
             val p = player.asPlayer()

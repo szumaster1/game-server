@@ -23,8 +23,8 @@ class GhostsAhoyListeners : InteractionListener, InterfaceListener {
     override fun defineListeners() {
 
         /*
-            #1 Doors leads to coffin which contains Robes of Necrovarus.
-            #2 Doors leads to Old Crone NPC.
+         * #1 Doors leads to coffin which contains Robes of Necrovarus.
+         * #2 Doors leads to Old Crone NPC.
          */
 
         on(Scenery.DOOR_5244, IntType.SCENERY, "open") { player, node ->
@@ -60,7 +60,7 @@ class GhostsAhoyListeners : InteractionListener, InterfaceListener {
         }
 
         /*
-            Interaction with coffin.
+         * Interaction with coffin.
          */
 
         on(Scenery.COFFIN_5278, IntType.SCENERY, "open") { player, node ->
@@ -85,7 +85,7 @@ class GhostsAhoyListeners : InteractionListener, InterfaceListener {
         }
 
         /*
-            Petition form.
+         * Handle the Petition form.
          */
 
         on(Items.PETITION_FORM_4283, IntType.ITEM, "count", "drop") { player, node ->
@@ -113,7 +113,7 @@ class GhostsAhoyListeners : InteractionListener, InterfaceListener {
         }
 
         /*
-            Rock path lead to chest which contains map scraps.
+         * Rock path lead to chest which contains map scraps.
          */
 
         on(Scenery.ROCK_5269, IntType.SCENERY, "jump-to") { player, node ->
@@ -138,7 +138,7 @@ class GhostsAhoyListeners : InteractionListener, InterfaceListener {
         }
 
         /*
-            Connect scraps for completed map.
+         * Connect scraps for completed map.
          */
 
         onUseWith(IntType.ITEM, Items.MAP_SCRAP_4276, Items.MAP_SCRAP_4275) { player, used, with ->
@@ -155,7 +155,7 @@ class GhostsAhoyListeners : InteractionListener, InterfaceListener {
         }
 
         /*
-            Interaction with completed map.
+         * Interaction with completed map.
          */
 
         on(Items.TREASURE_MAP_4277, IntType.ITEM, "read") { player, _ ->
@@ -164,7 +164,7 @@ class GhostsAhoyListeners : InteractionListener, InterfaceListener {
         }
 
         /*
-            Dig for Book of Haricanto.
+         * Dig for Book of Haricanto.
          */
 
         onDig(Location(3803, 3530, 0)) { player ->
@@ -180,7 +180,7 @@ class GhostsAhoyListeners : InteractionListener, InterfaceListener {
 
 
         /*
-            Ship model interactions.
+         * Ship model interactions.
          */
 
         on(GAUtils.shipModel, IntType.ITEM, "repair") { player, _ ->
@@ -279,7 +279,7 @@ class GhostsAhoyListeners : InteractionListener, InterfaceListener {
         }
 
         /*
-            Plank Rock Island (5285) to ship.
+         * Plank Rock Island (5285) to ship.
          */
 
         on(intArrayOf(Scenery.GANGPLANK_5286, Scenery.GANGPLANK_5285), IntType.SCENERY, "cross") { player, node ->
@@ -305,7 +305,7 @@ class GhostsAhoyListeners : InteractionListener, InterfaceListener {
         }
 
         /*
-            Ship chest near Old Man.
+         * Ship chest near Old Man.
          */
 
         onUseWith(IntType.SCENERY, Items.CHEST_KEY_2404, Scenery.CLOSED_CHEST_5270) { player, _, _ ->

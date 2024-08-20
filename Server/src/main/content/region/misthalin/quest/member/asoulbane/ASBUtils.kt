@@ -3,7 +3,7 @@ package content.region.misthalin.quest.member.asoulbane
 import core.api.getAnimation
 
 /**
- * Represents the A soulbane utils.
+ * Represents the A Soul Bane utils.
  */
 object ASBUtils {
 

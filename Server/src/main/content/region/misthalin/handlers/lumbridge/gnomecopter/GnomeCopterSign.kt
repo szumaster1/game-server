@@ -11,7 +11,7 @@ import core.game.node.entity.player.Player
  */
 enum class GnomeCopterSign(private val button: String, vararg info: String) {
 
-    /**
+    /*
      * Entrance text content.
      */
     ENTRANCE(
@@ -33,7 +33,7 @@ enum class GnomeCopterSign(private val button: String, vararg info: String) {
     private val info: Array<String> = info as Array<String>
 
     /**
-     * Read.
+     * Handle read option.
      *
      * @param player the player.
      */

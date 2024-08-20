@@ -13,7 +13,7 @@ import core.game.world.map.Location
 import core.game.world.update.flag.context.Animation
 
 /**
- * Represents the Sir pyrsin dialogue.
+ * Represents the Sir Pyrsin dialogue.
  */
 class SirPyrsinDialogue(player: Player? = null) : Dialogue(player) {
 

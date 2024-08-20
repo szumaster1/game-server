@@ -69,9 +69,8 @@ object BrimhavenUtils {
      * @param node The scenery object representing the stepping stones.
      */
     fun handleSteppingStones(player: Player, node: Scenery) {
-        // Check if the player's agility level is less than 12
         if (player.skills.getLevel(Skills.AGILITY) < 12) {
-            player.packetDispatch.sendMessage("You need an agility level of 12 to cross this.")
+            sendMessage(player,"You need an agility level of 12 to cross this.")
             return
         }
         player.lock(12)
@@ -117,12 +116,12 @@ object BrimhavenUtils {
     fun handleVines(player: Player, node: Scenery) {
         val level: Int = 10 + (node.id - 5103) * 6
         if (player.skills.getLevel(Skills.WOODCUTTING) < level) {
-            player.packetDispatch.sendMessage("You need a woodcutting level of $level to chop down this vine.")
+            sendMessage(player, "You need a woodcutting level of $level to chop down this vine.")
             return
         }
         val tool = SkillingTool.getHatchet(player)
         if (tool == null) {
-            player.packetDispatch.sendMessage("You don't have an axe to cut these vines.")
+            sendMessage(player,"You don't have an axe to cut these vines.")
             return
         }
         animate(player, tool.animation)

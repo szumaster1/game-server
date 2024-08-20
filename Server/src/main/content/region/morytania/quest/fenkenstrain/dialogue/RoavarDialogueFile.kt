@@ -16,6 +16,7 @@ import core.tools.START_DIALOGUE
  * Represents the Roavar dialogue file.
  */
 class RoavarDialogueFile(private val dialogueNum: Int = 0) : DialogueFile() {
+
     override fun handle(componentID: Int, buttonID: Int) {
         when (stage) {
             START_DIALOGUE -> {

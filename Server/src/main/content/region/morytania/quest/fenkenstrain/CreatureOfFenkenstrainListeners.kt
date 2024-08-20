@@ -62,10 +62,16 @@ class CreatureOfFenkenstrainListeners : InteractionListener {
 
     override fun defineListeners() {
 
-        // Climbing ladders
+        /*
+         * Climbing ladder.
+         */
+
         addClimbDest(Location.create(3504, 9970, 0), Location.create(3504, 3571, 0))
 
-        // 1: Reading Signpost to start the quest
+        /*
+         * 1: Reading Signpost to start the quest.
+         */
+
         on(Items.NULL_5164, SCENERY, "read") { player, _ ->
             if (getQuestStage(player, "Creature of Fenkenstrain") < 7) {
                 sendDialogueLines(player, "The signpost has a note pinned onto it. The note says:", "'---- Braindead Butler Wanted ----", "Gravedigging skills essential - Hunchback advantageous", "See Dr Fenkenstrain at the castle NE of Canifis'",)
@@ -78,7 +84,10 @@ class CreatureOfFenkenstrainListeners : InteractionListener {
             return@on true
         }
 
-        // 2 Reading a grave
+        /*
+         * 2 Reading a grave.
+         */
+
         on(intArrayOf(Scenery.GRAVE_5168, Scenery.GRAVE_5169), SCENERY, "read") { player, node ->
             val grave = Graves.locationMap[node.location]
             sendMessage(player, "The grave says:")
@@ -86,7 +95,10 @@ class CreatureOfFenkenstrainListeners : InteractionListener {
             return@on true
         }
 
-        // 2: Digging a grave
+        /*
+         * 2: Digging a grave.
+         */
+
         on(intArrayOf(Scenery.GRAVE_5168, Scenery.GRAVE_5169), SCENERY, "dig") { player, node ->
             if (!inInventory(player, Items.SPADE_952)) {
                 sendMessage(player, "You need a spade to do that.")
@@ -112,7 +124,11 @@ class CreatureOfFenkenstrainListeners : InteractionListener {
             return@on true
         }
 
-        // 2: Find amulets in bookcases. Note: even after the quest, these can still be accessed, but nothing falls out.
+        /*
+         * 2: Find amulets in bookcases. Note: even after the quest,
+         * these can still be accessed, but nothing falls out.
+         */
+
         on(Scenery.BOOKCASE_5166, SCENERY, "search") { player, node ->
             if (node.location.equals(Location(3555, 3558, 1))) {
                 openDialogue(player, BookcaseEastDialogueFile())
@@ -126,7 +142,10 @@ class CreatureOfFenkenstrainListeners : InteractionListener {
             }
         }
 
-        // 2: Snap together Amulets
+        /*
+         * 2: Snap together Amulets.
+         */
+
         onUseWith(ITEM, Items.MARBLE_AMULET_4187, Items.OBSIDIAN_AMULET_4188) { player, _, _ ->
             if (removeItem(player, Items.MARBLE_AMULET_4187) && removeItem(player, Items.OBSIDIAN_AMULET_4188)) {
                 sendItemDialogue(player, Items.STAR_AMULET_4183, "The marble and obsidian amulets snap together tightly to form a six-pointed amulet.")
@@ -135,7 +154,10 @@ class CreatureOfFenkenstrainListeners : InteractionListener {
             return@onUseWith true
         }
 
-        // 2: Fit Star Amulet on Memorial
+        /*
+         * 2: Fit Star Amulet on Memorial.
+         */
+
         onUseWith(SCENERY, Items.STAR_AMULET_4183, Items.NULL_5167) { player, _, _ ->
             if (removeItem(player, Items.STAR_AMULET_4183)) {
                 sendItemDialogue(player, Items.STAR_AMULET_4183, "The star amulet fits exactly into the depression on the coffin lid.")
@@ -144,7 +166,10 @@ class CreatureOfFenkenstrainListeners : InteractionListener {
             return@onUseWith true
         }
 
-        // 2: Opening Cavern Entrance
+        /*
+         * 2: Opening Cavern Entrance.
+         */
+
         on(Scenery.ENTRANCE_5170, SCENERY, "open") { player, node ->
             if (inInventory(player, Items.CAVERN_KEY_4184) && removeItem(player, Items.CAVERN_KEY_4184)) {
                 DoorActionHandler.handleAutowalkDoor(player, node.asScenery())
@@ -153,7 +178,11 @@ class CreatureOfFenkenstrainListeners : InteractionListener {
             }
             return@on true
         }
-        // 2: Using Cavern Key on the Cavern Entrance
+
+        /*
+         * 2: Using Cavern Key on the Cavern Entrance.
+         */
+
         onUseWith(SCENERY, Items.CAVERN_KEY_4184, Scenery.ENTRANCE_5170) { player, used, with ->
             if (removeItem(player, used)) {
                 DoorActionHandler.handleAutowalkDoor(player, with.asScenery())
@@ -162,14 +191,20 @@ class CreatureOfFenkenstrainListeners : InteractionListener {
         }
 
 
-        // 2: Searching for Cavern Key out of the Chest
+        /*
+         * 2: Searching for Cavern Key out of the Chest.
+         */
+
         on(Scenery.CHEST_5163, SCENERY, "search") { player, _ ->
             sendItemDialogue(player, Items.CAVERN_KEY_4184, "You take a key out of the chest.")
             addItemOrDrop(player, Items.CAVERN_KEY_4184)
             return@on true
         }
 
-        // 2: Taking the brain from the table (telekinetic grab is allowed)
+        /*
+         * 2: Taking the brain from the table (telekinetic grab is allowed).
+         */
+
         on(Items.PICKLED_BRAIN_4199, GROUNDITEM, "take") { player, node ->
             if (node.location.equals(3492, 3474, 0)) {
                 openDialogue(player, RoavarDialogueFile(2), findLocalNPC(player, NPCs.ROAVAR_1042)!!)
@@ -179,7 +214,10 @@ class CreatureOfFenkenstrainListeners : InteractionListener {
             return@on true
         }
 
-        // 2: Fit Brain into Decapitated Head
+        /*
+         * 2: Fit Brain into Decapitated Head.
+         */
+
         onUseWith(ITEM, Items.PICKLED_BRAIN_4199, Items.DECAPITATED_HEAD_4197) { player, used, with ->
             if (removeItem(player, used) && removeItem(player, with)) {
                 sendItemDialogue(player, Items.DECAPITATED_HEAD_4198, "You squeeze the pickled brain into the decapitated head.")
@@ -188,7 +226,10 @@ class CreatureOfFenkenstrainListeners : InteractionListener {
             return@onUseWith true
         }
 
-        // 2: Searching the Memorial (Scenery.MEMORIAL_5167)
+        /*
+         * 2: Searching the Memorial (Scenery.MEMORIAL_5167).
+         */
+
         on(Items.NULL_5167, SCENERY, "search") { player, node ->
             val scenery = node.asScenery()
             if (getAttribute(player, CreatureOfFenkenstrain.attributeUnlockedMemorial, false) || getQuestStage(player, "Creature of Fenkenstrain") > 2) {
@@ -218,7 +259,10 @@ class CreatureOfFenkenstrainListeners : InteractionListener {
             return@on true
         }
 
-        // 2: Pushing open the Memorial (Scenery.MEMORIAL_5167)
+        /*
+         * 2: Pushing open the Memorial (Scenery.MEMORIAL_5167).
+         */
+
         on(Items.NULL_5167, SCENERY, "push") { player, node ->
             val scenery = node.asScenery()
             if (getAttribute(player, CreatureOfFenkenstrain.attributeUnlockedMemorial, false) ||
@@ -246,7 +290,10 @@ class CreatureOfFenkenstrainListeners : InteractionListener {
             return@on true
         }
 
-        // 5: Garden Shed Door
+        /*
+         * 5: Garden Shed Door.
+         */
+
         on(Scenery.DOOR_5174, SCENERY, "open") { player, node ->
             if (getAttribute(player, CreatureOfFenkenstrain.attributeUnlockedShed, false) || getQuestStage(player, "Creature of Fenkenstrain") >= 5) {
                 DoorActionHandler.handleAutowalkDoor(player, node.asScenery())
@@ -261,7 +308,10 @@ class CreatureOfFenkenstrainListeners : InteractionListener {
             return@on true
         }
 
-        // 5: Garden Shed Door
+        /*
+         * 5: Garden Shed Door.
+         */
+
         onUseWith(SCENERY, Items.SHED_KEY_4186, Scenery.DOOR_5174) { player, used, with ->
             if (getAttribute(player, CreatureOfFenkenstrain.attributeUnlockedShed, false) || getQuestStage(player, "Creature of Fenkenstrain") >= 5) {
                 DoorActionHandler.handleAutowalkDoor(player, with.asScenery())
@@ -272,14 +322,20 @@ class CreatureOfFenkenstrainListeners : InteractionListener {
             return@onUseWith true
         }
 
-        // 5: Pile of Canes
+        /*
+         * 5: Pile of Canes.
+         */
+
         on(Items.NULL_5158, SCENERY, "take-from") { player, _ ->
             sendMessage(player, "You take a garden cane from the pile.")
             addItemOrDrop(player, Items.GARDEN_CANE_4189)
             return@on true
         }
 
-        // 5: Cupboard Garden Brush
+        /*
+         * 5: Cupboard Garden Brush.
+         */
+
         on(Items.NULL_5157, SCENERY, "search") { player, _ ->
             sendItemDialogue(player, Items.GARDEN_BRUSH_4190, "You find a garden brush in the cupboard.")
             // player.packetDispatch.sendAngleOnInterface(241, 1, 1000, 510, 0)
@@ -287,7 +343,10 @@ class CreatureOfFenkenstrainListeners : InteractionListener {
             return@on true
         }
 
-        // 5: Extended Brush up to 3 Fused
+        /*
+         * 5: Extended Brush up to 3 Fused.
+         */
+
         onUseWith(ITEM, intArrayOf(Items.GARDEN_BRUSH_4190, Items.EXTENDED_BRUSH_4191, Items.EXTENDED_BRUSH_4192), Items.GARDEN_CANE_4189) { player, used, with ->
             if (!inInventory(player, Items.BRONZE_WIRE_1794)) {
                 sendMessage(player, "You need some bronze wire to tie them together.")
@@ -312,7 +371,10 @@ class CreatureOfFenkenstrainListeners : InteractionListener {
             return@onUseWith true
         }
 
-        // 5: Cupboard Garden Brush
+        /*
+         * 5: Cupboard Garden Brush.
+         */
+
         on(Scenery.FIREPLACE_5165, SCENERY, "examine") { player, _ ->
             if (!inInventory(player, Items.CONDUCTOR_4201)) {
                 sendMessage(player, "You give the chimney a jolly good clean out.")
@@ -324,7 +386,10 @@ class CreatureOfFenkenstrainListeners : InteractionListener {
             return@on true
         }
 
-        // 5: Brush Fireplace
+        /*
+         * 5: Brush Fireplace.
+         */
+
         onUseWith(SCENERY, Items.EXTENDED_BRUSH_4193, Scenery.FIREPLACE_5165) { player, _, _ ->
             sendMessage(player, "You give the chimney a jolly good clean out.")
             sendItemDialogue(player, Items.CONDUCTOR_MOULD_4200, "A lightning conductor mould falls down out of the chimney.")
@@ -332,7 +397,10 @@ class CreatureOfFenkenstrainListeners : InteractionListener {
             return@onUseWith true
         }
 
-        // 5: Repair the lightning rod
+        /*
+         * 5: Repair the lightning rod.
+         */
+
         on(Scenery.LIGHTNING_CONDUCTOR_5176, SCENERY, "repair") { player, node ->
             if (!inInventory(player, Items.CONDUCTOR_4201)) {
                 sendMessage(player, "You need to repair it with a conductor.")
@@ -353,7 +421,10 @@ class CreatureOfFenkenstrainListeners : InteractionListener {
             return@on true
         }
 
-        // 6: Enter jail above
+        /*
+         * 6: Enter jail above.
+         */
+
         on(Scenery.DOOR_5172, SCENERY, "open") { player, node ->
             if (inInventory(player, Items.TOWER_KEY_4185) || getQuestStage(player, "Creature of Fenkenstrain") > 7) {
                 DoorActionHandler.handleAutowalkDoor(player, node.asScenery())
@@ -362,7 +433,11 @@ class CreatureOfFenkenstrainListeners : InteractionListener {
             }
             return@on true
         }
-        // 2: Using Cavern Key on the Cavern Entrance
+
+        /*
+         * 2: Using Cavern Key on the Cavern Entrance.
+         */
+
         onUseWith(SCENERY, Items.TOWER_KEY_4185, Scenery.DOOR_5172) { player, _, with ->
             if (inInventory(player, Items.TOWER_KEY_4185)) {
                 DoorActionHandler.handleAutowalkDoor(player, with.asScenery())
@@ -371,7 +446,10 @@ class CreatureOfFenkenstrainListeners : InteractionListener {
         }
 
 
-        // 7: Pickpocket Ring of Charos from Fenkenstrain
+        /*
+         * 7: Pickpocket Ring of Charos from Fenkenstrain.
+         */
+
         on(NPCs.DR_FENKENSTRAIN_1670, NPC, "pickpocket") { player, _ ->
             if (getQuestStage(player, "Creature of Fenkenstrain") == 7) {
                 sendMessage(player, "You steal the Ring of Charos from Fenkenstrain.")

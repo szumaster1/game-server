@@ -26,13 +26,19 @@ class BrimhavenListeners : InteractionListener {
 
     override fun defineListeners() {
 
-        // Handle the interaction when the player climbs up the Agility Arena exit ladder.
+        /*
+         * Handle the interaction when the player climbs up the Agility Arena exit ladder.
+         */
+
         on(AGILITY_ARENA_EXIT_LADDER, IntType.SCENERY, "climb-up") { player, _ ->
             ClimbActionHandler.climb(player, ClimbActionHandler.CLIMB_UP, AGILITY_ARENA_HUT)
             return@on true
         }
 
-        // Handle the interaction when the player climbs down the Agility Arena entrance ladder.
+        /*
+         * Handle the interaction when the player climbs down the Agility Arena entrance ladder.
+         */
+
         on(AGILITY_ARENA_ENTRANCE_LADDER, IntType.SCENERY, "climb-down") { player, _ ->
             if (!getAttribute(player, "capn_izzy", false)) {
                 openDialogue(player, CapnIzzyDialogue(1))
@@ -44,53 +50,65 @@ class BrimhavenListeners : InteractionListener {
             return@on true
         }
 
-        // Handle the interaction when the player talks to Cap'n Izzy No-Beard without a beard.
+        /*
+         * Handle the interaction when the player talks to Cap'n Izzy No-Beard without a beard.
+         */
+
         on(NPCs.CAPN_IZZY_NO_BEARD_437, IntType.NPC, "talk-to") { player, node ->
             openDialogue(player, CapnIzzyDialogue(0), node)
             return@on true
         }
 
-        // Handle the interaction when the player pays Cap'n Izzy No-Beard without a beard.
+        /*
+         * Handle the interaction when the player pays Cap'n Izzy No-Beard without a beard.
+         */
+
         on(NPCs.CAPN_IZZY_NO_BEARD_437, IntType.NPC, "pay") { player, node ->
             openDialogue(player, CapnIzzyDialogue(2), node)
             return@on true
         }
 
-        // Handle the interaction when the player talks to Pirate Jackie the Fruit.
+        /*
+         * Handle the interaction when the player talks to Pirate Jackie the Fruit.
+         */
+
         on(NPCs.PIRATE_JACKIE_THE_FRUIT_1055, IntType.NPC, "talk-to") { player, node ->
             openDialogue(player, PirateJackieDialogue(), node)
             return@on true
         }
 
-        // Handle the interaction when the player trades with Pirate Jackie the Fruit.
+        /*
+         * Handle the interaction when the player trades with Pirate Jackie the Fruit.
+         */
+
         on(NPCs.PIRATE_JACKIE_THE_FRUIT_1055, IntType.NPC, "trade") { player, _ ->
             openInterface(player, TICKET_EXCHANGE_IFACE)
             return@on true
         }
 
-        // Handle the interaction when the player tries to open the rear door of the restaurant.
+        /*
+         * Handle the interaction when the player tries to open the rear door of the restaurant.
+         */
+
         on(RESTAURANT_REAR_DOOR, IntType.SCENERY, "open") { player, _ ->
             sendMessage(player, "You try and open the door...")
             sendMessage(player, "The door is locked tight, I can't open it.")
             return@on true
         }
 
-        // Handle the interaction when the player tries to fish at the Karambwan fishing spot.
+        /*
+         * Handle the interaction when the player tries to fish at the Karambwan fishing spot.
+         */
+
         on(KARAMBWAN_FISHING_SPOT, IntType.NPC, "fish") { player, _ ->
             sendNPCDialogue(player, NPCs.LUBUFU_1171, "Keep off my fishing spot, whippersnapper!", FacialExpression.FURIOUS)
             return@on true
         }
 
         /*
-         * The following code handles the interaction when the player tries to unlock the Locked Diary.
-         * Selecting the option 'Unlock diary' turns it into an Unlocked diary.
-         * A player may fail to unlock the diary, and trigger a trap, resulting damage
-         * to hitpoints. This damage is equal to half the current hitpoints available.
-         * A higher Thieving level reduces the chances of this trap from triggering.
-         * Reading it provides evidence that Sandy did kill Clarence. After giving the
-         * diary to Zavistic Rarve, it will no longer be available;
-         * even after searching Sandy's desk.
+         * Success on open locked diary.
          */
+
         fun success(player: Player, skill: Int): Boolean {
             val level = player.getSkills().getLevel(skill).toDouble()
             val req = 40.0

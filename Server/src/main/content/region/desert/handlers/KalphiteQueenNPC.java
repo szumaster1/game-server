@@ -32,7 +32,6 @@ import java.util.List;
 @Initializable
 public final class KalphiteQueenNPC extends AbstractNPC {
 
-    // 3474, 9495, 0
     private static final Location DEFAULT_SPAWN = Location.create(3222, 3217, 0);
     private static final Animation TRANSFORM_ANIM = new Animation(6270, Priority.HIGH);
     private final CombatSwingHandler combatHandler = new KQCombatSwingHandler();

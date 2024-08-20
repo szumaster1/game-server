@@ -9,7 +9,7 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 
 /**
- * Represents the Father aereck dialogue.
+ * Represents the Father Aereck dialogue.
  */
 @Initializable
 class FatherAereckDialogue(player: Player? = null) : Dialogue(player) {

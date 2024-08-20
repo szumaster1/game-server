@@ -9,7 +9,7 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 
 /**
- * Represents the Restless ghost dialogue.
+ * Represents the Restless Ghost dialogue.
  */
 @Initializable
 class RestlessGhostDialogue(player: Player? = null) : Dialogue(player) {

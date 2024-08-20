@@ -13,7 +13,7 @@ class OneSmallFavourListeners : InteractionListener {
     override fun defineListeners() {
 
         /*
-         * Read the wheater report.
+         * Handle read the Weather report.
          */
 
         on(Items.WEATHER_REPORT_4435, IntType.ITEM, "read") { player, _ ->

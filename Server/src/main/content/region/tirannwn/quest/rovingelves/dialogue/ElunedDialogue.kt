@@ -1,5 +1,6 @@
-package content.region.tirannwn.quest.rovingelves
+package content.region.tirannwn.quest.rovingelves.dialogue
 
+import content.region.tirannwn.quest.rovingelves.RovingElves
 import core.api.consts.Items
 import core.api.consts.NPCs
 import core.api.sendItemDialogue

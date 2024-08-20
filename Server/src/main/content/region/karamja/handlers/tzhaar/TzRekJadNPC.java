@@ -46,18 +46,15 @@ public class TzRekJadNPC extends OptionHandler {
     }
 
     /**
-     * Tzhaar mej jal dialogue.
+     * Represents the Tzhaar mej jal dialogue.
      */
     public final class TzhaarMejJalDialogue extends Dialogue {
 
-
-        /**
-         * Instantiates a new Tzhaar mej jal dialogue.
-         */
         public TzhaarMejJalDialogue() {
-
+            /*
+             * Empty
+             */
         }
-
 
         /**
          * Instantiates a new Tzhaar mej jal dialogue.
@@ -164,21 +161,19 @@ public class TzRekJadNPC extends OptionHandler {
     }
 
     /**
-     * Tz rek jad dialogue.
+     * Represents the Tz-rek jad dialogue.
      */
     public final class TzRekJadDialogue extends Dialogue {
 
-
-        /**
-         * Instantiates a new Tz rek jad dialogue.
-         */
         public TzRekJadDialogue() {
-
+            /*
+             * EMpty
+             */
         }
 
 
         /**
-         * Instantiates a new Tz rek jad dialogue.
+         * Instantiates a new Tz-rek jad dialogue.
          *
          * @param player the player
          */

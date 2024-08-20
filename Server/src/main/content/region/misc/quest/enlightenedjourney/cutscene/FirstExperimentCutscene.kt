@@ -14,7 +14,7 @@ import core.game.node.entity.player.Player
 import core.game.world.map.Direction
 
 /**
- * First experiment cutscene.
+ * Represents the First experiment cutscene.
  */
 class FirstExperimentCutscene(player: Player) : Cutscene(player) {
     override fun setup() {

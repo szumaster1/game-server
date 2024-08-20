@@ -1,4 +1,4 @@
-package content.region.misthalin.dialogue.digsite
+package content.global.handlers.item.book
 
 import content.global.handlers.iface.BookInterfaceListener
 import content.global.handlers.iface.BookLine

@@ -24,42 +24,15 @@ class KharidianDesertListeners : InteractionListener {
         val ANIMATION: Animation = Animation(911)
         const val DRY_CACTUS: Int = 2671
         const val SPAWN_DELAY: Int = 45
-        private const val STAIRS = Scenery.STAIRS_DOWN_28481
-        private const val EXIT = Scenery.EXIT_28401
-        private const val FALLEN_PILLAR_1 = Scenery.FALLEN_PILLAR_28515
-        private const val FALLEN_PILLAR_2 = Scenery.FALLEN_PILLAR_28516
         private const val CACTUS = Scenery.KHARIDIAN_CACTUS_HEALTHY_2670
         private const val KNIFE = Items.KNIFE_946
     }
 
     override fun defineListeners() {
 
-        // Listener for going up the stairs
-        // https://runescape.wiki/w/Battle_of_Ullek
-        on(STAIRS, IntType.SCENERY, "enter") { player, _ ->
-            player.properties.teleportLocation = Location.create(3448, 9252, 1)
-            return@on true
-        }
-
-        // Listener for leaving through the exit
-        on(EXIT, IntType.SCENERY, "leave through") { player, _ ->
-            player.properties.teleportLocation = Location.create(3412, 2848, 1)
-            return@on true
-        }
-
-        // Listener for climbing the first fallen pillar
-        on(FALLEN_PILLAR_1, IntType.SCENERY, "climb") { player, _ ->
-            player.properties.teleportLocation = Location.create(3419, 2803, 1)
-            return@on true
-        }
-
-        // Listener for climbing the second fallen pillar
-        on(FALLEN_PILLAR_2, IntType.SCENERY, "climb") { player, _ ->
-            player.properties.teleportLocation = Location.create(3419, 2801, 0)
-            return@on true
-        }
-
-        // Listener for cutting the cactus
+        /*
+         * Listener for cutting the cactus.
+         */
         on(CACTUS, IntType.SCENERY, "cut") { player, node ->
             if (!inInventory(player, KNIFE)) {
                 sendMessage(player, "You need a knife to cut this Cactus...")
@@ -93,7 +66,7 @@ class KharidianDesertListeners : InteractionListener {
         }
     }
 
-    /**
+    /*
      * This function retrieves the water skin item for a given player.
      */
     fun getWaterSkin(player: Player): Item? {

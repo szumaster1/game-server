@@ -13,6 +13,7 @@ import core.game.node.item.Item
 class SewInterfaceListener : InterfaceListener {
 
     override fun defineInterfaceListeners() {
+
         on(Components.SEW_INTERFACE_419) { player, _, opcode, button, _, _ ->
             val pirateStock: PirateClothes? = when (button) {
                 38 -> PirateClothes.WHITE_RIGHT_EYE
@@ -56,6 +57,12 @@ class SewInterfaceListener : InterfaceListener {
     }
 
 
+    /**
+     * This function allows a player to purchase a specific stock of pirate clothes.
+     *
+     * @param player The player who is attempting to buy the stock.
+     * @param stock The specific stock of pirate clothes that the player wants to buy.
+     */
     private fun buy(player: Player, stock: PirateClothes) {
         if (freeSlots(player) < 1) {
             sendMessage(player, "You don't have enough inventory space for this.")

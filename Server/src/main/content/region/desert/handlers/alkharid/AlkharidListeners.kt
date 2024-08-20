@@ -28,6 +28,10 @@ class AlkharidListeners : InteractionListener {
 
     override fun defineListeners() {
 
+        /*
+         * Talk to interaction with Border guards.
+         */
+
         on(BORDER_GUARD, IntType.NPC, "talk-to") { player, _ ->
             openDialogue(player, BorderGuardDialogue())
             return@on true
@@ -70,6 +74,7 @@ class AlkharidListeners : InteractionListener {
         /*
          * Fadli shop interaction.
          */
+
         on(FADLI_NPC, IntType.NPC, "buy") { player, _ ->
             openNpcShop(player, NPCs.FADLI_958)
             return@on true
@@ -78,6 +83,7 @@ class AlkharidListeners : InteractionListener {
         /*
          * Interaction with Ali the leaflet.
          */
+
         on(LEAFLET_DROPPER, IntType.NPC, "Take-flyer") { player, _ ->
             if (player.inventory.containItems(Items.AL_KHARID_FLYER_7922)) {
                 openDialogue(player, AliTheLeafletDropperDialogue(2))

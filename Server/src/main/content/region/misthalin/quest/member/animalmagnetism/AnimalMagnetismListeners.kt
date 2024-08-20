@@ -11,14 +11,19 @@ import core.game.interaction.InteractionListener
 class AnimalMagnetismListeners : InteractionListener {
 
     override fun defineListeners() {
-       onEquip(Items.CRONE_MADE_AMULET_10500) { player, _ ->
-           if (!isQuestComplete(player, "Animal Magnetism")) {
-               sendMessage(player, "Your ghostliness isn't ethereal enough to wear this.")
-               return@onEquip false
-           } else {
-               return@onEquip true
-           }
-       }
+
+        /*
+         * Handle equip the crone made amulet.
+         */
+
+        onEquip(Items.CRONE_MADE_AMULET_10500) { player, _ ->
+            if (!isQuestComplete(player, "Animal Magnetism")) {
+                sendMessage(player, "Your ghostliness isn't ethereal enough to wear this.")
+                return@onEquip false
+            } else {
+                return@onEquip true
+            }
+        }
     }
 
 }
