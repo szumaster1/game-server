@@ -83,11 +83,11 @@ public final class LoginConfiguration {
         setInterfaceText(player, "Welcome to " + ServerConstants.SERVER_NAME, 378, 115);
         setInterfaceText(player, getLastLogin(player), 378, 116);
         setInterfaceText(player, "", 378, 37);
-        setInterfaceText(player, "Want to stay up to date with the latest news and updates? Join our discord by using the link on our website!", 378, 38);
+        setInterfaceText(player, "Want to stay up to date with the latest version? Check the 'github.com/szumaster3/game' repository", 378, 38);
         setInterfaceText(player, "", 378, 39);
         setInterfaceText(player, "Discord Invite", 378, 14);
         setInterfaceText(player, "Discord Invite", 378, 129);
-        setInterfaceText(player, "You can gain more credits by reporting bugs and various other methods of contribution.", 378, 93);
+        setInterfaceText(player, "You can gain credits by reporting bugs and various other methods of contribution.", 378, 93);
         setInterfaceText(player, player.getDetails().getCredits() + "", 378, 96);
         setInterfaceText(player, "Credits", 378, 94);
         setInterfaceText(player, "", 378, 229);
