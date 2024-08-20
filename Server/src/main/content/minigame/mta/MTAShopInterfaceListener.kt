@@ -48,7 +48,7 @@ class MTAShopInterfaceListener : InterfaceListener {
     }
 
     /**
-     * Open
+     * Open the interface.
      *
      * @param player The player who is opening the interface.
      */
@@ -75,7 +75,7 @@ class MTAShopInterfaceListener : InterfaceListener {
     }
 
     /**
-     * Buy
+     * Buy items.
      *
      * @param player The player making the purchase.
      * @param item The item to be purchased.

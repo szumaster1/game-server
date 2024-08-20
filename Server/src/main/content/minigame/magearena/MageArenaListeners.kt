@@ -25,9 +25,11 @@ class MageArenaListeners : InteractionListener {
     private val sparklingPool = intArrayOf(Scenery.SPARKLING_POOL_2878, Scenery.SPARKLING_POOL_2879)
 
     override fun defineListeners() {
+
         /*
          * Listener for god capes.
          */
+
         on(godCapes, IntType.ITEM, "take", "drop") { player, node ->
             val type = GodType.forCape(node.asItem())
             if (getUsedOption(player) == "take") {
@@ -51,6 +53,7 @@ class MageArenaListeners : InteractionListener {
         /*
          * Listener for god statues.
          */
+
         on(godStatue, IntType.SCENERY, "pray at") { player, node ->
             queueScript(player, 1, QueueStrength.STRONG) { stage: Int ->
                 when (stage) {
@@ -74,6 +77,7 @@ class MageArenaListeners : InteractionListener {
         /*
          * Listener for sparkling pools.
          */
+
         on(sparklingPool, IntType.SCENERY, "step-into") { player, node ->
             if (node.id != Scenery.SPARKLING_POOL_2879) {
                 if (!player.getSavedData().activityData.hasKilledKolodion()) {

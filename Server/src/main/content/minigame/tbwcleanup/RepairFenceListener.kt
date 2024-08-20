@@ -20,6 +20,7 @@ import core.game.node.entity.skill.Skills
  * Repair fence liistener.
  */
 class RepairFenceListener : InteractionListener {
+
     private val VILLAGE_FENCE = arrayOf(9025, 9026, 9027, 9028, 9029)
     private val THATCH_SPAR_DENSE = Items.THATCH_SPAR_DENSE_6285
     private val THATCH_SPAR_MED = Items.THATCH_SPAR_MED_6283

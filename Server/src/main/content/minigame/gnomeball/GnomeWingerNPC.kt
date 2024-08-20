@@ -14,7 +14,7 @@ import core.game.node.entity.player.Player
 import core.game.node.item.Item
 
 /**
- * Gnome winger NPC.
+ * Represents the Gnome Winger NPC.
  */
 private class GnomeWingerNPC : NPCBehavior(NPCs.GNOME_WINGER_633) {
 

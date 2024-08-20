@@ -61,6 +61,7 @@ class ItemOnThreatPlugin : InteractionListener {
         /*
          * Activates when player uses an item on a Green Broodoo victim
          */
+
         onUseAnyWith(IntType.NPC, BROODOO_VICTIM_GREEN) { player, used, with ->
             val maxDamage = if (ANTIPOISONS.contains(used.id)) {
                 20
@@ -86,6 +87,7 @@ class ItemOnThreatPlugin : InteractionListener {
         /*
          * Activates when player uses an item on a Yellow Broodoo victim
          */
+
         onUseAnyWith(IntType.NPC, BROODOO_VICTIM_YELLOW) { player, used, with ->
             if (RELICYMs_BALM.contains(used.id) || SANFEW_SYRUM.contains(used.id)) {
                 val damage = random(0, 30)
@@ -102,6 +104,7 @@ class ItemOnThreatPlugin : InteractionListener {
         /*
          * Activates when player uses an item on a White Broodoo victim
          */
+
         onUseAnyWith(IntType.NPC, BROODOO_VICTIM_WHITE) { player, used, with ->
             return@onUseAnyWith attackBroodooWithFood(used.asItem(), player, with.asNpc())
         }
@@ -109,6 +112,7 @@ class ItemOnThreatPlugin : InteractionListener {
         /*
          * Activates when player uses insect repellent on a large mosquito or mosquito swarm
          */
+
         onUseWith(IntType.NPC, Items.INSECT_REPELLENT_28, *MOSQUITOS) { _, _, with ->
             //Halve all combat stats of the mosquito
             for (skillNumber in arrayOf(0, 1, 2, 4, 6)) {
@@ -132,6 +136,7 @@ class ItemOnThreatPlugin : InteractionListener {
      * Mod Ash: "Different categories of food use different damage ranges. Same for poison cures. Looks like vegetables
      * and fruit have the highest damage range for food (10-35). I think the dev was vegetarian :P"
      */
+
     private fun attackBroodooWithFood(used: Item, player: Player, with: NPC): Boolean {
         // Incomplete list of fruits and vegetables
         val FRUITS_AND_VEGETABLES = arrayOf(

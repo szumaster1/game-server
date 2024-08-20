@@ -70,7 +70,7 @@ Start the game server with `run-server.bat`
 
 ##### License
 
-AGPL 3.0 license, which can be found [here](https://www.gnu.org/licenses/agpl-3.0.en.html).
+AGPL 3.0 license, The license applies to the entire repository, unless otherwise specified. Full license can be found [here](https://www.gnu.org/licenses/agpl-3.0.en.html).
 
 [license-shield]: https://img.shields.io/badge/license-AGPL--3.0-informational
 

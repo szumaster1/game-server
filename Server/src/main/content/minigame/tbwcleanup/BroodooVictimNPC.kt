@@ -64,7 +64,7 @@ class BroodooVictimNPC : NPCBehavior(*BROODOO_VICTIMS) {
             ticksSinceStatDrainAttack += 1
             if (ticksSinceSpawn > 5000) {
                 poofClear(self)
-            } //Mod Ash: "[Do you know the despawn timer on Broodoo victims from Tai Bwo Wannai minigame? Specifically green ones.] They spawn for 50 mins, by the look of this code."
+            }
         }
         return true
     }

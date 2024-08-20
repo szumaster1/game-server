@@ -28,7 +28,7 @@ class KolodionSession(val player: Player) {
     }
 
     /**
-     * Start
+     * Start the session.
      */
     fun start() {
         if (kolodion.type!!.ordinal > 0) {
@@ -59,7 +59,7 @@ class KolodionSession(val player: Player) {
     }
 
     /**
-     * Close
+     * Close the session.
      */
     fun close() {
         kolodion.clear()
