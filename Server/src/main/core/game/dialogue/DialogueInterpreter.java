@@ -23,7 +23,6 @@ import java.util.regex.Pattern;
 
 import static core.tools.DialogueHelperKt.END_DIALOGUE;
 
-
 /**
  * Dialogue interpreter.
  */

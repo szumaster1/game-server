@@ -11,7 +11,7 @@ public interface DialogueAction {
     /**
      * Handles a dialogue click.
      *
-     * @param player the player.
+     * @param player   the player.
      * @param buttonId the buttonId.
      */
     void handle(Player player, int buttonId);

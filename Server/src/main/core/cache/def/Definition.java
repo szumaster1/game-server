@@ -8,8 +8,8 @@ import core.game.node.Node;
 
 /**
  * Represent's a node's definitions.
- * @author Emperor
  * @param <T> The node type.
+ * @author Emperor
  */
 public class Definition<T extends Node> {
 
@@ -49,6 +49,7 @@ public class Definition<T extends Node> {
 
     /**
      * Checks if this node has options.
+     *
      * @return {@code True} if so.
      */
     public boolean hasOptions() {
@@ -57,6 +58,7 @@ public class Definition<T extends Node> {
 
     /**
      * Checks if this node has options.
+     *
      * @param examine If examine should be treated as an option.
      * @return {@code True} if so.
      */
@@ -76,6 +78,7 @@ public class Definition<T extends Node> {
 
     /**
      * Gets a configuration of this item's definitions.
+     *
      * @param key The key.
      * @return The configuration value.
      */
@@ -86,9 +89,10 @@ public class Definition<T extends Node> {
 
     /**
      * Gets a configuration from this item's definitions.
-     * @param key The key.
+     *
+     * @param key  The key.
      * @param fail The object to return if there was no value found for this
-     * key.
+     *             key.
      * @return The value, or the fail object.
      */
     @SuppressWarnings("unchecked")
@@ -102,6 +106,7 @@ public class Definition<T extends Node> {
 
     /**
      * Gets the id.
+     *
      * @return The id.
      */
     public int getId() {
@@ -110,6 +115,7 @@ public class Definition<T extends Node> {
 
     /**
      * Sets the id.
+     *
      * @param id The id to set.
      */
     public void setId(int id) {
@@ -118,6 +124,7 @@ public class Definition<T extends Node> {
 
     /**
      * Gets the name.
+     *
      * @return The name.
      */
     public String getName() {
@@ -126,6 +133,7 @@ public class Definition<T extends Node> {
 
     /**
      * Sets the name.
+     *
      * @param name The name to set.
      */
     public void setName(String name) {
@@ -134,17 +142,18 @@ public class Definition<T extends Node> {
 
     /**
      * Gets the examine.
+     *
      * @return The examine.
      */
     public String getExamine() {
         if (examine == null) {
             try {
-                if(handlers.get("examine") != null)
+                if (handlers.get("examine") != null)
                     examine = handlers.get("examine").toString();
-            } catch (Exception e){
+            } catch (Exception e) {
                 e.printStackTrace();
             }
-            if(examine == null) {
+            if (examine == null) {
                 if (name.length() > 0) {
                     examine = "It's a" + (StringUtils.isPlusN(name) ? "n " : " ") + name + ".";
                 } else {
@@ -157,6 +166,7 @@ public class Definition<T extends Node> {
 
     /**
      * Sets the examine.
+     *
      * @param examine The examine to set.
      */
     public void setExamine(String examine) {
@@ -165,6 +175,7 @@ public class Definition<T extends Node> {
 
     /**
      * Gets the options.
+     *
      * @return The options.
      */
     public String[] getOptions() {
@@ -173,6 +184,7 @@ public class Definition<T extends Node> {
 
     /**
      * Sets the options.
+     *
      * @param options The options to set.
      */
     public void setOptions(String[] options) {
@@ -181,6 +193,7 @@ public class Definition<T extends Node> {
 
     /**
      * Gets the configurations.
+     *
      * @return The configurations.
      */
     public Map<String, Object> getHandlers() {

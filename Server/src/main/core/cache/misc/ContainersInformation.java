@@ -55,8 +55,9 @@ public final class ContainersInformation {
 
     /**
      * Construct a new containers information.
+     *
      * @param informationContainerPackedData The information container data
-     * packed.
+     *                                       packed.
      */
     public ContainersInformation(byte[] informationContainerPackedData) {
         this.data = Arrays.copyOf(informationContainerPackedData, informationContainerPackedData.length);
@@ -70,6 +71,7 @@ public final class ContainersInformation {
 
     /**
      * Unpacks a container.
+     *
      * @param packedData The packed container data.
      * @return The unpacked data.
      */
@@ -102,6 +104,7 @@ public final class ContainersInformation {
 
     /**
      * Get the container indexes.
+     *
      * @return The container indexes.
      */
     public int[] getContainersIndexes() {
@@ -110,6 +113,7 @@ public final class ContainersInformation {
 
     /**
      * Get the containers.
+     *
      * @return The containers.
      */
     public FilesContainer[] getContainers() {
@@ -118,6 +122,7 @@ public final class ContainersInformation {
 
     /**
      * Get the information container.
+     *
      * @return The information container.
      */
     public Container getInformationContainer() {
@@ -126,6 +131,7 @@ public final class ContainersInformation {
 
     /**
      * Get the revision.
+     *
      * @return The revision.
      */
     public int getRevision() {
@@ -134,6 +140,7 @@ public final class ContainersInformation {
 
     /**
      * Decode the containers information.
+     *
      * @param data The data.
      */
     public void decodeContainersInformation(byte[] data) {
@@ -211,6 +218,7 @@ public final class ContainersInformation {
 
     /**
      * If is whirpool.
+     *
      * @return If is whirpool {@code true}.
      */
     public boolean isWhirpool() {
@@ -219,6 +227,7 @@ public final class ContainersInformation {
 
     /**
      * Gets the data.
+     *
      * @return The data.
      */
     public byte[] getData() {

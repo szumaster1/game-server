@@ -25,6 +25,7 @@ public final class ContainerEvent {
 
     /**
      * Constructs a new {@code ContainerEvent} {@code Object}.
+     *
      * @param size The container size.
      */
     public ContainerEvent(int size) {
@@ -33,6 +34,7 @@ public final class ContainerEvent {
 
     /**
      * Flags a null item on the given slot.
+     *
      * @param slot The slot.
      */
     public void flagNull(int slot) {
@@ -41,6 +43,7 @@ public final class ContainerEvent {
 
     /**
      * Flags an item on the given slot.
+     *
      * @param slot The slot.
      * @param item The item.
      */
@@ -50,6 +53,7 @@ public final class ContainerEvent {
 
     /**
      * Gets the amount of item slots changed.
+     *
      * @return The amount of item slots that have changed.
      */
     public int getChangeCount() {
@@ -64,6 +68,7 @@ public final class ContainerEvent {
 
     /**
      * Gets the updated slots.
+     *
      * @return The slots array.
      */
     public int[] getSlots() {
@@ -83,6 +88,7 @@ public final class ContainerEvent {
 
     /**
      * Gets the items.
+     *
      * @return The items.
      */
     public Item[] getItems() {
@@ -101,6 +107,7 @@ public final class ContainerEvent {
 
     /**
      * Gets the clear.
+     *
      * @return The clear.
      */
     public boolean isClear() {
@@ -109,6 +116,7 @@ public final class ContainerEvent {
 
     /**
      * Sets the clear flag.
+     *
      * @param clear The container is cleared.
      */
     public void setClear(boolean clear) {

@@ -33,7 +33,8 @@ public final class CacheFileManager {
 
     /**
      * Construct a new cache file manager.
-     * @param cacheFile The cache file.
+     *
+     * @param cacheFile        The cache file.
      * @param discardFilesData To discard a files data.
      */
     public CacheFileManager(CacheFile cacheFile, boolean discardFilesData) {
@@ -49,6 +50,7 @@ public final class CacheFileManager {
 
     /**
      * Get the cache file.
+     *
      * @return The cache file.
      */
     public CacheFile getCacheFile() {
@@ -57,6 +59,7 @@ public final class CacheFileManager {
 
     /**
      * Get the containers size.
+     *
      * @return The containers size.
      */
     public int getContainersSize() {
@@ -65,6 +68,7 @@ public final class CacheFileManager {
 
     /**
      * Get the files size.
+     *
      * @param containerId The container id.
      * @return The files size.
      */
@@ -84,8 +88,9 @@ public final class CacheFileManager {
 
     /**
      * Check if a file is valid.
+     *
      * @param containerId The container id.
-     * @param fileId The file id.
+     * @param fileId      The file id.
      * @return If the file is valid {@code true}.
      */
     public boolean validFile(int containerId, int fileId) {
@@ -101,6 +106,7 @@ public final class CacheFileManager {
 
     /**
      * If a container is valid.
+     *
      * @param containerId The container id.
      * @return If the container is valid {@code true}.
      */
@@ -113,6 +119,7 @@ public final class CacheFileManager {
 
     /**
      * Get the file ids.
+     *
      * @param containerId The container id.
      * @return The file ids.
      */
@@ -125,6 +132,7 @@ public final class CacheFileManager {
 
     /**
      * Get the archive id.
+     *
      * @param name The archive name.
      * @return The archive id.
      */
@@ -143,8 +151,9 @@ public final class CacheFileManager {
 
     /**
      * Get the file data.
+     *
      * @param containerId The container id.
-     * @param fileId The file id.
+     * @param fileId      The file id.
      * @return The get file data.
      */
     public byte[] getFileData(int containerId, int fileId) {
@@ -153,8 +162,9 @@ public final class CacheFileManager {
 
     /**
      * Load the file data.
+     *
      * @param archiveId The container id.
-     * @param keys The container keys.
+     * @param keys      The container keys.
      * @return If the file data is loaded {@code true}.
      */
     public boolean loadFilesData(int archiveId, int[] keys) {
@@ -210,9 +220,10 @@ public final class CacheFileManager {
 
     /**
      * Get the file data.
+     *
      * @param containerId The container id.
-     * @param fileId The file id.
-     * @param xteaKeys The container keys.
+     * @param fileId      The file id.
+     * @param xteaKeys    The container keys.
      * @return The file data.
      */
     public byte[] getFileData(int containerId, int fileId, int[] xteaKeys) {
@@ -237,6 +248,7 @@ public final class CacheFileManager {
 
     /**
      * Get the containers information.
+     *
      * @return The containers information.
      */
     public ContainersInformation getInformation() {
@@ -245,6 +257,7 @@ public final class CacheFileManager {
 
     /**
      * Gets the discardFilesData.
+     *
      * @return the discardFilesData.
      */
     public boolean isDiscardFilesData() {
@@ -253,6 +266,7 @@ public final class CacheFileManager {
 
     /**
      * Sets the discardFilesData.
+     *
      * @param discardFilesData the discardFilesData to set
      */
     public void setDiscardFilesData(boolean discardFilesData) {
@@ -261,6 +275,7 @@ public final class CacheFileManager {
 
     /**
      * Gets the filesData.
+     *
      * @return the filesData.
      */
     public byte[][][] getFilesData() {
@@ -269,6 +284,7 @@ public final class CacheFileManager {
 
     /**
      * Sets the filesData.
+     *
      * @param filesData the filesData to set
      */
     public void setFilesData(byte[][][] filesData) {
@@ -277,6 +293,7 @@ public final class CacheFileManager {
 
     /**
      * Sets the cacheFile.
+     *
      * @param cacheFile the cacheFile to set
      */
     public void setCacheFile(CacheFile cacheFile) {
@@ -285,6 +302,7 @@ public final class CacheFileManager {
 
     /**
      * Sets the information.
+     *
      * @param information the information to set
      */
     public void setInformation(ContainersInformation information) {

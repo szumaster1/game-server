@@ -86,7 +86,8 @@ public class BZip2Decompressor {
         int j1 = entry.anInt2206;
         int k1 = j1;
         int l1 = entry.anInt2225 + 1;
-        label0: do {
+        label0:
+        do {
             if (i > 0) {
                 do {
                     if (j1 == 0) {
@@ -383,7 +384,7 @@ public class BZip2Decompressor {
                 byte9 = method1788(entryInstance2);
             }
 
-            for (int k5 = ai2[k7 - ai1[l6]]; k5 != l4;) {
+            for (int k5 = ai2[k7 - ai1[l6]]; k5 != l4; ) {
                 if (k5 == 0 || k5 == 1) {
                     int i6 = -1;
                     int j6 = 1;

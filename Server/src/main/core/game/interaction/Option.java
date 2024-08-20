@@ -62,7 +62,8 @@ public final class Option {
 
     /**
      * Constructs a new {@code Interaction} {@code Object}.
-     * @param name The name.
+     *
+     * @param name  The name.
      * @param index The index.
      */
     public Option(String name, int index) {
@@ -72,9 +73,10 @@ public final class Option {
 
     /**
      * Gets the default option handler for the given name.
-     * @param node The node type that has this option.
+     *
+     * @param node   The node type that has this option.
      * @param nodeId The id of the node.
-     * @param name The name of the option.
+     * @param name   The name of the option.
      * @return The default option handler for this option.
      */
     public static OptionHandler defaultHandler(Node node, int nodeId, String name) {
@@ -94,6 +96,7 @@ public final class Option {
 
     /**
      * Gets the name.
+     *
      * @return The name.
      */
     public String getName() {
@@ -102,6 +105,7 @@ public final class Option {
 
     /**
      * Gets the index.
+     *
      * @return The index.
      */
     public int getIndex() {
@@ -110,6 +114,7 @@ public final class Option {
 
     /**
      * Gets the handler.
+     *
      * @return The handler.
      */
     public OptionHandler getHandler() {
@@ -118,6 +123,7 @@ public final class Option {
 
     /**
      * Sets the handler.
+     *
      * @param handler The handler to set.
      * @return This option instance.
      */

@@ -34,7 +34,7 @@ public final class EquipmentContainer extends Container {
     /**
      * The bonus names.
      */
-    private static final String[] BONUS_NAMES = { "Stab: ", "Slash: ", "Crush: ", "Magic: ", "Ranged: ", "Stab: ", "Slash: ", "Crush: ", "Magic: ", "Ranged: ", "Summoning: ", "Strength: ", "Prayer: " };
+    private static final String[] BONUS_NAMES = {"Stab: ", "Slash: ", "Crush: ", "Magic: ", "Ranged: ", "Stab: ", "Slash: ", "Crush: ", "Magic: ", "Ranged: ", "Summoning: ", "Strength: ", "Prayer: "};
 
     /**
      * The player.
@@ -43,6 +43,7 @@ public final class EquipmentContainer extends Container {
 
     /**
      * Constructs a new {@code EquipmentContainer} {@code Object}.
+     *
      * @param player The player.
      */
     public EquipmentContainer(Player player) {
@@ -58,8 +59,9 @@ public final class EquipmentContainer extends Container {
 
     /**
      * Adds an item to the equipment container.
-     * @param item The item to add.
-     * @param fire If we should refresh.
+     *
+     * @param item          The item to add.
+     * @param fire          If we should refresh.
      * @param fromInventory If the item is being equipped from the inventory.
      * @return {@code True} if succesful, {@code false} if not.
      */
@@ -69,9 +71,10 @@ public final class EquipmentContainer extends Container {
 
     /**
      * Adds an item to the equipment container.
-     * @param newItem The item to add.
+     *
+     * @param newItem       The item to add.
      * @param inventorySlot The inventory slot of the item to add.
-     * @param fire If we should refresh.
+     * @param fire          If we should refresh.
      * @param fromInventory If the item is being equipped from the inventory.
      * @return {@code True} if succesful, {@code false} if not.
      */
@@ -82,33 +85,34 @@ public final class EquipmentContainer extends Container {
         ArrayList<Item> itemsToRemove = new ArrayList<>();
 
         Item currentItem = super.get(equipmentSlot);
-        if(currentItem != null) itemsToRemove.add(currentItem);
+        if (currentItem != null) itemsToRemove.add(currentItem);
 
         Item secondaryEquip = getSecondaryEquipIfApplicable(newItem, equipmentSlot);
-        if(secondaryEquip != null) itemsToRemove.add(secondaryEquip);
+        if (secondaryEquip != null) itemsToRemove.add(secondaryEquip);
 
-        if(fromInventory && !player.getInventory().remove(newItem, inventorySlot, true)) {
+        if (fromInventory && !player.getInventory().remove(newItem, inventorySlot, true)) {
             return false;
         }
 
         if (!itemsToRemove.isEmpty()) {
             ArrayList<Item> invalidatedEntries = new ArrayList<>();
-            for(Item current : itemsToRemove) {
-                if(current.getId() == newItem.getId() && current.getDefinition().isStackable()) {
+            for (Item current : itemsToRemove) {
+                if (current.getId() == newItem.getId() && current.getDefinition().isStackable()) {
                     addStackableItemToExistingStack(newItem, fromInventory, equipmentSlot, current);
                     invalidatedEntries.add(current);
                 }
             }
             itemsToRemove.removeAll(invalidatedEntries);
 
-            if(itemsToRemove.isEmpty()) {
+            if (itemsToRemove.isEmpty()) {
                 return true;
             }
 
             boolean successfullyRemovedAll = tryUnequipCurrent(itemsToRemove, newItem, inventorySlot);
 
-            if(!successfullyRemovedAll) {
-                if (fromInventory) player.getInventory().add(newItem); //add the item back in case we weren't able to remove the currently equipped item(s)
+            if (!successfullyRemovedAll) {
+                if (fromInventory)
+                    player.getInventory().add(newItem); //add the item back in case we weren't able to remove the currently equipped item(s)
                 return false;
             }
         }
@@ -132,13 +136,13 @@ public final class EquipmentContainer extends Container {
     }
 
     private boolean tryUnequipCurrent(ArrayList<Item> current, Item newItem, int preferredSlot) {
-        if(current.isEmpty()) return true;
+        if (current.isEmpty()) return true;
         int freeSlots = player.getInventory().freeSlots();
         int neededSlots = getNeededSlotsToUnequip(current);
 
         boolean hasSpaceForUnequippedItems = freeSlots >= neededSlots;
 
-        if(!hasSpaceForUnequippedItems) {
+        if (!hasSpaceForUnequippedItems) {
             player.getPacketDispatch().sendMessage("Not enough space in your inventory!");
             return false;
         }
@@ -146,15 +150,15 @@ public final class EquipmentContainer extends Container {
         boolean listenersSayWeCanUnequip = runUnequipHooks(current, newItem);
 
         boolean allRemoved = true;
-        for(Item item : current) {
-            if(!remove(item)) {
+        for (Item item : current) {
+            if (!remove(item)) {
                 allRemoved = false;
                 break;
             }
         }
 
         boolean allAdded = allRemoved;
-        if(allRemoved) {
+        if (allRemoved) {
             for (Item item : current) {
                 if (!player.getInventory().add(item, true, preferredSlot)) {
                     allAdded = false;
@@ -166,8 +170,8 @@ public final class EquipmentContainer extends Container {
         if (listenersSayWeCanUnequip && allRemoved && allAdded) return true;
         else {
             //put things back if we couldn't remove everything
-            for(Item item : current) {
-                if(!containsItem(item)) {
+            for (Item item : current) {
+                if (!containsItem(item)) {
                     add(item);
                 }
             }
@@ -179,11 +183,11 @@ public final class EquipmentContainer extends Container {
     private int getNeededSlotsToUnequip(ArrayList<Item> current) {
         int neededSlots = 0;
 
-        for(Item item : current) {
-            if(!item.getDefinition().isStackable()) {
+        for (Item item : current) {
+            if (!item.getDefinition().isStackable()) {
                 neededSlots++;
             } else {
-                if(player.getInventory().getAmount(item.getId()) == 0) {
+                if (player.getInventory().getAmount(item.getId()) == 0) {
                     neededSlots++;
                 }
             }
@@ -198,7 +202,7 @@ public final class EquipmentContainer extends Container {
             secondaryEquipItem = get(SLOT_SHIELD);
         } else if (equipmentSlot == SLOT_SHIELD) {
             Item inSlot = player.getEquipment().get(SLOT_WEAPON);
-            if(inSlot != null && inSlot.getDefinition().getConfiguration(ItemConfigParser.TWO_HANDED, false))
+            if (inSlot != null && inSlot.getDefinition().getConfiguration(ItemConfigParser.TWO_HANDED, false))
                 secondaryEquipItem = get(SLOT_WEAPON);
         }
         return secondaryEquipItem;
@@ -207,7 +211,7 @@ public final class EquipmentContainer extends Container {
     private boolean runUnequipHooks(ArrayList<Item> currentItems, Item newItem) {
         boolean canContinue = true;
 
-        for(Item currentItem : currentItems) {
+        for (Item currentItem : currentItems) {
             Plugin<Object> plugin = currentItem.getDefinition().getConfiguration("equipment", null);
             if (plugin != null) {
                 Object object = plugin.fireEvent("unequip", player, currentItem, newItem);
@@ -219,7 +223,7 @@ public final class EquipmentContainer extends Container {
 
             canContinue = InteractionListeners.run(currentItem.getId(), player, currentItem, false);
 
-            if(!canContinue) break;
+            if (!canContinue) break;
         }
 
         return canContinue;
@@ -241,6 +245,7 @@ public final class EquipmentContainer extends Container {
 
     /**
      * Listens to the equipment container.
+     *
      * @author Emperor
      */
     private static class EquipmentListener implements ContainerListener {
@@ -252,6 +257,7 @@ public final class EquipmentContainer extends Container {
 
         /**
          * Constructs a new {@code EquipmentContainer} {@code Object}.
+         *
          * @param player The player.
          */
         public EquipmentListener(Player player) {
@@ -296,6 +302,7 @@ public final class EquipmentContainer extends Container {
 
         /**
          * Updates the bonuses, weight, animations, ...
+         *
          * @param c The container.
          */
         public void update(Container c) {
@@ -315,6 +322,7 @@ public final class EquipmentContainer extends Container {
 
     /**
      * Updates the bonuses.
+     *
      * @param player The player.
      */
     public static void updateBonuses(Player player) {
@@ -331,12 +339,12 @@ public final class EquipmentContainer extends Container {
             }
         }
         Item weapon = player.getEquipment().get(SLOT_WEAPON);
-        if(weapon != null && weapon.getDefinition().getRequirement(Skills.STRENGTH) > 0 && SkillcapePerks.isActive(SkillcapePerks.FINE_ATTUNEMENT,player)){
+        if (weapon != null && weapon.getDefinition().getRequirement(Skills.STRENGTH) > 0 && SkillcapePerks.isActive(SkillcapePerks.FINE_ATTUNEMENT, player)) {
             int[] bonus = weapon.getDefinition().getConfiguration(ItemConfigParser.BONUS, new int[15]);
             bonuses[11] += Math.ceil(bonus[11] * 0.20);
         }
         Item shield = player.getEquipment().get(SLOT_SHIELD);
-        if(shield != null && SkillcapePerks.isActive(SkillcapePerks.GRAND_BULLWARK,player)){
+        if (shield != null && SkillcapePerks.isActive(SkillcapePerks.GRAND_BULLWARK, player)) {
             bonuses[5] += Math.ceil(bonuses[5] * 0.20);
             bonuses[6] += Math.ceil(bonuses[6] * 0.20);
             bonuses[7] += Math.ceil(bonuses[7] * 0.20);
@@ -357,6 +365,7 @@ public final class EquipmentContainer extends Container {
 
     /**
      * Updates the equipment stats interface.
+     *
      * @param player The player to update for.
      */
     public static void update(Player player) {

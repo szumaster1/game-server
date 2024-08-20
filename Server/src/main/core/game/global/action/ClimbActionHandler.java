@@ -70,7 +70,7 @@ public final class ClimbActionHandler {
         if (SpecialLadders.getDestination(startLadder.getLocation()) != null) {
             Location destination = SpecialLadders.getDestination(startLadder.getLocation());
             climb(player, animation, destination);
-            if(SpecialLadders.getSpecialLadder(startLadder.getLocation()) != null) {
+            if (SpecialLadders.getSpecialLadder(startLadder.getLocation()) != null) {
                 SpecialLadders.getSpecialLadder(startLadder.getLocation()).checkAchievement(player);
             }
             return true;

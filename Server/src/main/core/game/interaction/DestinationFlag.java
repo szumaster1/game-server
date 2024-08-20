@@ -183,8 +183,9 @@ public class DestinationFlag {
 
     /**
      * Gets the default destination location.
+     *
      * @param mover The moving entity.
-     * @param node The node to move to.
+     * @param node  The node to move to.
      * @return The location to walk to.
      */
     public Location getDestination(Entity mover, Node node) {
@@ -193,7 +194,8 @@ public class DestinationFlag {
 
     /**
      * Checks if traversal is permitted.
-     * @param l The location to check.
+     *
+     * @param l   The location to check.
      * @param dir The direction to move.
      * @return {@code True}.
      */
@@ -204,8 +206,9 @@ public class DestinationFlag {
     /**
      * Gets the closest destination to the current destination, to reach the
      * node.
-     * @param mover The moving entity.
-     * @param node The node to move to.
+     *
+     * @param mover      The moving entity.
+     * @param node       The node to move to.
      * @param suggestion The suggested destination location.
      * @return The destination location.
      */

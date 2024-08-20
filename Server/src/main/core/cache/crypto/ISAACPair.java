@@ -18,7 +18,8 @@ public final class ISAACPair {
 
     /**
      * Constructs a new {@code ISAACPair} {@code Object}.
-     * @param input The input cipher.
+     *
+     * @param input  The input cipher.
      * @param output The output cipher.
      */
     public ISAACPair(ISAACCipher input, ISAACCipher output) {
@@ -28,6 +29,7 @@ public final class ISAACPair {
 
     /**
      * Gets the input cipher.
+     *
      * @return The input cipher.
      */
     public ISAACCipher getInput() {
@@ -36,6 +38,7 @@ public final class ISAACPair {
 
     /**
      * Gets the output cipher.
+     *
      * @return The output cipher.
      */
     public ISAACCipher getOutput() {

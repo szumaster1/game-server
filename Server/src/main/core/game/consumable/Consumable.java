@@ -2,11 +2,11 @@ package core.game.consumable;
 
 import content.data.consumables.Consumables;
 import core.api.Container;
+import static core.api.ContentAPIKt.*;
 import core.game.node.entity.player.Player;
 import core.game.node.item.Item;
 import core.game.world.update.flag.context.Animation;
-
-import static core.api.ContentAPIKt.*;
+import core.plugin.Plugin;
 
 /**
  * Represents any item that has a consumption option such as 'Eat' or 'Drink'.
@@ -33,27 +33,12 @@ public abstract class Consumable {
      */
     protected Animation animation = null;
 
-    /**
-     * Instantiates a new Consumable.
-     *
-     * @param ids      the ids
-     * @param effect   the effect
-     * @param messages the messages
-     */
     public Consumable(final int[] ids, final ConsumableEffect effect, final String... messages) {
         this.ids = ids;
         this.effect = effect;
         this.messages = messages;
     }
 
-    /**
-     * Instantiates a new Consumable.
-     *
-     * @param ids       the ids
-     * @param effect    the effect
-     * @param animation the animation
-     * @param messages  the messages
-     */
     public Consumable(final int[] ids, final ConsumableEffect effect, final Animation animation, final String... messages) {
         this.ids = ids;
         this.effect = effect;
@@ -61,12 +46,6 @@ public abstract class Consumable {
         this.messages = messages;
     }
 
-    /**
-     * Consume.
-     *
-     * @param item   the item
-     * @param player the player
-     */
     public void consume(final Item item, final Player player) {
         executeConsumptionActions(player);
         handleItemChangesOnConsumption(item, player);
@@ -78,11 +57,14 @@ public abstract class Consumable {
 
     public void handleItemChangesOnConsumption(final Item item, final Player player) {
         final int nextItemId = getNextItemId(item.getId());
+
+        // STACKABLE + NON-RETURN
         if (ids.length == 1) {
             replaceSlot(player, item.getSlot(), new Item(item.getId(), (item.getAmount() - 1)), item, Container.INVENTORY);
         } else {
-
+            // ITEM HAS RETURN
             int spiderOnStickId = 6297;
+            // If return item is stackable (only implemented for spider on stick), returns item to stack instead of slot
             if(item.getId() == spiderOnStickId && inInventory(player,spiderOnStickId,1)) {
                 if (removeItem(player, item, Container.INVENTORY)) {
                     addItem(player, nextItemId, 1, Container.INVENTORY);
@@ -93,15 +75,6 @@ public abstract class Consumable {
         }
     }
 
-
-    /**
-     * Send messages.
-     *
-     * @param player            the player
-     * @param initialLifePoints the initial life points
-     * @param item              the item
-     * @param messages          the messages
-     */
     protected void sendMessages(final Player player, final int initialLifePoints, final Item item, String[] messages) {
         if (messages.length == 0) {
             sendDefaultMessages(player, item);
@@ -111,51 +84,22 @@ public abstract class Consumable {
         }
     }
 
-    /**
-     * Send healing message.
-     *
-     * @param player            the player
-     * @param initialLifePoints the initial life points
-     */
     protected void sendHealingMessage(final Player player, final int initialLifePoints) {
         if (player.getSkills().getLifepoints() > initialLifePoints) {
             player.getPacketDispatch().sendMessage("It heals some health.");
         }
     }
 
-    /**
-     * Send custom messages.
-     *
-     * @param player   the player
-     * @param messages the messages
-     */
     protected void sendCustomMessages(final Player player, final String[] messages) {
         for (String message : messages) {
             player.getPacketDispatch().sendMessage(message);
         }
     }
 
-    /**
-     * Send default messages.
-     *
-     * @param player the player
-     * @param item   the item
-     */
     protected abstract void sendDefaultMessages(final Player player, final Item item);
 
-    /**
-     * Execute consumption actions.
-     *
-     * @param player the player
-     */
     protected abstract void executeConsumptionActions(Player player);
 
-    /**
-     * Gets next item id.
-     *
-     * @param currentConsumableId the current consumable id
-     * @return the next item id
-     */
     protected int getNextItemId(final int currentConsumableId) {
         for (int i = 0; i < ids.length; i++) {
             if (ids[i] == currentConsumableId && i != ids.length - 1) {
@@ -165,40 +109,18 @@ public abstract class Consumable {
         return -1;
     }
 
-    /**
-     * Gets formatted name.
-     *
-     * @param item the item
-     * @return the formatted name
-     */
     public String getFormattedName(Item item) {
         return item.getName().replace("(4)", "").replace("(3)", "").replace("(2)", "").replace("(1)", "").trim().toLowerCase();
     }
 
-    /**
-     * Gets health effect value.
-     *
-     * @param player the player
-     * @return the health effect value
-     */
     public int getHealthEffectValue(Player player) {
         return effect.getHealthEffectValue(player);
     }
 
-    /**
-     * Gets effect.
-     *
-     * @return the effect
-     */
     public ConsumableEffect getEffect() {
         return effect;
     }
 
-    /**
-     * Get ids int [ ].
-     *
-     * @return the int [ ]
-     */
     public int[] getIds() {
         return ids;
     }

@@ -32,6 +32,7 @@ public final class ActivityManager {
 
     /**
      * Registers an activity plugin.
+     *
      * @param plugin The plugin to register.
      */
     public static void register(ActivityPlugin plugin) {
@@ -44,10 +45,11 @@ public final class ActivityManager {
 
     /**
      * Starts an instanced activity.
+     *
      * @param player The player.
-     * @param name The name.
-     * @param login If we are logging in.
-     * @param args The arguments.
+     * @param name   The name.
+     * @param login  If we are logging in.
+     * @param args   The arguments.
      */
     public static boolean start(Player player, String name, boolean login, Object... args) {
         ActivityPlugin plugin = ACTIVITIES.get(name);
@@ -73,6 +75,7 @@ public final class ActivityManager {
 
     /**
      * Gets the activity by the name.
+     *
      * @param name the name.
      * @return the activity.
      */

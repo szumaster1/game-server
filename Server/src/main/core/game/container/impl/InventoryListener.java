@@ -23,6 +23,7 @@ public final class InventoryListener implements ContainerListener {
 
     /**
      * Constructs a new {@code InventoryListener} {@code Object}.
+     *
      * @param player The player.
      */
     public InventoryListener(Player player) {
@@ -32,6 +33,7 @@ public final class InventoryListener implements ContainerListener {
     /**
      * Updates the required settings etc for the player when the container
      * updates.
+     *
      * @param c The container.
      */
     public void update(Container c) {

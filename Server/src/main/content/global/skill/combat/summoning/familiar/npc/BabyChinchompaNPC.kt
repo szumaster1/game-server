@@ -10,7 +10,7 @@ import core.plugin.Initializable
 import core.tools.RandomFunction
 
 /**
- * Baby chinchompa NPC.
+ * Baby Chinchompa NPC.
  */
 @Initializable
 class BabyChinchompaNPC : Metamorphosis(*CHINCHOMPA_IDS) {

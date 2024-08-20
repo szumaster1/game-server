@@ -201,9 +201,9 @@ abstract class DiaryEventHookBase(private val diaryType: DiaryType) : MapArea, L
     /**
      * Finish task
      *
-     * @param player
-     * @param level
-     * @param task
+     * @param player The player who is completing the task
+     * @param level The level of the diary associated with the task
+     * @param task The specific task number to be completed
      */
     protected fun finishTask(player: Player, level: DiaryLevel, task: Int) {
         player.achievementDiaryManager.finishTask(

@@ -17,6 +17,7 @@ public final class BufferInputStream extends InputStream {
 
     /**
      * The buffer input stream.
+     *
      * @param buffer The buffer.
      */
     public BufferInputStream(ByteBuffer buffer) throws IOException {
@@ -30,6 +31,7 @@ public final class BufferInputStream extends InputStream {
 
     /**
      * Gets the buffer.
+     *
      * @return The buffer.
      */
     public ByteBuffer getBuffer() {

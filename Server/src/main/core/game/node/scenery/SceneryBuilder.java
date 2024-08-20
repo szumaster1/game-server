@@ -150,6 +150,54 @@ public final class SceneryBuilder {
     }
 
     /**
+     * Replaces a scenery object with a temporary one before a new scenery is constructed.
+     *
+     * @param remove The scenery object that needs to be removed.
+     * @param temporary The temporary scenery object that will replace the removed one.
+     * @param construct The new scenery object that will be constructed.
+     * @param restoreTicks The number of ticks to wait before restoring the original scenery.
+     * @param clip A boolean indicating whether to clip the scenery or not.
+     * @return Returns true if the replacement was successful, false otherwise.
+     */
+    public static boolean replaceWithTempBeforeNew(Scenery remove, Scenery temporary, Scenery construct, int restoreTicks, final boolean clip) {
+        if (!clip) {
+            return replaceClientSide(remove, temporary, restoreTicks);
+        }
+        remove = remove.getWrapper();
+        Scenery current = LandscapeParser.removeScenery(remove);
+        if (current == null) {
+            return false;
+        }
+        if (current.getRestorePulse() != null) {
+            current.getRestorePulse().stop();
+            current.setRestorePulse(null);
+        }
+        if (current instanceof Constructed) {
+            Scenery previous = ((Constructed) current).getReplaced();
+            if (previous != null && previous.equals(temporary)) {
+                // Shouldn't happen.
+                throw new IllegalStateException("Can't temporarily replace an already temporary object!");
+            }
+        }
+        final Constructed constructed = temporary.asConstructed();
+        constructed.setReplaced(current);
+        LandscapeParser.addScenery(constructed);
+        update(current, constructed);
+        if (restoreTicks < 0) {
+            return true;
+        }
+        constructed.setRestorePulse(new Pulse(restoreTicks) {
+            @Override
+            public boolean pulse() {
+                replace(constructed, construct);
+                return true;
+            }
+        });
+        GameWorld.getPulser().submit(constructed.getRestorePulse());
+        return true;
+    }
+
+    /**
      * Adds a scenery.
      *
      * @param object The object to add.

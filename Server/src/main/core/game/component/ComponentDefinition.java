@@ -8,7 +8,6 @@ import java.util.Map;
 /**
  * Represents the component definitions.
  * @author Emperor
- *
  */
 public final class ComponentDefinition {
 

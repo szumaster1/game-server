@@ -29,6 +29,7 @@ public final class StoreFile {
 
     /**
      * Puts the data on the buffer.
+     *
      * @param buffer The buffer.
      */
     public void put(ByteBuffer buffer) {
@@ -39,6 +40,7 @@ public final class StoreFile {
 
     /**
      * Creates a byte buffer containing the file data.
+     *
      * @return The buffer.
      */
     public ByteBuffer data() {
@@ -47,6 +49,7 @@ public final class StoreFile {
 
     /**
      * Sets the data.
+     *
      * @param data The data.
      */
     public void setData(byte[] data) {
@@ -55,6 +58,7 @@ public final class StoreFile {
 
     /**
      * Gets the dynamic.
+     *
      * @return The dynamic.
      */
     public boolean isDynamic() {
@@ -63,6 +67,7 @@ public final class StoreFile {
 
     /**
      * Sets the dynamic.
+     *
      * @param dynamic The dynamic to set.
      */
     public void setDynamic(boolean dynamic) {

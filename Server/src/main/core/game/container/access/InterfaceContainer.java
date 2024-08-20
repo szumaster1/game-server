@@ -26,12 +26,13 @@ public class InterfaceContainer {
     /**
      * Generates a container/array of items in an interface positioned on the
      * child index.
-     * @param player , the player we generate this set for
-     * @param itemArray , the container/array of items we want to display
-     * @param options , the right-click options we want for the items
+     *
+     * @param player         , the player we generate this set for
+     * @param itemArray      , the container/array of items we want to display
+     * @param options        , the right-click options we want for the items
      * @param interfaceIndex , the interface index
-     * @param childIndex , the child index of the interface where we display the
-     * items at.
+     * @param childIndex     , the child index of the interface where we display the
+     *                       items at.
      * @return The container key.
      */
     private static int generate(Player player, Item[] itemArray, String[] options, int interfaceIndex, int childIndex, int x, int y, int key) {
@@ -43,8 +44,8 @@ public class InterfaceContainer {
         return increment();
     }
 
-    public static int generateOptions(Player player, String[] options, int interfaceIndex, int childIndex, int x, int y, int key){
-        player.getPacketDispatch().sendRunScript(CLIENT_SCRIPT_INDEX, generateScriptArguments(options.length), populateScript(new Object[options.length + 7],options,interfaceIndex << 16 | childIndex, x, y, key));
+    public static int generateOptions(Player player, String[] options, int interfaceIndex, int childIndex, int x, int y, int key) {
+        player.getPacketDispatch().sendRunScript(CLIENT_SCRIPT_INDEX, generateScriptArguments(options.length), populateScript(new Object[options.length + 7], options, interfaceIndex << 16 | childIndex, x, y, key));
         int settings = new IfaceSettingsBuilder().enableAllOptions().build();
         player.getPacketDispatch().sendIfaceSettings(settings, childIndex, interfaceIndex, 0, 28);
         return increment();
@@ -52,11 +53,12 @@ public class InterfaceContainer {
 
     /**
      * Generates options for the interface item container.
-     * @param player The player.
+     *
+     * @param player      The player.
      * @param interfaceId The interface id.
-     * @param childId The child index.
-     * @param itemLength The amount of items.
-     * @param options The options.
+     * @param childId     The child index.
+     * @param itemLength  The amount of items.
+     * @param options     The options.
      * @return The container key.
      */
     public static int generate(Player player, int interfaceId, int childId, int itemLength, String... options) {
@@ -65,13 +67,14 @@ public class InterfaceContainer {
 
     /**
      * Generates options for the interface item container.
-     * @param player The player.
+     *
+     * @param player      The player.
      * @param interfaceId The interface id.
-     * @param childId The child index.
-     * @param itemLength The amount of items.
-     * @param x The amount of items in a row.
-     * @param y The amount of item rows.
-     * @param options The options.
+     * @param childId     The child index.
+     * @param itemLength  The amount of items.
+     * @param x           The amount of items in a row.
+     * @param y           The amount of item rows.
+     * @param options     The options.
      * @return The container key.
      */
     public static int generate(Player player, int interfaceId, int childId, int itemLength, int x, int y, String... options) {
@@ -85,6 +88,7 @@ public class InterfaceContainer {
 
     /**
      * Increments the current index.
+     *
      * @return The previous index.
      */
     private static int increment() {
@@ -96,9 +100,10 @@ public class InterfaceContainer {
 
     /**
      * Populates an object array used as a script for the client
-     * @param script , the array we want to populate
+     *
+     * @param script  , the array we want to populate
      * @param options , the right-click options for our items
-     * @param hash , interfaceIndex << 16 | childIndex
+     * @param hash    , interfaceIndex << 16 | childIndex
      * @return script, the populated script
      */
     private static Object[] populateScript(Object[] script, String[] options, int hash, int x, int y, int key) {
@@ -106,13 +111,14 @@ public class InterfaceContainer {
         for (String option : options) {
             script[offset++] = option;
         }
-        System.arraycopy(new Object[] { -1, 0, x, y, key, hash }, 0, script, offset, 6);
+        System.arraycopy(new Object[]{-1, 0, x, y, key, hash}, 0, script, offset, 6);
         return script;
     }
 
     /**
      * Generates a script argument type string for the client (note: everything
      * but a "s" is integer for the run script packet)
+     *
      * @param length , the amount of options
      * @return the generated string.
      */
@@ -127,6 +133,7 @@ public class InterfaceContainer {
 
     /**
      * Default method to generate and send an item array for the client.
+     *
      * @return The container key.
      */
     public static int generateItems(Player player, Item[] itemArray, String[] options, int interfaceIndex, int childIndex) {
@@ -135,6 +142,7 @@ public class InterfaceContainer {
 
     /**
      * Default method to generate and send an item array for the client.
+     *
      * @return The container key.
      */
     public static int generateItems(Player player, Item[] itemArray, String[] options, int interfaceIndex, int childIndex, int key) {
@@ -144,6 +152,7 @@ public class InterfaceContainer {
     /**
      * Method to generate the send items for the client with a specified
      * location for the items.
+     *
      * @param x , the x coordinate
      * @param y , the y coordinate
      * @return The container key.
@@ -155,6 +164,7 @@ public class InterfaceContainer {
     /**
      * Method to generate the send items for the client with a specified
      * location for the items.
+     *
      * @param x , the x coordinate
      * @param y , the y coordinate
      * @return The container key.

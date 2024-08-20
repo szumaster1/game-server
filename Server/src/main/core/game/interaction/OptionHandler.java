@@ -21,8 +21,9 @@ public abstract class OptionHandler implements Plugin<Object> {
 
     /**
      * Handles the interaction option.
+     *
      * @param player The player who used the option.
-     * @param node The node the player selected an option on.
+     * @param node   The node the player selected an option on.
      * @param option The option selected.
      * @return {@code True} if successful.
      */
@@ -30,6 +31,7 @@ public abstract class OptionHandler implements Plugin<Object> {
 
     /**
      * Checks if the option should be handled after 1 game tick.
+     *
      * @param player The player.
      * @return {@code True} if so.
      */
@@ -39,6 +41,7 @@ public abstract class OptionHandler implements Plugin<Object> {
 
     /**
      * Checks if it needs a walk..
+     *
      * @param node the node.
      * @return true if so.
      */
@@ -48,6 +51,7 @@ public abstract class OptionHandler implements Plugin<Object> {
 
     /**
      * Gets the walk.
+     *
      * @return if a walk is required.
      */
     public boolean isWalk() {
@@ -56,7 +60,8 @@ public abstract class OptionHandler implements Plugin<Object> {
 
     /**
      * Gets the custom destination for the node.
-     * @param n The moving node.
+     *
+     * @param n    The moving node.
      * @param node The node to walk to.
      * @return The custom destination, or {@code null} if we should use the
      * default destination.
@@ -67,6 +72,7 @@ public abstract class OptionHandler implements Plugin<Object> {
 
     /**
      * Gets the valid children for the wrapper id.
+     *
      * @param wrapper the wrapper id.
      * @return the valid children.
      */
@@ -74,8 +80,8 @@ public abstract class OptionHandler implements Plugin<Object> {
         final SceneryDefinition definition = SceneryDefinition.forId(wrapper);
         final List<Integer> list = new ArrayList<>(20);
         if (definition.getChildrenIds() == null) {
-            log(this.getClass(), Log.ERR,  "Null child wrapper in option handler wrapperId=" + wrapper);
-            return new int[] { wrapper };
+            log(this.getClass(), Log.ERR, "Null child wrapper in option handler wrapperId=" + wrapper);
+            return new int[]{wrapper};
         }
         for (int child : definition.getChildrenIds()) {
             if (child != -1 && !list.contains(child)) {

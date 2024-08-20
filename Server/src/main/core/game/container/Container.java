@@ -127,7 +127,7 @@ public class Container {
         return addedAll;
     }
 
-    public void addList(List<Item> items){
+    public void addList(List<Item> items) {
         items.stream().filter(Objects::nonNull).forEach(this::add);
         update();
     }
@@ -200,8 +200,8 @@ public class Container {
     /**
      * Adds an item to this container.
      *
-     * @param item          The item to add.
-     * @param fireListener  If we should update.
+     * @param item         The item to add.
+     * @param fireListener If we should update.
      * @return {@code True} if the item got added.
      */
     public boolean add(Item item, boolean fireListener) {
@@ -375,7 +375,7 @@ public class Container {
     /**
      * Removes all items from the container that have the passed in IDs
      *
-     * @param ids           Array of IDs to remove
+     * @param ids Array of IDs to remove
      * @return {@code True} if all the items got removed, <br> {@code false} if some of the
      * found items were null
      */
@@ -393,7 +393,7 @@ public class Container {
     /**
      * Removes all items from the container that have the passed in ID
      *
-     * @param id            Item ID to remove all instances of
+     * @param id Item ID to remove all instances of
      * @return {@code True} if all the items got removed, <br> {@code false} if some of the
      * found items were null
      */
@@ -582,7 +582,7 @@ public class Container {
         return total;
     }
 
-    public void parse(JSONArray itemArray){
+    public void parse(JSONArray itemArray) {
         AtomicInteger total = new AtomicInteger(0);
         itemArray.forEach(item -> {
             JSONObject i = (JSONObject) item;
@@ -592,9 +592,9 @@ public class Container {
             int charge = Integer.parseInt(i.get("charge").toString());
             if (id >= ItemDefinition.getDefinitions().size() || id < 0 || slot >= items.length || id == Items.MAGIC_CARPET_5614) {
             } else {
-                Item it = items[slot] = new Item(id,amount,charge);
+                Item it = items[slot] = new Item(id, amount, charge);
                 it.setIndex(slot);
-                total.set(total.get() + (int)it.getValue());
+                total.set(total.get() + (int) it.getValue());
             }
         });
     }
@@ -726,6 +726,7 @@ public class Container {
 
     /**
      * Checks if the containers contains AT LEAST ONE item from a list of items.
+     *
      * @param itemIds
      * @return true if at least one item from list of IDs is in the container
      */
@@ -876,25 +877,26 @@ public class Container {
         return get(getSlot(item));
     }
 
-    public Item get(Item item){
-        for(Item i : items){
-            if(i == null) continue;
-            if(item.getId() == i.getId()) return i;
+    public Item get(Item item) {
+        for (Item i : items) {
+            if (i == null) continue;
+            if (item.getId() == i.getId()) return i;
         }
         return null;
     }
 
     /**
      * Gets all instances of an item, and returns them.
-     * @author Player Name
+     *
      * @param item the item.
      * @return a list of all items that were found (can be length 0).
+     * @author Player Name
      */
-    public ArrayList<Item> getAll(Item item){
+    public ArrayList<Item> getAll(Item item) {
         ArrayList<Item> ret = new ArrayList<Item>();
-        for(Item i : items){
-            if(i == null) continue;
-            if(item.getId() == i.getId()) ret.add(i);
+        for (Item i : items) {
+            if (i == null) continue;
+            if (item.getId() == i.getId()) ret.add(i);
         }
         return ret;
     }

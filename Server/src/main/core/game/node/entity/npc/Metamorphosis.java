@@ -4,9 +4,6 @@ import content.global.skill.combat.summoning.familiar.Familiar;
 import content.global.skill.combat.summoning.pet.Pets;
 import core.cache.def.impl.NPCDefinition;
 import core.game.dialogue.Dialogue;
-import core.game.dialogue.DialoguePlugin;
-import content.global.skill.summoning.familiar.Familiar;
-import content.global.skill.summoning.pet.Pets;
 import core.game.interaction.OptionHandler;
 import core.game.node.Node;
 import core.game.node.entity.player.Player;
@@ -41,15 +38,15 @@ public abstract class Metamorphosis extends OptionHandler {
      *
      * @return the plugin.
      */
-    public abstract Dialogue getDialoguePlugin();
+    public abstract Dialogue getDialogue();
 
     @Override
     public Plugin<Object> newInstance(Object arg) throws Throwable {
         for (int id : getIds()) {
             NPCDefinition.forId(id).getHandlers().put("option:metamorphosis", this);
         }
-        if (getDialoguePlugin() != null) {
-            ClassScanner.definePlugin(getDialoguePlugin());
+        if (getDialogue() != null) {
+            ClassScanner.definePlugin(getDialogue());
         }
         return this;
     }

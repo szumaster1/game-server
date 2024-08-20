@@ -10,8 +10,9 @@ public interface CloseEvent {
 
     /**
      * Called when the interface gets closed.
+     *
      * @param player The player.
-     * @param c The component.
+     * @param c      The component.
      * @return {@code True} if successful, {@code false} if the component should
      * remain open.
      */

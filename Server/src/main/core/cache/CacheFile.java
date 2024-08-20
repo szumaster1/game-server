@@ -40,11 +40,12 @@ public final class CacheFile {
 
     /**
      * Construct a new cache file.
-     * @param indexFileId The index file id.
-     * @param indexFile The index file.
-     * @param dataFile The data file.
+     *
+     * @param indexFileId      The index file id.
+     * @param indexFile        The index file.
+     * @param dataFile         The data file.
      * @param maxContainerSize The maximum container size.
-     * @param cacheFileBuffer The cache file buffer.
+     * @param cacheFileBuffer  The cache file buffer.
      */
     public CacheFile(int indexFileId, RandomAccessFile indexFile, RandomAccessFile dataFile, int maxContainerSize, byte[] cacheFileBuffer) {
         this.cacheFileBuffer = cacheFileBuffer;
@@ -56,8 +57,9 @@ public final class CacheFile {
 
     /**
      * Get the unpacked container data.
+     *
      * @param containerId The container id.
-     * @param xteaKeys The container keys.
+     * @param xteaKeys    The container keys.
      * @return The unpacked container data.
      */
     public final byte[] getContainerUnpackedData(int containerId, int[] xteaKeys) {
@@ -73,6 +75,7 @@ public final class CacheFile {
 
     /**
      * Get the container data for the specified container id.
+     *
      * @param containerId The container id.
      * @return The container data.
      */
@@ -131,6 +134,7 @@ public final class CacheFile {
 
     /**
      * Get the index file id.
+     *
      * @return
      */
     public int getIndexFileId() {
@@ -139,6 +143,7 @@ public final class CacheFile {
 
     /**
      * Get the unpacked container data.
+     *
      * @param containerId The container id.
      * @return The unpacked container data.
      */

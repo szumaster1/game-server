@@ -40,6 +40,7 @@ public class Component {
 
     /**
      * Constructs a new {@code Component} {@code Object}.
+     *
      * @param id The component id.
      */
     public Component(int id) {
@@ -53,7 +54,7 @@ public class Component {
      */
     public void open(Player player) {
         InterfaceManager manager = player.getInterfaceManager();
-        InterfaceListeners.runOpen(player,this);
+        InterfaceListeners.runOpen(player, this);
         if (definition == null) {
             PacketRepository.send(Interface.class, new InterfaceContext(player, manager.getWindowPaneId(), manager.getDefaultChildId(), getId(), false));
             if (plugin != null) {
@@ -79,6 +80,7 @@ public class Component {
 
     /**
      * Closes the component.
+     *
      * @param player The player.
      * @return {@code True} if the component can be closed.
      */
@@ -88,6 +90,7 @@ public class Component {
 
     /**
      * Gets the id.
+     *
      * @return The id.
      */
     public int getId() {
@@ -96,6 +99,7 @@ public class Component {
 
     /**
      * Gets the definition.
+     *
      * @return The definition.
      */
     public ComponentDefinition getDefinition() {
@@ -104,6 +108,7 @@ public class Component {
 
     /**
      * Gets the closeEvent.
+     *
      * @return The closeEvent.
      */
     public CloseEvent getCloseEvent() {
@@ -112,6 +117,7 @@ public class Component {
 
     /**
      * Sets the closeEvent.
+     *
      * @param closeEvent The closeEvent to set.
      */
     public Component setCloseEvent(CloseEvent closeEvent) {
@@ -121,6 +127,7 @@ public class Component {
 
     /**
      * Sets the component unclosable.
+     *
      * @param c The component.
      */
     public static void setUnclosable(Player p, Component c) {
@@ -135,6 +142,7 @@ public class Component {
 
     /**
      * Sets the plugin.
+     *
      * @param plugin the plugin.
      */
     public void setPlugin(ComponentPlugin plugin) {
@@ -143,6 +151,7 @@ public class Component {
 
     /**
      * Gets the component plugin.
+     *
      * @return the plugin.
      */
     public ComponentPlugin getPlugin() {
@@ -157,6 +166,7 @@ public class Component {
 
     /**
      * Gets the hidden value.
+     *
      * @return The hidden.
      */
     public boolean isHidden() {
@@ -165,6 +175,7 @@ public class Component {
 
     /**
      * Sets the hidden value.
+     *
      * @param hidden The hidden to set.
      */
     public void setHidden(boolean hidden) {

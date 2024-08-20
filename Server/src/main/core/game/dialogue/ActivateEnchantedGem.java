@@ -15,30 +15,30 @@ import core.plugin.Plugin;
 @Initializable
 public final class ActivateEnchantedGem extends OptionHandler {
 
-	public ActivateEnchantedGem() {
-		/*
-		 * empty.
-		 */
-	}
+    public ActivateEnchantedGem() {
+        /*
+         * empty.
+         */
+    }
 
-	@Override
-	public boolean handle(Player player, Node node, String option) {
-		if (!SlayerManager.getInstance(player).hasStarted()) {
-			player.getPacketDispatch().sendMessage("You try to activate the gem...");
-			return true;
-		}
-		player.getDialogueInterpreter().open(77777);
-		return true;
-	}
+    @Override
+    public boolean handle(Player player, Node node, String option) {
+        if (!SlayerManager.getInstance(player).hasStarted()) {
+            player.getPacketDispatch().sendMessage("You try to activate the gem...");
+            return true;
+        }
+        player.getDialogueInterpreter().open(77777);
+        return true;
+    }
 
-	@Override
-	public boolean isWalk() {
-		return false;
-	}
+    @Override
+    public boolean isWalk() {
+        return false;
+    }
 
-	@Override
-	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		ItemDefinition.forId(4155).getHandlers().put("option:activate", this);
-		return this;
-	}
+    @Override
+    public Plugin<Object> newInstance(Object arg) throws Throwable {
+        ItemDefinition.forId(4155).getHandlers().put("option:activate", this);
+        return this;
+    }
 }

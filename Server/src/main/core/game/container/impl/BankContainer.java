@@ -68,6 +68,7 @@ public final class BankContainer extends Container {
 
     /**
      * Construct a new {@code BankContainer} {@code Object}.
+     *
      * @param player The player reference.
      */
     public BankContainer(Player player) {
@@ -92,12 +93,11 @@ public final class BankContainer extends Container {
      * Invalidates the visual state of deposit box interface
      * forcing the client to re-draw the items
      */
-    public void refreshDepositBoxInterface()
-    {
+    public void refreshDepositBoxInterface() {
         InterfaceContainer.generateItems(
             player,
             player.getInventory().toArray(),
-            new String[] {
+            new String[]{
                 "Examine",
                 "Deposit-X",
                 "Deposit-All",
@@ -157,7 +157,7 @@ public final class BankContainer extends Container {
         player.getInventory().refresh();
         setVarp(player, 1249, lastAmountX);
         player.getPacketDispatch().sendIfaceSettings(1278, 73, 762, 0, SIZE);
-        int settings = new IfaceSettingsBuilder().enableOptions(new IntRange(0,5)).enableExamine().enableSlotSwitch().build();
+        int settings = new IfaceSettingsBuilder().enableOptions(new IntRange(0, 5)).enableExamine().enableSlotSwitch().build();
         player.getPacketDispatch().sendIfaceSettings(settings, 0, 763, 0, 27);
         player.getPacketDispatch().sendRunScript(1451, "");
         open = true;
@@ -197,7 +197,8 @@ public final class BankContainer extends Container {
 
     /**
      * Adds an item to the bank container.
-     * @param slot The item slot.
+     *
+     * @param slot   The item slot.
      * @param amount The amount.
      */
     public void addItem(int slot, int amount) {
@@ -251,7 +252,8 @@ public final class BankContainer extends Container {
     /**
      * Takes a item from the bank container and adds one to the inventory
      * container.
-     * @param slot The slot.
+     *
+     * @param slot   The slot.
      * @param amount The amount.
      */
     public void takeItem(int slot, int amount) {
@@ -293,6 +295,7 @@ public final class BankContainer extends Container {
 
     /**
      * Updates the last x-amount entered.
+     *
      * @param amount The amount to set.
      */
     public void updateLastAmountX(int amount) {
@@ -302,6 +305,7 @@ public final class BankContainer extends Container {
 
     /**
      * Gets the tab the item slot is in.
+     *
      * @param itemSlot The item slot.
      * @return The tab index.
      */
@@ -317,6 +321,7 @@ public final class BankContainer extends Container {
 
     /**
      * Increases a tab's start slot.
+     *
      * @param startId The start id.
      */
     public void increaseTabStartSlots(int startId) {
@@ -327,6 +332,7 @@ public final class BankContainer extends Container {
 
     /**
      * Decreases a tab's start slot.
+     *
      * @param startId The start id.
      */
     public void decreaseTabStartSlots(int startId) {
@@ -343,6 +349,7 @@ public final class BankContainer extends Container {
 
     /**
      * Gets the array index for a tab.
+     *
      * @param tabId The tab id.
      * @return The array index.
      */
@@ -369,6 +376,7 @@ public final class BankContainer extends Container {
 
     /**
      * Collapses a tab.
+     *
      * @param tabId The tab index.
      */
     public void collapseTab(int tabId) {
@@ -401,6 +409,7 @@ public final class BankContainer extends Container {
 
     /**
      * Gets the amount of items in one tab.
+     *
      * @param tabId The tab index.
      * @return The amount of items in this tab.
      */
@@ -410,6 +419,7 @@ public final class BankContainer extends Container {
 
     /**
      * Checks if the item can be added.
+     *
      * @param item the item.
      * @return {@code True} if so.
      */
@@ -419,6 +429,7 @@ public final class BankContainer extends Container {
 
     /**
      * Gets the last x-amount.
+     *
      * @return The last x-amount.
      */
     public int getLastAmountX() {
@@ -427,6 +438,7 @@ public final class BankContainer extends Container {
 
     /**
      * If items have to be noted.
+     *
      * @return If items have to be noted {@code true}.
      */
     public boolean isNoteItems() {
@@ -435,6 +447,7 @@ public final class BankContainer extends Container {
 
     /**
      * Set if items have to be noted.
+     *
      * @param noteItems If items have to be noted {@code true}.
      */
     public void setNoteItems(boolean noteItems) {
@@ -443,6 +456,7 @@ public final class BankContainer extends Container {
 
     /**
      * Gets the tabStartSlot value.
+     *
      * @return The tabStartSlot.
      */
     public int[] getTabStartSlot() {
@@ -451,6 +465,7 @@ public final class BankContainer extends Container {
 
     /**
      * Gets the tabIndex value.
+     *
      * @return The tabIndex.
      */
     public int getTabIndex() {
@@ -459,6 +474,7 @@ public final class BankContainer extends Container {
 
     /**
      * Sets the tabIndex value.
+     *
      * @param tabIndex The tabIndex to set.
      */
     public void setTabIndex(int tabIndex) {
@@ -469,6 +485,7 @@ public final class BankContainer extends Container {
 
     /**
      * Sets the insert items value.
+     *
      * @param insertItems The insert items value.
      */
     public void setInsertItems(boolean insertItems) {
@@ -477,6 +494,7 @@ public final class BankContainer extends Container {
 
     /**
      * Gets the insert items value.
+     *
      * @return {@code True} if inserting items mode is enabled.
      */
     public boolean isInsertItems() {
@@ -485,6 +503,7 @@ public final class BankContainer extends Container {
 
     /**
      * Checks if the bank is opened.
+     *
      * @return {@code True} if so.
      */
     public boolean isOpen() {
@@ -493,6 +512,7 @@ public final class BankContainer extends Container {
 
     /**
      * Listens to the bank container.
+     *
      * @author Emperor
      */
     private static class BankListener implements ContainerListener {
@@ -504,6 +524,7 @@ public final class BankContainer extends Container {
 
         /**
          * Construct a new {@code BankListener} {@code Object}.
+         *
          * @param player The player reference.
          */
         public BankListener(Player player) {

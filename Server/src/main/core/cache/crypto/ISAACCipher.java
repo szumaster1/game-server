@@ -63,6 +63,7 @@ public class ISAACCipher {
 
     /**
      * Creates the ISAAC cipher.
+     *
      * @param seed The seed.
      */
     public ISAACCipher(int[] seed) {
@@ -74,6 +75,7 @@ public class ISAACCipher {
 
     /**
      * Gets the next value.
+     *
      * @return The next value.
      */
     public int getNextValue() {
@@ -90,7 +92,7 @@ public class ISAACCipher {
     public void isaac() {
         int i, j, x, y;
         b += ++c;
-        for (i = 0, j = SIZE / 2; i < SIZE / 2;) {
+        for (i = 0, j = SIZE / 2; i < SIZE / 2; ) {
             x = memory[i];
             a ^= a << 13;
             a += memory[j++];
@@ -115,7 +117,7 @@ public class ISAACCipher {
             memory[i] = y = memory[(x & MASK) >> 2] + a + b;
             results[i++] = b = memory[((y >> SIZE_LOG) & MASK) >> 2] + x;
         }
-        for (j = 0; j < SIZE / 2;) {
+        for (j = 0; j < SIZE / 2; ) {
             x = memory[i];
             a ^= a << 13;
             a += memory[j++];
@@ -144,6 +146,7 @@ public class ISAACCipher {
 
     /**
      * Initialises the ISAAC.
+     *
      * @param flag Flag indicating if we should perform a second pass.
      */
     public void init(boolean flag) {

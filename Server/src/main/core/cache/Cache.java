@@ -17,9 +17,7 @@ import static core.api.ContentAPIKt.log;
 
 /**
  * A cache reader.
- *
- * @author Emperor
- * @author Dragonkk
+ * @author Emperor, Dragonkk
  */
 public final class Cache {
 

@@ -34,7 +34,8 @@ public final class XTEACryption {
 
     /**
      * Decrypts the contents of the buffer.
-     * @param keys The cryption keys.
+     *
+     * @param keys   The cryption keys.
      * @param buffer The buffer.
      */
     public static ByteBuffer decrypt(int[] keys, ByteBuffer buffer) {
@@ -43,7 +44,8 @@ public final class XTEACryption {
 
     /**
      * Decrypts the buffer data.
-     * @param keys The keys.
+     *
+     * @param keys   The keys.
      * @param buffer The buffer to decrypt.
      * @param offset The offset of the data to decrypt.
      * @param length The length.
@@ -65,7 +67,8 @@ public final class XTEACryption {
 
     /**
      * Deciphers the values.
-     * @param keys The cryption key.
+     *
+     * @param keys  The cryption key.
      * @param block The values to decipher.
      */
     private static void decipher(int[] keys, int[] block) {
@@ -79,7 +82,8 @@ public final class XTEACryption {
 
     /**
      * Encrypts the contents of the byte buffer.
-     * @param keys The cryption keys.
+     *
+     * @param keys   The cryption keys.
      * @param buffer The buffer to encrypt.
      */
     public static void encrypt(int[] keys, ByteBuffer buffer) {
@@ -88,7 +92,8 @@ public final class XTEACryption {
 
     /**
      * Encrypts the buffer data.
-     * @param keys The keys.
+     *
+     * @param keys   The keys.
      * @param buffer The buffer to encrypt.
      * @param offset The offset of the data to encrypt.
      * @param length The length.
@@ -109,7 +114,8 @@ public final class XTEACryption {
 
     /**
      * Enciphers the values of the block.
-     * @param keys The cryption keys.
+     *
+     * @param keys  The cryption keys.
      * @param block The block to encipher.
      */
     private static void encipher(int[] keys, int[] block) {

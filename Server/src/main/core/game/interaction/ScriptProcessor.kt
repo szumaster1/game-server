@@ -239,7 +239,11 @@ class ScriptProcessor(val entity: Entity) {
             val sw = StringWriter()
             val pw = PrintWriter(sw)
             e.printStackTrace(pw)
-            log(this::class.java, Log.ERR, "Error processing ${script::class.java.simpleName} - stopping the script. Exception follows: $sw")
+            log(
+                this::class.java,
+                Log.ERR,
+                "Error processing ${script::class.java.simpleName} - stopping the script. Exception follows: $sw"
+            )
             reset()
         }
         currentScript = null
@@ -250,14 +254,16 @@ class ScriptProcessor(val entity: Entity) {
      * Remove weak scripts.
      */
     fun removeWeakScripts() {
-        queue.removeAll(queue.filter { it is QueuedScript && it.strength == QueueStrength.WEAK || it is QueuedUseWith && it.strength == QueueStrength.WEAK }.toSet())
+        queue.removeAll(queue.filter { it is QueuedScript && it.strength == QueueStrength.WEAK || it is QueuedUseWith && it.strength == QueueStrength.WEAK }
+            .toSet())
     }
 
     /**
      * Remove normal scripts.
      */
     fun removeNormalScripts() {
-        queue.removeAll(queue.filter { it is QueuedScript && it.strength == QueueStrength.NORMAL || it is QueuedUseWith && it.strength == QueueStrength.NORMAL }.toSet())
+        queue.removeAll(queue.filter { it is QueuedScript && it.strength == QueueStrength.NORMAL || it is QueuedUseWith && it.strength == QueueStrength.NORMAL }
+            .toSet())
     }
 
     /**

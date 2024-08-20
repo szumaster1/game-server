@@ -27,7 +27,7 @@ public abstract class CutscenePlugin extends ActivityPlugin {
     /**
      * The list of tabs to remove.
      */
-    private static final int[] TABS = new int[] { 0, 1, 2, 3, 4, 5, 6, 11, 12 };
+    private static final int[] TABS = new int[]{0, 1, 2, 3, 4, 5, 6, 11, 12};
 
     /**
      * The npcs in our cutscene.
@@ -51,6 +51,7 @@ public abstract class CutscenePlugin extends ActivityPlugin {
 
     /**
      * Constructs a new {@code CutscenePlugin} {@code Object}.
+     *
      * @param name the name of the cutscene/mapzone.
      * @param fade fading in or not.
      */
@@ -61,6 +62,7 @@ public abstract class CutscenePlugin extends ActivityPlugin {
 
     /**
      * Constructs a new {@code CutscenePlugin} {@code Object}.
+     *
      * @param name the name.
      */
     public CutscenePlugin(final String name) {
@@ -113,6 +115,7 @@ public abstract class CutscenePlugin extends ActivityPlugin {
 
     /**
      * Method used to stop the cutscene.
+     *
      * @param fade if we should use a fade cutout.
      */
     public void stop(boolean fade) {
@@ -147,6 +150,7 @@ public abstract class CutscenePlugin extends ActivityPlugin {
      * Represents the pulse used when starting a cutscene. This is used to give
      * dramatic effect for entering a cutscene. In the future allow for this to
      * be toggled.
+     *
      * @author Vexia
      * @date 30/12/2013
      */
@@ -195,6 +199,7 @@ public abstract class CutscenePlugin extends ActivityPlugin {
     /**
      * Represents the pulse used when ending a cutscene. This is used to give
      * dramatic effect for entering a cutscene.
+     *
      * @author Vexia
      * @date 30/12/2013
      */
@@ -263,6 +268,7 @@ public abstract class CutscenePlugin extends ActivityPlugin {
 
     /**
      * Gets the mapstate to use. (override if needed).
+     *
      * @return the state.
      */
     public int getMapState() {
@@ -271,6 +277,7 @@ public abstract class CutscenePlugin extends ActivityPlugin {
 
     /**
      * Gets the removed tabs. (override if needed).
+     *
      * @return the tabs.
      */
     public int[] getRemovedTabs() {
@@ -279,6 +286,7 @@ public abstract class CutscenePlugin extends ActivityPlugin {
 
     /**
      * Gets the starting location (region based, override if needed).
+     *
      * @return the location.
      */
     public Location getStartLocation() {
@@ -294,6 +302,7 @@ public abstract class CutscenePlugin extends ActivityPlugin {
 
     /**
      * Gets the player.
+     *
      * @return The player.
      */
     public Player getPlayer() {
@@ -302,6 +311,7 @@ public abstract class CutscenePlugin extends ActivityPlugin {
 
     /**
      * Gets the region.
+     *
      * @return The region.
      */
     public DynamicRegion getRegion() {
@@ -310,6 +320,7 @@ public abstract class CutscenePlugin extends ActivityPlugin {
 
     /**
      * Gets the nPCS.
+     *
      * @return The nPCS.
      */
     public List<NPC> getNPCS() {
@@ -318,6 +329,7 @@ public abstract class CutscenePlugin extends ActivityPlugin {
 
     /**
      * Gets the fade.
+     *
      * @return The fade.
      */
     public boolean isFade() {
@@ -326,11 +338,14 @@ public abstract class CutscenePlugin extends ActivityPlugin {
 
     /**
      * Gets the start pulse.
+     *
      * @return the pulse.
      */
     public Pulse getStartPulse() {
         return startPulse;
     }
 
-    public Pulse getEndPulse(){return new EndPulse();}
+    public Pulse getEndPulse() {
+        return new EndPulse();
+    }
 }
