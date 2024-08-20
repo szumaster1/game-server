@@ -3,14 +3,12 @@ package core.auth
 import core.api.auth.AuthResponse
 import core.api.auth.ProductionAuthenticator
 import core.api.auth.UserAccountInfo
-import core.storage.InMemoryStorageProvider
+import org.junit.Assert
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.BeforeAll
 import org.junit.jupiter.api.Test
+import core.storage.InMemoryStorageProvider
 
-/**
- * Production authenticator tests.
- */
 class ProductionAuthenticatorTests {
     companion object {
         private val authProvider = ProductionAuthenticator()
@@ -20,48 +18,30 @@ class ProductionAuthenticatorTests {
             authProvider.configureFor(storageProvider)
         }
 
-        @BeforeAll
-        @JvmStatic
-        fun createTestAccount() {
+        @BeforeAll @JvmStatic fun createTestAccount() {
             val details = UserAccountInfo.createDefault()
             details.username = "test"
             details.password = "testing"
-            if (!storageProvider.checkUsernameTaken("test")) {
+            if(!storageProvider.checkUsernameTaken("test")) {
                 authProvider.createAccountWith(details)
             }
         }
     }
 
-    /**
-     * Should reject login with invalid details.
-     */
-    @Test
-    fun shouldRejectLoginWithInvalidDetails() {
+    @Test fun shouldRejectLoginWithInvalidDetails() {
         Assertions.assertEquals(AuthResponse.InvalidCredentials, authProvider.checkLogin("test", "test2").first)
     }
 
-    /**
-     * Login username is not case-sensitive.
-     */
-    @Test
-    fun loginUsernameIsNotCaseSensitive() {
+    @Test fun loginUsernameIsNotCaseSensitive() {
         Assertions.assertEquals(AuthResponse.Success, authProvider.checkLogin("Test", "testing").first)
         Assertions.assertEquals(AuthResponse.Success, authProvider.checkLogin("test", "testing").first)
     }
 
-    /**
-     * Should hash passwords.
-     */
-    @Test
-    fun shouldHashPasswords() {
+    @Test fun shouldHashPasswords() {
         Assertions.assertNotEquals("testing", storageProvider.getAccountInfo("test").password)
     }
 
-    /**
-     * Should not allow banned login.
-     */
-    @Test
-    fun shouldNotAllowBannedLogin() {
+    @Test fun shouldNotAllowBannedLogin() {
         val info = storageProvider.getAccountInfo("test")
         info.banEndTime = System.currentTimeMillis() + 1000L
         storageProvider.update(info)
@@ -71,11 +51,7 @@ class ProductionAuthenticatorTests {
         Assertions.assertEquals(AuthResponse.Success, authProvider.checkLogin("test", "testing").first)
     }
 
-    /**
-     * Should not allow already online login.
-     */
-    @Test
-    fun shouldNotAllowAlreadyOnlineLogin() {
+    @Test fun shouldNotAllowAlreadyOnlineLogin() {
         val info = storageProvider.getAccountInfo("test")
         info.online = true
         storageProvider.update(info)

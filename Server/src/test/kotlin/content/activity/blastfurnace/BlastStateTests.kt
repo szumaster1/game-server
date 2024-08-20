@@ -1,17 +1,11 @@
 package content.activity.blastfurnace
 
-import content.minigame.blastfurnace.BlastUtils
 import content.minigame.blastfurnace.BlastState
+import content.minigame.blastfurnace.BlastUtils
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 
-/**
- * Blast state tests.
- */
 class BlastStateTests {
-    /**
-     * Tick passed with coke in stove should increase stove temp.
-     */
     @Test
     fun tickPassedWithCokeInStoveShouldIncreaseStoveTemp() {
         val state = BlastState(); state.disableBreaking = true
@@ -22,9 +16,6 @@ class BlastStateTests {
         Assertions.assertEquals(1, state.stoveTemp)
     }
 
-    /**
-     * Stove temp should never exceed100.
-     */
     @Test
     fun stoveTempShouldNeverExceed100() {
         val state = BlastState(); state.disableBreaking = true
@@ -35,11 +26,7 @@ class BlastStateTests {
         Assertions.assertEquals(100, state.stoveTemp)
     }
 
-    /**
-     * Coke should disappear from stove.
-     */
-    @Test
-    fun cokeShouldDisappearFromStove() {
+    @Test fun cokeShouldDisappearFromStove() {
         val state = BlastState(); state.disableBreaking = true
         state.addCoke(1)
         for (i in 0 until 10)
@@ -47,11 +34,7 @@ class BlastStateTests {
         Assertions.assertEquals(0, state.cokeInStove)
     }
 
-    /**
-     * Stove temp should lower without coke.
-     */
-    @Test
-    fun stoveTempShouldLowerWithoutCoke() {
+    @Test fun stoveTempShouldLowerWithoutCoke() {
         val state = BlastState(); state.disableBreaking = true
         state.addCoke(1)
         for (i in 0 until 10)
@@ -62,9 +45,6 @@ class BlastStateTests {
         Assertions.assertEquals(0, state.stoveTemp)
     }
 
-    /**
-     * Stove temp should never go below0.
-     */
     @Test
     fun stoveTempShouldNeverGoBelow0() {
         val state = BlastState(); state.disableBreaking = true
@@ -73,12 +53,7 @@ class BlastStateTests {
         Assertions.assertEquals(0, state.stoveTemp)
     }
 
-    /**
-     * Furnace temp should increase proportionally to stove temp while pumping
-     *
-     */
-    @Test
-    fun furnaceTempShouldIncreaseProportionallyToStoveTempWhilePumping() {
+    @Test fun furnaceTempShouldIncreaseProportionallyToStoveTempWhilePumping() {
         val testData = arrayOf(
             Pair(0, 0),
             Pair(1, 1),
@@ -96,11 +71,7 @@ class BlastStateTests {
         }
     }
 
-    /**
-     * Pumping should not transfer heat if pipes broken.
-     */
-    @Test
-    fun pumpingShouldNotTransferHeatIfPipesBroken() {
+    @Test fun pumpingShouldNotTransferHeatIfPipesBroken() {
         val state1 = BlastState(); state1.disableBreaking = true
         state1.addCoke(BlastUtils.COKE_LIMIT)
         state1.pumpPipeBroken = true
@@ -114,11 +85,7 @@ class BlastStateTests {
         Assertions.assertEquals(0, state2.furnaceTemp)
     }
 
-    /**
-     * Pumping should not transfer heat if belt broken.
-     */
-    @Test
-    fun pumpingShouldNotTransferHeatIfBeltBroken() {
+    @Test fun pumpingShouldNotTransferHeatIfBeltBroken() {
         val state = BlastState(); state.disableBreaking = true
         state.addCoke(BlastUtils.COKE_LIMIT)
         state.beltBroken = true

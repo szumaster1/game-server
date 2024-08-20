@@ -1,63 +1,41 @@
 package content
 
 import TestUtils
-import core.game.interaction.IntType
-import core.game.interaction.InteractionListener
-import core.game.interaction.InteractionListeners
 import core.game.node.item.Item
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
+import core.game.interaction.InteractionListener
+import core.game.interaction.IntType
+import core.game.interaction.InteractionListeners
 
-/**
- * Listener tests.
- */
 class ListenerTests : InteractionListener {
-    init {
-        TestUtils.preTestSetup()
-    }
-
-    /**
-     * Double defined listener should throw illegal state exception.
-     */
-    @Test
-    fun doubleDefinedListenerShouldThrowIllegalStateException() {
-        on(0, IntType.ITEM, "touch") { _, _ -> return@on true }
+    init {TestUtils.preTestSetup()}
+    @Test fun doubleDefinedListenerShouldThrowIllegalStateException() {
+        on(0, IntType.ITEM, "touch") { _, _ -> return@on true}
         Assertions.assertThrows(IllegalStateException::class.java) {
-            on(0, IntType.ITEM, "touch") { _, _ -> return@on true }
+            on(0, IntType.ITEM, "touch") { _, _ -> return@on true}
         }
     }
 
-    /**
-     * Double defined use with should throw illegal state exception.
-     */
-    @Test
-    fun doubleDefinedUseWithShouldThrowIllegalStateException() {
-        onUseWith(IntType.SCENERY, 0, 1) { _, _, _ -> return@onUseWith true }
+    @Test fun doubleDefinedUseWithShouldThrowIllegalStateException() {
+        onUseWith(IntType.SCENERY, 0, 1) { _, _, _ -> return@onUseWith true}
         Assertions.assertThrows(IllegalStateException::class.java) {
-            onUseWith(IntType.SCENERY, 0, 1) { _, _, _ -> return@onUseWith true }
+            onUseWith(IntType.SCENERY, 0, 1) { _, _, _ -> return@onUseWith true}
         }
     }
 
-    /**
-     * Conflicting catchall should throw illegal state exception.
-     */
-    @Test
-    fun conflictingCatchallShouldThrowIllegalStateException() {
-        on(IntType.ITEM, "boop") { _, _ -> return@on true }
+    @Test fun conflictingCatchallShouldThrowIllegalStateException() {
+        on(IntType.ITEM, "boop"){ _, _ -> return@on true}
         Assertions.assertThrows(IllegalStateException::class.java) {
-            on(IntType.ITEM, "boop") { _, _ -> return@on true }
+            on(IntType.ITEM, "boop") { _, _ -> return@on true}
         }
     }
 
-    /**
-     * Specific listener should override catchall listener.
-     */
-    @Test
-    fun specificListenerShouldOverrideCatchallListener() {
+    @Test fun specificListenerShouldOverrideCatchallListener() {
         var specificRan = false
         var catchAllRan = false
-        on(IntType.ITEM, "zap") { _, _ -> catchAllRan = true; return@on true }
-        on(1, IntType.ITEM, "zap") { _, _ -> specificRan = true; return@on true }
+        on(IntType.ITEM, "zap") { _, _ -> catchAllRan = true; return@on true}
+        on(1, IntType.ITEM, "zap") { _, _ -> specificRan = true; return@on true}
 
         InteractionListeners.run(1, IntType.ITEM, "zap", TestUtils.getMockPlayer("bilbots"), Item(1))
 

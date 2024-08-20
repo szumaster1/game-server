@@ -7,22 +7,14 @@ import core.game.node.entity.skill.Skills
 import core.game.system.timer.RSTimer
 import core.game.system.timer.TimerFlag
 import core.game.system.timer.impl.SkillRestore
+import core.tools.Log
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 
-/**
- * Timer tests.
- */
 class TimerTests {
-    init {
-        TestUtils.preTestSetup()
-    }
+    init { TestUtils.preTestSetup() }
 
-    /**
-     * Timer with no flags should not be cleared on death.
-     */
-    @Test
-    fun timerWithNoFlagsShouldNotBeClearedOnDeath() {
+    @Test fun timerWithNoFlagsShouldNotBeClearedOnDeath() {
         TestUtils.getMockPlayer("noflagnoclear").use { p ->
             var incrementer = 0
             val timer = object : RSTimer(1) {
@@ -42,11 +34,7 @@ class TimerTests {
         }
     }
 
-    /**
-     * Timer with clear on death flag should clear on death.
-     */
-    @Test
-    fun timerWithClearOnDeathFlagShouldClearOnDeath() {
+    @Test fun timerWithClearOnDeathFlagShouldClearOnDeath() {
         TestUtils.getMockPlayer("clearflagtimer").use { p ->
             var incrementer = 0
             val timer = object : RSTimer(1, flags = arrayOf(TimerFlag.ClearOnDeath)) {
@@ -66,11 +54,7 @@ class TimerTests {
         }
     }
 
-    /**
-     * Skill restore timer should slowly raise lowered stats.
-     */
-    @Test
-    fun skillRestoreTimerShouldSlowlyRaiseLoweredStats() {
+    @Test fun skillRestoreTimerShouldSlowlyRaiseLoweredStats() {
         TestUtils.getMockPlayer("statrestore-slowrestore").use { p ->
             val timer = SkillRestore()
             registerTimer(p, timer)
@@ -81,12 +65,7 @@ class TimerTests {
             Assertions.assertEquals(11, getDynLevel(p, Skills.FARMING))
         }
     }
-
-    /**
-     * Skill restore timer should slowly lower boosted stats.
-     */
-    @Test
-    fun skillRestoreTimerShouldSlowlyLowerBoostedStats() {
+    @Test fun skillRestoreTimerShouldSlowlyLowerBoostedStats() {
         TestUtils.getMockPlayer("statrestore-slowdrain").use { p ->
             val timer = SkillRestore()
             p.timers.registerTimer(timer)
@@ -97,11 +76,7 @@ class TimerTests {
         }
     }
 
-    /**
-     * Skill restore timer should raise lowered hp.
-     */
-    @Test
-    fun skillRestoreTimerShouldRaiseLoweredHp() {
+    @Test fun skillRestoreTimerShouldRaiseLoweredHp() {
         TestUtils.getMockPlayer("statrestore-raiseloweredhp").use { p ->
             val timer = SkillRestore()
             registerTimer(p, timer)
@@ -111,11 +86,7 @@ class TimerTests {
         }
     }
 
-    /**
-     * Skill restore timer should never lower boosted hp.
-     */
-    @Test
-    fun skillRestoreTimerShouldNeverLowerBoostedHp() {
+    @Test fun skillRestoreTimerShouldNeverLowerBoostedHp() {
         TestUtils.getMockPlayer("statrestore-neverlowerhp").use { p ->
             val timer = SkillRestore()
             registerTimer(p, timer)

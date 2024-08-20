@@ -1,21 +1,18 @@
-import core.api.consts.Items
 import content.data.consumables.Consumables
-import content.global.skill.support.slayer.data.SlayerMaster
-import content.global.skill.support.slayer.SlayerManager
-import content.global.skill.support.slayer.data.Tasks
 import core.api.IfaceSettingsBuilder
 import core.api.splitLines
-import core.api.utils.Vector
+import content.global.skill.slayer.Master
+import content.global.skill.slayer.SlayerManager
+import content.global.skill.slayer.Tasks
 import core.game.node.item.Item
+import core.api.utils.Vector
 import core.game.world.map.Direction
 import org.json.simple.JSONObject
 import org.json.simple.parser.JSONParser
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
+import org.rs09.consts.Items
 
-/**
- * API tests.
- */
 class APITests {
     var testPlayer: MockPlayer
     var testPlayer2: MockPlayer
@@ -26,11 +23,7 @@ class APITests {
         testPlayer2 = TestUtils.getMockPlayer("test2")
     }
 
-    /**
-     * Test iface settings.
-     */
-    @Test
-    fun testIfaceSettings() {
+    @Test fun testIfaceSettings(){
         var builder = IfaceSettingsBuilder()
         val testOptions = builder.enableOptions(0..9).build()
         Assertions.assertEquals(2046, testOptions, "Testing option flags")
@@ -73,17 +66,13 @@ class APITests {
         Assertions.assertEquals(15466494, testAllOptions, "Testing all options")
     }
 
-    /**
-     * Test slayer manager save and load and save produces equivalent JSON.
-     */
-    @Test
-    fun testSlayerManagerSaveAndLoadAndSaveProducesEquivalentJSON() {
+    @Test fun testSlayerManagerSaveAndLoadAndSaveProducesEquivalentJSON() {
         var manager = SlayerManager()
         manager.login(testPlayer)
         manager.login(testPlayer2)
         manager = SlayerManager.getInstance(testPlayer)
         manager.flags.setPoints(20)
-        manager.flags.setMaster(SlayerMaster.CHAELDAR)
+        manager.flags.setMaster(Master.CHAELDAR)
         manager.flags.setTask(Tasks.SKELETAL_WYVERN)
         manager.flags.setTaskAmount(500)
 
@@ -98,11 +87,7 @@ class APITests {
         Assertions.assertEquals(jsonFirst.toJSONString(), jsonSecond.toJSONString())
     }
 
-    /**
-     * Test slayer save and parse produces equivalent.
-     */
-    @Test
-    fun testSlayerSaveAndParseProducesEquivalent() {
+    @Test fun testSlayerSaveAndParseProducesEquivalent() {
         var manager = SlayerManager()
         manager.login(testPlayer)
         manager = SlayerManager.getInstance(testPlayer)
@@ -121,11 +106,7 @@ class APITests {
         Assertions.assertEquals(true, manager.flags.isRingUnlocked(), "Ring was not unlocked!")
     }
 
-    /**
-     * Test slayer decrement task amount has no side effects.
-     */
-    @Test
-    fun testSlayerDecrementTaskAmountHasNoSideEffects() {
+    @Test fun testSlayerDecrementTaskAmountHasNoSideEffects() {
         var manager = SlayerManager()
         manager.login(testPlayer)
         manager = SlayerManager.getInstance(testPlayer)
@@ -133,32 +114,20 @@ class APITests {
         manager.flags.setTaskAmount(100)
         manager.flags.taskStreak = 4
         manager.flags.completedTasks = 4
-        manager.flags.setMaster(SlayerMaster.MAZCHNA)
+        manager.flags.setMaster(Master.MAZCHNA)
 
-        while (manager.hasTask()) manager.decrementAmount(1)
+        while(manager.hasTask()) manager.decrementAmount(1)
         manager.flags.taskStreak += 1
         manager.flags.completedTasks += 1
         manager.flags.flagCanEarnPoints()
 
         Assertions.assertEquals(0, manager.flags.getTaskAmount(), "Task amount was not 0!")
         Assertions.assertEquals(5, manager.flags.taskStreak, "Task streak was not 5!")
-        Assertions.assertEquals(
-            Tasks.CAVE_BUG,
-            manager.flags.getTask(),
-            "Task was not cave bugs!"
-        )
-        Assertions.assertEquals(
-            SlayerMaster.MAZCHNA,
-            manager.flags.getMaster(),
-            "Master was not Mazchna!"
-        )
+        Assertions.assertEquals(Tasks.CAVE_BUG, manager.flags.getTask(), "Task was not cave bugs!")
+        Assertions.assertEquals(Master.MAZCHNA, manager.flags.getMaster(), "Master was not Mazchna!")
     }
 
-    /**
-     * Test known problem save parses correctly.
-     */
-    @Test
-    fun testKnownProblemSaveParsesCorrectly() {
+    @Test fun testKnownProblemSaveParsesCorrectly() {
         val jsonString = "{\"slayer\": {\n" +
                 "    \"taskStreak\": \"21\",\n" +
                 "    \"rewardFlags\": 17301511,\n" +
@@ -181,13 +150,8 @@ class APITests {
         Assertions.assertEquals(true, manager.flags.isHelmUnlocked())
     }
 
-    /**
-     * Line split should split at limit and preserve all words.
-     */
-    @Test
-    fun lineSplitShouldSplitAtLimitAndPreserveAllWords() {
-        var testCase =
-            "The monks are running a ship from Port Sarim to Entrana, I hear too. Now leave me alone yer elephant!"
+    @Test fun lineSplitShouldSplitAtLimitAndPreserveAllWords() {
+        var testCase = "The monks are running a ship from Port Sarim to Entrana, I hear too. Now leave me alone yer elephant!"
         var expectedLine1 = "The monks are running a ship from Port Sarim to"
         var expectedLine2 = "Entrana, I hear too. Now leave me alone yer elephant!"
         var lines = splitLines(testCase, 54)
@@ -195,8 +159,7 @@ class APITests {
         Assertions.assertEquals(expectedLine2, lines.getOrNull(1) ?: "")
         Assertions.assertEquals(2, lines.size)
 
-        testCase =
-            "Dramenwood staffs are crafted from branches of the Dramen tree, so they are. I hear there's a Dramen tree over on the island of Entrana in a cave."
+        testCase = "Dramenwood staffs are crafted from branches of the Dramen tree, so they are. I hear there's a Dramen tree over on the island of Entrana in a cave."
         expectedLine1 = "Dramenwood staffs are crafted from branches of the"
         expectedLine2 = "Dramen tree, so they are. I hear there's a Dramen tree"
         var expectedLine3 = "over on the island of Entrana in a cave."
@@ -211,8 +174,7 @@ class APITests {
         Assertions.assertEquals(testCase, lines[0])
         Assertions.assertEquals(1, lines.size)
 
-        testCase =
-            "I just told you: from the Seer. You will need to persuade him to take the time to make a forecast somehow."
+        testCase = "I just told you: from the Seer. You will need to persuade him to take the time to make a forecast somehow."
         lines = splitLines(testCase)
         expectedLine1 = "I just told you: from the Seer. You will need to"
         expectedLine2 = "persuade him to take the time to make a forecast"
@@ -222,11 +184,7 @@ class APITests {
         Assertions.assertEquals(expectedLine3, lines.getOrNull(2) ?: "")
     }
 
-    /**
-     * Consumable stackable item should not remove stack.
-     */
-    @Test
-    fun consumableStackableItemShouldNotRemoveStack() {
+    @Test fun consumableStackableItemShouldNotRemoveStack() {
         val stackableItem = Item(Items.PURPLE_SWEETS_10476, 999)
         TestUtils.getMockPlayer("Inventory Consumable Stack Slot Tester").use { player ->
             // Inventory setup
@@ -235,7 +193,7 @@ class APITests {
 
             // Setup
             val consumable = Consumables.getConsumableById(stackableItem.id)
-            consumable!!.consumable.consume(player.inventory.get(0), player)
+            consumable.consumable.consume(player.inventory.get(0), player)
             TestUtils.advanceTicks(2, false)
 
             // Get item in that slot,
@@ -247,11 +205,7 @@ class APITests {
         }
     }
 
-    /**
-     * Consumable multi piece item should be removed from correct slot.
-     */
-    @Test
-    fun consumableMultiPieceItemShouldBeRemovedFromCorrectSlot() {
+    @Test fun consumableMultiPieceItemShouldBeRemovedFromCorrectSlot() {
         val consumables: Array<Item?> = arrayOf(
             Item(Items.CAKE_1891, 8),
             Item(Items.TWO_THIRDS_CAKE_1893, 8),
@@ -267,7 +221,7 @@ class APITests {
             val lastWholeCake = player.inventory.get(lastWholeCakeContainerIndex)
 
             val consumable = Consumables.getConsumableById(lastWholeCake.id)
-            consumable!!.consumable.consume(player.inventory.get(lastWholeCakeContainerIndex), player)
+            consumable.consumable.consume(player.inventory.get(lastWholeCakeContainerIndex), player)
             TestUtils.advanceTicks(2, false)
 
             // Cake amounts are correct
@@ -284,11 +238,7 @@ class APITests {
         }
     }
 
-    /**
-     * Consumable multi piece item should add return item to correct slot.
-     */
-    @Test
-    fun consumableMultiPieceItemShouldAddReturnItemToCorrectSlot() {
+    @Test fun consumableMultiPieceItemShouldAddReturnItemToCorrectSlot() {
         val PIE_DISH_NONCONSUMABLE_2313 = Items.PIE_DISH_2313
         val consumables: Array<Item?> = arrayOf(
             Item(Items.APPLE_PIE_2323, 8),
@@ -305,7 +255,7 @@ class APITests {
             val lastWholePie = player.inventory.get(lastWholePieContainerIndex)
 
             val wholePieConsumable = Consumables.getConsumableById(lastWholePie.id)
-            wholePieConsumable!!.consumable.consume(player.inventory.get(lastWholePieContainerIndex), player)
+            wholePieConsumable.consumable.consume(player.inventory.get(lastWholePieContainerIndex), player)
             TestUtils.advanceTicks(2, false)
 
             // Pie amounts are correct
@@ -324,7 +274,7 @@ class APITests {
             val firstHalfPieContainerIndex = 7
             val firstHalfPie = player.inventory.get(firstHalfPieContainerIndex)
             val halfPieConsumable = Consumables.getConsumableById(firstHalfPie.id)
-            halfPieConsumable!!.consumable.consume(player.inventory.get(firstHalfPieContainerIndex), player)
+            halfPieConsumable.consumable.consume(player.inventory.get(firstHalfPieContainerIndex), player)
             TestUtils.advanceTicks(2, false)
 
             // Pie amounts are correct
@@ -338,11 +288,7 @@ class APITests {
         }
     }
 
-    /**
-     * Consumable item should not have return item.
-     */
-    @Test
-    fun consumableItemShouldNotHaveReturnItem() {
+    @Test fun consumableItemShouldNotHaveReturnItem() {
         val consumables: Array<Item?> = arrayOf(
             Item(Items.TROUT_333, 8),
             Item(Items.SHARK_385, 8),
@@ -358,18 +304,18 @@ class APITests {
             val lastTrout = player.inventory.get(lastTroutContainerIndex)
 
             val troutConsumable = Consumables.getConsumableById(lastTrout.id)
-            troutConsumable!!.consumable.consume(player.inventory.get(lastTroutContainerIndex), player)
+            troutConsumable.consumable.consume(player.inventory.get(lastTroutContainerIndex), player)
             TestUtils.advanceTicks(4, false)
 
             val sharkConsumable = Consumables.getConsumableById(Items.SHARK_385)
             for (n in 0..7) {
-                sharkConsumable!!.consumable.consume(player.inventory.get(n + 8), player)
+                sharkConsumable.consumable.consume(player.inventory.get(n + 8), player)
                 TestUtils.advanceTicks(4, false)
             }
 
             val lobsterConsumable = Consumables.getConsumableById(Items.LOBSTER_379)
             for (n in 16..23 step 2) {
-                lobsterConsumable!!.consumable.consume(player.inventory.get(n), player)
+                lobsterConsumable.consumable.consume(player.inventory.get(n), player)
                 TestUtils.advanceTicks(4, false)
             }
 
@@ -405,11 +351,7 @@ class APITests {
         }
     }
 
-    /**
-     * Vector to direction should return expected directions.
-     */
-    @Test
-    fun vectorToDirectionShouldReturnExpectedDirections() {
+    @Test fun vectorToDirectionShouldReturnExpectedDirections() {
         val testData = arrayOf(
             Pair(Vector(1.0, 0.0), Direction.EAST),
             Pair(Vector(-1.0, 0.0), Direction.WEST),

@@ -1,64 +1,52 @@
 package content
 
 import TestUtils
-import core.api.consts.Items
 import core.api.asItem
 import core.api.setAttribute
 import core.game.global.action.DropListener
-import core.game.node.entity.combat.graves.GraveController
-import core.game.node.entity.combat.graves.GraveType
 import core.game.node.entity.player.info.Rights
 import core.game.node.entity.player.link.IronmanMode
-import core.game.world.GameWorld
 import core.game.world.map.Location
-import core.tools.secondsToTicks
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
-
-/**
- * Death tests.
- */
+import core.api.consts.Items
+import core.game.node.entity.combat.graves.GraveType
+import core.game.node.entity.combat.graves.GraveController
+import core.game.world.GameWorld
+import core.tools.secondsToTicks
 class DeathTests {
     init {
         //explicitly register the GraveController as a tick listener because tests don't run reflection
         TestUtils.preTestSetup() // need cache parsed to properly evaluate item values
         GameWorld.tickListeners.add(GraveController())
     }
-    //Grave requirements source: https://gravecontroller.wiki/w/Gravestone?oldid=854455
+    //Grave requirements source: https://runescape.wiki/w/Gravestone?oldid=854455
 
-    /**
-     * Grave utils produce grave should produce correct grave.
-     */
-    @Test
-    fun graveUtilsProduceGraveShouldProduceCorrectGrave() {
+    @Test fun graveUtilsProduceGraveShouldProduceCorrectGrave() {
         val type = GraveType.MEM_PLAQUE
         val grave = GraveController.produceGrave(type)
 
         Assertions.assertEquals(type, grave.type)
     }
 
-    /**
-     * Grave initialized with items should initialize correctly.
-     */
-    @Test
-    fun graveInitializedWithItemsShouldInitializeCorrectly() {
+    @Test fun graveInitializedWithItemsShouldInitializeCorrectly() {
         val inventory = arrayOf(
-            Items.RUNE_SCIMITAR_1333.asItem(),
-            Items.RUNE_SCIMITAR_1333.asItem(),
-            Items.RUNE_SCIMITAR_1333.asItem(),
-            Items.YELLOW_BEAD_1472.asItem()
+                Items.RUNE_SCIMITAR_1333.asItem(),
+                Items.RUNE_SCIMITAR_1333.asItem(),
+                Items.RUNE_SCIMITAR_1333.asItem(),
+                Items.YELLOW_BEAD_1472.asItem()
         )
         val player = TestUtils.getMockPlayer("gravetest", IronmanMode.NONE, Rights.REGULAR_PLAYER)
 
         val grave = GraveController.produceGrave(GraveType.MEM_PLAQUE)
-        grave.initialize(player, Location.create(0, 0, 0), inventory)
+        grave.initialize(player, Location.create(0,0,0), inventory)
 
         for (item in grave.getItems()) {
             Assertions.assertEquals(player, item.dropper)
             Assertions.assertEquals(player.details.uid, item.dropperUid)
             Assertions.assertEquals(
-                GameWorld.ticks + secondsToTicks(GraveType.MEM_PLAQUE.durationMinutes * 60),
-                item.decayTime
+                    GameWorld.ticks + secondsToTicks(GraveType.MEM_PLAQUE.durationMinutes * 60),
+                    item.decayTime
             )
             Assertions.assertEquals(true, item.isRemainPrivate)
             Assertions.assertEquals(true, item.id in inventory.map { it.id }.toIntArray())
@@ -66,118 +54,89 @@ class DeathTests {
         }
     }
 
-    /**
-     * Grave initialized with no items should not spawn.
-     */
-    @Test
-    fun graveInitializedWithNoItemsShouldNotSpawn() {
+    @Test fun graveInitializedWithNoItemsShouldNotSpawn() {
         val grave = GraveController.produceGrave(GraveType.MEM_PLAQUE)
         val p = TestUtils.getMockPlayer("gravetest")
 
-        grave.initialize(p, Location.create(0, 0, 0), arrayOf())
+        grave.initialize(p, Location.create(0,0,0), arrayOf())
         Assertions.assertEquals(false, grave.isActive)
     }
 
-    /**
-     * Grave initialized with ectophial and pouches should not keep them.
-     */
-    @Test
-    fun graveInitializedWithEctophialAndPouchesShouldNotKeepThem() {
+    @Test fun graveInitializedWithEctophialAndPouchesShouldNotKeepThem() {
         val inventory = arrayOf(
-            Items.ECTOPHIAL_4251.asItem(),
-            Items.SMALL_POUCH_5509.asItem(),
-            Items.MEDIUM_POUCH_5510.asItem(),
-            Items.MEDIUM_POUCH_5511.asItem(),
-            Items.LARGE_POUCH_5512.asItem(),
-            Items.LARGE_POUCH_5513.asItem(),
-            Items.GIANT_POUCH_5514.asItem(),
-            Items.GIANT_POUCH_5515.asItem()
+                Items.ECTOPHIAL_4251.asItem(),
+                Items.SMALL_POUCH_5509.asItem(),
+                Items.MEDIUM_POUCH_5510.asItem(),
+                Items.MEDIUM_POUCH_5511.asItem(),
+                Items.LARGE_POUCH_5512.asItem(),
+                Items.LARGE_POUCH_5513.asItem(),
+                Items.GIANT_POUCH_5514.asItem(),
+                Items.GIANT_POUCH_5515.asItem()
         )
         val p = TestUtils.getMockPlayer("gravetest")
         val grave = GraveController.produceGrave(GraveType.MEM_PLAQUE)
-        grave.initialize(p, Location.create(0, 0, 0), inventory)
+        grave.initialize(p, Location.create(0,0,0), inventory)
 
         Assertions.assertEquals(true, grave.getItems().isEmpty())
         Assertions.assertEquals(false, grave.isActive)
     }
 
-    /**
-     * Grave initialized with droppable untradables should keep them.
-     */
-    @Test
-    fun graveInitializedWithDroppableUntradablesShouldKeepThem() {
+    @Test fun graveInitializedWithDroppableUntradablesShouldKeepThem() {
         val inventory = arrayOf(
-            Items.FIRE_CAPE_6570.asItem(),
-            Items.RUNE_DEFENDER_8850.asItem()
+                Items.FIRE_CAPE_6570.asItem(),
+                Items.RUNE_DEFENDER_8850.asItem()
         )
         val p = TestUtils.getMockPlayer("gravetest")
         val grave = GraveController.produceGrave(GraveType.MEM_PLAQUE)
-        grave.initialize(p, Location.create(0, 0, 0), inventory)
+        grave.initialize(p, Location.create(0,0,0), inventory)
 
         Assertions.assertEquals(2, grave.getItems().size)
         Assertions.assertEquals(true, grave.isActive)
     }
 
-    /**
-     * Grave initialized with destroyable items should not keep them.
-     */
-    @Test
-    fun graveInitializedWithDestroyableItemsShouldNotKeepThem() {
+    @Test fun graveInitializedWithDestroyableItemsShouldNotKeepThem() {
         val inventory = arrayOf(
-            Items.HOLY_GRAIL_19.asItem()
+                Items.HOLY_GRAIL_19.asItem()
         )
         val p = TestUtils.getMockPlayer("gravetest")
         val grave = GraveController.produceGrave(GraveType.MEM_PLAQUE)
-        grave.initialize(p, Location.create(0, 0, 0), inventory)
+        grave.initialize(p, Location.create(0,0,0), inventory)
 
         Assertions.assertEquals(0, grave.getItems().size)
         Assertions.assertEquals(false, grave.isActive)
     }
 
-    /**
-     * Grave initialized with releasable items should not keep them.
-     */
-    @Test
-    fun graveInitializedWithReleasableItemsShouldNotKeepThem() {
+    @Test fun graveInitializedWithReleasableItemsShouldNotKeepThem() {
         val inventory = arrayOf(
-            Items.CHINCHOMPA_10033.asItem(),
-            Items.CHINCHOMPA_9976.asItem(),
-            Items.BABY_IMPLING_JAR_11238.asItem()
+                Items.CHINCHOMPA_10033.asItem(),
+                Items.CHINCHOMPA_9976.asItem(),
+                Items.BABY_IMPLING_JAR_11238.asItem()
         )
         val p = TestUtils.getMockPlayer("gravetest")
         val grave = GraveController.produceGrave(GraveType.MEM_PLAQUE)
-        grave.initialize(p, Location.create(0, 0, 0), inventory)
+        grave.initialize(p, Location.create(0,0,0), inventory)
 
         Assertions.assertEquals(0, grave.getItems().size)
         Assertions.assertEquals(false, grave.isActive)
     }
 
-    /**
-     * Grave initialized with item that has drop transform should contain transformed item.
-     */
-    @Test
-    fun graveInitializedWithItemThatHasDropTransformShouldContainTransformedItem() {
+    @Test fun graveInitializedWithItemThatHasDropTransformShouldContainTransformedItem() {
         //We actually don't have any items that have this implemented yet, but we should test it once we do.
     }
 
-    /**
-     * Grave should serialize and deserialize from json correctly.
-     */
-    @Test
-    fun graveShouldSerializeAndDeserializeFromJsonCorrectly() {
+    @Test fun graveShouldSerializeAndDeserializeFromJsonCorrectly() {
         val inventory = arrayOf(
-            Items.BRONZE_2H_SWORD_1307.asItem(),
-            Items.BRONZE_AXE_1351.asItem()
+                Items.BRONZE_2H_SWORD_1307.asItem(),
+                Items.BRONZE_AXE_1351.asItem()
         )
 
         val startTime = GameWorld.ticks
         val p = TestUtils.getMockPlayer("gravetest")
         val grave = GraveController.produceGrave(GraveType.MEM_PLAQUE)
-        grave.initialize(p, Location.create(0, 0, 0), inventory)
+        grave.initialize(p, Location.create(0,0,0), inventory)
 
         TestUtils.advanceTicks(30, false)
-        val expectedTicksRemaining =
-            secondsToTicks(GraveType.MEM_PLAQUE.durationMinutes * 60) - (GameWorld.ticks - startTime)
+        val expectedTicksRemaining = secondsToTicks(GraveType.MEM_PLAQUE.durationMinutes * 60) - (GameWorld.ticks - startTime)
         Assertions.assertEquals(expectedTicksRemaining, grave.ticksRemaining)
 
         GraveController.serializeToServerStore()
@@ -194,21 +153,16 @@ class DeathTests {
         Assertions.assertEquals(true, newGrave?.isActive)
     }
 
-    /**
-     * Grave deserialized from server store should naturally expire.
-     */
-    @Test
-    fun graveDeserializedFromServerStoreShouldNaturallyExpire() {
-        TestUtils.getMockPlayer("graveExpirationFromDeserializationTest").use { p ->
+    @Test fun graveDeserializedFromServerStoreShouldNaturallyExpire() {
+        TestUtils.getMockPlayer("graveExpirationFromDeserializationTest").use {p ->
             val inventory = arrayOf(
                 Items.BRONZE_2H_SWORD_1307.asItem(),
                 Items.BRONZE_AXE_1351.asItem()
             )
             val startTime = GameWorld.ticks
             val grave = GraveController.produceGrave(GraveType.MEM_PLAQUE)
-            grave.initialize(p, Location.create(0, 0, 0), inventory)
-            val expectedTicksRemaining =
-                secondsToTicks(GraveType.MEM_PLAQUE.durationMinutes * 60) - (GameWorld.ticks - startTime)
+            grave.initialize(p, Location.create(0,0,0), inventory)
+            val expectedTicksRemaining = secondsToTicks(GraveType.MEM_PLAQUE.durationMinutes * 60) - (GameWorld.ticks - startTime)
             Assertions.assertEquals(expectedTicksRemaining, grave.ticksRemaining)
 
             GraveController.serializeToServerStore()
@@ -231,20 +185,16 @@ class DeathTests {
         }
     }
 
-    /**
-     * Regular death should spawn grave with items.
-     */
-    @Test
-    fun regularDeathShouldSpawnGraveWithItems() {
+    @Test fun regularDeathShouldSpawnGraveWithItems() {
         val inventory = arrayOf(
-            Items.RUNE_SCIMITAR_1333.asItem(),
-            Items.RUNE_SCIMITAR_1333.asItem(),
-            Items.RUNE_SCIMITAR_1333.asItem(), //none of these should be in the grave due to having higher value
-            Items.YELLOW_BEAD_1472.asItem(),
-            Items.RED_BEAD_1470.asItem()
+                Items.RUNE_SCIMITAR_1333.asItem(),
+                Items.RUNE_SCIMITAR_1333.asItem(),
+                Items.RUNE_SCIMITAR_1333.asItem(), //none of these should be in the grave due to having higher value
+                Items.YELLOW_BEAD_1472.asItem(),
+                Items.RED_BEAD_1470.asItem()
         )
         val p = TestUtils.getMockPlayer("gravetester", IronmanMode.NONE, Rights.REGULAR_PLAYER)
-        p.location = Location.create(0, 0, 0)
+        p.location = Location.create(0,0,0)
         p.setAttribute("tutorial:complete", true)
 
         for (item in inventory)
@@ -258,20 +208,16 @@ class DeathTests {
         Assertions.assertEquals(false, grave?.getItems()?.map { it.id }?.contains(Items.RUNE_SCIMITAR_1333))
     }
 
-    /**
-     * Skulled death should not spawn grave.
-     */
-    @Test
-    fun skulledDeathShouldNotSpawnGrave() {
+    @Test fun skulledDeathShouldNotSpawnGrave() {
         val inventory = arrayOf(
-            Items.ABYSSAL_WHIP_4151.asItem(),
-            Items.ABYSSAL_WHIP_4151.asItem(),
-            Items.ABYSSAL_WHIP_4151.asItem(),
-            Items.ABYSSAL_WHIP_4151.asItem(),
-            Items.ABYSSAL_WHIP_4151.asItem()
+                Items.ABYSSAL_WHIP_4151.asItem(),
+                Items.ABYSSAL_WHIP_4151.asItem(),
+                Items.ABYSSAL_WHIP_4151.asItem(),
+                Items.ABYSSAL_WHIP_4151.asItem(),
+                Items.ABYSSAL_WHIP_4151.asItem()
         )
         val p = TestUtils.getMockPlayer("gravetester", IronmanMode.NONE, Rights.REGULAR_PLAYER)
-        p.location = Location.create(0, 0, 0)
+        p.location = Location.create(0,0,0)
         p.setAttribute("tutorial:complete", true)
 
         for (item in inventory)
@@ -284,50 +230,36 @@ class DeathTests {
         Assertions.assertNull(grave)
     }
 
-    /**
-     * Creating new grave with grave already active should destroy old grave.
-     */
-    @Test
-    fun creatingNewGraveWithGraveAlreadyActiveShouldDestroyOldGrave() {
+    @Test fun creatingNewGraveWithGraveAlreadyActiveShouldDestroyOldGrave() {
         val inventory1 = arrayOf(
-            Items.RUNE_SCIMITAR_1333.asItem()
+                Items.RUNE_SCIMITAR_1333.asItem()
         )
         val grave1 = GraveController.produceGrave(GraveType.MEM_PLAQUE)
         val p = TestUtils.getMockPlayer("gravetester")
-        grave1.initialize(p, Location.create(0, 0, 0), inventory1)
+        grave1.initialize(p, Location.create(0,0,0), inventory1)
 
         Assertions.assertEquals(true, grave1.isActive)
-        Assertions.assertEquals(
-            Items.RUNE_SCIMITAR_1333,
-            GraveController.activeGraves[p.details.uid]?.getItems()?.getOrNull(0)?.id ?: -1
-        )
+        Assertions.assertEquals(Items.RUNE_SCIMITAR_1333, GraveController.activeGraves[p.details.uid]?.getItems()?.getOrNull(0)?.id ?: -1)
 
         val inventory2 = arrayOf(
-            Items.ABYSSAL_WHIP_4151.asItem()
+                Items.ABYSSAL_WHIP_4151.asItem()
         )
         val grave2 = GraveController.produceGrave(GraveType.MEM_PLAQUE)
-        grave2.initialize(p, Location.create(0, 0, 0), inventory2)
+        grave2.initialize(p, Location.create(0,0,0), inventory2)
 
         Assertions.assertEquals(false, grave1.isActive)
         Assertions.assertEquals(true, grave2.isActive)
-        Assertions.assertEquals(
-            Items.ABYSSAL_WHIP_4151,
-            GraveController.activeGraves[p.details.uid]?.getItems()?.getOrNull(0)?.id ?: -1
-        )
+        Assertions.assertEquals(Items.ABYSSAL_WHIP_4151, GraveController.activeGraves[p.details.uid]?.getItems()?.getOrNull(0)?.id ?: -1)
     }
 
-    /**
-     * Death with only 3 items should not produce a grave.
-     */
-    @Test
-    fun deathWithOnly3ItemsShouldNotProduceAGrave() {
+    @Test fun deathWithOnly3ItemsShouldNotProduceAGrave() {
         val inventory = arrayOf(
-            Items.RUNE_SCIMITAR_1333.asItem(),
-            Items.RUNE_SCIMITAR_1333.asItem(),
-            Items.RUNE_SCIMITAR_1333.asItem()
+                Items.RUNE_SCIMITAR_1333.asItem(),
+                Items.RUNE_SCIMITAR_1333.asItem(),
+                Items.RUNE_SCIMITAR_1333.asItem()
         )
         val p = TestUtils.getMockPlayer("gtester", IronmanMode.NONE, Rights.REGULAR_PLAYER)
-        p.location = Location.create(0, 0, 0)
+        p.location = Location.create(0,0,0)
         p.setAttribute("tutorial:complete", true)
 
         for (item in inventory)
@@ -338,17 +270,13 @@ class DeathTests {
         Assertions.assertNull(GraveController.activeGraves[p.details.uid])
     }
 
-    /**
-     * Death inside wilderness should not produce a grave.
-     */
-    @Test
-    fun deathInsideWildernessShouldNotProduceAGrave() {
+    @Test fun deathInsideWildernessShouldNotProduceAGrave() {
         val inventory = arrayOf(
-            Items.RUNE_SCIMITAR_1333.asItem(),
-            Items.RUNE_SCIMITAR_1333.asItem(),
-            Items.RUNE_SCIMITAR_1333.asItem(),
-            Items.RUNE_SCIMITAR_1333.asItem(),
-            Items.RUNE_SCIMITAR_1333.asItem()
+                Items.RUNE_SCIMITAR_1333.asItem(),
+                Items.RUNE_SCIMITAR_1333.asItem(),
+                Items.RUNE_SCIMITAR_1333.asItem(),
+                Items.RUNE_SCIMITAR_1333.asItem(),
+                Items.RUNE_SCIMITAR_1333.asItem()
         )
         val p = TestUtils.getMockPlayer("tester3333", IronmanMode.NONE, Rights.REGULAR_PLAYER)
         p.skullManager.isWilderness = true
@@ -362,11 +290,7 @@ class DeathTests {
         Assertions.assertNull(GraveController.activeGraves[p.details.uid])
     }
 
-    /**
-     * Death with RFD gloves should keep RFD gloves.
-     */
-    @Test
-    fun deathWithRFDGlovesShouldKeepRFDGloves() {
+    @Test fun deathWithRFDGlovesShouldKeepRFDGloves() {
         val inventory = arrayOf(
             Items.GLOVES_7453.asItem(),
             Items.GLOVES_7454.asItem(),
@@ -381,7 +305,7 @@ class DeathTests {
         )
         val p = TestUtils.getMockPlayer("glovetest", IronmanMode.NONE, Rights.REGULAR_PLAYER)
 
-        for (item in inventory)
+        for(item in inventory)
             p.inventory.add(item)
 
         p.finalizeDeath(null)
@@ -391,11 +315,7 @@ class DeathTests {
         Assertions.assertEquals(7, g?.getItems()?.size ?: -1)
     }
 
-    /**
-     * Should not be able to drop item on grave.
-     */
-    @Test
-    fun shouldNotBeAbleToDropItemOnGrave() {
+    @Test fun shouldNotBeAbleToDropItemOnGrave() {
         val inventory = arrayOf(
             Items.RUNE_SCIMITAR_1333.asItem(),
             Items.RUNE_SCIMITAR_1333.asItem(),

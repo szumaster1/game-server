@@ -1,32 +1,23 @@
-package content.global.skill.farming
+package content.global.skill.gathering.farming
 
 import TestUtils
 import content.global.skill.gathering.farming.FarmingPatch
 import content.global.skill.gathering.farming.PatchRaker
+import content.global.skill.gathering.farming.PatchType
 import content.global.skill.gathering.farming.Plantable
+import content.global.skill.gathering.farming.timers.CropGrowth
+import core.cache.def.impl.SceneryDefinition
 import core.game.node.entity.skill.Skills
+import core.game.system.timer.TimerRegistry
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 
-/**
- * Patch tests
- *
- * @constructor Patch tests
- */
 class PatchTests {
-    init {
-        TestUtils.preTestSetup()
-    }
-
-    /**
-     * Patch getting diseased or dying should not go into invalid state
-     *
-     */
-    @Test
-    fun patchGettingDiseasedOrDyingShouldNotGoIntoInvalidState() {
+    init { TestUtils.preTestSetup() }
+    @Test fun patchGettingDiseasedOrDyingShouldNotGoIntoInvalidState() {
         //Dead/Watered (state | 0x40) and Diseased (state | 0x80) are both invalid stages for limpwurt when fully grown (stage 4/state 32), so we use this as our testcase
         //specifically, limpwurt has an issue when the patch is ONLY watered (state | 0x40) OR diseased (state | 0x80), having both (state | 0x40 | 0x80) is fine.
-        TestUtils.getMockPlayer("invalidPatchState").use { p ->
+        TestUtils.getMockPlayer("invalidPatchState").use {p ->
             p.skills.setStaticLevel(Skills.FARMING, 99)
             p.skills.setLevel(Skills.FARMING, 99)
 
@@ -56,13 +47,8 @@ class PatchTests {
         }
     }
 
-    /**
-     * Raking patch at invalid stages should do nothing
-     *
-     */
-    @Test
-    fun rakingPatchAtInvalidStagesShouldDoNothing() {
-        TestUtils.getMockPlayer("Patchraker").use { p ->
+    @Test fun rakingPatchAtInvalidStagesShouldDoNothing() {
+        TestUtils.getMockPlayer("Patchraker").use {p ->
             val patch = FarmingPatch.S_FALADOR_FLOWER_C.getPatchFor(p)
             patch.update()
 

@@ -1,27 +1,20 @@
 package content.activity.blastfurnace
 
 import TestUtils
-import content.minigame.blastfurnace.BlastFurnace
-import core.api.consts.Items
 import content.global.skill.production.smithing.data.Bar
+import content.minigame.blastfurnace.BFPlayerState
+import content.minigame.blastfurnace.BlastFurnace
 import core.api.addItem
 import core.api.amountInInventory
+import core.api.setVarbit
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
+import core.api.consts.Items
 
-/**
- * Blast Furnace player state tests.
- */
 class BFPlayerStateTests {
-    init {
-        TestUtils.preTestSetup()
-    }
+    init { TestUtils.preTestSetup() }
 
-    /**
-     * Process ore into bars should do nothing if bars not cooled.
-     */
-    @Test
-    fun processOreIntoBarsShouldDoNothingIfBarsNotCooled() {
+    @Test fun processOreIntoBarsShouldDoNothingIfBarsNotCooled() {
         TestUtils.getMockPlayer("bf-barsnotcooled").use { p ->
             val state = BlastFurnace.getPlayerState(p)
             state.container.addOre(Items.IRON_ORE_440, 28)
@@ -36,11 +29,7 @@ class BFPlayerStateTests {
         }
     }
 
-    /**
-     * Process ore into bars should do nothing if bars unchecked.
-     */
-    @Test
-    fun processOreIntoBarsShouldDoNothingIfBarsUnchecked() {
+    @Test fun processOreIntoBarsShouldDoNothingIfBarsUnchecked() {
         TestUtils.getMockPlayer("bf-barsnotchecked").use { p ->
             val state = BlastFurnace.getPlayerState(p)
             state.container.addOre(Items.IRON_ORE_440, 28)
@@ -58,11 +47,7 @@ class BFPlayerStateTests {
         }
     }
 
-    /**
-     * Should be able to claim bars.
-     */
-    @Test
-    fun shouldBeAbleToClaimBars() {
+    @Test fun shouldBeAbleToClaimBars() {
         TestUtils.getMockPlayer("bf-barclaiminig").use { p ->
             val state = BlastFurnace.getPlayerState(p)
             state.container.addOre(Items.IRON_ORE_440, 28)
@@ -75,11 +60,7 @@ class BFPlayerStateTests {
         }
     }
 
-    /**
-     * Should not be able to claim more bars than free inventory slots.
-     */
-    @Test
-    fun shouldNotBeAbleToClaimMoreBarsThanFreeInventorySlots() {
+    @Test fun shouldNotBeAbleToClaimMoreBarsThanFreeInventorySlots() {
         TestUtils.getMockPlayer("bf-claimbarslessslots").use { p ->
             val state = BlastFurnace.getPlayerState(p)
             state.container.addOre(Items.IRON_ORE_440, 28)
@@ -94,11 +75,7 @@ class BFPlayerStateTests {
         }
     }
 
-    /**
-     * Claim bars should do nothing and grant no item if inventory full.
-     */
-    @Test
-    fun claimBarsShouldDoNothingAndGrantNoItemIfInventoryFull() {
+    @Test fun claimBarsShouldDoNothingAndGrantNoItemIfInventoryFull() {
         TestUtils.getMockPlayer("bf-claimbarsnoslots").use { p ->
             val state = BlastFurnace.getPlayerState(p)
             state.container.addOre(Items.IRON_ORE_440, 28)
@@ -113,11 +90,7 @@ class BFPlayerStateTests {
         }
     }
 
-    /**
-     * Claim bars should do nothing if bars not cooled.
-     */
-    @Test
-    fun claimBarsShouldDoNothingIfBarsNotCooled() {
+    @Test fun claimBarsShouldDoNothingIfBarsNotCooled() {
         TestUtils.getMockPlayer("bf-claimbarsnotcooled").use { p ->
             val state = BlastFurnace.getPlayerState(p)
             state.container.addOre(Items.IRON_ORE_440, 28)

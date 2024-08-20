@@ -1,30 +1,23 @@
 package content
 
 import TestUtils
-import core.api.consts.Items
-import core.api.consts.NPCs
 import content.global.handlers.npc.ChromaticDragonBehavior
 import core.ServerConstants
 import core.api.utils.NPCDropTable
 import core.api.utils.WeightedItem
 import core.game.node.entity.npc.NPC
 import core.game.node.entity.skill.Skills
+import core.game.node.item.Item
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
+import core.api.consts.Items
+import core.api.consts.NPCs
 
-/**
- * Drop table tests.
- */
 class DropTableTests {
     init {
         TestUtils.preTestSetup()
     }
-
-    /**
-     * Chromatic dragons should drop eggs only after99summoning.
-     */
-    @Test
-    fun chromaticDragonsShouldDropEggsOnlyAfter99Summoning() {
+    @Test fun chromaticDragonsShouldDropEggsOnlyAfter99Summoning() {
         val npc = NPC.create(NPCs.BLACK_DRAGON_54, ServerConstants.HOME_LOCATION)
         val oldTable = npc.definition.dropTables.table
 

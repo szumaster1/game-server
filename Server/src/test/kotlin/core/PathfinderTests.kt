@@ -6,59 +6,48 @@ import content.global.skill.gathering.woodcutting.WoodcuttingListener
 import core.api.log
 import core.cache.def.impl.NPCDefinition
 import core.game.interaction.*
+import core.game.node.scenery.Scenery
+import core.game.world.map.Location
+import core.game.world.map.RegionManager
+import org.junit.jupiter.api.Assertions
+import org.junit.jupiter.api.Test
 import core.game.node.Node
 import core.game.node.entity.impl.PulseType
 import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
-import core.game.node.scenery.Scenery
 import core.game.world.GameWorld
-import core.game.world.map.Location
-import core.game.world.map.RegionManager
+import core.game.world.map.Region
+import core.network.packet.PacketProcessor
+import core.plugin.ClassScanner
 import core.plugin.Plugin
 import core.tools.Log
-import org.junit.jupiter.api.Assertions
-import org.junit.jupiter.api.Test
+import core.api.consts.NPCs
 
-/**
- * Pathfinder tests.
- */
 class PathfinderTests {
-    companion object {init {
-        TestUtils.preTestSetup(); GatheringListener().defineListeners(); WoodcuttingListener().defineListeners()
-    };
-        val NPC_TEST_LOC = ServerConstants.HOME_LOCATION!!.transform(2, 10, 0)
-    }
+    companion object {init {TestUtils.preTestSetup(); GatheringListener().defineListeners(); WoodcuttingListener().defineListeners() }; val NPC_TEST_LOC = ServerConstants.HOME_LOCATION!!.transform(2, 10, 0)}
 
-    /**
-     * Get occupied tiles should return correct set of tiles that an object occupies at all rotations.
-     */
-    @Test
-    fun getOccupiedTilesShouldReturnCorrectSetOfTilesThatAnObjectOccupiesAtAllRotations() {
+    @Test fun getOccupiedTilesShouldReturnCorrectSetOfTilesThatAnObjectOccupiesAtAllRotations() {
         //clay fireplace - 13609 - sizex: 1, sizey: 2
         val scenery = Scenery(13609, Location.create(50, 50, 0))
 
         scenery.rotation = 0
         val occupiedAt0 = scenery.occupiedTiles.toTypedArray()
-        Assertions.assertArrayEquals(arrayOf(Location.create(50, 50), Location.create(50, 51)), occupiedAt0)
+        Assertions.assertArrayEquals(arrayOf(Location.create(50, 50), Location.create(50,51)), occupiedAt0)
 
         scenery.rotation = 1
         val occupiedAt1 = scenery.occupiedTiles.toTypedArray()
-        Assertions.assertArrayEquals(arrayOf(Location.create(50, 50), Location.create(51, 50)), occupiedAt1)
+        Assertions.assertArrayEquals(arrayOf(Location.create(50,50), Location.create(51,50)), occupiedAt1)
 
         scenery.rotation = 2
         val occupiedAt2 = scenery.occupiedTiles.toTypedArray()
-        Assertions.assertArrayEquals(arrayOf(Location.create(50, 50), Location.create(50, 49)), occupiedAt2)
+        Assertions.assertArrayEquals(arrayOf(Location.create(50,50), Location.create(50,49)), occupiedAt2)
 
         scenery.rotation = 3
         val occupiedAt3 = scenery.occupiedTiles.toTypedArray()
-        Assertions.assertArrayEquals(arrayOf(Location.create(50, 50), Location.create(49, 50)), occupiedAt3)
+        Assertions.assertArrayEquals(arrayOf(Location.create(50,50), Location.create(49,50)), occupiedAt3)
     }
 
-    /**
-     * Movement pulse should stop early if next to a tile occupied by target object.
-     */
-    @Test
-    fun movementPulseShouldStopEarlyIfNextToATileOccupiedByTargetObject() {
+    @Test fun movementPulseShouldStopEarlyIfNextToATileOccupiedByTargetObject() {
         val start = Location.create(2731, 3481)
         val dest = RegionManager.getObject(0, 2720, 3475, 1307)
         val p = TestUtils.getMockPlayer("treefindtest")
@@ -70,23 +59,15 @@ class PathfinderTests {
         Assertions.assertEquals(Location.create(2722, 3475, 0), p.location)
     }
 
-    /**
-     * Movement interaction should trigger.
-     */
-    @Test
-    fun movementInteractionShouldTrigger() {
+    @Test fun movementInteractionShouldTrigger() {
         val npc = NPC.create(0, NPC_TEST_LOC)
         npc.init()
 
         var intListenerRan = false
-        InteractionListeners.add(
-            0,
-            IntType.NPC.ordinal,
-            arrayOf("testoptlistener"),
-            method = { player: Player, node: Node ->
-                intListenerRan = true
-                return@add true
-            })
+        InteractionListeners.add(0, IntType.NPC.ordinal, arrayOf("testoptlistener"), method = {player: Player, node: Node ->
+            intListenerRan = true
+            return@add true
+        })
 
         var pluginRan = false
         val option = Option("testoption", 4)
@@ -96,7 +77,6 @@ class PathfinderTests {
                 NPCDefinition.forId(0).handlers["option:testoption"] = this
                 return this
             }
-
             override fun handle(player: Player?, node: Node?, option: String?): Boolean {
                 pluginRan = true
                 return true
@@ -107,7 +87,7 @@ class PathfinderTests {
         npc.interaction.set(option2)
         option.handler = testHandler
 
-        TestUtils.getMockPlayer("interactionTest").use { p ->
+        TestUtils.getMockPlayer("interactionTest").use {p ->
             p.location = ServerConstants.HOME_LOCATION
             TestUtils.simulateInteraction(p, npc, 0)
             TestUtils.advanceTicks(10, false)
@@ -119,12 +99,8 @@ class PathfinderTests {
         }
     }
 
-    /**
-     * Entity moving to stationary NPC should not idle indefinitely.
-     */
-    @Test
-    fun entityMovingToStationaryNPCShouldNotIdleIndefinitely() {
-        TestUtils.getMockPlayer("idlenpcdest").use { p ->
+    @Test fun entityMovingToStationaryNPCShouldNotIdleIndefinitely() {
+        TestUtils.getMockPlayer("idlenpcdest").use {p ->
             val startLoc = ServerConstants.HOME_LOCATION
             p.location = startLoc
             val npc = NPC.create(0, NPC_TEST_LOC)
@@ -140,12 +116,8 @@ class PathfinderTests {
         }
     }
 
-    /**
-     * Entity target movement pulse should not stop on same tile as entity.
-     */
-    @Test
-    fun entityTargetMovementPulseShouldNotStopOnSameTileAsEntity() {
-        TestUtils.getMockPlayer("entitystoptest").use { p ->
+    @Test fun entityTargetMovementPulseShouldNotStopOnSameTileAsEntity() {
+        TestUtils.getMockPlayer("entitystoptest").use {p ->
             p.location = ServerConstants.HOME_LOCATION
             val npc = NPC.create(0, NPC_TEST_LOC)
             npc.isNeverWalks = true
@@ -161,11 +133,7 @@ class PathfinderTests {
         }
     }
 
-    /**
-     * Entity target movement pulse with explicit params should not stop on same tile.
-     */
-    @Test
-    fun entityTargetMovementPulseWithExplicitParamsShouldNotStopOnSameTile() {
+    @Test fun entityTargetMovementPulseWithExplicitParamsShouldNotStopOnSameTile() {
         TestUtils.getMockPlayer("entitystoptest2").use { p ->
             p.location = ServerConstants.HOME_LOCATION
             val npc = NPC.create(0, NPC_TEST_LOC)
@@ -182,11 +150,7 @@ class PathfinderTests {
         }
     }
 
-    /**
-     * Double movement pulse to entity should not stop on same tile.
-     */
-    @Test
-    fun doubleMovementPulseToEntityShouldNotStopOnSameTile() {
+    @Test fun doubleMovementPulseToEntityShouldNotStopOnSameTile() {
         TestUtils.getMockPlayer("entitystoptest3").use { p ->
             p.location = ServerConstants.HOME_LOCATION
             val npc = NPC.create(0, NPC_TEST_LOC)
@@ -209,17 +173,12 @@ class PathfinderTests {
         }
     }
 
-    /**
-     * Simulated interaction packet with movement from plugin should not end on same tile.
-     */
-    @Test
-    fun simulatedInteractionPacketWithMovementFromPluginShouldNotEndOnSameTile() {
+    @Test fun simulatedInteractionPacketWithMovementFromPluginShouldNotEndOnSameTile() {
         val testHandler = object : OptionHandler() {
             override fun newInstance(arg: Any?): Plugin<Any> {
                 NPCDefinition.forId(0).handlers["option:testoption"] = this
                 return this
             }
-
             override fun handle(player: Player?, node: Node?, option: String?): Boolean {
                 log(this::class.java, Log.ERR, "Interaction triggered")
                 return true
@@ -243,22 +202,14 @@ class PathfinderTests {
         }
     }
 
-    /**
-     * Simulated interaction packet with movement from listener should not end on same tile.
-     */
-    @Test
-    fun simulatedInteractionPacketWithMovementFromListenerShouldNotEndOnSameTile() {
+    @Test fun simulatedInteractionPacketWithMovementFromListenerShouldNotEndOnSameTile() {
         val npc = NPC.create(0, NPC_TEST_LOC)
         npc.isNeverWalks = true
         npc.init()
 
-        InteractionListeners.add(
-            0,
-            IntType.NPC.ordinal,
-            arrayOf("testoptlistener2"),
-            method = { player: Player, node: Node ->
-                return@add true
-            })
+        InteractionListeners.add(0, IntType.NPC.ordinal, arrayOf("testoptlistener2"), method = {player: Player, node: Node ->
+            return@add true
+        })
         val opt = Option("testoptlistener2", 1)
         npc.interaction.set(opt)
 
@@ -272,11 +223,7 @@ class PathfinderTests {
         }
     }
 
-    /**
-     * Npc should reliably return to spawn location if too far.
-     */
-    @Test
-    fun npcShouldReliablyReturnToSpawnLocationIfTooFar() {
+    @Test fun npcShouldReliablyReturnToSpawnLocationIfTooFar() {
         //spawn a player into the area just to make sure it ticks...
         TestUtils.getMockPlayer("areatest").use { p ->
             val npc = NPC(1, Location.create(3240, 3226, 0))
@@ -292,11 +239,7 @@ class PathfinderTests {
         }
     }
 
-    /**
-     * Npc should reliably return to spawn even if region unloaded.
-     */
-    @Test
-    fun npcShouldReliablyReturnToSpawnEvenIfRegionUnloaded() {
+    @Test fun npcShouldReliablyReturnToSpawnEvenIfRegionUnloaded() {
         //spawn a player into the area just to make sure it ticks...
         TestUtils.getMockPlayer("areaunloadtest").use { p ->
             val npc = NPC(1, Location.create(3240, 3226, 0))

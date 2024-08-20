@@ -51,48 +51,19 @@ object EvilTwinUtils {
     // Variables
     var success = false
     var tries = 3
-    var offsetX = 0
-    var offsetY = 0
+    const val offsetX = 0
+    const val offsetY = 0
 
     var mollyNPC: NPC? = null
     var craneNPC: NPC? = null
     var currentCrane: Scenery? = null
 
     /**
-     * Starts the Evil Twin random event for the player.
-     *
-     * @param player The player starting the event.
-     * @return True if the event was started successfully, false otherwise.
-     */
-    fun start(player: Player): Boolean {
-        region.add(player)
-        region.setMusicId(612)
-        currentCrane = Scenery(14976, region.baseLocation.transform(14, 12, 0), 10, 0)
-        val color: EvilTwinColors = RandomFunction.getRandomElement(EvilTwinColors.values())
-        val model = RandomFunction.random(5)
-        val hash = color.ordinal or (model shl 16)
-        val npcId = getMollyId(hash)
-        setAttribute(player, randomEvent, hash)
-        mollyNPC = NPC.create(npcId, Location.getRandomLocation(player.location, 1, true))
-        mollyNPC!!.init()
-        sendChat(mollyNPC!!, "I need your help, ${player.username}.")
-        mollyNPC!!.faceTemporary(player, 3)
-        setAttribute(player, originalLocation, player.location)
-        queueScript(player, 4, QueueStrength.SOFT) {
-            teleport(player, mollyNPC!!, hash)
-            mollyNPC!!.locks.lockMovement(3000)
-            openDialogue(player, MollyDialogue(3))
-            return@queueScript stopExecuting(player)
-        }
-        return true
-    }
-
-    /**
      * Teleports the player and the NPC to the Evil Twin region.
      *
      * @param player The player to teleport.
-     * @param npc The NPC to teleport.
-     * @param hash The hash value used to identify the Evil Twin.
+     * @param npc    The NPC to teleport.
+     * @param hash   The hash value used to identify the Evil Twin.
      */
     fun teleport(player: Player, npc: NPC, hash: Int) {
         setMinimapState(player, 2)
@@ -112,15 +83,14 @@ object EvilTwinUtils {
      * @param player The player to clean up.
      */
     fun cleanup(player: Player) {
-        craneNPC = null
-        success = false
-        mollyNPC!!.clear()
+        player.properties.teleportLocation = getAttribute(player, originalLocation, null)
         PlayerCamera(player).reset()
         restoreTabs(player)
-        player.properties.teleportLocation = getAttribute(player, originalLocation, null)
         setMinimapState(player, 0)
-        removeAttributes(player, randomEvent, originalLocation, crane_x_loc, crane_y_loc)
+        craneNPC = null
+        success = false
         clearLogoutListener(player, logout)
+        removeAttributes(player, randomEvent, originalLocation, crane_x_loc, crane_y_loc)
     }
 
     /**
@@ -143,7 +113,7 @@ object EvilTwinUtils {
      *
      * @param player The player.
      * @param entity The entity.
-     * @param last The last location.
+     * @param last   The last location.
      */
     fun locationUpdate(player: Player, entity: Entity, last: Location?) {
         if (entity == craneNPC && entity.walkingQueue.queue.size > 1 && player.interfaceManager.singleTab != null) {
@@ -164,8 +134,8 @@ object EvilTwinUtils {
      * Updates the camera view of the crane.
      *
      * @param player The player.
-     * @param x The x-coordinate of the crane.
-     * @param y The y-coordinate of the crane.
+     * @param x      The x-coordinate of the crane.
+     * @param y      The y-coordinate of the crane.
      */
     fun updateCraneCam(player: Player, x: Int, y: Int) {
         if (player.interfaceManager.singleTab != null) {
@@ -181,7 +151,7 @@ object EvilTwinUtils {
     /**
      * Moves the crane in the specified direction.
      *
-     * @param player The player.
+     * @param player    The player.
      * @param direction The direction to move the crane.
      */
     fun moveCrane(player: Player, direction: Direction) {
@@ -225,7 +195,7 @@ object EvilTwinUtils {
     /**
      * Checks if an NPC is the Evil Twin.
      *
-     * @param npc The NPC to check.
+     * @param npc  The NPC to check.
      * @param hash The hash value used to identify the Evil Twin.
      * @return True if the NPC is the Evil Twin, false otherwise.
      */

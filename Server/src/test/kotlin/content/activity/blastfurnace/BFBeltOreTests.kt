@@ -3,23 +3,14 @@ package content.activity.blastfurnace
 import TestUtils
 import content.minigame.blastfurnace.BFBeltOre
 import content.minigame.blastfurnace.BlastFurnace
-import core.api.consts.Items
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
+import core.api.consts.Items
 
-/**
- * Blast Furnace ore tests.
- */
 class BFBeltOreTests {
-    init {
-        TestUtils.preTestSetup()
-    }
+    init {TestUtils.preTestSetup()}
 
-    /**
-     * Ore should move closer to pot when ticked.
-     */
-    @Test
-    fun oreShouldMoveCloserToPotWhenTicked() {
+    @Test fun oreShouldMoveCloserToPotWhenTicked() {
         TestUtils.getMockPlayer("bf-oremove-test").use { p ->
             p.location = BFBeltOre.ORE_START_LOC
             val ore = BlastFurnace.addOreToBelt(p, Items.IRON_ORE_440, 5)
@@ -37,11 +28,7 @@ class BFBeltOreTests {
         }
     }
 
-    /**
-     * Ore should be added to ore container after reaching end.
-     */
-    @Test
-    fun oreShouldBeAddedToOreContainerAfterReachingEnd() {
+    @Test fun oreShouldBeAddedToOreContainerAfterReachingEnd() {
         TestUtils.getMockPlayer("bf-oremoveadd-test").use { p ->
             p.location = BFBeltOre.ORE_START_LOC
             val ore = BlastFurnace.addOreToBelt(p, Items.IRON_ORE_440, 5)
