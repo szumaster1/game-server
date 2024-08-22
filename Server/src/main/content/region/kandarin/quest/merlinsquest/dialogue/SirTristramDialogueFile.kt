@@ -8,7 +8,10 @@ import core.game.node.entity.npc.NPC
 import core.tools.END_DIALOGUE
 
 /**
- * Represents the Sir tristram dialogue file.
+ * Represents the Sir Tristram dialogue file.
+ *
+ * Related to [Merlin Crystal][content.region.kandarin.quest.merlinsquest.MerlinCrystal] quest.
+ * @author lostmyphat
  */
 class SirTristramDialogueFile : DialogueFile() {
 

@@ -13,8 +13,12 @@ import core.tools.END_DIALOGUE
 
 /**
  * Represents the Crate dialogue file.
+ *
+ * Related to [Merlin Crystal][content.region.kandarin.quest.merlinsquest.MerlinCrystal] quest.
+ * @author lostmyphat
  */
 class CrateDialogueFile : DialogueFile() {
+
     override fun handle(componentID: Int, buttonID: Int) {
 
         when (stage) {

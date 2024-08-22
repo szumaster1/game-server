@@ -17,6 +17,9 @@ import core.tools.secondsToTicks
 
 /**
  * Represents the Sir percival holy grail dialogue file.
+ *
+ * Related to [Holy Grail][content.region.kandarin.quest.holygrail.HolyGrail] quest.
+ * @author lostmyphat
  */
 class SirPercivalHolyGrailDialogueFile(val interactionType: String) : DialogueFile() {
 

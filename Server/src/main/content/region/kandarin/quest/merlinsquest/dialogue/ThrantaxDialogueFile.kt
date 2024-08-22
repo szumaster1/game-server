@@ -19,6 +19,9 @@ import core.tools.END_DIALOGUE
 
 /**
  * Represents the Thrantax dialogue file.
+ *
+ * Related to [Merlin Crystal][content.region.kandarin.quest.merlinsquest.MerlinCrystal] quest.
+ * @author lostmyphat
  */
 class ThrantaxDialogueFile : DialogueFile() {
 
@@ -41,10 +44,12 @@ class ThrantaxDialogueFile : DialogueFile() {
             2 -> {
                 shuffled = options.toMutableList().apply { shuffle() }.toTypedArray()
 
-                sendDialogueOptions(player!!, "Select an Option",
+                sendDialogueOptions(
+                    player!!, "Select an Option",
                     shuffled[0],
                     shuffled[1],
-                    shuffled[2])
+                    shuffled[2]
+                )
                 stage++
             }
 
@@ -91,8 +96,10 @@ class ThrantaxDialogueFile : DialogueFile() {
             9 -> playerl(FacialExpression.SCARED, "I wish to free Merlin from his giant crystal!").also { stage++ }
             10 -> npcl(FacialExpression.OLD_HAPPY, "GRAAAAAARGH!").also { stage++ }
             11 -> npcl(FacialExpression.OLD_HAPPY, "the deed is done.").also { stage++ }
-            12 -> npc(FacialExpression.OLD_HAPPY,"Thou mayst now shatter Merlins' crystal with", "excalibur, ").also { stage++ }
-            13 -> npc(FacialExpression.OLD_HAPPY, "and I can once more rest. Begone! And leave me once","more in peace.").also { stage++ }
+            12 -> npc(FacialExpression.OLD_HAPPY, "Thou mayst now shatter Merlins' crystal with", "excalibur, ").also { stage++ }
+
+            13 -> npc(FacialExpression.OLD_HAPPY, "and I can once more rest. Begone! And leave me once", "more in peace.").also { stage++ }
+
             14 -> {
                 setQuestStage(player!!, "Merlin's Crystal", 50)
                 disappear(player!!)
@@ -104,9 +111,9 @@ class ThrantaxDialogueFile : DialogueFile() {
     }
 
     /**
-     * Disappear
+     * Disappears the Thrantax.
      *
-     * @param player
+     * @param player The player whose Thrantax NPC is to be removed.
      */
     fun disappear(player: Player) {
         val thrantax = player.getAttribute<ThrantaxNPC>(MerlinUtils.TEMP_ATTR_THRANTAX, null)
@@ -117,9 +124,9 @@ class ThrantaxDialogueFile : DialogueFile() {
     }
 
     /**
-     * Attack player
+     * Thrantax attacks the player.
      *
-     * @param player
+     * @param player The player to be attacked by the NPC.
      */
     fun attackPlayer(player: Player) {
         val thrantax = player.getAttribute<NPC>(MerlinUtils.TEMP_ATTR_THRANTAX, null)
@@ -130,10 +137,10 @@ class ThrantaxDialogueFile : DialogueFile() {
     }
 
     /**
-     * Init thrantax
+     * Initializes the Thrantax NPC for the player, optionally checking for its existence.
      *
-     * @param player
-     * @param checkMissing
+     * @param player The player for whom the Thrantax NPC is to be initialized.
+     * @param checkMissing A flag indicating whether to check for an existing Thrantax NPC.
      */
     fun initThrantax(player: Player, checkMissing: Boolean) {
         if (checkMissing) {
@@ -148,9 +155,9 @@ class ThrantaxDialogueFile : DialogueFile() {
     }
 
     /**
-     * Spawn
+     * Spawns a Thrantax NPC for the player.
      *
-     * @param player
+     * @param player The player for whom the Thrantax NPC is to be spawned.
      */
     fun spawn(player: Player) {
         var thrantax = ThrantaxNPC(NPCs.THRANTAX_THE_MIGHTY_238, Location(2780, 3515, 0))

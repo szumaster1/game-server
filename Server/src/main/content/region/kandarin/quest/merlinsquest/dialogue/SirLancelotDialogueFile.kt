@@ -10,7 +10,10 @@ import core.game.node.entity.npc.NPC
 import core.tools.END_DIALOGUE
 
 /**
- * Represents the Sir lancelot dialogue file.
+ * Represents the Sir Lancelot dialogue file.
+ *
+ * Related to [Merlin Crystal][content.region.kandarin.quest.merlinsquest.MerlinCrystal] quest.
+ * @author lostmyphat
  */
 class SirLancelotDialogueFile : DialogueFile() {
 

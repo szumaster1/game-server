@@ -8,7 +8,10 @@ import core.game.node.entity.player.Player
 import core.game.world.map.Location
 
 /**
- * Beggar NPC.
+ * Represents the Beggar NPC.
+ *
+ * Related to [Merlin Crystal][content.region.kandarin.quest.merlinsquest.MerlinCrystal] quest.
+ * @author lostmyphat
  */
 class BeggarNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id, location) {
     var spawnedTicks = 0

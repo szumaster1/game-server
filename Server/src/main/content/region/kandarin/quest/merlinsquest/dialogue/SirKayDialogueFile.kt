@@ -13,7 +13,10 @@ import core.game.node.entity.player.link.diary.DiaryType
 import core.tools.END_DIALOGUE
 
 /**
- * Represents the Sir kay dialogue file.
+ * Represents the Sir Kay dialogue file.
+ *
+ * Related to [Merlin Crystal][content.region.kandarin.quest.merlinsquest.MerlinCrystal] quest.
+ * @author lostmyphat
  */
 class SirKayDialogueFile : DialogueFile() {
 

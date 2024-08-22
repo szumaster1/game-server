@@ -9,7 +9,10 @@ import core.game.node.entity.player.Player
 import core.game.world.map.Location
 
 /**
- * Morgan le faye NPC.
+ * Represents the Morgan Le Faye NPC.
+ *
+ * Related to [Merlin Crystal][content.region.kandarin.quest.merlinsquest.MerlinCrystal] quest.
+ * @author lostmyphat
  */
 class MorganLeFayeNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id, location) {
     var spawnedTicks = 0

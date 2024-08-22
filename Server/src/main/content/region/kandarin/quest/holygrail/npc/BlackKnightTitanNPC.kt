@@ -8,6 +8,8 @@ import core.plugin.Initializable
 
 /**
  * Black knight titan NPC.
+ *
+ * Related to [Holy Grail][content.region.kandarin.quest.holygrail.HolyGrail] quest.
  */
 @Initializable
 class BlackKnightTitanNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id, location) {

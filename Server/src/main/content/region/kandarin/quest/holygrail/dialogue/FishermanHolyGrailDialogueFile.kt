@@ -13,6 +13,9 @@ import core.tools.END_DIALOGUE
 
 /**
  * Represents the Fisherman holy grail dialogue file.
+ *
+ * Related to [Holy Grail][content.region.kandarin.quest.holygrail.HolyGrail] quest.
+ * @author lostmyphat
  */
 class FishermanHolyGrailDialogueFile : DialogueFile() {
 

@@ -12,6 +12,9 @@ import core.tools.END_DIALOGUE
 
 /**
  * Represents the Sir gawain holy grail quest dialogue file.
+ *
+ * Related to [Holy Grail][content.region.kandarin.quest.holygrail.HolyGrail] quest.
+ * @author lostmyphat
  */
 class SirGawainHolyGrailQuestDialogueFile  : DialogueFile() {
 

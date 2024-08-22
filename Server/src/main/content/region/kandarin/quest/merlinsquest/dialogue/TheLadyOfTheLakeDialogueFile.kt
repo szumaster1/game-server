@@ -14,7 +14,10 @@ import core.game.node.item.Item
 import core.tools.END_DIALOGUE
 
 /**
- * Represents the The lady of the lake dialogue file.
+ * Represents the Lady of The Lake dialogue file.
+ *
+ * Related to [Merlin Crystal][content.region.kandarin.quest.merlinsquest.MerlinCrystal] quest.
+ * @author lostmyphat
  */
 class TheLadyOfTheLakeDialogueFile : DialogueFile() {
 

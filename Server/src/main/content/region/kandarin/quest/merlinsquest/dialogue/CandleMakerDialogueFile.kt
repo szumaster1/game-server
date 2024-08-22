@@ -12,7 +12,10 @@ import core.game.node.item.Item
 import core.tools.END_DIALOGUE
 
 /**
- * Represents the Candle maker dialogue file.
+ * Represents the Candle Maker dialogue file.
+ *
+ * Related to [Merlin Crystal][content.region.kandarin.quest.merlinsquest.MerlinCrystal] quest.
+ * @author lostmyphat
  */
 class CandleMakerDialogueFile : DialogueFile() {
 

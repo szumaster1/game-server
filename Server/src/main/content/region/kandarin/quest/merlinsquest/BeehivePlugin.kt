@@ -21,7 +21,8 @@ import core.plugin.Initializable
 import core.plugin.Plugin
 
 /**
- * Beehive plugin.
+ * Handles Beehive interaction.
+ *
  */
 @Initializable
 class BeehivePlugin : OptionHandler() {
@@ -74,6 +75,11 @@ class BeehivePlugin : OptionHandler() {
         }
     }
 
+    /**
+     * Merlin crystal item handler
+     *
+     * @constructor Create empty Merlin crystal item handler
+     */
     private inner class MerlinCrystalItemHandler : UseWithHandler(REPELLANT.id, BUCKET.id) {
 
         private val OBJECTS = intArrayOf(68)
@@ -90,11 +96,16 @@ class BeehivePlugin : OptionHandler() {
             val useditem = event.usedItem
             val `object` = event.usedWith as Scenery
 
-            if (useditem != null && player.getAttribute("cleared-beehives", false) && useditem.id == REPELLANT.id && `object`.id == 68) {
-                sendDialogueLines(player, "You have already cleared the hive of its bees. You can now safely collect wax from the hive.")
+            if (useditem != null && player.getAttribute("cleared-beehives", false) && useditem.id == REPELLANT.id && `object`.id == 68
+            ) {
+                sendDialogueLines(
+                    player,
+                    "You have already cleared the hive of its bees. You can now safely collect wax from the hive."
+                )
             }
 
-            if (useditem != null && useditem.id == REPELLANT.id && `object`.id == 68 && !player.getAttribute("cleared-beehives", false)) {
+            if (useditem != null && useditem.id == REPELLANT.id && `object`.id == 68 && !player.getAttribute("cleared-beehives", false)
+            ) {
                 sendDialogueLines(player, "You pour insect repellent on the beehive. You see the bees leaving the", "hive.")
                 player.setAttribute("cleared-beehives", true)
             }
@@ -103,7 +114,8 @@ class BeehivePlugin : OptionHandler() {
                 player.dialogueInterpreter.sendDialogue("You get some wax from the beehive.")
                 player.inventory.remove(Item(BUCKET.id, 1))
                 player.inventory.add(Item(BUCKET_OF_WAX.id, 1))
-            } else if (useditem != null && useditem.id == BUCKET.id && !player.getAttribute("cleared-beehives", false)) {
+            } else if (useditem != null && useditem.id == BUCKET.id && !player.getAttribute("cleared-beehives", false)
+            ) {
                 sendDialogueLines(player, "It would be dangerous to stick the bucket into the hive while the bees", "are still in it. Perhaps you can clear them out somehow.")
             }
 

@@ -8,7 +8,10 @@ import core.game.node.entity.npc.NPC
 import core.tools.END_DIALOGUE
 
 /**
- * Represents the Sir palomedes dialogue file.
+ * Represents the Sir Palomedes dialogue file.
+ *
+ * Related to [Merlin Crystal][content.region.kandarin.quest.merlinsquest.MerlinCrystal] quest.
+ * @author lostmyphat
  */
 class SirPalomedesDialogueFile : DialogueFile() {
 
@@ -29,27 +32,13 @@ class SirPalomedesDialogueFile : DialogueFile() {
                     }
                 }
             }
-
             1 -> playerl(FacialExpression.NEUTRAL, "I'd like some advice on finding a quest.").also { stage++ }
             2 -> npcl(FacialExpression.NEUTRAL, "I do not know of any myself... but it would perhaps be worth your while asking the King if he has any tasks for you.").also { stage = END_DIALOGUE }
-
-
-            10 -> {
-                playerl(FacialExpression.NEUTRAL, "I'd like some advice on breaking that Crystal Merlin's trapped in.")
-                stage++
-            }
-
-            11 -> {
-                npcl(FacialExpression.NEUTRAL, "Sorry, I cannot help you with that.")
-                stage = END_DIALOGUE
-            }
-
+            10 -> playerl(FacialExpression.NEUTRAL, "I'd like some advice on breaking that Crystal Merlin's trapped in.").also { stage++ }
+            11 -> npcl(FacialExpression.NEUTRAL, "Sorry, I cannot help you with that.").also { stage = END_DIALOGUE }
             20 -> playerl(FacialExpression.NEUTRAL, "I'd like some advice on breaking into Mordred's fort.").also { stage++ }
             21 -> npcl(FacialExpression.NEUTRAL, "Sorry, I cannot help you with that.").also { stage = END_DIALOGUE }
-
             40 -> playerl(FacialExpression.NEUTRAL, "I'd like some advice on finding Excalibur.").also { stage = 11 }
-
-
         }
     }
 

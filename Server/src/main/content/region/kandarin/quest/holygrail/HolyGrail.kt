@@ -11,7 +11,8 @@ import core.game.world.map.Location
 import core.plugin.Initializable
 
 /**
- * Holy grail quest.
+ * Represents the Holy grail quest.
+ * @author lostmyphat
  */
 @Initializable
 class HolyGrail : Quest("Holy Grail", 76, 75, 1, 5, 0, 1, 10) {

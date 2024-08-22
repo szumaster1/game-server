@@ -14,7 +14,10 @@ import core.game.world.update.flag.context.Graphic
 import core.plugin.Initializable
 
 /**
- * Sir mordred NPC.
+ * Represents the Sir Mordred NPC.
+ *
+ * Related to [Merlin Crystal][content.region.kandarin.quest.merlinsquest.MerlinCrystal] quest.
+ * @author lostmyphat
  */
 @Initializable
 class SirMordredNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id, location) {

@@ -14,7 +14,10 @@ import core.game.world.repository.Repository
 import core.tools.END_DIALOGUE
 
 /**
- * Represents the Morgan le faye dialogue file.
+ * Represents the Morgan Le Faye dialogue file.
+ *
+ * Related to [Merlin Crystal][content.region.kandarin.quest.merlinsquest.MerlinCrystal] quest.
+ * @author lostmyphat
  */
 class MorganLeFayeDialogueFile : DialogueFile() {
 
@@ -95,7 +98,10 @@ class MorganLeFayeDialogueFile : DialogueFile() {
      * Morgan disapear
      *
      * @param sendMessage
-     */
+     *
+ * Related to [Merlin Crystal][content.region.kandarin.quest.merlinsquest.MerlinCrystal] quest.
+ * @author lostmyphat
+ */
     fun morganDisapear(sendMessage: Boolean) {
         val morgan = player!!.getAttribute<NPC>(MerlinUtils.TEMP_ATTR_MORGAN, null)
 

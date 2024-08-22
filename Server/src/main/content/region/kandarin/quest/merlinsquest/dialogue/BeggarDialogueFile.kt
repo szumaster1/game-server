@@ -18,8 +18,12 @@ import core.tools.END_DIALOGUE
 
 /**
  * Represents the Beggar dialogue file.
+ *
+ * Related to [Merlin Crystal][content.region.kandarin.quest.merlinsquest.MerlinCrystal] quest.
+ * @author lostmyphat
  */
 class BeggarDialogueFile(val door: Scenery?) : DialogueFile() {
+
     override fun handle(componentID: Int, buttonID: Int) {
         npc = NPC(NPCs.BEGGAR_252)
 
@@ -120,7 +124,10 @@ class BeggarDialogueFile(val door: Scenery?) : DialogueFile() {
      * Init beggar
      *
      * @param player
-     */
+     *
+ * Related to [Merlin Crystal][content.region.kandarin.quest.merlinsquest.MerlinCrystal] quest.
+ * @author lostmyphat
+ */
     fun initBeggar(player: Player) {
         val beggar = BeggarNPC(NPCs.BEGGAR_252, Location.create(3016, 3247, 0))
         player.setAttribute(MerlinUtils.TEMP_ATTR_BEGGAR, beggar)

@@ -9,7 +9,10 @@ import core.game.world.map.Location
 import core.plugin.Initializable
 
 /**
- * Thrantax NPC.
+ * Represents the Thrantax NPC.
+ *
+ * Related to [Merlin Crystal][content.region.kandarin.quest.merlinsquest.MerlinCrystal] quest.
+ * @author lostmyphat
  */
 @Initializable
 class ThrantaxNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id, location) {

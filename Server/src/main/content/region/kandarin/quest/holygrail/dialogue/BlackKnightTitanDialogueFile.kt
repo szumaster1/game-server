@@ -11,6 +11,9 @@ import core.tools.END_DIALOGUE
 
 /**
  * Represents the Black knight titan dialogue file.
+ *
+ * Related to [Holy Grail][content.region.kandarin.quest.holygrail.HolyGrail] quest.
+ * @author lostmyphat
  */
 class BlackKnightTitanDialogueFile(val forced: Boolean) : DialogueFile() {
     override fun handle(componentID: Int, buttonID: Int) {

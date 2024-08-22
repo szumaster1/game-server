@@ -51,7 +51,7 @@
     <ObjectAction mode="add" id="4176" x="2629" y="3661" z="2" type="4" direction="e"/>
 
     <!-- Bench in Anna Jones NPC location - near sawmill. -->
-    <ObjectAction mode="add" id="23109" x="3285" y="3468" z="0" direction="w"/>
+    <!-- <ObjectAction mode="add" id="23109" x="3285" y="3468" z="0" direction="w"/>  -->
 
     <!-- Wooden Cart - Tree Gnome Stronghold bank. -->
     <ObjectAction mode="add" id="308" x="2458" y="3410" z="0" direction="e"/>

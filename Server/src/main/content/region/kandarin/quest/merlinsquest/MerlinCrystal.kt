@@ -1,9 +1,9 @@
 package content.region.kandarin.quest.merlinsquest
 
+import cfg.consts.Components
 import cfg.consts.Items
 import cfg.consts.Vars
-import core.api.inInventory
-import core.api.removeAttributes
+import core.api.*
 import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.quest.Quest
 import core.plugin.Initializable
@@ -12,7 +12,7 @@ import core.plugin.Initializable
  * Merlin crystal quest.
  */
 @Initializable
-class MerlinCrystalQuest : Quest("Merlin's Crystal", 87, 86, 6, Vars.VARP_QUEST_MERLIN_CRYSTAL_PROGRESS, 0, 1, 7) {
+class MerlinCrystal : Quest("Merlin's Crystal", 87, 86, 6, Vars.VARP_QUEST_MERLIN_CRYSTAL_PROGRESS, 0, 1, 7) {
 
     override fun drawJournal(player: Player, stage: Int) {
         super.drawJournal(player, stage)
@@ -159,17 +159,11 @@ class MerlinCrystalQuest : Quest("Merlin's Crystal", 87, 86, 6, Vars.VARP_QUEST_
 
     override fun finish(player: Player) {
         super.finish(player)
-        player.packetDispatch.sendString("6 Quest Points", 277, 8 + 2)
-        player.packetDispatch.sendString("Excalibur", 277, 9 + 2)
-        player.packetDispatch.sendItemZoomOnInterface(35, 235, 277, 3 + 2)
-        removeAttributes(player,
-            MerlinUtils.ATTR_STATE_ALTAR_FINISH,
-            MerlinUtils.ATTR_STATE_CLAIM_EXCALIBUR,
-            MerlinUtils.ATTR_STATE_TALK_LADY,
-            MerlinUtils.ATTR_STATE_TALK_BEGGAR,
-            MerlinUtils.ATTR_STATE_TALK_CANDLE
-        )
-        player.questRepository.syncronizeTab(player)
+        setInterfaceText(player, "6 Quest Points", 277, 8 + 2)
+        setInterfaceText(player, "Excalibur", 277, 9 + 2)
+        sendItemZoomOnInterface(player, Components.QUEST_COMPLETE_SCROLL_277, 5, Items.EXCALIBUR_35, 235)
+        removeAttributes(player, MerlinUtils.ATTR_STATE_ALTAR_FINISH, MerlinUtils.ATTR_STATE_CLAIM_EXCALIBUR, MerlinUtils.ATTR_STATE_TALK_LADY, MerlinUtils.ATTR_STATE_TALK_BEGGAR, MerlinUtils.ATTR_STATE_TALK_CANDLE)
+        updateQuestTab(player)
     }
 
 }

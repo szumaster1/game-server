@@ -15,6 +15,9 @@ import core.game.world.map.Location
 
 /**
  * Merlin crystal listeners.
+ *
+ * Related to [Merlin Crystal][content.region.kandarin.quest.merlinsquest.MerlinCrystal] quest.
+ * @author lostmyphat
  */
 class MerlinCrystalListeners : InteractionListener {
 
@@ -25,7 +28,11 @@ class MerlinCrystalListeners : InteractionListener {
             if (door.location.x in 2763..2764 && door.location.y in 3401..3402) {
                 // Not valid if we are inside already
                 if (player.location.x >= 2764) {
-                    DoorActionHandler.handleAutowalkDoor(player, node.asScenery(), Location.create(2763, player.location.y, 0))
+                    DoorActionHandler.handleAutowalkDoor(
+                        player,
+                        node.asScenery(),
+                        Location.create(2763, player.location.y, 0)
+                    )
                     return@on true
                 }
 
@@ -53,14 +60,15 @@ class MerlinCrystalListeners : InteractionListener {
             return@on true
         }
         on(NPCs.SIR_MORDRED_247, IntType.NPC, "talk-to") { player, _ ->
-            openDialogue(player, SirModredDialogueFile(), NPCs.MERLIN_249)
+            openDialogue(player, SirMordredDialogueFile(), NPCs.MERLIN_249)
             return@on true
         }
 
         on(NPCs.BEGGAR_252, IntType.NPC, "talk-to") { player, _ ->
             if (getQuestStage(player, "Merlin's Crystal") == 40 &&
                 player.getAttribute(MerlinUtils.ATTR_STATE_TALK_LADY, false) == true &&
-                player.getAttribute(MerlinUtils.TEMP_ATTR_BEGGAR, null) != null) {
+                player.getAttribute(MerlinUtils.TEMP_ATTR_BEGGAR, null) != null
+            ) {
                 openDialogue(player, BeggarDialogueFile(null), NPCs.BEGGAR_252)
                 return@on true
             }
@@ -82,13 +90,18 @@ class MerlinCrystalListeners : InteractionListener {
         on(Scenery.DOOR_59, IntType.SCENERY, "open") { player, door ->
             if (player.getAttribute(MerlinUtils.ATTR_STATE_CLAIM_EXCALIBUR, false) == false) {
                 if (getQuestStage(player, "Merlin's Crystal") == 40 &&
-                        player.getAttribute(MerlinUtils.ATTR_STATE_TALK_LADY, false) == true) {
+                    player.getAttribute(MerlinUtils.ATTR_STATE_TALK_LADY, false) == true
+                ) {
 
                     val talkedToBeggar = player.getAttribute(MerlinUtils.ATTR_STATE_TALK_BEGGAR, false)
                     val dialogueFile = BeggarDialogueFile(door.asScenery())
 
                     if (talkedToBeggar == true) {
-                        DoorActionHandler.handleAutowalkDoor(player, door as core.game.node.scenery.Scenery, Location.create(if (player.location.x < 3016) 3016 else 3015, door.location.y, 0))
+                        DoorActionHandler.handleAutowalkDoor(
+                            player,
+                            door as core.game.node.scenery.Scenery,
+                            Location.create(if (player.location.x < 3016) 3016 else 3015, door.location.y, 0)
+                        )
                     } else {
                         openDialogue(player, dialogueFile, NPCs.BEGGAR_252)
                     }
@@ -98,7 +111,11 @@ class MerlinCrystalListeners : InteractionListener {
                 }
             }
 
-            DoorActionHandler.handleAutowalkDoor(player, door as core.game.node.scenery.Scenery, Location.create(if (player.location.x < 3016) 3016 else 3015, door.location.y, 0))
+            DoorActionHandler.handleAutowalkDoor(
+                player,
+                door as core.game.node.scenery.Scenery,
+                Location.create(if (player.location.x < 3016) 3016 else 3015, door.location.y, 0)
+            )
             return@on true
         }
 
@@ -129,12 +146,12 @@ class MerlinCrystalListeners : InteractionListener {
 
         on(Items.BAT_BONES_530, IntType.ITEM, "drop") { player, node ->
             val merlinStage = getQuestStage(player, "Merlin's Crystal")
-            var doingQuest = merlinStage == 40 && player.getAttribute(MerlinUtils.ATTR_STATE_ALTAR_FINISH, false) == true
+            var doingQuest =
+                merlinStage == 40 && player.getAttribute(MerlinUtils.ATTR_STATE_ALTAR_FINISH, false) == true
 
 
             if (doingQuest) {
-                var hasQuestItems = inInventory(player, Items.LIT_BLACK_CANDLE_32) &&
-                        inInventory(player, Items.EXCALIBUR_35)
+                var hasQuestItems = inInventory(player, Items.LIT_BLACK_CANDLE_32) && inInventory(player, Items.EXCALIBUR_35)
 
                 if (hasQuestItems && player.location == Location(2780, 3515, 0)) {
                     forceWalk(player, Location.create(2778, 3515, 0), "smart")

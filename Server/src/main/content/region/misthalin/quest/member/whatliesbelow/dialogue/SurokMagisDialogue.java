@@ -8,26 +8,22 @@ import core.game.node.entity.npc.NPC;
 import core.game.node.entity.player.Player;
 import core.game.node.entity.player.link.quest.Quest;
 import core.game.world.update.flag.context.Animation;
+import core.plugin.Initializable;
 
 /**
- * Represents the Surok magis dialogue.
+ * Represents the Surok Magis dialogue.
+ * <p>Related to {@link content.region.misthalin.quest.member.whatliesbelow.WhatLiesBelow} quest.
+ * @author Vexia, Nuggles
  */
+@Initializable
 public class SurokMagisDialogue extends Dialogue {
 
     private Quest quest;
     private WhatLiesBelowCutscene cutscene;
 
-    /**
-     * Instantiates a new Surok magis dialogue.
-     */
     public SurokMagisDialogue() {
     }
 
-    /**
-     * Instantiates a new Surok magis dialogue.
-     *
-     * @param player the player
-     */
     public SurokMagisDialogue(Player player) {
         super(player);
     }
@@ -40,7 +36,7 @@ public class SurokMagisDialogue extends Dialogue {
     @Override
     public boolean open(Object... args) {
         npc = (NPC) args[0];
-        quest = player.getQuestRepository().getQuest(WhatLiesBelow.NAME);
+        quest = player.getQuestRepository().getQuest("What Lies Below");
         switch (quest.getStage(player)) {
             default:
                 npc("Excuse me?");
@@ -503,7 +499,7 @@ public class SurokMagisDialogue extends Dialogue {
 
 
     /**
-     * Gets cutscene.
+     * Gets the cutscene.
      *
      * @return the cutscene
      */
@@ -513,9 +509,9 @@ public class SurokMagisDialogue extends Dialogue {
 
 
     /**
-     * Sets cutscene.
+     * Sets the cutscene.
      *
-     * @param cutscene the cutscene
+     * @param cutscene the cutscene to set.
      */
     public void setCutscene(WhatLiesBelowCutscene cutscene) {
         this.cutscene = cutscene;

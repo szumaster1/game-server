@@ -11,7 +11,10 @@ import core.network.packet.context.MinimapStateContext
 import core.network.packet.outgoing.MinimapState
 
 /**
- * Crate cutscene.
+ * Represents the Crate cutscene.
+ *
+ * Related to [Merlin Crystal][content.region.kandarin.quest.merlinsquest.MerlinCrystal] quest.
+ * @author lostmyphat
  */
 class CrateCutscene(player: Player) : Cutscene(player) {
 

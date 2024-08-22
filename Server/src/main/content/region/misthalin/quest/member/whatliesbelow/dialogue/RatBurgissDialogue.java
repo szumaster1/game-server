@@ -8,10 +8,14 @@ import core.game.node.entity.player.Player;
 import core.game.node.entity.player.link.diary.AchievementDiary;
 import core.game.node.entity.player.link.diary.DiaryType;
 import core.game.node.entity.player.link.quest.Quest;
+import core.plugin.Initializable;
 
 /**
- * Represents the Rat burgiss dialogue.
+ * Represents the Rat Burgiss dialogue.
+ * <p>Related to {@link content.region.misthalin.quest.member.whatliesbelow.WhatLiesBelow} quest.
+ * @author Vexia
  */
+@Initializable
 public class RatBurgissDialogue extends Dialogue {
 
     private Quest quest;
@@ -19,18 +23,10 @@ public class RatBurgissDialogue extends Dialogue {
     private boolean isDiary;
     private final int level = 0;
 
-    /**
-     * Instantiates a new Rat burgiss dialogue.
-     *
-     * @param player the player
-     */
     public RatBurgissDialogue(Player player) {
         super(player);
     }
 
-    /**
-     * Instantiates a new Rat burgiss dialogue.
-     */
     public RatBurgissDialogue() {
     }
 
@@ -42,7 +38,7 @@ public class RatBurgissDialogue extends Dialogue {
     @Override
     public boolean open(Object... args) {
         npc = (NPC) args[0];
-        quest = player.getQuestRepository().getQuest(WhatLiesBelow.NAME);
+        quest = player.getQuestRepository().getQuest("What Lies Below");
         options("Hello there!", "I have a question about my Achievement Diary.");
         stage = -1;
         return true;

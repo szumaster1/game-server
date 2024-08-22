@@ -8,7 +8,10 @@ import core.game.node.entity.npc.NPC
 import core.tools.END_DIALOGUE
 
 /**
- * Represents the Sir bedivere dialogue file.
+ * Represents the Sir Bedivere dialogue file.
+ *
+ * Related to [Merlin Crystal][content.region.kandarin.quest.merlinsquest.MerlinCrystal] quest.
+ * @author lostmyphat
  */
 class SirBedivereDialogueFile : DialogueFile() {
 

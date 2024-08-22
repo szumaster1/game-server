@@ -8,6 +8,9 @@ import core.tools.END_DIALOGUE
 
 /**
  * Represents the Healthy peasant holy grail dialogue file.
+ *
+ * Related to [Holy Grail][content.region.kandarin.quest.holygrail.HolyGrail] quest.
+ * @author lostmyphat
  */
 class HealthyPeasantHolyGrailDialogueFile : DialogueFile() {
 

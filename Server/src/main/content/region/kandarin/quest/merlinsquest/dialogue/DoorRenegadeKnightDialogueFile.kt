@@ -9,7 +9,10 @@ import core.game.node.entity.npc.NPC
 import core.tools.END_DIALOGUE
 
 /**
- * Represents the Door renegade knight dialogue file.
+ * Represents the Door Renegade Knight dialogue file.
+ *
+ * Related to [Merlin Crystal][content.region.kandarin.quest.merlinsquest.MerlinCrystal] quest.
+ * @author lostmyphat
  */
 class DoorRenegadeKnightDialogueFile : DialogueFile() {
 

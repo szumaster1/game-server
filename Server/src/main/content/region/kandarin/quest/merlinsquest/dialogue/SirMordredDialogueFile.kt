@@ -8,9 +8,13 @@ import core.game.world.repository.Repository.findNPC
 import core.tools.END_DIALOGUE
 
 /**
- * Represents the Sir modred dialogue file.
+ * Represents the Sir Mordred dialogue file.
+ *
+ * Related to [Merlin Crystal][content.region.kandarin.quest.merlinsquest.MerlinCrystal] quest.
+ * @author lostmyphat
  */
-class SirModredDialogueFile : DialogueFile() {
+class SirMordredDialogueFile : DialogueFile() {
+
     override fun handle(componentID: Int, buttonID: Int) {
         npc = NPC(NPCs.SIR_MORDRED_247)
 

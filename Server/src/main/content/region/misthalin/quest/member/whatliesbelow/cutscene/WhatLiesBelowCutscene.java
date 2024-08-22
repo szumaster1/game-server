@@ -29,27 +29,35 @@ import static core.api.ContentAPIKt.removeAttribute;
 import static core.api.ContentAPIKt.setAttribute;
 
 /**
- * Represents the What lies below cutscene.
+ * Handles the What Lies Below quest cutscene.
+ *
+ * @author Vexia
  */
 public class WhatLiesBelowCutscene extends CutscenePlugin {
-
+    /**
+     * The Surok NPC.
+     */
     private NPC surok;
-
+    /**
+     * The King Roald NPC.
+     */
     private NPC king;
-
+    /**
+     * The Zaff NPC.
+     */
     private NPC zaff;
 
     /**
-     * Instantiates a new What lies below cutscene.
+     * Constructs a new {@code WLBelowCutscene} {@code Object}
      */
     public WhatLiesBelowCutscene() {
         super("What Lies below");
     }
 
     /**
-     * Instantiates a new What lies below cutscene.
+     * Constructs a new {@code WLBelowCutscene} {@code Object}
      *
-     * @param player the player
+     * @param player the player.
      */
     public WhatLiesBelowCutscene(Player player) {
         this();
@@ -178,7 +186,7 @@ public class WhatLiesBelowCutscene extends CutscenePlugin {
     }
 
     /**
-     * Summon zaff.
+     * Summons Zaff NPC.
      */
     public void summonZaff() {
         if (!king.getAttribute("message", false)) {
@@ -223,15 +231,15 @@ public class WhatLiesBelowCutscene extends CutscenePlugin {
     }
 
     /**
-     * Send camera.
+     * Sends the camera on a tick.
      *
-     * @param x1     the x 1
-     * @param y1     the y 1
-     * @param x2     the x 2
-     * @param y2     the y 2
-     * @param height the height
-     * @param speed  the speed
-     * @param ticks  the ticks
+     * @param x1     the x.
+     * @param y1     the y1.
+     * @param x2     the x2.
+     * @param y2     the y2.
+     * @param height the height.
+     * @param speed  the speed.
+     * @param ticks  the ticks.
      */
     public void sendCamera(final int x1, final int y1, final int x2, final int y2, final int height, final int speed, int ticks) {
         GameWorld.getPulser().submit(new Pulse(ticks, player) {
@@ -246,14 +254,10 @@ public class WhatLiesBelowCutscene extends CutscenePlugin {
     }
 
     /**
-     * Send camera.
+     * Sends a camera.
      *
-     * @param x1     the x 1
-     * @param y1     the y 1
-     * @param x2     the x 2
-     * @param y2     the y 2
-     * @param height the height
-     * @param speed  the speed
+     * @param height the height.
+     * @param speed  the speed.
      */
     public void sendCamera(int x1, int y1, int x2, int y2, int height, int speed) {
         PacketRepository.send(CameraViewPacket.class, new CameraContext(player, CameraType.POSITION, player.getLocation().getX() + x1, player.getLocation().getY() + y1, height, 1, speed));
@@ -261,9 +265,9 @@ public class WhatLiesBelowCutscene extends CutscenePlugin {
     }
 
     /**
-     * Reset.
+     * Resets the camera on a tick.
      *
-     * @param ticks the ticks
+     * @param ticks the ticks.
      */
     public void reset(int ticks) {
         GameWorld.getPulser().submit(new Pulse(1, player) {
@@ -278,7 +282,7 @@ public class WhatLiesBelowCutscene extends CutscenePlugin {
     }
 
     /**
-     * Reset.
+     * Resets the camera.
      */
     public void reset() {
         PacketRepository.send(CameraViewPacket.class, new CameraContext(player, CameraType.RESET, 0, 0, 0, 0, 0));
@@ -307,7 +311,7 @@ public class WhatLiesBelowCutscene extends CutscenePlugin {
     }
 
     /**
-     * Gets surok.
+     * Gets the surok.
      *
      * @return the surok
      */
@@ -316,16 +320,16 @@ public class WhatLiesBelowCutscene extends CutscenePlugin {
     }
 
     /**
-     * Sets surok.
+     * Sets the surok.
      *
-     * @param surok the surok
+     * @param surok the surok to set.
      */
     public void setSurok(NPC surok) {
         this.surok = surok;
     }
 
     /**
-     * Gets king.
+     * Gets the king.
      *
      * @return the king
      */
@@ -334,16 +338,16 @@ public class WhatLiesBelowCutscene extends CutscenePlugin {
     }
 
     /**
-     * Sets king.
+     * Sets the baking.
      *
-     * @param king the king
+     * @param king the king to set.
      */
     public void setKing(NPC king) {
         this.king = king;
     }
 
     /**
-     * Gets zaff.
+     * Gets the zaff.
      *
      * @return the zaff
      */
@@ -352,9 +356,9 @@ public class WhatLiesBelowCutscene extends CutscenePlugin {
     }
 
     /**
-     * Sets zaff.
+     * Sets the zaff.
      *
-     * @param zaff the zaff
+     * @param zaff the zaff to set.
      */
     public void setZaff(NPC zaff) {
         this.zaff = zaff;

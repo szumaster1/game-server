@@ -11,7 +11,10 @@ import core.plugin.Initializable
 import core.plugin.Plugin
 
 /**
- * Sir mordred zone.
+ * Represents the Sir Mordred zone area.
+ *
+ * Related to [Merlin Crystal][content.region.kandarin.quest.merlinsquest.MerlinCrystal] quest.
+ * @author lostmyphat
  */
 @Initializable
 class SirMordredZone : MapZone("SirMordredZone",true), Plugin<Any?> {
