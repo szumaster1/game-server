@@ -18,8 +18,8 @@ import core.plugin.Plugin
 class LightLogPlugin : OptionHandler() {
 
     override fun handle(player: Player, node: Node, option: String): Boolean {
-        var barbarianFiremaking = player.getAttribute(BarbarianTraining.BARBARIAN_FIREMAKING_TUTORIAL, false) == true
-        var completeBarbarianFiremaking = player.getAttribute(BarbarianTraining.BARBARIAN_FIREMAKING_COMPLETE, false) == true
+        var barbarianFiremaking = player.getAttribute(BarbarianTraining.FM_BASE, false) == true
+        var completeBarbarianFiremaking = player.getAttribute(BarbarianTraining.FM_FULL, false) == true
 
         if (completeBarbarianFiremaking || barbarianFiremaking) {
             if (!inInventory(player, SkillingTool.getFiremakingTool(player)!!.id)) {

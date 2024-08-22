@@ -20,7 +20,7 @@ class BarbFishingListeners : InteractionListener {
 
     override fun defineListeners() {
         on(barbarianBed, IntType.SCENERY, "search") { player, _ ->
-            if (getAttribute(player, BarbarianTraining.ATTR_BARB_TRAIN_FISHING_BEGIN, false)) {
+            if (getAttribute(player, BarbarianTraining.FISHING_BASE, false)) {
                 if (!inInventory(player, barbarianRod) && freeSlots(player) > 0) {
                     sendMessage(player, "You find a heavy fishing rod under the bed and take it.")
                     addItem(player, barbarianRod)

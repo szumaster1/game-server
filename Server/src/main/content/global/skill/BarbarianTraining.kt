@@ -4,33 +4,50 @@ package content.global.skill
  * Barbarian training.
  */
 object BarbarianTraining {
-
-    // Fishing
-    val ATTR_BARB_TRAIN_FISHING_BEGIN = "barbtraining:fishing-start"
-    val ATTR_BARB_TRAIN_FISHING = "barbtraining:fishing"
-    val ATTR_BARB_TRAIN_FISHING_BAREHAND = "barbtraining:barehand" // NOT USED
-
-    val ATTR_BARB_TRAIN_PYRE_SHIP = "barbtraining:ancients" // NOT USED
-
-    // Herblore
-    val ATTR_BARB_TRAIN_HERBLORE_BEGIN = "barbtraining:herblore-start"
-    val ATTR_BARB_TRAIN_HERBLORE = "barbtraining:herblore"
-
-    // Smithing
-    val ATTR_BARB_TRAIN_SMITHING_BEGIN = "barbtraining:smithing-start" // NOT USED
-    val ATTR_BARB_TRAIN_SMITHING_SPEAR = "barbtraining:smithing-spear" // NOT USED
-    val ATTR_BARB_TRAIN_SMITHING_HASTA = "barbtraining:smithing-hasta" // NOT USED
-
     /*
-     * Barbarian training - base attribute.
+     * Base attribute that you get as soon as you start a conversation.
      */
     val BARBARIAN_TRAINING = "barbtraining:start"
 
-    /*
-     * Barbarian training - firemaking attributes.
+    /**
+     * Barbarian Firemaking.
      */
-    @JvmField
-    val BARBARIAN_FIREMAKING_TUTORIAL = "barbtraining:firemaking-start"
-    @JvmField
-    val BARBARIAN_FIREMAKING_COMPLETE = "barbtraining:firemaking"
+    val FM_BASE = "barbtraining:firemaking-start"
+    val FM_FULL = "barbtraining:firemaking"
+
+    /**
+     * Barbarian Fishing.
+     */
+    val FISHING_BASE = "barbtraining:fishing-start"
+    val FISHING_FULL = "barbtraining:fishing"
+
+    /**
+     * Barbarian barehanded Fishing.
+     */
+    val FISH_BARE_BASE = "barbtraining:barehand" // NOT USED
+    val FISH_BARE_FULL = "barbtraining:barehand" // NOT USED
+
+    /**
+     * Barbarian mixes Herblore.
+     */
+    val HERBLORE_BASE = "barbtraining:herblore-start"
+    val HERBLORE_FULL = "barbtraining:herblore"
+
+    /**
+     * Barbarian entering the Ancient Cavern.
+     */
+    val PYRESHIP_BASE = "barbtraining:ancients-start" // NOT USED
+    val PYRESHIP_FULL = "barbtraining:ancients" // NOT USED
+
+    /**
+     * Barbarian Smithing.
+     */
+    val SPEAR_BASE = "barbtraining:spear-start" // NOT USED
+    val SPEAR_FULL = "barbtraining:spear" // NOT USED
+
+    /**
+     * Barbarian forging hastae.
+     */
+    val HASTA_BASE = "barbtraining:hasta-start" // NOT USED
+    val HASTA_FULL = "barbtraining:hasta" // NOT USED
 }

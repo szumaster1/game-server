@@ -6,6 +6,7 @@ import content.global.handlers.iface.Page
 import content.global.handlers.iface.PageSet
 import content.global.skill.BarbarianTraining
 import cfg.consts.Items
+import core.api.getAttribute
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.entity.player.Player
@@ -19,7 +20,7 @@ class BarbarianBook : InteractionListener {
     companion object {
         private val TITLE = "What Otto told me."
 
-        private val BARB_TRAINING_BASE_PAGE = arrayOf(
+        private val BARB_TRAINING_BASIC_PAGE = arrayOf(
             PageSet(
                 Page(
                     BookLine("I have noted down what Otto", 97),
@@ -32,7 +33,7 @@ class BarbarianBook : InteractionListener {
             )
         )
 
-        private val BARB_FISHING_ROD_TRAINING_START = arrayOf(
+        private val FISHING_BASICS = arrayOf(
             PageSet(
                 Page(
                     BookLine("I have noted down what Otto", 97),
@@ -66,7 +67,7 @@ class BarbarianBook : InteractionListener {
             ),
         )
 
-        private val BARB_FISHING_ROD_TRAINING_COMPLETED = arrayOf(
+        private val FISHING_COMPLETE = arrayOf(
             PageSet(
                 Page(
                     BookLine("I have noted down what Otto", 97),
@@ -110,7 +111,7 @@ class BarbarianBook : InteractionListener {
             )
         )
 
-        private val BARB_FISHING_WITHOUT_HARPOON_START = arrayOf(
+        private val BAREHAND_BASICS = arrayOf(
             PageSet(
                 Page(
                     BookLine(BLUE + "Otto's words on Fishing", 97),
@@ -139,7 +140,7 @@ class BarbarianBook : InteractionListener {
             )
         )
 
-        private val BARB_FISHING_WITHOUT_HARPOON_COMPLETED = arrayOf(
+        private val BAREHAND_COMPLETE = arrayOf(
             PageSet(
                 Page(
                     BookLine("'I sense you have more", 89),
@@ -149,7 +150,7 @@ class BarbarianBook : InteractionListener {
             )
         )
 
-        private val BARB_FIREMAKING_WITH_BOW_START = arrayOf(
+        private val FM_BOW_BASICS = arrayOf(
             PageSet(
                 Page(
                     BookLine("I have noted down what Otto", 97),
@@ -180,7 +181,7 @@ class BarbarianBook : InteractionListener {
             ),
         )
 
-        private val BARB_FIREMAKING_WITH_BOW_COMPLETED = arrayOf(
+        private val FM_BOW_COMPLETE = arrayOf(
             PageSet(
                 Page(
                     BookLine("I have noted down what Otto", 97),
@@ -219,7 +220,7 @@ class BarbarianBook : InteractionListener {
             )
         )
 
-        private val BARB_FISHING_AND_FIREMAKING_COMPLETED = arrayOf(
+        private val FISHING_FM_COMPLETE = arrayOf(
             PageSet(
                 Page(
                     BookLine("I have noted down what Otto", 97),
@@ -227,7 +228,7 @@ class BarbarianBook : InteractionListener {
                     BookLine("that I may not forget my", 69),
                     BookLine("tasks. His instructions are", 70),
                     BookLine("thus faithfully recorded for", 71),
-                    BookLine("posterity. ", 72),
+                    BookLine("posterity.", 72),
                     BookLine(BLUE + "Otto's words on Fishing with", 74),
                     BookLine(BLUE + "rods.", 75),
                     BookLine("'While you civilised folk use", 77),
@@ -289,7 +290,7 @@ class BarbarianBook : InteractionListener {
             )
         )
 
-        private val BARB_FIREMAKING_PYRE_SHIP_TRAINING = arrayOf(
+        private val PYRESHIP_BASICS = arrayOf(
             PageSet(
                 Page(
                     BookLine(BLUE + "Otto's words on Crafting", 97),
@@ -361,7 +362,7 @@ class BarbarianBook : InteractionListener {
                 )
             ),
         )
-        private val BARB_FIREMAKING_PYRE_SHIP_TRAINING_COMPLETED = arrayOf(
+        private val PYRESHIP_COMPLETE = arrayOf(
             PageSet(
                 Page(
                     BookLine("The spirits herald your", 97),
@@ -377,7 +378,7 @@ class BarbarianBook : InteractionListener {
             )
         )
 
-        private val BARB_HERBLORE_TRAINING_START = arrayOf(
+        private val HERBLORE_BASICS = arrayOf(
             PageSet(
                 Page(
                     BookLine(BLUE + "Otto's words on potion", 97),
@@ -414,7 +415,7 @@ class BarbarianBook : InteractionListener {
             ),
         )
 
-        private val BARB_HERBLORE_TRAINING_COMPLETED = arrayOf(
+        private val HERBLORE_COMPLETE = arrayOf(
             PageSet(
                 Page(
                     BookLine(BLUE + "Otto's words on potion", 97),
@@ -458,7 +459,7 @@ class BarbarianBook : InteractionListener {
             ),
         )
 
-        private val BARB_FISHING_FIREMAKING_HERBLORE_COMPLETED = arrayOf(
+        private val FISHING_FM_HERBLORE_COMPLETE = arrayOf(
             PageSet(
                 Page(
                     BookLine("I have noted down what Otto", 97),
@@ -571,7 +572,7 @@ class BarbarianBook : InteractionListener {
             ),
         )
 
-        private val BARB_SMITHING_SPEAR_START_WITHOUT_REQUIREMENTS = arrayOf(
+        private val SMITHING_SPEAR_BASICS_NO_QUEST = arrayOf(
             PageSet(
                 Page(
                     BookLine(BLUE + "Otto's words on Smithing", 97),
@@ -588,7 +589,7 @@ class BarbarianBook : InteractionListener {
                 )
             ),
         )
-        private val BARB_SMITHING_SPEAR_START_MEET_REQUIREMENTS = arrayOf(
+        private val SMITHING_SPEAR_BASICS = arrayOf(
             PageSet(
                 Page(
                     BookLine(BLUE + "Since I have completed this", 97),
@@ -612,7 +613,7 @@ class BarbarianBook : InteractionListener {
                 )
             )
         )
-        private val SMITHING_SPEAR_TRAINING_COMPLETED = arrayOf(
+        private val SMITHING_SPEAR_COMPLETE = arrayOf(
             PageSet(
                 Page(
                     BookLine("'The manufacture of spears is", 97),
@@ -625,7 +626,7 @@ class BarbarianBook : InteractionListener {
             )
         )
 
-        private val BARB_SMITHING_HASTA_TRAINING_START = arrayOf(
+        private val SMITHING_HASTAE_BASICS = arrayOf(
             PageSet(
                 Page(
                     BookLine(BLUE + "Otto's words on one-handed", 97),
@@ -660,7 +661,7 @@ class BarbarianBook : InteractionListener {
             ),
         )
 
-        private val BARB_SMITHING_HASTA_TRAINING_COMPLETED = arrayOf(
+        private val SMITHING_HASTAE_COMPLETE = arrayOf(
             PageSet(
                 Page(
                     BookLine("I see you have constructed", 97),
@@ -674,80 +675,92 @@ class BarbarianBook : InteractionListener {
         )
     }
 
-    private fun displayFishingBaseGuide(player: Player, pageNum: Int, buttonID: Int): Boolean {
-        BookInterfaceListener.pageSetup(player, BookInterfaceListener.FANCY_BOOK_26, TITLE, BARB_FISHING_ROD_TRAINING_START, true)
-        return true
-    }
-
-    private fun displayFishingFullGuide(player: Player, pageNum: Int, buttonID: Int): Boolean {
-        BookInterfaceListener.pageSetup(player, BookInterfaceListener.FANCY_BOOK_26, TITLE, BARB_FISHING_ROD_TRAINING_COMPLETED, true)
-        return true
-    }
-
-    private fun displayFiremakingBaseGuide(player: Player, pageNum: Int, buttonID: Int): Boolean {
-        BookInterfaceListener.pageSetup(player, BookInterfaceListener.FANCY_BOOK_26, TITLE, BARB_FIREMAKING_WITH_BOW_START, true)
-        return true
-    }
-
-    private fun displayFiremakingFullGuide(player: Player, pageNum: Int, buttonID: Int): Boolean {
-        BookInterfaceListener.pageSetup(player, BookInterfaceListener.FANCY_BOOK_26, TITLE, BARB_FIREMAKING_WITH_BOW_COMPLETED, true)
-        return true
-    }
-
-    private fun displayHerbloreBaseGuide(player: Player, pageNum: Int, buttonID: Int): Boolean {
-        BookInterfaceListener.pageSetup(player, BookInterfaceListener.FANCY_BOOK_26, TITLE, BARB_HERBLORE_TRAINING_START, true)
-        return true
-    }
-
-    private fun displayHerbloreFullGuide(player: Player, pageNum: Int, buttonID: Int): Boolean {
-        BookInterfaceListener.pageSetup(player, BookInterfaceListener.FANCY_BOOK_26, TITLE, BARB_HERBLORE_TRAINING_COMPLETED, true)
-        return true
-    }
-
-    private fun displayFishingAndFiremakingFullGuide(player: Player, pageNum: Int, buttonID: Int): Boolean {
-        BookInterfaceListener.pageSetup(player, BookInterfaceListener.FANCY_BOOK_26, TITLE, BARB_FISHING_AND_FIREMAKING_COMPLETED, true)
-        return true
-    }
-
-    private fun displayFishingFiremakingHerbloreFullGuide(player: Player, pageNum: Int, buttonID: Int): Boolean {
-        BookInterfaceListener.pageSetup(player, BookInterfaceListener.FANCY_BOOK_26, TITLE, BARB_FISHING_FIREMAKING_HERBLORE_COMPLETED, true)
-        return true
-    }
-
-    private fun displayDefault(player: Player, pageNum: Int, buttonID: Int): Boolean {
-        BookInterfaceListener.pageSetup(player, BookInterfaceListener.FANCY_BOOK_26, TITLE, BARB_TRAINING_BASE_PAGE, true)
+    /**
+     * Displays a guide page for a player based on the training type.
+     *
+     * @param player The player for whom the guide is being displayed.
+     * @param guideType The type of page to be displayed.
+     */
+    private fun displayGuide(player: Player, guideType: GuideType): Boolean {
+        val guideContent = when (guideType) {
+            GuideType.FISHING_BASE -> FISHING_BASICS
+            GuideType.FISHING_FULL -> FISHING_COMPLETE
+            GuideType.BAREHAND_BASE -> BAREHAND_BASICS
+            GuideType.BAREHAND_FULL -> BAREHAND_COMPLETE
+            GuideType.FIREMAKING_BASE -> FM_BOW_BASICS
+            GuideType.FIREMAKING_FULL -> FM_BOW_COMPLETE
+            GuideType.PYRESHIP_BASE -> PYRESHIP_BASICS
+            GuideType.PYRESHIP_FULL -> PYRESHIP_COMPLETE
+            GuideType.HERBLORE_BASE -> HERBLORE_BASICS
+            GuideType.HERBLORE_FULL -> HERBLORE_COMPLETE
+            GuideType.FISHING_FM_FULL -> FISHING_FM_COMPLETE
+            GuideType.FISHING_FM_HERBLORE_FULL -> FISHING_FM_HERBLORE_COMPLETE
+            GuideType.SMITHING_WITHOUT_REQS -> SMITHING_SPEAR_BASICS_NO_QUEST
+            GuideType.SMITHING_MEETS_REQS -> SMITHING_SPEAR_BASICS
+            GuideType.SMITHING_SPEAR_FULL -> SMITHING_SPEAR_COMPLETE
+            GuideType.SMITHING_HASTAE_BASE -> SMITHING_HASTAE_BASICS
+            GuideType.SMITHING_HASTAE_FULL -> SMITHING_HASTAE_COMPLETE
+            else -> BARB_TRAINING_BASIC_PAGE
+        }
+        BookInterfaceListener.pageSetup(player, BookInterfaceListener.FANCY_BOOK_26, TITLE, guideContent, false)
         return true
     }
 
     override fun defineListeners() {
         on(Items.BARBARIAN_SKILLS_11340, IntType.ITEM, "read") { player, _ ->
-            var fishingBaseAttribute = player.getAttribute(BarbarianTraining.ATTR_BARB_TRAIN_FISHING_BEGIN, false)
-            var fishingCompletedAttribute = player.getAttribute(BarbarianTraining.ATTR_BARB_TRAIN_FISHING, false)
-            var firemakingBaseAttribute = player.getAttribute(BarbarianTraining.BARBARIAN_FIREMAKING_TUTORIAL, false)
-            var firemakingCompletedAttribute = player.getAttribute(BarbarianTraining.BARBARIAN_FIREMAKING_COMPLETE, false)
-            var herbloreBaseAttribute = player.getAttribute(BarbarianTraining.ATTR_BARB_TRAIN_HERBLORE_BEGIN, false)
-            var herbloreCompletedAttribute = player.getAttribute(BarbarianTraining.ATTR_BARB_TRAIN_HERBLORE, false)
-
-            when {
-                // Fishing base.
-                fishingBaseAttribute -> BookInterfaceListener.openBook(player, BookInterfaceListener.FANCY_BOOK_26, ::displayFishingBaseGuide)
-                // Fishing with Firemaking or Fishing full.
-                fishingCompletedAttribute -> BookInterfaceListener.openBook(player, BookInterfaceListener.FANCY_BOOK_26, if (firemakingCompletedAttribute) ::displayFishingAndFiremakingFullGuide else ::displayFishingFullGuide)
-
-                // Firemaking base.
-                firemakingBaseAttribute -> BookInterfaceListener.openBook(player, BookInterfaceListener.FANCY_BOOK_26, ::displayFiremakingBaseGuide)
-                // Firemaking with Fishing or firemaking full.
-                firemakingCompletedAttribute -> BookInterfaceListener.openBook(player, BookInterfaceListener.FANCY_BOOK_26, if (fishingCompletedAttribute) ::displayFishingAndFiremakingFullGuide else ::displayFiremakingFullGuide)
-
-                // Herblore base.
-                herbloreBaseAttribute -> BookInterfaceListener.openBook(player, BookInterfaceListener.FANCY_BOOK_26, ::displayHerbloreBaseGuide)
-                // Herblore full.
-                herbloreCompletedAttribute -> BookInterfaceListener.openBook(player, BookInterfaceListener.FANCY_BOOK_26, ::displayHerbloreFullGuide)
-
-                // Default.
-                else -> BookInterfaceListener.openBook(player, BookInterfaceListener.FANCY_BOOK_26, ::displayDefault)
+            val guideType = when {
+                getAttribute(player, BarbarianTraining.FISHING_BASE, false) -> GuideType.FISHING_BASE
+                getAttribute(player, BarbarianTraining.FISHING_FULL, false) -> {
+                    if (getAttribute(player, BarbarianTraining.FM_FULL, false)) GuideType.FISHING_FM_FULL
+                    else GuideType.FISHING_FULL
+                }
+                getAttribute(player, BarbarianTraining.FM_BASE, false) -> GuideType.FIREMAKING_BASE
+                getAttribute(player, BarbarianTraining.FM_FULL, false) -> {
+                    if (getAttribute(player, BarbarianTraining.PYRESHIP_BASE, false)) GuideType.PYRESHIP_FULL
+                    else GuideType.FIREMAKING_FULL
+                }
+                getAttribute(player, BarbarianTraining.PYRESHIP_BASE, false) -> GuideType.PYRESHIP_BASE
+                getAttribute(player, BarbarianTraining.PYRESHIP_FULL, false) -> GuideType.PYRESHIP_FULL
+                getAttribute(player, BarbarianTraining.HERBLORE_BASE, false) -> GuideType.HERBLORE_BASE
+                getAttribute(player, BarbarianTraining.HERBLORE_FULL, false) -> {
+                    if (getAttribute(player, BarbarianTraining.FISHING_FULL, false) && getAttribute(player, BarbarianTraining.FM_FULL, false)) {
+                        GuideType.FISHING_FM_HERBLORE_FULL
+                    } else GuideType.HERBLORE_FULL
+                }
+                getAttribute(player, BarbarianTraining.SPEAR_BASE, false) -> {
+                    if (getAttribute(player, BarbarianTraining.FISHING_FULL, false)) GuideType.SMITHING_MEETS_REQS
+                    else GuideType.SMITHING_WITHOUT_REQS
+                }
+                getAttribute(player, BarbarianTraining.SPEAR_FULL, false) -> {
+                    if (getAttribute(player, BarbarianTraining.HASTA_BASE, false)) GuideType.SMITHING_HASTAE_BASE
+                    else GuideType.SMITHING_SPEAR_FULL
+                }
+                getAttribute(player, BarbarianTraining.HASTA_FULL, false) -> GuideType.SMITHING_HASTAE_FULL
+                else -> GuideType.DEFAULT
             }
-            return@on true
+            displayGuide(player, guideType)
+            true
         }
     }
+}
+
+enum class GuideType {
+    FISHING_BASE,
+    FISHING_FULL,
+    FIREMAKING_BASE,
+    FIREMAKING_FULL,
+    HERBLORE_BASE,
+    HERBLORE_FULL,
+    FISHING_FM_FULL,
+    FISHING_FM_HERBLORE_FULL,
+    SMITHING_WITHOUT_REQS,
+    SMITHING_MEETS_REQS,
+    SMITHING_SPEAR_FULL,
+    SMITHING_HASTAE_BASE,
+    SMITHING_HASTAE_FULL,
+    PYRESHIP_BASE,
+    PYRESHIP_FULL,
+    BAREHAND_BASE,
+    BAREHAND_FULL,
+    DEFAULT
 }

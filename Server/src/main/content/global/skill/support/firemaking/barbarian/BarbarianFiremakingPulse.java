@@ -7,7 +7,6 @@ import core.api.Container;
 import cfg.consts.Items;
 import core.game.event.LitFireEvent;
 import core.game.node.entity.player.Player;
-import core.game.node.entity.player.info.PlayerDetails;
 import core.game.node.entity.skill.SkillPulse;
 import core.game.node.entity.skill.Skills;
 import core.game.node.item.GroundItem;
@@ -151,9 +150,9 @@ public final class BarbarianFiremakingPulse extends SkillPulse<Item> {
         player.dispatch(new LitFireEvent(fire.getLogId()));
 
         // Check if the player is in the firemaking tutorial.
-        if (getAttribute(player, BarbarianTraining.BARBARIAN_FIREMAKING_TUTORIAL, false)) {
-            removeAttribute(player, BarbarianTraining.BARBARIAN_FIREMAKING_TUTORIAL);
-            setAttribute(player, "/save:${BarbarianTraining.BARBARIAN_FIREMAKING_COMPLETE}", true);
+        if (getAttribute(player, BarbarianTraining.INSTANCE.getFM_BASE(), false)) {
+            removeAttribute(player, BarbarianTraining.INSTANCE.getFM_BASE());
+            setAttribute(player, "/save:barbtraining:firemaking", true);
             sendDialogueLines(player, "You feel you have learned more of barbarian ways. Otto might wish", "to talk to you more.");
         }
     }

@@ -20,7 +20,7 @@ class BarbarianHerbloreListener : InteractionListener {
         for (potion in BarbarianMix.values()) {
             if (potion.isBoth()) {
                 onUseWith(IntType.ITEM, potion.getItem(), Items.ROE_11324) { player, used, with ->
-                    if (getAttribute(player, BarbarianTraining.ATTR_BARB_TRAIN_HERBLORE_BEGIN, false) || getAttribute(player, BarbarianTraining.ATTR_BARB_TRAIN_HERBLORE, false)) {
+                    if (getAttribute(player, BarbarianTraining.HERBLORE_BASE, false) || getAttribute(player, BarbarianTraining.HERBLORE_FULL, false)) {
                         handle(player, used, with)
                     } else {
                         sendMessage(player, "In order to be able to make Barbarian mixes, Otto Godblessed must be talked to.")
@@ -30,7 +30,7 @@ class BarbarianHerbloreListener : InteractionListener {
             }
 
             onUseWith(IntType.ITEM, potion.getItem(), Items.CAVIAR_11326) { player, used, with ->
-                if (getAttribute(player, BarbarianTraining.ATTR_BARB_TRAIN_HERBLORE_BEGIN, false) || getAttribute(player, BarbarianTraining.ATTR_BARB_TRAIN_HERBLORE, false)) {
+                if (getAttribute(player, BarbarianTraining.HERBLORE_BASE, false) || getAttribute(player, BarbarianTraining.HERBLORE_FULL, false)) {
                     handle(player, used, with)
                 } else {
                     sendMessage(player, "In order to be able to make Barbarian mixes, Otto Godblessed must be talked to.")
@@ -71,9 +71,9 @@ class BarbarianHerbloreListener : InteractionListener {
         rewardXP(player, Skills.HERBLORE, potion.getExp())
         sendMessage(player, "you combine your potion with the ${getItemName(egg.id).lowercase()}.")
 
-        if (getAttribute(player, BarbarianTraining.ATTR_BARB_TRAIN_HERBLORE_BEGIN, false)) {
-            removeAttribute(player, BarbarianTraining.ATTR_BARB_TRAIN_HERBLORE_BEGIN)
-            setAttribute(player, "/save:${BarbarianTraining.ATTR_BARB_TRAIN_HERBLORE}", true)
+        if (getAttribute(player, BarbarianTraining.HERBLORE_BASE, false)) {
+            removeAttribute(player, BarbarianTraining.HERBLORE_BASE)
+            setAttribute(player, "/save:${BarbarianTraining.HERBLORE_FULL}", true)
             sendDialogueLines(player, "You feel you have learned more of barbarian ways. Otto might wish","to talk to you more.")
         }
 

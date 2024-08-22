@@ -20,8 +20,8 @@ class BarbarianFiremakingListener : InteractionListener {
 
     override fun defineListeners() {
         onUseWith(IntType.ITEM, (tools + crystalEquipment), *FiremakingListener.logs) { player, used, with ->
-            var barbarianFiremaking = player.getAttribute(BarbarianTraining.BARBARIAN_FIREMAKING_TUTORIAL, false) == true
-            var completeBarbarianFiremaking = player.getAttribute(BarbarianTraining.BARBARIAN_FIREMAKING_COMPLETE, false) == true
+            var barbarianFiremaking = player.getAttribute(BarbarianTraining.FM_BASE, false) == true
+            var completeBarbarianFiremaking = player.getAttribute(BarbarianTraining.FM_FULL, false) == true
 
             if (completeBarbarianFiremaking || barbarianFiremaking) {
                 if (used.id in crystalEquipment) {
@@ -36,8 +36,8 @@ class BarbarianFiremakingListener : InteractionListener {
         }
 
         onUseWith(IntType.GROUNDITEM, tools, *FiremakingListener.logs) { player, used, with ->
-            var barbarianFiremaking = player.getAttribute(BarbarianTraining.BARBARIAN_FIREMAKING_TUTORIAL, false) == true
-            var completeBarbarianFiremaking = player.getAttribute(BarbarianTraining.BARBARIAN_FIREMAKING_COMPLETE, false) == true
+            var barbarianFiremaking = player.getAttribute(BarbarianTraining.FM_BASE, false) == true
+            var completeBarbarianFiremaking = player.getAttribute(BarbarianTraining.FM_FULL, false) == true
 
             if (completeBarbarianFiremaking || barbarianFiremaking) {
                 if (used.id in crystalEquipment) {

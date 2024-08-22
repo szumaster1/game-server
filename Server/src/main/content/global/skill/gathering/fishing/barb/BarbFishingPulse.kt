@@ -77,9 +77,9 @@ class BarbFishingPulse(player: Player) : SkillPulse<NPC>(player, NPC(NPCs.FISHIN
             rewardXP(player, Skills.STRENGTH, stragiXP[index].toDouble())
             sendMessage(player, "You catch a ${reward.name.lowercase()}.")
 
-            if (getAttribute(player, BarbarianTraining.ATTR_BARB_TRAIN_FISHING_BEGIN, false)) {
-                removeAttribute(player, BarbarianTraining.ATTR_BARB_TRAIN_FISHING_BEGIN)
-                setAttribute(player, "/save:${BarbarianTraining.ATTR_BARB_TRAIN_FISHING}", true)
+            if (getAttribute(player, BarbarianTraining.FISHING_BASE, false)) {
+                removeAttribute(player, BarbarianTraining.FISHING_BASE)
+                setAttribute(player, "/save:${BarbarianTraining.FISHING_FULL}", true)
                 sendDialogueLines(player, "You feel you have learned more of barbarian ways. Otto might wish","to talk to you more.")
             }
         }
