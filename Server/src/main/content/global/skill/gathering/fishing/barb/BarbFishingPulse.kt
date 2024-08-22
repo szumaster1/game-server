@@ -2,8 +2,8 @@ package content.global.skill.gathering.fishing.barb
 
 import content.global.skill.BarbarianTraining
 import core.api.*
-import core.api.consts.Items
-import core.api.consts.NPCs
+import cfg.consts.Items
+import cfg.consts.NPCs
 import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.game.node.entity.skill.SkillPulse

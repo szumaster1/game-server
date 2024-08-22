@@ -1,7 +1,7 @@
 package content.region.morytania.quest.fenkenstrain.dialogue
 
-import core.api.consts.Items
-import core.api.consts.NPCs
+import cfg.consts.Items
+import cfg.consts.NPCs
 import content.region.morytania.quest.fenkenstrain.npc.GardenerGhostNPC
 import core.api.*
 import core.game.dialogue.DialogueBuilder

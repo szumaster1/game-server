@@ -6,7 +6,7 @@ import content.global.skill.gathering.fishing.data.Fish
 import content.global.skill.skillcape.SkillcapePerks
 import content.global.skill.skillcape.SkillcapePerks.Companion.isActive
 import core.api.*
-import core.api.consts.Items
+import cfg.consts.Items
 import core.game.event.ResourceProducedEvent
 import core.game.interaction.Clocks
 import core.game.interaction.IntType

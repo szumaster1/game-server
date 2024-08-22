@@ -1,6 +1,6 @@
 package content.minigame.stealingcreation
 
-import core.api.consts.Components
+import cfg.consts.Components
 import core.api.freeSlots
 import core.api.getAttribute
 import core.api.sendMessage

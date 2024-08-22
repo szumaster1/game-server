@@ -7,7 +7,7 @@ import content.region.misthalin.quest.free.demonslayer.dialogue.SirPyrsinDialogu
 import content.region.misthalin.quest.free.demonslayer.dialogue.TraibornDialogue;
 import content.region.misthalin.quest.free.demonslayer.plugin.DSlayerDrainPlugin;
 import content.region.misthalin.quest.free.demonslayer.plugin.DemonSlayerPlugin;
-import core.api.consts.Vars;
+import cfg.consts.Vars;
 import core.game.dialogue.Dialogue;
 import core.game.dialogue.FacialExpression;
 import core.game.node.entity.npc.NPC;

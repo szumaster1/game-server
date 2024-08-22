@@ -1,8 +1,8 @@
 package content.region.kandarin.quest.clocktower
 
 import core.api.addItemOrDrop
-import core.api.consts.Items
-import core.api.consts.Vars
+import cfg.consts.Items
+import cfg.consts.Vars
 import core.api.getAttribute
 import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.quest.Quest

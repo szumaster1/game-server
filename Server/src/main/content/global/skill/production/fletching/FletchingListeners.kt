@@ -4,8 +4,8 @@ import content.global.skill.production.fletching.data.*
 import content.global.skill.production.fletching.data.BowString
 import content.global.skill.production.fletching.item.*
 import core.api.*
-import core.api.consts.Components
-import core.api.consts.Items
+import cfg.consts.Components
+import cfg.consts.Items
 import core.game.dialogue.SkillDialogueHandler
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener

@@ -3,8 +3,8 @@ package content.minigame.castlewars
 import content.global.skill.combat.summoning.familiar.BurdenBeast
 import content.minigame.castlewars.areas.CastleWarsWaitingArea
 import core.api.*
-import core.api.consts.Items
-import core.api.consts.Sounds
+import cfg.consts.Items
+import cfg.consts.Sounds
 import core.cache.def.impl.ItemDefinition
 import core.game.container.Container
 import core.game.interaction.IntType

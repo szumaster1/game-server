@@ -1,6 +1,6 @@
 package content.data.skill
 
-import core.api.consts.Items
+import cfg.consts.Items
 
 /**
  * Handles the skillcape perks.

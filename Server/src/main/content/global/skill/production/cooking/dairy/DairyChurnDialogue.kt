@@ -1,8 +1,8 @@
 package content.global.skill.production.cooking.dairy
 
 import content.global.skill.production.cooking.item.DairyChurnPulse
-import core.api.consts.Components
-import core.api.consts.Items
+import cfg.consts.Components
+import cfg.consts.Items
 import core.api.openChatbox
 import core.game.dialogue.Dialogue
 import core.game.node.entity.player.Player

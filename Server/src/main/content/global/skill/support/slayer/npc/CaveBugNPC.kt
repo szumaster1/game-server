@@ -1,6 +1,6 @@
 package content.global.skill.support.slayer.npc
 
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.game.node.entity.Entity
 import core.game.node.entity.npc.AbstractNPC
 import core.game.node.entity.player.Player

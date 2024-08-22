@@ -2,7 +2,7 @@ package content.region.fremennik.quest.horrorfromthedeep.npc
 
 import content.region.fremennik.quest.horrorfromthedeep.dialogue.JossikDialogueFile
 import core.api.*
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.game.node.entity.Entity
 import core.game.node.entity.npc.AbstractNPC
 import core.game.node.entity.player.Player

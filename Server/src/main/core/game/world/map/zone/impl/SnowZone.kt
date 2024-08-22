@@ -1,8 +1,8 @@
 package core.game.world.map.zone.impl
 
 import core.api.closeOverlay
-import core.api.consts.Components
-import core.api.consts.Regions
+import cfg.consts.Components
+import cfg.consts.Regions
 import core.api.getRegionBorders
 import core.api.inBorders
 import core.api.openOverlay

@@ -1,7 +1,7 @@
 package content.region.morytania.handlers;
 
 import content.global.skill.support.firemaking.data.Log;
-import core.api.consts.NPCs;
+import cfg.consts.NPCs;
 import core.cache.def.impl.SceneryDefinition;
 import core.game.interaction.OptionHandler;
 import core.game.node.Node;
@@ -23,7 +23,7 @@ import core.game.world.update.flag.context.Animation;
 import core.plugin.Initializable;
 import core.plugin.Plugin;
 import core.tools.RandomFunction;
-import core.api.consts.Items;
+import cfg.consts.Items;
 import core.game.world.GameWorld;
 import core.game.world.repository.Repository;
 import core.plugin.ClassScanner;

@@ -1,6 +1,6 @@
 package content.region.desert.quest.touristtrap.npc
 
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.game.node.entity.npc.AbstractNPC
 import core.game.world.GameWorld.ticks
 import core.game.world.map.Location

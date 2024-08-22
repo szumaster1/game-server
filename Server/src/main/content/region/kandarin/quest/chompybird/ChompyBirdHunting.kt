@@ -1,7 +1,7 @@
 package content.region.kandarin.quest.chompybird
 
 import core.api.*
-import core.api.consts.Items
+import cfg.consts.Items
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.entity.player.Player

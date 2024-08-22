@@ -2,7 +2,7 @@ package content.region.morytania.dialogue.phasmatys
 
 import content.region.morytania.quest.rumdeal.CaptainBrainDeathDialogueFile
 import core.api.*
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.game.dialogue.Dialogue
 import core.game.node.entity.player.Player
 import core.plugin.Initializable

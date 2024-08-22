@@ -2,7 +2,7 @@ package content.region.kandarin.dialogue.stronghold
 
 import content.minigame.gnomecook.GC_BASE_ATTRIBUTE
 import content.minigame.gnomecook.GC_TUT_PROG
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.api.setAttribute
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression

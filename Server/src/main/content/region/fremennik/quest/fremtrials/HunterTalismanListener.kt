@@ -1,7 +1,7 @@
 package content.region.fremennik.quest.fremtrials
 
 import content.region.fremennik.quest.fremtrials.npc.DraugenNPC
-import core.api.consts.Items
+import cfg.consts.Items
 import core.api.getAttribute
 import core.api.sendDialogue
 import core.api.sendMessage

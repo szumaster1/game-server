@@ -1,7 +1,7 @@
 package content.global.handlers.iface
 
 import core.api.*
-import core.api.consts.*
+import cfg.consts.*
 import core.game.component.Component
 import core.game.dialogue.FacialExpression
 import core.game.global.action.ClimbActionHandler

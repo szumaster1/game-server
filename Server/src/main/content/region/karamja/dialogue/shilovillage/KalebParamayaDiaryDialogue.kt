@@ -1,6 +1,6 @@
 package content.region.karamja.dialogue.shilovillage
 
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.game.dialogue.DialogueFile
 import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.link.diary.AchievementDiary

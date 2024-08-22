@@ -4,7 +4,7 @@ import content.global.activity.jobs.impl.BoneBuryingJobs
 import content.global.activity.jobs.impl.CombatJobs
 import content.global.activity.jobs.impl.ProductionJobs
 import core.api.addItem
-import core.api.consts.Items
+import cfg.consts.Items
 import core.api.hasAnItem
 import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression

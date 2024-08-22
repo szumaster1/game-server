@@ -3,7 +3,7 @@ package content.region.fremennik.dialogue.rellekka
 import content.region.fremennik.handlers.waterbirth.TravelDestination
 import content.region.fremennik.handlers.waterbirth.WaterbirthTravel.sail
 import core.api.*
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC

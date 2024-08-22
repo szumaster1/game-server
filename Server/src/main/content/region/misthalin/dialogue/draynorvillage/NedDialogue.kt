@@ -1,7 +1,7 @@
 package content.region.misthalin.dialogue.draynorvillage
 
-import core.api.consts.Items
-import core.api.consts.NPCs
+import cfg.consts.Items
+import cfg.consts.NPCs
 import content.region.desert.quest.princealirescue.dialogue.NedDialogueFile
 import content.region.misthalin.quest.free.dragonslayer.dialogue.NedDSDialogue
 import core.api.*

@@ -5,7 +5,7 @@ import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 
 /**
  * Represents the Elissa dialogue.

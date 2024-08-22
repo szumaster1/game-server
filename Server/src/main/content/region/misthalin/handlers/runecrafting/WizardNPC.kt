@@ -1,6 +1,6 @@
 package content.region.misthalin.handlers.runecrafting
 
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.game.node.entity.combat.CombatStyle
 import core.game.node.entity.combat.spell.CombatSpell
 import core.game.node.entity.npc.AbstractNPC

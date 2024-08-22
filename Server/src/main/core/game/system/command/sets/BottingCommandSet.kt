@@ -1,6 +1,6 @@
 package core.game.system.command.sets
 
-import core.api.consts.Components
+import cfg.consts.Components
 import core.game.bots.GeneralBotCreator
 import core.game.bots.PlayerScripts
 import core.game.bots.Script

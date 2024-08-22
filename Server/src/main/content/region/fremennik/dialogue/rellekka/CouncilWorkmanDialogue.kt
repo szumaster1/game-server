@@ -2,7 +2,7 @@ package content.region.fremennik.dialogue.rellekka
 
 import content.region.fremennik.quest.fremtrials.dialogue.CouncilWorkerDialogue
 import content.region.misthalin.dialogue.digsite.CouncilWorkmanDiaryDialogue
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.api.getQuestStage
 import core.api.openDialogue
 import core.game.dialogue.Dialogue

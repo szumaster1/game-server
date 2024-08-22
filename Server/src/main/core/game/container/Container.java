@@ -6,7 +6,7 @@ import core.game.node.item.GroundItemManager;
 import core.game.node.item.Item;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
-import core.api.consts.Items;
+import cfg.consts.Items;
 
 import java.nio.ByteBuffer;
 import java.util.*;

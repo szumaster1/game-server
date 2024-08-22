@@ -1,7 +1,7 @@
 package content.region.desert.quest.deserttreasure.dialogue
 
 import content.region.desert.quest.deserttreasure.DesertTreasure
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.api.finishQuest
 import core.api.getQuestStage
 import core.api.openDialogue
@@ -14,6 +14,7 @@ import core.plugin.Initializable
 
 /**
  * Represents the Azzanadra dialogue.
+ * @author Ovenbreado
  */
 @Initializable
 class AzzanadraDialogue(player: Player? = null) : Dialogue(player) {
@@ -28,13 +29,15 @@ class AzzanadraDialogue(player: Player? = null) : Dialogue(player) {
     }
 
     override fun getIds(): IntArray {
-        /* This is wrong SCARABS_1970 should be AZZANADRA_1970 */
+        /* This is wrong SCARABS_1970 should be AZZANADRA_1970 * @author Ovenbreado
+ */
         return intArrayOf(NPCs.SCARABS_1970, NPCs.AZZANADRA_1971)
     }
 }
 
 /**
  * Represents the Azzanadra dialogue file.
+ * @author Ovenbreado
  */
 class AzzanadraDialogueFile : DialogueBuilderFile() {
     override fun create(b: DialogueBuilder) {

@@ -2,8 +2,8 @@ package content.region.misthalin.handlers.stronghold.playersafety
 
 import core.ServerConstants
 import core.api.*
-import core.api.consts.Items
-import core.api.consts.NPCs
+import cfg.consts.Items
+import cfg.consts.NPCs
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression
 import core.game.dialogue.Topic

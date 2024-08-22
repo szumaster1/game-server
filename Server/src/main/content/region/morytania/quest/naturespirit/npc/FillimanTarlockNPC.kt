@@ -1,6 +1,6 @@
 package content.region.morytania.quest.naturespirit.npc
 
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.api.poofClear
 import core.game.node.entity.npc.AbstractNPC
 import core.game.world.map.Location

@@ -3,7 +3,7 @@ package core.game.system.command.sets
 import content.global.handlers.item.SpadeDig
 import content.region.misc.handlers.tutorial.CharacterDesign
 import core.api.*
-import core.api.consts.Sounds
+import cfg.consts.Sounds
 import core.game.dialogue.DialogueFile
 import core.game.node.entity.combat.ImpactHandler
 import core.game.node.entity.npc.NPC

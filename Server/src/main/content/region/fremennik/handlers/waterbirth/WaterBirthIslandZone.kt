@@ -1,7 +1,7 @@
 package content.region.fremennik.handlers.waterbirth
 
 import core.api.closeOverlay
-import core.api.consts.Components
+import cfg.consts.Components
 import core.api.openInterface
 import core.api.openOverlay
 import core.api.teleport

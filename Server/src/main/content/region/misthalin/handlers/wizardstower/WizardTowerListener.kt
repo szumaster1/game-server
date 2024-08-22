@@ -1,8 +1,8 @@
 package content.region.misthalin.handlers.wizardstower
 
-import core.api.consts.NPCs
-import core.api.consts.Scenery
-import core.api.consts.Sounds
+import cfg.consts.NPCs
+import cfg.consts.Scenery
+import cfg.consts.Sounds
 import content.global.travel.EssenceTeleport
 import core.api.*
 import core.game.interaction.IntType

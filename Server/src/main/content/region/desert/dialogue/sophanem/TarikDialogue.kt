@@ -1,6 +1,6 @@
 package content.region.desert.dialogue.sophanem
 
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.api.sendDialogue
 import core.api.setAttribute
 import core.game.dialogue.Dialogue

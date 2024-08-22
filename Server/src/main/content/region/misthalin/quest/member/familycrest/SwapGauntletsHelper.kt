@@ -1,6 +1,6 @@
 package content.region.misthalin.quest.member.familycrest
 
-import core.api.consts.Items
+import cfg.consts.Items
 import core.api.*
 import core.game.node.entity.player.Player
 import core.game.node.item.Item

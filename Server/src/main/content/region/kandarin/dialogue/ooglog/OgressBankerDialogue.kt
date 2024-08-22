@@ -1,6 +1,6 @@
 package content.region.kandarin.dialogue.ooglog
 
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.api.sendNPCDialogue
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression

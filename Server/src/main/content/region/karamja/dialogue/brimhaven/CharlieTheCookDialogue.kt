@@ -1,7 +1,7 @@
 package content.region.karamja.dialogue.brimhaven
 
 import content.region.asgarnia.quest.heroesquest.HeroesQuest
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.api.getQuestStage
 import core.api.openDialogue
 import core.api.setQuestStage

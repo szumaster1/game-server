@@ -2,7 +2,7 @@ package content.region.misthalin.quest.member.losttribe
 
 import content.region.misthalin.quest.member.losttribe.handlers.GoblinFollower
 import core.api.*
-import core.api.consts.*
+import cfg.consts.*
 import core.game.dialogue.FacialExpression
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener

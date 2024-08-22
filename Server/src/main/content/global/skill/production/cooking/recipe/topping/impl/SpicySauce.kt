@@ -1,7 +1,7 @@
 package content.global.skill.production.cooking.recipe.topping.impl
 
 import content.global.skill.production.cooking.recipe.Recipe
-import core.api.consts.Items
+import cfg.consts.Items
 import core.api.getStatLevel
 import core.api.rewardXP
 import core.api.sendDialogue

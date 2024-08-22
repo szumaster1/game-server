@@ -1,7 +1,7 @@
 package content.region.misthalin.quest.member.ragandboneman
 
 import content.region.misthalin.quest.member.ragandboneman.BoneBoiler.values
-import core.api.consts.Items
+import cfg.consts.Items
 
 /**
  * Represents the Bone boiler.

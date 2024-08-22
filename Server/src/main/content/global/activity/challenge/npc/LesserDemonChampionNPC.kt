@@ -1,8 +1,8 @@
 package content.global.activity.challenge.npc
 
 import core.api.*
-import core.api.consts.Items
-import core.api.consts.NPCs
+import cfg.consts.Items
+import cfg.consts.NPCs
 import core.game.container.impl.EquipmentContainer
 import core.game.global.action.EquipHandler
 import core.game.node.entity.Entity

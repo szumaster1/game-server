@@ -2,8 +2,8 @@ package content.region.kandarin.quest.sheepherder.dialogue
 
 import content.region.kandarin.quest.sheepherder.SheepHerder
 import core.api.addItemOrDrop
-import core.api.consts.Items
-import core.api.consts.NPCs
+import cfg.consts.Items
+import cfg.consts.NPCs
 import core.api.finishQuest
 import core.api.getQuestStage
 import core.api.hasAnItem

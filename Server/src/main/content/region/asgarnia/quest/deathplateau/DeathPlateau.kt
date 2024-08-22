@@ -1,7 +1,7 @@
 package content.region.asgarnia.quest.deathplateau
 
 import core.api.addItemOrDrop
-import core.api.consts.Items
+import cfg.consts.Items
 import core.api.getAttribute
 import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.quest.Quest

@@ -3,10 +3,10 @@ package content.global.skill.support.thieving
 import content.global.skill.skillcape.SkillcapePerks
 import content.global.skill.support.thieving.data.Pickpockets
 import core.api.*
-import core.api.consts.Animations
-import core.api.consts.Items
-import core.api.consts.NPCs
-import core.api.consts.Sounds
+import cfg.consts.Animations
+import cfg.consts.Items
+import cfg.consts.NPCs
+import cfg.consts.Sounds
 import core.api.utils.WeightBasedTable
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener

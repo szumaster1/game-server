@@ -1,6 +1,6 @@
 package content.region.asgarnia.handlers.guild.warriors;
 
-import core.api.consts.Sounds;
+import cfg.consts.Sounds;
 import core.game.interaction.NodeUsageEvent;
 import core.game.interaction.UseWithHandler;
 import core.game.node.entity.Entity;

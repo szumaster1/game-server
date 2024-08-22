@@ -3,8 +3,8 @@ package content.region.desert.quest.deserttreasure.npc
 import content.global.skill.combat.magic.modern.WaterSpell
 import content.region.desert.quest.deserttreasure.DesertTreasure
 import core.api.*
-import core.api.consts.Items
-import core.api.consts.NPCs
+import cfg.consts.Items
+import cfg.consts.NPCs
 import core.game.container.impl.EquipmentContainer
 import core.game.global.action.EquipHandler
 import core.game.node.entity.Entity
@@ -16,6 +16,7 @@ import core.game.node.entity.player.Player
 
 /**
  * Represents the Fareed behavior.
+ * @author Ovenbreado
  */
 class FareedBehavior : NPCBehavior(NPCs.FAREED_1977) {
 

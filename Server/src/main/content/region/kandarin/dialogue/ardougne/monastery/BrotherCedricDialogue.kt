@@ -1,7 +1,7 @@
 package content.region.kandarin.dialogue.ardougne.monastery
 
 import content.region.kandarin.quest.monksfriend.dialogue.BrotherCedricDialogueFile
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.api.getQuestStage
 import core.api.openDialogue
 import core.api.sendDialogue

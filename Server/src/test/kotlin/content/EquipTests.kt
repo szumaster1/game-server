@@ -8,7 +8,7 @@ import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
-import core.api.consts.Items
+import cfg.consts.Items
 import core.game.global.action.EquipHandler
 import core.game.interaction.InteractionListener
 import core.game.interaction.IntType

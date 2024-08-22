@@ -1,8 +1,8 @@
 package content.region.asgarnia.quest.bkfortress.dialogue
 
-import core.api.consts.Animations
-import core.api.consts.Items
-import core.api.consts.NPCs
+import cfg.consts.Animations
+import cfg.consts.Items
+import cfg.consts.NPCs
 import core.api.removeItem
 import core.api.sendNPCDialogue
 import core.api.sendNPCDialogueLines

@@ -1,7 +1,7 @@
 package content.region.misthalin.quest.member.priestinperil
 
 import core.api.*
-import core.api.consts.*
+import cfg.consts.*
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.interaction.QueueStrength

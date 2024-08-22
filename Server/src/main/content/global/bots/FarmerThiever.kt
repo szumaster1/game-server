@@ -1,7 +1,7 @@
 package content.global.bots
 
-import core.api.consts.Items
-import core.api.consts.NPCs
+import cfg.consts.Items
+import cfg.consts.NPCs
 import core.game.bots.Script
 import core.game.bots.SkillingBotAssembler
 import core.game.interaction.IntType

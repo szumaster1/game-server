@@ -1,6 +1,6 @@
 package content.region.misthalin.dialogue.wizardstower
 
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import content.region.misthalin.quest.free.impcatcher.dialogue.WizardMizgogDialogueFile
 import core.api.isQuestComplete
 import core.api.openDialogue

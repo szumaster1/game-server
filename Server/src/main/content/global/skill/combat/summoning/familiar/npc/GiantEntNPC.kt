@@ -5,8 +5,8 @@ import content.global.skill.combat.summoning.familiar.FamiliarSpecial
 import content.global.skill.combat.summoning.familiar.Forager
 import content.global.skill.gathering.farming.FarmingPatch
 import content.global.skill.gathering.farming.PatchType
-import core.api.consts.Items
-import core.api.consts.NPCs
+import cfg.consts.Items
+import cfg.consts.NPCs
 import core.game.interaction.NodeUsageEvent
 import core.game.interaction.UseWithHandler
 import core.game.node.entity.combat.equipment.WeaponInterface

@@ -1,8 +1,8 @@
 package content.global.skill.gathering.hunter.tracking
 
 import core.api.*
-import core.api.consts.Items
-import core.api.consts.Sounds
+import cfg.consts.Items
+import cfg.consts.Sounds
 import core.game.interaction.OptionHandler
 import core.game.node.Node
 import core.game.node.entity.player.Player

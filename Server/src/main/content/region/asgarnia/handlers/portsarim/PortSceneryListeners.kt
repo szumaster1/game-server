@@ -1,9 +1,9 @@
 package content.region.asgarnia.handlers.portsarim
 
 import core.api.*
-import core.api.consts.Animations
-import core.api.consts.NPCs
-import core.api.consts.Scenery
+import cfg.consts.Animations
+import cfg.consts.NPCs
+import cfg.consts.Scenery
 import core.game.global.action.ClimbActionHandler
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener

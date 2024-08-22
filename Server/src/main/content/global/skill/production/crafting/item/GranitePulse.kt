@@ -1,9 +1,9 @@
 package content.global.skill.production.crafting.item
 
 import core.api.*
-import core.api.consts.Animations
-import core.api.consts.Items
-import core.api.consts.Sounds
+import cfg.consts.Animations
+import cfg.consts.Items
+import cfg.consts.Sounds
 import core.game.node.entity.player.Player
 import core.game.node.entity.skill.SkillPulse
 import core.game.node.item.Item

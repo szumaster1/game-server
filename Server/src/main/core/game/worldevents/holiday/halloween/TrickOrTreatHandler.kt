@@ -4,7 +4,7 @@ import core.ServerStore
 import core.ServerStore.Companion.getInt
 import core.ServerStore.Companion.getString
 import core.api.addItemOrDrop
-import core.api.consts.Components
+import cfg.consts.Components
 import core.api.sendNPCDialogue
 import core.game.component.Component
 import core.game.dialogue.DialogueFile

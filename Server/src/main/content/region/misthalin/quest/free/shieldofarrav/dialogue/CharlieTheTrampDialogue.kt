@@ -1,7 +1,7 @@
 package content.region.misthalin.quest.free.shieldofarrav.dialogue
 
-import core.api.consts.Items
-import core.api.consts.NPCs
+import cfg.consts.Items
+import cfg.consts.NPCs
 import content.region.misthalin.quest.free.shieldofarrav.ShieldofArrav
 import core.api.inInventory
 import core.game.dialogue.Dialogue

@@ -1,6 +1,6 @@
 package content.global.activity.oldman
 
-import core.api.consts.Items
+import cfg.consts.Items
 import core.tools.RandomFunction
 
 /**

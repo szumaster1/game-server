@@ -1,8 +1,8 @@
 package content.global.random.event.surpriseexam
 
 import core.api.clearLogoutListener
-import core.api.consts.Components
-import core.api.consts.Items
+import cfg.consts.Components
+import cfg.consts.Items
 import core.api.removeAttributes
 import core.api.setAttribute
 import core.game.node.entity.impl.PulseType

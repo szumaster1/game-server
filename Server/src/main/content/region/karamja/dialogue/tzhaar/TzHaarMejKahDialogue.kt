@@ -1,6 +1,6 @@
 package content.region.karamja.dialogue.tzhaar
 
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC

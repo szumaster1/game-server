@@ -4,7 +4,7 @@ import content.global.skill.production.runecrafting.data.Altar
 import core.ServerStore
 import core.ServerStore.Companion.getBoolean
 import core.ServerStore.Companion.getInt
-import core.api.consts.Items
+import cfg.consts.Items
 import core.api.getAttribute
 import core.api.hasRequirement
 import core.api.sendDialogue

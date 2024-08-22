@@ -4,8 +4,8 @@ import core.api.*
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.world.map.Location
-import core.api.consts.Components
-import core.api.consts.Scenery
+import cfg.consts.Components
+import cfg.consts.Scenery
 
 class SignpostListener : InteractionListener {
     override fun defineListeners() {

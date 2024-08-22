@@ -2,8 +2,8 @@ package content.region.desert.quest.deserttreasure.dialogue
 
 import content.region.desert.quest.deserttreasure.DesertTreasure
 import core.api.addItemOrDrop
-import core.api.consts.Items
-import core.api.consts.NPCs
+import cfg.consts.Items
+import cfg.consts.NPCs
 import core.api.inInventory
 import core.api.openDialogue
 import core.api.removeItem
@@ -16,6 +16,7 @@ import core.plugin.Initializable
 
 /**
  * Represents the Ruantun dialogue.
+ * @author Ovenbreado
  */
 @Initializable
 class RuantunDialogue(player: Player? = null) : Dialogue(player) {
@@ -36,6 +37,7 @@ class RuantunDialogue(player: Player? = null) : Dialogue(player) {
 
 /**
  * Represents the Ruantun dialogue file.
+ * @author Ovenbreado
  */
 class RuantunDialogueFile : DialogueBuilderFile() {
     override fun create(b: DialogueBuilder) {

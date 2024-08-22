@@ -1,7 +1,7 @@
 package content.region.misc.quest.enlightenedjourney.cutscene
 
-import core.api.consts.Music
-import core.api.consts.NPCs
+import cfg.consts.Music
+import cfg.consts.NPCs
 import core.api.location
 import core.api.setQuestStage
 import core.game.activity.Cutscene

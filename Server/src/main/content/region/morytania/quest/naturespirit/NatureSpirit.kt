@@ -1,7 +1,7 @@
 package content.region.morytania.quest.naturespirit
 
-import core.api.consts.Items
-import core.api.consts.Vars
+import cfg.consts.Items
+import cfg.consts.Vars
 import content.region.morytania.quest.naturespirit.util.NSUtils
 import core.api.rewardXP
 import core.game.node.entity.player.Player

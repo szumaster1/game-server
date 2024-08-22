@@ -2,9 +2,9 @@ package content.region.fremennik.quest.fremtrials.dialogue
 
 import content.region.fremennik.dialogue.rellekka.YrsaDiaryDialogue
 import core.api.*
-import core.api.consts.Components
-import core.api.consts.Items
-import core.api.consts.NPCs
+import cfg.consts.Components
+import cfg.consts.Items
+import cfg.consts.NPCs
 import core.game.container.impl.EquipmentContainer
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression

@@ -1,6 +1,6 @@
 package content.global.handlers.item
 
-import core.api.consts.Items
+import cfg.consts.Items
 import core.api.sendItemDialogue
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener

@@ -7,6 +7,7 @@ import core.game.component.Component;
 import core.game.component.InterfaceType;
 import core.game.node.entity.combat.equipment.WeaponInterface;
 import core.game.node.entity.player.Player;
+import core.game.world.GameWorld;
 import core.network.packet.PacketRepository;
 import core.network.packet.context.InterfaceContext;
 import core.network.packet.context.WindowsPaneContext;
@@ -14,7 +15,7 @@ import core.network.packet.outgoing.CloseInterface;
 import core.network.packet.outgoing.Interface;
 import core.network.packet.outgoing.WindowsPane;
 import core.tools.Log;
-import core.api.consts.Components;
+import cfg.consts.Components;
 
 import static core.api.ContentAPIKt.log;
 import static core.api.ContentAPIKt.*;
@@ -420,7 +421,9 @@ public final class InterfaceManager {
         //Energy orb
         PacketRepository.send(Interface.class, new InterfaceContext(player, getWindowPaneId(), isResizable() ? 15 : 72, Components.TOPSTAT_RUN_750, true));
         //Summoning bar
-        PacketRepository.send(Interface.class, new InterfaceContext(player, getWindowPaneId(), isResizable() ? 16 : 73, Components.TOPSTAT_LORE_747, true));
+        if(GameWorld.getSettings().isMembers() && isQuestComplete(player, "Wolf Whistle")) {
+            PacketRepository.send(Interface.class, new InterfaceContext(player, getWindowPaneId(), isResizable() ? 16 : 73, Components.TOPSTAT_LORE_747, true));
+        }
         //Split PM
         PacketRepository.send(Interface.class, new InterfaceContext(player, getWindowPaneId(), isResizable() ? 71 : 10, Components.PMCHAT_754, true));
     }

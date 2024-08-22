@@ -1,7 +1,7 @@
 package content.region.asgarnia.quest.deathplateau.handlers
 
 import core.api.*
-import core.api.consts.Components
+import cfg.consts.Components
 import core.game.interaction.InterfaceListener
 import core.game.node.entity.player.Player
 import core.game.system.task.Pulse

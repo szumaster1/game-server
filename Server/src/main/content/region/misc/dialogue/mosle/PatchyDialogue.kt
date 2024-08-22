@@ -1,8 +1,8 @@
 package content.region.misc.dialogue.mosle
 
-import core.api.consts.Components
-import core.api.consts.Items
-import core.api.consts.NPCs
+import cfg.consts.Components
+import cfg.consts.Items
+import cfg.consts.NPCs
 import core.api.inInventory
 import core.api.openInterface
 import core.game.dialogue.Dialogue

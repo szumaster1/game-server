@@ -1,6 +1,6 @@
 package core.game.world.map.zone.impl
 
-import core.api.consts.Regions
+import cfg.consts.Regions
 import core.game.node.entity.Entity
 import core.game.node.entity.player.Player
 import core.game.world.map.Location

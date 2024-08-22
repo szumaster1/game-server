@@ -1,7 +1,7 @@
 package content.region.misthalin.quest.member.lostcity.handlers
 
-import core.api.consts.NPCs
-import core.api.consts.Scenery
+import cfg.consts.NPCs
+import cfg.consts.Scenery
 import content.data.skill.SkillingTool
 import core.api.sendMessage
 import core.api.sendNPCDialogue

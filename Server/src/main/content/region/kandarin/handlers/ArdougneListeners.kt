@@ -4,8 +4,8 @@ import content.global.travel.ship.Ships
 import content.region.kandarin.dialogue.ardougne.CaptainBarnabyDialogue
 import content.region.kandarin.quest.holygrail.dialogue.GalahadHolyGrailDialogueFile
 import core.api.*
-import core.api.consts.Items
-import core.api.consts.NPCs
+import cfg.consts.Items
+import cfg.consts.NPCs
 import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression
 import core.game.interaction.IntType

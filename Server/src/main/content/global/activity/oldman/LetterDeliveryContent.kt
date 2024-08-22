@@ -2,8 +2,8 @@ package content.global.activity.oldman
 
 import content.global.handlers.iface.ScrollInterface
 import content.global.handlers.iface.ScrollLine
-import core.api.consts.Components
-import core.api.consts.NPCs
+import cfg.consts.Components
+import cfg.consts.NPCs
 import core.api.setAttribute
 import core.game.node.entity.player.Player
 

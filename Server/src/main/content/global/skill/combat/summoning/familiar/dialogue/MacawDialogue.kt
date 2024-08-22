@@ -4,7 +4,7 @@ import content.global.skill.combat.summoning.familiar.BurdenBeast
 import content.global.skill.combat.summoning.familiar.Familiar
 import content.global.skill.combat.summoning.familiar.RemoteViewer
 import core.api.animate
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.api.openDialogue
 import core.game.dialogue.Dialogue
 import core.game.dialogue.DialogueFile

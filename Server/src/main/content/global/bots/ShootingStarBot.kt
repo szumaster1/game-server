@@ -1,7 +1,7 @@
 package content.global.bots
 
 import content.global.activity.shootingstar.ShootingStarPlugin
-import core.api.consts.Items
+import cfg.consts.Items
 import core.game.bots.GeneralBotCreator
 import core.game.bots.Script
 import core.game.interaction.IntType

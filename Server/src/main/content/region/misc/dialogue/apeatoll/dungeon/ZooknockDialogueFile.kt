@@ -3,9 +3,9 @@ package content.region.misc.dialogue.apeatoll.dungeon
 import content.global.handlers.item.withnpc.ZooknockListener
 import content.region.karamja.quest.monkeymadness.cutscenes.DungeonPlanCutScene
 import core.api.*
-import core.api.consts.Components
-import core.api.consts.Graphics
-import core.api.consts.Items
+import cfg.consts.Components
+import cfg.consts.Graphics
+import cfg.consts.Items
 import core.game.component.Component
 import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression

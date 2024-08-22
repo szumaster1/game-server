@@ -2,7 +2,7 @@ package content.region.kandarin.handlers.yanille
 
 import content.global.skill.support.agility.AgilityHandler
 import core.api.*
-import core.api.consts.Items
+import cfg.consts.Items
 import core.game.global.action.ClimbActionHandler
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener

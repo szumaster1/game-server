@@ -1,7 +1,7 @@
 package content.global.skill.production.crafting.data
 
-import core.api.consts.Graphics
-import core.api.consts.Items
+import cfg.consts.Graphics
+import cfg.consts.Items
 
 /**
  * Origami data

@@ -4,7 +4,7 @@ import content.data.skill.SkillingTool;
 import content.global.skill.BarbarianTraining;
 import content.global.skill.support.firemaking.data.Log;
 import core.api.Container;
-import core.api.consts.Items;
+import cfg.consts.Items;
 import core.game.event.LitFireEvent;
 import core.game.node.entity.player.Player;
 import core.game.node.entity.player.info.PlayerDetails;

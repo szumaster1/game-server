@@ -1,7 +1,7 @@
 package content.region.asgarnia.handlers.taverley
 
 import core.api.addScenery
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.game.node.entity.npc.AbstractNPC
 import core.game.node.scenery.Scenery
 import core.game.system.task.Pulse

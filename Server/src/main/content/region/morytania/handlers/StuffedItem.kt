@@ -1,6 +1,6 @@
 package content.region.morytania.handlers
 
-import core.api.consts.Items
+import cfg.consts.Items
 
 /**
  * Represents the Stuffed item enum class.

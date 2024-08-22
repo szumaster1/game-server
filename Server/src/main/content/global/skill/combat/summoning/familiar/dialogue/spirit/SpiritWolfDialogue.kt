@@ -2,7 +2,7 @@ package content.global.skill.combat.summoning.familiar.dialogue.spirit
 
 import content.global.skill.combat.prayer.Bones
 import core.api.anyInInventory
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC

@@ -1,6 +1,6 @@
 package content.global.skill.gathering.farming
 
-import core.api.consts.Items
+import cfg.consts.Items
 import core.api.inInventory
 import core.api.note
 import core.api.removeItem

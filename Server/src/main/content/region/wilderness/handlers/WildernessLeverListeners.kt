@@ -1,8 +1,8 @@
 package content.region.wilderness.handlers
 
 import core.api.*
-import core.api.consts.NPCs
-import core.api.consts.Sounds
+import cfg.consts.NPCs
+import cfg.consts.Sounds
 import core.game.dialogue.DialogueFile
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener

@@ -1,7 +1,7 @@
 package content.region.misthalin.quest.member.animalmagnetism.cutscene
 
-import core.api.consts.Animations
-import core.api.consts.NPCs
+import cfg.consts.Animations
+import cfg.consts.NPCs
 import core.api.*
 import core.game.activity.Cutscene
 import core.game.dialogue.FacialExpression

@@ -3,7 +3,7 @@ package content.global.skill.production.crafting
 import content.global.skill.production.crafting.data.JewelleryData.JewelleryItem
 import content.global.skill.production.crafting.data.JewelleryData.make
 import content.global.skill.support.slayer.SlayerManager.Companion.getInstance
-import core.api.consts.Components
+import cfg.consts.Components
 import core.api.getStatLevel
 import core.api.inInventory
 import core.api.sendInputDialogue

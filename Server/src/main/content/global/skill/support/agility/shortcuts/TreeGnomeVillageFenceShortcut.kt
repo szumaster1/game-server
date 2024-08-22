@@ -1,6 +1,6 @@
 package content.global.skill.support.agility.shortcuts
 
-import core.api.consts.Scenery
+import cfg.consts.Scenery
 import core.api.forceMove
 import core.api.sendMessageWithDelay
 import core.game.interaction.IntType

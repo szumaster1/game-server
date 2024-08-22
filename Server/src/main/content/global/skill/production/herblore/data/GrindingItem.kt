@@ -1,6 +1,6 @@
 package content.global.skill.production.herblore.data
 
-import core.api.consts.Items
+import cfg.consts.Items
 import core.game.node.item.Item
 
 /**

@@ -1,6 +1,6 @@
 package content.region.kandarin.handlers
 
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.api.getPathableRandomLocalCoordinate
 import core.game.node.entity.Entity
 import core.game.node.entity.npc.AbstractNPC

@@ -1,8 +1,8 @@
 package content.region.fremennik.dialogue.neitiznot
 
 import core.api.addItem
-import core.api.consts.Items
-import core.api.consts.NPCs
+import cfg.consts.Items
+import cfg.consts.NPCs
 import core.api.removeItem
 import core.api.sendItemDialogue
 import core.game.dialogue.Dialogue

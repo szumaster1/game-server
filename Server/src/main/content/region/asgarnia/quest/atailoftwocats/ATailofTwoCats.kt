@@ -1,7 +1,7 @@
 /*package content.region.miscquest.twocats
 
 
-import core.api.consts.Vars
+import cfg.consts.Vars
 import core.api.addItemOrDrop
 import core.api.isQuestComplete
 import core.api.setVarbit

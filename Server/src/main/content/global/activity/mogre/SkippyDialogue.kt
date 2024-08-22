@@ -1,8 +1,8 @@
 package content.global.activity.mogre
 
 import core.api.*
-import core.api.consts.Items
-import core.api.consts.Sounds
+import cfg.consts.Items
+import cfg.consts.Sounds
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression
 import core.game.interaction.QueueStrength

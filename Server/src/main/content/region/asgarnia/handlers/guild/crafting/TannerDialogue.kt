@@ -1,7 +1,7 @@
 package content.region.asgarnia.handlers.guild.crafting
 
 import content.global.skill.production.crafting.data.TanningData
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.api.inInventory
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression

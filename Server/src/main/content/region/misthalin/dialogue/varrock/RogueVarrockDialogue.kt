@@ -1,6 +1,6 @@
 package content.region.misthalin.dialogue.varrock
 
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import content.region.wilderness.dialogue.RogueCastleDialogue
 import core.api.hasRequirement
 import core.api.inBorders

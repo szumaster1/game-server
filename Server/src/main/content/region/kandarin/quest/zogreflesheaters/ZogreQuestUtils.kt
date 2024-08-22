@@ -1,6 +1,6 @@
 package content.region.kandarin.quest.zogreflesheaters
 
-import core.api.consts.Items
+import cfg.consts.Items
 
 object ZogreQuestUtils {
 

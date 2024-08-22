@@ -2,9 +2,9 @@ package content.region.desert.quest.deserttreasure.dialogue
 
 import content.region.desert.quest.deserttreasure.DesertTreasure
 import core.api.*
-import core.api.consts.Components
-import core.api.consts.Items
-import core.api.consts.NPCs
+import cfg.consts.Components
+import cfg.consts.Items
+import cfg.consts.NPCs
 import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression
 import core.game.interaction.QueueStrength
@@ -13,12 +13,14 @@ import core.tools.END_DIALOGUE
 
 /**
  * Represents the Father and mother troll dialogue.
+ * @author Ovenbreado
  */
 class FatherAndMotherTrollDialogue {
 }
 
 /**
  * Represents the Chat father and mother troll dialogue file.
+ * @author Ovenbreado
  */
 class ChatFatherAndMotherTrollDialogueFile : DialogueFile() {
 
@@ -73,6 +75,7 @@ class ChatFatherAndMotherTrollDialogueFile : DialogueFile() {
 
 /**
  * Represents the Chat father and mother troll after dialogue file.
+ * @author Ovenbreado
  */
 class ChatFatherAndMotherTrollAfterDialogueFile : DialogueFile() {
 

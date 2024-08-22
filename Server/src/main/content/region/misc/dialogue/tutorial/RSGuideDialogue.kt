@@ -1,7 +1,7 @@
 package content.region.misc.dialogue.tutorial
 
 import content.region.misc.handlers.tutorial.TutorialStage
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.api.setAttribute
 import core.game.component.Component
 import core.game.dialogue.Dialogue

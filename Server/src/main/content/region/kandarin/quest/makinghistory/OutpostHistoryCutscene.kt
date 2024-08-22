@@ -1,7 +1,7 @@
 package content.region.kandarin.quest.makinghistory
 
 import content.region.kandarin.quest.makinghistory.dialogue.JorralDialogueFile
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.api.face
 import core.api.openDialogue
 import core.api.runTask

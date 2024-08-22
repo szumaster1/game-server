@@ -1,6 +1,6 @@
 package content.region.misthalin.dialogue.varrock
 
-import core.api.consts.Items
+import cfg.consts.Items
 import core.api.removeAttribute
 import core.api.setAttribute
 import core.game.dialogue.Dialogue

@@ -1,6 +1,6 @@
 package content.global.handlers.iface.player
 
-import core.api.consts.Components
+import cfg.consts.Components
 import core.game.interaction.InterfaceListener
 import core.game.node.entity.player.link.request.assist.AssistSession
 

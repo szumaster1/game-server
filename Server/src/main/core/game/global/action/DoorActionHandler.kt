@@ -1,6 +1,6 @@
 package core.game.global.action
 
-import core.api.consts.Sounds
+import cfg.consts.Sounds
 import core.api.hasRequirement
 import core.api.playAudio
 import core.game.node.entity.Entity

@@ -1,7 +1,7 @@
 package content.minigame.magearena.dialogue
 
 import content.data.GodType
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.api.hasSpaceFor
 import core.api.openNpcShop
 import core.api.sendItemDialogue

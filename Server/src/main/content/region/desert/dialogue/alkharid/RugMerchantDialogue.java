@@ -2,8 +2,8 @@ package content.region.desert.dialogue.alkharid;
 
 import content.global.skill.support.agility.AgilityHandler;
 import core.api.Container;
-import core.api.consts.Items;
-import core.api.consts.Sounds;
+import cfg.consts.Items;
+import cfg.consts.Sounds;
 import core.cache.def.impl.NPCDefinition;
 import core.game.container.impl.EquipmentContainer;
 import core.game.dialogue.Dialogue;

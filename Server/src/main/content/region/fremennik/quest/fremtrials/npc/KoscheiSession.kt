@@ -1,6 +1,6 @@
 package content.region.fremennik.quest.fremtrials.npc
 
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.game.node.entity.player.Player
 
 /**

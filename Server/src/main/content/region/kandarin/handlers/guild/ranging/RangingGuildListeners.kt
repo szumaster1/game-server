@@ -1,8 +1,8 @@
 package content.region.kandarin.handlers.guild.ranging
 
-import core.api.consts.Items
-import core.api.consts.NPCs
-import core.api.consts.Scenery
+import cfg.consts.Items
+import cfg.consts.NPCs
+import cfg.consts.Scenery
 import core.api.inInventory
 import core.api.sendMessage
 import core.api.sendNPCDialogueLines

@@ -1,6 +1,6 @@
 package content.region.desert.handlers
 
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.api.getUsedOption
 import core.api.openNpcShop
 import core.game.interaction.IntType

@@ -1,6 +1,6 @@
 package content.global.skill.support.thieving;
 
-import core.api.consts.Sounds;
+import cfg.consts.Sounds;
 import core.cache.def.impl.SceneryDefinition;
 import core.game.global.action.DoorActionHandler;
 import core.game.interaction.OptionHandler;

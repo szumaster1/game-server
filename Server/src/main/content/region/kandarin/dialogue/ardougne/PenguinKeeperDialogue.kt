@@ -1,8 +1,8 @@
 package content.region.kandarin.dialogue.ardougne
 
 import core.api.addItemOrDrop
-import core.api.consts.Items
-import core.api.consts.NPCs
+import cfg.consts.Items
+import cfg.consts.NPCs
 import core.api.getStatLevel
 import core.api.hasAnItem
 import core.game.dialogue.Dialogue

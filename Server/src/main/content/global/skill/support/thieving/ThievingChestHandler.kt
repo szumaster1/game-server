@@ -1,8 +1,8 @@
 package content.global.skill.support.thieving
 
 import core.api.*
-import core.api.consts.Animations
-import core.api.consts.Items
+import cfg.consts.Animations
+import cfg.consts.Items
 import core.cache.def.impl.SceneryDefinition
 import core.game.interaction.OptionHandler
 import core.game.node.Node

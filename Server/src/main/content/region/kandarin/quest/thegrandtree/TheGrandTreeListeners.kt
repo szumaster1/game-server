@@ -7,10 +7,10 @@ import content.region.kandarin.quest.thegrandtree.dialogue.KingNarnodeUnderGroun
 import content.region.kandarin.quest.thegrandtree.dialogue.ShipyardWorkerDialogueFile
 import content.region.karamja.quest.monkeymadness.dialogue.KingNarnodeMonkeyMadnessDialogue
 import core.api.*
-import core.api.consts.Components
-import core.api.consts.Items
-import core.api.consts.NPCs
-import core.api.consts.Sounds
+import cfg.consts.Components
+import cfg.consts.Items
+import cfg.consts.NPCs
+import cfg.consts.Sounds
 import core.game.global.action.DoorActionHandler
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener

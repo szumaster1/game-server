@@ -1,7 +1,7 @@
 package content.global.skill.support.agility.shortcuts
 
 import content.global.skill.support.agility.AgilityShortcut
-import core.api.consts.Animations
+import cfg.consts.Animations
 import core.api.getStatLevel
 import core.api.sendMessage
 import core.game.node.entity.impl.ForceMovement

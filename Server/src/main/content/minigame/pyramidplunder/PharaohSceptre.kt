@@ -2,7 +2,7 @@ package content.minigame.pyramidplunder
 
 import content.minigame.pyramidplunder.PyramidPlunderMinigame.Companion.GUARDIAN_ROOM
 import core.api.EquipmentSlot
-import core.api.consts.Items
+import cfg.consts.Items
 import core.api.hasRequirement
 import core.api.openDialogue
 import core.api.sendMessage

@@ -1,7 +1,7 @@
 package core.game.worldevents.holiday.christmas.randoms
 
-import core.api.consts.NPCs
-import core.api.consts.Sounds
+import cfg.consts.NPCs
+import cfg.consts.Sounds
 import core.api.getPathableRandomLocalCoordinate
 import core.api.getWorldTicks
 import core.api.playGlobalAudio

@@ -1,8 +1,8 @@
 package content.region.kandarin.handlers.guild.ranging
 
-import core.api.consts.Animations
-import core.api.consts.Components
-import core.api.consts.Items
+import cfg.consts.Animations
+import cfg.consts.Components
+import cfg.consts.Items
 import core.api.openInterface
 import core.api.setInterfaceText
 import core.api.setVarp

@@ -6,10 +6,10 @@ import content.minigame.barbassault.dialogue.CaptainCainDialogue
 import content.region.fremennik.dialogue.jatizso.TowerGuardDialogue
 import content.region.fremennik.dialogue.rellekka.HuntingExpertRellekkaDialogue
 import content.region.fremennik.quest.fremtrials.dialogue.ChieftanBrundtDialogue
-import core.api.consts.Components
-import core.api.consts.Items
-import core.api.consts.NPCs
-import core.api.consts.Scenery
+import cfg.consts.Components
+import cfg.consts.Items
+import cfg.consts.NPCs
+import cfg.consts.Scenery
 import core.api.getStatLevel
 import core.api.inBorders
 import core.api.inEquipment

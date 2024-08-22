@@ -1,7 +1,7 @@
 package content.region.desert.quest.deserttreasure.dialogue
 
 import content.region.desert.quest.deserttreasure.DesertTreasure
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.api.getQuestStage
 import core.api.openDialogue
 import core.api.setQuestStage
@@ -14,6 +14,7 @@ import core.plugin.Initializable
 
 /**
  * Represents the Eblis mirrors dialogue.
+ * @author Ovenbreado
  */
 @Initializable
 class EblisMirrorsDialogue(player: Player? = null) : Dialogue(player) {
@@ -34,6 +35,7 @@ class EblisMirrorsDialogue(player: Player? = null) : Dialogue(player) {
 
 /**
  * Represents the Eblis mirrors dialogue file.
+ * @author Ovenbreado
  */
 class EblisMirrorsDialogueFile : DialogueBuilderFile() {
     override fun create(b: DialogueBuilder) {

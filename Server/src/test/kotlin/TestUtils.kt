@@ -1,6 +1,6 @@
 import content.global.skill.gathering.farming.timers.CropGrowth
 import core.ServerConstants
-import core.api.consts.Items
+import cfg.consts.Items
 import core.api.log
 import core.cache.Cache
 import core.cache.crypto.ISAACCipher

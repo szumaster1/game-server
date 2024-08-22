@@ -1,9 +1,9 @@
 package content.region.fremennik.quest.horrorfromthedeep
 
 import core.api.*
-import core.api.consts.Components
-import core.api.consts.Items
-import core.api.consts.Vars
+import cfg.consts.Components
+import cfg.consts.Items
+import cfg.consts.Vars
 import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.quest.Quest
 import core.game.node.entity.skill.Skills

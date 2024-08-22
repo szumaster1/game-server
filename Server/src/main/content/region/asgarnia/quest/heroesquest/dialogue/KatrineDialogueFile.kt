@@ -3,7 +3,7 @@ package content.region.asgarnia.quest.heroesquest.dialogue
 import content.region.asgarnia.quest.heroesquest.HeroesQuest
 import core.api.*
 import core.game.dialogue.*
-import core.api.consts.Items
+import cfg.consts.Items
 
 /**
  * Represents the Katrine dialogue file.

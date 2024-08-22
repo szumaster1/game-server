@@ -1,6 +1,6 @@
 package content.region.misthalin.quest.member.allfiredup.dialogue
 
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import content.minigame.allfiredup.BeaconState
 import core.api.setVarbit
 import core.game.dialogue.Dialogue

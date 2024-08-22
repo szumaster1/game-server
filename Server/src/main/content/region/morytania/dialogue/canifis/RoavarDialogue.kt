@@ -1,7 +1,7 @@
 package content.region.morytania.dialogue.canifis
 
-import core.api.consts.Items
-import core.api.consts.NPCs
+import cfg.consts.Items
+import cfg.consts.NPCs
 import content.region.morytania.quest.fenkenstrain.dialogue.RoavarDialogueFile
 import core.api.*
 import core.game.dialogue.Dialogue

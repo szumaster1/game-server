@@ -1,6 +1,6 @@
 package content.region.asgarnia.dialogue.portsarim
 
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.api.sendDialogueOptions
 import core.api.setTitle
 import core.game.dialogue.Dialogue

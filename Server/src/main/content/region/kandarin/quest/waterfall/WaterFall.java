@@ -2,7 +2,7 @@ package content.region.kandarin.quest.waterfall;
 
 import content.region.kandarin.quest.waterfall.dialogue.*;
 import content.region.kandarin.quest.waterfall.plugin.WaterfallPlugin;
-import core.api.consts.Vars;
+import cfg.consts.Vars;
 import core.game.node.entity.player.Player;
 import core.game.node.entity.player.link.quest.Quest;
 import core.game.node.entity.skill.Skills;

@@ -1,7 +1,7 @@
 package content.region.misc.handlers.tutorial
 
 import core.api.*
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.game.dialogue.FacialExpression
 import core.game.global.action.ClimbActionHandler
 import core.game.global.action.DoorActionHandler

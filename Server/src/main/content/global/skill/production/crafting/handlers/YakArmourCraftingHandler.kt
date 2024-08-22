@@ -5,8 +5,8 @@ import content.global.skill.production.crafting.data.LeatherData.decayThread
 import content.global.skill.production.crafting.data.LeatherData.isLastThread
 import content.global.skill.production.crafting.data.LeatherData.removeThread
 import core.api.*
-import core.api.consts.Animations
-import core.api.consts.Items
+import cfg.consts.Animations
+import cfg.consts.Items
 import core.game.dialogue.SkillDialogueHandler
 import core.game.interaction.NodeUsageEvent
 import core.game.interaction.UseWithHandler

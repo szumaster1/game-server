@@ -1,6 +1,6 @@
 package content.region.asgarnia.handlers.guild.mining
 
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.api.getDynLevel
 import core.api.sendNPCDialogue
 import core.cache.def.impl.SceneryDefinition

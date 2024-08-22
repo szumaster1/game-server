@@ -1,6 +1,6 @@
 package content.region.morytania.quest.naturespirit.dialogue
 
-import core.api.consts.Items
+import cfg.consts.Items
 import content.region.morytania.quest.naturespirit.BlessingPulse
 import core.api.*
 import core.game.dialogue.DialogueFile

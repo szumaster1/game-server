@@ -1,7 +1,7 @@
 package content.region.desert.quest.contact
 
-import core.api.consts.Components
-import core.api.consts.Items
+import cfg.consts.Components
+import cfg.consts.Items
 import core.api.openInterface
 import core.api.setInterfaceText
 import core.game.interaction.IntType

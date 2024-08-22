@@ -1,7 +1,7 @@
 package content.region.fremennik.quest.royaltrouble
 
 import core.api.addItem
-import core.api.consts.Items
+import cfg.consts.Items
 import core.api.inInventory
 import core.api.removeItem
 import core.api.sendMessage

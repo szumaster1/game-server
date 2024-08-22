@@ -1,6 +1,6 @@
 package content.region.asgarnia.dialogue
 
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.api.teleport
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression

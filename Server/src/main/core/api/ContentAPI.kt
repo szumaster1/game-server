@@ -8,9 +8,9 @@ import content.global.skill.combat.summoning.familiar.BurdenBeast
 import content.global.skill.support.slayer.SlayerManager
 import content.global.skill.support.slayer.data.Tasks
 import core.ServerConstants
-import core.api.consts.Items
-import core.api.consts.NPCs
-import core.api.consts.Sounds
+import cfg.consts.Items
+import cfg.consts.NPCs
+import cfg.consts.Sounds
 import core.api.utils.GlobalKillCounter
 import core.api.utils.Vector
 import core.cache.def.impl.AnimationDefinition

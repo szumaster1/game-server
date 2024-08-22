@@ -1,7 +1,7 @@
 package content.region.kandarin.quest.seaslug.dialogue
 
 import content.region.kandarin.handlers.FishingPlatform
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.api.getQuestStage
 import core.api.isQuestComplete
 import core.api.sendDialogue

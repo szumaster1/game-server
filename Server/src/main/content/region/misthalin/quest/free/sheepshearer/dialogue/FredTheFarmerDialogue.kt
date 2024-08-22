@@ -2,7 +2,7 @@ package content.region.misthalin.quest.free.sheepshearer.dialogue
 
 import content.region.misthalin.quest.free.sheepshearer.SheepShearer
 import core.api.*
-import core.api.consts.Items
+import cfg.consts.Items
 import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression
 import core.tools.END_DIALOGUE

@@ -1,6 +1,6 @@
 package content.global.dialogue
 
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.api.findLocalNPC
 import core.api.sendChat
 import core.api.sendNPCDialogue

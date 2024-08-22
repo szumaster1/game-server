@@ -2,7 +2,7 @@ package content.global.skill.production.cooking
 
 import content.global.skill.production.cooking.item.StandardCookingPulse
 import core.api.addItem
-import core.api.consts.Sounds
+import cfg.consts.Sounds
 import core.api.playAudio
 import core.api.removeItem
 import core.api.sendMessage

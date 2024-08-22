@@ -2,7 +2,7 @@ package content.global.handlers.item.equipment.gloves
 
 import core.api.Container
 import core.api.EquipmentSlot
-import core.api.consts.Items
+import cfg.consts.Items
 import core.api.getItemFromEquipment
 import core.api.removeItem
 import core.game.node.entity.player.Player

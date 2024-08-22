@@ -1,6 +1,6 @@
 package content.region.kandarin.dialogue.ardougne
 
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.api.getStatLevel
 import core.api.isQuestComplete
 import core.game.dialogue.Dialogue

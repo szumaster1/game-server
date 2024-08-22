@@ -5,7 +5,7 @@ import core.game.dialogue.Dialogue
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 
 /**
  * Represents the Ed Wood dialogue.

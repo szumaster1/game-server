@@ -21,10 +21,10 @@ import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.diary.DiaryType
 import core.game.world.map.zone.ZoneBorders
-import core.api.consts.Components
-import core.api.consts.Items
-import core.api.consts.NPCs
-import core.api.consts.Scenery
+import cfg.consts.Components
+import cfg.consts.Items
+import cfg.consts.NPCs
+import cfg.consts.Scenery
 
 /**
  * Represents the Lumbridge achievement diary.

@@ -15,8 +15,8 @@ import core.tools.START_DIALOGUE
 import kotlin.math.min
 import core.game.node.entity.player.link.diary.DiaryType
 import content.region.karamja.handlers.KaramjaAchievementDiary.Companion.MediumTasks.EXCHANGE_GEMS_TUBER_TRADING_STICKS_FOR_MACHETE
-import core.api.consts.Items
-import core.api.consts.NPCs
+import cfg.consts.Items
+import cfg.consts.NPCs
 
 /**
  * Represents the dialogue.

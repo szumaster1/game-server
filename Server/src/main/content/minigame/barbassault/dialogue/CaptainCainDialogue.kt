@@ -1,7 +1,7 @@
 package content.minigame.barbassault.dialogue
 
-import core.api.consts.Components
-import core.api.consts.NPCs
+import cfg.consts.Components
+import cfg.consts.NPCs
 import core.api.openInterface
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression

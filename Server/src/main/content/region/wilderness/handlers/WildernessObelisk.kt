@@ -1,6 +1,6 @@
 package content.region.wilderness.handlers
 
-import core.api.consts.Sounds
+import cfg.consts.Sounds
 import core.api.playAudio
 import core.cache.def.impl.SceneryDefinition
 import core.game.interaction.OptionHandler

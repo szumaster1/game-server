@@ -9,8 +9,8 @@ import core.game.world.map.Location
 import core.game.world.map.zone.impl.WildernessZone
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
-import core.api.consts.Items
-import core.api.consts.NPCs
+import cfg.consts.Items
+import cfg.consts.NPCs
 
 class RandomEventTests {
     init {

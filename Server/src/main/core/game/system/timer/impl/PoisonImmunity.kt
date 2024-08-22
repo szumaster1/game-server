@@ -1,6 +1,6 @@
 package core.game.system.timer.impl
 
-import core.api.consts.Sounds
+import cfg.consts.Sounds
 import core.api.playAudio
 import core.api.removeTimer
 import core.api.sendMessage

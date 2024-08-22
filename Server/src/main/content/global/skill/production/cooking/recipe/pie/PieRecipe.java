@@ -1,7 +1,7 @@
 package content.global.skill.production.cooking.recipe.pie;
 
 import content.global.skill.production.cooking.recipe.Recipe;
-import core.api.consts.Items;
+import cfg.consts.Items;
 import core.game.interaction.NodeUsageEvent;
 import core.game.node.item.Item;
 

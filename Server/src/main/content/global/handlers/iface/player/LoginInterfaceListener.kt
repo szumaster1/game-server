@@ -1,7 +1,7 @@
 package content.global.handlers.iface.player
 
 import core.api.closeInterface
-import core.api.consts.Components
+import cfg.consts.Components
 import core.api.runTask
 import core.game.interaction.InterfaceListener
 import core.game.node.entity.player.info.login.LoginConfiguration

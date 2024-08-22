@@ -1,6 +1,6 @@
 package content.minigame.sorceressgarden.dialogue
 
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.api.hasRequirement
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression

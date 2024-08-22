@@ -1,7 +1,7 @@
 package content.global.random.event.treespirit
 
 import content.global.random.RandomEventNPC
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.api.utils.WeightBasedTable
 import core.game.node.entity.Entity
 import core.game.node.entity.npc.NPC

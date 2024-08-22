@@ -1,6 +1,6 @@
 package content.region.misc.dialogue.zanaris
 
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.api.openNpcShop
 import core.game.dialogue.Dialogue
 import core.game.node.entity.npc.NPC

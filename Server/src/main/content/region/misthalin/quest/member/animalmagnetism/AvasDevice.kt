@@ -1,6 +1,6 @@
 package content.region.misthalin.quest.member.animalmagnetism
 
-import core.api.consts.Items
+import cfg.consts.Items
 import core.api.*
 import core.game.event.EventHook
 import core.game.event.TickEvent

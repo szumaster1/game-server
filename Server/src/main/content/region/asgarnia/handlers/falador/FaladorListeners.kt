@@ -1,10 +1,10 @@
 package content.region.asgarnia.handlers.falador
 
 import core.api.*
-import core.api.consts.Animations
-import core.api.consts.Items
-import core.api.consts.Scenery
-import core.api.consts.Sounds
+import cfg.consts.Animations
+import cfg.consts.Items
+import cfg.consts.Scenery
+import cfg.consts.Sounds
 import core.game.global.action.DoorActionHandler
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener

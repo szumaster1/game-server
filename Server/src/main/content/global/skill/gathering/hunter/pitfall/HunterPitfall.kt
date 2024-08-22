@@ -1,9 +1,9 @@
 package content.global.skill.gathering.hunter.pitfall
 
 import content.global.skill.gathering.hunter.HunterManager
-import core.api.consts.Items
-import core.api.consts.NPCs
-import core.api.consts.Sounds
+import cfg.consts.Items
+import cfg.consts.NPCs
+import cfg.consts.Sounds
 import core.api.playAudio
 import core.api.sendMessage
 import core.api.setVarbit

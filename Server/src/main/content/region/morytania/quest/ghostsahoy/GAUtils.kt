@@ -1,10 +1,10 @@
 package content.region.morytania.quest.ghostsahoy
 
 import core.api.*
-import core.api.consts.Animations
-import core.api.consts.Components
-import core.api.consts.Items
-import core.api.consts.Sounds
+import cfg.consts.Animations
+import cfg.consts.Components
+import cfg.consts.Items
+import cfg.consts.Sounds
 import core.game.component.Component
 import core.game.interaction.QueueStrength
 import core.game.node.entity.combat.ImpactHandler

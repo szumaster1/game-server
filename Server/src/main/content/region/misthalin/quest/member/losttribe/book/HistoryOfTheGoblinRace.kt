@@ -1,6 +1,6 @@
 package content.region.misthalin.quest.member.losttribe.book
 
-import core.api.consts.Components
+import cfg.consts.Components
 import core.api.removeAttribute
 import core.api.sendPlayerDialogue
 import core.api.setAttribute

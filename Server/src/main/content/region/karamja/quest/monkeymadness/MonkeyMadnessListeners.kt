@@ -5,7 +5,7 @@ import content.region.misc.dialogue.apeatoll.dungeon.ZooknockAfterBattleDialogue
 import content.region.misc.dialogue.apeatoll.dungeon.ZooknockDialogue
 import content.region.misc.dialogue.apeatoll.dungeon.ZooknockDialogueFile
 import core.api.*
-import core.api.consts.*
+import cfg.consts.*
 import core.game.component.Component
 import core.game.dialogue.DialogueFile
 import core.game.global.action.DoorActionHandler

@@ -1,6 +1,6 @@
 package content.global.skill.support.construction;
 
-import core.api.consts.Items;
+import cfg.consts.Items;
 import core.cache.def.impl.ItemDefinition;
 import core.game.component.Component;
 import core.game.node.entity.player.Player;

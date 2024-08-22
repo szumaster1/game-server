@@ -1,8 +1,8 @@
 package content.global.handlers.player
 
 import core.api.*
-import core.api.consts.Items
-import core.api.consts.Music
+import cfg.consts.Items
+import cfg.consts.Music
 import core.game.activity.ActivityManager
 import core.game.node.entity.player.Player
 import core.game.node.item.Item

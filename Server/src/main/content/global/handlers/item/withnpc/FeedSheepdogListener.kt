@@ -4,9 +4,9 @@ import content.data.Meat
 import content.data.MeatState
 import content.global.skill.combat.prayer.Bones
 import core.api.*
-import core.api.consts.Animations
-import core.api.consts.Items
-import core.api.consts.NPCs
+import cfg.consts.Animations
+import cfg.consts.Items
+import cfg.consts.NPCs
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.world.update.flag.context.Animation

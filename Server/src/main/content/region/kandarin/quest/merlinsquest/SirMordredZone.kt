@@ -1,6 +1,6 @@
 package content.region.kandarin.quest.merlinsquest
 
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.game.node.entity.Entity
 import core.game.node.entity.npc.NPC
 import core.game.world.map.Location

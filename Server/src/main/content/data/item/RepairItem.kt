@@ -1,6 +1,6 @@
 package content.data.item;
 
-import core.api.consts.Items;
+import cfg.consts.Items;
 import core.game.node.item.Item;
 
 /**

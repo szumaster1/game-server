@@ -1,6 +1,6 @@
 package content.region.misc.handlers.keldagrim
 
-import core.api.consts.Components
+import cfg.consts.Components
 import core.api.getAttribute
 import core.api.removeAttribute
 import core.api.sendDialogue

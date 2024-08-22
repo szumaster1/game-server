@@ -2,8 +2,8 @@ package content.minigame.barrows
 
 import content.data.BossKillCounter
 import core.api.announceIfRare
-import core.api.consts.Components
-import core.api.consts.Items
+import cfg.consts.Components
+import cfg.consts.Items
 import core.api.utils.WeightBasedTable
 import core.api.utils.WeightedItem
 import core.game.component.Component

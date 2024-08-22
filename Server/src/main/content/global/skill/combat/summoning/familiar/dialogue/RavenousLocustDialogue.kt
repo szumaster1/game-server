@@ -1,6 +1,6 @@
 package content.global.skill.combat.summoning.familiar.dialogue
 
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.api.hasHandsFree
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression

@@ -1,7 +1,7 @@
 /*package content.kingdom.desert.quest.member.enakh
 
 
-import core.api.consts.Vars
+import cfg.consts.Vars
 import core.api.addItemOrDrop
 import core.api.hasLevelStat
 import core.api.rewardXP

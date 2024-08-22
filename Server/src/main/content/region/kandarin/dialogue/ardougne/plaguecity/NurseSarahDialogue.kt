@@ -1,7 +1,7 @@
 package content.region.kandarin.dialogue.ardougne.plaguecity
 
 import content.region.kandarin.quest.biohazard.dialogue.NurseSarahDialogueFile
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.api.isQuestInProgress
 import core.api.openDialogue
 import core.game.dialogue.Dialogue

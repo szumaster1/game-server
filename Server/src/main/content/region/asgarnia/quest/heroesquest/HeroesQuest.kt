@@ -2,8 +2,8 @@ package content.region.asgarnia.quest.heroesquest
 
 import content.region.misthalin.quest.free.shieldofarrav.ShieldofArrav
 import core.api.*
-import core.api.consts.Items
-import core.api.consts.Vars
+import cfg.consts.Items
+import cfg.consts.Vars
 import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.quest.Quest
 import core.game.node.entity.skill.Skills

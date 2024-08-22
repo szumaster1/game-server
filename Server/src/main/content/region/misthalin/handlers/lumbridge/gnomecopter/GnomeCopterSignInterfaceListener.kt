@@ -1,7 +1,7 @@
 package content.region.misthalin.handlers.lumbridge.gnomecopter
 
 import core.api.closeTabInterface
-import core.api.consts.Components
+import cfg.consts.Components
 import core.game.interaction.InterfaceListener
 
 /**

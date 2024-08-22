@@ -1,6 +1,6 @@
 package content.region.kandarin.quest.treegnomevillage.dialogue.trackergnomes
 
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.api.getAttribute
 import core.api.getQuestStage
 import core.api.sendDialogue

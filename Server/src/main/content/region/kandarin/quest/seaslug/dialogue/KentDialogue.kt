@@ -2,8 +2,8 @@ package content.region.kandarin.quest.seaslug.dialogue
 
 import content.region.kandarin.quest.seaslug.SeaSlug
 import core.api.*
-import core.api.consts.NPCs
-import core.api.consts.Sounds
+import cfg.consts.NPCs
+import cfg.consts.Sounds
 import core.game.dialogue.Dialogue
 import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression

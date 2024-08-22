@@ -2,8 +2,8 @@ package content.region.fremennik.quest.horrorfromthedeep.dialogue
 
 import content.region.fremennik.quest.horrorfromthedeep.HFTDUtils
 import core.api.*
-import core.api.consts.Components
-import core.api.consts.Items
+import cfg.consts.Components
+import cfg.consts.Items
 import core.game.dialogue.DialogueFile
 import core.game.node.item.Item
 

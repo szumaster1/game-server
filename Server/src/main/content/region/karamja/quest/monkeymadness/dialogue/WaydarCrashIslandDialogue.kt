@@ -1,7 +1,7 @@
 package content.region.karamja.quest.monkeymadness.dialogue
 
 import content.region.karamja.quest.monkeymadness.cutscenes.ShipyardCutScene
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.api.getQuestStage
 import core.api.sendNPCDialogue
 import core.api.setQuestStage

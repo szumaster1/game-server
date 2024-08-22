@@ -1,9 +1,9 @@
 package content.region.kandarin.quest.fightarena.dialogue
 
 import core.api.addItem
-import core.api.consts.Items
-import core.api.consts.Items.COINS_995
-import core.api.consts.NPCs
+import cfg.consts.Items
+import cfg.consts.Items.COINS_995
+import cfg.consts.NPCs
 import core.api.getQuestStage
 import core.api.removeItem
 import core.api.setQuestStage

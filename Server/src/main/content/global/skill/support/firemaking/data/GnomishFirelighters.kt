@@ -1,6 +1,6 @@
 package content.global.skill.support.firemaking.data
 
-import core.api.consts.Items
+import cfg.consts.Items
 
 /**
  * Gnomish firelighters

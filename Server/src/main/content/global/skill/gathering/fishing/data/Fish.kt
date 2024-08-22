@@ -1,7 +1,7 @@
 package content.global.skill.gathering.fishing.data
 
 import core.api.asItem
-import core.api.consts.Items
+import cfg.consts.Items
 import core.game.node.item.Item
 
 /**

@@ -1,7 +1,7 @@
 package content.region.misthalin.quest.free.dragonslayer.dialogue
 
 import content.region.misthalin.quest.free.dragonslayer.DragonSlayer
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC

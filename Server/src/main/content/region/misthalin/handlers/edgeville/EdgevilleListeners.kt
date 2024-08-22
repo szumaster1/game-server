@@ -1,7 +1,7 @@
 package content.region.misthalin.handlers.edgeville
 
-import core.api.consts.Animations
-import core.api.consts.Scenery
+import cfg.consts.Animations
+import cfg.consts.Scenery
 import core.api.sendDialogue
 import core.api.setVarbit
 import core.api.teleport

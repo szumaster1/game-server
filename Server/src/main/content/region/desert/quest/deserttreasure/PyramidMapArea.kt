@@ -1,8 +1,8 @@
 package content.region.desert.quest.deserttreasure
 
 import core.api.*
-import core.api.consts.Components
-import core.api.consts.NPCs
+import cfg.consts.Components
+import cfg.consts.NPCs
 import core.game.interaction.QueueStrength
 import core.game.node.entity.Entity
 import core.game.node.entity.npc.NPC
@@ -15,12 +15,14 @@ import core.tools.RandomFunction
 
 /**
  * Represents the Pyramid area.
+ * @author Ovenbreado
  */
 class PyramidMapArea {
     companion object {
         /**
          *  All The Sarcophagus Locations
-         */
+         * @author Ovenbreado
+ */
         val sarcophagusList = arrayOf(
                 // Level 1
                 Location(2901, 4946, 3),
@@ -121,7 +123,8 @@ class PyramidMapArea {
         // rot 3 - SOUTH
         /**
          * Sarcophagus Opening Location (Note, they are all wrongly mapped due to Scenery)
-         */
+         * @author Ovenbreado
+ */
         fun getNewLocation(direction: Direction): Location {
             return when (direction) {
                 Direction.NORTH -> Location(-1, 0)
@@ -134,7 +137,8 @@ class PyramidMapArea {
 
         /**
          * Sarcophagus Opening Facing (Note, they are all wrongly mapped due to Scenery)
-         */
+         * @author Ovenbreado
+ */
         fun getNewFacing(direction: Direction): Direction {
             return when (direction) {
                 Direction.NORTH -> Direction.NORTH
@@ -156,7 +160,8 @@ class PyramidMapArea {
 
         /**
          * Trapdoor randomly throws you out of the Pyramid.
-         */
+         * @author Ovenbreado
+ */
         fun trapdoorTrap(player: Player) {
             stopWalk(player)
             lock(player, 8)
@@ -188,7 +193,8 @@ class PyramidMapArea {
 
         /**
          * Mummies randomly spawns out of a sarcophagus.
-         */
+         * @author Ovenbreado
+ */
         fun spawnMummy(player: Player, sarcophagusLocation: Location) {
             stopWalk(player)
             lock(player, 3)
@@ -226,7 +232,8 @@ class PyramidMapArea {
 
         /**
          * Scarabs randomly spawns somewhere near you.
-         */
+         * @author Ovenbreado
+ */
         fun spawnScarabs(player: Player) {
             stopWalk(player)
             lock(player, 3)
@@ -260,6 +267,7 @@ class PyramidMapArea {
 
 /**
  * Represents the Pyramid area first three.
+ * @author Ovenbreado
  */
 class PyramidAreaFirstThree: MapArea {
 
@@ -302,6 +310,7 @@ class PyramidAreaFirstThree: MapArea {
 
 /**
  * Represents the Pyramid area final.
+ * @author Ovenbreado
  */
 class PyramidAreaFinal: MapArea {
 

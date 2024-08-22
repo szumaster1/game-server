@@ -3,8 +3,8 @@ package content.region.kandarin.quest.scorpcather
 import content.region.kandarin.quest.scorpcather.dialogue.SeersDialogueFile
 import content.region.kandarin.quest.scorpcather.dialogue.ThormacDialogueFile
 import core.api.*
-import core.api.consts.Items
-import core.api.consts.NPCs
+import cfg.consts.Items
+import cfg.consts.NPCs
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.entity.player.Player

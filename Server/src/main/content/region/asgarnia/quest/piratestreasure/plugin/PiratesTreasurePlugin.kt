@@ -1,8 +1,8 @@
 package content.region.asgarnia.quest.piratestreasure.plugin
 
 import content.region.asgarnia.quest.piratestreasure.PiratesTreasure
-import core.api.consts.Items
-import core.api.consts.NPCs
+import cfg.consts.Items
+import cfg.consts.NPCs
 import core.api.setAttribute
 import core.cache.def.impl.ItemDefinition
 import core.cache.def.impl.SceneryDefinition
@@ -24,7 +24,7 @@ import core.plugin.Plugin
 class PiratesTreasurePlugin : OptionHandler() {
 
     override fun newInstance(arg: Any?): Plugin<Any> {
-        SceneryDefinition.forId(core.api.consts.Scenery.CHEST_2079).handlers["option:open"] = this
+        SceneryDefinition.forId(cfg.consts.Scenery.CHEST_2079).handlers["option:open"] = this
         ItemDefinition.forId(Items.PIRATE_MESSAGE_433).handlers["option:read"] = this
         ItemDefinition.forId(Items.CASKET_7956).handlers["option:open"] = this
         for (l in TreasureDigPlugin.LOCATIONS) {

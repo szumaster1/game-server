@@ -8,7 +8,7 @@ import content.global.skill.production.runecrafting.item.pouch.RunePouchPlugin
 import content.global.travel.EssenceTeleport.home
 import content.global.travel.EssenceTeleport.teleport
 import core.api.*
-import core.api.consts.Components
+import cfg.consts.Components
 import core.cache.def.impl.ItemDefinition
 import core.cache.def.impl.NPCDefinition
 import core.cache.def.impl.SceneryDefinition

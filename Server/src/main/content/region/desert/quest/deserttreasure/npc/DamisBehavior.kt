@@ -2,8 +2,8 @@ package content.region.desert.quest.deserttreasure.npc
 
 import content.region.desert.quest.deserttreasure.DesertTreasure
 import core.api.*
-import core.api.consts.Items
-import core.api.consts.NPCs
+import cfg.consts.Items
+import cfg.consts.NPCs
 import core.game.interaction.QueueStrength
 import core.game.node.entity.Entity
 import core.game.node.entity.combat.BattleState
@@ -15,6 +15,7 @@ import core.game.node.item.Item
 
 /**
  * Represents the Damis behavior.
+ * @author Ovenbreado
  */
 class DamisBehavior : NPCBehavior(NPCs.DAMIS_1974, NPCs.DAMIS_1975) {
 

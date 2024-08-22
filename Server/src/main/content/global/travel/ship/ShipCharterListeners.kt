@@ -1,7 +1,7 @@
 package content.global.travel.ship
 
-import core.api.consts.Components
-import core.api.consts.NPCs
+import cfg.consts.Components
+import cfg.consts.NPCs
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.interaction.InterfaceListener

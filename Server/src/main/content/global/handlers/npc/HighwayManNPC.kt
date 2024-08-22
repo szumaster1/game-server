@@ -1,6 +1,6 @@
 package content.global.handlers.npc
 
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.api.finishDiaryTask
 import core.api.hasDiaryTaskComplete
 import core.game.node.entity.Entity

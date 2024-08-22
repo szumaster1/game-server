@@ -3,7 +3,7 @@ package content.global.skill.combat.summoning.familiar.npc
 import content.global.skill.combat.summoning.familiar.Familiar
 import content.global.skill.combat.summoning.familiar.FamiliarSpecial
 import content.global.skill.gathering.farming.FarmingPatch.Companion.forObject
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.game.node.entity.combat.equipment.WeaponInterface
 import core.game.node.entity.player.Player
 import core.game.node.scenery.Scenery

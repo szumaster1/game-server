@@ -1,6 +1,6 @@
 package content.region.fremennik.quest.horrorfromthedeep.npc
 
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.api.location
 import core.game.node.entity.player.Player
 

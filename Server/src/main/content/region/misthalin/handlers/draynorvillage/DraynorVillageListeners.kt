@@ -3,9 +3,9 @@ package content.region.misthalin.handlers.draynorvillage
 import content.global.handlers.iface.plugin.DiangoReclaimInterfacePlugin
 import content.region.misthalin.dialogue.draynorvillage.TreeGuardDialogue
 import core.api.*
-import core.api.consts.Items
-import core.api.consts.NPCs
-import core.api.consts.Scenery
+import cfg.consts.Items
+import cfg.consts.NPCs
+import cfg.consts.Scenery
 import core.game.activity.ActivityManager
 import core.game.dialogue.FacialExpression
 import core.game.interaction.IntType

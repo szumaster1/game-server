@@ -1,7 +1,7 @@
 /*package content.kingdom.fremennik.quest.lunar
 
 
-import core.api.consts.Vars
+import cfg.consts.Vars
 import core.api.*
 import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.quest.Quest

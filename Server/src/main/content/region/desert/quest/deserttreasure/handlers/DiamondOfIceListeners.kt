@@ -3,9 +3,9 @@ package content.region.desert.quest.deserttreasure.handlers
 import content.region.desert.quest.deserttreasure.DesertTreasure
 import content.region.desert.quest.deserttreasure.dialogue.ChatFatherAndMotherTrollDialogueFile
 import core.api.*
-import core.api.consts.Items
-import core.api.consts.NPCs
-import core.api.consts.Scenery
+import cfg.consts.Items
+import cfg.consts.NPCs
+import cfg.consts.Scenery
 import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression
 import core.game.interaction.IntType
@@ -20,11 +20,13 @@ import core.tools.END_DIALOGUE
 
 /**
  * Represents the Diamond of ice listeners.
+ * @author Ovenbreado
  */
 class DiamondOfIceListeners : InteractionListener {
 
     override fun defineListeners() {
-        onUseWith(IntType.NPC, Items.CHOCOLATE_CAKE_1897, NPCs.BANDIT_1932 /* should be NPCs.TROLL_CHILD_1932 */) { player, used, with ->
+        onUseWith(IntType.NPC, Items.CHOCOLATE_CAKE_1897, NPCs.BANDIT_1932 /* should be NPCs.TROLL_CHILD_1932 * @author Ovenbreado
+ */) { player, used, with ->
             if (removeItem(player, used)) {
                 if (DesertTreasure.getSubStage(player, DesertTreasure.attributeIceStage) == 0) {
                     DesertTreasure.setSubStage(player, DesertTreasure.attributeIceStage, 1)
@@ -141,6 +143,7 @@ class DiamondOfIceListeners : InteractionListener {
  * Represents the Ice dungeon warning
  *
  * @constructor Create empty Ice dungeon warning
+ * @author Ovenbreado
  */
 class IceDungeonWarning : MapArea {
     override fun defineAreaBorders(): Array<ZoneBorders> {
@@ -160,6 +163,7 @@ class IceDungeonWarning : MapArea {
  * Represents the Comical tripping ice area
  *
  * @constructor Create empty Comical tripping ice area
+ * @author Ovenbreado
  */
 class ComicalTrippingIceArea : MapArea {
     override fun defineAreaBorders(): Array<ZoneBorders> {
@@ -184,6 +188,7 @@ class ComicalTrippingIceArea : MapArea {
  * Represents the Ice area attack
  *
  * @constructor Create empty Ice area attack
+ * @author Ovenbreado
  */
 class IceAreaAttack : MapArea {
     override fun defineAreaBorders(): Array<ZoneBorders> {

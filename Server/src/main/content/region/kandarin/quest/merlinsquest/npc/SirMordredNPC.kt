@@ -2,7 +2,7 @@ package content.region.kandarin.quest.merlinsquest.npc
 
 import content.region.kandarin.quest.merlinsquest.MerlinUtils
 import content.region.kandarin.quest.merlinsquest.dialogue.MorganLeFayeDialogueFile
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.api.openDialogue
 import core.game.node.entity.Entity
 import core.game.node.entity.combat.CombatStyle

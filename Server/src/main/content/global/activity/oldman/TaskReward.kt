@@ -1,7 +1,7 @@
 package content.global.activity.oldman
 
-import core.api.consts.Items
-import core.api.consts.NPCs
+import cfg.consts.Items
+import cfg.consts.NPCs
 import core.api.utils.WeightBasedTable
 import core.api.utils.WeightedItem
 

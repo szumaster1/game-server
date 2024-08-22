@@ -1,7 +1,7 @@
 package content.global.bots
 
 import core.api.amountInInventory
-import core.api.consts.Items
+import cfg.consts.Items
 import core.game.bots.*
 import core.game.interaction.DestinationFlag
 import core.game.interaction.IntType

@@ -1,6 +1,6 @@
 package content.global.skill.support.agility.shortcuts
 
-import core.api.consts.Scenery
+import cfg.consts.Scenery
 import core.api.sendMessage
 import core.api.teleport
 import core.game.global.action.ClimbActionHandler

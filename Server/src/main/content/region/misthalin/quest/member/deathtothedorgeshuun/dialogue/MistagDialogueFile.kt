@@ -1,6 +1,6 @@
 package content.region.misthalin.quest.member.deathtothedorgeshuun.dialogue
 
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.api.getQuestStage
 import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression

@@ -1,6 +1,6 @@
 package content.region.kandarin.dialogue.piscatoris
 
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.api.isQuestComplete
 import core.api.sendDialogueOptions
 import core.game.dialogue.Dialogue

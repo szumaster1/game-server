@@ -3,9 +3,9 @@ package content.minigame.tbwcleanup
 import content.data.skill.SkillingTool
 import content.global.skill.gathering.woodcutting.WoodcuttingNode
 import core.api.*
-import core.api.consts.Items
-import core.api.consts.NPCs
-import core.api.consts.Sounds
+import cfg.consts.Items
+import cfg.consts.NPCs
+import cfg.consts.Sounds
 import core.cache.def.impl.ItemDefinition
 import core.game.event.ResourceProducedEvent
 import core.game.interaction.Clocks
@@ -25,7 +25,7 @@ import core.tools.RandomFunction.random
 import kotlin.streams.toList
 
 /**
- * Hack jungle.
+ * Represents the Hack jungle interaction.
  */
 class HackJungleListener : InteractionListener {
 
@@ -255,24 +255,12 @@ class HackJungleListener : InteractionListener {
                 else -> 0
             }
 
-            SceneryBuilder.replaceWithTempBeforeNew(
-                node.asScenery(),
-                node.asScenery().transform(GEMROCK_ID),
-                node.asScenery().transform(resource),
-                200,
-                true
-            )
+            SceneryBuilder.replaceWithTempBeforeNew(node.asScenery(), node.asScenery().transform(GEMROCK_ID), node.asScenery().transform(resource), 200, true)
             return
         }
         if (roll <= 100) {
             playAudio(player, 1282)
-            SceneryBuilder.replaceWithTempBeforeNew(
-                node.asScenery(),
-                node.asScenery().transform(9033),
-                node.asScenery().transform(resource),
-                200,
-                true
-            )
+            SceneryBuilder.replaceWithTempBeforeNew(node.asScenery(), node.asScenery().transform(9033), node.asScenery().transform(resource), 200, true)
             animateScenery(node.asScenery(), 2383)
             player.sendMessage("You find a Gout Tuber.")
             return

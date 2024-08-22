@@ -1,6 +1,6 @@
 package content.region.kandarin.dialogue.feldip.gutanoth
 
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.api.sendMessage
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression

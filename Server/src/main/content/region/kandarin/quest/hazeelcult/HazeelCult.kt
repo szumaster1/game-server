@@ -1,8 +1,8 @@
 package content.region.kandarin.quest.hazeelcult
 
 import core.api.addItemOrDrop
-import core.api.consts.Items
-import core.api.consts.Vars
+import cfg.consts.Items
+import cfg.consts.Vars
 import core.api.getAttribute
 import core.api.rewardXP
 import core.game.node.entity.player.Player

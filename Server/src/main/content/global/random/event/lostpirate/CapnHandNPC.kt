@@ -1,7 +1,7 @@
 package content.global.random.event.lostpirate
 
 import content.global.random.RandomEventNPC
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.api.getWorldTicks
 import core.api.openDialogue
 import core.api.utils.WeightBasedTable

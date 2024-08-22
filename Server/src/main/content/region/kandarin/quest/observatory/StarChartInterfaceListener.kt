@@ -1,6 +1,6 @@
 package content.region.kandarin.quest.observatory
 
-import core.api.consts.Components
+import cfg.consts.Components
 import core.api.setInterfaceText
 import core.game.interaction.InterfaceListener
 

@@ -1,10 +1,10 @@
 package content.region.wilderness.handlers.npc
 
 import content.data.BossKillCounter.Companion.addtoKillcount
-import core.api.consts.Animations
-import core.api.consts.Graphics
-import core.api.consts.NPCs
-import core.api.consts.Sounds
+import cfg.consts.Animations
+import cfg.consts.Graphics
+import cfg.consts.NPCs
+import cfg.consts.Sounds
 import core.api.getPathableRandomLocalCoordinate
 import core.api.playAudio
 import core.api.playGlobalAudio

@@ -1,8 +1,8 @@
 package content.global.skill.production.crafting.data
 
 import core.api.*
-import core.api.consts.Components
-import core.api.consts.Items
+import cfg.consts.Components
+import cfg.consts.Items
 import core.game.component.Component
 import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.diary.DiaryType

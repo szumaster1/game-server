@@ -1,6 +1,6 @@
 package content.global.skill.production.fletching.data
 
-import core.api.consts.Items
+import cfg.consts.Items
 
 /**
  * Enum class representing different types of Brutal Arrows.

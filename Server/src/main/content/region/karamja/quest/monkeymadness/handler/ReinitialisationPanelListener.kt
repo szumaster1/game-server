@@ -1,6 +1,6 @@
 package content.region.karamja.quest.monkeymadness.handler
 
-import core.api.consts.Components
+import cfg.consts.Components
 import core.api.getAttribute
 import core.api.setAttribute
 import core.game.interaction.InterfaceListener

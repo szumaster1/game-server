@@ -1,7 +1,7 @@
 package content.region.karamja.quest.tribaltotem.dialogue
 
-import core.api.consts.Items
-import core.api.consts.NPCs
+import cfg.consts.Items
+import cfg.consts.NPCs
 import core.api.isQuestComplete
 import core.api.removeItem
 import core.game.dialogue.Dialogue

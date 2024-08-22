@@ -1,7 +1,7 @@
 package content.region.kandarin.quest.observatory.dialogue
 
-import core.api.consts.Items
-import core.api.consts.NPCs
+import cfg.consts.Items
+import cfg.consts.NPCs
 import core.api.inInventory
 import core.api.sendDialogue
 import core.api.setQuestStage

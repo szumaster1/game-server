@@ -6,7 +6,7 @@ import core.game.interaction.InteractionListener
 import core.game.interaction.QueueStrength
 import core.game.node.entity.skill.Skills
 import core.game.world.map.Location
-import core.api.consts.*
+import cfg.consts.*
 import core.game.node.item.Item
 
 /**

@@ -1,9 +1,9 @@
 package content.global.handlers.item
 
 import core.api.*
-import core.api.consts.Animations
-import core.api.consts.Graphics
-import core.api.consts.Items
+import cfg.consts.Animations
+import cfg.consts.Graphics
+import cfg.consts.Items
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.entity.player.Player

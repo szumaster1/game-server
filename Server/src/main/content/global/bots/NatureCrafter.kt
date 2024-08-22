@@ -1,6 +1,6 @@
 package content.global.bots
 
-import core.api.consts.Items
+import cfg.consts.Items
 import core.api.teleport
 import core.game.bots.*
 import core.game.node.entity.player.link.TeleportManager

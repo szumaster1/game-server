@@ -1,7 +1,7 @@
 package content.region.misthalin.quest.member.whatliesbelow
 
-import core.api.consts.Components
-import core.api.consts.Items
+import cfg.consts.Components
+import cfg.consts.Items
 import core.api.openInterface
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener

@@ -1,7 +1,7 @@
 package content.global.random.event.pillory
 
 import content.global.random.RandomEventNPC
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.api.registerLogoutListener
 import core.api.runTask
 import core.api.utils.WeightBasedTable

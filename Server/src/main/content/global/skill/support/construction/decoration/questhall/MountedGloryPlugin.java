@@ -1,6 +1,6 @@
 package content.global.skill.support.construction.decoration.questhall;
 
-import core.api.consts.Sounds;
+import cfg.consts.Sounds;
 import core.cache.def.impl.SceneryDefinition;
 import core.game.dialogue.DialogueAction;
 import core.game.dialogue.DialogueInterpreter;

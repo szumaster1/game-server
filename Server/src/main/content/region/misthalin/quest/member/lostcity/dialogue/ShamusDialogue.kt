@@ -1,6 +1,6 @@
 package content.region.misthalin.quest.member.lostcity.dialogue
 
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import content.region.misthalin.quest.member.lostcity.handlers.ShamusTreeListener
 import core.api.getQuestStage
 import core.api.setQuestStage

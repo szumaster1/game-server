@@ -3,8 +3,8 @@ package content.region.kandarin.quest.fightarena.cutscenes
 import content.region.kandarin.quest.fightarena.FightArenaListeners.Companion.Jeremy
 import content.region.kandarin.quest.fightarena.npc.OgreNPC.Companion.spawnOgre
 import core.api.*
-import core.api.consts.Animations
-import core.api.consts.NPCs
+import cfg.consts.Animations
+import cfg.consts.NPCs
 import core.game.activity.Cutscene
 import core.game.dialogue.FacialExpression
 import core.game.global.action.DoorActionHandler

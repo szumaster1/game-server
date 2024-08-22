@@ -1,6 +1,6 @@
 package content.region.kandarin.dialogue.catherby
 
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.api.freeSlots
 import core.api.inInventory
 import core.api.sendMessage

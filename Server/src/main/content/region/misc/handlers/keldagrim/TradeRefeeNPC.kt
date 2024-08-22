@@ -1,6 +1,6 @@
 package content.region.misc.handlers.keldagrim
 
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.api.sendChat
 import core.game.node.entity.npc.NPC
 import core.game.node.entity.npc.NPCBehavior

@@ -2,8 +2,8 @@ package content.region.asgarnia.quest.recruitmentdrive
 
 import content.region.asgarnia.quest.recruitmentdrive.dialogue.SirRenItchwoodDialogueFile
 import core.api.*
-import core.api.consts.Components
-import core.api.consts.NPCs
+import cfg.consts.Components
+import cfg.consts.NPCs
 import core.game.interaction.InterfaceListener
 import core.game.node.entity.npc.NPC
 

@@ -1,8 +1,8 @@
 package content.region.fremennik.quest.horrorfromthedeep.dialogue
 
 import core.api.addItemOrDrop
-import core.api.consts.Items
-import core.api.consts.NPCs
+import cfg.consts.Items
+import cfg.consts.NPCs
 import core.api.removeItem
 import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression

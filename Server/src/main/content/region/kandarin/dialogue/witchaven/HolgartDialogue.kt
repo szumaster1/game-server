@@ -2,7 +2,7 @@ package content.region.kandarin.dialogue.witchaven
 
 import content.region.kandarin.handlers.FishingPlatform
 import content.region.kandarin.quest.seaslug.dialogue.HolgartDialogueFile
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.api.isQuestComplete
 import core.api.isQuestInProgress
 import core.api.openDialogue

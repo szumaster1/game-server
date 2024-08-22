@@ -1,8 +1,8 @@
 package content.region.misthalin.quest.member.familycrest.dialogue
 
-import core.api.consts.Items
+import cfg.consts.Items
 import content.region.misthalin.quest.member.familycrest.SwapGauntletsHelper
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.api.getAttribute
 import core.game.dialogue.Dialogue
 import core.game.node.entity.npc.NPC

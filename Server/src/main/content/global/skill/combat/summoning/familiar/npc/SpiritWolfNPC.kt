@@ -2,7 +2,7 @@ package content.global.skill.combat.summoning.familiar.npc
 
 import content.global.skill.combat.summoning.familiar.Familiar
 import content.global.skill.combat.summoning.familiar.FamiliarSpecial
-import core.api.consts.Sounds
+import cfg.consts.Sounds
 import core.api.playAudio
 import core.game.activity.CutscenePlugin
 import core.game.dialogue.Dialogue

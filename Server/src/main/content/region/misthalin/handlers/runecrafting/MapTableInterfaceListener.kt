@@ -1,13 +1,13 @@
 package content.region.misthalin.handlers.runecrafting
 
-import core.api.consts.Components
-import core.api.consts.Items
+import cfg.consts.Components
+import cfg.consts.Items
 import core.api.*
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.interaction.InterfaceListener
 import core.game.world.GameWorld
-import core.api.consts.Scenery
+import cfg.consts.Scenery
 
 /**
  * Represents the Map table interface listener.

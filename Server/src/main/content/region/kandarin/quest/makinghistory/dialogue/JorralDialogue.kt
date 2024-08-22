@@ -4,9 +4,9 @@ import content.region.kandarin.quest.makinghistory.MHUtils
 import content.region.kandarin.quest.makinghistory.MHUtils.checkRequirements
 import content.region.kandarin.quest.makinghistory.OutpostHistoryCutscene
 import core.api.*
-import core.api.consts.Components
-import core.api.consts.Items
-import core.api.consts.NPCs
+import cfg.consts.Components
+import cfg.consts.Items
+import cfg.consts.NPCs
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression
 import core.game.node.entity.player.Player

@@ -1,7 +1,7 @@
 package content.region.misthalin.dialogue.wizardstower
 
-import core.api.consts.Items
-import core.api.consts.NPCs
+import cfg.consts.Items
+import cfg.consts.NPCs
 import content.global.travel.EssenceTeleport.teleport
 import core.api.*
 import core.game.dialogue.Dialogue

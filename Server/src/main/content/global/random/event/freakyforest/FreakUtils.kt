@@ -1,8 +1,8 @@
 package content.global.random.event.freakyforest
 
 import core.api.*
-import core.api.consts.Items
-import core.api.consts.NPCs
+import cfg.consts.Items
+import cfg.consts.NPCs
 import core.game.node.entity.player.Player
 import core.game.world.map.zone.ZoneBorders
 import core.tools.RandomFunction

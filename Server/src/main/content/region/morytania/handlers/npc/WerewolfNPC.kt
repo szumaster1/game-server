@@ -1,7 +1,7 @@
 package content.region.morytania.handlers.npc
 
 import core.api.*
-import core.api.consts.Items
+import cfg.consts.Items
 import core.game.interaction.QueueStrength
 import core.game.node.entity.Entity
 import core.game.node.entity.combat.BattleState

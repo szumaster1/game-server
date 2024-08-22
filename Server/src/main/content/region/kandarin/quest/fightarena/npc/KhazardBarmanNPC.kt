@@ -1,6 +1,6 @@
 package content.region.kandarin.quest.fightarena.npc
 
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.api.inBorders
 import core.game.node.entity.npc.NPC
 import core.game.node.entity.npc.NPCBehavior

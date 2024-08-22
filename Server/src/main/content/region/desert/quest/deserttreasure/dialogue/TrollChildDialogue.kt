@@ -1,7 +1,7 @@
 package content.region.desert.quest.deserttreasure.dialogue
 
 import content.region.desert.quest.deserttreasure.DesertTreasure
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.api.openDialogue
 import core.game.dialogue.Dialogue
 import core.game.dialogue.DialogueBuilder
@@ -12,6 +12,7 @@ import core.plugin.Initializable
 
 /**
  * Represents the Troll child dialogue.
+ * @author Ovenbreado
  */
 @Initializable
 class TrollChildDialogue(player: Player? = null) : Dialogue(player) {
@@ -34,6 +35,7 @@ class TrollChildDialogue(player: Player? = null) : Dialogue(player) {
 
 /**
  * Represents the Troll child dialogue file.
+ * @author Ovenbreado
  */
 class TrollChildDialogueFile : DialogueBuilderFile() {
 

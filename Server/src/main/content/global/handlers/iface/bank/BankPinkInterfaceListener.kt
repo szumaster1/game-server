@@ -1,6 +1,6 @@
 package content.global.handlers.iface.bank
 
-import core.api.consts.Components
+import cfg.consts.Components
 import core.game.interaction.InterfaceListener
 
 /**

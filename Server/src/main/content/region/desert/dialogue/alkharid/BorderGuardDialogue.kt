@@ -1,7 +1,7 @@
 package content.region.desert.dialogue.alkharid
 
-import core.api.consts.Items
-import core.api.consts.NPCs
+import cfg.consts.Items
+import cfg.consts.NPCs
 import core.api.getQuestStage
 import core.api.getScenery
 import core.api.removeItem

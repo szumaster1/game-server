@@ -1,7 +1,7 @@
 package content.global.dialogue
 
-import core.api.consts.Items
-import core.api.consts.NPCs
+import cfg.consts.Items
+import cfg.consts.NPCs
 import core.api.setAttribute
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression

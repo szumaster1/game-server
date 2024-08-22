@@ -1,6 +1,6 @@
 package content.minigame.templetrekking.events.combat
 
-import core.api.consts.Scenery
+import cfg.consts.Scenery
 import core.api.getUsedOption
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener

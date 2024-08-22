@@ -2,8 +2,8 @@ package content.region.desert.quest.deserttreasure.dialogue
 
 import content.region.desert.quest.deserttreasure.DesertTreasure
 import core.api.*
-import core.api.consts.Items
-import core.api.consts.NPCs
+import cfg.consts.Items
+import cfg.consts.NPCs
 import core.game.dialogue.Dialogue
 import core.game.dialogue.DialogueBuilder
 import core.game.dialogue.DialogueBuilderFile
@@ -13,6 +13,7 @@ import core.plugin.Initializable
 
 /**
  * Represents the Rasolo dialogue.
+ * @author Ovenbreado
  */
 @Initializable
 class RasoloDialogue(player: Player? = null) : Dialogue(player) {
@@ -33,6 +34,7 @@ class RasoloDialogue(player: Player? = null) : Dialogue(player) {
 
 /**
  * Represents the Rasolo dialogue file.
+ * @author Ovenbreado
  */
 class RasoloDialogueFile : DialogueBuilderFile() {
     override fun create(b: DialogueBuilder) {

@@ -1,9 +1,9 @@
 package content.region.kandarin.quest.chompybird.npc
 
 import core.api.*
-import core.api.consts.Graphics
-import core.api.consts.Items
-import core.api.consts.NPCs
+import cfg.consts.Graphics
+import cfg.consts.Items
+import cfg.consts.NPCs
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.entity.npc.AbstractNPC

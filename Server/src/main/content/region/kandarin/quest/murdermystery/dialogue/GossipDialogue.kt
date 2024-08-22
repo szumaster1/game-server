@@ -1,6 +1,6 @@
 package content.region.kandarin.quest.murdermystery.dialogue
 
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.api.getQuestStage
 import core.api.isQuestComplete
 import core.game.dialogue.Dialogue

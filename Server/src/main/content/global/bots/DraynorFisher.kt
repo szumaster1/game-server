@@ -1,6 +1,6 @@
 package content.global.bots
 
-import core.api.consts.Items
+import cfg.consts.Items
 import core.game.bots.Script
 import core.game.bots.SkillingBotAssembler
 import core.game.interaction.DestinationFlag

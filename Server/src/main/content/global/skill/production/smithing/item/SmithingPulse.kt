@@ -5,8 +5,8 @@ import content.global.skill.production.smithing.data.SmithingType
 import content.global.skill.skillcape.SkillcapePerks
 import content.global.skill.skillcape.SkillcapePerks.Companion.isActive
 import core.api.*
-import core.api.consts.Animations
-import core.api.consts.Items
+import cfg.consts.Animations
+import cfg.consts.Items
 import core.cache.def.impl.ItemDefinition
 import core.game.event.ResourceProducedEvent
 import core.game.node.entity.player.Player

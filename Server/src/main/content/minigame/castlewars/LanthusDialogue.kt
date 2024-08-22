@@ -1,7 +1,7 @@
 package content.minigame.castlewars
 
-import core.api.consts.Items
-import core.api.consts.NPCs
+import cfg.consts.Items
+import cfg.consts.NPCs
 import core.api.openNpcShop
 import core.api.sendMessage
 import core.game.dialogue.Dialogue

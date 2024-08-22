@@ -1,7 +1,7 @@
 package content.region.kandarin.quest.ew2.interfaces
 
 import core.api.*
-import core.api.consts.Components
+import cfg.consts.Components
 import core.game.dialogue.FacialExpression
 import core.game.interaction.InterfaceListener
 

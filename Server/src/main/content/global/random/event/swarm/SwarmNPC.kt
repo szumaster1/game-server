@@ -1,8 +1,8 @@
 package content.global.random.event.swarm
 
 import content.global.random.RandomEventNPC
-import core.api.consts.NPCs
-import core.api.consts.Sounds
+import cfg.consts.NPCs
+import cfg.consts.Sounds
 import core.api.playGlobalAudio
 import core.api.utils.WeightBasedTable
 import core.game.node.entity.npc.NPC

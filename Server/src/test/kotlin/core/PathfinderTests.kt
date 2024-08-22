@@ -21,7 +21,7 @@ import core.network.packet.PacketProcessor
 import core.plugin.ClassScanner
 import core.plugin.Plugin
 import core.tools.Log
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 
 class PathfinderTests {
     companion object {init {TestUtils.preTestSetup(); GatheringListener().defineListeners(); WoodcuttingListener().defineListeners() }; val NPC_TEST_LOC = ServerConstants.HOME_LOCATION!!.transform(2, 10, 0)}

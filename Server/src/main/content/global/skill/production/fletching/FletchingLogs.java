@@ -1,6 +1,6 @@
 package content.global.skill.production.fletching;
 
-import core.api.consts.Items;
+import cfg.consts.Items;
 import core.game.dialogue.SkillDialogueHandler;
 import core.game.interaction.NodeUsageEvent;
 import core.game.interaction.UseWithHandler;

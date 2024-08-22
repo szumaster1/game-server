@@ -1,8 +1,8 @@
 package core.game.consumable
 
 import content.data.consumables.Consumables.Companion.getConsumableById
-import core.api.consts.Items
-import core.api.consts.Sounds
+import cfg.consts.Items
+import cfg.consts.Sounds
 import core.api.playAudio
 import core.api.sendMessage
 import core.game.node.entity.player.Player

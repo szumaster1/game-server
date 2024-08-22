@@ -1,6 +1,6 @@
 package content.region.morytania.quest.fenkenstrain.dialogue
 
-import core.api.consts.Items
+import cfg.consts.Items
 import core.api.addItemOrDrop
 import core.api.amountInInventory
 import core.api.removeItem

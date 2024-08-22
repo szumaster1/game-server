@@ -2,7 +2,7 @@ package content.region.morytania.handlers
 
 import content.global.skill.support.agility.AgilityHandler
 import core.api.*
-import core.api.consts.*
+import cfg.consts.*
 import core.game.global.action.ClimbActionHandler
 import core.game.global.action.DoorActionHandler
 import core.game.interaction.IntType

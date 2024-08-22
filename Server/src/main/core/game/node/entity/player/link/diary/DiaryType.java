@@ -1,6 +1,6 @@
 package core.game.node.entity.player.link.diary;
 
-import core.api.consts.Items;
+import cfg.consts.Items;
 import core.game.node.entity.player.Player;
 import core.game.node.item.Item;
 

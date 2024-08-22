@@ -4,7 +4,7 @@ import content.data.tables.*
 import content.global.activity.treasuretrails.ClueLevel
 import content.global.activity.treasuretrails.clue.ClueScrollPlugin
 import content.global.handlers.item.equipment.gloves.FOGGlovesManager
-import core.api.consts.Items
+import cfg.consts.Items
 import core.api.inEquipment
 import core.cache.def.impl.ItemDefinition
 import core.game.node.entity.Entity

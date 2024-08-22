@@ -1,6 +1,6 @@
 package content.global.skill.support.construction
 
-import core.api.consts.Items
+import cfg.consts.Items
 import core.api.isQuestComplete
 import core.game.node.entity.player.Player
 import core.game.node.entity.skill.Skills

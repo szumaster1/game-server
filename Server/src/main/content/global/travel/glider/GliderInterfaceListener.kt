@@ -1,7 +1,7 @@
 package content.global.travel.glider
 
 import content.global.travel.glider.GnomeGliderListeners.GliderPulse
-import core.api.consts.Components
+import cfg.consts.Components
 import core.api.submitWorldPulse
 import core.api.unlock
 import core.game.interaction.InterfaceListener

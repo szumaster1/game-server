@@ -1,6 +1,6 @@
 package content.region.kandarin.quest.holygrail.dialogue
 
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.api.openDialogue
 import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression

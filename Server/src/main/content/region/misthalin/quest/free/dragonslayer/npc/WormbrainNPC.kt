@@ -1,7 +1,7 @@
 package content.region.misthalin.quest.free.dragonslayer.npc
 
 import content.region.misthalin.quest.free.dragonslayer.DragonSlayer
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.game.node.entity.Entity
 import core.game.node.entity.combat.CombatStyle
 import core.game.node.entity.npc.AbstractNPC

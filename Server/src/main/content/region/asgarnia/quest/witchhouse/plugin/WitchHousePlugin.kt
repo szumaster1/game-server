@@ -2,8 +2,8 @@ package content.region.asgarnia.quest.witchhouse.plugin
 
 import content.region.asgarnia.quest.witchhouse.npc.MouseNPC
 import core.api.*
-import core.api.consts.Items
-import core.api.consts.NPCs
+import cfg.consts.Items
+import cfg.consts.NPCs
 import core.cache.def.impl.ItemDefinition
 import core.cache.def.impl.SceneryDefinition
 import core.game.global.action.DoorActionHandler.handleAutowalkDoor
@@ -149,23 +149,23 @@ class WitchHousePlugin : OptionHandler() {
     override fun newInstance(arg: Any?): Plugin<Any> {
         definePlugin(WitchHouseUseWithHandler())
         definePlugin(MouseNPC())
-        SceneryDefinition.forId(core.api.consts.Scenery.POTTED_PLANT_2867).handlers["option:look-under"] = this
-        SceneryDefinition.forId(core.api.consts.Scenery.DOOR_2861).handlers["option:open"] = this
-        SceneryDefinition.forId(core.api.consts.Scenery.GATE_2865).handlers["option:open"] = this
-        SceneryDefinition.forId(core.api.consts.Scenery.GATE_2866).handlers["option:open"] = this
-        SceneryDefinition.forId(core.api.consts.Scenery.DOOR_2862).handlers["option:open"] = this
-        SceneryDefinition.forId(core.api.consts.Scenery.GRAMOPHONE_24724).handlers["option:wind-up"] = this
-        SceneryDefinition.forId(core.api.consts.Scenery.STAIRCASE_24673).handlers["option:walk-down"] = this
-        SceneryDefinition.forId(core.api.consts.Scenery.STAIRCASE_24672).handlers["option:walk-up"] = this
-        SceneryDefinition.forId(core.api.consts.Scenery.PIANO_24721).handlers["option:play"] = this
-        SceneryDefinition.forId(core.api.consts.Scenery.BOXES_24692).handlers["option:search"] = this
-        SceneryDefinition.forId(core.api.consts.Scenery.CUPBOARD_2869).handlers["option:search"] = this
+        SceneryDefinition.forId(cfg.consts.Scenery.POTTED_PLANT_2867).handlers["option:look-under"] = this
+        SceneryDefinition.forId(cfg.consts.Scenery.DOOR_2861).handlers["option:open"] = this
+        SceneryDefinition.forId(cfg.consts.Scenery.GATE_2865).handlers["option:open"] = this
+        SceneryDefinition.forId(cfg.consts.Scenery.GATE_2866).handlers["option:open"] = this
+        SceneryDefinition.forId(cfg.consts.Scenery.DOOR_2862).handlers["option:open"] = this
+        SceneryDefinition.forId(cfg.consts.Scenery.GRAMOPHONE_24724).handlers["option:wind-up"] = this
+        SceneryDefinition.forId(cfg.consts.Scenery.STAIRCASE_24673).handlers["option:walk-down"] = this
+        SceneryDefinition.forId(cfg.consts.Scenery.STAIRCASE_24672).handlers["option:walk-up"] = this
+        SceneryDefinition.forId(cfg.consts.Scenery.PIANO_24721).handlers["option:play"] = this
+        SceneryDefinition.forId(cfg.consts.Scenery.BOXES_24692).handlers["option:search"] = this
+        SceneryDefinition.forId(cfg.consts.Scenery.CUPBOARD_2869).handlers["option:search"] = this
         //TODO
         // Trying to enter the shed while another player is fighting the experiment will yield the message
         // "I'd better not go in there yet... I think I can hear someone inside!"
-        SceneryDefinition.forId(core.api.consts.Scenery.DOOR_2863).handlers["option:open"] = this
-        SceneryDefinition.forId(core.api.consts.Scenery.FOUNTAIN_2864).handlers["option:check"] = this
-        ItemDefinition.forId(core.api.consts.Scenery.LADDER_2408).handlers["option:read"] = this
+        SceneryDefinition.forId(cfg.consts.Scenery.DOOR_2863).handlers["option:open"] = this
+        SceneryDefinition.forId(cfg.consts.Scenery.FOUNTAIN_2864).handlers["option:check"] = this
+        ItemDefinition.forId(cfg.consts.Scenery.LADDER_2408).handlers["option:read"] = this
 
         return this
     }
@@ -181,7 +181,7 @@ class WitchHousePlugin : OptionHandler() {
     class WitchHouseUseWithHandler : UseWithHandler(CHEESE.id) {
 
         override fun newInstance(arg: Any?): Plugin<Any> {
-            addHandler(core.api.consts.Scenery.MOUSE_HOLE_15518, OBJECT_TYPE, this)
+            addHandler(cfg.consts.Scenery.MOUSE_HOLE_15518, OBJECT_TYPE, this)
             addHandler(NPCs.MOUSE_901, NPC_TYPE, object : UseWithHandler(2410) {
 
                 override fun newInstance(arg: Any?): Plugin<Any> {

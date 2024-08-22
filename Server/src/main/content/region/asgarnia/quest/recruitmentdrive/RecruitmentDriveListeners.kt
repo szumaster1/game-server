@@ -3,10 +3,10 @@ package content.region.asgarnia.quest.recruitmentdrive
 import content.region.asgarnia.dialogue.falador.KnightNotesDialogue
 import content.region.asgarnia.quest.recruitmentdrive.dialogue.*
 import core.api.*
-import core.api.consts.Components
-import core.api.consts.Items
-import core.api.consts.NPCs
-import core.api.consts.Scenery
+import cfg.consts.Components
+import cfg.consts.Items
+import cfg.consts.NPCs
+import cfg.consts.Scenery
 import core.game.activity.Cutscene
 import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression

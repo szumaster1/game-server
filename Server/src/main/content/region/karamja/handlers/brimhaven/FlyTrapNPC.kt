@@ -1,6 +1,6 @@
 package content.region.karamja.handlers.brimhaven
 
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.game.node.entity.combat.ImpactHandler.HitsplatType
 import core.game.node.entity.impl.Animator.Priority
 import core.game.node.entity.npc.AbstractNPC

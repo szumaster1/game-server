@@ -14,9 +14,10 @@ import kotlin.math.min
 import kotlin.math.max
 
 /**
- * TBWCleanup map area.
+ * Tai Bwo Wannai Cleanup map area.
  */
-class TBWCleanupMapArea : MapArea {
+class TaiBwoWannaiCleanupArea : MapArea {
+
     override fun defineAreaBorders(): Array<ZoneBorders> {
         return arrayOf(getRegionBorders(11056), getRegionBorders(1055)) // 11055
     }

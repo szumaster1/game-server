@@ -1,6 +1,6 @@
 package content.region.kandarin.dialogue.seersvillage
 
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.api.freeSlots
 import core.api.sendMessage
 import core.game.dialogue.Dialogue

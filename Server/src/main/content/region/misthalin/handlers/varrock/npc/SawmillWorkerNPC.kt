@@ -1,7 +1,7 @@
 package content.region.misthalin.handlers.varrock.npc
 
-import core.api.consts.Animations
-import core.api.consts.NPCs
+import cfg.consts.Animations
+import cfg.consts.NPCs
 import core.api.finishedMoving
 import core.game.node.entity.npc.NPC
 import core.game.node.entity.npc.NPCBehavior

@@ -1,7 +1,7 @@
 package content.region.kandarin.dialogue.piscatoris
 
-import core.api.consts.Items
-import core.api.consts.NPCs
+import cfg.consts.Items
+import cfg.consts.NPCs
 import core.api.sendNPCDialogue
 import core.game.container.impl.EquipmentContainer
 import core.game.dialogue.Dialogue

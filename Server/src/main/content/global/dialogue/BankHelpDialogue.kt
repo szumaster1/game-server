@@ -1,7 +1,7 @@
 package content.global.dialogue
 
-import core.api.consts.Components
-import core.api.consts.Items
+import cfg.consts.Components
+import cfg.consts.Items
 import core.api.openInterface
 import core.api.sendDialogue
 import core.api.sendItemDialogue

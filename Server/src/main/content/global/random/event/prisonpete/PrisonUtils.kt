@@ -1,9 +1,9 @@
 package content.global.random.event.prisonpete
 
 import core.api.*
-import core.api.consts.Items
-import core.api.consts.NPCs
-import core.api.consts.Sounds
+import cfg.consts.Items
+import cfg.consts.NPCs
+import cfg.consts.Sounds
 import core.game.interaction.QueueStrength
 import core.game.node.entity.player.Player
 import core.game.system.timer.impl.AntiMacro

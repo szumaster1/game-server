@@ -14,7 +14,7 @@ import core.game.bots.AIPlayer;
 import core.game.world.GameWorld;
 import core.game.world.map.zone.ZoneType;
 import core.game.world.repository.Repository;
-import core.api.consts.Items;
+import cfg.consts.Items;
 
 import java.util.HashMap;
 import java.util.LinkedList;

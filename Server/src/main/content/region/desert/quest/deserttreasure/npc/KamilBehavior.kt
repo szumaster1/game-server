@@ -2,7 +2,7 @@ package content.region.desert.quest.deserttreasure.npc
 
 import content.region.desert.quest.deserttreasure.DesertTreasure
 import core.api.*
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.game.node.entity.Entity
 import core.game.node.entity.combat.BattleState
 import core.game.node.entity.combat.CombatStyle
@@ -19,6 +19,7 @@ import core.tools.RandomFunction
 
 /**
  * Represents the Kamil behavior.
+ * @author Ovenbreado
  */
 class KamilBehavior : NPCBehavior(NPCs.KAMIL_1913) {
     override fun onDeathFinished(self: NPC, killer: Entity) {
@@ -42,6 +43,7 @@ class KamilBehavior : NPCBehavior(NPCs.KAMIL_1913) {
 
 /**
  * Represents the Kamil combat handler.
+ * @author Ovenbreado
  */
 class KamilCombatHandler: MultiSwingHandler(
         SwitchAttack(CombatStyle.MELEE.swingHandler, null),

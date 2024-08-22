@@ -12,9 +12,9 @@ import content.region.misthalin.quest.free.dragonslayer.plugin.CrandorMapPlugin
 import content.region.misthalin.quest.free.dragonslayer.plugin.DSMagicDoorPlugin
 import content.region.misthalin.quest.free.dragonslayer.plugin.DragonSlayerPlugin
 import core.api.*
-import core.api.consts.Items
-import core.api.consts.Sounds
-import core.api.consts.Vars
+import cfg.consts.Items
+import cfg.consts.Sounds
+import cfg.consts.Vars
 import core.game.component.Component
 import core.game.event.EventHook
 import core.game.event.PickUpEvent

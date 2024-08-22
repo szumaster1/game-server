@@ -1,6 +1,6 @@
 package content.region.asgarnia.quest.deathplateau.dialogue
 
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.api.getQuestStage
 import core.api.getScenery
 import core.api.sendDialogue

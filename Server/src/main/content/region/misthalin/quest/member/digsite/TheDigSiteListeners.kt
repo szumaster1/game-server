@@ -19,9 +19,9 @@ import core.game.world.map.Location
 import core.game.world.map.zone.ZoneBorders
 import core.game.world.update.flag.context.Animation
 import core.tools.END_DIALOGUE
-import core.api.consts.Items
-import core.api.consts.NPCs
-import core.api.consts.Scenery
+import cfg.consts.Items
+import cfg.consts.NPCs
+import cfg.consts.Scenery
 
 /**
  * Represents the Dig site listeners.

@@ -2,7 +2,7 @@ package content.global.skill.production.smithing.item
 
 import content.global.skill.production.smithing.data.BarbarianWeapon
 import core.api.*
-import core.api.consts.Animations
+import cfg.consts.Animations
 import core.game.node.entity.player.Player
 import core.game.node.entity.skill.SkillPulse
 import core.game.node.entity.skill.Skills

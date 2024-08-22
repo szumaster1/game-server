@@ -3,8 +3,8 @@ package content.global.skill.production.herblore.handlers
 import content.global.skill.BarbarianTraining
 import content.global.skill.production.herblore.data.BarbarianMix
 import core.api.*
-import core.api.consts.Animations
-import core.api.consts.Items
+import cfg.consts.Animations
+import cfg.consts.Items
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.Node

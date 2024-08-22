@@ -1,8 +1,8 @@
 package content.global.handlers.item.withnpc
 
 import content.global.skill.combat.prayer.Bones
-import core.api.consts.Items
-import core.api.consts.NPCs
+import cfg.consts.Items
+import cfg.consts.NPCs
 import core.api.removeItem
 import core.api.sendChat
 import core.api.sendMessage

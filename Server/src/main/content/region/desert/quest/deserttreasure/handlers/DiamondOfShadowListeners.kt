@@ -2,9 +2,9 @@ package content.region.desert.quest.deserttreasure.handlers
 
 import content.region.desert.quest.deserttreasure.DesertTreasure
 import core.api.*
-import core.api.consts.Items
-import core.api.consts.NPCs
-import core.api.consts.Scenery
+import cfg.consts.Items
+import cfg.consts.NPCs
+import cfg.consts.Scenery
 import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression
 import core.game.dialogue.Topic
@@ -22,6 +22,7 @@ import core.tools.START_DIALOGUE
 
 /**
  * Represents the Diamond of shadow listeners.
+ * @author Ovenbreado
  */
 class DiamondOfShadowListeners : InteractionListener {
 
@@ -111,7 +112,8 @@ class DiamondOfShadowListeners : InteractionListener {
             return@on true
         }
 
-        /** This will open up a lot of other places. Maybe have this in a general file? */
+        /** This will open up a lot of other places. Maybe have this in a general file? * @author Ovenbreado
+ */
         onEquip(Items.RING_OF_VISIBILITY_4657) { player, _ ->
 
             if((DesertTreasure.getSubStage(player, DesertTreasure.attributeShadowStage) >= 3 &&
@@ -193,6 +195,7 @@ class DiamondOfShadowListeners : InteractionListener {
  * Represents the Shadow dungeon warning
  *
  * @constructor Create empty Shadow dungeon warning
+ * @author Ovenbreado
  */
 class ShadowDungeonWarning : MapArea {
     override fun defineAreaBorders(): Array<ZoneBorders> {
@@ -214,6 +217,7 @@ class ShadowDungeonWarning : MapArea {
  * Represents the Shadow dungeon attack
  *
  * @constructor Create empty Shadow dungeon attack
+ * @author Ovenbreado
  */
 class ShadowDungeonAttack : MapArea {
     override fun defineAreaBorders(): Array<ZoneBorders> {

@@ -1,6 +1,6 @@
 package content.global.handlers.iface
 
-import core.api.consts.Components
+import cfg.consts.Components
 import core.api.setInterfaceSprite
 import core.game.interaction.InterfaceListener
 import core.network.packet.PacketRepository

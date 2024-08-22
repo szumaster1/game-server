@@ -1,7 +1,7 @@
 package content.global.skill.support.agility.shortcuts
 
 import core.api.*
-import core.api.consts.Animations
+import cfg.consts.Animations
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.entity.impl.ForceMovement

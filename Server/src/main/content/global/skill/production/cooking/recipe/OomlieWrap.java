@@ -1,6 +1,6 @@
 package content.global.skill.production.cooking.recipe;
 
-import core.api.consts.Items;
+import cfg.consts.Items;
 import core.game.interaction.NodeUsageEvent;
 import core.game.node.entity.player.Player;
 import core.game.node.entity.skill.Skills;

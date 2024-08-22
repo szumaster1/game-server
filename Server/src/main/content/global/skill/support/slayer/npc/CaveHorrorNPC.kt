@@ -1,7 +1,7 @@
 package content.global.skill.support.slayer.npc
 
 import content.global.skill.support.slayer.SlayerEquipmentFlags.hasWitchwoodIcon
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.game.node.entity.Entity
 import core.game.node.entity.combat.*
 import core.game.node.entity.npc.AbstractNPC

@@ -1,7 +1,7 @@
 package content.region.kandarin.quest.observatory.npc
 
 import core.api.applyPoison
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.game.node.entity.Entity
 import core.game.node.entity.npc.AbstractNPC
 import core.game.node.entity.player.Player

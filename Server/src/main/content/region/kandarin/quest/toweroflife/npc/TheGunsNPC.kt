@@ -1,6 +1,6 @@
 package content.region.kandarin.quest.toweroflife.npc
 
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.api.getWorldTicks
 import core.api.sendChat
 import core.game.node.entity.npc.NPC

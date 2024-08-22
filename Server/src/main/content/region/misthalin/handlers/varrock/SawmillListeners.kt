@@ -2,7 +2,7 @@ package content.region.misthalin.handlers.varrock
 
 import content.region.misthalin.dialogue.varrock.SawmillOperatorDialogue
 import core.api.*
-import core.api.consts.*
+import cfg.consts.*
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.world.map.Location

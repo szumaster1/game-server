@@ -4,8 +4,8 @@ import content.global.skill.support.agility.AgilityCourse
 import content.global.skill.support.agility.AgilityHandler
 import content.region.kandarin.handlers.miniquest.barcrawl.BarcrawlManager
 import core.api.*
-import core.api.consts.NPCs
-import core.api.consts.Sounds
+import cfg.consts.NPCs
+import cfg.consts.Sounds
 import core.cache.def.impl.ItemDefinition
 import core.cache.def.impl.NPCDefinition
 import core.cache.def.impl.SceneryDefinition

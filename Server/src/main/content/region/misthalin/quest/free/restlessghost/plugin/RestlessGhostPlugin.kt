@@ -1,7 +1,7 @@
 package content.region.misthalin.quest.free.restlessghost.plugin
 
 import content.region.misthalin.quest.free.restlessghost.RestlessGhost
-import core.api.consts.Sounds
+import cfg.consts.Sounds
 import core.api.playAudio
 import core.api.setVarp
 import core.cache.def.impl.SceneryDefinition

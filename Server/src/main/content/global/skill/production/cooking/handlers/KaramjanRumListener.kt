@@ -2,8 +2,8 @@ package content.global.skill.production.cooking.handlers
 
 import core.api.addItemOrDrop
 import core.api.animate
-import core.api.consts.Animations
-import core.api.consts.Items
+import cfg.consts.Animations
+import cfg.consts.Items
 import core.api.removeItem
 import core.api.sendMessage
 import core.game.interaction.IntType

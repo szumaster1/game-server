@@ -1,7 +1,7 @@
 package content.global.handlers.item.plugin
 
 import core.api.addItem
-import core.api.consts.Items
+import cfg.consts.Items
 import core.api.hasRequirement
 import core.api.removeItem
 import core.api.sendMessage

@@ -1,7 +1,7 @@
 /*package content.kingdom.kandarin.quest.eaglepeak
 
 
-import core.api.consts.Vars
+import cfg.consts.Vars
 import core.api.hasLevelStat
 import core.api.rewardXP
 import core.api.setVarbit

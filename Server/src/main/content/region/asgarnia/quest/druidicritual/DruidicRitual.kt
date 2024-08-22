@@ -1,8 +1,8 @@
 package content.region.asgarnia.quest.druidicritual
 
 import core.api.*
-import core.api.consts.Items
-import core.api.consts.NPCs
+import cfg.consts.Items
+import cfg.consts.NPCs
 import core.game.component.Component
 import core.game.interaction.QueueStrength
 import core.game.node.entity.npc.NPC

@@ -2,7 +2,7 @@ package content.region.kandarin.quest.fightarena.npc
 
 import content.region.kandarin.quest.fightarena.FightArenaListeners.Companion.General
 import content.region.kandarin.quest.fightarena.dialogue.JeremyServilDialogueFile
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.api.getQuestStage
 import core.api.openDialogue
 import core.api.setQuestStage

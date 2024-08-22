@@ -1,7 +1,7 @@
 package content.region.asgarnia.quest.doricquest.cutscene
 
 import core.api.animate
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.api.sendChat
 import core.api.setAttribute
 import core.game.activity.Cutscene

@@ -2,8 +2,8 @@ package content.region.asgarnia.dialogue.falador
 
 import content.data.tables.BirdNestDropTable
 import core.api.*
-import core.api.consts.Items
-import core.api.consts.NPCs
+import cfg.consts.Items
+import cfg.consts.NPCs
 import core.game.dialogue.Dialogue
 import core.game.diary.DiaryLevel
 import core.game.node.entity.npc.NPC

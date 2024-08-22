@@ -2,7 +2,7 @@ package content.region.kandarin.quest.ew1.book
 
 import content.global.handlers.iface.BookInterfaceListener
 import content.region.kandarin.quest.ew1.util.EWUtils
-import core.api.consts.Items
+import cfg.consts.Items
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.entity.player.Player

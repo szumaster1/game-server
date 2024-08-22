@@ -1,8 +1,8 @@
 package content.region.misc.dialogue.keldagrim.boatman
 
 import core.api.*
-import core.api.consts.Components
-import core.api.consts.NPCs
+import cfg.consts.Components
+import cfg.consts.NPCs
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression
 import core.game.dialogue.Topic

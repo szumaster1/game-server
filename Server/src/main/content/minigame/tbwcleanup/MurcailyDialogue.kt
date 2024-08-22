@@ -7,11 +7,11 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.api.addItemOrDrop
 import core.api.anyInEquipment
 import core.game.dialogue.Topic
-import core.api.consts.Items
+import cfg.consts.Items
 import kotlin.math.min
 
 /**
@@ -27,9 +27,7 @@ class MurcailyDialogue(player: Player? = null) : Dialogue(player) {
             player.sendMessage("Perhaps I should try taking of the mask before talking to the villagers.")
             return false
         } else if (!player.questRepository.isComplete("Jungle Potion")) {
-            npcl(FacialExpression.FRIENDLY, "Sorry I am not interested in talking to you right now.").also {
-                stage = END_DIALOGUE
-            }
+            npcl(FacialExpression.FRIENDLY, "Sorry I am not interested in talking to you right now.").also { stage = END_DIALOGUE }
             return false
         }
 
@@ -164,6 +162,6 @@ class MurcailyDialogue(player: Player? = null) : Dialogue(player) {
     }
 
     override fun getIds(): IntArray {
-        return intArrayOf(NPCs.JAGBAKOBA_2528)
+        return intArrayOf(2528)
     }
 }

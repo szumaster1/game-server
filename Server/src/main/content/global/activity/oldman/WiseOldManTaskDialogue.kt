@@ -1,6 +1,6 @@
 package content.global.activity.oldman
 
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.api.getAttribute
 import core.api.setAttribute
 import core.game.dialogue.DialogueFile

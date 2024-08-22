@@ -1,6 +1,6 @@
 package content.region.kandarin.quest.plaguecity.dialogue
 
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.api.getQuestStage
 import core.api.setQuestStage
 import core.game.dialogue.Dialogue

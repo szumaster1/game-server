@@ -2,7 +2,7 @@ package content.region.kandarin.dialogue.seersvillage
 
 import content.region.kandarin.quest.holygrail.dialogue.SirPalomedesHolyGrailQuestDialogueFile
 import content.region.kandarin.quest.merlinsquest.dialogue.SirPalomedesDialogueFile
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.api.isQuestComplete
 import core.api.openDialogue
 import core.game.dialogue.Dialogue

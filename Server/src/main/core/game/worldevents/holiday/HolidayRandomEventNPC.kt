@@ -1,6 +1,6 @@
 package core.game.worldevents.holiday
 
-import core.api.consts.Sounds
+import cfg.consts.Sounds
 import core.api.playGlobalAudio
 import core.api.poofClear
 import core.game.interaction.MovementPulse

@@ -1,7 +1,7 @@
 package content.region.misthalin.dialogue.dorgeshuun
 
-import core.api.consts.Items
-import core.api.consts.NPCs
+import cfg.consts.Items
+import cfg.consts.NPCs
 import core.api.addItemOrDrop
 import core.api.removeItem
 import core.game.dialogue.Dialogue

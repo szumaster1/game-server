@@ -1,7 +1,7 @@
 package content.global.handlers.item
 
 import core.api.Container
-import core.api.consts.Items
+import cfg.consts.Items
 import core.api.removeItem
 import core.api.utils.WeightBasedTable
 import core.api.utils.WeightedItem

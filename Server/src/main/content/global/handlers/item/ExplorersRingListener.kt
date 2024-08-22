@@ -4,8 +4,8 @@ import content.global.skill.combat.magic.modern.ModernListeners
 import core.ServerStore
 import core.ServerStore.Companion.getInt
 import core.api.*
-import core.api.consts.Graphics
-import core.api.consts.Items
+import cfg.consts.Graphics
+import cfg.consts.Items
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.entity.player.Player

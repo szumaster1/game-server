@@ -13,7 +13,7 @@ import core.game.world.update.flag.context.Animation
 import core.game.world.update.flag.context.Graphic
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 
 /**
  * Represents the Edgeville monk dialogue.

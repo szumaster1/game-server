@@ -6,7 +6,7 @@ import core.api.sendDialogue
 import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC
 import core.game.node.item.Item
-import core.api.consts.Items
+import cfg.consts.Items
 import core.game.dialogue.DialogueFile
 
 /**

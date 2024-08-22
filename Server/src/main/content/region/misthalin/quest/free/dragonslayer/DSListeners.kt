@@ -1,7 +1,7 @@
 package content.region.misthalin.quest.free.dragonslayer
 
-import core.api.consts.NPCs
-import core.api.consts.Scenery
+import cfg.consts.NPCs
+import cfg.consts.Scenery
 import core.api.sendMessage
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener

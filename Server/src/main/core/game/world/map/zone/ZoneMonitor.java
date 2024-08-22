@@ -15,7 +15,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
-import core.api.consts.Items;
+import cfg.consts.Items;
 
 /**
  * Handles the zones for an entity.

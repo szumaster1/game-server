@@ -1,8 +1,8 @@
 package content.global.handlers.iface.plugin
 
 import core.api.*
-import core.api.consts.Components
-import core.api.consts.Sounds
+import cfg.consts.Components
+import cfg.consts.Sounds
 import core.game.component.Component
 import core.game.component.ComponentDefinition
 import core.game.component.ComponentPlugin

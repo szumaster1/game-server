@@ -1,9 +1,9 @@
 package content.region.misthalin.handlers.runecrafting.dialogue
 
 import content.region.misthalin.handlers.runecrafting.RunecraftGuildUtils
-import core.api.consts.Components
-import core.api.consts.Items
-import core.api.consts.NPCs
+import cfg.consts.Components
+import cfg.consts.Items
+import cfg.consts.NPCs
 import core.api.*
 import core.game.dialogue.DialogueFile
 import core.game.dialogue.Dialogue

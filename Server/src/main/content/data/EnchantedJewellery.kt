@@ -4,8 +4,8 @@ import content.global.skill.combat.magic.TeleportMethod
 import content.global.skill.support.slayer.SlayerManager.Companion.getInstance
 import core.ServerConstants
 import core.api.*
-import core.api.consts.Items
-import core.api.consts.Sounds
+import cfg.consts.Items
+import cfg.consts.Sounds
 import core.game.dialogue.FacialExpression
 import core.game.event.TeleportEvent
 import core.game.node.entity.player.Player

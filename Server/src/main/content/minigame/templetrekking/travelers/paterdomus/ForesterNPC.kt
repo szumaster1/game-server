@@ -1,6 +1,6 @@
 package content.minigame.templetrekking.travelers.paterdomus
 
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.game.node.entity.Entity
 import core.game.node.entity.combat.BattleState
 import core.game.node.entity.npc.AbstractNPC

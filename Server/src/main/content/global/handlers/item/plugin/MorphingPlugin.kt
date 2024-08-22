@@ -1,9 +1,9 @@
 package content.global.handlers.item.plugin
 
-import core.api.consts.Components
-import core.api.consts.Items
-import core.api.consts.NPCs
-import core.api.consts.Sounds
+import cfg.consts.Components
+import cfg.consts.Items
+import cfg.consts.NPCs
+import cfg.consts.Sounds
 import core.api.playAudio
 import core.api.toIntArray
 import core.cache.def.impl.ItemDefinition

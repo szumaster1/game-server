@@ -5,9 +5,9 @@ import content.region.kandarin.quest.fightarena.cutscenes.JeremyRescueCutscene
 import content.region.kandarin.quest.fightarena.dialogue.*
 import content.region.kandarin.quest.fightarena.npc.GeneralNPC
 import core.api.*
-import core.api.consts.Items
-import core.api.consts.NPCs
-import core.api.consts.Scenery
+import cfg.consts.Items
+import cfg.consts.NPCs
+import cfg.consts.Scenery
 import core.game.global.action.DoorActionHandler
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener

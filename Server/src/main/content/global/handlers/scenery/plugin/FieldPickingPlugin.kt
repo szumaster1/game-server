@@ -1,6 +1,6 @@
 package content.global.handlers.scenery.plugin
 
-import core.api.consts.Sounds
+import cfg.consts.Sounds
 import core.api.freeSlots
 import core.api.playAudio
 import core.api.setAttribute

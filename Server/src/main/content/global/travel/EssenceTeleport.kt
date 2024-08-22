@@ -2,7 +2,7 @@ package content.global.travel
 
 import content.global.skill.combat.magic.TeleportMethod
 import core.api.*
-import core.api.consts.Sounds
+import cfg.consts.Sounds
 import core.game.event.TeleportEvent
 import core.game.node.Node
 import core.game.node.entity.impl.Projectile

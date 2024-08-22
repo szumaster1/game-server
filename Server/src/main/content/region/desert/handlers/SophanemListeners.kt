@@ -1,8 +1,8 @@
 package content.region.desert.handlers
 
 import core.api.*
-import core.api.consts.Components
-import core.api.consts.Scenery
+import cfg.consts.Components
+import cfg.consts.Scenery
 import core.game.global.action.ClimbActionHandler
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener

@@ -1,7 +1,7 @@
 package content.region.morytania.quest.naturespirit.util
 
-import core.api.consts.Items
-import core.api.consts.Sounds
+import cfg.consts.Items
+import cfg.consts.Sounds
 import content.region.morytania.handlers.npc.MortMyreGhastNPC
 import core.api.*
 import core.game.node.entity.player.Player

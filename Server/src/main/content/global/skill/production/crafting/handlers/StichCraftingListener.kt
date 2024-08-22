@@ -1,7 +1,7 @@
 package content.global.skill.production.crafting.handlers
 
-import core.api.consts.Components
-import core.api.consts.Items
+import cfg.consts.Components
+import cfg.consts.Items
 import core.api.openInterface
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener

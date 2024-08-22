@@ -1,8 +1,8 @@
 package content.region.asgarnia.handlers.guild.crafting
 
 import core.api.anyInEquipment
-import core.api.consts.Items
-import core.api.consts.Scenery
+import cfg.consts.Items
+import cfg.consts.Scenery
 import core.api.hasLevelStat
 import core.api.inEquipment
 import core.api.openDialogue

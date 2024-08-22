@@ -1,6 +1,6 @@
 package content.global.skill.production.smithing.data
 
-import core.api.consts.Items
+import cfg.consts.Items
 
 /**
  * Represents a type of Barbarian weapons.

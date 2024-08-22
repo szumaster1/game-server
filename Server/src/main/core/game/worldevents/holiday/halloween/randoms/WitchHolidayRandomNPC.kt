@@ -1,10 +1,10 @@
 package core.game.worldevents.holiday.halloween.randoms
 
 import core.api.*
-import core.api.consts.Animations
-import core.api.consts.Graphics
-import core.api.consts.NPCs
-import core.api.consts.Sounds
+import cfg.consts.Animations
+import cfg.consts.Graphics
+import cfg.consts.NPCs
+import cfg.consts.Sounds
 import core.game.interaction.QueueStrength
 import core.game.node.entity.combat.ImpactHandler
 import core.game.node.entity.npc.NPC

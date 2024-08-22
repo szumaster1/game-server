@@ -1,6 +1,6 @@
 package content.global.handlers.iface.player
 
-import core.api.consts.Components
+import cfg.consts.Components
 import core.api.openInterface
 import core.api.openSingleTab
 import core.api.restrictForIronman

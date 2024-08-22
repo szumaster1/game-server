@@ -1,6 +1,6 @@
 package content.region.asgarnia.quest.trollstronghold.dialogue
 
-import core.api.consts.Items
+import cfg.consts.Items
 import core.api.getQuestStage
 import core.api.hasAnItem
 import core.game.dialogue.DialogueFile

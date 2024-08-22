@@ -1,6 +1,6 @@
 package core.game.node.entity.player.link.prayer;
 
-import core.api.consts.Sounds;
+import cfg.consts.Sounds;
 import core.game.event.PrayerActivatedEvent;
 import core.game.event.PrayerDeactivatedEvent;
 import core.game.node.entity.player.Player;

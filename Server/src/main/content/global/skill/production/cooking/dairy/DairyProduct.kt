@@ -1,6 +1,6 @@
 package content.global.skill.production.cooking.dairy
 
-import core.api.consts.Items
+import cfg.consts.Items
 import core.game.node.item.Item
 import java.util.*
 

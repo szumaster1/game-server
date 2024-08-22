@@ -3,7 +3,7 @@ package content.region.asgarnia.handlers.guild.heroes
 import content.data.EnchantedJewellery
 import content.data.EnchantedJewellery.Companion.idMap
 import content.global.skill.combat.summoning.familiar.Familiar
-import core.api.consts.Items
+import cfg.consts.Items
 import core.api.hasRequirement
 import core.cache.def.impl.SceneryDefinition
 import core.game.global.action.DoorActionHandler.handleAutowalkDoor

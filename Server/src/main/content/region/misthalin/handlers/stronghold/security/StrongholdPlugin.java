@@ -1,6 +1,6 @@
 package content.region.misthalin.handlers.stronghold.security;
 
-import core.api.consts.Sounds;
+import cfg.consts.Sounds;
 import core.cache.def.impl.SceneryDefinition;
 import core.game.component.Component;
 import core.game.component.ComponentPlugin;

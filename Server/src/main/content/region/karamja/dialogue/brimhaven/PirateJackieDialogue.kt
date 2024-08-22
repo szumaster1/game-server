@@ -1,7 +1,7 @@
 package content.region.karamja.dialogue.brimhaven
 
-import core.api.consts.Components
-import core.api.consts.NPCs
+import cfg.consts.Components
+import cfg.consts.NPCs
 import core.api.openDialogue
 import core.api.openInterface
 import core.game.dialogue.DialogueFile

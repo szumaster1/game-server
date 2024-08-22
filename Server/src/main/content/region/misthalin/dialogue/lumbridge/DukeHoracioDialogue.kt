@@ -1,6 +1,6 @@
 package content.region.misthalin.dialogue.lumbridge
 
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import content.region.misthalin.quest.member.losttribe.dialogue.DukeHoracioLostTribeDialogue
 import content.region.misthalin.quest.free.dragonslayer.DragonSlayer
 import content.region.misthalin.quest.free.dragonslayer.dialogue.DukeHoracioDragonSlayerDialogue

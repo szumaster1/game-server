@@ -1,8 +1,8 @@
 package content.global.skill.gathering.farming
 
 import core.api.*
-import core.api.consts.Components
-import core.api.consts.Items
+import cfg.consts.Components
+import cfg.consts.Items
 import core.game.interaction.InterfaceListener
 import core.game.node.entity.player.Player
 import core.game.node.item.Item

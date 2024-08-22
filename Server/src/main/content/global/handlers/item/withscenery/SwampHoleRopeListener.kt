@@ -1,7 +1,7 @@
 package content.global.handlers.item.withscenery
 
-import core.api.consts.Items
-import core.api.consts.Scenery
+import cfg.consts.Items
+import cfg.consts.Scenery
 import core.api.removeItem
 import core.api.sendDialogue
 import core.api.sendItemDialogue

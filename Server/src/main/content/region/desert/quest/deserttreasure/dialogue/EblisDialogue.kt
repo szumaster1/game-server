@@ -2,8 +2,8 @@ package content.region.desert.quest.deserttreasure.dialogue
 
 import content.region.desert.quest.deserttreasure.DesertTreasure
 import core.api.*
-import core.api.consts.Items
-import core.api.consts.NPCs
+import cfg.consts.Items
+import cfg.consts.NPCs
 import core.game.dialogue.Dialogue
 import core.game.dialogue.DialogueBuilder
 import core.game.dialogue.DialogueBuilderFile
@@ -15,6 +15,7 @@ import core.plugin.Initializable
 
 /**
  * Represents the Eblis dialogue.
+ * @author Ovenbreado
  */
 @Initializable
 class EblisDialogue(player: Player? = null) : Dialogue(player) {
@@ -36,6 +37,7 @@ class EblisDialogue(player: Player? = null) : Dialogue(player) {
 
 /**
  * Represents the Eblis dialogue file.
+ * @author Ovenbreado
  */
 class EblisDialogueFile : DialogueBuilderFile() {
 
@@ -255,6 +257,7 @@ class EblisDialogueFile : DialogueBuilderFile() {
  * Represents the Eblis collections listeners
  *
  * @constructor Create empty Eblis collections listeners
+ * @author Ovenbreado
  */
 class EblisCollectionsListeners : InteractionListener {
     override fun defineListeners() {

@@ -1,6 +1,6 @@
 package core.game.system.command.rottenpotato
 
-import core.api.consts.Items
+import cfg.consts.Items
 import core.api.removeItem
 import core.cache.def.impl.ItemDefinition
 import core.game.interaction.OptionHandler

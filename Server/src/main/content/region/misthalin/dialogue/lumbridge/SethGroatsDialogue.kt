@@ -6,7 +6,7 @@ import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 
 /**
  * Represents the Seth Groats dialogue.

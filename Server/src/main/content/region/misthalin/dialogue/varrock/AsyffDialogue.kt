@@ -1,7 +1,7 @@
 package content.region.misthalin.dialogue.varrock
 
-import core.api.consts.Components
-import core.api.consts.NPCs
+import cfg.consts.Components
+import cfg.consts.NPCs
 import core.api.openInterface
 import core.api.openNpcShop
 import core.game.dialogue.Dialogue

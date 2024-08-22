@@ -1,9 +1,9 @@
 package content.global.random.event.drilldemon
 
 import core.api.*
-import core.api.consts.Components
-import core.api.consts.NPCs
-import core.api.consts.Sounds
+import cfg.consts.Components
+import cfg.consts.NPCs
+import cfg.consts.Sounds
 import core.game.dialogue.FacialExpression
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener

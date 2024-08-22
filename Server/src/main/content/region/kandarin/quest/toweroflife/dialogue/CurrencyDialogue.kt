@@ -1,7 +1,7 @@
 package content.region.kandarin.quest.toweroflife.dialogue
 
 import content.region.kandarin.quest.toweroflife.util.TolUtils
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.api.getAttribute
 import core.api.getQuestStage
 import core.game.dialogue.Dialogue

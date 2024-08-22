@@ -2,7 +2,7 @@ package content.global.random.event.drilldemon
 
 import content.global.random.RandomEventNPC
 import core.api.*
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.api.utils.WeightBasedTable
 import core.game.interaction.QueueStrength
 import core.game.node.entity.npc.NPC

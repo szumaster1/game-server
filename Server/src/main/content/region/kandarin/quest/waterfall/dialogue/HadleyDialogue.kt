@@ -1,6 +1,6 @@
 package content.region.kandarin.quest.waterfall.dialogue
 
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.game.dialogue.Dialogue
 import core.game.dialogue.DialogueInterpreter
 import core.game.dialogue.FacialExpression

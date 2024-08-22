@@ -3,8 +3,8 @@ package content.region.asgarnia.quest.recruitmentdrive.dialogue
 import content.region.asgarnia.quest.recruitmentdrive.RecruitmentDrive
 import content.region.asgarnia.quest.recruitmentdrive.RecruitmentDriveListeners
 import core.api.*
-import core.api.consts.Components
-import core.api.consts.NPCs
+import cfg.consts.Components
+import cfg.consts.NPCs
 import core.game.dialogue.DialogueBuilder
 import core.game.dialogue.DialogueBuilderFile
 import core.game.dialogue.FacialExpression

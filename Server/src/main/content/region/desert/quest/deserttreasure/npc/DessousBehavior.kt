@@ -2,7 +2,7 @@ package content.region.desert.quest.deserttreasure.npc
 
 import content.region.desert.quest.deserttreasure.DesertTreasure
 import core.api.*
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression
 import core.game.interaction.QueueStrength
@@ -24,6 +24,7 @@ import core.tools.END_DIALOGUE
 
 /**
  * Represents the Dessous melee behavior.
+ * @author Ovenbreado
  */
 class DessousMeleeBehavior : NPCBehavior(NPCs.DESSOUS_1914, NPCs.DESSOUS_1915) {
 
@@ -114,7 +115,8 @@ class DessousMeleeBehavior : NPCBehavior(NPCs.DESSOUS_1914, NPCs.DESSOUS_1915) {
      * Combat handler
      *
      * @constructor Create empty Combat handler
-     */
+     * @author Ovenbreado
+ */
     class CombatHandler : MultiSwingHandler(SwitchAttack(CombatStyle.MAGIC.swingHandler, null), SwitchAttack(CombatStyle.RANGE.swingHandler, null)) {
         override fun swing(entity: Entity?, victim: Entity?, state: BattleState?): Int {
             if (entity is NPC && victim is Player) {

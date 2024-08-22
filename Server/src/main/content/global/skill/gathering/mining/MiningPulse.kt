@@ -3,7 +3,7 @@ package content.global.skill.gathering.mining
 import content.data.skill.SkillingTool
 import content.global.skill.skillcape.SkillcapePerks
 import core.api.*
-import core.api.consts.Items
+import cfg.consts.Items
 import core.cache.def.impl.ItemDefinition
 import core.game.event.ResourceProducedEvent
 import core.game.node.Node

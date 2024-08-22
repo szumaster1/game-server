@@ -1,6 +1,6 @@
 package content.region.misthalin.quest.member.ragandboneman
 
-import core.api.consts.Items
+import cfg.consts.Items
 import core.api.getAttribute
 import core.api.inInventory
 import core.api.removeAttributes

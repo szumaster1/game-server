@@ -1,8 +1,8 @@
 package content.global.skill.combat.magic
 
 import content.global.skill.combat.magic.spellconsts.Modern
-import core.api.consts.Items
-import core.api.consts.Sounds
+import cfg.consts.Items
+import cfg.consts.Sounds
 import core.api.playAudio
 import core.api.setAttribute
 import core.game.interaction.IntType

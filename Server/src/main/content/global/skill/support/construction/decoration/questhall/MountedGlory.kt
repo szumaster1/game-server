@@ -1,7 +1,7 @@
 package content.global.skill.support.construction.decoration.questhall
 
-import core.api.consts.Items
-import core.api.consts.Sounds
+import cfg.consts.Items
+import cfg.consts.Sounds
 import core.api.playGlobalAudio
 import core.api.teleport
 import core.game.interaction.IntType

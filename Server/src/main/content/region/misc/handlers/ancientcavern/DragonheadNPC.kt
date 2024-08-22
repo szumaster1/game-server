@@ -1,6 +1,6 @@
 package content.region.misc.handlers.ancientcavern
 
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.api.location
 import core.api.sendMessage
 import core.api.transformNpc

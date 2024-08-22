@@ -1,6 +1,6 @@
 package core.game.worldevents.holiday.christmas.randoms
 
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.api.getPathableRandomLocalCoordinate
 import core.api.openDialogue
 import core.api.sendChat

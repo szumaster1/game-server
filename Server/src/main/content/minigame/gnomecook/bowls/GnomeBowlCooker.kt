@@ -1,6 +1,6 @@
 package content.minigame.gnomecook.bowls
 
-import core.api.consts.Items
+import cfg.consts.Items
 import core.game.interaction.NodeUsageEvent
 import core.game.interaction.UseWithHandler
 import core.game.node.entity.player.Player

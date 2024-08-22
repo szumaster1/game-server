@@ -1,6 +1,6 @@
 package content.region.fremennik.handlers.waterbirth;
 
-import core.api.consts.Items;
+import cfg.consts.Items;
 import core.cache.def.impl.NPCDefinition;
 import core.cache.def.impl.SceneryDefinition;
 import core.game.dialogue.DialogueAction;

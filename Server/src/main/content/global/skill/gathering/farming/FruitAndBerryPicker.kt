@@ -2,7 +2,7 @@ package content.global.skill.gathering.farming
 
 import content.global.skill.combat.summoning.familiar.npc.GiantEntNPC
 import core.api.*
-import core.api.consts.Sounds
+import cfg.consts.Sounds
 import core.cache.def.impl.SceneryDefinition
 import core.game.interaction.OptionHandler
 import core.game.node.Node

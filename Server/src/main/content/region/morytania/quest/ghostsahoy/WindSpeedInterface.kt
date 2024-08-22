@@ -1,8 +1,8 @@
 package content.region.morytania.quest.ghostsahoy
 
 import core.api.*
-import core.api.consts.Components
-import core.api.consts.Scenery
+import cfg.consts.Components
+import cfg.consts.Scenery
 import core.game.component.Component
 import core.game.event.EventHook
 import core.game.event.TickEvent

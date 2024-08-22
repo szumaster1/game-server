@@ -2,7 +2,7 @@ package content.global.handlers.item
 
 import content.global.travel.glider.GnomeGlider
 import core.api.*
-import core.api.consts.Items
+import cfg.consts.Items
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.interaction.QueueStrength

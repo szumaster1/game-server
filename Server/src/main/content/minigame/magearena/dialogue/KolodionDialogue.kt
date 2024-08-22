@@ -2,7 +2,7 @@ package content.minigame.magearena.dialogue
 
 import content.minigame.magearena.KolodionSession
 import core.api.animate
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.api.getStatLevel
 import core.api.visualize
 import core.game.dialogue.Dialogue

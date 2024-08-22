@@ -7,7 +7,7 @@ import core.game.node.item.Item
 import core.plugin.Initializable
 import content.minigame.allfiredup.AFUBeacon
 import core.api.*
-import core.api.consts.Items
+import cfg.consts.Items
 
 /**
  * Represents the All fired up.

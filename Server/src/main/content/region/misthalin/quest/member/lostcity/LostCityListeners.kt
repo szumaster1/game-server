@@ -1,6 +1,6 @@
 package content.region.misthalin.quest.member.lostcity
 
-import core.api.consts.Items
+import cfg.consts.Items
 import core.api.*
 import core.game.global.action.DoorActionHandler
 import core.game.interaction.IntType
@@ -14,7 +14,7 @@ import core.game.world.GameWorld
 import core.game.world.map.Location
 import core.game.world.update.flag.context.Animation
 import core.plugin.Initializable
-import core.api.consts.Scenery as Sceneries
+import cfg.consts.Scenery as Sceneries
 
 /**
  * Represents the Lost city listeners.

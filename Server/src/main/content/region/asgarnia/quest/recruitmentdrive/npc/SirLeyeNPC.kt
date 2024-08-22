@@ -3,7 +3,7 @@ package content.region.asgarnia.quest.recruitmentdrive.npc
 import content.region.asgarnia.quest.recruitmentdrive.RecruitmentDrive
 import content.region.asgarnia.quest.recruitmentdrive.dialogue.SirKuamFerentseDialogueFile
 import core.api.*
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.game.node.entity.Entity
 import core.game.node.entity.combat.BattleState
 import core.game.node.entity.combat.CombatStyle

@@ -2,7 +2,7 @@ package content.region.asgarnia.handlers.whitewolfmountain
 
 import content.data.skill.SkillingTool
 import core.api.*
-import core.api.consts.Scenery
+import cfg.consts.Scenery
 import core.game.interaction.InteractionListener
 import core.game.interaction.QueueStrength
 import core.game.node.entity.skill.Skills

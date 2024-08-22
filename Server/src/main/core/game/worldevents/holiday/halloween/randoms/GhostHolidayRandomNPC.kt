@@ -1,8 +1,8 @@
 package core.game.worldevents.holiday.halloween.randoms
 
 import core.api.animate
-import core.api.consts.NPCs
-import core.api.consts.Sounds
+import cfg.consts.NPCs
+import cfg.consts.Sounds
 import core.api.playGlobalAudio
 import core.api.sendChat
 import core.api.sendMessage

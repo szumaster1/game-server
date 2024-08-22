@@ -1,6 +1,6 @@
 package content.region.wilderness.handlers
 
-import core.api.consts.Items
+import cfg.consts.Items
 
 /**
  * Represents the Rogue jewellery enum class.

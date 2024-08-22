@@ -1,6 +1,6 @@
 package content.global.dialogue
 
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC

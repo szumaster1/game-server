@@ -2,7 +2,7 @@ package content.global.bots
 
 import content.global.skill.production.smithing.data.Bars
 import content.global.skill.production.smithing.item.SmithingPulse
-import core.api.consts.Items
+import cfg.consts.Items
 import core.game.bots.Script
 import core.game.bots.SkillingBotAssembler
 import core.game.interaction.DestinationFlag

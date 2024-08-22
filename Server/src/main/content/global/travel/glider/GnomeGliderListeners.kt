@@ -1,8 +1,8 @@
 package content.global.travel.glider
 
 import core.api.*
-import core.api.consts.Components
-import core.api.consts.NPCs
+import cfg.consts.Components
+import cfg.consts.NPCs
 import core.api.utils.PlayerCamera
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener

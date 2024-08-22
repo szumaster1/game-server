@@ -2,8 +2,8 @@ package content.global.handlers.scenery.plugin
 
 import content.region.kandarin.quest.holygrail.HolyGrail
 import core.api.animate
-import core.api.consts.Animations
-import core.api.consts.Sounds
+import cfg.consts.Animations
+import cfg.consts.Sounds
 import core.api.playAudio
 import core.cache.def.impl.SceneryDefinition
 import core.game.global.action.DoorActionHandler

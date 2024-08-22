@@ -1,6 +1,6 @@
 package content.region.morytania.dialogue.canifis
 
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import content.global.skill.production.crafting.data.TanningData
 import core.api.inInventory
 import core.game.dialogue.Dialogue

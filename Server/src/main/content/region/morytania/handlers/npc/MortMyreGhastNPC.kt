@@ -1,7 +1,7 @@
 package content.region.morytania.handlers.npc
 
-import core.api.consts.Items
-import core.api.consts.NPCs
+import cfg.consts.Items
+import cfg.consts.NPCs
 import content.data.consumables.Consumables
 import content.region.morytania.quest.naturespirit.util.NSUtils
 import core.api.*

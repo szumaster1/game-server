@@ -1,6 +1,6 @@
 package content.region.misthalin.handlers.stronghold.security
 
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.game.node.entity.combat.CombatStyle
 import core.game.node.entity.combat.CombatSwingHandler
 import core.game.node.entity.combat.MultiSwingHandler

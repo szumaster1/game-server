@@ -1,6 +1,6 @@
 package content.region.morytania.dialogue.phasmatys
 
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import content.region.morytania.quest.ghostsahoy.dialogue.AkharanuDialogueFile
 import core.api.getQuestStage
 import core.api.openDialogue

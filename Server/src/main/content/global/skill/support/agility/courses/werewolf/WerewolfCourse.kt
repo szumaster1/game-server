@@ -3,9 +3,9 @@ package content.global.skill.support.agility.courses.werewolf
 import content.global.skill.support.agility.AgilityCourse
 import content.global.skill.support.agility.AgilityHandler
 import core.api.*
-import core.api.consts.Animations
-import core.api.consts.Items
-import core.api.consts.NPCs
+import cfg.consts.Animations
+import cfg.consts.Items
+import cfg.consts.NPCs
 import core.api.utils.Vector
 import core.cache.def.impl.SceneryDefinition
 import core.game.dialogue.FacialExpression

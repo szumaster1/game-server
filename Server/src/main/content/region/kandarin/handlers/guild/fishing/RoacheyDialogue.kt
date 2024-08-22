@@ -1,6 +1,6 @@
 package content.region.kandarin.handlers.guild.fishing
 
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.api.openNpcShop
 import core.game.dialogue.Dialogue
 import core.game.node.entity.player.Player

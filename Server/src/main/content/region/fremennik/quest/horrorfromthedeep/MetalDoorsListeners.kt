@@ -2,8 +2,8 @@ package content.region.fremennik.quest.horrorfromthedeep
 
 import content.region.fremennik.quest.horrorfromthedeep.dialogue.MetalDoorsInteractionDialogue
 import core.api.*
-import core.api.consts.Components
-import core.api.consts.Sounds
+import cfg.consts.Components
+import cfg.consts.Sounds
 import core.game.global.action.DoorActionHandler
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener

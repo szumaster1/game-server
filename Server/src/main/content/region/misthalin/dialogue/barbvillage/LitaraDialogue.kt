@@ -1,6 +1,6 @@
 package content.region.misthalin.dialogue.barbvillage
 
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.api.sendDialogueLines
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression

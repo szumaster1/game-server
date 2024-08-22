@@ -1,7 +1,7 @@
 package content.region.kandarin.quest.merlinsquest
 
-import core.api.consts.Items
-import core.api.consts.Vars
+import cfg.consts.Items
+import cfg.consts.Vars
 import core.api.inInventory
 import core.api.removeAttributes
 import core.game.node.entity.player.Player

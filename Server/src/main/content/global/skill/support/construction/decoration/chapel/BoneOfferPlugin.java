@@ -1,7 +1,7 @@
 package content.global.skill.support.construction.decoration.chapel;
 
 import content.global.skill.combat.prayer.Bones;
-import core.api.consts.Sounds;
+import cfg.consts.Sounds;
 import core.cache.def.impl.SceneryDefinition;
 import core.game.interaction.NodeUsageEvent;
 import core.game.interaction.UseWithHandler;

@@ -2,7 +2,7 @@ package content.region.fremennik.dialogue.miscellania
 
 import content.region.fremennik.handlers.waterbirth.TravelDestination
 import content.region.fremennik.handlers.waterbirth.WaterbirthTravel.sail
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.api.inBorders
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression

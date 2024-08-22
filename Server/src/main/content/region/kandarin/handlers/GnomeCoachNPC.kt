@@ -1,6 +1,6 @@
 package content.region.kandarin.handlers
 
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.api.inBorders
 import core.api.sendChat
 import core.game.node.entity.npc.NPC

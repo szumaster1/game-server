@@ -3,8 +3,8 @@ package content.global.handlers.scenery
 import content.global.handlers.npc.BankerNPC
 import core.ServerConstants
 import core.api.*
-import core.api.consts.NPCs
-import core.api.consts.Scenery
+import cfg.consts.NPCs
+import cfg.consts.Scenery
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.Node

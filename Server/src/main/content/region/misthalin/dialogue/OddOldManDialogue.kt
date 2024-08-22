@@ -1,6 +1,6 @@
 package content.region.misthalin.dialogue
 
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import content.region.misthalin.quest.member.ragandboneman.dialogue.OddOldManDialogueFile
 import core.api.openDialogue
 import core.game.dialogue.Dialogue

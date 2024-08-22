@@ -1,6 +1,6 @@
 package content.global.handlers.iface.ge;
 
-import core.api.consts.Components;
+import cfg.consts.Components;
 import core.api.getAttribute;
 import core.api.openInterface;
 import core.api.removeAttribute;

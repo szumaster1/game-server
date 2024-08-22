@@ -1,7 +1,7 @@
 package content.region.misthalin.dialogue.dorgeshuun
 
-import core.api.consts.Items
-import core.api.consts.NPCs
+import cfg.consts.Items
+import cfg.consts.NPCs
 import content.data.LightSource
 import core.api.addItemOrDrop
 import core.api.anyInInventory
