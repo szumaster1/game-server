@@ -7,7 +7,7 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 
 /**
- * Portal chamber dialogue.
+ * Represents the Portal chamber dialogue.
  */
 @Initializable
 class PortalChamberDialogue(player: Player? = null) : Dialogue(player) {

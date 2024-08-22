@@ -15,8 +15,8 @@ import core.game.world.update.flag.context.Animation
 import core.plugin.Initializable
 import core.plugin.Plugin
 
-const val HOLY_ELIXER = 13754
-const val SPIRIT_SHIELD = 13734
+private const val HOLY_ELIXER = 13754
+private const val SPIRIT_SHIELD = 13734
 
 /**
  * Shield blessing plugin.

@@ -1,5 +1,5 @@
 package content.global.skill.support.construction.decoration.costume
-
+/*
 import core.api.animate
 import cfg.consts.Animations
 import cfg.consts.Scenery
@@ -86,3 +86,5 @@ class TreasureChestListener : InterfaceListener, InteractionListener {
         }
     }
 }
+
+ */
