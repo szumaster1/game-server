@@ -58,7 +58,7 @@ class WhatLiesBelow : Quest("What Lies Below", 136, 135, 1) {
         updateQuestTab(player)
     }
 
-    override fun newInstance(`object`: Any): Quest {
+    override fun newInstance(`object`: Any?): Quest {
         return this
     }
 
