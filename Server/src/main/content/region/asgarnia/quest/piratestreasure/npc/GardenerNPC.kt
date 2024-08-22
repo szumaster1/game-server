@@ -1,6 +1,6 @@
 package content.region.asgarnia.quest.piratestreasure.npc
 
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.game.node.entity.Entity
 import core.game.node.entity.combat.CombatStyle
 import core.game.node.entity.npc.AbstractNPC

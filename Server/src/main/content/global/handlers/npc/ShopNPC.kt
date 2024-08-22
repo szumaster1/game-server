@@ -1,7 +1,7 @@
 package content.global.handlers.npc
 
 
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.game.node.entity.npc.AbstractNPC
 import core.game.world.map.Location
 import core.plugin.Initializable

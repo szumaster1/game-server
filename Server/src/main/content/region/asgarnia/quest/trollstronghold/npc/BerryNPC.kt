@@ -1,7 +1,7 @@
 package content.region.asgarnia.quest.trollstronghold.npc
 
-import core.api.consts.Items
-import core.api.consts.NPCs
+import cfg.consts.Items
+import cfg.consts.NPCs
 import core.api.inInventory
 import core.api.isQuestInProgress
 import core.api.produceGroundItem

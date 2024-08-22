@@ -1,8 +1,8 @@
 package content.region.kandarin.quest.thegrandtree.dialogue
 
 import core.api.addItemOrDrop
-import core.api.consts.Items
-import core.api.consts.NPCs
+import cfg.consts.Items
+import cfg.consts.NPCs
 import core.api.getQuestStage
 import core.api.sendItemDialogue
 import core.game.dialogue.Dialogue

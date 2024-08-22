@@ -10,10 +10,10 @@ import content.global.skill.production.smithing.item.SmeltingPulse
 import content.minigame.mta.impl.GraveyardZone
 import core.ServerConstants
 import core.api.*
-import core.api.consts.Components
-import core.api.consts.Items
-import core.api.consts.Scenery
-import core.api.consts.Sounds
+import cfg.consts.Components
+import cfg.consts.Items
+import cfg.consts.Scenery
+import cfg.consts.Sounds
 import core.game.event.ItemAlchemizationEvent
 import core.game.event.ResourceProducedEvent
 import core.game.event.TeleportEvent

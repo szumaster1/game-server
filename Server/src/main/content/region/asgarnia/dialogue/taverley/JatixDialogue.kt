@@ -1,6 +1,6 @@
 package content.region.asgarnia.dialogue.taverley
 
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.api.openNpcShop
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression

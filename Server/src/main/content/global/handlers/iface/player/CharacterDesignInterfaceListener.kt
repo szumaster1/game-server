@@ -1,7 +1,7 @@
 package content.global.handlers.iface.player
 
 import content.region.misc.handlers.tutorial.CharacterDesign
-import core.api.consts.Components
+import cfg.consts.Components
 import core.game.interaction.InterfaceListener
 
 /**

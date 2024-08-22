@@ -2,7 +2,7 @@ package content.region.kandarin.dialogue.seersvillage
 
 import content.region.kandarin.quest.holygrail.dialogue.SirTristramHolyGrailQuestDialogueFile
 import content.region.kandarin.quest.merlinsquest.dialogue.SirTristramDialogueFile
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.api.isQuestComplete
 import core.api.openDialogue
 import core.game.dialogue.Dialogue

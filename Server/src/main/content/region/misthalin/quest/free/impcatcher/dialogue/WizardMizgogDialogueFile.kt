@@ -1,8 +1,8 @@
 package content.region.misthalin.quest.free.impcatcher.dialogue
 
 import core.api.*
-import core.api.consts.NPCs
-import core.api.consts.Sounds
+import cfg.consts.NPCs
+import cfg.consts.Sounds
 import core.api.utils.PlayerCamera
 import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression

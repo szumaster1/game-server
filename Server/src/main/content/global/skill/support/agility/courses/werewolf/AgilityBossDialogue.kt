@@ -1,7 +1,7 @@
 package content.global.skill.support.agility.courses.werewolf
 
-import core.api.consts.Items
-import core.api.consts.NPCs
+import cfg.consts.Items
+import cfg.consts.NPCs
 import core.api.face
 import core.api.findLocalNPC
 import core.api.inEquipment

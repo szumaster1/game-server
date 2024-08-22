@@ -1,6 +1,6 @@
 package content.global.handlers.iface.plugin
 
-import core.api.consts.Components
+import cfg.consts.Components
 import core.api.sendInputDialogue
 import core.game.component.Component
 import core.game.component.ComponentDefinition

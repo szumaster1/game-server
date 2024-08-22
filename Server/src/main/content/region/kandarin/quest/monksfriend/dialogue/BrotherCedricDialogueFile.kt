@@ -1,6 +1,6 @@
 package content.region.kandarin.quest.monksfriend.dialogue
 
-import core.api.consts.Items
+import cfg.consts.Items
 import core.api.getQuestStage
 import core.api.sendItemDialogue
 import core.api.setQuestStage

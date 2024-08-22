@@ -2,7 +2,7 @@ package core.game.activity
 
 import core.ServerConstants
 import core.api.*
-import core.api.consts.Components
+import cfg.consts.Components
 import core.api.utils.CameraShakeType
 import core.api.utils.PlayerCamera
 import core.game.component.Component

@@ -5,7 +5,7 @@ import content.data.item.BrokenItem.getRepair
 import content.data.item.RepairItem
 import content.region.misthalin.dialogue.lumbridge.BobDialogue
 import core.api.animate
-import core.api.consts.Items
+import cfg.consts.Items
 import core.api.sendDialogue
 import core.api.sendItemDialogue
 import core.game.dialogue.Dialogue

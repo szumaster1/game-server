@@ -1,6 +1,6 @@
 package content.region.misthalin.quest.free.ernestthechicken;
 
-import core.api.consts.Vars;
+import cfg.consts.Vars;
 import core.game.node.entity.npc.AbstractNPC;
 import core.game.node.entity.player.Player;
 import core.game.node.entity.player.link.quest.Quest;

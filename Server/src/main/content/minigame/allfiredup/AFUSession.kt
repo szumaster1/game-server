@@ -1,7 +1,7 @@
 package content.minigame.allfiredup
 
 import core.api.LogoutListener
-import core.api.consts.Items
+import cfg.consts.Items
 import core.api.removeAttribute
 import core.game.node.entity.player.Player
 import core.game.node.item.Item

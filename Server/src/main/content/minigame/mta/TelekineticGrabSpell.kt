@@ -1,7 +1,7 @@
 package content.minigame.mta
 
 import content.minigame.mta.impl.TelekineticZone
-import core.api.consts.Sounds
+import cfg.consts.Sounds
 import core.api.findNPC
 import core.api.playAudio
 import core.api.sendMessage

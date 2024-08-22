@@ -2,8 +2,8 @@ package content.minigame.bountyhunter
 
 import core.ServerConstants
 import core.api.*
-import core.api.consts.Components
-import core.api.consts.Scenery
+import cfg.consts.Components
+import cfg.consts.Scenery
 import core.cache.def.impl.SceneryDefinition
 import core.game.component.CloseEvent
 import core.game.component.Component

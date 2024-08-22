@@ -1,7 +1,7 @@
 package content.region.misthalin.quest.free.shieldofarrav.dialogue
 
 import content.region.misthalin.quest.free.shieldofarrav.ShieldofArrav
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.api.sendMessage
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression

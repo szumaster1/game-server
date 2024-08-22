@@ -1,6 +1,6 @@
 package content.region.asgarnia.handlers.guild.warriors
 
-import core.api.consts.Items
+import cfg.consts.Items
 import core.game.component.Component
 import core.game.container.impl.EquipmentContainer
 import core.game.interaction.InteractionListener

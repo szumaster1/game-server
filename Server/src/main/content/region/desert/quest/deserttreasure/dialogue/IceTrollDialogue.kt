@@ -1,6 +1,6 @@
 package content.region.desert.quest.deserttreasure.dialogue
 
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.api.openDialogue
 import core.game.dialogue.Dialogue
 import core.game.dialogue.DialogueBuilder
@@ -11,6 +11,7 @@ import core.plugin.Initializable
 
 /**
  * Represents the Ice troll dialogue.
+ * @author Ovenbreado
  */
 @Initializable
 class IceTrollDialogue(player: Player? = null) : Dialogue(player) {
@@ -32,6 +33,7 @@ class IceTrollDialogue(player: Player? = null) : Dialogue(player) {
 
 /**
  * Represents the Ice troll dialogue file.
+ * @author Ovenbreado
  */
 class IceTrollDialogueFile : DialogueBuilderFile() {
     override fun create(b: DialogueBuilder) {

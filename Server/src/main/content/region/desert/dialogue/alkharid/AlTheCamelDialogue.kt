@@ -1,6 +1,6 @@
 package content.region.desert.dialogue.alkharid
 
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.api.playAudio
 import core.api.sendMessage
 import core.game.dialogue.Dialogue

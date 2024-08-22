@@ -2,7 +2,7 @@ package content.region.kandarin.quest.zogreflesheaters.npc
 
 import content.region.kandarin.quest.zogreflesheaters.ZogreQuestUtils
 import content.region.kandarin.quest.zogreflesheaters.dialogue.ZavisticRarveDialogueFiles
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.api.openDialogue
 import core.api.poofClear
 import core.api.removeAttribute

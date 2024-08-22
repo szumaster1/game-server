@@ -1,7 +1,7 @@
 package content.global.skill.support.firemaking.data
 
-import core.api.consts.Items
-import core.api.consts.Scenery
+import cfg.consts.Items
+import cfg.consts.Scenery
 
 /**
  * Enum class representing different types of logs with their associated properties.

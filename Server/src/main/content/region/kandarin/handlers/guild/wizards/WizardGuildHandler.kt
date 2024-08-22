@@ -2,7 +2,7 @@ package content.region.kandarin.handlers.guild.wizards
 
 import content.global.travel.EssenceTeleport.teleport
 import core.api.*
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.cache.def.impl.NPCDefinition
 import core.cache.def.impl.SceneryDefinition
 import core.game.global.action.ClimbActionHandler

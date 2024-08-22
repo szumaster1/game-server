@@ -1,7 +1,7 @@
 package content.region.kandarin.quest.merlinsquest.npc
 
 import content.region.kandarin.quest.merlinsquest.MerlinUtils
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.game.node.entity.npc.AbstractNPC
 import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player

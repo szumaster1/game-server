@@ -1,6 +1,6 @@
 package content.global.skill.combat.magic.iface
 
-import core.api.consts.Components
+import cfg.consts.Components
 import core.api.getAttribute
 import core.api.removeAttribute
 import core.game.interaction.InterfaceListener

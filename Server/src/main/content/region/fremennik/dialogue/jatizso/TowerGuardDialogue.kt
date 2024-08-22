@@ -1,6 +1,6 @@
 package content.region.fremennik.dialogue.jatizso
 
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression
 import core.game.interaction.IntType

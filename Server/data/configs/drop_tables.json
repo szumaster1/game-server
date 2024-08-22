@@ -58819,7 +58819,7 @@
     "default": [],
     "charm": [],
     "ids": "1832",
-    "description": "Cave Bug (Level 6)",
+    "description": "Cave Bug (Level-6)",
     "main": [
       {
         "minAmount": "8",
@@ -59006,7 +59006,7 @@
     ],
     "charm": [],
     "ids": "1676",
-    "description": "Experiment (level 51)",
+    "description": "Experiment (level-51)",
     "main": []
   },
   {
@@ -59103,7 +59103,7 @@
     "default": [],
     "charm": [],
     "ids": "2493",
-    "description": "Drop table for the Large Mosquito",
+    "description": "Large Mosquito",
     "main": [
       {
         "minAmount": "1",
@@ -59117,7 +59117,7 @@
     "default": [],
     "charm": [],
     "ids": "2494",
-    "description": "Drop table for the Mosquito Swarm with 3 mosquitos",
+    "description": "Mosquito Swarm (3)",
     "main": [
       {
         "minAmount": "3",
@@ -59131,7 +59131,7 @@
     "default": [],
     "charm": [],
     "ids": "2495",
-    "description": "Drop table for the Mosquito Swarm with 5 mosquitos",
+    "description": "Mosquito Swarm (5)",
     "main": [
       {
         "minAmount": "5",
@@ -59152,7 +59152,7 @@
     ],
     "charm": [],
     "ids": "2499",
-    "description": "Green Broodoo Victim for TBCU",
+    "description": "Green Broodoo Victim (Tai Bwo Wannai Cleanup activity)",
     "main": []
   },
   {
@@ -59166,7 +59166,7 @@
     ],
     "charm": [],
     "ids": "2501",
-    "description": "Yellow Broodoo Victim for TBCU",
+    "description": "Yellow Broodoo Victim (Tai Bwo Wannai Cleanup activity)",
     "main": []
   },
   {
@@ -59180,7 +59180,7 @@
     ],
     "charm": [],
     "ids": "2503",
-    "description": "White Broodoo Victim for TBCU",
+    "description": "White Broodoo Victim (Tai Bwo Wannai Cleanup activity)",
     "main": []
-  },
+  }
 ]

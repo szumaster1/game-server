@@ -2,7 +2,7 @@ package content.region.misc.dialogue.tutorial
 
 import content.region.misc.handlers.tutorial.TutorialStage
 import core.api.*
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.game.dialogue.Dialogue
 import core.game.node.entity.player.Player
 import core.game.world.map.Location

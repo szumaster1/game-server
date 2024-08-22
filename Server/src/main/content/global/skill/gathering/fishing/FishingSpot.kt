@@ -1,6 +1,6 @@
 package content.global.skill.gathering.fishing
 
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 
 /**
  * Fishing spot

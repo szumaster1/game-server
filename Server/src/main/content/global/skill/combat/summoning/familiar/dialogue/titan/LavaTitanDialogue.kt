@@ -1,7 +1,7 @@
 package content.global.skill.combat.summoning.familiar.dialogue.titan
 
 import content.global.skill.combat.summoning.familiar.Familiar
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.api.openDialogue
 import core.api.sendDialogue
 import core.api.sendMessage

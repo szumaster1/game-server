@@ -1,6 +1,6 @@
 package content.region.kandarin.handlers.guild.fishing
 
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.api.getDynLevel
 import core.api.sendNPCDialogue
 import core.api.withinDistance

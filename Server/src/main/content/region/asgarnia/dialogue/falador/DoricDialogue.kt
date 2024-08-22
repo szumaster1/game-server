@@ -3,7 +3,7 @@ package content.region.asgarnia.dialogue.falador
 import content.region.asgarnia.quest.doricquest.cutscene.DoricCutscene
 import content.region.asgarnia.quest.doricquest.dialogue.DoricDialogueFile
 import core.api.*
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression
 import core.game.dialogue.IfTopic

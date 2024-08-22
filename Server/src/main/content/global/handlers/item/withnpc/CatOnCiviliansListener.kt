@@ -2,8 +2,8 @@ package content.global.handlers.item.withnpc
 
 import core.api.Container
 import core.api.addItem
-import core.api.consts.Items
-import core.api.consts.NPCs
+import cfg.consts.Items
+import cfg.consts.NPCs
 import core.api.removeItem
 import core.api.sendItemDialogue
 import core.game.interaction.IntType

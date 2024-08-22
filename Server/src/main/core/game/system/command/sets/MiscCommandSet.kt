@@ -10,7 +10,7 @@ import content.minigame.fishingtrawler.TrawlerLoot
 import content.region.misc.handlers.tutorial.TutorialStage
 import core.ServerConstants
 import core.api.*
-import core.api.consts.Components
+import cfg.consts.Components
 import core.cache.def.impl.NPCDefinition
 import core.cache.def.impl.SceneryDefinition
 import core.cache.def.impl.VarbitDefinition

@@ -1,6 +1,6 @@
 package content.global.skill.production.runecrafting.item.pouch
 
-import core.api.consts.Items
+import cfg.consts.Items
 import core.api.sendMessage
 import core.game.container.Container
 import core.game.node.entity.player.Player

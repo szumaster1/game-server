@@ -1,8 +1,8 @@
 package content.global.skill.support.construction.decoration.bedroom
 
 import core.api.animate
-import core.api.consts.Components
-import core.api.consts.Scenery
+import cfg.consts.Components
+import cfg.consts.Scenery
 import core.api.lock
 import core.api.openInterface
 import core.api.submitIndividualPulse

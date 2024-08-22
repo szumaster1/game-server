@@ -1,6 +1,6 @@
 package content.global.handlers.item.equipment.special;
 
-import core.api.consts.Sounds;
+import cfg.consts.Sounds;
 import core.game.node.entity.Entity;
 import core.game.node.entity.combat.BattleState;
 import core.game.node.entity.combat.CombatStyle;

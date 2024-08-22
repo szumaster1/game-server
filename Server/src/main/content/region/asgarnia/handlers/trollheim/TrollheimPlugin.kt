@@ -1,7 +1,7 @@
 package content.region.asgarnia.handlers.trollheim
 
 import core.api.*
-import core.api.consts.Components
+import cfg.consts.Components
 import core.cache.def.impl.NPCDefinition
 import core.cache.def.impl.SceneryDefinition
 import core.game.activity.ActivityManager

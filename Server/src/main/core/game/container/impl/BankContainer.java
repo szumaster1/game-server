@@ -3,7 +3,7 @@ package core.game.container.impl;
 import core.api.IfaceSettingsBuilder;
 import core.game.container.access.InterfaceContainer;
 import kotlin.ranges.IntRange;
-import core.api.consts.Vars;
+import cfg.consts.Vars;
 import core.ServerConstants;
 import core.game.component.Component;
 import core.game.container.*;

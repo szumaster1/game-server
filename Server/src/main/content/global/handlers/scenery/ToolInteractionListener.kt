@@ -1,8 +1,8 @@
 package content.global.handlers.scenery
 
 import core.api.addItem
-import core.api.consts.Items
-import core.api.consts.Scenery
+import cfg.consts.Items
+import cfg.consts.Scenery
 import core.api.hasSpaceFor
 import core.api.replaceScenery
 import core.api.sendMessage

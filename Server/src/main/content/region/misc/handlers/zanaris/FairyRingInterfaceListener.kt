@@ -1,7 +1,7 @@
 package content.region.misc.handlers.zanaris
 
 import core.api.*
-import core.api.consts.Components
+import cfg.consts.Components
 import core.game.component.Component
 import core.game.event.FairyRingDialEvent
 import core.game.interaction.InterfaceListener

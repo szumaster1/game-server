@@ -1,7 +1,7 @@
 package content.global.activity.penguinhns
 
 import core.api.*
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.entity.npc.NPC

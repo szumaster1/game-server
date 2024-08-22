@@ -1,6 +1,6 @@
 package content.region.kandarin.quest.zogreflesheaters.npc
 
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.api.getOrStartTimer
 import core.game.node.entity.Entity
 import core.game.node.entity.combat.BattleState

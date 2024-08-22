@@ -1,7 +1,7 @@
 package content.global.skill.support.agility.shortcuts;
 
 import content.global.skill.support.agility.AgilityShortcut;
-import core.api.consts.Animations;
+import cfg.consts.Animations;
 import core.game.node.Node;
 import core.game.node.entity.impl.ForceMovement;
 import core.game.node.entity.player.Player;

@@ -1,10 +1,10 @@
 package content.region.fremennik.quest.fremtrials
 
 import core.api.*
-import core.api.consts.Animations
-import core.api.consts.Items
-import core.api.consts.NPCs
-import core.api.consts.Sounds
+import cfg.consts.Animations
+import cfg.consts.Items
+import cfg.consts.NPCs
+import cfg.consts.Sounds
 import core.game.dialogue.DialogueFile
 import core.game.global.action.ClimbActionHandler
 import core.game.global.action.DoorActionHandler

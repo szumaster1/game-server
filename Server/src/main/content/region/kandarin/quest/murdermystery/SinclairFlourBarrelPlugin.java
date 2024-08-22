@@ -1,6 +1,6 @@
 package content.region.kandarin.quest.murdermystery;
 
-import core.api.consts.Items;
+import cfg.consts.Items;
 import core.cache.def.impl.SceneryDefinition;
 import core.game.interaction.NodeUsageEvent;
 import core.game.interaction.OptionHandler;

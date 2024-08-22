@@ -2,7 +2,7 @@ package content.global.skill.support.firemaking.barbarian
 
 import content.global.skill.BarbarianTraining
 import content.global.skill.support.firemaking.FiremakingListener
-import core.api.consts.Items
+import cfg.consts.Items
 import core.api.sendMessage
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener

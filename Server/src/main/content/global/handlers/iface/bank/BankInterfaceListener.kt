@@ -4,8 +4,8 @@ import content.global.dialogue.BankDepositDialogue
 import content.global.dialogue.BankHelpDialogue
 import core.ServerConstants
 import core.api.*
-import core.api.consts.Components
-import core.api.consts.Items
+import cfg.consts.Components
+import cfg.consts.Items
 import core.game.component.Component
 import core.game.container.Container
 import core.game.interaction.InterfaceListener

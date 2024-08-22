@@ -1,6 +1,6 @@
 package content.region.morytania.dialogue.phasmatys
 
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import content.region.misthalin.quest.member.animalmagnetism.dialogue.OldCroneDialogue
 import content.region.morytania.quest.ghostsahoy.dialogue.OldCroneDialogueFile
 import core.api.getQuestStage

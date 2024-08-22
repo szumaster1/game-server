@@ -1,7 +1,7 @@
 package content.region.desert.quest.deserttreasure
 
 import core.api.*
-import core.api.consts.Items
+import cfg.consts.Items
 import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.quest.Quest
 import core.game.node.entity.skill.Skills
@@ -9,6 +9,7 @@ import core.plugin.Initializable
 
 /**
  * Represents the Desert Treasure Quest
+ * @author Ovenbreado
  */
 @Initializable
 class DesertTreasure : Quest("Desert Treasure", 45, 44, 3, 440, 0, 1, 15) {
@@ -121,7 +122,11 @@ class DesertTreasure : Quest("Desert Treasure", 45, 44, 3, 440, 0, 1, 15) {
             line(player, "Level 50 Firemaking", line++, hasLevelStat(player, Skills.FIREMAKING, 50))
             line(player, "Level 50 Magic", line++, hasLevelStat(player, Skills.MAGIC, 50))
             line(player, "Level 53 Thieving", line++, hasLevelStat(player, Skills.THIEVING, 53))
-            line(player, "I must have completed the following quests:", line++) // After - I have completed all of the required quests:
+            line(
+                player,
+                "I must have completed the following quests:",
+                line++
+            ) // After - I have completed all of the required quests:
             line(player, "The Digsite Quest", line++, isQuestComplete(player, "The Dig Site"))
             line(player, "The Tourist Trap", line++, isQuestComplete(player, "The Tourist Trap"))
             line(player, "The Temple of Ikov", line++, isQuestComplete(player, "Temple of Ikov"))
@@ -226,6 +231,7 @@ class DesertTreasure : Quest("Desert Treasure", 45, 44, 3, 440, 0, 1, 15) {
                 line++
                 /**
                  * DIAMOND OF BLOOD (DESSOUS)
+                 * @author Ovenbreado
                  */
                 // Dessous returns to his grave, bored of toying with you. // https://youtu.be/7CvfS7pypso
                 if (getSubStage(player, attributeBloodStage) == 100) {
@@ -255,11 +261,21 @@ class DesertTreasure : Quest("Desert Treasure", 45, 44, 3, 440, 0, 1, 15) {
                         line(player, "Apparently I can find an old !!assistant of Count Draynor?? in", line++, false)
                         line(player, "the !!sewers of Draynor Village??, who will be able to help me", line++, false)
                         line(player, "make a !!sacrificial pot??", line++, false)
-                        line(player, "I then need to take that !!sacrificial pot?? to !!Entrana?? and get", line++, false)
+                        line(
+                            player,
+                            "I then need to take that !!sacrificial pot?? to !!Entrana?? and get",
+                            line++,
+                            false
+                        )
                         line(player, "it blessed by the !!head priest??", line++, false)
                         line(player, "When I have done that, I should return to !!Malak??, and he will", line++, false)
                         line(player, "provide me with some !!fresh blood??", line++, false)
-                        line(player, "I then need to add !!garlic?? and !!spices?? to the pot in order to", line++, false)
+                        line(
+                            player,
+                            "I then need to add !!garlic?? and !!spices?? to the pot in order to",
+                            line++,
+                            false
+                        )
                         line(player, "lure Dessous from his tomb.", line++, false)
                         line(player, "When I have done all of this, I must !!kill Dessous!??", line++, false)
                     } else if (getSubStage(player, attributeBloodStage) >= 1) {
@@ -274,6 +290,7 @@ class DesertTreasure : Quest("Desert Treasure", 45, 44, 3, 440, 0, 1, 15) {
                 line++
                 /**
                  * DIAMOND OF SMOKE (FAREED)
+                 * @author Ovenbreado
                  */
                 // Fareed has lost interest in you, and returned to his flames.
                 if (getSubStage(player, attributeSmokeStage) == 100) {
@@ -354,7 +371,12 @@ class DesertTreasure : Quest("Desert Treasure", 45, 44, 3, 440, 0, 1, 15) {
                         line(player, "the traps on it to take the gilded cross.", line++, true)
                         line(player, "I need to return the !!gilded cross?? to !!Rasolo??.", line++, false) // Derived
                     } else if (getSubStage(player, attributeShadowStage) >= 1) {
-                        line(player, "I need to find !!Laheeb's loot?? and retrieve the stolen !!gilded??", line++, false)
+                        line(
+                            player,
+                            "I need to find !!Laheeb's loot?? and retrieve the stolen !!gilded??",
+                            line++,
+                            false
+                        )
                         line(player, "!!cross??.", line++, false)
                     }
                 } else if (getSubStage(player, attributeShadowStage) == 0) {

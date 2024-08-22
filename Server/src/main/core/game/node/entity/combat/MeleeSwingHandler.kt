@@ -3,7 +3,7 @@ package core.game.node.entity.combat
 import content.global.skill.skillcape.SkillcapePerks
 import content.global.skill.support.slayer.SlayerEquipmentFlags
 import core.api.*
-import core.api.consts.Items
+import cfg.consts.Items
 import core.game.container.impl.EquipmentContainer
 import core.game.node.entity.Entity
 import core.game.node.entity.combat.equipment.ArmourSet

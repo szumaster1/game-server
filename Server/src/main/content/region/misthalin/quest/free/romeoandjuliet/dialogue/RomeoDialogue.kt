@@ -1,7 +1,7 @@
 package content.region.misthalin.quest.free.romeoandjuliet.dialogue
 
 import content.region.misthalin.quest.free.romeoandjuliet.cutscene.RomeoAndJulietCutscene
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.game.activity.ActivityManager
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression

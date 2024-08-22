@@ -1,7 +1,7 @@
 package core.game.node.entity.player.link
 
-import core.api.consts.Components
-import core.api.consts.Vars
+import cfg.consts.Components
+import cfg.consts.Vars
 import core.api.openInterface
 import core.api.sendMessage
 import core.api.setVarp

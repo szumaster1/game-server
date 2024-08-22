@@ -1,7 +1,7 @@
 package content.region.kandarin.quest.hazeelcult.dialogue
 
 import content.region.kandarin.quest.hazeelcult.HazeelCultListeners
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.api.getAttribute
 import core.api.getQuestStage
 import core.api.setQuestStage

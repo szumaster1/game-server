@@ -1,7 +1,7 @@
 package content.global.skill.support.agility.shortcuts
 
-import core.api.consts.Animations
-import core.api.consts.Scenery
+import cfg.consts.Animations
+import cfg.consts.Scenery
 import core.api.hasLevelDyn
 import core.api.sendDialogue
 import core.game.interaction.IntType

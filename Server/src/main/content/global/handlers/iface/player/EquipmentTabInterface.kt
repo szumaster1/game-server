@@ -2,7 +2,7 @@ package content.global.handlers.iface.player
 
 import content.global.skill.combat.summoning.familiar.BurdenBeast
 import core.api.*
-import core.api.consts.Components
+import cfg.consts.Components
 import core.game.container.access.InterfaceContainer
 import core.game.container.impl.EquipmentContainer
 import core.game.global.action.EquipHandler

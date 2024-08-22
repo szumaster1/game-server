@@ -1,6 +1,6 @@
 package content.region.asgarnia.quest.witchpotion
 
-import core.api.consts.Scenery
+import cfg.consts.Scenery
 import core.api.getQuestStage
 import core.api.sendMessage
 import core.api.sendPlayerDialogue

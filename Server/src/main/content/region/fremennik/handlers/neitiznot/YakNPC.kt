@@ -1,6 +1,6 @@
 package content.region.fremennik.handlers.neitiznot
 
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.api.sendChat
 import core.api.sendMessage
 import core.game.interaction.IntType

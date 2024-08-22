@@ -1,6 +1,6 @@
 package content.region.misthalin.dialogue.varrock
 
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.api.getStatLevel
 import core.game.dialogue.Dialogue
 import core.game.node.entity.npc.NPC

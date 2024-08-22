@@ -1,7 +1,7 @@
 package core.cache.def.impl;
 
 import core.api.EquipmentSlot;
-import core.api.consts.Items;
+import cfg.consts.Items;
 import core.cache.Cache;
 import core.cache.def.Definition;
 import core.cache.misc.buffer.ByteBufferUtils;

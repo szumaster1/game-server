@@ -1,9 +1,9 @@
 package content.region.kandarin.quest.regicide
 
 import core.api.*
-import core.api.consts.Animations
-import core.api.consts.Items
-import core.api.consts.Scenery
+import cfg.consts.Animations
+import cfg.consts.Items
+import cfg.consts.Scenery
 import core.game.container.impl.EquipmentContainer
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener

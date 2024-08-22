@@ -1,10 +1,10 @@
 package content.data
 
 import core.api.*
-import core.api.consts.Animations
-import core.api.consts.Graphics
-import core.api.consts.Items
-import core.api.consts.NPCs
+import cfg.consts.Animations
+import cfg.consts.Graphics
+import cfg.consts.Items
+import cfg.consts.NPCs
 import core.game.dialogue.DialogueAction
 import core.game.node.entity.player.Player
 import core.game.node.item.GroundItemManager
@@ -14,7 +14,7 @@ import core.game.system.task.Pulse
 import core.game.world.GameWorld
 import core.game.world.update.flag.context.Graphic
 import core.tools.StringUtils
-import core.api.consts.Scenery as Sceneries
+import cfg.consts.Scenery as Sceneries
 
 /**
  * A god type.

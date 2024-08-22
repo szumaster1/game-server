@@ -1,9 +1,9 @@
 /*
 package content.region.kandarin.quest.toweroflife
 
-import core.api.consts.Components
-import core.api.consts.Items
-import core.api.consts.Vars
+import cfg.consts.Components
+import cfg.consts.Items
+import cfg.consts.Vars
 import core.api.hasLevelStat
 import core.api.rewardXP
 import core.api.sendItemOnInterface

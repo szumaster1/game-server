@@ -1,6 +1,6 @@
 package content.minigame.gnomecook.bowls
 
-import core.api.consts.Items
+import cfg.consts.Items
 import core.cache.def.impl.ItemDefinition
 import core.game.component.Component
 import core.game.interaction.OptionHandler

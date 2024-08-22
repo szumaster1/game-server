@@ -1,7 +1,7 @@
 package content.region.asgarnia.handlers.falador.partyroom
 
 import core.api.animate
-import core.api.consts.Animations
+import cfg.consts.Animations
 import core.api.face
 import core.api.lock
 import core.api.setAttribute

@@ -1,7 +1,7 @@
 package content.global.skill.production.crafting
 
 import content.global.skill.production.crafting.data.TanningData
-import core.api.consts.Components
+import cfg.consts.Components
 import core.api.sendInputDialogue
 import core.game.interaction.InterfaceListener
 import core.game.node.item.Item

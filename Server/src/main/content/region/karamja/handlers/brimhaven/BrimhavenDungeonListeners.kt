@@ -1,8 +1,8 @@
 package content.region.karamja.handlers.brimhaven
 
 import content.global.skill.support.agility.AgilityHandler
-import core.api.consts.NPCs
-import core.api.consts.Scenery
+import cfg.consts.NPCs
+import cfg.consts.Scenery
 import core.api.getAttribute
 import core.api.location
 import core.api.removeAttribute

@@ -1,7 +1,7 @@
 package content.region.kandarin.dialogue.ardougne
 
 import content.region.kandarin.quest.biohazard.dialogue.JericoDialogueFile
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.api.isQuestInProgress
 import core.api.openDialogue
 import core.game.dialogue.Dialogue

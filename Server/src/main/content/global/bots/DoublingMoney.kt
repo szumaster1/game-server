@@ -2,7 +2,7 @@ package content.global.bots
 
 import content.global.bots.Adventurer.Companion.lumbridge
 import core.ServerConstants
-import core.api.consts.Items
+import cfg.consts.Items
 import core.game.bots.AIRepository
 import core.game.bots.Script
 import core.game.container.Container

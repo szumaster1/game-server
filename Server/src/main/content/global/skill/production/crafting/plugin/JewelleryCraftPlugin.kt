@@ -1,9 +1,9 @@
 package content.global.skill.production.crafting.plugin
 
 import content.global.skill.production.crafting.data.JewelleryData
-import core.api.consts.Components
-import core.api.consts.Items
-import core.api.consts.Scenery
+import cfg.consts.Components
+import cfg.consts.Items
+import cfg.consts.Scenery
 import core.api.inInventory
 import core.api.sendItemOnInterface
 import core.game.interaction.NodeUsageEvent

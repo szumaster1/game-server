@@ -1,7 +1,7 @@
 package content.global.handlers.item
 
-import core.api.consts.Items
-import core.api.consts.Sounds
+import cfg.consts.Items
+import cfg.consts.Sounds
 import core.api.playAudio
 import core.api.replaceSlot
 import core.api.sendMessage

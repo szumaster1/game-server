@@ -1,7 +1,7 @@
 package core.game.system.timer.impl
 
 import core.api.*
-import core.api.consts.Items
+import cfg.consts.Items
 import core.game.event.EventHook
 import core.game.event.PrayerActivatedEvent
 import core.game.event.PrayerDeactivatedEvent

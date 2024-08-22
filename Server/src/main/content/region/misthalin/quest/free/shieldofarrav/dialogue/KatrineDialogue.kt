@@ -2,8 +2,8 @@ package content.region.misthalin.quest.free.shieldofarrav.dialogue
 
 import content.region.asgarnia.quest.heroesquest.dialogue.KatrineDialogueFile
 import content.region.misthalin.quest.free.shieldofarrav.ShieldofArrav
-import core.api.consts.Items
-import core.api.consts.NPCs
+import cfg.consts.Items
+import cfg.consts.NPCs
 import core.api.openDialogue
 import core.game.dialogue.Dialogue
 import core.game.node.entity.npc.NPC

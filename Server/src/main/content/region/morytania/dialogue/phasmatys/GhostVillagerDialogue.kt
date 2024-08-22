@@ -1,7 +1,7 @@
 package content.region.morytania.dialogue.phasmatys
 
-import core.api.consts.Items
-import core.api.consts.NPCs
+import cfg.consts.Items
+import cfg.consts.NPCs
 import content.region.morytania.quest.ghostsahoy.dialogue.GhostVillagerDialogueFile
 import content.region.morytania.quest.ghostsahoy.GAUtils
 import core.api.getAttribute

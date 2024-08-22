@@ -1,7 +1,7 @@
 package core.game.worldevents.holiday.christmas.randoms
 
 import core.api.*
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.game.node.entity.npc.NPC
 import core.game.worldevents.holiday.HolidayRandomEventNPC
 import core.tools.minutesToTicks

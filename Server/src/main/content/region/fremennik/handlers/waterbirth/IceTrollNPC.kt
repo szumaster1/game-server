@@ -1,6 +1,6 @@
 package content.region.fremennik.handlers.waterbirth
 
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.api.findLocalNPC
 import core.game.node.entity.npc.AbstractNPC
 import core.game.world.map.Location

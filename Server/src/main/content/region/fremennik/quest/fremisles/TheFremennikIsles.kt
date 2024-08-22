@@ -1,7 +1,7 @@
 /*package content.kingdom.fremennik.quest.fris
 
 
-import core.api.consts.Vars
+import cfg.consts.Vars
 import core.api.rewardXP
 import core.api.setVarbit
 import core.game.node.entity.player.Player

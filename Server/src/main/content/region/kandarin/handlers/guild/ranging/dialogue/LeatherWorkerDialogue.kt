@@ -1,7 +1,7 @@
 package content.region.kandarin.handlers.guild.ranging.dialogue
 
 import content.global.skill.production.crafting.data.TanningData
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.game.dialogue.Dialogue
 import core.game.node.entity.player.Player
 import core.plugin.Initializable

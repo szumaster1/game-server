@@ -1,8 +1,8 @@
 package content.region.misc.handlers
 
 import content.data.skill.SkillingTool
-import core.api.consts.NPCs
-import core.api.consts.Scenery
+import cfg.consts.NPCs
+import cfg.consts.Scenery
 import core.api.inBorders
 import core.api.sendChat
 import core.api.sendMessage

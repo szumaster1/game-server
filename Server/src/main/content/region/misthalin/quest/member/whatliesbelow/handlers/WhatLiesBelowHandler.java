@@ -7,10 +7,10 @@ import content.region.misthalin.quest.member.whatliesbelow.dialogue.RatBurgissDi
 import content.region.misthalin.quest.member.whatliesbelow.dialogue.SurokMagisDialogue;
 import content.region.misthalin.quest.member.whatliesbelow.npc.KingRoaldNPC;
 import content.region.misthalin.quest.member.whatliesbelow.npc.OutlawNPC;
-import core.api.consts.Items;
+import cfg.consts.Items;
 import content.data.skill.SkillingTool;
 import content.global.skill.production.runecrafting.data.Altar;
-import core.api.consts.Sounds;
+import cfg.consts.Sounds;
 import core.cache.def.impl.SceneryDefinition;
 import core.game.activity.ActivityManager;
 import core.game.component.Component;

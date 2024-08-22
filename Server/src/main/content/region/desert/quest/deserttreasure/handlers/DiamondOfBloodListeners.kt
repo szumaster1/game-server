@@ -2,9 +2,9 @@ package content.region.desert.quest.deserttreasure.handlers
 
 import content.region.desert.quest.deserttreasure.DesertTreasure
 import core.api.*
-import core.api.consts.Items
-import core.api.consts.NPCs
-import core.api.consts.Scenery
+import cfg.consts.Items
+import cfg.consts.NPCs
+import cfg.consts.Scenery
 import core.game.interaction.InteractionListener
 import core.game.interaction.QueueStrength
 import core.game.node.entity.npc.NPC
@@ -14,6 +14,7 @@ import core.game.world.update.flag.context.Animation
 
 /**
  * Represents the Diamond of blood listeners.
+ * @author Ovenbreado
  */
 class DiamondOfBloodListeners : InteractionListener {
     override fun defineListeners() {

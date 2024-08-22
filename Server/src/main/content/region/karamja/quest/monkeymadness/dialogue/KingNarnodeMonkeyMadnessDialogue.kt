@@ -1,8 +1,8 @@
 package content.region.karamja.quest.monkeymadness.dialogue
 
 import core.api.*
-import core.api.consts.Components
-import core.api.consts.Items
+import cfg.consts.Components
+import cfg.consts.Items
 import core.game.component.Component
 import core.game.dialogue.DialogueFile
 import core.tools.END_DIALOGUE

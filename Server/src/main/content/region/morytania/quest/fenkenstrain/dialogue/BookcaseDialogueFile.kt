@@ -1,6 +1,6 @@
 package content.region.morytania.quest.fenkenstrain.dialogue
 
-import core.api.consts.Items
+import cfg.consts.Items
 import content.global.handlers.iface.BookInterfaceListener
 import content.global.handlers.iface.BookLine
 import content.global.handlers.iface.Page

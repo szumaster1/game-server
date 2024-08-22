@@ -1,7 +1,7 @@
 package content.global.skill.production.crafting.data
 
-import core.api.consts.Items
-import core.api.consts.Sounds
+import cfg.consts.Items
+import cfg.consts.Sounds
 
 /**
  * Light source data

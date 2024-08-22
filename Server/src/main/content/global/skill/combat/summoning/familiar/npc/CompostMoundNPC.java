@@ -5,7 +5,7 @@ import content.global.skill.combat.summoning.familiar.FamiliarSpecial;
 import content.global.skill.combat.summoning.familiar.Forager;
 import content.global.skill.gathering.farming.CompostBin;
 import content.global.skill.gathering.farming.CompostBins;
-import core.api.consts.Items;
+import cfg.consts.Items;
 import core.game.interaction.NodeUsageEvent;
 import core.game.interaction.UseWithHandler;
 import core.game.node.entity.combat.ImpactHandler.HitsplatType;

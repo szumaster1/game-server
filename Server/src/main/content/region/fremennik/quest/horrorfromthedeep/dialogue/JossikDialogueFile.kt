@@ -2,7 +2,7 @@ package content.region.fremennik.quest.horrorfromthedeep.dialogue
 
 import content.region.fremennik.quest.horrorfromthedeep.cutscene.FirstDagannothCutscene
 import content.region.fremennik.quest.horrorfromthedeep.cutscene.SecondDagannothCutscene
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.api.getQuestStage
 import core.api.sendMessage
 import core.game.dialogue.DialogueFile

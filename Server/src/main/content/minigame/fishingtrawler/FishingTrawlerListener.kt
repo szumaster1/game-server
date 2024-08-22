@@ -1,7 +1,7 @@
 package content.minigame.fishingtrawler
 
 import core.api.*
-import core.api.consts.Items
+import cfg.consts.Items
 import core.game.activity.ActivityManager
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression

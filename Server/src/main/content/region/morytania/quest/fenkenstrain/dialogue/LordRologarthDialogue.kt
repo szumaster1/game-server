@@ -1,6 +1,6 @@
 package content.region.morytania.quest.fenkenstrain.dialogue
 
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.api.getQuestStage
 import core.api.openDialogue
 import core.api.setQuestStage

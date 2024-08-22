@@ -1,7 +1,7 @@
 package content.global.handlers.iface.bank
 
 import core.api.*
-import core.api.consts.Animations
+import cfg.consts.Animations
 import core.game.interaction.InterfaceListener
 import core.game.interaction.QueueStrength
 

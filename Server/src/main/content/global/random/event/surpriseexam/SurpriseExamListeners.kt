@@ -2,8 +2,8 @@ package content.global.random.event.surpriseexam
 
 import content.global.handlers.iface.plugin.ExperienceInterfacePlugin
 import core.api.*
-import core.api.consts.Items
-import core.api.consts.NPCs
+import cfg.consts.Items
+import cfg.consts.NPCs
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.entity.player.Player

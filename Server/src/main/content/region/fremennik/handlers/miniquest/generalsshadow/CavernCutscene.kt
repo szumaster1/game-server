@@ -1,7 +1,7 @@
 package content.region.fremennik.handlers.miniquest.generalsshadow
 
 import content.region.fremennik.handlers.miniquest.generalsshadow.GhostBouncerNPC.Companion.spawnGhostBouncer
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.api.location
 import core.api.removeAttribute
 import core.api.unlock

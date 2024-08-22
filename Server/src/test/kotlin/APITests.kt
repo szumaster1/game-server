@@ -4,7 +4,7 @@ import core.api.splitLines
 import content.global.skill.support.slayer.SlayerManager
 import content.global.skill.support.slayer.data.SlayerMaster
 import content.global.skill.support.slayer.data.Tasks
-import core.api.consts.Items
+import cfg.consts.Items
 import core.game.node.item.Item
 import core.api.utils.Vector
 import core.game.world.map.Direction

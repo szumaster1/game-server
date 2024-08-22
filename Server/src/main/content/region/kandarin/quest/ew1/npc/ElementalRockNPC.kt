@@ -1,7 +1,7 @@
 package content.region.kandarin.quest.ew1.npc
 
 import content.data.skill.SkillingTool
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.api.getTool
 import core.api.sendDialogue
 import core.game.interaction.IntType

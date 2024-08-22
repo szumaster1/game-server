@@ -2,8 +2,8 @@ package content.minigame.tbwcleanup
 
 import content.data.skill.SkillingTool
 import core.api.*
-import core.api.consts.Items
-import core.api.consts.Sounds
+import cfg.consts.Items
+import cfg.consts.Sounds
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.interaction.QueueStrength
@@ -17,7 +17,7 @@ import core.game.container.impl.EquipmentContainer
 import core.game.node.entity.skill.Skills
 
 /**
- * Repair fence liistener.
+ * Represents the Repair fence interaction.
  */
 class RepairFenceListener : InteractionListener {
 
@@ -62,13 +62,7 @@ class RepairFenceListener : InteractionListener {
         val location_start = player.location
         val ticks_needed = random(2, 35)
         val EQUIPED = player.equipment[EquipmentContainer.SLOT_WEAPON]
-        val MACHETE_TO_USE_IN_ANIMATION = if (EQUIPED != null && EQUIPED.id in arrayOf(
-                975,
-                6313,
-                6315,
-                6317
-            )
-        ) EQUIPED.id else SkillingTool.getMachete(player)!!.id
+        val MACHETE_TO_USE_IN_ANIMATION = if (EQUIPED != null && EQUIPED.id in arrayOf(975, 6313, 6315, 6317)) EQUIPED.id else SkillingTool.getMachete(player)!!.id
         val MACHETE_ANIMATION = when (MACHETE_TO_USE_IN_ANIMATION) {
             Items.MACHETE_975 -> 2385
             Items.OPAL_MACHETE_6313 -> 2421

@@ -1,6 +1,6 @@
 package content.global.skill.production.crafting.data
 
-import core.api.consts.Items
+import cfg.consts.Items
 
 /**
  * Battlestaff data

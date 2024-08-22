@@ -1,8 +1,8 @@
 package content.global.skill.combat.magic.iface
 
 import core.api.closeInterface
-import core.api.consts.Components
-import core.api.consts.NPCs
+import cfg.consts.Components
+import cfg.consts.NPCs
 import core.api.isQuestComplete
 import core.api.openDialogue
 import core.api.visualize

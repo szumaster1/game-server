@@ -3,7 +3,7 @@ package core.game.system.command.sets
 import content.global.activity.jobs.JobManager
 import content.minigame.tbwcleanup.changeSpawnChance
 import core.api.*
-import core.api.consts.Items
+import cfg.consts.Items
 import core.cache.Cache
 import core.cache.def.impl.DataMap
 import core.cache.def.impl.NPCDefinition

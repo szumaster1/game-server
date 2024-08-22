@@ -1,6 +1,6 @@
 package content.region.asgarnia.quest.eadgarruse
 
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.api.isQuestComplete
 import core.api.sendDialogue
 import core.game.dialogue.Dialogue

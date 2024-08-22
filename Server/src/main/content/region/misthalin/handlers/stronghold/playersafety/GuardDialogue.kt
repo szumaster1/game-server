@@ -1,6 +1,6 @@
 package content.region.misthalin.handlers.stronghold.playersafety
 
-import core.api.consts.Components
+import cfg.consts.Components
 import core.api.runTask
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression
@@ -8,7 +8,7 @@ import core.game.node.entity.player.Player
 import core.game.world.GameWorld.settings
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.api.openInterface
 import core.api.sendMessage
 import core.tools.secondsToTicks

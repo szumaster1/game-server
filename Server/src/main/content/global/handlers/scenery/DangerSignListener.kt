@@ -1,6 +1,6 @@
 package content.global.handlers.scenery
 
-import core.api.consts.Scenery
+import cfg.consts.Scenery
 import core.api.sendDialogueLines
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener

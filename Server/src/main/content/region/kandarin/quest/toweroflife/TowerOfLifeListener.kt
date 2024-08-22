@@ -1,10 +1,10 @@
 package content.region.kandarin.quest.toweroflife
 
 import core.api.*
-import core.api.consts.Animations
-import core.api.consts.Items
-import core.api.consts.NPCs
-import core.api.consts.Scenery
+import cfg.consts.Animations
+import cfg.consts.Items
+import cfg.consts.NPCs
+import cfg.consts.Scenery
 import core.game.dialogue.FacialExpression
 import core.game.global.action.DoorActionHandler
 import core.game.interaction.IntType

@@ -2,7 +2,7 @@ package content.region.misthalin.quest.free.restlessghost.dialogue
 
 import content.region.misthalin.quest.free.restlessghost.RestlessGhost
 import core.api.*
-import core.api.consts.Components
+import cfg.consts.Components
 import core.game.dialogue.Dialogue
 import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player

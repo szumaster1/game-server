@@ -1,7 +1,7 @@
 /*package content.kingdom.fremennik.quest.mdaughter
 
 
-import core.api.consts.Vars
+import cfg.consts.Vars
 import core.api.addItemOrDrop
 import core.api.rewardXP
 import core.api.setVarbit

@@ -1,6 +1,6 @@
 package content.region.morytania.dialogue.burgh
 
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.api.getQuestStage
 import core.api.sendChat
 import core.game.dialogue.Dialogue

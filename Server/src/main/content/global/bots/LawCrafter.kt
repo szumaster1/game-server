@@ -1,7 +1,7 @@
 package content.global.bots
 
 import content.global.travel.ship.Ships
-import core.api.consts.Items
+import cfg.consts.Items
 import core.cache.def.impl.ItemDefinition
 import core.game.bots.*
 import core.game.node.item.Item

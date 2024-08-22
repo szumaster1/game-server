@@ -1,6 +1,6 @@
 package content.global.random.event.kissthefrog
 
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.api.lock
 import core.api.queueScript
 import core.api.stopExecuting

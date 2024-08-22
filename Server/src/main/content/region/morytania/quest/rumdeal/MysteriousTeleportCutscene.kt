@@ -1,9 +1,9 @@
 package content.region.morytania.quest.rumdeal
 
 import core.api.*
-import core.api.consts.Graphics
-import core.api.consts.Music
-import core.api.consts.NPCs
+import cfg.consts.Graphics
+import cfg.consts.Music
+import cfg.consts.NPCs
 import core.game.activity.Cutscene
 import core.game.dialogue.FacialExpression
 import core.game.node.entity.player.Player

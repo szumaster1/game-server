@@ -1,6 +1,6 @@
 package content.region.asgarnia.dialogue.rimmington
 
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.api.openNpcShop
 import core.api.sendDialogueOptions
 import core.game.dialogue.Dialogue

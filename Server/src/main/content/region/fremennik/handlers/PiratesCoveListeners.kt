@@ -1,8 +1,8 @@
 package content.region.fremennik.handlers
 
 import core.api.addItem
-import core.api.consts.Items
-import core.api.consts.Scenery
+import cfg.consts.Items
+import cfg.consts.Scenery
 import core.api.freeSlots
 import core.api.replaceScenery
 import core.api.sendMessage

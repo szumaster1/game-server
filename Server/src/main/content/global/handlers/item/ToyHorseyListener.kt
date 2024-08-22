@@ -1,8 +1,8 @@
 package content.global.handlers.item
 
 import core.api.animate
-import core.api.consts.Animations
-import core.api.consts.Items
+import cfg.consts.Animations
+import cfg.consts.Items
 import core.api.sendChat
 import core.api.stopWalk
 import core.game.interaction.IntType

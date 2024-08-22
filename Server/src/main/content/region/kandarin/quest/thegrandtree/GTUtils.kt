@@ -3,7 +3,7 @@ package content.region.kandarin.quest.thegrandtree
 import content.global.handlers.iface.ScrollLine
 import content.region.kandarin.quest.thegrandtree.dialogue.FemiCartDialogueFile
 import core.api.*
-import core.api.consts.Items
+import cfg.consts.Items
 import core.game.node.entity.player.Player
 import core.game.system.task.Pulse
 import core.game.world.GameWorld

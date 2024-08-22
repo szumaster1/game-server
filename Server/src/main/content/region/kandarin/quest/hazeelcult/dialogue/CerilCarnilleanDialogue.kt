@@ -3,8 +3,8 @@ package content.region.kandarin.quest.hazeelcult.dialogue
 import content.region.kandarin.quest.hazeelcult.HazeelCultListeners.Companion.CARNILLEAN
 import content.region.kandarin.quest.hazeelcult.HazeelCultListeners.Companion.MAHJARRAT
 import core.api.*
-import core.api.consts.Items
-import core.api.consts.NPCs
+import cfg.consts.Items
+import cfg.consts.NPCs
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC

@@ -4,8 +4,8 @@ import content.region.kandarin.quest.hazeelcult.HazeelCultListeners.Companion.CA
 import content.region.kandarin.quest.hazeelcult.HazeelCultListeners.Companion.MAHJARRAT
 import content.region.kandarin.quest.hazeelcult.HazeelCultListeners.Companion.SEWER_LEFT
 import core.api.*
-import core.api.consts.Items
-import core.api.consts.NPCs
+import cfg.consts.Items
+import cfg.consts.NPCs
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression
 import core.game.node.entity.player.Player

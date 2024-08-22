@@ -1,7 +1,7 @@
 package content.region.kandarin.quest.dwarfcannon.dmc;
 
 import core.api.LogoutListener;
-import core.api.consts.Sounds;
+import cfg.consts.Sounds;
 import core.game.node.entity.combat.CombatStyle;
 import core.game.node.entity.combat.CombatSwingHandler;
 import core.game.node.entity.combat.ImpactHandler.HitsplatType;

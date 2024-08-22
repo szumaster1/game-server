@@ -1,6 +1,6 @@
 package content.region.misthalin.dialogue.varrock.castle
 
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import content.minigame.allfiredup.KingRoaldAFUDialogue
 import content.region.misthalin.quest.free.shieldofarrav.dialogue.KingRoaldDialogue
 import content.region.misthalin.quest.member.allfiredup.dialogue.KingRoaldDialogueFile

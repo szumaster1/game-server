@@ -3,8 +3,8 @@ package content.region.asgarnia.dialogue.falador
 import content.region.kandarin.quest.biohazard.dialogue.ChemistDialogueFile
 import content.region.misthalin.dialogue.ChemistDiaryDialogue
 import core.api.*
-import core.api.consts.Items
-import core.api.consts.NPCs
+import cfg.consts.Items
+import cfg.consts.NPCs
 import core.game.dialogue.Dialogue
 import core.game.node.entity.player.Player
 import core.game.node.item.Item

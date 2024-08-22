@@ -1,8 +1,8 @@
 package content.region.kandarin.handlers.guild.ranging.dialogue
 
 import core.api.*
-import core.api.consts.Items
-import core.api.consts.NPCs
+import cfg.consts.Items
+import cfg.consts.NPCs
 import core.game.dialogue.Dialogue
 import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.diary.DiaryType

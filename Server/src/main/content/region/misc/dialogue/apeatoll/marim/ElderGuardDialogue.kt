@@ -1,6 +1,6 @@
 package content.region.misc.dialogue.apeatoll.marim
 
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.api.toIntArray
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression

@@ -1,6 +1,6 @@
 package content.region.misthalin.dialogue.draynorvillage
 
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.game.activity.ActivityManager
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression

@@ -1,7 +1,7 @@
 package content.region.fremennik.dialogue.miscellania
 
 import core.api.addItemOrDrop
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.api.inInventory
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression

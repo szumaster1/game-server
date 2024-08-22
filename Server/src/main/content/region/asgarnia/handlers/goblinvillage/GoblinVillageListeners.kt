@@ -1,7 +1,7 @@
 package content.region.asgarnia.handlers.goblinvillage
 
-import core.api.consts.NPCs
-import core.api.consts.Scenery
+import cfg.consts.NPCs
+import cfg.consts.Scenery
 import core.api.sendNPCDialogue
 import core.api.sendPlainDialogue
 import core.game.dialogue.FacialExpression

@@ -6,7 +6,7 @@ import content.global.skill.production.crafting.data.LeatherData.decayThread
 import content.global.skill.production.crafting.data.LeatherData.isLastThread
 import content.global.skill.production.crafting.data.LeatherData.removeThread
 import core.api.*
-import core.api.consts.Animations
+import cfg.consts.Animations
 import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.diary.DiaryType
 import core.game.node.entity.skill.SkillPulse

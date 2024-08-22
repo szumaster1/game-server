@@ -3,8 +3,8 @@ package content.region.karamja.quest.monkeymadness
 
 
 import core.api.addItemOrDrop
-import core.api.consts.Items
-import core.api.consts.Vars
+import cfg.consts.Items
+import cfg.consts.Vars
 import core.api.updateQuestTab
 import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.quest.Quest

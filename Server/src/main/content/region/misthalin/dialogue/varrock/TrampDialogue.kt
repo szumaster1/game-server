@@ -1,7 +1,7 @@
 package content.region.misthalin.dialogue.varrock
 
-import core.api.consts.Items
-import core.api.consts.NPCs
+import cfg.consts.Items
+import cfg.consts.NPCs
 import core.api.removeItem
 import core.api.sendDialogueOptions
 import core.api.sendMessage

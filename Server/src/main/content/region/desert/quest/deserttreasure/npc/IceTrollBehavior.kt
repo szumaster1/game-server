@@ -2,7 +2,7 @@ package content.region.desert.quest.deserttreasure.npc
 
 import content.region.desert.quest.deserttreasure.DesertTreasure
 import core.api.*
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.game.node.entity.Entity
 import core.game.node.entity.npc.NPC
 import core.game.node.entity.npc.NPCBehavior
@@ -10,6 +10,7 @@ import core.game.node.entity.player.Player
 
 /**
  * Represents the Ice troll behavior.
+ * @author Ovenbreado
  */
 class IceTrollBehavior : NPCBehavior(*iceTrollIds) {
     companion object {

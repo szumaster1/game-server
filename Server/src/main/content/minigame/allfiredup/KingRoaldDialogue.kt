@@ -1,6 +1,6 @@
 package content.minigame.allfiredup
 
-import core.api.consts.Items
+import cfg.consts.Items
 import core.api.getAttribute
 import core.api.removeAttribute
 import core.game.dialogue.DialogueFile

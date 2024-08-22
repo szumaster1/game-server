@@ -1,7 +1,7 @@
 package content.region.kandarin.quest.zogreflesheaters
 
-import core.api.consts.Items
-import core.api.consts.Scenery
+import cfg.consts.Items
+import cfg.consts.Scenery
 import core.api.utils.WeightBasedTable
 import core.api.utils.WeightedItem
 

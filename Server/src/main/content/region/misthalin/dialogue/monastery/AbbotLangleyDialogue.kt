@@ -1,8 +1,8 @@
 package content.region.misthalin.dialogue.monastery
 
-import core.api.consts.Animations
-import core.api.consts.Graphics
-import core.api.consts.NPCs
+import cfg.consts.Animations
+import cfg.consts.Graphics
+import cfg.consts.NPCs
 import core.api.getStatLevel
 import core.api.sendDialogue
 import core.api.sendMessage

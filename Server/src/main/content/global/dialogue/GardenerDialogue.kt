@@ -5,7 +5,7 @@ import content.global.skill.gathering.farming.Farmers
 import content.global.skill.gathering.farming.FarmingPatch
 import content.global.skill.gathering.farming.PatchType
 import core.api.*
-import core.api.consts.Items
+import cfg.consts.Items
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression
 import core.game.dialogue.IfTopic

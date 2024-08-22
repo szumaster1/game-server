@@ -1,9 +1,9 @@
 package content.region.misthalin.handlers.stronghold.playersafety
 
 import core.api.*
-import core.api.consts.Components
-import core.api.consts.Items
-import core.api.consts.Music
+import cfg.consts.Components
+import cfg.consts.Items
+import cfg.consts.Music
 import core.game.activity.Cutscene
 import core.game.component.Component
 import core.game.global.action.DoorActionHandler

@@ -1,7 +1,7 @@
 package content.region.kandarin.quest.murdermystery
 
-import core.api.consts.Items
-import core.api.consts.Scenery
+import cfg.consts.Items
+import cfg.consts.Scenery
 import core.api.setAttribute
 import core.api.setQuestStage
 import core.game.node.entity.player.Player

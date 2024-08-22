@@ -1,9 +1,9 @@
 package content.region.morytania.quest.ghostsahoy.dialogue
 
 import core.api.*
-import core.api.consts.Animations
-import core.api.consts.Items
-import core.api.consts.NPCs
+import cfg.consts.Animations
+import cfg.consts.Items
+import cfg.consts.NPCs
 import core.game.dialogue.DialogueFile
 import core.game.interaction.QueueStrength
 import core.game.node.entity.npc.NPC

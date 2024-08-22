@@ -1,8 +1,8 @@
 package content.region.misthalin.quest.member.familycrest
 
 
-import core.api.consts.Items
-import core.api.consts.Vars
+import cfg.consts.Items
+import cfg.consts.Vars
 import core.api.addItem
 import core.api.getStatLevel
 import core.api.log

@@ -1,6 +1,6 @@
 package content.global.skill.combat.summoning;
 
-import core.api.consts.Sounds;
+import cfg.consts.Sounds;
 import core.cache.def.impl.CS2Mapping;
 import core.game.component.Component;
 import core.game.node.entity.player.Player;

@@ -1,9 +1,9 @@
 package content.global.skill.support.construction.decoration.chapel
 
 import core.api.animate
-import core.api.consts.Items
-import core.api.consts.Scenery
-import core.api.consts.Sounds
+import cfg.consts.Items
+import cfg.consts.Scenery
+import cfg.consts.Sounds
 import core.api.getStatLevel
 import core.api.playAudio
 import core.api.sendMessage

@@ -1,8 +1,8 @@
 package content.region.wilderness.handlers.npc
 
 import content.data.BossKillCounter.Companion.addtoKillcount
-import core.api.consts.NPCs
-import core.api.consts.Regions
+import cfg.consts.NPCs
+import cfg.consts.Regions
 import core.game.activity.ActivityPlugin
 import core.game.activity.CutscenePlugin
 import core.game.component.Component

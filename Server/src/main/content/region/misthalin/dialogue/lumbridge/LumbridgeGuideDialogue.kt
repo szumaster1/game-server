@@ -1,6 +1,6 @@
 package content.region.misthalin.dialogue.lumbridge
 
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.api.isQuestComplete
 import core.api.sendGraphics
 import core.game.dialogue.Dialogue

@@ -3,7 +3,7 @@ package content.region.kandarin.quest.zogreflesheaters
 import content.region.kandarin.quest.zogreflesheaters.dialogue.*
 import content.region.kandarin.quest.zogreflesheaters.npc.ZavisticRarveNPC.Companion.spawnWizard
 import core.api.*
-import core.api.consts.*
+import cfg.consts.*
 import core.game.dialogue.FacialExpression
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener

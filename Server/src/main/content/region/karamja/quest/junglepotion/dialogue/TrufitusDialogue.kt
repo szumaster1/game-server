@@ -2,7 +2,7 @@ package content.region.karamja.quest.junglepotion.dialogue
 
 import content.region.karamja.quest.junglepotion.JunglePotion
 import content.region.karamja.quest.junglepotion.JunglePotion.JungleObjective
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.api.finishQuest
 import core.api.sendDialogueLines
 import core.api.setAttribute

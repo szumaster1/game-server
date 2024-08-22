@@ -3,10 +3,10 @@ package content.region.karamja.handlers.shilovillage
 import content.region.karamja.dialogue.shilovillage.BlackPrismDialogue
 import content.region.karamja.dialogue.shilovillage.CartTravelDialogue
 import core.api.*
-import core.api.consts.Components
-import core.api.consts.Items
-import core.api.consts.NPCs
-import core.api.consts.Scenery
+import cfg.consts.Components
+import cfg.consts.Items
+import cfg.consts.NPCs
+import cfg.consts.Scenery
 import core.game.dialogue.DialogueFile
 import core.game.global.action.DoorActionHandler
 import core.game.interaction.IntType

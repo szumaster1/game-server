@@ -1,6 +1,6 @@
 package content.region.misthalin.quest.free.ernestthechicken.dialogue
 
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.api.finishQuest
 import core.api.isQuestComplete
 import core.api.runTask

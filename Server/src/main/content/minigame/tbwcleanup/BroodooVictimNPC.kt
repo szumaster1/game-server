@@ -1,6 +1,6 @@
 package content.minigame.tbwcleanup
 
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.game.node.entity.Entity
 import core.game.node.entity.combat.BattleState
 import core.game.node.entity.npc.NPC
@@ -10,15 +10,13 @@ import core.game.node.entity.player.Player
 import core.tools.RandomFunction.random
 import kotlin.math.min
 
-private val BroodooVictimGreen = NPCs.BROODOO_VICTIM_2499
-private val BroodooVictimYellow = NPCs.BROODOO_VICTIM_2501
-private val BroodooVictimWhite = NPCs.BROODOO_VICTIM_2503
-private val BROODOO_VICTIMS = intArrayOf(BroodooVictimGreen, BroodooVictimYellow, BroodooVictimWhite)
+private val BROODOO_VICTIM_NPC = intArrayOf(NPCs.BROODOO_VICTIM_2499, NPCs.BROODOO_VICTIM_2501, NPCs.BROODOO_VICTIM_2503)
 
 /**
- * Broodoo victim NPC.
+ * Represents the Broodoo victim NPC.
  */
-class BroodooVictimNPC : NPCBehavior(*BROODOO_VICTIMS) {
+class BroodooVictimNPC : NPCBehavior(*BROODOO_VICTIM_NPC) {
+
     private var ticksSinceSpawn = 0
     private var ticksSinceStatDrainAttack = 25
 

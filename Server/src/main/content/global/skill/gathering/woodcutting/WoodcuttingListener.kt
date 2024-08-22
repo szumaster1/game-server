@@ -8,10 +8,10 @@ import content.global.skill.skillcape.SkillcapePerks.Companion.isActive
 import content.global.skill.support.firemaking.data.Log
 import content.region.fremennik.dialogue.miscellania.KjallakOnChopDialogue
 import core.api.*
-import core.api.consts.Items
-import core.api.consts.NPCs
-import core.api.consts.Sounds
-import core.api.consts.Sounds.TREE_FALLING_2734
+import cfg.consts.Items
+import cfg.consts.NPCs
+import cfg.consts.Sounds
+import cfg.consts.Sounds.TREE_FALLING_2734
 import core.cache.def.impl.ItemDefinition
 import core.game.container.impl.EquipmentContainer
 import core.game.event.ResourceProducedEvent

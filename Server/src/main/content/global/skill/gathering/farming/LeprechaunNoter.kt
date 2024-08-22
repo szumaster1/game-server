@@ -1,6 +1,6 @@
 package content.global.skill.gathering.farming
 
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.api.sendItemDialogue
 import core.game.dialogue.FacialExpression
 import core.game.interaction.IntType

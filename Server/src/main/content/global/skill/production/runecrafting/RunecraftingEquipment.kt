@@ -5,8 +5,8 @@ import content.global.skill.production.runecrafting.data.Staff
 import content.global.skill.production.runecrafting.data.TalismanStaff
 import content.global.skill.production.runecrafting.data.Tiara
 import core.api.*
-import core.api.consts.Items
-import core.api.consts.Vars
+import cfg.consts.Items
+import cfg.consts.Vars
 import core.game.dialogue.DialogueFile
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener

@@ -1,8 +1,8 @@
 package content.global.skill.support.construction.decoration.costume
 
 import core.api.animate
-import core.api.consts.Animations
-import core.api.consts.Scenery
+import cfg.consts.Animations
+import cfg.consts.Scenery
 import core.api.openInterface
 import core.api.queueScript
 import core.api.stopExecuting

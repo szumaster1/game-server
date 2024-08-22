@@ -3,7 +3,7 @@ package content.region.desert.quest.princealirescue;
 import content.region.desert.quest.princealirescue.npc.LadyKeliNPC;
 import content.region.desert.quest.princealirescue.plugin.PrinceAliRescuePlugin;
 import content.region.desert.quest.princealirescue.plugin.WigDyePlugin;
-import core.api.consts.Vars;
+import cfg.consts.Vars;
 import core.game.node.entity.player.Player;
 import core.game.node.entity.player.link.quest.Quest;
 import core.game.node.item.GroundItemManager;

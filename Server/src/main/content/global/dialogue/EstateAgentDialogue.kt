@@ -3,8 +3,8 @@ package content.global.dialogue
 import content.global.skill.support.construction.HouseLocation
 import content.global.skill.support.construction.HousingStyle
 import core.api.*
-import core.api.consts.Items
-import core.api.consts.NPCs
+import cfg.consts.Items
+import cfg.consts.NPCs
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression
 import core.game.global.Skillcape

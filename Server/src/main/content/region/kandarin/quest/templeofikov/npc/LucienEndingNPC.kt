@@ -1,8 +1,8 @@
 package content.region.kandarin.quest.templeofikov.npc
 
 import core.api.*
-import core.api.consts.Items
-import core.api.consts.NPCs
+import cfg.consts.Items
+import cfg.consts.NPCs
 import core.game.dialogue.DialogueFile
 import core.game.node.entity.Entity
 import core.game.node.entity.combat.CombatStyle

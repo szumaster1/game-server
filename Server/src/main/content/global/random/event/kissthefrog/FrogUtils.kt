@@ -1,10 +1,10 @@
 package content.global.random.event.kissthefrog
 
 import core.api.*
-import core.api.consts.Animations
-import core.api.consts.Components
-import core.api.consts.Items
-import core.api.consts.NPCs
+import cfg.consts.Animations
+import cfg.consts.Components
+import cfg.consts.Items
+import cfg.consts.NPCs
 import core.game.dialogue.FacialExpression
 import core.game.node.Node
 import core.game.node.entity.npc.NPC

@@ -1,6 +1,6 @@
 package content.region.misthalin.quest.member.lostcity.npc
 
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.api.getQuestStage
 import core.api.sendDialogue
 import core.api.setQuestStage

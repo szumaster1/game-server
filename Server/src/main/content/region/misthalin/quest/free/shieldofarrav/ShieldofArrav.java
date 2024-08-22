@@ -5,7 +5,7 @@ import content.region.misthalin.quest.free.shieldofarrav.dialogue.*;
 import content.region.misthalin.quest.free.shieldofarrav.npc.JohnnyBeardNPC;
 import content.region.misthalin.quest.free.shieldofarrav.plugin.CertificatePlugin;
 import content.region.misthalin.quest.free.shieldofarrav.plugin.ShieldArravPlugin;
-import core.api.consts.Vars;
+import cfg.consts.Vars;
 import core.game.node.entity.player.Player;
 import core.game.node.entity.player.link.quest.Quest;
 import core.game.node.item.Item;

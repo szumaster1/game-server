@@ -1,7 +1,7 @@
 package content.global.skill.support.construction.decoration.skillhall
 
-import core.api.consts.NPCs
-import core.api.consts.Scenery
+import cfg.consts.NPCs
+import cfg.consts.Scenery
 import core.api.openDialogue
 import core.api.sendDialogue
 import core.api.sendNPCDialogue

@@ -1,7 +1,7 @@
 package content.region.kandarin.dialogue.stronghold
 
 import content.region.kandarin.quest.thegrandtree.dialogue.FemiDialogueFile
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.api.face
 import core.api.findLocalNPC
 import core.api.openDialogue

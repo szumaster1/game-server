@@ -1,8 +1,8 @@
 package content.global.random.event.eviltwin
 
 import core.api.*
-import core.api.consts.Items
-import core.api.consts.Regions
+import cfg.consts.Items
+import cfg.consts.Regions
 import core.api.utils.PlayerCamera
 import core.game.interaction.QueueStrength
 import core.game.node.entity.Entity

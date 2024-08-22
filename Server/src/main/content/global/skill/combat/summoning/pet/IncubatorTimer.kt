@@ -1,7 +1,7 @@
 package content.global.skill.combat.summoning.pet
 
 import core.api.*
-import core.api.consts.Regions
+import cfg.consts.Regions
 import core.game.node.entity.Entity
 import core.game.node.entity.player.Player
 import core.game.system.timer.PersistTimer

@@ -1,8 +1,8 @@
 package content.region.fremennik.handlers.waterbirth
 
 import content.region.fremennik.dialogue.waterbrith.BardurExchangeDialogue
-import core.api.consts.Items
-import core.api.consts.NPCs
+import cfg.consts.Items
+import cfg.consts.NPCs
 import core.api.isQuestComplete
 import core.api.openDialogue
 import core.api.sendNPCDialogue

@@ -1,6 +1,6 @@
 package content.region.misthalin.dialogue.varrock
 
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.game.dialogue.Dialogue
 import core.game.node.entity.player.Player
 import core.plugin.Initializable

@@ -1,9 +1,9 @@
 package content.region.asgarnia.quest.witchpotion
 
 import core.api.closeChatBox
-import core.api.consts.Components
-import core.api.consts.Items
-import core.api.consts.Vars
+import cfg.consts.Components
+import cfg.consts.Items
+import cfg.consts.Vars
 import core.api.rewardXP
 import core.api.sendItemZoomOnInterface
 import core.api.setInterfaceText

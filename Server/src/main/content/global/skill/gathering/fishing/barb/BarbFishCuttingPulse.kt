@@ -1,6 +1,6 @@
 package content.global.skill.gathering.fishing.barb
 
-import core.api.consts.Items
+import cfg.consts.Items
 import core.api.freeSlots
 import core.api.inInventory
 import core.api.sendMessage

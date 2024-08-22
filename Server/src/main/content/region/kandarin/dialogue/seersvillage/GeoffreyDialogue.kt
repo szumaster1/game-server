@@ -1,8 +1,8 @@
 package content.region.kandarin.dialogue.seersvillage
 
 import core.Util
-import core.api.consts.Items
-import core.api.consts.NPCs
+import cfg.consts.Items
+import cfg.consts.NPCs
 import core.api.setAttribute
 import core.game.dialogue.Dialogue
 import core.game.node.entity.player.Player

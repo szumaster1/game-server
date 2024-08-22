@@ -2,8 +2,8 @@ package content.region.kandarin.quest.merlinsquest.dialogue
 
 import content.region.kandarin.quest.merlinsquest.MerlinUtils
 import content.region.kandarin.quest.merlinsquest.npc.BeggarNPC
-import core.api.consts.Items
-import core.api.consts.NPCs
+import cfg.consts.Items
+import cfg.consts.NPCs
 import core.api.sendDialogue
 import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression

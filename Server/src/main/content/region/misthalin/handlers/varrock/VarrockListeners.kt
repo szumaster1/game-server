@@ -4,7 +4,7 @@ import content.region.kandarin.quest.biohazard.dialogue.GuidorsWifeDialogueFile
 import content.region.misthalin.dialogue.varrock.KnockatDoorDialogue
 import core.GlobalStats
 import core.api.*
-import core.api.consts.*
+import cfg.consts.*
 import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression
 import core.game.global.action.ClimbActionHandler

@@ -1,6 +1,6 @@
 package content.global.random.event.evilbob
 
-import core.api.consts.Components
+import cfg.consts.Components
 import core.api.queueScript
 import core.api.stopExecuting
 import core.api.teleport

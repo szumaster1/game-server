@@ -1,7 +1,7 @@
 package content.region.tirannwn.quest.rovingelves.npc
 
 import content.region.tirannwn.quest.rovingelves.RovingElves
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.cache.def.impl.NPCDefinition
 import core.game.interaction.OptionHandler
 import core.game.node.Node

@@ -1,8 +1,8 @@
 package content.region.misc.dialogue.tutorial
 
 import content.region.misc.handlers.tutorial.TutorialStage
-import core.api.consts.Components
-import core.api.consts.NPCs
+import cfg.consts.Components
+import cfg.consts.NPCs
 import core.api.getAttribute
 import core.api.setAttribute
 import core.api.setVarbit

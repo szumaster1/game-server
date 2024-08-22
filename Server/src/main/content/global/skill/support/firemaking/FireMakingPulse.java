@@ -15,7 +15,7 @@ import core.game.world.GameWorld;
 import core.game.world.map.RegionManager;
 import core.game.world.update.flag.context.Animation;
 import core.tools.RandomFunction;
-import core.api.consts.Items;
+import cfg.consts.Items;
 
 import static core.api.ContentAPIKt.inInventory;
 import static core.api.ContentAPIKt.replaceSlot;

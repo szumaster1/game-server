@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project
-        xmlns="http://maven.apache.org/POM/4.0.0"
-        xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.rs09</groupId>
     <artifactId>server</artifactId>
@@ -66,15 +63,13 @@
             <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
-        <!-- ${project.basedir}/libs/org/rs/consts/1.1/ConstLib-1.1.jar -->
-        <!--
+        <!-- https://gitlab.com/rs-source/library -->
         <dependency>
-            <groupId>org.rs09.consts</groupId>
-            <artifactId>ConstLib</artifactId>
-            <version>1.4</version>
-            <scope>compile</scope>
+      		<groupId>cfg.consts</groupId>
+      		<artifactId>constants</artifactId>
+      		<version>[0.0.0,)</version>
+      		<scope>compile</scope>
         </dependency>
-        -->
         <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-api -->
         <dependency>
             <groupId>org.slf4j</groupId>
@@ -125,9 +120,6 @@
         <sourceDirectory>src/main</sourceDirectory>
         <testSourceDirectory>src/test</testSourceDirectory>
         <plugins>
-            <!-- Local -->
-            <!-- mvn deploy:deploy-file -DgroupId=org.rs.consts -DartifactId=ConstLib -Dversion=1.4.4 -Durl=file:./libs/ -DrepositoryId=server -DupdateReleaseInfo=true -Dfile=libs/ConstLib-1.4.4.jar -->
-            <!--
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-install-plugin</artifactId>
@@ -137,11 +129,11 @@
                         <id>mvn install:install-file</id>
                         <phase>clean</phase>
                         <configuration>
-                            <file>${project.basedir}/libs/ConstLib-1.4.1.jar</file>
+                            <file>${project.basedir}/library/constants-0.0.19.jar</file>
                             <repositoryLayout>default</repositoryLayout>
-                            <groupId>org.rs09.consts</groupId>
-                            <artifactId>ConstLib</artifactId>
-                            <version>1.4</version>
+                            <groupId>cfg.consts</groupId>
+                            <artifactId>constants</artifactId>
+                            <version>0.0.19</version>
                             <packaging>jar</packaging>
                             <generatePom>true</generatePom>
                         </configuration>
@@ -151,7 +143,6 @@
                     </execution>
                 </executions>
             </plugin>
-            -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-assembly-plugin</artifactId>
@@ -167,7 +158,6 @@
                         </manifest>
                     </archive>
                 </configuration>
-
                 <executions>
                     <execution>
                         <id>make-assembly</id>
@@ -177,7 +167,6 @@
                         </goals>
                     </execution>
                 </executions>
-
             </plugin>
             <plugin>
                 <groupId>org.jetbrains.kotlin</groupId>
@@ -208,7 +197,6 @@
                     </execution>
                 </executions>
             </plugin>
-
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -260,7 +248,6 @@
                     </execution>
                 </executions>
             </plugin>
-
             <plugin>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <configuration>
@@ -282,7 +269,6 @@
                     <mainClass>core.Server</mainClass>
                 </configuration>
             </plugin>
-
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-antrun-plugin</artifactId>
@@ -327,7 +313,6 @@
                     </dependency>
                 </dependencies>
             </plugin>
-
             <plugin>
                 <groupId>org.jetbrains.dokka</groupId>
                 <artifactId>dokka-maven-plugin</artifactId>
@@ -341,7 +326,6 @@
                     </execution>
                 </executions>
             </plugin>
-
         </plugins>
     </build>
     <repositories>
@@ -350,11 +334,20 @@
             <name>Maven Central</name>
             <url>https://repo.maven.apache.org/maven2/</url>
         </repository>
-        <!--
         <repository>
-            <id>maven_local</id>
-            <url>file://${project.basedir}/libs</url>
+            <id>gitlab-maven</id>
+            <url>https://gitlab.com/api/v4/projects/61046826/packages/maven</url>
         </repository>
-        -->
     </repositories>
+    <distributionManagement>
+        <repository>
+            <id>gitlab-maven</id>
+            <url>https://gitlab.com/api/v4/projects/61046826/packages/maven</url>
+        </repository>
+
+        <snapshotRepository>
+            <id>gitlab-maven</id>
+            <url>https://gitlab.com/api/v4/projects/61046826/packages/maven</url>
+        </snapshotRepository>
+    </distributionManagement>
 </project>

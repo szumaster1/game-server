@@ -2,7 +2,7 @@ package content.global.handlers.item.plugin
 
 import content.data.Dyes
 import core.api.addItem
-import core.api.consts.Items
+import cfg.consts.Items
 import core.api.removeItem
 import core.api.replaceSlot
 import core.api.sendMessage

@@ -1,8 +1,8 @@
 package content.global.handlers.iface
 
 import core.api.*
-import core.api.consts.Components
-import core.api.consts.Vars
+import cfg.consts.Components
+import cfg.consts.Vars
 import core.game.interaction.InterfaceListener
 
 /**

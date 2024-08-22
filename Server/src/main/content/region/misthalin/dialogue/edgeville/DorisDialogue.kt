@@ -1,6 +1,6 @@
 package content.region.misthalin.dialogue.edgeville
 
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.api.hasPet
 import core.api.isQuestComplete
 import core.api.sendMessage

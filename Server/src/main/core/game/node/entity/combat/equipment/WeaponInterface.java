@@ -17,7 +17,7 @@ import core.network.packet.context.StringContext;
 import core.network.packet.outgoing.Interface;
 import core.network.packet.outgoing.InterfaceConfig;
 import core.network.packet.outgoing.StringPacket;
-import core.api.consts.Components;
+import cfg.consts.Components;
 import core.game.system.config.ItemConfigParser;
 
 import static core.api.ContentAPIKt.*;

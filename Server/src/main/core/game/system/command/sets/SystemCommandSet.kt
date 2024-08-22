@@ -2,7 +2,7 @@ package core.game.system.command.sets
 
 import content.data.item.ChargedItem
 import core.api.*
-import core.api.consts.Items
+import cfg.consts.Items
 import core.cache.def.impl.ItemDefinition
 import core.game.node.entity.player.Player
 import core.game.node.item.Item

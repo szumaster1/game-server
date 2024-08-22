@@ -1,6 +1,6 @@
 package content.global.skill.combat.magic.ancient;
 
-import core.api.consts.Sounds;
+import cfg.consts.Sounds;
 import core.game.node.Node;
 import core.game.node.entity.Entity;
 import core.game.node.entity.combat.BattleState;

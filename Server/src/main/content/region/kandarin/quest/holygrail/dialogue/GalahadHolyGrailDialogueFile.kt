@@ -2,9 +2,9 @@ package content.region.kandarin.quest.holygrail.dialogue
 
 import content.region.kandarin.quest.holygrail.HolyGrail
 import core.api.*
-import core.api.consts.Items
-import core.api.consts.Items.CUP_OF_TEA_712
-import core.api.consts.NPCs
+import cfg.consts.Items
+import cfg.consts.Items.CUP_OF_TEA_712
+import cfg.consts.NPCs
 import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression
 import core.game.dialogue.IfTopic

@@ -1,7 +1,7 @@
 package content.region.kandarin.handlers
 
 import core.api.*
-import core.api.consts.Components
+import cfg.consts.Components
 import core.game.node.entity.player.Player
 import core.game.system.task.Pulse
 import core.game.world.map.Location

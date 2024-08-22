@@ -1,8 +1,8 @@
 package content.region.kandarin.quest.holygrail.dialogue
 
 import content.region.kandarin.quest.holygrail.HolyGrail
-import core.api.consts.Items
-import core.api.consts.NPCs
+import cfg.consts.Items
+import cfg.consts.NPCs
 import core.api.getQuestStage
 import core.api.isQuestComplete
 import core.api.setQuestStage

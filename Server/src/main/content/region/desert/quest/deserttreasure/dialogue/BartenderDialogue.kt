@@ -2,8 +2,8 @@ package content.region.desert.quest.deserttreasure.dialogue
 
 import content.region.desert.quest.deserttreasure.DesertTreasure
 import core.api.*
-import core.api.consts.Items
-import core.api.consts.NPCs
+import cfg.consts.Items
+import cfg.consts.NPCs
 import core.game.dialogue.Dialogue
 import core.game.dialogue.DialogueBuilder
 import core.game.dialogue.DialogueBuilderFile
@@ -14,6 +14,7 @@ import core.plugin.Initializable
 
 /**
  * Represents the Bartender dialogue.
+ * @author Ovenbreado
  */
 @Initializable
 class BartenderDialogue(player: Player? = null) : Dialogue(player) {
@@ -34,6 +35,7 @@ class BartenderDialogue(player: Player? = null) : Dialogue(player) {
 
 /**
  * Represents the Bartender dialogue file.
+ * @author Ovenbreado
  */
 class BartenderDialogueFile : DialogueBuilderFile() {
     override fun create(b: DialogueBuilder) {

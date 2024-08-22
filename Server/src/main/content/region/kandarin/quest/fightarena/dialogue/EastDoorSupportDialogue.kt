@@ -1,7 +1,7 @@
 package content.region.kandarin.quest.fightarena.dialogue
 
 import core.api.*
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression
 import core.game.global.action.DoorActionHandler

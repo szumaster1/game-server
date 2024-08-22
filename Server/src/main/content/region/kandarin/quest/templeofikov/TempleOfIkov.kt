@@ -1,7 +1,7 @@
 package content.region.kandarin.quest.templeofikov
 
 import core.api.*
-import core.api.consts.Items
+import cfg.consts.Items
 import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.quest.Quest
 import core.game.node.entity.skill.Skills

@@ -2,8 +2,8 @@ package content.region.morytania.quest.ghostsahoy.dialogue
 
 import content.region.morytania.quest.ghostsahoy.GAUtils.collectSignature
 import core.api.amountInInventory
-import core.api.consts.Items
-import core.api.consts.NPCs
+import cfg.consts.Items
+import cfg.consts.NPCs
 import core.api.removeItem
 import core.game.dialogue.DialogueFile
 import core.game.node.entity.npc.NPC

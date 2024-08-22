@@ -1,9 +1,9 @@
 package content.global.handlers.iface.bank
 
 import core.api.*
-import core.api.consts.Components
-import core.api.consts.Items
-import core.api.consts.NPCs
+import cfg.consts.Components
+import cfg.consts.Items
+import cfg.consts.NPCs
 import core.game.component.Component
 import core.game.dialogue.FacialExpression
 import core.game.interaction.InterfaceListener

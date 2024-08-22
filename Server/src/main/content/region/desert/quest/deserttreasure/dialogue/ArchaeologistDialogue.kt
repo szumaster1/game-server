@@ -4,8 +4,8 @@ import content.global.handlers.iface.BookInterfaceListener
 import content.region.desert.quest.deserttreasure.DesertTreasure
 import content.region.desert.quest.deserttreasure.book.TranslationBook
 import core.api.*
-import core.api.consts.Items
-import core.api.consts.NPCs
+import cfg.consts.Items
+import cfg.consts.NPCs
 import core.game.dialogue.Dialogue
 import core.game.dialogue.DialogueBuilder
 import core.game.dialogue.DialogueBuilderFile
@@ -15,6 +15,7 @@ import core.plugin.Initializable
 
 /**
  * Represents the Archaeologist dialogue.
+ * @author Ovenbreado
  */
 @Initializable
 class ArchaeologistDialogue(player: Player? = null) : Dialogue(player) {
@@ -35,6 +36,7 @@ class ArchaeologistDialogue(player: Player? = null) : Dialogue(player) {
 
 /**
  * Represents the Archaeologist dialogue file.
+ * @author Ovenbreado
  */
 class ArchaeologistDialogueFile : DialogueBuilderFile() {
     override fun create(b: DialogueBuilder) {

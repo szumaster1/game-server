@@ -1,8 +1,8 @@
 package content.region.misthalin.quest.member.ragandboneman
 
-import core.api.consts.Animations
-import core.api.consts.Items
-import core.api.consts.Scenery
+import cfg.consts.Animations
+import cfg.consts.Items
+import cfg.consts.Scenery
 import core.api.*
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener

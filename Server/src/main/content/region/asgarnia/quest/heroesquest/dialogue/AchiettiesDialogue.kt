@@ -2,8 +2,8 @@ package content.region.asgarnia.quest.heroesquest.dialogue
 
 import content.region.asgarnia.quest.heroesquest.HeroesQuest
 import core.api.*
-import core.api.consts.Items
-import core.api.consts.NPCs
+import cfg.consts.Items
+import cfg.consts.NPCs
 import core.game.dialogue.DialogueBuilder
 import core.game.dialogue.DialogueBuilderFile
 import core.game.dialogue.Dialogue

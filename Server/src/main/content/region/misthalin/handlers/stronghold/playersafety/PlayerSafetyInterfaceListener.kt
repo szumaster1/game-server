@@ -1,7 +1,7 @@
 package content.region.misthalin.handlers.stronghold.playersafety
 
 import core.api.*
-import core.api.consts.Components
+import cfg.consts.Components
 import core.game.interaction.InterfaceListener
 import core.game.node.entity.player.Player
 import core.plugin.Initializable

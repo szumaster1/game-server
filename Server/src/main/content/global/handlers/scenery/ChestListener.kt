@@ -1,6 +1,6 @@
 package content.global.handlers.scenery
 
-import core.api.consts.Scenery
+import cfg.consts.Scenery
 import core.api.replaceScenery
 import core.api.sendMessage
 import core.game.interaction.IntType

@@ -1,8 +1,8 @@
 package content.region.desert.quest.deserttreasure
 
 import core.api.*
-import core.api.consts.Items
-import core.api.consts.Scenery
+import cfg.consts.Items
+import cfg.consts.Scenery
 import core.game.activity.Cutscene
 import core.game.global.action.DoorActionHandler
 import core.game.interaction.IntType
@@ -13,6 +13,7 @@ import core.game.world.map.Location
 
 /**
  * Represents the Desert treasure listeners.
+ * @author Ovenbreado
  */
 class DesertTreasureListeners : InteractionListener {
 
@@ -203,6 +204,7 @@ class DesertTreasureListeners : InteractionListener {
 
 /**
  * Represents the Mirror look cutscene.
+ * @author Ovenbreado
  */
 class MirrorLookCutscene(player: Player) : Cutscene(player) {
 

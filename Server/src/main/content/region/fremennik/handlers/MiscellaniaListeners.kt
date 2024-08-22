@@ -2,7 +2,7 @@ package content.region.fremennik.handlers
 
 import content.region.fremennik.dialogue.miscellania.FarmerFromundDialogue
 import content.region.fremennik.dialogue.miscellania.FishermanFrodiDialogue
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.api.openDialogue
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener

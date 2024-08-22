@@ -1,6 +1,6 @@
 package content.data.consumables.effects
 
-import core.api.consts.Items
+import cfg.consts.Items
 import core.api.getStatLevel
 import core.api.inInventory
 import core.api.modPrayerPoints

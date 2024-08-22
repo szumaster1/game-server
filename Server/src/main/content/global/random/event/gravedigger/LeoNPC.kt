@@ -1,7 +1,7 @@
 package content.global.random.event.gravedigger
 
 import content.global.random.RandomEventNPC
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.api.registerLogoutListener
 import core.api.utils.WeightBasedTable
 import core.game.node.entity.npc.NPC

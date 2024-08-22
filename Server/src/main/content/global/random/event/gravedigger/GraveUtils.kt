@@ -1,8 +1,8 @@
 package content.global.random.event.gravedigger
 
 import core.api.*
-import core.api.consts.Items
-import core.api.consts.Scenery
+import cfg.consts.Items
+import cfg.consts.Scenery
 import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.emote.Emotes
 import core.game.world.update.flag.context.Animation

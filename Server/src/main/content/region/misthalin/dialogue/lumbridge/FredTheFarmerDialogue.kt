@@ -1,6 +1,6 @@
 package content.region.misthalin.dialogue.lumbridge
 
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import content.region.misthalin.quest.free.sheepshearer.dialogue.FredTheFarmerDialogue
 import core.api.getQuestStage
 import core.api.openDialogue

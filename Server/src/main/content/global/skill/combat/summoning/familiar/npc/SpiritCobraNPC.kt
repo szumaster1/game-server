@@ -2,8 +2,8 @@ package content.global.skill.combat.summoning.familiar.npc
 
 import content.global.skill.combat.summoning.familiar.Familiar
 import content.global.skill.combat.summoning.familiar.FamiliarSpecial
-import core.api.consts.Items
-import core.api.consts.NPCs
+import cfg.consts.Items
+import cfg.consts.NPCs
 import core.api.sendMessage
 import core.game.node.entity.combat.equipment.WeaponInterface
 import core.game.node.entity.player.Player

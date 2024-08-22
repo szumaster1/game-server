@@ -3,7 +3,7 @@ package content.region.karamja.quest.junglepotion;
 import content.global.skill.production.herblore.data.Herb;
 import content.region.karamja.quest.junglepotion.dialogue.TrufitusDialogue;
 import content.region.karamja.quest.junglepotion.plugin.JunglePotionPlugin;
-import core.api.consts.Vars;
+import cfg.consts.Vars;
 import core.game.node.entity.player.Player;
 import core.game.node.entity.player.link.quest.Quest;
 import core.game.node.entity.skill.Skills;

@@ -5,7 +5,7 @@ import content.minigame.gnomecook.*
 import content.region.kandarin.handlers.miniquest.barcrawl.BarcrawlManager
 import content.region.kandarin.handlers.miniquest.barcrawl.BarcrawlType
 import core.api.*
-import core.api.consts.*
+import cfg.consts.*
 import core.game.dialogue.FacialExpression
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener

@@ -1,6 +1,6 @@
 package content.global.handlers.item
 
-import core.api.consts.Items
+import cfg.consts.Items
 import core.api.hasRequirement
 import core.game.interaction.InteractionListener
 import core.game.node.entity.player.link.quest.QuestRepository

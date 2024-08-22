@@ -1,7 +1,7 @@
 package content.region.morytania.quest.rumdeal
 
 import core.api.*
-import core.api.consts.*
+import cfg.consts.*
 import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC

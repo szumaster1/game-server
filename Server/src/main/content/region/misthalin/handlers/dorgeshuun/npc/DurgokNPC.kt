@@ -4,7 +4,7 @@ import core.api.*
 import core.game.node.entity.npc.NPC
 import core.game.node.entity.npc.NPCBehavior
 import core.tools.RandomFunction
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 
 /**
  * Represents the Durgok NPC.

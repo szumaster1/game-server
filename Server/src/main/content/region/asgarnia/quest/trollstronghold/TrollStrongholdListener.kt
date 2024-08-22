@@ -2,9 +2,9 @@ package content.region.asgarnia.quest.trollstronghold
 
 import content.region.asgarnia.quest.trollstronghold.dialogue.DadTSDialogueFile
 import core.api.*
-import core.api.consts.Items
-import core.api.consts.NPCs
-import core.api.consts.Scenery
+import cfg.consts.Items
+import cfg.consts.NPCs
+import cfg.consts.Scenery
 import core.game.global.action.DoorActionHandler
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener

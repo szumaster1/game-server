@@ -2,7 +2,7 @@ package content.global.skill.combat.summoning.familiar.npc
 
 import content.global.skill.combat.summoning.familiar.Familiar
 import content.global.skill.combat.summoning.familiar.FamiliarSpecial
-import core.api.consts.Sounds
+import cfg.consts.Sounds
 import core.api.curePoison
 import core.api.isPoisoned
 import core.api.playAudio

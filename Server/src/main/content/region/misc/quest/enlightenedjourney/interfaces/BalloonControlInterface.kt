@@ -1,7 +1,7 @@
 package content.region.misc.quest.enlightenedjourney.interfaces
 
 import core.api.*
-import core.api.consts.Components
+import cfg.consts.Components
 import core.game.component.Component
 import core.game.component.InterfaceType
 import core.game.interaction.InterfaceListener

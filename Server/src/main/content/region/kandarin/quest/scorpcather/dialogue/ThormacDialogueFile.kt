@@ -3,9 +3,9 @@ package content.region.kandarin.quest.scorpcather.dialogue
 import content.region.kandarin.quest.scorpcather.ScorpionCatcher
 import content.region.kandarin.quest.scorpcather.ScorpionCatcherListeners.Companion.getCage
 import core.api.*
-import core.api.consts.Components
-import core.api.consts.Items
-import core.api.consts.NPCs
+import cfg.consts.Components
+import cfg.consts.Items
+import cfg.consts.NPCs
 import core.game.component.Component
 import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression

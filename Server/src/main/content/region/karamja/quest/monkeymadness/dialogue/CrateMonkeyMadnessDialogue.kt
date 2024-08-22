@@ -1,8 +1,8 @@
 package content.region.karamja.quest.monkeymadness.dialogue
 
 import core.api.*
-import core.api.consts.Components
-import core.api.consts.Items
+import cfg.consts.Components
+import cfg.consts.Items
 import core.game.dialogue.DialogueFile
 import core.game.node.entity.combat.ImpactHandler
 import core.game.node.entity.player.link.TeleportManager

@@ -2,7 +2,7 @@ package content.global.skill.support.construction.decoration.workshop;
 
 import content.global.skill.support.construction.BuildingUtils;
 import content.global.skill.support.construction.Decoration;
-import core.api.consts.Items;
+import cfg.consts.Items;
 import core.cache.def.impl.ItemDefinition;
 import core.cache.def.impl.SceneryDefinition;
 import core.game.dialogue.Dialogue;

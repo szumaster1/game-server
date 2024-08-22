@@ -3,7 +3,7 @@ package content.region.asgarnia.quest.diplomacy;
 import content.region.asgarnia.quest.diplomacy.cutscene.GDiplomacyCutscene;
 import content.region.asgarnia.quest.diplomacy.dialogue.GrubfootDialogue;
 import content.region.asgarnia.quest.diplomacy.plugin.GoblinDiplomacyPlugin;
-import core.api.consts.Vars;
+import cfg.consts.Vars;
 import core.game.node.entity.player.Player;
 import core.game.node.entity.player.link.quest.Quest;
 import core.game.node.entity.skill.Skills;

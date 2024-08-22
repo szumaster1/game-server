@@ -2,8 +2,8 @@ package content.region.asgarnia.handlers.guild.crafting
 
 import core.api.Container
 import core.api.addItemOrDrop
-import core.api.consts.Items
-import core.api.consts.NPCs
+import cfg.consts.Items
+import cfg.consts.NPCs
 import core.api.hasLevelStat
 import core.api.removeItem
 import core.game.dialogue.Dialogue

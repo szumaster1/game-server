@@ -1,7 +1,7 @@
 package content.region.misthalin.dialogue.barbvillage
 
 import content.region.kandarin.quest.scorpcather.dialogue.PeksaDialogueFile
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.api.openDialogue
 import core.api.openNpcShop
 import core.game.dialogue.Dialogue

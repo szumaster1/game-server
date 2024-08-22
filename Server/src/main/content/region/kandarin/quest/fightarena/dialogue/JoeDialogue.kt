@@ -1,8 +1,8 @@
 package content.region.kandarin.quest.fightarena.dialogue
 
 import core.api.allInEquipment
-import core.api.consts.Items
-import core.api.consts.NPCs
+import cfg.consts.Items
+import cfg.consts.NPCs
 import core.api.sendNPCDialogue
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression

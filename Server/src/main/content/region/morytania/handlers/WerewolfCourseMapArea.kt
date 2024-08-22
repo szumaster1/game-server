@@ -1,7 +1,7 @@
 package content.region.morytania.handlers
 
 import core.api.*
-import core.api.consts.Items
+import cfg.consts.Items
 import core.game.node.entity.Entity
 import core.game.node.entity.player.Player
 import core.game.world.map.zone.ZoneBorders

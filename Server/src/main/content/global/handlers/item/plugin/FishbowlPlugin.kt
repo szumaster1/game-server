@@ -1,8 +1,8 @@
 package content.global.handlers.item.plugin
 
 import core.Util
-import core.api.consts.Items
-import core.api.consts.Sounds
+import cfg.consts.Items
+import cfg.consts.Sounds
 import core.api.playAudio
 import core.cache.def.impl.ItemDefinition
 import core.cache.def.impl.SceneryDefinition

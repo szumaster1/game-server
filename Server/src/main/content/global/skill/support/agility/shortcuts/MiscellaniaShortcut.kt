@@ -2,9 +2,9 @@ package content.global.skill.support.agility.shortcuts
 
 import content.global.skill.support.agility.AgilityHandler
 import core.api.*
-import core.api.consts.Animations
-import core.api.consts.Items
-import core.api.consts.Scenery
+import cfg.consts.Animations
+import cfg.consts.Items
+import cfg.consts.Scenery
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.interaction.QueueStrength

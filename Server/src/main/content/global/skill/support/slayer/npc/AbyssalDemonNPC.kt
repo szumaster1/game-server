@@ -1,7 +1,7 @@
 package content.global.skill.support.slayer.npc
 
 import content.global.skill.support.slayer.data.Tasks
-import core.api.consts.Graphics
+import cfg.consts.Graphics
 import core.api.getPathableRandomLocalCoordinate
 import core.game.node.entity.Entity
 import core.game.node.entity.combat.BattleState

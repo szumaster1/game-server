@@ -1,7 +1,7 @@
 package content.global.handlers.item
 
-import core.api.consts.Components
-import core.api.consts.Items
+import cfg.consts.Components
+import cfg.consts.Items
 import core.api.openInterface
 import core.api.sendDialogueLines
 import core.api.setInterfaceText

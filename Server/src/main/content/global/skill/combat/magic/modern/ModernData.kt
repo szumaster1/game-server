@@ -1,9 +1,9 @@
 package content.global.skill.combat.magic.modern
 
-import core.api.consts.Graphics
-import core.api.consts.Items
-import core.api.consts.Scenery
-import core.api.consts.Sounds
+import cfg.consts.Graphics
+import cfg.consts.Items
+import cfg.consts.Scenery
+import cfg.consts.Sounds
 import core.game.node.item.Item
 import core.game.world.update.flag.context.Graphic
 

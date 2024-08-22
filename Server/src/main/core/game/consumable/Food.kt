@@ -1,7 +1,7 @@
 package core.game.consumable
 
-import core.api.consts.Animations
-import core.api.consts.Sounds
+import cfg.consts.Animations
+import cfg.consts.Sounds
 import core.api.playAudio
 import core.api.sendMessage
 import core.game.node.entity.player.Player

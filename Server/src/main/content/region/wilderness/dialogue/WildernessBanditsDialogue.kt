@@ -1,6 +1,6 @@
 package content.region.wilderness.dialogue
 
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.api.sendDialogue
 import core.game.dialogue.Dialogue
 import core.game.node.entity.npc.NPC

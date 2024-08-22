@@ -1,6 +1,6 @@
 package content.region.misthalin.handlers.varrock.npc
 
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.api.visualize
 import core.game.node.entity.npc.NPC
 import core.game.node.entity.npc.NPCBehavior

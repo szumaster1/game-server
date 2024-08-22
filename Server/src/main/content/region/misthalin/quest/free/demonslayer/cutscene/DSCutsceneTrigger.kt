@@ -1,7 +1,7 @@
 package content.region.misthalin.quest.free.demonslayer.cutscene
 
 import core.api.*
-import core.api.consts.Items
+import cfg.consts.Items
 import core.game.activity.ActivityManager
 import core.game.node.entity.Entity
 import core.game.node.entity.player.Player

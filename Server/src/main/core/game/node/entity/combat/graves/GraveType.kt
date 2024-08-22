@@ -1,6 +1,6 @@
 package core.game.node.entity.combat.graves
 
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 
 /**
  * Grave type.

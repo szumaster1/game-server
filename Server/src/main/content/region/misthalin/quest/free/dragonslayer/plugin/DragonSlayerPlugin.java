@@ -1,7 +1,7 @@
 package content.region.misthalin.quest.free.dragonslayer.plugin;
 
 import content.region.misthalin.quest.free.dragonslayer.DragonSlayer;
-import core.api.consts.Animations;
+import cfg.consts.Animations;
 import core.cache.def.impl.ItemDefinition;
 import core.cache.def.impl.NPCDefinition;
 import core.cache.def.impl.SceneryDefinition;

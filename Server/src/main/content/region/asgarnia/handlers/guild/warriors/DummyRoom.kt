@@ -1,7 +1,7 @@
 package content.region.asgarnia.handlers.guild.warriors
 
 import core.api.*
-import core.api.consts.Components
+import cfg.consts.Components
 import core.cache.def.impl.SceneryDefinition
 import core.game.interaction.OptionHandler
 import core.game.node.Node

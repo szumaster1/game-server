@@ -1,8 +1,8 @@
 package content.region.fremennik.dialogue.lunarisle
 
 import core.api.addItemOrDrop
-import core.api.consts.Items
-import core.api.consts.NPCs
+import cfg.consts.Items
+import cfg.consts.NPCs
 import core.api.inInventory
 import core.api.sendChat
 import core.game.dialogue.Dialogue

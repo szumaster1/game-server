@@ -10,8 +10,8 @@ import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
-import core.api.consts.Items
-import core.api.consts.NPCs
+import cfg.consts.Items
+import cfg.consts.NPCs
 
 class DropTableTests {
     init {

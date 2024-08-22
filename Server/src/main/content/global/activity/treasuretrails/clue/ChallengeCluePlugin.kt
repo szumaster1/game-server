@@ -2,8 +2,8 @@ package content.global.activity.treasuretrails.clue
 /*
 import content.global.activity.treasuretrails.ClueLevel
 import content.global.activity.treasuretrails.scroll.ChallengeClueScroll
-import core.api.consts.Items
-import core.api.consts.NPCs
+import cfg.consts.Items
+import cfg.consts.NPCs
 import core.plugin.Plugin
 
 open class ChallengeCluePlugin : ChallengeClueScroll {

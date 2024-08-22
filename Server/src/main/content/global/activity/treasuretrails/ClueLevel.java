@@ -2,7 +2,7 @@ package content.global.activity.treasuretrails;
 
 import content.global.activity.treasuretrails.clue.ClueScrollPlugin;
 import core.api.IfaceSettingsBuilder;
-import core.api.consts.Items;
+import cfg.consts.Items;
 import core.game.component.Component;
 import core.game.container.access.InterfaceContainer;
 import core.game.node.entity.player.Player;

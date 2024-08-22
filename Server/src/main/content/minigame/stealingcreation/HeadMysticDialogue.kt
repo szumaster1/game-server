@@ -1,6 +1,6 @@
 package content.minigame.stealingcreation
 
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.api.sendDialogue
 import core.game.dialogue.Dialogue
 import core.game.node.entity.player.Player

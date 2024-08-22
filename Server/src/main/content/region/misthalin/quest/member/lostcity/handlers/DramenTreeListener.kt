@@ -1,6 +1,6 @@
 package content.region.misthalin.quest.member.lostcity.handlers
 
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import content.data.skill.SkillingTool
 import content.global.skill.gathering.woodcutting.WoodcuttingPulse
 import content.region.misthalin.quest.member.lostcity.npc.TreeSpiritNPC
@@ -11,7 +11,7 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.scenery.Scenery
 import core.game.world.map.Location
-import core.api.consts.Scenery as Sceneries
+import cfg.consts.Scenery as Sceneries
 
 /**
  * Represents the Dramen Tree listener.

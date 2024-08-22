@@ -4,7 +4,7 @@ import content.region.morytania.quest.ghostsahoy.GAUtils.jumpRockPath
 import content.region.morytania.quest.ghostsahoy.GiantLobsterNPC.Companion.spawnGiantLobster
 import content.region.morytania.quest.ghostsahoy.dialogue.RobinDialogueFile
 import core.api.*
-import core.api.consts.*
+import cfg.consts.*
 import core.game.dialogue.DialogueFile
 import core.game.global.action.DoorActionHandler
 import core.game.interaction.IntType

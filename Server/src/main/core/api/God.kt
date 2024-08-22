@@ -1,6 +1,6 @@
 package core.api
 
-import core.api.consts.Items
+import cfg.consts.Items
 
 /**
  * Enum representing different gods in the game.

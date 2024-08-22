@@ -1,7 +1,7 @@
 package content.minigame.mta.impl
 
 import content.minigame.mta.MTAZone
-import core.api.consts.Music
+import cfg.consts.Music
 import core.api.setAttribute
 import core.game.interaction.Option
 import core.game.node.Node

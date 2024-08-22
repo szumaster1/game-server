@@ -2,8 +2,8 @@ package content.global.skill.gathering.fishing
 
 import content.global.skill.gathering.fishing.data.Fish
 import core.api.*
-import core.api.consts.Animations
-import core.api.consts.Items
+import cfg.consts.Animations
+import cfg.consts.Items
 import core.game.node.entity.player.Player
 import core.game.node.entity.skill.Skills
 import core.game.world.update.flag.context.Animation

@@ -1,7 +1,7 @@
 package content.region.kandarin.dialogue.seersvillage
 
 import content.region.kandarin.quest.scorpcather.dialogue.SeersDialogueFile
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.api.openDialogue
 import core.api.sendItemDialogue
 import core.game.dialogue.Dialogue

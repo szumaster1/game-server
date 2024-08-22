@@ -1,7 +1,7 @@
 /*package content.kingdom.fremennik.quest.misc
 
 
-import core.api.consts.Vars
+import cfg.consts.Vars
 import core.api.hasLevelStat
 import core.api.isQuestComplete
 import core.game.node.entity.player.Player

@@ -1,6 +1,6 @@
 package content.global.activity.jobs.impl
 
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 
 /**
  * An enum of NPCs that can assign the player a job.

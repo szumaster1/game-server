@@ -1,6 +1,6 @@
 package content.region.fremennik.dialogue.miscellania
 
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.game.dialogue.DialogueFile
 import core.game.node.entity.npc.NPC
 import core.tools.END_DIALOGUE

@@ -1,6 +1,6 @@
 package content.region.morytania.quest.fenkenstrain.npc
 
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.api.teleport
 import core.game.interaction.MovementPulse
 import core.game.node.entity.impl.PulseType

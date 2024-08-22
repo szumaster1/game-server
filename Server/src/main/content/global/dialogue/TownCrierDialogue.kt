@@ -1,7 +1,7 @@
 package content.global.dialogue
 
 import content.global.handlers.item.book.GeneralRuleBook.Companion.openBook
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.api.lock
 import core.api.runTask
 import core.api.stopWalk

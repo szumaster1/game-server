@@ -1,7 +1,7 @@
 package content.region.kandarin.quest.merlinsquest.npc
 
 import content.region.kandarin.quest.merlinsquest.MerlinUtils
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.api.poofClear
 import core.api.removeAttribute
 import core.game.node.entity.npc.AbstractNPC

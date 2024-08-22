@@ -1,8 +1,8 @@
 package content.minigame.mta
 
 import core.api.*
-import core.api.consts.Components
-import core.api.consts.Items
+import cfg.consts.Components
+import cfg.consts.Items
 import core.game.component.CloseEvent
 import core.game.component.Component
 import core.game.container.Container

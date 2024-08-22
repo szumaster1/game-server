@@ -1,9 +1,9 @@
 package content.region.wilderness.handlers
 
-import core.api.consts.Animations
-import core.api.consts.Items
+import cfg.consts.Animations
+import cfg.consts.Items
 import core.api.*
-import core.api.consts.Sounds
+import cfg.consts.Sounds
 import core.api.utils.WeightBasedTable
 import core.api.utils.WeightedItem
 import core.game.interaction.IntType

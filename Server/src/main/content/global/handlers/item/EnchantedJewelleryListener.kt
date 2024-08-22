@@ -1,7 +1,7 @@
 package content.global.handlers.item
 
 import content.data.EnchantedJewellery
-import core.api.consts.Items
+import cfg.consts.Items
 import core.api.openDialogue
 import core.api.sendDialogueOptions
 import core.api.sendMessage

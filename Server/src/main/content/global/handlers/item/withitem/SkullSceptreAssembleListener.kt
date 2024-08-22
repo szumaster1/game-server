@@ -1,6 +1,6 @@
 package content.global.handlers.item.withitem
 
-import core.api.consts.Items
+import cfg.consts.Items
 import core.api.removeItem
 import core.api.replaceSlot
 import core.api.sendDoubleItemDialogue

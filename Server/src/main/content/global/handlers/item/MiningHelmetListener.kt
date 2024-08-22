@@ -1,6 +1,6 @@
 package content.global.handlers.item
 
-import core.api.consts.Items
+import cfg.consts.Items
 import core.api.produceGroundItem
 import core.api.removeItem
 import core.api.sendMessage

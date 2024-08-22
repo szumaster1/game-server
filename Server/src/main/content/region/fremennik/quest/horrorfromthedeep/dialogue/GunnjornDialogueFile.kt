@@ -1,7 +1,7 @@
 package content.region.fremennik.quest.horrorfromthedeep.dialogue
 
 import core.api.addItem
-import core.api.consts.Items
+import cfg.consts.Items
 import core.api.freeSlots
 import core.api.setQuestStage
 import core.game.dialogue.DialogueFile

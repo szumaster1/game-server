@@ -1,8 +1,8 @@
 package content.global.handlers.item.equipment.special
 
 import core.ServerConstants
-import core.api.consts.Items
-import core.api.consts.Sounds
+import cfg.consts.Items
+import cfg.consts.Sounds
 import core.api.playAudio
 import core.game.container.impl.EquipmentContainer
 import core.game.node.entity.Entity

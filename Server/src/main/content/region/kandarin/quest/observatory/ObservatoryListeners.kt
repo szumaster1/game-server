@@ -5,7 +5,7 @@ import content.region.kandarin.quest.observatory.dialogue.*
 import content.region.kandarin.quest.observatory.npc.GoblinGuardNPC.Companion.spawnGoblinGuard
 import content.region.kandarin.quest.observatory.npc.PoisonSpiderNPC.Companion.spawnPoisonSpider
 import core.api.*
-import core.api.consts.*
+import cfg.consts.*
 import core.api.utils.PlayerCamera
 import core.game.global.action.DoorActionHandler
 import core.game.interaction.IntType

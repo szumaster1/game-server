@@ -1,9 +1,9 @@
 package content.region.misthalin.quest.free.vampireslayer
 
-import core.api.consts.Sounds
+import cfg.consts.Sounds
 import core.api.*
-import core.api.consts.Animations
-import core.api.consts.NPCs
+import cfg.consts.Animations
+import cfg.consts.NPCs
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.entity.npc.NPC

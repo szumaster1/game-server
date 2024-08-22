@@ -1,7 +1,7 @@
 package content.region.fremennik.dialogue.lighthouse
 
 import content.region.fremennik.quest.horrorfromthedeep.dialogue.LarrissaDialogueFile
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.api.openDialogue
 import core.game.dialogue.Dialogue
 import core.game.node.entity.player.Player

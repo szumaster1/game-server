@@ -2,8 +2,8 @@ package content.region.kandarin.dialogue.stronghold
 
 import content.region.kandarin.quest.treegnomevillage.dialogue.KingBolrenDialogueFile
 import core.api.addItemOrDrop
-import core.api.consts.Items
-import core.api.consts.NPCs
+import cfg.consts.Items
+import cfg.consts.NPCs
 import core.api.hasAnItem
 import core.api.isQuestComplete
 import core.api.openDialogue

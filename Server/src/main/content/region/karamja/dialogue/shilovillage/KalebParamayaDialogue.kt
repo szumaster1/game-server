@@ -1,8 +1,8 @@
 package content.region.karamja.dialogue.shilovillage
 
 import core.api.addItemOrDrop
-import core.api.consts.Items
-import core.api.consts.NPCs
+import cfg.consts.Items
+import cfg.consts.NPCs
 import core.api.openDialogue
 import core.api.removeItem
 import core.api.sendMessage

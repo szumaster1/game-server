@@ -1,6 +1,6 @@
 package content.region.misthalin.quest.free.romeoandjuliet.npc
 
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.game.node.entity.npc.AbstractNPC
 import core.game.node.entity.player.Player
 import core.game.world.map.Location

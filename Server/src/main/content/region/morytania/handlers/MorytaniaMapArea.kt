@@ -1,6 +1,6 @@
 package content.region.morytania.handlers
 
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.api.*
 import core.game.bots.AIPlayer
 import core.game.dialogue.DialogueFile

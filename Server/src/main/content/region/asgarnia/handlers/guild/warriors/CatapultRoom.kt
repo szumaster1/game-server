@@ -1,6 +1,6 @@
 package content.region.asgarnia.handlers.guild.warriors
 
-import core.api.consts.Sounds
+import cfg.consts.Sounds
 import core.api.playAudio
 import core.api.setAttribute
 import core.api.setVarp

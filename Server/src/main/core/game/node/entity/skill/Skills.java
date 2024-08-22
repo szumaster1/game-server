@@ -1,8 +1,8 @@
 package core.game.node.entity.skill;
 
 import content.global.skill.skillcape.SkillcapePerks;
-import core.api.consts.Items;
-import core.api.consts.Sounds;
+import cfg.consts.Items;
+import cfg.consts.Sounds;
 import core.game.event.DynamicSkillLevelChangeEvent;
 import core.game.event.XPGainEvent;
 import content.global.handlers.item.equipment.gloves.BrawlingGloves;

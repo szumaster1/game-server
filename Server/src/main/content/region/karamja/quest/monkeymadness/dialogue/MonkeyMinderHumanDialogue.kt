@@ -1,6 +1,6 @@
 package content.region.karamja.quest.monkeymadness.dialogue
 
-import core.api.consts.Components
+import cfg.consts.Components
 import core.api.openOverlay
 import core.api.teleport
 import core.game.dialogue.DialogueFile

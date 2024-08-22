@@ -1,7 +1,7 @@
 package content.region.desert.quest.shadowofthestorm.handler
 
 import core.api.addItem
-import core.api.consts.Items
+import cfg.consts.Items
 import core.api.hasRequirement
 import core.api.inInventory
 import core.api.removeItem

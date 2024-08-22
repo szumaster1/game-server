@@ -1,6 +1,6 @@
 package content.region.asgarnia.dialogue.falador
 
-import core.api.consts.NPCs.SIR_VYVIN_605
+import cfg.consts.NPCs.SIR_VYVIN_605
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC

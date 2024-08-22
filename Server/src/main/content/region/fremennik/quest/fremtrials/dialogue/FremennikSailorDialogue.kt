@@ -1,8 +1,8 @@
 package content.region.fremennik.quest.fremtrials.dialogue
 
 import core.api.addItemOrDrop
-import core.api.consts.Items
-import core.api.consts.NPCs
+import cfg.consts.Items
+import cfg.consts.NPCs
 import core.api.getAttribute
 import core.api.inInventory
 import core.api.removeItem

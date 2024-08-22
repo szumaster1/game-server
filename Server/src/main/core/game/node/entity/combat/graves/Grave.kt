@@ -1,7 +1,7 @@
 package core.game.node.entity.combat.graves
 
 import core.api.clearHintIcon
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.api.registerHintIcon
 import core.api.sendMessage
 import core.game.node.entity.npc.AbstractNPC

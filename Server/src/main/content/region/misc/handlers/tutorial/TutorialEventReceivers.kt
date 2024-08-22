@@ -3,9 +3,9 @@ package content.region.misc.handlers.tutorial
 import content.global.skill.gathering.fishing.FishingSpot
 import content.global.skill.gathering.mining.MiningNode
 import content.global.skill.gathering.woodcutting.WoodcuttingNode
-import core.api.consts.Items
-import core.api.consts.NPCs
-import core.api.consts.Scenery
+import cfg.consts.Items
+import cfg.consts.NPCs
+import cfg.consts.Scenery
 import core.api.getAttribute
 import core.api.setAttribute
 import core.game.event.*

@@ -1,7 +1,7 @@
 package content.region.desert.quest.deserttreasure.dialogue
 
 import content.region.desert.quest.deserttreasure.DesertTreasure
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.api.openDialogue
 import core.game.dialogue.Dialogue
 import core.game.dialogue.DialogueBuilder
@@ -11,6 +11,7 @@ import core.plugin.Initializable
 
 /**
  * Represents the Bandit dialogue.
+ * @author Ovenbreado
  */
 @Initializable
 class BanditDialogue(player: Player? = null) : Dialogue(player) {
@@ -31,6 +32,7 @@ class BanditDialogue(player: Player? = null) : Dialogue(player) {
 
 /**
  * Represents the Bandit dialogue file.
+ * @author Ovenbreado
  */
 class BanditDialogueFile : DialogueBuilderFile() {
 

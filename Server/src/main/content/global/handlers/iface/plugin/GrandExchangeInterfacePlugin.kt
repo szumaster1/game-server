@@ -2,8 +2,8 @@ package content.global.handlers.iface.plugin
 
 import content.global.handlers.iface.ge.StockMarketInterfaceListener.Companion.withdraw
 import core.api.closeChatBox
-import core.api.consts.Components
-import core.api.consts.Sounds
+import cfg.consts.Components
+import cfg.consts.Sounds
 import core.api.freeSlots
 import core.api.playAudio
 import core.api.sendMessage

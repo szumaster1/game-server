@@ -1,8 +1,8 @@
 package content.region.morytania.quest.fenkenstrain
 
-import core.api.consts.Items
-import core.api.consts.NPCs
-import core.api.consts.Scenery
+import cfg.consts.Items
+import cfg.consts.NPCs
+import cfg.consts.Scenery
 import content.region.morytania.quest.fenkenstrain.dialogue.BookcaseEastDialogueFile
 import content.region.morytania.quest.fenkenstrain.dialogue.BookcaseWest
 import content.region.morytania.quest.fenkenstrain.dialogue.RoavarDialogueFile

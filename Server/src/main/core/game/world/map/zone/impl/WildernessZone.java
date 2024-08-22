@@ -2,8 +2,8 @@ package core.game.world.map.zone.impl;
 
 import content.global.handlers.item.equipment.gloves.BrawlingGloves;
 import content.global.skill.combat.summoning.familiar.Familiar;
-import core.api.consts.Items;
-import core.api.consts.NPCs;
+import cfg.consts.Items;
+import cfg.consts.NPCs;
 import core.game.component.Component;
 import core.game.interaction.Option;
 import core.game.node.Node;

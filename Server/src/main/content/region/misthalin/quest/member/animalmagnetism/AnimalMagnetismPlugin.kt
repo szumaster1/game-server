@@ -2,7 +2,7 @@ package content.region.misthalin.quest.member.animalmagnetism
 
 import content.data.skill.SkillingTool.Companion.getHatchet
 import core.api.*
-import core.api.consts.*
+import cfg.consts.*
 import core.cache.def.impl.ItemDefinition
 import core.cache.def.impl.NPCDefinition
 import core.cache.def.impl.SceneryDefinition

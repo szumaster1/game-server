@@ -5,7 +5,7 @@ import content.global.skill.support.slayer.data.SlayerFlags
 import content.global.skill.support.slayer.data.SlayerMaster
 import content.global.skill.support.slayer.data.Tasks
 import core.api.*
-import core.api.consts.Items
+import cfg.consts.Items
 import core.cache.def.impl.NPCDefinition
 import core.game.event.EventHook
 import core.game.event.NPCKillEvent

@@ -1,8 +1,8 @@
 package content.global.dialogue
 
 import content.global.travel.balloon.BalloonListeners
-import core.api.consts.Components
-import core.api.consts.NPCs
+import cfg.consts.Components
+import cfg.consts.NPCs
 import core.api.isQuestComplete
 import core.api.openInterface
 import core.game.dialogue.Dialogue

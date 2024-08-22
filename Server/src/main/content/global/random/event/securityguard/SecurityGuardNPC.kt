@@ -1,7 +1,7 @@
 package content.global.random.event.securityguard
 
 import content.global.random.RandomEventNPC
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.api.getRegionBorders
 import core.api.getWorldTicks
 import core.api.inBorders

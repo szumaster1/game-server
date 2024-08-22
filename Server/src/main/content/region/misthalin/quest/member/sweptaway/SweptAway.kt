@@ -1,7 +1,7 @@
 /*package content.region.miscquest.swept
 
 
-import core.api.consts.Vars
+import cfg.consts.Vars
 import core.api.addItemOrDrop
 import core.api.setVarbit
 import core.game.node.entity.player.Player

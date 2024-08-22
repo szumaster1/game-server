@@ -1,8 +1,8 @@
 package content.global.skill.support.agility.shortcuts
 
 import content.global.skill.support.agility.AgilityHandler
-import core.api.consts.Animations
-import core.api.consts.Scenery
+import cfg.consts.Animations
+import cfg.consts.Scenery
 import core.api.lock
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener

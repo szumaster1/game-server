@@ -1,6 +1,6 @@
 package content.region.kandarin.quest.merlinsquest
 
-import core.api.consts.Items
+import cfg.consts.Items
 import core.api.sendDialogueLines
 import core.api.sendMessage
 import core.cache.def.impl.SceneryDefinition

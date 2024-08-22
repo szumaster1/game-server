@@ -1,7 +1,7 @@
 package content.region.kandarin.handlers.zmi
 
-import core.api.consts.Components
-import core.api.consts.NPCs
+import cfg.consts.Components
+import cfg.consts.NPCs
 import core.api.openInterface
 import core.api.restrictForIronman
 import core.api.setAttribute

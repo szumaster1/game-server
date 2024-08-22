@@ -4,8 +4,8 @@ import content.region.desert.dialogue.alkharid.AlKharidHealDialogue
 import content.region.desert.dialogue.alkharid.AliTheLeafletDropperDialogue
 import content.region.desert.dialogue.alkharid.BorderGuardDialogue
 import core.api.*
-import core.api.consts.Items
-import core.api.consts.NPCs
+import cfg.consts.Items
+import cfg.consts.NPCs
 import core.game.global.action.DoorActionHandler
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener

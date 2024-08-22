@@ -3,8 +3,8 @@ package content.region.kandarin.quest.seaslug.dialogue
 import content.region.kandarin.handlers.FishingPlatform
 import content.region.kandarin.quest.seaslug.cutscene.HolgartRepairBoatCutscene
 import core.api.*
-import core.api.consts.Items
-import core.api.consts.NPCs
+import cfg.consts.Items
+import cfg.consts.NPCs
 import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC

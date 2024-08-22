@@ -1,8 +1,8 @@
 package content.data.tables
 
 import core.api.*
-import core.api.consts.Items
-import core.api.consts.Sounds
+import cfg.consts.Items
+import cfg.consts.Sounds
 import core.game.node.entity.npc.drop.NPCDropTables
 import core.game.node.entity.player.Player
 import core.game.node.item.ChanceItem

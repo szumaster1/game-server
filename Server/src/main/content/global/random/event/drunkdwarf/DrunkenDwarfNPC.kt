@@ -1,8 +1,8 @@
 package content.global.random.event.drunkdwarf
 
 import content.global.random.RandomEventNPC
-import core.api.consts.NPCs
-import core.api.consts.Sounds
+import cfg.consts.NPCs
+import cfg.consts.Sounds
 import core.api.getWorldTicks
 import core.api.openDialogue
 import core.api.playGlobalAudio

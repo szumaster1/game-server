@@ -2,9 +2,9 @@ package content.region.desert.quest.deserttreasure.handlers
 
 import content.region.desert.quest.deserttreasure.DesertTreasure
 import core.api.*
-import core.api.consts.Items
-import core.api.consts.NPCs
-import core.api.consts.Scenery
+import cfg.consts.Items
+import cfg.consts.NPCs
+import cfg.consts.Scenery
 import core.game.global.action.DoorActionHandler
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
@@ -20,6 +20,7 @@ import core.tools.secondsToTicks
 
 /**
  * Represents the Diamond of smoke listeners.
+ * @author Ovenbreado
  */
 class DiamondOfSmokeListeners : InteractionListener {
     companion object {
@@ -157,6 +158,7 @@ class DiamondOfSmokeListeners : InteractionListener {
  * @property timerIdentifier
  * @property torchVarbit
  * @constructor Create empty Standing torch timer
+ * @author Ovenbreado
  */
 class StandingTorchTimer(private val timerIdentifier: String = "deserttreasureunknowntimer", private val torchVarbit: Int = 0) : RSTimer(secondsToTicks(150), timerIdentifier) {
     override fun run(entity: Entity): Boolean {

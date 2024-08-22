@@ -1,7 +1,7 @@
 package content.region.misthalin.quest.member.animalmagnetism.dialogue
 
 import content.region.misthalin.quest.member.animalmagnetism.AnimalMagnetism
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.api.openNpcShop
 import core.game.dialogue.Dialogue
 import core.game.node.entity.npc.NPC

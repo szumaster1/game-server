@@ -3,8 +3,8 @@ package content.global.skill.support.construction.decoration.study
 import content.global.handlers.item.TeleTabs
 import content.global.skill.support.construction.Decoration
 import core.api.*
-import core.api.consts.Components
-import core.api.consts.Items
+import cfg.consts.Components
+import cfg.consts.Items
 import core.cache.def.impl.SceneryDefinition
 import core.game.component.Component
 import core.game.interaction.InterfaceListener

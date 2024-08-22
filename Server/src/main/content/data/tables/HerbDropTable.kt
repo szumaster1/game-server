@@ -2,7 +2,7 @@ package content.data.tables
 
 import core.ServerConstants
 import core.api.StartupListener
-import core.api.consts.Items
+import cfg.consts.Items
 import core.api.log
 import core.api.shouldRemoveNothings
 import core.api.utils.WeightBasedTable

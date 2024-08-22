@@ -1,9 +1,9 @@
 package core.game.world.map.zone.impl
 
 import core.api.*
-import core.api.consts.Animations
-import core.api.consts.Items
-import core.api.consts.Regions
+import cfg.consts.Animations
+import cfg.consts.Items
+import cfg.consts.Regions
 import core.game.node.entity.Entity
 import core.game.node.entity.combat.ImpactHandler.HitsplatType
 import core.game.node.entity.player.Player

@@ -2,8 +2,8 @@ package content.global.skill.support.agility.shortcuts
 
 import content.global.skill.support.agility.AgilityHandler
 import content.global.skill.support.agility.AgilityShortcut
-import core.api.consts.Animations
-import core.api.consts.Sounds
+import cfg.consts.Animations
+import cfg.consts.Sounds
 import core.api.lock
 import core.api.playAudio
 import core.api.sendMessage

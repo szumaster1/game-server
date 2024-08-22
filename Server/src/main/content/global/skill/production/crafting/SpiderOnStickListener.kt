@@ -4,7 +4,7 @@ import core.api.*
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.item.Item
-import core.api.consts.Items
+import cfg.consts.Items
 
 /**
  * Spider on stick listener.

@@ -3,7 +3,7 @@ package content.global.skill.production.crafting
 import content.global.skill.production.crafting.data.SpinningData
 import content.global.skill.production.crafting.item.SpinningPulse
 import core.api.*
-import core.api.consts.Components
+import cfg.consts.Components
 import core.game.interaction.InterfaceListener
 import core.game.node.item.Item
 

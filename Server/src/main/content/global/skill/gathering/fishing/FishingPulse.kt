@@ -5,8 +5,8 @@ import content.global.skill.gathering.fishing.data.Fish
 import content.global.skill.skillcape.SkillcapePerks
 import content.global.skill.skillcape.SkillcapePerks.Companion.isActive
 import core.api.*
-import core.api.consts.Animations
-import core.api.consts.Items
+import cfg.consts.Animations
+import cfg.consts.Items
 import core.game.event.ResourceProducedEvent
 import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player

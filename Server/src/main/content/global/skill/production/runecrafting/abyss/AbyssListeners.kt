@@ -3,10 +3,10 @@ package content.global.skill.production.runecrafting.abyss
 import content.data.skill.SkillingTool
 import content.global.skill.production.runecrafting.data.Altar
 import core.api.*
-import core.api.consts.Animations
-import core.api.consts.Items
-import core.api.consts.NPCs
-import core.api.consts.Vars
+import cfg.consts.Animations
+import cfg.consts.Items
+import cfg.consts.NPCs
+import cfg.consts.Vars
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.Node
@@ -29,7 +29,7 @@ import java.lang.Math
 import kotlin.math.cos
 import kotlin.math.sin
 import kotlin.random.Random
-import core.api.consts.Scenery as Object
+import cfg.consts.Scenery as Object
 
 /**
  * Abyss listener.

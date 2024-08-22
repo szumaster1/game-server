@@ -1,6 +1,6 @@
 package content.region.morytania.quest.naturespirit
 
-import core.api.consts.Sounds
+import cfg.consts.Sounds
 import content.region.morytania.quest.naturespirit.dialogue.DrezelDialogueFile
 import core.api.*
 import core.game.node.entity.npc.NPC

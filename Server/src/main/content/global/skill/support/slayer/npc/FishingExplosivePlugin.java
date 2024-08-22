@@ -1,7 +1,7 @@
 package content.global.skill.support.slayer.npc;
 
-import core.api.consts.Animations;
-import core.api.consts.NPCs;
+import cfg.consts.Animations;
+import cfg.consts.NPCs;
 import core.cache.def.impl.SceneryDefinition;
 import core.game.interaction.NodeUsageEvent;
 import core.game.interaction.OptionHandler;

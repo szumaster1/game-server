@@ -1,9 +1,9 @@
 package content.global.skill.support.agility.shortcuts.grapple
 
 import core.api.animate
-import core.api.consts.Animations
-import core.api.consts.Graphics
-import core.api.consts.Items
+import cfg.consts.Animations
+import cfg.consts.Graphics
+import cfg.consts.Items
 import core.api.finishDiaryTask
 import core.api.sendDialogue
 import core.api.visualize

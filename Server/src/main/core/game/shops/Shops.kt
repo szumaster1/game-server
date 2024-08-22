@@ -3,9 +3,9 @@ package core.game.shops
 import content.global.skill.production.crafting.data.TanningData
 import core.ServerConstants
 import core.api.*
-import core.api.consts.Components
-import core.api.consts.Items
-import core.api.consts.NPCs
+import cfg.consts.Components
+import cfg.consts.Items
+import cfg.consts.NPCs
 import core.game.dialogue.FacialExpression
 import core.game.ge.GrandExchange
 import core.game.interaction.IntType

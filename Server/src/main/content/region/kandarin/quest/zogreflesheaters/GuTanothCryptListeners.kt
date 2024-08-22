@@ -4,7 +4,7 @@ import content.global.skill.support.thieving.ThievingListeners
 import content.region.kandarin.quest.zogreflesheaters.npc.BrentleVahnNPC.Companion.spawnHumanZombie
 import content.region.kandarin.quest.zogreflesheaters.npc.SlashBashNPC.Companion.spawnZogreBoss
 import core.api.*
-import core.api.consts.*
+import cfg.consts.*
 import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression
 import core.game.global.action.DoorActionHandler

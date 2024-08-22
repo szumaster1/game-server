@@ -1,6 +1,6 @@
 package content.global.skill.combat.prayer
 
-import core.api.consts.Components
+import cfg.consts.Components
 import core.game.interaction.InterfaceListener
 import core.game.node.entity.player.link.prayer.PrayerType
 

@@ -1,6 +1,6 @@
 package content.region.asgarnia.quest.trollstronghold.dialogue
 
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.api.getQuestStage
 import core.api.sendMessage
 import core.api.setQuestStage

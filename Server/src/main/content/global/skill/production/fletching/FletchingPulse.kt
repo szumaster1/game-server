@@ -3,9 +3,9 @@ package content.global.skill.production.fletching
 import content.global.skill.production.fletching.FletchingMap.FletchingItems
 import content.region.kandarin.quest.zogreflesheaters.ZogreQuestUtils
 import core.api.*
-import core.api.consts.Animations
-import core.api.consts.Items
-import core.api.consts.Vars
+import cfg.consts.Animations
+import cfg.consts.Items
+import cfg.consts.Vars
 import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.diary.DiaryType
 import core.game.node.entity.skill.SkillPulse

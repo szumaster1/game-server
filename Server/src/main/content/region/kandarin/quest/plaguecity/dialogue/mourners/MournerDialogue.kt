@@ -1,7 +1,7 @@
 package content.region.kandarin.quest.plaguecity.dialogue.mourners
 
-import core.api.consts.Items
-import core.api.consts.NPCs
+import cfg.consts.Items
+import cfg.consts.NPCs
 import core.api.inBorders
 import core.api.inEquipment
 import core.game.dialogue.Dialogue

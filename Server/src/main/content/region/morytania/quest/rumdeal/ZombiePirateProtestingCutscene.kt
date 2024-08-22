@@ -1,7 +1,7 @@
 package content.region.morytania.quest.rumdeal
 
-import core.api.consts.Components
-import core.api.consts.NPCs
+import cfg.consts.Components
+import cfg.consts.NPCs
 import core.api.openDialogue
 import core.api.openOverlay
 import core.api.setMinimapState

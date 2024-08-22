@@ -74,11 +74,6 @@ AGPL 3.0 license, The license applies to the entire repository, unless otherwise
 
 ***
 
-##### Contact
-
-1272978808672223396
-
-
 [license-shield]: https://img.shields.io/badge/license-AGPL--3.0-informational
 
 [license-url]: https://www.gnu.org/licenses/agpl-3.0.en.html

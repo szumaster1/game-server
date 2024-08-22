@@ -2,7 +2,7 @@ package content.global.skill.production.crafting.handlers
 
 import content.global.skill.production.crafting.data.SilverData
 import core.api.addItem
-import core.api.consts.Items
+import cfg.consts.Items
 import core.api.removeItem
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener

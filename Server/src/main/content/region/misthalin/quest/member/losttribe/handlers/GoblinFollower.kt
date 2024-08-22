@@ -1,7 +1,7 @@
 package content.region.misthalin.quest.member.losttribe.handlers
 
 import core.api.*
-import core.api.consts.Components
+import cfg.consts.Components
 import core.game.component.Component
 import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.TeleportManager

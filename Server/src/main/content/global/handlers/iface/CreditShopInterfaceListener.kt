@@ -1,7 +1,7 @@
 package content.global.handlers.iface
 
-import core.api.consts.Components
-import core.api.consts.Items
+import cfg.consts.Components
+import cfg.consts.Items
 import core.api.sendDialogue
 import core.api.sendMessage
 import core.api.setInterfaceText

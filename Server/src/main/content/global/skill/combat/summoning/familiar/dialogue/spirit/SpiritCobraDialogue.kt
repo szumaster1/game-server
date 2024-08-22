@@ -1,7 +1,7 @@
 package content.global.skill.combat.summoning.familiar.dialogue.spirit
 
-import core.api.consts.Items
-import core.api.consts.NPCs
+import cfg.consts.Items
+import cfg.consts.NPCs
 import core.api.emote
 import core.api.inEquipment
 import core.api.inInventory

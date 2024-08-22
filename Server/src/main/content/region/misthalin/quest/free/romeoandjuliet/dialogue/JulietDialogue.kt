@@ -1,7 +1,7 @@
 package content.region.misthalin.quest.free.romeoandjuliet.dialogue
 
 import content.region.misthalin.quest.free.romeoandjuliet.cutscene.JulietCutscene
-import core.api.consts.Items
+import cfg.consts.Items
 import core.api.sendItemDialogue
 import core.game.activity.ActivityManager
 import core.game.dialogue.Dialogue

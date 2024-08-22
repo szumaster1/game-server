@@ -3,10 +3,10 @@ package content.minigame.mta
 import content.global.skill.combat.magic.SpellListener
 import content.global.skill.combat.magic.spellconsts.Modern
 import content.minigame.mta.impl.AlchemistZone
-import core.api.consts.Animations
-import core.api.consts.Items
-import core.api.consts.NPCs
-import core.api.consts.Sounds
+import cfg.consts.Animations
+import cfg.consts.Items
+import cfg.consts.NPCs
+import cfg.consts.Sounds
 import core.api.playAudio
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener

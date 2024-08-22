@@ -1,6 +1,6 @@
 package content.region.tirannwn.dialogue
 
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.api.hasRequirement
 import core.api.openNpcShop
 import core.game.dialogue.Dialogue

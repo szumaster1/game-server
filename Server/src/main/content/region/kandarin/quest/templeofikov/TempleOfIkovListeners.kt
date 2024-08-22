@@ -3,9 +3,9 @@ package content.region.kandarin.quest.templeofikov
 import content.global.skill.support.agility.AgilityHandler
 import content.region.kandarin.quest.templeofikov.npc.FireWarriorOfLesarkusNPC
 import core.api.*
-import core.api.consts.Items
-import core.api.consts.NPCs
-import core.api.consts.Scenery
+import cfg.consts.Items
+import cfg.consts.NPCs
+import cfg.consts.Scenery
 import core.game.global.action.DoorActionHandler
 import core.game.global.action.PickupHandler
 import core.game.interaction.IntType

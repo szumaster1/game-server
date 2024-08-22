@@ -1,9 +1,9 @@
 package content.global.handlers.scenery.plugin
 
 import core.api.*
-import core.api.consts.Animations
-import core.api.consts.Items
-import core.api.consts.Sounds
+import cfg.consts.Animations
+import cfg.consts.Items
+import cfg.consts.Sounds
 import core.cache.def.impl.SceneryDefinition
 import core.game.container.Container
 import core.game.container.impl.EquipmentContainer

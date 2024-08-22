@@ -1,6 +1,6 @@
 package content.region.misthalin.dialogue.varrock.grandexchange
 
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.game.dialogue.Dialogue
 import core.game.ge.GEGuidePrice
 import core.game.ge.GEGuidePrice.GuideType

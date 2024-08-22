@@ -1,9 +1,9 @@
 package content.minigame.gnomeball
 
 import core.api.animate
-import core.api.consts.Animations
-import core.api.consts.Items
-import core.api.consts.NPCs
+import cfg.consts.Animations
+import cfg.consts.Items
+import cfg.consts.NPCs
 import core.api.getAttribute
 import core.api.setAttribute
 import core.api.spawnProjectile

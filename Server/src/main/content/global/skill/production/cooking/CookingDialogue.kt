@@ -2,8 +2,8 @@ package content.global.skill.production.cooking
 
 import content.global.skill.production.cooking.CookingRewrite.Companion.cook
 import core.api.*
-import core.api.consts.Components
-import core.api.consts.Items
+import cfg.consts.Components
+import cfg.consts.Items
 import core.game.dialogue.DialogueFile
 import core.game.node.scenery.Scenery
 import core.tools.START_DIALOGUE

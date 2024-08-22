@@ -3,8 +3,8 @@ package content.global.activity.shootingstar
 import core.ServerStore
 import core.ServerStore.Companion.getBoolean
 import core.api.*
-import core.api.consts.Items
-import core.api.consts.Scenery
+import cfg.consts.Items
+import cfg.consts.Scenery
 import core.game.dialogue.DialogueFile
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener

@@ -1,7 +1,7 @@
 package content.global.skill.production.cooking.recipe.pizza.impl
 
 import content.global.skill.production.cooking.recipe.pizza.PizzaRecipe
-import core.api.consts.Items
+import cfg.consts.Items
 import core.game.interaction.NodeUsageEvent
 import core.game.node.item.Item
 

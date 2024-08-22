@@ -1,6 +1,6 @@
 package content.global.handlers.item.scroll
 
-import core.api.consts.Items
+import cfg.consts.Items
 import core.api.openDialogue
 import core.game.dialogue.DialogueFile
 import core.game.interaction.IntType

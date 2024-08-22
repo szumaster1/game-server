@@ -2,7 +2,7 @@ package content.region.asgarnia.quest.trollstronghold.npc
 
 import content.region.asgarnia.quest.trollstronghold.dialogue.DadTSDialogueFile
 import core.api.*
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.game.node.entity.Entity
 import core.game.node.entity.combat.BattleState
 import core.game.node.entity.combat.CombatStyle

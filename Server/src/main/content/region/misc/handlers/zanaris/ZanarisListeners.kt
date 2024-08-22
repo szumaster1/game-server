@@ -2,9 +2,9 @@ package content.region.misc.handlers.zanaris
 
 import content.region.misc.dialogue.keldagrim.MagicDoorDialogue
 import core.api.*
-import core.api.consts.Animations
-import core.api.consts.Items
-import core.api.consts.Scenery
+import cfg.consts.Animations
+import cfg.consts.Items
+import cfg.consts.Scenery
 import core.game.component.Component
 import core.game.global.action.ClimbActionHandler
 import core.game.global.action.DoorActionHandler

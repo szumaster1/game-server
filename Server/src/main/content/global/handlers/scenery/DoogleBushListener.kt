@@ -1,8 +1,8 @@
 package content.global.handlers.scenery
 
 import core.api.addItem
-import core.api.consts.Items
-import core.api.consts.Scenery
+import cfg.consts.Items
+import cfg.consts.Scenery
 import core.api.sendMessage
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener

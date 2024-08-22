@@ -1,7 +1,7 @@
 package content.region.asgarnia.quest.piratestreasure;
 
 import content.region.asgarnia.quest.piratestreasure.plugin.PiratesTreasurePlugin;
-import core.api.consts.Vars;
+import cfg.consts.Vars;
 import core.game.component.Component;
 import core.game.node.entity.player.Player;
 import core.game.node.entity.player.link.quest.Quest;

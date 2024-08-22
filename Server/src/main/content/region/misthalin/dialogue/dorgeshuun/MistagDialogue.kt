@@ -2,8 +2,8 @@ package content.region.misthalin.dialogue.dorgeshuun
 
 import content.region.misthalin.quest.member.deathtothedorgeshuun.dialogue.MistagDialogueFile
 import content.region.misthalin.quest.member.losttribe.dialogue.MistagLostTribeDialogue
-import core.api.consts.Items
-import core.api.consts.NPCs
+import cfg.consts.Items
+import cfg.consts.NPCs
 import content.region.misthalin.quest.member.losttribe.handlers.GoblinFollower
 import core.api.getAttribute
 import core.api.getQuestStage

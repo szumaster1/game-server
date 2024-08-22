@@ -1,7 +1,7 @@
 package content.minigame.mta
 
 import content.minigame.mta.impl.EnchantingZone
-import core.api.consts.Items
+import cfg.consts.Items
 import core.game.node.Node
 import core.game.node.entity.Entity
 import core.game.node.entity.combat.spell.MagicSpell

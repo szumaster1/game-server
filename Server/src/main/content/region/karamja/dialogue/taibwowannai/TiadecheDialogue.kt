@@ -1,6 +1,6 @@
 package content.region.karamja.dialogue.taibwowannai
 
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.api.hasRequirement
 import core.api.openNpcShop
 import core.game.dialogue.Dialogue

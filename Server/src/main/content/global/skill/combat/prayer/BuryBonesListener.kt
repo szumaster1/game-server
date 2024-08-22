@@ -1,8 +1,8 @@
 package content.global.skill.combat.prayer
 
 import core.api.*
-import core.api.consts.Animations
-import core.api.consts.Sounds
+import cfg.consts.Animations
+import cfg.consts.Sounds
 import core.game.event.BoneBuryEvent
 import core.game.interaction.Clocks
 import core.game.interaction.IntType

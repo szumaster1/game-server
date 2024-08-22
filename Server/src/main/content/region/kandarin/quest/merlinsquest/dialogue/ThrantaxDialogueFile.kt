@@ -2,8 +2,8 @@ package content.region.kandarin.quest.merlinsquest.dialogue
 
 import content.region.kandarin.quest.merlinsquest.MerlinUtils
 import content.region.kandarin.quest.merlinsquest.npc.ThrantaxNPC
-import core.api.consts.Items
-import core.api.consts.NPCs
+import cfg.consts.Items
+import cfg.consts.NPCs
 import core.api.sendDialogue
 import core.api.sendDialogueOptions
 import core.api.setAttribute

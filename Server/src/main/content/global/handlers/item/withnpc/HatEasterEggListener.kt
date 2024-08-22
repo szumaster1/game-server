@@ -1,7 +1,7 @@
 package content.global.handlers.item.withnpc
 
-import core.api.consts.Items
-import core.api.consts.NPCs
+import cfg.consts.Items
+import cfg.consts.NPCs
 import core.api.openDialogue
 import core.api.visualize
 import core.game.dialogue.DialogueFile

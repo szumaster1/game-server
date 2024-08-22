@@ -1,7 +1,7 @@
 package content.global.skill.combat.magic.lunar;
 
 import content.data.consumables.Consumables;
-import core.api.consts.Sounds;
+import cfg.consts.Sounds;
 import core.game.bots.AIPlayer;
 import core.game.consumable.Potion;
 import core.game.node.Node;

@@ -2,7 +2,7 @@ package core.game.ge
 
 import core.api.LoginListener
 import core.api.PersistPlayer
-import core.api.consts.Components
+import cfg.consts.Components
 import core.api.playJingle
 import core.api.sendMessage
 import core.cache.def.impl.ItemDefinition

@@ -1,8 +1,8 @@
 package content.region.misthalin.quest.free.restlessghost.plugin
 
 import content.region.misthalin.quest.free.restlessghost.RestlessGhost
-import core.api.consts.Items
-import core.api.consts.Sounds
+import cfg.consts.Items
+import cfg.consts.Sounds
 import core.api.playAudio
 import core.game.interaction.NodeUsageEvent
 import core.game.interaction.UseWithHandler

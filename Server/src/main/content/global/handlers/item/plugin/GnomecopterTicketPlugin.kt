@@ -1,7 +1,7 @@
 package content.global.handlers.item.plugin
 
-import core.api.consts.Components
-import core.api.consts.Items
+import cfg.consts.Components
+import cfg.consts.Items
 import core.api.setInterfaceText
 import core.cache.def.impl.ItemDefinition
 import core.game.component.Component

@@ -16,7 +16,7 @@ import core.game.world.update.flag.context.Graphic;
 import core.tools.RandomFunction;
 import core.game.event.*;
 import core.game.world.GameWorld;
-import core.api.consts.Sounds;
+import cfg.consts.Sounds;
 
 import java.util.ArrayList;
 import java.util.List;

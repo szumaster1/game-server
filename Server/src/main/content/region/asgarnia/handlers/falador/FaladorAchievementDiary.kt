@@ -5,9 +5,9 @@ import content.global.skill.production.crafting.data.LightSourceData
 import content.region.asgarnia.dialogue.falador.RisingSunInnBartenderDialogue
 import content.region.misc.handlers.zanaris.FairyRing
 import core.api.*
-import core.api.consts.Items
-import core.api.consts.NPCs
-import core.api.consts.Scenery
+import cfg.consts.Items
+import cfg.consts.NPCs
+import cfg.consts.Scenery
 import core.game.diary.AreaDiaryTask
 import core.game.diary.DiaryEventHookBase
 import core.game.diary.DiaryLevel

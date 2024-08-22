@@ -1,6 +1,6 @@
 package content.region.kandarin.quest.chompybird.npc
 
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.api.findLocalNPC
 import core.api.getAttribute
 import core.api.sendMessage

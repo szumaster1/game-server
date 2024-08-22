@@ -1,7 +1,7 @@
 package content.region.kandarin.handlers
 
-import core.api.consts.Animations
-import core.api.consts.NPCs
+import cfg.consts.Animations
+import cfg.consts.NPCs
 import core.game.node.entity.impl.Animator.Priority
 import core.game.node.entity.npc.AbstractNPC
 import core.game.node.entity.npc.NPC

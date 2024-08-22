@@ -1,6 +1,6 @@
 package content.region.misthalin.quest.member.priestinperil.plugin;
 
-import core.api.consts.NPCs;
+import cfg.consts.NPCs;
 import core.cache.def.impl.NPCDefinition;
 import core.cache.def.impl.SceneryDefinition;
 import core.game.component.Component;

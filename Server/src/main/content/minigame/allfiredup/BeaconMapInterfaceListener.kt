@@ -1,6 +1,6 @@
 package content.minigame.allfiredup
 
-import core.api.consts.Components
+import cfg.consts.Components
 import core.game.interaction.InterfaceListener
 
 /**

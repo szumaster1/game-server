@@ -6,8 +6,8 @@ import content.region.fremennik.quest.fremtrials.dialogue.CouncilWorkerDialogue
 import content.region.fremennik.quest.fremtrials.dialogue.FremennikFishermanDialogue
 import content.region.fremennik.quest.fremtrials.npc.KoscheiSession
 import core.api.*
-import core.api.consts.Items
-import core.api.consts.NPCs
+import cfg.consts.Items
+import cfg.consts.NPCs
 import core.game.container.impl.EquipmentContainer.SLOT_WEAPON
 import core.game.dialogue.FacialExpression
 import core.game.global.action.ClimbActionHandler

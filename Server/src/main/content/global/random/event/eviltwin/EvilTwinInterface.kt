@@ -1,8 +1,8 @@
 package content.global.random.event.eviltwin
 
 import core.api.*
-import core.api.consts.Components
-import core.api.consts.Sounds
+import cfg.consts.Components
+import cfg.consts.Sounds
 import core.game.interaction.InterfaceListener
 import core.game.node.scenery.Scenery
 import core.game.node.scenery.SceneryBuilder

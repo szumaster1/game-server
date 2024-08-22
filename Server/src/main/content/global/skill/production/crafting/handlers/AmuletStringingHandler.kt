@@ -2,7 +2,7 @@ package content.global.skill.production.crafting.handlers
 
 import content.global.skill.production.crafting.data.JewelleryData.JewelleryItem
 import content.global.skill.production.crafting.data.JewelleryData.JewelleryItem.Companion.forProduct
-import core.api.consts.Items
+import cfg.consts.Items
 import core.api.getStatLevel
 import core.api.sendMessage
 import core.game.interaction.NodeUsageEvent

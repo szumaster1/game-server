@@ -4,7 +4,7 @@ import content.region.asgarnia.quest.recruitmentdrive.RecruitmentDrive
 import content.region.asgarnia.quest.recruitmentdrive.dialogue.SirTiffyCashienDialogueFile
 import core.ServerConstants
 import core.api.*
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC

@@ -2,7 +2,7 @@ package content.global.activity.shootingstar
 
 import content.data.skill.SkillingTool
 import core.api.*
-import core.api.consts.Items
+import cfg.consts.Items
 import core.game.node.entity.player.Player
 import core.game.node.entity.skill.SkillPulse
 import core.game.node.entity.skill.Skills

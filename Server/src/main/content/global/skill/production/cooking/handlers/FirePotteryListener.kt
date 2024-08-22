@@ -1,6 +1,6 @@
 package content.global.skill.production.cooking.handlers
 
-import core.api.consts.Scenery
+import cfg.consts.Scenery
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 

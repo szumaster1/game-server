@@ -1,8 +1,8 @@
 package content.global.random.event.sandwichlady
 
 import content.global.random.RandomEventNPC
-import core.api.consts.Items
-import core.api.consts.NPCs
+import cfg.consts.Items
+import cfg.consts.NPCs
 import core.api.utils.WeightBasedTable
 import core.game.node.entity.npc.NPC
 import core.tools.RandomFunction

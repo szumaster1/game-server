@@ -1,6 +1,6 @@
 package content.region.kandarin.quest.holygrail.dialogue
 
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.api.sendDialogue
 import core.api.teleport
 import core.game.dialogue.DialogueFile

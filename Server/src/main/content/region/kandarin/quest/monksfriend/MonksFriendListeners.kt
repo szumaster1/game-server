@@ -3,7 +3,7 @@ package content.region.kandarin.quest.monksfriend
 import content.region.kandarin.quest.monksfriend.dialogue.BrotherCedricDialogueFile
 import content.region.kandarin.quest.monksfriend.dialogue.BrotherOmadDialogueFile
 import content.region.kandarin.quest.monksfriend.dialogue.MonasteryMonkDialogueFile
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.api.openDialogue
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener

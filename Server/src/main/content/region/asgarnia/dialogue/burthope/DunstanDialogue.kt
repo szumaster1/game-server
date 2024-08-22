@@ -2,7 +2,7 @@ package content.region.asgarnia.dialogue.burthope
 
 import content.region.asgarnia.quest.deathplateau.dialogue.DunstanDialogueFile
 import content.region.asgarnia.quest.trollstronghold.dialogue.DunstanDialogueFile2
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.api.isQuestComplete
 import core.api.isQuestInProgress
 import core.api.openDialogue

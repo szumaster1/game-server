@@ -2,7 +2,7 @@ package content.global.skill.production.fletching.item
 
 import content.global.skill.production.fletching.data.BrutalArrow
 import core.api.*
-import core.api.consts.Items
+import cfg.consts.Items
 import core.game.node.entity.player.Player
 import core.game.node.entity.skill.SkillPulse
 import core.game.node.entity.skill.Skills

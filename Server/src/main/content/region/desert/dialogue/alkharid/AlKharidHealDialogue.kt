@@ -1,7 +1,7 @@
 package content.region.desert.dialogue.alkharid
 
 import core.api.animate
-import core.api.consts.Animations
+import cfg.consts.Animations
 import core.api.getStatLevel
 import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression

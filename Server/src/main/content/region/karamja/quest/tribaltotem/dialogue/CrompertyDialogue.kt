@@ -1,7 +1,7 @@
 package content.region.karamja.quest.tribaltotem.dialogue
 
 import content.global.travel.EssenceTeleport
-import core.api.consts.Sounds
+import cfg.consts.Sounds
 import core.api.isQuestComplete
 import core.api.isQuestInProgress
 import core.api.playAudio

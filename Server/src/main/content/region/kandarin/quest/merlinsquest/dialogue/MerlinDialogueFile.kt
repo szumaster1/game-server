@@ -2,7 +2,7 @@ package content.region.kandarin.quest.merlinsquest.dialogue
 
 import content.region.kandarin.quest.merlinsquest.MerlinUtils
 import core.api.*
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression
 import core.game.interaction.QueueStrength
@@ -85,7 +85,7 @@ class MerlinDialogueFile(val forced: Boolean) : DialogueFile() {
         val crystal = getScenery(Location.create(2767, 3493, 2))
 
         if (crystal == null) {
-            SceneryBuilder.add(Scenery(core.api.consts.Scenery.GIANT_CRYSTAL_62, Location.create(2767, 3493, 2)))
+            SceneryBuilder.add(Scenery(cfg.consts.Scenery.GIANT_CRYSTAL_62, Location.create(2767, 3493, 2)))
         }
     }
 

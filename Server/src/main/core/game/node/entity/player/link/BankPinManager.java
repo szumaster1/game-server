@@ -14,7 +14,7 @@ import core.network.packet.outgoing.RepositionChild;
 import core.network.packet.outgoing.StringPacket;
 import core.tools.RandomFunction;
 import org.json.simple.JSONObject;
-import core.api.consts.Sounds;
+import cfg.consts.Sounds;
 
 import java.util.ArrayList;
 import java.util.Arrays;

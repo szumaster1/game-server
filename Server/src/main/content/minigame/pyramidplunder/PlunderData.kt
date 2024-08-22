@@ -1,6 +1,6 @@
 package content.minigame.pyramidplunder
 
-import core.api.consts.Items
+import cfg.consts.Items
 import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.game.world.map.Direction

@@ -1,7 +1,7 @@
 package content.region.karamja.handlers
 
 import core.api.*
-import core.api.consts.*
+import cfg.consts.*
 import core.game.dialogue.FacialExpression
 import core.game.global.action.ClimbActionHandler
 import core.game.interaction.IntType

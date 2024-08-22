@@ -3,8 +3,8 @@ package content.global.skill.production.cooking.handlers
 import core.api.addItem
 import core.api.amountInInventory
 import core.api.animate
-import core.api.consts.Animations
-import core.api.consts.Items
+import cfg.consts.Animations
+import cfg.consts.Items
 import core.api.removeItem
 import core.game.interaction.NodeUsageEvent
 import core.game.interaction.UseWithHandler

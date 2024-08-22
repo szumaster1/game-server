@@ -1,8 +1,8 @@
 package content.global.skill.gathering.hunter.falconry
 
 import core.api.*
-import core.api.consts.Items
-import core.api.consts.NPCs
+import cfg.consts.Items
+import cfg.consts.NPCs
 import core.cache.def.impl.ItemDefinition
 import core.cache.def.impl.NPCDefinition
 import core.game.activity.ActivityPlugin

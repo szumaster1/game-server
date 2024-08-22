@@ -3,7 +3,7 @@ package content.region.misthalin.quest.member.asoulbane
 import core.api.sendDialogueLines
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
-import core.api.consts.Scenery
+import cfg.consts.Scenery
 
 /**
  * Represents the A Souls Bane listener.

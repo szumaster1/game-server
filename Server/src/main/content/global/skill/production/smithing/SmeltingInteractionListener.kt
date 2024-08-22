@@ -2,7 +2,7 @@ package content.global.skill.production.smithing
 
 import content.global.skill.production.smithing.data.Bar
 import core.api.*
-import core.api.consts.*
+import cfg.consts.*
 import core.game.dialogue.FacialExpression
 import core.game.event.ResourceProducedEvent
 import core.game.interaction.IntType

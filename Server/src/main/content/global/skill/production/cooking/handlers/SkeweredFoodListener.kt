@@ -1,7 +1,7 @@
 package content.global.skill.production.cooking.handlers
 
 import core.api.addItem
-import core.api.consts.Items
+import cfg.consts.Items
 import core.api.getStatLevel
 import core.api.removeItem
 import core.api.sendDialogue

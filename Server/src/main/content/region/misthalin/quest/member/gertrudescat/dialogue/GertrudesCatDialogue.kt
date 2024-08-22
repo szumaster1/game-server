@@ -1,8 +1,8 @@
 package content.region.misthalin.quest.member.gertrudescat.dialogue
 
 import core.api.animate
-import core.api.consts.Animations
-import core.api.consts.NPCs
+import cfg.consts.Animations
+import cfg.consts.NPCs
 import core.api.getQuestStage
 import core.api.sendChat
 import core.game.dialogue.Dialogue

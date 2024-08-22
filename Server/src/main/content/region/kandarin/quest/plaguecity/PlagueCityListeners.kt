@@ -6,7 +6,7 @@ import content.region.kandarin.quest.plaguecity.dialogue.mourners.HeadMournerDia
 import content.region.kandarin.quest.plaguecity.dialogue.mourners.MournerOtherDialogue
 import content.region.kandarin.quest.plaguecity.dialogue.mourners.MournerPlagueCityDialogue
 import core.api.*
-import core.api.consts.*
+import cfg.consts.*
 import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression
 import core.game.global.action.DoorActionHandler

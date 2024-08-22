@@ -1,6 +1,6 @@
 package core.game.worldevents.holiday
 
-import core.api.consts.Sounds
+import cfg.consts.Sounds
 import core.api.playAudio
 import core.api.visualize
 import core.game.node.entity.Entity

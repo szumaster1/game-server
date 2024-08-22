@@ -1,6 +1,6 @@
 package content.region.fremennik.handlers.neitiznot
 
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.api.findLocalNPCs
 import core.game.node.entity.npc.AbstractNPC
 import core.game.world.map.Location

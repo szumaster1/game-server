@@ -1,7 +1,7 @@
 package content.global.skill.support.construction;
 
 import content.global.skill.support.construction.servants.Servant;
-import core.api.consts.Sounds;
+import cfg.consts.Sounds;
 import core.api.regionspec.RegionSpecification;
 import core.api.regionspec.contracts.FillChunkContract;
 import core.game.dialogue.FacialExpression;

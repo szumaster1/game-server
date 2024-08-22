@@ -1,6 +1,6 @@
 package content.global.handlers.iface.player
 
-import core.api.consts.Components
+import cfg.consts.Components
 import core.api.setInterfaceText
 import core.game.component.Component
 import core.game.interaction.InterfaceListener

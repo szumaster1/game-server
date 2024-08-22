@@ -3,7 +3,7 @@ package content.global.skill.production.runecrafting.item.tiara
 import content.global.skill.production.runecrafting.data.Altar
 import content.global.skill.production.runecrafting.data.Talisman
 import content.global.skill.production.runecrafting.data.TalismanStaff
-import core.api.consts.Items
+import cfg.consts.Items
 import core.api.rewardXP
 import core.api.sendMessage
 import core.game.node.entity.player.Player

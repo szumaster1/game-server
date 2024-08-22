@@ -1,7 +1,7 @@
 package content.region.misc.quest.enlightenedjourney.cutscene
 
-import core.api.consts.Animations
-import core.api.consts.NPCs
+import cfg.consts.Animations
+import cfg.consts.NPCs
 import core.api.face
 import core.api.location
 import core.api.setQuestStage

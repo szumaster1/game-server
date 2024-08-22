@@ -2,7 +2,7 @@ package content.global.bots
 
 import content.global.skill.production.crafting.data.GlassData
 import content.global.skill.production.crafting.item.GlassCraftPulse
-import core.api.consts.Items
+import cfg.consts.Items
 import core.game.bots.Script
 import core.game.bots.SkillingBotAssembler
 import core.game.node.entity.skill.Skills

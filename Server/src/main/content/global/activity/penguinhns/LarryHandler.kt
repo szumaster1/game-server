@@ -1,6 +1,6 @@
 package content.global.activity.penguinhns
 
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.api.getStatLevel
 import core.api.removeAttribute
 import core.api.sendMessage

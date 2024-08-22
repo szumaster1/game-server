@@ -1,6 +1,6 @@
 package content.data
 
-import core.api.consts.Items
+import cfg.consts.Items
 
 /**
  * Meat state.

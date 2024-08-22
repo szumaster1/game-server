@@ -1,7 +1,7 @@
 package content.global.skill.production.runecrafting.abyss
 
 import content.global.skill.production.runecrafting.item.pouch.RunePouch
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.game.node.entity.Entity
 import core.game.node.entity.npc.AbstractNPC
 import core.game.node.entity.player.Player

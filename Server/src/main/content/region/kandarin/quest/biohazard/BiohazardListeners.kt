@@ -3,10 +3,10 @@ package content.region.kandarin.quest.biohazard
 import content.region.kandarin.quest.biohazard.dialogue.*
 import content.region.kandarin.quest.biohazard.util.BiohazardUtils
 import core.api.*
-import core.api.consts.Items
-import core.api.consts.NPCs
-import core.api.consts.Scenery
-import core.api.consts.Sounds
+import cfg.consts.Items
+import cfg.consts.NPCs
+import cfg.consts.Scenery
+import cfg.consts.Sounds
 import core.game.dialogue.DialogueFile
 import core.game.global.action.DoorActionHandler
 import core.game.interaction.IntType

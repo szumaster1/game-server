@@ -1,8 +1,8 @@
 package content.region.karamja.handlers
 
-import core.api.consts.Items
-import core.api.consts.NPCs
-import core.api.consts.Scenery
+import cfg.consts.Items
+import cfg.consts.NPCs
+import cfg.consts.Scenery
 import core.api.inBorders
 import core.game.diary.AreaDiaryTask
 import core.game.diary.DiaryEventHookBase

@@ -2,7 +2,7 @@ package content.region.misthalin.handlers.lumbridge
 
 import core.GlobalStats
 import core.api.*
-import core.api.consts.*
+import cfg.consts.*
 import core.game.activity.ActivityManager
 import core.game.global.action.ClimbActionHandler
 import core.game.interaction.IntType

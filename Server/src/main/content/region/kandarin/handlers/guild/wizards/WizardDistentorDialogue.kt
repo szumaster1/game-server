@@ -1,7 +1,7 @@
 package content.region.kandarin.handlers.guild.wizards
 
 import content.global.travel.EssenceTeleport
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.api.isQuestComplete
 import core.game.dialogue.Dialogue
 import core.game.node.entity.npc.NPC

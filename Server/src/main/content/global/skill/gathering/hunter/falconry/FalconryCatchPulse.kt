@@ -1,9 +1,9 @@
 package content.global.skill.gathering.hunter.falconry
 
 import core.api.*
-import core.api.consts.Items
-import core.api.consts.NPCs
-import core.api.consts.Sounds
+import cfg.consts.Items
+import cfg.consts.NPCs
+import cfg.consts.Sounds
 import core.game.container.impl.EquipmentContainer
 import core.game.node.entity.impl.Projectile
 import core.game.node.entity.npc.NPC

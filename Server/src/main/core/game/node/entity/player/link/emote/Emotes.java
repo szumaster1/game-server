@@ -1,6 +1,6 @@
 package core.game.node.entity.player.link.emote;
 
-import core.api.consts.*;
+import cfg.consts.*;
 import core.game.container.impl.EquipmentContainer;
 import core.game.node.entity.player.Player;
 import core.game.node.entity.player.info.Rights;

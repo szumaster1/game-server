@@ -1,9 +1,9 @@
 package content.region.misthalin.quest.free.impcatcher
 
 import core.api.addItemOrDrop
-import core.api.consts.Components
-import core.api.consts.Items
-import core.api.consts.Vars
+import cfg.consts.Components
+import cfg.consts.Items
+import cfg.consts.Vars
 import core.api.inInventory
 import core.api.rewardXP
 import core.api.sendItemOnInterface

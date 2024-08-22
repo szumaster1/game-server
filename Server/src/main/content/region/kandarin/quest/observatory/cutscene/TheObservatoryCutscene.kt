@@ -1,9 +1,9 @@
 package content.region.kandarin.quest.observatory.cutscene
 
 import core.api.*
-import core.api.consts.Animations
-import core.api.consts.NPCs
-import core.api.consts.Vars
+import cfg.consts.Animations
+import cfg.consts.NPCs
+import cfg.consts.Vars
 import core.game.activity.Cutscene
 import core.game.dialogue.FacialExpression
 import core.game.node.entity.player.Player

@@ -1,7 +1,7 @@
 package content.region.misthalin.handlers.huntforsurok
 
-import core.api.consts.Music
-import core.api.consts.NPCs
+import cfg.consts.Music
+import cfg.consts.NPCs
 import core.api.getVarbit
 import core.game.activity.ActivityPlugin
 import core.game.activity.CutscenePlugin

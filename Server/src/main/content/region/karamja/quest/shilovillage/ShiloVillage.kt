@@ -1,7 +1,7 @@
 /*package content.kingdom.karamja.quest.zombiequeen
 
 
-import core.api.consts.Vars
+import cfg.consts.Vars
 import core.api.rewardXP
 import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.quest.Quest

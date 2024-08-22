@@ -1,7 +1,7 @@
 package content.region.desert.quest.touristtrap.npc
 
 import content.region.desert.quest.touristtrap.TouristTrap
-import core.api.consts.NPCs
+import cfg.consts.NPCs
 import core.cache.def.impl.NPCDefinition
 import core.game.interaction.OptionHandler
 import core.game.node.Node

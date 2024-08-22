@@ -3,10 +3,10 @@ package content.region.morytania.handlers.phasmatys
 import content.region.morytania.handlers.phasmatys.EnergyBarrierUtils.passGate
 import content.region.morytania.handlers.phasmatys.EnergyBarrierUtils.passGateAfterQuest
 import core.api.*
-import core.api.consts.Items
-import core.api.consts.NPCs
-import core.api.consts.Scenery
-import core.api.consts.Sounds
+import cfg.consts.Items
+import cfg.consts.NPCs
+import cfg.consts.Scenery
+import cfg.consts.Sounds
 import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression
 import core.game.interaction.IntType

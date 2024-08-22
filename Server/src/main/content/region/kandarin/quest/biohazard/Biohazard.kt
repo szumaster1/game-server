@@ -1,9 +1,9 @@
 package content.region.kandarin.quest.biohazard
 
 import content.region.kandarin.quest.biohazard.util.BiohazardUtils
-import core.api.consts.Components
-import core.api.consts.Items
-import core.api.consts.Vars
+import cfg.consts.Components
+import cfg.consts.Items
+import cfg.consts.Vars
 import core.api.isQuestComplete
 import core.api.removeAttributes
 import core.api.rewardXP

@@ -1,6 +1,6 @@
 package content.data
 
-import core.api.consts.Items
+import cfg.consts.Items
 import core.api.hasRequirement
 import core.game.node.entity.player.Player
 import core.game.node.item.Item

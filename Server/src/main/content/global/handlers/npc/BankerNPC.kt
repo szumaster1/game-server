@@ -2,8 +2,8 @@ package content.global.handlers.npc
 
 import content.global.handlers.scenery.BankBoothListener
 import core.api.*
-import core.api.consts.NPCs
-import core.api.consts.Regions
+import cfg.consts.NPCs
+import cfg.consts.Regions
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.Node

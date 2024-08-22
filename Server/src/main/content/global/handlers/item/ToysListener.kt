@@ -2,7 +2,7 @@ package content.global.handlers.item
 
 import content.global.dialogue.ZombieHeadDialogue
 import core.api.*
-import core.api.consts.*
+import cfg.consts.*
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.world.update.flag.context.Animation

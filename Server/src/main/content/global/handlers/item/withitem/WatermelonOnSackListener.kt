@@ -1,7 +1,7 @@
 package content.global.handlers.item.withitem
 
 import core.api.*
-import core.api.consts.Items
+import cfg.consts.Items
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.entity.skill.Skills

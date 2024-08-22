@@ -16,9 +16,9 @@ import core.game.node.item.GroundItem
 import core.game.world.map.Location
 import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
-import core.api.consts.Items
-import core.api.consts.NPCs
-import core.api.consts.Scenery
+import cfg.consts.Items
+import cfg.consts.NPCs
+import cfg.consts.Scenery
 
 /**
  * Heroes quest listener.
