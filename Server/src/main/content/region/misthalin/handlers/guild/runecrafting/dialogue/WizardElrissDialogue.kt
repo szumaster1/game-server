@@ -24,14 +24,17 @@ import core.tools.END_DIALOGUE
 class WizardElrissDialogue(player: Player? = null) : Dialogue(player) {
 
     /*
-     * Guild's founder, manager, store-owner, magical theorist and researcher.
+     * An established member of the Runecrafting Guild, a section of the
+     * revolutionary Wizards' Tower in southern Misthalin. Elriss, apart
+     * from managing the guild, is also its shop owner, selling goods in
+     * exchange for Runecrafting guild tokens.
      */
 
     override fun open(vararg args: Any?): Boolean {
         npc = args[0] as NPC
         if (anyInInventory(player!!, *RCGUtils.TALLYS) && !getAttribute(player!!,
                 RCGUtils.ACCESS_TO_OMNI_ITEMS, false)) {
-            end(); openDialogue(player, ShowElrissDialogue())
+            end(); openDialogue(player, ShowTalismanDialogue())
         } else {
             npcl(FacialExpression.HAPPY, "Welcome to the Runecrafting Guild.")
             stage = 1
@@ -43,10 +46,10 @@ class WizardElrissDialogue(player: Player? = null) : Dialogue(player) {
         var buyAmount = 0
         val lostOmni = hasAnItem(player, Items.OMNI_TIARA_13655, Items.OMNI_TALISMAN_13649, Items.OMNI_TALISMAN_STAFF_13642).container != null
         when (stage) {
-            1 -> if (inInventory(player, Items.RUNECRAFTING_GUILD_TOKEN_13650) || lostOmni) {
-                options("I have some tokens I'd like to cash in.", "What is this place?", "What can I do here?", "Can I buy some tokens?", "Never mind.").also { stage++ }
-            } else if (!inInventory(player,Items.RUNECRAFTING_GUILD_TOKEN_13650) && getAttribute(player, RCGUtils.ACCESS_TO_OMNI_ITEMS, false)) {
+            1 -> if (!lostOmni && getAttribute(player, RCGUtils.ACCESS_TO_OMNI_ITEMS, false)) {
                 options("I've lost my omni-talisman.", "What can I do here?", "Can I buy some tokens?", "Never mind.").also { stage++ }
+            } else if (inInventory(player,Items.RUNECRAFTING_GUILD_TOKEN_13650)) {
+                options("I have some tokens I'd like to cash in.", "What is this place?", "What can I do here?", "Can I buy some tokens?", "Never mind.").also { stage++ }
             } else {
                 options("What is this place?", "What can I do here?", "Can I buy some tokens?", "Never mind.").also { stage++ }
             }
@@ -62,7 +65,7 @@ class WizardElrissDialogue(player: Player? = null) : Dialogue(player) {
             } else {
                 when (buttonId) {
                     1 -> {
-                        if (!lostOmni && inInventory(player, 1438, 1) && inInventory(player, 1440, 1) && inInventory(player, 1442, 1) && inInventory(player, 1444, 1) && inInventory(player, 1446, 1) && inInventory(player, 1448, 1) && inInventory(player, 1452, 1) && inInventory(player, 1454, 1) && inInventory(player, 1458, 1) && inInventory(player, 1462, 1)) {
+                        if (!lostOmni && allItemsInInventory()) {
                             player("I've lost my omni-talisman.").also { stage = 4 }
                         } else {
                             playerl(FacialExpression.HALF_ASKING, "What is this place?").also { stage = 5 }
@@ -73,15 +76,18 @@ class WizardElrissDialogue(player: Player? = null) : Dialogue(player) {
                     4 -> playerl(FacialExpression.HALF_ASKING, "Never mind.").also { stage = END_DIALOGUE }
                 }
             }
+
             3 -> {
                 end()
                 openInterface(player, Components.RCGUILD_REWARDS_779)
             }
+
             4 -> {
                 end()
                 npc("Oh, well. Here's another one. Do try to be careful with", "it this time.")
                 addItemOrDrop(player, Items.OMNI_TALISMAN_13649)
             }
+
             5 -> npc(FacialExpression.FRIENDLY, "This is the Runecrafting Guild, as I said. After the", "secret of Runecrafting was re-discovered, I set up the", "guild as a place for the most advanced runecrafters to", "work together.").also { stage++ }
             6 -> options("Work together towards what?", "Where are we exactly?", "What can I do here?", "Can I buy some tokens?", "Never mind.").also { stage++ }
             7 -> when (buttonId) {
@@ -91,6 +97,7 @@ class WizardElrissDialogue(player: Player? = null) : Dialogue(player) {
                 4 -> playerl(FacialExpression.HALF_ASKING, "Can I buy some tokens?").also { stage = 200 }
                 5 -> player(FacialExpression.NEUTRAL, "Never mind.").also { stage = END_DIALOGUE }
             }
+
             8 -> npc(FacialExpression.FRIENDLY, "Towards a greater understanding of Runecrafting, of", "course. The basics of Runecrafting may have been re-", "discovered, but many of the secrets of the first", "Wizards' Tower remain unknown.").also { stage++ }
             9 -> options("What secrets?", "Where are we exactly?", "What can I do here?", "Never mind.").also { stage++ }
             10 -> when (buttonId) {
@@ -101,14 +108,14 @@ class WizardElrissDialogue(player: Player? = null) : Dialogue(player) {
                 4 -> playerl(FacialExpression.HALF_ASKING, "What can I do here?").also { stage = 19 }
                 5 -> player(FacialExpression.NEUTRAL, "Never mind.").also { stage = END_DIALOGUE }
             }
+
             11 -> npc(FacialExpression.FRIENDLY, "Oh, nothing to interest an adventurer such as yourself", "I'm sure.").also { stage++ }
             12 -> options("I am interested.", "Yeah, I'm not really interested.").also { stage++ }
             13 -> when (buttonId) {
                 1 -> playerl(FacialExpression.HALF_ASKING, "I am interested.").also { stage++ }
-                2 -> playerl(FacialExpression.HALF_ASKING, "Yeah, I'm not really interested.").also {
-                    stage = END_DIALOGUE
-                }
+                2 -> playerl(FacialExpression.HALF_ASKING, "Yeah, I'm not really interested.").also { stage = END_DIALOGUE }
             }
+
             14 -> npc(FacialExpression.FRIENDLY, "We all have our projects, adventurer. Acantha and Vief", "are happy to involve junior runecrafters in their feud,", "but others prefer to keep their research private until it", "is revealed.").also { stage++ }
             15 -> npc(FacialExpression.SAD, "An idea may be subject to cruel ridicule if it is aired", "prematurely, as I have learned to my cost. You must", "forgive me if I am not so forthcoming again.").also { stage++ }
             16 -> options("Never mind, then.", "Go on, tell me.").also { stage++ }
@@ -116,6 +123,7 @@ class WizardElrissDialogue(player: Player? = null) : Dialogue(player) {
                 1 -> playerl(FacialExpression.HALF_ASKING, "Never mind, then.").also { stage = END_DIALOGUE }
                 2 -> playerl(FacialExpression.HALF_ASKING, "Go on, tell me.").also { stage++ }
             }
+
             18 -> npc(FacialExpression.FRIENDLY, "Leave me be!").also { stage = END_DIALOGUE }
             19 -> npc("Wizard Acantha and Wizard Vief are running The", "Great Orb Project. It requires large numbers of", "runecrafters, so you should speak with them if you", "want something to do.").also { stage++ }
             20 -> options("Tell me about Acantha and Vief's project.", "Tell me about the omni-talisman.", "Tell me about Wizard Korvak's pouch repairs.", "Never mind.").also { stage++ }
@@ -123,9 +131,9 @@ class WizardElrissDialogue(player: Player? = null) : Dialogue(player) {
                 1 -> playerl(FacialExpression.HALF_ASKING, "Tell me about Acantha and Vief's project.").also { stage++ }
                 2 -> playerl(FacialExpression.HALF_ASKING, "Tell me about the omni-talisman.").also { stage = 54 }
                 3 -> playerl(FacialExpression.HALF_ASKING, "Tell me about Wizard Korvak's pouch repairs.").also { stage = 58 }
-
                 4 -> playerl(FacialExpression.HALF_ASKING, "Never mind.").also { stage = END_DIALOGUE }
             }
+
             22 -> npc("The Orb Proj...I beg your pardon, The Great Orb", "Project? It's truly fascinating. Wizards Acantha and", "Vief have found that energy leaks out of some of the", "Runecrafting altars. They are recruiting teams of").also { stage++ }
             23 -> npc("experienced runecrafters such as yourself, to force the", "energy back in.").also { stage++ }
             24 -> npc("Join one of the teams by speaking to Wizard Acantha", "or Wizard Vief. When the wizards have enough helpers,", "I will open a portal to the Air Altar.").also { stage++ }
@@ -176,6 +184,7 @@ class WizardElrissDialogue(player: Player? = null) : Dialogue(player) {
                 3 -> player("Which colour orb is best?").also { stage = 31 }
                 4 -> player("Thanks.").also { stage = END_DIALOGUE }
             }
+
             51 -> npc("The rewards include runemaster robes, designed to", "protect you while Runecrafting. These robes also", "let you move orbs a little further - if you wear", "robes of the same colour as the orb.").also { stage++ }
             52 -> npc("Another reward is the Runecrafting staff. This", "can be combined with a talisman, in the same way", "that a tiara can.").also { stage++ }
             53 -> npc("I also offer teleport tablets to the various altars.", "You may also trade your tokens in for talismans and", "certificates you can exchange at a bank for", "rune essence.").also { stage = 1 }
@@ -211,6 +220,21 @@ class WizardElrissDialogue(player: Player? = null) : Dialogue(player) {
         return true
     }
 
+    private fun handleButtonActionsForTokens(buttonId: Int) {
+        when (buttonId) {
+            1 -> playerl(FacialExpression.FRIENDLY, "I have some tokens I'd like to cash in.").also { stage++ }
+            2 -> playerl(FacialExpression.HALF_ASKING, "What is this place?").also { stage = 5 }
+            3 -> playerl(FacialExpression.HALF_ASKING, "What can I do here?").also { stage = 19 }
+            4 -> playerl(FacialExpression.HALF_ASKING, "Can I buy some tokens?").also { stage = 200 }
+            5 -> playerl(FacialExpression.HALF_ASKING, "Never mind.").also { stage = END_DIALOGUE }
+        }
+    }
+
+    private fun allItemsInInventory(): Boolean {
+        val requiredItems = listOf(1438, 1440, 1442, 1444, 1446, 1448, 1452, 1454, 1458, 1462)
+        return requiredItems.all { inInventory(player, it, 1) }
+    }
+
     override fun getIds(): IntArray {
         return intArrayOf(NPCs.WIZARD_ELRISS_8032)
     }
@@ -218,9 +242,9 @@ class WizardElrissDialogue(player: Player? = null) : Dialogue(player) {
 }
 
 /**
- * Show elriss dialogue.
+ * Show every regular talisman or tiara available, excluding the elemental talisman for omni-talisman.
  */
-class ShowElrissDialogue : DialogueFile() {
+class ShowTalismanDialogue : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {
         npc = NPC(NPCs.WIZARD_ELRISS_8032)
@@ -232,8 +256,8 @@ class ShowElrissDialogue : DialogueFile() {
     }
 
     private fun handleInitialStage() {
-        if (getAttribute(player!!, RCGUtils.SHOW_ELRISS_ITEMS, false)) {
-            npc("Excellent! You've shown me enough talismans. I can", "give you an omni talisman now.").also { stage++ }
+        if (getAttribute(player!!, RCGUtils.ACCESS_TO_OMNI_ITEMS, false)) {
+            npc("Excellent! You've shown me enough talismans. I can", "give you an omni talisman now.")
             stage = 2
         } else {
             RCGUtils.checkReward(player!!)
@@ -262,11 +286,16 @@ class ShowElrissDialogue : DialogueFile() {
             if (inInventory(player!!, itemId, 1) && getAttribute(player!!, attribute, 0) < 2) {
                 setAttribute(player!!, attribute, 2)
                 rewardXP(player!!, Skills.RUNECRAFTING, getExperience(itemId))
-                interpreter!!.sendItemMessage(itemId, "you show Elriss the ${getItemName(itemId)}.")
+                sendItemDialogue(player!!, itemId, "You show Elriss the ${getItemName(itemId)}.")
                 return
             }
         }
-        openDialogue(player!!, ShowElrissDialogue())
+        if (getAttribute(player!!, RCGUtils.SHOW_ELRISS_ITEMS, false)) {
+            npc("Excellent! You've shown me enough talismans. I can", "give you an omni talisman now.")
+            stage = 2
+        } else {
+            openDialogue(player!!, ShowTalismanDialogue())
+        }
     }
 
     private fun getExperience(itemId: Int): Double {

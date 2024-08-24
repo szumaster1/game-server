@@ -1,16 +1,23 @@
 package content.region.misthalin.handlers.guild.runecrafting
 
+import cfg.consts.Items
 import content.global.skill.production.runecrafting.data.Talisman
-import core.api.getAttribute
-import core.api.setAttribute
+import core.api.*
 import core.game.node.entity.player.Player
 
 /**
- * Runecraft guild utils.
+ * Utility object for Runecrafting Guild functionalities.
  */
 object RCGUtils {
 
+    /*
+     * Constant string for showing Elriss items.
+     */
     const val SHOW_ELRISS_ITEMS = "/save:rcguild:omni-talisman"
+
+    /*
+     * Constant string for accessing omni items.
+     */
     const val ACCESS_TO_OMNI_ITEMS = "/save:rcguild:omni-access"
 
     const val AIR_ITEMS = "air"
@@ -28,27 +35,43 @@ object RCGUtils {
 
     val TALLYS = Talisman.values().map { it.talisman.id }.toIntArray()
 
-    /*
-     * Check for omni talisman reward.
+    /**
+     * Function to check if the player has all required items to receive a reward.
+     *
+     * Related with [WizardElrissDialogue][content.region.misthalin.handlers.guild.runecrafting.dialogue.WizardElrissDialogue]
      */
     fun checkReward(player: Player) {
-        for (i in TALLYS.indices) {
-            if (getAttribute(player, AIR_ITEMS, 0) == 2 && getAttribute(player, MIND_ITEMS, 0) == 2 &&
-                getAttribute(player, WATER_ITEMS, 0) == 2 && getAttribute(player,
-                    EARTH_ITEMS, 0) == 2 &&
-                getAttribute(player, FIRE_ITEMS, 0) == 2 && getAttribute(player, BODY_ITEMS, 0) == 2 &&
-                getAttribute(player, COSMIC_ITEMS, 0) == 2 && getAttribute(player,
-                    CHAOS_ITEMS, 0) == 2 &&
-                getAttribute(player, NATURE_ITEMS, 0) == 2 && getAttribute(player,
-                    LAW_ITEMS, 0) == 2
-            ) {
-                setAttribute(player, SHOW_ELRISS_ITEMS, true)
-            }
+        // List of required items for the reward
+        val requiredItems = listOf(
+            AIR_ITEMS, MIND_ITEMS, WATER_ITEMS, EARTH_ITEMS,
+            FIRE_ITEMS, BODY_ITEMS, COSMIC_ITEMS, CHAOS_ITEMS,
+            NATURE_ITEMS, LAW_ITEMS
+        )
+
+        // Check if the player has all required items
+        val hasAllItems = requiredItems.all { getAttribute(player, it, 0) == 2 }
+
+        // If the player has all required items
+        if (hasAllItems) {
+            // Set attribute to show Elriss items
+            setAttribute(player, SHOW_ELRISS_ITEMS, true)
+
+            // Remove the unused player's attributes
+            removeAttributes(player, AIR_ITEMS, MIND_ITEMS, WATER_ITEMS, EARTH_ITEMS, FIRE_ITEMS, BODY_ITEMS, COSMIC_ITEMS, CHAOS_ITEMS, NATURE_ITEMS, LAW_ITEMS)
+
+            // Send dialogue to the player indicating they received an omni-talisman
+            sendItemDialogue(player, Items.OMNI_TALISMAN_13649, "Wizard Elriss gives you an omni-talisman.")
+
+            // Add the omni-talisman to the player's inventory or drop it
+            addItemOrDrop(player, Items.OMNI_TALISMAN_13649)
+
+            // Set attribute to grant access to omni items
+            setAttribute(player, ACCESS_TO_OMNI_ITEMS, true)
+            return
         }
     }
-
 }
-/**
+/*
 //===================================================================
 // Repairing Pouches
 // 9,000 coins for a Large Pouch (50 Runecrafting required)
