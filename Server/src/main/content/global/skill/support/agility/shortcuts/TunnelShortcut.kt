@@ -1,9 +1,8 @@
 package content.global.skill.support.agility.shortcuts
 
+import cfg.consts.Animations
 import content.global.skill.support.agility.AgilityShortcut
 import core.api.hasRequirement
-import core.api.lock
-import core.api.lockInteractions
 import core.game.node.Node
 import core.game.node.entity.impl.ForceMovement
 import core.game.node.entity.player.Player
@@ -23,14 +22,12 @@ import core.plugin.Plugin
 @Initializable
 class TunnelShortcut : AgilityShortcut {
 
-    private val CLIMB_DOWN = Animation.create(2589)
-    private val CRAWL_THROUGH = Animation.create(2590)
-    private val CLIMB_UP = Animation.create(2591)
-    private var offset: Int
+    private val CLIMB_DOWN = Animation.create(Animations.CRAWL_UNDER_WALL_A_2589)
+    private val CRAWL_THROUGH = Animation.create(Animations.CRAWL_UNDER_WALL_B_2590)
+    private val CLIMB_UP = Animation.create(Animations.CRAWL_UNDER_WALL_C_2591)
+    private var offset: Int = 0
 
-    constructor() : super(intArrayOf(), 0, 0.0) {
-        offset = 0
-    }
+    constructor() : super(intArrayOf(), 0, 0.0)
 
     constructor(ids: IntArray, level: Int, experience: Double, offset: Int, vararg options: String) : super(ids, level, experience, *options) {
         this.offset = offset
@@ -44,56 +41,60 @@ class TunnelShortcut : AgilityShortcut {
     }
 
     override fun run(player: Player, obj: Scenery, option: String, failed: Boolean) {
-        if (obj.id == 14922) {
-            if (!hasRequirement(player, "Swan Song")) {
-                return
-            }
+        if (obj.id == 14922 && !hasRequirement(player, "Swan Song")) {
+            return
         }
-        player.lock(6)
+
         val objectLocation = obj.location
         val start = player.location
-        val direction = Direction.getDirection(start, objectLocation)
-        if (objectLocation.x == 2575) {
-            offset = 1
-        }
-        lock(player, 7)
-        lockInteractions(player, 7)
+        val direction = Direction.getLogicalDirection(start, objectLocation)
+        offset = if (objectLocation.x == 2575) 1 else 0
+
         ForceMovement.run(player, start, objectLocation, CLIMB_DOWN, 8)
+
         GameWorld.Pulser.submit(object : Pulse(1, player) {
-            var count = 0
+            private var count = 0
+
             override fun pulse(): Boolean {
-                when (++count) {
+                return when (++count) {
+                    1 -> {
+                        player.lock(6)
+                        player.locks.lockMovement(6)
+                        false
+                    }
                     2 -> {
                         player.animate(CRAWL_THROUGH)
                         player.properties.teleportLocation = start.transform(direction, 2 + offset)
+                        false
                     }
-
-                    5 -> ForceMovement.run(player, player.location, start.transform(direction, 4 + offset), CLIMB_UP, 19)
-
-                    6 -> {
+                    3 -> {
+                        ForceMovement.run(player, player.location, start.transform(direction, 4 + offset), CLIMB_UP, 19)
+                        false
+                    }
+                    4 -> {
                         player.animate(ForceMovement.WALK_ANIMATION)
                         if ((obj.id == 9309 || obj.id == 9310) && !player.achievementDiaryManager.getDiary(DiaryType.FALADOR)!!.isComplete(1, 1)) {
                             player.achievementDiaryManager.getDiary(DiaryType.FALADOR)!!.updateTask(player, 1, 1, true)
                         }
-                        return true
+                        true
                     }
+                    else -> false
                 }
-                return false
             }
         })
     }
 
     override fun getDestination(node: Node, n: Node): Location {
-        if (n.id == 14922) {
-            return n.location.transform(getObjectDirection(n.asScenery().direction), 1)
+        return if (n.id == 14922) {
+            n.location.transform(getObjectDirection(n.asScenery().direction), 1)
+        } else {
+            getStart(n.location, n.direction)
         }
-        return getStart(n.location, n.direction)
     }
 
     private fun getStart(location: Location, dir: Direction): Location {
         return when (dir) {
-            Direction.NORTH -> location
-            Direction.SOUTH -> location
+            Direction.NORTH, Direction.SOUTH -> location
             Direction.EAST -> location.transform(0, if (location.y == 3111) 1 else -1, 0)
             Direction.WEST -> location.transform(0, 1, 0)
             else -> location
