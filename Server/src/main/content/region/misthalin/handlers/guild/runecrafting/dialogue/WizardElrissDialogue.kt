@@ -45,8 +45,7 @@ class WizardElrissDialogue(player: Player? = null) : Dialogue(player) {
         when (stage) {
             1 -> if (inInventory(player, Items.RUNECRAFTING_GUILD_TOKEN_13650) || lostOmni) {
                 options("I have some tokens I'd like to cash in.", "What is this place?", "What can I do here?", "Can I buy some tokens?", "Never mind.").also { stage++ }
-            } else if (!lostOmni && !inInventory(player,Items.RUNECRAFTING_GUILD_TOKEN_13650) && getAttribute(player,
-                    RCGUtils.ACCESS_TO_OMNI_ITEMS, false)) {
+            } else if (!inInventory(player,Items.RUNECRAFTING_GUILD_TOKEN_13650) && getAttribute(player, RCGUtils.ACCESS_TO_OMNI_ITEMS, false)) {
                 options("I've lost my omni-talisman.", "What can I do here?", "Can I buy some tokens?", "Never mind.").also { stage++ }
             } else {
                 options("What is this place?", "What can I do here?", "Can I buy some tokens?", "Never mind.").also { stage++ }
@@ -219,24 +218,9 @@ class WizardElrissDialogue(player: Player? = null) : Dialogue(player) {
 }
 
 /**
- * Show Elriss dialogue.
+ * Show elriss dialogue.
  */
 class ShowElrissDialogue : DialogueFile() {
-
-    private val itemRewards = mapOf(
-        1438 to Pair(RCGUtils.AIR_ITEMS, 9.0),
-        1448 to Pair(RCGUtils.MIND_ITEMS, 9.0),
-        1444 to Pair(RCGUtils.WATER_ITEMS, 9.0),
-        1440 to Pair(RCGUtils.EARTH_ITEMS, 12.0),
-        1442 to Pair(RCGUtils.FIRE_ITEMS, 27.0),
-        1446 to Pair(RCGUtils.BODY_ITEMS, 50.0),
-        1454 to Pair(RCGUtils.COSMIC_ITEMS, 109.0),
-        1452 to Pair(RCGUtils.CHAOS_ITEMS, 171.0),
-        1462 to Pair(RCGUtils.NATURE_ITEMS, 531.0),
-        1458 to Pair(RCGUtils.LAW_ITEMS, 1428.0),
-        1456 to Pair(RCGUtils.DEATH_ITEMS, 4242.0),
-        1450 to Pair(RCGUtils.BLOOD_ITEMS, 6958.0)
-    )
 
     override fun handle(componentID: Int, buttonID: Int) {
         npc = NPC(NPCs.WIZARD_ELRISS_8032)
@@ -259,20 +243,53 @@ class ShowElrissDialogue : DialogueFile() {
     }
 
     private fun handleItemStage() {
-        for ((itemId, reward) in itemRewards) {
-            if (inInventory(player!!, itemId, 1) && getAttribute(player!!, reward.first, 0) < 2) {
-                setAttribute(player!!, reward.first, 2)
-                rewardXP(player!!, Skills.RUNECRAFTING, reward.second)
-                sendItemDialogue(player!!, itemId, "you show Elriss the ${getItemName(itemId)}.")
+        val items = listOf(
+            Pair(1438, RCGUtils.AIR_ITEMS),
+            Pair(1448, RCGUtils.MIND_ITEMS),
+            Pair(1444, RCGUtils.WATER_ITEMS),
+            Pair(1440, RCGUtils.EARTH_ITEMS),
+            Pair(1442, RCGUtils.FIRE_ITEMS),
+            Pair(1446, RCGUtils.BODY_ITEMS),
+            Pair(1454, RCGUtils.COSMIC_ITEMS),
+            Pair(1452, RCGUtils.CHAOS_ITEMS),
+            Pair(1462, RCGUtils.NATURE_ITEMS),
+            Pair(1458, RCGUtils.LAW_ITEMS),
+            Pair(1456, RCGUtils.DEATH_ITEMS),
+            Pair(1450, RCGUtils.BLOOD_ITEMS)
+        )
+
+        for ((itemId, attribute) in items) {
+            if (inInventory(player!!, itemId, 1) && getAttribute(player!!, attribute, 0) < 2) {
+                setAttribute(player!!, attribute, 2)
+                rewardXP(player!!, Skills.RUNECRAFTING, getExperience(itemId))
+                interpreter!!.sendItemMessage(itemId, "you show Elriss the ${getItemName(itemId)}.")
                 return
             }
         }
         openDialogue(player!!, ShowElrissDialogue())
     }
 
+    private fun getExperience(itemId: Int): Double {
+        return when (itemId) {
+            1438 -> 9.0
+            1448 -> 9.0
+            1444 -> 9.0
+            1440 -> 12.0
+            1442 -> 27.0
+            1446 -> 50.0
+            1454 -> 109.0
+            1452 -> 171.0
+            1462 -> 531.0
+            1458 -> 1428.0
+            1456 -> 4242.0
+            1450 -> 6958.0
+            else -> 0.0
+        }
+    }
+
     private fun handleFinalStage() {
         end()
-        removeAttributes(player!!, *itemRewards.values.map { it.first }.toTypedArray())
+        removeAttributes(player!!, RCGUtils.AIR_ITEMS, RCGUtils.MIND_ITEMS, RCGUtils.WATER_ITEMS, RCGUtils.EARTH_ITEMS, RCGUtils.FIRE_ITEMS, RCGUtils.BODY_ITEMS, RCGUtils.COSMIC_ITEMS, RCGUtils.CHAOS_ITEMS, RCGUtils.NATURE_ITEMS, RCGUtils.LAW_ITEMS)
         sendItemDialogue(player!!, Items.OMNI_TALISMAN_13649, "Wizard Elriss gives you an omni-talisman.")
         addItemOrDrop(player!!, Items.OMNI_TALISMAN_13649)
         setAttribute(player!!, RCGUtils.ACCESS_TO_OMNI_ITEMS, true)
