@@ -11,10 +11,10 @@ import core.game.world.update.flag.context.Animation
 import core.plugin.Initializable
 
 /**
- * Represents the Al-Kharid Pit shortcut interaction.
+ * Represents the Al Kharid Pit shortcut.
  */
 @Initializable
-class AlKharidPitShortcut : AgilityShortcut(intArrayOf(9331, 9332), 38, 0.0, "climb") {
+class AlkharidPitShortcut : AgilityShortcut(intArrayOf(9331, 9332), 38, 0.0, "climb") {
 
     companion object {
         private val ANIMATION = Animation(1148)
@@ -22,18 +22,19 @@ class AlKharidPitShortcut : AgilityShortcut(intArrayOf(9331, 9332), 38, 0.0, "cl
     }
 
     override fun run(player: Player, scenery: Scenery, option: String, failed: Boolean) {
-        when (scenery.id) {
-            9331 -> ForceMovement.run(player, player.location, Location.create(3303, 3315, 0), ANIMATION, ANIMATION, Direction.EAST, 13).endAnimation = Animation.RESET
-            9332 -> ForceMovement.run(player, player.location, Location.create(3307, 3315, 0), SCALE, SCALE, Direction.EAST, 13).endAnimation = Animation.RESET
+        val destination = when (scenery.id) {
+            9331 -> Location.create(3303, 3315, 0)
+            9332 -> Location.create(3307, 3315, 0)
+            else -> return
+        }
+
+        val animation = if (scenery.id == 9331) ANIMATION else SCALE
+        ForceMovement.run(player, player.location, destination, animation, animation, Direction.EAST, 13).apply {
+            endAnimation = Animation.RESET
         }
     }
 
     override fun getDestination(node: Node, n: Node): Location? {
-        val scenery = n as Scenery
-        return if (scenery.id == 9331) {
-            scenery.location.transform(1, 0, 0)
-        } else {
-            null
-        }
+        return (n as? Scenery)?.takeIf { it.id == 9331 }?.location?.transform(1, 0, 0)
     }
 }
