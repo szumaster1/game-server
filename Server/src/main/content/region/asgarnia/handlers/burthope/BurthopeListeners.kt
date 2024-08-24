@@ -30,11 +30,10 @@ class BurthopeListeners : InteractionListener {
 
     override fun defineListeners() {
 
-        /**
+        /*
          * Thieving guild | Rogues' Den interactions.
          */
         on(THIEVING_GUILD_PASSAGE, IntType.SCENERY, "enter") { player, node ->
-            // Teleport the player to the appropriate location based on the node ID.
             if (node.id == 7257) {
                 teleport(player, Location(3061, 4985, 1))
             } else {
