@@ -26,7 +26,7 @@ private val WRISTGUARD_MODELS = mapOf(
 )
 
 /**
- * Listener for the Smithing Emporium interface interactions.
+ * Smithing Emporium interface.
  */
 class SmithingEmporiumInterfaceListener : InterfaceListener {
 

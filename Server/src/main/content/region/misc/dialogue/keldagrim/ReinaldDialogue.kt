@@ -10,6 +10,8 @@ import core.plugin.Initializable
 
 /**
  * Represents the Reinald dialogue.
+ *
+ * Associated with [Smithing Emporium Interface][content.region.misc.handlers.keldagrim.SmithingEmporiumInterfaceListener]
  */
 @Initializable
 class ReinaldDialogue(player: Player? = null) : Dialogue(player) {

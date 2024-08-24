@@ -15,10 +15,14 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Represents the Yrsa dialogue related to The Fremennik Trials.
+ * Represents the Yrsa dialogue.
+ *
+ * Related to [Fremennik Trials quest][content.region.fremennik.quest.fremtrials.FremennikTrials]
+ *
+ * Associated with [Shoe Store interface][content.global.handlers.iface.plugin.ShoeStoreInterfacePlugin]
  */
 @Initializable
-class YrsaFTDialogue(player: Player? = null): Dialogue(player) {
+class YrsaDialogue(player: Player? = null): Dialogue(player) {
 
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC

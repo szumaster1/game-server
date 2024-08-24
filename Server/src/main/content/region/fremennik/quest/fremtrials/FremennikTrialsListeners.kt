@@ -31,7 +31,7 @@ import core.game.world.update.flag.context.Animation
 /**
  * The Fremennik Trials interaction listeners.
  */
-class TFTInteractionListeners : InteractionListener {
+class FremennikTrialsListeners : InteractionListener {
 
     companion object {
         private val BEER = intArrayOf(Items.BEER_3803, Items.BEER_1917)

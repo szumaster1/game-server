@@ -1,4 +1,4 @@
-package content.region.fremennik.quest.fremtrials
+package content.region.fremennik.quest.fremtrials.handlers
 
 import core.api.*
 import cfg.consts.Animations

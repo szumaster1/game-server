@@ -1,4 +1,4 @@
-package content.region.misc.dialogue.keldagrim.library
+package content.global.handlers.item.book.notes
 
 import content.global.handlers.iface.BookInterfaceListener
 import content.global.handlers.iface.BookLine
@@ -14,9 +14,11 @@ import core.game.node.entity.player.Player
  */
 class ExplorersNotes : InteractionListener {
 
-    // Explorer Notes. The book details his journey beyond Trollheim, where he
-    // discovered the God Wars Dungeon. It can be found in the Keldagrim Library,
-    // on the second level.
+    /*
+     * Explorer Notes. The book details his journey beyond Trollheim, where
+     * he discovered the God Wars Dungeon. It can be found in the Keldagrim
+     * Library, on the second level.
+     */
 
     companion object {
         private val TITLE = "Explorer's notes"

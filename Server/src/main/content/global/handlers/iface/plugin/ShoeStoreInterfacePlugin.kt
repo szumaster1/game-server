@@ -17,10 +17,10 @@ import core.plugin.Plugin
 import core.tools.END_DIALOGUE
 
 /**
- * Yrsa shoe store interface plugin.
+ * Represents the Shoe store interface plugin.
  */
 @Initializable
-class YrsaShoeStoreInterfacePlugin : ComponentPlugin() {
+class ShoeStoreInterfacePlugin : ComponentPlugin() {
     private val paymentCheck = "yrsa-paid"
     private val previousColor = "yrsa-previous"
     private val pictureId = intArrayOf(3680, 3681, 3682, 3683, 3684, 3685)

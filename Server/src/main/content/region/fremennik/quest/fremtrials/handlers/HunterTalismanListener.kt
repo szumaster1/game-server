@@ -1,4 +1,4 @@
-package content.region.fremennik.quest.fremtrials
+package content.region.fremennik.quest.fremtrials.handlers
 
 import content.region.fremennik.quest.fremtrials.npc.DraugenNPC
 import cfg.consts.Items
