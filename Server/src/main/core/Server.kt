@@ -138,8 +138,8 @@ object Server {
 
     fun autoReconnect() {
         /*
-            SystemLogger.log("Attempting autoreconnect of server")
-            WorldCommunicator.connect()
+        SystemLogger.log("Attempting autoreconnect of server")
+        WorldCommunicator.connect()
         */
     }
 

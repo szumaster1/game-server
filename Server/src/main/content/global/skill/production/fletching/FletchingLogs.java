@@ -33,9 +33,8 @@ public class FletchingLogs extends UseWithHandler {
         final Player player = event.getPlayer();
 
 		/*
-			Handle logs.
+		 * Handle logs.
 		 */
-
         if (FletchingMap.isLog(event.getUsedItem().getId()) && event.getUsedWith().getId() == 946) {
             final Item log = event.getUsedItem();
             Item[] items = FletchingMap.getItems(log.getId());

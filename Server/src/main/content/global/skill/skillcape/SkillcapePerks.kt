@@ -270,7 +270,6 @@ enum class SkillcapePerks(val attribute: String, val effect: ((Player) -> Unit)?
     /**
      * Magic cape dialogue
      *
-        *
      * @param player The player associated with the magic cape dialogue.
      */
     @Initializable

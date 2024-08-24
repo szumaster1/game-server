@@ -1,4 +1,4 @@
-package content.region.misthalin.handlers.runecrafting.dialogue
+package content.region.misthalin.handlers.guild.runecrafting.dialogue
 
 import cfg.consts.NPCs
 import core.game.dialogue.Dialogue

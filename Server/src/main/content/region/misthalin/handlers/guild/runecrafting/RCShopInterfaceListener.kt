@@ -1,18 +1,18 @@
-package content.region.misthalin.handlers.runecrafting
+package content.region.misthalin.handlers.guild.runecrafting
 
+import cfg.consts.Components
+import cfg.consts.Items
 import core.api.*
 import core.game.interaction.InterfaceListener
 import core.game.node.entity.player.Player
 import core.game.node.item.Item
 import core.tools.Log
-import cfg.consts.Components
-import cfg.consts.Items
 
 /**
  * Represents the Runecraft shop interface listener.
  * @author Szumaster
  */
-class RunecraftShopInterfaceListener : InterfaceListener {
+class RCShopInterfaceListener : InterfaceListener {
 
     /**
      * Runecrafting shop (tokens are purchased for coins).

@@ -1,4 +1,4 @@
-package content.region.misthalin.handlers.runecrafting
+package content.region.misthalin.handlers.guild.runecrafting
 
 import core.api.MapArea
 import core.game.world.map.zone.ZoneBorders

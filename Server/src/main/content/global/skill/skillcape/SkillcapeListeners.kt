@@ -18,6 +18,10 @@ class SkillcapeListeners : InteractionListener {
 
         val capes = capeIds.toIntArray()
 
+        /*
+         * Activate the perk on equip the cape.
+         */
+
         onEquip(capes) { player, node ->
             val skillcape = Skillcape.forId(node.id)
             val perk = SkillcapePerks.forSkillcape(skillcape)
@@ -25,12 +29,20 @@ class SkillcapeListeners : InteractionListener {
             return@onEquip true
         }
 
+        /*
+         * Deactivate the perk on un-equip the cape.
+         */
+
         onUnequip(capes) { player, node ->
             val skillcape = Skillcape.forId(node.id)
             val perk = SkillcapePerks.forSkillcape(skillcape)
             perk.deactivate(player)
             return@onUnequip true
         }
+
+        /*
+         * Use the cape perk from equipment.
+         */
 
         on(capes, IntType.ITEM, "operate") { player, node ->
             val skillcape = Skillcape.forId(node.id ?: 0)

@@ -1,4 +1,4 @@
-package content.region.misthalin.handlers.runecrafting
+package content.region.misthalin.handlers.guild.runecrafting
 
 import cfg.consts.NPCs
 import core.game.node.entity.combat.CombatStyle

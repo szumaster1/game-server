@@ -1,4 +1,4 @@
-package content.region.misthalin.handlers.runecrafting
+package content.region.misthalin.handlers.guild.runecrafting
 
 import content.global.skill.production.runecrafting.data.Talisman
 import core.api.getAttribute
@@ -8,7 +8,7 @@ import core.game.node.entity.player.Player
 /**
  * Runecraft guild utils.
  */
-object RunecraftGuildUtils {
+object RCGUtils {
 
     const val SHOW_ELRISS_ITEMS = "/save:rcguild:omni-talisman"
     const val ACCESS_TO_OMNI_ITEMS = "/save:rcguild:omni-access"

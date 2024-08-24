@@ -1,12 +1,12 @@
-package content.region.misthalin.handlers.runecrafting.dialogue
+package content.region.misthalin.handlers.guild.runecrafting.dialogue
 
-import content.region.misthalin.handlers.runecrafting.RunecraftGuildUtils
 import cfg.consts.Components
 import cfg.consts.Items
 import cfg.consts.NPCs
+import content.region.misthalin.handlers.guild.runecrafting.RCGUtils
 import core.api.*
-import core.game.dialogue.DialogueFile
 import core.game.dialogue.Dialogue
+import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
@@ -29,8 +29,8 @@ class WizardElrissDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any?): Boolean {
         npc = args[0] as NPC
-        if (anyInInventory(player!!, *RunecraftGuildUtils.TALLYS) && !getAttribute(player!!,
-                RunecraftGuildUtils.ACCESS_TO_OMNI_ITEMS, false)) {
+        if (anyInInventory(player!!, *RCGUtils.TALLYS) && !getAttribute(player!!,
+                RCGUtils.ACCESS_TO_OMNI_ITEMS, false)) {
             end(); openDialogue(player, ShowElrissDialogue())
         } else {
             npcl(FacialExpression.HAPPY, "Welcome to the Runecrafting Guild.")
@@ -46,7 +46,7 @@ class WizardElrissDialogue(player: Player? = null) : Dialogue(player) {
             1 -> if (inInventory(player, Items.RUNECRAFTING_GUILD_TOKEN_13650) || lostOmni) {
                 options("I have some tokens I'd like to cash in.", "What is this place?", "What can I do here?", "Can I buy some tokens?", "Never mind.").also { stage++ }
             } else if (!lostOmni && !inInventory(player,Items.RUNECRAFTING_GUILD_TOKEN_13650) && getAttribute(player,
-                    RunecraftGuildUtils.ACCESS_TO_OMNI_ITEMS, false)) {
+                    RCGUtils.ACCESS_TO_OMNI_ITEMS, false)) {
                 options("I've lost my omni-talisman.", "What can I do here?", "Can I buy some tokens?", "Never mind.").also { stage++ }
             } else {
                 options("What is this place?", "What can I do here?", "Can I buy some tokens?", "Never mind.").also { stage++ }
@@ -219,81 +219,62 @@ class WizardElrissDialogue(player: Player? = null) : Dialogue(player) {
 }
 
 /**
- * Show elriss dialogue.
+ * Show Elriss dialogue.
  */
 class ShowElrissDialogue : DialogueFile() {
+
+    private val itemRewards = mapOf(
+        1438 to Pair(RCGUtils.AIR_ITEMS, 9.0),
+        1448 to Pair(RCGUtils.MIND_ITEMS, 9.0),
+        1444 to Pair(RCGUtils.WATER_ITEMS, 9.0),
+        1440 to Pair(RCGUtils.EARTH_ITEMS, 12.0),
+        1442 to Pair(RCGUtils.FIRE_ITEMS, 27.0),
+        1446 to Pair(RCGUtils.BODY_ITEMS, 50.0),
+        1454 to Pair(RCGUtils.COSMIC_ITEMS, 109.0),
+        1452 to Pair(RCGUtils.CHAOS_ITEMS, 171.0),
+        1462 to Pair(RCGUtils.NATURE_ITEMS, 531.0),
+        1458 to Pair(RCGUtils.LAW_ITEMS, 1428.0),
+        1456 to Pair(RCGUtils.DEATH_ITEMS, 4242.0),
+        1450 to Pair(RCGUtils.BLOOD_ITEMS, 6958.0)
+    )
 
     override fun handle(componentID: Int, buttonID: Int) {
         npc = NPC(NPCs.WIZARD_ELRISS_8032)
         when (stage) {
-            0 -> if (getAttribute(player!!, RunecraftGuildUtils.SHOW_ELRISS_ITEMS, false)) {
-                npc("Excellent! You've shown me enough talismans. I can", "give you an omni talisman now.").also { stage++ }
-                stage = 2
-            } else {
-                RunecraftGuildUtils.checkReward(player!!)
-                playerl("I have talisman to show you")
-                stage++
-            }
+            0 -> handleInitialStage()
+            1 -> handleItemStage()
+            2 -> handleFinalStage()
+        }
+    }
 
-            1 -> if (inInventory(player!!, 1438, 1) && getAttribute(player!!, RunecraftGuildUtils.AIR_ITEMS, 0) < 2) {
-                setAttribute(player!!, RunecraftGuildUtils.AIR_ITEMS, 2)
-                rewardXP(player!!, Skills.RUNECRAFTING, 9.0)
-                interpreter!!.sendItemMessage(1438, "you show Elriss the ${getItemName(1438)}.")
-            } else if (inInventory(player!!, 1448, 1) && getAttribute(player!!, RunecraftGuildUtils.MIND_ITEMS, 0) < 2) {
-                setAttribute(player!!, RunecraftGuildUtils.MIND_ITEMS, 2)
-                rewardXP(player!!, Skills.RUNECRAFTING, 9.0)
-                interpreter!!.sendItemMessage(1448, "you show Elriss the ${getItemName(1448)}.")
-            } else if (inInventory(player!!, 1444, 1) && getAttribute(player!!, RunecraftGuildUtils.WATER_ITEMS, 0) < 2) {
-                setAttribute(player!!, RunecraftGuildUtils.WATER_ITEMS, 2)
-                rewardXP(player!!, Skills.RUNECRAFTING, 9.0)
-                interpreter!!.sendItemMessage(1444, "you show Elriss the ${getItemName(1444)}.")
-            } else if (inInventory(player!!, 1440, 1) && getAttribute(player!!, RunecraftGuildUtils.EARTH_ITEMS, 0) < 2) {
-                setAttribute(player!!, RunecraftGuildUtils.EARTH_ITEMS, 2)
-                rewardXP(player!!, Skills.RUNECRAFTING, 12.0)
-                interpreter!!.sendItemMessage(1440, "you show Elriss the ${getItemName(1440)}.")
-            } else if (inInventory(player!!, 1442, 1) && getAttribute(player!!, RunecraftGuildUtils.FIRE_ITEMS, 0) < 2) {
-                setAttribute(player!!, RunecraftGuildUtils.FIRE_ITEMS, 2)
-                rewardXP(player!!, Skills.RUNECRAFTING, 27.0)
-                interpreter!!.sendItemMessage(1442, "you show Elriss the ${getItemName(1442)}.")
-            } else if (inInventory(player!!, 1446, 1) && getAttribute(player!!, RunecraftGuildUtils.BODY_ITEMS, 0) < 2) {
-                setAttribute(player!!, RunecraftGuildUtils.BODY_ITEMS, 2)
-                rewardXP(player!!, Skills.RUNECRAFTING, 50.0)
-                interpreter!!.sendItemMessage(1446, "you show Elriss the ${getItemName(1446)}.")
-            } else if (inInventory(player!!, 1454, 1) && getAttribute(player!!, RunecraftGuildUtils.COSMIC_ITEMS, 0) < 2) {
-                setAttribute(player!!, RunecraftGuildUtils.COSMIC_ITEMS, 2)
-                rewardXP(player!!, Skills.RUNECRAFTING, 109.0)
-                interpreter!!.sendItemMessage(1454, "you show Elriss the ${getItemName(1454)}.")
-            } else if (inInventory(player!!, 1452, 1) && getAttribute(player!!, RunecraftGuildUtils.CHAOS_ITEMS, 0) < 2) {
-                setAttribute(player!!, RunecraftGuildUtils.CHAOS_ITEMS, 2)
-                rewardXP(player!!, Skills.RUNECRAFTING, 171.0)
-                interpreter!!.sendItemMessage(1452, "you show Elriss the ${getItemName(1452)}.")
-            } else if (inInventory(player!!, 1462, 1) && getAttribute(player!!, RunecraftGuildUtils.NATURE_ITEMS, 0) < 2) {
-                setAttribute(player!!, RunecraftGuildUtils.NATURE_ITEMS, 2)
-                rewardXP(player!!, Skills.RUNECRAFTING, 531.0)
-                interpreter!!.sendItemMessage(1462, "you show Elriss the ${getItemName(1462)}.")
-            } else if (inInventory(player!!, 1458, 1) && getAttribute(player!!, RunecraftGuildUtils.LAW_ITEMS, 0) < 2) {
-                setAttribute(player!!, RunecraftGuildUtils.LAW_ITEMS, 2)
-                rewardXP(player!!, Skills.RUNECRAFTING, 1428.0)
-                interpreter!!.sendItemMessage(1458, "you show Elriss the ${getItemName(1458)}.")
-            } else if (inInventory(player!!, 1456, 1) && getAttribute(player!!, RunecraftGuildUtils.DEATH_ITEMS, 0) < 2) {
-                setAttribute(player!!, RunecraftGuildUtils.DEATH_ITEMS, 2)
-                rewardXP(player!!, Skills.RUNECRAFTING, 4242.0)
-                interpreter!!.sendItemMessage(1456, "you show Elriss the ${getItemName(1456)}.")
-            } else if (inInventory(player!!, 1450, 1) && getAttribute(player!!, RunecraftGuildUtils.BLOOD_ITEMS, 0) < 2) {
-                setAttribute(player!!, RunecraftGuildUtils.BLOOD_ITEMS, 2)
-                rewardXP(player!!, Skills.RUNECRAFTING, 6958.0)
-                interpreter!!.sendItemMessage(1450, "you show Elriss the ${getItemName(1450)}.")
-            } else {
-                openDialogue(player!!, ShowElrissDialogue())
-            }
+    private fun handleInitialStage() {
+        if (getAttribute(player!!, RCGUtils.SHOW_ELRISS_ITEMS, false)) {
+            npc("Excellent! You've shown me enough talismans. I can", "give you an omni talisman now.").also { stage++ }
+            stage = 2
+        } else {
+            RCGUtils.checkReward(player!!)
+            playerl("I have talisman to show you")
+            stage++
+        }
+    }
 
-            2 -> {
-                end()
-                removeAttributes(player!!, RunecraftGuildUtils.AIR_ITEMS, RunecraftGuildUtils.MIND_ITEMS, RunecraftGuildUtils.WATER_ITEMS, RunecraftGuildUtils.EARTH_ITEMS, RunecraftGuildUtils.FIRE_ITEMS, RunecraftGuildUtils.BODY_ITEMS, RunecraftGuildUtils.COSMIC_ITEMS, RunecraftGuildUtils.CHAOS_ITEMS, RunecraftGuildUtils.NATURE_ITEMS, RunecraftGuildUtils.LAW_ITEMS)
-                sendItemDialogue(player!!, Items.OMNI_TALISMAN_13649, "Wizard Elriss gives you an omni-talisman.")
-                addItemOrDrop(player!!, Items.OMNI_TALISMAN_13649)
-                setAttribute(player!!, RunecraftGuildUtils.ACCESS_TO_OMNI_ITEMS, true)
+    private fun handleItemStage() {
+        for ((itemId, reward) in itemRewards) {
+            if (inInventory(player!!, itemId, 1) && getAttribute(player!!, reward.first, 0) < 2) {
+                setAttribute(player!!, reward.first, 2)
+                rewardXP(player!!, Skills.RUNECRAFTING, reward.second)
+                sendItemDialogue(player!!, itemId, "you show Elriss the ${getItemName(itemId)}.")
+                return
             }
         }
+        openDialogue(player!!, ShowElrissDialogue())
+    }
+
+    private fun handleFinalStage() {
+        end()
+        removeAttributes(player!!, *itemRewards.values.map { it.first }.toTypedArray())
+        sendItemDialogue(player!!, Items.OMNI_TALISMAN_13649, "Wizard Elriss gives you an omni-talisman.")
+        addItemOrDrop(player!!, Items.OMNI_TALISMAN_13649)
+        setAttribute(player!!, RCGUtils.ACCESS_TO_OMNI_ITEMS, true)
     }
 }

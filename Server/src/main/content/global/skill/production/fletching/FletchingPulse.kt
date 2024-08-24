@@ -16,7 +16,7 @@ import core.tools.RandomFunction
 import core.tools.StringUtils
 
 /**
- * Fletching pulse class that handles the fletching skill actions.
+ * Handles the fletching skill actions.
  *
  * @param node The item node that is being fletched.
  * @param amount The quantity of items to be fletched.

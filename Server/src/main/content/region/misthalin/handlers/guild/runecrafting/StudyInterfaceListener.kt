@@ -1,19 +1,19 @@
-package content.region.misthalin.handlers.runecrafting
+package content.region.misthalin.handlers.guild.runecrafting
 
 import cfg.consts.Components
 import cfg.consts.Items
+import cfg.consts.Scenery
 import core.api.*
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.interaction.InterfaceListener
 import core.game.world.GameWorld
-import cfg.consts.Scenery
 
 /**
  * Represents the Map table interface listener.
  * @author Szumaster
  */
-class MapTableInterfaceListener : InterfaceListener, InteractionListener {
+class StudyInterfaceListener : InterfaceListener, InteractionListener {
 
     override fun defineInterfaceListeners() {
 
@@ -36,8 +36,8 @@ class MapTableInterfaceListener : InterfaceListener, InteractionListener {
          * Use talisman with Map table to show altar location.
          */
 
-        onUseWith(IntType.SCENERY, RunecraftGuildUtils.TALLYS, MAP_TABLE) { player, used, _ ->
-            if (anyInInventory(player, *RunecraftGuildUtils.TALLYS)) {
+        onUseWith(IntType.SCENERY, RCGUtils.TALLYS, MAP_TABLE) { player, used, _ ->
+            if (anyInInventory(player, *RCGUtils.TALLYS)) {
                 openInterface(player, STUDY_INTERFACE)
                 setComponentVisibility(player, STUDY_INTERFACE, swapIds(used.id), false)
             }
