@@ -15,7 +15,7 @@ import core.plugin.Initializable
 import kotlin.random.Random
 
 /**
- * Big chompy bird hunting.
+ * Big chompy bird hunting quest.
  */
 @Initializable
 class BigChompyBirdHunting : Quest("Big Chompy Bird Hunting", 35, 34, 2, Vars.VARP_QUEST_CHOMPY_PROGRESS, 0, 1, 65),

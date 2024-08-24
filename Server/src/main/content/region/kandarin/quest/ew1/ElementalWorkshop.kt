@@ -12,7 +12,7 @@ import core.game.world.map.Location
 import core.plugin.Initializable
 
 /**
- * Elemental workshop.
+ * Elemental workshop I quest.
  */
 @Initializable
 class ElementalWorkshop : Quest("Elemental Workshop I", 52, 51, 1), Commands {

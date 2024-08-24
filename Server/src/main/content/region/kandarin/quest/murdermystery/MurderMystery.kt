@@ -10,8 +10,9 @@ import core.game.node.entity.player.link.quest.Quest
 import core.game.node.entity.skill.Skills
 
 /**
- * Murder mystery.
+ * Murder mystery quest.
  */
+//@Initializable
 class MurderMystery : Quest("Murder Mystery", 93, 92, 3, Vars.VARP_QUEST_MURDER_MYSTERY_PROGRESS, 0, 1, 2) {
 
 

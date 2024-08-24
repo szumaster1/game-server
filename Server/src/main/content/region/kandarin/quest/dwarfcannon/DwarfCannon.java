@@ -15,7 +15,7 @@ import core.plugin.Initializable;
 import static core.api.ContentAPIKt.*;
 
 /**
- * Dwarf cannon.
+ * Dwarf cannon quest.
  */
 @Initializable
 public class DwarfCannon extends Quest {

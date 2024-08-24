@@ -9,7 +9,7 @@ import core.plugin.Initializable;
 import static core.api.ContentAPIKt.removeAttribute;
 
 /**
- * Fishing contest.
+ * Fishing contest quest.
  */
 @Initializable
 public class FishingContest extends Quest {

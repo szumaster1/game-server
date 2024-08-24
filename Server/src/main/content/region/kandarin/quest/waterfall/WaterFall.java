@@ -11,7 +11,7 @@ import core.plugin.ClassScanner;
 import core.plugin.Initializable;
 
 /**
- * Water fall.
+ * Water fall quest.
  */
 @Initializable
 public class WaterFall extends Quest {

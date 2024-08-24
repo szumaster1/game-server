@@ -8,7 +8,7 @@ import core.game.node.entity.skill.Skills
 import core.plugin.Initializable
 
 /**
- * Temple of ikov quest.
+ * Temple of Ikov quest.
  */
 @Initializable
 class TempleOfIkov : Quest("Temple of Ikov", 121, 120, 1,26, 0, 1, 80 /* 80 or 90 since there's 2 endings */) {

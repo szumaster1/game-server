@@ -10,7 +10,7 @@ import core.game.node.entity.skill.Skills
 import core.plugin.Initializable
 
 /**
- * Scorpion catcher.
+ * Scorpion catcher quest.
  */
 @Initializable
 class ScorpionCatcher : Quest("Scorpion Catcher", 108, 107, 1, Vars.VARP_QUEST_SCORPION_CATCHER_PROGRESS, 0, 1, 6) {
@@ -22,6 +22,7 @@ class ScorpionCatcher : Quest("Scorpion Catcher", 108, 107, 1, Vars.VARP_QUEST_S
      * You will have to overcome various challenges (and drink a lot of beer) to get all the scorpions back.
      * If you manage to help him, Thormac will improve your battlestaves.
      */
+
     companion object {
         val ATTRIBUTE_MIRROR = "/save:scorpion_catcher:start-talk"
         val ATTRIBUTE_SECRET = "/save:scorpion_catcher:secret-room"

@@ -14,12 +14,12 @@ import core.game.node.entity.skill.Skills
 import core.plugin.Initializable
 
 /**
- * Biohazard.
+ * Biohazard quest.
+ *
+ * Base created by [Bushtail](https://gitlab.com/bushtail).
  */
 @Initializable
 class Biohazard : Quest("Biohazard", 36, 35, 3, Vars.VARP_QUEST_BIOHAZARD_PROGRESS, 0, 1, 16) {
-
-    // Base created by Bushtail. https://gitlab.com/bushtail
 
     override fun drawJournal(player: Player, stage: Int) {
         super.drawJournal(player, stage)

@@ -12,7 +12,7 @@ import core.game.world.GameWorld
 import core.plugin.Initializable
 
 /**
- * Making history.
+ * Making history quest.
  */
 @Initializable
 class MakingHistory : Quest("Making History", 86, 85, 3, Vars.VARBIT_QUEST_MAKING_HISTORY_PROGRESS, 0, 1, 4) {

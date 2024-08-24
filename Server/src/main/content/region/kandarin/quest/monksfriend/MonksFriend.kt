@@ -9,6 +9,9 @@ import core.game.node.entity.player.link.quest.Quest
 import core.game.node.entity.skill.Skills
 import core.plugin.Initializable
 
+/**
+ * Monks friend quest.
+ */
 @Initializable
 class MonksFriend : Quest("Monk's Friend", 89, 88, 1, Vars.VARP_QUEST_MONKS_FRIEND_PROGRESS, 0, 1, 80) {
 

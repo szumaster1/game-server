@@ -10,7 +10,7 @@ import core.game.node.entity.skill.Skills
 import core.plugin.Initializable
 
 /**
- * Sea slug.
+ * Sea slug quest.
  */
 @Initializable
 class SeaSlug : Quest("Sea Slug", 109, 108, 1, Vars.VARP_QUEST_SEA_SLUG_PROGRESS, 0, 1, 13) {

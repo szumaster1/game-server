@@ -10,7 +10,7 @@ import core.game.node.entity.player.link.quest.Quest
 import core.game.node.entity.skill.Skills
 
 /**
- * Elemental Workshop II.
+ * Elemental Workshop II quest.
  */
 //@Initializable
 class EW2 : Quest("Elemental Workshop II", 53, 52, 1, Vars.VARBIT_QUEST_ELEMENTAL_WORKSHOP_II_PROGRESS, 0, 1, 11) {
