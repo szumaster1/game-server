@@ -71,7 +71,6 @@ public final class HouseZone extends MapZone {
         if (e instanceof Player) {
             Player p = (Player) e;
             HouseManager.leave(p);
-            removeAttribute(p, "con:using-workbench");
         }
         return true;
     }
@@ -102,7 +101,6 @@ public final class HouseZone extends MapZone {
                 });
             }
             clearLogoutListener(p, "houselogout");
-            removeAttribute(p, "con:using-workbench");
             return true;
         }
         return true;

@@ -1,8 +1,9 @@
 package content.global.skill.support.construction.decoration.kitchen
 
+import cfg.consts.Animations
+import cfg.consts.Items
 import core.api.addItem
 import core.api.animate
-import cfg.consts.Items
 import core.api.removeItem
 import core.api.sendMessage
 import core.game.interaction.IntType
@@ -12,44 +13,46 @@ import core.game.node.scenery.Scenery
 import core.game.world.update.flag.context.Animation
 
 /**
- * Beer barrel listener.
+ * Handle interactions related to the Beer Barrel.
  */
 class BeerBarrelListener : InteractionListener {
 
     override fun defineListeners() {
-        onUseWith(IntType.SCENERY, BARREL, BEER_GLASS){ player, used, _ ->
+        /*
+         * Handle use glass on barrel.
+         */
+        onUseWith(IntType.SCENERY, BARRELS) { player, used, _ ->
             val node = used.id as Scenery
             if (removeItem(player, Item(BEER_GLASS))) {
-                animate(player, Animation.create(3661 + (used.id - 13569)))
-                sendMessage(player, "You fill up your glass with " + node.name.lowercase().replace("barrel", "").trim { it <= ' ' } + ".")
+                animate(player, Animation.create(Animations.FILLING_BEER_MUG_FROM_TAP_3661 + (used.id - 13569)))
+                sendMessage(player, "You fill up your glass with ${node.name.lowercase().replace("barrel", "").trim()}.")
                 addItem(player, getReward(node.id), 1)
             }
-            return@onUseWith true
-
+            true
         }
     }
 
     /**
-     * Get reward
+     * Get reward based on barrel.
      *
-     * @param barrelId
-     * @return
+     * @param barrelId The ID of the barrel.
+     * @return The reward item ID.
      */
-    fun getReward(barrelId: Int): Int {
-        return when (barrelId) {
-            13568 -> 1917
-            13569 -> 5763
-            13570 -> 1905
-            13571 -> 1909
-            13572 -> 1911
-            13573 -> 5755
-            else -> 1917
-        }
+    private fun getReward(barrelId: Int): Int {
+        return REWARDS[barrelId - 13568] ?: DEFAULT_REWARD
     }
 
     companion object {
-        private val BARREL = intArrayOf(13568, 13569, 13570, 13571, 13572, 13573)
+        private val BARRELS = intArrayOf(13568, 13569, 13570, 13571, 13572, 13573)
+        private val REWARDS = mapOf(
+            13568 to 1917,
+            13569 to 5763,
+            13570 to 1905,
+            13571 to 1909,
+            13572 to 1911,
+            13573 to 5755
+        )
+        private const val DEFAULT_REWARD = 1917
         private const val BEER_GLASS = Items.BEER_GLASS_1919
     }
-
 }
