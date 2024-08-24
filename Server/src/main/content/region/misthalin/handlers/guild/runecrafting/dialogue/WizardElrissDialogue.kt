@@ -220,16 +220,6 @@ class WizardElrissDialogue(player: Player? = null) : Dialogue(player) {
         return true
     }
 
-    private fun handleButtonActionsForTokens(buttonId: Int) {
-        when (buttonId) {
-            1 -> playerl(FacialExpression.FRIENDLY, "I have some tokens I'd like to cash in.").also { stage++ }
-            2 -> playerl(FacialExpression.HALF_ASKING, "What is this place?").also { stage = 5 }
-            3 -> playerl(FacialExpression.HALF_ASKING, "What can I do here?").also { stage = 19 }
-            4 -> playerl(FacialExpression.HALF_ASKING, "Can I buy some tokens?").also { stage = 200 }
-            5 -> playerl(FacialExpression.HALF_ASKING, "Never mind.").also { stage = END_DIALOGUE }
-        }
-    }
-
     private fun allItemsInInventory(): Boolean {
         val requiredItems = listOf(1438, 1440, 1442, 1444, 1446, 1448, 1452, 1454, 1458, 1462)
         return requiredItems.all { inInventory(player, it, 1) }
