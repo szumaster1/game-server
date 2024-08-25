@@ -19,17 +19,21 @@ import core.network.packet.outgoing.CameraViewPacket
 class GnomeGliderListeners : InteractionListener {
 
     override fun defineListeners() {
-        // Add comment to explain the purpose of this listener
-        // This listener is triggered when a player interacts with a gnome glider NPC
-        on(intArrayOf(NPCs.CAPTAIN_DALBUR_3809, NPCs.CAPTAIN_BLEEMADGE_3810, NPCs.CAPTAIN_ERRDO_3811, NPCs.CAPTAIN_KLEMFOODLE_3812), IntType.NPC, "glider") { player, node ->
+
+        on(intArrayOf(NPCs.CAPTAIN_DALBUR_3809, NPCs.CAPTAIN_BLEEMADGE_3810, NPCs.CAPTAIN_ERRDO_3811, NPCs.CAPTAIN_KLEMFOODLE_3812), IntType.NPC, "glider") { player, _ ->
             if (!isQuestComplete(player, "The Grand Tree")) {
                 sendMessage(player, "You must complete The Grand Tree Quest to access the gnome glider.")
             } else {
                 openInterface(player, Components.GLIDERMAP_138)
-                GnomeGlider.sendConfig(node.asNpc(), player)
             }
             return@on true
         }
+
+        /*
+         * Flashing landing light.
+         * They are the result of repairing the gnome landing lights during One Small Favour.
+         * Varbit 256
+         */
     }
 
     /**
@@ -53,30 +57,31 @@ class GnomeGliderListeners : InteractionListener {
                 setVarp(player, 153, glider.config)
                 setMinimapState(player, 2)
             } else if (count == 2 && crash) {
-                PacketRepository.send(
-                    CameraViewPacket::class.java,
-                    CameraContext(player, CameraContext.CameraType.SHAKE, 4, 4, 1200, 4, 4)
-                )
+                PacketRepository.send(CameraViewPacket::class.java, CameraContext(player, CameraContext.CameraType.SHAKE, 4, 4, 1200, 4, 4))
                 sendMessage(player, "The glider almost gets blown from its path as it withstands heavy winds.")
             }
-            if (count == 3) {
-                openOverlay(player, Components.FADE_TO_BLACK_115)
-            } else if (count == 4) {
-                unlock(player)
-                player.properties.teleportLocation = glider.location
-            } else if (count == 5) {
-                if (crash) {
-                    PlayerCamera(player).reset()
-                    sendMessage(player, "The glider becomes uncontrollable and crashes down...")
+            when (count) {
+                3 -> {
+                    openOverlay(player, Components.FADE_TO_BLACK_115)
                 }
-                closeOverlay(player)
-                closeInterface(player)
-                setMinimapState(player, 0)
-                setVarp(player, 153, 0)
-                if (!crash && glider == GnomeGlider.GANDIUS) {
-                    player.achievementDiaryManager.finishTask(player, DiaryType.KARAMJA, 1, 11)
+                4 -> {
+                    unlock(player)
+                    player.properties.teleportLocation = glider.location
                 }
-                return true
+                5 -> {
+                    if (crash) {
+                        PlayerCamera(player).reset()
+                        sendMessage(player, "The glider becomes uncontrollable and crashes down...")
+                    }
+                    closeOverlay(player)
+                    closeInterface(player)
+                    setMinimapState(player, 0)
+                    setVarp(player, 153, 0)
+                    if (!crash && glider == GnomeGlider.GANDIUS) {
+                        finishDiaryTask(player, DiaryType.KARAMJA, 1, 11)
+                    }
+                    return true
+                }
             }
             count++
             return false

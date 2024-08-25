@@ -26,21 +26,14 @@ class GnomePilotDialogue(player: Player? = null) : Dialogue(player) {
     override fun handle(interfaceId: Int, buttonId: Int): Boolean {
         when (stage) {
             0 -> player(FacialExpression.HALF_GUILTY, "May you fly me somewhere on your glider?").also { stage++ }
-            1 -> {
-                if (!isQuestComplete(player, "The Grand Tree")) {
-                    npc(FacialExpression.OLD_ANGRY3, "I only fly friends of the gnomes!")
-                    stage = END_DIALOGUE
-                } else {
-                    npc(FacialExpression.OLD_DEFAULT, "If you wish.")
-                    stage++
-                }
+            1 -> if (!isQuestComplete(player, "The Grand Tree")) {
+                npc(FacialExpression.OLD_ANGRY3, "I only fly friends of the gnomes!").also { stage = END_DIALOGUE }
+            } else {
+                npc(FacialExpression.OLD_DEFAULT, "If you wish.").also { stage++ }
             }
-
             2 -> {
                 end()
-                player.lock()
                 openInterface(player, Components.GLIDERMAP_138)
-                GnomeGlider.sendConfig(npc, player)
             }
         }
         return true
@@ -48,10 +41,11 @@ class GnomePilotDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun getIds(): IntArray {
         return intArrayOf(
-            NPCs.GNORMADIUM_AVLAFRIM_1800,
-            NPCs.CAPTAIN_DALBUR_3809,
-            NPCs.CAPTAIN_BLEEMADGE_3810,
-            NPCs.CAPTAIN_KLEMFOODLE_3812
+                NPCs.GNORMADIUM_AVLAFRIM_1800,
+                NPCs.CAPTAIN_DALBUR_3809,
+                NPCs.CAPTAIN_BLEEMADGE_3810,
+                NPCs.CAPTAIN_ERRDO_3811,
+                NPCs.CAPTAIN_KLEMFOODLE_3812,
         )
     }
 }

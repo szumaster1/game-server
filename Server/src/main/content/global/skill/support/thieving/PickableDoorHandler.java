@@ -55,6 +55,7 @@ public class PickableDoorHandler extends OptionHandler {
         pickableDoors.add(new PickableDoor(new Location[]{Location.create(3044, 3956, 0)}, 39, 35.0, true, true));
         pickableDoors.add(new PickableDoor(new Location[]{Location.create(3041, 3959, 0)}, 39, 35.0, true, true));
         pickableDoors.add(new PickableDoor(new Location[]{Location.create(3038, 3956, 0)}, 39, 35.0, true, true));
+        pickableDoors.add(new PickableDoor(new Location[]{Location.create(2771, 2795, 0)}, 1, 0, false, false));
         return this;
     }
 

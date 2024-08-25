@@ -19,6 +19,9 @@ import core.plugin.Plugin
  */
 @Initializable
 class SteppingStoneShortcut : OptionHandler() {
+    // "You get washed up on the side of the river after being nearly half drowned."
+    // "You attempt to balance on the stepping stone."
+    // "You manage to make the jump.
 
     private val stones = mutableMapOf<Location, SteppingStoneInstance>()
 

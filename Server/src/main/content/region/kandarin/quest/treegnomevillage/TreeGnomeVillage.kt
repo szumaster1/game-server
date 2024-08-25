@@ -91,7 +91,6 @@ class TreeGnomeVillage : Quest("Tree Gnome Village", 125, 124, 2, Vars.VARP_QUES
         drawReward(player, "Gnome Amulet of Protection", ln)
         rewardXP(player, Skills.ATTACK, 11450.0)
         addItemOrDrop(player, Items.GNOME_AMULET_589)
-        setVarbit(player, 256, 1, true)
         removeAttributes(player, "treegnome:tracker1","treegnome:tracker2","treegnome:tracker3", "treegnome:xcoord")
     }
 

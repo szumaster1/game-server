@@ -2,19 +2,28 @@ package content.global.travel.glider
 
 import content.global.travel.glider.GnomeGliderListeners.GliderPulse
 import cfg.consts.Components
+import core.api.setVarp
 import core.api.submitWorldPulse
 import core.api.unlock
 import core.game.interaction.InterfaceListener
 
 /**
- * Glider interface listener.
+ * Represents the Glider interface.
  */
 class GliderInterfaceListener : InterfaceListener {
 
     override fun defineInterfaceListeners() {
+        onOpen(Components.GLIDERMAP_138) { player, _ ->
+            setVarp(player, 153, 0)
+            return@onOpen true
+        }
+
+
         on(Components.GLIDERMAP_138) { player, _, _, buttonID, _, _ ->
             val glider = GnomeGlider.forId(buttonID) ?: return@on true
-            submitWorldPulse(GliderPulse(1, player, glider))
+            when (buttonID) {
+                glider.button -> submitWorldPulse(GliderPulse(1, player, glider))
+            }
             return@on true
         }
 
