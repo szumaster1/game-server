@@ -22,7 +22,7 @@ import core.plugin.Initializable
 import core.plugin.Plugin
 
 /**
- * Water orb grapple.
+ * Represents the Water orb grapple shortcut.
  */
 @Initializable
 class WaterOrbGrapple : OptionHandler() {

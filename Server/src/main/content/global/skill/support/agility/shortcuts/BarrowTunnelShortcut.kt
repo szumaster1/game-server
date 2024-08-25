@@ -7,24 +7,28 @@ import core.game.global.action.ClimbActionHandler
 import core.game.global.action.DoorActionHandler
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
+import core.game.node.entity.player.Player
 import core.game.world.map.Location
 
 /**
- * Represents the Barrow tunnel shortcut interaction.
+ * Represents the Barrow tunnel shortcut.
  */
 class BarrowTunnelShortcut : InteractionListener {
 
+    val SHORTCUTS = intArrayOf(
+        Scenery.TRAPDOOR_5055,
+        Scenery.WOODEN_DOORS_30261,
+        Scenery.WOODEN_DOORS_30262,
+        Scenery.WOODEN_DOORS_30265
+    )
+
     override fun defineListeners() {
-        on(intArrayOf(Scenery.TRAPDOOR_5055, Scenery.WOODEN_DOORS_30261, Scenery.WOODEN_DOORS_30262, Scenery.WOODEN_DOORS_30265), IntType.SCENERY, "open") { player, node ->
-            when(node.id){
-                Scenery.TRAPDOOR_5055 -> teleport(player, Location(3477, 9845))
-                Scenery.WOODEN_DOORS_30261,Scenery.WOODEN_DOORS_30262 -> teleport(player, Location(3509, 3448))
-                Scenery.WOODEN_DOORS_30265 -> teleport(player, Location(3500, 9812))
-            }
+        on(SHORTCUTS, IntType.SCENERY, "open") { player, node ->
+            handleShortcut(node.id, player)
             return@on true
         }
 
-        on(Scenery.LADDER_5054, IntType.SCENERY, "climb-up"){ player, _ ->
+        on(Scenery.LADDER_5054, IntType.SCENERY, "climb-up") { player, _ ->
             ClimbActionHandler.climb(player, ClimbActionHandler.CLIMB_UP, Location(3496, 3465, 0))
             return@on true
         }
@@ -34,7 +38,15 @@ class BarrowTunnelShortcut : InteractionListener {
             DoorActionHandler.handleAutowalkDoor(player, node.asScenery())
             return@on true
         }
+    }
 
-
+    private fun handleShortcut(nodeId: Int, player: Player) {
+        val destination = when (nodeId) {
+            Scenery.TRAPDOOR_5055 -> Location(3477, 9845)
+            Scenery.WOODEN_DOORS_30261, Scenery.WOODEN_DOORS_30262 -> Location(3509, 3448)
+            Scenery.WOODEN_DOORS_30265 -> Location(3500, 9812)
+            else -> return
+        }
+        teleport(player, destination)
     }
 }

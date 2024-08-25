@@ -1,10 +1,10 @@
 package content.global.skill.support.agility.shortcuts
 
-import content.global.skill.support.agility.AgilityHandler
-import core.api.*
 import cfg.consts.Animations
 import cfg.consts.Items
 import cfg.consts.Scenery
+import content.global.skill.support.agility.AgilityHandler
+import core.api.*
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.interaction.QueueStrength
@@ -13,13 +13,10 @@ import core.game.world.map.Location
 import core.game.world.update.flag.context.Animation
 
 /**
- * Represents the Miscellania shortcut interaction.
+ * Represents the Miscellania shortcut.
  */
 class MiscellaniaShortcut : InteractionListener {
 
-    /**
-     * Broken pier shortcut between Miscellania and Etceteria.
-     */
     override fun defineListeners() {
         on(Scenery.BROKEN_PIER_41531, IntType.SCENERY, "step") { player, _ ->
             if (!isDiaryComplete(player, DiaryType.FREMENNIK, 1)) {

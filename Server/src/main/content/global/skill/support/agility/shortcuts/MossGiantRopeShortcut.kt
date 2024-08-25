@@ -13,7 +13,7 @@ import core.game.world.map.Location
 import core.game.world.update.flag.context.Animation
 
 /**
- * Represents the Moss giant rope swing shortcut interaction.
+ * Represents the Moss giant rope swing shortcut.
  */
 class MossGiantRopeShortcut : InteractionListener {
 

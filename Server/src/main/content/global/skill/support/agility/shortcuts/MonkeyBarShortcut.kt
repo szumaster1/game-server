@@ -16,7 +16,7 @@ import core.plugin.Plugin
 import core.tools.RandomFunction
 
 /**
- * Represents the Monkey bar shortcut interaction.
+ * Represents the Monkey bar shortcut.
  */
 @Initializable
 class MonkeyBarShortcut : AgilityShortcut {

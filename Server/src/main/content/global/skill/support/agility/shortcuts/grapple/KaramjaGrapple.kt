@@ -29,7 +29,7 @@ import core.plugin.Initializable
 import core.plugin.Plugin
 
 /**
- * Karamja grapple.
+ * Represents the Karamja grapple shortcut.
  */
 @Initializable
 class KaramjaGrapple : OptionHandler() {

@@ -1,8 +1,8 @@
 package content.global.skill.support.agility.shortcuts
 
-import content.global.skill.support.agility.AgilityHandler
 import cfg.consts.Animations
 import cfg.consts.Scenery
+import content.global.skill.support.agility.AgilityHandler
 import core.api.hasLevelDyn
 import core.api.queueScript
 import core.api.sendMessage
@@ -15,7 +15,7 @@ import core.game.world.map.Direction
 import core.game.world.update.flag.context.Animation
 
 /**
- * Represents the Low fence shortcut interaction.
+ * Represents the low fence shortcut.
  */
 class LowFenceShortcut : InteractionListener {
 

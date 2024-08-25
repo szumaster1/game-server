@@ -1,10 +1,10 @@
 package content.global.skill.support.agility.shortcuts
 
-import content.global.skill.support.agility.AgilityHandler
-import core.api.*
 import cfg.consts.Animations
 import cfg.consts.Components
 import cfg.consts.Scenery
+import content.global.skill.support.agility.AgilityHandler
+import core.api.*
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.interaction.QueueStrength
@@ -14,19 +14,12 @@ import core.game.world.update.flag.context.Animation
 import core.tools.DARK_RED
 
 /**
- * Represents the Lunar isle mine shortcut interaction.
+ * Represents the Lunar isle mine shortcut.
  */
 class LunarIsleMineShortcut : InteractionListener {
 
-    /**
-     * Shortcut leading to Fallen Man which player speak to start the Dream Mentor quest
-     * in Lunar isle mine.
-     */
     override fun defineListeners() {
         on(Scenery.CAVE_ENTRANCE_11399, IntType.SCENERY, "crawl-through") { player, _ ->
-            /*
-             * When introducing a quest & find location -> turn it into a cutscene.
-             */
             if (player.location.x != 2335) {
                 crawlingStart(player)
             } else {

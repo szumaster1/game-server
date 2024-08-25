@@ -18,9 +18,9 @@ import core.tools.RandomFunction
 import kotlin.math.ceil
 
 /**
- * Wallsafe listener.
+ * Thieving Guild listener.
  */
-class WallsafeListener : InteractionListener {
+class ThievingGuildListener : InteractionListener {
 
     override fun defineListeners() {
 

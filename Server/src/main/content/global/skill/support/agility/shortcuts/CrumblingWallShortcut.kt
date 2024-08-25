@@ -9,7 +9,7 @@ import core.game.world.update.flag.context.Animation
 import core.plugin.Initializable
 
 /**
- * Represents the Crumbling wall shortcut interaction.
+ * Represents the Crumbling wall shortcut.
  */
 @Initializable
 class CrumblingWallShortcut : AgilityShortcut(intArrayOf(11844), 5, 0.0, "climb-over") {

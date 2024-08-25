@@ -1,11 +1,10 @@
 package content.global.skill.support.agility.shortcuts
 
-import core.api.*
 import cfg.consts.Animations
+import core.api.*
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.entity.impl.ForceMovement
-import core.game.node.entity.impl.ForceMovement.direction
 import core.game.node.entity.player.Player
 import core.game.node.entity.skill.Skills
 import core.game.node.scenery.Scenery
@@ -14,21 +13,21 @@ import core.game.world.map.Location
 import core.game.world.update.flag.context.Animation
 
 /**
- * Represents the Grand exchange shortcut interaction.
+ * Represents the Grand Exchange shortcut.
  */
 class GrandExchangeShortcut : InteractionListener {
 
     companion object {
-        val SHORTCUTS = mapOf(
+        private val SHORTCUTS = mapOf(
             9311 to listOf(
                 Location.create(3138, 3516, 0),
                 Location.create(3143, 3514, 0),
-                Location.create(3144, 3514, 0),
+                Location.create(3144, 3514, 0)
             ),
             9312 to listOf(
                 Location.create(3144, 3514, 0),
                 Location.create(3139, 3516, 0),
-                Location.create(3138, 3516, 0),
+                Location.create(3138, 3516, 0)
             )
         )
         private val CLIMB_DOWN = Animation.create(Animations.CRAWL_UNDER_WALL_A_2589)
@@ -38,46 +37,65 @@ class GrandExchangeShortcut : InteractionListener {
 
     override fun defineListeners() {
         on(SHORTCUTS.keys.toIntArray(), IntType.SCENERY, "climb-into") { player, node ->
+            if (!canUseShortcut(player)) return@on true
+
             player.locks.lockComponent(4)
-            if (!hasLevelDyn(player, Skills.AGILITY, 21)) {
-                sendMessage(player, "You need an agility level of at least 21 to do this.")
-                return@on true
-            }
-            lock(player, 4)
-            val o = node as Scenery
-            val path = SHORTCUTS[o.id]!!
-            ForceMovement.run(player, path[0], o.location, ForceMovement.WALK_ANIMATION, CLIMB_DOWN, direction(path[0], o.location), ForceMovement.WALKING_SPEED, ForceMovement.WALKING_SPEED, false)
-            runCrawlPulse(player, path)
+            val scenery = node as Scenery
+            val path = SHORTCUTS[scenery.id] ?: return@on true
+
+            initiateForceMovement(player, scenery, path)
+            handleShortcut(player, path)
             return@on true
         }
     }
 
-    private fun runCrawlPulse(player: Player, path: List<Location>) {
+    private fun canUseShortcut(player: Player): Boolean {
+        if (!hasLevelDyn(player, Skills.AGILITY, 21)) {
+            sendMessage(player, "You need an agility level of at least 21 to do this.")
+            return false
+        }
+        return true
+    }
+
+    private fun initiateForceMovement(player: Player, scenery: Scenery, path: List<Location>) {
+        ForceMovement.run(
+            player,
+            path[0],
+            scenery.location,
+            ForceMovement.WALK_ANIMATION,
+            CLIMB_DOWN,
+            ForceMovement.direction(path[0], scenery.location),
+            ForceMovement.WALKING_SPEED,
+            ForceMovement.WALKING_SPEED,
+            false
+        )
+    }
+
+    private fun handleShortcut(player: Player, path: List<Location>) {
         submitIndividualPulse(player, object : Pulse(1, player) {
-            var count = 0
-            var reachedStart = false
+            private var count = 0
+            private var reachedStart = false
+
             override fun pulse(): Boolean {
-                // If the player hasn't reached path[0], don't do anything
                 if (!reachedStart && player.location != path[0]) {
                     return false
                 }
                 reachedStart = true
 
-                when (++count) {
+                return when (++count) {
                     2 -> {
                         teleport(player, path[1])
                         visualize(player, CRAWL_THROUGH, -1)
+                        false
                     }
-
                     3 -> {
                         ForceMovement.run(player, path[1], path[2], CLIMB_UP)
                         unlock(player)
-                        return true
+                        true
                     }
+                    else -> false
                 }
-                return false
             }
         })
     }
-
 }

@@ -1,10 +1,10 @@
 package content.global.skill.support.agility.shortcuts
 
-import content.global.skill.support.agility.AgilityHandler
-import core.api.*
 import cfg.consts.Animations
 import cfg.consts.Scenery
 import cfg.consts.Sounds
+import content.global.skill.support.agility.AgilityHandler
+import core.api.*
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.entity.player.link.diary.DiaryType
@@ -16,7 +16,7 @@ import core.game.world.update.flag.context.Graphic
 import kotlin.random.Random
 
 /**
- * Represents the Sinclair mansion log shortcut interaction.
+ * Represents the Sinclair mansion log shortcut.
  */
 class SinclairMansionLogShortcut : InteractionListener {
 
@@ -24,7 +24,7 @@ class SinclairMansionLogShortcut : InteractionListener {
 
         on(sinclarLog, IntType.SCENERY, "walk-across") { player, node ->
             if (!hasLevelDyn(player, Skills.AGILITY, 48)) {
-                sendDialogue(player, "You need an Agility level of at least 48 to do this.")
+                sendMessage(player, "You need an agility level of at least 48 to do this.")
                 return@on true
             }
 

@@ -17,9 +17,7 @@ import core.game.world.update.flag.context.Animation
 import core.tools.END_DIALOGUE
 
 /**
- * Represents the Trellis wall shortcut outside the Watchtower northern wall.
- *
- * Source [YouTube](https://youtu.be/8HyiUy6MwTM?si=BKLNWPjvEu6lf7Nu&t=146)
+ * Represents the Trellis wall shortcut.
  */
 class WatchtowerShortcut : InteractionListener {
 
@@ -49,7 +47,7 @@ class WatchtowerShortcut : InteractionListener {
          */
         on(Scenery.TRELLIS_20056, IntType.SCENERY, "climb-up") { player, _ ->
             if (!hasLevelDyn(player, Skills.AGILITY, 18)) {
-                sendDialogue(player, "You need an Agility level of at least 18 to negotiate this obstacle.")
+                sendDialogue(player, "You need an agility level of at least 18 to negotiate this obstacle.")
                 return@on false
             }
             executeClimb(player)
@@ -57,11 +55,6 @@ class WatchtowerShortcut : InteractionListener {
         }
     }
 
-    /**
-     * Executes the climbing action for the player.
-     *
-     * @param player The player who is attempting to use shortcut.
-     */
     private fun executeClimb(player: Player) {
         lock(player, 2)
         sendMessage(player, "You climb up the wall...")

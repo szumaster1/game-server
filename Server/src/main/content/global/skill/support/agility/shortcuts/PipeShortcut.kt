@@ -16,7 +16,7 @@ import core.plugin.Initializable
 import core.plugin.Plugin
 
 /**
- * Represents the Pipe shortcut interaction.
+ * Represents the Pipe shortcut.
  */
 @Initializable
 class PipeShortcut : AgilityShortcut {
@@ -87,11 +87,11 @@ class PipeShortcut : AgilityShortcut {
         })
     }
     companion object {
-        val YANILLE_DUNGEON = 2290
-        val BRIMHAVEN_DRAGONS = 5099
-        val BRIMHAVEN_GIANTS = 5100
-        val TAVERLEY_DUNGEON = 9293
-        val BARBARIAN_OUTPOST = 20210
-        val EDGEVILLE_DUNGEON = 29370
+        private const val YANILLE_DUNGEON = 2290
+        private const val BRIMHAVEN_DRAGONS = 5099
+        private const val BRIMHAVEN_GIANTS = 5100
+        private const val TAVERLEY_DUNGEON = 9293
+        private const val BARBARIAN_OUTPOST = 20210
+        private const val EDGEVILLE_DUNGEON = 29370
     }
 }

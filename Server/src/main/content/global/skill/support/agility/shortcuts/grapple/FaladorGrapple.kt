@@ -23,7 +23,7 @@ import core.plugin.Initializable
 import core.plugin.Plugin
 
 /**
- * Falador grapple.
+ * Represents the Falador grapple shortcut.
  */
 @Initializable
 class FaladorGrapple : OptionHandler() {

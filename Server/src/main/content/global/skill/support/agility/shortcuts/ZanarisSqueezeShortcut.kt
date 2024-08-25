@@ -1,9 +1,9 @@
 package content.global.skill.support.agility.shortcuts
 
-import content.global.skill.support.agility.AgilityHandler
-import core.api.*
 import cfg.consts.Scenery
 import cfg.consts.Sounds
+import content.global.skill.support.agility.AgilityHandler
+import core.api.*
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.Node
@@ -18,49 +18,18 @@ import core.game.world.update.flag.context.Animation
 import core.tools.RandomUtils
 
 /**
- * Represents the Zanaris squeeze shortcut interaction.
+ * Represents the Zanaris squeeze shortcut.
  */
 class ZanarisSqueezeShortcut : InteractionListener {
 
     override fun defineListeners() {
         on(Scenery.JUTTING_WALL_12127, IntType.SCENERY, "squeeze-past") { player, node ->
-            handleSqueezeAttempt(player, node.asScenery())
+            handleShortcut(player, node.asScenery())
             return@on true
         }
     }
 
-    /**
-     * Handles the player's attempt to squeeze past an obstacle.
-     *
-     * @param player The player attempting the squeeze.
-     * @param node The scenery node representing the obstacle.
-     */
-    private fun handleSqueezeAttempt(player: Player, node: Node) {
-        val scenery = node.asScenery()
-        val direction = Direction.getLogicalDirection(player.location, scenery.location)
-        val end = player.location.transform(direction.stepX * 2, direction.stepY * 2, 0)
-
-        sendMessage(player, "You try to squeeze past.")
-
-        if (!isAgilityLevelSufficient(player, scenery.location)) return
-
-        playAudio(player, Sounds.SQUEEZE_THROUGH_ROCKS_1310, 1, 2)
-
-        if (AgilityHandler.hasFailed(player, 10, 0.00300)) {
-            handleFailure(player, direction, scenery.rotation, end)
-        } else {
-            AgilityHandler.walk(player, -1, player.location, end, Animation.create(157 - calculateRotation(scenery.rotation, direction)), 0.0, null)
-        }
-    }
-
-    /**
-     * Checks if the player's agility level is sufficient for the obstacle.
-     *
-     * @param player The player whose agility level is being checked.
-     * @param location The location of the obstacle.
-     * @return True if the player's agility level is sufficient, false otherwise.
-     */
-    private fun isAgilityLevelSufficient(player: Player, location: Location): Boolean {
+    private fun checkRequirements(player: Player, location: Location): Boolean {
         val agilityLevel = getStatLevel(player, Skills.AGILITY)
         val requiredLevel = when (location) {
             Location(2400, 4403) -> 46
@@ -73,13 +42,6 @@ class ZanarisSqueezeShortcut : InteractionListener {
         } else true
     }
 
-    /**
-     * Calculates the rotation needed for the animation based on scenery rotation and direction.
-     *
-     * @param sceneryRotation The rotation of the scenery.
-     * @param direction The direction of the player's movement.
-     * @return The calculated rotation for the animation.
-     */
     private fun calculateRotation(sceneryRotation: Int, direction: Direction): Int {
         return when {
             sceneryRotation == 3 && direction == Direction.SOUTH -> 1
@@ -89,14 +51,24 @@ class ZanarisSqueezeShortcut : InteractionListener {
         }
     }
 
-    /**
-     * Handles the failure scenario when the player fails to squeeze past the obstacle.
-     *
-     * @param player The player who failed the squeeze attempt.
-     * @param direction The direction of the squeeze.
-     * @param sceneryRotation The rotation of the scenery.
-     * @param end The end location after the squeeze attempt.
-     */
+    private fun handleShortcut(player: Player, node: Node) {
+        val scenery = node.asScenery()
+        val direction = Direction.getLogicalDirection(player.location, scenery.location)
+        val end = player.location.transform(direction.stepX * 2, direction.stepY * 2, 0)
+
+        sendMessage(player, "You try to squeeze past.")
+
+        if (!checkRequirements(player, scenery.location)) return
+
+        playAudio(player, Sounds.SQUEEZE_THROUGH_ROCKS_1310, 1, 2)
+
+        if (AgilityHandler.hasFailed(player, 10, 0.00300)) {
+            handleFailure(player, direction, scenery.rotation, end)
+        } else {
+            AgilityHandler.walk(player, -1, player.location, end, Animation.create(157 - calculateRotation(scenery.rotation, direction)), 0.0, null)
+        }
+    }
+
     private fun handleFailure(player: Player, direction: Direction, sceneryRotation: Int, end: Location) {
         val forceChat = arrayOf("Arrgghhhh!", "Owww...", "Ahhh...")
         var repeat = 3

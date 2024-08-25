@@ -14,7 +14,7 @@ import core.game.world.map.Direction
 import core.game.world.map.Location
 
 /**
- * Represents the Stile shortcut interaction.
+ * Represents the Stile shortcut.
  */
 class StileShortcut : InteractionListener {
 
@@ -51,12 +51,12 @@ class StileShortcut : InteractionListener {
     companion object {
         fun getInteractLocation(pLoc: Location, sLoc: Location, orientation: Orientation): Location {
             when (orientation) {
-                Orientation.Horizontal -> {
+                Orientation.HORIZONTAL -> {
                     if (pLoc.x <= sLoc.x) return sLoc.transform(-1, 0, 0)
                     else return sLoc.transform(2, 0, 0)
                 }
 
-                Orientation.Vertical -> {
+                Orientation.VERTICAL -> {
                     if (pLoc.y <= sLoc.y) return sLoc.transform(0, -1, 0)
                     else return sLoc.transform(0, 2, 0)
                 }
@@ -65,8 +65,8 @@ class StileShortcut : InteractionListener {
 
         fun getOrientation(rotation: Direction): Orientation {
             when (rotation) {
-                Direction.EAST, Direction.WEST -> return Orientation.Horizontal
-                else -> return Orientation.Vertical
+                Direction.EAST, Direction.WEST -> return Orientation.HORIZONTAL
+                else -> return Orientation.VERTICAL
             }
         }
 
@@ -78,18 +78,8 @@ class StileShortcut : InteractionListener {
         }
     }
 
-    /**
-     * Orientation.
-     */
     enum class Orientation {
-        /**
-         * Horizontal.
-         */
-        Horizontal,
-
-        /**
-         * Vertical.
-         */
-        Vertical
+        HORIZONTAL,
+        VERTICAL
     }
 }

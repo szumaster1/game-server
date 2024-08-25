@@ -1,5 +1,6 @@
 package content.global.skill.support.agility.shortcuts
 
+import cfg.consts.Animations
 import core.api.*
 import core.cache.def.impl.SceneryDefinition
 import core.game.interaction.OptionHandler
@@ -14,75 +15,49 @@ import core.plugin.Initializable
 import core.plugin.Plugin
 
 /**
- * Represents the Stepping stone shortcut interaction.
+ * Represents the Stepping stone shortcut.
  */
 @Initializable
 class SteppingStoneShortcut : OptionHandler() {
 
-    private val stones = HashMap<Location, SteppingStoneInstance>()
+    private val stones = mutableMapOf<Location, SteppingStoneInstance>()
 
-    /**
-     * Stepping stone instance
-     *
-     * @param pointA The starting location of the stepping stone
-     * @param pointB The ending location of the stepping stone
-     * @param option The interaction option for the stepping stone
-     * @param levelReq The agility level required to use the stepping stone
-     * @constructor Stepping stone instance
-     */
-    internal class SteppingStoneInstance(val pointA: Location, val pointB: Location, val option: String, val levelReq: Int)
+    internal data class SteppingStoneInstance(val pointA: Location, val pointB: Location, val option: String, val levelReq: Int)
 
     override fun handle(player: Player?, node: Node?, option: String?): Boolean {
         player ?: return false
-        val stone = stones[player.location]
-        stone ?: return false
+        val stone = stones[player.location] ?: return false
 
         if (player.skills.getLevel(Skills.AGILITY) < stone.levelReq) {
             sendMessage(player, "You need an agility level of ${stone.levelReq} for this shortcut.")
             return true
         }
 
-        val finalDest = when (player.location) {
-            stone.pointA -> stone.pointB
-            stone.pointB -> stone.pointA
-            else -> player.location
-        }
+        val finalDest = if (player.location == stone.pointA) stone.pointB else stone.pointA
         val offset = getOffset(player, finalDest)
         player.debug("Offset: ${offset.first},${offset.second}")
+
         lock(player, 3)
         player.locks.lockTeleport(3)
         queueScript(player, 2, QueueStrength.SOFT) {
-            val there = player.location == finalDest
-            if (!there) {
+            if (player.location != finalDest) {
                 lock(player, 3)
                 player.locks.lockTeleport(3)
                 ForceMovement.run(player, player.location, player.location.transform(offset.first, offset.second, 0), ANIMATION, 10)
-                return@queueScript delayScript(player, 2)
+                delayScript(player, 2)
+            } else {
+                stopExecuting(player)
             }
-            return@queueScript stopExecuting(player)
         }
         return true
     }
 
     private fun getOffset(player: Player, location: Location): Pair<Int, Int> {
-        var diffX = location.x - player.location.x
-        var diffY = location.y - player.location.y
-        if (diffX > 1) diffX = 1
-        if (diffX < -1) diffX = -1
-        if (diffY > 1) diffY = 1
-        if (diffY < -1) diffY = -1
+        val diffX = (location.x - player.location.x).coerceIn(-1, 1)
+        val diffY = (location.y - player.location.y).coerceIn(-1, 1)
         return Pair(diffX, diffY)
     }
 
-    /**
-     * Configure the stepping stone instances
-     *
-     * @param objects The object IDs associated with the stepping stones
-     * @param pointA The starting location of the stepping stone
-     * @param pointB The ending location of the stepping stone
-     * @param option The interaction option for the stepping stone
-     * @param levelReq The agility level required to use the stepping stone
-     */
     fun configure(objects: IntArray, pointA: Location, pointB: Location, option: String, levelReq: Int) {
         val instance = SteppingStoneInstance(pointA, pointB, option, levelReq)
         objects.forEach {
@@ -95,11 +70,10 @@ class SteppingStoneShortcut : OptionHandler() {
     override fun newInstance(arg: Any?): Plugin<Any> {
         configure(intArrayOf(2335, 2333), Location.create(2925, 2947, 0), Location.create(2925, 2951, 0), "cross", 30)
         configure(intArrayOf(9315), Location.create(3149, 3363, 0), Location.create(3154, 3363, 0), "jump-onto", 31)
-
         return this
     }
 
     companion object {
-        private val ANIMATION = Animation(741)
+        private val ANIMATION = Animation(Animations.HUMAN_JUMP_SHORT_GAP_741)
     }
 }

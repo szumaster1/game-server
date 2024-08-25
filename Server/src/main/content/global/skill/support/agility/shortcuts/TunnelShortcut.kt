@@ -17,7 +17,7 @@ import core.plugin.Initializable
 import core.plugin.Plugin
 
 /**
- * Represents the Tunnel shortcut interaction.
+ * Represents the Tunnel shortcut.
  */
 @Initializable
 class TunnelShortcut : AgilityShortcut {

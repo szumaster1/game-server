@@ -13,7 +13,7 @@ import core.game.world.map.Location
 import core.game.world.update.flag.context.Animation
 
 /**
- * Catherby grapple.
+ * Represents the Catherby grapple shortcut.
  */
 class CatherbyGrapple : InteractionListener {
 

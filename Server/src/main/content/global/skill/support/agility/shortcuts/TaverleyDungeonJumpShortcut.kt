@@ -1,10 +1,10 @@
 package content.global.skill.support.agility.shortcuts
 
-import content.global.skill.support.agility.AgilityHandler
-import core.api.*
 import cfg.consts.Animations
 import cfg.consts.Scenery
 import cfg.consts.Sounds
+import content.global.skill.support.agility.AgilityHandler
+import core.api.*
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.entity.skill.Skills
@@ -14,18 +14,15 @@ import core.game.world.update.flag.context.Animation
 import kotlin.random.Random
 
 /**
- * Represents the Taverley dungeon jump shortcut interaction.
+ * Represents the Taverley dungeon jump shortcut.
  */
 class TaverleyDungeonJumpShortcut : InteractionListener {
 
     override fun defineListeners() {
 
-        /**
-         * Jump over the spiked blade trap near the entrance of Taverley Dungeon.
-         */
         on(Scenery.STRANGE_FLOOR_9294, IntType.SCENERY, "jump-over") { player, node ->
             if (!hasLevelDyn(player, Skills.AGILITY, 80)) {
-                sendDialogue(player, "You need an Agility level of at least 80 to do this.")
+                sendMessage(player, "You need an agility level of at least 80 to do this.")
                 return@on true
             }
             lock(player, 6)

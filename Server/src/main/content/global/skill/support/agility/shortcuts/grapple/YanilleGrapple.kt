@@ -21,7 +21,7 @@ import core.plugin.Initializable
 import core.plugin.Plugin
 
 /**
- * Yanille grapple.
+ * Represents the Yanille grapple shortcut.
  */
 @Initializable
 class YanilleGrapple : OptionHandler() {
