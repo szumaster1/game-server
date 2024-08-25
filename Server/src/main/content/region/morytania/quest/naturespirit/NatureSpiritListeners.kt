@@ -2,6 +2,7 @@ package content.region.morytania.quest.naturespirit
 
 import cfg.consts.Items
 import cfg.consts.NPCs
+import cfg.consts.Scenery
 import content.region.morytania.handlers.npc.MortMyreGhastNPC
 import core.api.*
 import core.game.dialogue.DialogueFile
@@ -23,26 +24,32 @@ import core.tools.Log
  */
 class NatureSpiritListeners : InteractionListener {
 
-    val GROTTO_TREE = 3517
-    val GROTTO_ENTRANCE = 3516
-    val GROTTO_ALTAR = 3520
-    val NATURE_ALTAR = 3521
-    val JOURNAL = Items.JOURNAL_2967
-    val NATURE_STONE = 3527
-    val FAITH_STONE = 3528
-    val FREELY_GIVEN_STONE = 3529
-    val WASHING_BOWL = Items.WASHING_BOWL_2964
-    val MIRROR = Items.MIRROR_2966
-    val SPELLCARD = Items.DRUIDIC_SPELL_2968
-    val USED_SPELLCARD = Items.A_USED_SPELL_2969
-    val FUNGUS = Items.MORT_MYRE_FUNGUS_2970
-    val STEM = Items.MORT_MYRE_STEM_2972
-    val PEAR = Items.MORT_MYRE_PEAR_2974
+    // Attributes.
     val MIRROR_TAKEN = "/save:ns:mirror_taken"
     val GROTTO_SEARCHED = "/save:ns:grotto_searched"
-    val WISHING_WELL = 28715
-    val DRUID_POUCH = Items.DRUID_POUCH_2958
-    val DRUID_POUCH_EMPTY = Items.DRUID_POUCH_2957
+
+    // Item constants.
+    private val JOURNAL = Items.JOURNAL_2967
+    private val WASHING_BOWL = Items.WASHING_BOWL_2964
+    private val MIRROR = Items.MIRROR_2966
+    private val SPELLCARD = Items.DRUIDIC_SPELL_2968
+    private val USED_SPELLCARD = Items.A_USED_SPELL_2969
+    private val FUNGUS = Items.MORT_MYRE_FUNGUS_2970
+    private val STEM = Items.MORT_MYRE_STEM_2972
+    private val PEAR = Items.MORT_MYRE_PEAR_2974
+    private val DRUID_POUCH = Items.DRUID_POUCH_2958
+    private val DRUID_POUCH_EMPTY = Items.DRUID_POUCH_2957
+
+    // Scenery constants.
+    private val NATURE_STONE = Scenery.STONE_3527
+    private val FAITH_STONE = Scenery.STONE_3528
+    private val FREELY_GIVEN_STONE = Scenery.STONE_3529
+    private val GROTTO_TREE = Scenery.GROTTO_TREE_3517
+    private val GROTTO_ENTRANCE = Scenery.GROTTO_3516
+    private val GROTTO_ALTAR = Scenery.GROTTO_3520
+    private val NATURE_ALTAR = Scenery.ALTAR_OF_NATURE_3521
+    private val WISHING_WELL = Scenery.WISHING_WELL_28715
+
     val stones = intArrayOf(NATURE_STONE, FAITH_STONE, FREELY_GIVEN_STONE)
     val items = intArrayOf(USED_SPELLCARD, FUNGUS)
 
@@ -222,8 +229,8 @@ class NatureSpiritListeners : InteractionListener {
 
 
         /*
- * Handle the search option of the nature stone.
- */
+         * Handle the search option of the nature stone.
+         */
 
         on(NATURE_STONE, IntType.SCENERY, "search") { player, _ ->
             sendDialogue(player, "You search the stone and find that it has some sort of nature symbol scratched into it.")

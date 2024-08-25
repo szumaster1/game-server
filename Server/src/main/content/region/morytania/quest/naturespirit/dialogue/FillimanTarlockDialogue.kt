@@ -28,7 +28,7 @@ class FillimanTarlockDialogue(player: Player? = null) : Dialogue(player) {
         questStage = quest.getStage(player)
 
         if (questStage > 10 && !inEquipment(player, Items.GHOSTSPEAK_AMULET_552)) {
-            npcl(FacialExpression.HALF_GUILTY, "OooOOOOOOoooOoOOoOOOo")
+            sendDialogue(player, "This spirit seems too ethereal to communicate with.")
             setQuest(15)
             return false
         }
