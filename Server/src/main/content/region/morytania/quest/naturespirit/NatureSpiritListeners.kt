@@ -46,6 +46,7 @@ class NatureSpiritListeners : InteractionListener {
     private val FREELY_GIVEN_STONE = Scenery.STONE_3529
     private val GROTTO_TREE = Scenery.GROTTO_TREE_3517
     private val GROTTO_ENTRANCE = Scenery.GROTTO_3516
+    private val GROTTO_EXIT = intArrayOf(Scenery.GROTTO_3525, Scenery.GROTTO_3526)
     private val GROTTO_ALTAR = Scenery.GROTTO_3520
     private val NATURE_ALTAR = Scenery.ALTAR_OF_NATURE_3521
     private val WISHING_WELL = Scenery.WISHING_WELL_28715
@@ -82,16 +83,31 @@ class NatureSpiritListeners : InteractionListener {
          * Handle enter the Grotto tree entrance.
          */
 
-        on(GROTTO_ENTRANCE, IntType.SCENERY, "enter") { player, node ->
+        on(GROTTO_ENTRANCE, IntType.SCENERY, "enter") { player, _ ->
             val questStage = player.questRepository.getQuest("Nature Spirit").getStage(player)
+            sendMessage(player, "You prepare to enter the Druid's grotto.")
             if (questStage < 55) {
                 val npc = core.game.node.entity.npc.NPC.create(NPCs.FILLIMAN_TARLOCK_1050, Location.create(3440, 3336, 0))
                 npc.init()
+                sendMessage(player, "The aura of Fillimans camp protects you from the swamp.")
             } else if (questStage < 60) {
                 player.teleport(Location.create(3442, 9734, 0))
+                sendMessage(player, "You see a beatifully tended small grotto area.")
             } else if (questStage >= 60) {
                 player.teleport(Location.create(3442, 9734, 1))
+                sendMessage(player, "You see a beatifully tended small grotto area.")
             }
+            return@on true
+        }
+
+        /*
+       * Enter grotto (Nature spirit quest).
+       */
+
+        on(GROTTO_EXIT, IntType.SCENERY, "exit") { player, _ ->
+            sendMessage(player, "You prepare to exit the grotto.")
+            player.teleport(Location.create(3439, 3337, 0), 1)
+            sendMessageWithDelay(player, "You crawl back out of the grotto.", 1)
             return@on true
         }
 
@@ -113,11 +129,13 @@ class NatureSpiritListeners : InteractionListener {
          */
 
         on(WISHING_WELL, IntType.SCENERY, "make-wish") { player, _ ->
-            if (isQuestComplete(player, "Nature Spirit") && isQuestComplete(player,"Wolf Whistle"))
+            if (isQuestComplete(player, "Nature Spirit") && isQuestComplete(player,"Wolf Whistle")) {
+                sendMessage(player, "The wishing well has a number of Summoning items in it.")
+                sendMessage(player, "If you toss in some coins, you can take the items in return.")
                 Shops.openId(player, 241)
-            else
-                sendDialogue(player, "You can't do that yet.")
-
+            } else {
+                sendMessage(player, "The wishing well is connected to the grotto, so it will not function until the grotto has been completed.")
+            }
             return@on true
         }
 
@@ -165,6 +183,10 @@ class NatureSpiritListeners : InteractionListener {
          */
 
         on(SPELLCARD, IntType.ITEM, "cast") { player, node ->
+            if(!inBorders(player, getRegionBorders(13620)) || !inBorders(player, getRegionBorders(13621))) {
+                sendMessage(player, "This spell has no effect outside of Mort Myre swamp.")
+                return@on false
+            }
             if (NSUtils.castBloom(player)) {
                 removeItem(player, node.asItem(), Container.INVENTORY)
                 addItem(player, Items.A_USED_SPELL_2969)
@@ -233,7 +255,7 @@ class NatureSpiritListeners : InteractionListener {
          */
 
         on(NATURE_STONE, IntType.SCENERY, "search") { player, _ ->
-            sendDialogue(player, "You search the stone and find that it has some sort of nature symbol scratched into it.")
+            sendDialogueLines(player, "You search the stone and find that it has some sort of nature symbol", "scratched into it.")
             return@on true
         }
 
@@ -242,7 +264,7 @@ class NatureSpiritListeners : InteractionListener {
          */
 
         on(FAITH_STONE, IntType.SCENERY, "search") { player, _ ->
-            sendDialogue(player, "You search the stone and find that it has some sort of faith symbol scratched into it.")
+            sendDialogueLines(player, "You search the stone and find that it has some sort of faith symbol", "scratched into it.")
             return@on true
         }
 
@@ -251,7 +273,7 @@ class NatureSpiritListeners : InteractionListener {
          */
 
         on(FREELY_GIVEN_STONE, IntType.SCENERY, "search") { player, _ ->
-            sendDialogue(player, "You search the stone and find it has some sort of spirit symbol scratched into it.")
+            sendDialogueLines(player, "You search the stone and find it has some sort of spirit symbol", "scratched into it.")
             return@on true
         }
 

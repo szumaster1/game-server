@@ -27,7 +27,6 @@ class MorytaniaListeners : InteractionListener {
     companion object {
         private val swampGate = intArrayOf(Scenery.GATE_3506, Scenery.GATE_3507)
         private val SWAMP_BOAT = intArrayOf(Scenery.SWAMP_BOATY_6970, Scenery.SWAMP_BOATY_6969)
-        private val GROTTO_EXIT = intArrayOf(Scenery.GROTTO_3525, Scenery.GROTTO_3526)
         private const val GROTTO_BRIDGE = Scenery.BRIDGE_3522
         private val SWIMMING_ANIMATION = Animation(Animations.SWIMMING_6988)
         private val JUMP_ANIMATION = Animation(Animations.JUMP_OBSTACLE_WEREWOLF_AGILITY_1603)
@@ -95,15 +94,6 @@ class MorytaniaListeners : InteractionListener {
         }
 
         /*
-         * Enter grotto (Nature spirit quest).
-         */
-
-        on(GROTTO_EXIT, IntType.SCENERY, "exit") { player, _ ->
-            teleport(player, Location.create(3439, 3337, 0))
-            return@on true
-        }
-
-        /*
          * Jump the bridge to Grotto island.
          */
 
@@ -125,6 +115,7 @@ class MorytaniaListeners : InteractionListener {
                 AgilityHandler.forceWalk(player, -1, FAIL_LOCATION, failLand, SWIMMING_ANIMATION, 15, 2.0, null, 3)
                 submitIndividualPulse(player, object : Pulse(2) {
                     override fun pulse(): Boolean {
+                        sendMessage(player, "You nearly drown in the disgusting swamp.")
                         visualize(player, failAnim, SPLASH_GFX)
                         teleport(player, FAIL_LOCATION)
                         AgilityHandler.fail(player, 0, failLand, SWIMMING_ANIMATION, Random.nextInt(1, 7), "You nearly drown in the disgusting swamp.")

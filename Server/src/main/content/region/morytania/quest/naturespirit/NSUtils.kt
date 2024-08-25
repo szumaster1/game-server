@@ -151,6 +151,7 @@ object NSUtils {
             return false
         }
         handleVisuals(player)
+        sendMessage(player, "You cast the spell in the swamp.")
         val locs = player.location.surroundingTiles
         for (o in locs) {
             val obj = RegionManager.getObject(o)

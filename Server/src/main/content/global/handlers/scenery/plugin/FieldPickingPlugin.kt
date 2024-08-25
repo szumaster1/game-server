@@ -3,6 +3,7 @@ package content.global.handlers.scenery.plugin
 import cfg.consts.Sounds
 import core.api.freeSlots
 import core.api.playAudio
+import core.api.sendMessage
 import core.api.setAttribute
 import core.cache.def.impl.SceneryDefinition
 import core.game.container.impl.EquipmentContainer
@@ -47,7 +48,7 @@ class FieldPickingPlugin : OptionHandler() {
         }
         val reward = Item(if (plant == PickingPlant.POTATO && RandomFunction.random(10) == 0) 5318 else plant.reward)
         if (!player.inventory.hasSpaceFor(reward)) {
-            player.packetDispatch.sendMessage("Not enough space in your inventory!")
+            sendMessage(player, "You don't have enough space in your inventory.")
             return true
         }
         if (freeSlots(player) == 0) {
@@ -70,7 +71,7 @@ class FieldPickingPlugin : OptionHandler() {
         Pulser.submit(object : Pulse(1, player) {
             override fun pulse(): Boolean {
                 if (!player.inventory.add(reward)) {
-                    player.packetDispatch.sendMessage("Not enough space in your inventory!")
+                    sendMessage(player, "You don't have enough space in your inventory.")
                     return true
                 }
                 if (plant == PickingPlant.FLAX) {
@@ -96,10 +97,12 @@ class FieldPickingPlugin : OptionHandler() {
                         if (banana) 300 else plant.respawn
                     )
                 }
-                if (!plant.name.startsWith("NETTLES", true)) {
-                    player.packetDispatch.sendMessage("You pick a " + reward.name.lowercase() + ".")
+                if(plant.name.startsWith("MORT", true)){
+                    sendMessage(player, "You pick a mushroom from the log.")
+                } else if (!plant.name.startsWith("NETTLES", true)) {
+                    sendMessage(player, "You pick a " + reward.name.lowercase() + ".")
                 } else {
-                    player.packetDispatch.sendMessage("You pick a handful of nettles.")
+                    sendMessage(player, "You pick a handful of nettles.")
                 }
                 return true
             }

@@ -70,7 +70,10 @@ class PrayerAltarListener : InteractionListener {
         animate(player, Animations.HUMAN_PRAY_645)
         playAudio(player, Sounds.PRAYER_RECHARGE_2674)
         setTempLevel(player, Skills.PRAYER, prayerLevel)
-        sendMessage(player, "You recharge your prayer points.")
+        when (node.id) {
+            Scenery.ALTAR_OF_NATURE_3521 -> sendMessage(player, "You recharge your prayer points at the altar of nature.")
+            else -> sendMessage(player, "You recharge your prayer points.")
+        }
         player.dispatch(PrayerPointsRechargeEvent(node))
         return true
     }
