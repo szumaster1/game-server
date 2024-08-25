@@ -3,7 +3,6 @@ package content.region.morytania.quest.naturespirit
 import cfg.consts.Items
 import cfg.consts.NPCs
 import content.region.morytania.handlers.npc.MortMyreGhastNPC
-import content.region.morytania.quest.naturespirit.util.NSUtils
 import core.api.*
 import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression
@@ -11,18 +10,16 @@ import core.game.global.action.PickupHandler
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.entity.npc.NPC
-import core.game.node.entity.player.Player
 import core.game.node.item.GroundItem
 import core.game.node.item.GroundItemManager
 import core.game.node.item.Item
 import core.game.shops.Shops
-import core.game.system.task.Pulse
 import core.game.world.map.Location
-import core.tools.END_DIALOGUE
 import core.tools.Log
 
 /**
  * Nature spirit listeners.
+ * @author Ceikry
  */
 class NatureSpiritListeners : InteractionListener {
 
@@ -50,10 +47,19 @@ class NatureSpiritListeners : InteractionListener {
     val items = intArrayOf(USED_SPELLCARD, FUNGUS)
 
     override fun defineListeners() {
+
+        /*
+         * Handle looking at Grotto tree.
+         */
+
         on(GROTTO_TREE, IntType.SCENERY, "look-at") { player, _ ->
             sendMessage(player, "It looks like a tree on a large rock with roots trailing down to the ground.")
             return@on true
         }
+
+        /*
+         * Handle search the Grotto tree.
+         */
 
         on(GROTTO_TREE, IntType.SCENERY, "search") { player, _ ->
             if (!getAttribute(player, GROTTO_SEARCHED, false) || !(inInventory(player, JOURNAL) || inBank(player, JOURNAL))) {
@@ -64,6 +70,10 @@ class NatureSpiritListeners : InteractionListener {
             }
             return@on false
         }
+
+        /*
+         * Handle enter the Grotto tree entrance.
+         */
 
         on(GROTTO_ENTRANCE, IntType.SCENERY, "enter") { player, node ->
             val questStage = player.questRepository.getQuest("Nature Spirit").getStage(player)
@@ -78,6 +88,10 @@ class NatureSpiritListeners : InteractionListener {
             return@on true
         }
 
+        /*
+         * Handle search the Grotto altar.
+         */
+
         on(GROTTO_ALTAR, IntType.SCENERY, "search") { player, _ ->
             val stage = getQuestStage(player, "Nature Spirit")
             if (stage == 55) {
@@ -87,23 +101,9 @@ class NatureSpiritListeners : InteractionListener {
             return@on false
         }
 
-        on(NATURE_STONE, IntType.SCENERY, "search") { player, _ ->
-            sendDialogue(
-                player,
-                "You search the stone and find that it has some sort of nature symbol scratched into it."
-            )
-            return@on true
-        }
-
-        on(FAITH_STONE, IntType.SCENERY, "search") { player, _ ->
-            sendDialogue(player, "You search the stone and find that it has some sort of faith symbol scratched into it.")
-            return@on true
-        }
-
-        on(FREELY_GIVEN_STONE, IntType.SCENERY, "search") { player, _ ->
-            sendDialogue(player, "You search the stone and find it has some sort of spirit symbol scratched into it.")
-            return@on true
-        }
+        /*
+         * Handle make wish option and shop offer for the Wishing well.
+         */
 
         on(WISHING_WELL, IntType.SCENERY, "make-wish") { player, _ ->
             if (isQuestComplete(player, "Nature Spirit") && isQuestComplete(player,"Wolf Whistle"))
@@ -114,10 +114,23 @@ class NatureSpiritListeners : InteractionListener {
             return@on true
         }
 
+        /*
+         * Handle read the of Nature Spirit Journal.
+         */
+
         on(JOURNAL, IntType.ITEM, "read") { player, _ ->
-            player.dialogueInterpreter.open(JournalDialogue())
+            sendDialogue(player, "Most of the writing is pretty uninteresting, but something inside refers to a nature spirit. The requirements for which are,")
+            addDialogueAction(player) { _, button ->
+                if (button > 0) {
+                    sendDialogue(player, "'Something from nature', 'something with faith' and 'something of the spirit-to-become freely given'. It's all pretty vague.")
+                }
+            }
             return@on true
         }
+
+        /*
+         * Handle take the Washing bowl.
+         */
 
         on(WASHING_BOWL, IntType.GROUNDITEM, "take") { player, node ->
             log(this::class.java, Log.FINE, "Running listener")
@@ -125,6 +138,10 @@ class NatureSpiritListeners : InteractionListener {
             PickupHandler.take(player, node as GroundItem)
             return@on true
         }
+
+        /*
+         * Handle take the Mirror from the ground.
+         */
 
         on(MIRROR, IntType.GROUNDITEM, "take") { player, node ->
             if (getAttribute(player, MIRROR_TAKEN, false) && (inInventory(player, MIRROR) || inBank(player, MIRROR))) {
@@ -136,6 +153,10 @@ class NatureSpiritListeners : InteractionListener {
             return@on true
         }
 
+        /*
+         * Handle cast the spell using druidic spell.
+         */
+
         on(SPELLCARD, IntType.ITEM, "cast") { player, node ->
             if (NSUtils.castBloom(player)) {
                 removeItem(player, node.asItem(), Container.INVENTORY)
@@ -143,6 +164,10 @@ class NatureSpiritListeners : InteractionListener {
             }
             return@on true
         }
+
+        /*
+         * Handle Druid pouch interaction.
+         */
 
         on(intArrayOf(DRUID_POUCH, DRUID_POUCH_EMPTY), IntType.ITEM, "fill") { player, node ->
 
@@ -175,6 +200,10 @@ class NatureSpiritListeners : InteractionListener {
             return@on true
         }
 
+        /*
+         * Handle use silver sickle on nature altar.
+         */
+
         onUseWith(IntType.SCENERY, Items.SILVER_SICKLE_2961, NATURE_ALTAR) { player, _, _ ->
             sendItemDialogue(player, Items.SILVER_SICKLEB_2963, "You dump the sickle into the waters.")
             if (removeItem(player, Items.SILVER_SICKLE_2961, Container.INVENTORY)) {
@@ -183,9 +212,45 @@ class NatureSpiritListeners : InteractionListener {
             return@onUseWith true
         }
 
+        /*
+         * Handle use druid pouch on Ghast NPC.
+         */
+
         onUseWith(IntType.NPC, DRUID_POUCH, NPCs.GHAST_1052) { player, _, with ->
             NSUtils.activatePouch(player, with as MortMyreGhastNPC)
         }
+
+
+        /*
+ * Handle the search option of the nature stone.
+ */
+
+        on(NATURE_STONE, IntType.SCENERY, "search") { player, _ ->
+            sendDialogue(player, "You search the stone and find that it has some sort of nature symbol scratched into it.")
+            return@on true
+        }
+
+        /*
+         * Handle the search option of the faith stone.
+         */
+
+        on(FAITH_STONE, IntType.SCENERY, "search") { player, _ ->
+            sendDialogue(player, "You search the stone and find that it has some sort of faith symbol scratched into it.")
+            return@on true
+        }
+
+        /*
+         * Handle the search option of the freely given stone.
+         */
+
+        on(FREELY_GIVEN_STONE, IntType.SCENERY, "search") { player, _ ->
+            sendDialogue(player, "You search the stone and find it has some sort of spirit symbol scratched into it.")
+            return@on true
+        }
+
+        /*
+         * Handle use the items on stones.
+         */
 
         onUseWith(IntType.SCENERY, items, *stones) { player, used, with ->
             when (used.id) {
@@ -212,6 +277,10 @@ class NatureSpiritListeners : InteractionListener {
             return@onUseWith true
         }
 
+        /*
+         * Handle exchange the secateurs with Nature spirit NPC.
+         */
+
         onUseWith(IntType.NPC, Items.SECATEURS_5329, NPCs.NATURE_SPIRIT_1051) { player, used, _ ->
             if (!hasRequirement(player, "Fairytale I - Growing Pains"))
                 return@onUseWith true
@@ -227,56 +296,24 @@ class NatureSpiritListeners : InteractionListener {
         }
 
     }
-}
 
-/**
- * Journal dialogue.
- */
-class JournalDialogue : DialogueFile() {
+    /**
+     * Filliman Tarlock completion dialogue.
+     */
+    inner class FillimanCompletionDialogue : DialogueFile() {
 
-    override fun handle(componentID: Int, buttonID: Int) {
-        when (stage) {
-            0 -> dialogue(*splitLines("Most of the writing is pretty uninteresting, but something inside refers to a nature spirit. The requirements for which are,")).also { stage++ }
-            1 -> dialogue(*splitLines("'Something from nature', 'something with faith' and 'something of the spirit-to-become freely given'. It's all pretty vague.")).also { stage = END_DIALOGUE }
-        }
-    }
-}
-
-/**
- * Filliman completion dialogue.
- */
-class FillimanCompletionDialogue : DialogueFile() {
-
-    override fun handle(componentID: Int, buttonID: Int) {
-        when (stage) {
-            0 -> npcl(FacialExpression.NEUTRAL, "Well, hello there again. I was just enjoying the grotto. Many thanks for your help, I couldn't have become a Spirit of nature without you.").also { stage++ }
-            1 -> npcl(FacialExpression.NEUTRAL, "I must complete the transformation now. Just stand there and watch the show, apparently it's quite good!").also { stage++ }
-            2 -> {
-                end()
-                lock(player!!, 10)
-                submitWorldPulse(CompleteSpellPulse(player!!))
+        override fun handle(componentID: Int, buttonID: Int) {
+            npc = NPC(NPCs.FILLIMAN_TARLOCK_1050)
+            when (stage) {
+                0 -> npcl(FacialExpression.NEUTRAL, "Well, hello there again. I was just enjoying the grotto. Many thanks for your help, I couldn't have become a Spirit of nature without you.").also { stage++ }
+                1 -> npcl(FacialExpression.NEUTRAL, "I must complete the transformation now. Just stand there and watch the show, apparently it's quite good!").also { stage++ }
+                2 -> {
+                    end()
+                    lock(player!!, 10)
+                    submitWorldPulse(CompleteSpellPulse(player!!))
+                }
             }
         }
     }
 }
 
-/**
- * Represents a Complete Spell Pulse that handles spell completion for a player.
- *
- * @param player the player for whom the spell is completed.
- * @constructor Creates a CompleteSpellPulse with the specified player.
- */
-class CompleteSpellPulse(val player: Player) : Pulse(2) {
-    var counter = 0
-    val locations = arrayOf(Location.create(3444, 9740, 0), Location.create(3439, 9740, 0), Location.create(3439, 9737, 0), Location.create(3444, 9737, 0), Location.create(3444, 9735, 0), Location.create(3438, 9735, 0))
-    val dest: Location = Location.create(3441, 9738, 0)
-    override fun pulse(): Boolean {
-        when (counter++) {
-            0 -> repeat(6) { spawnProjectile(locations[it], dest, 268, 0, 1000, 0, 40, 20) }
-            1 -> player.questRepository.getQuest("Nature Spirit").setStage(player, 60)
-            2 -> player.teleport(player.location.transform(0, 0, 1))
-            3 -> openDialogue(player, NPCs.NATURE_SPIRIT_1051, findLocalNPC(player, NPCs.NATURE_SPIRIT_1051) as NPC).also { unlock(player); return true }
-        }
-        return false
-    }
-}

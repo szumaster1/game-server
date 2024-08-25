@@ -3,7 +3,7 @@ package content.region.morytania.handlers.npc
 import cfg.consts.Items
 import cfg.consts.NPCs
 import content.data.consumables.Consumables
-import content.region.morytania.quest.naturespirit.util.NSUtils
+import content.region.morytania.quest.naturespirit.NSUtils
 import core.api.*
 import core.game.consumable.Food
 import core.game.interaction.MovementPulse

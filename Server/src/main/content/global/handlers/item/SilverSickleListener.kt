@@ -1,6 +1,6 @@
 package content.global.handlers.item
 
-import content.region.morytania.quest.naturespirit.util.NSUtils.castBloom
+import content.region.morytania.quest.naturespirit.NSUtils.castBloom
 import core.api.animate
 import core.api.getQuestStage
 import core.api.sendDialogue

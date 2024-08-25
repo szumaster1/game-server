@@ -1,9 +1,10 @@
 package content.region.morytania.quest.naturespirit
 
+import cfg.consts.Components
 import cfg.consts.Items
 import cfg.consts.Vars
-import content.region.morytania.quest.naturespirit.util.NSUtils
 import core.api.rewardXP
+import core.api.sendItemZoomOnInterface
 import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.quest.Quest
 import core.game.node.entity.skill.Skills
@@ -112,7 +113,7 @@ class NatureSpirit : Quest("Nature Spirit", 95, 94, 2, Vars.VARP_QUEST_NATURE_SP
         super.finish(player)
         player ?: return
         var ln = 10
-        player.packetDispatch.sendItemZoomOnInterface(Items.SILVER_SICKLEB_2963, 230, 277, 5)
+        sendItemZoomOnInterface(player, Components.QUEST_COMPLETE_SCROLL_277, 5, Items.SILVER_SICKLEB_2963, 230)
         drawReward(player, "2 Quest Points", ln++)
         drawReward(player, "3,000 Crafting XP", ln++)
         drawReward(player, "2,000 Hitpoints XP", ln++)

@@ -80,6 +80,7 @@ class MorytaniaListeners : InteractionListener {
         on(swampGate, IntType.SCENERY, "open") { player, node ->
             if (player.location.y == 3457) {
                 DoorActionHandler.handleAutowalkDoor(player, node.asScenery())
+                sendMessage(player, "You skip gladly out of murky Mort Myre.")
                 GlobalScope.launch {
                     findLocalNPC(player, NPCs.ULIZIUS_1054)?.sendChat("Oh my! You're still alive!", 2)
                 }

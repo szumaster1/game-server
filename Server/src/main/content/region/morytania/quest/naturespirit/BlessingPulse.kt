@@ -1,5 +1,7 @@
 package content.region.morytania.quest.naturespirit
 
+import cfg.consts.Animations
+import cfg.consts.Graphics
 import cfg.consts.Sounds
 import content.region.morytania.quest.naturespirit.dialogue.DrezelDialogueFile
 import core.api.*
@@ -21,18 +23,16 @@ class BlessingPulse(val drezel: NPC, val player: Player) : Pulse() {
 
     override fun pulse(): Boolean {
         when (ticks) {
-            0 -> animate(drezel, 1162).also {
-                spawnProjectile(drezel, player, 268); playAudio(
-                player,
-                Sounds.PRAYER_RECHARGE_2674
-            )
+            0 -> animate(drezel, Animations.WALK_1162).also {
+                spawnProjectile(drezel, player, 268); playAudio(player, Sounds.PRAYER_RECHARGE_2674)
             }
 
-            2 -> visualize(player, Animation(645),
-                Graphic(267, 100)
+            2 -> visualize(player, Animation(Animations.HUMAN_PRAY_645),
+                Graphic(Graphics.BRIGHT_GREEN_PUFF_OF_STUFF_267, 100)
             )
             4 -> unlock(player).also {
-                player.questRepository.getQuest("Nature Spirit").setStage(player, 40); return true
+                setQuestStage(player, "Nature Spirit", 40)
+                return true
             }
         }
         ticks++

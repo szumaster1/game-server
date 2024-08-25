@@ -14,7 +14,6 @@ class DrezelDialogueFile : DialogueFile() {
     var questStage = 0
     override fun handle(componentID: Int, buttonID: Int) {
         questStage = getQuestStage(player!!,"Nature Spirit")
-
         if (questStage <= 5) {
             when (stage) {
                 0 -> options("Sorry, not interested...", "Well, what is it, I may be able to help?").also { stage++ }

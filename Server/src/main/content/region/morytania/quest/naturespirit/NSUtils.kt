@@ -1,4 +1,4 @@
-package content.region.morytania.quest.naturespirit.util
+package content.region.morytania.quest.naturespirit
 
 import cfg.consts.Items
 import cfg.consts.Sounds
@@ -12,33 +12,75 @@ import core.game.world.map.RegionManager.forId
 import core.game.world.update.flag.context.Graphic
 import core.tools.RandomFunction
 
-
+/**
+ * Represents the utility functions for Nature Spirit quest.
+ */
 object NSUtils {
+    /**
+     * Flags that a fungus has been placed by the player.
+     *
+     * @param player The player who placed the fungus.
+     */
     fun flagFungusPlaced(player: Player) {
         setAttribute(player, "/save:ns:fungus_placed", true)
     }
 
+    /**
+     * Flags that a card has been placed by the player.
+     *
+     * @param player The player who placed the card.
+     */
     fun flagCardPlaced(player: Player) {
         setAttribute(player, "/save:ns:card_placed", true)
     }
 
+    /**
+     * Checks if the player has placed a fungus.
+     *
+     * @param player The player to check.
+     * @return True if the player has placed a fungus, otherwise false.
+     */
     fun hasPlacedFungus(player: Player): Boolean {
         return getAttribute(player, "ns:fungus_placed", false)
     }
 
+    /**
+     * Checks if the player has placed a card.
+     *
+     * @param player The player to check.
+     * @return True if the player has placed a card, otherwise false.
+     */
     fun hasPlacedCard(player: Player): Boolean {
         return getAttribute(player, "ns:card_placed", false)
     }
 
+    /**
+     * Checks if the player is on a specific stone location.
+     *
+     * @param player The player to check.
+     * @return True if the player is on the stone location, otherwise false.
+     */
     fun onStone(player: Player): Boolean {
         return player.location.equals(3440, 3335, 0)
     }
 
+    /**
+     * Retrieves the number of Ghasts killed by the player.
+     *
+     * @param player The player whose Ghast kill count is to be retrieved.
+     * @return The number of Ghasts killed by the player.
+     */
     fun getGhastKC(player: Player): Int {
         return getAttribute(player, "ns:ghasts_killed", 0)
     }
 
+    /**
+     * Increments the Ghast kill count for the player.
+     *
+     * @param player The player whose Ghast kill count is to be incremented.
+     */
     fun incrementGhastKC(player: Player) {
+        // Update the player's Ghast kill count by setting the new value.
         setAttribute(player, "/save:ns:ghasts_killed", getGhastKC(player) + 1)
         val msg = when (getGhastKC(player)) {
             1 -> "That's one down, two more to go."
@@ -52,6 +94,14 @@ object NSUtils {
         }
     }
 
+    /**
+     *
+     * Activates a pouch for a player when attacked by a Ghast NPC.
+     *
+     * @param player The player who is activating the pouch.
+     * @param attacker The NPC that is attacking the player.
+     * @return Returns true if the pouch activation was successful, otherwise false.
+     */
     fun activatePouch(player: Player, attacker: MortMyreGhastNPC): Boolean {
         var shouldAddEmptyPouch = false
         val pouchAmt = amountInInventory(player, Items.DRUID_POUCH_2958)
@@ -86,6 +136,12 @@ object NSUtils {
         removeAttribute(player, "ns:card_placed")
     }
 
+    /**
+     * Cast a bloom.
+     *
+     * @param player The player on whom the bloom effect will be cast.
+     * @return Returns true if the bloom effect was successfully cast, otherwise false.
+     */
     @JvmStatic
     fun castBloom(player: Player): Boolean {
         var success = false
@@ -122,6 +178,11 @@ object NSUtils {
         return success
     }
 
+    /**
+     * Handles the visual effects and audio for a casting bloom.
+     *
+     * @param player The player whose visuals are being handled.
+     */
     private fun handleVisuals(player: Player) {
         player.skills.decrementPrayerPoints(RandomFunction.random(1, 3).toDouble())
         playAudio(player, Sounds.CAST_BLOOM_1493)

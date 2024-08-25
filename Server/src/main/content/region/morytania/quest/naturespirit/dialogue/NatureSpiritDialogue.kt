@@ -2,7 +2,7 @@ package content.region.morytania.quest.naturespirit.dialogue
 
 import cfg.consts.Items
 import cfg.consts.NPCs
-import content.region.morytania.quest.naturespirit.util.NSUtils
+import content.region.morytania.quest.naturespirit.NSUtils
 import core.api.*
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression
