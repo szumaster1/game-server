@@ -1,4 +1,4 @@
-package content.region.fremennik.handlers.waterbirth
+package content.region.fremennik.handlers.waterbirth.npc
 
 import cfg.consts.NPCs
 import core.api.findLocalNPCs

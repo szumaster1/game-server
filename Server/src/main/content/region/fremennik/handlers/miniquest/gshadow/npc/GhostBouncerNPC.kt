@@ -1,8 +1,9 @@
-package content.region.fremennik.handlers.miniquest.generalsshadow
+package content.region.fremennik.handlers.miniquest.gshadow.npc
 
 import core.api.*
 import cfg.consts.Items
 import cfg.consts.NPCs
+import content.region.fremennik.handlers.miniquest.gshadow.GSUtils
 import core.game.node.entity.Entity
 import core.game.node.entity.impl.Projectile
 import core.game.node.entity.npc.AbstractNPC

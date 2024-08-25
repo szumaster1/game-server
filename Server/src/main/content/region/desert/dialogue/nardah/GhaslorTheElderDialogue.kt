@@ -8,7 +8,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Represents the Ghaslor the elder dialogue.
+ * Represents the Ghaslor the Elder dialogue.
  */
 @Initializable
 class GhaslorTheElderDialogue(player: Player? = null) : Dialogue(player) {

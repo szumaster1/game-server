@@ -12,7 +12,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Represents the Ali the carter dialogue.
+ * Represents the Ali the Carter dialogue.
  */
 @Initializable
 class AliTheCarterDialogue(player: Player? = null) : Dialogue(player) {

@@ -1,4 +1,4 @@
-package content.region.desert.handlers
+package content.region.desert.handlers.alkharid
 
 import core.api.*
 import cfg.consts.Items

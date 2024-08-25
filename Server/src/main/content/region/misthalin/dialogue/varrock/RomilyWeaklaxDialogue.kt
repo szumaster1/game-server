@@ -1,6 +1,7 @@
 package content.region.misthalin.dialogue.varrock
 
 import cfg.consts.Items
+import cfg.consts.NPCs
 import core.api.removeAttribute
 import core.api.setAttribute
 import core.game.dialogue.Dialogue
@@ -16,7 +17,7 @@ import core.plugin.Plugin
 import core.tools.RandomFunction
 
 /**
- * Represents the Romily weaklax dialogue.
+ * Represents the Romily Weaklax dialogue.
  */
 @Initializable
 class RomilyWeaklaxDialogue(player: Player? = null) : Dialogue(player) {
@@ -195,7 +196,7 @@ class RomilyWeaklaxDialogue(player: Player? = null) : Dialogue(player) {
     }
 
     override fun getIds(): IntArray {
-        return intArrayOf(3205)
+        return intArrayOf(NPCs.ROMILY_WEAKLAX_3205)
     }
 
     private enum class PieReward(var id: Int, var reward: Int) {

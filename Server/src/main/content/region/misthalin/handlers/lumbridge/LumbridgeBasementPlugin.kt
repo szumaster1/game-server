@@ -1,5 +1,7 @@
 package content.region.misthalin.handlers.lumbridge
 
+import cfg.consts.Animations
+import cfg.consts.NPCs
 import core.api.hasRequirement
 import core.cache.def.impl.SceneryDefinition
 import core.game.interaction.NodeUsageEvent
@@ -72,8 +74,7 @@ class LumbridgeBasementPlugin : OptionHandler() {
                     }
                 }
                 player.sendMessage("You squeeze through the hole.")
-                ForceMovement.run(player, player.location, to, ANIMATION, ANIMATION, dir, 20).endAnimation =
-                    Animation.RESET
+                ForceMovement.run(player, player.location, to, ANIMATION, ANIMATION, dir, 20).endAnimation = Animation.RESET
                 return true
             }
 
@@ -212,12 +213,12 @@ class LumbridgeBasementPlugin : OptionHandler() {
         }
 
         override fun getIds(): IntArray {
-            return intArrayOf(2021)
+            return intArrayOf(NPCs.LIGHT_CREATURE_2021)
         }
     }
 
     companion object {
-        private val ANIMATION = Animation(2240)
-        private val JUMP_ANIMATION = Animation(741)
+        private val ANIMATION = Animation(Animations.DUCK_UNDER_OBSTACLE_2240)
+        private val JUMP_ANIMATION = Animation(Animations.HUMAN_JUMP_SHORT_GAP_741)
     }
 }

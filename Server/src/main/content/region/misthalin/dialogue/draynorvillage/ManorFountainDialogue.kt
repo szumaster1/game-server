@@ -1,5 +1,6 @@
 package content.region.misthalin.dialogue.draynorvillage
 
+import cfg.consts.Items
 import core.api.setAttribute
 import core.game.dialogue.Dialogue
 import core.game.node.entity.combat.ImpactHandler.HitsplatType
@@ -60,6 +61,6 @@ class ManorFountainDialogue(player: Player? = null) : Dialogue(player) {
 
     companion object {
         const val DIALOGUE_ID = 3954922
-        private val PRESSURE_GAUGE = Item(271)
+        private val PRESSURE_GAUGE = Item(Items.PRESSURE_GAUGE_271)
     }
 }

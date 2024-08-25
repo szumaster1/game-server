@@ -8,7 +8,7 @@ import core.game.node.entity.npc.NPCBehavior
 import core.game.world.map.Location
 import core.game.world.update.flag.context.Animation
 
-val movementPath = arrayOf(
+private val movementPath = arrayOf(
     Location.create(3316, 3506, 0),
     Location.create(3317, 3513, 0)
 )

@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Represents the Awusah the mayor dialogue.
+ * Represents the Awusah the Mayor dialogue.
  */
 @Initializable
 class AwusahTheMayorDialogue(player: Player? = null) : Dialogue(player) {

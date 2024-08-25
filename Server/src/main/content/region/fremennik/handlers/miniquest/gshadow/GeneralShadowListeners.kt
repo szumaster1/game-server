@@ -1,7 +1,8 @@
-package content.region.fremennik.handlers.miniquest.generalsshadow
+package content.region.fremennik.handlers.miniquest.gshadow
 
 import core.api.*
 import cfg.consts.Scenery
+import content.region.fremennik.handlers.miniquest.gshadow.cutscene.CavernCutscene
 import core.game.dialogue.DialogueFile
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
@@ -10,7 +11,7 @@ import core.game.world.map.Location
 /**
  * Represents the General Shadow listeners.
  */
-class GeneralsShadowListeners : InteractionListener {
+class GeneralShadowListeners : InteractionListener {
 
     companion object {
         private const val CAVERN_ENTRANCE = Scenery.CRACK_21800
@@ -23,7 +24,7 @@ class GeneralsShadowListeners : InteractionListener {
                 openDialogue(player, object : DialogueFile() {
                     override fun handle(componentID: Int, buttonID: Int) {
                         when (stage) {
-                            0 -> player.dialogueInterpreter.sendDialogue("You have a bad feeling about crawling into the next cavern.").also { stage++ }
+                            0 -> sendDialogue(player, "You have a bad feeling about crawling into the next cavern.").also { stage++ }
                             1 -> {
                                 setTitle(player, 2)
                                 sendDialogueOptions(player, "Do you want to enter the cavern?", "Yes", "No")

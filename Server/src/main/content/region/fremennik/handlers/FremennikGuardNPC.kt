@@ -8,16 +8,16 @@ import core.game.world.map.Location
 import core.plugin.Initializable
 
 /**
- * Represents the Fremennik guards NPC.
+ * Represents the Fremennik guard NPC.
  */
 @Initializable
-class FremennikGuardsNPC : AbstractNPC {
+class FremennikGuardNPC : AbstractNPC {
 
     constructor() : super(NPCs.GUARD_5489, null, true)
     private constructor(id: Int, location: Location) : super(id, location)
 
     override fun construct(id: Int, location: Location, vararg objects: Any?): AbstractNPC {
-        return FremennikGuardsNPC(id, location)
+        return FremennikGuardNPC(id, location)
     }
 
     override fun getIds(): IntArray {

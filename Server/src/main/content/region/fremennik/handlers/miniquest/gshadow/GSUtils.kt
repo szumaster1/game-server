@@ -1,4 +1,4 @@
-package content.region.fremennik.handlers.miniquest.generalsshadow
+package content.region.fremennik.handlers.miniquest.gshadow
 
 /**
  * Represents the General's shadow mini-quest utils.

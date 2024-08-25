@@ -10,9 +10,9 @@ import cfg.consts.Items
 import core.game.dialogue.DialogueFile
 
 /**
- * Represents the Archaeologistcal Expert dialogue file.
+ * Represents the Archaeological Expert dialogue file.
  */
-class ArchaeologistcalExpertUsedOnDialogueFile(val it: Int) : DialogueFile() {
+class ArchaeologicalExpertDialogue(val it: Int) : DialogueFile() {
 
     var i = ArchaeologicalExpertListener()
     var n = NPC(i.archy)

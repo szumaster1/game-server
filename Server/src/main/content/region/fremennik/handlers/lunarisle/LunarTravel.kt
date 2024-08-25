@@ -19,12 +19,12 @@ object LunarTravel {
      */
     @JvmStatic
     fun sail(player: Player, destination: Destinaton) {
-        lock(player, destination.ladyZayAnim)
-        lockInteractions(player, destination.ladyZayAnim)
+        lock(player, destination.animation)
+        lockInteractions(player, destination.animation)
         openInterface(player, Components.LUNAR_COVE_BOAT_MAP_431)
-        animateInterface(player, Components.LUNAR_COVE_BOAT_MAP_431, 1, destination.ladyZayAnim)
-        teleport(player, destination.destLoc)
-        val animDuration = animationDuration(getAnimation(destination.ladyZayAnim))
+        animateInterface(player, Components.LUNAR_COVE_BOAT_MAP_431, 1, destination.animation)
+        teleport(player, destination.destination)
+        val animDuration = animationDuration(getAnimation(destination.animation))
         submitWorldPulse(object : Pulse(animDuration) {
             override fun pulse(): Boolean {
                 closeInterface(player)
@@ -41,11 +41,11 @@ object LunarTravel {
  * Represents the Enum class representing reaching a destination.
  *
  * @param destName    The name of the destination.
- * @param destLoc     The location of the destination.
- * @param ladyZayAnim The animation for Lady Zay.
+ * @param destination The location of the destination.
+ * @param animation   The animation for Lady Zay.
  * @constructor Creates an instance of ReachDestination.
  */
-enum class Destinaton(val destName: String, val destLoc: Location, val ladyZayAnim: Int) {
+enum class Destinaton(val destName: String, val destination: Location, val animation: Int) {
     /**
      * Pirates Cove To Moonclan Island.
      */

@@ -1,4 +1,4 @@
-package content.region.misthalin.handlers.huntforsurok
+package content.region.misthalin.handlers.miniquest.huntforsurok
 
 import cfg.consts.NPCs
 import core.game.dialogue.Dialogue

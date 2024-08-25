@@ -45,8 +45,7 @@ class ArcheryTargetPulse(private val player: Player, private val node: Scenery) 
                 cumulativeStr += 1.0
             }
             cumulativeStr *= 1.0
-            val hit =
-                (14.0 + cumulativeStr + (bonus.toDouble() / 8) + ((cumulativeStr * bonus) * 0.016865)).toInt() / 10 + 1
+            val hit = (14.0 + cumulativeStr + (bonus.toDouble() / 8) + ((cumulativeStr * bonus) * 0.016865)).toInt() / 10 + 1
             player.getSkills().addExperience(Skills.RANGE, ((hit * 1.33) / 10))
             return !player.equipment.contains(9706, 1) || !player.equipment.contains(9705, 1)
         } else {

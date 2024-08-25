@@ -39,26 +39,38 @@ class RellekkaListeners : InteractionListener {
 
     override fun defineListeners() {
 
-        // Handles the action of climbing down the ladder.
+        /*
+         * Handles the action of climbing down the ladder.
+         */
+
         on(LADDER, IntType.SCENERY, "climb-down") { player, _ ->
             teleport(player, Location.create(2509, 10245, 0), TeleportManager.TeleportType.INSTANT)
             return@on true
         }
 
-        // Handles the action of entering the tunnel.
+        /*
+         * Handles the action of entering the tunnel.
+         */
+
         on(TUNNEL, IntType.SCENERY, "enter") { player, _ ->
             teleport(player, Location.create(2773, 10162, 0), TeleportManager.TeleportType.INSTANT)
             return@on true
         }
 
-        // Handles the action of climbing over the rockslide.
+        /*
+         * Handles the action of climbing over the rockslide.
+         */
+
         on(ROCKSLIDE, IntType.SCENERY, "climb-over") { player, _ ->
             lock(player, 1)
             AgilityHandler.forceWalk(player, -1, player.location, player.location.transform(0, if (player.location.y <= 3657) 3 else -3, 0), Animation.create(839), 20, 1.0, null, 0)
             return@on true
         }
 
-        // Handles the action of ascending or descending the stairs.
+        /*
+         * Handles the action of ascending or descending the stairs.
+         */
+
         on(STAIRS, IntType.SCENERY, "ascend", "descend") { player, _ ->
             if (player.location.y < 3802) {
                 player.properties.teleportLocation = when (player.location.x) {
@@ -80,40 +92,58 @@ class RellekkaListeners : InteractionListener {
             return@on true
         }
 
-        // Handles the action of taking the ferry to Neitiznot.
+        /*
+         * Handles the action of taking the ferry to Neitiznot.
+         */
+
         on(NPCs.MARIA_GUNNARS_5508, IntType.NPC, "ferry-neitiznot") { player, _ ->
             if (!requireQuest(player, "Fremennik Trials", "")) return@on true
             WaterbirthTravel.sail(player, TravelDestination.RELLEKKA_TO_NEITIZNOT)
             return@on true
         }
 
-        // Handles the action of taking the ferry to Rellekka.
+        /*
+         * Handles the action of taking the ferry to Rellekka.
+         */
+
         on(NPCs.MARIA_GUNNARS_5507, IntType.NPC, "ferry-rellekka") { player, _ ->
             WaterbirthTravel.sail(player, TravelDestination.NEITIZNOT_TO_RELLEKKA)
             return@on true
         }
 
-        // Handles the action of taking the ferry to Jatizso.
+        /*
+         * Handles the action of taking the ferry to Jatizso.
+         */
+
         on(NPCs.MORD_GUNNARS_5481, IntType.NPC, "ferry-jatizso") { player, _ ->
             if (!requireQuest(player, "Fremennik Trials", "")) return@on true
             WaterbirthTravel.sail(player, TravelDestination.RELLEKKA_TO_JATIZSO)
             return@on true
         }
 
-        // Handles the action of taking the ferry to Rellekka.
+        /*
+         * Handles the action of taking the ferry to Rellekka.
+         */
+
         on(NPCs.MORD_GUNNARS_5482, IntType.NPC, "ferry-rellekka") { player, _ ->
             WaterbirthTravel.sail(player, TravelDestination.JATIZSO_TO_RELLEKKA)
             return@on true
         }
 
-        // Handles the action of traveling to Miscellania.
+        /*
+         * Handles the action of traveling to Miscellania.
+         */
+
         on(NPCs.SAILOR_1385, IntType.NPC, "travel") { player, _ ->
             if (!requireQuest(player, "Fremennik Trials", "")) return@on true
             WaterbirthTravel.sail(player, TravelDestination.RELLEKA_TO_MISCELLANIA)
             return@on true
         }
 
-        // Handles the action of traveling to Rellekka.
+        /*
+         * Handles the action of traveling to Rellekka.
+         */
+
         on(NPCs.SAILOR_1304, IntType.NPC, "travel") { player, _ ->
             if (!requireQuest(player, "Fremennik Trials", "")) return@on true
             WaterbirthTravel.sail(player, TravelDestination.MISCELLANIA_TO_RELLEKKA)

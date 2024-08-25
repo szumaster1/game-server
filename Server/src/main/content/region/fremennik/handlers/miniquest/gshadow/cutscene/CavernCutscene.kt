@@ -1,7 +1,8 @@
-package content.region.fremennik.handlers.miniquest.generalsshadow
+package content.region.fremennik.handlers.miniquest.gshadow.cutscene
 
-import content.region.fremennik.handlers.miniquest.generalsshadow.GhostBouncerNPC.Companion.spawnGhostBouncer
+import content.region.fremennik.handlers.miniquest.gshadow.npc.GhostBouncerNPC.Companion.spawnGhostBouncer
 import cfg.consts.NPCs
+import content.region.fremennik.handlers.miniquest.gshadow.GSUtils
 import core.api.location
 import core.api.removeAttribute
 import core.api.unlock

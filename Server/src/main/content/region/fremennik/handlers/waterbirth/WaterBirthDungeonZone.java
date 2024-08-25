@@ -1,6 +1,9 @@
 package content.region.fremennik.handlers.waterbirth;
 
 import cfg.consts.Items;
+import cfg.consts.NPCs;
+import content.region.fremennik.handlers.waterbirth.npc.DagannothKingNPC;
+import content.region.fremennik.handlers.waterbirth.npc.SpinolypNPC;
 import core.cache.def.impl.NPCDefinition;
 import core.cache.def.impl.SceneryDefinition;
 import core.game.dialogue.DialogueAction;
@@ -412,7 +415,7 @@ public final class WaterBirthDungeonZone extends MapZone implements Plugin<Objec
 
         @Override
         public int[] getIds() {
-            return new int[]{2440, 2443, 2446};
+            return new int[]{NPCs.DOOR_SUPPORT_2440, NPCs.DOOR_SUPPORT_2443, NPCs.DOOR_SUPPORT_2446};
         }
 
     }

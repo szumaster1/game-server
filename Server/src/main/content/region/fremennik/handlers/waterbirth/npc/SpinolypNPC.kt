@@ -1,4 +1,4 @@
-package content.region.fremennik.handlers.waterbirth
+package content.region.fremennik.handlers.waterbirth.npc
 
 import core.api.applyPoison
 import core.game.node.entity.Entity

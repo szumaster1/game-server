@@ -27,10 +27,7 @@ class LeelaDialogue(player: Player? = null) : Dialogue(player) {
                 0
             }
 
-            50, 40 -> if (!player.inventory.containsItem(BRONZE_KEY) && !player.bank.containsItem(
-                    BRONZE_KEY
-                )
-            ) {
+            50, 40 -> if (!player.inventory.containsItem(BRONZE_KEY) && !player.bank.containsItem(BRONZE_KEY)) {
                 player("I'm afraid I lost that key you gave me.")
                 0
             } else {

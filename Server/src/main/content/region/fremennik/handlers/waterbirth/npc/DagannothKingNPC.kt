@@ -1,4 +1,4 @@
-package content.region.fremennik.handlers.waterbirth
+package content.region.fremennik.handlers.waterbirth.npc
 
 import content.data.BossKillCounter.Companion.addtoKillcount
 import cfg.consts.NPCs
