@@ -13,7 +13,7 @@ import core.game.world.map.zone.ZoneBorders
 /**
  * Seers courthouse map area.
  */
-class SeersCourthouseMapArea : MapArea {
+class SeersVillageCourtHouseMapArea : MapArea {
 
     override fun defineAreaBorders(): Array<ZoneBorders> {
         return arrayOf(ZoneBorders(2735, 3471, 2736, 3471))

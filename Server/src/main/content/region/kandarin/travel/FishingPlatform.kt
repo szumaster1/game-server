@@ -1,4 +1,4 @@
-package content.region.kandarin.handlers
+package content.region.kandarin.travel
 
 import core.api.*
 import cfg.consts.Components

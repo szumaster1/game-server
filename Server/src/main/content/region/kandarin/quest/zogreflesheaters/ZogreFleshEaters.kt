@@ -37,10 +37,10 @@ class ZogreFleshEaters : Quest("Zogre Flesh Eaters", 40, 39, 1, Vars.VARBIT_QUES
         }
 
         if (getVarbit(player, Vars.VARBIT_QUEST_ZORGE_FLESH_EATERS_PROGRESS) >= 1) {
-            line(player, "I talked to !!Grish?? in the !!Jiggig?? area which is swarming with", line++, getVarbit(player, Vars.VARBIT_QUEST_ZOGRE_COFFIN_TRANSFORM) == 3)
-            line(player, "Zombie Ogres (Zogres) These disgusting creatures carry", line++, getVarbit(player, Vars.VARBIT_QUEST_ZOGRE_COFFIN_TRANSFORM) == 3)
-            line(player, "disease and are quite dangerous so the Ogres weren't", line++, getVarbit(player, Vars.VARBIT_QUEST_ZOGRE_COFFIN_TRANSFORM) == 3)
-            line(player, "too keen to try and sort them out", line++, getVarbit(player, Vars.VARBIT_QUEST_ZOGRE_COFFIN_TRANSFORM) == 3)
+            line(player, "I talked to !!Grish?? in the !!Jiggig?? area which is swarming with", line++, getVarbit(player, Vars.VARBIT_QUEST_ZOGRE_COFFIN_TRANSFORM) >= 3)
+            line(player, "Zombie Ogres (Zogres) These disgusting creatures carry", line++, getVarbit(player, Vars.VARBIT_QUEST_ZOGRE_COFFIN_TRANSFORM) >= 3)
+            line(player, "disease and are quite dangerous so the Ogres weren't", line++, getVarbit(player, Vars.VARBIT_QUEST_ZOGRE_COFFIN_TRANSFORM) >= 3)
+            line(player, "too keen to try and sort them out", line++, getVarbit(player, Vars.VARBIT_QUEST_ZOGRE_COFFIN_TRANSFORM) >= 3)
             line++
         }
 

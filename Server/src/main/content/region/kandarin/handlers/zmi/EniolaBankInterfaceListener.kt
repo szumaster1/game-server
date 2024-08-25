@@ -1,4 +1,4 @@
-package content.global.handlers.iface.bank
+package content.region.kandarin.handlers.zmi
 
 import core.api.*
 import cfg.consts.Components
@@ -14,7 +14,7 @@ import core.game.node.item.Item
  * Handles bank charge interface for Eniola NPC at ZMI altar.
  * @author vddCore
  */
-class BankChargeInterfaceListener : InterfaceListener {
+class EniolaBankInterfaceListener : InterfaceListener {
     companion object {
         private const val BUTTON_AIR_RUNE = 28
         private const val BUTTON_MIND_RUNE = 29

@@ -4,6 +4,7 @@ import core.api.*
 import cfg.consts.Animations
 import cfg.consts.Items
 import cfg.consts.NPCs
+import content.region.kandarin.travel.RowingBoat
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.item.Item
