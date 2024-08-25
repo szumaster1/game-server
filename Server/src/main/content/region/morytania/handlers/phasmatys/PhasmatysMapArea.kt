@@ -21,11 +21,11 @@ class PhasmatysMapArea : MapArea {
             val player = entity.asPlayer()
             if (!inBorders(player, 3673, 9955, 3685, 9964) || !inBorders(player, 3650, 3456, 3689, 3508)) {
                 if (inEquipment(player, Items.BEDSHEET_4285)) {
-                    runTask(player, 1) {
+                    registerLogoutListener(player, "bedsheet-uniform") { p ->
                         EquipHandler.unequip(player, 0, itemId = Items.BEDSHEET_4285)
+                        player.logoutListeners.remove("bedsheet-uniform")
                         player.appearance.transformNPC(-1)
                         player.appearance.sync()
-                        return@runTask
                     }
                 }
             }

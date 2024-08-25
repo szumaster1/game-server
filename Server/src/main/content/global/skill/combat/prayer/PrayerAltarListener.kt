@@ -1,5 +1,6 @@
 package content.global.skill.combat.prayer
 
+import cfg.consts.Animations
 import core.api.*
 import cfg.consts.Scenery
 import cfg.consts.Sounds
@@ -19,6 +20,11 @@ import core.game.world.map.Location
 class PrayerAltarListener : InteractionListener {
 
     override fun defineListeners() {
+
+        /*
+         * Handles the praying at an altar.
+         */
+
         on(ALTAR, IntType.SCENERY, "pray", "pray-at") { player, node ->
             if (node.id == Scenery.TRIBAL_STATUE_3863 && !hasRequirement(player, "Tai Bwo Wannai Trio")) {
                 return@on true
@@ -46,10 +52,10 @@ class PrayerAltarListener : InteractionListener {
     }
 
     /**
-     * Pray
+     * Prays at the altar.
      *
-     * @param player The player who is performing the prayer action.
-     * @param node The node representing the location or context of the prayer.
+     * @param player player the player.
+     * @param node node the node.
      * @return Returns true if the prayer action was successful, false otherwise.
      */
     private fun pray(player: Player, node: Node): Boolean {
@@ -61,7 +67,7 @@ class PrayerAltarListener : InteractionListener {
         }
 
         lock(player, 3)
-        animate(player, 645)
+        animate(player, Animations.HUMAN_PRAY_645)
         playAudio(player, Sounds.PRAYER_RECHARGE_2674)
         setTempLevel(player, Skills.PRAYER, prayerLevel)
         sendMessage(player, "You recharge your prayer points.")

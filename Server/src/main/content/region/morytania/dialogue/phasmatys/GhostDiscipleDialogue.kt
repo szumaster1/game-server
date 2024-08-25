@@ -4,6 +4,8 @@ import cfg.consts.Items
 import cfg.consts.NPCs
 import core.api.addItemOrDrop
 import core.api.freeSlots
+import core.api.inEquipment
+import core.api.sendDialogue
 import core.game.dialogue.Dialogue
 import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
@@ -11,7 +13,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Represents the Ghost disciple dialogue.
+ * Represents the Ghost Disciple dialogue.
  */
 @Initializable
 class GhostDiscipleDialogue(player: Player? = null) : Dialogue(player) {
@@ -23,13 +25,17 @@ class GhostDiscipleDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
+        if(!inEquipment(player, Items.GHOSTSPEAK_AMULET_552)){
+            npc("Woooo wooo wooooo woooo")
+            stage = 82
+        }
         if (args.size > 1) {
             val amount = player.getSavedData().globalData.getEctoCharges() * 5
-            if (freeSlots(player) < 1) {
-                player("Sorry, I don't have enough inventory space.")
-                return true
-            }
             if (amount > 0) {
+                if(freeSlots(player) == 0){
+                    npc("I have $amount ectotokens waiting for you mortal, but", "you do not have room in your inventory for them.")
+                    return false
+                }
                 addItemOrDrop(player, Items.ECTO_TOKEN_4278, amount)
                 player.getSavedData().globalData.setEctoCharges(0)
                 npc("Certainly, mortal. Here's $amount ectotokens.")
@@ -81,18 +87,19 @@ class GhostDiscipleDialogue(player: Player? = null) : Dialogue(player) {
             70 -> player("Err, I was just curious...").also { stage++ }
             71 -> npc("Inside that room is a coffin, inside which lie the mortal", "remains of our most glorious master. Necrovarus.", "None may enter.").also { stage = END_DIALOGUE }
             80 -> {
-                val amount = player.getSavedData().globalData.getEctoCharges() * 5;
-                if (freeSlots(player) < 1) {
-                    player("Sorry, I don't have enough inventory space.").also { stage++ }
-                    stage++
+                val amount = player.getSavedData().globalData.getEctoCharges() * 5
+                if(freeSlots(player) == 0){
+                    npc("I have $amount ectotokens waiting for you mortal, but", "you do not have room in your inventory for them.")
+                    return false
                 }
                 stage++
                 addItemOrDrop(player, Items.ECTO_TOKEN_4278, amount)
                 player.getSavedData().globalData.setEctoCharges(0);
                 npc("Certainly, mortal. Here's $amount ectotokens.")
             }
-
             81 -> end()
+            82 -> sendDialogue(player, "You cannot understand the ghost.").also { stage = END_DIALOGUE }
+
         }
         return true
     }

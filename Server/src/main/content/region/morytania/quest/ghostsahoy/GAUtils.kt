@@ -68,6 +68,7 @@ object GAUtils {
     }
 
     fun travelToDragontoothIsland(player: Player) {
+        lock(player, 6)
         queueScript(player, 1, QueueStrength.SOFT) { qstage: Int ->
             when (qstage) {
                 0 -> {
@@ -87,6 +88,7 @@ object GAUtils {
     }
 
     fun travelToPortPhasmatys(player: Player) {
+        lock(player, 6)
         queueScript(player, 1, QueueStrength.SOFT) { qstage: Int ->
             when (qstage) {
                 0 -> {

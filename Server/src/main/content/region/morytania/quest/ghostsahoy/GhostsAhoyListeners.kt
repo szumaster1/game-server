@@ -1,10 +1,10 @@
 package content.region.morytania.quest.ghostsahoy
 
+import cfg.consts.*
 import content.region.morytania.quest.ghostsahoy.GAUtils.jumpRockPath
 import content.region.morytania.quest.ghostsahoy.GiantLobsterNPC.Companion.spawnGiantLobster
 import content.region.morytania.quest.ghostsahoy.dialogue.RobinDialogueFile
 import core.api.*
-import cfg.consts.*
 import core.game.dialogue.DialogueFile
 import core.game.global.action.DoorActionHandler
 import core.game.interaction.IntType
@@ -380,12 +380,18 @@ class GhostsAhoyListeners : InteractionListener, InterfaceListener {
     override fun defineInterfaceListeners() {
 
         onOpen(Components.AHOY_BLACKOUT_7) { player, _ ->
+            setMinimapState(player, 2)
             if (!inBorders(player, 3788, 3556, 3797, 3562)) {
                 setInterfaceText(player, "After a long boat trip you arrive at Dragontooth Island...", Components.AHOY_BLACKOUT_7, 1)
             } else {
                 setInterfaceText(player, "After a long boat trip you return to Port Phasmatys...", Components.AHOY_BLACKOUT_7, 1)
             }
             return@onOpen true
+        }
+
+        onClose(Components.AHOY_BLACKOUT_7) { player, _ ->
+            setMinimapState(player, 0)
+            return@onClose true
         }
 
         /*

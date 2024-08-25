@@ -1,13 +1,14 @@
 package content.region.morytania.quest.ghostsahoy.dialogue
 
-import content.region.morytania.quest.ghostsahoy.GAUtils
-import core.api.*
 import cfg.consts.Items
 import cfg.consts.NPCs
+import content.region.morytania.quest.ghostsahoy.GAUtils
+import core.api.*
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
+import core.game.node.item.Item
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
@@ -20,7 +21,7 @@ class GhostCaptainDialogue(player: Player? = null) : Dialogue(player) {
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
         when {
-            !inEquipment(player, Items.GHOSTSPEAK_AMULET_552) -> npc(FacialExpression.FRIENDLY, "Woooo wooo wooooo woooo").also { stage = 0 }
+            !inEquipment(player, Items.GHOSTSPEAK_AMULET_552) -> npc(FacialExpression.FRIENDLY, "Woooo wooo wooooo woooo")
             inBorders(player, 3788, 3556, 3797, 3562) -> options("Can you take me back to Phasmatys, now?", "There isn't much on this island, is there?").also { stage = 7 }
             else -> player("Where do you sail to, in such a small boat?").also { stage = 1 }
         }
@@ -30,7 +31,7 @@ class GhostCaptainDialogue(player: Player? = null) : Dialogue(player) {
     override fun handle(interfaceId: Int, buttonId: Int): Boolean {
         when (stage) {
             0 -> if (inBorders(player, 3788, 3556, 3797, 3562)) {
-                npc("Woooo wooooo woooo").also { stage = 12 }
+                sendDialogue(player, "The ghost sailor wails at you incomprehensibly, and points at the boat, nodding his ghostly head.").also { stage = END_DIALOGUE }
             } else {
                 sendDialogue(player, "You cannot understand the ghost.").also { stage = END_DIALOGUE }
             }
@@ -49,11 +50,16 @@ class GhostCaptainDialogue(player: Player? = null) : Dialogue(player) {
                 2 -> player("No thanks, not at the moment.").also { stage = END_DIALOGUE }
             }
 
-            // Travel to Dragontooth Island.
+            /*
+             * Travel to Dragontooth Island.
+             */
             6 -> {
                 end()
-                lock(player, 3)
-                GAUtils.travelToDragontoothIsland(player)
+                if (!removeItem(player, Item(Items.ECTO_TOKEN_4278, 25), Container.INVENTORY)) {
+                    player.debug("An attempt to remove an item failed. This should not happen.")
+                } else {
+                    GAUtils.travelToDragontoothIsland(player)
+                }
             }
 
             7 -> when (buttonId) {
@@ -63,16 +69,16 @@ class GhostCaptainDialogue(player: Player? = null) : Dialogue(player) {
 
             8 -> npc("Yes, climb in.").also { stage++ }
 
-            // Return to Port Phasmatys.
+            /*
+             * Return to Port Phasmatys.
+             */
             9 -> {
                 end()
-                lock(player, 3)
                 GAUtils.travelToPortPhasmatys(player)
             }
 
             10 -> npc("Beautiful, isn't it?").also { stage++ }
             11 -> player("If you say so.").also { stage = END_DIALOGUE }
-            12 -> sendDialogue(player, "The ghost sailor wails at you incomprehensibly, and points at the boat, nodding his ghostly head.").also { stage = END_DIALOGUE }
         }
         return true
     }

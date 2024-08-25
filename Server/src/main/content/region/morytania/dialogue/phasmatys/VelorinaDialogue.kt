@@ -24,6 +24,10 @@ class VelorinaDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
+        if(!inEquipment(player, Items.GHOSTSPEAK_AMULET_552)){
+            npc("Woooo wooo wooooo woooo")
+            stage = 4
+        }
         when {
             isQuestComplete(player, "Ghosts Ahoy") -> options("I thought you were going to pass over to the next world.", "Can I have another Ectophial?")
             !isQuestComplete(player, "Ghosts Ahoy") -> openDialogue(player, VelorinaDialogueFile())
@@ -52,6 +56,7 @@ class VelorinaDialogue(player: Player? = null) : Dialogue(player) {
                 sendItemDialogue(player, Items.ECTOPHIAL_4251, "Velorina gives you a vial of bright green ectoplasm.")
                 addItemOrDrop(player, Items.ECTOPHIAL_4251)
             }
+            4 -> sendDialogue(player, "You cannot understand the ghost.").also { stage = END_DIALOGUE }
         }
         return true
     }
