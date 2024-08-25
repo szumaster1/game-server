@@ -27,7 +27,7 @@ class GhostGuardDialogue(player: Player? = null) : Dialogue(player) {
         if (isQuestComplete(player, "Ghosts Ahoy") && inEquipment(player, Items.GHOSTSPEAK_AMULET_552) && inEquipment(player, Items.BEDSHEET_4285)) {
             sendDialogue(player, "You can't pass the barriers of Port Phasmatys while wearing the bedsheet.")
         } else if (isQuestComplete(player, "Ghosts Ahoy") && inEquipment(player, Items.GHOSTSPEAK_AMULET_552) && !inEquipment(player, Items.BEDSHEET_4285)) {
-            findLocalNPC(player, 1706)?.let { face(player, it, 1) }
+            findLocalNPC(player, NPCs.GHOST_GUARD_1706)?.let { face(player, it, 1) }
             npcl(FacialExpression.FRIENDLY, "All visitors to Port Phasmatys must pay a toll charge of 2 Ectotokens. However, you have done the ghosts of our town a service that surpasses all value, so you may pass without charge.")
             stage = 3
         } else if (!inEquipment(player, Items.GHOSTSPEAK_AMULET_552)) {

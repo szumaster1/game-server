@@ -44,7 +44,7 @@ class GhostVillagerDialogueFile : DialogueFile() {
 
             11 -> {
                 end()
-                openDialogue(player!!, PaidVillagerDialogue())
+                openDialogue(player!!, PaidVillagerDialogueFile())
             }
         }
     }

@@ -16,8 +16,7 @@ class GravingasDialogue : DialogueFile() {
     override fun handle(componentID: Int, buttonID: Int) {
         val score = 0
         val questStage = getQuestStage(player!!, "Ghosts Ahoy")
-        npc = NPC(NPCs.NECROVARUS_1684)
-
+        npc = NPC(NPCs.GRAVINGAS_1685)
         when (questStage) {
             1 -> when (stage) {
                 0 -> npc("Will you join with me and protect against the evil ban", "of Nercrovarus and his disciples?").also { stage++ }

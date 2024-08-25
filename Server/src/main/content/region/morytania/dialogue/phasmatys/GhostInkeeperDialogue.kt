@@ -69,9 +69,8 @@ class GhostInkeeperDialogue(player: Player? = null) : Dialogue(player) {
                 2 -> player("No, I didn't mean a job like that.").also { stage = END_DIALOGUE }
             }
             50 -> {
-                end()
                 if (!inInventory(player, Items.BEDSHEET_4284)) {
-                    npc("Oh, thank you. Be careful with that Robin,", "though - he's far too full of himself, that one.")
+                    npc("Oh, thank you. Be careful with that Robin,", "though - he's far too full of himself, that one.").also { stage = END_DIALOGUE }
                     addItemOrDrop(player, Items.BEDSHEET_4284)
                 } else {
                     npc("Well, you could take that bedsheet through to", "Robin like I asked.").also { stage = END_DIALOGUE }

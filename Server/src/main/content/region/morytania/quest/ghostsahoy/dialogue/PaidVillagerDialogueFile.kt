@@ -11,9 +11,9 @@ import core.game.node.item.Item
 import core.tools.END_DIALOGUE
 
 /**
- * Represents the Paid Villager dialogue.
+ * Represents the Paid Villager dialogue file.
  */
-class PaidVillagerDialogue : DialogueFile() {
+class PaidVillagerDialogueFile : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {
         val tokens = amountInInventory(player!!, Items.ECTO_TOKEN_4278)

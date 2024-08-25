@@ -15,10 +15,10 @@ import core.plugin.Initializable
 import core.tools.RandomFunction
 
 /**
- * Represents the Wind Speed interface.
+ * Represents the Ghosts Ahoy wind speed interface.
  */
 @Initializable
-class WindSpeedInterface : InterfaceListener, InteractionListener, EventHook<TickEvent>, MapArea {
+class WindSpeedInterfaceListener : InterfaceListener, InteractionListener, EventHook<TickEvent>, MapArea {
 
     override fun defineAreaBorders(): Array<ZoneBorders> {
         return arrayOf(ZoneBorders(3616, 3545, 3622, 3539, 2))

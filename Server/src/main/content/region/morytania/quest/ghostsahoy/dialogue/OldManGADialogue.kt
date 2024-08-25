@@ -17,7 +17,6 @@ class OldManGADialogue : DialogueFile() {
         val questStage = getQuestStage(player!!, "Ghosts Ahoy")
         npc = NPC(NPCs.OLD_MAN_1696)
         val hasKey = hasAnItem(player!!, Items.CHEST_KEY_2404).container != null
-
         when (questStage) {
             in 4..5 -> when (stage) {
                 0 -> if (!hasKey && questStage >= 5) {

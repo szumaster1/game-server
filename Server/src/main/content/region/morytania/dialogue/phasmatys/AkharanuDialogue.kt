@@ -1,10 +1,9 @@
 package content.region.morytania.dialogue.phasmatys
 
+import cfg.consts.Items
 import cfg.consts.NPCs
 import content.region.morytania.quest.ghostsahoy.dialogue.AkharanuDialogueFile
-import core.api.getQuestStage
-import core.api.openDialogue
-import core.api.openNpcShop
+import core.api.*
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC
@@ -25,7 +24,7 @@ class AkharanuDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
-        if (getQuestStage(player, "Ghosts Ahoy") >= 5) {
+        if (inInventory(player!!, Items.SIGNED_OAK_BOW_4236) || getQuestStage(player, "Ghosts Ahoy") >= 5) {
             end()
             openDialogue(player, AkharanuDialogueFile())
         } else {

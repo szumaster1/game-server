@@ -16,7 +16,7 @@ class RobinDialogueFile : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {
         val questStage = getQuestStage(player!!, "Ghosts Ahoy")
-        npc = NPC(NPCs.NECROVARUS_1684)
+        npc = NPC(NPCs.ROBIN_1694)
         when (questStage) {
             10 -> when (stage) {
                 0 -> if (inInventory(player!!, Items.OAK_LONGBOW_845)) {
@@ -44,7 +44,7 @@ class RobinDialogueFile : DialogueFile() {
             11 -> when (stage) {
                 0 -> {
                     if (getAttribute(player!!, GAUtils.getSignedBow, false)) {
-                        player("I've had evough of you not paying up -  you owe me", "100 gold coins. I'm going to tell the ghosts what you 're", "doing.").also { stage++ }
+                        player("I've had enough of you not paying up -  you owe me", "100 gold coins. I'm going to tell the ghosts what you 're", "doing.").also { stage++ }
                     } else {
                         end()
                         sendMessage(player!!, "Nothing interesting happens.")
