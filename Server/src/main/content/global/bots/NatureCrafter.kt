@@ -27,10 +27,10 @@ class NatureCrafter : Script() {
     var ruinsZone = ZoneBorders(2866, 3017, 2873, 3022)
 
     // You don't walk to the fae rings.
-    var faeRingDestination = Location(2412, 4435, 0)
+    var fairyRingDestination = Location(2412, 4435, 0)
 
     // you can only walk next to them. so path to the nearest point that isn't in the ring.
-    var faeRingCenter = Location(2412, 4434, 0)
+    var fairyRingCenter = Location(2412, 4434, 0)
     var karamjaRingDestination = Location(2801, 3002, 0)
     var karamjaRingCenter = Location(2801, 3003, 0)
     var natureZone = ZoneBorders(2387, 4828, 2416, 4856)
@@ -74,8 +74,8 @@ class NatureCrafter : Script() {
             }
 
             State.RUNNING_TO_TELE -> {
-                if (bot!!.location != faeRingDestination) {
-                    scriptAPI!!.walkTo(faeRingDestination)
+                if (bot!!.location != fairyRingDestination) {
+                    scriptAPI!!.walkTo(fairyRingDestination)
                 } else {
                     if (checkValid()) {
                         timer = teleWaitTime
@@ -92,7 +92,7 @@ class NatureCrafter : Script() {
             }
 
             State.RETURN_WAIT -> {
-                teleport(bot!!, faeRingCenter, TeleportManager.TeleportType.FAIRY_RING)
+                teleport(bot!!, fairyRingCenter, TeleportManager.TeleportType.FAIRY_RING)
                 state = State.BANKING
             }
 
