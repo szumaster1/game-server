@@ -89,7 +89,6 @@ class RecruitmentDrive : Quest("Recruitment Drive", 103, 102, 1, 496, 0, 1, 2) {
     override fun finish(player: Player) {
         var ln = 10
         super.finish(player)
-        player.packetDispatch.sendString("You have passed the Recruitment Drive!", 277, 4)
         player.packetDispatch.sendItemZoomOnInterface(Items.INITIATE_SALLET_5574, 230, 277, 5)
 
         drawReward(player, "1 Quest Point", ln++)
