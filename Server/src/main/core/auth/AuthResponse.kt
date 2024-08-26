@@ -1,9 +1,10 @@
-package core.api.auth
+package core.auth
 
 /**
  * Auth response.
  */
 enum class AuthResponse {
+
     UnexpectedError,
     CouldNotAd,
     Success,

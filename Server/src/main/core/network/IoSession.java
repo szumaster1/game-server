@@ -1,6 +1,6 @@
 package core.network;
 
-import core.api.auth.AuthResponse;
+import core.auth.AuthResponse;
 import core.cache.crypto.ISAACPair;
 import core.game.node.entity.player.Player;
 import core.game.node.entity.player.info.ClientInfo;

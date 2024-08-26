@@ -1,6 +1,6 @@
 package core.network.event
 
-import core.api.auth.AuthResponse
+import core.auth.AuthResponse
 import core.game.node.entity.player.info.ClientInfo
 import core.game.node.entity.player.info.PlayerDetails
 import core.game.world.GameWorld

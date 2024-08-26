@@ -1,8 +1,8 @@
 package core.auth
 
-import core.api.auth.AuthResponse
-import core.api.auth.ProductionAuthenticator
-import core.api.auth.UserAccountInfo
+import core.auth.AuthResponse
+import core.auth.ProductionAuthenticator
+import core.auth.UserAccountInfo
 import org.junit.Assert
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.BeforeAll
