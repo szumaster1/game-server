@@ -1,7 +1,7 @@
-package content.region.asgarnia.quest.recruitmentdrive
+package content.region.asgarnia.quest.rd
 
 import content.region.asgarnia.dialogue.falador.KnightNotesDialogue
-import content.region.asgarnia.quest.recruitmentdrive.dialogue.*
+import content.region.asgarnia.quest.rd.dialogue.*
 import core.api.*
 import cfg.consts.Components
 import cfg.consts.Items
@@ -94,9 +94,25 @@ class RecruitmentDriveListeners : InteractionListener, MapArea {
                 NPCs.MS_HYNN_TERPRETT_2289 -> openDialogue(player, MsHynnTerprettDialogueFile(1), NPC(npc))
             }
         }
+
+        val statueIds = intArrayOf(0, 7308, 7307, 7306, 7305, 7304, 7303, 7312, 7313, 7314, 7311, 7310, 7309)
     }
 
     override fun defineListeners() {
+
+        on(statueIds, IntType.SCENERY, "touch") { player, node ->
+            if (node.id == statueIds[getAttribute(player, "rd:statues", 0)]) {
+                if (!getAttribute(player, RecruitmentDrive.ATTRIBUTE_RD_STAGE_FAILED, false)) {
+                    setAttribute(player, RecruitmentDrive.ATTRIBUTE_RD_STAGE_PASSED, true)
+                    sendNPCDialogueLines(player, NPCs.LADY_TABLE_2283, FacialExpression.NEUTRAL, false, "Excellent work,  ${player!!.username}.", "Please step through the portal to meet your next", "challenge.")
+                }
+            } else {
+                setAttribute(player, RecruitmentDrive.ATTRIBUTE_RD_STAGE_FAILED, true)
+                openDialogue(player, LadyTableDialogueFile(2), NPC(NPCs.LADY_TABLE_2283))
+            }
+            return@on true
+        }
+
         on(Items.NITROUS_OXIDE_5581, IntType.ITEM, "open") { player, _ ->
             sendMessage(player, "You uncork the vial...")
             queueScript(player, 0, QueueStrength.SOFT) { stage: Int ->
@@ -330,7 +346,7 @@ class RecruitmentDriveListeners : InteractionListener, MapArea {
                         }
                     }
                     endWithoutFade {
-                        face(player, Location(2996, 3374))
+                        face(player, findLocalNPC(player, NPCs.SIR_TIFFY_CASHIEN_2290)!!)
                         fadeFromBlack()
                         player.interfaceManager.restoreTabs()
                     }
@@ -376,7 +392,7 @@ class RecruitmentDriveListeners : InteractionListener, MapArea {
                         }
                     }
                     endWithoutFade {
-                        face(player, Location(2996, 3374))
+                        face(player, findLocalNPC(player, NPCs.SIR_TIFFY_CASHIEN_2290)!!)
                         fadeFromBlack()
                     }
                 }

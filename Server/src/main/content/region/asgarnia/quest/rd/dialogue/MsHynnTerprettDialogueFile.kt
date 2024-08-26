@@ -1,7 +1,7 @@
-package content.region.asgarnia.quest.recruitmentdrive.dialogue
+package content.region.asgarnia.quest.rd.dialogue
 
-import content.region.asgarnia.quest.recruitmentdrive.RecruitmentDrive
-import content.region.asgarnia.quest.recruitmentdrive.RecruitmentDriveListeners
+import content.region.asgarnia.quest.rd.RecruitmentDrive
+import content.region.asgarnia.quest.rd.RecruitmentDriveListeners
 import core.api.*
 import cfg.consts.NPCs
 import core.game.dialogue.DialogueBuilder
@@ -49,7 +49,7 @@ class MsHynnTerprettDialogueFile(private val dialogueNum: Int = 0) : DialogueBui
                     setAttribute(player, RecruitmentDrive.ATTRIBUTE_RD_STAGE_PASSED, true)
                     removeAttribute(player, ATTRIBUTE_RANDOM_RIDDLE)
                 }
-            }.npc("Excellent work, @name.", "Please step through the portal to meet your next", "challenge.").end()
+            }.npc("Excellent work,  ${player!!.username}", "Please step through the portal to meet your next", "challenge.").end()
 
             branch.onValue(3).goto(passedStage)// Passed stage
             branch.onValue(2).goto(failedStage)// Failed stage
@@ -59,7 +59,7 @@ class MsHynnTerprettDialogueFile(private val dialogueNum: Int = 0) : DialogueBui
                     setAttribute(player, ATTRIBUTE_RANDOM_RIDDLE, (0..4).random())
                 }
             }
-                .npc("Greetings, @name.", "I am here to test your wits with a simple riddle.")
+                .npc("Greetings,  ${player!!.username}", "I am here to test your wits with a simple riddle.")
                 .branch { player -> getAttribute(player, ATTRIBUTE_RANDOM_RIDDLE, 0) }.let { branch ->
                     branch.onValue(0)
                         .npc(FacialExpression.THINKING, "Here is my riddle:", "I estimate there to be one million inhabitants in the world", "of @servername, creatures and people both.")

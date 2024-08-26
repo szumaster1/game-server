@@ -1,6 +1,6 @@
-package content.region.asgarnia.quest.recruitmentdrive.dialogue
+package content.region.asgarnia.quest.rd.dialogue
 
-import content.region.asgarnia.quest.recruitmentdrive.RecruitmentDriveListeners
+import content.region.asgarnia.quest.rd.RecruitmentDriveListeners
 import core.api.finishQuest
 import core.api.getQuestStage
 import core.api.setQuestStage
@@ -17,7 +17,7 @@ class SirTiffyCashienDialogueFile : DialogueBuilderFile() {
         b.onQuestStages("Recruitment Drive", 1)
 
             .playerl(FacialExpression.FRIENDLY, "Sir Amik Varze sent me to meet you here for some sort of testing...")
-            .npcl(FacialExpression.FRIENDLY, "Ah, @name! Amik told me all about you, dontchaknow! Spliffing job you you did with the old Black Knights there, absolutely first class.")
+            .npcl(FacialExpression.FRIENDLY, "Ah,  ${player!!.username}! Amik told me all about you, dontchaknow! Spliffing job you you did with the old Black Knights there, absolutely first class.")
             .playerl(FacialExpression.GUILTY, "...Thanks I think.")
             .npcl(FacialExpression.FRIENDLY, "Well, not in those exact words, but you get my point, what?")
             .npcl(FacialExpression.FRIENDLY, "A top-notch filly like yourself is just the right sort we've been looking for for our organisation.")

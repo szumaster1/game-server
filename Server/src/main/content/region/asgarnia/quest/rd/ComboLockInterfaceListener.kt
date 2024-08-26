@@ -1,6 +1,6 @@
-package content.region.asgarnia.quest.recruitmentdrive
+package content.region.asgarnia.quest.rd
 
-import content.region.asgarnia.quest.recruitmentdrive.dialogue.SirRenItchwoodDialogueFile
+import content.region.asgarnia.quest.rd.dialogue.SirRenItchwoodDialogueFile
 import core.api.*
 import cfg.consts.Components
 import cfg.consts.NPCs

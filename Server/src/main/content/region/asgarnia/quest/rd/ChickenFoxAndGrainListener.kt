@@ -1,6 +1,6 @@
-package content.region.asgarnia.quest.recruitmentdrive
+package content.region.asgarnia.quest.rd
 
-import content.region.asgarnia.quest.recruitmentdrive.dialogue.SirTinleyDialogueFile
+import content.region.asgarnia.quest.rd.dialogue.SirTinleyDialogueFile
 import core.api.*
 import cfg.consts.Items
 import cfg.consts.NPCs

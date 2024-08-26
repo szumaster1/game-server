@@ -1,4 +1,4 @@
-package content.region.asgarnia.quest.recruitmentdrive.dialogue
+package content.region.asgarnia.quest.rd.dialogue
 
 import core.api.getQuestStage
 import core.api.isQuestComplete

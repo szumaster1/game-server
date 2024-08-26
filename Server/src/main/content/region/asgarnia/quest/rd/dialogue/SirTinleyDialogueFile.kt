@@ -1,7 +1,7 @@
-package content.region.asgarnia.quest.recruitmentdrive.dialogue
+package content.region.asgarnia.quest.rd.dialogue
 
-import content.region.asgarnia.quest.recruitmentdrive.RecruitmentDrive
-import content.region.asgarnia.quest.recruitmentdrive.RecruitmentDriveListeners
+import content.region.asgarnia.quest.rd.RecruitmentDrive
+import content.region.asgarnia.quest.rd.RecruitmentDriveListeners
 import core.api.*
 import cfg.consts.NPCs
 import core.game.dialogue.DialogueBuilder
@@ -27,7 +27,7 @@ class SirTinleyDialogueFile(private val dialogueNum: Int = 0) : DialogueBuilderF
             dialogueNum == 0 && !getAttribute(player, RD_DONT_MOVE_ATTR, false) && !getAttribute(
                 player, RecruitmentDrive.ATTRIBUTE_RD_STAGE_FAILED, false
             )
-        }.npc("Ah, welcome @name.", "I have but one clue for you to pass this room's puzzle:", "'Patience'.")
+        }.npc("Ah, welcome  ${player!!.username}.", "I have but one clue for you to pass this room's puzzle:", "'Patience'.")
             .endWith { _, player ->
                 setAttribute(player, RD_DONT_MOVE_ATTR, true)
                 submitWorldPulse(object : Pulse() {
@@ -40,7 +40,7 @@ class SirTinleyDialogueFile(private val dialogueNum: Int = 0) : DialogueBuilderF
                                     setAttribute(player, RD_DONT_MOVE_ATTR, false)
                                     npc(
                                         FacialExpression.FRIENDLY,
-                                        "Excellent work, @name.",
+                                        "Excellent work, ${player.username}.",
                                         "Please step through the portal to meet your next",
                                         "challenge."
                                     )
@@ -66,7 +66,7 @@ class SirTinleyDialogueFile(private val dialogueNum: Int = 0) : DialogueBuilderF
             }
 
         b.onPredicate { _ -> dialogueNum == 1 }
-            .npc("Ah, @name, you have arrived.", "Speak to me to begin your task.")
+            .npc("Ah,  ${player!!.username}, you have arrived.", "Speak to me to begin your task.")
             .endWith { _, player ->
                 setAttribute(player, RD_DONT_MOVE_ATTR, false)
             }

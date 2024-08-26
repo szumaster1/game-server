@@ -1,7 +1,7 @@
-package content.region.asgarnia.quest.recruitmentdrive.dialogue
+package content.region.asgarnia.quest.rd.dialogue
 
-import content.region.asgarnia.quest.recruitmentdrive.RecruitmentDrive
-import content.region.asgarnia.quest.recruitmentdrive.npc.SirLeyeNPC.Companion.spawnSirLeye
+import content.region.asgarnia.quest.rd.RecruitmentDrive
+import content.region.asgarnia.quest.rd.npc.SirLeyeNPC.Companion.spawnSirLeye
 import core.api.getAttribute
 import core.api.setAttribute
 import core.game.dialogue.DialogueBuilder
@@ -21,11 +21,11 @@ class SirKuamFerentseDialogueFile(private val dialogueNum: Int = 0) : DialogueBu
     override fun create(b: DialogueBuilder) {
 
         b.onPredicate { player -> getAttribute(player, RecruitmentDrive.ATTRIBUTE_RD_STAGE_PASSED, false) }
-            .npc(FacialExpression.FRIENDLY, "Excellent work, @name!", "Please step through the portal to meet your next", "challenge.")
+            .npc(FacialExpression.FRIENDLY, "Excellent work,  ${player!!.username}!", "Please step through the portal to meet your next", "challenge.")
             .end()
 
         b.onPredicate { _ -> true }
-            .npc("Ah, @name, you're finally here.", "Your task for this room is to defeat Sir Leye.", "He has been blessed by Saradomin to be undefeatable", "by any man, so it should be quite the challenge for you.")
+            .npc("Ah,  ${player!!.username}, you're finally here.", "Your task for this room is to defeat Sir Leye.", "He has been blessed by Saradomin to be undefeatable", "by any man, so it should be quite the challenge for you.")
             .npc("If you are having problems, remember", "A true warrior uses his wits as much as his brawn.", "Fight smarter, not harder.")
             .endWith { _, player ->
 

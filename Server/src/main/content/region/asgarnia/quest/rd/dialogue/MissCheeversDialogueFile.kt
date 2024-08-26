@@ -1,6 +1,6 @@
-package content.region.asgarnia.quest.recruitmentdrive.dialogue
+package content.region.asgarnia.quest.rd.dialogue
 
-import content.region.asgarnia.quest.recruitmentdrive.MissCheeversRoomListeners
+import content.region.asgarnia.quest.rd.MissCheeversRoomListeners
 import core.api.removeAttribute
 import core.game.dialogue.DialogueBuilder
 import core.game.dialogue.DialogueBuilderFile
@@ -40,7 +40,7 @@ class MissCheeversDialogueFile(private val dialogueNum: Int = 0) : DialogueBuild
                 removeAttribute(player, it.value.attribute)
             }
         }
-            .npcl(FacialExpression.FRIENDLY, "Greetings, @name. Welcome to my challenge.")
+            .npcl(FacialExpression.FRIENDLY, "Greetings,  ${player!!.username}. Welcome to my challenge.")
             .npcl(FacialExpression.FRIENDLY, "All you need to do is leave from the opposite door to where you came in by.")
             .npcl(FacialExpression.FRIENDLY, "I will warn you that this is more complicated than it may at first appear.")
             .npcl(FacialExpression.FRIENDLY, "I should also warn you that there are limited supplies of the items in this room, so think carefully before using them, you may find yourself stuck and have to leave to start again!")
@@ -54,7 +54,7 @@ class MissCheeversDialogueFile(private val dialogueNum: Int = 0) : DialogueBuild
             4 -> npcl(FacialExpression.FRIENDLY, "If you look carefully you may find them, and they may be of some use to you.").also { stage = 5 }
             5 -> npcl(FacialExpression.FRIENDLY, "I really can't be any more help than that I'm afraid, it is more than my job's worth to have given you the help I already have.").also { stage = 6 }
             6 -> playerl(FacialExpression.FRIENDLY, "Okay, thanks a lot, you've been very helpful!").also { stage = 7 }
-            7 -> npcl(FacialExpression.FRIENDLY, "Best of luck with the test @name. I hope your application is successful.").also { stage = 8 }
+            7 -> npcl(FacialExpression.FRIENDLY, "Best of luck with the test  ${player!!.username}. I hope your application is successful.").also { stage = 8 }
         */
     }
 }

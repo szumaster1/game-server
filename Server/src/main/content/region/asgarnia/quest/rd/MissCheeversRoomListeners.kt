@@ -1,4 +1,4 @@
-package content.region.asgarnia.quest.recruitmentdrive
+package content.region.asgarnia.quest.rd
 
 import core.api.*
 import cfg.consts.Animations

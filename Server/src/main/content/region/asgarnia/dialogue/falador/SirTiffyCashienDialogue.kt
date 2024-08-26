@@ -1,7 +1,7 @@
 package content.region.asgarnia.dialogue.falador
 
-import content.region.asgarnia.quest.recruitmentdrive.RecruitmentDrive
-import content.region.asgarnia.quest.recruitmentdrive.dialogue.SirTiffyCashienDialogueFile
+import content.region.asgarnia.quest.rd.RecruitmentDrive
+import content.region.asgarnia.quest.rd.dialogue.SirTiffyCashienDialogueFile
 import core.ServerConstants
 import core.api.*
 import cfg.consts.NPCs

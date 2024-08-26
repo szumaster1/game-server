@@ -1,7 +1,7 @@
-package content.region.asgarnia.quest.recruitmentdrive.npc
+package content.region.asgarnia.quest.rd.npc
 
-import content.region.asgarnia.quest.recruitmentdrive.RecruitmentDrive
-import content.region.asgarnia.quest.recruitmentdrive.dialogue.SirKuamFerentseDialogueFile
+import content.region.asgarnia.quest.rd.RecruitmentDrive
+import content.region.asgarnia.quest.rd.dialogue.SirKuamFerentseDialogueFile
 import core.api.*
 import cfg.consts.NPCs
 import core.game.node.entity.Entity
