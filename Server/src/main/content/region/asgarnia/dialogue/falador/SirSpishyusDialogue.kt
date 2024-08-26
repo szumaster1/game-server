@@ -1,6 +1,6 @@
 package content.region.asgarnia.dialogue.falador
 
-import content.region.asgarnia.quest.recruitmentdrive.dialogue.SirSpishyusDialogueFile
+import content.region.asgarnia.quest.rd.dialogue.SirSpishyusDialogueFile
 import cfg.consts.NPCs
 import core.api.openDialogue
 import core.game.dialogue.Dialogue

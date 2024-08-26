@@ -1,9 +1,9 @@
 package content.region.fremennik.quest.horrorfromthedeep.npc
 
-import content.region.fremennik.quest.horrorfromthedeep.dialogue.JossikDialogueFile
-import core.api.*
 import cfg.consts.Items
 import cfg.consts.NPCs
+import content.region.fremennik.quest.horrorfromthedeep.dialogue.JossikDialogueFile
+import core.api.*
 import core.game.node.entity.Entity
 import core.game.node.entity.combat.BattleState
 import core.game.node.entity.combat.CombatStyle
@@ -16,7 +16,7 @@ import core.game.world.map.Location
 import core.tools.RandomFunction
 
 /**
- * Represents the Dagannoth mother NPC.
+ * Handles the Dagannoth mother NPC.
  */
 class DagannothMotherNPC(id: Int = 0, location: Location? = null, session: DagannothSession? = null) :
     AbstractNPC(id, location) {
@@ -25,10 +25,24 @@ class DagannothMotherNPC(id: Int = 0, location: Location? = null, session: Dagan
     private val earthSpells = intArrayOf(6, 17, 33, 52)
     private val fireSpells = intArrayOf(8, 20, 38, 55)
 
+    /**
+     * The session.
+     */
     val session: DagannothSession?
+
+    /**
+     * The Dagannoth type.
+     */
     var type: DagannothType?
+
+    /**
+     * If the fight has started.
+     */
     var isSpawned = false
 
+    /**
+     * Constructs a new `DagannothMotherNPC` `Object`.
+     */
     init {
         this.isWalks = true
         this.session = session
@@ -38,7 +52,9 @@ class DagannothMotherNPC(id: Int = 0, location: Location? = null, session: Dagan
 
     override fun init() {
         super.init()
-        Pulser.submit(DagannothTransform(session!!.player, this))
+        if (session?.player?.location?.regionId == 10056)
+            Pulser.submit(DagannothTransform(session.player, this))
+        else session?.close()
     }
 
     override fun handleTickActions() {
@@ -63,11 +79,15 @@ class DagannothMotherNPC(id: Int = 0, location: Location? = null, session: Dagan
     }
 
     /**
-     * Check what spell player use.
+     * Check what spell player use for each Dagannoth NPC type.
      */
     override fun checkImpact(state: BattleState) {
         if (state.attacker is Player) {
             if (state.victim is NPC) {
+
+                /**
+                 * White type.
+                 */
                 if (type!!.npcId == NPCs.DAGANNOTH_MOTHER_1351) {
                     if (state.style != CombatStyle.MAGIC) {
                         state.neutralizeHits()
@@ -87,6 +107,9 @@ class DagannothMotherNPC(id: Int = 0, location: Location? = null, session: Dagan
                     state.neutralizeHits()
                 }
 
+                /**
+                 * Blue type.
+                 */
                 if (type!!.npcId == NPCs.DAGANNOTH_MOTHER_1352) {
                     if (state.style != CombatStyle.MAGIC) {
                         state.neutralizeHits()
@@ -106,6 +129,9 @@ class DagannothMotherNPC(id: Int = 0, location: Location? = null, session: Dagan
                     state.neutralizeHits()
                 }
 
+                /**
+                 * Red type.
+                 */
                 if (type!!.npcId == NPCs.DAGANNOTH_MOTHER_1353) {
                     if (state.style != CombatStyle.MAGIC) {
                         state.neutralizeHits()
@@ -125,6 +151,9 @@ class DagannothMotherNPC(id: Int = 0, location: Location? = null, session: Dagan
                     state.neutralizeHits()
                 }
 
+                /**
+                 * Brown type.
+                 */
                 if (type!!.npcId == NPCs.DAGANNOTH_MOTHER_1354) {
                     if (state.style != CombatStyle.MAGIC) {
                         state.neutralizeHits()
@@ -144,6 +173,9 @@ class DagannothMotherNPC(id: Int = 0, location: Location? = null, session: Dagan
                     state.neutralizeHits()
                 }
 
+                /**
+                 * Green type.
+                 */
                 if (type!!.npcId == NPCs.DAGANNOTH_MOTHER_1355) {
                     if (state.style != CombatStyle.RANGE) {
                         state.neutralizeHits()
@@ -156,6 +188,9 @@ class DagannothMotherNPC(id: Int = 0, location: Location? = null, session: Dagan
                     state.neutralizeHits()
                 }
 
+                /**
+                 * Gold type.
+                 */
                 if (type!!.npcId == NPCs.DAGANNOTH_MOTHER_1356) {
                     if (state.style != CombatStyle.MELEE) {
                         state.neutralizeHits()
@@ -224,12 +259,12 @@ class DagannothMotherNPC(id: Int = 0, location: Location? = null, session: Dagan
     }
 
     /**
-     * Enum class representing different types of Dagannoth.
+     * Represents types of Dagannoth NPC.
      *
      * @param npcId The ID of the NPC.
      * @param sendChat The chat message to send.
      * @param sendMessage The message to send.
-     * @constructor Represents a Dagannoth type with the specified properties.
+     * @constructor dagannoth type.
      */
     enum class DagannothType(var npcId: Int, var sendChat: String?, var sendMessage: String?) {
         /**
@@ -263,10 +298,7 @@ class DagannothMotherNPC(id: Int = 0, location: Location? = null, session: Dagan
         ORANGE(NPCs.DAGANNOTH_MOTHER_1356, "Chkhkhkhkhk", "the dagannoth changes to orange...");
 
         /**
-         * This function transforms a Dagannoth Mother NPC into a different form based on certain conditions.
-         *
-         * @param dagannoth The Dagannoth Mother NPC to be transformed.
-         * @param player The player triggering the transformation.
+         * Transforms the new npc.
          */
         fun transform(dagannoth: DagannothMotherNPC, player: Player) {
             val newType = next()
@@ -279,9 +311,8 @@ class DagannothMotherNPC(id: Int = 0, location: Location? = null, session: Dagan
         }
 
         /**
-         * Next.
-         *
-         * @return A random DagannothType.
+         * Gets the next random type.
+         * @return returns a random type.
          */
         operator fun next(): DagannothType {
             return values().random()
@@ -289,10 +320,10 @@ class DagannothMotherNPC(id: Int = 0, location: Location? = null, session: Dagan
 
         companion object {
             /**
-             * Get DagannothType for the given id.
+             * Gets the Dagannoth type for the id.
              *
-             * @param id The id of the DagannothType.
-             * @return The DagannothType corresponding to the id, or null if not found.
+             * @param id the id.
+             * @return the Dagannoth type.
              */
             fun forId(id: Int): DagannothType? {
                 for (type in values()) {
@@ -306,11 +337,11 @@ class DagannothMotherNPC(id: Int = 0, location: Location? = null, session: Dagan
     }
 
     /**
-     * Dagannoth transform.
+     * Transforms the new npc.
      *
-     * @param player The player object.
-     * @param dagannoth The DagannothMotherNPC object.
-     * @constructor Creates a DagannothTransform object.
+     * @param player The player.
+     * @param dagannoth The npc.
+     * @return new NPC.
      */
     class DagannothTransform(val player: Player?, val dagannoth: DagannothMotherNPC) : Pulse() {
         var counter = 0

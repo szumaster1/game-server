@@ -1,6 +1,6 @@
 package content.region.asgarnia.dialogue.falador
 
-import content.region.asgarnia.quest.recruitmentdrive.RecruitmentDrive
+import content.region.asgarnia.quest.rd.RecruitmentDrive
 import core.api.*
 import cfg.consts.Items
 import cfg.consts.NPCs
@@ -65,7 +65,7 @@ class MakeOverMageDialogue(player: Player? = null) : Dialogue(player) {
                 } else {
                     end()
                     if (getQuestStage(player, "Recruitment Drive") >= 1 && player.isMale) {
-                        setAttribute(player, RecruitmentDrive.ATTRIBUTE_RD_MAKEOVER_VOUCHER, true)
+                        setAttribute(player, RecruitmentDrive.makeoverTicket, true)
                     }
                     openInterface(player, 205)
                 }

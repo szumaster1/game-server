@@ -1,7 +1,8 @@
-package content.region.asgarnia.quest.recruitmentdrive
+package content.region.asgarnia.quest.rd
 
-import core.api.*
+import cfg.consts.Components
 import cfg.consts.Items
+import core.api.*
 import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.quest.Quest
 import core.game.node.entity.skill.Skills
@@ -12,18 +13,22 @@ import core.plugin.Initializable
  */
 @Initializable
 class RecruitmentDrive : Quest("Recruitment Drive", 103, 102, 1, 496, 0, 1, 2) {
+
     companion object {
-        const val ATTRIBUTE_SPAWN_REQUEST = "respawn:falador"
-        const val ATTRIBUTE_RD_STAGE_PASSED = "rd:passedstage"
-        const val ATTRIBUTE_RD_STAGE_FAILED = "rd:failedstage"
-        const val ATTRIBUTE_RD_CURRENT_STAGE = "/save:rd:currentstage"
-        const val ATTRIBUTE_RD_STAGE_ZERO = "/save:rd:stage:0"
-        const val ATTRIBUTE_RD_FIRST_STAGE = "/save:rd:stage:1"
-        const val ATTRIBUTE_RD_SECOND_STAGE = "/save:rd:stage:2"
-        const val ATTRIBUTE_RD_THIRD_STAGE = "/save:rd:stage:3"
-        const val ATTRIBUTE_RD_FOURTH_STAGE = "/save:rd:stage:4"
-        const val ATTRIBUTE_RD_MAKEOVER_VOUCHER = "/save:rd:makeover-mage"
-        val RD_STAGE_ARRAY = arrayOf(ATTRIBUTE_RD_STAGE_ZERO, ATTRIBUTE_RD_FIRST_STAGE, ATTRIBUTE_RD_SECOND_STAGE, ATTRIBUTE_RD_THIRD_STAGE, ATTRIBUTE_RD_FOURTH_STAGE)
+        const val stagePass = "rd:passedstage"
+        const val stageFail = "rd:failedstage"
+
+        const val stage = "/save:rd:currentstage"
+        const val stage0 = "/save:rd:stage:0"
+        const val stage1 = "/save:rd:stage:1"
+        const val stage2 = "/save:rd:stage:2"
+        const val stage3 = "/save:rd:stage:3"
+        const val stage4 = "/save:rd:stage:4"
+
+        const val faladorSpawnPoint = "respawn:falador"
+        const val makeoverTicket = "/save:rd:makeover-mage"
+
+        val stageArray = arrayOf(stage0, stage1, stage2, stage3, stage4)
     }
 
     override fun drawJournal(player: Player, stage: Int) {
@@ -85,13 +90,13 @@ class RecruitmentDrive : Quest("Recruitment Drive", 103, 102, 1, 496, 0, 1, 2) {
     override fun finish(player: Player) {
         var ln = 10
         super.finish(player)
-        player.packetDispatch.sendString("You have passed the Recruitment Drive!", 277, 4)
-        player.packetDispatch.sendItemZoomOnInterface(Items.INITIATE_SALLET_5574, 230, 277, 5)
+        setInterfaceText(player, "You have passed the Recruitment Drive!", Components.QUEST_COMPLETE_SCROLL_277, 4)
+        sendItemZoomOnInterface(player, Components.QUEST_COMPLETE_SCROLL_277, 5, Items.INITIATE_SALLET_5574, 230)
 
         drawReward(player, "1 Quest Point", ln++)
         drawReward(player, "1000 Prayer, Herblore and", ln++)
         drawReward(player, "Agility XP", ln++)
-        drawReward(player, "Gaze of Saradomin", ln++)
+        drawReward(player, "Gaze Of Saradomin", ln++)
         drawReward(player, "Temple Knight's Initiate Helm", ln)
 
         rewardXP(player, Skills.PRAYER, 1000.0)
@@ -99,11 +104,11 @@ class RecruitmentDrive : Quest("Recruitment Drive", 103, 102, 1, 496, 0, 1, 2) {
         rewardXP(player, Skills.AGILITY, 1000.0)
         addItem(player, Items.INITIATE_SALLET_5574)
         addItem(player, Items.MAKEOVER_VOUCHER_5606)
-        if(!player.isMale && getAttribute(player, ATTRIBUTE_RD_MAKEOVER_VOUCHER, false)){
+        if(!player.isMale && getAttribute(player, makeoverTicket, false)){
             addItem(player, Items.COINS_995, 3000)
-            removeAttribute(player, ATTRIBUTE_RD_MAKEOVER_VOUCHER)
+            removeAttribute(player, makeoverTicket)
         }
-        removeAttributes(player, ATTRIBUTE_RD_STAGE_PASSED, ATTRIBUTE_RD_STAGE_FAILED, ATTRIBUTE_RD_CURRENT_STAGE, ATTRIBUTE_RD_STAGE_ZERO, ATTRIBUTE_RD_FIRST_STAGE, ATTRIBUTE_RD_SECOND_STAGE, ATTRIBUTE_RD_THIRD_STAGE, ATTRIBUTE_RD_FOURTH_STAGE)
+        removeAttributes(player, stagePass, stageFail, stage, stage0, stage1, stage2, stage3, stage4)
     }
 
     override fun newInstance(`object`: Any?): Quest {

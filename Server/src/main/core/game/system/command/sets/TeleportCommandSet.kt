@@ -1,6 +1,6 @@
 package core.game.system.command.sets
 
-import content.region.asgarnia.quest.recruitmentdrive.RecruitmentDrive
+import content.region.asgarnia.quest.rd.RecruitmentDrive
 import core.ServerConstants
 import core.api.getAttribute
 import core.game.node.entity.player.link.TeleportManager
@@ -227,7 +227,7 @@ class TeleportCommandSet : CommandSet(Privilege.ADMIN) {
             usage = "",
             description = "Teleports to ServerConstants.HOME_LOCATION or HOME_LOCATION_ALT (after RD quest)."
         ) { player, _ ->
-            if (getAttribute(player, RecruitmentDrive.ATTRIBUTE_SPAWN_REQUEST, false))
+            if (getAttribute(player, RecruitmentDrive.faladorSpawnPoint, false))
                 player.properties.spawnLocation = ServerConstants.RESPAWN_POINT
             else
                 player.properties.teleportLocation = ServerConstants.HOME_LOCATION

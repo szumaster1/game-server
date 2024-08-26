@@ -18,7 +18,11 @@ import core.game.world.update.flag.context.Animation
 class LighthouseBridgeListener : InteractionListener {
 
     override fun defineListeners() {
-        // Repair bridge side between Rellekka & Lighthouse.
+
+        /*
+         * Handle repair bridge side between Rellekka & Lighthouse.
+         */
+
         onUseWith(IntType.SCENERY, Items.PLANK_960, HFTDUtils.BROKEN_BRIDGE_1) { player, _, _ ->
             if (getQuestStage(player, "Horror from the Deep") == 0) {
                 sendDialogue(player, "That won't help fix the bridge.")
@@ -50,7 +54,10 @@ class LighthouseBridgeListener : InteractionListener {
             return@onUseWith true
         }
 
-        // Bridge side between Lighthouse & Rellekka.
+        /*
+         * Handle repair bridge side between Lighthouse & Rellekka.
+         */
+
         onUseWith(IntType.SCENERY, Items.PLANK_960, HFTDUtils.BROKEN_BRIDGE_2) { player, _, _ ->
             if (getQuestStage(player, "Horror from the Deep") < 10) {
                 sendDialogue(player, "That won't help fix the bridge.")
@@ -80,7 +87,10 @@ class LighthouseBridgeListener : InteractionListener {
             return@onUseWith true
         }
 
-        // Cross after repair first side.
+        /*
+         * Handle cross interaction after repair first side.
+         */
+
         on(HFTDUtils.BROKEN_BRIDGE_1, IntType.SCENERY, "Cross") { player, _ ->
             if (getAttribute(player, HFTDUtils.FIX_BRIDGE, 0) == 1) {
                 lock(player, 6)
@@ -101,7 +111,11 @@ class LighthouseBridgeListener : InteractionListener {
                 sendMessage(player, "I might be able to make to the other side.")
             }
 
-            // Cross after repair both sides or after quest.
+
+            /*
+             * Handle crossing interaction after repair both sides or after quest.
+             */
+
             if (getAttribute(player, HFTDUtils.FIX_BRIDGE, 0) == 2 || isQuestComplete(player, "Horror from the Deep")) {
                 lock(player, 6)
                 submitIndividualPulse(player, object : Pulse(1) {
@@ -121,7 +135,10 @@ class LighthouseBridgeListener : InteractionListener {
             return@on true
         }
 
-        // Cross bridge to Lighthouse.
+        /*
+         * Handle cross the bridge to Lighthouse.
+         */
+
         on(HFTDUtils.BROKEN_BRIDGE_2, IntType.SCENERY, "Cross") { player, _ ->
             if (getAttribute(player, HFTDUtils.FIX_BRIDGE, 0) == 2 || isQuestComplete(player, "Horror from the Deep")) {
                 lock(player, 6)

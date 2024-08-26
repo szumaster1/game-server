@@ -1,6 +1,6 @@
-package content.region.asgarnia.quest.recruitmentdrive.dialogue
+package content.region.asgarnia.quest.rd.dialogue
 
-import content.region.asgarnia.quest.recruitmentdrive.RecruitmentDriveListeners
+import content.region.asgarnia.quest.rd.RecruitmentDriveListeners
 import core.api.finishQuest
 import core.api.getQuestStage
 import core.api.setQuestStage
@@ -10,19 +10,18 @@ import core.game.dialogue.FacialExpression
 
 /**
  * Represents the Sir Tiffy Cashien dialogue file.
+ * @author Ovenbread
  */
 class SirTiffyCashienDialogueFile : DialogueBuilderFile() {
+
     override fun create(b: DialogueBuilder) {
-
         b.onQuestStages("Recruitment Drive", 1)
-
             .playerl(FacialExpression.FRIENDLY, "Sir Amik Varze sent me to meet you here for some sort of testing...")
             .npcl(FacialExpression.FRIENDLY, "Ah, @name! Amik told me all about you, dontchaknow! Spliffing job you you did with the old Black Knights there, absolutely first class.")
             .playerl(FacialExpression.GUILTY, "...Thanks I think.")
             .npcl(FacialExpression.FRIENDLY, "Well, not in those exact words, but you get my point, what?")
             .npcl(FacialExpression.FRIENDLY, "A top-notch filly like yourself is just the right sort we've been looking for for our organisation.")
             .npcl(FacialExpression.FRIENDLY, "So, are you ready to begin testing?")
-
             .let { path ->
                 val originalPath = b.placeholder()
                 path.goto(originalPath)
@@ -30,21 +29,20 @@ class SirTiffyCashienDialogueFile : DialogueBuilderFile() {
                     .options()
                     .let { optionBuilder ->
                         val continuePath = b.placeholder()
-
                         optionBuilder.option("Testing..?")
-                            .playerl(FacialExpression.FRIENDLY, "Testing? What exactly do you mean by testing?")
+                            .playerl(FacialExpression.THINKING, "Testing? What exactly do you mean by testing?")
                             .npcl(FacialExpression.FRIENDLY, "Jolly bad show! Varze was supposed to have informed you about all this before sending you here!")
                             .npcl(FacialExpression.FRIENDLY, "Well, not your fault I suppose, what? Anywho, our organisation is looking for a certain specific type of person to join.")
                             .playerl(FacialExpression.FRIENDLY, "So... You want me to go kill some monster or something for you?")
                             .npcl(FacialExpression.FRIENDLY, "Not at all, old bean. There's plenty of warriors around should we require dumb muscle.")
                             .npcl(FacialExpression.FRIENDLY, "That's really not the kind of thing our organisation is after, what?")
                             .playerl(FacialExpression.FRIENDLY, "So you want me to go and fetch you some kind of common item, and then take it for delivery somewhere on the other side of the country?")
-                            .playerl(FacialExpression.FRIENDLY, "Because I really hate doing that!")
+                            .playerl(FacialExpression.SAD, "Because I really hate doing that!")
                             .npcl(FacialExpression.FRIENDLY, "Haw, haw, haw! What a dull thing to ask of someone, what?")
                             .npcl(FacialExpression.FRIENDLY, "I know what you mean, though. I did my fair share of running errands when I was a young adventurer, myself!")
                             .playerl(FacialExpression.FRIENDLY, "So what exactly will this test consist of?")
                             .npcl(FacialExpression.FRIENDLY, "Can't let just any old riff-raff in, what? The mindless thugs and bully boys are best left in the White Knights or the city guard. We look for the top-shelf brains to join us.")
-                            .playerl(FacialExpression.FRIENDLY, "So you want to test my brains? Will it hurt?")
+                            .playerl(FacialExpression.HALF_ASKING, "So you want to test my brains? Will it hurt?")
                             .npcl(FacialExpression.FRIENDLY, "Haw, haw, haw! That's a good one!")
                             .npcl(FacialExpression.FRIENDLY, "Not in the slightest.. Well, maybe a bit, but we all have to make sacrifices occasionally, what?")
                             .playerl(FacialExpression.FRIENDLY, "What do you want me to do then?")
@@ -56,7 +54,6 @@ class SirTiffyCashienDialogueFile : DialogueBuilderFile() {
                             .npcl(FacialExpression.HAPPY, "Of course, if you quit a room, then all your progress up to that point will be cleared, and you'll have to start again from scratch.")
                             .npc(FacialExpression.HAPPY, "Our organisation manages to filter all the top-notch", "adventurers this way.", "So, are you ready to go?")
                             .goto(originalPath)
-
                         optionBuilder
                             .option("Organisation?")
                             .playerl(FacialExpression.FRIENDLY, "This organisation you keep mentioning.. Perhaps you could tell me a little about it?")
@@ -73,10 +70,9 @@ class SirTiffyCashienDialogueFile : DialogueBuilderFile() {
                             .npcl(FacialExpression.FRIENDLY, "It's not every job where you have more authority than the king, though, is it?")
                             .playerl(FacialExpression.THINKING, "Wait... You can order the King around?")
                             .npcl(FacialExpression.FRIENDLY, "Well, not me personally. I'm only in the recruitment side of things, dontchaknow, but the higher ranking members of the organisation have almost absolute power over the kingdom.")
-                            .npcl(FacialExpression.FRIENDLY, "Plus a few others, so I hear...")
+                            .npcl(FacialExpression.NEUTRAL, "Plus a few others, so I hear...")
                             .npcl(FacialExpression.FRIENDLY, "Anyway, this is why we keep our organisation shrouded in secrecy, and why we demand such rigorous testing for all potential recruits. Speaking of which, are you ready to begin your testing?")
                             .goto(originalPath)
-
                         optionBuilder.option("Yes, let's go!")
                         .player(FacialExpression.FRIENDLY, "Yeah. this sounds right up my street.", "Let's go!")
                         .branch { player -> if(player.inventory.isEmpty && player.equipment.isEmpty && !(player.familiarManager.hasFamiliar() || player.familiarManager.hasPet())) { 1 } else { 0 } }
@@ -89,19 +85,17 @@ class SirTiffyCashienDialogueFile : DialogueBuilderFile() {
                         .onValue(1)
                         .npcl(FacialExpression.FRIENDLY, "Jolly good show! Now, the training grounds location is a secret, so...")
                         .goto(continuePath)
-
                         optionBuilder.option("No, I've changed my mind.")
                         .player("No, I've changed my mind.")
                         .end()
 
                     return@let continuePath.builder()
                 }
-
             }.endWith { _, player ->
                 if (getQuestStage(player, "Recruitment Drive") == 1) {
                     setQuestStage(player, "Recruitment Drive", 2)
                 }
-                RecruitmentDriveListeners.shuffleStages(player)
+                RecruitmentDriveListeners.shuffleTask(player)
                 RecruitmentDriveListeners.StartTestCutscene(player).start()
             }
 
@@ -111,7 +105,6 @@ class SirTiffyCashienDialogueFile : DialogueBuilderFile() {
             .let { optionBuilder ->
                 val continuePath = b.placeholder()
                 optionBuilder
-
                     .option("Yes, let's go!")
                     .player(FacialExpression.FRIENDLY, "Yeah. this sounds right up my street.", "Let's go!")
                     .branch { player -> if(player.inventory.isEmpty && player.equipment.isEmpty && !(player.familiarManager.hasFamiliar() || player.familiarManager.hasPet())) { 1 } else { 0 } }
@@ -125,10 +118,9 @@ class SirTiffyCashienDialogueFile : DialogueBuilderFile() {
                     .onValue(1)
                     .npc(FacialExpression.FRIENDLY, "Jolly good show!", "Now the training grounds location is a secret, so...")
                     .endWith { _, player ->
-                        RecruitmentDriveListeners.shuffleStages(player)
+                        RecruitmentDriveListeners.shuffleTask(player)
                         RecruitmentDriveListeners.StartTestCutscene(player).start()
                     }
-
                 optionBuilder
                     .option("No, I've changed my mind.")
                     .player("No, I've changed my mind.")
@@ -144,7 +136,7 @@ class SirTiffyCashienDialogueFile : DialogueBuilderFile() {
 }
 
 /**
- * Represents the Sir tiffy cashien failed dialogue file.
+ * Represents the Sir Tiffy Cashien failed dialogue file.
  */
 class SirTiffyCashienFailedDialogueFile : DialogueBuilderFile() {
     override fun create(b: DialogueBuilder) {

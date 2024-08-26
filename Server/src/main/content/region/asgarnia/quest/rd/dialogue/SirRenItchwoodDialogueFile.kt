@@ -1,7 +1,7 @@
-package content.region.asgarnia.quest.recruitmentdrive.dialogue
+package content.region.asgarnia.quest.rd.dialogue
 
-import content.region.asgarnia.quest.recruitmentdrive.RecruitmentDrive
-import content.region.asgarnia.quest.recruitmentdrive.RecruitmentDriveListeners
+import content.region.asgarnia.quest.rd.RecruitmentDrive
+import content.region.asgarnia.quest.rd.RecruitmentDriveListeners
 import core.api.getAttribute
 import core.api.lock
 import core.api.removeAttribute
@@ -12,6 +12,7 @@ import core.game.dialogue.FacialExpression
 
 /**
  * Represents the Sir Ren Itchwood dialogue file.
+ * @author Ovenbread
  */
 class SirRenItchwoodDialogueFile(private val dialogueNum: Int = 0) : DialogueBuilderFile() {
 
@@ -22,7 +23,7 @@ class SirRenItchwoodDialogueFile(private val dialogueNum: Int = 0) : DialogueBui
     override fun create(b: DialogueBuilder) {
         b.onPredicate { player ->
             dialogueNum in 0..1 && !getAttribute(
-                player, RecruitmentDrive.ATTRIBUTE_RD_STAGE_FAILED, false
+                player, RecruitmentDrive.stageFail, false
             )
         }.betweenStage { _, player, _, _ ->
                 if (getAttribute(player, ATTRIBUTE_CLUE, 6) == 6) {
@@ -147,9 +148,9 @@ class SirRenItchwoodDialogueFile(private val dialogueNum: Int = 0) : DialogueBui
 
             }
         b.onPredicate { player ->
-            dialogueNum == 2 || getAttribute(player, RecruitmentDrive.ATTRIBUTE_RD_STAGE_FAILED, false)
+            dialogueNum == 2 || getAttribute(player, RecruitmentDrive.stageFail, false)
         }.betweenStage { _, player, _, _ ->
-            setAttribute(player, RecruitmentDrive.ATTRIBUTE_RD_STAGE_FAILED, true)
+            setAttribute(player, RecruitmentDrive.stageFail, true)
         }.npc(
                 FacialExpression.SAD,
                 "It's sad to say,",
@@ -159,8 +160,8 @@ class SirRenItchwoodDialogueFile(private val dialogueNum: Int = 0) : DialogueBui
             ).endWith { _, player ->
                 lock(player, 10)
                 removeAttribute(player, ATTRIBUTE_CLUE)
-                setAttribute(player, RecruitmentDrive.ATTRIBUTE_RD_STAGE_PASSED, false)
-                setAttribute(player, RecruitmentDrive.ATTRIBUTE_RD_STAGE_FAILED, false)
+                setAttribute(player, RecruitmentDrive.stagePass, false)
+                setAttribute(player, RecruitmentDrive.stageFail, false)
                 RecruitmentDriveListeners.FailTestCutscene(player).start()
             }
 

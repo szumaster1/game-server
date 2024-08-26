@@ -1,9 +1,9 @@
-package content.region.asgarnia.quest.recruitmentdrive.dialogue
+package content.region.asgarnia.quest.rd.dialogue
 
-import content.region.asgarnia.quest.recruitmentdrive.RecruitmentDrive
-import content.region.asgarnia.quest.recruitmentdrive.RecruitmentDriveListeners
-import core.api.*
 import cfg.consts.NPCs
+import content.region.asgarnia.quest.rd.RecruitmentDrive
+import content.region.asgarnia.quest.rd.RecruitmentDriveListeners
+import core.api.*
 import core.game.dialogue.DialogueBuilder
 import core.game.dialogue.DialogueBuilderFile
 import core.game.dialogue.FacialExpression
@@ -11,6 +11,7 @@ import core.game.node.entity.npc.NPC
 
 /**
  * Represents the Ms Hynn Terprett dialogue file.
+ * @author Ovenbread
  */
 class MsHynnTerprettDialogueFile(private val dialogueNum: Int = 0) : DialogueBuilderFile() {
 
@@ -24,9 +25,9 @@ class MsHynnTerprettDialogueFile(private val dialogueNum: Int = 0) : DialogueBui
         b.onPredicate { player -> true }.branch { player ->
             if (getAttribute(player, ATTRIBUTE_CORRECT_ANSWER, false)) {
                 return@branch 3
-            } else if (getAttribute(player, RecruitmentDrive.ATTRIBUTE_RD_STAGE_FAILED, false)) {
+            } else if (getAttribute(player, RecruitmentDrive.stageFail, false)) {
                 return@branch 2
-            } else if (getAttribute(player, RecruitmentDrive.ATTRIBUTE_RD_STAGE_PASSED, false)) {
+            } else if (getAttribute(player, RecruitmentDrive.stagePass, false)) {
                 return@branch 1
             } else {
                 return@branch 0
@@ -37,19 +38,19 @@ class MsHynnTerprettDialogueFile(private val dialogueNum: Int = 0) : DialogueBui
                 .npc(FacialExpression.SAD, "No... I am very sorry.", "Apparently you are not up to the challenge.", "I will return you where you came from, better luck in the", "future.")
                 .endWith { _, player ->
                     removeAttribute(player, ATTRIBUTE_RANDOM_RIDDLE)
-                    setAttribute(player, RecruitmentDrive.ATTRIBUTE_RD_STAGE_PASSED, false)
-                    setAttribute(player, RecruitmentDrive.ATTRIBUTE_RD_STAGE_FAILED, false)
+                    setAttribute(player, RecruitmentDrive.stagePass, false)
+                    setAttribute(player, RecruitmentDrive.stageFail, false)
                     RecruitmentDriveListeners.FailTestCutscene(player).start()
                 }
 
             val passedStage = b.placeholder()
             passedStage.builder().betweenStage { _, player, _, _ ->
                 removeAttribute(player, ATTRIBUTE_CORRECT_ANSWER)
-                if (!getAttribute(player, RecruitmentDrive.ATTRIBUTE_RD_STAGE_FAILED, false)) {
-                    setAttribute(player, RecruitmentDrive.ATTRIBUTE_RD_STAGE_PASSED, true)
+                if (!getAttribute(player, RecruitmentDrive.stageFail, false)) {
+                    setAttribute(player, RecruitmentDrive.stagePass, true)
                     removeAttribute(player, ATTRIBUTE_RANDOM_RIDDLE)
                 }
-            }.npc("Excellent work, @name.", "Please step through the portal to meet your next", "challenge.").end()
+            }.npc(FacialExpression.HAPPY, "Excellent work, @name", "Please step through the portal to meet your next", "challenge.").end()
 
             branch.onValue(3).goto(passedStage)// Passed stage
             branch.onValue(2).goto(failedStage)// Failed stage
@@ -59,7 +60,7 @@ class MsHynnTerprettDialogueFile(private val dialogueNum: Int = 0) : DialogueBui
                     setAttribute(player, ATTRIBUTE_RANDOM_RIDDLE, (0..4).random())
                 }
             }
-                .npc("Greetings, @name.", "I am here to test your wits with a simple riddle.")
+                .npc("Greetings, @name", "I am here to test your wits with a simple riddle.")
                 .branch { player -> getAttribute(player, ATTRIBUTE_RANDOM_RIDDLE, 0) }.let { branch ->
                     branch.onValue(0)
                         .npc(FacialExpression.THINKING, "Here is my riddle:", "I estimate there to be one million inhabitants in the world", "of @servername, creatures and people both.")
@@ -69,7 +70,7 @@ class MsHynnTerprettDialogueFile(private val dialogueNum: Int = 0) : DialogueBui
                                 if (value == 5000000) {
                                     setAttribute(player, ATTRIBUTE_CORRECT_ANSWER, true)
                                 } else {
-                                    setAttribute(player, RecruitmentDrive.ATTRIBUTE_RD_STAGE_FAILED, true)
+                                    setAttribute(player, RecruitmentDrive.stageFail, true)
                                 }
                                 openDialogue(player, MsHynnTerprettDialogueFile(), NPC(NPCs.MS_HYNN_TERPRETT_2289))
                             }
@@ -92,7 +93,7 @@ class MsHynnTerprettDialogueFile(private val dialogueNum: Int = 0) : DialogueBui
                                 if (value == 10) {
                                     setAttribute(player, ATTRIBUTE_CORRECT_ANSWER, true)
                                 } else {
-                                    setAttribute(player, RecruitmentDrive.ATTRIBUTE_RD_STAGE_FAILED, true)
+                                    setAttribute(player, RecruitmentDrive.stageFail, true)
                                 }
                                 openDialogue(player, MsHynnTerprettDialogueFile(), NPC(NPCs.MS_HYNN_TERPRETT_2289))
                             }

@@ -1,7 +1,7 @@
 package content.region.asgarnia.dialogue.falador
 
-import content.region.asgarnia.quest.recruitmentdrive.RecruitmentDrive
-import content.region.asgarnia.quest.recruitmentdrive.dialogue.SirTiffyCashienDialogueFile
+import content.region.asgarnia.quest.rd.RecruitmentDrive
+import content.region.asgarnia.quest.rd.dialogue.SirTiffyCashienDialogueFile
 import core.ServerConstants
 import core.api.*
 import cfg.consts.NPCs
@@ -77,7 +77,7 @@ class SirTiffyCashienDialogue(player: Player? = null) : Dialogue(player) {
             }
             25 -> {
                 npcl(FacialExpression.FRIENDLY, "Top-hole, what? Good old Fally is definitely the hot-spot nowadays!")
-                setAttribute(player, "/save:${RecruitmentDrive.ATTRIBUTE_SPAWN_REQUEST}", true)
+                setAttribute(player, "/save:${RecruitmentDrive.faladorSpawnPoint}", true)
                 player.properties.spawnLocation = ServerConstants.RESPAWN_POINT
                 stage = END_DIALOGUE
             }
@@ -88,7 +88,7 @@ class SirTiffyCashienDialogue(player: Player? = null) : Dialogue(player) {
             }
             28 -> {
                 npcl(FacialExpression.HALF_GUILTY, "Why anyone would want to visit that smelly little swamp village of oiks is quite beyond me, I'm afraid, but the deed is done now.")
-                setAttribute(player, "/save:${RecruitmentDrive.ATTRIBUTE_SPAWN_REQUEST}", false)
+                setAttribute(player, "/save:${RecruitmentDrive.faladorSpawnPoint}", false)
                 player.properties.spawnLocation = ServerConstants.HOME_LOCATION
                 stage = END_DIALOGUE
             }

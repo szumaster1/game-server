@@ -1,7 +1,9 @@
 package content.global.skill
 
 /**
- * Barbarian training.
+ * Barbarian training attributes.
+ *
+ * Related [Barbarian Training book][content.global.handlers.item.book.BarbarianBook]
  */
 object BarbarianTraining {
     /*
