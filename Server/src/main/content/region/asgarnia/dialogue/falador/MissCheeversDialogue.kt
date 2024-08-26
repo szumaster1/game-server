@@ -1,6 +1,6 @@
 package content.region.asgarnia.dialogue.falador
 
-import content.region.asgarnia.quest.rd.dialogue.MissCheeversDialogueFile
+import content.region.asgarnia.quest.rd.dialogue.MissCheeversDialogue
 import cfg.consts.NPCs
 import core.api.openDialogue
 import core.game.dialogue.Dialogue
@@ -14,7 +14,7 @@ import core.plugin.Initializable
 class MissCheeversDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun handle(interfaceId: Int, buttonId: Int): Boolean {
-        openDialogue(player, MissCheeversDialogueFile(), npc)
+        openDialogue(player, MissCheeversDialogue(), npc)
         return true
     }
 

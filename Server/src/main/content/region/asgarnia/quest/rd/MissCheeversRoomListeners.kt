@@ -91,7 +91,12 @@ class MissCheeversRoomListeners : InteractionListener {
         }
 
         on(Scenery.OLD_BOOKSHELF_7328, IntType.SCENERY, "search") { player, _ ->
-            searchingHelper(player, ATTRIBUTE_BOOK, Items.ALCHEMICAL_NOTES_5588, "You search the bookshelves...", "You find a book that looks like it might be helpful.")
+            if (getAttribute(player, "/save:rd:help", -1) < 3) {
+                sendMessage(player, "You search the bookshelves...")
+                sendMessageWithDelay(player, "You search the chest but find nothing.", 1)
+            } else {
+                searchingHelper(player, ATTRIBUTE_BOOK, Items.ALCHEMICAL_NOTES_5588, "You search the bookshelves...", "You find a book that looks like it might be helpful.")
+            }
             return@on true
         }
 
