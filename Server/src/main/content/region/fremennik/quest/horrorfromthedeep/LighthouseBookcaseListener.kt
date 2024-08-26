@@ -8,7 +8,12 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 
 /**
- * Lighthouse bookcase listener.
+ * Handles the bookcase in Lighthouse.
+ *
+ * Related books
+ * 1. [Lighthouse Manual][content.region.fremennik.quest.horrorfromthedeep.book.LighthouseManual]
+ * 2. [Ancient Diary][content.region.fremennik.quest.horrorfromthedeep.book.AncientDiary]
+ * 3. [Jossik Journal][content.region.fremennik.quest.horrorfromthedeep.book.JossikJournal]
  */
 class LighthouseBookcaseListener : DialogueFile(), InteractionListener {
 
@@ -68,6 +73,11 @@ class LighthouseBookcaseListener : DialogueFile(), InteractionListener {
     }
 
     override fun defineListeners() {
+
+        /*
+         * Handle the search option on bookcase.
+         */
+
         on(Scenery.BOOKCASE_4617, IntType.SCENERY, "search") { player, node ->
             openDialogue(player, LighthouseBookcaseListener(), node.asScenery())
             return@on true

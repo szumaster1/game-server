@@ -5,11 +5,22 @@ import core.api.location
 import core.game.node.entity.player.Player
 
 /**
- * Represents the Dagannoth session.
+ * Represents the session with Dagannoth.
  */
-class DagannothSession(val player: Player) {
+class DagannothSession(
+    /**
+     * The player.
+     */
+    val player: Player) {
+    /**
+     * The Dagannoth NPC.
+     */
     private val dagannoth: DagannothMotherNPC = DagannothMotherNPC(NPCs.DAGANNOTH_MOTHER_1351, location(2520, 4645, 0), this)
 
+    /**
+     * Constructs a new `DagannothSession` `Object`.
+     * @param player the player.
+     */
     init {
         if (player.getExtension<Any?>(DagannothSession::class.java) != null) {
             player.removeExtension(DagannothSession::class.java)
@@ -18,8 +29,7 @@ class DagannothSession(val player: Player) {
     }
 
     /**
-     * Start
-     *
+     * Starts the session.
      */
     fun start() {
         dagannoth.init()
@@ -27,8 +37,7 @@ class DagannothSession(val player: Player) {
     }
 
     /**
-     * Close
-     *
+     * Closes the session.
      */
     fun close() {
         dagannoth.clear()
@@ -36,10 +45,20 @@ class DagannothSession(val player: Player) {
     }
 
     companion object {
+        /**
+         * Creates the Dagannoth session.
+         * @param player the player.
+         * @return the session.
+         */
         fun create(player: Player): DagannothSession {
             return DagannothSession(player)
         }
 
+        /**
+         * Gets the Dagannoth session.
+         * @param player the player.
+         * @return the session.
+         */
         fun getSession(player: Player): DagannothSession {
             return player.getExtension(DagannothSession::class.java)
         }

@@ -2,6 +2,7 @@ package content.region.asgarnia.quest.rd
 
 import core.api.*
 import cfg.consts.Items
+import cfg.consts.Vars
 import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.quest.Quest
 import core.game.node.entity.skill.Skills
@@ -11,7 +12,7 @@ import core.plugin.Initializable
  * Recruitment drive quest.
  */
 @Initializable
-class RecruitmentDrive : Quest("Recruitment Drive", 103, 102, 1, 496, 0, 1, 2) {
+class RecruitmentDrive : Quest("Recruitment Drive", 103, 102, 1, Vars.VARBIT_QUEST_RECRUITMENT_DRIVE_PROGRESS, 0, 1, 2) {
     companion object {
         const val ATTRIBUTE_SPAWN_REQUEST = "respawn:falador"
         const val ATTRIBUTE_RD_STAGE_PASSED = "rd:passedstage"
@@ -23,6 +24,7 @@ class RecruitmentDrive : Quest("Recruitment Drive", 103, 102, 1, 496, 0, 1, 2) {
         const val ATTRIBUTE_RD_THIRD_STAGE = "/save:rd:stage:3"
         const val ATTRIBUTE_RD_FOURTH_STAGE = "/save:rd:stage:4"
         const val ATTRIBUTE_RD_MAKEOVER_VOUCHER = "/save:rd:makeover-mage"
+        const val ATTRIBUTE_RD_HELP = "/save:rd:help"
         val RD_STAGE_ARRAY = arrayOf(ATTRIBUTE_RD_STAGE_ZERO, ATTRIBUTE_RD_FIRST_STAGE, ATTRIBUTE_RD_SECOND_STAGE, ATTRIBUTE_RD_THIRD_STAGE, ATTRIBUTE_RD_FOURTH_STAGE)
     }
 

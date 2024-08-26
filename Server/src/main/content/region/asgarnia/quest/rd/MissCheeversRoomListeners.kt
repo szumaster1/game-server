@@ -1,23 +1,21 @@
 package content.region.asgarnia.quest.rd
 
-import core.api.*
-import cfg.consts.Animations
 import cfg.consts.Items
 import cfg.consts.Scenery
 import cfg.consts.Sounds
+import core.api.*
 import core.game.dialogue.DialogueBuilder
 import core.game.dialogue.DialogueBuilderFile
+import core.game.dialogue.DialogueOptionsBuilder
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.interaction.QueueStrength
 import core.game.node.entity.player.Player
 import core.game.node.item.Item
-import core.game.world.map.Location
-import core.game.world.update.flag.context.Animation
 import core.game.world.update.flag.context.Graphic
 
 /**
- * Miss cheevers room listeners.
+ * Miss Cheevers room listeners.
  */
 class MissCheeversRoomListeners : InteractionListener {
 
@@ -37,6 +35,7 @@ class MissCheeversRoomListeners : InteractionListener {
 
         val TOOLS = intArrayOf(Items.BRONZE_WIRE_5602, Items.CHISEL_5601, Items.KNIFE_5605)
         val MIXTURES = intArrayOf(Items.TIN_ORE_POWDER_5583, Items.CUPRIC_ORE_POWDER_5584)
+
 
         enum class Vials(val itemId: Int, val attribute: String) {
             CUPRIC_SULPHATE_5577(Items.CUPRIC_SULPHATE_5577, "rd:cupricsulphate"),
@@ -67,150 +66,74 @@ class MissCheeversRoomListeners : InteractionListener {
             }
         }
 
-
-        fun searchingHelper(player: Player, attributeCheck: String, item: Int, searchingDescription: String, objectDescription: String) {
-            sendMessage(player, searchingDescription)
-            queueScript(player, 1, QueueStrength.WEAK) {
-                if (attributeCheck != "" && !getAttribute(player, attributeCheck, false)) {
-                    setAttribute(player, attributeCheck, true)
-                    addItem(player, item)
-                    sendMessage(player, objectDescription)
-                } else {
-                    sendMessage(player, "You don't find anything interesting.")
-                }
-                return@queueScript stopExecuting(player)
-            }
-        }
     }
 
     override fun defineListeners() {
 
-        on(Scenery.OLD_BOOKSHELF_7327, IntType.SCENERY, "search") { player, _ ->
-            searchingHelper(player, ATTRIBUTE_MAGNET, Items.MAGNET_5604, "You search the bookshelves...", "Hidden amongst the books you find a magnet.")
-            return@on true
-        }
-
-        on(Scenery.OLD_BOOKSHELF_7328, IntType.SCENERY, "search") { player, _ ->
-            if (getAttribute(player, "/save:rd:help", -1) < 2) {
-                sendMessage(player, "You search the bookshelves...")
-                sendMessageWithDelay(player, "You search the chest but find nothing.", 1)
-            } else {
-                searchingHelper(player, ATTRIBUTE_BOOK, Items.ALCHEMICAL_NOTES_5588, "You search the bookshelves...", "You find a book that looks like it might be helpful.")
+        val searchActions = mapOf(
+            Scenery.OLD_BOOKSHELF_7327 to { player: Player ->
+                RDUtils.searchingHelper(player, ATTRIBUTE_MAGNET, Items.MAGNET_5604, "You search the bookshelves...", "Hidden amongst the books you find a magnet.")
+            },
+            Scenery.OLD_BOOKSHELF_7328 to { player: Player ->
+                if (getAttribute(player, "/save:rd:help", -1) < 3) {
+                    sendMessage(player, "You search the bookshelves...")
+                    sendMessageWithDelay(player, "You find nothing of interest.", 1)
+                } else {
+                    RDUtils.searchingHelper(player, ATTRIBUTE_BOOK, Items.ALCHEMICAL_NOTES_5588, "You search the bookshelves...", "You find a book that looks like it might be helpful.")
+                }
+            },
+            Scenery.OLD_BOOKSHELF_7329 to { player: Player ->
+                RDUtils.searchingHelper(player, ATTRIBUTE_KNIFE, Items.KNIFE_5605, "You search the bookshelves...", "Hidden amongst the books you find a knife.")
+            },
+            Scenery.OLD_BOOKSHELF_7330 to { player: Player ->
+                RDUtils.searchingHelper(player, "", 0, "You search the bookshelves...", "")
             }
-            return@on true
-        }
+        )
 
-        on(Scenery.OLD_BOOKSHELF_7329, IntType.SCENERY, "search") { player, _ ->
-            searchingHelper(player, ATTRIBUTE_KNIFE, Items.KNIFE_5605, "You search the bookshelves...", "Hidden amongst the books you find a knife.")
-            return@on true
-        }
-
-        on(Scenery.OLD_BOOKSHELF_7330, IntType.SCENERY, "search") { player, _ ->
-            searchingHelper(player, "", 0, "You search the bookshelves...", "")
-            return@on true
-        }
-
-        on(Scenery.SHELVES_7333, IntType.SCENERY, "search") { player, _ ->
-            val vialList = ArrayList<Int>()
-            if (!getAttribute(player, Vials.vialMap[Items.ACETIC_ACID_5578]!!.attribute, false)) {
-                vialList.add(Items.ACETIC_ACID_5578)
+        searchActions.forEach { (scenery, action) ->
+            on(scenery, IntType.SCENERY, "search") { player, _ ->
+                action(player)
+                return@on true
             }
-            if (!getAttribute(player, Vials.vialMap[Items.VIAL_OF_LIQUID_5582]!!.attribute, false)) {
-                vialList.add(Items.VIAL_OF_LIQUID_5582)
-            }
-            openDialogue(player, VialShelfDialogueFile(vialList.toIntArray()))
-            return@on true
         }
 
-        on(Scenery.SHELVES_7334, IntType.SCENERY, "search") { player, _ ->
-            val vialList = ArrayList<Int>()
-            if (!getAttribute(player, Vials.vialMap[Items.CUPRIC_SULPHATE_5577]!!.attribute, false)) {
-                vialList.add(Items.CUPRIC_SULPHATE_5577)
-            }
-            openDialogue(player, VialShelfDialogueFile(vialList.toIntArray()))
-            return@on true
-        }
+        val vialItems = listOf(Items.ACETIC_ACID_5578, Items.CUPRIC_SULPHATE_5577, Items.GYPSUM_5579, Items.SODIUM_CHLORIDE_5580, Items.NITROUS_OXIDE_5581, Items.TIN_ORE_POWDER_5583, Items.CUPRIC_ORE_POWDER_5584)
+        val sceneryIDs = (Scenery.SHELVES_7333..Scenery.SHELVES_7339).toList()
 
-        on(Scenery.SHELVES_7335, IntType.SCENERY, "search") { player, _ ->
-            val vialList = ArrayList<Int>()
-            if (!getAttribute(player, Vials.vialMap[Items.GYPSUM_5579]!!.attribute, false)) {
-                vialList.add(Items.GYPSUM_5579)
+        vialItems.forEachIndexed { index, item ->
+            on(sceneryIDs[index], IntType.SCENERY, "search") { player, _ ->
+                val vialList = mutableListOf<Int>()
+                if (!getAttribute(player, Vials.vialMap[item]?.attribute ?: return@on false, false)) {
+                    vialList.add(item)
+                }
+                openDialogue(player, VialShelfDialogueFile(vialList.toIntArray()))
+                return@on true
             }
-            openDialogue(player, VialShelfDialogueFile(vialList.toIntArray()))
-            return@on true
-        }
-
-        on(Scenery.SHELVES_7336, IntType.SCENERY, "search") { player, _ ->
-            val vialList = ArrayList<Int>()
-            if (!getAttribute(player, Vials.vialMap[Items.SODIUM_CHLORIDE_5580]!!.attribute, false)) {
-                vialList.add(Items.SODIUM_CHLORIDE_5580)
-            }
-            openDialogue(player, VialShelfDialogueFile(vialList.toIntArray()))
-            return@on true
-        }
-
-        on(Scenery.SHELVES_7337, IntType.SCENERY, "search") { player, _ ->
-            val vialList = ArrayList<Int>()
-            if (!getAttribute(player, Vials.vialMap[Items.NITROUS_OXIDE_5581]!!.attribute, false)) {
-                vialList.add(Items.NITROUS_OXIDE_5581)
-            }
-            openDialogue(player, VialShelfDialogueFile(vialList.toIntArray()))
-            return@on true
-        }
-
-        on(Scenery.SHELVES_7338, IntType.SCENERY, "search") { player, _ ->
-            val vialList = ArrayList<Int>()
-            if (!getAttribute(player, Vials.vialMap[Items.TIN_ORE_POWDER_5583]!!.attribute, false)) {
-                vialList.add(Items.TIN_ORE_POWDER_5583)
-            }
-            openDialogue(player, VialShelfDialogueFile(vialList.toIntArray()))
-            return@on true
-        }
-
-        on(Scenery.SHELVES_7339, IntType.SCENERY, "search") { player, _ ->
-            val vialList = ArrayList<Int>()
-            if (!getAttribute(player, Vials.vialMap[Items.CUPRIC_ORE_POWDER_5584]!!.attribute, false)) {
-                vialList.add(Items.CUPRIC_ORE_POWDER_5584)
-            }
-            openDialogue(player, VialShelfDialogueFile(vialList.toIntArray()))
-            return@on true
         }
 
         on(Scenery.SHELVES_7340, IntType.SCENERY, "search") { player, _ ->
-            val vialList = ArrayList<Int>()
-            val total = getAttribute(player, ATTRIBUTE_VIALS, 3)
-            for (i in 1..total) {
-                vialList.add(Items.VIAL_OF_LIQUID_5582)
-            }
+            val vialCount = getAttribute(player, ATTRIBUTE_VIALS, 3)
+            val vialList = List(vialCount) { Items.VIAL_OF_LIQUID_5582 }
             openDialogue(player, VialShelfDialogueFile(vialList.toIntArray(), ATTRIBUTE_VIALS))
             return@on true
         }
 
-        on(Scenery.CRATE_7347, IntType.SCENERY, "search") { player, node ->
-            if (node.location == Location(2476, 4943)) {
-                searchingHelper(player, ATTRIBUTE_TIN, Items.TIN_5600, "You search the crate...", "Inside the crate you find a tin.")
-            } else {
-                searchingHelper(player, "", 0, "You search the crate...", "")
-            }
-            return@on true
-        }
+        val crateInteractions = mapOf(
+            Scenery.CRATE_7347 to Pair(ATTRIBUTE_TIN, Items.TIN_5600),
+            Scenery.CRATE_7348 to Pair(ATTRIBUTE_CHISEL, Items.CHISEL_5601),
+            Scenery.CRATE_7349 to Pair(ATTRIBUTE_WIRE, Items.BRONZE_WIRE_5602)
+        )
 
-        on(Scenery.CRATE_7348, IntType.SCENERY, "search") { player, node ->
-            if (node.location == Location(2476, 4937)) {
-                searchingHelper(player, ATTRIBUTE_CHISEL, Items.CHISEL_5601, "You search the crate...", "Inside the crate you find a chisel.")
-            } else {
-                searchingHelper(player, "", 0, "You search the crate...", "")
+        crateInteractions.forEach { (scenery, attributes) ->
+            on(scenery, IntType.SCENERY, "search") { player, node ->
+                val (attribute, item) = attributes
+                if (node.location == RDUtils.getLocationForScenery(node.asScenery())) {
+                    RDUtils.searchingHelper(player, attribute, item, "You search the crate...", "Inside the crate you find a ${getItemName(item).lowercase()}.")
+                } else {
+                    RDUtils.searchingHelper(player, "", 0, "You search the crate...", "")
+                }
+                return@on true
             }
-            return@on true
-        }
-
-        on(Scenery.CRATE_7349, IntType.SCENERY, "search") { player, node ->
-            if (node.location == Location(2475, 4943)) {
-                searchingHelper(player, ATTRIBUTE_WIRE, Items.BRONZE_WIRE_5602, "You search the crate...", "Inside the crate you find some wire.")
-            } else {
-                searchingHelper(player, "", 0, "You search the crate...", "")
-            }
-            return@on true
         }
 
         on(Scenery.CLOSED_CHEST_7350, IntType.SCENERY, "open") { _, node ->
@@ -219,7 +142,7 @@ class MissCheeversRoomListeners : InteractionListener {
         }
 
         on(Scenery.OPEN_CHEST_7351, IntType.SCENERY, "search") { player, _ ->
-            searchingHelper(player, ATTRIBUTE_SHEARS, Items.SHEARS_5603, "You search the chest...", "Inside the chest you find some shears.")
+            RDUtils.searchingHelper(player, ATTRIBUTE_SHEARS, Items.SHEARS_5603, "You search the chest...", "Inside the chest you find some shears.")
             return@on true
         }
 
@@ -229,20 +152,12 @@ class MissCheeversRoomListeners : InteractionListener {
         }
 
         onUseWith(IntType.ITEM, Items.TIN_5600, Items.GYPSUM_5579) { player, used, with ->
-            replaceSlot(player, slot = used.index, Item(Items.TIN_5592))
-            replaceSlot(player, slot = with.index, Item(Items.VIAL_229))
-            animate(player, Animation(Animations.HUMAN_USE_PESTLE_AND_MORTAR_364))
-            playAudio(player, Sounds.VIALPOUR_2613)
-            sendMessage(player, "You empty the vial into the tin.")
+            RDUtils.processItemUsage(player, used.asItem(), with.asItem(), Item(Items.TIN_5592))
             return@onUseWith true
         }
 
         onUseWith(IntType.ITEM, Items.TIN_5592, Items.VIAL_OF_LIQUID_5582) { player, used, with ->
-            replaceSlot(player, slot = used.index, Item(Items.TIN_5593))
-            replaceSlot(player, slot = with.index, Item(Items.VIAL_229))
-            animate(player, Animation(Animations.HUMAN_USE_PESTLE_AND_MORTAR_364))
-            playAudio(player, Sounds.VIALPOUR_2613)
-            sendMessage(player, "You empty the vial into the tin.")
+            RDUtils.processItemUsage(player, used.asItem(), with.asItem(), Item(Items.TIN_5593))
             sendMessage(player, "You notice the tin gets quite warm as you do this.")
             sendMessageWithDelay(player, "A lumpy white mixture is made, that seems to be hardening.", 1)
             return@onUseWith true
@@ -255,20 +170,12 @@ class MissCheeversRoomListeners : InteractionListener {
         }
 
         onUseWith(IntType.ITEM, Items.TIN_5594, *MIXTURES) { player, used, with ->
-            replaceSlot(player, slot = used.index, Item(Items.TIN_5595))
-            replaceSlot(player, slot = with.index, Item(Items.VIAL_229))
-            playAudio(player, Sounds.VIALPOUR_2613)
-            animate(player, Animation(Animations.HUMAN_USE_PESTLE_AND_MORTAR_364))
-            sendMessage(player, "You pour the vial into the impression of the key.")
+            RDUtils.processItemUsage(player, used.asItem(), with.asItem(), Item(Items.TIN_5595))
             return@onUseWith true
         }
 
         onUseWith(IntType.ITEM, Items.TIN_5595, *MIXTURES) { player, used, with ->
-            replaceSlot(player, slot = used.index, Item(Items.TIN_5596))
-            replaceSlot(player, slot = with.index, Item(Items.VIAL_229))
-            playAudio(player, Sounds.VIALPOUR_2613)
-            animate(player, Animation(Animations.HUMAN_USE_PESTLE_AND_MORTAR_364))
-            sendMessage(player, "You pour the vial into the impression of the key.")
+            RDUtils.processItemUsage(player, used.asItem(), with.asItem(), Item(Items.TIN_5596))
             return@onUseWith true
         }
 
@@ -291,30 +198,31 @@ class MissCheeversRoomListeners : InteractionListener {
         }
 
         onUseWith(IntType.SCENERY, Items.METAL_SPADE_5586, Scenery.BUNSEN_BURNER_7332) { player, _, _ ->
-            lock(player,3)
+            lock(player, 3)
             sendMessage(player, "You burn the wooden handle away from the spade...")
-            queueScript(player, 1, QueueStrength.WEAK) { stage : Int ->
-                when(stage){
+            queueScript(player, 1, QueueStrength.WEAK) { stage: Int ->
+                when (stage) {
                     0 -> {
                         visualize(player, -1, Graphic(157, 96))
                         playAudio(player, Sounds.FIREWAVE_HIT_163)
-                        return@queueScript keepRunning(player)
+                        keepRunning(player)
                     }
                     1 -> {
                         removeItem(player, Items.METAL_SPADE_5586)
-                        return@queueScript keepRunning(player)
+                        keepRunning(player)
                     }
                     2 -> {
-                        addItem(player, Items.METAL_SPADE_5587).also { addItem(player, Items.ASHES_592) }
+                        addItem(player, Items.METAL_SPADE_5587)
+                        addItem(player, Items.ASHES_592)
                         sendMessage(player, "...and are left with a metal spade with no handle.")
-                        return@queueScript stopExecuting(player)
+                        stopExecuting(player)
                     }
-                    else -> return@queueScript stopExecuting(player)
+
+                    else -> stopExecuting(player)
                 }
             }
             return@onUseWith true
         }
-
 
         on(Scenery.STONE_DOOR_7343, SCENERY, "study") { player, _ ->
             sendDialogueLines(player, "There is a stone slab here obstructing the door.", "There is a small hole in the slab that looks like it might be for a handle.")
@@ -333,50 +241,19 @@ class MissCheeversRoomListeners : InteractionListener {
         }
 
         onUseWith(IntType.SCENERY, DoorVials.doorVialsArray, Scenery.STONE_DOOR_7344) { player, used, _ ->
-            lock(player, 5)
-            lockInteractions(player, 5)
-            if (removeItem(player, used.id)) {
-                animate(player, Animation(2259))
-                playAudio(player, Sounds.VIALPOUR_2613)
-                setAttribute(player, DoorVials.doorVialsMap[used.id]!!.attribute, true)
-                sendMessage(player, "You pour the vial onto the flat part of the spade.")
-                addItem(player, Items.VIAL_229)
-            }
-            if (DoorVials.doorVialsRequiredMap.all { getAttribute(player, it.value.attribute, false) }) {
-                animate(player, Animation(2259))
-                playAudio(player, Sounds.VIALPOUR_2613)
-                sendMessage(player, "Something caused a reaction when mixed!")
-                sendMessage(player, "The spade gets hotter, and expands slightly.")
-                setVarbit(player, DOOR_VARBIT, 2)
-            }
+            RDUtils.handleVialUsage(player, used.asItem())
             return@onUseWith true
         }
 
         on(Scenery.STONE_DOOR_7344, SCENERY, "pull-spade") { player, _ ->
-            lock(player, 3)
-            lockInteractions(player, 3)
-            if (DoorVials.doorVialsRequiredMap.all { getAttribute(player, it.value.attribute, false) }) {
-                sendMessage(player, "You pull on the spade...")
-                sendMessage(player, "It works as a handle, and you swing the stone door open.")
-                setVarbit(player, DOOR_VARBIT, 3)
-            } else {
-                sendMessage(player, "You pull on the spade...")
-                sendMessage(player, "It comes loose, and slides out of the hole in the stone.")
-                addItemOrDrop(player, Items.METAL_SPADE_5587)
-                setVarbit(player, DOOR_VARBIT, 0)
-            }
+            RDUtils.handleSpadePull(player)
             return@on true
         }
 
         on(Scenery.OPEN_DOOR_7345, SCENERY, "walk-through") { player, _ ->
-            if (inBorders(player, 2476, 4941, 2477, 4939)) {
-                forceMove(player, player.location, Location(2478, 4940, 0), 20,80)
-            } else if (inBorders(player, 2477, 4941, 2478, 4939)) {
-                forceMove(player, player.location, Location(2476, 4940, 0), 20,80)
-            }
+            RDUtils.handleDoorWalkThrough(player)
             return@on true
         }
-
 
     }
 
@@ -384,83 +261,61 @@ class MissCheeversRoomListeners : InteractionListener {
 
 private class VialShelfDialogueFile(private val flaskIdsArray: IntArray, private val specialAttribute: String? = null) :
     DialogueBuilderFile() {
+
     override fun create(b: DialogueBuilder) {
-        b.onPredicate { _ -> true }.branch { _ -> flaskIdsArray.size }.let { branch ->
-
-            branch.onValue(3)
-                // This is the only shelf with 3 vials of water.
-                .line("There are three vials on this shelf.").options("Take the vials?").let { optionBuilder ->
-                    optionBuilder.option("Take one vial.").endWith { _, player ->
-                        addItemOrDrop(player, flaskIdsArray[0])
-                        if (specialAttribute != null) {
-                            setAttribute(player, specialAttribute, getAttribute(player, specialAttribute, 3) - 1)
-                            print(getAttribute(player, specialAttribute, 3))
-                        }
-                    }
-                    optionBuilder.option("Take two vials.").endWith { _, player ->
-                        addItemOrDrop(player, flaskIdsArray[0])
-                        addItemOrDrop(player, flaskIdsArray[1])
-                        if (specialAttribute != null) {
-                            setAttribute(player, specialAttribute, getAttribute(player, specialAttribute, 3) - 2)
-                        }
-                    }
-                    optionBuilder.option("Take all three vials.").endWith { _, player ->
-                        addItemOrDrop(player, flaskIdsArray[0])
-                        addItemOrDrop(player, flaskIdsArray[1])
-                        addItemOrDrop(player, flaskIdsArray[2])
-                        if (specialAttribute != null) {
-                            setAttribute(player, specialAttribute, getAttribute(player, specialAttribute, 3) - 3)
-                        }
-                    }
-                    optionBuilder.option("Don't take a vial.").end()
-                }
+        b.onPredicate { true }.branch { flaskIdsArray.size }.let { branch ->
+            branch.onValue(3).line("There are three vials on this shelf.").options("Take the vials?")
+                .let { optionBuilder -> handleVialOptions(optionBuilder, 3) }
             branch.onValue(2).line("There are two vials on this shelf.").options("Take the vials?")
-                .let { optionBuilder ->
-                    optionBuilder.option("Take the first vial.").endWith { _, player ->
-                        addItemOrDrop(player, flaskIdsArray[0])
-                        if (specialAttribute != null) {
-                            setAttribute(player, specialAttribute, getAttribute(player, specialAttribute, 2) - 1)
-                        } else {
-                            setAttribute(player, MissCheeversRoomListeners.Companion.Vials.vialMap[flaskIdsArray[0]]!!.attribute, true)
-                        }
-                    }
-                    optionBuilder.option("Take the second vial.").endWith { _, player ->
-                        addItemOrDrop(player, flaskIdsArray[1])
-                        if (specialAttribute != null) {
-                            setAttribute(player, specialAttribute, getAttribute(player, specialAttribute, 2) - 1)
-                        } else {
-                            setAttribute(player, MissCheeversRoomListeners.Companion.Vials.vialMap[flaskIdsArray[1]]!!.attribute, true)
-                        }
-                    }
-                    optionBuilder.option("Take both vials.").endWith { _, player ->
-                        addItemOrDrop(player, flaskIdsArray[0])
-                        addItemOrDrop(player, flaskIdsArray[1])
-                        if (specialAttribute != null) {
-                            setAttribute(player, specialAttribute, getAttribute(player, specialAttribute, 2) - 2)
-                        } else {
-                            setAttribute(player, MissCheeversRoomListeners.Companion.Vials.vialMap[flaskIdsArray[0]]!!.attribute, true)
-                            setAttribute(player, MissCheeversRoomListeners.Companion.Vials.vialMap[flaskIdsArray[1]]!!.attribute, true)
-                        }
-                    }
-                }
-
-            branch.onValue(1).line("There is a vial on this shelf.").options("Take the vial?").let { optionBuilder ->
-                optionBuilder.option("YES").endWith { _, player ->
-                    addItemOrDrop(player, flaskIdsArray[0])
-                    if (specialAttribute != null) {
-                        setAttribute(player, specialAttribute, getAttribute(player, specialAttribute, 1) - 1)
-                    } else {
-                        setAttribute(
-                            player,
-                            MissCheeversRoomListeners.Companion.Vials.vialMap[flaskIdsArray[0]]!!.attribute,
-                            true
-                        )
-                    }
-                }
-                optionBuilder.option("NO").end()
-            }
-
+                .let { optionBuilder -> handleVialOptions(optionBuilder, 2) }
+            branch.onValue(1).line("There is a vial on this shelf.").options("Take the vial?")
+                .let { optionBuilder -> handleVialOptions(optionBuilder, 1) }
             branch.onValue(0).line("There is nothing of interest on these shelves.")
+        }
+    }
+
+    private fun handleVialOptions(optionBuilder: DialogueOptionsBuilder, count: Int) {
+        val vialsToTake = when (count) {
+            3 -> listOf(0, 1, 2)
+            2 -> listOf(0, 1)
+            1 -> listOf(0)
+            else -> emptyList()
+        }
+
+        vialsToTake.forEachIndexed { index, vialIndex ->
+            optionBuilder.option("Take ${if (count > 1) "the ${ordinal(index + 1)} vial" else "the vial"}")
+                .endWith { _, player ->
+                    vialsToTake.forEach { addItemOrDrop(player, flaskIdsArray[it]) }
+                    updatePlayerAttribute(player, count)
+                }
+        }
+
+        if (count > 1) {
+            optionBuilder.option("Take both vials.").endWith { _, player ->
+                vialsToTake.forEach { addItemOrDrop(player, flaskIdsArray[it]) }
+                updatePlayerAttribute(player, count)
+            }
+        }
+
+        optionBuilder.option("Don't take a vial.").end()
+    }
+
+    private fun updatePlayerAttribute(player: Player, count: Int) {
+        if (specialAttribute != null) {
+            setAttribute(player, specialAttribute, getAttribute(player, specialAttribute, count) - count)
+        } else {
+            flaskIdsArray.forEach { id ->
+                setAttribute(player, MissCheeversRoomListeners.Companion.Vials.vialMap[id]!!.attribute, true)
+            }
+        }
+    }
+
+    private fun ordinal(number: Int): String {
+        return when (number) {
+            1 -> "first"
+            2 -> "second"
+            3 -> "third"
+            else -> number.toString()
         }
     }
 }

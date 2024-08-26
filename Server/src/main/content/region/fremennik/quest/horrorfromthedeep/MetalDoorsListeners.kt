@@ -16,6 +16,11 @@ import core.game.interaction.QueueStrength
 class MetalDoorsListeners : InteractionListener, InterfaceListener {
 
     override fun defineListeners() {
+
+        /*
+         * Opens the metal door interface.
+         */
+
         on(HFTDUtils.METAL_DOORS, IntType.SCENERY, "study") { player, _ ->
             when (player.location.y) {
                 4626 -> {
@@ -33,10 +38,18 @@ class MetalDoorsListeners : InteractionListener, InterfaceListener {
             return@on true
         }
 
+        /*
+         * Handle use with interaction on metal doors.
+         */
+
         onUseWith(IntType.SCENERY, HFTDUtils.STRANGE_W_REQ_ITEMS, *HFTDUtils.METAL_DOORS) { player, used, _ ->
             openDialogue(player, MetalDoorsInteractionDialogue(qitems = used.id))
             return@onUseWith true
         }
+
+        /*
+         * Handle opening the door after placed required items.
+         */
 
         on(HFTDUtils.STRANGE_DOORS, IntType.SCENERY, "open") { player, node ->
             if (getQuestStage(player, "Horror from the Deep") >= 50) {
@@ -68,6 +81,10 @@ class MetalDoorsListeners : InteractionListener, InterfaceListener {
     }
 
     override fun defineInterfaceListeners() {
+
+        /*
+         * Handle visuals of metal door interface.
+         */
 
         onOpen(Components.HORROR_METALDOOR_142) { player, _ ->
             setComponentVisibility(player, 142, 2, getAttribute(player, HFTDUtils.STRANGE_W_FIRE, 0) != 1)

@@ -1,93 +1,53 @@
 package content.region.asgarnia.quest.rd.npc
 
+import cfg.consts.NPCs
 import content.region.asgarnia.quest.rd.RecruitmentDrive
 import content.region.asgarnia.quest.rd.dialogue.SirKuamFerentseDialogueFile
 import core.api.*
-import cfg.consts.NPCs
 import core.game.node.entity.Entity
 import core.game.node.entity.combat.BattleState
-import core.game.node.entity.combat.CombatStyle
-import core.game.node.entity.npc.AbstractNPC
 import core.game.node.entity.npc.NPC
+import core.game.node.entity.npc.NPCBehavior
 import core.game.node.entity.player.Player
-import core.game.system.task.Pulse
-import core.game.world.GameWorld
-import core.game.world.map.Location
-import core.plugin.Initializable
+import core.game.node.entity.skill.Skills
 
 /**
  * Represents the Sir Leye NPC.
+ * @author Ovenbread
  */
-@Initializable
-class SirLeyeNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id, location) {
+class SirLeyeNPC : NPCBehavior(NPCs.SIR_LEYE_2285) {
     var clearTime = 0
-    override fun construct(id: Int, location: Location, vararg objects: Any): AbstractNPC {
-        return SirLeyeNPC(id, location)
-    }
 
-
-    override fun handleTickActions() {
-        super.handleTickActions()
-        if (clearTime++ > 288) poofClear(this)
-    }
-
-    override fun getIds(): IntArray {
-        return intArrayOf(NPCs.SIR_LEYE_2285)
-    }
-
-    companion object {
-        fun spawnSirLeye(player: Player) {
-            val leye = SirLeyeNPC(NPCs.SIR_LEYE_2285)
-            leye.location = location(2457, 4966, 0)
-            leye.isWalks = true
-            leye.isAggressive = true
-            leye.isActive = false
-            leye.isRespawn = false
-
-            if (leye.asNpc() != null && leye.isActive) {
-                leye.properties.teleportLocation = leye.properties.spawnLocation
-            }
-            leye.isActive = true
-            GameWorld.Pulser.submit(object : Pulse(1, leye) {
-                override fun pulse(): Boolean {
-                    leye.init()
-                    registerHintIcon(player, leye)
-                    leye.attack(player)
-                    sendChat(leye, "No man may defeat me!")
-                    return true
-                }
-            })
+    override fun tick(self: NPC): Boolean {
+        if (clearTime++ > 288) {
+            clearTime = 0
+            poofClear(self)
         }
+        return true
     }
 
-    override fun checkImpact(state: BattleState) {
-        super.checkImpact(state)
-        val player = state.attacker
-        if (player is Player) {
-            if (player.isMale && state.style == CombatStyle.MELEE) {
-                if (state.estimatedHit > -1) {
-                    state.estimatedHit = 0
-                    return
+    override fun beforeDamageReceived(self: NPC, attacker: Entity, state: BattleState) {
+        val lifepoints = self.skills.lifepoints
+        if (attacker is Player) {
+            if (attacker.isMale) {
+                if (state.estimatedHit + Integer.max(state.secondaryHit, 0) > lifepoints - 1) {
+                    self.skills.lifepoints = self.getSkills().getStaticLevel(Skills.HITPOINTS)
                 }
-                if (state.secondaryHit > -1) {
-                    state.secondaryHit = 0
-                    return
-                }
-            } else {
-                state.neutralizeHits()
-                state.estimatedHit = state.maximumHit
             }
         }
     }
 
-    override fun finalizeDeath(killer: Entity?) {
+    override fun onDeathFinished(self: NPC, killer: Entity) {
         if (killer is Player) {
             clearHintIcon(killer)
             setAttribute(killer, RecruitmentDrive.ATTRIBUTE_RD_STAGE_PASSED, true)
             openDialogue(killer, SirKuamFerentseDialogueFile(1), NPC(NPCs.SIR_KUAM_FERENTSE_2284))
             removeAttribute(killer, SirKuamFerentseDialogueFile.ATTRIBUTE_SPAWN_NPC)
         }
-        clear()
-        super.finalizeDeath(killer)
     }
+
+    override fun getXpMultiplier(self: NPC, attacker: Entity): Double {
+        return 0.0
+    }
+
 }

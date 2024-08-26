@@ -19,13 +19,19 @@ class HorrorFromTheDeepListeners : InteractionListener {
 
     override fun defineListeners() {
 
-        // Jossik underground.
+        /*
+         * Handle interaction with Jossik underground.
+         */
+
         on(NPCs.JOSSIK_1335, IntType.NPC, "talk-to") { player, _ ->
             openDialogue(player, JossikDialogueFile())
             return@on true
         }
 
-        // Door leading to the lighthouse.
+        /*
+         * Door leading to the lighthouse.
+         */
+
         on(HFTDUtils.LIGHTHOUSE_FRONT_DOORS, IntType.SCENERY, "walk-through") { player, node ->
             if (isQuestComplete(player, "Horror from the Deep")) {
                 DoorActionHandler.handleAutowalkDoor(player, node.asScenery())
@@ -49,6 +55,10 @@ class HorrorFromTheDeepListeners : InteractionListener {
             return@on true
         }
 
+        /*
+         * Handle the metal ladders to boss.
+         */
+
         on(Scenery.IRON_LADDER_4383, IntType.SCENERY, "climb") { player, _ ->
             animate(player, 827)
             queueScript(player, 1, QueueStrength.SOFT) {
@@ -66,7 +76,10 @@ class HorrorFromTheDeepListeners : InteractionListener {
             return@on true
         }
 
-        // Broken Lighthouse Mechanism, first fix.
+        /*
+         * Handle first interaction fix for lighthouse mechanism.
+         */
+
         onUseWith(IntType.SCENERY, Items.SWAMP_TAR_1939, Scenery.LIGHTING_MECHANISM_4588) { player, _, _ ->
             if (removeItem(player, Items.SWAMP_TAR_1939)) {
                 sendMessage(player, "You use the swamp tar to make the torch flammable again.")
@@ -75,14 +88,20 @@ class HorrorFromTheDeepListeners : InteractionListener {
             return@onUseWith true
         }
 
-        // Second fix.
+        /*
+         * Handles the second fix for lighthouse mechanism.
+         */
+
         onUseWith(IntType.SCENERY, Items.TINDERBOX_590, Scenery.LIGHTING_MECHANISM_4588) { player, _, _ ->
             sendMessage(player, "You light the torch with your tinderbox.")
             player.incrementAttribute(HFTDUtils.FIX_LIGHTHOUSE_MECHANISM)
             return@onUseWith true
         }
 
-        // Third fix.
+        /*
+         * Handles the third fix for lighthouse mechanism.
+         */
+
         onUseWith(IntType.SCENERY, Items.MOLTEN_GLASS_1775, Scenery.LIGHTING_MECHANISM_4588) { player, item, mechanism ->
             if (getAttribute(player, HFTDUtils.FIX_LIGHTHOUSE_MECHANISM, 0) == 2 && removeItem(player, item.asItem())) {
                 replaceScenery(mechanism.asScenery(), Scenery.LIGHTING_MECHANISM_4587, 80)

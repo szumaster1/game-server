@@ -33,7 +33,7 @@ class LadyTableDialogueFile(private val state: Int = 0) : DialogueFile() {
                 player!!.faceLocation(location(2458, 4980, 0))
                 setAttribute(player!!, "rd:statues", (1..12).random())
                 setVarbit(player!!, 658, getAttribute(player!!, "rd:statues", 0))
-                npcl(FacialExpression.FRIENDLY, "Welcome, ${player!!.username}. This room will test your observation skills.").also { stage++ }
+                npcl(FacialExpression.FRIENDLY, "Welcome, @name. This room will test your observation skills.").also { stage++ }
             }
             1 -> npcl(FacialExpression.FRIENDLY, "Study the statues closely. There is one missing statue in this room.").also { stage++ }
             2 -> npcl(FacialExpression.FRIENDLY, "We will also mix the order up a little, to make things interesting for you!").also { stage++ }

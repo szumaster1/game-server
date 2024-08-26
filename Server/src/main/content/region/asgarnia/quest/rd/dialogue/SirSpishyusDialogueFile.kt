@@ -17,7 +17,7 @@ import core.game.dialogue.FacialExpression
 class SirSpishyusDialogueFile(private val dialogueNum: Int = 0) : DialogueBuilderFile() {
     override fun create(b: DialogueBuilder) {
         b.onPredicate { player -> getAttribute(player, RecruitmentDrive.ATTRIBUTE_RD_STAGE_PASSED, false) }
-            .npc(FacialExpression.FRIENDLY, "Excellent work,  ${player!!.username}.", "Please step through the portal to meet your next", "challenge.")
+            .npc(FacialExpression.FRIENDLY, "Excellent work, @name.", "Please step through the portal to meet your next", "challenge.")
             .end()
 
         b.onPredicate { player -> dialogueNum == 2 || getAttribute(player, RecruitmentDrive.ATTRIBUTE_RD_STAGE_FAILED, false) }
@@ -40,7 +40,7 @@ class SirSpishyusDialogueFile(private val dialogueNum: Int = 0) : DialogueBuilde
                 setVarbit(player, ChickenFoxAndGrainListener.VARBIT_GRAIN_EAST, 0)
                 setVarbit(player, ChickenFoxAndGrainListener.VARBIT_GRAIN_WEST, 0)
             }
-            .npcl(FacialExpression.FRIENDLY, "Ah, welcome  ${player!!.username}.")
+            .npcl(FacialExpression.FRIENDLY, "Ah, welcome @name.")
             .playerl(FacialExpression.FRIENDLY, "Hello there." + " What am I supposed to be doing in this room?")
             .npcl(FacialExpression.FRIENDLY, "Well, your task is to take this fox, this chicken and this bag of grain across that bridge there to the other side of the room.")
             .npcl(FacialExpression.FRIENDLY, "When you have done that, your task is complete.")

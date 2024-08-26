@@ -104,7 +104,7 @@ class RecruitmentDriveListeners : InteractionListener, MapArea {
             if (node.id == statueIds[getAttribute(player, "rd:statues", 0)]) {
                 if (!getAttribute(player, RecruitmentDrive.ATTRIBUTE_RD_STAGE_FAILED, false)) {
                     setAttribute(player, RecruitmentDrive.ATTRIBUTE_RD_STAGE_PASSED, true)
-                    sendNPCDialogueLines(player, NPCs.LADY_TABLE_2283, FacialExpression.NEUTRAL, false, "Excellent work,  ${player!!.username}.", "Please step through the portal to meet your next", "challenge.")
+                    sendNPCDialogueLines(player, NPCs.LADY_TABLE_2283, FacialExpression.NEUTRAL, false, "Excellent work, @name.", "Please step through the portal to meet your next", "challenge.")
                 }
             } else {
                 setAttribute(player, RecruitmentDrive.ATTRIBUTE_RD_STAGE_FAILED, true)
