@@ -11,7 +11,7 @@ import core.plugin.Initializable
  * Recruitment drive quest.
  */
 @Initializable
-class RecruitmentDrive : Quest("Recruitment Drive", 103, 102, 1, 103, 102, 1, 496, 0, 1, 2) {
+class RecruitmentDrive : Quest("Recruitment Drive", 103, 102, 1, 496, 0, 1, 2) {
 
     companion object {
         const val stagePass = "rd:passedstage"
