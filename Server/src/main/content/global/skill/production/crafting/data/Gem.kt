@@ -15,12 +15,12 @@ import core.game.world.update.flag.context.Animation
  * @param exp Represents the experience points gained from using the gem.
  * @constructor Gem data
  */
-enum class GemData(
-    val uncut: Item, // The uncut version of the gem, which is an instance of Item.
-    val gem: Item, // The cut version of the gem, also an instance of Item.
-    val level: Int, // The level required to utilize the gem.
-    val animation: Animation, // The animation that plays when the gem is used.
-    val exp: Double // The experience points awarded for using the gem.
+enum class Gem(
+    val uncut: Item,
+    val gem: Item,
+    val level: Int,
+    val animation: Animation,
+    val exp: Double
 ) {
     /**
      * Sapphire.
@@ -122,7 +122,7 @@ enum class GemData(
     );
 
     companion object {
-        fun forId(item: Item): GemData? {
+        fun forId(item: Item): Gem? {
             for (gem in values()) {
                 if (gem.uncut.id == item.id) {
                     return gem

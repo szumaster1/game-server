@@ -1,9 +1,9 @@
 package content.global.skill.production.crafting.handlers
 
-import content.global.skill.production.crafting.data.LeatherData
-import content.global.skill.production.crafting.data.LeatherData.decayThread
-import content.global.skill.production.crafting.data.LeatherData.isLastThread
-import content.global.skill.production.crafting.data.LeatherData.removeThread
+import content.global.skill.production.crafting.data.Leather
+import content.global.skill.production.crafting.data.Leather.decayThread
+import content.global.skill.production.crafting.data.Leather.isLastThread
+import content.global.skill.production.crafting.data.Leather.removeThread
 import core.api.*
 import cfg.consts.Animations
 import cfg.consts.Items
@@ -61,10 +61,10 @@ class YakArmourCraftingHandler : UseWithHandler(Items.NEEDLE_1733) {
                 sendDialogue(player, "You need a Crafting level of at least $level in order to do this.")
                 return false
             }
-            if (!inInventory(player, LeatherData.NEEDLE, 1)) {
+            if (!inInventory(player, Leather.NEEDLE, 1)) {
                 return false
             }
-            if (!inInventory(player, LeatherData.THREAD.id)) {
+            if (!inInventory(player, Leather.THREAD.id)) {
                 sendDialogue(player, "You need some thread to make anything out of leather.")
                 return false
             }

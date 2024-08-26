@@ -1,6 +1,6 @@
 package content.global.skill.production.crafting.handlers
 
-import content.global.skill.production.crafting.data.SnakeskinData
+import content.global.skill.production.crafting.data.Snakeskin
 import content.global.skill.production.crafting.item.SnakeskinCraftPulse
 import core.api.amountInInventory
 import cfg.consts.Items
@@ -23,7 +23,7 @@ class SnakeskinListener : InteractionListener {
                             player = player,
                             node = used.asItem(),
                             amount = amount,
-                            skin = SnakeskinData.values()[index]
+                            skin = Snakeskin.values()[index]
                         )
                     )
                 }
@@ -49,9 +49,9 @@ class SnakeskinListener : InteractionListener {
     companion object {
         val skins: Array<Item?>
             get() {
-                val items = arrayOfNulls<Item>(SnakeskinData.values().size)
+                val items = arrayOfNulls<Item>(Snakeskin.values().size)
                 for (i in items.indices) {
-                    items[i] = SnakeskinData.values()[i].product
+                    items[i] = Snakeskin.values()[i].product
                 }
                 return items
             }

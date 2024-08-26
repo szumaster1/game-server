@@ -1,6 +1,6 @@
 package content.global.skill.production.crafting.plugin
 
-import content.global.skill.production.crafting.data.JewelleryData
+import content.global.skill.production.crafting.data.Jewellery
 import cfg.consts.Components
 import cfg.consts.Items
 import cfg.consts.Scenery
@@ -26,7 +26,7 @@ class JewelleryCraftPlugin : UseWithHandler(Items.GOLD_BAR_2357, Items.PERFECT_G
 
     override fun handle(event: NodeUsageEvent?): Boolean {
         event ?: return false
-        JewelleryData.open(event.player).also {
+        Jewellery.open(event.player).also {
             if (inInventory(event.player, Items.PERFECT_GOLD_BAR_2365) && inInventory(event.player, Items.RING_MOULD_1592) && inInventory(event.player, Items.RUBY_1603)) {
                 sendItemOnInterface(event.player, Components.CRAFTING_GOLD_446, 25, Items.PERFECT_RING_773, 1)
             }

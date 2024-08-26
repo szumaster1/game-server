@@ -1,6 +1,6 @@
 package content.global.skill.production.crafting
 
-import content.global.skill.production.crafting.data.SpinningData
+import content.global.skill.production.crafting.data.Spinning
 import content.global.skill.production.crafting.item.SpinningPulse
 import core.api.*
 import cfg.consts.Components
@@ -14,7 +14,7 @@ class SpinningInterfaceListener : InterfaceListener {
 
     override fun defineInterfaceListeners() {
         on(Components.CRAFTING_SPINNING_459) { player, _, opcode, buttonID, _, _ ->
-            val spin = SpinningData.forId(buttonID) ?: return@on true
+            val spin = Spinning.forId(buttonID) ?: return@on true
             if (!inInventory(player, spin.need, 1)) {
                 sendMessage(player, "You need " + getItemName(spin.need).lowercase() + " to make this.")
                 return@on true

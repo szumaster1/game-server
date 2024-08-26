@@ -64,6 +64,8 @@ enum class Bar(
     val ores: Array<Item> = ores as Array<Item>
 
     companion object {
+
+        @JvmStatic
         fun forId(id: Int): Bar? {
             for (bar in values()) {
                 if (bar.product.id == id) {
@@ -73,6 +75,7 @@ enum class Bar(
             return null
         }
 
+        @JvmStatic
         fun forOre(id: Int): Bar? {
             for (bar in values()) {
                 for (i in bar.ores) {

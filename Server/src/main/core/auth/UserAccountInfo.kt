@@ -26,61 +26,61 @@ import java.sql.Timestamp
  * @constructor User account info
  */
 class UserAccountInfo(
-    var username: String, // User's username
-    var password: String, // User's password
-    var uid: Int, // Unique user identifier
-    var rights: Int, // User's rights level
-    var credits: Int, // User's credits
-    var ip: String, // Current IP address
-    var lastUsedIp: String, // Last used IP address
-    var muteEndTime: Long, // Mute end time in milliseconds
-    var banEndTime: Long, // Ban end time in milliseconds
-    var contacts: String, // User's contacts
-    var blocked: String, // Blocked users
-    var clanName: String, // Name of the clan
-    var currentClan: String, // Current clan of the user
-    var clanReqs: String, // Clan requirements
-    var timePlayed: Long, // Total time played
-    var lastLogin: Long, // Last login timestamp
-    var online: Boolean, // Online status
-    var joinDate: Timestamp // Join date timestamp
+    var username: String,
+    var password: String,
+    var uid: Int,
+    var rights: Int,
+    var credits: Int,
+    var ip: String,
+    var lastUsedIp: String,
+    var muteEndTime: Long,
+    var banEndTime: Long,
+    var contacts: String,
+    var blocked: String,
+    var clanName: String,
+    var currentClan: String,
+    var clanReqs: String,
+    var timePlayed: Long,
+    var lastLogin: Long,
+    var online: Boolean,
+    var joinDate: Timestamp
 ) {
     companion object {
-        val default = createDefault() // Default user account info
+        val default = createDefault()
 
         @JvmStatic
         fun createDefault(): UserAccountInfo {
             return UserAccountInfo(
-                username = "", // Default username
-                password = "", // Default password
-                uid = 0, // Default UID
-                rights = 0, // Default rights
-                credits = 0, // Default credits
-                ip = "", // Default IP
-                lastUsedIp = "", // Default last used IP
-                muteEndTime = 0L, // Default mute end time
-                banEndTime = 0L, // Default ban end time
-                contacts = "", // Default contacts
-                blocked = "", // Default blocked users
-                clanName = "", // Default clan name
-                currentClan = "", // Default current clan
-                clanReqs = "1,0,8,9", // Default clan requirements
-                timePlayed = 0L, // Default time played
-                lastLogin = 0L, // Default last login
-                online = false, // Default online status
-                joinDate = Timestamp(System.currentTimeMillis()) // Default join date
-            ).also { it.setInitialReferenceValues() } // Set initial reference values
+                username = "",
+                password = "",
+                uid = 0,
+                rights = 0,
+                credits = 0,
+                ip = "",
+                lastUsedIp = "",
+                muteEndTime = 0L,
+                banEndTime = 0L,
+                contacts = "",
+                blocked = "",
+                clanName = "",
+                currentClan = "",
+                clanReqs = "1,0,8,9",
+                timePlayed = 0L,
+                lastLogin = 0L,
+                online = false,
+                joinDate = Timestamp(System.currentTimeMillis())
+            ).also { it.setInitialReferenceValues() }
         }
     }
 
-    lateinit var initialValues: Array<Any> // Array to hold initial values
+    lateinit var initialValues: Array<Any>
 
     /**
      * Set initial reference values
      *
      */
     fun setInitialReferenceValues() {
-        initialValues = toArray() // Convert current values to array and set as initial
+        initialValues = toArray()
     }
 
     /**
@@ -89,14 +89,14 @@ class UserAccountInfo(
      * @return A pair containing a list of changed field indices and the current values
      */
     fun getChangedFields(): Pair<ArrayList<Int>, Array<Any>> {
-        val current = toArray() // Get current values as an array
-        val changed = ArrayList<Int>() // List to hold indices of changed fields
+        val current = toArray()
+        val changed = ArrayList<Int>()
 
-        for (i in current.indices) { // Iterate through current values
-            if (current[i] != initialValues[i]) changed.add(i) // Check for changes and add index if changed
+        for (i in current.indices) {
+            if (current[i] != initialValues[i]) changed.add(i)
         }
 
-        return Pair(changed, current) // Return changed indices and current values
+        return Pair(changed, current)
     }
 
     /**
@@ -124,20 +124,20 @@ class UserAccountInfo(
             lastLogin,
             online,
             joinDate
-        ) // Convert properties to array
+        )
     }
 
     override fun toString(): String {
-        return "USER:$username,PASS:$password,UID:$uid,RIGHTS:$rights,CREDITS:$credits,IP:$ip,LASTIP:$lastUsedIp" // String representation of user account info
+        return "USER:$username,PASS:$password,UID:$uid,RIGHTS:$rights,CREDITS:$credits,IP:$ip,LASTIP:$lastUsedIp"
     }
 
     override fun equals(other: Any?): Boolean {
-        if (this === other) return true // Check for reference equality
-        if (javaClass != other?.javaClass) return false // Check for class type
+        if (this === other) return true
+        if (javaClass != other?.javaClass) return false
 
-        other as UserAccountInfo // Cast to UserAccountInfo
+        other as UserAccountInfo
 
-        // Check for equality of all properties
+
         if (username != other.username) return false
         if (password != other.password) return false
         if (uid != other.uid) return false
@@ -156,12 +156,12 @@ class UserAccountInfo(
         if (lastLogin != other.lastLogin) return false
         if (online != other.online) return false
 
-        return true // All properties are equal
+        return true
     }
 
     override fun hashCode(): Int {
-        var result = username.hashCode() // Start with username hash
-        result = 31 * result + password.hashCode() // Include password hash
+        var result = username.hashCode()
+        result = 31 * result + password.hashCode()
         result = 31 * result + uid // Include UID
         result = 31 * result + rights // Include rights
         result = 31 * result + credits // Include credits

@@ -1,6 +1,6 @@
 package content.global.skill.production.crafting.handlers
 
-import content.global.skill.production.crafting.data.SilverData
+import content.global.skill.production.crafting.data.Silver
 import content.global.skill.production.crafting.item.SilverCraftPulse
 import core.api.*
 import cfg.consts.Components
@@ -51,7 +51,7 @@ class SilverCraftingListener : InterfaceListener, InteractionListener {
         }
 
         on(Components.CRAFTING_SILVER_CASTING_438) { player, _, opcode, buttonID, _, _ ->
-            val product = SilverData.forButtonID(buttonID) ?: return@on true
+            val product = Silver.forButton(buttonID) ?: return@on true
 
             if (!inInventory(player, product.requiredItemId)) {
                 sendMessage(
@@ -61,7 +61,7 @@ class SilverCraftingListener : InterfaceListener, InteractionListener {
                 return@on true
             }
 
-            if (product == SilverData.SILVTHRILL_ROD || product == SilverData.SILVTHRIL_CHAIN) {
+            if (product == Silver.SILVTHRILL_ROD || product == Silver.SILVTHRIL_CHAIN) {
                 sendMessage(player, "You can't do that yet.")
                 return@on true
             }
@@ -94,7 +94,7 @@ class SilverCraftingListener : InterfaceListener, InteractionListener {
         }
     }
 
-    private fun make(player: Player, product: SilverData, amount: Int) {
+    private fun make(player: Player, product: Silver, amount: Int) {
         closeInterface(player)
         submitIndividualPulse(
             player,

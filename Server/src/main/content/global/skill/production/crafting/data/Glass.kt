@@ -12,12 +12,12 @@ import cfg.consts.Items
  * @param experience Experience points gained from using the glass.
  * @constructor Glass data
  */
-enum class GlassData(
-    val buttonId: Int,          // Unique identifier for the button associated with the glass.
-    val productId: Int,         // Unique identifier for the product represented by the glass.
-    var amount: Int,            // Current quantity of the product in the glass.
-    val requiredLevel: Int,     // Minimum level required to use the glass.
-    val experience: Double       // Experience points gained from using the glass.
+enum class Glass(
+    val buttonId: Int,
+    val productId: Int,
+    var amount: Int,
+    val requiredLevel: Int,
+    val experience: Double
 ) {
     /**
      * Empty Vial.
@@ -108,8 +108,8 @@ enum class GlassData(
     );
 
     companion object {
-        private val BUTTON_MAP = HashMap<Int, GlassData>()
-        private val PRODUCT_MAP = HashMap<Int, GlassData>()
+        private val BUTTON_MAP = HashMap<Int, Glass>()
+        private val PRODUCT_MAP = HashMap<Int, Glass>()
 
         init {
             for (product in values()) {
@@ -118,6 +118,6 @@ enum class GlassData(
             }
         }
 
-        fun forButtonID(buttonId: Int): GlassData? = BUTTON_MAP[buttonId]
+        fun forButtonID(buttonId: Int): Glass? = BUTTON_MAP[buttonId]
     }
 }

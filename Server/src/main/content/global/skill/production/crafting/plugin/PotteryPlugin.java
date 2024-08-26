@@ -1,6 +1,6 @@
 package content.global.skill.production.crafting.plugin;
 
-import content.global.skill.production.crafting.data.PotteryData;
+import content.global.skill.production.crafting.data.Pottery;
 import content.global.skill.production.crafting.item.FirePotteryPulse;
 import content.global.skill.production.crafting.item.PotteryCraftPulse;
 import cfg.consts.Items;
@@ -18,7 +18,7 @@ import core.plugin.Initializable;
 import core.plugin.Plugin;
 
 /**
- * Pottery plugin.
+ * Pottery.kt plugin.
  */
 @Initializable
 public final class PotteryPlugin extends UseWithHandler {
@@ -33,7 +33,7 @@ public final class PotteryPlugin extends UseWithHandler {
     };
 
     /**
-     * Instantiates a new Pottery plugin.
+     * Instantiates a new Pottery.kt plugin.
      */
     public PotteryPlugin() {
         super(Items.SOFT_CLAY_1761);
@@ -59,7 +59,7 @@ public final class PotteryPlugin extends UseWithHandler {
 
             @Override
             public void create(final int amount, int index) {
-                player.getPulseManager().run(new PotteryCraftPulse(player, event.getUsedItem(), amount, PotteryData.values()[index]));
+                player.getPulseManager().run(new PotteryCraftPulse(player, event.getUsedItem(), amount, Pottery.values()[index]));
             }
 
             @Override
@@ -73,9 +73,9 @@ public final class PotteryPlugin extends UseWithHandler {
 
 
     private Item[] getPottery(boolean finished) {
-        final Item[] items = new Item[PotteryData.values().length];
+        final Item[] items = new Item[Pottery.values().length];
         for (int i = 0; i < items.length; i++) {
-            items[i] = finished ? PotteryData.values()[i].getProduct() : PotteryData.values()[i].getUnfinished();
+            items[i] = finished ? Pottery.values()[i].getProduct() : Pottery.values()[i].getUnfinished();
         }
         return items;
     }
@@ -145,12 +145,12 @@ public final class PotteryPlugin extends UseWithHandler {
 
                 @Override
                 public void create(final int amount, final int index) {
-                    player.getPulseManager().run(new FirePotteryPulse(player, PotteryData.values()[index].getUnfinished(), PotteryData.values()[index], amount));
+                    player.getPulseManager().run(new FirePotteryPulse(player, Pottery.values()[index].getUnfinished(), Pottery.values()[index], amount));
                 }
 
                 @Override
                 public int getAll(int index) {
-                    return player.getInventory().getAmount(PotteryData.values()[index].getUnfinished());
+                    return player.getInventory().getAmount(Pottery.values()[index].getUnfinished());
 
                 }
             };

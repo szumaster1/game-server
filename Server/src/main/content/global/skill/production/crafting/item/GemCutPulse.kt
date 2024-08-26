@@ -1,6 +1,6 @@
 package content.global.skill.production.crafting.item
 
-import content.global.skill.production.crafting.data.GemData
+import content.global.skill.production.crafting.data.Gem
 import core.api.*
 import cfg.consts.Items
 import cfg.consts.Sounds
@@ -19,7 +19,7 @@ import core.game.node.item.Item
  * @param player The player who is performing the gem cutting action.
  * @param item The item associated with the gem cutting process.
  */
-class GemCutPulse(player: Player?, item: Item?, var amount: Int, val gem: GemData) : SkillPulse<Item?>(player, item) {
+class GemCutPulse(player: Player?, item: Item?, var amount: Int, val gem: Gem) : SkillPulse<Item?>(player, item) {
 
     val ticks = 0
 

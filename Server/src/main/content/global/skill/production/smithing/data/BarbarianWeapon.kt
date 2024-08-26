@@ -1,6 +1,7 @@
 package content.global.skill.production.smithing.data
 
 import cfg.consts.Items
+import content.global.skill.production.crafting.data.Origami
 
 /**
  * Represents a type of Barbarian weapons.
@@ -102,13 +103,16 @@ enum class BarbarianWeapon(
     );
 
     companion object {
-        val values: Array<BarbarianWeapon> = values()
         val weaponMap: MutableMap<Int, BarbarianWeapon> = HashMap()
 
-        init {
-            for (weapon in values) {
-                weaponMap[weapon.requiredBar] = weapon
+        @JvmStatic
+        fun forId(itemId: Int): Origami? {
+            for (product in Origami.values()) {
+                if (product.requiredDye == itemId) {
+                    return product
+                }
             }
+            return null
         }
 
         fun getWeapon(id: Int): BarbarianWeapon? {

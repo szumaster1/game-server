@@ -1,6 +1,6 @@
 package content.global.skill.production.crafting.item
 
-import content.global.skill.production.crafting.data.PotteryData
+import content.global.skill.production.crafting.data.Pottery
 import core.api.*
 import cfg.consts.Animations
 import cfg.consts.Items
@@ -14,7 +14,7 @@ import core.game.world.update.flag.context.Animation
 import core.tools.StringUtils
 
 /**
- * Pottery craft pulse
+ * Pottery.kt craft pulse
  *
  * @param amount The quantity of pottery being crafted.
  * @param pottery The data related to the specific pottery item.
@@ -23,7 +23,7 @@ import core.tools.StringUtils
  * @param player The player who is performing the pottery crafting.
  * @param node The item node associated with the crafting process.
  */
-class PotteryCraftPulse(player: Player?, node: Item?, var amount: Int, val pottery: PotteryData) : SkillPulse<Item?>(player, node) {
+class PotteryCraftPulse(player: Player?, node: Item?, var amount: Int, val pottery: Pottery) : SkillPulse<Item?>(player, node) {
 
     var ticks = 0
 
@@ -50,7 +50,7 @@ class PotteryCraftPulse(player: Player?, node: Item?, var amount: Int, val potte
             return false
         }
         if (player.inventory.remove(SOFT_CLAY)) {
-            if (pottery == PotteryData.BOWL && withinDistance(player, Location(3086, 3410, 0))) {
+            if (pottery == Pottery.BOWL && withinDistance(player, Location(3086, 3410, 0))) {
                 setAttribute(player, "/save:diary:varrock:spun-bowl", true)
             }
             val item = pottery.unfinished
@@ -58,7 +58,7 @@ class PotteryCraftPulse(player: Player?, node: Item?, var amount: Int, val potte
             rewardXP(player, Skills.CRAFTING, pottery.exp)
             sendMessage(player, "You make the soft clay into " + (if (StringUtils.isPlusN(pottery.unfinished.name)) "an" else "a") + " " + pottery.unfinished.name.lowercase() + ".")
 
-            if (pottery == PotteryData.POT && withinDistance(player, Location(3086, 3410, 0))) {
+            if (pottery == Pottery.POT && withinDistance(player, Location(3086, 3410, 0))) {
                 finishDiaryTask(player, DiaryType.LUMBRIDGE, 0, 7)
             }
         }

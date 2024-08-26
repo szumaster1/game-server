@@ -1,6 +1,6 @@
 package content.global.skill.production.crafting.handlers
 
-import content.global.skill.production.crafting.data.BattlestaffData
+import content.global.skill.production.crafting.data.Battlestaff
 import core.api.*
 import cfg.consts.Items
 import core.game.interaction.IntType
@@ -15,11 +15,11 @@ import kotlin.math.min
 class BattlestaffListener : InteractionListener {
 
     private val battlestaff = Items.BATTLESTAFF_1391
-    val orbs = BattlestaffData.values().map { it.required }.toIntArray()
+    val orbs = Battlestaff.values().map { it.required }.toIntArray()
 
     override fun defineListeners() {
         onUseWith(IntType.ITEM, orbs, battlestaff) { player, used, with ->
-            val product = BattlestaffData.productMap[used.id] ?: return@onUseWith true
+            val product = Battlestaff.forId(used.id) ?: return@onUseWith true
 
             if (!hasLevelDyn(player, Skills.CRAFTING, product.requiredLevel)) {
                 sendMessage(player, "You need a Crafting level of ${product.requiredLevel} to make this.")

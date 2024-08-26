@@ -11,14 +11,14 @@ import core.game.node.item.Item
  * @param level Indicates the level of the pottery item.
  * @param exp Represents the experience points associated with the pottery item.
  * @param fireExp Represents the experience points gained from firing the pottery item.
- * @constructor Pottery data Represents the properties of the PotteryData enum.
+ * @constructor Pottery data Represents the properties of the Pottery enum.
  */
-enum class PotteryData(
-    val unfinished: Item, // Holds the unfinished item representation
-    val product: Item,    // Holds the final product representation
-    val level: Int,       // Indicates the level of the pottery item
-    val exp: Double,      // Experience points for the pottery item
-    val fireExp: Double    // Experience points gained from firing the pottery item
+enum class Pottery(
+    val unfinished: Item,
+    val product: Item,
+    val level: Int,
+    val exp: Double,
+    val fireExp: Double
 ) {
     /**
      * Pot.
@@ -75,7 +75,7 @@ enum class PotteryData(
 
     companion object {
         @JvmStatic
-        fun forId(id: Int): PotteryData? {
+        fun forId(id: Int): Pottery? {
             for (def in values()) {
                 if (def.unfinished.id == id) {
                     return def

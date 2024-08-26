@@ -1,8 +1,8 @@
 package content.global.skill.production.crafting.data
 
-import core.api.*
 import cfg.consts.Components
 import cfg.consts.Items
+import core.api.*
 import core.game.component.Component
 import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.diary.DiaryType
@@ -16,10 +16,10 @@ import core.game.node.item.Item
  * @param product Represents the product resource ID associated with the tanning data.
  * @constructor Tanning data
  */
-enum class TanningData(
-    val button: Int,  // Holds the resource ID for the button
-    val item: Int,    // Holds the resource ID for the item
-    val product: Int  // Holds the resource ID for the product
+enum class Tanning(
+    val button: Int,
+    val item: Int,
+    val product: Int
 ) {
     /**
      * Soft Leather.
@@ -96,7 +96,7 @@ enum class TanningData(
 
     companion object {
         @JvmStatic
-        fun forId(id: Int): TanningData? {
+        fun forId(id: Int): Tanning? {
             for (def in values()) {
                 if (def.button == id) {
                     return def
@@ -106,7 +106,7 @@ enum class TanningData(
         }
 
         @JvmStatic
-        fun forItemId(id: Int): TanningData? {
+        fun forItemId(id: Int): Tanning? {
             for (def in values()) {
                 if (def.item == id) {
                     return def
@@ -121,7 +121,7 @@ enum class TanningData(
         }
 
         @JvmStatic
-        fun tan(player: Player, amount: Int, def: TanningData) {
+        fun tan(player: Player, amount: Int, def: Tanning) {
             var amount = amount
             if (amount > player.inventory.getAmount(Item(def.item))) {
                 amount = player.inventory.getAmount(Item(def.item))

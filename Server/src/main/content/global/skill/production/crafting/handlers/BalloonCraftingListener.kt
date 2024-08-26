@@ -1,6 +1,6 @@
 package content.global.skill.production.crafting.handlers
 
-import content.global.skill.production.crafting.data.OrigamiData
+import content.global.skill.production.crafting.data.Origami
 import core.api.*
 import cfg.consts.Animations
 import cfg.consts.Items
@@ -44,7 +44,7 @@ class BalloonCraftingListener : InteractionListener {
         }
 
         onUseWith(IntType.ITEM, dyesId, defaultBalloon) { player, used, balloon ->
-            val product = OrigamiData.productMap[used.id] ?: return@onUseWith true
+            val product = Origami.forId(used.id) ?: return@onUseWith true
             if (amountInInventory(player, used.id) == amountInInventory(player, balloon.id)) {
                 if (removeItem(player, product.requiredDye) && removeItem(player, defaultBalloon)) {
                     addItem(player, product.ballonId, 1)
@@ -69,7 +69,7 @@ class BalloonCraftingListener : InteractionListener {
         }
 
         onUseWith(IntType.ITEM, balloonId, Items.TINDERBOX_590) { player, used, _ ->
-            visualize(player, releaseAnim, OrigamiData.projectileMap[used.id])
+            visualize(player, releaseAnim, Origami.forId(used.id))
             if (removeItem(player, used.asItem())) {
                 queueScript(player, 1, QueueStrength.SOFT) {
                     resetAnimator(player)
@@ -78,8 +78,8 @@ class BalloonCraftingListener : InteractionListener {
                     val animDuration = animationDuration(Animation(releaseAnim))
                     lock(player, duration = animDuration)
                     lockInteractions(player, duration = animDuration)
-                    visualize(player, releaseAnim, OrigamiData.projectileMap[used.id])
-                    spawnProjectile(Projectile.getLocation(player), Location.getRandomLocation(Projectile.getLocation(player), 5, true), OrigamiData.projectileMap[used.id]!!.plus(2), 0, 40, 20, 600, 0)
+                    visualize(player, releaseAnim, Origami.forId(used.id))
+                    spawnProjectile(Projectile.getLocation(player), Location.getRandomLocation(Projectile.getLocation(player), 5, true), it.plus(2), 0, 40, 20, 600, 0)
                     return@queueScript stopExecuting(player)
                 }
             }
@@ -88,8 +88,8 @@ class BalloonCraftingListener : InteractionListener {
     }
 
     companion object {
-        private val dyesId = OrigamiData.values().map { it.requiredDye }.toIntArray()
-        private val balloonId = OrigamiData.values().map { it.ballonId }.toIntArray()
+        private val dyesId = Origami.values().map { it.requiredDye }.toIntArray()
+        private val balloonId = Origami.values().map { it.ballonId }.toIntArray()
         private const val defaultBalloon = Items.ORIGAMI_BALLOON_9934
         private const val balloonStructure = Items.BALLOON_STRUCTURE_9933
         private const val craftAnim = Animations.HUMAN_CRAFT_ORIGAMI_BALLOON_5140

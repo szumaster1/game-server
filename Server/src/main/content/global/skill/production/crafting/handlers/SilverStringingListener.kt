@@ -1,6 +1,6 @@
 package content.global.skill.production.crafting.handlers
 
-import content.global.skill.production.crafting.data.SilverData
+import content.global.skill.production.crafting.data.Silver
 import core.api.addItem
 import cfg.consts.Items
 import core.api.removeItem
@@ -22,7 +22,7 @@ class SilverStringingListener : InteractionListener {
     }
 
     private fun stringSilverProduct(player: Player, used: Node, with: Node): Boolean {
-        SilverData.forProductID(with.id)?.let {
+        Silver.forId(with.id)?.let {
             if (removeItem(player, with.id) && removeItem(player, used.id)) {
                 addItem(player, it.strungId)
             }

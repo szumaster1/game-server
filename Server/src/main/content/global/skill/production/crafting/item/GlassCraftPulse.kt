@@ -1,6 +1,6 @@
 package content.global.skill.production.crafting.item
 
-import content.global.skill.production.crafting.data.GlassData
+import content.global.skill.production.crafting.data.Glass
 import core.api.*
 import cfg.consts.Animations
 import cfg.consts.Items
@@ -19,10 +19,10 @@ import core.game.system.task.Pulse
  * @constructor Represents a new instance of GlassCraftPulse with the specified player, product, and amount.
  */
 class GlassCraftPulse(
-    private val player: Player, // The player who is crafting the glass
-    private val product: GlassData, // The glass product that is being crafted
-    private var amount: Int // The number of glass products to be crafted
-) : Pulse() { // Inherits from the Pulse class
+    private val player: Player,
+    private val product: Glass,
+    private var amount: Int
+) : Pulse() {
 
     override fun pulse(): Boolean {
         if (amount < 1) {

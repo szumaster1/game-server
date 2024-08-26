@@ -14,11 +14,11 @@ import core.game.world.map.Location
  * @constructor Mysterious ruin Represents a new instance of the MysteriousRuin enum.
  */
 enum class MysteriousRuin(
-    val scenery: IntArray, // Holds the visual representation of the ruin as an array of integers.
-    val base: Location,    // Represents the initial point of the ruin.
-    val end: Location,     // Represents the final point of the ruin.
-    val talisman: Talisman, // The Talisman object linked to this ruin.
-    val tiara: Tiara       // The Tiara object linked to this ruin.
+    val scenery: IntArray,
+    val base: Location,
+    val end: Location,
+    val talisman: Talisman,
+    val tiara: Tiara
 ) {
     /**
      * Air.
@@ -153,6 +153,7 @@ enum class MysteriousRuin(
     );
 
     companion object {
+        @JvmStatic
         fun forScenery(scenery: Scenery): MysteriousRuin? {
             for (ruin in values()) {
                 for (i in ruin.scenery) {
@@ -164,6 +165,7 @@ enum class MysteriousRuin(
             return null
         }
 
+        @JvmStatic
         fun forTalisman(talisman: Talisman): MysteriousRuin? {
             return values().find { forTalisman(it.talisman.getRuin()!!.talisman) == talisman.getRuin() }
         }

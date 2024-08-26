@@ -3,7 +3,7 @@ package content.global.skill.combat.summoning.familiar.npc
 import content.global.skill.combat.summoning.familiar.Familiar
 import content.global.skill.combat.summoning.familiar.FamiliarSpecial
 import content.global.skill.combat.summoning.familiar.Forager
-import content.global.skill.production.crafting.data.GemData
+import content.global.skill.production.crafting.data.Gem
 import cfg.consts.NPCs
 import core.api.visualize
 import core.game.node.entity.player.Player
@@ -46,7 +46,7 @@ class MagpieNPC @JvmOverloads constructor(owner: Player? = null, id: Int = NPCs.
     }
 
     companion object {
-        private val ITEMS = arrayOf(GemData.SAPPHIRE.uncut, GemData.EMERALD.uncut, GemData.RUBY.uncut, GemData.DIAMOND.uncut)
+        private val ITEMS = arrayOf(Gem.SAPPHIRE.uncut, Gem.EMERALD.uncut, Gem.RUBY.uncut, Gem.DIAMOND.uncut)
     }
 
 }

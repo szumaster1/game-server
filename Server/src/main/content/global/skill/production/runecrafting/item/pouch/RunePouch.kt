@@ -22,11 +22,11 @@ import java.util.*
  * @constructor Rune pouch Represents a new instance of the RunePouch enum class.
  */
 enum class RunePouch(
-    val pouch: Item, // The item that the rune pouch holds
-    val level: Int, // The level required to utilize the pouch
-    private val capacity: Int, // The maximum capacity of the pouch
-    val cumulativeCapacity: Int, // The total capacity accumulated over time
-    val uses: Int // The number of uses available for the pouch
+    val pouch: Item,
+    val level: Int,
+    private val capacity: Int,
+    val cumulativeCapacity: Int,
+    val uses: Int
 ) {
     /**
      * Small
@@ -59,11 +59,11 @@ enum class RunePouch(
     val decayedPouch = Item(pouch.id + 1)
 
     /**
-     * Action
+     * Performs an action based on the player's input option regarding the pouch.
      *
-     * @param player
-     * @param pouch
-     * @param option
+     * @param player The player performing the action.
+     * @param pouch The pouch being acted upon.
+     * @param option The action to be performed on the pouch.
      */
     fun action(player: Player, pouch: Item, option: String?) {
         if (pouch.charge == 1000 && getDecay(player) > 0) {
@@ -78,15 +78,16 @@ enum class RunePouch(
     }
 
     /**
-     * Fill
+     * Fills the pouch with essence if conditions are met.
      *
-     * @param player
-     * @param pouch
+     * @param player The player filling the pouch.
+     * @param pouch The pouch to be filled.
      */
     fun fill(player: Player, pouch: Item) {
         if (isFull(pouch, player)) {
             return
         }
+
         if (!hasEssence(player)) {
             sendMessage(player, "You do not have any essence to fill your pouch with.")
             return
@@ -98,19 +99,19 @@ enum class RunePouch(
         val essence = getEssence(player)
         if (!isValidEssence(pouch, essence, player)) {
             sendMessage(player, "You can only put " + getPouchEssenceName(pouch) + " in this pouch.")
-            return
         }
         val amount = getAddAmount(pouch, essence, player)
         addEssence(player, pouch, essence, amount)
+
         if (isFull(pouch, player)) {
         }
     }
 
     /**
-     * Empty
+     * Empties the pouch of its contents.
      *
-     * @param player
-     * @param pouch
+     * @param player The player emptying the pouch.
+     * @param pouch The pouch to be emptied.
      */
     fun empty(player: Player, pouch: Item) {
         if (isEmpty(pouch)) {
@@ -119,27 +120,30 @@ enum class RunePouch(
         }
         val essenceAmount = getEssence(pouch)
         var addAmount = essenceAmount
+
         if (player.inventory.freeSlots() < essenceAmount) {
             addAmount = essenceAmount - (essenceAmount - freeSlots(player))
         }
         val add = Item(getEssenceType(pouch).id, addAmount)
+
         if (!hasSpaceFor(player, add)) {
             sendMessage(player, "You do not have any more free space in your inventory.")
             return
         }
         if (player.inventory.add(add)) {
             incrementCharge(pouch, addAmount)
-            if (essenceAmount != addAmount) { // means all didnt get added
+
+            if (essenceAmount != addAmount) {
                 sendMessage(player, "You do not have any more free space in your inventory.")
             }
         }
     }
 
     /**
-     * Check doubles
+     * Checks for duplicate pouches in the player's inventory and bank.
      *
-     * @param player
-     * @return
+     * @param player The player whose pouches are being checked.
+     * @return True if duplicates were found and handled, false otherwise.
      */
     fun checkDoubles(player: Player): Boolean {
         var hit = false
@@ -154,10 +158,10 @@ enum class RunePouch(
     }
 
     /**
-     * Check
+     * Checks the contents of the pouch and sends a message to the player.
      *
-     * @param player
-     * @param item
+     * @param player The player checking the pouch.
+     * @param item The pouch item being checked.
      */
     fun check(player: Player, item: Item) {
         val amount = getEssence(item)
@@ -165,10 +169,10 @@ enum class RunePouch(
     }
 
     /**
-     * Drop
+     * Handles the dropping of an item by the player.
      *
-     * @param player
-     * @param item
+     * @param player The player who is dropping the item.
+     * @param item The item that is being dropped.
      */
     fun drop(player: Player, item: Item) {
         onDrop(player, item)
@@ -176,10 +180,10 @@ enum class RunePouch(
     }
 
     /**
-     * On drop
+     * Handles the logic when an item is dropped by the player.
      *
-     * @param player
-     * @param item
+     * @param player The player who dropped the item.
+     * @param item The item that was dropped.
      */
     fun onDrop(player: Player, item: Item) {
         if (!isEmpty(item)) {
@@ -189,18 +193,20 @@ enum class RunePouch(
     }
 
     /**
-     * Add essence
+     * Adds essence to the pouch from the player's inventory.
      *
-     * @param player
-     * @param pouch
-     * @param essence
-     * @param amount
+     * @param player The player adding essence to the pouch.
+     * @param pouch The pouch to which essence is being added.
+     * @param essence The essence item being added.
+     * @param amount The amount of essence to add.
      */
     fun addEssence(player: Player, pouch: Item, essence: Item?, amount: Int) {
         val remove = Item(essence!!.id, amount)
+
         if (!player.inventory.containsItem(remove)) {
             return
         }
+
         if (player.inventory.remove(remove)) {
             var charge = getPouchCharge(pouch)
             if (charge == 1000) {
@@ -219,13 +225,14 @@ enum class RunePouch(
     }
 
     /**
-     * Decay
+     * Handles the decay of the pouch based on usage.
      *
-     * @param player
-     * @param pouch
+     * @param player The player whose pouch is decaying.
+     * @param pouch The pouch that is decaying.
      */
     fun decay(player: Player, pouch: Item) {
         incrementDecay(player)
+
         if (getDecay(player) >= uses) {
             var message = ""
             if (!isDecayed(pouch)) {
@@ -248,10 +255,10 @@ enum class RunePouch(
     }
 
     /**
-     * Repair
+     * Repairs the pouch if it is decayed.
      *
-     * @param player
-     * @param pouch
+     * @param player The player repairing the pouch.
+     * @param pouch The pouch being repaired.
      */
     fun repair(player: Player, pouch: Item) {
         if (isDecayed(pouch)) {
@@ -261,29 +268,29 @@ enum class RunePouch(
     }
 
     /**
-     * Increment decay
+     * Increments the decay count for the player.
      *
-     * @param player
+     * @param player The player whose decay count is being incremented.
      */
     fun incrementDecay(player: Player) {
         player.getSavedData().globalData.getRcDecays()[ordinal - 1]++
     }
 
     /**
-     * Increment charge
+     * Increments the charge of the pouch.
      *
-     * @param pouch
-     * @param chargeIncrement
+     * @param pouch The pouch whose charge is being incremented.
+     * @param chargeIncrement The amount to increment the charge by.
      */
     fun incrementCharge(pouch: Item, chargeIncrement: Int) {
         setHash(pouch, getPouchCharge(pouch) + chargeIncrement)
     }
 
     /**
-     * Decrement charge
+     * Decrements the charge of the pouch.
      *
-     * @param pouch
-     * @param chargeIncrement
+     * @param pouch The pouch whose charge is being decremented.
+     * @param chargeIncrement The amount to decrement the charge by.
      */
     fun decrementCharge(pouch: Item, chargeIncrement: Int) {
         setHash(pouch, getPouchCharge(pouch) - chargeIncrement)
@@ -292,8 +299,8 @@ enum class RunePouch(
     /**
      * Set charge
      *
-     * @param pouch
-     * @param charge
+     * @param pouch The pouch whose charge is being set.
+     * @param charge The charge value to set.
      */
     fun setCharge(pouch: Item, charge: Int) {
         setHash(pouch, charge)
@@ -302,7 +309,7 @@ enum class RunePouch(
     /**
      * Reset decay
      *
-     * @param player
+     * @param player The player whose decay count is being reset.
      */
     fun resetDecay(player: Player) {
         player.getSavedData().globalData.getRcDecays()[ordinal - 1] = 0
@@ -311,7 +318,7 @@ enum class RunePouch(
     /**
      * Reset charge
      *
-     * @param pouch
+     * @param pouch The pouch whose charge is being reset.
      */
     fun resetCharge(pouch: Item) {
         setHash(pouch, 1000)
@@ -320,8 +327,8 @@ enum class RunePouch(
     /**
      * Set hash
      *
-     * @param pouch
-     * @param charge
+     * @param pouch The pouch whose hash is being set.
+     * @param charge The charge value to set.
      */
     fun setHash(pouch: Item, charge: Int) {
         pouch.charge = charge
@@ -330,8 +337,8 @@ enum class RunePouch(
     /**
      * Get decay
      *
-     * @param player
-     * @return
+     * @param player The player whose decay count is being retrieved.
+     * @return The current decay count for the player.
      */
     fun getDecay(player: Player): Int {
         return player.getSavedData().globalData.getRcDecay(ordinal - 1)
@@ -340,8 +347,8 @@ enum class RunePouch(
     /**
      * Get pouch charge
      *
-     * @param pouch
-     * @return
+     * @param pouch The pouch whose charge is being retrieved.
+     * @return The current charge of the pouch.
      */
     fun getPouchCharge(pouch: Item): Int {
         return pouch.charge
@@ -350,8 +357,8 @@ enum class RunePouch(
     /**
      * Is full
      *
-     * @param item
-     * @return
+     * @param item The item being checked for fullness.
+     * @return True if the item is full, otherwise false.
      */
     fun isFull(item: Item): Boolean {
         return getEssence(item) >= getCapacity(pouch)
@@ -360,10 +367,10 @@ enum class RunePouch(
     /**
      * Get add amount
      *
-     * @param pouch
-     * @param essence
-     * @param player
-     * @return
+     * @param pouch The pouch being checked.
+     * @param essence The essence being added.
+     * @param player The player adding the essence.
+     * @return The amount of essence that can be added to the pouch.
      */
     fun getAddAmount(pouch: Item, essence: Item?, player: Player): Int {
         val essyAmount = player.inventory.getAmount(essence)
@@ -378,12 +385,12 @@ enum class RunePouch(
     }
 
     /**
-     * Is valid essence
+     * is valid essence
      *
-     * @param pouch
-     * @param essence
-     * @param player
-     * @return
+     * @param pouch The pouch being validated.
+     * @param essence The essence being checked.
+     * @param player The player performing the validation.
+     * @return True if the essence is valid for the pouch, otherwise false.
      */
     fun isValidEssence(pouch: Item, essence: Item?, player: Player?): Boolean {
         if (isEmpty(pouch)) {
@@ -393,11 +400,11 @@ enum class RunePouch(
     }
 
     /**
-     * Is full
+     * check if the pouch is full
      *
-     * @param item
-     * @param player
-     * @return
+     * @param item The item being checked for fullness.
+     * @param player The player associated with the item.
+     * @return True if the item is full, otherwise false.
      */
     fun isFull(item: Item, player: Player): Boolean {
         if (isFull(item)) {
@@ -408,21 +415,21 @@ enum class RunePouch(
     }
 
     /**
-     * Get pouch essence name
+     * Gets essence pouch name
      *
-     * @param item
-     * @param amount
-     * @return
+     * @param item The item being checked.
+     * @param amount The amount being checked.
+     * @return The name of the essence in the pouch.
      */
     fun getPouchEssenceName(item: Item, amount: Int): String {
         return getPouchEssenceName(item) + (if (amount > 1) "s" else "")
     }
 
     /**
-     * Get pouch essence name
+     * Gets essence pouch name
      *
-     * @param item
-     * @return
+     * @param item The item being checked.
+     * @return The name of the essence in the pouch.
      */
     fun getPouchEssenceName(item: Item): String {
         val charge = getPouchCharge(item)
@@ -430,80 +437,80 @@ enum class RunePouch(
     }
 
     /**
-     * Get essence in pouch
+     * Retrieves the essence contained in the specified pouch.
      *
-     * @param pouch
-     * @return
+     * @param pouch The pouch from which to retrieve the essence.
+     * @return The essence contained in the pouch, either pure or normal.
      */
     fun getEssenceInPouch(pouch: Item): Item {
         return if (getPouchEssenceName(pouch) == "pure essence") PURE_ESSENCE else NORMAL_ESSENCE
     }
 
     /**
-     * Get essence name
+     * Gets the name of the essence based on the provided essence item.
      *
-     * @param essence
-     * @return
+     * @param essence The essence item to evaluate.
+     * @return A string representing the name of the essence.
      */
     fun getEssenceName(essence: Item?): String {
         return if (essence!!.id == PURE_ESSENCE.id) "pure essence" else "normal essence"
     }
 
     /**
-     * Get essence base
+     * Determines the base value of the essence based on the item.
      *
-     * @param item
-     * @return
+     * @param item The item to evaluate for its essence base.
+     * @return The base value of the essence, either pure or normal.
      */
     fun getEssenceBase(item: Item): Int {
         return if (getPouchEssenceName(item) == "pure essence") PURE_BASE else NORMAL_BASE
     }
 
     /**
-     * Is pure essence pouch
+     * Checks if the specified pouch contains pure essence.
      *
-     * @param pouch
-     * @return
+     * @param pouch The pouch to check for pure essence.
+     * @return True if the pouch contains pure essence, otherwise false.
      */
     fun isPureEssencePouch(pouch: Item): Boolean {
         return getPouchEssenceName(pouch) == "pure essence"
     }
 
     /**
-     * Is pure essence
+     * Determines if the provided essence is pure essence.
      *
-     * @param essence
-     * @return
+     * @param essence The essence item to evaluate.
+     * @return True if the essence is pure, otherwise false.
      */
     fun isPureEssence(essence: Item?): Boolean {
         return essence!!.id == PURE_ESSENCE.id
     }
 
     /**
-     * Is normal essence
+     * Determines if the provided essence is normal essence.
      *
-     * @param essence
-     * @return
+     * @param essence The essence item to evaluate.
+     * @return True if the essence is normal, otherwise false.
      */
     fun isNormalEssence(essence: Item?): Boolean {
         return essence!!.id == NORMAL_ESSENCE.id
     }
 
     /**
-     * Get essence type
+     * Retrieves the type of essence contained in the specified pouch.
      *
-     * @param pouch
-     * @return
+     * @param pouch The pouch from which to retrieve the essence type.
+     * @return The essence type, either pure or normal.
      */
     fun getEssenceType(pouch: Item): Item {
         return if (getPouchEssenceName(pouch) == "pure essence") PURE_ESSENCE else NORMAL_ESSENCE
     }
 
     /**
-     * Get essence
+     * Retrieves the essence item from the player's inventory.
      *
-     * @param player
-     * @return
+     * @param player The player whose inventory is checked.
+     * @return The essence item if found, otherwise null.
      */
     fun getEssence(player: Player): Item? {
         if (player.inventory.containsItem(PURE_ESSENCE)) {
@@ -515,30 +522,30 @@ enum class RunePouch(
     }
 
     /**
-     * Has essence
+     * Checks if the player has any essence in their inventory.
      *
-     * @param player
-     * @return
+     * @param player The player to check for essence.
+     * @return True if the player has either pure or normal essence, otherwise false.
      */
     fun hasEssence(player: Player): Boolean {
         return player.inventory.containsItem(PURE_ESSENCE) || player.inventory.containsItem(NORMAL_ESSENCE)
     }
 
     /**
-     * Is empty
+     * Determines if the specified item is empty of essence.
      *
-     * @param item
-     * @return
+     * @param item The item to evaluate for emptiness.
+     * @return True if the item is empty, otherwise false.
      */
     fun isEmpty(item: Item): Boolean {
         return getEssence(item) <= 0
     }
 
     /**
-     * Get essence
+     * Retrieves the amount of essence contained in the specified item.
      *
-     * @param item
-     * @return
+     * @param item The item to evaluate for its essence amount.
+     * @return The amount of essence in the item.
      */
     fun getEssence(item: Item): Int {
         if (getPouchCharge(item) == 1000 || getPouchCharge(item) == 2000) {
@@ -548,10 +555,10 @@ enum class RunePouch(
     }
 
     /**
-     * Get capacity
+     * Retrieves the capacity of the specified pouch.
      *
-     * @param pouch
-     * @return
+     * @param pouch The pouch to evaluate for its capacity.
+     * @return The available capacity of the pouch.
      */
     fun getCapacity(pouch: Item): Int {
         return capacity - (if (isDecayed(pouch)) decayAmount else 0)
@@ -561,10 +568,10 @@ enum class RunePouch(
         get() = if (this == GIANT) 3 else if (this == LARGE) 2 else 1
 
     /**
-     * Is decayed
+     * Checks if the specified pouch is decayed.
      *
-     * @param pouch
-     * @return
+     * @param pouch The pouch to check for decay.
+     * @return True if the pouch is decayed, otherwise false.
      */
     fun isDecayed(pouch: Item): Boolean {
         return pouch.id == decayedPouch.id
@@ -573,13 +580,12 @@ enum class RunePouch(
     val isDecayable: Boolean
         get() = this != SMALL
 
-
     /**
-     * Has decay
+     * Checks if the player has any decay affecting their pouch.
      *
-     * @param player
-     * @param pouch
-     * @return
+     * @param player The player to check for decay.
+     * @param pouch The pouch to evaluate for decay.
+     * @return True if the player has decay or the pouch is decayed, otherwise false.
      */
     fun hasDecay(player: Player, pouch: Item): Boolean {
         return getDecay(player) > 0 || isDecayed(pouch)
@@ -590,6 +596,13 @@ enum class RunePouch(
         private val NORMAL_ESSENCE = Item(1436)
         private const val PURE_BASE = 6000
         private const val NORMAL_BASE = 2000
+
+        /**
+         * Retrieves the RunePouch associated with the specified item.
+         *
+         * @param pouch The pouch item to evaluate.
+         * @return The corresponding RunePouch if found, otherwise null.
+         */
         fun forItem(pouch: Item): RunePouch? {
             for (p in values()) {
                 if (p.pouch.id == pouch.id || (p != SMALL && p.decayedPouch.id == pouch.id)) {

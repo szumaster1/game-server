@@ -1,10 +1,10 @@
 package content.global.skill.production.crafting.item
 
-import content.global.skill.production.crafting.data.LeatherData
-import content.global.skill.production.crafting.data.LeatherData.SoftLeather
-import content.global.skill.production.crafting.data.LeatherData.decayThread
-import content.global.skill.production.crafting.data.LeatherData.isLastThread
-import content.global.skill.production.crafting.data.LeatherData.removeThread
+import content.global.skill.production.crafting.data.Leather
+import content.global.skill.production.crafting.data.Leather.SoftLeather
+import content.global.skill.production.crafting.data.Leather.decayThread
+import content.global.skill.production.crafting.data.Leather.isLastThread
+import content.global.skill.production.crafting.data.Leather.removeThread
 import core.api.*
 import cfg.consts.Animations
 import core.game.node.entity.player.Player
@@ -33,13 +33,13 @@ class SoftCraftPulse(player: Player?, node: Item?, val soft: SoftLeather, var am
             sendDialogue(player, "You need a crafting level of " + soft.level + " to make " + (if (StringUtils.isPlusN(soft.product.name)) "an" else "a" + " " + soft.product.name).lowercase() + ".")
             return false
         }
-        if (!inInventory(player, LeatherData.NEEDLE, 1)) {
+        if (!inInventory(player, Leather.NEEDLE, 1)) {
             return false
         }
-        if (!inInventory(player, LeatherData.LEATHER, 1)) {
+        if (!inInventory(player, Leather.LEATHER, 1)) {
             return false
         }
-        if (!inInventory(player, LeatherData.THREAD.id)) {
+        if (!inInventory(player, Leather.THREAD.id)) {
             sendDialogue(player, "You need thread to make this.")
             amount = 0
             return false
@@ -58,7 +58,7 @@ class SoftCraftPulse(player: Player?, node: Item?, val soft: SoftLeather, var am
         if (++ticks % 5 != 0) {
             return false
         }
-        if (removeItem(player, Item(LeatherData.LEATHER))) {
+        if (removeItem(player, Item(Leather.LEATHER))) {
             if (soft == SoftLeather.GLOVES || soft == SoftLeather.BOOTS || soft == SoftLeather.VAMBRACES) {
                 sendMessage(player, "You make a pair of " + soft.product.name.lowercase() + ".")
             } else {

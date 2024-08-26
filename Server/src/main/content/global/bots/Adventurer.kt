@@ -143,7 +143,7 @@ class Adventurer(val style: CombatStyle) : Script() {
     var poi = false
     var poiloc = karamja
 
-    //Adventure Bots Actual Code STARTS HERE!!!
+
     override fun tick() {
         ticks++
         if (ticks++ >= 800) {
@@ -152,7 +152,7 @@ class Adventurer(val style: CombatStyle) : Script() {
             return
         }
 
-        // zoneborder checker
+
         if (ticks % 30 == 0) {
             for ((zone, resolution) in common_stuck_locations) {
                 if (zone.insideBorder(bot)) {

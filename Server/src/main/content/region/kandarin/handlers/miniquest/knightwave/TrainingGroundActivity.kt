@@ -1,10 +1,13 @@
 package content.region.kandarin.handlers.miniquest.knightwave
 
+import content.region.kandarin.handlers.miniquest.knightwave.npc.TrainingGroundSessionPulse
 import core.api.MapArea
+import core.api.setAttribute
 import core.game.activity.ActivityManager
 import core.game.activity.ActivityPlugin
 import core.game.node.entity.Entity
 import core.game.node.entity.player.Player
+import core.game.world.GameWorld
 import core.game.world.map.Location
 import core.game.world.map.zone.ZoneBorders
 import core.game.world.map.zone.ZoneRestriction
@@ -44,7 +47,12 @@ class TrainingGroundActivity : ActivityPlugin(
         }.toTypedArray()
 
     override fun areaEnter(entity: Entity) {
-        (entity as? Player)?.addExtension(TrainingGroundActivity::class.java, this)
+        if(entity is Player) {
+            val player = entity.asPlayer()
+            setAttribute(player, KnightWave.KW_TIER, KnightWave.tier)
+            GameWorld.Pulser.submit(TrainingGroundSessionPulse(player))
+        }
+        super.areaEnter(entity)
     }
 
     override fun newInstance(p: Player?): ActivityPlugin {

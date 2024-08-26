@@ -11,11 +11,11 @@ import core.game.node.item.Item
  * @param requiredAmount Specifies the quantity of snakeskin needed for a particular action.
  * @constructor Snakeskin data Represents the properties of the SnakeskinData enum.
  */
-enum class SnakeskinData(
-    val product: Item,          // The item that corresponds to the snakeskin.
-    val level: Int,            // The level required to utilize the snakeskin.
-    val experience: Double,     // The experience points awarded for using the snakeskin.
-    val requiredAmount: Int     // The amount of snakeskin necessary for a specific task.
+enum class Snakeskin(
+    val product: Item,
+    val level: Int,
+    val experience: Double,
+    val requiredAmount: Int
 ) {
     /**
      * Snakeskin Boot.

@@ -1,6 +1,6 @@
 package content.global.skill.production.crafting.item
 
-import content.global.skill.production.crafting.data.SpinningData
+import content.global.skill.production.crafting.data.Spinning
 import core.api.*
 import cfg.consts.Animations
 import cfg.consts.Items
@@ -24,7 +24,7 @@ import core.game.world.update.flag.context.Animation
  * @param player The player associated with this spinning pulse.
  * @param node The item node associated with this spinning pulse.
  */
-class SpinningPulse(player: Player?, node: Item?, var amount: Int, val type: SpinningData) : SkillPulse<Item?>(player, node) {
+class SpinningPulse(player: Player?, node: Item?, var amount: Int, val type: Spinning) : SkillPulse<Item?>(player, node) {
 
     var ticks = 0
 

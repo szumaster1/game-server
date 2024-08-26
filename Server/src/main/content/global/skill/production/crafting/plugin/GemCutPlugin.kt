@@ -1,6 +1,6 @@
 package content.global.skill.production.crafting.plugin
 
-import content.global.skill.production.crafting.data.GemData
+import content.global.skill.production.crafting.data.Gem
 import content.global.skill.production.crafting.item.GemCutPulse
 import core.api.amountInInventory
 import cfg.consts.Items
@@ -33,7 +33,7 @@ class GemCutPlugin : UseWithHandler(
 
     override fun handle(event: NodeUsageEvent): Boolean {
         val player = event.player
-        val gem = GemData.forId(if (event.usedItem.id == Items.CHISEL_1755) event.baseItem else event.usedItem)
+        val gem = Gem.forId(if (event.usedItem.id == Items.CHISEL_1755) event.baseItem else event.usedItem)
         val handler: SkillDialogueHandler = object : SkillDialogueHandler(player, SkillDialogue.ONE_OPTION, gem!!.gem) {
             override fun create(amount: Int, index: Int) {
                 player.pulseManager.run(GemCutPulse(player, gem!!.uncut, amount, gem))

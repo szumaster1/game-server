@@ -253,6 +253,7 @@ enum class Altar(val scenery: Int, val portal: Int, val riftId: Int, val ruin: M
         }
 
     companion object {
+        @JvmStatic
         fun forScenery(scenery: Scenery): Altar? {
             for (altar in values()) {
                 if (altar.scenery == scenery.id || altar.portal == scenery.id || scenery.id == altar.riftId) {

@@ -14,11 +14,11 @@ import core.game.node.item.Item
  * @param runes A variable number of runes that can be combined with this combination rune.
  */
 enum class CombinationRune(
-    val rune: Item, // The item that represents the combination rune.
-    val level: Int, // The level required to use this combination rune.
-    val experience: Double, // The experience points awarded for using this rune.
-    val altars: Array<Altar>, // The altars where this combination rune can be used.
-    vararg runes: Rune // A variable number of runes that can be combined with this combination rune.
+    val rune: Item,
+    val level: Int,
+    val experience: Double,
+    val altars: Array<Altar>,
+    vararg runes: Rune,
 ) {
     /**
      * Mist

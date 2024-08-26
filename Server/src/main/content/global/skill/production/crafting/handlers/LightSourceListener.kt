@@ -1,6 +1,6 @@
 package content.global.skill.production.crafting.handlers
 
-import content.global.skill.production.crafting.data.LightSourceData
+import content.global.skill.production.crafting.data.LightSource
 import core.api.log
 import core.game.container.Container
 import core.game.interaction.IntType
@@ -22,7 +22,7 @@ class LightSourceListener : InteractionListener {
         }
 
         on(IntType.ITEM, "extinguish") { player, node ->
-            val lightSource = LightSourceData.forId(node.id)
+            val lightSource = LightSource.forId(node.id)
 
             lightSource ?: return@on false.also {
                 log(this::class.java, Log.WARN, "UNHANDLED EXTINGUISH OPTION: ID = ${node.id}")

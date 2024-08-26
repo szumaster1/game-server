@@ -22,14 +22,14 @@ private const val BUTTON_CROSSBOW_BOLTS = 66
  * @param xpReward The experience points rewarded for using this silver data.
  * @param strungId The ID of the strung item associated with the silver data.
  */
-enum class SilverData(
-    val buttonId: Int,          // The ID of the button associated with the silver data.
-    val requiredItemId: Int,   // The ID of the item required to produce silver.
-    val producedItemId: Int,    // The ID of the item produced from silver.
-    val amountProduced: Int,    // The quantity of the item produced.
-    val minimumLevel: Int,      // The minimum level required to use this silver data.
-    val xpReward: Double,       // The experience points rewarded for using this silver data.
-    val strungId: Int           // The ID of the strung item associated with the silver data.
+enum class Silver(
+    val buttonId: Int,
+    val requiredItemId: Int,
+    val producedItemId: Int,
+    val amountProduced: Int,
+    val minimumLevel: Int,
+    val xpReward: Double,
+    val strungId: Int
 ) {
     HOLY(
         buttonId = BUTTON_UNBLESSED,
@@ -114,20 +114,24 @@ enum class SilverData(
     );
 
     companion object {
-        private val BUTTON_MAP = HashMap<Int, SilverData>()
-        private val PRODUCT_MAP = HashMap<Int, SilverData>()
 
-        init {
-            for (product in values()) {
-                BUTTON_MAP[product.buttonId] = product
+        @JvmStatic
+        fun forId(itemId: Int): Silver? {
+            for (product in Silver.values()) {
+                if (product.requiredItemId == itemId) {
+                    return product
+                }
             }
-
-            for (product in values()) {
-                PRODUCT_MAP[product.producedItemId] = product
-            }
+            return null
         }
-
-        fun forButtonID(buttonId: Int): SilverData? = BUTTON_MAP[buttonId]
-        fun forProductID(productId: Int): SilverData? = PRODUCT_MAP[productId]
+        @JvmStatic
+        fun forButton(button: Int): Silver? {
+            for (soft in Silver.values()) {
+                if (soft.buttonId == button) {
+                    return soft
+                }
+            }
+            return null
+        }
     }
 }

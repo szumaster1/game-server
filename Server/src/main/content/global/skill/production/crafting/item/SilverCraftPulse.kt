@@ -1,6 +1,6 @@
 package content.global.skill.production.crafting.item
 
-import content.global.skill.production.crafting.data.SilverData
+import content.global.skill.production.crafting.data.Silver
 import core.api.*
 import cfg.consts.Animations
 import cfg.consts.Items
@@ -22,7 +22,7 @@ import core.game.system.task.Pulse
  */
 class SilverCraftPulse(
     val player: Player, // The player who is crafting the silver product
-    val product: SilverData, // The specific silver product being crafted
+    val product: Silver, // The specific silver product being crafted
     val furnace: Scenery, // The furnace where the crafting takes place
     var amount: Int // The number of silver products to be crafted
 ) : Pulse() { // Inherits from the Pulse class, indicating it is part of a larger crafting system

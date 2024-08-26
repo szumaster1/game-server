@@ -1,9 +1,9 @@
 package content.global.skill.production.crafting.item
 
-import content.global.skill.production.crafting.data.LeatherData
-import content.global.skill.production.crafting.data.LeatherData.decayThread
-import content.global.skill.production.crafting.data.LeatherData.isLastThread
-import content.global.skill.production.crafting.data.LeatherData.removeThread
+import content.global.skill.production.crafting.data.Leather
+import content.global.skill.production.crafting.data.Leather.decayThread
+import content.global.skill.production.crafting.data.Leather.isLastThread
+import content.global.skill.production.crafting.data.Leather.removeThread
 import core.api.*
 import cfg.consts.Animations
 import cfg.consts.Items
@@ -30,13 +30,13 @@ class HardCraftPulse(player: Player?, node: Item?, var amount: Int) : SkillPulse
             sendDialogue(player, "You need a crafting level of " + 28 + " to make a hardleather body.")
             return false
         }
-        if (!inInventory(player, LeatherData.NEEDLE, 1)) {
+        if (!inInventory(player, Leather.NEEDLE, 1)) {
             return false
         }
-        if (!inInventory(player,LeatherData.HARD_LEATHER, 1)) {
+        if (!inInventory(player,Leather.HARD_LEATHER, 1)) {
             return false
         }
-        if (!inInventory(player, LeatherData.THREAD.id)) {
+        if (!inInventory(player, Leather.THREAD.id)) {
             sendDialogue(player, "You need thread to make this.")
             return false
         }
@@ -54,7 +54,7 @@ class HardCraftPulse(player: Player?, node: Item?, var amount: Int) : SkillPulse
         if (++ticks % 5 != 0) {
             return false
         }
-        if (removeItem(player, Item(LeatherData.HARD_LEATHER))) {
+        if (removeItem(player, Item(Leather.HARD_LEATHER))) {
             val item = Item(Items.HARDLEATHER_BODY_1131)
             addItem(player, item.id)
             rewardXP(player, Skills.CRAFTING, 35.0)

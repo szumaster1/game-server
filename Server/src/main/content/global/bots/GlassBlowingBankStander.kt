@@ -1,6 +1,6 @@
 package content.global.bots
 
-import content.global.skill.production.crafting.data.GlassData
+import content.global.skill.production.crafting.data.Glass
 import content.global.skill.production.crafting.item.GlassCraftPulse
 import cfg.consts.Items
 import core.game.bots.Script
@@ -22,7 +22,7 @@ class GlassBlowingBankStander : Script() {
             State.BLOWING -> {
                 bot!!.inventory.add(Item(Items.GLASSBLOWING_PIPE_1785))
                 bot!!.inventory.add(Item(Items.MOLTEN_GLASS_1775, 27))
-                bot!!.pulseManager.run(GlassCraftPulse(bot!!, GlassData.UNPOWERED_ORB, 27))
+                bot!!.pulseManager.run(GlassCraftPulse(bot!!, Glass.UNPOWERED_ORB, 27))
                 State.BANKING
             }
 

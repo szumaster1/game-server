@@ -1,6 +1,6 @@
 package content.global.skill.production.crafting.item
 
-import content.global.skill.production.crafting.data.PotteryData
+import content.global.skill.production.crafting.data.Pottery
 import core.api.*
 import cfg.consts.Animations
 import core.game.node.entity.player.Player
@@ -19,7 +19,7 @@ import core.game.world.map.Location
  * @param player The player who is performing the pottery firing action.
  * @param node The item node associated with the pottery.
  */
-class FirePotteryPulse(player: Player?, node: Item?, val pottery: PotteryData, var amount: Int) : SkillPulse<Item?>(player, node) {
+class FirePotteryPulse(player: Player?, node: Item?, val pottery: Pottery, var amount: Int) : SkillPulse<Item?>(player, node) {
 
     var ticks = 0
     override fun checkRequirements(): Boolean {
@@ -54,13 +54,13 @@ class FirePotteryPulse(player: Player?, node: Item?, val pottery: PotteryData, v
             /*
              * Spin a bowl on the pottery wheel and fire it in the oven in Barbarian Village.
              */
-            if (pottery == PotteryData.BOWL && withinDistance(player, Location(3085, 3408, 0)) && getAttribute(player, "diary:varrock:spun-bowl", false)) {
+            if (pottery == Pottery.BOWL && withinDistance(player, Location(3085, 3408, 0)) && getAttribute(player, "diary:varrock:spun-bowl", false)) {
                 finishDiaryTask(player, DiaryType.VARROCK, 0, 9)
             }
             /*
              * Fire a pot in the kiln in the Barbarian Village potter's house.
              */
-            if (pottery == PotteryData.POT && withinDistance(player, Location(3085, 3408, 0))) {
+            if (pottery == Pottery.POT && withinDistance(player, Location(3085, 3408, 0))) {
                 finishDiaryTask(player, DiaryType.LUMBRIDGE, 0, 8)
             }
         }

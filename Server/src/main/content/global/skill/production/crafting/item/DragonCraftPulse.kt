@@ -1,10 +1,10 @@
 package content.global.skill.production.crafting.item
 
-import content.global.skill.production.crafting.data.LeatherData
-import content.global.skill.production.crafting.data.LeatherData.DragonHide
-import content.global.skill.production.crafting.data.LeatherData.decayThread
-import content.global.skill.production.crafting.data.LeatherData.isLastThread
-import content.global.skill.production.crafting.data.LeatherData.removeThread
+import content.global.skill.production.crafting.data.Leather
+import content.global.skill.production.crafting.data.Leather.DragonHide
+import content.global.skill.production.crafting.data.Leather.decayThread
+import content.global.skill.production.crafting.data.Leather.isLastThread
+import content.global.skill.production.crafting.data.Leather.removeThread
 import core.api.*
 import cfg.consts.Animations
 import core.cache.def.impl.ItemDefinition
@@ -34,12 +34,12 @@ class DragonCraftPulse(player: Player?, node: Item?, val hide: DragonHide, var a
             amount = 0
             return false
         }
-        if (!inInventory(player, LeatherData.NEEDLE, 1)) {
+        if (!inInventory(player, Leather.NEEDLE, 1)) {
             sendDialogue(player,"You need a needle to make this.")
             amount = 0
             return false
         }
-        if (!inInventory(player, LeatherData.THREAD.id)) {
+        if (!inInventory(player, Leather.THREAD.id)) {
             sendDialogue(player,"You need thread to make this.")
             amount = 0
             return false

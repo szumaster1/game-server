@@ -1,6 +1,6 @@
 package content.global.skill.production.crafting.handlers
 
-import content.global.skill.production.crafting.data.GlassData
+import content.global.skill.production.crafting.data.Glass
 import content.global.skill.production.crafting.item.GlassCraftPulse
 import core.api.*
 import cfg.consts.Components
@@ -36,7 +36,7 @@ class GlassCraftingListener : InteractionListener, InterfaceListener {
 
     override fun defineInterfaceListeners() {
         on(GLASS_BLOWING_INTERFACE) { player, _, opcode, buttonID, _, _ ->
-            val product = GlassData.forButtonID(buttonID) ?: return@on true
+            val product = Glass.forButtonID(buttonID) ?: return@on true
 
             if (!inInventory(player, GLASS_BLOWING_PIPE)) {
                 sendMessage(player, "You need a glassblowing pipe to do this.")
@@ -67,7 +67,7 @@ class GlassCraftingListener : InteractionListener, InterfaceListener {
         }
     }
 
-    private fun make(player: Player, product: GlassData, amount: Int) {
+    private fun make(player: Player, product: Glass, amount: Int) {
         closeInterface(player)
         submitIndividualPulse(player, GlassCraftPulse(player, product, amount))
     }

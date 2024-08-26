@@ -8,7 +8,7 @@ import core.game.node.item.Item
 /**
  * Leather data.
  */
-object LeatherData {
+object Leather {
 
     const val NEEDLE: Int = 1733
     @JvmField

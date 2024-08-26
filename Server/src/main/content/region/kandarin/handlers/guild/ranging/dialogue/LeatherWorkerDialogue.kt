@@ -1,6 +1,6 @@
 package content.region.kandarin.handlers.guild.ranging.dialogue
 
-import content.global.skill.production.crafting.data.TanningData
+import content.global.skill.production.crafting.data.Tanning
 import cfg.consts.NPCs
 import core.game.dialogue.Dialogue
 import core.game.node.entity.player.Player
@@ -29,7 +29,7 @@ class LeatherWorkerDialogue(player: Player? = null) : Dialogue(player) {
 
             3 -> npc("Well, I can cure plain cowhides into pieces of leather", "ready for crafting.").also { stage++ }
             4 -> npc("I work with ordinary, hard or dragonhide leather and", "also snakeskin.").also { stage++ }
-            5 -> end().also { TanningData.open(player, npc.id) }
+            5 -> end().also { Tanning.open(player, npc.id) }
             6 -> npc("Suit yourself.").also { stage = END_DIALOGUE }
         }
         return true

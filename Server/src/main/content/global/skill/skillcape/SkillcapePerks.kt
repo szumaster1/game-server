@@ -224,11 +224,11 @@ enum class SkillcapePerks(val attribute: String, val effect: ((Player) -> Unit)?
      * @param player The player who is activating the skillcape.
      */
     fun activate(player: Player) {
-        // Check if skillcape perks are enabled in the game settings
+
         if (GameWorld.settings?.skillcape_perks != true) {
-            return // Exit the function if perks are not enabled
+            return
         }
-        // Check if the skillcape is not already active for the player
+
         if (!isActive(this, player)) {
             // Set the attribute to indicate the skillcape is active
             player.setAttribute("/save:$attribute", true)

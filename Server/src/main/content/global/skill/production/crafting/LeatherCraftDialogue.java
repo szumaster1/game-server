@@ -1,6 +1,6 @@
 package content.global.skill.production.crafting;
 
-import content.global.skill.production.crafting.data.LeatherData;
+import content.global.skill.production.crafting.data.Leather;
 import content.global.skill.production.crafting.item.DragonCraftPulse;
 import content.global.skill.production.crafting.item.HardCraftPulse;
 import core.api.InputType;
@@ -55,25 +55,25 @@ public final class LeatherCraftDialogue extends Dialogue {
             leather = (int) args[1];
             player.getInterfaceManager().openChatbox(component);
             int[] index = new int[3];
-            if (leather == LeatherData.GREEN_LEATHER) {
-                index[0] = LeatherData.DragonHide.GREEN_D_HIDE_BODY.product;
-                index[1] = LeatherData.DragonHide.GREEN_D_HIDE_VAMBS.product;
-                index[2] = LeatherData.DragonHide.GREEN_D_HIDE_CHAPS.product;
+            if (leather == Leather.GREEN_LEATHER) {
+                index[0] = Leather.DragonHide.GREEN_D_HIDE_BODY.product;
+                index[1] = Leather.DragonHide.GREEN_D_HIDE_VAMBS.product;
+                index[2] = Leather.DragonHide.GREEN_D_HIDE_CHAPS.product;
             }
-            if (leather == LeatherData.BLUE_LEATHER) {
-                index[0] = LeatherData.DragonHide.BLUE_D_HIDE_BODY.product;
-                index[1] = LeatherData.DragonHide.BLUE_D_HIDE_VAMBS.product;
-                index[2] = LeatherData.DragonHide.BLUE_D_HIDE_CHAPS.product;
+            if (leather == Leather.BLUE_LEATHER) {
+                index[0] = Leather.DragonHide.BLUE_D_HIDE_BODY.product;
+                index[1] = Leather.DragonHide.BLUE_D_HIDE_VAMBS.product;
+                index[2] = Leather.DragonHide.BLUE_D_HIDE_CHAPS.product;
             }
-            if (leather == LeatherData.RED_LEATHER) {
-                index[0] = LeatherData.DragonHide.RED_D_HIDE_BODY.product;
-                index[1] = LeatherData.DragonHide.RED_D_HIDE_VAMBS.product;
-                index[2] = LeatherData.DragonHide.RED_D_HIDE_CHAPS.product;
+            if (leather == Leather.RED_LEATHER) {
+                index[0] = Leather.DragonHide.RED_D_HIDE_BODY.product;
+                index[1] = Leather.DragonHide.RED_D_HIDE_VAMBS.product;
+                index[2] = Leather.DragonHide.RED_D_HIDE_CHAPS.product;
             }
-            if (leather == LeatherData.BLACK_LEATHER) {
-                index[0] = LeatherData.DragonHide.BLACK_D_HIDE_BODY.product;
-                index[1] = LeatherData.DragonHide.BLACK_D_HIDE_VAMBS.product;
-                index[2] = LeatherData.DragonHide.BLACK_D_HIDE_CHAPS.product;
+            if (leather == Leather.BLACK_LEATHER) {
+                index[0] = Leather.DragonHide.BLACK_D_HIDE_BODY.product;
+                index[1] = Leather.DragonHide.BLACK_D_HIDE_VAMBS.product;
+                index[2] = Leather.DragonHide.BLACK_D_HIDE_CHAPS.product;
             }
             player.getPacketDispatch().sendItemZoomOnInterface(index[0], 175, 304, 2);
             player.getPacketDispatch().sendItemZoomOnInterface(index[1], 175, 304, 3);
@@ -105,7 +105,7 @@ public final class LeatherCraftDialogue extends Dialogue {
                         });
                         return true;
                     case 2:
-                        amt = player.getInventory().getAmount(new Item(LeatherData.HARD_LEATHER));
+                        amt = player.getInventory().getAmount(new Item(Leather.HARD_LEATHER));
                         break;
                 }
                 player.getPulseManager().run(new HardCraftPulse(player, null, amt));
@@ -121,52 +121,52 @@ public final class LeatherCraftDialogue extends Dialogue {
                 if (buttonId > 11 && buttonId < 16) {
                     index = 3;
                 }
-                LeatherData.DragonHide hide = null;
+                Leather.DragonHide hide = null;
                 if (index == 1) {
                     switch (leather) {
-                        case LeatherData.GREEN_LEATHER:
-                            hide = LeatherData.DragonHide.GREEN_D_HIDE_BODY;
+                        case Leather.GREEN_LEATHER:
+                            hide = Leather.DragonHide.GREEN_D_HIDE_BODY;
                             break;
-                        case LeatherData.BLUE_LEATHER:
-                            hide = LeatherData.DragonHide.BLUE_D_HIDE_BODY;
+                        case Leather.BLUE_LEATHER:
+                            hide = Leather.DragonHide.BLUE_D_HIDE_BODY;
                             break;
-                        case LeatherData.RED_LEATHER:
-                            hide = LeatherData.DragonHide.RED_D_HIDE_BODY;
+                        case Leather.RED_LEATHER:
+                            hide = Leather.DragonHide.RED_D_HIDE_BODY;
                             break;
-                        case LeatherData.BLACK_LEATHER:
-                            hide = LeatherData.DragonHide.BLACK_D_HIDE_BODY;
+                        case Leather.BLACK_LEATHER:
+                            hide = Leather.DragonHide.BLACK_D_HIDE_BODY;
                             break;
                     }
                 }
                 if (index == 2) {
                     switch (leather) {
-                        case LeatherData.GREEN_LEATHER:
-                            hide = LeatherData.DragonHide.GREEN_D_HIDE_VAMBS;
+                        case Leather.GREEN_LEATHER:
+                            hide = Leather.DragonHide.GREEN_D_HIDE_VAMBS;
                             break;
-                        case LeatherData.BLUE_LEATHER:
-                            hide = LeatherData.DragonHide.BLUE_D_HIDE_VAMBS;
+                        case Leather.BLUE_LEATHER:
+                            hide = Leather.DragonHide.BLUE_D_HIDE_VAMBS;
                             break;
-                        case LeatherData.RED_LEATHER:
-                            hide = LeatherData.DragonHide.RED_D_HIDE_VAMBS;
+                        case Leather.RED_LEATHER:
+                            hide = Leather.DragonHide.RED_D_HIDE_VAMBS;
                             break;
-                        case LeatherData.BLACK_LEATHER:
-                            hide = LeatherData.DragonHide.BLACK_D_HIDE_VAMBS;
+                        case Leather.BLACK_LEATHER:
+                            hide = Leather.DragonHide.BLACK_D_HIDE_VAMBS;
                             break;
                     }
                 }
                 if (index == 3) {
                     switch (leather) {
-                        case LeatherData.GREEN_LEATHER:
-                            hide = LeatherData.DragonHide.GREEN_D_HIDE_CHAPS;
+                        case Leather.GREEN_LEATHER:
+                            hide = Leather.DragonHide.GREEN_D_HIDE_CHAPS;
                             break;
-                        case LeatherData.BLUE_LEATHER:
-                            hide = LeatherData.DragonHide.BLUE_D_HIDE_CHAPS;
+                        case Leather.BLUE_LEATHER:
+                            hide = Leather.DragonHide.BLUE_D_HIDE_CHAPS;
                             break;
-                        case LeatherData.RED_LEATHER:
-                            hide = LeatherData.DragonHide.RED_D_HIDE_CHAPS;
+                        case Leather.RED_LEATHER:
+                            hide = Leather.DragonHide.RED_D_HIDE_CHAPS;
                             break;
-                        case LeatherData.BLACK_LEATHER:
-                            hide = LeatherData.DragonHide.BLACK_D_HIDE_CHAPS;
+                        case Leather.BLACK_LEATHER:
+                            hide = Leather.DragonHide.BLACK_D_HIDE_CHAPS;
                             break;
                     }
                 }
@@ -189,7 +189,7 @@ public final class LeatherCraftDialogue extends Dialogue {
                     case 4:
                     case 8:
                     case 12:
-                        final LeatherData.DragonHide hidee = hide;
+                        final Leather.DragonHide hidee = hide;
                         if (hidee == null) {
                             return false;
                         }

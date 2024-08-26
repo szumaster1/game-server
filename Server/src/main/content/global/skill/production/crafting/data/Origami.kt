@@ -11,7 +11,7 @@ import cfg.consts.Items
  * @param gfxId The graphical identifier for rendering the origami.
  * @constructor Origami data
  */
-enum class OrigamiData(val requiredDye: Int, val ballonId: Int, val gfxId: Int) {
+enum class Origami(val requiredDye: Int, val ballonId: Int, val gfxId: Int) {
     /**
      * Yellow.
      */
@@ -85,17 +85,14 @@ enum class OrigamiData(val requiredDye: Int, val ballonId: Int, val gfxId: Int) 
     );
 
     companion object {
-        val productMap = HashMap<Int, OrigamiData>()
-        val projectileMap = HashMap<Int, Int>()
-
-        init {
-            for (base in values()) {
-                productMap[base.requiredDye] = base
+        @JvmStatic
+        fun forId(itemId: Int): Origami? {
+            for (product in Origami.values()) {
+                if (product.requiredDye == itemId) {
+                    return product
+                }
             }
-
-            for (projectile in values()) {
-                projectileMap[projectile.ballonId] = projectile.gfxId
-            }
+            return null
         }
     }
 }

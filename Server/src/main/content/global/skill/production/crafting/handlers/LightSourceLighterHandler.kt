@@ -1,6 +1,6 @@
 package content.global.skill.production.crafting.handlers
 
-import content.global.skill.production.crafting.data.LightSourceData
+import content.global.skill.production.crafting.data.LightSource
 import cfg.consts.Items
 import core.api.getStatLevel
 import core.api.playAudio
@@ -38,7 +38,7 @@ class LightSourceLighterHandler : UseWithHandler(Items.TINDERBOX_590, Items.CAND
         event ?: return false
 
         val used = if (event.used.id == Items.TINDERBOX_590) event.usedWith.asItem() else event.used.asItem()
-        val lightSource = LightSourceData.forId(used.id)
+        val lightSource = LightSource.forId(used.id)
 
         lightSource ?: return false
 
@@ -69,7 +69,7 @@ class LightSourceLighterHandler : UseWithHandler(Items.TINDERBOX_590, Items.CAND
      * @param lightSource The data related to the light source being utilized.
      * @return Returns true if the light was successfully activated, false otherwise.
      */
-    fun light(player: Player, item: Item, lightSource: LightSourceData): Boolean {
+    fun light(player: Player, item: Item, lightSource: LightSource): Boolean {
         val requiredLevel = lightSource.levelRequired
         val playerLevel = getStatLevel(player, Skills.FIREMAKING)
 

@@ -12,7 +12,7 @@ import cfg.consts.Items
  * @param experience The experience points gained from using the battlestaff
  * @constructor Battlestaff data
  */
-enum class BattlestaffData(
+enum class Battlestaff(
     val required: Int,          // Minimum level required to use the battlestaff
     val productId: Int,        // Unique identifier for the battlestaff product
     val amount: Int,           // Quantity of battlestaff available
@@ -64,12 +64,14 @@ enum class BattlestaffData(
     );
 
     companion object {
-        val productMap = HashMap<Int, BattlestaffData>()
-
-        init {
-            for (product in values()) {
-                productMap[product.required] = product
+        @JvmStatic
+        fun forId(itemId: Int): Battlestaff? {
+            for (product in Battlestaff.values()) {
+                if (product.required == itemId) {
+                    return product
+                }
             }
+            return null
         }
     }
 }

@@ -11,12 +11,12 @@ import cfg.consts.Items
  * @param exp Represents the experience points gained from the spinning action.
  * @constructor Spinning data
  */
-enum class SpinningData(
-    val button: Int,  // The button identifier for the spinning action
-    val need: Int,    // The amount of resources required to perform the spin
-    val product: Int, // The product obtained from the spinning action
-    val level: Int,   // The level of the spinning action
-    val exp: Double   // The experience points gained from the spinning action
+enum class Spinning(
+    val button: Int,
+    val need: Int,
+    val product: Int,
+    val level: Int,
+    val exp: Double
 ) {
     /**
      * Wool.
@@ -141,7 +141,7 @@ enum class SpinningData(
 
     companion object {
         @JvmStatic
-        fun forId(id: Int): SpinningData? {
+        fun forId(id: Int): Spinning? {
             for (spin in values()) {
                 if (spin.button == id) {
                     return spin

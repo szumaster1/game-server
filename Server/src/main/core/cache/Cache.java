@@ -105,7 +105,7 @@ public final class Cache {
         }
         int realLength = compression != 0 ? length + 4 : length;
 
-        // TODO There are two archives that lack two bytes at the end (The version, most likely). This causes the client CRC to be miscalculated. To combat this, we simply send two more bytes if the length seems to be off.
+
         realLength += (index != 255 && compression != 0 && data.length - length == 9) ? 2 : 0;
         ByteBuffer buffer = ByteBuffer.allocate((realLength + 5) + (realLength / 512) + 10);
         buffer.put((byte) index);

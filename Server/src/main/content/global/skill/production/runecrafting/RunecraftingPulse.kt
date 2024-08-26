@@ -218,7 +218,7 @@ class RunecraftingPulse(
         if (if (!imbued) player.inventory.remove(remove) else imbued) {
             var amount = 0
             val essenceAmt = player.inventory.getAmount(PURE_ESSENCE)
-            val rune = if (node!!.name.contains("rune")) Rune.forItem(node!!)!!.rune else Rune.forName(Talisman.forItem(node!!)!!.name)!!.rune
+            val rune = if (node!!.name.contains("rune")) Rune.forItem(node!!)!!.talisman else Rune.forName(Talisman.forItem(node!!)!!.name)!!.rune
             val runeAmt = player.inventory.getAmount(rune)
             amount = if (essenceAmt > runeAmt) {
                 runeAmt

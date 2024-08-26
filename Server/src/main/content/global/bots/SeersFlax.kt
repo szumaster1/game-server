@@ -1,6 +1,6 @@
 package content.global.bots
 
-import content.global.skill.production.crafting.data.SpinningData
+import content.global.skill.production.crafting.data.Spinning
 import content.global.skill.production.crafting.item.SpinningPulse
 import cfg.consts.Items
 import core.game.bots.Script
@@ -66,7 +66,7 @@ class SeersFlax : Script() {
                         bot!!,
                         Item(Items.FLAX_1779),
                         bot!!.inventory.getAmount(Items.FLAX_1779),
-                        SpinningData.FLAX
+                        Spinning.FLAX
                     )
                 )
                 state = State.FIND_BANK

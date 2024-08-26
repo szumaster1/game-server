@@ -1,6 +1,6 @@
 package content.global.skill.production.crafting.item
 
-import content.global.skill.production.crafting.data.JewelleryData
+import content.global.skill.production.crafting.data.Jewellery
 import core.api.*
 import cfg.consts.Animations
 import cfg.consts.Sounds
@@ -22,7 +22,7 @@ import core.game.node.item.Item
 class JewelleryCraftPulse(
     player: Player?, // The player involved in the crafting process, can be null if not applicable.
     node: Item?, // The item node that represents the crafting item, can also be null.
-    val type: JewelleryData.JewelleryItem, // The specific type of jewellery item being crafted.
+    val type: Jewellery.JewelleryItem, // The specific type of jewellery item being crafted.
     var amount: Int // The number of items to be crafted, mutable to allow changes.
 ) : SkillPulse<Item?>(player, node) { // Inherits from SkillPulse, passing player and node parameters.
 

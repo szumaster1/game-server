@@ -174,7 +174,7 @@ public final class CacheFileManager {
         }
         if (filesData[archiveId] == null) {
             if (information.getContainers()[archiveId] == null) {
-                return false; // container inform doesnt exist anymore
+                return false;
             }
             filesData[archiveId] = new byte[information.getContainers()[archiveId].getFiles().length][];
         }

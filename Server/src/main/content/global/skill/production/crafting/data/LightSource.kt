@@ -14,13 +14,13 @@ import cfg.consts.Sounds
  * @param openFlame Indicates whether the light source produces an open flame.
  * @constructor Light source data Represents a new instance of LightSourceData with specified parameters.
  */
-enum class LightSourceData(
-    val emptyId: Int,      // ID for an empty light source
-    val fullId: Int,       // ID for a fully charged light source
-    val litId: Int,        // ID for a lit light source
-    val sfxId: Int,        // ID for the sound effect associated with the light source
-    val levelRequired: Int, // Level required to use this light source
-    val openFlame: Boolean  // Indicates if the light source produces an open flame
+enum class LightSource(
+    val emptyId: Int,
+    val fullId: Int,
+    val litId: Int,
+    val sfxId: Int,
+    val levelRequired: Int,
+    val openFlame: Boolean
 ) {
     /**
      * White Candle.
@@ -167,7 +167,7 @@ enum class LightSourceData(
     );
 
     companion object {
-        fun forId(id: Int): LightSourceData? {
+        fun forId(id: Int): LightSource? {
             return when (id) {
                 36, 33 -> WHITE_CANDLE
                 38, 32 -> BLACK_CANDLE

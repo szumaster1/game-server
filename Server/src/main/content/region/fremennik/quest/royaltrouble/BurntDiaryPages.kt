@@ -12,7 +12,7 @@ import core.tools.DARK_RED
 /**
  * Burnt diary listeners.
  */
-class BurntDiaryListeners : InteractionListener {
+class BurntDiaryPages : InteractionListener {
 
     companion object {
         private val DIARY_PAGES = intArrayOf(7961, 7962, 7963, 7964)
