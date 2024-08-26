@@ -1,12 +1,12 @@
 package content.region.asgarnia.quest.rd
 
-import content.region.asgarnia.dialogue.falador.KnightNotesDialogue
-import content.region.asgarnia.quest.rd.dialogue.*
-import core.api.*
 import cfg.consts.Components
 import cfg.consts.Items
 import cfg.consts.NPCs
 import cfg.consts.Scenery
+import content.region.asgarnia.dialogue.falador.KnightNotesDialogue
+import content.region.asgarnia.quest.rd.dialogue.*
+import core.api.*
 import core.game.activity.Cutscene
 import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression

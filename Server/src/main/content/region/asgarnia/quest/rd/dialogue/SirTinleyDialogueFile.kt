@@ -1,9 +1,9 @@
 package content.region.asgarnia.quest.rd.dialogue
 
+import cfg.consts.NPCs
 import content.region.asgarnia.quest.rd.RecruitmentDrive
 import content.region.asgarnia.quest.rd.RecruitmentDriveListeners
 import core.api.*
-import cfg.consts.NPCs
 import core.game.dialogue.DialogueBuilder
 import core.game.dialogue.DialogueBuilderFile
 import core.game.dialogue.FacialExpression

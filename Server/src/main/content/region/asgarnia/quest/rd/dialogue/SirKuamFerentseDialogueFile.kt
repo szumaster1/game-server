@@ -1,18 +1,11 @@
 package content.region.asgarnia.quest.rd.dialogue
 
-import cfg.consts.NPCs
 import content.region.asgarnia.quest.rd.RDUtils
 import content.region.asgarnia.quest.rd.RecruitmentDrive
 import core.api.getAttribute
-import core.api.registerHintIcon
-import core.api.sendChat
-import core.api.setAttribute
 import core.game.dialogue.DialogueBuilder
 import core.game.dialogue.DialogueBuilderFile
 import core.game.dialogue.FacialExpression
-import core.game.node.entity.npc.NPC
-import core.game.node.entity.player.Player
-import core.game.world.map.Location
 
 /**
  * Represents the Sir Kuam Ferentse dialogue file.

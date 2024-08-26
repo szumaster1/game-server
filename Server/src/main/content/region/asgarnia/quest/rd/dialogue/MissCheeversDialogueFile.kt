@@ -2,7 +2,10 @@ package content.region.asgarnia.quest.rd.dialogue
 
 import cfg.consts.NPCs
 import content.region.asgarnia.quest.rd.handlers.MissCheeversRoomListeners
-import core.api.*
+import core.api.getAttribute
+import core.api.location
+import core.api.removeAttribute
+import core.api.setAttribute
 import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC
