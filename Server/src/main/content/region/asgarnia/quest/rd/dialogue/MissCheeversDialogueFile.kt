@@ -1,8 +1,7 @@
 package content.region.asgarnia.quest.rd.dialogue
 
 import cfg.consts.NPCs
-import content.region.asgarnia.quest.rd.MissCheeversRoomListeners
-import content.region.asgarnia.quest.rd.RecruitmentDrive
+import content.region.asgarnia.quest.rd.handlers.MissCheeversRoomListeners
 import core.api.*
 import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression
@@ -22,7 +21,7 @@ class MissCheeversDialogueFile(private val state: Int = 0) : DialogueFile() {
     private fun handleInitialDialogue() {
         when (stage) {
             0 -> {
-                val helpStatus = getAttribute(player!!, RecruitmentDrive.ATTRIBUTE_RD_HELP, -1)
+                val helpStatus = getAttribute(player!!, "/save:rd:help", -1)
                 if (helpStatus > 1) {
                     playerl(FacialExpression.FRIENDLY, "Please... I am REALLY stuck... Isn't there ANYTHING you can do to help me...?").also { stage = 6 }
                 } else {
@@ -35,7 +34,7 @@ class MissCheeversDialogueFile(private val state: Int = 0) : DialogueFile() {
             4 -> playerl(FacialExpression.FRIENDLY, "Okay, thanks!").also { stage++ }
             5 -> {
                 end()
-                setAttribute(player!!, RecruitmentDrive.ATTRIBUTE_RD_HELP, 2)
+                setAttribute(player!!, "/save:rd:help", 2)
             }
 
             6 -> npcl(FacialExpression.FRIENDLY, "Well... Look, I really shouldn't say anything about this room, but...").also { stage++ }
@@ -47,7 +46,7 @@ class MissCheeversDialogueFile(private val state: Int = 0) : DialogueFile() {
             12 -> npcl(FacialExpression.FRIENDLY, "Best of luck with the test @name. I hope your application is successful.").also { stage++ }
             13 -> {
                 end()
-                setAttribute(player!!, RecruitmentDrive.ATTRIBUTE_RD_HELP, 3)
+                setAttribute(player!!, "/save:rd:help", 3)
             }
         }
     }
@@ -62,21 +61,21 @@ class MissCheeversDialogueFile(private val state: Int = 0) : DialogueFile() {
             4 -> npcl(FacialExpression.FRIENDLY, "Best of luck!").also { stage++ }
             5 -> {
                 end()
-                setAttribute(player!!, RecruitmentDrive.ATTRIBUTE_RD_HELP, 1)
+                setAttribute(player!!, "/save:rd:help", 1)
             }
         }
     }
 
     private fun clearAttributes() {
         with(MissCheeversRoomListeners) {
-            removeAttribute(player!!, ATTRIBUTE_BOOK)
-            removeAttribute(player!!, ATTRIBUTE_MAGNET)
-            removeAttribute(player!!, ATTRIBUTE_KNIFE)
-            removeAttribute(player!!, ATTRIBUTE_SHEARS)
-            removeAttribute(player!!, ATTRIBUTE_TIN)
-            removeAttribute(player!!, ATTRIBUTE_CHISEL)
-            removeAttribute(player!!, ATTRIBUTE_WIRE)
-            removeAttribute(player!!, ATTRIBUTE_VIALS)
+            removeAttribute(player!!, book)
+            removeAttribute(player!!, magnet)
+            removeAttribute(player!!, knife)
+            removeAttribute(player!!, shears)
+            removeAttribute(player!!, tin)
+            removeAttribute(player!!, chisel)
+            removeAttribute(player!!, wire)
+            removeAttribute(player!!, vials)
             MissCheeversRoomListeners.Companion.Vials.vialMap.forEach { removeAttribute(player!!, it.value.attribute) }
             MissCheeversRoomListeners.Companion.DoorVials.doorVialsRequiredMap.forEach { removeAttribute(player!!, it.value.attribute) }
         }

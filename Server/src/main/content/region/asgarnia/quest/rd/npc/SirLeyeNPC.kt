@@ -16,10 +16,11 @@ import core.game.node.entity.skill.Skills
  * @author Ovenbread
  */
 class SirLeyeNPC : NPCBehavior(NPCs.SIR_LEYE_2285) {
-    var clearTime = 0
+
+    private var clearTime = 0
 
     override fun tick(self: NPC): Boolean {
-        if (clearTime++ > 288) {
+        if (++clearTime > 288) {
             clearTime = 0
             poofClear(self)
         }
@@ -27,12 +28,10 @@ class SirLeyeNPC : NPCBehavior(NPCs.SIR_LEYE_2285) {
     }
 
     override fun beforeDamageReceived(self: NPC, attacker: Entity, state: BattleState) {
-        val lifepoints = self.skills.lifepoints
-        if (attacker is Player) {
-            if (attacker.isMale) {
-                if (state.estimatedHit + Integer.max(state.secondaryHit, 0) > lifepoints - 1) {
-                    self.skills.lifepoints = self.getSkills().getStaticLevel(Skills.HITPOINTS)
-                }
+        if (attacker is Player && attacker.isMale) {
+            val lifepoints = self.skills.lifepoints
+            if (state.estimatedHit + maxOf(state.secondaryHit, 0) > lifepoints - 1) {
+                self.skills.lifepoints = self.getSkills().getStaticLevel(Skills.HITPOINTS)
             }
         }
     }
@@ -40,14 +39,11 @@ class SirLeyeNPC : NPCBehavior(NPCs.SIR_LEYE_2285) {
     override fun onDeathFinished(self: NPC, killer: Entity) {
         if (killer is Player) {
             clearHintIcon(killer)
-            setAttribute(killer, RecruitmentDrive.ATTRIBUTE_RD_STAGE_PASSED, true)
+            setAttribute(killer, RecruitmentDrive.stagePass, true)
             openDialogue(killer, SirKuamFerentseDialogueFile(1), NPC(NPCs.SIR_KUAM_FERENTSE_2284))
             removeAttribute(killer, SirKuamFerentseDialogueFile.ATTRIBUTE_SPAWN_NPC)
         }
     }
 
-    override fun getXpMultiplier(self: NPC, attacker: Entity): Double {
-        return 0.0
-    }
-
+    override fun getXpMultiplier(self: NPC, attacker: Entity): Double = 0.0
 }

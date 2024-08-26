@@ -31,21 +31,17 @@ class RecruitmentDriveListeners : InteractionListener, MapArea {
 
     override fun areaLeave(entity: Entity, logout: Boolean) {
         super.areaLeave(entity, logout)
-        if (entity is Player && !entity.isArtificial) {
-            val player = entity.asPlayer()
-            if (!getRegionBorders(9805).insideRegion(player)) {
-                clearInventoryAndEquipment(player)
-            }
+        if (entity is Player) {
+            val p = entity.asPlayer()
+            p.inventory.clear()
+            p.equipment.clear()
+            if (logout) setMinimapState(p, 0)
+
         }
-    }
+        }
 
     override fun getRestrictions(): Array<ZoneRestriction> {
-        return arrayOf(
-            ZoneRestriction.CANNON,
-            ZoneRestriction.FOLLOWERS,
-            ZoneRestriction.RANDOM_EVENTS,
-            ZoneRestriction.TELEPORT
-        )
+        return arrayOf(ZoneRestriction.RANDOM_EVENTS, ZoneRestriction.CANNON, ZoneRestriction.FOLLOWERS)
     }
 
     override fun defineAreaBorders(): Array<ZoneBorders> {
@@ -73,14 +69,14 @@ class RecruitmentDriveListeners : InteractionListener, MapArea {
         fun shuffleStages(player: Player) {
             val stageArray = intArrayOf(0, 1, 2, 3, 4, 5, 6)
             stageArray.shuffle()
-            setAttribute(player, RecruitmentDrive.ATTRIBUTE_RD_STAGE_ZERO, stageArray[0])
-            setAttribute(player, RecruitmentDrive.ATTRIBUTE_RD_FIRST_STAGE, stageArray[1])
-            setAttribute(player, RecruitmentDrive.ATTRIBUTE_RD_SECOND_STAGE, stageArray[2])
-            setAttribute(player, RecruitmentDrive.ATTRIBUTE_RD_THIRD_STAGE, stageArray[3])
-            setAttribute(player, RecruitmentDrive.ATTRIBUTE_RD_FOURTH_STAGE, stageArray[4])
-            setAttribute(player, RecruitmentDrive.ATTRIBUTE_RD_STAGE_PASSED, false)
-            setAttribute(player, RecruitmentDrive.ATTRIBUTE_RD_STAGE_FAILED, false)
-            setAttribute(player, RecruitmentDrive.ATTRIBUTE_RD_CURRENT_STAGE, 0)
+            setAttribute(player, RecruitmentDrive.stage0, stageArray[0])
+            setAttribute(player, RecruitmentDrive.stage1, stageArray[1])
+            setAttribute(player, RecruitmentDrive.stage2, stageArray[2])
+            setAttribute(player, RecruitmentDrive.stage3, stageArray[3])
+            setAttribute(player, RecruitmentDrive.stage4, stageArray[4])
+            setAttribute(player, RecruitmentDrive.stagePass, false)
+            setAttribute(player, RecruitmentDrive.stageFail, false)
+            setAttribute(player, RecruitmentDrive.stage, 0)
         }
 
         fun callStartingDialogues(player: Player, npc: Int) {
@@ -102,12 +98,12 @@ class RecruitmentDriveListeners : InteractionListener, MapArea {
 
         on(statueIds, IntType.SCENERY, "touch") { player, node ->
             if (node.id == statueIds[getAttribute(player, "rd:statues", 0)]) {
-                if (!getAttribute(player, RecruitmentDrive.ATTRIBUTE_RD_STAGE_FAILED, false)) {
-                    setAttribute(player, RecruitmentDrive.ATTRIBUTE_RD_STAGE_PASSED, true)
+                if (!getAttribute(player, RecruitmentDrive.stageFail, false)) {
+                    setAttribute(player, RecruitmentDrive.stagePass, true)
                     sendNPCDialogueLines(player, NPCs.LADY_TABLE_2283, FacialExpression.NEUTRAL, false, "Excellent work, @name.", "Please step through the portal to meet your next", "challenge.")
                 }
             } else {
-                setAttribute(player, RecruitmentDrive.ATTRIBUTE_RD_STAGE_FAILED, true)
+                setAttribute(player, RecruitmentDrive.stageFail, true)
                 openDialogue(player, LadyTableDialogueFile(2), NPC(NPCs.LADY_TABLE_2283))
             }
             return@on true
@@ -174,19 +170,19 @@ class RecruitmentDriveListeners : InteractionListener, MapArea {
             if (inInventory(player, Items.BRONZE_KEY_5585)) {
                 DoorActionHandler.handleAutowalkDoor(player, node.asScenery())
                 sendMessage(player, "You use the duplicate key you made to unlock the door.")
-                setAttribute(player, RecruitmentDrive.ATTRIBUTE_RD_STAGE_PASSED, true)
+                setAttribute(player, RecruitmentDrive.stagePass, true)
             }
-            if (getAttribute(player, RecruitmentDrive.ATTRIBUTE_RD_STAGE_PASSED, false)) {
-                setAttribute(player, RecruitmentDrive.ATTRIBUTE_RD_STAGE_PASSED, false)
-                setAttribute(player, RecruitmentDrive.ATTRIBUTE_RD_CURRENT_STAGE, getAttribute(player, RecruitmentDrive.ATTRIBUTE_RD_CURRENT_STAGE, 0) + 1)
-                val currentLevel = getAttribute(player, RecruitmentDrive.ATTRIBUTE_RD_CURRENT_STAGE, 0)
+            if (getAttribute(player, RecruitmentDrive.stagePass, false)) {
+                setAttribute(player, RecruitmentDrive.stagePass, false)
+                setAttribute(player, RecruitmentDrive.stage, getAttribute(player, RecruitmentDrive.stage, 0) + 1)
+                val currentLevel = getAttribute(player, RecruitmentDrive.stage, 0)
                 if (currentLevel >= 5) {
                     DoorActionHandler.handleAutowalkDoor(player, node.asScenery())
                     face(player, node.asScenery())
                     CompleteTestCutscene(player).start()
                     return@on true
                 }
-                val currentStage = getAttribute(player, RecruitmentDrive.RD_STAGE_ARRAY[currentLevel], 0)
+                val currentStage = getAttribute(player, RecruitmentDrive.stageArray[currentLevel], 0)
                 val currentStageEnum = Stages.indexMap[currentStage]!!
                 closeDialogue(player)
                 clearInventory(player)
@@ -247,7 +243,7 @@ class RecruitmentDriveListeners : InteractionListener, MapArea {
     class StartTestCutscene(player: Player) : Cutscene(player) {
         override fun setup() {
             loadRegion(9805)
-            val currentStage = getAttribute(player, RecruitmentDrive.RD_STAGE_ARRAY[0], 0)
+            val currentStage = getAttribute(player, RecruitmentDrive.stageArray[0], 0)
             setExit(Stages.indexMap[currentStage]!!.startLocation)
         }
 
@@ -277,7 +273,7 @@ class RecruitmentDriveListeners : InteractionListener, MapArea {
                 4 -> {
                     clearInventory(player)
                     endWithoutFade {
-                        val currentStage = getAttribute(player, RecruitmentDrive.RD_STAGE_ARRAY[0], 0)
+                        val currentStage = getAttribute(player, RecruitmentDrive.stageArray[0], 0)
                         val firstStage = Stages.indexMap[currentStage]!!
                         queueScript(player, 0, QueueStrength.SOFT) { stage: Int ->
                             when (stage) {

@@ -1,8 +1,9 @@
-package content.region.asgarnia.quest.rd
+package content.region.asgarnia.quest.rd.handlers
 
 import cfg.consts.Items
 import cfg.consts.Scenery
 import cfg.consts.Sounds
+import content.region.asgarnia.quest.rd.RDUtils
 import core.api.*
 import core.game.dialogue.DialogueBuilder
 import core.game.dialogue.DialogueBuilderFile
@@ -20,22 +21,18 @@ import core.game.world.update.flag.context.Graphic
 class MissCheeversRoomListeners : InteractionListener {
 
     companion object {
+        const val doorVarbit = 686
+        const val book = "rd:book"
+        const val magnet = "rd:magnet"
+        const val tin = "rd:tin"
+        const val chisel = "rd:chisel"
+        const val wire = "rd:wire"
+        const val knife = "rd:knife"
+        const val shears = "rd:shears"
+        const val vials = "rd:3vialsofliquid"
 
-        const val DOOR_VARBIT = 686
-
-        const val ATTRIBUTE_BOOK = "rd:book"
-        const val ATTRIBUTE_MAGNET = "rd:magnet"
-        const val ATTRIBUTE_TIN = "rd:tin"
-        const val ATTRIBUTE_CHISEL = "rd:chisel"
-        const val ATTRIBUTE_WIRE = "rd:wire"
-        const val ATTRIBUTE_KNIFE = "rd:knife"
-        const val ATTRIBUTE_SHEARS = "rd:shears"
-
-        const val ATTRIBUTE_VIALS = "rd:3vialsofliquid"
-
-        val TOOLS = intArrayOf(Items.BRONZE_WIRE_5602, Items.CHISEL_5601, Items.KNIFE_5605)
-        val MIXTURES = intArrayOf(Items.TIN_ORE_POWDER_5583, Items.CUPRIC_ORE_POWDER_5584)
-
+        val toolIDs = intArrayOf(Items.BRONZE_WIRE_5602, Items.CHISEL_5601, Items.KNIFE_5605)
+        val potionIDs = intArrayOf(Items.TIN_ORE_POWDER_5583, Items.CUPRIC_ORE_POWDER_5584)
 
         enum class Vials(val itemId: Int, val attribute: String) {
             CUPRIC_SULPHATE_5577(Items.CUPRIC_SULPHATE_5577, "rd:cupricsulphate"),
@@ -72,18 +69,18 @@ class MissCheeversRoomListeners : InteractionListener {
 
         val searchActions = mapOf(
             Scenery.OLD_BOOKSHELF_7327 to { player: Player ->
-                RDUtils.searchingHelper(player, ATTRIBUTE_MAGNET, Items.MAGNET_5604, "You search the bookshelves...", "Hidden amongst the books you find a magnet.")
+                RDUtils.searchingHelper(player, magnet, Items.MAGNET_5604, "You search the bookshelves...", "Hidden amongst the books you find a magnet.")
             },
             Scenery.OLD_BOOKSHELF_7328 to { player: Player ->
                 if (getAttribute(player, "/save:rd:help", -1) < 3) {
                     sendMessage(player, "You search the bookshelves...")
                     sendMessageWithDelay(player, "You find nothing of interest.", 1)
                 } else {
-                    RDUtils.searchingHelper(player, ATTRIBUTE_BOOK, Items.ALCHEMICAL_NOTES_5588, "You search the bookshelves...", "You find a book that looks like it might be helpful.")
+                    RDUtils.searchingHelper(player, book, Items.ALCHEMICAL_NOTES_5588, "You search the bookshelves...", "You find a book that looks like it might be helpful.")
                 }
             },
             Scenery.OLD_BOOKSHELF_7329 to { player: Player ->
-                RDUtils.searchingHelper(player, ATTRIBUTE_KNIFE, Items.KNIFE_5605, "You search the bookshelves...", "Hidden amongst the books you find a knife.")
+                RDUtils.searchingHelper(player, knife, Items.KNIFE_5605, "You search the bookshelves...", "Hidden amongst the books you find a knife.")
             },
             Scenery.OLD_BOOKSHELF_7330 to { player: Player ->
                 RDUtils.searchingHelper(player, "", 0, "You search the bookshelves...", "")
@@ -112,16 +109,16 @@ class MissCheeversRoomListeners : InteractionListener {
         }
 
         on(Scenery.SHELVES_7340, IntType.SCENERY, "search") { player, _ ->
-            val vialCount = getAttribute(player, ATTRIBUTE_VIALS, 3)
+            val vialCount = getAttribute(player, vials, 3)
             val vialList = List(vialCount) { Items.VIAL_OF_LIQUID_5582 }
-            openDialogue(player, VialShelfDialogueFile(vialList.toIntArray(), ATTRIBUTE_VIALS))
+            openDialogue(player, VialShelfDialogueFile(vialList.toIntArray(), vials))
             return@on true
         }
 
         val crateInteractions = mapOf(
-            Scenery.CRATE_7347 to Pair(ATTRIBUTE_TIN, Items.TIN_5600),
-            Scenery.CRATE_7348 to Pair(ATTRIBUTE_CHISEL, Items.CHISEL_5601),
-            Scenery.CRATE_7349 to Pair(ATTRIBUTE_WIRE, Items.BRONZE_WIRE_5602)
+            Scenery.CRATE_7347 to Pair(tin, Items.TIN_5600),
+            Scenery.CRATE_7348 to Pair(chisel, Items.CHISEL_5601),
+            Scenery.CRATE_7349 to Pair(wire, Items.BRONZE_WIRE_5602)
         )
 
         crateInteractions.forEach { (scenery, attributes) ->
@@ -142,7 +139,7 @@ class MissCheeversRoomListeners : InteractionListener {
         }
 
         on(Scenery.OPEN_CHEST_7351, IntType.SCENERY, "search") { player, _ ->
-            RDUtils.searchingHelper(player, ATTRIBUTE_SHEARS, Items.SHEARS_5603, "You search the chest...", "Inside the chest you find some shears.")
+            RDUtils.searchingHelper(player, shears, Items.SHEARS_5603, "You search the chest...", "Inside the chest you find some shears.")
             return@on true
         }
 
@@ -152,7 +149,7 @@ class MissCheeversRoomListeners : InteractionListener {
         }
 
         onUseWith(IntType.ITEM, Items.TIN_5600, Items.GYPSUM_5579) { player, used, with ->
-            RDUtils.processItemUsage(player, used.asItem(), with.asItem(), Item(Items.TIN_5592))
+            RDUtils.processItemUsageAndReturn(player, used.asItem(), with.asItem(), Item(Items.TIN_5592))
             return@onUseWith true
         }
 
@@ -169,13 +166,13 @@ class MissCheeversRoomListeners : InteractionListener {
             return@onUseWith true
         }
 
-        onUseWith(IntType.ITEM, Items.TIN_5594, *MIXTURES) { player, used, with ->
-            RDUtils.processItemUsage(player, used.asItem(), with.asItem(), Item(Items.TIN_5595))
+        onUseWith(IntType.ITEM, Items.TIN_5594, *potionIDs) { player, used, with ->
+            RDUtils.processItemUsageAndReturn(player, used.asItem(), with.asItem(), Item(Items.TIN_5595))
             return@onUseWith true
         }
 
-        onUseWith(IntType.ITEM, Items.TIN_5595, *MIXTURES) { player, used, with ->
-            RDUtils.processItemUsage(player, used.asItem(), with.asItem(), Item(Items.TIN_5596))
+        onUseWith(IntType.ITEM, Items.TIN_5595, *potionIDs) { player, used, with ->
+            RDUtils.processItemUsageAndReturn(player, used.asItem(), with.asItem(), Item(Items.TIN_5596))
             return@onUseWith true
         }
 
@@ -188,7 +185,7 @@ class MissCheeversRoomListeners : InteractionListener {
             return@onUseWith true
         }
 
-        onUseWith(IntType.ITEM, Items.TIN_5597, *TOOLS) { player, used, _ ->
+        onUseWith(IntType.ITEM, Items.TIN_5597, *toolIDs) { player, used, _ ->
             if (removeItem(player, used.id)) {
                 sendMessage(player, "You prise the duplicate key out of the tin.")
                 addItemOrDrop(player, Items.TIN_5600)
@@ -207,10 +204,12 @@ class MissCheeversRoomListeners : InteractionListener {
                         playAudio(player, Sounds.FIREWAVE_HIT_163)
                         keepRunning(player)
                     }
+
                     1 -> {
                         removeItem(player, Items.METAL_SPADE_5586)
                         keepRunning(player)
                     }
+
                     2 -> {
                         addItem(player, Items.METAL_SPADE_5587)
                         addItem(player, Items.ASHES_592)
@@ -225,7 +224,11 @@ class MissCheeversRoomListeners : InteractionListener {
         }
 
         on(Scenery.STONE_DOOR_7343, SCENERY, "study") { player, _ ->
-            sendDialogueLines(player, "There is a stone slab here obstructing the door.", "There is a small hole in the slab that looks like it might be for a handle.")
+            sendDialogueLines(
+                player,
+                "There is a stone slab here obstructing the door.",
+                "There is a small hole in the slab that looks like it might be for a handle."
+            )
             sendMessage(player, "It's nearly a perfect fit!")
             return@on true
         }
@@ -235,7 +238,7 @@ class MissCheeversRoomListeners : InteractionListener {
                 playAudio(player, Sounds.RECRUIT_SPADE_1742)
                 sendMessage(player, "You slide the spade into the hole in the stone...")
                 sendMessageWithDelay(player, "It's nearly a perfect fit!", 1)
-                setVarbit(player, DOOR_VARBIT, 1)
+                setVarbit(player, doorVarbit, 1)
             }
             return@onUseWith true
         }
@@ -259,6 +262,9 @@ class MissCheeversRoomListeners : InteractionListener {
 
 }
 
+/**
+ * Vial Shelf dialogue file.
+ */
 private class VialShelfDialogueFile(private val flaskIdsArray: IntArray, private val specialAttribute: String? = null) :
     DialogueBuilderFile() {
 

@@ -1,6 +1,7 @@
 package content.region.asgarnia.quest.rd.dialogue
 
-import content.region.asgarnia.quest.rd.ChickenFoxAndGrainListener
+import content.region.asgarnia.quest.rd.RDUtils
+import content.region.asgarnia.quest.rd.handlers.SirSpishyusRoomListeners
 import content.region.asgarnia.quest.rd.RecruitmentDrive
 import content.region.asgarnia.quest.rd.RecruitmentDriveListeners
 import core.api.getAttribute
@@ -15,30 +16,31 @@ import core.game.dialogue.FacialExpression
  * Represents the Sir Spishyus dialogue file.
  */
 class SirSpishyusDialogueFile(private val dialogueNum: Int = 0) : DialogueBuilderFile() {
+
     override fun create(b: DialogueBuilder) {
-        b.onPredicate { player -> getAttribute(player, RecruitmentDrive.ATTRIBUTE_RD_STAGE_PASSED, false) }
+        b.onPredicate { player -> getAttribute(player, RecruitmentDrive.stagePass, false) }
             .npc(FacialExpression.FRIENDLY, "Excellent work, @name.", "Please step through the portal to meet your next", "challenge.")
             .end()
 
-        b.onPredicate { player -> dialogueNum == 2 || getAttribute(player, RecruitmentDrive.ATTRIBUTE_RD_STAGE_FAILED, false) }
+        b.onPredicate { player -> dialogueNum == 2 || getAttribute(player, RecruitmentDrive.stageFail, false) }
             .betweenStage { _, player, _, _ ->
-                setAttribute(player, RecruitmentDrive.ATTRIBUTE_RD_STAGE_FAILED, true)
+                setAttribute(player, RecruitmentDrive.stageFail, true)
             }
             .npc(FacialExpression.SAD, "No... I am very sorry.", "Apparently you are not up to the challenge.", "I will return you where you came from, better luck in the", "future.")
             .endWith { _, player ->
-                removeAttribute(player, SirTinleyDialogueFile.RD_DONT_MOVE_ATTR)
-                setAttribute(player, RecruitmentDrive.ATTRIBUTE_RD_STAGE_PASSED, false)
-                setAttribute(player, RecruitmentDrive.ATTRIBUTE_RD_STAGE_FAILED, false)
+                removeAttribute(player, SirTinleyDialogueFile.patience)
+                setAttribute(player, RecruitmentDrive.stagePass, false)
+                setAttribute(player, RecruitmentDrive.stageFail, false)
                 RecruitmentDriveListeners.FailTestCutscene(player).start()
             }
         b.onPredicate { _ -> true }
             .betweenStage { _, player, _, _ ->
-                setVarbit(player, ChickenFoxAndGrainListener.VARBIT_FOX_EAST, 0)
-                setVarbit(player, ChickenFoxAndGrainListener.VARBIT_FOX_WEST, 0)
-                setVarbit(player, ChickenFoxAndGrainListener.VARBIT_CHICKEN_EAST, 0)
-                setVarbit(player, ChickenFoxAndGrainListener.VARBIT_CHICKEN_WEST, 0)
-                setVarbit(player, ChickenFoxAndGrainListener.VARBIT_GRAIN_EAST, 0)
-                setVarbit(player, ChickenFoxAndGrainListener.VARBIT_GRAIN_WEST, 0)
+                setVarbit(player, RDUtils.VARBIT_FOX_EAST, 0)
+                setVarbit(player, RDUtils.VARBIT_FOX_WEST, 0)
+                setVarbit(player, RDUtils.VARBIT_CHICKEN_EAST, 0)
+                setVarbit(player, RDUtils.VARBIT_CHICKEN_WEST, 0)
+                setVarbit(player, RDUtils.VARBIT_GRAIN_EAST, 0)
+                setVarbit(player, RDUtils.VARBIT_GRAIN_WEST, 0)
             }
             .npcl(FacialExpression.FRIENDLY, "Ah, welcome @name.")
             .playerl(FacialExpression.FRIENDLY, "Hello there." + " What am I supposed to be doing in this room?")

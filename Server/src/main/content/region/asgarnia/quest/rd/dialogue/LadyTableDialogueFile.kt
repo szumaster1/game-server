@@ -70,15 +70,15 @@ class LadyTableDialogueFile(private val state: Int = 0) : DialogueFile() {
 
     private fun handleTaskFail() {
         when (stage) {
-            0 -> if (getAttribute(player!!, RecruitmentDrive.ATTRIBUTE_RD_STAGE_FAILED, false) && !getAttribute(player!!, RecruitmentDrive.ATTRIBUTE_RD_STAGE_PASSED, false)) {
-                setAttribute(player!!, RecruitmentDrive.ATTRIBUTE_RD_STAGE_FAILED, true)
+            0 -> if (getAttribute(player!!, RecruitmentDrive.stageFail, false) && !getAttribute(player!!, RecruitmentDrive.stagePass, false)) {
+                setAttribute(player!!, RecruitmentDrive.stageFail, true)
                 npc(FacialExpression.SAD, "No... I am very sorry.", "Apparently you are not up to the challenge.", "I will return you where you came from, better luck in the", "future.").also { stage++ }
             }
             1 -> {
                 lock(player!!, 10)
                 removeAttribute(player!!, SirRenItchwoodDialogueFile.ATTRIBUTE_CLUE)
-                setAttribute(player!!, RecruitmentDrive.ATTRIBUTE_RD_STAGE_PASSED, false)
-                setAttribute(player!!, RecruitmentDrive.ATTRIBUTE_RD_STAGE_FAILED, false)
+                setAttribute(player!!, RecruitmentDrive.stagePass, false)
+                setAttribute(player!!, RecruitmentDrive.stageFail, false)
                 RecruitmentDriveListeners.FailTestCutscene(player!!).start()
             }
         }

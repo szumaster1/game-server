@@ -18,72 +18,77 @@ import core.game.world.map.zone.ZoneBorders
  * Represents the Sir Tinley dialogue file.
  */
 class SirTinleyDialogueFile(private val dialogueNum: Int = 0) : DialogueBuilderFile(), MapArea {
+
     companion object {
-        const val RD_DONT_MOVE_ATTR = "rd:donotmove"
+        const val patience = "rd:donotmove"
     }
 
-    override fun create(b: DialogueBuilder) {
-        b.onPredicate { player ->
-            dialogueNum == 0 && !getAttribute(player, RD_DONT_MOVE_ATTR, false) && !getAttribute(
-                player, RecruitmentDrive.ATTRIBUTE_RD_STAGE_FAILED, false
-            )
+    override fun create(builder: DialogueBuilder) {
+        builder.onPredicate { player ->
+            isInitialDialogue(player)
         }.npc("Ah, welcome @name.", "I have but one clue for you to pass this room's puzzle:", "'Patience'.")
             .endWith { _, player ->
-                setAttribute(player, RD_DONT_MOVE_ATTR, true)
-                submitWorldPulse(object : Pulse() {
-                    var counter = 0
-                    override fun pulse(): Boolean {
-                        when (counter++) {
-                            15 -> {
-                                if (!getAttribute(player, RecruitmentDrive.ATTRIBUTE_RD_STAGE_FAILED, false)) {
-                                    setAttribute(player, RecruitmentDrive.ATTRIBUTE_RD_STAGE_PASSED, true)
-                                    setAttribute(player, RD_DONT_MOVE_ATTR, false)
-                                    npc(
-                                        FacialExpression.FRIENDLY,
-                                        "Excellent work, @name.",
-                                        "Please step through the portal to meet your next",
-                                        "challenge."
-                                    )
-                                }
-                            }
-                        }
-                        return false
-                    }
-                })
-            }
-        // If you talk to him before time is up, you fail.
-        b.onPredicate { player -> dialogueNum == 0 && getAttribute(player, RD_DONT_MOVE_ATTR, false) || getAttribute(player, RecruitmentDrive.ATTRIBUTE_RD_STAGE_FAILED, false) || dialogueNum == 2
-        }
-            .betweenStage { _, player, _, _ ->
-            setAttribute(player, RecruitmentDrive.ATTRIBUTE_RD_STAGE_FAILED, true)
-        }
-            .npc(FacialExpression.SAD, "No... I am very sorry.", "Apparently you are not up to the challenge.", "I will return you where you came from, better luck in the", "future.")
-            .endWith { _, player ->
-                removeAttribute(player, RD_DONT_MOVE_ATTR)
-                setAttribute(player, RecruitmentDrive.ATTRIBUTE_RD_STAGE_PASSED, false)
-                setAttribute(player, RecruitmentDrive.ATTRIBUTE_RD_STAGE_FAILED, false)
-                RecruitmentDriveListeners.FailTestCutscene(player).start()
+                handlePatienceDialogue(player)
             }
 
-        b.onPredicate { _ -> dialogueNum == 1 }
+        builder.onPredicate { player -> isFailDialogue(player) }
+            .betweenStage { _, player, _, _ ->
+                setAttribute(player, RecruitmentDrive.stageFail, true)
+            }
+            .npc(FacialExpression.SAD, "No... I am very sorry.", "Apparently you are not up to the challenge.", "I will return you where you came from, better luck in the", "future.")
+            .endWith { _, player ->
+                handleFailure(player)
+            }
+
+        builder.onPredicate { dialogueNum == 1 }
             .npc("Ah, @name, you have arrived.", "Speak to me to begin your task.")
             .endWith { _, player ->
-                setAttribute(player, RD_DONT_MOVE_ATTR, false)
+                setAttribute(player, patience, false)
             }
     }
 
+    private fun isInitialDialogue(player: Player): Boolean {
+        return dialogueNum == 0 && !getAttribute(player, patience, false) && !getAttribute(player, RecruitmentDrive.stageFail, false)
+    }
+
+    private fun handlePatienceDialogue(player: Player) {
+        setAttribute(player, patience, true)
+        submitWorldPulse(object : Pulse() {
+            private var counter = 0
+
+            override fun pulse(): Boolean {
+                if (counter++ == 15) {
+                    if (!getAttribute(player, RecruitmentDrive.stageFail, false)) {
+                        setAttribute(player, RecruitmentDrive.stagePass, true)
+                        setAttribute(player, patience, false)
+                        npc(FacialExpression.FRIENDLY, "Excellent work, @name.", "Please step through the portal to meet your next", "challenge.")
+                    }
+                }
+                return false
+            }
+        })
+    }
+
+    private fun isFailDialogue(player: Player): Boolean {
+        return dialogueNum == 0 && (getAttribute(player, patience, false) || getAttribute(player, RecruitmentDrive.stageFail, false) || dialogueNum == 2)
+    }
+
+    private fun handleFailure(player: Player) {
+        removeAttribute(player, patience)
+        setAttribute(player, RecruitmentDrive.stagePass, false)
+        setAttribute(player, RecruitmentDrive.stageFail, false)
+        RecruitmentDriveListeners.FailTestCutscene(player).start()
+    }
 
     override fun defineAreaBorders(): Array<ZoneBorders> {
         return arrayOf(ZoneBorders(2474, 4959, 2478, 4957))
     }
 
     override fun entityStep(entity: Entity, location: Location, lastLocation: Location) {
-        if (entity is Player) {
-            if (getAttribute(entity, RD_DONT_MOVE_ATTR, false)) {
-                setAttribute(entity, RD_DONT_MOVE_ATTR, false)
-                setAttribute(entity, RecruitmentDrive.ATTRIBUTE_RD_STAGE_FAILED, true)
-                openDialogue(entity, SirTinleyDialogueFile(2), NPC(NPCs.SIR_TINLEY_2286))
-            }
+        if (entity is Player && getAttribute(entity, patience, false)) {
+            setAttribute(entity, patience, false)
+            setAttribute(entity, RecruitmentDrive.stageFail, true)
+            openDialogue(entity, SirTinleyDialogueFile(2), NPC(NPCs.SIR_TINLEY_2286))
         }
     }
 }

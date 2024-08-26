@@ -12,17 +12,15 @@ import core.game.dialogue.FacialExpression
  * Represents the Sir Tiffy Cashien dialogue file.
  */
 class SirTiffyCashienDialogueFile : DialogueBuilderFile() {
+
     override fun create(b: DialogueBuilder) {
-
         b.onQuestStages("Recruitment Drive", 1)
-
             .playerl(FacialExpression.FRIENDLY, "Sir Amik Varze sent me to meet you here for some sort of testing...")
             .npcl(FacialExpression.FRIENDLY, "Ah, @name! Amik told me all about you, dontchaknow! Spliffing job you you did with the old Black Knights there, absolutely first class.")
             .playerl(FacialExpression.GUILTY, "...Thanks I think.")
             .npcl(FacialExpression.FRIENDLY, "Well, not in those exact words, but you get my point, what?")
             .npcl(FacialExpression.FRIENDLY, "A top-notch filly like yourself is just the right sort we've been looking for for our organisation.")
             .npcl(FacialExpression.FRIENDLY, "So, are you ready to begin testing?")
-
             .let { path ->
                 val originalPath = b.placeholder()
                 path.goto(originalPath)
@@ -30,7 +28,6 @@ class SirTiffyCashienDialogueFile : DialogueBuilderFile() {
                     .options()
                     .let { optionBuilder ->
                         val continuePath = b.placeholder()
-
                         optionBuilder.option("Testing..?")
                             .playerl(FacialExpression.FRIENDLY, "Testing? What exactly do you mean by testing?")
                             .npcl(FacialExpression.FRIENDLY, "Jolly bad show! Varze was supposed to have informed you about all this before sending you here!")
@@ -56,7 +53,6 @@ class SirTiffyCashienDialogueFile : DialogueBuilderFile() {
                             .npcl(FacialExpression.HAPPY, "Of course, if you quit a room, then all your progress up to that point will be cleared, and you'll have to start again from scratch.")
                             .npc(FacialExpression.HAPPY, "Our organisation manages to filter all the top-notch", "adventurers this way.", "So, are you ready to go?")
                             .goto(originalPath)
-
                         optionBuilder
                             .option("Organisation?")
                             .playerl(FacialExpression.FRIENDLY, "This organisation you keep mentioning.. Perhaps you could tell me a little about it?")
@@ -76,7 +72,6 @@ class SirTiffyCashienDialogueFile : DialogueBuilderFile() {
                             .npcl(FacialExpression.FRIENDLY, "Plus a few others, so I hear...")
                             .npcl(FacialExpression.FRIENDLY, "Anyway, this is why we keep our organisation shrouded in secrecy, and why we demand such rigorous testing for all potential recruits. Speaking of which, are you ready to begin your testing?")
                             .goto(originalPath)
-
                         optionBuilder.option("Yes, let's go!")
                         .player(FacialExpression.FRIENDLY, "Yeah. this sounds right up my street.", "Let's go!")
                         .branch { player -> if(player.inventory.isEmpty && player.equipment.isEmpty && !(player.familiarManager.hasFamiliar() || player.familiarManager.hasPet())) { 1 } else { 0 } }
@@ -89,14 +84,12 @@ class SirTiffyCashienDialogueFile : DialogueBuilderFile() {
                         .onValue(1)
                         .npcl(FacialExpression.FRIENDLY, "Jolly good show! Now, the training grounds location is a secret, so...")
                         .goto(continuePath)
-
                         optionBuilder.option("No, I've changed my mind.")
                         .player("No, I've changed my mind.")
                         .end()
 
                     return@let continuePath.builder()
                 }
-
             }.endWith { _, player ->
                 if (getQuestStage(player, "Recruitment Drive") == 1) {
                     setQuestStage(player, "Recruitment Drive", 2)
@@ -111,7 +104,6 @@ class SirTiffyCashienDialogueFile : DialogueBuilderFile() {
             .let { optionBuilder ->
                 val continuePath = b.placeholder()
                 optionBuilder
-
                     .option("Yes, let's go!")
                     .player(FacialExpression.FRIENDLY, "Yeah. this sounds right up my street.", "Let's go!")
                     .branch { player -> if(player.inventory.isEmpty && player.equipment.isEmpty && !(player.familiarManager.hasFamiliar() || player.familiarManager.hasPet())) { 1 } else { 0 } }
@@ -128,7 +120,6 @@ class SirTiffyCashienDialogueFile : DialogueBuilderFile() {
                         RecruitmentDriveListeners.shuffleStages(player)
                         RecruitmentDriveListeners.StartTestCutscene(player).start()
                     }
-
                 optionBuilder
                     .option("No, I've changed my mind.")
                     .player("No, I've changed my mind.")
@@ -144,7 +135,7 @@ class SirTiffyCashienDialogueFile : DialogueBuilderFile() {
 }
 
 /**
- * Represents the Sir tiffy cashien failed dialogue file.
+ * Represents the Sir Tiffy Cashien failed dialogue file.
  */
 class SirTiffyCashienFailedDialogueFile : DialogueBuilderFile() {
     override fun create(b: DialogueBuilder) {

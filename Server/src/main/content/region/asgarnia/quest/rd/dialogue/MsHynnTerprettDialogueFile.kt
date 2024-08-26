@@ -24,9 +24,9 @@ class MsHynnTerprettDialogueFile(private val dialogueNum: Int = 0) : DialogueBui
         b.onPredicate { player -> true }.branch { player ->
             if (getAttribute(player, ATTRIBUTE_CORRECT_ANSWER, false)) {
                 return@branch 3
-            } else if (getAttribute(player, RecruitmentDrive.ATTRIBUTE_RD_STAGE_FAILED, false)) {
+            } else if (getAttribute(player, RecruitmentDrive.stageFail, false)) {
                 return@branch 2
-            } else if (getAttribute(player, RecruitmentDrive.ATTRIBUTE_RD_STAGE_PASSED, false)) {
+            } else if (getAttribute(player, RecruitmentDrive.stagePass, false)) {
                 return@branch 1
             } else {
                 return@branch 0
@@ -37,16 +37,16 @@ class MsHynnTerprettDialogueFile(private val dialogueNum: Int = 0) : DialogueBui
                 .npc(FacialExpression.SAD, "No... I am very sorry.", "Apparently you are not up to the challenge.", "I will return you where you came from, better luck in the", "future.")
                 .endWith { _, player ->
                     removeAttribute(player, ATTRIBUTE_RANDOM_RIDDLE)
-                    setAttribute(player, RecruitmentDrive.ATTRIBUTE_RD_STAGE_PASSED, false)
-                    setAttribute(player, RecruitmentDrive.ATTRIBUTE_RD_STAGE_FAILED, false)
+                    setAttribute(player, RecruitmentDrive.stagePass, false)
+                    setAttribute(player, RecruitmentDrive.stageFail, false)
                     RecruitmentDriveListeners.FailTestCutscene(player).start()
                 }
 
             val passedStage = b.placeholder()
             passedStage.builder().betweenStage { _, player, _, _ ->
                 removeAttribute(player, ATTRIBUTE_CORRECT_ANSWER)
-                if (!getAttribute(player, RecruitmentDrive.ATTRIBUTE_RD_STAGE_FAILED, false)) {
-                    setAttribute(player, RecruitmentDrive.ATTRIBUTE_RD_STAGE_PASSED, true)
+                if (!getAttribute(player, RecruitmentDrive.stageFail, false)) {
+                    setAttribute(player, RecruitmentDrive.stagePass, true)
                     removeAttribute(player, ATTRIBUTE_RANDOM_RIDDLE)
                 }
             }.npc("Excellent work, @name", "Please step through the portal to meet your next", "challenge.").end()
@@ -69,7 +69,7 @@ class MsHynnTerprettDialogueFile(private val dialogueNum: Int = 0) : DialogueBui
                                 if (value == 5000000) {
                                     setAttribute(player, ATTRIBUTE_CORRECT_ANSWER, true)
                                 } else {
-                                    setAttribute(player, RecruitmentDrive.ATTRIBUTE_RD_STAGE_FAILED, true)
+                                    setAttribute(player, RecruitmentDrive.stageFail, true)
                                 }
                                 openDialogue(player, MsHynnTerprettDialogueFile(), NPC(NPCs.MS_HYNN_TERPRETT_2289))
                             }
@@ -92,7 +92,7 @@ class MsHynnTerprettDialogueFile(private val dialogueNum: Int = 0) : DialogueBui
                                 if (value == 10) {
                                     setAttribute(player, ATTRIBUTE_CORRECT_ANSWER, true)
                                 } else {
-                                    setAttribute(player, RecruitmentDrive.ATTRIBUTE_RD_STAGE_FAILED, true)
+                                    setAttribute(player, RecruitmentDrive.stageFail, true)
                                 }
                                 openDialogue(player, MsHynnTerprettDialogueFile(), NPC(NPCs.MS_HYNN_TERPRETT_2289))
                             }
