@@ -91,7 +91,7 @@ class MissCheeversRoomListeners : InteractionListener {
         }
 
         on(Scenery.OLD_BOOKSHELF_7328, IntType.SCENERY, "search") { player, _ ->
-            if (getAttribute(player, "/save:rd:help", -1) < 3) {
+            if (getAttribute(player, "/save:rd:help", -1) < 2) {
                 sendMessage(player, "You search the bookshelves...")
                 sendMessageWithDelay(player, "You search the chest but find nothing.", 1)
             } else {
