@@ -40,6 +40,7 @@ class MonkeyMadnessListeners : InteractionListener {
         /*
          * Interaction with Zooknock.
          */
+
         on(intArrayOf(NPCs.ZOOKNOCK_1425, NPCs.ZOOKNOCK_1426), IntType.NPC, "talk-to"){ player, npc ->
             if (getQuestStage(player, "Monkey Madness") == 96) {
                 openDialogue(player, ZooknockAfterBattleDialogueFile(), npc)
@@ -54,6 +55,7 @@ class MonkeyMadnessListeners : InteractionListener {
         /*
          * Interaction with Waydar NPC.
          */
+
         on(intArrayOf(NPCs.WAYDAR_1408, NPCs.WAYDAR_1409, NPCs.WAYDAR_1410), IntType.NPC, "talk-to"){ player, npc ->
             when(player.location.regionId) {
                 9626 -> openDialogue(player, WaydarDialogue(), npc)
@@ -65,6 +67,7 @@ class MonkeyMadnessListeners : InteractionListener {
         /*
          * Interaction with Monkeys.
          */
+
         on(NPCs.MONKEY_1463, IntType.NPC, "talk-to"){ player, npc ->
             if (player.equipment.containsAtLeastOneItem(IntArray(4031 - 4024 + 1) { it + 4024 }) &&
                 player.equipment.containsAtLeastOneItem(IntArray(4022 - 4021 + 1) { it + 4021 }) &&
@@ -78,6 +81,7 @@ class MonkeyMadnessListeners : InteractionListener {
         /*
          * Interaction with Monkey child.
          */
+
         on(NPCs.MONKEY_CHILD_1452, IntType.NPC, "talk-to"){ player, npc ->
             if (getAttribute(player, "/save:mm:first-talk", false)) {
                 openDialogue(player, MonkeyChildSecondDialogue(), npc)
@@ -102,6 +106,7 @@ class MonkeyMadnessListeners : InteractionListener {
         /*
          * Interaction with Lumbo.
          */
+
         on(NPCs.LUMDO_1419, IntType.NPC, "talk-to"){ player, npc ->
             openDialogue(player, LumdoDialogue(), npc)
             return@on true
@@ -110,6 +115,7 @@ class MonkeyMadnessListeners : InteractionListener {
         /*
          * Interaction with Kruk.
          */
+
         on(NPCs.KRUK_1441, IntType.NPC, "talk-to"){ player, npc ->
             if(player.questRepository.getQuest("Monkey Madness").getStage(player) >= 35) {
                 openDialogue(player, KrukDialogue(), npc)

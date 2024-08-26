@@ -18,9 +18,11 @@ import core.network.packet.outgoing.CameraViewPacket
  */
 class GnomeGliderListeners : InteractionListener {
 
+    private val GNOME_PILOTS = intArrayOf(NPCs.CAPTAIN_DALBUR_3809, NPCs.CAPTAIN_BLEEMADGE_3810, NPCs.CAPTAIN_ERRDO_3811, NPCs.CAPTAIN_KLEMFOODLE_3812)
+
     override fun defineListeners() {
 
-        on(intArrayOf(NPCs.CAPTAIN_DALBUR_3809, NPCs.CAPTAIN_BLEEMADGE_3810, NPCs.CAPTAIN_ERRDO_3811, NPCs.CAPTAIN_KLEMFOODLE_3812), IntType.NPC, "glider") { player, _ ->
+        on(GNOME_PILOTS, IntType.NPC, "glider") { player, _ ->
             if (!isQuestComplete(player, "The Grand Tree")) {
                 sendMessage(player, "You must complete The Grand Tree Quest to access the gnome glider.")
             } else {

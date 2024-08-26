@@ -69318,6 +69318,21 @@
     "attack_level": "1"
   },
   {
+    "examine": "Fit to wear the uniform?",
+    "melee_animation": "0",
+    "range_animation": "0",
+    "defence_animation": "0",
+    "magic_animation": "0",
+    "death_animation": "0",
+    "name": "Ogress banker",
+    "defence_level": "1",
+    "lifepoints": "10",
+    "strength_level": "1",
+    "id": "7050",
+    "range_level": "1",
+    "attack_level": "1"
+  },
+  {
     "examine": "She walks as if she owns the place.",
     "melee_animation": "0",
     "range_animation": "0",
