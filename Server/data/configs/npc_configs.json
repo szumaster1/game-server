@@ -3872,6 +3872,11 @@
     "attack_level": "1"
   },
   {
+    "examine": "A powerful Wizard of the Knights of the Round Table.",
+    "name": "Merlin",
+    "id": "213"
+  },
+  {
     "examine": "A former Knight of the Round Table.",
     "melee_animation": "0",
     "range_animation": "0",
@@ -4243,6 +4248,11 @@
     "range_level": "1",
     "attack_level": "1",
     "defence_animation": "6488"
+  },
+  {
+    "examine": "A powerful Wizard of the Knights of the Round Table.",
+    "name": "Merlin",
+    "id": "249"
   },
   {
     "examine": "A powerful sorceress who guards Excalibur.",

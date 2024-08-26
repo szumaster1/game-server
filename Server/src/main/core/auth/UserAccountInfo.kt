@@ -180,12 +180,7 @@ class UserAccountInfo(
         return result // Return final hash code
     }
 
-    /**
-     * Is default
-     *
-     * @return True if the current instance is the default user account info
-     */
-    fun isDefault(): Boolean {
-        return this == default // Check if current instance is equal to default
+    fun isDefault() : Boolean {
+        return this == default
     }
 }
