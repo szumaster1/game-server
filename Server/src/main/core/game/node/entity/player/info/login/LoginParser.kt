@@ -2,7 +2,7 @@ package core.game.node.entity.player.info.login
 
 import core.api.LoginListener
 import core.api.reinitVarps
-import core.api.auth.AuthResponse
+import core.auth.AuthResponse
 import core.game.node.entity.player.Player
 import core.game.node.entity.player.info.PlayerDetails
 import core.game.system.SystemManager

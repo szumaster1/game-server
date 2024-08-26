@@ -3,8 +3,8 @@ package core.game.world
 import core.ServerConstants
 import core.ServerStore
 import core.api.*
-import core.api.auth.Auth
-import core.api.auth.AuthProvider
+import core.auth.Auth
+import core.auth.AuthProvider
 import core.storage.AccountStorageProvider
 import core.cache.Cache
 import core.cache.def.impl.SceneryDefinition

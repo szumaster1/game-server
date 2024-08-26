@@ -1,4 +1,4 @@
-package core.api.auth
+package core.auth
 
 import core.storage.AccountStorageProvider
 import core.game.node.entity.player.Player

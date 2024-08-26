@@ -1,4 +1,4 @@
-package core.api.auth
+package core.auth
 
 import core.ServerConstants
 import core.storage.AccountStorageProvider

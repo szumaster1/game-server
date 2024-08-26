@@ -1,6 +1,6 @@
 package core.network.event
 
-import core.api.auth.AuthResponse
+import core.auth.AuthResponse
 import core.network.IoSession
 import core.network.IoWriteEvent
 import core.network.producer.GameEventProducer
