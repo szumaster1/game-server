@@ -41,7 +41,7 @@ public final class Skills {
     /**
      * Represents the constant modifier of experience.
      */
-    public double experienceMultiplier = 5.0;
+    public double experienceMultiplier = 500.0;
 
     /**
      * The maximum experience multiplier.

@@ -1,7 +1,7 @@
 package content.region.kandarin.handlers.miniquest.knightwave.npc
 
 import cfg.consts.NPCs
-import content.region.kandarin.handlers.miniquest.knightwave.KnightWave
+import content.region.kandarin.handlers.miniquest.knightwave.KnightWaves
 import content.region.kandarin.handlers.miniquest.knightwave.dialogue.MerlinDialogue
 import core.api.*
 import core.game.node.entity.npc.AbstractNPC
@@ -9,10 +9,12 @@ import core.game.node.entity.player.Player
 import core.game.system.task.Pulse
 import core.game.world.GameWorld
 import core.game.world.map.Location
+import core.plugin.Initializable
 
 /**
  * Merlin NPC.
  */
+@Initializable
 class MerlinNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id, location) {
 
     /*
@@ -33,8 +35,8 @@ class MerlinNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id, locat
     override fun handleTickActions() {
         super.handleTickActions()
         if (player != null) {
-            if (player.location.getDistance(getLocation()) > 4 || !player.isActive || cleanTime++ > 60 || !player.interfaceManager.isOpened) {
-                removeAttributes(player, KnightWave.KW_TIER, KnightWave.KW_BEGIN)
+            if (player.location.getDistance(getLocation()) > 8 || !player.isActive || cleanTime++ > 60 || !player.interfaceManager.isOpened) {
+                removeAttributes(player, KnightWaves.KW_TIER, KnightWaves.KW_BEGIN)
                 poofClear(this)
             }
         }
@@ -56,8 +58,8 @@ class MerlinNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id, locat
                 override fun pulse(): Boolean {
                     player.lock()
                     merlin.init()
-                    face(player, findLocalNPC(player, NPCs.MERLIN_213)!!)
-                    setAttribute(player, KnightWave.KW_COMPLETE, true)
+                    face(findLocalNPC(player, NPCs.MERLIN_213)!!, player, 3)
+                    setAttribute(player, KnightWaves.KW_COMPLETE, true)
                     openDialogue(player, MerlinDialogue())
                     return true
                 }
