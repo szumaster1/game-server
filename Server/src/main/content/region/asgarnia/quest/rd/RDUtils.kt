@@ -196,10 +196,9 @@ object RDUtils {
 
         boss = NPC.create(NPCs.SIR_LEYE_2285, player.location).apply {
             isRespawn = false
-            isAggressive = false
             isWalks = true
+            isAggressive = true
             location = Location.create(2457, 4966, 0)
-            init()
         }
 
         registerHintIcon(player, boss)

@@ -1,5 +1,6 @@
 package content.region.asgarnia.quest.rd
 
+import cfg.consts.Components
 import cfg.consts.Items
 import core.api.*
 import core.game.node.entity.player.Player
@@ -89,7 +90,8 @@ class RecruitmentDrive : Quest("Recruitment Drive", 103, 102, 1, 496, 0, 1, 2) {
     override fun finish(player: Player) {
         var ln = 10
         super.finish(player)
-        player.packetDispatch.sendItemZoomOnInterface(Items.INITIATE_SALLET_5574, 230, 277, 5)
+        setInterfaceText(player, "You have passed the Recruitment Drive!", 277, 4)
+        sendItemZoomOnInterface(player, Components.QUEST_COMPLETE_SCROLL_277, 5, Items.INITIATE_SALLET_5574, 230)
 
         drawReward(player, "1 Quest Point", ln++)
         drawReward(player, "1000 Prayer, Herblore and", ln++)
