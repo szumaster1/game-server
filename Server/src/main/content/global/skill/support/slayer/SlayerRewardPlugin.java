@@ -333,7 +333,7 @@ public class SlayerRewardPlugin extends ComponentPlugin {
                         }
                         player.getInventory().add(SPINY_HELMET);
                     }
-                    player.sendMessage("You dissasemble your Slayer helm.");
+                    player.sendMessage("You disassemble your Slayer helm.");
                     return true;
                 }
 
