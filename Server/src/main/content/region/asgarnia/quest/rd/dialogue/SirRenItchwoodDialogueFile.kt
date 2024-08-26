@@ -12,6 +12,7 @@ import core.game.dialogue.FacialExpression
 
 /**
  * Represents the Sir Ren Itchwood dialogue file.
+ * @author Ovenbread
  */
 class SirRenItchwoodDialogueFile(private val dialogueNum: Int = 0) : DialogueBuilderFile() {
 

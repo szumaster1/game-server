@@ -28,10 +28,12 @@ class SirLeyeNPC : NPCBehavior(NPCs.SIR_LEYE_2285) {
     }
 
     override fun beforeDamageReceived(self: NPC, attacker: Entity, state: BattleState) {
-        if (attacker is Player && attacker.isMale) {
-            val lifepoints = self.skills.lifepoints
-            if (state.estimatedHit + maxOf(state.secondaryHit, 0) > lifepoints - 1) {
-                self.skills.lifepoints = self.getSkills().getStaticLevel(Skills.HITPOINTS)
+        val lifepoints = self.skills.lifepoints
+        if (attacker is Player) {
+            if (attacker.isMale) {
+                if (state.estimatedHit + Integer.max(state.secondaryHit, 0) > lifepoints - 1) {
+                    self.skills.lifepoints = self.getSkills().getStaticLevel(Skills.HITPOINTS)
+                }
             }
         }
     }

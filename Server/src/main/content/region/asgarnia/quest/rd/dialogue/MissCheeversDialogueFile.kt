@@ -10,6 +10,9 @@ import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC
 
+/**
+ * Represents the Miss Cheevers dialogue file.
+ */
 class MissCheeversDialogueFile(private val state: Int = 0) : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {

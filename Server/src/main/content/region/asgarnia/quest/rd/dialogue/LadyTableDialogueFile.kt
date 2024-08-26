@@ -46,6 +46,9 @@ class LadyTableDialogueFile(private val state: Int = 0) : DialogueFile() {
         }
     }
 
+    /**
+     * Start the statue memorization pulse.
+     */
     private fun startStatueMemorizationPulse() {
         submitWorldPulse(object : Pulse() {
             var counter = 0
@@ -68,6 +71,9 @@ class LadyTableDialogueFile(private val state: Int = 0) : DialogueFile() {
         })
     }
 
+    /**
+     * Handle the task fail.
+     */
     private fun handleTaskFail() {
         when (stage) {
             0 -> if (getAttribute(player!!, RecruitmentDrive.stageFail, false) && !getAttribute(player!!, RecruitmentDrive.stagePass, false)) {

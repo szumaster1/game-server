@@ -9,6 +9,7 @@ import core.game.dialogue.FacialExpression
 
 /**
  * Represents the Sir Amik Varze dialogue file.
+ * @author Ovenbread
  */
 class SirAmikVarzeDialogueFile : DialogueBuilderFile() {
 

@@ -13,12 +13,13 @@ import core.game.dialogue.FacialExpression
 
 /**
  * Represents the Sir Spishyus dialogue file.
+ * @author Ovenbread
  */
 class SirSpishyusDialogueFile(private val dialogueNum: Int = 0) : DialogueBuilderFile() {
 
     override fun create(b: DialogueBuilder) {
         b.onPredicate { player -> getAttribute(player, RecruitmentDrive.stagePass, false) }
-            .npc(FacialExpression.FRIENDLY, "Excellent work, @name.", "Please step through the portal to meet your next", "challenge.")
+            .npc(FacialExpression.HAPPY, "Excellent work, @name.", "Please step through the portal to meet your next", "challenge.")
             .end()
 
         b.onPredicate { player -> dialogueNum == 2 || getAttribute(player, RecruitmentDrive.stageFail, false) }

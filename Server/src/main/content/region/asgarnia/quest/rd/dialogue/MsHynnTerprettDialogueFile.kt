@@ -11,6 +11,7 @@ import core.game.node.entity.npc.NPC
 
 /**
  * Represents the Ms Hynn Terprett dialogue file.
+ * @author Ovenbread
  */
 class MsHynnTerprettDialogueFile(private val dialogueNum: Int = 0) : DialogueBuilderFile() {
 
@@ -49,7 +50,7 @@ class MsHynnTerprettDialogueFile(private val dialogueNum: Int = 0) : DialogueBui
                     setAttribute(player, RecruitmentDrive.stagePass, true)
                     removeAttribute(player, ATTRIBUTE_RANDOM_RIDDLE)
                 }
-            }.npc("Excellent work, @name", "Please step through the portal to meet your next", "challenge.").end()
+            }.npc(FacialExpression.HAPPY, "Excellent work, @name", "Please step through the portal to meet your next", "challenge.").end()
 
             branch.onValue(3).goto(passedStage)// Passed stage
             branch.onValue(2).goto(failedStage)// Failed stage

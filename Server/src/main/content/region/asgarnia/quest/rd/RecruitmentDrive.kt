@@ -90,13 +90,13 @@ class RecruitmentDrive : Quest("Recruitment Drive", 103, 102, 1, 496, 0, 1, 2) {
     override fun finish(player: Player) {
         var ln = 10
         super.finish(player)
-        setInterfaceText(player, "You have passed the Recruitment Drive!", 277, 4)
+        setInterfaceText(player, "You have passed the Recruitment Drive!", Components.QUEST_COMPLETE_SCROLL_277, 4)
         sendItemZoomOnInterface(player, Components.QUEST_COMPLETE_SCROLL_277, 5, Items.INITIATE_SALLET_5574, 230)
 
         drawReward(player, "1 Quest Point", ln++)
         drawReward(player, "1000 Prayer, Herblore and", ln++)
         drawReward(player, "Agility XP", ln++)
-        drawReward(player, "Gaze of Saradomin", ln++)
+        drawReward(player, "Gaze Of Saradomin", ln++)
         drawReward(player, "Temple Knight's Initiate Helm", ln)
 
         rewardXP(player, Skills.PRAYER, 1000.0)

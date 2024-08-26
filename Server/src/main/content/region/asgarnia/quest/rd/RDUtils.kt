@@ -11,6 +11,9 @@ import core.game.node.item.Item
 import core.game.world.map.Location
 import core.game.world.update.flag.context.Animation
 
+/**
+ * Utility functions for Recruitment Drive quest.
+ */
 object RDUtils {
 
     /*
@@ -195,14 +198,14 @@ object RDUtils {
         }
 
         boss = NPC.create(NPCs.SIR_LEYE_2285, player.location).apply {
-            isRespawn = false
-            isWalks = true
-            isAggressive = true
-            location = Location.create(2457, 4966, 0)
+            this.isRespawn = false
+            this.isWalks = true
+            this.isAggressive = true
+            this.location = Location.create(2457, 4966, 0)
+            this.init()
         }
-
         registerHintIcon(player, boss)
         sendChat(boss, "No man may defeat me!")
-        boss.attack(player)
+        boss.asNpc().attack(player)
     }
 }

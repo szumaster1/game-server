@@ -79,10 +79,7 @@ class SirSpishyusRoomListeners : InteractionListener {
 
         private fun handleCrossBridge(player: Player, x: Int, y: Int) {
             if (countEquipmentItems(player) > 1) {
-                sendDialogue(
-                    player,
-                    "I really don't think I should be carrying more than 5Kg across that rickety bridge..."
-                )
+                sendDialogue(player, "I really don't think I should be carrying more than 5Kg across that rickety bridge...")
             } else if (checkFail(player)) {
                 openDialogue(player, SirTinleyDialogueFile(2), NPC(NPCs.SIR_SPISHYUS_2282))
             } else {

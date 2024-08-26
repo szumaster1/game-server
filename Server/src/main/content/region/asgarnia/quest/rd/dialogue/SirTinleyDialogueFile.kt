@@ -16,6 +16,7 @@ import core.game.world.map.zone.ZoneBorders
 
 /**
  * Represents the Sir Tinley dialogue file.
+ * @author Ovenbread
  */
 class SirTinleyDialogueFile(private val dialogueNum: Int = 0) : DialogueBuilderFile(), MapArea {
 
@@ -61,7 +62,7 @@ class SirTinleyDialogueFile(private val dialogueNum: Int = 0) : DialogueBuilderF
                     if (!getAttribute(player, RecruitmentDrive.stageFail, false)) {
                         setAttribute(player, RecruitmentDrive.stagePass, true)
                         setAttribute(player, patience, false)
-                        npc(FacialExpression.FRIENDLY, "Excellent work, @name.", "Please step through the portal to meet your next", "challenge.")
+                        npc(FacialExpression.HAPPY, "Excellent work, @name.", "Please step through the portal to meet your next", "challenge.")
                     }
                 }
                 return false

@@ -9,6 +9,7 @@ import core.game.dialogue.FacialExpression
 
 /**
  * Represents the Sir Kuam Ferentse dialogue file.
+ * @author Ovenbread
  */
 class SirKuamFerentseDialogueFile(private val dialogueNum: Int = 0) : DialogueBuilderFile() {
 
@@ -19,7 +20,7 @@ class SirKuamFerentseDialogueFile(private val dialogueNum: Int = 0) : DialogueBu
     override fun create(builder: DialogueBuilder) {
         builder.apply {
             onPredicate { player -> getAttribute(player, RecruitmentDrive.stagePass, false) }
-                .npc(FacialExpression.FRIENDLY, "Excellent work, @name!", "Please step through the portal to meet your next", "challenge.")
+                .npc(FacialExpression.HAPPY, "Excellent work, @name!", "Please step through the portal to meet your next", "challenge.")
                 .end()
 
             onPredicate { true }
