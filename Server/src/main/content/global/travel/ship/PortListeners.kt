@@ -1,4 +1,4 @@
-package content.region.asgarnia.handlers.portsarim
+package content.global.travel.ship
 
 import core.api.*
 import cfg.consts.Animations
@@ -16,7 +16,7 @@ import core.game.world.update.flag.context.Animation
 /**
  * Represents the Port scenery listeners.
  */
-class PortSceneryListeners : InteractionListener {
+class PortListeners : InteractionListener {
 
     override fun defineListeners() {
         on(LADDER, IntType.SCENERY, "climb-down", "climb-up") { player, _ ->
@@ -94,6 +94,8 @@ class PortSceneryListeners : InteractionListener {
                     17407 -> cross(player, MOS_LE_HARMESS[1])
                     17408 -> cross(player, TYRAS[0])
                     17409 -> cross(player, TYRAS[1])
+                    29168 -> cross(player, OO_GLOG[0])
+                    29169 -> cross(player, OO_GLOG[1])
                     else -> sendDialogueLines(player,"I don't think that whoever owns this ship will be happy", "with me wandering all over it.")
                 }
             }
@@ -117,7 +119,7 @@ class PortSceneryListeners : InteractionListener {
         private val MOS_SHIP = arrayOf(Location(3684, 2950, 1), Location(3684, 2953, 0))
         private val TYRAS = arrayOf(Location(2142, 3125, 1), Location(2142, 3122, 0))
         private val SHIP_YARD = arrayOf(Location.create(2998, 3032, 1), Location(3000,3032,0))
-
+        private val OO_GLOG = arrayOf(Location.create(2626, 2857, 1), Location.create(2623, 2857, 0))
         fun cross(player: Player, location: Location?) {
             queueScript(player, 1, QueueStrength.STRONG) {
                 player.properties.teleportLocation = location

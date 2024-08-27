@@ -20,7 +20,6 @@ import core.tools.StringUtils
 object ShipCharter {
 
     val component: Component = Component(Components.SAILING_TRANSPORT_WORLD_MAP_95)
-    private val RING_OF_CHAROS = Item(Items.RING_OF_CHAROSA_6465)
 
     fun open(player: Player) {
         val current = Destination.getFromBase(player.location)
@@ -44,18 +43,16 @@ object ShipCharter {
     }
 
     fun getCost(player: Player, destination: Destination): Int {
-        var cost = destination.getCost(player, destination)
-        if (player.equipment.containsItem(RING_OF_CHAROS)) {
-            cost -= Math.round((cost / 2.0)).toInt()
+        val baseCost = destination.getCost(player, destination)
+        return if (inEquipment(player, Items.RING_OF_CHAROSA_6465)) {
+            (baseCost * 0.5).toInt()
+        } else {
+            baseCost
         }
-        return cost
     }
 
     fun getHiddenComponents(player: Player?, base: Destination): IntArray {
-        val restrictions = arrayOf(
-            Destination.OO_GLOG, Destination.SHIPYARD,
-            Destination.CRANDOR
-        )
+        val restrictions = arrayOf(Destination.OO_GLOG, Destination.SHIPYARD, Destination.CRANDOR)
         val childs: MutableList<Int> = ArrayList(20)
         for (destination in restrictions) {
             childs.add(destination.xChild)
@@ -63,11 +60,11 @@ object ShipCharter {
         }
         childs.add(base.xChild)
         childs.add(base.nameChild)
-        if (base === Destination.KARAMJA) {
+        if (base == Destination.KARAMJA) {
             childs.add(Destination.PORT_SARIM.xChild)
             childs.add(Destination.PORT_SARIM.nameChild)
         }
-        if (base === Destination.PORT_SARIM) {
+        if (base == Destination.PORT_SARIM) {
             childs.add(Destination.KARAMJA.xChild)
             childs.add(Destination.KARAMJA.nameChild)
         }
@@ -124,7 +121,7 @@ object ShipCharter {
         ) {
             override fun getCost(player: Player, destination: Destination): Int {
                 val hasGloves = DiaryType.KARAMJA.hasRewardEquipment(player)
-                if (destination === PORT_KHAZARD && hasGloves) return 15
+                if (destination == PORT_KHAZARD && hasGloves) return 15
                 return super.getCost(player, destination)
             }
         },
@@ -138,7 +135,7 @@ object ShipCharter {
         ) {
             override fun getCost(player: Player, destination: Destination): Int {
                 val hasGloves = DiaryType.KARAMJA.hasRewardEquipment(player)
-                if (destination === KARAMJA && hasGloves) return 15
+                if (destination == KARAMJA && hasGloves) return 15
                 return super.getCost(player, destination)
             }
         },
@@ -160,7 +157,7 @@ object ShipCharter {
         ) {
             override fun getCost(player: Player, destination: Destination): Int {
                 val hasGloves = DiaryType.KARAMJA.hasRewardEquipment(player)
-                if (destination === PORT_SARIM && hasGloves) return 15
+                if (destination == PORT_SARIM && hasGloves) return 15
                 return super.getCost(player, destination)
             }
         },
@@ -174,7 +171,7 @@ object ShipCharter {
         ) {
             override fun getCost(player: Player, destination: Destination): Int {
                 val hasGloves = DiaryType.KARAMJA.hasRewardEquipment(player)
-                if (destination === BRIMHAVEN && hasGloves) return 15
+                if (destination == BRIMHAVEN && hasGloves) return 15
                 return super.getCost(player, destination)
             }
         },
@@ -208,21 +205,10 @@ object ShipCharter {
 
         open fun getCost(player: Player, destination: Destination): Int {
             val current = getFromBase(player.location) ?: return 0
-            val costTable = arrayOf(
-                BRIMHAVEN,
-                CATHERBY,
-                KARAMJA,
-                MOS_LE_HARMLESS,
-                PORT_KHAZARD,
-                PORT_PHASMATYS,
-                PORT_SARIM,
-                SHIPYARD,
-                PORT_TYRAS,
-                OO_GLOG
-            )
+            val costTable = arrayOf(BRIMHAVEN, CATHERBY, KARAMJA, MOS_LE_HARMLESS, PORT_KHAZARD, PORT_PHASMATYS, PORT_SARIM, SHIPYARD, PORT_TYRAS, OO_GLOG)
             var index = 0
             for (i in costTable.indices) {
-                if (costTable[i] === destination) {
+                if (costTable[i] == destination) {
                     index = i
                     break
                 }
