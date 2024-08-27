@@ -70,7 +70,7 @@ class HerbDropTable: StartupListener {
                 }
         }
 
-        var factory = DocumentBuilderFactory.newInstance()
+        var factory: DocumentBuilderFactory = DocumentBuilderFactory.newInstance()
         var builder: DocumentBuilder? = null
 
         init {

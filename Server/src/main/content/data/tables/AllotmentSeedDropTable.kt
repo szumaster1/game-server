@@ -78,7 +78,7 @@ class AllotmentSeedDropTable : StartupListener {
         }
 
         // Create a DocumentBuilderFactory and DocumentBuilder for XML parsing
-        var factory = DocumentBuilderFactory.newInstance()
+        var factory: DocumentBuilderFactory = DocumentBuilderFactory.newInstance()
         var builder: DocumentBuilder? = null
 
         init {

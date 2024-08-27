@@ -99,13 +99,11 @@ public final class TreasureTrailPlugin extends OptionHandler {
 
 		@Override
 		public boolean handle(Player player, Node node, String option) {
-			switch (node.getId()) {
-			case 19171:
-				Location start = player.getLocation().getX() <= 2522 ? node.getLocation() : node.getLocation().transform(1, 0, 0);
-				player.lock(1);
-				AgilityHandler.forceWalk(player, -1, start, start.transform(player.getLocation().getX() <= 2522 ? 1 : -1, 0, 0), Animation.create(2240), 5, 1, null, 0);
-				break;
-			}
+            if (node.getId() == 19171) {
+                Location start = player.getLocation().getX() <= 2522 ? node.getLocation() : node.getLocation().transform(1, 0, 0);
+                player.lock(1);
+                AgilityHandler.forceWalk(player, -1, start, start.transform(player.getLocation().getX() <= 2522 ? 1 : -1, 0, 0), Animation.create(2240), 5, 1, null, 0);
+            }
 			return true;
 		}
 

@@ -173,7 +173,7 @@ enum class Penguin(val id: Int, val hint: String, val location: Location) {
     TOADSTOOL_2(NPCs.TOADSTOOL_8110, "located in the fairy realm.", Location.create(2409, 4462, 0));
 
     companion object {
-        private val locationMap = values().map { it.location.toString() to it }.toMap()
+        private val locationMap = values().associateBy { it.location.toString() }
 
         fun forLocation(location: Location): Penguin? {
             return locationMap[location.toString()]

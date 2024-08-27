@@ -31,58 +31,37 @@ import core.game.world.map.zone.ZoneRestriction
  */
 class ChampionChallengeListener : InteractionListener, MapArea {
 
-    val EARTH_WARRIOR_SCROLL = Items.CHAMPION_SCROLL_6798
-    val GHOUL_SCROLL = Items.CHAMPION_SCROLL_6799
-    val GIANT_SCROLL = Items.CHAMPION_SCROLL_6800
-    val GOBLIN_SCROLL = Items.CHAMPION_SCROLL_6801
-    val HOBGOBLIN_SCROLL = Items.CHAMPION_SCROLL_6802
-    val IMP_SCROLL = Items.CHAMPION_SCROLL_6803
-    val JOGRE_SCROLL = Items.CHAMPION_SCROLL_6804
-    val LESSER_DEMON_SCROLL = Items.CHAMPION_SCROLL_6805
-    val SKELETON_SCROLL = Items.CHAMPION_SCROLL_6806
-    val ZOMBIE_SCROLL = Items.CHAMPION_SCROLL_6807
+    val earthWarriorScroll = Items.CHAMPION_SCROLL_6798
+    val ghoulScroll = Items.CHAMPION_SCROLL_6799
+    val giantScroll = Items.CHAMPION_SCROLL_6800
+    val goblinScroll = Items.CHAMPION_SCROLL_6801
+    val hobgoblinScroll = Items.CHAMPION_SCROLL_6802
+    val impScroll = Items.CHAMPION_SCROLL_6803
+    val jogreScroll = Items.CHAMPION_SCROLL_6804
+    val lesserDemonScroll = Items.CHAMPION_SCROLL_6805
+    val skeletonScroll = Items.CHAMPION_SCROLL_6806
+    val zombieScroll = Items.CHAMPION_SCROLL_6807
 
-    val MESSAGE_SCROLL = Components.BLANK_SCROLL_222
-    private val IMP_SCROLL_TEXT = arrayOf(
-        "How about picking on someone your own size? I'll", "see you at the Champion's Guild.", "", "Champion of Imps"
-    )
-    private val GOBLIN_SCROLL_TEXT = arrayOf(
-        "Fight me if you think you can human, I'll wait", "for you in the Champion's Guild.", "", "Champion of Goblins"
-    )
-    private val SKELETON_SCROLL_TEXT = arrayOf(
-        "I'll be waiting at the Champions' Guild to", "collect your bones.", "", "Champion of Skeletons"
-    )
-    private val ZOMBIE_SCROLL_TEXT = arrayOf(
-        "You come to Champions' Guild, you fight me,", "I squish you, I get brains!", "", "Champion of Zombies"
-    )
-    private val GIANT_SCROLL_TEXT = arrayOf(
-        "Get yourself to the Champions' Guild, if you", "dare to face me puny human.", "", "Champion of Giants"
-    )
-    private val HOBGOBLIN_SCROLL_TEXT = arrayOf(
-        "You won't defeat me, though you're welcome to", "try at the Champions' Guild.", "", "Champion of Hobgoblins"
-    )
-    private val GHOUL_SCROLL_TEXT = arrayOf(
-        "Come and duel me at the Champions' Guild, I'll", "make sure nothing goes to waste.", "", "Champion of Ghouls"
-    )
-    private val EARTH_WARRIOR_TEXT = arrayOf(
-        "I challenge you to a duel, come to the arena beneath",
-        "the Champion's Guild and fight me if you dare.",
-        "",
-        "Champion of Earth Warriors"
-    )
-    private val JOGRE_SCROLL_TEXT = arrayOf(
-        "You think you can defeat me? Come to the", "Champion's Guild and prove it!", "", "Champion of Jogres"
-    )
-    private val LESSER_DEMON_SCROLL_TEXT = arrayOf(
-        "Come to the Champion's Guild so I can banish", "you mortal!", "", "Champion of Lesser Demons"
-    )
-    private val PORTCULLIS = Scenery.PORTCULLIS_10553
-    private val LADDER = Scenery.LADDER_10554
-    private val CHAMPION_STATUE_CLOSED = Scenery.CHAMPION_STATUE_10556
-    private val CHAMPION_STATUE_OPEN = Scenery.CHAMPION_STATUE_10557
-    private val TRAPDOOR_CLOSED = Scenery.TRAPDOOR_10558
-    private val TRAPDOOR_OPEN = Scenery.TRAPDOOR_10559
-    private val ARENA_ZONE = 12696
+    val blankScroll = Components.BLANK_SCROLL_222
+
+    private val impScrollContent = arrayOf("How about picking on someone your own size? I'll", "see you at the Champion's Guild.", "", "Champion of Imps")
+    private val goblinScrollContent = arrayOf("Fight me if you think you can human, I'll wait", "for you in the Champion's Guild.", "", "Champion of Goblins")
+    private val skeletonScrollContent = arrayOf("I'll be waiting at the Champions' Guild to", "collect your bones.", "", "Champion of Skeletons")
+    private val zombieScrollContent = arrayOf("You come to Champions' Guild, you fight me,", "I squish you, I get brains!", "", "Champion of Zombies")
+    private val giantScrollContent = arrayOf("Get yourself to the Champions' Guild, if you", "dare to face me puny human.", "", "Champion of Giants")
+    private val hobgoblinScrollContent = arrayOf("You won't defeat me, though you're welcome to", "try at the Champions' Guild.", "", "Champion of Hobgoblins")
+    private val ghoulScrollContent = arrayOf("Come and duel me at the Champions' Guild, I'll", "make sure nothing goes to waste.", "", "Champion of Ghouls")
+    private val earthWarriorScrollContent = arrayOf("I challenge you to a duel, come to the arena beneath", "the Champion's Guild and fight me if you dare.", "", "Champion of Earth Warriors")
+    private val jogreScrollContent = arrayOf("You think you can defeat me? Come to the", "Champion's Guild and prove it!", "", "Champion of Jogres")
+    private val lesserDemonScrollContent = arrayOf("Come to the Champion's Guild so I can banish", "you mortal!", "", "Champion of Lesser Demons")
+
+    private val portcullisScenery = Scenery.PORTCULLIS_10553
+    private val ladderID = Scenery.LADDER_10554
+    private val championStatue = Scenery.CHAMPION_STATUE_10556
+    private val championStatueOpen = Scenery.CHAMPION_STATUE_10557
+    private val trapdoorID = Scenery.TRAPDOOR_10558
+    private val trapdoorOpen = Scenery.TRAPDOOR_10559
+    private val regionID = 12696
 
     // Register listeners for various interactions related to the Champion Challenge.
     override fun defineListeners() {
@@ -94,8 +73,8 @@ class ChampionChallengeListener : InteractionListener, MapArea {
         }
 
         // Handle opening the trapdoor.
-        on(TRAPDOOR_CLOSED, IntType.SCENERY, "open") { _, node ->
-            replaceScenery(node.asScenery(), TRAPDOOR_OPEN, 100, node.location)
+        on(trapdoorID, IntType.SCENERY, "open") { _, node ->
+            replaceScenery(node.asScenery(), trapdoorOpen, 100, node.location)
             return@on true
         }
 
@@ -107,31 +86,31 @@ class ChampionChallengeListener : InteractionListener, MapArea {
         }
 
         // Handle closing the trapdoor.
-        on(TRAPDOOR_OPEN, IntType.SCENERY, "close") { _, node ->
-            replaceScenery(node.asScenery(), TRAPDOOR_CLOSED, -1, node.location)
+        on(trapdoorOpen, IntType.SCENERY, "close") { _, node ->
+            replaceScenery(node.asScenery(), trapdoorID, -1, node.location)
             return@on true
         }
 
         // Handle opening the champion statue.
-        on(CHAMPION_STATUE_CLOSED, IntType.SCENERY, "open") { _, node ->
-            replaceScenery(node.asScenery(), CHAMPION_STATUE_OPEN, 100, node.location)
+        on(championStatue, IntType.SCENERY, "open") { _, node ->
+            replaceScenery(node.asScenery(), championStatueOpen, 100, node.location)
             return@on true
         }
 
         // Handle climbing up the ladder.
-        on(LADDER, IntType.SCENERY, "climb-up") { player, _ ->
+        on(ladderID, IntType.SCENERY, "climb-up") { player, _ ->
             teleport(player, Location.create(3185, 9758, 0))
             return@on true
         }
 
         // Handle climbing down the champion statue.
-        on(CHAMPION_STATUE_OPEN, IntType.SCENERY, "climb-down") { player, _ ->
+        on(championStatueOpen, IntType.SCENERY, "climb-down") { player, _ ->
             teleport(player, Location.create(3182, 9758, 0))
             return@on true
         }
 
         // Handle opening the portcullis and starting the champion challenge.
-        on(PORTCULLIS, IntType.SCENERY, "open") { player, node ->
+        on(portcullisScenery, IntType.SCENERY, "open") { player, node ->
             if (player.getAttribute("championsarena:start", false) == false) {
                 sendNPCDialogue(
                     player, NPCs.LARXUS_3050, "You need to arrange a challenge with me before you enter the arena."
@@ -145,20 +124,20 @@ class ChampionChallengeListener : InteractionListener, MapArea {
                             1 -> player.familiarManager.dismiss()
                             2 -> DoorActionHandler.handleDoor(player, node.asScenery())
                             3 -> when {
-                                removeItem(player, IMP_SCROLL) -> spawnImpChampion(player)
-                                removeItem(player, GOBLIN_SCROLL) -> spawnGoblinChampion(player)
-                                removeItem(player, SKELETON_SCROLL) -> spawnSkeletonChampion(player)
-                                removeItem(player, ZOMBIE_SCROLL) -> spawnZombieChampion(player)
-                                removeItem(player, GIANT_SCROLL) -> spawnGiantChampion(player)
-                                removeItem(player, HOBGOBLIN_SCROLL) -> spawnHobgoblinChampion(player)
-                                removeItem(player, GHOUL_SCROLL) -> spawnGhoulChampion(player)
-                                removeItem(player, EARTH_WARRIOR_SCROLL) -> {
+                                removeItem(player, impScroll) -> spawnImpChampion(player)
+                                removeItem(player, goblinScroll) -> spawnGoblinChampion(player)
+                                removeItem(player, skeletonScroll) -> spawnSkeletonChampion(player)
+                                removeItem(player, zombieScroll) -> spawnZombieChampion(player)
+                                removeItem(player, giantScroll) -> spawnGiantChampion(player)
+                                removeItem(player, hobgoblinScroll) -> spawnHobgoblinChampion(player)
+                                removeItem(player, ghoulScroll) -> spawnGhoulChampion(player)
+                                removeItem(player, earthWarriorScroll) -> {
                                     spawnEarthWarriorChampion(player)
                                     player.prayer.reset()
                                 }
 
-                                removeItem(player, JOGRE_SCROLL) -> spawnJogreChampion(player)
-                                removeItem(player, LESSER_DEMON_SCROLL) -> spawnLesserDemonChampion(player)
+                                removeItem(player, jogreScroll) -> spawnJogreChampion(player)
+                                removeItem(player, lesserDemonScroll) -> spawnLesserDemonChampion(player)
                             }
                         }
                         return false
@@ -172,43 +151,35 @@ class ChampionChallengeListener : InteractionListener, MapArea {
     // Handle updating and reading champion scrolls.
     private fun updateAndReadScroll(player: Player, item: Item) {
         val id = item.id
-        openInterface(player, MESSAGE_SCROLL).also {
+        openInterface(player, blankScroll).also {
             when (id) {
-                IMP_SCROLL -> setInterfaceText(player, IMP_SCROLL_TEXT.joinToString("<br>"), MESSAGE_SCROLL, 4)
-                GOBLIN_SCROLL -> setInterfaceText(player, GOBLIN_SCROLL_TEXT.joinToString("<br>"), MESSAGE_SCROLL, 4)
-                SKELETON_SCROLL -> setInterfaceText(
-                    player, SKELETON_SCROLL_TEXT.joinToString("<br>"), MESSAGE_SCROLL, 4
-                )
+                impScroll -> setInterfaceText(player, impScrollContent.joinToString("<br>"), blankScroll, 4)
+                goblinScroll -> setInterfaceText(player, goblinScrollContent.joinToString("<br>"), blankScroll, 4)
+                skeletonScroll -> setInterfaceText(player, skeletonScrollContent.joinToString("<br>"), blankScroll, 4)
 
-                ZOMBIE_SCROLL -> setInterfaceText(player, ZOMBIE_SCROLL_TEXT.joinToString("<br>"), MESSAGE_SCROLL, 4)
-                GIANT_SCROLL -> setInterfaceText(player, GIANT_SCROLL_TEXT.joinToString("<br>"), MESSAGE_SCROLL, 4)
-                HOBGOBLIN_SCROLL -> setInterfaceText(
-                    player, HOBGOBLIN_SCROLL_TEXT.joinToString("<br>"), MESSAGE_SCROLL, 4
-                )
+                zombieScroll -> setInterfaceText(player, zombieScrollContent.joinToString("<br>"), blankScroll, 4)
+                giantScroll -> setInterfaceText(player, giantScrollContent.joinToString("<br>"), blankScroll, 4)
+                hobgoblinScroll -> setInterfaceText(player, hobgoblinScrollContent.joinToString("<br>"), blankScroll, 4)
 
-                GHOUL_SCROLL -> setInterfaceText(player, GHOUL_SCROLL_TEXT.joinToString("<br>"), MESSAGE_SCROLL, 4)
-                EARTH_WARRIOR_SCROLL -> setInterfaceText(
-                    player, EARTH_WARRIOR_TEXT.joinToString("<br>"), MESSAGE_SCROLL, 4
-                )
+                ghoulScroll -> setInterfaceText(player, ghoulScrollContent.joinToString("<br>"), blankScroll, 4)
+                earthWarriorScroll -> setInterfaceText(player, earthWarriorScrollContent.joinToString("<br>"), blankScroll, 4)
 
-                JOGRE_SCROLL -> setInterfaceText(player, JOGRE_SCROLL_TEXT.joinToString("<br>"), MESSAGE_SCROLL, 4)
-                LESSER_DEMON_SCROLL -> setInterfaceText(
-                    player, LESSER_DEMON_SCROLL_TEXT.joinToString("<br>"), MESSAGE_SCROLL, 4
-                )
+                jogreScroll -> setInterfaceText(player, jogreScrollContent.joinToString("<br>"), blankScroll, 4)
+                lesserDemonScroll -> setInterfaceText(player, lesserDemonScrollContent.joinToString("<br>"), blankScroll, 4)
             }
         }
     }
 
     // Override the destination for climbing down the trapdoor.
     override fun defineDestinationOverrides() {
-        setDest(IntType.SCENERY, intArrayOf(TRAPDOOR_OPEN), "climb-down") { _, _ ->
+        setDest(IntType.SCENERY, intArrayOf(trapdoorOpen), "climb-down") { _, _ ->
             return@setDest Location.create(3191, 3355, 0)
         }
     }
 
     // Define the area borders for the champion challenge.
     override fun defineAreaBorders(): Array<ZoneBorders> {
-        return arrayOf(getRegionBorders(ARENA_ZONE))
+        return arrayOf(getRegionBorders(regionID))
     }
 
     // Define the restrictions for the champion challenge area.

@@ -140,8 +140,8 @@ enum class BossKillCounter(val npc: IntArray, val bossName: String) {
                 return
             }
             val boss = BossKillCounter.forNPC(npcid) ?: return
-            killer.getSavedData().globalData.getBossCounters()[boss.ordinal]++;
-            killer.packetDispatch.sendMessage("Your " + StringUtils.formatDisplayName(boss.name) + " killcount is now: <col=ff0000>" + killer.getSavedData().globalData.getBossCounters()[boss.ordinal] + "</col>.");
+            killer.getSavedData().globalData.getBossCounters()[boss.ordinal]++
+            killer.packetDispatch.sendMessage("Your " + StringUtils.formatDisplayName(boss.name) + " killcount is now: <col=ff0000>" + killer.getSavedData().globalData.getBossCounters()[boss.ordinal] + "</col>.")
         }
 
         /**
@@ -154,8 +154,8 @@ enum class BossKillCounter(val npc: IntArray, val bossName: String) {
             if (player == null) {
                 return
             }
-            player.getSavedData().globalData.setBarrowsLoots(player.getSavedData().globalData.getBarrowsLoots() + 1);
-            player.packetDispatch.sendMessage("Your Barrows chest count is: <col=ff0000>" + player.getSavedData().globalData.getBarrowsLoots() + "</col>.");
+            player.getSavedData().globalData.setBarrowsLoots(player.getSavedData().globalData.getBarrowsLoots() + 1)
+            player.packetDispatch.sendMessage("Your Barrows chest count is: <col=ff0000>" + player.getSavedData().globalData.getBarrowsLoots() + "</col>.")
         }
     }
 }

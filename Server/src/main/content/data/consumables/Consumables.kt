@@ -3230,7 +3230,7 @@ enum class Consumables {
             for (consumable in values()) {
                 add(consumable)
                 if (consumable.consumable is Potion) {
-                    for (pot in consumable.consumable.getIds()) {
+                    for (pot in consumable.consumable.ids) {
                         potions.add(pot)
                     }
                 }

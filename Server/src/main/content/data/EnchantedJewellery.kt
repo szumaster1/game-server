@@ -26,7 +26,7 @@ enum class EnchantedJewellery(val options: Array<String>, val locations: Array<L
     /**
      * Ring of Slaying.
      */
-    RING_OF_SLAYING(arrayOf("Sumona in Pollnivneach.", "Morytania Slayer Tower.", "Rellekka Slayer Caves.", "Nowhere."), arrayOf(Location.create(3361, 2994, 0), Location.create(3428, 3535, 0), Location.create(2792, 3615, 0),), true, Items.RING_OF_SLAYING8_13281, Items.RING_OF_SLAYING7_13282, Items.RING_OF_SLAYING6_13283, Items.RING_OF_SLAYING5_13284, Items.RING_OF_SLAYING4_13285, Items.RING_OF_SLAYING3_13286, Items.RING_OF_SLAYING2_13287, Items.RING_OF_SLAYING1_13288),
+    RING_OF_SLAYING(arrayOf("Sumona in Pollnivneach.", "Morytania Slayer Tower.", "Rellekka Slayer Caves.", "Nowhere."), arrayOf(Location.create(3361, 2994, 0), Location.create(3428, 3535, 0), Location.create(2792, 3615, 0)), true, Items.RING_OF_SLAYING8_13281, Items.RING_OF_SLAYING7_13282, Items.RING_OF_SLAYING6_13283, Items.RING_OF_SLAYING5_13284, Items.RING_OF_SLAYING4_13285, Items.RING_OF_SLAYING3_13286, Items.RING_OF_SLAYING2_13287, Items.RING_OF_SLAYING1_13288),
 
     /**
      * Ring of Dueling.

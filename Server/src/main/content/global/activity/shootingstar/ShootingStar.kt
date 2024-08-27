@@ -67,7 +67,7 @@ class ShootingStar(var level: ShootingStarType = ShootingStarType.values().rando
     var location = "Canifis Bank"
     var maxDust = level.totalStardust
     var dustLeft = level.totalStardust
-    var starObject = Scenery(level.objectId, crash_locations.get(location))
+    var starObject = Scenery(level.objectId, crash_locations[location])
     var isDiscovered = false
     var ticks = 0
     var isSpawned = false
@@ -118,7 +118,7 @@ class ShootingStar(var level: ShootingStarType = ShootingStarType.values().rando
         clearSprite()
         SceneryBuilder.add(starObject)
         if(!isSpawned) {
-            (0..2).forEach {
+            (0..2).forEach { _ ->
                 selfBots.add(ShootingStarBot.new())
             }
         }

@@ -13,7 +13,7 @@ class PenguinManager {
 
     companion object {
         // List to store the IDs of the penguins
-        var penguins: MutableList<Int> = ArrayList<Int>()
+        var penguins: MutableList<Int> = ArrayList()
         // List to store the NPCs
         var npcs = ArrayList<NPC>()
         // Instance of PenguinSpawner class
@@ -87,10 +87,10 @@ class PenguinManager {
             spawner.spawnPenguins(spawnedOrdinals)
 
             // Get the tag mapping from the store file
-            val storedTags = (PenguinHNSEvent.getStoreFile()["tag-mapping"] as? JSONArray)?.map { jRaw ->
+            val storedTags = (PenguinHNSEvent.getStoreFile()["tag-mapping"] as? JSONArray)?.associate { jRaw ->
                 val jObj = jRaw as JSONObject
                 jObj["ordinal"].toString().toInt() to (jObj["taggers"] as JSONArray)
-            }?.toMap()?.toMutableMap() ?: HashMap<Int, JSONArray>()
+            }?.toMutableMap() ?: HashMap()
 
             // Update the tag mapping and the list of penguins with the stored values
             tagMapping = storedTags
