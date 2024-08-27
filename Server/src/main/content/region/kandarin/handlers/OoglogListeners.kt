@@ -1,6 +1,6 @@
 package content.region.kandarin.handlers
 
-import content.region.kandarin.dialogue.ooglog.GrimechinDialogue
+import content.location.ooglog.GrimechinDialogue
 import cfg.consts.Scenery
 import core.api.openDialogue
 import core.game.interaction.IntType

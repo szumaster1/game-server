@@ -1,7 +1,7 @@
 package content.region.karamja.handlers.shilovillage
 
-import content.region.karamja.dialogue.shilovillage.BlackPrismDialogue
-import content.region.karamja.dialogue.shilovillage.CartTravelDialogue
+import content.location.shilovillage.BlackPrismDialogue
+import content.location.shilovillage.CartTravelDialogue
 import core.api.*
 import cfg.consts.Components
 import cfg.consts.Items

@@ -1,6 +1,6 @@
 package content.region.misthalin.handlers.varrock
 
-import content.region.misthalin.dialogue.varrock.SawmillOperatorDialogue
+import content.location.varrock.SawmillOperatorDialogue
 import core.api.*
 import cfg.consts.*
 import core.game.interaction.IntType

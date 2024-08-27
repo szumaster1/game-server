@@ -1,16 +1,14 @@
 package content.region.misc.handlers.keldagrim
 
-import content.region.misc.dialogue.keldagrim.BlastFusionHammerDialogue
+import content.location.keldagrim.BlastFusionHammerDialogue
 import core.api.*
 import cfg.consts.Items
 import cfg.consts.NPCs
 import cfg.consts.Scenery
-import core.game.dialogue.DialogueFile
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.entity.player.link.TeleportManager
 import core.game.world.map.Location
-import core.tools.END_DIALOGUE
 
 /**
  * Keldagrim listeners.

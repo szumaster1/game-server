@@ -1,6 +1,6 @@
 package content.global.handlers.item.withnpc
 
-import content.region.misc.dialogue.apeatoll.dungeon.ZooknockDialogueFile
+import content.location.apeatoll.dungeon.ZooknockDialogueFile
 import cfg.consts.Items
 import cfg.consts.NPCs
 import core.api.openDialogue

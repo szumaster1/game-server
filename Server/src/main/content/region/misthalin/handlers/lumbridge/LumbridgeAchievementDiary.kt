@@ -3,10 +3,10 @@ package content.region.misthalin.handlers.lumbridge
 import content.global.dialogue.TownCrierDialogue
 import content.global.skill.combat.magic.TeleportMethod
 import content.global.skill.combat.magic.spellconsts.Modern
-import content.region.misthalin.dialogue.draynorvillage.WiseOldManDialogue
-import content.region.misthalin.dialogue.lumbridge.DoomsayerDialogue
-import content.region.misthalin.dialogue.lumbridge.DukeHoracioDialogue
-import content.region.misthalin.dialogue.lumbridge.LumbridgeGuideDialogue
+import content.location.draynorvillage.WiseOldManDialogue
+import content.location.lumbridge.DoomsayerDialogue
+import content.location.lumbridge.DukeHoracioDialogue
+import content.location.lumbridge.LumbridgeGuideDialogue
 import content.region.misthalin.quest.free.dragonslayer.dialogue.DukeHoracioDragonSlayerDialogue
 import content.region.misthalin.quest.free.restlessghost.dialogue.FatherUhrneyDialogue
 import core.api.getQuestStage

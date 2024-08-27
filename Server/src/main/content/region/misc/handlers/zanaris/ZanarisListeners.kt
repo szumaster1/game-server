@@ -1,6 +1,6 @@
 package content.region.misc.handlers.zanaris
 
-import content.region.misc.dialogue.keldagrim.MagicDoorDialogue
+import content.location.keldagrim.MagicDoorDialogue
 import core.api.*
 import cfg.consts.Animations
 import cfg.consts.Items

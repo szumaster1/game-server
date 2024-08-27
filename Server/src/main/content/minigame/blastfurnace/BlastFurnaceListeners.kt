@@ -1,6 +1,6 @@
 package content.minigame.blastfurnace
 
-import content.region.misc.dialogue.keldagrim.BlastFurnaceDoorDialogue
+import content.location.keldagrim.BlastFurnaceDoorDialogue
 import core.api.*
 import cfg.consts.Animations
 import cfg.consts.Items

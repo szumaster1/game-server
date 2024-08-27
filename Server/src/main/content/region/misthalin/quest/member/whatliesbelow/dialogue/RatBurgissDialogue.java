@@ -1,6 +1,6 @@
 package content.region.misthalin.quest.member.whatliesbelow.dialogue;
 
-import content.region.misthalin.dialogue.RatBurgissDiaryDialogue;
+import content.location.RatBurgissDiaryDialogue;
 import content.region.misthalin.quest.member.whatliesbelow.WhatLiesBelow;
 import core.game.dialogue.Dialogue;
 import core.game.node.entity.npc.NPC;

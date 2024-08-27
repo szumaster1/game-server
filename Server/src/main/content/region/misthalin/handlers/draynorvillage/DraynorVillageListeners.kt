@@ -1,7 +1,7 @@
 package content.region.misthalin.handlers.draynorvillage
 
 import content.global.handlers.iface.plugin.DiangoReclaimInterfacePlugin
-import content.region.misthalin.dialogue.draynorvillage.TreeGuardDialogue
+import content.location.draynorvillage.TreeGuardDialogue
 import core.api.*
 import cfg.consts.Items
 import cfg.consts.NPCs

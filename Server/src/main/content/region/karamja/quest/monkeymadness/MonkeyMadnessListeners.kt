@@ -1,13 +1,12 @@
 package content.region.karamja.quest.monkeymadness
 
 import content.region.karamja.quest.monkeymadness.dialogue.*
-import content.region.misc.dialogue.apeatoll.dungeon.ZooknockAfterBattleDialogueFile
-import content.region.misc.dialogue.apeatoll.dungeon.ZooknockDialogue
-import content.region.misc.dialogue.apeatoll.dungeon.ZooknockDialogueFile
+import content.location.apeatoll.dungeon.ZooknockAfterBattleDialogueFile
+import content.location.apeatoll.dungeon.ZooknockDialogue
+import content.location.apeatoll.dungeon.ZooknockDialogueFile
 import core.api.*
 import cfg.consts.*
 import core.game.component.Component
-import core.game.dialogue.DialogueFile
 import core.game.global.action.DoorActionHandler
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener

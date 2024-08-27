@@ -4,10 +4,10 @@ import content.global.skill.combat.magic.TeleportMethod
 import content.global.skill.combat.prayer.Bones
 import content.global.travel.canoe.CanoeListeners
 import content.region.misc.handlers.zanaris.FairyRing
-import content.region.misthalin.dialogue.varrock.BennyDialogue
-import content.region.misthalin.dialogue.varrock.ElsieDialogue
-import content.region.misthalin.dialogue.varrock.museum.CuratorHaigHalenDialogue
-import content.region.misthalin.dialogue.varrock.museum.OrlandoSmithDialogue
+import content.location.varrock.BennyDialogue
+import content.location.varrock.ElsieDialogue
+import content.location.varrock.museum.CuratorHaigHalenDialogue
+import content.location.varrock.museum.OrlandoSmithDialogue
 import content.region.misthalin.quest.member.familycrest.dialogue.DimintheisDialogue
 import core.api.*
 import cfg.consts.Components

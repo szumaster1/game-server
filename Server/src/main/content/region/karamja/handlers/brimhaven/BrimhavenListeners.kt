@@ -1,7 +1,7 @@
 package content.region.karamja.handlers.brimhaven
 
-import content.region.karamja.dialogue.brimhaven.CapnIzzyDialogue
-import content.region.karamja.dialogue.brimhaven.PirateJackieDialogue
+import content.location.brimhaven.CapnIzzyDialogue
+import content.location.brimhaven.PirateJackieDialogue
 import core.api.*
 import cfg.consts.Components
 import cfg.consts.Items
@@ -15,7 +15,6 @@ import core.game.node.entity.combat.ImpactHandler
 import core.game.node.entity.player.Player
 import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
-import core.game.world.repository.Repository
 import core.tools.RandomFunction
 import kotlin.math.ceil
 

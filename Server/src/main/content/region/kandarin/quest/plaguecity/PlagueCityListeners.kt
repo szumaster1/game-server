@@ -1,6 +1,6 @@
 package content.region.kandarin.quest.plaguecity
 
-import content.region.kandarin.dialogue.ardougne.plaguecity.WomanDialogue
+import content.location.ardougne.plaguecity.WomanDialogue
 import content.region.kandarin.quest.plaguecity.dialogue.ManRehnisonDialogue
 import content.region.kandarin.quest.plaguecity.dialogue.mourners.HeadMournerDialogue
 import content.region.kandarin.quest.plaguecity.dialogue.mourners.MournerOtherDialogue
