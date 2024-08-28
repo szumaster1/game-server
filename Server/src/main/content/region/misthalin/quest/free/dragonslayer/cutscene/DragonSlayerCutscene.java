@@ -34,8 +34,14 @@ import static core.api.ContentAPIKt.setVarp;
  */
 public final class DragonSlayerCutscene extends CutscenePlugin {
 
+    /**
+     * The animation associated with the Dragon Slayer cutscene.
+     */
     private static final Animation ANIMATION = new Animation(4191);
 
+    /**
+     * The instance of BobingPulse used for camera bobbing effects.
+     */
     private final BobingPulse bobinPulse = new BobingPulse();
 
     /**
@@ -48,13 +54,20 @@ public final class DragonSlayerCutscene extends CutscenePlugin {
     /**
      * Instantiates a new Dragon slayer cutscene.
      *
-     * @param p the p
+     * @param p the player associated with this cutscene.
      */
     public DragonSlayerCutscene(final Player p) {
         super("Dragon Slayer", true);
         this.player = p;
     }
 
+    /**
+     * Creates a new instance of the Dragon Slayer cutscene.
+     *
+     * @param p the player for the new instance.
+     * @return a new DragonSlayerCutscene instance.
+     * @throws Throwable if an error occurs during instantiation.
+     */
     @Override
     public ActivityPlugin newInstance(Player p) throws Throwable {
         return new DragonSlayerCutscene(p);
@@ -81,7 +94,6 @@ public final class DragonSlayerCutscene extends CutscenePlugin {
     public void open() {
         player.lock();
         player.getDialogueInterpreter().open(918, npcs.get(0), this);
-        player.getLocks().unlockMovement();
         PacketRepository.send(CameraViewPacket.class, new CameraContext(player, CameraType.POSITION, player.getLocation().getX() + 11, player.getLocation().getY() + 1, 190, 1, 100));
         PacketRepository.send(CameraViewPacket.class, new CameraContext(player, CameraType.ROTATION, player.getLocation().getX() + 3, player.getLocation().getY(), 190, 1, 100));
         bob(new CameraContext(player, CameraType.POSITION, player.getLocation().getX() + 7, player.getLocation().getY() - 3, 250, 1, 1), new CameraContext(player, CameraType.ROTATION, player.getLocation().getX() + 4, player.getLocation().getY(), 210, 1, 1));
@@ -112,10 +124,10 @@ public final class DragonSlayerCutscene extends CutscenePlugin {
     }
 
     /**
-     * Bob.
+     * Updates the camera's position and rotation based on the provided parameters.
      *
-     * @param position the position
-     * @param rotation the rotation
+     * @param position The new camera position to be set.
+     * @param rotation The new camera rotation to be set.
      */
     public void bob(final CameraContext position, final CameraContext rotation) {
         PacketRepository.send(CameraViewPacket.class, position);
@@ -128,28 +140,32 @@ public final class DragonSlayerCutscene extends CutscenePlugin {
     }
 
     /**
-     * Bobing pulse.
+     * Represents a bobbing pulse effect in the game.
      */
     public class BobingPulse extends Pulse {
 
-
         /**
-         * The Alternate.
+         * Indicates whether the pulse is in an alternate state.
          */
         boolean alternate = false;
 
-
+        /**
+         * The current camera position for the bobbing effect.
+         */
         private CameraContext position = null;
 
-
+        /**
+         * The current camera rotation for the bobbing effect.
+         */
         private CameraContext rotation = null;
 
-
+        /**
+         * A counter to track the number of pulses.
+         */
         private int counter = 0;
 
-
         /**
-         * Instantiates a new Bobing pulse.
+         * Instantiates a new Bobing pulse with a specified pulse interval.
          */
         public BobingPulse() {
             super(1);
@@ -173,11 +189,19 @@ public final class DragonSlayerCutscene extends CutscenePlugin {
         }
     }
 
+    /**
+     * Retrieves the spawn location for the player.
+     *
+     * @return The spawn location as a Location object.
+     */
     @Override
     public Location getSpawnLocation() {
         return Location.create(3047, 3203, 0);
     }
 
+    /**
+     * Configures the region for the game.
+     */
     @Override
     public void configure() {
         region = DynamicRegion.create(7500);
@@ -185,6 +209,11 @@ public final class DragonSlayerCutscene extends CutscenePlugin {
         registerRegion(region.getId());
     }
 
+    /**
+     * Retrieves the starting pulse for the player.
+     *
+     * @return A new Pulse object representing the starting pulse.
+     */
     @Override
     public Pulse getStartPulse() {
         PacketRepository.send(MinimapState.class, new MinimapStateContext(player, getMapState()));
@@ -212,45 +241,56 @@ public final class DragonSlayerCutscene extends CutscenePlugin {
     }
 
     /**
-     * Gets bobin pulse.
+     * Retrieves the Bobing Pulse instance.
      *
-     * @return the bobin pulse
+     * @return the Bobing pulse.
      */
     public BobingPulse getBobinPulse() {
         return bobinPulse;
     }
 
     /**
-     * Ds ned dialogue.
+     * Represents the Dragon slayer Ned dialogue.
      */
     public static final class DSNedDialogue extends Dialogue {
 
 
+        /**
+         * Array of animations used in the dialogue.
+         */
         private static final Animation[] ANIMATIONS = new Animation[]{new Animation(2105), new Animation(4280), new Animation(6649)};
 
-
+        /**
+         * Graphic representation of fire used in the dialogue.
+         */
         private static final Graphic FIRE = new Graphic(453);
 
-
+        /**
+         * Quest associated with this dialogue.
+         */
         private Quest quest;
 
-
+        /**
+         * Plugin for cutscene management.
+         */
         private CutscenePlugin cutscene;
 
-
+        /**
+         * List of fire locations in the dialogue.
+         */
         private final List<Location> fires = new ArrayList<>(20);
 
-
+        /**
+         * Indicates whether the dialogue has been completed.
+         */
         private boolean finished = false;
-
 
         /**
          * Instantiates a new Ds ned dialogue.
          */
         public DSNedDialogue() {
-
+            // Default constructor for DSNedDialogue
         }
-
 
         /**
          * Instantiates a new Ds ned dialogue.
@@ -258,6 +298,7 @@ public final class DragonSlayerCutscene extends CutscenePlugin {
          * @param player the player
          */
         public DSNedDialogue(Player player) {
+            // Call the superclass constructor with the player parameter
             super(player);
         }
 
