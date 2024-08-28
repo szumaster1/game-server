@@ -1,6 +1,6 @@
 package content.minigame.pestcontrol
 
-import content.global.transportation.charter.Ships
+import content.global.transport.charter.Ships
 import cfg.consts.NPCs
 import core.api.getUsedOption
 import core.api.openDialogue

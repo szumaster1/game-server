@@ -1007,9 +1007,9 @@ enum class Consumables {
     PINEAPPLE_CHUNKS(Food(intArrayOf(2116), HealingEffect(2))),
 
     /**
-     * Pineapple Ring
+     * Pineapple FairyRing
      *
-     * @constructor Pineapple Ring
+     * @constructor Pineapple FairyRing
      */
     PINEAPPLE_RING(Food(intArrayOf(2118), HealingEffect(2))),
 

@@ -66,7 +66,7 @@ class ThroneofMiscellania :
 }
 //1 quest point
 //Management of Miscellania
-//Ability to teleport to Miscellania with a Ring of Wealth, Ring of Fortune, or Luck of the Dwarves
+//Ability to teleport to Miscellania with a FairyRing of Wealth, FairyRing of Fortune, or Luck of the Dwarves
 //Ability to purchase Miscellania Portrait from Sir Renitee
 //10,000 coins (accessible from Managing Miscellania)
 //2 Treasure Hunter keys (Ironman accounts will not receive these)

@@ -1,10 +1,10 @@
 package core.game.world
 
-import content.global.bots.*
 import core.api.StartupListener
 import core.game.bots.CombatBotAssembler
 import core.game.bots.GeneralBotCreator
 import core.game.bots.SkillingBotAssembler
+import core.game.bots.impl.*
 import core.game.node.entity.combat.CombatStyle
 import core.game.world.map.Location
 import core.game.world.map.zone.ZoneBorders

@@ -1,6 +1,6 @@
 package core.game.node.entity.combat;
 
-import content.data.EnchantedJewellery;
+import content.global.transport.item.EnchantedJewellery;
 import core.game.container.impl.EquipmentContainer;
 import core.game.node.entity.skill.Skills;
 import content.global.skill.combat.summoning.familiar.Familiar;
@@ -241,7 +241,7 @@ public final class ImpactHandler {
             int current = player.getSavedData().globalData.getRecoilDamage();
             if (damage >= current) {
                 damage = current;
-                player.getPacketDispatch().sendMessage("Your Ring of Recoil has shattered.");
+                player.getPacketDispatch().sendMessage("Your FairyRing of Recoil has shattered.");
                 player.getEquipment().replace(null, EquipmentContainer.SLOT_RING);
                 player.getSavedData().globalData.setRecoilDamage(40);
             } else {

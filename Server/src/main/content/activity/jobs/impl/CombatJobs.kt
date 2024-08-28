@@ -1,7 +1,7 @@
 package content.activity.jobs.impl
 
-import content.global.activity.jobs.Job
-import content.global.activity.jobs.JobType
+import content.activity.jobs.Job
+import content.activity.jobs.JobType
 import cfg.consts.NPCs
 
 /**

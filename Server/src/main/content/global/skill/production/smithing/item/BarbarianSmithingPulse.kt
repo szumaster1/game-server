@@ -1,6 +1,6 @@
 package content.global.skill.production.smithing.item
 
-import content.global.skill.production.smithing.data.BarbarianWeapon
+import content.activity.btraining.smithing.BarbarianWeapon
 import core.api.*
 import cfg.consts.Animations
 import core.game.node.entity.player.Player

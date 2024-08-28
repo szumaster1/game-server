@@ -1,9 +1,9 @@
 package core.game.system.command.sets
 
-import content.global.activity.jobs.JobManager
 import content.minigame.tbwcleanup.changeSpawnChance
 import core.api.*
 import cfg.consts.Items
+import content.activity.jobs.JobManager
 import core.cache.Cache
 import core.cache.def.impl.DataMap
 import core.cache.def.impl.NPCDefinition

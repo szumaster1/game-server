@@ -22,33 +22,39 @@ class SpellTablets : InteractionListener {
 
     override fun defineListeners() {
 
-        // Listener for breaking Bones to Bananas tablet
+        /*
+         * Handles conversion of Bones to bananas.
+         */
+
         on(B2B_TABLET, IntType.ITEM, "break") { player, node ->
-            breakTablet(player) // Call the function to break the tablet
+            breakTablet(player)
             SpellListeners.run(Modern.BONES_TO_BANANAS, SpellListener.NONE, "modern", player)
-            player.inventory.remove(Item(node.id)) // Remove the tablet from the player's inventory
+            player.inventory.remove(Item(node.id))
             return@on true
         }
 
-        // Listener for breaking Bones to Peaches tablet
+        /*
+         * Handles conversion of Bones to peaches.
+         */
+
         on(B2P_TABLET, IntType.ITEM, "break") { player, node ->
-            breakTablet(player) // Call the function to break the tablet
+            breakTablet(player)
             SpellListeners.run(Modern.BONES_TO_PEACHES, SpellListener.NONE, "modern", player)
-            player.inventory.remove(Item(node.id)) // Remove the tablet from the player's inventory
+            player.inventory.remove(Item(node.id))
             return@on true
         }
 
     }
 
     /**
-     * Break tablet
+     * Break the tablet.
      *
-     * @param player The player who is breaking the tablet
+     * @param player The player.
      */
     fun breakTablet(player: Player) {
-        playAudio(player, Sounds.POH_TABLET_BREAK_979) // Play the breaking sound
-        player.animator.forceAnimation(Animation(4069)) // Force the breaking animation
-        player.lock(5) // Lock the player for 5 game ticks
-        setAttribute(player, "tablet-spell", true) // Set an attribute for tablet spell
+        playAudio(player, Sounds.POH_TABLET_BREAK_979)
+        player.animator.forceAnimation(Animation(4069))
+        player.lock(5)
+        setAttribute(player, "tablet-spell", true)
     }
 }

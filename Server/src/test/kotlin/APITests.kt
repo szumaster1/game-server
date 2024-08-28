@@ -103,7 +103,7 @@ class APITests {
         Assertions.assertEquals(500, manager.flags.getPoints(), "Points were not 500!")
         Assertions.assertEquals(true, manager.flags.isHelmUnlocked(), "Helm was not unlocked!")
         Assertions.assertEquals(true, manager.flags.isBroadsUnlocked(), "Broads were not unlocked!")
-        Assertions.assertEquals(true, manager.flags.isRingUnlocked(), "Ring was not unlocked!")
+        Assertions.assertEquals(true, manager.flags.isRingUnlocked(), "FairyRing was not unlocked!")
     }
 
     @Test fun testSlayerDecrementTaskAmountHasNoSideEffects() {

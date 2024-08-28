@@ -56,7 +56,7 @@ class HolyGrailListeners : InteractionListener {
             return@on true
         }
 
-        on(Items.GRAIL_BELL_17, IntType.ITEM, "Ring") { player, _ ->
+        on(Items.GRAIL_BELL_17, IntType.ITEM, "FairyRing") { player, _ ->
             openDialogue(player, MaidenHolyGrailDialogueFile(true), NPCs.GRAIL_MAIDEN_210)
             return@on true
         }

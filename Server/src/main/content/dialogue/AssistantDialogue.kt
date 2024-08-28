@@ -1,6 +1,6 @@
 package content.dialogue
 
-import content.global.transportation.balloon.BalloonListeners
+import content.global.transport.balloon.BalloonListeners
 import cfg.consts.Components
 import cfg.consts.NPCs
 import core.api.isQuestComplete

@@ -447,17 +447,17 @@ class CreatureOfFenkenstrainListeners : InteractionListener {
 
 
         /*
-         * 7: Pickpocket Ring of Charos from Fenkenstrain.
+         * 7: Pickpocket FairyRing of Charos from Fenkenstrain.
          */
 
         on(NPCs.DR_FENKENSTRAIN_1670, NPC, "pickpocket") { player, _ ->
             if (getQuestStage(player, "Creature of Fenkenstrain") == 7) {
-                sendMessage(player, "You steal the Ring of Charos from Fenkenstrain.")
+                sendMessage(player, "You steal the FairyRing of Charos from Fenkenstrain.")
                 finishQuest(player, "Creature of Fenkenstrain")
             } else if (getQuestStage(player, "Creature of Fenkenstrain") > 7 && hasAnItem(player, Items.RING_OF_CHAROS_4202).container == null) {
                 // Allow Fenkenstrain to be pickpocketed beyond the quest if the ring is lost.
                 addItemOrDrop(player, Items.RING_OF_CHAROS_4202, 1)
-                sendMessage(player, "You steal the Ring of Charos from Fenkenstrain.")
+                sendMessage(player, "You steal the FairyRing of Charos from Fenkenstrain.")
             } else {
                 sendNPCDialogue(player, NPCs.DR_FENKENSTRAIN_1670, "What do you think you're doing???", FacialExpression.NEUTRAL)
             }
