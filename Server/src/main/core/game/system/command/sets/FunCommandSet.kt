@@ -1,7 +1,7 @@
 package core.game.system.command.sets
 
 import content.global.handlers.item.SpadeDig
-import content.region.misc.handlers.tutorial.CharacterDesign
+import content.region.misc.tutorial.CharacterDesign
 import core.api.*
 import cfg.consts.Sounds
 import core.game.dialogue.DialogueFile

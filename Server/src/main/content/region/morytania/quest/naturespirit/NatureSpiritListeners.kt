@@ -3,7 +3,7 @@ package content.region.morytania.quest.naturespirit
 import cfg.consts.Items
 import cfg.consts.NPCs
 import cfg.consts.Scenery
-import content.region.morytania.handlers.npc.MortMyreGhastNPC
+import content.region.morytania.npc.MortMyreGhastNPC
 import core.api.*
 import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression

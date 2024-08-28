@@ -1,6 +1,6 @@
 package content.global.handlers.item
 
-import content.global.transportation.LyreTeleport
+import content.global.transport.LyreTeleport
 import core.ServerStore.Companion.getBoolean
 import core.api.*
 import cfg.consts.Items

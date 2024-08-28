@@ -1,6 +1,6 @@
 package content.region.kandarin.quest.seaslug.dialogue
 
-import content.region.kandarin.travel.FishingPlatform
+import content.global.transport.FishingPlatform
 import cfg.consts.NPCs
 import core.api.getQuestStage
 import core.api.isQuestComplete

@@ -1,6 +1,6 @@
 package content.global.skill.support.construction.decoration.study
 
-import content.global.activity.shootingstar.ShootingStarPlugin
+import content.dd.star.ShootingStarPlugin
 import core.api.animate
 import core.api.lock
 import core.api.sendDialogue

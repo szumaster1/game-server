@@ -1,6 +1,6 @@
 package content.dialogue.tutorial
 
-import content.region.misc.handlers.tutorial.TutorialStage
+import content.region.misc.tutorial.TutorialStage
 import cfg.consts.Components
 import cfg.consts.NPCs
 import core.api.getAttribute

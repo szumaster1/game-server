@@ -2,7 +2,7 @@ package content.dialogue.varrock
 
 import cfg.consts.Items
 import cfg.consts.NPCs
-import content.global.transportation.EssenceTeleport.teleport
+import content.global.transport.EssenceTeleport.teleport
 import core.api.*
 import core.game.dialogue.Dialogue
 import core.game.global.Skillcape.isMaster

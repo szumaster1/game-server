@@ -1,6 +1,6 @@
 package content.dialogue.witchaven
 
-import content.region.kandarin.travel.FishingPlatform
+import content.global.transport.FishingPlatform
 import cfg.consts.NPCs
 import core.api.isQuestComplete
 import core.game.dialogue.Dialogue

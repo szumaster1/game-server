@@ -141,7 +141,7 @@ class LunarDiplomacy : Quest("Lunar Diplomacy", 85, 84, 2, Vars.VARBIT_QUEST_LUN
             line(player, "Lunar Boots", line++, false)
             line(player, "Lunar Cape", line++, false)
             line(player, "Lunar Amulet", line++, false)
-            line(player, "Lunar Ring", line++, false)
+            line(player, "Lunar FairyRing", line++, false)
             line++
             line(player, "I gave all the clothes to the Oneiromancer. Now taking the potion,", line++, false)
             line(player, "clothes, staff and kindling from the Oneiromancer, I can use start the ritual", line++, false)

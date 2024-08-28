@@ -7,7 +7,7 @@ import content.global.handlers.iface.PageSet
 import content.global.skill.gathering.farming.timers.Compost
 import content.global.skill.gathering.farming.timers.CropGrowth
 import content.minigame.fishingtrawler.TrawlerLoot
-import content.region.misc.handlers.tutorial.TutorialStage
+import content.region.misc.tutorial.TutorialStage
 import core.ServerConstants
 import core.api.*
 import cfg.consts.Components

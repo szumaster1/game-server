@@ -8,13 +8,21 @@ import cfg.consts.Vars
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.item.Item
+import core.game.world.map.Location
 
 /**
- * Fermenting vat
- *
- * @constructor Fermenting vat
+ * Listener for brewing.
  */
 class FermentingVat : InteractionListener {
+
+    // Scenery
+    val fermentingVat = 7437
+    val valve = 7442
+    val location = Location.create(2916, 10193, 1)
+
+    // Varbits
+    val VARBIT_736 = 736
+    val VARBIT_738 = 738
 
     override fun defineListeners() {
         onUseWith(IntType.SCENERY, Items.BUCKET_OF_WATER_1929, Scenery.FERMENTING_VAT_7473) { player, used, with ->

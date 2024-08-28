@@ -14,9 +14,9 @@ import core.tools.RandomFunction.random
 import core.tools.START_DIALOGUE
 import kotlin.math.min
 import core.game.node.entity.player.link.diary.DiaryType
-import content.region.karamja.handlers.KaramjaAchievementDiary.Companion.MediumTasks.EXCHANGE_GEMS_TUBER_TRADING_STICKS_FOR_MACHETE
 import cfg.consts.Items
 import cfg.consts.NPCs
+import core.api.finishDiaryTask
 
 /**
  * Represents the dialogue.
@@ -111,7 +111,7 @@ class KaradayDialogue(player: Player? = null) : Dialogue(player) {
             )
             233 -> if (tryToMakeMachete(player, Items.RED_TOPAZ_MACHETE_6317, Items.RED_TOPAZ_1613, Items.UNCUT_RED_TOPAZ_1629, 1200)) {
                 npcl(FacialExpression.FRIENDLY, "Here you are Bwana, take good care of it.").also {stage = END_DIALOGUE}
-                player.achievementDiaryManager.finishTask(player, DiaryType.KARAMJA, 1, EXCHANGE_GEMS_TUBER_TRADING_STICKS_FOR_MACHETE)
+                finishDiaryTask(player, DiaryType.KARAMJA, 1, 10)
             } else {
                 playerl(FacialExpression.SAD, "I don't think I have the required materials on me. Sorry.").also { stage = 234}
             }

@@ -8,9 +8,9 @@ import core.game.node.entity.player.link.request.RequestModule
 import core.game.node.item.GroundItemManager
 import core.game.node.item.Item
 import core.game.bots.AIRepository
-import content.global.bots.DoublingMoney
 import core.game.node.entity.player.info.PlayerMonitor
 import core.api.*
+import core.game.bots.impl.DoublingMoney
 import java.text.DecimalFormat
 import java.util.*
 

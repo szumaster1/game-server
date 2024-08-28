@@ -1,6 +1,6 @@
 package content.dialogue.ardougne
 
-import content.global.transportation.charter.Ships
+import content.global.transport.charter.Ships
 import cfg.consts.Items
 import core.api.playJingle
 import core.api.removeItem

@@ -1,10 +1,10 @@
 package content.region.kandarin.quest.makinghistory
 
-import content.global.activity.enchkey.EnchantedKeyHelper
 import core.api.*
 import cfg.consts.Components
 import cfg.consts.Items
 import cfg.consts.Vars
+import content.activity.enchkey.EnchantedKey
 import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.quest.Quest
 import core.game.node.entity.skill.Skills
@@ -54,8 +54,8 @@ class MakingHistory : Quest("Making History", 86, 85, 3, Vars.VARBIT_QUEST_MAKIN
             line++
             line(player, "<col=FF0000>QUEST COMPLETE!", line, false)
             line++
-            if (getAttribute(player, EnchantedKeyHelper.ENCHANTED_KEY_ATTR, -1) >= 0) {
-                line(player, "I Should see what else I can find with the help of the key.", line, getAttribute(player, EnchantedKeyHelper.ENCHANTED_KEY_ATTR, -1) >= 10)
+            if (getAttribute(player, EnchantedKey.ENCHANTED_KEY_ATTR, -1) >= 0) {
+                line(player, "I Should see what else I can find with the help of the key.", line, getAttribute(player, EnchantedKey.ENCHANTED_KEY_ATTR, -1) >= 10)
             }
         }
 

@@ -1,6 +1,6 @@
 package content.dialogue.brimhaven
 
-import content.global.transportation.charter.Ships
+import content.global.transport.charter.Ships
 import core.api.*
 import cfg.consts.Items
 import cfg.consts.NPCs

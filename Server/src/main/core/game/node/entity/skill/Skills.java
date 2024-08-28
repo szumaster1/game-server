@@ -222,7 +222,7 @@ public final class Skills {
                 bgManager.updateCharges(gloves.getId(), 1);
             }
         }
-        //Check for Flame Gloves and Ring of Fire
+        //Check for Flame Gloves and FairyRing of Fire
         if (player.getEquipment().containsItem(new Item(Items.FLAME_GLOVES_13660)) || player.getEquipment().containsItem(new Item(Items.RING_OF_FIRE_13659))) {
             if (slot == Skills.FIREMAKING) {
                 int count = 0;

@@ -1,6 +1,5 @@
 package content.minigame.tbwcleanup
 
-import content.region.karamja.handlers.KaramjaAchievementDiary.Companion.MediumTasks.TAI_BWO_WANNAI_EARN_FULL_FAVOR
 import core.api.*
 import core.game.node.Node
 import core.game.node.entity.Entity
@@ -61,12 +60,7 @@ fun spawnNPC(player: Player, npcId: Int, node: Node, favourValue: Int = 0) {
 
 fun awardTBWCleanupPoints(player: Player, points: Int) {
     val NEW_POINTS = min(player.getAttribute("/save:tbwcleanup", 0) + points, 1000)
-    if (NEW_POINTS == 1000) player.achievementDiaryManager.finishTask(
-        player,
-        DiaryType.KARAMJA,
-        1,
-        TAI_BWO_WANNAI_EARN_FULL_FAVOR
-    )
+    if (NEW_POINTS == 1000) finishDiaryTask(player, DiaryType.KARAMJA, 1, 4)
     player.setAttribute("/save:tbwcleanup", NEW_POINTS)
 //    player.sendMessage("You now have ${NEW_POINTS.toDouble()/10}% Tai Bwo Wannai Favour.")
     openOverlay(player, 377)

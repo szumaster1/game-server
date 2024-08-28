@@ -1,6 +1,6 @@
 package content.dialogue.portsarim
 
-import content.global.transportation.charter.Ships
+import content.global.transport.charter.Ships
 import cfg.consts.NPCs
 import core.api.finishDiaryTask
 import core.api.hasDiaryTaskComplete

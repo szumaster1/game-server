@@ -1,6 +1,6 @@
 package content.region.kandarin.quest.thegrandtree.dialogue
 
-import content.global.transportation.glider.GnomeGlider
+import content.global.transport.glider.GnomeGlider
 import cfg.consts.Components
 import cfg.consts.NPCs
 import core.api.getQuestStage

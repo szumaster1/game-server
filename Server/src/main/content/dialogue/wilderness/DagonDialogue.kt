@@ -1,6 +1,6 @@
 package content.dialogue.wilderness
 
-import content.region.wilderness.handlers.npc.BorkNPC.BorkCutscene
+import content.region.wilderness.npc.BorkNPC.BorkCutscene
 import core.game.dialogue.Dialogue
 import core.game.dialogue.DialogueInterpreter
 import core.game.node.entity.npc.NPC

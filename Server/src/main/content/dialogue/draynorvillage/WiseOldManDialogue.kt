@@ -1,6 +1,6 @@
 package content.dialogue.draynorvillage
 
-import content.global.activity.oldman.WiseOldManTaskDialogue
+import content.activity.oldman.WomDialogue
 import core.api.*
 import cfg.consts.Items
 import cfg.consts.NPCs
@@ -60,7 +60,7 @@ class WiseOldManDialogue(player: Player? = null) : Dialogue(player) {
             }
 
             1 -> when (buttonId) {
-                1 -> openDialogue(player, WiseOldManTaskDialogue())
+                1 -> openDialogue(player, WomDialogue())
                 2 -> options("Could you check my bank for junk, please?", "Could you check my inventory for junk, please?").also { stage++ }
                 3 -> player("I've got something I'd like you to look at.").also { stage = 4 }
                 4 -> player("I'd just like to ask you something.").also { stage = 40 }

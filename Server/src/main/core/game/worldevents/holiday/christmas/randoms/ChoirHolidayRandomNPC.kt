@@ -33,7 +33,7 @@ class ChoirHolidayRandomNPC : HolidayRandomEventNPC(NPCs.ZANARIS_CHOIR_3312) {
                             sendChat(this, "Silver bells")
                             sendChat(this, "Silver bells", 5)
                             sendChat(this, "It's Christmas time in the city", 10)
-                            sendChat(this, "Ring a ling", 15)
+                            sendChat(this, "FairyRing a ling", 15)
                             sendChat(this, "Hear them ring", 20)
                             sendChat(this, "Soon it will be Christmas day", 25)
                             return@queueScript delayScript(this, 26)

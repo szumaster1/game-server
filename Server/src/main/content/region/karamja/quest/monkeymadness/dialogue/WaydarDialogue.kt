@@ -1,7 +1,7 @@
 package content.region.karamja.quest.monkeymadness.dialogue
 
-import content.global.transportation.glider.GnomeGlider
-import content.global.transportation.glider.GnomeGliderListeners
+import content.global.transport.glider.GnomeGlider
+import content.global.transport.glider.GnomeGliderListeners
 import core.api.getQuestStage
 import core.api.submitWorldPulse
 import core.game.component.Component

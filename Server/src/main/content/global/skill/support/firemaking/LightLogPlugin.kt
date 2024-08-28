@@ -1,8 +1,8 @@
 package content.global.skill.support.firemaking
 
 import content.data.skill.SkillingTool
-import content.global.skill.BarbarianTraining
-import content.global.skill.support.firemaking.barbarian.BarbarianFiremakingPulse
+import content.activity.btraining.BarbarianTraining
+import content.activity.btraining.firemaking.BarbFiremakingPulse
 import core.api.inInventory
 import core.api.sendMessage
 import core.cache.def.impl.ItemDefinition
@@ -25,7 +25,13 @@ class LightLogPlugin : OptionHandler() {
             if (!inInventory(player, SkillingTool.getFiremakingTool(player)!!.id)) {
                 player.pulseManager.run(FireMakingPulse(player, (node as Item), (node as GroundItem)))
             } else {
-                player.pulseManager.run(BarbarianFiremakingPulse(player, (node as Item), (node as GroundItem)))
+                player.pulseManager.run(
+                    BarbFiremakingPulse(
+                        player,
+                        (node as Item),
+                        (node as GroundItem)
+                    )
+                )
             }
         } else {
             sendMessage(player, "You do not have the required items to light this.")

@@ -1,7 +1,7 @@
 package core.game.system.command.sets
 
 import content.data.BossKillCounter
-import content.activity.treasuretrails.TreasureTrailManager
+import content.dd.ttrails.TreasureTrailManager
 import content.global.handlers.iface.BookInterfaceListener
 import content.global.handlers.iface.Page
 import content.global.handlers.iface.PageSet
@@ -61,9 +61,9 @@ class StatsCommandSet : CommandSet(Privilege.STANDARD) {
                     0 -> {
                         when(i) {
                             //Various stats
-                            97 -> sendLine(player,"Easy Clues: ${content.activity.treasuretrails.TreasureTrailManager.getInstance(queryPlayer).completedClues[0]}",i)
-                            68 -> sendLine(player,"Medium Clues: ${content.activity.treasuretrails.TreasureTrailManager.getInstance(queryPlayer).completedClues[1]}",i)
-                            69 -> sendLine(player,"Hard Clues: ${content.activity.treasuretrails.TreasureTrailManager.getInstance(queryPlayer).completedClues[2]}",i)
+                            97 -> sendLine(player,"Easy Clues: ${TreasureTrailManager.getInstance(queryPlayer).completedClues[0]}",i)
+                            68 -> sendLine(player,"Medium Clues: ${TreasureTrailManager.getInstance(queryPlayer).completedClues[1]}",i)
+                            69 -> sendLine(player,"Hard Clues: ${TreasureTrailManager.getInstance(queryPlayer).completedClues[2]}",i)
                             70 -> sendLine(player, SPACER,i)
                             71 -> sendLine(player,"Slayer Tasks: ${SlayerManager.getInstance(queryPlayer).flags.completedTasks}",i)
                             72 -> sendLine(player,"Quest Points: ${queryPlayer.questRepository.points}",i)

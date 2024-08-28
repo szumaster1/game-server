@@ -117,7 +117,7 @@ class BetweenARock : Quest("Between a Rock...", 34, 33, 2, Vars.VARBIT_QUEST_BET
 //5,000 Mining experience
 //5,000 Smithing experience
 //Adamant pickaxe + 2
-//Players may keep their gold helmet and access the Arzinian Mine, where 146 gold rocks and veins can be found. After the quest's completion, a dwarven boatman due east of the mine will bank the player's gold ore for a small fee. He keeps 20% of the ores, rounded up, or 10% if the player has the Ring of Charos (a).
+//Players may keep their gold helmet and access the Arzinian Mine, where 146 gold rocks and veins can be found. After the quest's completion, a dwarven boatman due east of the mine will bank the player's gold ore for a small fee. He keeps 20% of the ores, rounded up, or 10% if the player has the FairyRing of Charos (a).
 //2 Treasure Hunter keys (Ironman accounts will not receive these)
 
  */

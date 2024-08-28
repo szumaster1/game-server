@@ -99,7 +99,7 @@ class LostTribe : Quest("Lost Tribe", 84, 83, 1) {
         sendItemOnInterface(player, Components.QUEST_COMPLETE_SCROLL_277, 5, Items.BROOCH_5008, 1)
         drawReward(player, "1 Quest Point", ln++)
         drawReward(player, "3000 Mining XP", ln++)
-        drawReward(player, "A Ring of Life", ln++)
+        drawReward(player, "A FairyRing of Life", ln++)
         drawReward(player, "Freedom of the", ln++)
         drawReward(player, "Dorgeshuun mines.", ln)
         rewardXP(player, Skills.MINING, 3000.0)

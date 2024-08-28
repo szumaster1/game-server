@@ -1,6 +1,6 @@
 package content.dialogue.tutorial
 
-import content.region.misc.handlers.tutorial.*
+import content.region.misc.tutorial.*
 import core.ServerConstants
 import core.api.*
 import cfg.consts.Components

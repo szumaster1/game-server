@@ -1,6 +1,6 @@
 package core.game.node.entity.player.link;
 
-import content.region.misc.handlers.tutorial.TutorialStage;
+import content.region.misc.tutorial.TutorialStage;
 import core.game.event.InterfaceCloseEvent;
 import core.game.event.InterfaceOpenEvent;
 import core.game.component.Component;

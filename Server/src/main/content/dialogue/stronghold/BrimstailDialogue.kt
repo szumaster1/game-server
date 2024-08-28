@@ -1,6 +1,6 @@
 package content.dialogue.stronghold
 
-import content.global.transportation.EssenceTeleport
+import content.global.transport.EssenceTeleport
 import cfg.consts.NPCs
 import core.api.isQuestComplete
 import core.game.dialogue.Dialogue

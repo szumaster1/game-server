@@ -1,6 +1,6 @@
 package content.region.kandarin.quest.seaslug.dialogue
 
-import content.region.kandarin.travel.FishingPlatform
+import content.global.transport.FishingPlatform
 import content.region.kandarin.quest.seaslug.cutscene.HolgartRepairBoatCutscene
 import core.api.*
 import cfg.consts.Items
