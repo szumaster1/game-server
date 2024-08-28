@@ -22,13 +22,10 @@ import core.plugin.Plugin
 class KalphiteEntranceHandler : OptionHandler() {
 
     override fun newInstance(arg: Any?): Plugin<Any> {
-        // Create a new instance of the UseWithHandler and override its handle() function.
         val handler = object : UseWithHandler(Items.ROPE_954) {
             override fun handle(event: NodeUsageEvent): Boolean {
                 val node = event.usedWith as Scenery
-                // Check if the node id matches any of the specified ids.
                 if (node.id == 3827 || node.id == 23609) {
-                    // If the player has the required item, remove it and replace the scenery node.
                     if (removeItem(event.player, event.usedItem)) {
                         replaceScenery(node, node.id + 1, 500)
                         return true

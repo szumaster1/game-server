@@ -6,12 +6,12 @@ import content.global.skill.gathering.farming.FarmingPatch.Companion.forObject
 import content.global.skill.skillcape.SkillcapePerks
 import content.global.skill.skillcape.SkillcapePerks.Companion.isActive
 import content.global.skill.support.firemaking.data.Log
-import content.region.fremennik.dialogue.miscellania.KjallakOnChopDialogue
 import core.api.*
 import cfg.consts.Items
 import cfg.consts.NPCs
 import cfg.consts.Sounds
 import cfg.consts.Sounds.TREE_FALLING_2734
+import content.location.miscellania.KjallakOnChopDialogue
 import core.cache.def.impl.ItemDefinition
 import core.game.container.impl.EquipmentContainer
 import core.game.event.ResourceProducedEvent
@@ -90,13 +90,12 @@ class WoodcuttingListener : InteractionListener {
                 sendMessage(player, "You chop some logs. The heat of the inferno adze incinerates them.")
                 Projectile.create(player, null, 1776, 35, 30, 20, 25)
                     .transform(player, player.location.transform(2, 0, 0), true, 25, 25).send()
-
-                /**
+                /*
                  * Add woodcutting experience.
                  */
                 player.getSkills().addExperience(Skills.WOODCUTTING, resource.experience)
 
-                /**
+                /*
                  * Nullcheck the fire, and only if it exists award the firemaking XP.
                  */
                 val fire = Log.forId(reward)
@@ -109,19 +108,19 @@ class WoodcuttingListener : InteractionListener {
             }
 
             if (reward > 0) {
-                /**
+                /*
                  * Calculate amount
                  */
                 rewardAmount = calculateRewardAmount(player, reward)
 
-                /**
+                /*
                  * Add experience.
                  */
                 val experience: Double = calculateExperience(player, resource, rewardAmount)
                 player.getSkills().addExperience(Skills.WOODCUTTING, experience, true)
 
-                /**
-                 * send the message for the resource reward.
+                /*
+                 * Send the message for the resource reward.
                  */
                 if (resource == WoodcuttingNode.DRAMEN_TREE) {
                     player.packetDispatch.sendMessage("You cut a branch from the Dramen tree.")
@@ -129,7 +128,7 @@ class WoodcuttingListener : InteractionListener {
                     player.packetDispatch.sendMessage("You get some " + ItemDefinition.forId(reward).name.lowercase() + ".")
                 }
 
-                /**
+                /*
                  * Give the reward.
                  */
                 player.inventory.add(Item(reward, rewardAmount))
@@ -137,7 +136,7 @@ class WoodcuttingListener : InteractionListener {
                 var cutLogs = player.getAttribute("$STATS_BASE:$STATS_LOGS", 0)
                 setAttribute(player, "/save:$STATS_BASE:$STATS_LOGS", ++cutLogs)
 
-                /**
+                /*
                  * Calculate bonus bird nest for mining.
                  */
                 val chance = 282
@@ -162,8 +161,8 @@ class WoodcuttingListener : InteractionListener {
     }
 
     private fun rollDepletion(player: Player, node: Scenery, resource: WoodcuttingNode): Boolean {
-        /**
-         * Transform to depleted version.
+        /*
+         * Transform to a depleted version.
          * OSRS and RS3 Wikis both agree: All trees present in 2009 are a 1/8 fell chance, aside from normal trees/dead trees which are 100%
          * OSRS: https://oldschool.runescape.wiki/w/Woodcutting scroll down to the mechanics section
          * RS3 : https://runescape.wiki/w/Woodcutting scroll down to the mechanics section, and expand the tree felling chances table
@@ -255,14 +254,14 @@ class WoodcuttingListener : InteractionListener {
     private fun calculateRewardAmount(player: Player, reward: Int): Int {
         var amount = 1
 
-        /**
+        /*
          * Hollow tree 10% chance of obtaining.
          */
         if (reward == 3239 && RandomFunction.random(100) >= 10) {
             amount = 0
         }
 
-        /**
+        /*
          * Seers village medium reward - extra normal log while in seer's village.
          */
         if (reward == 1511 && isDiaryComplete(player, DiaryType.SEERS_VILLAGE, 1) && player.viewport.region.id == 10806) {
@@ -279,11 +278,11 @@ class WoodcuttingListener : InteractionListener {
             return 1.0
         }
 
-        /**
+        /*
          * Bark.
          */
         if (reward == 3239) {
-            /**
+            /*
              * If we receive the item, give the full experience points otherwise give the base amount.
              */
             if (amount >= 1) {
@@ -293,7 +292,7 @@ class WoodcuttingListener : InteractionListener {
             }
         }
 
-        /**
+        /*
          * Seers village medium reward - extra 10% xp from maples while wearing headband.
          */
         if (reward == 1517 && player.achievementDiaryManager.getDiary(DiaryType.SEERS_VILLAGE)!!.isComplete(1) && player.equipment.get(EquipmentContainer.SLOT_HAT) != null && player.equipment.get(EquipmentContainer.SLOT_HAT).id == 14631) {

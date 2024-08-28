@@ -39,36 +39,30 @@ class DragonforgeListeners : InteractionListener {
 
     override fun defineListeners() {
 
-        /**
-         * Dragonkin anvil interactions.
+        /*
+         * Handling the Dragonkin anvil interactions.
          */
-        onUseWith(IntType.SCENERY, DRAGON_ANVIL, *RUINED_PIECES) { player, _, _ ->
-            // Check if the player has the required quest "While Guthix Sleeps"
-            if (!hasRequirement(player, "While Guthix Sleeps")) return@onUseWith false
 
-            // Check if the player's Smithing level is at least 92
+        onUseWith(IntType.SCENERY, DRAGON_ANVIL, *RUINED_PIECES) { player, _, _ ->
+            if (!hasRequirement(player, "While Guthix Sleeps")) return@onUseWith false
             if (getStatLevel(player, Skills.SMITHING) < 92) {
                 sendMessage(player, "You need at least 92 smithing level to do this.")
                 return@onUseWith false
             }
 
-            // Check if the player has the fusion hammer in their inventory
             if (!player.inventory.containsItem(FUSION_HAMMER)) {
                 sendDialogue(player, "You need a hammer to work the metal with.")
                 return@onUseWith false
             }
 
-            // Check if the player has any of the ruined dragon armour pieces in their inventory
             if (!anyInInventory(player, *RUINED_PIECES)) {
                 sendDialogue(player, "you do not have the required items.")
                 return@onUseWith false
             }
 
-            // Lock the player's actions and interactions for a certain duration
             lock(player, 1000)
             lockInteractions(player, 1000)
 
-            // Queue a script with multiple stages
             queueScript(player, 1, QueueStrength.SOFT) { stage: Int ->
                 when (stage) {
                     0 -> {
@@ -78,7 +72,6 @@ class DragonforgeListeners : InteractionListener {
                     }
 
                     1 -> {
-                        // Remove the ruined dragon armour pieces from the player's inventory
                         if (removeAll(player, RUINED_PIECES)) {
                             sendMessage(player, "You finish your efforts...")
                             removeItem(player, FUSION_HAMMER)
@@ -95,11 +88,11 @@ class DragonforgeListeners : InteractionListener {
             return@onUseWith true
         }
 
-        /**
-         * Mithril doors interactions.
+        /*
+         * Handling the mithril doors interactions.
          */
+
         on(MITHRIL_DOOR, IntType.SCENERY, "open") { player, node ->
-            // Check if the player has the Dragonkin key or has completed the quest "While Guthix Sleeps"
             if (!inInventory(player, Items.DRAGONKIN_KEY_14471) && !hasRequirement(player, "While Guthix Sleeps", false)) {
                 sendDialogue(player, "The door is solid and resists all attempts to open it. There's no way past it at all, so best to ignore it.")
                 return@on true
@@ -114,7 +107,6 @@ class DragonforgeListeners : InteractionListener {
         }
 
         onUseWith(IntType.SCENERY, Items.DRAGONKIN_KEY_14471, *MITHRIL_DOOR) { player, _, node ->
-            // Check if the player has the Dragonkin key or has completed the quest "While Guthix Sleeps"
             if (!inInventory(player, Items.DRAGONKIN_KEY_14471) && !hasRequirement(player, "While Guthix Sleeps", false)) {
                 sendDialogue(player, "The door is solid and resists all attempts to open it. There's no way past it at all, so best to ignore it.")
                 return@onUseWith true
@@ -127,14 +119,13 @@ class DragonforgeListeners : InteractionListener {
             return@onUseWith true
         }
 
-        /**
-         * Dragonkin key fusing.
+        /*
+         * Handling the dragonkin key fusing.
          */
+
         onUseWith(IntType.NPC, STRANGE_KEYS, *MITHRIL_DRAGON_NPC) { player, _, with ->
             val npc = with.asNpc()
-            // Check if the player has the strange keys and the required shield equipped
             if (player.inventory.containItems(*STRANGE_KEYS) && player.equipment.containsAtLeastOneItem(REQUIRED_SHIELD)) {
-                // Check if the player has the quest requirement "While Guthix Sleeps"
                 if (!hasRequirement(player, "While Guthix Sleeps", false)) {
                     sendMessage(player, "You cannot currently use any items on that dragon.")
                     return@onUseWith true
@@ -154,7 +145,6 @@ class DragonforgeListeners : InteractionListener {
                             }
 
                             3 -> {
-                                // Remove the strange keys from the player's inventory and add the Dragonkin key
                                 player.inventory.removeAll(STRANGE_KEYS)
                                 sendItemDialogue(player, DRAGONKIN_KEY, "The intense heat of the mithril dragon's breath fuses the key halves together.")
                                 player.inventory.add(DRAGONKIN_KEY)

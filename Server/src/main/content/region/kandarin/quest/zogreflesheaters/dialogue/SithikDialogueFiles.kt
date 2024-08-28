@@ -15,6 +15,7 @@ import core.tools.END_DIALOGUE
  * Sithik dialogue files.
  */
 class SithikDialogueFiles : DialogueFile() {
+
     override fun handle(componentID: Int, buttonID: Int) {
         npc = NPC(NPCs.SITHIK_INTS_2061)
         when (stage) {
@@ -41,6 +42,7 @@ class SithikDialogueFiles : DialogueFile() {
  * Sithik permission dialogue file.
  */
 class SithikPermissionDialogueFile : DialogueFile() {
+
     override fun handle(componentID: Int, buttonID: Int) {
         npc = NPC(NPCs.SITHIK_INTS_2061)
         when (stage) {
@@ -55,6 +57,7 @@ class SithikPermissionDialogueFile : DialogueFile() {
  * Sithik quest dialogue file.
  */
 class SithikQuestDialogueFile : DialogueFile() {
+
     override fun handle(componentID: Int, buttonID: Int) {
         npc = NPC(NPCs.SITHIK_INTS_2061)
         when (stage) {
@@ -115,6 +118,7 @@ class SithikQuestDialogueFile : DialogueFile() {
  * Sithik ints portraiture book dialogue file.
  */
 class SithikIntsPortraitureBookDialogueFile : DialogueFile() {
+
     override fun handle(componentID: Int, buttonID: Int) {
         npc = NPC(NPCs.SITHIK_INTS_2061)
         when (stage) {
@@ -131,6 +135,7 @@ class SithikIntsPortraitureBookDialogueFile : DialogueFile() {
  * Sithik ints ham book dialogue file.
  */
 class SithikIntsHamBookDialogueFile : DialogueFile() {
+
     override fun handle(componentID: Int, buttonID: Int) {
         npc = NPC(NPCs.SITHIK_INTS_2061)
         when (stage) {
@@ -148,6 +153,7 @@ class SithikIntsHamBookDialogueFile : DialogueFile() {
  * Sithik ints necromancy book dialogue file.
  */
 class SithikIntsNecromancyBookDialogueFile : DialogueFile() {
+
     override fun handle(componentID: Int, buttonID: Int) {
         npc = NPC(NPCs.SITHIK_INTS_2061)
         when (stage) {
@@ -165,6 +171,7 @@ class SithikIntsNecromancyBookDialogueFile : DialogueFile() {
  * Sithik ints torn page dialogue file.
  */
 class SithikIntsTornPageDialogueFile : DialogueFile() {
+
     override fun handle(componentID: Int, buttonID: Int) {
         npc = NPC(NPCs.SITHIK_INTS_2061)
         when (stage) {
@@ -181,6 +188,7 @@ class SithikIntsTornPageDialogueFile : DialogueFile() {
  * Sithik ints black prism dialogue file.
  */
 class SithikIntsBlackPrismDialogueFile : DialogueFile() {
+
     override fun handle(componentID: Int, buttonID: Int) {
         npc = NPC(NPCs.SITHIK_INTS_2061)
         when (stage) {
@@ -197,6 +205,7 @@ class SithikIntsBlackPrismDialogueFile : DialogueFile() {
  * Sithik ints dragon tankard dialogue file.
  */
 class SithikIntsDragonTankardDialogueFile : DialogueFile() {
+
     override fun handle(componentID: Int, buttonID: Int) {
         npc = NPC(NPCs.SITHIK_INTS_2061)
         when (stage) {
@@ -214,6 +223,7 @@ class SithikIntsDragonTankardDialogueFile : DialogueFile() {
  * Sithik ints portrait dialogue file.
  */
 class SithikIntsPortraitDialogueFile : DialogueFile() {
+
     override fun handle(componentID: Int, buttonID: Int) {
         val papyrus = Item(Items.PAPYRUS_970)
         val correctPortrait = ZogreQuestUtils.REALIST_PORTRAIT
@@ -253,6 +263,7 @@ class SithikIntsPortraitDialogueFile : DialogueFile() {
  * Sithik ints used portrait dialogue file.
  */
 class SithikIntsUsedPortraitDialogueFile : DialogueFile() {
+
     override fun handle(componentID: Int, buttonID: Int) {
         npc = NPC(NPCs.SITHIK_INTS_2061)
         when (stage) {
@@ -272,6 +283,7 @@ class SithikIntsUsedPortraitDialogueFile : DialogueFile() {
  * Sithik ints signed portrait dialogue file.
  */
 class SithikIntsSignedPortraitDialogueFile : DialogueFile() {
+
     override fun handle(componentID: Int, buttonID: Int) {
         npc = NPC(NPCs.SITHIK_INTS_2061)
         when (stage) {
@@ -307,6 +319,7 @@ class SithikIntsSignedPortraitDialogueFile : DialogueFile() {
  * Sithik ints strange potion dialogue file.
  */
 class SithikIntsStrangePotionDialogueFile : DialogueFile() {
+
     override fun handle(componentID: Int, buttonID: Int) {
         npc = NPC(NPCs.SITHIK_INTS_2061)
         when (stage) {
@@ -320,6 +333,7 @@ class SithikIntsStrangePotionDialogueFile : DialogueFile() {
  * Sithik ints after transform dialogue file.
  */
 class SithikIntsAfterTransformDialogueFile : DialogueFile() {
+
     override fun handle(componentID: Int, buttonID: Int) {
         npc = NPC(NPCs.SITHIK_INTS_2062)
         when (stage) {
@@ -355,6 +369,7 @@ class SithikIntsAfterTransformDialogueFile : DialogueFile() {
  * Sithik talk again after transform dialogue file.
  */
 class SithikTalkAgainAfterTransformDialogueFile : DialogueFile() {
+
     override fun handle(componentID: Int, buttonID: Int) {
         npc = NPC(NPCs.SITHIK_INTS_2062)
         when (stage) {

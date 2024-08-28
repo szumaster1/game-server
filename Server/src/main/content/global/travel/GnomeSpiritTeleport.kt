@@ -114,6 +114,7 @@ class GnomeSpiritTreeTeleportDialogue: DialogueFile() {
  * Gnome spirit tree dialogue.
  */
 class GnomeSpiritTreeDialogue: DialogueFile() {
+
     override fun handle(componentID: Int, buttonID: Int) {
         if(!GnomeSpiritTreeTeleportDialogue().hasQuestCompleted(player!!)) {
             stage = END_DIALOGUE

@@ -12,7 +12,6 @@ private val TRIBESMAN_NPC = intArrayOf(NPCs.TRIBESMAN_191, NPCs.TRIBESMAN_2496, 
 
 /**
  * Represents the Tribesman NPC.
- * @author Szumaster
  */
 class TribesmanNPC : NPCBehavior(*TRIBESMAN_NPC) {
 

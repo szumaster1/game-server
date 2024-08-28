@@ -26,7 +26,7 @@ class BrimhavenListeners : InteractionListener {
     override fun defineListeners() {
 
         /*
-         * Handle the interaction when the player climbs up the Agility Arena exit ladder.
+         * Handle climbs up the Agility Arena exit ladder.
          */
 
         on(AGILITY_ARENA_EXIT_LADDER, IntType.SCENERY, "climb-up") { player, _ ->
@@ -35,7 +35,7 @@ class BrimhavenListeners : InteractionListener {
         }
 
         /*
-         * Handle the interaction when the player climbs down the Agility Arena entrance ladder.
+         * Handle climbs down the Agility Arena entrance ladder.
          */
 
         on(AGILITY_ARENA_ENTRANCE_LADDER, IntType.SCENERY, "climb-down") { player, _ ->
@@ -50,7 +50,7 @@ class BrimhavenListeners : InteractionListener {
         }
 
         /*
-         * Handle the interaction when the player talks to Cap'n Izzy No-Beard without a beard.
+         * Handle talks to Cap'n Izzy No-Beard without a beard.
          */
 
         on(NPCs.CAPN_IZZY_NO_BEARD_437, IntType.NPC, "talk-to") { player, node ->
@@ -59,7 +59,7 @@ class BrimhavenListeners : InteractionListener {
         }
 
         /*
-         * Handle the interaction when the player pays Cap'n Izzy No-Beard without a beard.
+         * Handle pays Cap'n Izzy No-Beard without a beard.
          */
 
         on(NPCs.CAPN_IZZY_NO_BEARD_437, IntType.NPC, "pay") { player, node ->
@@ -68,7 +68,7 @@ class BrimhavenListeners : InteractionListener {
         }
 
         /*
-         * Handle the interaction when the player talks to Pirate Jackie the Fruit.
+         * Handle talks to Pirate Jackie the Fruit.
          */
 
         on(NPCs.PIRATE_JACKIE_THE_FRUIT_1055, IntType.NPC, "talk-to") { player, node ->
@@ -77,7 +77,7 @@ class BrimhavenListeners : InteractionListener {
         }
 
         /*
-         * Handle the interaction when the player trades with Pirate Jackie the Fruit.
+         * Handle trades with Pirate Jackie the Fruit.
          */
 
         on(NPCs.PIRATE_JACKIE_THE_FRUIT_1055, IntType.NPC, "trade") { player, _ ->
@@ -86,7 +86,7 @@ class BrimhavenListeners : InteractionListener {
         }
 
         /*
-         * Handle the interaction when the player tries to open the rear door of the restaurant.
+         * Handle tries to open the rear door of the restaurant.
          */
 
         on(RESTAURANT_REAR_DOOR, IntType.SCENERY, "open") { player, _ ->
@@ -96,7 +96,7 @@ class BrimhavenListeners : InteractionListener {
         }
 
         /*
-         * Handle the interaction when the player tries to fish at the Karambwan fishing spot.
+         * Handle tries to fish at the Karambwan fishing spot.
          */
 
         on(KARAMBWAN_FISHING_SPOT, IntType.NPC, "fish") { player, _ ->

@@ -47,7 +47,6 @@ class PlayerSafetyListener : InteractionListener {
             if (player.savedData.globalData.getTestStage() == 2) {
                 sendDialogue(player, "You have already completed the test. Hand it in to Professor Henry for marking.")
             } else {
-                // Open the exam interface for the player.
                 openInterface(player, Components.PLAYER_SAFETY_EXAM_697)
             }
             return@on true
@@ -140,36 +139,33 @@ class PlayerSafetyListener : InteractionListener {
 
         on(29729, IntType.SCENERY, "climb") { player, _ ->
             if (!getAttribute(player, ATTRIBUTE_CLIMB_CREVICE, false)) {
-                // Set attribute indicating the player has climbed the crevice.
                 setAttribute(player, ATTRIBUTE_CLIMB_CREVICE, true)
             }
-            // Teleport player to the specified location when climbing.
             teleport(player, Location.create(3077, 3462, 0))
             return@on true
         }
 
         /*
-         * Reading plaques interaction.
+         * Reading the plaque interaction.
          */
 
         on((29595..29601).toIntArray(), IntType.SCENERY, "Read-plaque on") { player, node ->
-            player.lock() // Prevent client crash during reading.
-            read(player, node) // Call the read function to handle plaque reading.
+            player.lock()
+            read(player, node)
             return@on true
         }
 
         /*
-         * Listener for using a specific scenery.
+         * Listener for using specific scenery.
          */
 
         on(29623, IntType.SCENERY, "use") { player, _ ->
-            // Teleport player to the specified location.
             teleport(player, Location.create(3077, 4235, 0))
             return@on true
         }
 
         /*
-         * Listener for pulling a specific scenery.
+         * Listener for pulling specific scenery.
          */
 
         on(29730, IntType.SCENERY, "pull") { player, _ ->

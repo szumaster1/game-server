@@ -18,6 +18,7 @@ import core.tools.END_DIALOGUE
  * Represents the King bolren dialogue file.
  */
 class KingBolrenDialogueFile : DialogueFile() {
+
     override fun handle(componentID: Int, buttonID: Int) {
         npc = NPC(NPCs.KING_BOLREN_469)
         val questStage = getQuestStage(player!!, "Tree Gnome Village")

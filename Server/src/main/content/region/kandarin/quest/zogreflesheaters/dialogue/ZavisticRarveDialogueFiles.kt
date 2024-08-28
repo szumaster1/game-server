@@ -51,6 +51,7 @@ class ZavisticRarveDialogueFiles : DialogueFile() {
  * Zavistic rarve default dialogue.
  */
 class ZavisticRarveDefaultDialogue : DialogueFile() {
+
     override fun handle(componentID: Int, buttonID: Int) {
         npc = NPC(NPCs.ZAVISTIC_RARVE_2059)
         when (stage) {
@@ -73,6 +74,7 @@ class ZavisticRarveDefaultDialogue : DialogueFile() {
  * Zavistic rarve default quest dialogue.
  */
 class ZavisticRarveDefaultQuestDialogue : DialogueFile() {
+
     override fun handle(componentID: Int, buttonID: Int) {
         npc = NPC(NPCs.ZAVISTIC_RARVE_2059)
         when (stage) {
@@ -169,6 +171,7 @@ class ZavisticRarveDefaultQuestDialogue : DialogueFile() {
  * Zavistic rarve has both items dialogue.
  */
 class ZavisticRarveHasBothItemsDialogue : DialogueFile() {
+
     override fun handle(componentID: Int, buttonID: Int) {
         npc = NPC(NPCs.ZAVISTIC_RARVE_2059)
         when (stage) {
@@ -203,6 +206,7 @@ class ZavisticRarveHasBothItemsDialogue : DialogueFile() {
  * Zavistic rarve tankard dialogue.
  */
 class ZavisticRarveTankardDialogue : DialogueFile() {
+
     override fun handle(componentID: Int, buttonID: Int) {
         npc = NPC(NPCs.ZAVISTIC_RARVE_2059)
         when (stage) {
@@ -218,6 +222,7 @@ class ZavisticRarveTankardDialogue : DialogueFile() {
  * Zavistic rarve torn page dialogue.
  */
 class ZavisticRarveTornPageDialogue : DialogueFile() {
+
     override fun handle(componentID: Int, buttonID: Int) {
         npc = NPC(NPCs.ZAVISTIC_RARVE_2059)
         when (stage) {
@@ -238,6 +243,7 @@ class ZavisticRarveTornPageDialogue : DialogueFile() {
  * Zavistic rarve black prism dialogue.
  */
 class ZavisticRarveBlackPrismDialogue : DialogueFile() {
+
     override fun handle(componentID: Int, buttonID: Int) {
         npc = NPC(NPCs.ZAVISTIC_RARVE_2059)
         when (stage) {
@@ -266,6 +272,7 @@ class ZavisticRarveBlackPrismDialogue : DialogueFile() {
  * Zavistic rarve potion dialogue.
  */
 class ZavisticRarvePotionDialogue : DialogueFile() {
+
     override fun handle(componentID: Int, buttonID: Int) {
         npc = NPC(NPCs.ZAVISTIC_RARVE_2059)
         when (stage) {
@@ -295,6 +302,7 @@ class ZavisticRarvePotionDialogue : DialogueFile() {
  * Zavistic rarve last dialogue.
  */
 class ZavisticRarveLastDialogue : DialogueFile() {
+
     override fun handle(componentID: Int, buttonID: Int) {
         npc = NPC(NPCs.ZAVISTIC_RARVE_2059)
         when (stage) {

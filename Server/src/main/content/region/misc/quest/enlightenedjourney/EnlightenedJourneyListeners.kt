@@ -16,7 +16,7 @@ class EnlightenedJourneyListeners : InteractionListener {
     override fun defineListeners() {
 
         /*
-         * Handle using branches on basket.
+         * Handling using branches on a basket.
          */
 
         onUseWith(IntType.SCENERY, Items.WILLOW_BRANCH_5933, BASKET) { player, _, _ ->

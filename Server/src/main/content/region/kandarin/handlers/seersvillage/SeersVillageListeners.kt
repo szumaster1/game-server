@@ -58,6 +58,7 @@ class SeersVillageListeners : InteractionListener {
         /*
          * Ticket merchant interaction - Ranging guild.
          */
+
         on(TICKET_MERCHANT, IntType.NPC, "trade") { player: Player, _: Node ->
             openInterface(player, Components.RANGING_GUILD_TICKET_EXCHANGE_278)
             return@on true
@@ -101,5 +102,7 @@ class SeersVillageListeners : InteractionListener {
             }
             return@on true
         }
+
     }
+
 }

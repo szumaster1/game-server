@@ -11,6 +11,7 @@ import core.tools.BLUE
  * Servant rick dialogue.
  */
 class ServantRickDialogue : DialogueFile() {
+
     override fun handle(componentID: Int, buttonID: Int) {
         npc = NPC(NPCs.RICK_4235)
         when (stage) {
@@ -26,6 +27,7 @@ class ServantRickDialogue : DialogueFile() {
  * Servant rick dialogue extension.
  */
 class ServantRickDialogueExtension : DialogueFile() {
+
     override fun handle(componentID: Int, buttonID: Int) {
         npc = NPC(NPCs.RICK_4235)
         when (stage) {
@@ -42,6 +44,7 @@ class ServantRickDialogueExtension : DialogueFile() {
  * Servant maid dialogue.
  */
 class ServantMaidDialogue : DialogueFile() {
+
     override fun handle(componentID: Int, buttonID: Int) {
         npc = NPC(NPCs.MAID_4237)
         when (stage) {
@@ -57,6 +60,7 @@ class ServantMaidDialogue : DialogueFile() {
  * Servant maid dialogue extension.
  */
 class ServantMaidDialogueExtension : DialogueFile() {
+
     override fun handle(componentID: Int, buttonID: Int) {
         npc = NPC(NPCs.MAID_4237)
         when (stage) {
@@ -74,6 +78,7 @@ class ServantMaidDialogueExtension : DialogueFile() {
  * Servant cook dialogue.
  */
 class ServantCookDialogue : DialogueFile() {
+
     override fun handle(componentID: Int, buttonID: Int) {
         npc = NPC(NPCs.COOK_4239)
         when (stage) {
@@ -89,6 +94,7 @@ class ServantCookDialogue : DialogueFile() {
  * Servant cook dialogue extension.
  */
 class ServantCookDialogueExtension : DialogueFile() {
+
     override fun handle(componentID: Int, buttonID: Int) {
         npc = NPC(NPCs.COOK_4239)
         when (stage) {
@@ -105,6 +111,7 @@ class ServantCookDialogueExtension : DialogueFile() {
  * Servant butler dialogue.
  */
 class ServantButlerDialogue : DialogueFile() {
+
     override fun handle(componentID: Int, buttonID: Int) {
         npc = NPC(NPCs.BUTLER_4241)
         when (stage) {
@@ -120,6 +127,7 @@ class ServantButlerDialogue : DialogueFile() {
  * Servant butler dialogue extension.
  */
 class ServantButlerDialogueExtension : DialogueFile() {
+
     override fun handle(componentID: Int, buttonID: Int) {
         npc = NPC(NPCs.BUTLER_4241)
         when (stage) {
@@ -136,6 +144,7 @@ class ServantButlerDialogueExtension : DialogueFile() {
  * Servant demon butler dialogue.
  */
 class ServantDemonButlerDialogue : DialogueFile() {
+
     override fun handle(componentID: Int, buttonID: Int) {
         npc = NPC(NPCs.DEMON_BUTLER_4243)
         when (stage) {
@@ -151,6 +160,7 @@ class ServantDemonButlerDialogue : DialogueFile() {
  * Servant demon butler dialogue extension.
  */
 class ServantDemonButlerDialogueExtension : DialogueFile() {
+
     override fun handle(componentID: Int, buttonID: Int) {
         npc = NPC(NPCs.DEMON_BUTLER_4243)
         when (stage) {

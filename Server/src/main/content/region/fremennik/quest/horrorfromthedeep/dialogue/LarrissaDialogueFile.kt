@@ -11,6 +11,7 @@ import core.tools.END_DIALOGUE
  * Represents the Larrissa dialogue file related to Horror from the deep quest.
  */
 class LarrissaDialogueFile : DialogueFile() {
+
     override fun handle(componentID: Int, buttonID: Int) {
         when (getQuestStage(player!!, "Horror from the Deep")) {
             0 -> when (stage) {

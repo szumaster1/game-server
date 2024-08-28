@@ -13,6 +13,7 @@ import core.tools.END_DIALOGUE
  */
 @Initializable
 class CommanderVeldabanDDialogue(player: Player? = null) : Dialogue(player) {
+
     override fun handle(componentID: Int, buttonID: Int): Boolean {
         when (getQuestStage(player!!, "The Giant Dwarf")) {
             in 2..3 -> when (stage) {

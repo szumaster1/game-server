@@ -2,6 +2,7 @@ package content.region.karamja.quest.tribaltotem
 
 import core.api.*
 import cfg.consts.Items
+import cfg.consts.Scenery
 import core.game.global.action.DoorActionHandler
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
@@ -15,15 +16,14 @@ import core.game.world.update.flag.context.Animation
  */
 class TribalTotemListeners : InteractionListener {
 
-    // Define the IDs for various objects in the game
-    val frontDoor = 2706
-    val wizCrate = 2707
-    val realCrate = 2708
-    val label = Items.ADDRESS_LABEL_1858
-    val lockedDoor = 2705
-    val stairs = 2711
-    val closedChest = 2709
-    val openChest = 2710
+    private val lockedDoor = Scenery.DOOR_2705
+    private val frontDoor = Scenery.DOOR_2706
+    private val wizCrate = Scenery.CRATE_2707
+    private val realCrate = Scenery.CRATE_2708
+    private val label = Items.ADDRESS_LABEL_1858
+    private val closedChest = Scenery.CHEST_2709
+    private val openChest = Scenery.CHEST_2710
+    private val stairs = Scenery.STAIRS_2711
 
     override fun defineListeners() {
 

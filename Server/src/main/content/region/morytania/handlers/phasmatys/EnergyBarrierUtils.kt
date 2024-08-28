@@ -16,7 +16,7 @@ import core.game.world.map.Location
 object EnergyBarrierUtils {
 
     /**
-     * Pass gate.
+     * Pass the gate.
      *
      * @param player the player.
      * @param node the node.
@@ -39,7 +39,7 @@ object EnergyBarrierUtils {
     }
 
     /**
-     * Pass gate by talk.
+     * Pass the gate by talk.
      *
      * @param player the player.
      * @param node the node.
@@ -69,7 +69,7 @@ object EnergyBarrierUtils {
     }
 
     /**
-     * Pass gate after quest.
+     * Pass the gate after a quest.
      *
      * @param player the player.
      * @param node the node.

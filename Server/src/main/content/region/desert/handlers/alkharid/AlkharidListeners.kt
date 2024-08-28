@@ -1,11 +1,11 @@
 package content.region.desert.handlers.alkharid
 
-import content.region.desert.dialogue.alkharid.AlKharidHealDialogue
-import content.region.desert.dialogue.alkharid.AliTheLeafletDropperDialogue
-import content.region.desert.dialogue.alkharid.BorderGuardDialogue
 import core.api.*
 import cfg.consts.Items
 import cfg.consts.NPCs
+import content.location.alkharid.AlKharidHealDialogue
+import content.location.alkharid.AliTheLeafletDropperDialogue
+import content.location.alkharid.BorderGuardDialogue
 import core.game.global.action.DoorActionHandler
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener

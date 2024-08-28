@@ -1,7 +1,7 @@
 package content.region.fremennik.quest.throneofmiscellania.dialogue
 
-import content.region.fremennik.dialogue.miscellania.AdvisorGhrimDiaryDialogue
 import cfg.consts.NPCs
+import content.location.miscellania.AdvisorGhrimDiaryDialogue
 import core.api.openDialogue
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression

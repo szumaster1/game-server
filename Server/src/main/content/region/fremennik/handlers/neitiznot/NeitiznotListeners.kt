@@ -34,7 +34,10 @@ class NeitiznotListeners : InteractionListener {
     }
 
     override fun defineListeners() {
-        // Define a new MapZone for Neitiznot
+        /*
+         * Define a new MapZone for Neitiznot.
+         */
+
         val zone = object : MapZone("Yakzone", true) {
             override fun handleUseWith(player: Player, used: Item?, with: Node?): Boolean {
                 // Check if the player interacts with a specific NPC
@@ -46,34 +49,43 @@ class NeitiznotListeners : InteractionListener {
             }
         }
 
-        // Register the defined MapZone with specific ZoneBorders
+        /*
+         * Register the defined MapZone with specific ZoneBorders.
+         */
+
         registerMapZone(zone, ZoneBorders(2313, 3786, 2331, 3802))
 
-        // Add climb destinations for specific locations
+        /*
+         * Add climb destinations for specific locations.
+         */
+
         addClimbDest(Location.create(2363, 3799, 0), Location.create(2364, 3799, 2))
         addClimbDest(Location.create(2363, 3799, 2), Location.create(2362, 3799, 0))
 
-        // Handles the action of using Arctic Pine logs on the Woodcutting Stump.
+        /*
+         * Handles the action of using Arctic Pine logs on the Woodcutting Stump.
+         */
+
         onUseWith(IntType.SCENERY, ARCTIC_PINE, WC_STUMP) { player, _, _ ->
             getLogsSplit(player)
             return@onUseWith true
         }
 
-        // Handles the action of cutting wood at the Woodcutting Stump.
+        /*
+         * Handles the action of cutting wood at the Woodcutting Stump.
+         */
+
         on(WC_STUMP, IntType.SCENERY, "Cut-wood") { player, _ ->
             getLogsSplit(player)
             return@on true
         }
     }
 
-    // Splits the logs and performs the necessary actions.
     private fun getLogsSplit(player: Player): Boolean {
-        // Checks if the player has an axe.
         if (SkillingTool.getHatchet(player) == null) {
             sendDialogue(player, "You need an axe in order to do this.")
             return false
         }
-        // Checks if the player's Woodcutting level is below 54.
         if(getStatLevel(player, Skills.WOODCUTTING) < 54){
             sendMessage(player,"You need a woodcutting level of 54 in order to do this.")
             return false

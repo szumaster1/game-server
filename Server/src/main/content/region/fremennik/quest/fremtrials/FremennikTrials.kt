@@ -22,7 +22,7 @@ class FremennikTrials : Quest("Fremennik Trials", 64, 63, 3, Vars.VARP_QUEST_FRE
     override fun drawJournal(player: Player, stage: Int) {
         super.drawJournal(player, stage)
         var line = 11
-        val started = getQuestStage(player!!, "Fremennik Trials") > 0
+        val started = getQuestStage(player, "Fremennik Trials") > 0
 
         if (!started) {
             line(player, "Requirements to complete quest:", line++)

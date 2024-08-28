@@ -19,7 +19,7 @@ class RoyalTroubleListeners : InteractionListener {
     override fun defineListeners() {
 
         /*
-            Searching the fire for Armod's diary pages.
+         * Searching the fire for Armod's diary pages.
          */
 
         on(FIRE_REMAINS, IntType.SCENERY, "search") { player, node ->

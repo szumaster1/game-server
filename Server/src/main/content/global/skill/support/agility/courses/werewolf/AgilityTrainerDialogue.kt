@@ -11,6 +11,7 @@ import core.tools.RandomFunction
  * Agility trainer dialogue.
  */
 class AgilityTrainerDialogue : DialogueFile() {
+
     override fun handle(componentID: Int, buttonID: Int) {
         val stages = RandomFunction.random(0, 1)
         npc = NPC(NPCs.AGILITY_TRAINER_1664)
@@ -26,6 +27,7 @@ class AgilityTrainerDialogue : DialogueFile() {
  * Agility trainer stick dialogue.
  */
 class AgilityTrainerStickDialogue : DialogueFile() {
+
     override fun handle(componentID: Int, buttonID: Int) {
         npc = NPC(NPCs.AGILITY_TRAINER_1664)
         when (stage) {

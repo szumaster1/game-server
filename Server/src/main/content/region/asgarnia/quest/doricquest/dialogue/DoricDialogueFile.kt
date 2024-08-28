@@ -13,6 +13,7 @@ import core.tools.END_DIALOGUE
  * Represents the Doric dialogue file.
  */
 class DoricDialogueFile(private val questStage: Int) : DialogueFile() {
+
     override fun handle(componentID: Int, buttonID: Int) {
         when (questStage) {
             10 -> handleQuestStartDialogue(player, false)

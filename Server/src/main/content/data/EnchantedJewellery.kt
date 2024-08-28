@@ -6,6 +6,7 @@ import core.ServerConstants
 import core.api.*
 import cfg.consts.Items
 import cfg.consts.Sounds
+import core.Util
 import core.game.dialogue.FacialExpression
 import core.game.event.TeleportEvent
 import core.game.node.entity.player.Player
@@ -16,10 +17,9 @@ import core.game.world.GameWorld.Pulser
 import core.game.world.map.Location
 import core.game.world.update.flag.context.Animation
 import core.game.world.update.flag.context.Graphic
-import core.tools.NumberConverter
 
 /**
- * Represents an enchanted jewellery.
+ * Represents enchanted jewelry.
  * @author Vexia, downthecrop, Player Name
  */
 enum class EnchantedJewellery(val options: Array<String>, val locations: Array<Location>, crumble: Boolean, vararg val ids: Int) {
@@ -136,7 +136,7 @@ enum class EnchantedJewellery(val options: Array<String>, val locations: Array<L
                         }
                         unlock(player)
                         val jewellery = nextJewellery.name.replace("[^\\d-]|-(?=\\D)".toRegex(), "").toInt()
-                        sendMessage(player, "Your " + getJewelleryType(item) + " has " + NumberConverter.convert(jewellery) + " uses left.")
+                        sendMessage(player, "Your " + getJewelleryType(item) + " has " + Util.convert(jewellery) + " uses left.")
                         player.dispatch(TeleportEvent(TeleportManager.TeleportType.NORMAL, TeleportMethod.JEWELRY, item, location))
                         return true
                     }

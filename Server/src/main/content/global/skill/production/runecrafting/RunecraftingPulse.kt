@@ -11,6 +11,7 @@ import cfg.consts.Animations
 import cfg.consts.Graphics
 import cfg.consts.Items
 import cfg.consts.Sounds
+import core.Util
 import core.game.container.impl.EquipmentContainer
 import core.game.node.entity.impl.Animator.Priority
 import core.game.node.entity.player.Player
@@ -23,7 +24,6 @@ import core.game.system.command.sets.STATS_RC
 import core.game.world.GameWorld.ticks
 import core.game.world.update.flag.context.Animation
 import core.game.world.update.flag.context.Graphic
-import core.tools.NumberConverter
 import core.tools.RandomFunction
 import kotlin.math.max
 
@@ -235,7 +235,7 @@ class RunecraftingPulse(
                 if (hasBindingNecklace()) {
                     var chargeItem = player.equipment[EquipmentContainer.SLOT_AMULET].charge
                     chargeItem -= 1
-                    sendMessage(player, "You have " + NumberConverter.convert(chargeItem - 1) + " charges left before your Binding necklace disintegrates.")
+                    sendMessage(player, "You have " + Util.convert(chargeItem - 1) + " charges left before your Binding necklace disintegrates.")
                     if (1000 - player.equipment[EquipmentContainer.SLOT_AMULET].charge > 14) {
                         player.equipment.remove(BINDING_NECKLACE, true)
                         sendMessage(player,"Your binding necklace crumbles into dust.")

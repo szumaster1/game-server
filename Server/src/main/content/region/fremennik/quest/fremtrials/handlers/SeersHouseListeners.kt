@@ -1116,6 +1116,7 @@ class SeersHouseListeners : InteractionListener {
  * Bull head dialogue.
  */
 class BullHeadDialogue : DialogueFile() {
+
     override fun handle(componentID: Int, buttonID: Int) {
         when (stage) {
             0 -> player!!.dialogueInterpreter.sendDialogue(
@@ -1140,6 +1141,7 @@ class BullHeadDialogue : DialogueFile() {
  * Unicorn head dialogue.
  */
 class UnicornHeadDialogue : DialogueFile() {
+
     override fun handle(componentID: Int, buttonID: Int) {
         when (stage) {
             0 -> player!!.dialogueInterpreter.sendDialogue(

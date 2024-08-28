@@ -14,6 +14,7 @@ import core.tools.END_DIALOGUE
  * Bartender dialogue files.
  */
 class BartenderDialogueFiles : DialogueFile() {
+
     override fun handle(componentID: Int, buttonID: Int) {
         npc = NPC(NPCs.BARTENDER_739)
         when (stage) {
@@ -41,6 +42,7 @@ class BartenderDialogueFiles : DialogueFile() {
  * Bartender black prism dialogue file.
  */
 class BartenderBlackPrismDialogueFile : DialogueFile() {
+
     override fun handle(componentID: Int, buttonID: Int) {
         npc = NPC(NPCs.BARTENDER_739)
         when (stage) {
@@ -55,6 +57,7 @@ class BartenderBlackPrismDialogueFile : DialogueFile() {
  * Bartender torn page dialogue file.
  */
 class BartenderTornPageDialogueFile : DialogueFile() {
+
     override fun handle(componentID: Int, buttonID: Int) {
         npc = NPC(NPCs.BARTENDER_739)
         when (stage) {
@@ -69,6 +72,7 @@ class BartenderTornPageDialogueFile : DialogueFile() {
  * Bartender wrong portrait dialogue file.
  */
 class BartenderWrongPortraitDialogueFile : DialogueFile() {
+
     override fun handle(componentID: Int, buttonID: Int) {
         npc = NPC(NPCs.BARTENDER_739)
         when (stage) {
@@ -85,6 +89,7 @@ class BartenderWrongPortraitDialogueFile : DialogueFile() {
  * Bartender correct portrait dialogue file.
  */
 class BartenderCorrectPortraitDialogueFile : DialogueFile() {
+
     override fun handle(componentID: Int, buttonID: Int) {
         npc = NPC(NPCs.BARTENDER_739)
         when (stage) {

@@ -11,6 +11,7 @@ import core.game.node.entity.npc.NPC
  * Represents the West door support dialogue.
  */
 class WestDoorSupportDialogue : DialogueFile() {
+
     override fun handle(componentID: Int, buttonID: Int) {
         npc = NPC(NPCs.KHAZARD_GUARD_257)
         when (stage) {

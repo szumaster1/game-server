@@ -33,6 +33,7 @@ class KharidianDesertListeners : InteractionListener {
         /*
          * Listener for cutting the cactus.
          */
+
         on(CACTUS, IntType.SCENERY, "cut") { player, node ->
             if (!inInventory(player, KNIFE)) {
                 sendMessage(player, "You need a knife to cut this Cactus...")
@@ -69,6 +70,7 @@ class KharidianDesertListeners : InteractionListener {
     /*
      * This function retrieves the water skin item for a given player.
      */
+
     fun getWaterSkin(player: Player): Item? {
         for (item in WATER_SKINS) {
             if (player.inventory.containsItem(item)) {

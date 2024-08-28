@@ -63,6 +63,7 @@ class MorytaniaMapArea : MapArea {
  * Watch dog dialogue file.
  */
 class WatchDogDialogueFile : DialogueFile() {
+
     override fun handle(componentID: Int, buttonID: Int) {
         when (stage) {
             0 -> npcl(FacialExpression.WORRIED, "Oh this is no good, you surely will not survive here. Let me take you back.").also { stage++ }

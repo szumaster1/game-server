@@ -14,6 +14,7 @@ import core.tools.END_DIALOGUE
  * Represents the Femi dialogue file.
  */
 class FemiDialogueFile : DialogueFile() {
+
     override fun handle(componentID: Int, buttonID: Int) {
         npc = NPC(NPCs.FEMI_676)
         when (stage) {
@@ -57,6 +58,7 @@ class FemiDialogueFile : DialogueFile() {
  * Represents the Femi cart dialogue file.
  */
 class FemiCartDialogueFile : DialogueFile() {
+
     override fun handle(componentID: Int, buttonID: Int) {
         npc = NPC(NPCs.FEMI_676)
         when (stage) {

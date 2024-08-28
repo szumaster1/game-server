@@ -64,6 +64,7 @@ class BedabinListeners : InteractionListener {
         /*
          * Set destination for talking to the Bedabin Nomad Guard NPC
          */
+
         setDest(IntType.NPC, intArrayOf(NPCs.BEDABIN_NOMAD_GUARD_834), "talk-to") { _, _ ->
             return@setDest Location(3169, 3045, 0)
         }

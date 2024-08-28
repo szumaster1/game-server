@@ -22,9 +22,10 @@ class DwarvenMinesListeners : InteractionListener {
 
     override fun defineListeners() {
 
-        /**
+        /*
          * Handling the Dwarven Mines train cart ride.
          */
+
         on(Scenery.TRAIN_CART_7029, IntType.SCENERY, "ride") { player, _ ->
             var visitedKeldagrim = player.getAttribute("keldagrim-visited", false)
             openDialogue(player, object : DialogueFile() {

@@ -92,6 +92,7 @@ class MosleharmlessListeners : InteractionListener {
      * Separate items dialogue.
      */
     class SeparateItemsDialogue : DialogueFile() {
+
         override fun handle(componentID: Int, buttonID: Int) {
             npc = NPC(NPCs.PATCHY_4359)
             when (stage) {

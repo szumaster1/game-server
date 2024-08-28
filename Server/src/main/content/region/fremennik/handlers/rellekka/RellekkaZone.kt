@@ -1,6 +1,6 @@
 package content.region.fremennik.handlers.rellekka
 
-import content.region.fremennik.dialogue.rellekka.JarvaldDialogue
+import content.location.rellekka.JarvaldDialogue
 import core.game.interaction.Option
 import core.game.interaction.OptionHandler
 import core.game.node.Node

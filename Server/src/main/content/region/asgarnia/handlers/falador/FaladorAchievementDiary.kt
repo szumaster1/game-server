@@ -2,7 +2,7 @@ package content.region.asgarnia.handlers.falador
 
 import content.global.skill.gathering.farming.FarmingPatch
 import content.global.skill.production.crafting.data.LightSource
-import content.region.asgarnia.dialogue.falador.RisingSunInnBartenderDialogue
+import content.location.falador.RisingSunInnBartenderDialogue
 import content.region.misc.handlers.zanaris.FairyRing
 import core.api.*
 import cfg.consts.Items

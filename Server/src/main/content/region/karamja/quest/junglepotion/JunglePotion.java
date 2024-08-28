@@ -26,7 +26,7 @@ import static core.api.ContentAPIKt.setVarbit;
 public final class JunglePotion extends Quest {
 
     /**
-     * The constant NAME.
+     * The quest name.
      */
     public static final String NAME = "Jungle Potion";
 
@@ -97,7 +97,7 @@ public final class JunglePotion extends Quest {
     }
 
     /**
-     * The enum Jungle objective.
+     * The Jungle objects.
      */
     public enum JungleObjective {
         /**

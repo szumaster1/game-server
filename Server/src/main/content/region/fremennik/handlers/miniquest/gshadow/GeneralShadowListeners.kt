@@ -13,13 +13,12 @@ import core.game.world.map.Location
  */
 class GeneralShadowListeners : InteractionListener {
 
-    companion object {
-        private const val CAVERN_ENTRANCE = Scenery.CRACK_21800
-    }
-
     override fun defineListeners() {
 
-        on(CAVERN_ENTRANCE, IntType.SCENERY, "Enter") { player, node ->
+        /*
+         * Handle the enter to the cavern.
+         */
+        on(Scenery.CRACK_21800, IntType.SCENERY, "Enter") { player, node ->
             if (getAttribute(player, GSUtils.GS_SEVERED_LEG, false)) {
                 openDialogue(player, object : DialogueFile() {
                     override fun handle(componentID: Int, buttonID: Int) {

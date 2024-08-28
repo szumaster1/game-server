@@ -11,6 +11,7 @@ import core.game.node.entity.npc.NPC
  * Represents the East door support dialogue.
  */
 class EastDoorSupportDialogue : DialogueFile() {
+
     override fun handle(componentID: Int, buttonID: Int) {
         npc = NPC(NPCs.KHAZARD_GUARD_257)
         when (stage) {

@@ -26,19 +26,28 @@ class FaladorListeners : InteractionListener {
 
     override fun defineListeners() {
 
-        // This listener handles the interaction with the poster scenery.
+        /*
+         * This listener handles the interaction with the poster scenery.
+         */
+
         on(POSTER, IntType.SCENERY, "look-at"){ player, _ ->
             sendDialogue(player, "Looks like a generic wanted poster.")
             return@on true
         }
 
-        // This listener handles the closing of doors.
+        /*
+         * This listener handles the closing of doors.
+         */
+
         on(DOORS, IntType.SCENERY, "close") { player, node ->
             DoorActionHandler.handleDoor(player, node.asScenery())
             return@on true
         }
 
-        // This listener handles the opening of the closed cupboard.
+        /*
+         * This listener handles the opening of the closed cupboard.
+         */
+
         on(CUPBOARD_CLOSED, IntType.SCENERY, "open") { player, node ->
             face(player, node)
             animate(player, Animations.OPEN_WARDROBE_542)
@@ -47,7 +56,10 @@ class FaladorListeners : InteractionListener {
             return@on true
         }
 
-        // This listener handles the searching and shutting of the open cupboard.
+        /*
+         * This listener handles the searching and shutting of the open cupboard.
+         */
+
         on(CUPBOARD_OPEN, IntType.SCENERY, "search", "shut") { player, node ->
             when(getUsedOption(player)){
                 "shut" -> {
@@ -70,7 +82,10 @@ class FaladorListeners : InteractionListener {
             return@on true
         }
 
-        // This listener handles the climbing up and down the castle stairs.
+        /*
+         * This listener handles the climbing up and down the castle stairs.
+         */
+
         on(CASTLE_STAIRS, IntType.SCENERY, "climb-up", "climb-down") { player, node ->
             when(node.id){
                 11729 -> if(getUsedOption(player) == "climb-up"){

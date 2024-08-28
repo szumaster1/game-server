@@ -10,6 +10,7 @@ import core.game.dialogue.DialogueFile
  * Schematic crate dialogue.
  */
 class SchematicCrateDialogue : DialogueFile() {
+
     override fun handle(componentID: Int, buttonID: Int) {
         when (stage) {
             0 -> sendDialogueOptions(player!!, "There are two schematics here...", "Crane schematic", "Lever schematic").also { stage++ }

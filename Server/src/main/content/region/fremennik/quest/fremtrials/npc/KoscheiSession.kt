@@ -10,21 +10,17 @@ import core.game.node.entity.player.Player
  * @constructor Represents a Koschei session with the given player.
  */
 class KoscheiSession(val player: Player) {
+
     private val koschei: KoscheiNPC = KoscheiNPC(
-        // Initializing KoscheiNPC with the specific NPC ID
         NPCs.KOSCHEI_THE_DEATHLESS_1290,
-        // Transforming player's location
         player.location?.transform(1, 0, 0),
         this
     )
 
     init {
-        // Checking if the player already has a KoscheiSession extension
         if (player.getExtension<Any?>(KoscheiSession::class.java) != null) {
-            // Removing the existing extension if present
             player.removeExtension(KoscheiSession::class.java)
         }
-        // Adding the KoscheiSession extension to the player
         player.addExtension(KoscheiSession::class.java, this)
     }
 
@@ -35,7 +31,6 @@ class KoscheiSession(val player: Player) {
     fun start() {
         // Initializing KoscheiNPC
         koschei.init()
-        // Unlocking the player
         player.unlock()
     }
 
@@ -44,7 +39,6 @@ class KoscheiSession(val player: Player) {
      *
      */
     fun close() {
-        // Clearing KoscheiNPC
         koschei.clear()
         // Removing the KoscheiSession extension from the player
         player.removeExtension(KoscheiSession::class.java)

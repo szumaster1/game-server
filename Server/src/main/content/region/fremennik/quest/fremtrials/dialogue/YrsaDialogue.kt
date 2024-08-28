@@ -1,10 +1,10 @@
 package content.region.fremennik.quest.fremtrials.dialogue
 
-import content.region.fremennik.dialogue.rellekka.YrsaDiaryDialogue
 import core.api.*
 import cfg.consts.Components
 import cfg.consts.Items
 import cfg.consts.NPCs
+import content.location.rellekka.YrsaDiaryDialogue
 import core.game.container.impl.EquipmentContainer
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression
@@ -87,7 +87,7 @@ class YrsaDialogue(player: Player? = null): Dialogue(player) {
             31 -> when (buttonId) {
                 1 -> playerl(FacialExpression.HAPPY, "I'd like to buy some clothes").also { stage = 36 }
                 2 -> npc(FacialExpression.HAPPY, "It costs 500 coins to change your shoe colour. Just", "select what colour you would like from this catalogue", "and then give me the 500 coins.").also { stage = 33 }
-                3 -> openDialogue(player, YrsaDiaryDialogue(), npc).also { stage = END_DIALOGUE }
+                3 -> openDialogue(player, YrsaDiaryDialogue()).also { stage = END_DIALOGUE }
                 4 -> playerl(FacialExpression.HAPPY, "Nothing, thanks.").also { stage++ }
             }
             32 -> npcl(FacialExpression.HAPPY, "As you wish.").also { stage = END_DIALOGUE }

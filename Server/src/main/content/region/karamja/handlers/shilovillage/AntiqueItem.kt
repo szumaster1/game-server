@@ -4,14 +4,7 @@ import cfg.consts.Items
 import core.game.node.item.Item
 
 /**
- * Antique item enum class.
- * @author szumaster
- *
- * @param item     the item id.
- * @param price    the offered price.
- * @param message  the message.
- * @param dialogue the dialogue.
- * @return Antique item.
+ * Represents the Antique item.
  */
 enum class AntiqueItem(val item: Item, val price: Int, val message: String, val dialogue: String){
     /**

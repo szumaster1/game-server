@@ -22,7 +22,9 @@ class PiratesCoveListeners : InteractionListener {
 
     override fun defineListeners() {
 
-        // This listener is triggered when a player tries to take an item from a full barrel.
+        /*
+         * Take an item from a barrel.
+         */
         on(FULL_BARREL, IntType.SCENERY, "take-from") { player, node ->
             val incrementAmount = RandomFunction.random(83, 1000)
 

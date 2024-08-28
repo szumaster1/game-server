@@ -13,6 +13,7 @@ import core.tools.END_DIALOGUE
  * Represents the Mourner plague city dialogue.
  */
 class MournerPlagueCityDialogue : DialogueFile() {
+
     override fun handle(componentID: Int, buttonID: Int) {
         npc = NPC(NPCs.MOURNER_3216)
         when (getQuestStage(player!!, "Plague City")) {

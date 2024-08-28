@@ -1,5 +1,6 @@
 package content.region.misc.handlers.keldagrim
 
+import cfg.consts.Components
 import content.location.keldagrim.BlastFusionHammerDialogue
 import core.api.*
 import cfg.consts.Items
@@ -32,31 +33,46 @@ class KeldagrimListeners : InteractionListener {
 
     override fun defineListeners() {
 
-        // Handling interaction with doorway.
+        /*
+         * Handling interaction with a doorway.
+         */
+
         on(DOORWAY_1, IntType.SCENERY, "enter") { player, _ ->
             teleport(player, Location(2941, 10179, 0))
             return@on true
         }
 
-        // Handling interaction with doorway.
+        /*
+         * Handling interaction with a doorway.
+         */
+
         on(DOORWAY_2, IntType.SCENERY, "enter") { player, _ ->
             teleport(player, Location(2435, 5535, 0))
             return@on true
         }
 
-        // Reinald - Smithing Emporium.
+        /*
+         * Handling open the Reinald - Smithing Emporium shop.
+         */
+
         on(REINALD, IntType.NPC, "change-armguards") { player, _ ->
-            openInterface(player, 593)
+            openInterface(player, Components.REINALD_SMITHING_EMPORIUM_593)
             return@on true
         }
 
-        // Interaction with foreman (Blast furnace mini-game).
+        /*
+         * Interaction with foreman (Blast furnace mini-game).
+         */
+
         onUseWith(IntType.NPC, FUSION_HAMMER, FOREMAN) { player, _, npc ->
             openDialogue(player, BlastFusionHammerDialogue(), npc)
             return@onUseWith true
         }
 
-        // Cave entrance to Keldagrim.
+        /*
+         * Handling the go through cave entrance to Keldagrim.
+         */
+
         on(ENTRANCE, IntType.SCENERY, "go-through") { player, node ->
             if(node.id == Scenery.CAVE_ENTRANCE_5973){
                 runTask(player, 1) {
@@ -70,7 +86,10 @@ class KeldagrimListeners : InteractionListener {
             return@on true
         }
 
-        // Library +1 bookcase interaction.
+        /*
+         * Library +1 bookcase interaction.
+         */
+
         on(Scenery.BOOKCASE_6091, IntType.SCENERY, "search") { player, _ ->
             if (inInventory(player, Items.EXPLORERS_NOTES_11677)) {
                 sendMessage(player, "You search the books...")
@@ -83,6 +102,10 @@ class KeldagrimListeners : InteractionListener {
             }
             return@on true
         }
+
+        /*
+         * Handling the tunnel entrance.
+         */
 
         on(TUNNEL, IntType.SCENERY, "enter") { player, _ ->
             teleport(player, Location(2730, 3713, 0), TeleportManager.TeleportType.INSTANT)

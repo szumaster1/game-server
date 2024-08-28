@@ -42,7 +42,10 @@ class ZanarisListeners : InteractionListener {
 
     override fun defineListeners() {
 
-        // Zanaris magic doors interaction.
+        /*
+         * Zanaris magic doors interaction.
+         */
+
         on(MAGIC_DOORS, IntType.SCENERY, "open") { player, node ->
             if ((node.id == 12045 && node.location == Location(2469, 4438, 0) && player.location.x >= 2470) || (player.location.y < 4434 && (node.id == 12045 || node.id == 12047 && node.location == Location(2465, 4434, 0))) || (node.id == 12047 && player.location.x >= 2470)) {
                 DoorActionHandler.handleAutowalkDoor(player, node.asScenery())
@@ -52,7 +55,10 @@ class ZanarisListeners : InteractionListener {
             return@on true
         }
 
-        // Evil Chicken lair interactions.
+        /*
+         * Evil Chicken lair interactions.
+         */
+
         onUseWith(IntType.SCENERY, REQUIRED_ITEMS, CHICKEN_SHRINE) { player, used, _ ->
             if (used.id != Items.RAW_CHICKEN_2138) {
                 sendMessage(player, "Nice idea, but nothing interesting happens.")
@@ -82,10 +88,18 @@ class ZanarisListeners : InteractionListener {
             return@onUseWith true
         }
 
+        /*
+         * Handling the Portal entrance.
+         */
+
         on(PORTAL_ENTRANCE, IntType.SCENERY, "use") { player, _ ->
             teleport(player, EXIT_LOCATION)
             return@on true
         }
+
+        /*
+         * Handling use rope on entrance.
+         */
 
         onUseWith(IntType.SCENERY, ROPE, TUNNEL_ENTRANCE) { player, used, _ ->
             if (!removeItem(player, used.asItem())) {
@@ -96,6 +110,10 @@ class ZanarisListeners : InteractionListener {
             return@onUseWith true
         }
 
+        /*
+         * Handling climb down interaction on entrance.
+         */
+
         on(ENTRANCE_ROPE, IntType.SCENERY, "climb-down") { player, _ ->
             ClimbActionHandler.climb(
                 player,
@@ -104,6 +122,10 @@ class ZanarisListeners : InteractionListener {
             )
             return@on true
         }
+
+        /*
+         * Handle exit from the cave.
+         */
 
         on(ROPE_SCENERY, IntType.SCENERY, "climb-up") { player, _ ->
             ClimbActionHandler.climb(
@@ -114,7 +136,10 @@ class ZanarisListeners : InteractionListener {
             return@on true
         }
 
-        // Fairy ring interactions.
+        /*
+         * Fairy ring interactions.
+         */
+
         fun fairyMagic(player: Player): Boolean {
             if (!hasRequirement(player, "Fairytale I - Growing Pains")) {
                 sendMessage(player, "The fairy ring is inert.")
@@ -141,17 +166,29 @@ class ZanarisListeners : InteractionListener {
             player.interfaceManager.open(Component(734))
         }
 
+        /*
+         * Handling the fairy ring use.
+         */
+
         on(RINGS, IntType.SCENERY, "use") { player, ring ->
             if (!fairyMagic(player)) return@on true
             teleport(player, if (ring == ZANARIS_MARKET_RING) Location.create(3261, 3168, 0) else Location.create(2412, 4434, 0), TeleportType.FAIRY_RING)
             return@on true
         }
 
+        /*
+         * Handling the main ring use.
+         */
+
         on(MAIN_RING, IntType.SCENERY, "use") { player, _ ->
             if (!fairyMagic(player)) return@on true
             openFairyRing(player)
             return@on true
         }
+
+        /*
+         * Handling the entry ring use.
+         */
 
         on(ENTRY_RING, IntType.SCENERY, "use") { player, _ ->
             if (!fairyMagic(player)) return@on true

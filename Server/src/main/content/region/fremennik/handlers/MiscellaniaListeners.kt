@@ -1,11 +1,11 @@
 package content.region.fremennik.handlers
 
-import content.region.fremennik.dialogue.miscellania.FarmerFromundDialogue
-import content.region.fremennik.dialogue.miscellania.FishermanFrodiDialogue
 import cfg.consts.NPCs
 import core.api.openDialogue
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
+import content.location.miscellania.FarmerFromundDialogue
+import content.location.miscellania.FishermanFrodiDialogue
 
 /**
  * Represents the Miscellania listeners.

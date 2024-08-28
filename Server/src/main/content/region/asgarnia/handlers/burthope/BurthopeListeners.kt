@@ -31,8 +31,9 @@ class BurthopeListeners : InteractionListener {
     override fun defineListeners() {
 
         /*
-         * Thieving guild | Rogues' Den interactions.
+         * Handle entering through passage.
          */
+
         on(THIEVING_GUILD_PASSAGE, IntType.SCENERY, "enter") { player, node ->
             if (node.id == 7257) {
                 teleport(player, Location(3061, 4985, 1))
@@ -42,31 +43,46 @@ class BurthopeListeners : InteractionListener {
             return@on true
         }
 
-        // Handle the action of climbing down the stairs.
+        /*
+         * Handle the action of climbing down the stairs.
+         */
+
         on(STAIRS_1, IntType.SCENERY, "climb-down") { player, _ ->
             ClimbActionHandler.climb(player, null, Location(2205, 4934, 1))
             return@on true
         }
 
-        // Handle the action of climbing up the stairs.
+        /*
+         * Handle the action of climbing up the stairs.
+         */
+
         on(STAIRS_2, IntType.SCENERY, "climb-up") { player, _ ->
             ClimbActionHandler.climb(player, null, Location(2899, 3565, 0))
             return@on true
         }
 
-        // Open the bank account for the player.
+        /*
+         * Handle opening the bank account for the player.
+         */
+
         on(BENEDICT, IntType.NPC, "bank") { player, _ ->
             openBankAccount(player)
             return@on true
         }
 
-        // Open the Grand Exchange collection box for the player.
+        /*
+         * Handle opening the Grand Exchange collection box.
+         */
+
         on(BENEDICT, IntType.NPC, "collect") { player, _ ->
             openGrandExchangeCollectionBox(player)
             return@on true
         }
 
-        // Check the player's Thieving and Agility skills and provide appropriate dialogue or open the NPC shop.
+        /*
+         * Handle opening the Lost and Found shop.
+         */
+
         on(MARTIN, IntType.NPC, "trade"){ player, _ ->
             if (getStatLevel(player, Skills.THIEVING) < 50 || getStatLevel(player, Skills.AGILITY) < 50) {
                 sendNPCDialogue(player, NPCs.MARTIN_THWAIT_2270, "Sorry, mate. Train up your ${if (getStatLevel(player, Skills.THIEVING) < 50 && getStatLevel(player, Skills.AGILITY) < 50) "Thieving and Agility" else if(getStatLevel(player, Skills.THIEVING) < 50) "Thieving" else "Agility"} skill to at least 50 and I might be able to help you out.", FacialExpression.HALF_GUILTY)
@@ -76,31 +92,46 @@ class BurthopeListeners : InteractionListener {
             return@on true
         }
 
-        // Handling Burthope soldiers talk-to interaction.
+        /*
+         * Handling Burthope soldiers talk-to interaction.
+         */
+
         on(SERGEANTS, IntType.NPC, "talk-to") { player, _ ->
             sendDialogue(player, "The Sergeant is busy training the soldiers.")
             return@on true
         }
 
-        // Handling Burthope soldiers talk-to interaction.
+        /*
+         * Handling Burthope soldiers talk-to interaction.
+         */
+
         on(SOLDIERS_1, IntType.NPC, "talk-to") { player, _ ->
             sendDialogue(player, "The soldier is busy training.")
             return@on true
         }
 
-        // Handling Burthope soldiers talk-to interaction.
+        /*
+         * Handling Burthope soldiers talk-to interaction.
+         */
+
         on(SOLDIERS_2, IntType.NPC, "talk-to") { player, _ ->
             sendDialogue(player, "The soldier is busy eating.")
             return@on true
         }
 
-        // Handling Burthope archers talk-to interaction.
+        /*
+         * Handling Burthope archers talk-to interaction.
+         */
+
         on(ARCHERS, IntType.NPC, "talk-to") { player, _ ->
             sendDialogue(player, "The archer won't talk whilst on duty.")
             return@on true
         }
 
-        // Handling Burthope guards talk-to interaction.
+        /*
+         * Handling Burthope guards talk-to interaction.
+         */
+
         on(GUARDS, IntType.NPC, "talk-to") { player, _ ->
             sendDialogue(player, "The guard won't talk whilst on duty.")
             return@on true

@@ -12,6 +12,7 @@ import core.tools.END_DIALOGUE
  * Represents the Mourner other dialogue.
  */
 class MournerOtherDialogue : DialogueFile() {
+
     override fun handle(componentID: Int, buttonID: Int) {
         npc = NPC(NPCs.MOURNER_717)
         when (getQuestStage(player!!, "Plague City")) {

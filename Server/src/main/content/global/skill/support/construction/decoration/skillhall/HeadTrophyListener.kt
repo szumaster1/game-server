@@ -540,6 +540,7 @@ class KalphiteQueenHeadTrophyDialogue : DialogueFile() {
  * @constructor King black dragon head trophy dialogue
  */
 class KingBlackDragonHeadTrophyDialogue : DialogueFile() {
+
     override fun handle(componentID: Int, buttonID: Int) {
         when (stage) {
             0 -> if (!player!!.houseManager.isInHouse(player!!)) {

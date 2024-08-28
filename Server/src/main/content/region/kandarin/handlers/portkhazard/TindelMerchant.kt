@@ -53,11 +53,12 @@ class TindelMerchant : InteractionListener {
         }
     }
 
-    /*
-     * Replaces the NPC destination for interaction in front of the stall.
-     */
-
     override fun defineDestinationOverrides() {
+
+        /*
+         * Replaces the NPC destination for interaction in front of the stall.
+         */
+
         setDest(IntType.NPC, intArrayOf(TINDEL), "talk-to", "give-sword") { _, _ ->
             return@setDest Location(2678, 3152, 0)
         }
@@ -75,6 +76,7 @@ class TindelMerchant : InteractionListener {
          * Rusty sword exchange interaction, calculates a success based
          * on the player's Smithing skill level.
          */
+
         fun exchangeRustyWeapon(player: Player): Boolean {
             if (!anyInInventory(player, RUSTY_SWORD, RUSTY_SCIMITAR)) {
                 sendNPCDialogue(player, TINDEL, "Sorry my friend, but you don't seem to have any swords that need to be identified.", FacialExpression.HALF_GUILTY)

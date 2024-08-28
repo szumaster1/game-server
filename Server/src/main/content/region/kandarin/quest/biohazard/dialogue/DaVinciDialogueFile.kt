@@ -11,6 +11,7 @@ import core.game.node.entity.npc.NPC
  * Represents the Da vinci dialogue file.
  */
 class DaVinciDialogueFile : DialogueFile() {
+
     override fun handle(componentID: Int, buttonID: Int) {
         npc = NPC(NPCs.DA_VINCI_336)
         when (stage) {

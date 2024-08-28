@@ -56,7 +56,6 @@ class SewInterfaceListener : InterfaceListener {
         }
     }
 
-
     /**
      * This function allows a player to purchase a specific stock of pirate clothes.
      *
@@ -85,15 +84,8 @@ class SewInterfaceListener : InterfaceListener {
         addItem(player, stock.product.id, 1)
     }
 
-
     /**
-     * Enum class representing Pirate Clothes.
-     *
-     * @param firstItem The first item.
-     * @param secondItem The second item.
-     * @param product The product item.
-     * @param buttonId The button ID.
-     * @constructor Represents Pirate Clothes with specified parameters.
+     * Represents the Pirate Clothes.
      */
     enum class PirateClothes(val firstItem: Int, val secondItem: Int, val product: Item, val buttonId: Int) {
         /**

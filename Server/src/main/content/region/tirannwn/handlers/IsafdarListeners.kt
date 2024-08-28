@@ -16,7 +16,7 @@ class IsafdarListeners : InteractionListener {
     override fun defineListeners() {
 
         /*
-         * Entrance to summoning obelisk?
+         * Entrance to summoning obelisk.
          */
 
         on(Scenery.CAVE_ENTRANCE_4006, IntType.SCENERY, "enter") { player, _ ->
@@ -25,7 +25,7 @@ class IsafdarListeners : InteractionListener {
         }
 
         /*
-         * Entrance to summoning obelisk?
+         * Entrance to summoning obelisk.
          */
 
         on(Scenery.CAVE_EXIT_4007, IntType.SCENERY, "exit") { player, _ ->

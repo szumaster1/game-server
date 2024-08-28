@@ -1,8 +1,8 @@
 package content.region.fremennik.quest.fremtrials.npc
 
-import core.api.addItemOrDrop
 import cfg.consts.Items
 import cfg.consts.NPCs
+import core.api.addItemOrDrop
 import core.game.node.entity.Entity
 import core.game.node.entity.combat.BattleState
 import core.game.node.entity.combat.CombatStyle
@@ -17,8 +17,7 @@ import core.game.world.update.flag.context.Animation
 /**
  * Koschei NPC.
  */
-class KoscheiNPC(id: Int = 0, location: Location? = null, session: KoscheiSession? = null) :
-    AbstractNPC(id, location) {
+class KoscheiNPC(id: Int = 0, location: Location? = null, session: KoscheiSession? = null) : AbstractNPC(id, location) {
 
     val session: KoscheiSession?
     var type: KoscheiType?

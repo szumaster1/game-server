@@ -4,7 +4,7 @@ import cfg.consts.Components
 import cfg.consts.Items
 import cfg.consts.NPCs
 import cfg.consts.Scenery
-import content.region.asgarnia.dialogue.falador.KnightNotesDialogue
+import content.location.falador.KnightNotesDialogue
 import content.region.asgarnia.quest.rd.dialogue.*
 import core.api.*
 import core.game.activity.Cutscene

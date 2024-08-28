@@ -1,6 +1,5 @@
 package content.region.fremennik.handlers.waterbirth
 
-import content.region.fremennik.dialogue.waterbrith.BardurExchangeDialogue
 import cfg.consts.Items
 import cfg.consts.NPCs
 import core.api.isQuestComplete
@@ -8,6 +7,7 @@ import core.api.openDialogue
 import core.api.sendNPCDialogue
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
+import content.location.waterbrith.BardurExchangeDialogue
 
 /**
  * Represents the Bardur exchange listener.

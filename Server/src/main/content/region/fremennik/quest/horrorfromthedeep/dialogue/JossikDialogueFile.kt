@@ -13,6 +13,7 @@ import core.game.node.entity.npc.NPC
  * Represents the Jossik dialogue file related to Horror from the deep quest.
  */
 class JossikDialogueFile : DialogueFile() {
+
     override fun handle(componentID: Int, buttonID: Int) {
         npc = NPC(NPCs.JOSSIK_1335)
         when (getQuestStage(player!!, "Horror from the Deep")) {

@@ -8,6 +8,7 @@ import core.tools.END_DIALOGUE
  * Represents the Ballista dialogue.
  */
 class BallistaDialogue : DialogueFile() {
+
     override fun handle(componentID: Int, buttonID: Int) {
         val questStage = getQuestStage(player!!, "Tree Gnome Village")
         if (questStage > 30) {

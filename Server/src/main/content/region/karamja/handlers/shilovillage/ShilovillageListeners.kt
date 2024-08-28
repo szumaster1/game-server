@@ -36,6 +36,7 @@ class ShilovillageListeners : InteractionListener {
         /*
          * Shilo cart interactions.
          */
+
         class CartQuickPay : DialogueFile() {
             override fun handle(componentID: Int, buttonID: Int) {
                 if (!hasRequirement(player!!, "Shilo Village", true)) return

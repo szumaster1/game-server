@@ -19,6 +19,7 @@ import core.game.world.update.flag.context.Animation
  * Brimhaven utils.
  */
 object BrimhavenUtils {
+
     /**
      * Get vine destination.
      *
@@ -29,20 +30,15 @@ object BrimhavenUtils {
     fun getVineDestination(player: Player, node: Scenery): Location {
         // Check if the vine is rotated
         if (node.rotation % 2 != 0) {
-            // If the player is to the right of the vine, return the location to the left of the vine
             if (player.location.x > node.location.x) {
                 return node.location.transform(-1, 0, 0)
             } else {
-                // If the player is to the left of the vine, return the location to the right of the vine
                 return node.location.transform(1, 0, 0)
             }
         }
-        // If the vine is not rotated
-        // If the player is above the vine, return the location below the vine
         if (player.location.y > node.location.y) {
             return node.location.transform(0, -1, 0)
         } else {
-            // If the player is below the vine, return the location above the vine
             return node.location.transform(0, 1, 0)
         }
     }

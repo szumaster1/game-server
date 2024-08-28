@@ -32,13 +32,20 @@ class TutorialListeners : InteractionListener {
     val RAT_GATES = intArrayOf(3022, 3023)
 
     override fun defineListeners() {
-        // Listener for skipping the basic tutorial.
+
+        /*
+         * Handling a skip option for the tutorial island.
+         */
+
         on(NPCs.TUTORIAL_GUIDE_8591, IntType.NPC, "Skip-tutorial") { player, _ ->
             openDialogue(player, NPCs.TUTORIAL_GUIDE_8591)
             return@on true
         }
 
-        // Listener for opening the guide house door.
+        /*
+         * Handling open the guide house door.
+         */
+
         on(GUIDE_HOUSE_DOOR, IntType.SCENERY, "open") { player, node ->
             if (getAttribute(player, "tutorial:stage", 0) != 3)
                 return@on true
@@ -48,7 +55,10 @@ class TutorialListeners : InteractionListener {
             return@on true
         }
 
-        // Listener for opening the first gate.
+        /*
+         * Handling first stage doors.
+         */
+
         on(FIRST_GATE, IntType.SCENERY, "open") { player, node ->
             if (getAttribute(player, "tutorial:stage", 0) != 16)
                 return@on true
@@ -59,7 +69,10 @@ class TutorialListeners : InteractionListener {
             return@on true
         }
 
-        // Listener for opening the cooks' door.
+        /*
+         * Handling cook door stage doors.
+         */
+
         on(COOKS_DOOR, IntType.SCENERY, "open") { player, node ->
             if (getAttribute(player, "tutorial:stage", 0) != 17)
                 return@on true
@@ -70,7 +83,10 @@ class TutorialListeners : InteractionListener {
             return@on true
         }
 
-        // Listener for opening the cooks exit.
+        /*
+         * Handling cook door stage doors.
+         */
+
         on(COOKS_EXIT, IntType.SCENERY, "open") { player, node ->
             if (getAttribute(player, "tutorial:stage", 0) != 22)
                 return@on true
@@ -81,7 +97,10 @@ class TutorialListeners : InteractionListener {
             return@on true
         }
 
-        // Listener for entering the quest guide area.
+        /*
+         * Handling open door leads to the quest guide area.
+         */
+
         on(QUEST_ENTER, IntType.SCENERY, "open") { player, node ->
             if (getAttribute(player, "tutorial:stage", 0) != 26)
                 return@on true
@@ -92,7 +111,10 @@ class TutorialListeners : InteractionListener {
             return@on true
         }
 
-        // Listener for climbing up the quest exit ladder.
+        /*
+         * Handling climb the quest ladder.
+         */
+
         on(QUEST_LADDER, IntType.SCENERY, "climb-down") { player, node ->
             if (getAttribute(player, "tutorial:stage", 0) < 29)
                 return@on true
@@ -103,6 +125,10 @@ class TutorialListeners : InteractionListener {
             }
             ClimbActionHandler.climbLadder(player, node.asScenery(), "climb-down")
         }
+
+        /*
+         * Handling exit from the quest stage.
+         */
 
         on(QUEST_EXIT_LADDER, IntType.SCENERY, "climb-up") { player, node ->
             ClimbActionHandler.climbLadder(player, node.asScenery(), "climb-up")
@@ -117,7 +143,10 @@ class TutorialListeners : InteractionListener {
             return@on true
         }
 
-        // Listener for opening combat gates.
+        /*
+         * Handling open the combat gates.
+         */
+
         on(COMBAT_GATES, IntType.SCENERY, "open") { player, node ->
             if (getAttribute(player, "tutorial:stage", 0) != 43)
                 return@on true
@@ -126,7 +155,10 @@ class TutorialListeners : InteractionListener {
             DoorActionHandler.handleAutowalkDoor(player, node as Scenery)
         }
 
-        // Listener for opening rat gates.
+        /*
+         * Handling open the rat gates.
+         */
+
         on(RAT_GATES, IntType.SCENERY, "open") { player, node ->
             val stage = getAttribute(player, "tutorial:stage", 0)
             if (stage !in 50..53) {
@@ -141,7 +173,10 @@ class TutorialListeners : InteractionListener {
             return@on true
         }
 
-        // Listener for climbing up from combat tutorial.
+        /*
+         * Handling the climb up from combat tutorial.
+         */
+
         on(COMBAT_EXIT, IntType.SCENERY, "climb-up") { player, node ->
             if (getAttribute(player, "tutorial:stage", 0) != 55)
                 return@on true
@@ -151,7 +186,10 @@ class TutorialListeners : InteractionListener {
             ClimbActionHandler.climbLadder(player, node.asScenery(), "climb-up")
         }
 
-        // Listener for opening the door lead to bank guide.
+        /*
+         * Handling the open door lead to a bank guide.
+         */
+
         on(BANK_EXIT, IntType.SCENERY, "open") { player, node ->
             if (getAttribute(player, "tutorial:stage", 0) != 57)
                 return@on true
@@ -161,7 +199,10 @@ class TutorialListeners : InteractionListener {
             DoorActionHandler.handleAutowalkDoor(player, node as Scenery)
         }
 
-        // Listener for opening the finance exit.
+        /*
+         * Handling opening the finance exit.
+         */
+
         on(FINANCE_EXIT, IntType.SCENERY, "open") { player, node ->
             if (getAttribute(player, "tutorial:stage", 0) != 59)
                 return@on true
@@ -171,7 +212,10 @@ class TutorialListeners : InteractionListener {
             DoorActionHandler.handleAutowalkDoor(player, node as Scenery)
         }
 
-        // Listener for opening the church exit.
+        /*
+         * Handling opening the church exit.
+         */
+
         on(CHURCH_EXIT, IntType.SCENERY, "open") { player, node ->
             if (getAttribute(player, "tutorial:stage", 0) != 66)
                 return@on true

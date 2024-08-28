@@ -12,6 +12,7 @@ import core.tools.END_DIALOGUE
  * Represents the Gunnjorn dialogue file related to Horror from the deep quest.
  */
 class GunnjornDialogueFile : DialogueFile() {
+
     override fun handle(componentID: Int, buttonID: Int) {
         when (stage) {
             0 -> npc(FacialExpression.FRIENDLY, "Haha welcome to my obstacle course. Have fun, but", "remember this isn't a child's playground. People have", "died here.").also { stage++ }

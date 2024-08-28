@@ -91,7 +91,7 @@ class JunglePotionPlugin : OptionHandler() {
                 stage = 13
                 return true
             }
-            core.api.sendDialogueLines(player, "You search the rocks... You find an entrance into some caves.")
+            sendDialogueLines(player, "You search the rocks... You find an entrance into some caves.")
             return true
         }
 

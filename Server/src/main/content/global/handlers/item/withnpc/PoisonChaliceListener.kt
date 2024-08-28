@@ -23,6 +23,7 @@ class PoisonChaliceListener : InteractionListener {
 }
 
 class PoisonChaliceOnKingArthurDialogue : DialogueFile() {
+
     override fun handle(componentID: Int, buttonID: Int) {
         when (stage) {
             0 -> npcl(FacialExpression.SAD, "You have chosen poorly.").also { stage++ }

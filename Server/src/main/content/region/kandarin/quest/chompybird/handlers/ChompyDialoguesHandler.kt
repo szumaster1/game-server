@@ -14,6 +14,7 @@ import core.tools.END_DIALOGUE
  * Chompy dialogues handler.
  */
 class ChompyDialoguesHandler(val quest: Quest) : DialogueFile() {
+
     override fun handle(componentID: Int, buttonID: Int) {
         when (quest.getStage(player)) {
             0 -> handleQuestStartDialogue(player, buttonID)

@@ -47,6 +47,7 @@ class BugsChompyDialogue(player: Player? = null) : Dialogue(player) {
  * Bugs chompy dialogue file.
  */
 class BugsChompyDialogueFile(val quest: Quest) : DialogueFile() {
+
     override fun handle(componentID: Int, buttonID: Int) {
         when (quest.getStage(player)) {
             in 0 until 20 -> npcl(FacialExpression.OLD_NORMAL, "You's better talk to Dad, him chasey sneaky da chompy.").also { stage = END_DIALOGUE }

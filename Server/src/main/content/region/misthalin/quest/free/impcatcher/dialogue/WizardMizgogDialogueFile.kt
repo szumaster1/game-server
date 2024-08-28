@@ -16,6 +16,7 @@ import core.tools.END_DIALOGUE
  * Represents the Wizard mizgog dialogue file.
  */
 class WizardMizgogDialogueFile : DialogueFile() {
+
     override fun handle(componentID: Int, buttonID: Int) {
         when (getQuestStage(player!!, "Imp Catcher")) {
             0 -> when (stage) {

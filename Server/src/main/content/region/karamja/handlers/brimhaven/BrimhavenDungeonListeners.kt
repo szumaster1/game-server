@@ -1,8 +1,8 @@
 package content.region.karamja.handlers.brimhaven
 
-import content.global.skill.support.agility.AgilityHandler
 import cfg.consts.NPCs
 import cfg.consts.Scenery
+import content.global.skill.support.agility.AgilityHandler
 import core.api.getAttribute
 import core.api.location
 import core.api.removeAttribute
@@ -24,10 +24,10 @@ class BrimhavenDungeonListeners : InteractionListener {
     override fun defineListeners() {
 
         /*
-         * Handles the interaction when the player tries to enter the dungeon entrance.
+         * Handles enter the dungeon entrance.
          */
 
-        on(ENTRANCE, IntType.SCENERY, "enter"){ player, _ ->
+        on(ENTRANCE, IntType.SCENERY, "enter") { player, _ ->
             if (getAttribute(player, "saniboch:paid", false) || player.achievementDiaryManager.getDiary(DiaryType.KARAMJA)!!.isComplete) {
                 ClimbActionHandler.climb(player, ClimbActionHandler.CLIMB_UP, location(2713, 9564, 0))
                 removeAttribute(player, "saniboch:paid")
@@ -38,55 +38,55 @@ class BrimhavenDungeonListeners : InteractionListener {
         }
 
         /*
-         * Handles the interaction when the player tries to leave the dungeon.
+         * Handles leave the dungeon.
          */
 
-        on(EXIT, IntType.SCENERY, "leave"){ player, _ ->
+        on(EXIT, IntType.SCENERY, "leave") { player, _ ->
             player.properties.teleportLocation = Location.create(2745, 3152, 0)
             return@on true
         }
 
         /*
-         * Handles the interaction when the player walks up or down the stairs.
+         * Handles walks up or down the stairs.
          */
 
-        on(STAIRS, IntType.SCENERY, "walk-up","walk-down"){ player, node ->
+        on(STAIRS, IntType.SCENERY, "walk-up","walk-down") { player, node ->
             BrimhavenUtils.handleStairs(node.asScenery(), player)
             return@on true
         }
 
         /*
-         * Handles the interaction when the player jumps from the stepping stones.
+         * Handles jumps from the stepping stones.
          */
 
-        on(STEPPING_STONES, IntType.SCENERY, "jump-from"){ player, node ->
+        on(STEPPING_STONES, IntType.SCENERY, "jump-from") { player, node ->
             BrimhavenUtils.handleSteppingStones(player, node.asScenery())
             return@on true
         }
 
         /*
-         * Handles the interaction when the player chops down the vines.
+         * Handles chops down the vines.
          */
 
-        on(VINES, IntType.SCENERY, "chop-down"){ player, node ->
+        on(VINES, IntType.SCENERY, "chop-down") { player, node ->
             BrimhavenUtils.handleVines(player, node.asScenery())
             return@on true
         }
 
         /*
-         * Handles the interaction when the player pays the SANIBOCH_NPC.
+         * Handles payment.
          */
 
-        on(SANIBOCH_NPC, IntType.NPC, "pay"){ player, node ->
+        on(SANIBOCH_NPC, IntType.NPC, "pay") { player, node ->
             player.dialogueInterpreter.open(NPCs.SANIBOCH_1595,node.asNpc(),10)
             return@on true
         }
 
         /*
-         * Handles the interaction when the player walks across the logs.
+         * Handles walks across the logs.
          */
 
-        on(LOGS, IntType.SCENERY, "walk-across"){ player, node ->
+        on(LOGS, IntType.SCENERY, "walk-across") { player, node ->
             if (player.skills.getLevel(Skills.AGILITY) < 30) {
                 player.packetDispatch.sendMessage("You need an agility level of 30 to cross this.")
                 return@on true

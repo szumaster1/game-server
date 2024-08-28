@@ -51,8 +51,7 @@ class DorgeshuunListeners : InteractionListener {
         }
 
         /*
-         * Used brooch on Mistag interaction, that
-         * give in return the mining helmet.
+         * Handle exchange brooch for mining helmet with Mistag NPC.
          */
 
         onUseWith(IntType.NPC, Items.BROOCH_5008, NPCs.MISTAG_2084) { player, used, _ ->
@@ -81,7 +80,7 @@ class DorgeshuunListeners : InteractionListener {
         }
 
         /*
-         * Gate to Dorgeshuun interaction.
+         * Handle the gate to Dorgeshuun interaction.
          */
 
         on(BONE_DOORS, IntType.SCENERY, "open") { player, node ->
@@ -96,7 +95,7 @@ class DorgeshuunListeners : InteractionListener {
         }
 
         /*
-         * Handle opening the doors.
+         * Handling dorgeshuun gates.
          */
 
         on(DOORS, IntType.SCENERY, "open"){ player, node ->

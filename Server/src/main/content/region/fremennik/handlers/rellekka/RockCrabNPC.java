@@ -14,6 +14,7 @@ import core.tools.RandomFunction;
  */
 @Initializable
 public final class RockCrabNPC extends AbstractNPC {
+
     private static final AggressiveBehavior AGGRO_BEHAVIOR = new AggressiveBehavior() {
         @Override
         public boolean ignoreCombatLevelDifference() {

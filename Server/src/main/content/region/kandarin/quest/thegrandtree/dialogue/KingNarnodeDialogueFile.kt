@@ -367,6 +367,7 @@ class KingNarnodeDialogueFile : DialogueFile() {
  * Represents the King narnode upstairs dialogue.
  */
 class KingNarnodeUpstairsDialogue : DialogueFile() {
+
     override fun handle(componentID: Int, buttonID: Int) {
         when (stage) {
             0 -> playerl("I don't think you can trust Glough, Your Highness. He seems to have an unnatural hatred for humans.").also { stage++ }
