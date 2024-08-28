@@ -2,8 +2,8 @@ package content.region.fremennik.handlers.neitiznot
 
 import content.global.skill.production.crafting.handlers.YakArmourCraftingHandler
 import cfg.consts.Regions
-import content.location.neitiznot.MawnisBurowgarDialogue
-import content.location.neitiznot.ThakkradYakDialogue
+import content.dialogue.neitiznot.MawnisBurowgarDialogue
+import content.dialogue.neitiznot.ThakkradYakDialogue
 import core.game.interaction.Option
 import core.game.node.Node
 import core.game.node.entity.Entity

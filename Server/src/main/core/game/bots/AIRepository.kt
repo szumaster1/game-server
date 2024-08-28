@@ -1,6 +1,6 @@
 package core.game.bots
 
-import content.global.bots.Adventurer
+import core.game.bots.impl.Adventurer
 import core.game.ge.GrandExchangeOffer
 import core.game.node.entity.player.Player
 import core.game.node.item.GroundItem
@@ -63,7 +63,7 @@ class AIRepository {
             player.debug("Botscript Running? ${pulse.botScript.running}")
             player.debug("Random Delay? ${pulse.randomDelay}")
             player.debug("Delayed? ${bot.scripts.delay}")
-            if (pulse.botScript is Adventurer) {
+            if (pulse.botScript is core.game.bots.impl.Adventurer) {
                 player.debug("State: ${pulse.botScript.state.name}")
             }
             player.debug("==========================================")

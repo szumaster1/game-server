@@ -5,8 +5,8 @@ import content.global.skill.production.runecrafting.data.Altar.Companion.forScen
 import content.global.skill.production.runecrafting.data.Talisman
 import content.global.skill.production.runecrafting.data.Talisman.Companion.forItem
 import content.global.skill.production.runecrafting.item.pouch.RunePouchPlugin
-import content.global.travel.EssenceTeleport.home
-import content.global.travel.EssenceTeleport.teleport
+import content.global.transportation.EssenceTeleport.home
+import content.global.transportation.EssenceTeleport.teleport
 import core.api.*
 import cfg.consts.Components
 import core.cache.def.impl.ItemDefinition

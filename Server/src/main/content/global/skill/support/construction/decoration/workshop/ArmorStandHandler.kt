@@ -3,7 +3,7 @@ package content.global.skill.support.construction.decoration.workshop
 import content.data.item.BrokenItem
 import content.data.item.BrokenItem.getRepair
 import content.data.item.RepairItem
-import content.location.lumbridge.BobDialogue
+import content.dialogue.lumbridge.BobDialogue
 import core.api.animate
 import cfg.consts.Items
 import core.api.sendDialogue

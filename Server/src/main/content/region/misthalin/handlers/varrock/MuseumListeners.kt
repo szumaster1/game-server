@@ -2,7 +2,7 @@ package content.region.misthalin.handlers.varrock
 
 import core.api.*
 import cfg.consts.*
-import content.location.varrock.museum.*
+import content.dialogue.varrock.museum.*
 import core.game.global.action.ClimbActionHandler
 import core.game.global.action.DoorActionHandler
 import core.game.interaction.IntType

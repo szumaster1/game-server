@@ -1,7 +1,7 @@
 package content.region.misthalin.handlers.lumbridge
 
 import content.data.item.RepairItem.Companion.forId
-import content.location.lumbridge.BobDialogue
+import content.dialogue.lumbridge.BobDialogue
 import core.game.interaction.NodeUsageEvent
 import core.game.interaction.UseWithHandler
 import core.plugin.ClassScanner.definePlugin

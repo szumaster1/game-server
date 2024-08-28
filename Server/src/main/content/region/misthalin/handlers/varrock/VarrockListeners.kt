@@ -1,7 +1,7 @@
 package content.region.misthalin.handlers.varrock
 
 import content.region.kandarin.quest.biohazard.dialogue.GuidorsWifeDialogueFile
-import content.location.varrock.KnockatDoorDialogue
+import content.dialogue.varrock.KnockatDoorDialogue
 import core.GlobalStats
 import core.api.*
 import cfg.consts.*

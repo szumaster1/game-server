@@ -1,7 +1,7 @@
 package content.region.misthalin.quest.free.dragonslayer
 
 import content.global.skill.support.agility.AgilityHandler
-import content.location.lumbridge.DukeHoracioDialogue
+import content.dialogue.lumbridge.DukeHoracioDialogue
 import content.region.misthalin.quest.free.dragonslayer.cutscene.DragonSlayerCutscene
 import content.region.misthalin.quest.free.dragonslayer.dialogue.DSChestDialogue
 import content.region.misthalin.quest.free.dragonslayer.dialogue.GuildmasterDSDialogue

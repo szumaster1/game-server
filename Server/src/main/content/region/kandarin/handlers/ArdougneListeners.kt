@@ -1,7 +1,7 @@
 package content.region.kandarin.handlers
 
-import content.global.travel.ship.Ships
-import content.location.ardougne.CaptainBarnabyDialogue
+import content.global.transportation.charter.Ships
+import content.dialogue.ardougne.CaptainBarnabyDialogue
 import content.region.kandarin.quest.holygrail.dialogue.GalahadHolyGrailDialogueFile
 import core.api.*
 import cfg.consts.Items

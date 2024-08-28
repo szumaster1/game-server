@@ -3,7 +3,7 @@ package content.region.kandarin.handlers.seersvillage
 import content.global.handlers.item.withnpc.PoisonChaliceOnKingArthurDialogue
 import content.region.kandarin.quest.holygrail.dialogue.GalahadHolyGrailDialogueFile
 import content.region.kandarin.quest.scorpcather.dialogue.ThormacDialogueFile
-import content.region.misc.handlers.zanaris.FairyRing
+import content.global.transportation.Ring
 import core.api.inBorders
 import core.api.inEquipment
 import core.game.diary.DiaryEventHookBase
@@ -330,7 +330,7 @@ class SeersVillageAchievementDiary : DiaryEventHookBase(DiaryType.SEERS_VILLAGE)
     }
 
     override fun onFairyRingDialed(player: Player, event: FairyRingDialEvent) {
-        if (event.fairyRing == FairyRing.ALS) {
+        if (event.fairyRing == Ring.ALS) {
             finishTask(
                 player,
                 DiaryLevel.HARD,

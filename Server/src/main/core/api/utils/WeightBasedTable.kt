@@ -1,8 +1,8 @@
 package core.api.utils
 
 import content.data.tables.*
-import content.global.activity.treasuretrails.ClueLevel
-import content.global.activity.treasuretrails.clue.ClueScrollPlugin
+import content.activity.treasuretrails.ClueLevel
+import content.activity.treasuretrails.clue.ClueScrollPlugin
 import content.global.handlers.item.equipment.gloves.FOGGlovesManager
 import cfg.consts.Items
 import core.api.inEquipment
@@ -70,9 +70,9 @@ open class WeightBasedTable : ArrayList<WeightedItem>() {
         val safeItems = ArrayList<Item>()
         for (e in weightedItems) {
             val safeItem = when (e.id) {
-                SLOT_CLUE_EASY -> ClueScrollPlugin.getClue(ClueLevel.EASY)
-                SLOT_CLUE_MEDIUM -> ClueScrollPlugin.getClue(ClueLevel.MEDIUM)
-                SLOT_CLUE_HARD -> ClueScrollPlugin.getClue(ClueLevel.HARD)
+                SLOT_CLUE_EASY -> content.activity.treasuretrails.clue.ClueScrollPlugin.getClue(content.activity.treasuretrails.ClueLevel.EASY)
+                SLOT_CLUE_MEDIUM -> content.activity.treasuretrails.clue.ClueScrollPlugin.getClue(content.activity.treasuretrails.ClueLevel.MEDIUM)
+                SLOT_CLUE_HARD -> content.activity.treasuretrails.clue.ClueScrollPlugin.getClue(content.activity.treasuretrails.ClueLevel.HARD)
                 SLOT_RDT -> RareDropTable.retrieve(receiver)
                 SLOT_CELEDT -> CELEMinorTable.retrieve(receiver)
                 SLOT_USDT -> UncommonSeedDropTable.retrieve(receiver)

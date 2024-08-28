@@ -5,7 +5,7 @@ import cfg.consts.Animations
 import cfg.consts.Items
 import cfg.consts.NPCs
 import cfg.consts.Scenery
-import content.location.pollnivneach.AliTheBarmanDialogue
+import content.dialogue.pollnivneach.AliTheBarmanDialogue
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.item.Item

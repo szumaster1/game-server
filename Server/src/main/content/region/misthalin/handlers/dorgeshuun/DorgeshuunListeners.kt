@@ -3,7 +3,7 @@ package content.region.misthalin.handlers.dorgeshuun
 import cfg.consts.Items
 import cfg.consts.NPCs
 import cfg.consts.Scenery
-import content.location.dorgeshuun.CaveGoblinsDialogueFile
+import content.dialogue.dorgeshuun.CaveGoblinsDialogueFile
 import core.api.*
 import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression

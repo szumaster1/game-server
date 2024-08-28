@@ -4,7 +4,7 @@ import core.api.*
 import cfg.consts.Components
 import cfg.consts.Items
 import cfg.consts.NPCs
-import content.location.rellekka.YrsaDiaryDialogue
+import content.dialogue.rellekka.YrsaDiaryDialogue
 import core.game.container.impl.EquipmentContainer
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression

@@ -7,7 +7,7 @@ import core.api.openDialogue
 import core.api.sendNPCDialogue
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
-import content.location.waterbrith.BardurExchangeDialogue
+import content.dialogue.waterbrith.BardurExchangeDialogue
 
 /**
  * Represents the Bardur exchange listener.

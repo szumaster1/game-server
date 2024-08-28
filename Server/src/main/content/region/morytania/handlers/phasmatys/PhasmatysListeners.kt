@@ -1,7 +1,7 @@
 package content.region.morytania.handlers.phasmatys
 
-import content.region.morytania.handlers.phasmatys.EnergyBarrierUtils.passGate
-import content.region.morytania.handlers.phasmatys.EnergyBarrierUtils.passGateAfterQuest
+import content.region.morytania.handlers.phasmatys.EnergyBarrier.passGate
+import content.region.morytania.handlers.phasmatys.EnergyBarrier.passGateAfterQuest
 import core.api.*
 import cfg.consts.Items
 import cfg.consts.NPCs

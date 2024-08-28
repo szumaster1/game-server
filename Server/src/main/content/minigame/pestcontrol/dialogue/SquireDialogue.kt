@@ -1,6 +1,6 @@
 package content.minigame.pestcontrol.dialogue
 
-import content.global.travel.ship.Ships
+import content.global.transportation.charter.Ships
 import cfg.consts.NPCs
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression

@@ -1,6 +1,6 @@
 package core.game.system.config
 
-import content.global.activity.treasuretrails.ClueLevel
+import content.activity.treasuretrails.ClueLevel
 import core.ServerConstants
 import core.api.log
 import core.cache.def.impl.NPCDefinition
@@ -86,7 +86,7 @@ class NPCConfigParser {
                             CombatStyle.values()[it.value.toString().toInt()]
 
 
-                        "clue_level" -> configs[it.key.toString()] = ClueLevel.values()[it.value.toString().toInt()]
+                        "clue_level" -> configs[it.key.toString()] = content.activity.treasuretrails.ClueLevel.values()[it.value.toString().toInt()]
                         "name", "examine" -> configs[it.key.toString()] = it.value.toString()
                         "combat_audio", "bonuses" -> configs[it.key.toString()] =
                             it.value.toString().split(",").map { v -> v.toInt() }.toIntArray()

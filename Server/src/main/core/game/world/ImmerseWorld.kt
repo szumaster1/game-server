@@ -57,11 +57,11 @@ class ImmerseWorld : StartupListener {
             val lumbridge = Location.create(3221, 3219, 0)
             val tiers = listOf(CombatBotAssembler.Tier.LOW, CombatBotAssembler.Tier.MED)
             GeneralBotCreator(
-                botScript = Adventurer(CombatStyle.MELEE),
+                botScript = core.game.bots.impl.Adventurer(CombatStyle.MELEE),
                 bot = assembler.MeleeAdventurer(tier = tiers.random(), location = lumbridge)
             )
             GeneralBotCreator(
-                botScript = Adventurer(CombatStyle.RANGE),
+                botScript = core.game.bots.impl.Adventurer(CombatStyle.RANGE),
                 bot = assembler.RangeAdventurer(tier = tiers.random(), location = lumbridge)
             )
         }

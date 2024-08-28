@@ -1,8 +1,8 @@
 package content.region.asgarnia.quest.heroesquest
 
-import content.location.brimhaven.CharlieTheCookDialogueFile
-import content.location.brimhaven.GarvDialogueFile
-import content.location.brimhaven.GruborDialogueFile
+import content.dialogue.brimhaven.CharlieTheCookDialogueFile
+import content.dialogue.brimhaven.GarvDialogueFile
+import content.dialogue.brimhaven.GruborDialogueFile
 import core.api.*
 import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression

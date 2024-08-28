@@ -1,6 +1,6 @@
 package content.global.handlers.item
 
-import content.global.dialogue.ZombieHeadDialogue
+import content.dialogue.ZombieHeadDialogue
 import core.api.*
 import cfg.consts.*
 import core.game.interaction.IntType

@@ -11,7 +11,7 @@ import cfg.consts.Items
 import cfg.consts.NPCs
 import cfg.consts.Sounds
 import cfg.consts.Sounds.TREE_FALLING_2734
-import content.location.miscellania.KjallakOnChopDialogue
+import content.dialogue.miscellania.KjallakOnChopDialogue
 import core.cache.def.impl.ItemDefinition
 import core.game.container.impl.EquipmentContainer
 import core.game.event.ResourceProducedEvent

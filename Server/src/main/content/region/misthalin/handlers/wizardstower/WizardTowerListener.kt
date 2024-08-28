@@ -3,7 +3,7 @@ package content.region.misthalin.handlers.wizardstower
 import cfg.consts.NPCs
 import cfg.consts.Scenery
 import cfg.consts.Sounds
-import content.global.travel.EssenceTeleport
+import content.global.transportation.EssenceTeleport
 import core.api.*
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener

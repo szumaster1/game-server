@@ -4,8 +4,8 @@ import cfg.consts.NPCs
 import core.api.openDialogue
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
-import content.location.miscellania.FarmerFromundDialogue
-import content.location.miscellania.FishermanFrodiDialogue
+import content.dialogue.miscellania.FarmerFromundDialogue
+import content.dialogue.miscellania.FishermanFrodiDialogue
 
 /**
  * Represents the Miscellania listeners.

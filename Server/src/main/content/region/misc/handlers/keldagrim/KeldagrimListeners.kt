@@ -1,7 +1,7 @@
 package content.region.misc.handlers.keldagrim
 
 import cfg.consts.Components
-import content.location.keldagrim.BlastFusionHammerDialogue
+import content.dialogue.keldagrim.BlastFusionHammerDialogue
 import core.api.*
 import cfg.consts.Items
 import cfg.consts.NPCs

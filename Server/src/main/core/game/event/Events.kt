@@ -1,8 +1,8 @@
 package core.game.event
 
-import content.global.activity.jobs.JobType
+import content.activity.jobs.JobType
 import content.global.skill.combat.magic.TeleportMethod
-import content.region.misc.handlers.zanaris.FairyRing
+import content.global.transportation.Ring
 import core.game.component.Component
 import core.game.dialogue.Dialogue
 import core.game.node.Node
@@ -252,7 +252,7 @@ data class JobAssignmentEvent(val jobType: JobType, val employerNpc: NPC) : Even
  * @param fairyRing the fairy ring id.
  * @constructor Fairy ring dial event
  */
-data class FairyRingDialEvent(val fairyRing: FairyRing) : Event
+data class FairyRingDialEvent(val fairyRing: Ring) : Event
 
 /**
  * Varbit update event.

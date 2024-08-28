@@ -1,6 +1,6 @@
 package content.region.misthalin.quest.free.shieldofarrav;
 
-import content.location.varrock.castle.KingRoaldDialogue;
+import content.dialogue.varrock.castle.KingRoaldDialogue;
 import content.region.misthalin.quest.free.shieldofarrav.dialogue.*;
 import content.region.misthalin.quest.free.shieldofarrav.npc.JohnnyBeardNPC;
 import content.region.misthalin.quest.free.shieldofarrav.plugin.CertificatePlugin;

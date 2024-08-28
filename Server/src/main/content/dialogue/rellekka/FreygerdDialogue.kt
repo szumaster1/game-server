@@ -1,0 +1,68 @@
+package content.dialogue.rellekka
+
+import cfg.consts.NPCs
+import core.game.dialogue.Dialogue
+import core.game.dialogue.FacialExpression
+import core.game.node.entity.player.Player
+import core.plugin.Initializable
+import core.tools.RandomFunction
+import core.tools.START_DIALOGUE
+
+/**
+ * Represents the Freygerd dialogue.
+ */
+@Initializable
+class FreygerdDialogue(player: Player? = null): Dialogue(player) {
+
+    // https://runescape.wiki/w/Glorious_Memories
+    private val randomConversation = RandomFunction.getRandomElement(arrayOf(1, 2, 3, 4))
+    override fun handle(interfaceId: Int, buttonId: Int): Boolean {
+        if (randomConversation == 1) {
+            when (stage) {
+                START_DIALOGUE -> player("How's the King treating you then?").also { stage++ }
+                1 -> npc(FacialExpression.HALF_GUILTY, "Like serfs.").also { stage++ }
+                2 -> player("Serf?").also { stage++ }
+                3 -> npcl(FacialExpression.HALF_GUILTY, "Yes, you know - peons, plebs, the downtrodden. He treats us like his own personal possessions.").also { stage++ }
+                4 -> player("You should leave this place.").also { stage++ }
+                5 -> npcl(FacialExpression.HALF_GUILTY, "I keep trying to save up enough to leave, but the King keeps taxing us! We have no money left.").also { stage++ }
+                6 -> player("Oh dear.").also { stage++ }
+                7 -> end()
+            }
+        }
+        if (randomConversation == 2) {
+            when (stage) {
+                START_DIALOGUE -> player("It's a bit grey round here, isn't it?").also { stage++ }
+                1 -> npcl(FacialExpression.HALF_GUILTY, "It gets you down after a while, you know. There are 273 shades of grey, you know, and we have them all.").also { stage++ }
+                2 -> player("That's grey-t.").also { stage++ }
+                3 -> npcl(FacialExpression.HALF_GUILTY, "That attempt at humour merely made me more depressed. Leave me alone.").also { stage++ }
+                4 -> end()
+            }
+        }
+        if (randomConversation == 3) {
+            when (stage) {
+                START_DIALOGUE -> player("How are you today?").also { stage++ }
+                1 -> npcl(FacialExpression.HALF_GUILTY, "**sigh**").also { stage++ }
+                2 -> player("That good? Everyone around here seems a little depressed.").also { stage++ }
+                3 -> npcl(FacialExpression.HALF_GUILTY, "**sigh**").also { stage++ }
+                4 -> player("And not particularly talkative.").also { stage++ }
+                5 -> npcl(FacialExpression.HALF_GUILTY, "**sigh**").also { stage++ }
+                6 -> player("I'll leave you to your sighing. It looks like you have plenty to do.").also { stage++ }
+                7 -> end()
+            }
+        }
+        if (randomConversation == 4) {
+            when (stage) {
+                START_DIALOGUE -> player("Cheer up! It's not the end of the world.").also { stage++ }
+                1 -> npcl(FacialExpression.HALF_GUILTY, "I'd prefer that, if it meant I didn't have to talk to people as insanely happy as you.").also { stage++ }
+                2 -> player("Whoa! I think you need to get out more.").also { stage++ }
+                3 -> end()
+            }
+        }
+        return true
+    }
+
+    override fun getIds(): IntArray {
+        return intArrayOf(NPCs.FREYGERD_1310)
+    }
+
+}

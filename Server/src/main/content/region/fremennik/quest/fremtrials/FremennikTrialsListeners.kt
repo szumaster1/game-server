@@ -1,7 +1,7 @@
 package content.region.fremennik.quest.fremtrials
 
 import content.global.skill.gathering.woodcutting.WoodcuttingPulse
-import content.global.travel.LyreTeleport
+import content.global.transportation.LyreTeleport
 import content.region.fremennik.quest.fremtrials.dialogue.CouncilWorkerDialogue
 import content.region.fremennik.quest.fremtrials.dialogue.FremennikFishermanDialogue
 import content.region.fremennik.quest.fremtrials.npc.KoscheiSession

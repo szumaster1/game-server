@@ -1,7 +1,7 @@
 package content.region.karamja.handlers.brimhaven
 
-import content.location.brimhaven.CapnIzzyDialogue
-import content.location.brimhaven.PirateJackieDialogue
+import content.dialogue.brimhaven.CapnIzzyDialogue
+import content.dialogue.brimhaven.PirateJackieDialogue
 import core.api.*
 import cfg.consts.Components
 import cfg.consts.Items

@@ -1,7 +1,7 @@
 package content.global.handlers.iface.bank
 
-import content.global.dialogue.BankDepositDialogue
-import content.global.dialogue.BankHelpDialogue
+import content.dialogue.BankDepositDialogue
+import content.dialogue.BankHelpDialogue
 import core.ServerConstants
 import core.api.*
 import cfg.consts.Components

@@ -1,6 +1,6 @@
 package content.global.handlers.item
 
-import content.global.travel.glider.GnomeGlider
+import content.global.transportation.glider.GnomeGlider
 import core.api.*
 import cfg.consts.Items
 import core.game.interaction.IntType

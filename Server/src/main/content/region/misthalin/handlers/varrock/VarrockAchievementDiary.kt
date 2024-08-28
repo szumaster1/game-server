@@ -2,12 +2,12 @@ package content.region.misthalin.handlers.varrock
 
 import content.global.skill.combat.magic.TeleportMethod
 import content.global.skill.combat.prayer.Bones
-import content.global.travel.canoe.CanoeListeners
-import content.region.misc.handlers.zanaris.FairyRing
-import content.location.varrock.BennyDialogue
-import content.location.varrock.ElsieDialogue
-import content.location.varrock.museum.CuratorHaigHalenDialogue
-import content.location.varrock.museum.OrlandoSmithDialogue
+import content.global.transportation.canoe.CanoeListeners
+import content.global.transportation.Ring
+import content.dialogue.varrock.BennyDialogue
+import content.dialogue.varrock.ElsieDialogue
+import content.dialogue.varrock.museum.CuratorHaigHalenDialogue
+import content.dialogue.varrock.museum.OrlandoSmithDialogue
 import content.region.misthalin.quest.member.familycrest.dialogue.DimintheisDialogue
 import core.api.*
 import cfg.consts.Components
@@ -472,7 +472,7 @@ class VarrockAchievementDiary : DiaryEventHookBase(DiaryType.VARROCK) {
     }
 
     override fun onFairyRingDialed(player: Player, event: FairyRingDialEvent) {
-        if (event.fairyRing == FairyRing.DKR) {
+        if (event.fairyRing == Ring.DKR) {
             finishTask(
                 player,
                 DiaryLevel.MEDIUM,

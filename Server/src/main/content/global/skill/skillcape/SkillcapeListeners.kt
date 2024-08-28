@@ -51,5 +51,4 @@ class SkillcapeListeners : InteractionListener {
             return@on true
         }
     }
-
 }

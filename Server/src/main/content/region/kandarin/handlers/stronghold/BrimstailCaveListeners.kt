@@ -1,6 +1,6 @@
 package content.region.kandarin.handlers.stronghold
 
-import content.global.travel.EssenceTeleport
+import content.global.transportation.EssenceTeleport
 import cfg.consts.NPCs
 import cfg.consts.Scenery
 import core.api.sendDialogue

@@ -4,7 +4,7 @@ import core.api.*
 import cfg.consts.NPCs
 import cfg.consts.Scenery
 import cfg.consts.Sounds
-import content.location.jatizso.LeftieRightieDialogue
+import content.dialogue.jatizso.LeftieRightieDialogue
 import core.game.dialogue.FacialExpression
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener

@@ -1,6 +1,6 @@
 package content.region.misthalin.quest.free.dragonslayer.cutscene;
 
-import content.global.travel.ship.Ships;
+import content.global.transportation.charter.Ships;
 import core.game.activity.ActivityManager;
 import core.game.activity.ActivityPlugin;
 import core.game.activity.CutscenePlugin;
