@@ -21,7 +21,7 @@ class PatchyDialogue(player: Player? = null) : Dialogue(player) {
     override fun open(vararg args: Any?): Boolean {
         npc = args[0] as NPC
         if (!inInventory(player, Items.BOOK_O_PIRACY_7144)) {
-            npcl(FacialExpression.FRIENDLY, "Arr? Be ye wantin' te go on account with our gang o' fillibusters?").also { stage++ }
+            npcl(FacialExpression.FRIENDLY, "Arr? Be ye wantin' te go on account with our gang o' fillibusters?").also { stage = 1 }
         } else {
             npcl(FacialExpression.FRIENDLY, "Hello there! Can I sew ye somethin' tegether?").also { stage = 4 }
 

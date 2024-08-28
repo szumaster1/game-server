@@ -51,7 +51,7 @@ object ShipCharter {
     }
 
     fun getHiddenComponents(player: Player?, base: Destination): IntArray {
-        val restrictions = arrayOf(Destination.OO_GLOG, Destination.SHIPYARD, Destination.CRANDOR)
+        val restrictions = arrayOf(Destination.CRANDOR)
         val childs: MutableList<Int> = ArrayList(20)
         for (destination in restrictions) {
             childs.add(destination.xChild)

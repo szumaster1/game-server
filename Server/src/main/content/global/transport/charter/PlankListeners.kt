@@ -1,9 +1,8 @@
 package content.global.transport.charter
 
-import core.api.*
-import cfg.consts.Animations
 import cfg.consts.NPCs
 import cfg.consts.Scenery
+import core.api.*
 import core.game.global.action.ClimbActionHandler
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
@@ -16,9 +15,14 @@ import core.game.world.update.flag.context.Animation
 /**
  * Represents the Port scenery listeners.
  */
-class PortListeners : InteractionListener {
+class PlankListeners : InteractionListener {
 
     override fun defineListeners() {
+
+        /*
+         * Ladder interaction.
+         */
+
         on(LADDER, IntType.SCENERY, "climb-down", "climb-up") { player, _ ->
             when (getUsedOption(player)) {
                 "climb-up" -> ClimbActionHandler.climb(player, Animation(828), Location(3048, 3208, 1))
@@ -27,13 +31,20 @@ class PortListeners : InteractionListener {
             return@on true
         }
 
-        on(Scenery.GANGPLANK_69, IntType.SCENERY, "cross"){ player, _ ->
+        /*
+         * Cross the gangplank.
+         */
+
+        on(Scenery.GANGPLANK_69, IntType.SCENERY, "cross") { player, _ ->
             player.dialogueInterpreter.open(NPCs.ARHEIN_563, findNPC(NPCs.ARHEIN_563), true)
             return@on true
         }
 
-        // Cross gangplank to ship related to Dragon slayer interaction.
-        on(Scenery.GANGPLANK_2593, IntType.SCENERY, "cross"){ player, _ ->
+        /*
+         * Cross the gangplank to ship related to Dragon slayer interaction.
+         */
+
+        on(Scenery.GANGPLANK_2593, IntType.SCENERY, "cross") { player, _ ->
             if (isQuestComplete(player, "Dragon Slayer")) {
                 player.dialogueInterpreter.open(NPCs.KLARENSE_744, findNPC(NPCs.KLARENSE_744), true)
                 return@on true
@@ -47,14 +58,22 @@ class PortListeners : InteractionListener {
             return@on true
         }
 
+        /*
+         * Cross the gangplank to ship.
+         */
+
         on(Scenery.GANGPLANK_11209, IntType.SCENERY, "cross") { player, _ ->
             sendDialogueLines(player,"I don't think that whoever owns this ship will be happy", "with me wandering all over it.")
             return@on true
         }
 
-        // Cross the gangplank to Ship.
+        /*
+         * Cross the gangplank to ship.
+         */
+
         on(PLANK, IntType.SCENERY, "cross") { player, node ->
-            forceMove(player, player.location, node.location, 10, 30, null, Animations.HUMAN_WALK_SHORT_819)
+            lock(player, 1)
+            forceMove(player, player.location, node.location, 8,60)
             if (getUsedOption(player) == "cross") {
                 when (node.id) {
                     2081 -> cross(player, KARAMJA[0])
@@ -104,7 +123,7 @@ class PortListeners : InteractionListener {
     }
 
     companion object {
-        private val PLANK = intArrayOf(2081, 2082, 2083, 2084, 2085, 2086, 2087, 2088, 2412, 2413, 2414, 2415, 2594, 11211, 11212, 14304, 14305, 14306, 14307, 17392, 17393, 17394, 17395, 17398, 17399, 17400, 17401, 17402, 17403, 17404, 17405, 17406, 17407, 17408, 17409)
+        private val PLANK = intArrayOf(2081, 2082, 2083, 2084, 2085, 2086, 2087, 2088, 2412, 2413, 2414, 2415, 2594, 11211, 11212, 14304, 14305, 14306, 14307, 17392, 17393, 17394, 17395, 17398, 17399, 17400, 17401, 17402, 17403, 17404, 17405, 17406, 17407, 17408, 17409, 29168, 29169)
         private val LADDER = intArrayOf(Scenery.LADDER_2590, Scenery.LADDER_2592)
         private val PORT_SARIM = arrayOf(Location(3048, 3231, 1), Location.create(3048, 3234, 0), Location(3038, 3192, 0), Location(3038, 3189, 1), Location(3032, 3217, 1), Location(3029, 3217, 0), Location(3041, 3199, 1), Location(3041, 3202, 0))
         private val ENTRANA = arrayOf(Location(2834, 3331, 1), Location(2834, 3335, 0))
@@ -120,8 +139,9 @@ class PortListeners : InteractionListener {
         private val TYRAS = arrayOf(Location(2142, 3125, 1), Location(2142, 3122, 0))
         private val SHIP_YARD = arrayOf(Location.create(2998, 3032, 1), Location(3000,3032,0))
         private val OO_GLOG = arrayOf(Location.create(2626, 2857, 1), Location.create(2623, 2857, 0))
+
         fun cross(player: Player, location: Location?) {
-            queueScript(player, 1, QueueStrength.STRONG) {
+            queueScript(player, 2, QueueStrength.STRONG) {
                 player.properties.teleportLocation = location
                 return@queueScript stopExecuting(player)
             }

@@ -2,6 +2,7 @@ package content.global.skill.combat.summoning.pet;
 
 /**
  * A class containing pet details for a certain pet.
+ *
  * @author Emperor
  * @author Player Name
  */
@@ -24,6 +25,7 @@ public final class PetDetails {
 
     /**
      * Constructs a new {@code PetDetails} {@code Object}.
+     *
      * @param growth The growth value.
      */
     public PetDetails(double growth) {
@@ -32,6 +34,7 @@ public final class PetDetails {
 
     /**
      * Increases the hunger value by the given amount.
+     *
      * @param amount The amount.
      */
     public void updateHunger(double amount) {
@@ -43,6 +46,7 @@ public final class PetDetails {
 
     /**
      * Increases the growth value by the given amount.
+     *
      * @param amount The amount.
      */
     public void updateGrowth(double amount) {
@@ -56,6 +60,7 @@ public final class PetDetails {
 
     /**
      * Gets the hunger.
+     *
      * @return The hunger.
      */
     public double getHunger() {
@@ -64,6 +69,7 @@ public final class PetDetails {
 
     /**
      * Gets the growth.
+     *
      * @return The growth.
      */
     public double getGrowth() {
@@ -72,6 +78,7 @@ public final class PetDetails {
 
     /**
      * Sets the individual.
+     *
      * @param individual The individual to set.
      */
     public void setIndividual(int individual) {
@@ -80,6 +87,7 @@ public final class PetDetails {
 
     /**
      * Gets the individual.
+     *
      * @return The individual.
      */
     public int getIndividual() {

@@ -11,6 +11,7 @@ import static core.api.ContentAPIKt.*;
 
 /**
  * Represents a pet.
+ *
  * @author Emperor, Vexia, Player Name
  */
 public final class Pet extends Familiar {
@@ -42,10 +43,11 @@ public final class Pet extends Familiar {
 
     /**
      * Constructs a new {@code Pet} {@code Object}.
-     * @param owner the owner.
+     *
+     * @param owner   the owner.
      * @param details the details.
-     * @param itemId the itemId.
-     * @param id the id.
+     * @param itemId  the itemId.
+     * @param id      the id.
      */
     public Pet(Player owner, final PetDetails details, int itemId, int id) {
         super(owner, id, -1, -1, -1);
@@ -153,6 +155,7 @@ public final class Pet extends Familiar {
 
     /**
      * Gets the itemId.
+     *
      * @return The itemId.
      */
     public int getItemId() {
@@ -161,6 +164,7 @@ public final class Pet extends Familiar {
 
     /**
      * Gets the itemId with the individual hashed in.
+     *
      * @return The itemIdHash.
      */
     public int getItemIdHash() {
@@ -171,6 +175,7 @@ public final class Pet extends Familiar {
 
     /**
      * Gets the details.
+     *
      * @return The details.
      */
     public PetDetails getDetails() {
@@ -179,6 +184,7 @@ public final class Pet extends Familiar {
 
     /**
      * Gets the pet.
+     *
      * @return The pet.
      */
     public Pets getPet() {

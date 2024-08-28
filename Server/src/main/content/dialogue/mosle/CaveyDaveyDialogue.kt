@@ -21,7 +21,7 @@ class CaveyDaveyDialogue(player: Player? = null) : Dialogue(player) {
     override fun open(vararg args: Any?): Boolean {
         npc = args[0] as NPC
         if(!inEquipmentOrInventory(player, Items.WITCHWOOD_ICON_8923)) {
-            npcl(FacialExpression.HALF_GUILTY, "Be ye mad? There be Horrors in this cave!").also { stage++ }
+            npcl(FacialExpression.HALF_GUILTY, "Be ye mad? There be Horrors in this cave!")
         }
         if(inInventory(player, Items.WITCHWOOD_ICON_8923)) {
             npcl(FacialExpression.HALF_GUILTY, "Be ye some form of simpleton? Do ye not hear the howlin' of the Horrors?").also { stage = 14 }
