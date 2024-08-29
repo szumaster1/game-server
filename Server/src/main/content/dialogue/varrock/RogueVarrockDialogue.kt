@@ -1,7 +1,7 @@
 package content.dialogue.varrock
 
 import cfg.consts.NPCs
-import content.dialogue.wilderness.RogueCastleDialogue
+import content.region.wilderness.dialogue.RogueCastleDialogue
 import core.api.hasRequirement
 import core.api.inBorders
 import core.api.openDialogue

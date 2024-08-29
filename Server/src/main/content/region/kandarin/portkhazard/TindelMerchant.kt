@@ -2,7 +2,7 @@ package content.region.kandarin.portkhazard
 
 import content.data.item.BrokenItem
 import content.data.item.BrokenItem.getRepair
-import content.dialogue.TindelMerchantDialogue
+import content.region.kandarin.portkhazard.dialogue.TindelMerchantDialogue
 import core.api.*
 import cfg.consts.Items
 import cfg.consts.NPCs
