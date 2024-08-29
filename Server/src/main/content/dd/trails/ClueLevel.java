@@ -1,6 +1,6 @@
-package content.dd.ttrails;
+package content.dd.trails;
 
-import content.dd.ttrails.clue.ClueScrollPlugin;
+import content.dd.trails.clue.ClueScrollPlugin;
 import core.api.IfaceSettingsBuilder;
 import cfg.consts.Items;
 import core.game.component.Component;

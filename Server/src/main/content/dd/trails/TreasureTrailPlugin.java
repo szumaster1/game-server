@@ -1,12 +1,12 @@
-package content.dd.ttrails;
+package content.dd.trails;
 
-import content.dd.ttrails.clue.ClueScrollPlugin;
-import content.dd.ttrails.clue.CoordinateCluePlugin;
-import content.dd.ttrails.clue.EmoteCluePlugin;
-import content.dd.ttrails.clue.MapCluePlugin;
-import content.dd.ttrails.npc.SaradominWizardNPC;
-import content.dd.ttrails.npc.ZamorakWizardNPC;
-import content.dd.ttrails.scroll.CoordinateClueScroll;
+import content.dd.trails.clue.ClueScrollPlugin;
+import content.dd.trails.clue.CoordinateCluePlugin;
+import content.dd.trails.clue.EmoteCluePlugin;
+import content.dd.trails.clue.MapCluePlugin;
+import content.dd.trails.npc.SaradominWizardNPC;
+import content.dd.trails.npc.ZamorakWizardNPC;
+import content.dd.trails.scroll.CoordinateClueScroll;
 import content.global.skill.support.agility.AgilityHandler;
 import core.cache.def.impl.ItemDefinition;
 import core.cache.def.impl.SceneryDefinition;

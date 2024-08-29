@@ -1,8 +1,8 @@
 package core.api.utils
 
 import content.data.tables.*
-import content.dd.ttrails.ClueLevel
-import content.dd.ttrails.clue.ClueScrollPlugin
+import content.dd.trails.ClueLevel
+import content.dd.trails.clue.ClueScrollPlugin
 import content.global.handlers.item.equipment.gloves.FOGGlovesManager
 import cfg.consts.Items
 import core.api.inEquipment

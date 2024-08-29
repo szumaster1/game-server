@@ -1,6 +1,6 @@
 package core.game.system.config
 
-import content.dd.ttrails.ClueLevel
+import content.dd.trails.ClueLevel
 import core.ServerConstants
 import core.api.log
 import core.cache.def.impl.NPCDefinition

@@ -1,4 +1,4 @@
-package content.dd.ttrails.clue
+package content.dd.trails.clue
 /*
 import content.dd.treasuretrails.ClueLevel
 import content.dd.treasuretrails.scroll.ChallengeClueScroll

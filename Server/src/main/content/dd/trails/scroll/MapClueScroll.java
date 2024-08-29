@@ -1,7 +1,7 @@
-package content.dd.ttrails.scroll;
+package content.dd.trails.scroll;
 
-import content.dd.ttrails.ClueLevel;
-import content.dd.ttrails.clue.ClueScrollPlugin;
+import content.dd.trails.ClueLevel;
+import content.dd.trails.clue.ClueScrollPlugin;
 import core.game.global.action.DigAction;
 import core.game.global.action.DigSpadeHandler;
 import core.game.interaction.Option;

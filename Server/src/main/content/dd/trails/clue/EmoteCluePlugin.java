@@ -1,8 +1,8 @@
-package content.dd.ttrails.clue;
+package content.dd.trails.clue;
 
-import content.dd.ttrails.scroll.EmoteClueScroll;
-import content.dd.ttrails.ClueLevel;
-import content.dd.ttrails.npc.UriNPC;
+import content.dd.trails.scroll.EmoteClueScroll;
+import content.dd.trails.ClueLevel;
+import content.dd.trails.npc.UriNPC;
 import core.game.node.entity.player.link.emote.Emotes;
 import core.game.world.map.zone.ZoneBorders;
 import core.plugin.ClassScanner;

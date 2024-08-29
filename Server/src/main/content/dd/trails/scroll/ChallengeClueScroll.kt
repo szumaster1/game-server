@@ -1,7 +1,7 @@
-package content.dd.ttrails.scroll
+package content.dd.trails.scroll
 
-import content.dd.ttrails.ClueLevel
-import content.dd.ttrails.clue.ClueScrollPlugin
+import content.dd.trails.ClueLevel
+import content.dd.trails.clue.ClueScrollPlugin
 import core.api.setInterfaceText
 import core.game.interaction.Option
 import core.game.node.Node

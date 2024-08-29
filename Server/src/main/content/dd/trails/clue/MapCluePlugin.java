@@ -1,7 +1,7 @@
-package content.dd.ttrails.clue;
+package content.dd.trails.clue;
 
-import content.dd.ttrails.scroll.MapClueScroll;
-import content.dd.ttrails.ClueLevel;
+import content.dd.trails.scroll.MapClueScroll;
+import content.dd.trails.ClueLevel;
 import core.game.world.map.Location;
 import core.game.world.map.zone.ZoneBorders;
 import core.plugin.Plugin;

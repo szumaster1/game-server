@@ -1,7 +1,7 @@
 package core.game.system.command.sets
 
 import content.data.BossKillCounter
-import content.dd.ttrails.TreasureTrailManager
+import content.dd.trails.TreasureTrailManager
 import content.global.handlers.iface.BookInterfaceListener
 import content.global.handlers.iface.Page
 import content.global.handlers.iface.PageSet

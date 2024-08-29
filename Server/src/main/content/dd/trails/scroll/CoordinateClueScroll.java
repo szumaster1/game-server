@@ -1,6 +1,6 @@
-package content.dd.ttrails.scroll;
+package content.dd.trails.scroll;
 
-import content.dd.ttrails.ClueLevel;
+import content.dd.trails.ClueLevel;
 import core.game.node.entity.npc.NPC;
 import core.game.node.entity.player.Player;
 import core.game.node.item.Item;

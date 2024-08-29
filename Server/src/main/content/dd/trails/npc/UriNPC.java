@@ -1,7 +1,7 @@
-package content.dd.ttrails.npc;
+package content.dd.trails.npc;
 
-import content.dd.ttrails.clue.ClueScrollPlugin;
-import content.dd.ttrails.scroll.EmoteClueScroll;
+import content.dd.trails.clue.ClueScrollPlugin;
+import content.dd.trails.scroll.EmoteClueScroll;
 import core.game.dialogue.Dialogue;
 import core.game.node.entity.Entity;
 import core.game.node.entity.combat.CombatStyle;

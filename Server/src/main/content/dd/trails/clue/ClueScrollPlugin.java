@@ -1,7 +1,7 @@
-package content.dd.ttrails.clue;
+package content.dd.trails.clue;
 
-import content.dd.ttrails.ClueLevel;
-import content.dd.ttrails.TreasureTrailManager;
+import content.dd.trails.ClueLevel;
+import content.dd.trails.TreasureTrailManager;
 import core.game.component.Component;
 import core.game.node.entity.player.Player;
 import core.game.node.item.Item;

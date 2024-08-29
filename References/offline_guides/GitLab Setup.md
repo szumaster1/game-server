@@ -3,7 +3,7 @@
 ***
 
 1. Create a GitLab account.
-2. Install [JDK 11](https://adoptium.net)
+2. Install [JDK 19](https://adoptium.net)
 3. Install [IntelliJ IDEA](https://www.jetbrains.com/idea/download/)
 
 ##### SSH setup
