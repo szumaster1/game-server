@@ -13,7 +13,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Represents the Represents the Orbon dialogue.
+ * Represents the Orbon dialogue.
  */
 @Initializable
 class OrbonDialogue(player: Player? = null) : Dialogue(player) {

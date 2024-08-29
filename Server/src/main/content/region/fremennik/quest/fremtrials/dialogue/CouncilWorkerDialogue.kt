@@ -12,13 +12,8 @@ import core.tools.START_DIALOGUE
 const val COUNCIL_WORKER = 1287
 
 /**
- * Represents the Represents the dialogue of a council worker in the game.
- *
- * @param questStage The stage of the quest the council worker is related to.
- * @param isBeerInteraction A flag indicating if the interaction involves beer.
- * @param beerId The ID of the beer involved in the interaction, if any.
- * @constructor Creates a CouncilWorkerDialogue with the specified quest stage, beer interaction flag, and beer ID.
- */
+ * Represents the dialogue of a council worker in the game.
+*/
 class CouncilWorkerDialogue(val questStage: Int, var isBeerInteraction: Boolean = false, val beerId: Int? = null) :
     DialogueFile() {
 
