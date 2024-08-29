@@ -122,7 +122,7 @@ object SummoningCreator {
         /**
          * Represents the object.
          */
-        private val `object` = getObject(Location(2209, 5344, 0))
+        private val objectsIDs = getObject(Location(2209, 5344, 0))
 
         override fun checkRequirements(): Boolean {
             closeInterface(player)
@@ -150,17 +150,17 @@ object SummoningCreator {
 
         override fun stop() {
             super.stop()
-            animateScenery(player, `object`!!, 8510, true)
+            animateScenery(player, objectsIDs!!, 8510, true)
         }
 
         override fun reward(): Boolean {
             if (delay == 1) {
                 delay = 4
-                animateScenery(player, `object`!!, 8509, true)
+                animateScenery(player, objectsIDs!!, 8509, true)
                 playAudio(player, Sounds.CRAFT_POUCH_4164)
                 return false
             }
-            animateScenery(player, `object`!!, 8510, true)
+            animateScenery(player, objectsIDs!!, 8510, true)
             for (i in 0 until amount) {
                 for (item in type.required) {
                     if (!anyInInventory(player, item.id)) {

@@ -67,12 +67,12 @@ class KnightNPC : AbstractNPC {
         }
     }
 
-    override fun startDeath(killer: Entity) {
+    override fun finalizeDeath(killer: Entity?) {
         if (killer == player) {
             type!!.transform(this, player)
             return
         }
-        super.startDeath(killer)
+        super.finalizeDeath(killer)
     }
 
     override fun isAttackable(entity: Entity, style: CombatStyle, message: Boolean): Boolean {
@@ -191,7 +191,7 @@ class KnightNPC : AbstractNPC {
             npc.pulseManager.clear()
             npc.walkingQueue.reset()
             player!!.setAttribute(KnightWaves.KW_TIER, this.id)
-            Pulser.submit(object : Pulse(3, npc, player) {
+            Pulser.submit(object : Pulse(10, npc, player) {
                 var counter: Int = 0
 
                 override fun pulse(): Boolean {

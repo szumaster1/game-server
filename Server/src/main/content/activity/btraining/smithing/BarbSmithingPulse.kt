@@ -1,6 +1,5 @@
-package content.global.skill.production.smithing.item
+package content.activity.btraining.smithing
 
-import content.activity.btraining.smithing.BarbarianWeapon
 import core.api.*
 import cfg.consts.Animations
 import core.game.node.entity.player.Player
@@ -19,7 +18,7 @@ import kotlin.math.min
  *
  * @param player The player who is performing the smithing action.
  */
-class BarbarianSmithingPulse(player: Player?, val weapon: BarbarianWeapon, var amount: Int, var button: Int) :
+class BarbSmithingPulse(player: Player?, val weapon: BarbarianWeapon, var amount: Int, var button: Int) :
     SkillPulse<Item>(player, null) {
 
     override fun checkRequirements(): Boolean {

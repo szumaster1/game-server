@@ -1,6 +1,5 @@
 package content.activity.btraining.smithing
 
-import content.global.skill.production.smithing.item.BarbarianSmithingPulse
 import content.global.skill.skillcape.SkillcapePerks
 import core.api.*
 import cfg.consts.Items
@@ -40,7 +39,7 @@ class BarbSmithingListener : InteractionListener {
             }
             sendDoubleItemOptions(player, "What would you like to make?", weapon.spearId, weapon.hastaId, "a " + getItemName(weapon.spearId) + ".", "a " + getItemName(weapon.hastaId) + ".")
             addDialogueAction(player) { player, buttonID ->
-                submitIndividualPulse(player, BarbarianSmithingPulse(player, weapon, 1, buttonID))
+                submitIndividualPulse(player, BarbSmithingPulse(player, weapon, 1, buttonID))
             }
             return@onUseWith true
         }
