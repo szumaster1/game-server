@@ -1,4 +1,4 @@
-package content.region.misthalin.handlers.lumbridge
+package content.region.misthalin.lumbridge
 
 import core.game.node.entity.Entity
 import core.game.node.entity.combat.equipment.Ammunition

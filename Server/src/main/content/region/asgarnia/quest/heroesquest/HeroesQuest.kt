@@ -1,6 +1,6 @@
 package content.region.asgarnia.quest.heroesquest
 
-import content.region.misthalin.quest.free.shieldofarrav.ShieldofArrav
+import content.region.misthalin.varrock.quest.phoenixgang.ShieldofArrav
 import core.api.*
 import cfg.consts.Items
 import cfg.consts.Vars

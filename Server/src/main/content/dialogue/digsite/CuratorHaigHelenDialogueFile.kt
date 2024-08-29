@@ -1,7 +1,7 @@
 package content.dialogue.digsite
 
 import content.region.desert.quest.thegolemquest.dialogue.CuratorHaigHalenGolemDialogue
-import content.region.misthalin.quest.free.shieldofarrav.dialogue.CuratorHaigHalenDialogueFile
+import content.region.misthalin.varrock.quest.phoenixgang.dialogue.CuratorHaigHalenDialogueFile
 import core.api.*
 import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression

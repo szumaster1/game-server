@@ -1,6 +1,7 @@
 package content.dialogue.wizardstower
 
 import core.game.dialogue.Dialogue
+import core.game.dialogue.DialogueInterpreter
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
@@ -44,7 +45,7 @@ class WizardTowerDialogue(player: Player? = null) : Dialogue(player) {
     }
 
     override fun getIds(): IntArray {
-        return intArrayOf(458543948)
+        return intArrayOf(DialogueInterpreter.getDialogueKey("wizard-tower-dialogue"))
     }
 
 }

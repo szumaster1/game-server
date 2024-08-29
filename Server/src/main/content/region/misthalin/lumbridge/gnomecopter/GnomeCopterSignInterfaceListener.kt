@@ -1,4 +1,4 @@
-package content.region.misthalin.handlers.lumbridge.gnomecopter
+package content.region.misthalin.lumbridge.gnomecopter
 
 import core.api.closeTabInterface
 import cfg.consts.Components

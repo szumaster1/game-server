@@ -1,4 +1,4 @@
-package content.region.misthalin.handlers.lumbridge
+package content.region.misthalin.lumbridge
 
 import content.data.item.RepairItem.Companion.forId
 import content.dialogue.lumbridge.BobDialogue

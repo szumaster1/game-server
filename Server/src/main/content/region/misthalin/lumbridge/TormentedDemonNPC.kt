@@ -1,4 +1,4 @@
-package content.region.misthalin.handlers.lumbridge
+package content.region.misthalin.lumbridge
 
 import content.data.BossKillCounter.Companion.addtoKillcount
 import cfg.consts.NPCs

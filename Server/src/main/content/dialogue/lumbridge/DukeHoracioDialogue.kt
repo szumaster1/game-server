@@ -2,8 +2,8 @@ package content.dialogue.lumbridge
 
 import cfg.consts.NPCs
 import content.region.misthalin.quest.member.losttribe.dialogue.DukeHoracioLostTribeDialogue
-import content.region.misthalin.quest.free.dragonslayer.DragonSlayer
-import content.region.misthalin.quest.free.dragonslayer.dialogue.DukeHoracioDragonSlayerDialogue
+import content.region.misthalin.varrock.quest.dragon.DragonSlayer
+import content.region.misthalin.varrock.quest.dragon.dialogue.DukeHoracioDragonSlayerDialogue
 import content.region.misthalin.quest.free.runemysteries.dialogue.DukeHoracioRuneMysteriesDialogue
 import core.api.getQuestStage
 import core.api.isQuestComplete
@@ -21,7 +21,8 @@ class DukeHoracioDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
-        if ((getQuestStage(player, "Dragon Slayer") == 100 && !player.inventory.containsItem(DragonSlayer.SHIELD) && !player.bank.containsItem(DragonSlayer.SHIELD)) || (player.questRepository.getQuest("Dragon Slayer").isStarted(player) && !isQuestComplete(player, "Dragon Slayer"))) {
+        if ((getQuestStage(player, "Dragon Slayer") == 100 && !player.inventory.containsItem(DragonSlayer.SHIELD) && !player.bank.containsItem(
+                DragonSlayer.SHIELD)) || (player.questRepository.getQuest("Dragon Slayer").isStarted(player) && !isQuestComplete(player, "Dragon Slayer"))) {
             addOption("Dragon Slayer", DukeHoracioDragonSlayerDialogue(player.questRepository.getStage("Dragon Slayer")))
         }
         if (!isQuestComplete(player, "Lost Tribe") && player.questRepository.getQuest("Lost Tribe").isStarted(player)) {

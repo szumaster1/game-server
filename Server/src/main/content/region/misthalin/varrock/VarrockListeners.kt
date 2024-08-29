@@ -1,7 +1,5 @@
 package content.region.misthalin.varrock
 
-import content.region.kandarin.quest.biohazard.dialogue.GuidorsWifeDialogueFile
-import content.dialogue.varrock.KnockatDoorDialogue
 import core.GlobalStats
 import core.api.*
 import cfg.consts.*
@@ -22,6 +20,9 @@ import core.game.world.map.zone.ZoneBorders
 import core.game.world.update.flag.context.Animation
 import core.tools.END_DIALOGUE
 import content.region.misc.keldagrim.MinecartTravel
+import content.region.misthalin.varrock.dialogue.KnockatDoorDialogue
+import content.region.misthalin.varrock.dialogue.SawmillOperatorDialogue
+import content.region.kandarin.ardougne.quest.biohazard.dialogue.GuidorsWifeDialogueFile
 import core.tools.Log
 
 /**
@@ -32,7 +33,7 @@ class VarrockListeners : InteractionListener {
     override fun defineListeners() {
 
         /*
-         * Handling makeover interaction with Thessalia NPC.
+         * Handling make-over option for Thessalia NPC.
          */
 
         on(NPCs.THESSALIA_548, IntType.NPC, "change-clothes") { player, _ ->
@@ -41,8 +42,8 @@ class VarrockListeners : InteractionListener {
         }
 
         /*
-         * Broken cart south of Varrock, starting point for
-         * the What Lies Below quest.
+         * Broken cart south of Varrock, starting point
+         * for the What Lies Below quest.
          */
 
         on(Scenery.BROKEN_CART_23055, IntType.SCENERY, "search") { player, _ ->
@@ -250,6 +251,10 @@ class VarrockListeners : InteractionListener {
             return@on true
         }
 
+        /*
+         *
+         */
+
         on(Scenery.PORTAL_28780, IntType.SCENERY, "use") { player, _ ->
             visualize(player, -1, Graphics.CURSE_IMPACT_110)
             queueScript(player, 1, QueueStrength.SOFT) {
@@ -268,6 +273,10 @@ class VarrockListeners : InteractionListener {
             return@on true
         }
 
+        /*
+         *
+         */
+
         on(Scenery.LADDER_1749, IntType.SCENERY, "climb-down") { player, _ ->
             if (player.location.z == 2) {
                 ClimbActionHandler.climb(player, Animation(Animations.MULTI_USE_BEND_OVER_827), Location.create(3097, 3432, 1))
@@ -281,10 +290,17 @@ class VarrockListeners : InteractionListener {
             return@on true
         }
 
+        /*
+         * Handling the Guidor's house drawer object interaction.
+         */
         on(Scenery.DRAWERS_17466, IntType.SCENERY, "open") { _, node ->
             replaceScenery(node.asScenery(), Scenery.DRAWERS_24322, -1)
             return@on true
         }
+
+        /*
+         * Handling the Guidor's house drawer object interaction.
+         */
 
         on(Scenery.DRAWERS_24322, IntType.SCENERY, "close") { _, node ->
             replaceScenery(node.asScenery(), Scenery.DRAWERS_17466, -1)
@@ -292,7 +308,7 @@ class VarrockListeners : InteractionListener {
         }
 
         /*
-         * Travel interaction between Keldagrim and Grand exchange.
+         * Travel interaction between Keldagrim and Grand Exchange.
          */
 
         on(HIDDEN_TRAPDOOR, IntType.SCENERY, "open") { player, _ ->
@@ -319,12 +335,52 @@ class VarrockListeners : InteractionListener {
             })
             return@on true
         }
+
+        /*
+         * Sawmill operator NPC options.
+         * Handles the "talk-to" interaction with the Sawmill Operator.
+         */
+
+        on(SAWMILL_OPERATOR, IntType.NPC, "talk-to") { player, _ ->
+            openDialogue(player, SawmillOperatorDialogue())
+            return@on true
+        }
+
+        /*
+         * Sawmill operator NPC options.
+         * Handles the "buy-plank" interaction with the Sawmill Operator.
+         */
+
+        on(SAWMILL_OPERATOR, IntType.NPC, "buy-plank") { player, _ ->
+            openInterface(player, Components.POH_SAWMILL_403)
+            return@on true
+        }
+
+        /*
+         * Sawmill operator NPC options.
+         * Handles the "trade" interaction with the Sawmill Operator.
+         */
+
+        on(SAWMILL_OPERATOR, IntType.NPC, "trade") { player, _ ->
+            openNpcShop(player, SAWMILL_OPERATOR)
+            return@on true
+        }
+
+        /*
+         * Sets the destination for the Sawmill Operator interactions.
+         * This defines where the player will be directed when interacting with the Sawmill Operator.
+         */
+
+        setDest(IntType.NPC, intArrayOf(SAWMILL_OPERATOR), "talk-to", "buy-plank", "trade") { _, _ ->
+            return@setDest Location.create(3302, 3491, 0)
+        }
     }
 
     companion object {
         private var COUNTER = 0
         private val BERRIES = intArrayOf(Scenery.CADAVA_BUSH_23625, Scenery.CADAVA_BUSH_23626, Scenery.CADAVA_BUSH_23627, Scenery.REDBERRY_BUSH_23628, Scenery.REDBERRY_BUSH_23629, Scenery.REDBERRY_BUSH_23630)
         private const val HIDDEN_TRAPDOOR = Scenery.HIDDEN_TRAPDOOR_28094
+        private const val SAWMILL_OPERATOR = NPCs.SAWMILL_OPERATOR_4250
     }
 
 }

@@ -1,4 +1,4 @@
-package content.region.misthalin.handlers.lumbridge
+package content.region.misthalin.lumbridge
 
 import cfg.consts.Animations
 import cfg.consts.NPCs

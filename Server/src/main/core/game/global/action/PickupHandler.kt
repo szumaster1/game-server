@@ -1,7 +1,7 @@
 package core.game.global.action
 
 import content.data.GodType
-import content.global.skill.production.runecrafting.item.pouch.RunePouch
+import content.global.skill.production.runecrafting.pouch.RunePouch
 import core.api.*
 import cfg.consts.Items
 import cfg.consts.NPCs
