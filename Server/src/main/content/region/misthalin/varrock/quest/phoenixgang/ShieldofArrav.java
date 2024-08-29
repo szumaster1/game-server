@@ -1,6 +1,6 @@
 package content.region.misthalin.varrock.quest.phoenixgang;
 
-import content.region.misthalin.varrock.palace.KingRoaldDialogue;
+import content.region.misthalin.varrock.palace.dialogue.KingRoaldDialogue;
 import content.region.misthalin.quest.free.phoenixgang.dialogue.*;
 import content.region.misthalin.varrock.quest.phoenixgang.npc.JohnnyBeardNPC;
 import content.region.misthalin.varrock.quest.phoenixgang.plugin.CertificatePlugin;

@@ -1,4 +1,4 @@
-package content.region.misthalin.varrock.palace
+package content.region.misthalin.varrock.palace.dialogue
 
 import cfg.consts.NPCs
 import core.game.dialogue.Dialogue
