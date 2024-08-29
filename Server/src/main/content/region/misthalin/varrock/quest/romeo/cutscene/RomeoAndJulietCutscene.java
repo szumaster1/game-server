@@ -1,4 +1,4 @@
-package content.region.misthalin.quest.free.romeoandjuliet.cutscene;
+package content.region.misthalin.varrock.quest.romeo.cutscene;
 
 import core.game.activity.ActivityPlugin;
 import core.game.activity.CutscenePlugin;

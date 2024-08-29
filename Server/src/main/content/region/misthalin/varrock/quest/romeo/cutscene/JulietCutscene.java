@@ -1,6 +1,6 @@
-package content.region.misthalin.quest.free.romeoandjuliet.cutscene;
+package content.region.misthalin.varrock.quest.romeo.cutscene;
 
-import content.region.misthalin.quest.free.romeoandjuliet.dialogue.JulietDialogue;
+import content.region.misthalin.varrock.quest.romeo.dialogue.JulietDialogue;
 import core.game.activity.ActivityPlugin;
 import core.game.activity.CutscenePlugin;
 import core.game.node.entity.npc.NPC;

@@ -1,7 +1,7 @@
-package content.region.misthalin.quest.free.romeoandjuliet.dialogue
+package content.region.misthalin.varrock.quest.romeo.dialogue
 
 import cfg.consts.Animations
-import content.region.misthalin.quest.free.romeoandjuliet.cutscene.JulietCutscene
+import content.region.misthalin.varrock.quest.romeo.cutscene.JulietCutscene
 import cfg.consts.Items
 import cfg.consts.NPCs
 import core.api.*

@@ -1,4 +1,4 @@
-package content.global.skill.production.runecrafting.abyss
+package content.miniquest.abyss
 
 import content.data.skill.SkillingTool
 import content.global.skill.production.runecrafting.data.Altar

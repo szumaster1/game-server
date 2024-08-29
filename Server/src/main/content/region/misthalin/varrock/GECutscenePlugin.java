@@ -1,4 +1,4 @@
-package content.region.misthalin.handlers.lumbridge.cutscene;
+package content.region.misthalin.varrock;
 
 import core.game.activity.ActivityManager;
 import core.game.activity.ActivityPlugin;

@@ -1,4 +1,4 @@
-package content.global.skill.production.runecrafting.item.tiara
+package content.global.skill.production.runecrafting.tiara
 
 import content.global.skill.production.runecrafting.data.Altar
 import content.global.skill.production.runecrafting.data.Talisman

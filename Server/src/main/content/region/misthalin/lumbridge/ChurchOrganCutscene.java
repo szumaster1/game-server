@@ -1,4 +1,4 @@
-package content.region.misthalin.handlers.lumbridge.cutscene;
+package content.region.misthalin.lumbridge;
 
 import core.game.activity.ActivityPlugin;
 import core.game.activity.CutscenePlugin;

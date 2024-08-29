@@ -4,7 +4,7 @@ import content.global.handlers.item.equipment.EquipmentDegrader;
 import content.global.handlers.item.equipment.special.ChinchompaSwingHandler;
 import content.global.handlers.item.equipment.special.SalamanderSwingHandler;
 import content.global.skill.combat.summoning.familiar.FamiliarManager;
-import content.global.skill.production.runecrafting.item.pouch.PouchManager;
+import content.global.skill.production.runecrafting.pouch.PouchManager;
 import content.global.skill.support.construction.HouseManager;
 import core.GlobalStats;
 import core.ServerConstants;

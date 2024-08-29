@@ -1,4 +1,4 @@
-package content.global.skill.production.runecrafting.abyss
+package content.miniquest.abyss
 
 import core.api.*
 import cfg.consts.Items

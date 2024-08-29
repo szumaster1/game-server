@@ -1,4 +1,4 @@
-package content.global.skill.production.runecrafting.item.pouch
+package content.global.skill.production.runecrafting.pouch
 
 import cfg.consts.Items
 import core.cache.def.impl.ItemDefinition

@@ -1,4 +1,4 @@
-package content.region.misthalin.quest.free.romeoandjuliet;
+package content.region.misthalin.varrock.quest.romeo;
 
 import cfg.consts.Vars;
 import core.game.node.entity.player.Player;

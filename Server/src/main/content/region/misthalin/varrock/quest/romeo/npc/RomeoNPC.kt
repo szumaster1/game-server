@@ -1,4 +1,4 @@
-package content.region.misthalin.quest.free.romeoandjuliet.npc
+package content.region.misthalin.varrock.quest.romeo.npc
 
 import cfg.consts.NPCs
 import core.game.node.entity.npc.AbstractNPC

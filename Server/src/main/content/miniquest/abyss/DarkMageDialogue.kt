@@ -1,6 +1,6 @@
-package content.global.skill.production.runecrafting.abyss
+package content.miniquest.abyss
 
-import content.global.skill.production.runecrafting.item.pouch.PouchManager.RCPouch
+import content.global.skill.production.runecrafting.pouch.PouchManager.RCPouch
 import cfg.consts.Items
 import cfg.consts.NPCs
 import core.game.dialogue.Dialogue
