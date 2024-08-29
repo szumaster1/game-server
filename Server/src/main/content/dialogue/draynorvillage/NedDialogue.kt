@@ -3,7 +3,7 @@ package content.dialogue.draynorvillage
 import cfg.consts.Items
 import cfg.consts.NPCs
 import content.region.desert.quest.princealirescue.dialogue.NedDialogueFile
-import content.region.misthalin.quest.free.dragonslayer.dialogue.NedDSDialogue
+import content.region.misthalin.varrock.quest.dragon.dialogue.NedDSDialogue
 import core.api.*
 import core.game.dialogue.Dialogue
 import core.game.dialogue.IfTopic

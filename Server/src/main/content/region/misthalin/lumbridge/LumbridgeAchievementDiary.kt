@@ -7,7 +7,7 @@ import content.dialogue.draynorvillage.WiseOldManDialogue
 import content.dialogue.lumbridge.DoomsayerDialogue
 import content.dialogue.lumbridge.DukeHoracioDialogue
 import content.dialogue.lumbridge.LumbridgeGuideDialogue
-import content.region.misthalin.quest.free.dragonslayer.dialogue.DukeHoracioDragonSlayerDialogue
+import content.region.misthalin.varrock.quest.dragon.dialogue.DukeHoracioDragonSlayerDialogue
 import content.region.misthalin.quest.free.restlessghost.dialogue.FatherUhrneyDialogue
 import core.api.getQuestStage
 import core.api.inBorders

@@ -27,7 +27,7 @@ class WizardTowerListener : InteractionListener {
          */
 
         on(intArrayOf(WIZARDS_TOWER_BOOKCASE_1, WIZARDS_TOWER_BOOKCASE_2), IntType.SCENERY, "search") { player, _ ->
-            openDialogue(player, 458543948)
+            openDialogue(player, "wizard-tower-dialogue")
             return@on true
         }
 
