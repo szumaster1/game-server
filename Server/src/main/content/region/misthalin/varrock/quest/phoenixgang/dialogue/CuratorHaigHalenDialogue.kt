@@ -2,7 +2,7 @@ package content.region.misthalin.varrock.quest.phoenixgang.dialogue
 
 import cfg.consts.Items
 import cfg.consts.NPCs
-import content.region.desert.quest.thegolemquest.dialogue.CuratorHaigHalenGolemDialogue
+import content.region.desert.quest.golem.dialogue.CuratorHaigHalenGolemDialogue
 import core.api.*
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression

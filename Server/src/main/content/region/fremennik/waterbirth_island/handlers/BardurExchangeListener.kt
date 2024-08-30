@@ -7,7 +7,7 @@ import core.api.openDialogue
 import core.api.sendNPCDialogue
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
-import content.dialogue.waterbrith.BardurExchangeDialogue
+import content.region.fremennik.waterbirth_island.warterbirth_dungeon.dialogue.BardurExchangeDialogue
 
 /**
  * Represents the Bardur Exchange listener.

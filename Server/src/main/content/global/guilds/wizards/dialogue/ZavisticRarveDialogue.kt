@@ -1,7 +1,7 @@
 package content.global.guilds.wizards.dialogue
 
-import content.region.kandarin.quest.zogreflesheaters.dialogue.ZavisticRarveDefaultDialogue
-import content.region.kandarin.quest.zogreflesheaters.dialogue.ZavisticRarveDialogueFiles
+import content.region.kandarin.quest.zogre.dialogue.ZavisticRarveDefaultDialogue
+import content.region.kandarin.quest.zogre.dialogue.ZavisticRarveDialogueFiles
 import cfg.consts.NPCs
 import core.api.isQuestComplete
 import core.api.openDialogue

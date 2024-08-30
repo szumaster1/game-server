@@ -1,6 +1,6 @@
 package content.region.misthalin.varrock.quest.surok.dialogue;
 
-import content.dialogue.RatBurgissDiaryDialogue;
+import content.region.misthalin.dialogue.RatBurgissDiaryDialogue;
 import content.region.misthalin.quest.member.whatliesbelow.WhatLiesBelow;
 import content.region.misthalin.varrock.quest.surok.WhatLiesBelow;
 import core.game.dialogue.Dialogue;

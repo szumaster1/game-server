@@ -1,6 +1,6 @@
 package content.region.karamja.quest.monkeymadness.dialogue
 
-import content.region.kandarin.quest.thegrandtree.dialogue.ShipyardWorkerDialogue
+import content.region.kandarin.quest.grandtree.dialogue.ShipyardWorkerDialogue
 import cfg.consts.Items
 import core.api.getQuestStage
 import core.api.sendItemDialogue

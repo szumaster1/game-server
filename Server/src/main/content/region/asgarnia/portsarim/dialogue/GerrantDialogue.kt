@@ -1,6 +1,6 @@
 package content.region.asgarnia.portsarim.dialogue
 
-import content.region.asgarnia.quest.heroesquest.HeroesQuest
+import content.region.asgarnia.burthope.quest.hero.HeroesQuest
 import core.api.*
 import cfg.consts.Items
 import cfg.consts.NPCs

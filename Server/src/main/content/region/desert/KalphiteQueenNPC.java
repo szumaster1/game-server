@@ -1,7 +1,7 @@
 package content.region.desert;
 
 import content.data.BossKillCounter;
-import content.region.kandarin.quest.dwarfcannon.dmc.DMCHandler;
+import content.region.kandarin.quest.mcannon.dmc.DMCHandler;
 import core.game.node.entity.Entity;
 import core.game.node.entity.combat.BattleState;
 import core.game.node.entity.combat.CombatStyle;

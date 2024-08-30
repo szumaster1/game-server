@@ -7,7 +7,7 @@ import content.global.handlers.iface.PageSet
 import content.global.skill.gathering.farming.timers.Compost
 import content.global.skill.gathering.farming.timers.CropGrowth
 import content.minigame.fishingtrawler.TrawlerLoot
-import content.region.misc.tutorial.TutorialStage
+import content.region.misc.tutorial.handlers.TutorialStage
 import core.ServerConstants
 import core.api.*
 import cfg.consts.Components
@@ -32,7 +32,6 @@ import core.game.world.map.build.DynamicRegion
 import core.game.world.repository.Repository
 import core.plugin.Initializable
 import core.tools.Log
-import core.tools.RandomFunction
 import core.tools.StringUtils
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch

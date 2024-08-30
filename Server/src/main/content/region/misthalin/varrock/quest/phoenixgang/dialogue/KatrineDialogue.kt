@@ -1,6 +1,6 @@
 package content.region.misthalin.varrock.quest.phoenixgang.dialogue
 
-import content.region.asgarnia.quest.heroesquest.dialogue.KatrineDialogueFile
+import content.region.asgarnia.burthope.quest.hero.dialogue.KatrineDialogueFile
 import content.region.misthalin.varrock.quest.phoenixgang.ShieldofArrav
 import cfg.consts.Items
 import cfg.consts.NPCs

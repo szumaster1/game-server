@@ -1,6 +1,6 @@
 package content.region.misthalin.varrock.museum.dialogue
 
-import content.region.desert.quest.thegolemquest.dialogue.CuratorHaigHalenGolemDialogue
+import content.region.desert.quest.golem.dialogue.CuratorHaigHalenGolemDialogue
 import content.region.misthalin.varrock.quest.phoenixgang.dialogue.CuratorHaigHalenDialogueFile
 import core.api.*
 import cfg.consts.Items

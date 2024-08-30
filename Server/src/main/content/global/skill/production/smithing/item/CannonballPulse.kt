@@ -1,6 +1,6 @@
 package content.global.skill.production.smithing.item
 
-import content.region.kandarin.quest.dwarfcannon.DwarfCannon
+import content.region.kandarin.quest.mcannon.DwarfCannon
 import core.api.*
 import cfg.consts.Animations
 import cfg.consts.Items

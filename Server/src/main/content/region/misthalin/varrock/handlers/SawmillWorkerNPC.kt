@@ -1,0 +1,48 @@
+package content.region.misthalin.varrock.handlers
+
+import cfg.consts.Animations
+import cfg.consts.NPCs
+import core.api.finishedMoving
+import core.game.node.entity.npc.NPC
+import core.game.node.entity.npc.NPCBehavior
+import core.game.world.map.Location
+import core.game.world.update.flag.context.Animation
+
+private val movementPath = arrayOf(
+    Location.create(3316, 3506, 0),
+    Location.create(3317, 3513, 0)
+)
+
+/**
+ * Represents the Sawmill worker NPC.
+ */
+class SawmillWorkerNPC : NPCBehavior(NPCs.WILL_7737, NPCs.WILL_7738) {
+
+    override fun onCreation(self: NPC) {
+        self.configureMovementPath(*movementPath)
+        self.isWalks = true
+    }
+
+    override fun tick(self: NPC): Boolean {
+        when {
+            self.location == movementPath[0] -> {
+                if (!finishedMoving(self)) {
+                    self.sendChat("Erf!", 1)
+                    self.animate(Animation.create(Animations.MULTI_USE_BEND_OVER_827))
+                    self.transform(NPCs.WILL_7737)
+                    self.resetWalk()
+                }
+            }
+
+            self.location == movementPath[1] -> {
+                if (!finishedMoving(self)) {
+                    self.sendChat("Oof!", 2)
+                    self.animate(Animation.create(Animations.WILL_LUMBER_YARD_EMPLOYEE_9218))
+                    self.reTransform()
+                    self.canMove(movementPath[0])
+                }
+            }
+        }
+        return true
+    }
+}

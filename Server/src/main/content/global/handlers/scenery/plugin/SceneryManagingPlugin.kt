@@ -1,6 +1,6 @@
 package content.global.handlers.scenery.plugin
 
-import content.region.kandarin.quest.holygrail.HolyGrail
+import content.region.kandarin.quest.grail.HolyGrail
 import core.api.animate
 import cfg.consts.Animations
 import cfg.consts.Sounds

@@ -2,7 +2,7 @@ package content.region.morytania.quest.druidspirit
 
 import cfg.consts.Items
 import cfg.consts.Sounds
-import content.region.morytania.mort_myre_swamp.MortMyreGhastNPC
+import content.region.morytania.mort_myre_swamp.handlers.GhastNPC
 import core.api.*
 import core.game.node.entity.player.Player
 import core.game.node.scenery.SceneryBuilder
@@ -102,7 +102,7 @@ object NSUtils {
      * @param attacker The NPC that is attacking the player.
      * @return Returns true if the pouch activation was successful, otherwise false.
      */
-    fun activatePouch(player: Player, attacker: MortMyreGhastNPC): Boolean {
+    fun activatePouch(player: Player, attacker: GhastNPC): Boolean {
         var shouldAddEmptyPouch = false
         val pouchAmt = amountInInventory(player, Items.DRUID_POUCH_2958)
         if (pouchAmt == 1) shouldAddEmptyPouch = true

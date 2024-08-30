@@ -1,7 +1,7 @@
 package content.region.fremennik.jatizso.dialogue
 
-import content.region.fremennik.waterbirth_island.transportation.TravelDestination
-import content.region.fremennik.waterbirth_island.transportation.WaterbirthTravel
+import content.region.fremennik.waterbirth_island.transport.TravelDestination
+import content.region.fremennik.waterbirth_island.transport.WaterbirthTravel
 import cfg.consts.NPCs
 import core.api.requireQuest
 import core.game.dialogue.Dialogue

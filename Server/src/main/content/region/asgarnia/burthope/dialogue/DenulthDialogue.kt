@@ -1,7 +1,7 @@
 package content.region.asgarnia.burthope.dialogue
 
-import content.region.asgarnia.quest.deathplateau.dialogue.DenulthDialogueFile
-import content.region.asgarnia.quest.trollstronghold.dialogue.DenulthDialogueFile2
+import content.region.asgarnia.burthope.quest.death.dialogue.DenulthDialogueFile
+import content.region.asgarnia.quest.troll.dialogue.DenulthDialogueFile2
 import cfg.consts.NPCs
 import core.api.isQuestComplete
 import core.api.isQuestInProgress
@@ -78,7 +78,7 @@ class DenulthDialogue(player: Player? = null) : Dialogue(player) {
             }
             return true
         }
-        openDialogue(player!!, DenulthDialogueFile(), npc)
+        openDialogue(player!!, content.region.asgarnia.burthope.quest.death.dialogue.DenulthDialogueFile(), npc)
         return true
     }
 

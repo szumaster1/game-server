@@ -1,6 +1,6 @@
 package content.region.fremennik.rellekka.quest.viking.dialogue
 
-import content.region.kandarin.quest.murdermystery.dialogue.PoisonSalesmanDialogueFile
+import content.region.kandarin.quest.murder.dialogue.PoisonSalesmanDialogueFile
 import core.api.addItemOrDrop
 import cfg.consts.Items
 import cfg.consts.NPCs

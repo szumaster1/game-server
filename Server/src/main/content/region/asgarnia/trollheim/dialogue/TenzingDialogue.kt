@@ -1,6 +1,6 @@
 package content.region.asgarnia.trollheim.dialogue
 
-import content.region.asgarnia.quest.deathplateau.dialogue.TenzingDialogueFile
+import content.region.asgarnia.quest.death.dialogue.TenzingDialogueFile
 import core.api.*
 import cfg.consts.Items
 import cfg.consts.NPCs

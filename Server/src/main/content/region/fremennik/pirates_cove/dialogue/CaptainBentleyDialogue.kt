@@ -1,7 +1,7 @@
 package content.region.fremennik.pirates_cove.dialogue
 
-import content.region.fremennik.lunar_isle.transportation.Destinaton
-import content.region.fremennik.lunar_isle.transportation.LunarTravel.sail
+import content.region.fremennik.lunar_isle.transport.Destinaton
+import content.region.fremennik.lunar_isle.transport.LunarTravel.sail
 import cfg.consts.NPCs
 import core.game.dialogue.Dialogue
 import core.game.node.entity.npc.NPC

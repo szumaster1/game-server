@@ -2,7 +2,7 @@ package content.region.misthalin.draynor.dialogue
 
 import cfg.consts.Items
 import cfg.consts.NPCs
-import content.region.desert.quest.princealirescue.dialogue.NedDialogueFile
+import content.region.desert.quest.rescue.dialogue.NedDialogueFile
 import content.region.misthalin.varrock.quest.dragon.dialogue.NedDSDialogue
 import core.api.*
 import core.game.dialogue.Dialogue

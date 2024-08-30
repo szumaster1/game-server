@@ -1,10 +1,10 @@
 package content.region.misthalin.lumbridge.achievement
 
-import content.dialogue.TownCrierDialogue
+import content.region.kandarin.ardougne.dialogue.TownCrierDialogue
 import content.global.skill.combat.magic.TeleportMethod
 import content.global.skill.combat.magic.spellconsts.Modern
 import content.region.misthalin.draynor.dialogue.WiseOldManDialogue
-import content.dialogue.lumbridge.DoomsayerDialogue
+import content.region.misthalin.lumbridge.dialogue.DoomsayerDialogue
 import content.dialogue.lumbridge.DukeHoracioDialogue
 import content.dialogue.lumbridge.LumbridgeGuideDialogue
 import content.region.misthalin.varrock.quest.dragon.dialogue.DukeHoracioDragonSlayerDialogue
@@ -489,7 +489,7 @@ class LumbridgeAchievementDiary : DiaryEventHookBase(DiaryType.LUMBRIDGE) {
                 }
             }
 
-            is DoomsayerDialogue -> {
+            is content.region.misthalin.lumbridge.dialogue.DoomsayerDialogue -> {
                 if (event.currentStage >= 13) {
                     finishTask(
                         player,

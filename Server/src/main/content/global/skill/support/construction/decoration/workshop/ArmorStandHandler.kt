@@ -3,7 +3,7 @@ package content.global.skill.support.construction.decoration.workshop
 import content.data.item.BrokenItem
 import content.data.item.BrokenItem.getRepair
 import content.data.item.RepairItem
-import content.dialogue.lumbridge.BobDialogue
+import content.region.misthalin.lumbridge.dialogue.BobDialogue
 import core.api.animate
 import cfg.consts.Items
 import core.api.sendDialogue
@@ -48,15 +48,15 @@ class ArmorStandHandler : UseWithHandler(494, 468, 474, 476, 478, 470, 472, 496,
         if (repairItem != null) {
             baseCost = repairItem.cost * 1.0
             product = repairItem.product
-        } else if (BobDialogue.BarrowsEquipment.isBarrowsItem(event.used.id)) {
-            val type = BobDialogue.BarrowsEquipment.formatedName(event.used.id)
-            val single = BobDialogue.BarrowsEquipment.getSingleName(type)
-            val equipment = BobDialogue.BarrowsEquipment.getEquipmentType(type)
+        } else if (content.region.misthalin.lumbridge.dialogue.BobDialogue.BarrowsEquipment.isBarrowsItem(event.used.id)) {
+            val type = content.region.misthalin.lumbridge.dialogue.BobDialogue.BarrowsEquipment.formatedName(event.used.id)
+            val single = content.region.misthalin.lumbridge.dialogue.BobDialogue.BarrowsEquipment.getSingleName(type)
+            val equipment = content.region.misthalin.lumbridge.dialogue.BobDialogue.BarrowsEquipment.getEquipmentType(type)
             val newString = type.lowercase().replace(single, "").trim { it <= ' ' }.replace("'s", "")
             val newStringBuild = StringBuilder()
             newStringBuild.append(newString).append(" $equipment")
-            val fullequip = BobDialogue.BarrowsEquipment.BarrowsFullEquipment.forName(newStringBuild.toString())
-            baseCost = BobDialogue.BarrowsEquipment.getFormatedCost(equipment, event.used.asItem()) * 1.0
+            val fullequip = content.region.misthalin.lumbridge.dialogue.BobDialogue.BarrowsEquipment.BarrowsFullEquipment.forName(newStringBuild.toString())
+            baseCost = content.region.misthalin.lumbridge.dialogue.BobDialogue.BarrowsEquipment.getFormatedCost(equipment, event.used.asItem()) * 1.0
             product = fullequip.full
         }
 

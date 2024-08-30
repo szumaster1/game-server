@@ -1,7 +1,7 @@
 package content.global.skill.production.fletching
 
 import content.global.skill.production.fletching.FletchingMap.FletchingItems
-import content.region.kandarin.quest.zogreflesheaters.ZogreQuestUtils
+import content.region.kandarin.quest.zogre.ZogreQuestUtils
 import core.api.*
 import cfg.consts.Animations
 import cfg.consts.Items

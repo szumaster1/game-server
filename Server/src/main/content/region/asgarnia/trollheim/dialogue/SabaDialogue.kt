@@ -1,6 +1,6 @@
 package content.region.asgarnia.trollheim.dialogue
 
-import content.region.asgarnia.quest.deathplateau.dialogue.SabaDialogueFile
+import content.region.asgarnia.quest.death.dialogue.SabaDialogueFile
 import cfg.consts.NPCs
 import core.api.getQuestStage
 import core.api.isQuestComplete

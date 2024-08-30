@@ -1,6 +1,6 @@
 package content.region.asgarnia.burthope.dialogue
 
-import content.region.asgarnia.quest.deathplateau.dialogue.HaroldDialogueFile
+import content.region.asgarnia.quest.death.dialogue.HaroldDialogueFile
 import core.api.*
 import cfg.consts.Animations
 import cfg.consts.Items

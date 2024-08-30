@@ -1,9 +1,9 @@
 package content.region.karamja.quest.monkeymadness
 
 import content.region.karamja.quest.monkeymadness.dialogue.*
-import content.dialogue.apeatoll.dungeon.ZooknockAfterBattleDialogueFile
-import content.dialogue.apeatoll.dungeon.ZooknockDialogue
-import content.dialogue.apeatoll.dungeon.ZooknockDialogueFile
+import content.region.karamja.dialogue.apeatoll.dungeon.ZooknockAfterBattleDialogueFile
+import content.region.karamja.dialogue.apeatoll.dungeon.ZooknockDialogue
+import content.region.karamja.dialogue.apeatoll.dungeon.ZooknockDialogueFile
 import core.api.*
 import cfg.consts.*
 import core.game.component.Component
