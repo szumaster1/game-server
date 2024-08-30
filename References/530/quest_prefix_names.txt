@@ -84,6 +84,7 @@ Year   Quest Name                                   Quest Prefix             For
        Desert Treasure                              deserttreasure
        Icthlarin's Little Helper                    ics
        Tears of Guthix                              tog
+       Tears of Guthix                              tog
        Zogre Flesh Eaters                           zogre
        The Lost Tribe                               lost_tribe
        Giant Dwarf                                  giantdwarf

@@ -4,7 +4,7 @@ import content.global.handlers.iface.ScrollInterface
 import content.region.kandarin.quest.grandtree.cutscene.BlackDemonCutscene
 import content.region.kandarin.quest.grandtree.dialogue.KingNarnodeUnderGroundDialogue
 import content.region.kandarin.quest.grandtree.dialogue.ShipyardWorkerDialogueFile
-import content.region.karamja.quest.monkeymadness.dialogue.KingNarnodeMonkeyMadnessDialogue
+import content.region.karamja.quest.mm.dialogue.KingNarnodeMonkeyMadnessDialogue
 import core.api.*
 import cfg.consts.Components
 import cfg.consts.Items

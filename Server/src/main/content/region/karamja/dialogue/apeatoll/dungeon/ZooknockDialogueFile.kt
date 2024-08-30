@@ -1,7 +1,7 @@
 package content.region.karamja.dialogue.apeatoll.dungeon
 
 import content.global.handlers.item.withnpc.ZooknockListener
-import content.region.karamja.quest.monkeymadness.cutscenes.DungeonPlanCutScene
+import content.region.karamja.quest.mm.cutscenes.DungeonPlanCutScene
 import core.api.*
 import cfg.consts.Components
 import cfg.consts.Graphics

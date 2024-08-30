@@ -3,7 +3,7 @@ package content.region.morytania.quest.druidspirit
 import cfg.consts.Items
 import cfg.consts.NPCs
 import cfg.consts.Scenery
-import content.region.morytania.mort_myre_swamp.handlers.GhastNPC
+import content.region.morytania.swamp.handlers.GhastNPC
 import core.api.*
 import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression

@@ -2,7 +2,7 @@ package content.region.morytania.quest.druidspirit
 
 import cfg.consts.Items
 import cfg.consts.Sounds
-import content.region.morytania.mort_myre_swamp.handlers.GhastNPC
+import content.region.morytania.swamp.handlers.GhastNPC
 import core.api.*
 import core.game.node.entity.player.Player
 import core.game.node.scenery.SceneryBuilder

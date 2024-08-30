@@ -3,7 +3,7 @@ package content.region.misthalin.varrock.palace.dialogue
 import cfg.consts.NPCs
 import content.minigame.allfiredup.KingRoaldAFUDialogue
 import content.region.misthalin.varrock.quest.phoenixgang.dialogue.KingRoaldDialogue
-import content.region.misthalin.quest.allfiredup.dialogue.KingRoaldDialogueFile
+import content.region.misthalin.quest.firedup.dialogue.KingRoaldDialogueFile
 import content.region.misthalin.quest.member.priestinperil.dialogue.KingRoaldPriestInPerilDialogue
 import core.api.getAttribute
 import core.api.getQuestStage
