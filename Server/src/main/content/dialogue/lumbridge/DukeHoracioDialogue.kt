@@ -1,10 +1,10 @@
 package content.dialogue.lumbridge
 
 import cfg.consts.NPCs
-import content.region.misthalin.quest.member.losttribe.dialogue.DukeHoracioLostTribeDialogue
+import content.region.misthalin.lumbridge.quest.lost_tribe.dialogue.DukeHoracioLostTribeDialogue
 import content.region.misthalin.varrock.quest.dragon.DragonSlayer
 import content.region.misthalin.varrock.quest.dragon.dialogue.DukeHoracioDragonSlayerDialogue
-import content.region.misthalin.quest.free.runemysteries.dialogue.DukeHoracioRuneMysteriesDialogue
+import content.region.misthalin.lumbridge.quest.runemysteries.dialogue.DukeHoracioRuneMysteriesDialogue
 import core.api.getQuestStage
 import core.api.isQuestComplete
 import core.game.dialogue.Dialogue

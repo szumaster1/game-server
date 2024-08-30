@@ -1,15 +1,15 @@
 <div style="text-align: center;">
 
-[![AGPL-3.0 License][license-shield]][license-url]
-[![2009scape Fork][fork-shield]][fork-url]
-[![Kotlin version][kotlin-version]][kotlin-url]
-[![Java version][java-version]][java-url]
-[![Sp-release][sp-release]][sp-url]
+[![License][license-shield]][license-url]
+[![Fork][fork-shield]][fork-url]
+[![Kotlin][kotlin-version]][kotlin-url]
+[![Java][java-version]][java-url]
+[![Release][play-release]][play-url]
 [![Wiki][wiki-shield]][wiki-url]
 
 </div>
 
-## 2009scape
+### 2009scape
 
 Fork for educational purposes & single-player experience.
 
@@ -82,9 +82,9 @@ AGPL 3.0 license, The license applies to the entire repository, unless otherwise
 
 [fork-url]: https://gitlab.com/2009scape/2009scape
 
-[sp-release]: https://img.shields.io/badge/singleplayer-release-blue
+[play-release]: https://img.shields.io/badge/singleplayer-release-blue
 
-[sp-url]: https://github.com/szumaster3/2009scape-game
+[play-url]: https://github.com/szumaster3/game
 
 [kotlin-version]: https://img.shields.io/badge/kotlin-1.8.20-blue.svg?logo=kotlin
 

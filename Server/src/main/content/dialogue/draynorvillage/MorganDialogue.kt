@@ -1,7 +1,7 @@
 package content.dialogue.draynorvillage
 
 import cfg.consts.NPCs
-import content.region.misthalin.quest.free.vampireslayer.dialogue.MorganVampireSlayerDialogue
+import content.region.misthalin.quest.free.vampyre.dialogue.MorganVampireSlayerDialogue
 import core.api.getQuest
 import core.api.getQuestStage
 import core.api.openDialogue
