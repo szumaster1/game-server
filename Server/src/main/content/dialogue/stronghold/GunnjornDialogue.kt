@@ -1,6 +1,6 @@
 package content.dialogue.stronghold
 
-import content.region.fremennik.quest.horrorfromthedeep.dialogue.GunnjornDialogueFile
+import content.region.fremennik.quest.horror.dialogue.GunnjornDialogueFile
 import cfg.consts.Items
 import cfg.consts.NPCs
 import core.api.getQuestStage

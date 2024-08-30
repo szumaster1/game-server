@@ -3,7 +3,7 @@ package content.region.misthalin.lumbridge
 import core.GlobalStats
 import core.api.*
 import cfg.consts.*
-import content.region.misthalin.lumbridge.CulinaromancerChestListener
+import content.region.misthalin.lumbridge.basement.CulinaromancerChestListener
 import core.game.activity.ActivityManager
 import core.game.global.action.ClimbActionHandler
 import core.game.interaction.IntType

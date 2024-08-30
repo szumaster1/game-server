@@ -4,7 +4,7 @@ import cfg.consts.Sounds
 import core.api.*
 import cfg.consts.Animations
 import cfg.consts.NPCs
-import content.region.misthalin.draynor.DraynorUtils
+import content.region.misthalin.draynor.handlers.DraynorUtils
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.entity.npc.NPC
