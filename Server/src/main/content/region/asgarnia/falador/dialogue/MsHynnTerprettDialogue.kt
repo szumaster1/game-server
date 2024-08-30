@@ -1,6 +1,6 @@
 package content.region.asgarnia.falador.dialogue
 
-import content.region.asgarnia.quest.rd.dialogue.MsHynnTerprettDialogueFile
+import content.region.asgarnia.falador.quest.rd.dialogue.MsHynnTerprettDialogueFile
 import cfg.consts.NPCs
 import core.api.openDialogue
 import core.game.dialogue.Dialogue

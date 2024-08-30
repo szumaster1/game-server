@@ -1,7 +1,7 @@
 package content.region.asgarnia.quest.bkfortress.dialogue
 
 import content.region.asgarnia.quest.bkfortress.BlackKnightsFortress
-import content.region.asgarnia.quest.rd.dialogue.SirAmikVarzeDialogueFile
+import content.region.asgarnia.falador.quest.rd.dialogue.SirAmikVarzeDialogueFile
 import core.api.openDialogue
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression

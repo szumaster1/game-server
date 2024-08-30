@@ -1,6 +1,6 @@
 package core.game.system.command.sets
 
-import content.region.asgarnia.quest.rd.RecruitmentDrive
+import content.region.asgarnia.falador.quest.rd.RecruitmentDrive
 import core.ServerConstants
 import core.api.getAttribute
 import core.game.node.entity.player.link.TeleportManager

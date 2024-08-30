@@ -1,7 +1,7 @@
 package content.region.asgarnia.falador.dialogue
 
 import cfg.consts.NPCs
-import content.region.asgarnia.quest.rd.dialogue.LadyTableDialogueFile
+import content.region.asgarnia.falador.quest.rd.dialogue.LadyTableDialogueFile
 import core.api.openDialogue
 import core.game.dialogue.Dialogue
 import core.game.node.entity.player.Player

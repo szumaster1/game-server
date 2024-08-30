@@ -1,6 +1,6 @@
 package content.region.asgarnia.falador.dialogue
 
-import content.region.asgarnia.quest.rd.RecruitmentDrive
+import content.region.asgarnia.falador.quest.rd.RecruitmentDrive
 import core.api.*
 import cfg.consts.Items
 import cfg.consts.NPCs

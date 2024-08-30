@@ -1,6 +1,6 @@
 package content.region.asgarnia.falador.dialogue
 
-import content.region.asgarnia.quest.rd.dialogue.SirTinleyDialogueFile
+import content.region.asgarnia.falador.quest.rd.dialogue.SirTinleyDialogueFile
 import cfg.consts.NPCs
 import core.api.openDialogue
 import core.game.dialogue.Dialogue
