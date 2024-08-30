@@ -1,6 +1,6 @@
 package content.region.misthalin.varrock.quest.priest.dialogue
 
-import content.region.morytania.quest.naturespirit.dialogue.DrezelDialogueFile
+import content.region.morytania.quest.druidspirit.dialogue.DrezelDialogueFile
 import cfg.consts.Items
 import cfg.consts.NPCs
 import core.api.hasAnItem

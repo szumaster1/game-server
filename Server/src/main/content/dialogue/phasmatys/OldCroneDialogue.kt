@@ -2,7 +2,7 @@ package content.dialogue.phasmatys
 
 import cfg.consts.NPCs
 import content.region.misthalin.quest.member.animalmagnetism.dialogue.OldCroneDialogue
-import content.region.morytania.quest.ghostsahoy.dialogue.OldCroneDialogueFile
+import content.region.morytania.quest.ahoy.dialogue.OldCroneDialogueFile
 import core.api.getQuestStage
 import core.api.isQuestComplete
 import core.api.openDialogue

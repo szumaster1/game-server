@@ -1,7 +1,7 @@
 package content.region.misthalin.draynor
 
 import content.global.handlers.iface.plugin.DiangoReclaimInterfacePlugin
-import content.dialogue.draynorvillage.TreeGuardDialogue
+import content.region.misthalin.draynor.dialogue.TreeGuardDialogue
 import core.api.*
 import cfg.consts.Items
 import cfg.consts.NPCs
@@ -12,24 +12,9 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 
 /**
- * Represents the Draynor village listeners.
+ * Represents the [DraynorVillageListeners].
  */
 class DraynorVillageListeners : InteractionListener {
-
-    companion object {
-        private val BOOKSHELVES = intArrayOf(7065, 7066, 7068)
-        private val randomDialogue = arrayOf(
-            "Hey - gerroff me!",
-            "You'll blow my cover! I'm meant to be hidden!",
-            "Don't draw attention to me!",
-            "Will you stop that?",
-            "Watch what you're doing with that hatchet, you nit!",
-            "Ooooch!",
-            "Ow! That really hurt!",
-            "Oi!"
-        )
-    }
-
 
     override fun defineListeners() {
 
@@ -37,7 +22,7 @@ class DraynorVillageListeners : InteractionListener {
          * Make dyes interaction.
          */
 
-        on(NPCs.AGGIE_922, IntType.NPC, "make-dyes") { player, node ->
+        on(DraynorUtils.aggie, IntType.NPC, "make-dyes") { player, node ->
             openDialogue(player, node.asNpc().id, node, true)
             return@on true
         }
@@ -47,7 +32,7 @@ class DraynorVillageListeners : InteractionListener {
          * telescope in the wise old man's house.
          */
 
-        on(Scenery.TELESCOPE_7092, IntType.SCENERY, "observe") { player, _ ->
+        on(DraynorUtils.telescope, IntType.SCENERY, "observe") { player, _ ->
             ActivityManager.start(player, "draynor telescope", false)
             return@on true
         }
@@ -56,7 +41,7 @@ class DraynorVillageListeners : InteractionListener {
          * Handling trapdoor interaction.
          */
 
-        on(Scenery.TRAPDOOR_6434, IntType.SCENERY, "open") { _, node ->
+        on(DraynorUtils.trapdoor, IntType.SCENERY, "open") { _, node ->
             replaceScenery(node.asScenery(), 6435, 500)
             return@on true
         }
@@ -65,7 +50,7 @@ class DraynorVillageListeners : InteractionListener {
          * Diango holiday items reclaimable interaction.
          */
 
-        on(NPCs.DIANGO_970, IntType.NPC, "holiday-items") { player, _ ->
+        on(DraynorUtils.diango, IntType.NPC, "holiday-items") { player, _ ->
             DiangoReclaimInterfacePlugin.open(player)
             return@on true
         }
@@ -74,7 +59,7 @@ class DraynorVillageListeners : InteractionListener {
          * Searching the bookshelves in the Wise Old Man's house.
          */
 
-        on(BOOKSHELVES, IntType.SCENERY, "search") { player, node ->
+        on(DraynorUtils.bookshelf, IntType.SCENERY, "search") { player, node ->
             if (freeSlots(player) == 0) {
                 sendDialogue(player, "You need at least one free inventory space to take from the shelves.")
                 return@on true
@@ -104,15 +89,9 @@ class DraynorVillageListeners : InteractionListener {
          * Darius 'Suave' Aniseed interaction.
          */
 
-        on(Scenery.TREE_10041, IntType.SCENERY, "chop down", "talk to") { player, _ ->
+        on(DraynorUtils.tree, IntType.SCENERY, "chop down", "talk to") { player, _ ->
             when (getUsedOption(player)) {
-                "chop down" -> sendNPCDialogue(
-                    player,
-                    NPCs.GUARD_345,
-                    randomDialogue.random(),
-                    FacialExpression.ANNOYED
-                )
-
+                "chop down" -> sendNPCDialogue(player, NPCs.GUARD_345, DraynorUtils.treeGuardChat.random(), FacialExpression.ANNOYED)
                 "talk to" -> openDialogue(player, TreeGuardDialogue())
             }
             return@on true

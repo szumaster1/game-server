@@ -3,7 +3,7 @@ package content.region.misthalin.lumbridge
 import content.dialogue.TownCrierDialogue
 import content.global.skill.combat.magic.TeleportMethod
 import content.global.skill.combat.magic.spellconsts.Modern
-import content.dialogue.draynorvillage.WiseOldManDialogue
+import content.region.misthalin.draynor.dialogue.WiseOldManDialogue
 import content.dialogue.lumbridge.DoomsayerDialogue
 import content.dialogue.lumbridge.DukeHoracioDialogue
 import content.dialogue.lumbridge.LumbridgeGuideDialogue

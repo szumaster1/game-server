@@ -2,7 +2,7 @@ package content.dialogue.phasmatys
 
 import cfg.consts.Items
 import cfg.consts.NPCs
-import content.region.morytania.phasmatys.EnergyBarrier
+import content.region.morytania.port_phasmatys.EnergyBarrier
 import core.api.*
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression

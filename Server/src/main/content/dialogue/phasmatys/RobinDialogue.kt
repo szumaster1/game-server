@@ -2,7 +2,7 @@ package content.dialogue.phasmatys
 
 import cfg.consts.Items
 import cfg.consts.NPCs
-import content.region.morytania.quest.ghostsahoy.dialogue.RobinDialogueFile
+import content.region.morytania.quest.ahoy.dialogue.RobinDialogueFile
 import core.api.getQuestStage
 import core.api.inInventory
 import core.api.openDialogue

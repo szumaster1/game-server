@@ -2,7 +2,7 @@ package content.dialogue.phasmatys
 
 import cfg.consts.Items
 import cfg.consts.NPCs
-import content.region.morytania.quest.ghostsahoy.dialogue.GravingasDialogue
+import content.region.morytania.quest.ahoy.dialogue.GravingasDialogue
 import core.api.getQuestStage
 import core.api.inEquipment
 import core.api.openDialogue

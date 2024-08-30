@@ -1,7 +1,7 @@
 package content.dialogue.phasmatys
 
 import cfg.consts.NPCs
-import content.region.morytania.quest.ghostsahoy.dialogue.NecrovarusDialogueFile
+import content.region.morytania.quest.ahoy.dialogue.NecrovarusDialogueFile
 import core.api.isQuestComplete
 import core.api.openDialogue
 import core.game.dialogue.Dialogue

@@ -2,7 +2,7 @@ package content.dialogue.phasmatys
 
 import cfg.consts.Items
 import cfg.consts.NPCs
-import content.region.morytania.quest.ghostsahoy.dialogue.AkharanuDialogueFile
+import content.region.morytania.quest.ahoy.dialogue.AkharanuDialogueFile
 import core.api.*
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression

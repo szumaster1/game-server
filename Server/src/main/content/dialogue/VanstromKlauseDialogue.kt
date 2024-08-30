@@ -1,6 +1,6 @@
 package content.dialogue
 
-import content.region.morytania.quest.searchmyreq.dialogue.VanstromKlauseQuestDialogue
+import content.region.morytania.quest.route.dialogue.VanstromKlauseQuestDialogue
 import core.api.getQuestStage
 import core.api.openDialogue
 import core.game.dialogue.Dialogue

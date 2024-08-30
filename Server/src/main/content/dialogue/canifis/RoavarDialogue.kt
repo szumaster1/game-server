@@ -2,7 +2,7 @@ package content.dialogue.canifis
 
 import cfg.consts.Items
 import cfg.consts.NPCs
-import content.region.morytania.quest.fenkenstrain.dialogue.RoavarDialogueFile
+import content.region.morytania.quest.fenk.dialogue.RoavarDialogueFile
 import core.api.*
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression
