@@ -21,7 +21,7 @@ import kotlin.Pair;
 import core.tools.SystemLogger;
 import core.api.utils.Vector;
 
-import content.region.wilderness.revenants.RevenantNPC;
+import content.region.wilderness.handlers.revenants.RevenantNPC;
 
 import static core.api.ContentAPIKt.*;
 

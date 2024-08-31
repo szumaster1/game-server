@@ -226,7 +226,7 @@ class WaterbirthDungeon : MapZone("Water birth dungeon", true, ZoneRestriction.R
      */
     class DungeonOptionHandler : OptionHandler() {
         @Throws(Throwable::class)
-        override fun newInstance(arg: Any): Plugin<Any> {
+        override fun newInstance(arg: Any?): Plugin<Any> {
             SceneryDefinition.forId(8958).handlers["option:open"] = this
             SceneryDefinition.forId(8959).handlers["option:open"] = this
             SceneryDefinition.forId(8960).handlers["option:open"] = this

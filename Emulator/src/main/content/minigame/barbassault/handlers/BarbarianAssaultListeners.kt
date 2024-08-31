@@ -1,4 +1,4 @@
-package content.minigame.barbassault
+package content.minigame.barbassault.handlers
 
 import cfg.consts.Components
 import cfg.consts.NPCs

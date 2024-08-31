@@ -1,8 +1,8 @@
-package content.region.wilderness.revenants
+package content.region.wilderness.handlers.revenants
 
 import content.global.skill.combat.summoning.familiar.Familiar
-import content.region.wilderness.revenants.RevenantController.Companion.registerRevenant
-import content.region.wilderness.revenants.RevenantController.Companion.unregisterRevenant
+import content.region.wilderness.handlers.revenants.RevenantController.Companion.registerRevenant
+import content.region.wilderness.handlers.revenants.RevenantController.Companion.unregisterRevenant
 import cfg.consts.Sounds
 import core.api.playAudio
 import core.api.playGlobalAudio

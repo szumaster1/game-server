@@ -1,4 +1,4 @@
-package content.region.wilderness.npc
+package content.region.wilderness.handlers.npc
 
 import cfg.consts.NPCs
 import core.api.impact

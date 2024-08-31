@@ -1,4 +1,4 @@
-package content.region.wilderness.npc
+package content.region.wilderness.handlers.npc
 
 import content.data.BossKillCounter.Companion.addtoKillcount
 import content.global.handlers.item.equipment.special.DragonfireSwingHandler

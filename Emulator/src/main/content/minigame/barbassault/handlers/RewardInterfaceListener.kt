@@ -1,11 +1,8 @@
-package content.minigame.barbassault
+package content.minigame.barbassault.handlers
 
 import core.api.*
 import cfg.consts.Components
-import cfg.consts.Items
-import cfg.consts.NPCs
 import core.game.interaction.InterfaceListener
-import core.game.node.item.Item
 
 /**
  * Reward interface listener.

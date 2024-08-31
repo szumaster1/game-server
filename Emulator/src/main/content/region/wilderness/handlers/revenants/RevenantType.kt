@@ -1,4 +1,4 @@
-package content.region.wilderness.revenants
+package content.region.wilderness.handlers.revenants
 
 import core.cache.def.impl.NPCDefinition
 

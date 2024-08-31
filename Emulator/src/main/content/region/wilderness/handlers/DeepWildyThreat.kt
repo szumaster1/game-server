@@ -1,8 +1,8 @@
 package content.region.wilderness.handlers
 
-import content.region.wilderness.revenants.RevenantController
-import content.region.wilderness.revenants.RevenantNPC
-import content.region.wilderness.revenants.RevenantType
+import content.region.wilderness.handlers.revenants.RevenantController
+import content.region.wilderness.handlers.revenants.RevenantNPC
+import content.region.wilderness.handlers.revenants.RevenantType
 import core.api.*
 import core.game.node.entity.Entity
 import core.game.node.entity.combat.CombatStyle

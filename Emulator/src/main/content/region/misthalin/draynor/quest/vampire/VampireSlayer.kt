@@ -10,7 +10,7 @@ import core.plugin.Initializable
  * Vampire slayer quest.
  */
 @Initializable
-class VampireSlayer : Quest("Vampire Slayer", 30, 29, 3, Vars.VARP_QUEST_VAMPIRE_SLAYER_PROGRESS, 0, 1, 3) {
+class VampireSlayer: Quest("Vampire Slayer", 30, 29, 3, Vars.VARP_QUEST_VAMPIRE_SLAYER_PROGRESS, 0, 1, 3) {
 
      /*
       * The people of Draynor village live in constant terror. Their numbers are dwindling,
@@ -72,7 +72,7 @@ class VampireSlayer : Quest("Vampire Slayer", 30, 29, 3, Vars.VARP_QUEST_VAMPIRE
         player.packetDispatch.sendItemZoomOnInterface(1549, 260, 277, 3 + 2)
     }
 
-    override fun newInstance(`object`: Any): Quest {
+    override fun newInstance(`object`: Any?): Quest {
         return this
     }
 }

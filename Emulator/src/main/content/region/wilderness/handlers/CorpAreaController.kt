@@ -1,7 +1,7 @@
 package content.region.wilderness.handlers
 
 import content.global.skill.combat.summoning.familiar.Familiar
-import content.region.wilderness.npc.CorporealBeastNPC
+import content.region.wilderness.handlers.npc.CorporealBeastNPC
 import core.api.*
 import core.game.node.entity.Entity
 import core.game.node.entity.npc.NPC

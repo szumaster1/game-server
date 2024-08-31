@@ -21,9 +21,8 @@ class RepairItemHandler : UseWithHandler() {
     }
 
     private fun registerHandlers() {
-        val npcIds = listOf(NPCs.BOB_519, NPCs.SQUIRE_3797)
+        val npcIds = listOf(NPCs.BOB_519, NPCs.SQUIRE_3797, NPCs.TINDEL_MARCHANT_1799)
         npcIds.forEach { addHandler(it, NPC_TYPE, this) }
-        // TODO: Add handler for TINDEL_MARCHANT_1799
     }
 
     override fun handle(event: NodeUsageEvent): Boolean {
@@ -31,11 +30,11 @@ class RepairItemHandler : UseWithHandler() {
         val repairItem = forId(event.usedItem.id)
 
         if (repairItem == null && !isBarrowsItem(event.usedItem.id)) {
-            player.dialogueInterpreter.open(519, event.usedWith, true, true, null)
+            player.dialogueInterpreter.open(NPCs.BOB_519, event.usedWith, true, true, null)
             return true
         }
 
-        player.dialogueInterpreter.open(519, event.usedWith, true, false, event.usedItem.id, event.usedItem)
+        player.dialogueInterpreter.open(NPCs.BOB_519, event.usedWith, true, false, event.usedItem.id, event.usedItem)
         return true
     }
 
