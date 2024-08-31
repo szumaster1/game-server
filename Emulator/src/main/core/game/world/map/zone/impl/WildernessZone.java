@@ -1,9 +1,9 @@
 package core.game.world.map.zone.impl;
 
-import content.global.handlers.item.equipment.gloves.BrawlingGloves;
-import content.global.skill.combat.summoning.familiar.Familiar;
 import cfg.consts.Items;
 import cfg.consts.NPCs;
+import content.global.handlers.item.equipment.gloves.BrawlingGloves;
+import content.global.skill.combat.summoning.familiar.Familiar;
 import core.game.component.Component;
 import core.game.interaction.Option;
 import core.game.node.Node;

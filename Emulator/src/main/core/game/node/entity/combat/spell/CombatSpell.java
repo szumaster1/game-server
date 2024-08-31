@@ -1,10 +1,11 @@
 package core.game.node.entity.combat.spell;
 
+import cfg.consts.Sounds;
+import core.game.node.Node;
+import core.game.node.entity.Entity;
 import core.game.node.entity.combat.BattleState;
 import core.game.node.entity.combat.CombatStyle;
 import core.game.node.entity.combat.InteractionType;
-import core.game.node.Node;
-import core.game.node.entity.Entity;
 import core.game.node.entity.impl.Animator.Priority;
 import core.game.node.entity.impl.Projectile;
 import core.game.node.entity.npc.NPC;
@@ -15,7 +16,6 @@ import core.game.node.item.Item;
 import core.game.world.map.RegionManager;
 import core.game.world.update.flag.context.Animation;
 import core.game.world.update.flag.context.Graphic;
-import cfg.consts.Sounds;
 
 import java.util.ArrayList;
 import java.util.List;

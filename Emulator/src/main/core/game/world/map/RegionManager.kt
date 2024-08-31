@@ -9,11 +9,9 @@ import core.game.node.scenery.Scenery
 import core.game.world.map.zone.ZoneBorders
 import core.tools.Log
 import core.tools.RandomFunction
-import core.tools.SystemLogger
 import java.util.*
 import java.util.concurrent.TimeUnit
 import java.util.concurrent.locks.ReentrantLock
-import kotlin.collections.HashMap
 
 /**
  * Manages the regions.

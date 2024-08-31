@@ -1,8 +1,8 @@
 package core.game.node.entity.combat.equipment
 
-import core.api.applyPoison
 import cfg.consts.Items
 import cfg.consts.NPCs
+import core.api.applyPoison
 import core.api.playGlobalAudio
 import core.game.node.entity.combat.BattleState
 import core.game.node.entity.combat.ImpactHandler.HitsplatType

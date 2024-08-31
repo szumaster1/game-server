@@ -1,9 +1,9 @@
 package core.game.node.entity.skill
 
-import core.api.*
 import cfg.consts.Components
 import cfg.consts.Graphics
 import cfg.consts.Vars
+import core.api.*
 import core.game.global.Skillcape
 import core.game.node.entity.player.Player
 import core.game.world.GameWorld

@@ -1,8 +1,8 @@
 package core.auth
 
 import core.Configuration
-import core.storage.AccountStorageProvider
 import core.game.node.entity.player.Player
+import core.storage.AccountStorageProvider
 
 /**
  * Handles authentication processes for user accounts.

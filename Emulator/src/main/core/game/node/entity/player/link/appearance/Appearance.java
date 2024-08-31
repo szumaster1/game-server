@@ -7,10 +7,10 @@ import core.game.node.entity.combat.equipment.WeaponInterface;
 import core.game.node.entity.impl.Animator.Priority;
 import core.game.node.entity.player.Player;
 import core.game.node.item.Item;
+import core.game.system.config.ItemConfigParser;
 import core.game.world.update.flag.context.Animation;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
-import core.game.system.config.ItemConfigParser;
 
 /**
  * Represents an appearance managing class of a player.

@@ -7,7 +7,6 @@ import core.game.world.map.Location;
 import core.game.world.map.Region;
 import core.game.world.map.RegionManager;
 import core.game.world.map.RegionPlane;
-import core.game.system.config.ObjectConfigParser;
 
 import java.nio.ByteBuffer;
 

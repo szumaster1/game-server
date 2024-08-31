@@ -3,8 +3,6 @@ package core.game.node.entity.player.link;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
-import java.nio.ByteBuffer;
-
 /**
  * Represents a managing class of activity related information.
  * @author Vexia

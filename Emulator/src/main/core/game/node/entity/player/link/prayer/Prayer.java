@@ -1,27 +1,28 @@
 package core.game.node.entity.player.link.prayer;
 
+import cfg.consts.Sounds;
 import content.global.skill.skillcape.SkillcapePerks;
-import core.game.node.entity.skill.SkillBonus;
-import core.game.node.entity.skill.Skills;
+import core.game.event.PrayerDeactivatedEvent;
 import core.game.node.entity.Entity;
 import core.game.node.entity.combat.CombatStyle;
 import core.game.node.entity.combat.ImpactHandler.HitsplatType;
 import core.game.node.entity.impl.Projectile;
 import core.game.node.entity.npc.NPC;
 import core.game.node.entity.player.Player;
+import core.game.node.entity.skill.SkillBonus;
+import core.game.node.entity.skill.Skills;
 import core.game.system.task.Pulse;
+import core.game.world.GameWorld;
 import core.game.world.map.Location;
 import core.game.world.map.RegionManager;
 import core.game.world.update.flag.context.Graphic;
 import core.tools.RandomFunction;
-import core.game.event.*;
-import core.game.world.GameWorld;
-import cfg.consts.Sounds;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static core.api.ContentAPIKt.*;
+import static core.api.ContentAPIKt.playAudio;
+import static core.api.ContentAPIKt.setVarp;
 
 /**
  * Represents a managing class of a players prayers.

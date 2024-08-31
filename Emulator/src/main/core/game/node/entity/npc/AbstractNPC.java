@@ -1,9 +1,8 @@
 package core.game.node.entity.npc;
 
-import core.tools.Log;
-import core.tools.SystemLogger;
 import core.game.world.map.Location;
 import core.plugin.Plugin;
+import core.tools.Log;
 
 import java.util.HashMap;
 import java.util.Map;

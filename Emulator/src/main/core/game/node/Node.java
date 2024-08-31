@@ -1,5 +1,6 @@
 package core.game.node;
 
+import core.api.utils.Vector;
 import core.game.interaction.DestinationFlag;
 import core.game.interaction.InteractPlugin;
 import core.game.node.entity.npc.NPC;
@@ -9,7 +10,6 @@ import core.game.node.scenery.Scenery;
 import core.game.world.map.Direction;
 import core.game.world.map.Location;
 import core.tools.StringUtils;
-import core.api.utils.Vector;
 
 /**
  * Represents a node which is anything that is interactable in 2009Scape.

@@ -1,12 +1,12 @@
 package core.game.node.entity.combat.spell;
 
-import core.game.node.entity.skill.Skills;
 import core.game.node.Node;
 import core.game.node.entity.Entity;
 import core.game.node.entity.combat.BattleState;
 import core.game.node.entity.impl.Projectile;
 import core.game.node.entity.npc.NPC;
 import core.game.node.entity.player.link.SpellBookManager;
+import core.game.node.entity.skill.Skills;
 import core.plugin.Plugin;
 
 /**

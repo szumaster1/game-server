@@ -1,6 +1,5 @@
 package core.game.bots
 
-import core.game.bots.impl.Adventurer
 import core.game.ge.GrandExchangeOffer
 import core.game.node.entity.player.Player
 import core.game.node.item.GroundItem

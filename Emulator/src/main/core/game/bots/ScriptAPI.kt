@@ -1,10 +1,10 @@
 package core.game.bots
 
+import cfg.consts.Items
 import content.data.consumables.Consumables
 import content.data.consumables.effects.HealingEffect
 import core.Configuration
 import core.Configuration.Companion.SERVER_GE_NAME
-import cfg.consts.Items
 import core.api.itemDefinition
 import core.api.log
 import core.api.sendNews

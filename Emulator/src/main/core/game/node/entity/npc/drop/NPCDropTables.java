@@ -1,10 +1,12 @@
 package core.game.node.entity.npc.drop;
 
-import static core.api.ContentAPIKt.*;
-
-import content.data.tables.*;
-import core.cache.def.impl.NPCDefinition;
 import content.global.skill.combat.prayer.Bones;
+import core.api.utils.NPCDropTable;
+import core.cache.def.impl.NPCDefinition;
+import core.game.bots.AIPlayer;
+import core.game.bots.AIRepository;
+import core.game.bots.GeneralBotCreator;
+import core.game.ge.GrandExchange;
 import core.game.node.entity.Entity;
 import core.game.node.entity.npc.NPC;
 import core.game.node.entity.player.Player;
@@ -14,17 +16,14 @@ import core.game.node.item.GroundItemManager;
 import core.game.node.item.Item;
 import core.game.world.map.Location;
 import core.game.world.map.RegionManager;
+import core.game.world.repository.Repository;
 import core.tools.RandomFunction;
 import core.tools.StringUtils;
-import core.game.bots.AIPlayer;
-import core.game.bots.AIRepository;
-import core.game.bots.GeneralBotCreator;
-import core.api.utils.NPCDropTable;
-import core.game.ge.GrandExchange;
-import core.game.world.repository.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static core.api.ContentAPIKt.announceIfRare;
 
 /**
  * Holds and handles the NPC drop tables.

@@ -1,9 +1,9 @@
 package core.game.node.entity.npc.agg;
 
-import core.game.node.entity.npc.NPC;
 import core.Configuration;
 import core.game.node.entity.Entity;
 import core.game.node.entity.combat.DeathTask;
+import core.game.node.entity.npc.NPC;
 import core.game.node.entity.player.Player;
 import core.game.node.entity.player.info.Rights;
 import core.game.world.GameWorld;

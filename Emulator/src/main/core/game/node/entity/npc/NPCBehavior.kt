@@ -1,13 +1,13 @@
 package core.game.node.entity.npc
 
-import core.game.node.item.Item
 import core.api.ContentInterface
 import core.game.node.entity.Entity
-import core.game.world.map.RegionManager
-import core.game.node.entity.player.Player
 import core.game.node.entity.combat.BattleState
 import core.game.node.entity.combat.CombatStyle
 import core.game.node.entity.combat.CombatSwingHandler
+import core.game.node.entity.player.Player
+import core.game.node.item.Item
+import core.game.world.map.RegionManager
 import core.game.world.map.path.ClipMaskSupplier
 import core.game.world.map.path.Pathfinder
 

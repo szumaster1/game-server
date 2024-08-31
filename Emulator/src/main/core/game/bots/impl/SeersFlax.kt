@@ -1,8 +1,8 @@
 package core.game.bots.impl
 
+import cfg.consts.Items
 import content.global.skill.production.crafting.data.Spinning
 import content.global.skill.production.crafting.item.SpinningPulse
-import cfg.consts.Items
 import core.game.bots.Script
 import core.game.bots.SkillingBotAssembler
 import core.game.interaction.DestinationFlag

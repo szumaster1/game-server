@@ -1,7 +1,7 @@
 package core.game.node.entity.player.link;
 
-import core.Configuration;
 import cfg.consts.Sounds;
+import core.Configuration;
 import core.game.node.entity.Entity;
 import core.game.node.entity.impl.Animator.Priority;
 import core.game.node.entity.player.Player;

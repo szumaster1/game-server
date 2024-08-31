@@ -1,8 +1,5 @@
 package core.game.node.entity.player.link.request.trade;
 
-import static core.api.ContentAPIKt.*;
-import static core.tools.GlobalsKt.colorize;
-
 import core.cache.def.impl.ItemDefinition;
 import core.game.container.*;
 import core.game.node.entity.player.Player;
@@ -12,6 +9,9 @@ import core.game.world.GameWorld;
 import core.network.packet.PacketRepository;
 import core.network.packet.context.ContainerContext;
 import core.network.packet.outgoing.ContainerPacket;
+
+import static core.api.ContentAPIKt.sendMessage;
+import static core.tools.GlobalsKt.colorize;
 
 /**
  * Represents the container during a trade session.

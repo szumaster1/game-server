@@ -4,21 +4,20 @@ import content.global.skill.skillcape.SkillcapePerks;
 import core.game.node.entity.Entity;
 import core.game.node.entity.player.Player;
 import core.game.node.entity.skill.Skills;
-import core.game.node.item.Item;
 import core.game.node.item.GroundItem;
+import core.game.node.item.Item;
 import core.game.world.map.Direction;
 import core.game.world.map.Location;
 import core.game.world.map.Point;
 import core.game.world.map.RegionManager;
-import core.game.world.update.flag.chunk.ItemUpdateFlag;
 import core.tools.Log;
-import core.tools.SystemLogger;
 
-import java.util.Deque;
 import java.util.ArrayDeque;
 import java.util.ArrayList;
+import java.util.Deque;
 
-import static core.api.ContentAPIKt.*;
+import static core.api.ContentAPIKt.hasTimerActive;
+import static core.api.ContentAPIKt.log;
 
 /**
  * The walking queue.

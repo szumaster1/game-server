@@ -1,9 +1,9 @@
 package core.game.system.command.sets
 
+import cfg.consts.Sounds
 import content.global.handlers.item.SpadeDig
 import content.region.misc.tutorial.handlers.CharacterDesign
 import core.api.*
-import cfg.consts.Sounds
 import core.game.dialogue.DialogueFile
 import core.game.node.entity.combat.ImpactHandler
 import core.game.node.entity.npc.NPC

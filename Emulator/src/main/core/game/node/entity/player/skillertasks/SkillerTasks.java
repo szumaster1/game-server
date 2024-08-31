@@ -1,7 +1,6 @@
 package core.game.node.entity.player.skillertasks;
 
 import core.game.node.entity.player.Player;
-import core.game.node.item.Item;
 import core.tools.RandomFunction;
 
 import java.util.ArrayList;

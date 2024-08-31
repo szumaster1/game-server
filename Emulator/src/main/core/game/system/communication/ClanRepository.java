@@ -1,14 +1,12 @@
 package core.game.system.communication;
 
 import core.Configuration;
-import core.game.component.Component;
 import core.game.activity.ActivityPlugin;
+import core.game.component.Component;
 import core.game.node.entity.player.Player;
 import core.game.node.entity.player.info.PlayerDetails;
-import core.game.node.entity.player.info.Rights;
-import proto.management.ClanJoinNotification;
-import proto.management.ClanLeaveNotification;
 import core.game.node.entity.player.info.PlayerMonitor;
+import core.game.node.entity.player.info.Rights;
 import core.game.world.GameWorld;
 import core.game.world.repository.Repository;
 import core.network.amsc.WorldCommunicator;
@@ -18,6 +16,8 @@ import core.network.packet.context.MessageContext;
 import core.network.packet.outgoing.CommunicationMessage;
 import core.network.packet.outgoing.UpdateClanChat;
 import core.worker.ManagementEvents;
+import proto.management.ClanJoinNotification;
+import proto.management.ClanLeaveNotification;
 
 import java.util.*;
 

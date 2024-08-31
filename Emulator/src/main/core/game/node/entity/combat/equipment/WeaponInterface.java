@@ -1,5 +1,6 @@
 package core.game.node.entity.combat.equipment;
 
+import cfg.consts.Components;
 import core.game.component.Component;
 import core.game.component.ComponentDefinition;
 import core.game.component.InterfaceType;
@@ -9,6 +10,7 @@ import core.game.node.entity.impl.Animator.Priority;
 import core.game.node.entity.player.Player;
 import core.game.node.entity.player.link.SpellBookManager;
 import core.game.node.item.Item;
+import core.game.system.config.ItemConfigParser;
 import core.game.world.update.flag.context.Animation;
 import core.network.packet.PacketRepository;
 import core.network.packet.context.InterfaceConfigContext;
@@ -17,10 +19,8 @@ import core.network.packet.context.StringContext;
 import core.network.packet.outgoing.Interface;
 import core.network.packet.outgoing.InterfaceConfig;
 import core.network.packet.outgoing.StringPacket;
-import cfg.consts.Components;
-import core.game.system.config.ItemConfigParser;
 
-import static core.api.ContentAPIKt.*;
+import static core.api.ContentAPIKt.setVarp;
 
 /**
  * Represents the weapon interface component.

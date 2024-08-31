@@ -2,8 +2,6 @@ package core.game.node.entity.player.link.appearance;
 
 import org.json.simple.JSONObject;
 
-import java.nio.ByteBuffer;
-
 /**
  * Represents a body part of a player encapsulating the type and color.
  * @author Vexia

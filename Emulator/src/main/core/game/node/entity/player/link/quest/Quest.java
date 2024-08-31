@@ -1,6 +1,5 @@
 package core.game.node.entity.player.link.quest;
 
-import core.game.component.CloseEvent;
 import core.game.component.Component;
 import core.game.node.entity.player.Player;
 import core.plugin.Plugin;
@@ -10,7 +9,7 @@ import core.plugin.PluginType;
 import java.util.Arrays;
 import java.util.Random;
 
-import static core.api.ContentAPIKt.*;
+import static core.api.ContentAPIKt.playJingle;
 
 /**
  * A skeleton plugin for a quest.

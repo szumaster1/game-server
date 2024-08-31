@@ -1,11 +1,11 @@
 package core.game.bots.impl
 
+import cfg.consts.Items
 import content.global.skill.gathering.mining.MiningNode
 import content.global.skill.production.smithing.data.Bar
 import content.global.skill.production.smithing.item.SmeltingPulse
 import core.api.amountInBank
 import core.api.amountInInventory
-import cfg.consts.Items
 import core.game.bots.*
 import core.game.ge.GrandExchange
 import core.game.interaction.DestinationFlag

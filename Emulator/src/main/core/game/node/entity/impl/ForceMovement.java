@@ -6,8 +6,9 @@ import core.game.system.task.Pulse;
 import core.game.world.GameWorld;
 import core.game.world.map.Direction;
 import core.game.world.map.Location;
-import core.game.world.update.flag.context.*;
-import core.game.world.update.flag.*;
+import core.game.world.update.flag.EntityFlag;
+import core.game.world.update.flag.context.Animation;
+import core.game.world.update.flag.context.ForceMoveCtx;
 
 /**
  * The force movement handler.

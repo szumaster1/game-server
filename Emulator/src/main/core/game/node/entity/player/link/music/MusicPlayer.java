@@ -1,7 +1,6 @@
 package core.game.node.entity.player.link.music;
 
 import core.game.node.entity.player.Player;
-
 import core.game.node.entity.player.link.emote.Emotes;
 import core.game.world.GameWorld;
 import core.network.packet.PacketRepository;
@@ -12,9 +11,8 @@ import core.network.packet.outgoing.StringPacket;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Random;
 
-import static core.api.ContentAPIKt.*;
+import static core.api.ContentAPIKt.setVarp;
 
 /**
  * Handles a music playing for a player.

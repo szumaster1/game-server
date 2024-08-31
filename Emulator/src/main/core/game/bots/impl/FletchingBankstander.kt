@@ -1,8 +1,8 @@
 package core.game.bots.impl
 
+import cfg.consts.Items
 import content.global.skill.production.fletching.FletchingMap
 import content.global.skill.production.fletching.FletchingPulse
-import cfg.consts.Items
 import core.game.bots.Script
 import core.game.bots.SkillingBotAssembler
 import core.game.node.entity.skill.Skills

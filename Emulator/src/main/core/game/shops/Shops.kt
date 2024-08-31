@@ -1,11 +1,11 @@
 package core.game.shops
 
-import content.global.skill.production.crafting.data.Tanning
-import core.Configuration
-import core.api.*
 import cfg.consts.Components
 import cfg.consts.Items
 import cfg.consts.NPCs
+import content.global.skill.production.crafting.data.Tanning
+import core.Configuration
+import core.api.*
 import core.game.dialogue.FacialExpression
 import core.game.ge.GrandExchange
 import core.game.interaction.IntType

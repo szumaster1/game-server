@@ -2,8 +2,6 @@ package core.game.node.entity.player.link;
 
 import core.game.node.entity.player.Player;
 
-import java.nio.ByteBuffer;
-
 /**
  * Manages the iron man mode of an account.
  * @author Vexia

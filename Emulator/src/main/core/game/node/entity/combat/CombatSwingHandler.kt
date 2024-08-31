@@ -1,7 +1,7 @@
 package core.game.node.entity.combat
 
-import content.global.skill.combat.summoning.familiar.Familiar
 import cfg.consts.Sounds
+import content.global.skill.combat.summoning.familiar.Familiar
 import core.api.log
 import core.api.playGlobalAudio
 import core.game.component.Component

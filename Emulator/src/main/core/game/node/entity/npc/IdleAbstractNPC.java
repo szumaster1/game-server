@@ -1,11 +1,11 @@
 package core.game.node.entity.npc;
 
-import core.game.node.entity.skill.Skills;
 import core.game.node.entity.Entity;
 import core.game.node.entity.combat.CombatStyle;
 import core.game.node.entity.combat.DeathTask;
 import core.game.node.entity.combat.InteractionType;
 import core.game.node.entity.player.Player;
+import core.game.node.entity.skill.Skills;
 import core.game.world.map.Location;
 
 /**

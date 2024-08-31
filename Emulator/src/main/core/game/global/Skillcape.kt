@@ -1,7 +1,7 @@
 package core.game.global
 
-import core.api.closeDialogue
 import cfg.consts.Items
+import core.api.closeDialogue
 import core.api.freeSlots
 import core.api.removeItem
 import core.api.sendDialogue

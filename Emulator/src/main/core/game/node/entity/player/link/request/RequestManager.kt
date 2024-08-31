@@ -1,8 +1,8 @@
 package core.game.node.entity.player.link.request
 
-import core.game.node.entity.player.Player
 import core.game.bots.AIRepository
 import core.game.bots.impl.DoublingMoney
+import core.game.node.entity.player.Player
 import core.game.world.GameWorld.ticks
 
 /**

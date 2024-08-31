@@ -8,7 +8,7 @@ import core.network.packet.PacketRepository;
 import core.network.packet.context.ContainerContext;
 import core.network.packet.outgoing.ContainerPacket;
 
-import static core.api.ContentAPIKt.*;
+import static core.api.ContentAPIKt.setVarp;
 
 /**
  * Represents the close event invoked at the closing of a trade interface.

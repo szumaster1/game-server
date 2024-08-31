@@ -5,7 +5,6 @@ import core.game.world.map.RegionChunk
 import core.network.packet.PacketRepository
 import core.network.packet.context.ClearChunkContext
 import core.network.packet.outgoing.ClearRegionChunk
-import java.util.*
 
 /**
  * Handles the rendering of the player's surrounding map chunks.

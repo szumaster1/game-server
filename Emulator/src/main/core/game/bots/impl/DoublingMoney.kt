@@ -1,10 +1,10 @@
 package core.game.bots.impl
 
-import core.game.bots.impl.Adventurer.Companion.lumbridge
-import core.Configuration
 import cfg.consts.Items
+import core.Configuration
 import core.game.bots.AIRepository
 import core.game.bots.Script
+import core.game.bots.impl.Adventurer.Companion.lumbridge
 import core.game.container.Container
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListeners

@@ -1,8 +1,8 @@
 package core.game.global.action
 
+import cfg.consts.Sounds
 import content.global.handlers.item.equipment.gloves.BrawlingGlovesManager
 import content.global.skill.support.slayer.SlayerEquipmentFlags
-import cfg.consts.Sounds
 import core.api.playAudio
 import core.api.sendMessage
 import core.game.container.impl.EquipmentContainer

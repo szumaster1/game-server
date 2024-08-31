@@ -2,9 +2,9 @@ package core.game.node.entity.player.link.request.assist;
 
 import core.game.component.CloseEvent;
 import core.game.component.Component;
-import core.game.node.entity.skill.Skills;
 import core.game.node.entity.player.Player;
 import core.game.node.entity.player.link.request.RequestModule;
+import core.game.node.entity.skill.Skills;
 import core.game.system.task.Pulse;
 import core.game.world.GameWorld;
 import core.game.world.update.flag.context.Animation;
@@ -13,7 +13,8 @@ import core.game.world.update.flag.context.Graphic;
 import java.util.Calendar;
 import java.util.Date;
 
-import static core.api.ContentAPIKt.*;
+import static core.api.ContentAPIKt.playAudio;
+import static core.api.ContentAPIKt.setVarp;
 
 /**
  * Represents the class used to handle the assist requesting of a {@link Player}.

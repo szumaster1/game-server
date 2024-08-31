@@ -1,8 +1,8 @@
 package core.game.ge
 
+import cfg.consts.Components
 import core.api.LoginListener
 import core.api.PersistPlayer
-import cfg.consts.Components
 import core.api.playJingle
 import core.api.sendMessage
 import core.cache.def.impl.ItemDefinition

@@ -1,10 +1,11 @@
 package core.game.node.entity.player.link;
 
+import cfg.consts.Components;
 import content.region.misc.tutorial.handlers.TutorialStage;
-import core.game.event.InterfaceCloseEvent;
-import core.game.event.InterfaceOpenEvent;
 import core.game.component.Component;
 import core.game.component.InterfaceType;
+import core.game.event.InterfaceCloseEvent;
+import core.game.event.InterfaceOpenEvent;
 import core.game.node.entity.combat.equipment.WeaponInterface;
 import core.game.node.entity.player.Player;
 import core.game.world.GameWorld;
@@ -15,9 +16,7 @@ import core.network.packet.outgoing.CloseInterface;
 import core.network.packet.outgoing.Interface;
 import core.network.packet.outgoing.WindowsPane;
 import core.tools.Log;
-import cfg.consts.Components;
 
-import static core.api.ContentAPIKt.log;
 import static core.api.ContentAPIKt.*;
 
 /**

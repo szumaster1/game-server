@@ -2,8 +2,6 @@ package core.game.node.entity.player.link.emote;
 
 import core.game.node.entity.player.Player;
 
-
-import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.List;
 

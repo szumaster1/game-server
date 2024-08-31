@@ -1,16 +1,14 @@
 package core.game.node.entity.player.link;
 
-import core.game.system.config.ItemConfigParser;
-import org.json.simple.JSONObject;
 import core.game.node.entity.player.Player;
 import core.game.node.item.Item;
-import core.game.system.task.Pulse;
-import core.game.world.GameWorld;
+import core.game.system.config.ItemConfigParser;
 import core.network.packet.IoBuffer;
+import org.json.simple.JSONObject;
 
 import java.nio.ByteBuffer;
 
-import static core.api.ContentAPIKt.*;
+import static core.api.ContentAPIKt.setVarp;
 
 /**
  * Holds a player's settings.

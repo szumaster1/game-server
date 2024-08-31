@@ -1,5 +1,8 @@
 package core.api
 
+import cfg.consts.Items
+import cfg.consts.NPCs
+import cfg.consts.Sounds
 import com.moandjiezana.toml.Toml
 import content.data.consumables.*
 import content.data.skill.SkillingTool
@@ -8,9 +11,6 @@ import content.global.skill.combat.summoning.familiar.BurdenBeast
 import content.global.skill.support.slayer.SlayerManager
 import content.global.skill.support.slayer.data.Tasks
 import core.Configuration
-import cfg.consts.Items
-import cfg.consts.NPCs
-import cfg.consts.Sounds
 import core.api.utils.GlobalKillCounter
 import core.api.utils.Vector
 import core.cache.def.impl.AnimationDefinition

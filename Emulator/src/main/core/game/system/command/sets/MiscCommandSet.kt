@@ -1,5 +1,6 @@
 package core.game.system.command.sets
 
+import cfg.consts.Components
 import content.global.handlers.iface.BookInterfaceListener
 import content.global.handlers.iface.BookLine
 import content.global.handlers.iface.Page
@@ -10,7 +11,6 @@ import content.minigame.fishingtrawler.TrawlerLoot
 import content.region.misc.tutorial.handlers.TutorialStage
 import core.Configuration
 import core.api.*
-import cfg.consts.Components
 import core.cache.def.impl.NPCDefinition
 import core.cache.def.impl.SceneryDefinition
 import core.cache.def.impl.VarbitDefinition
