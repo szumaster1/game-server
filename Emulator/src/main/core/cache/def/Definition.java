@@ -7,7 +7,7 @@ import core.tools.StringUtils;
 import core.game.node.Node;
 
 /**
- * Represent's a node's definitions.
+ * Represents a node's definitions.
  * @param <T> The node type.
  * @author Emperor
  */

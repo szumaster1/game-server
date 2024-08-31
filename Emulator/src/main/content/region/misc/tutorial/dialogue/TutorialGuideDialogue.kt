@@ -1,5 +1,6 @@
 package content.region.misc.tutorial.dialogue
 
+import cfg.consts.Animations
 import content.region.misc.tutorial.handlers.TutorialStage
 import core.api.*
 import cfg.consts.NPCs
@@ -8,6 +9,7 @@ import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.game.world.map.Location
+import core.game.world.update.flag.context.Animation
 import core.plugin.Initializable
 
 /**
@@ -17,17 +19,25 @@ import core.plugin.Initializable
 class TutorialGuideDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any?): Boolean {
-        npc = args[0] as NPC
-        face(npc,player)
-        player.packetDispatch.sendNpcOnInterface(NPCs.TUTORIAL_GUIDE_8591, 240, 1)
-        interpreter.sendDialogues(npc, FacialExpression.HALF_ASKING, "Hey. Do you wanna skip the Tutorial?", "I can send you straight to Lumbridge, easy.");
-        options("Skip tutorial island?", "Nevermind.")
+        /*
+         * Hide title swords so that the title of the dialogue is
+         * visible to the player.
+         */
+        setComponentVisibility(player, 228, 6, true)
+        setComponentVisibility(player, 228, 9, true)
+        face(findNPC(NPCs.TUTORIAL_GUIDE_8591)!!, player, 1)
+        sendDialogueOptions(
+            player,
+            "Hey. Do you wanna skip the Tutorial? I can send you straight<br>to Lumbridge.",
+            "Skip tutorial island?", "Nevermind."
+        )
         return true
     }
+
     override fun handle(interfaceId: Int, buttonId: Int): Boolean {
         when (stage) {
             0 -> when (buttonId) {
-                1 -> sendDialogueOptions(player, "Are you sure?", "YES", "NO").also { stage++ }
+                1 -> sendDialogueOptions(player, "Are you sure?", "YES!", "NO.").also { stage++ }
                 2 -> end()
             }
 
