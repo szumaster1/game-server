@@ -1,3 +1,10 @@
+<small>
+
+| Source date | Last modified |                               License                                |       Copyrights        |
+|:-----------:|:-------------:|:--------------------------------------------------------------------:|:-----------------------:|
+| 29.11.2009  |  31.08.2024   | [CC BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0) | https://runescape.wiki/ |
+</small>
+
 ### **Barrows**
 
 ***
@@ -321,3 +328,6 @@ A player with "Too Many!" as the kill count
 *   All Barrows weapons are [2 handed](https://runescape.wiki/w/2h "2h"), so no shields can be worn whilst equipping the weapons.
 
 *   The Barrows minigame is strikingly similar to Frodo's encounter with the barrow-wights in Lord of the Rings-The Fellowship of the Ring. This is when Frodo and his hobbit friends were trapped in a burial mound of a barrow-wight, but got out when Tom Bombadil used magic. When they got out of the burial mound they got a lot of "gold, silver, copper, and bronze".
+
+
+

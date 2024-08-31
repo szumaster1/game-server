@@ -1,3 +1,10 @@
+<small>
+
+| Source date | Last modified |                               License                                |       Copyrights        |
+|:-----------:|:-------------:|:--------------------------------------------------------------------:|:-----------------------:|
+| 29.11.2009  |  31.08.2024   | [CC BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0) | https://runescape.wiki/ |
+</small>
+
 ## Brewing
 
 Brewing is much more complicated and time-consuming than other foods, but the results are quite useful, for most of them boost assorted stats.
@@ -72,5 +79,3 @@ Failure: Occasionally ale will become bad, wasting all that time. Drain the vat 
 
 *   All ales except Moonlight Mead decrease attack, and all ales except Asgarnian Ale and Dragon Bitter decrease strength.
 *   Most stat changes are relative to your level in that stat.
-
-*29 November 2009*

@@ -1,4 +1,10 @@
-#### 21.04.2009
+<small>
+
+| Source date | Last modified |                               License                                |       Copyrights        |
+|:-----------:|:-------------:|:--------------------------------------------------------------------:|:-----------------------:|
+| 21.04.2009  |  31.08.2024   | [CC BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0) | https://runescape.wiki/ |
+</small>
+
 ### Hunting Map
 Hunting locations all across the world.
 

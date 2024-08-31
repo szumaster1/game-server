@@ -1,3 +1,11 @@
+<small>
+
+| Source date | Last modified |                 License                  |       Copyrights        |
+|:-----------:|:-------------:|:----------------------------------------:|:-----------------------:|
+|      -      |  31.08.2024   | [![CC BY-NC-SA 3.0][guides]][guides-url] | https://runescape.wiki/ |
+
+</small>
+
 ## The **Mage Arena** 
 
 ***

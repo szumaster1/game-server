@@ -1,3 +1,8 @@
+| Source date | Last modified |                 License                  |       Copyrights        |
+|:-----------:|:-------------:|:----------------------------------------:|:-----------------------:|
+|      -      |  31.08.2024   | [![CC BY-NC-SA 3.0][guides]][guides-url] | https://runescape.wiki/ |
+[guides]: https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-nc-sa.eu.svg
+[guides-url]: https://creativecommons.org/licenses/by-nc-sa/3.0
 ## The **Mage Training Arena** 
 
 ***

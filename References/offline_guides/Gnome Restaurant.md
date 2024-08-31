@@ -1,3 +1,10 @@
+<small>
+
+| Source date | Last modified |                               License                                |       Copyrights        |
+|:-----------:|:-------------:|:--------------------------------------------------------------------:|:-----------------------:|
+| XX.11.2009  |  31.08.2024   | [CC BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0) | https://runescape.wiki/ |
+</small>
+
 ## **Gnome Restaurant** 
 
 ***

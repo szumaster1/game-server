@@ -1,3 +1,12 @@
+<small>
+
+| Source date | Last modified |                               License                                |       Copyrights        |
+|:-----------:|:-------------:|:--------------------------------------------------------------------:|:-----------------------:|
+| XX.XX.2009  |  31.08.2024   | [CC BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0) | https://runescape.wiki/ |
+</small>
+
+[guides]: https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-nc-sa.eu.svg
+[guides-url]: https://creativecommons.org/licenses/by-nc-sa/3.0
 ## Tai Bwo Wannai Cleanup
 
 ***
