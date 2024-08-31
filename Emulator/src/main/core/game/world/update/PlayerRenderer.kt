@@ -62,6 +62,7 @@ object PlayerRenderer {
 
     /**
      * Renders a local player.
+     *
      * @param player The player we're updating for.
      * @param other The player.
      * @param buffer The buffer.
@@ -91,6 +92,7 @@ object PlayerRenderer {
 
     /**
      * Adds a local player.
+     *
      * @param player The player.
      * @param other The player to add.
      * @param info The render info of the player.
@@ -125,6 +127,7 @@ object PlayerRenderer {
 
     /**
      * Updates the local player's client position.
+     *
      * @param local The local player.
      * @param buffer The i/o buffer.
      * @param flags The update flags buffer.
@@ -145,15 +148,22 @@ object PlayerRenderer {
 
     /**
      * Sets the update mask flag.
+     *
      * @param local The local player.
      * @param player The player to update.
      * @param buffer The packet buffer.
      * @param maskBuffer The mask buffer.
      * @param sync If we should use the synced buffer.
-     * @param appearance If appearance update mask should be used in the synced
-     * buffer.
+     * @param appearance If appearance update mask should be used in the syncedbuffer.
      */
-    private fun flagMaskUpdate(local: Player, player: Player, buffer: IoBuffer, maskBuffer: IoBuffer, sync: Boolean, appearance: Boolean) {
+    private fun flagMaskUpdate(
+        local: Player,
+        player: Player,
+        buffer: IoBuffer,
+        maskBuffer: IoBuffer,
+        sync: Boolean,
+        appearance: Boolean
+    ) {
         if (player.updateMasks.isUpdateRequired) {
             buffer.putBits(1, 1)
             writeMaskUpdates(local, player, maskBuffer, appearance, sync)
@@ -164,6 +174,7 @@ object PlayerRenderer {
 
     /**
      * Updates the player flags.
+     *
      * @param local The local player.
      * @param player The player to update.
      * @param flags The flags buffer.

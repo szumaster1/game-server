@@ -4,10 +4,9 @@ import kotlin.reflect.KClass
 import kotlin.reflect.full.primaryConstructor
 
 object EntityFlags {
-    var flagProviders: HashMap<Int, EFlagProvider>
+    var flagProviders: HashMap<Int, EFlagProvider> = HashMap()
 
     init {
-        flagProviders = HashMap()
         registerFlagProviders(PlayerFlags530::class)
         registerFlagProviders(NPCFlags530::class)
     }

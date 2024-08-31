@@ -2,6 +2,7 @@ package core.game.system.command.sets
 
 import cfg.consts.Items
 import content.activity.jobs.JobManager
+import content.global.skill.support.construction.HouseLocation
 import content.minigame.tbwcleanup.changeSpawnChance
 import core.api.*
 import core.cache.Cache
@@ -38,6 +39,18 @@ class DevelopmentCommandSet : CommandSet(Privilege.ADMIN) {
     private val runeKitItems = arrayListOf(Items.AIR_RUNE_556, Items.EARTH_RUNE_557, Items.FIRE_RUNE_554, Items.WATER_RUNE_555, Items.MIND_RUNE_558, Items.BODY_RUNE_559, Items.DEATH_RUNE_560, Items.NATURE_RUNE_561, Items.CHAOS_RUNE_562, Items.LAW_RUNE_563, Items.COSMIC_RUNE_564, Items.BLOOD_RUNE_565, Items.SOUL_RUNE_566, Items.ASTRAL_RUNE_9075)
 
     override fun defineCommands() {
+        /*
+         * Provides a command that allows you to buy a house.
+         */
+
+        define(
+            name = "buyhouse",
+            privilege = Privilege.ADMIN,
+            usage = "",
+            description = "Allows you to buy house."
+        ) { player, _ ->
+            player.houseManager.createNewHouseAt(HouseLocation.RIMMINGTON)
+        }
 
         /*
          * Provides a kit of various farming equipment.

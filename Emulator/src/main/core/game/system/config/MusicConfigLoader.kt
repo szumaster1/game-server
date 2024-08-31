@@ -35,8 +35,8 @@ class MusicConfigLoader {
         val songs = DataMap.get(1351)
         val names = DataMap.get(1345)
 
-        for ((index, songId) in songs.dataStore) {
-            val entry = MusicEntry(songId as Int, names.getString(index as Int), index)
+        for ((index, songId) in songs!!.dataStore) {
+            val entry = MusicEntry(songId as Int, names?.getString(index as Int), index)
             MusicEntry.getSongs().putIfAbsent(songId, entry)
         }
 

@@ -1,4 +1,4 @@
-package content.region.fremennik.waterbirth_island
+package content.region.fremennik.waterbirth_island.handlers
 
 import core.api.closeOverlay
 import cfg.consts.Components

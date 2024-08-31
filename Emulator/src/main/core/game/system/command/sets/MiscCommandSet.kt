@@ -533,7 +533,7 @@ class MiscCommandSet : CommandSet(Privilege.ADMIN) {
                 reject(player, "Syntax: ::getobjectvarp objectid")
             }
             val objectID = args[1].toInt()
-            notify(player, "${VarbitDefinition.forObjectID(SceneryDefinition.forId(objectID).varbitID).varpId}")
+            notify(player, "${VarbitDefinition.forSceneryID(SceneryDefinition.forId(objectID).varbitID).varpId}")
         }
 
         define(

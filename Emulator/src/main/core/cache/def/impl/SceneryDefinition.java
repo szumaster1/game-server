@@ -790,7 +790,7 @@ public class SceneryDefinition extends Definition<Scenery> {
         int configValue = -1;
         if (player != null) {
             if (configFileId != -1) {
-                VarbitDefinition def = VarbitDefinition.forObjectID(configFileId);
+                VarbitDefinition def = VarbitDefinition.forSceneryID(configFileId);
                 if (def != null) {
                     configValue = def.getValue(player);
                 }
@@ -832,7 +832,7 @@ public class SceneryDefinition extends Definition<Scenery> {
      */
     public VarbitDefinition getConfigFile() {
         if (configFileId != -1) {
-            return VarbitDefinition.forObjectID(configFileId);
+            return VarbitDefinition.forSceneryID(configFileId);
         }
         return null;
     }

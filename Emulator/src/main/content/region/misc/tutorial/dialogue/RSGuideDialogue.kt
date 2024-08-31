@@ -2,53 +2,45 @@ package content.region.misc.tutorial.dialogue
 
 import content.region.misc.tutorial.handlers.TutorialStage
 import cfg.consts.NPCs
+import core.api.sendUnclosableDialogue
 import core.api.setAttribute
-import core.game.component.Component
 import core.game.dialogue.Dialogue
-import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
+import core.tools.END_DIALOGUE
 
 /**
  * Represents the Guide dialogue.
  */
 @Initializable
-class RSGuideDialogue(player: Player? = null) : Dialogue(player) {
+class RSGuideDialogue(private val player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any?): Boolean {
         npc = args[0] as NPC
         val tutStage = player?.getAttribute("tutorial:stage", 0) ?: 0
-        if (tutStage < 2) {
-            end()
-            player.dialogueInterpreter.sendDialogues(npc, FacialExpression.HALF_GUILTY, "Greetings! Please follow the onscreen, instructions!")
-            return false
-        } else {
-            Component.setUnclosable(player, interpreter.sendDialogues(npc, FacialExpression.HALF_GUILTY, "Greetings! Please follow the onscreen", "instructions!"))
+        val greetingMessage = when {
+            tutStage < 2 -> "Greetings! Please follow the onscreen instructions!"
+            tutStage == 2 -> "Greetings! I see you are a new arrival to this land. My job is to welcome all new visitors. So welcome!"
+            else -> "Please follow the onscreen instructions!"
         }
-
-        if (tutStage == 2) {
-            Component.setUnclosable(player, interpreter.sendDialogues(npc, FacialExpression.HALF_GUILTY, "Greetings! I see you are a new arrival to this land. My", "job is to welcome all new visitors. So welcome!"))
-            stage = 0
-            return true
-        } else {
-            Component.setUnclosable(player, interpreter.sendDialogues(npc, FacialExpression.HALF_GUILTY, "Please follow the onscreen instructions!"))
-            return false
-        }
+        sendUnclosableDialogue(player, false, *greetingMessage.split(" ").toTypedArray()).also { stage = END_DIALOGUE }
+        return tutStage >= 2
     }
 
     override fun handle(interfaceId: Int, buttonId: Int): Boolean {
-        when (stage) {
-            0 -> Component.setUnclosable(player, interpreter.sendDialogues(npc, FacialExpression.FRIENDLY, "You have already learned the first thing needed to", "succeed in this world: talking to other people!")).also { stage++ }
-            1 -> Component.setUnclosable(player, interpreter.sendDialogues(npc, FacialExpression.FRIENDLY, "You will find many inhabitants of this world have useful", "things to say to you. By clicking on them with your", "mouse you can talk to them.")).also { stage++ }
-            2 -> Component.setUnclosable(player, interpreter.sendDialogues(npc, FacialExpression.FRIENDLY, "I would also suggest reading through some of the", "supporting information on the website. There you can", "find the starter guides, which contain all the", "additional information you're ever likely to need. they also")).also { stage++ }
-            3 -> Component.setUnclosable(player, interpreter.sendDialogues(npc, FacialExpression.FRIENDLY, "contain helpful tips to help you on your", "journey.")).also { stage++ }
-            4 -> Component.setUnclosable(player, interpreter.sendDialogues(npc, FacialExpression.FRIENDLY, "To continue the tutorial go through that door over", "there and speak to your first instructor!")).also { stage++ }
-            5 -> {
-                end()
-                setAttribute(player, "tutorial:stage", 3)
-                TutorialStage.load(player, 3)
-            }
+        val messages = listOf(
+            "You have already learned the first thing needed to succeed in this world: talking to other people!",
+            "You will find many inhabitants of this world have useful things to say to you. By clicking on them with your mouse you can talk to them.",
+            "I would also suggest reading through some of the supporting information on the website. There you can find the starter guides, which contain all the additional information you're ever likely to need. They also contain helpful tips to help you on your journey.",
+            "To continue the tutorial go through that door over there and speak to your first instructor!"
+        )
+        if (stage < messages.size) {
+            sendUnclosableDialogue(player, false, *messages[stage].split(" ").toTypedArray()).also { stage++ }
+        } else {
+            end()
+            setAttribute(player, "tutorial:stage", 3)
+            TutorialStage.load(player, 3)
         }
         return true
     }

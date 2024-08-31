@@ -26,13 +26,13 @@ object TutorialStage {
 
     fun load(player: Player, stage: Int, login: Boolean = false) {
         if (login) {
+            openOverlay(player, Components.TUTORIAL_PROGRESS_371)
             player.hook(Event.ButtonClicked, TutorialButtonReceiver)
             player.hook(Event.Interacted, TutorialInteractionReceiver)
             player.hook(Event.ResourceProduced, TutorialResourceReceiver)
             player.hook(Event.UsedWith, TutorialUseWithReceiver)
             player.hook(Event.FireLit, TutorialFireReceiver)
             player.hook(Event.NPCKilled, TutorialKillReceiver)
-            openOverlay(player, Components.TUTORIAL_PROGRESS_371)
             player.packetDispatch.sendInterfaceConfig(371, 4, true)
         }
 
@@ -44,24 +44,12 @@ object TutorialStage {
                 teleport(player, Location.create(3094, 3107, 0))
                 hideTabs(player, login)
                 CharacterDesign.open(player)
-                sendUnclosableDialogue(player, true,
-                        "",
-                        "Getting started",
-                        "Please take a moment to design your character."
-                ).also {
-                    runTask(player, 10) {
-                        Component.setUnclosable(
-                            player,
-                            player.dialogueInterpreter.sendPlaneMessageWithBlueTitle(
-                                "Getting started",
-                                "To start the tutorial use your left mouse button to click on the",
-                                "" + settings!!.name + " Guide in this room. He is indicated by a flashing",
-                                "yellow arrow above his head. If you can't see him, use your",
-                                "keyboard's arrow keys to rotate the view.",
-                            )
-                        )
-                    }
-                }
+                sendUnclosableDialogue(
+                    player, true,
+                    "",
+                    "Getting started",
+                    "Please take a moment to design your character."
+                )
             }
 
             1 -> {

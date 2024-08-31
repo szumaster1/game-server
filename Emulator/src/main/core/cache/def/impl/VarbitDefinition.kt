@@ -6,144 +6,141 @@ import core.game.node.entity.player.Player
 import java.nio.ByteBuffer
 
 /**
- * Varbit definition
+ * Represents a variable bit definition with its associated properties.
  */
-class VarbitDefinition {
-    /**
-     * Gets the file id.
-     * @return The id.
-     */
-    val id: Int
-
-    /**
-     * The config id.
-     */
+class VarbitDefinition(val id: Int) {
     var varpId: Int = 0
-
-    /**
-     * The bit shift amount.
-     */
     var startBit: Int = 0
-
-    /**
-     * The bit amount.
-     */
     var endBit: Int = 0
-        private set // The setter is private to restrict modification from outside the class
+        private set
 
     /**
-     * Constructs a new `ConfigFileDefinition` `Object`.
+     * Constructor to initialize a [VarbitDefinition] with parameters.
      *
-     * @param id The file id.
+     * @param varpId   The varp id.
+     * @param id       The varbit id.
+     * @param startBit The startbit id.
+     * @param endBit   The endbit id.
      */
-    constructor(id: Int) {
-        this.id = id // Assigning the provided id to the class property
-    }
-
-    constructor(varpId: Int, id: Int, startBit: Int, endBit: Int) {
-        this.varpId = varpId // Assigning the provided varpId to the class property
-        this.id = id // Assigning the provided id to the class property
-        this.startBit = startBit // Assigning the provided startBit to the class property
-        this.endBit = endBit // Assigning the provided endBit to the class property
+    constructor(varpId: Int, id: Int, startBit: Int, endBit: Int) : this(id) {
+        this.varpId = varpId
+        this.startBit = startBit
+        this.endBit = endBit
     }
 
     /**
-     * Get value
+     * Retrieves the value of the varbit for player.
      *
-     * @param player The player instance to retrieve the varbit value for
-     * @return The varbit value for the player
+     * @param player The player for whom the varbit value is being retrieved.
+     * @return The value of the varbit.
      */
     fun getValue(player: Player?): Int {
-        return getVarbit(player!!, id) // Fetching the varbit value using the player's instance and the id
+        return getVarbit(player ?: throw IllegalArgumentException("Player cannot be null"), id)
     }
 
+    /**
+     * Computes a mask based on the start and end bit positions.
+     */
     val mask: Int
-        get() {
-            var mask = 0 // Initializing the mask variable
-            for (i in startBit..endBit) mask = mask or (1 shl (i - startBit)) // Creating a bitmask based on start and end bits
-            return mask // Returning the constructed mask
-        }
+        get() = (startBit..endBit).fold(0) { acc, i -> acc or (1 shl (i - startBit)) }
 
+    /**
+     * Returns a string representation of the [VarbitDefinition].
+     */
     override fun toString(): String {
-        return "ConfigFileDefinition [id=$id, configId=$varpId, bitShift=$startBit, bitSize=$endBit]" // Returning a string representation of the object
+        return "VarbitDefinition [id=$id, varpId=$varpId, startBit=$startBit, endBit=$endBit]"
     }
 
     companion object {
-        /**
-         * The config definitions mapping.
-         */
-        private val MAPPING: MutableMap<Int, VarbitDefinition> = HashMap() // A mutable map to store VarbitDefinitions by their id
+        private val MAPPING: MutableMap<Int, VarbitDefinition> = HashMap()
+        private val BITS = IntArray(32)
 
-        /**
-         * The bit size flags.
-         */
-        private val BITS = IntArray(32) // An array to hold bit size flags
-
-        /**
-         * Represents the bit flags.
-         */
         init {
-            var flag = 2 // Initializing the flag variable
-            for (i in 0..31) {
-                BITS[i] = flag - 1 // Storing the flag value in the BITS array
-                flag += flag // Doubling the flag for the next iteration
+            var flag = 2
+            for (i in BITS.indices) {
+                BITS[i] = flag - 1
+                flag *= 2
             }
         }
 
         /**
-         * Gets the config file definitions for the given file id.
+         * Retrieves a [VarbitDefinition] for a given object ID.
          *
-         * @param id The file id.
-         * @return The definition.
+         * @param id The scenery ID for which to retrieve the varbit definition.
+         * @return The [VarbitDefinition] associated with the scenery id.
          */
         @JvmStatic
-        fun forObjectID(id: Int): VarbitDefinition {
-            return forId(id) // Delegating to forId method to retrieve the definition
-        }
+        fun forSceneryID(id: Int): VarbitDefinition = forId(id)
 
+        /**
+         * Retrieves a [VarbitDefinition] for a given NPC id.
+         *
+         * @param id The NPC ID for which to retrieve the varbit definition.
+         * @return The [VarbitDefinition] associated with the NPC id.
+         */
         @JvmStatic
-        fun forNPCID(id: Int): VarbitDefinition {
-            return forId(id) // Delegating to forId method to retrieve the definition
-        }
+        fun forNPCID(id: Int): VarbitDefinition = forId(id)
 
-        fun forItemID(id: Int): VarbitDefinition {
-            return forId(id) // Delegating to forId method to retrieve the definition
-        }
+        /**
+         * Retrieves a [VarbitDefinition] for a given item ID.
+         *
+         * @param id The item ID for which to retrieve the varbit definition.
+         * @return The [VarbitDefinition] associated with the specified item ID.
+         */
+        fun forItemID(id: Int): VarbitDefinition = forId(id)
 
+        /**
+         * Retrieves a [VarbitDefinition] for a given ID.
+         *
+         * @param id The ID for which to retrieve the varbit definition.
+         * @return The [VarbitDefinition] associated with the specified ID.
+         */
         fun forId(id: Int): VarbitDefinition {
-            var def: VarbitDefinition? = MAPPING[id] // Attempting to retrieve the definition from the mapping
-            if (def != null) {
-                return def // Returning the existing definition if found
-            }
+            return MAPPING[id] ?: createVarbitDefinition(id)
+        }
 
-            def = VarbitDefinition(id) // Creating a new VarbitDefinition if not found
-            val bs: ByteArray? = Cache.getIndexes()[22].getFileData(id ushr 10, id and 0x3ff) // Fetching file data from cache
-            if (bs != null) {
-                val buffer: ByteBuffer = ByteBuffer.wrap(bs) // Wrapping the byte array in a ByteBuffer
-                var opcode: Int = 0 // Initializing opcode variable
-                while (buffer.get().toInt().also { opcode = it } != 0) { // Reading opcodes until a zero is encountered
+        /**
+         * Creates a [VarbitDefinition] based on the provided ID.
+         *
+         * @param id The ID for which to create the varbit definition.
+         * @return The newly created [VarbitDefinition].
+         */
+        private fun createVarbitDefinition(id: Int): VarbitDefinition {
+            val def = VarbitDefinition(id)
+            val bs: ByteArray? = Cache.getIndexes()[22].getFileData(id ushr 10, id and 0x3ff)
+            bs?.let {
+                val buffer = ByteBuffer.wrap(it)
+                var opcode: Int
+                while (buffer.get().toInt().also { opcode = it } != 0) {
                     if (opcode == 1) {
-                        def.varpId = buffer.getShort().toInt() and 0xFFFF // Reading and assigning varpId
-                        def.startBit = buffer.get().toInt() and 0xFF // Reading and assigning startBit
-                        def.endBit = buffer.get().toInt() and 0xFF // Reading and assigning endBit
+                        def.varpId = buffer.getShort().toInt() and 0xFFFF
+                        def.startBit = buffer.get().toInt() and 0xFF
+                        def.endBit = buffer.get().toInt() and 0xFF
                     }
                 }
             }
-            MAPPING[id] = def // Storing the newly created definition in the mapping
-            return def // Returning the newly created definition
+            MAPPING[id] = def
+            return def
         }
 
+        /**
+         * Creates a new [VarbitDefinition] and adds it to the mapping.
+         *
+         * @param varpId   The varp id.
+         * @param varbitId The varbit id.
+         * @param startBit The startbit id.
+         * @param endBit   The endbit id.
+         */
         fun create(varpId: Int, varbitId: Int, startBit: Int, endBit: Int) {
-            val def = VarbitDefinition(
-                varpId,
-                varbitId,
-                startBit,
-                endBit
-            ) // Creating a new VarbitDefinition instance
-            MAPPING[varbitId] = def // Storing the new definition in the mapping
+            val def = VarbitDefinition(varpId, varbitId, startBit, endBit)
+            MAPPING[varbitId] = def
         }
 
+        /**
+         * Mapping of all varbits.
+         * @return A map of all [VarbitDefinition] indexed by their IDs.
+         */
         val mapping: Map<Int, VarbitDefinition>
-            get() = MAPPING // Exposing the mapping as a read-only property
+            get() = MAPPING
     }
 }

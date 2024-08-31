@@ -294,7 +294,7 @@ object QCRepository {
     }
 
     fun getFromMap(map: Int, index: Int): String {
-        return DataMap.get(map).getString(index)
+        return DataMap.get(map)?.getString(index)!!
     }
 
     /**
