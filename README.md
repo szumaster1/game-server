@@ -90,7 +90,7 @@ AGPL 3.0 license, The license applies to the entire repository, unless otherwise
 
 [java-version]: https://img.shields.io/badge/java-19-blue.svg?logo=openjdk
 
-[java-url]: https://adoptium.net/temurin/releases/?version=19
+[java-url]: https://adoptium.net/temurin/releases/?version=11
 
 [wiki-shield]: https://img.shields.io/badge/wiki-guides-blue.svg?logo=wikipedia
 
