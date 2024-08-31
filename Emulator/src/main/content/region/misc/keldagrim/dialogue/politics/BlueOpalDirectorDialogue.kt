@@ -1,4 +1,4 @@
-package content.region.misc.keldagrim.dialogue.directors
+package content.region.misc.keldagrim.dialogue.politics
 
 import cfg.consts.NPCs
 import core.game.dialogue.Dialogue
@@ -9,14 +9,14 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Represents the Purple director dialogue.
+ * Represents the Blue opal director dialogue.
  */
 @Initializable
-class PurpleDirectorDialogue(player: Player? = null) : Dialogue(player) {
+class BlueOpalDirectorDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any?): Boolean {
         npc = args[0] as NPC
-        when((0..7).random()){
+        when((0..8).random()){
             0 -> npcl(FacialExpression.OLD_DEFAULT, "My secretary is sitting just over there, thank you.").also { stage++ }
             1 -> npcl(FacialExpression.OLD_DEFAULT, "Today is not a good day, can you come back tomorrow?").also { stage++ }
             2 -> npcl(FacialExpression.OLD_DEFAULT, "I'm busy, please leave.").also { stage++ }
@@ -42,6 +42,6 @@ class PurpleDirectorDialogue(player: Player? = null) : Dialogue(player) {
     }
 
     override fun getIds(): IntArray {
-        return intArrayOf(NPCs.PURPLE_PEWTER_DIRECTOR_2100)
+        return intArrayOf(NPCs.BLUE_OPAL_DIRECTOR_2101)
     }
 }

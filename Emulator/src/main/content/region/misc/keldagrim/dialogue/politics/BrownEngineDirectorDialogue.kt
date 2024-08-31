@@ -1,4 +1,4 @@
-package content.region.misc.keldagrim.dialogue.directors
+package content.region.misc.keldagrim.dialogue.politics
 
 import cfg.consts.NPCs
 import core.game.dialogue.Dialogue
