@@ -15,6 +15,7 @@ import core.game.node.entity.impl.Projectile
 import core.game.system.task.Pulse
 import core.game.world.map.Direction
 import core.game.world.map.Location
+import core.game.world.map.zone.ZoneBorders
 import core.game.world.update.flag.context.Animation
 import core.tools.END_DIALOGUE
 
@@ -194,10 +195,17 @@ class BiohazardListeners : InteractionListener {
         }
 
         on(Scenery.DOOR_2036, IntType.SCENERY, "open") { player, node ->
-            if (getQuestStage(player, "Biohazard") < 6) {
-                sendMessage(player, "The door is locked. You can hear the mourners eating...")
-                player.sendMessage("You need to distract them from their stew.", 1)
-                return@on false
+            if (inBorders(player, ZoneBorders.forRegion(11825))) {
+                DoorActionHandler.handleAutowalkDoor(player, node.asScenery())
+                return@on true
+            } else {
+                if(getQuestStage(player, "Biohazard") < 6) {
+                    sendMessage(player, "The door is locked. You can hear the mourners eating...")
+                    sendMessageWithDelay(player, "You need to distract them from their stew.", 1)
+                    return@on false
+                } else {
+                    sendMessage(player, "The doors appear to be stuck.")
+                }
             }
 
             if (!inEquipment(player, Items.DOCTORS_GOWN_430) && getQuestStage(player, "Biohazard") >= 6) {

@@ -1,8 +1,8 @@
 package content.region.fremennik.rellekka.handlers
 
 import content.global.skill.support.agility.AgilityHandler
-import content.region.fremennik.waterbirth_island.transport.TravelDestination
-import content.region.fremennik.waterbirth_island.transport.WaterbirthTravel
+import content.region.fremennik.waterbirth_island.handlers.TravelDestination
+import content.region.fremennik.waterbirth_island.handlers.WaterbirthTravel
 import cfg.consts.NPCs
 import cfg.consts.Scenery
 import core.api.lock

@@ -8,9 +8,11 @@ import cfg.consts.NPCs
 import cfg.consts.Scenery
 import core.api.getAttribute
 import core.api.setAttribute
+import core.game.component.Component
 import core.game.event.*
 import core.game.node.entity.Entity
 import core.game.node.entity.player.Player
+import core.game.world.GameWorld
 
 /**
  * Tutorial button receiver.
@@ -19,12 +21,14 @@ object TutorialButtonReceiver : EventHook<ButtonClickEvent> {
 
     override fun process(entity: Entity, event: ButtonClickEvent) {
         if (entity !is Player) return
+        val player = entity.asPlayer()
         when (getAttribute(entity, "tutorial:stage", 0)) {
 
             /*
              * Character design interface, confirm button.
              */
             0 -> if (event.iface == 771 && event.buttonId == 362) {
+                Component.setUnclosable(player, player.dialogueInterpreter.sendPlaneMessageWithBlueTitle("Getting started", "To start the tutorial use your left mouse button to click on the", "" + GameWorld.settings!!.name + " Guide in this room. He is indicated by a flashing", "yellow arrow above his head. If you can't see him, use your", "keyboard's arrow keys to rotate the view."))
                 setAttribute(entity, "/save:tutorial:stage", 1)
                 TutorialStage.load(entity, 1)
             }

@@ -1,4 +1,4 @@
-package content.region.fremennik.waterbirth_island.transport
+package content.region.fremennik.waterbirth_island.handlers
 
 import core.api.*
 import cfg.consts.Components
