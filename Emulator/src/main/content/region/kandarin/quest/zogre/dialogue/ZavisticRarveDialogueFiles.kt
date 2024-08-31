@@ -1,6 +1,6 @@
 package content.region.kandarin.quest.zogre.dialogue
 
-import content.region.kandarin.quest.zogre.ZogreQuestUtils
+import content.region.kandarin.quest.zogre.handlers.ZUtils
 import core.api.*
 import cfg.consts.Items
 import cfg.consts.NPCs
@@ -19,12 +19,12 @@ class ZavisticRarveDialogueFiles : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {
         var questComplete = getVarbit(player!!, Vars.VARBIT_QUEST_ZORGE_FLESH_EATERS_PROGRESS) == 13
-        var hasBlackPrism = inInventory(player!!, Items.BLACK_PRISM_4808) && !getAttribute(player!!, ZogreQuestUtils.TALK_ABOUT_BLACK_PRISM, false)
-        var hasTornPage = inInventory(player!!, Items.TORN_PAGE_4809) && !getAttribute(player!!, ZogreQuestUtils.TALK_ABOUT_TORN_PAGE, false)
-        var hasTankard = inInventory(player!!, Items.DRAGON_INN_TANKARD_4811) && !getAttribute(player!!, ZogreQuestUtils.TALK_ABOUT_TANKARD, false)
-        var hasBlackPrismAndTornPage = hasBlackPrism && hasTornPage && !getAttribute(player!!, ZogreQuestUtils.SITHIK_DIALOGUE_UNLOCK, false)
-        var hasOrLostStrangePotion = getAttribute(player!!, ZogreQuestUtils.TALK_WITH_ZAVISTIC_DONE, false)
-        var hasTalkWithSithik = getAttribute(player!!, ZogreQuestUtils.TALK_WITH_SITHIK_OGRE_DONE, false)
+        var hasBlackPrism = inInventory(player!!, Items.BLACK_PRISM_4808) && !getAttribute(player!!, ZUtils.TALK_ABOUT_BLACK_PRISM, false)
+        var hasTornPage = inInventory(player!!, Items.TORN_PAGE_4809) && !getAttribute(player!!, ZUtils.TALK_ABOUT_TORN_PAGE, false)
+        var hasTankard = inInventory(player!!, Items.DRAGON_INN_TANKARD_4811) && !getAttribute(player!!, ZUtils.TALK_ABOUT_TANKARD, false)
+        var hasBlackPrismAndTornPage = hasBlackPrism && hasTornPage && !getAttribute(player!!, ZUtils.SITHIK_DIALOGUE_UNLOCK, false)
+        var hasOrLostStrangePotion = getAttribute(player!!, ZUtils.TALK_WITH_ZAVISTIC_DONE, false)
+        var hasTalkWithSithik = getAttribute(player!!, ZUtils.TALK_WITH_SITHIK_OGRE_DONE, false)
         npc = NPC(NPCs.ZAVISTIC_RARVE_2059)
         when (stage) {
             START_DIALOGUE -> npcl("What are you doing...Oh, it's you...sorry...didn't realise... what can I do for you?").also { stage++ }
@@ -78,12 +78,12 @@ class ZavisticRarveDefaultQuestDialogue : DialogueFile() {
     override fun handle(componentID: Int, buttonID: Int) {
         npc = NPC(NPCs.ZAVISTIC_RARVE_2059)
         when (stage) {
-            0 -> if (getAttribute(player!!, ZogreQuestUtils.TALK_ABOUT_SIGN_PORTRAIT, false)) {
+            0 -> if (getAttribute(player!!, ZUtils.TALK_ABOUT_SIGN_PORTRAIT, false)) {
                 options("What did you say I should do?", "Where is Sithik?", "I have some items that I'd like you to look at.", "I want to ask about the Magic Guild.", "Sorry, I have to go.").also { stage++ }
             } else {
                 options("What did you say I should do?", "Where is Sithik?", "I want to ask about the Magic Guild.", "Sorry, I have to go.").also { stage++ }
             }
-            1 -> if (getAttribute(player!!, ZogreQuestUtils.TALK_ABOUT_SIGN_PORTRAIT, false)) {
+            1 -> if (getAttribute(player!!, ZUtils.TALK_ABOUT_SIGN_PORTRAIT, false)) {
                 when (buttonID) {
                     1 -> playerl(FacialExpression.HALF_GUILTY, "What did you say I should do?").also { stage++ }
                     2 -> playerl(FacialExpression.HALF_GUILTY, "Where is Sithik?").also { stage = 2 }
@@ -105,64 +105,65 @@ class ZavisticRarveDefaultQuestDialogue : DialogueFile() {
             5 -> playerl(FacialExpression.HALF_GUILTY, "Sure...I mean, I'll try if I remember.").also { stage = END_DIALOGUE }
             6 -> end().also { openDialogue(player!!, ZavisticRarveDefaultDialogue()) }
             7 -> when {
-                inInventory(player!!, Items.NECROMANCY_BOOK_4837) && !getAttribute(player!!, ZogreQuestUtils.TALK_AGAIN_1, false) -> sendItemDialogue(player!!, Items.NECROMANCY_BOOK_4837, "You show the Necromancy book to Zavistic.").also { stage++ }
-                inInventory(player!!, Items.BOOK_OF_HAM_4829) && !getAttribute(player!!, ZogreQuestUtils.TALK_AGAIN_2, false) -> sendItemDialogue(player!!, Items.BOOK_OF_HAM_4829, "You show the HAM book to Zavistic.").also { stage = 12 }
-                inInventory(player!!, Items.DRAGON_INN_TANKARD_4811) && !getAttribute(player!!, ZogreQuestUtils.TALK_AGAIN_3, false) -> sendItemDialogue(player!!, Items.DRAGON_INN_TANKARD_4811, "You show the dragon Inn Tankard to Zavistic.").also { stage = 14 }
-                inInventory(player!!, ZogreQuestUtils.UNREALIST_PORTRAIT) && !getAttribute(player!!, ZogreQuestUtils.TALK_AGAIN_4, false) -> player("Look, I made a portrait of Sithik.").also { stage = 16 }
-                inInventory(player!!, ZogreQuestUtils.REALIST_PORTRAIT) && !getAttribute(player!!, ZogreQuestUtils.TALK_AGAIN_5, false) -> sendItemDialogue(player!!, ZogreQuestUtils.REALIST_PORTRAIT, "You show the portrait of Sithik to Zavistic.").also { stage = 18 }
-                inInventory(player!!, ZogreQuestUtils.SIGNED_PORTRAIT) && !getAttribute(player!!, ZogreQuestUtils.TALK_AGAIN_6, false) -> sendItemDialogue(player!!, ZogreQuestUtils.SIGNED_PORTRAIT, "You show the signed portrait of Sithik to Zavistic.").also { stage = 19 }
+                inInventory(player!!, Items.NECROMANCY_BOOK_4837) && !getAttribute(player!!, ZUtils.TALK_AGAIN_1, false) -> sendItemDialogue(player!!, Items.NECROMANCY_BOOK_4837, "You show the Necromancy book to Zavistic.").also { stage++ }
+                inInventory(player!!, Items.BOOK_OF_HAM_4829) && !getAttribute(player!!, ZUtils.TALK_AGAIN_2, false) -> sendItemDialogue(player!!, Items.BOOK_OF_HAM_4829, "You show the HAM book to Zavistic.").also { stage = 12 }
+                inInventory(player!!, Items.DRAGON_INN_TANKARD_4811) && !getAttribute(player!!, ZUtils.TALK_AGAIN_3, false) -> sendItemDialogue(player!!, Items.DRAGON_INN_TANKARD_4811, "You show the dragon Inn Tankard to Zavistic.").also { stage = 14 }
+                inInventory(player!!, ZUtils.UNREALIST_PORTRAIT) && !getAttribute(player!!, ZUtils.TALK_AGAIN_4, false) -> player("Look, I made a portrait of Sithik.").also { stage = 16 }
+                inInventory(player!!, ZUtils.REALIST_PORTRAIT) && !getAttribute(player!!, ZUtils.TALK_AGAIN_5, false) -> sendItemDialogue(player!!, ZUtils.REALIST_PORTRAIT, "You show the portrait of Sithik to Zavistic.").also { stage = 18 }
+                inInventory(player!!, ZUtils.SIGNED_PORTRAIT) && !getAttribute(player!!, ZUtils.TALK_AGAIN_6, false) -> sendItemDialogue(player!!, ZUtils.SIGNED_PORTRAIT, "You show the signed portrait of Sithik to Zavistic.").also { stage = 19 }
 
                 else -> {
                     end()
-                    player!!.inventory.remove(Item(Items.NECROMANCY_BOOK_4837), Item(Items.BOOK_OF_HAM_4829), Item(Items.DRAGON_INN_TANKARD_4811), Item(ZogreQuestUtils.SIGNED_PORTRAIT))
-                    removeAttributes(player!!, ZogreQuestUtils.TALK_AGAIN_1, ZogreQuestUtils.TALK_AGAIN_2, ZogreQuestUtils.TALK_AGAIN_3, ZogreQuestUtils.TALK_AGAIN_4, ZogreQuestUtils.TALK_AGAIN_5, ZogreQuestUtils.TALK_AGAIN_6)
-                    sendItemDialogue(player!!, ZogreQuestUtils.STRANGE_POTION, "Zavistic hands you a strange looking potion bottle and" + "takes all the evidence you've accumulated so far.")
-                    setAttribute(player!!, "/save:${ZogreQuestUtils.TALK_WITH_ZAVISTIC_DONE}", true)
+                    player!!.inventory.remove(Item(Items.NECROMANCY_BOOK_4837), Item(Items.BOOK_OF_HAM_4829), Item(Items.DRAGON_INN_TANKARD_4811), Item(
+                        ZUtils.SIGNED_PORTRAIT))
+                    removeAttributes(player!!, ZUtils.TALK_AGAIN_1, ZUtils.TALK_AGAIN_2, ZUtils.TALK_AGAIN_3, ZUtils.TALK_AGAIN_4, ZUtils.TALK_AGAIN_5, ZUtils.TALK_AGAIN_6)
+                    sendItemDialogue(player!!, ZUtils.STRANGE_POTION, "Zavistic hands you a strange looking potion bottle and" + "takes all the evidence you've accumulated so far.")
+                    setAttribute(player!!, "/save:${ZUtils.TALK_WITH_ZAVISTIC_DONE}", true)
                     setVarbit(player!!, Vars.VARBIT_QUEST_ZORGE_FLESH_EATERS_PROGRESS, 6, true)
-                    addItem(player!!, ZogreQuestUtils.STRANGE_POTION)
+                    addItem(player!!, ZUtils.STRANGE_POTION)
                 }
             }
             8 -> player("I have this necromancy book as evidence that Sithik is", "involved with the undead ogres at Jiggig.").also { stage++ }
-            9 -> if (getAttribute(player!!, ZogreQuestUtils.TALK_ABOUT_NECRO_BOOK, false)) {
+            9 -> if (getAttribute(player!!, ZUtils.TALK_ABOUT_NECRO_BOOK, false)) {
                 npcl("Yeah, you've shown me this before...if this is all the evidence you have?").also { stage = 24 }
             } else {
                 npc("Ok, so he's researching necromancy...it doesn't mean", "anything in itself.").also { stage++ }
             }
             10 -> player("Yes, but if you look, you can see that there is a half", "torn page which matches the page I found at Jiggig.").also { stage++ }
-            11 -> npc("Hmm, yes, but someone could have stolen that from him", "and then gone and cast it without his permission or to", "try and deliberately implicate him.").also { setAttribute(player!!, ZogreQuestUtils.TALK_AGAIN_1, true); setAttribute(player!!, ZogreQuestUtils.TALK_ABOUT_NECRO_BOOK, true); stage = 7 }
+            11 -> npc("Hmm, yes, but someone could have stolen that from him", "and then gone and cast it without his permission or to", "try and deliberately implicate him.").also { setAttribute(player!!, ZUtils.TALK_AGAIN_1, true); setAttribute(player!!, ZUtils.TALK_ABOUT_NECRO_BOOK, true); stage = 7 }
             12 -> playerl("Look, this book proves that Sithik hates all monsters and most likely Ogres with a passion.").also { stage++ }
-            13 -> if (getAttribute(player!!, ZogreQuestUtils.TALK_ABOUT_NECRO_BOOK, false)) {
+            13 -> if (getAttribute(player!!, ZUtils.TALK_ABOUT_NECRO_BOOK, false)) {
                 npcl("Yeah, you've shown me this before...if this is all the evidence you have?").also { stage = 27 }
             } else {
                 npcl("So what, hating monsters isn't a crime in itself...although I suppose that it does give a motive if Sithik was involved. On its own, it's not enough evidence though.").also {
-                    setAttribute(player!!, ZogreQuestUtils.TALK_AGAIN_2, true); setAttribute(player!!, ZogreQuestUtils.TALK_AGAIN_ABOUT_HAM_BOOK, true); stage = 7
+                    setAttribute(player!!, ZUtils.TALK_AGAIN_2, true); setAttribute(player!!, ZUtils.TALK_AGAIN_ABOUT_HAM_BOOK, true); stage = 7
                 }
             }
             14 -> player("This is the tankard I found on the remains of Brentle", "Vahn!").also { stage++ }
-            15 -> if (getAttribute(player!!, ZogreQuestUtils.TALK_ABOUT_TANKARD_AGAIN, false)) {
+            15 -> if (getAttribute(player!!, ZUtils.TALK_ABOUT_TANKARD_AGAIN, false)) {
                 npcl("Yeah, you've shown me this before...if this is all the evidence you have?").also { stage = 31 }
             } else {
-                npc("That doesn't mean anything in itself, you could have", "gotten that from anywhere. Even from the Dragon Inn", "tavern! There isn't anything to link Brentle Vahn with", "Sithik Ints.").also { setAttribute(player!!, ZogreQuestUtils.TALK_AGAIN_3, true); stage = 7 }
+                npc("That doesn't mean anything in itself, you could have", "gotten that from anywhere. Even from the Dragon Inn", "tavern! There isn't anything to link Brentle Vahn with", "Sithik Ints.").also { setAttribute(player!!, ZUtils.TALK_AGAIN_3, true); stage = 7 }
             }
-            16 -> sendItemDialogue(player!!, ZogreQuestUtils.UNREALIST_PORTRAIT, "You show the sketch...").also { stage++ }
-            17 -> npcl("Who the demonikin is that? Is it meant to be a portrait of Sithik, it doesn't look anything like him!").also { setAttribute(player!!, ZogreQuestUtils.TALK_AGAIN_4, true); stage = 7 }
-            18 -> npcl("Hmm, great...but I already know what he looks like!").also { setAttribute(player!!, ZogreQuestUtils.TALK_AGAIN_5, true); stage = 7 }
-            19 -> playerl("This is a portrait of Sithik, signed by the landlord of the Dragon Inn saying that he saw Sithik and Brentle Vahn together.").also { setAttribute(player!!, ZogreQuestUtils.TALK_AGAIN_5, true); stage++ }
+            16 -> sendItemDialogue(player!!, ZUtils.UNREALIST_PORTRAIT, "You show the sketch...").also { stage++ }
+            17 -> npcl("Who the demonikin is that? Is it meant to be a portrait of Sithik, it doesn't look anything like him!").also { setAttribute(player!!, ZUtils.TALK_AGAIN_4, true); stage = 7 }
+            18 -> npcl("Hmm, great...but I already know what he looks like!").also { setAttribute(player!!, ZUtils.TALK_AGAIN_5, true); stage = 7 }
+            19 -> playerl("This is a portrait of Sithik, signed by the landlord of the Dragon Inn saying that he saw Sithik and Brentle Vahn together.").also { setAttribute(player!!, ZUtils.TALK_AGAIN_5, true); stage++ }
             20 -> npcl("Hmmm, well that is interesting.").also { stage++ }
             21 -> npcl("However, there isn't enough evidence for me to take the issue further at this point. If you find any further evidence bring it to me.").also { stage++ }
             22 -> npcl("And I'm starting to think that Sithik may be involved. Here, take this potion and give some to Sithik.").also { stage++ }
-            23 -> npcl("It'll bring on a change which should solicit some answers - tell him the effects won't revert until he's told the truth.").also { setAttribute(player!!, ZogreQuestUtils.TALK_AGAIN_6, true); stage = 7 }
+            23 -> npcl("It'll bring on a change which should solicit some answers - tell him the effects won't revert until he's told the truth.").also { setAttribute(player!!, ZUtils.TALK_AGAIN_6, true); stage = 7 }
             24 -> playerl("Please just look at it again...").also { stage++ }
             25 -> npcl("Ok, let me look then.").also { stage++ }
             26 -> npc("Ok, so he's researching necromancy...it doesn't mean", "anything in itself.").also { stage = 10 }
             27 -> playerl("Please just look at it again...").also { stage++ }
             28 -> npcl("Ok, let me look then.").also { stage++ }
             29 -> sendItemDialogue(player!!, Items.BOOK_OF_HAM_4829, "You show the HAM book to Zavistic, he looks through it again.").also { stage++ }
-            30 -> npcl("So what, hating monsters isn't a crime in itself...although I suppose that it does give a motive if Sithik was involved. On its own, it's not enough evidence though.").also { setAttribute(player!!, ZogreQuestUtils.TALK_AGAIN_2, true); stage = 7 }
+            30 -> npcl("So what, hating monsters isn't a crime in itself...although I suppose that it does give a motive if Sithik was involved. On its own, it's not enough evidence though.").also { setAttribute(player!!, ZUtils.TALK_AGAIN_2, true); stage = 7 }
             31 -> playerl("Please just look at it again...").also { stage++ }
             32 -> npcl("Ok, let me look then.").also { stage++ }
             33 -> sendItemDialogue(player!!, Items.DRAGON_INN_TANKARD_4811, "You show the tankard to Zavistic, he looks at it again.").also { stage++ }
-            34 -> npc("That doesn't mean anything in itself, you could have", "gotten that from anywhere. Even from the Dragon Inn", "tavern! There isn't anything to link Brentle Vahn with", "Sithik Ints.").also { setAttribute(player!!, ZogreQuestUtils.TALK_AGAIN_3, true); stage = 7 }
+            34 -> npc("That doesn't mean anything in itself, you could have", "gotten that from anywhere. Even from the Dragon Inn", "tavern! There isn't anything to link Brentle Vahn with", "Sithik Ints.").also { setAttribute(player!!, ZUtils.TALK_AGAIN_3, true); stage = 7 }
         }
     }
 }
@@ -186,7 +187,7 @@ class ZavisticRarveHasBothItemsDialogue : DialogueFile() {
             8 -> npcl(FacialExpression.HALF_GUILTY, "He's lodged at that guest house to the North, though he's ill and isn't able to leave his room.").also { stage++ }
             9 -> npcl(FacialExpression.HALF_GUILTY, "Why not go and talk to him, poke around a bit and see if anything comes up. Let me know how you get on. However,").also { stage++ }
             10 -> npcl(FacialExpression.HALF_GUILTY, "I doubt that 'Sithik' had anything to do with it. There's a severe penalty for using the 'dark arts'. If you find any evidence to the contrary, please bring it to me.").also { stage++ }
-            11 -> npcl(FacialExpression.HALF_ASKING, "Did you find anything else there?").also { setAttribute(player!!, "/save:${ZogreQuestUtils.SITHIK_DIALOGUE_UNLOCK}", true);setAttribute(player!!, ZogreQuestUtils.TALK_ABOUT_BLACK_PRISM, true);setAttribute(player!!, ZogreQuestUtils.TALK_ABOUT_TORN_PAGE, true); stage++ }
+            11 -> npcl(FacialExpression.HALF_ASKING, "Did you find anything else there?").also { setAttribute(player!!, "/save:${ZUtils.SITHIK_DIALOGUE_UNLOCK}", true);setAttribute(player!!, ZUtils.TALK_ABOUT_BLACK_PRISM, true);setAttribute(player!!, ZUtils.TALK_ABOUT_TORN_PAGE, true); stage++ }
             12 -> if (inInventory(player!!, Items.DRAGON_INN_TANKARD_4811)) {
                 end().also { openDialogue(player!!, ZavisticRarveTankardDialogue()) }
             } else {
@@ -212,7 +213,7 @@ class ZavisticRarveTankardDialogue : DialogueFile() {
         when (stage) {
             0 -> player(FacialExpression.HALF_GUILTY, "Well, I found this...").also { stage++ }
             1 -> sendDoubleItemDialogue(player!!, -1, Items.DRAGON_INN_TANKARD_4811, "You show the tankard to Zavistic.").also { stage++ }
-            2 -> npcl(FacialExpression.THINKING, "Hmmm, no, that's not really associated with this to be honest.").also { setAttribute(player!!, ZogreQuestUtils.TALK_ABOUT_TANKARD, true); stage++ }
+            2 -> npcl(FacialExpression.THINKING, "Hmmm, no, that's not really associated with this to be honest.").also { setAttribute(player!!, ZUtils.TALK_ABOUT_TANKARD, true); stage++ }
             3 -> end().also { openDialogue(player!!, ZavisticRarveDefaultQuestDialogue()) }
         }
     }
@@ -230,7 +231,7 @@ class ZavisticRarveTornPageDialogue : DialogueFile() {
             1 -> sendDoubleItemDialogue(player!!, -1, Items.TORN_PAGE_4809, "You show the necromantic half page to the aged wizard.").also { stage++ }
             2 -> npcl(FacialExpression.HALF_ASKING, "Hmm, this is a half torn spell page, it requires another spell component to be effective.").also { stage++ }
             3 -> npcl(FacialExpression.HALF_ASKING, "Did you find anything else there?").also { stage++ }
-            4 -> if (inInventory(player!!, Items.BLACK_PRISM_4808) && !getAttribute(player!!, ZogreQuestUtils.SITHIK_DIALOGUE_UNLOCK, false)) {
+            4 -> if (inInventory(player!!, Items.BLACK_PRISM_4808) && !getAttribute(player!!, ZUtils.SITHIK_DIALOGUE_UNLOCK, false)) {
                 openDialogue(player!!, ZavisticRarveBlackPrismDialogue())
             } else {
                 end().also { openDialogue(player!!, ZavisticRarveDefaultQuestDialogue()) }
@@ -247,7 +248,7 @@ class ZavisticRarveBlackPrismDialogue : DialogueFile() {
     override fun handle(componentID: Int, buttonID: Int) {
         npc = NPC(NPCs.ZAVISTIC_RARVE_2059)
         when (stage) {
-            0 -> if (getAttribute(player!!, ZogreQuestUtils.TALK_WITH_ZAVISTIC_DONE, false)) {
+            0 -> if (getAttribute(player!!, ZUtils.TALK_WITH_ZAVISTIC_DONE, false)) {
                 playerl("I found this black prism at Jiggig where the undead ogre activity was happening?").also { stage = 5 }
             } else {
                 playerl(FacialExpression.HALF_GUILTY, "There's some undead ogre activity over at 'Jiggig', and the ogres have asked me to look into it. I think I've found a clue and I wonder if you could take a look at it for me?").also { stage++ }
@@ -255,9 +256,9 @@ class ZavisticRarveBlackPrismDialogue : DialogueFile() {
             1 -> sendDoubleItemDialogue(player!!, -1, Items.BLACK_PRISM_4808, "You show the black prism to the aged wizard.").also { stage++ }
             2 -> npcl("Hmmm, well this is an uncommon spell component. On it's own it's useless, but with certain necromantic spells it can be very powerful.").also { stage++ }
             3 -> npcl(FacialExpression.HALF_ASKING, "Did you find anything else there?").also { stage++ }
-            4 -> if (inInventory(player!!, Items.TORN_PAGE_4809) && !getAttribute(player!!, ZogreQuestUtils.SITHIK_DIALOGUE_UNLOCK, false)) {
+            4 -> if (inInventory(player!!, Items.TORN_PAGE_4809) && !getAttribute(player!!, ZUtils.SITHIK_DIALOGUE_UNLOCK, false)) {
                 end().also { openDialogue(player!!, ZavisticRarveTornPageDialogue()) }
-            } else if (inInventory(player!!, Items.DRAGON_INN_TANKARD_4811) && !getAttribute(player!!, ZogreQuestUtils.SITHIK_DIALOGUE_UNLOCK, false)) {
+            } else if (inInventory(player!!, Items.DRAGON_INN_TANKARD_4811) && !getAttribute(player!!, ZUtils.SITHIK_DIALOGUE_UNLOCK, false)) {
                 end().also { openDialogue(player!!, ZavisticRarveTankardDialogue()) }
             } else {
                 end().also { openDialogue(player!!, ZavisticRarveDefaultQuestDialogue()) }
@@ -276,7 +277,7 @@ class ZavisticRarvePotionDialogue : DialogueFile() {
     override fun handle(componentID: Int, buttonID: Int) {
         npc = NPC(NPCs.ZAVISTIC_RARVE_2059)
         when (stage) {
-            0 -> if (!inInventory(player!!, ZogreQuestUtils.STRANGE_POTION)) {
+            0 -> if (!inInventory(player!!, ZUtils.STRANGE_POTION)) {
                 playerl("Well, actually, I've lost it, could I have another one please?").also { stage++ }
             } else {
                 playerl("No, not yet, what was I supposed to do again?").also { stage = 3 }
@@ -285,10 +286,10 @@ class ZavisticRarvePotionDialogue : DialogueFile() {
             2 -> {
                 end()
                 if (freeSlots(player!!) < 1) {
-                    sendItemDialogue(player!!, ZogreQuestUtils.STRANGE_POTION, "Zavistic hands you a bottle of strange potion, but you don't have enough room to take it.")
+                    sendItemDialogue(player!!, ZUtils.STRANGE_POTION, "Zavistic hands you a bottle of strange potion, but you don't have enough room to take it.")
                 } else {
-                    sendItemDialogue(player!!, ZogreQuestUtils.STRANGE_POTION, "Zavistic hands you a bottle of strange potion.")
-                    addItem(player!!, ZogreQuestUtils.STRANGE_POTION)
+                    sendItemDialogue(player!!, ZUtils.STRANGE_POTION, "Zavistic hands you a bottle of strange potion.")
+                    addItem(player!!, ZUtils.STRANGE_POTION)
                 }
             }
             3 -> npcl("Try to use the potion on Sithik somehow, he should undergo an interesting transformation, though you'll probably want to leave the house in case there are any side effects. Then go back and question Sithik and tell").also { stage++ }

@@ -19,7 +19,7 @@ import core.game.world.map.zone.MapZone
 import core.game.world.map.zone.ZoneBorders
 import core.game.world.update.flag.context.Animation
 import core.tools.END_DIALOGUE
-import content.region.misc.keldagrim.travel.MinecartTravel
+import content.region.misc.keldagrim.handlers.MinecartTravel
 import content.region.misthalin.varrock.dialogue.KnockatDoorDialogue
 import content.region.misthalin.varrock.dialogue.SawmillOperatorDialogue
 import content.region.kandarin.ardougne.quest.biohazard.dialogue.GuidorsWifeDialogueFile

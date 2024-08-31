@@ -12,6 +12,7 @@ import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.IronmanMode
 import core.game.node.entity.player.link.TeleportManager
+import core.game.node.item.GroundItemManager
 import core.game.node.item.Item
 import core.game.world.GameWorld
 import core.game.world.map.Location
@@ -56,11 +57,17 @@ class MagicTutorDialogue(player: Player? = null) : Dialogue(player) {
         when (getAttribute(player, "tutorial:stage", 0)) {
             67 -> playerl(FacialExpression.FRIENDLY, "Hello.")
             69 -> npc(FacialExpression.FRIENDLY, "Good. This is a list of your spells. Currently you can", "only cast one offensive spell called Wind Strike. Let's", "try it out on one of those chickens.")
-            70 -> if (!inInventory(player, Items.AIR_RUNE_556) && !inInventory(player, Items.MIND_RUNE_558)) {
-                sendDoubleItemDialogue(player, Items.AIR_RUNE_556, Items.MIND_RUNE_558, "You receive some spare runes.")
-                addItem(player, Items.AIR_RUNE_556, 15)
-                addItem(player, Items.MIND_RUNE_558, 15)
-                return false
+            70 -> {
+                if(!inInventory(player, Items.AIR_RUNE_556) && !inInventory(player, Items.MIND_RUNE_558)) {
+                    if (freeSlots(player) == 0 || freeSlots(player) < 2) {
+                        GroundItemManager.create(arrayOf(Item(Items.AIR_RUNE_556, 15), Item(Items.MIND_RUNE_558, 15)), player.location, player)
+                    } else {
+                        addItem(player, Items.AIR_RUNE_556, 15)
+                        addItem(player, Items.MIND_RUNE_558, 15)
+                    }
+                    sendDoubleItemDialogue(player, Items.AIR_RUNE_556, Items.MIND_RUNE_558, "You receive some spare runes.")
+                    return false
+                }
             }
             71 -> npc(FacialExpression.FRIENDLY, "Well you're all finished here now. I'll give you a", "reasonable number of runes when you leave.")
 

@@ -2,8 +2,8 @@ package content.region.morytania.phasmatys.dialogue
 
 import cfg.consts.Items
 import cfg.consts.NPCs
-import content.region.morytania.quest.ahoy.dialogue.GhostVillagerDialogueFile
-import content.region.morytania.quest.ahoy.GAUtils
+import content.region.morytania.phasmatys.quest.ahoy.dialogue.GhostVillagerDialogueFile
+import content.region.morytania.phasmatys.quest.ahoy.GAUtils
 import core.api.getAttribute
 import core.api.inEquipment
 import core.api.openDialogue

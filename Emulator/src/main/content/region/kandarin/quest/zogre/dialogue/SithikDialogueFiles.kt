@@ -1,6 +1,6 @@
 package content.region.kandarin.quest.zogre.dialogue
 
-import content.region.kandarin.quest.zogre.ZogreQuestUtils
+import content.region.kandarin.quest.zogre.handlers.ZUtils
 import core.api.*
 import cfg.consts.Items
 import cfg.consts.NPCs
@@ -64,16 +64,16 @@ class SithikQuestDialogueFile : DialogueFile() {
             0 -> npc(FacialExpression.CALM,"Hey...who gave you permission to come in here!").also { stage++ }
             1 -> player("Zavistic Rarve said that I could come and talk to you", "and ask you a few questions.").also { stage++ }
             2 -> npc(FacialExpression.HALF_THINKING,"Oh, Zavistic...why...why would he send you to me?").also { stage++ }
-            3 -> if (getAttribute(player!!, ZogreQuestUtils.ASK_SITHIK_ABOUT_OGRES, false)) {
+            3 -> if (getAttribute(player!!, ZUtils.ASK_SITHIK_ABOUT_OGRES, false)) {
                 options("Do you know anything about the undead ogres at Jiggig?", "What do you do?", "Do you mind if I look around?", "Ok, thanks.").also { stage++ }
-            } else if(getAttribute(player!!, ZogreQuestUtils.ASK_SITHIK_AGAIN, false)){
+            } else if(getAttribute(player!!, ZUtils.ASK_SITHIK_AGAIN, false)){
                 options("What do you do?", "Why do you spend most of your time in bed?", "Ok, thanks.").also { stage++ }
             }
-            4 -> if(!getAttribute(player!!, ZogreQuestUtils.ASK_SITHIK_AGAIN, false)) {
+            4 -> if(!getAttribute(player!!, ZUtils.ASK_SITHIK_AGAIN, false)) {
                 when (buttonID) {
                     1 -> player(FacialExpression.HALF_GUILTY, "Do you know anything about the undead ogres at","Jiggig?").also { stage++ }
                     2 -> playerl(FacialExpression.HALF_GUILTY, "What do you do?").also { stage = 14 }
-                    3 -> if (getAttribute(player!!, ZogreQuestUtils.ASK_SITHIK_ABOUT_OGRES, false)) {
+                    3 -> if (getAttribute(player!!, ZUtils.ASK_SITHIK_ABOUT_OGRES, false)) {
                         playerl(FacialExpression.HALF_GUILTY, "Do you mind if I look around?").also { stage = 19 }
                     } else {
                         playerl(FacialExpression.HALF_GUILTY, "Why do you spend most of your time in bed?").also { stage = 23 }
@@ -83,7 +83,7 @@ class SithikQuestDialogueFile : DialogueFile() {
             } else {
                 when (buttonID) {
                     1 -> playerl(FacialExpression.HALF_GUILTY, "What do you do?").also { stage = 14 }
-                    2 -> if (getAttribute(player!!, ZogreQuestUtils.ASK_SITHIK_ABOUT_OGRES, false)) {
+                    2 -> if (getAttribute(player!!, ZUtils.ASK_SITHIK_ABOUT_OGRES, false)) {
                         playerl(FacialExpression.HALF_GUILTY, "Do you mind if I look around?").also { stage = 19 }
                     } else {
                         playerl(FacialExpression.HALF_GUILTY, "Why do you spend most of your time in bed?").also { stage = 23 }
@@ -99,7 +99,7 @@ class SithikQuestDialogueFile : DialogueFile() {
             10 -> npc(FacialExpression.ANNOYED,"Well, err....well, actually yes I do mind...it's my place", "and I don't want strangers going through my things.").also { stage++ }
             11 -> player("Well, I'm going to have a look around anyway, if", "you're not involved in this whole thing, you won't have", "anything to hide.").also { stage++ }
             12 -> npc(FacialExpression.ANNOYED, "Why, if I was a few years younger I'd give you a","good hiding!").also { stage++ }
-            13 -> player("I'm sure!").also { setAttribute(player!!, "/save:${ZogreQuestUtils.ASK_SITHIK_ABOUT_OGRES}", true);stage = 3 }
+            13 -> player("I'm sure!").also { setAttribute(player!!, "/save:${ZUtils.ASK_SITHIK_ABOUT_OGRES}", true);stage = 3 }
             14 -> npc(FacialExpression.HALF_GUILTY, "I'm a scholarly student of the magical arts. When I was","younger I used to be an adventurer, probably just like","yourself. But I lost interest in the constant fighting,","looting and gaining abilities.").also { stage++ }
             15 -> npc(FacialExpression.CALM, "Instead I decided to focus my attention and time to","study the purer form of the lost arts.").also { stage++ }
             16 -> player("The lost arts? What are they?").also { stage++ }
@@ -108,7 +108,7 @@ class SithikQuestDialogueFile : DialogueFile() {
             19 -> npc(FacialExpression.CALM, "Well, err....well, actually yes I do mind...it's my place", "and I don't want strangers going through my things.").also { stage++ }
             20 -> player("Well, I'm going to have a look around anyway, if", "you're not involved in this whole thing, you won't have", "anything to hide.").also { stage++ }
             21 -> npc(FacialExpression.ANNOYED, "Why, if I was a few years younger I'd give you a","good hiding!").also { stage++ }
-            22 -> playerl("I'm sure!").also { setAttribute(player!!, "/save:${ZogreQuestUtils.ASK_SITHIK_AGAIN}", true) ;stage = 3 }
+            22 -> playerl("I'm sure!").also { setAttribute(player!!, "/save:${ZUtils.ASK_SITHIK_AGAIN}", true) ;stage = 3 }
             23 -> npc(FacialExpression.HALF_GUILTY, "I'm actually quite old and not so very well and I'd like","to get over this illness I have, then I'll return to my","very serious and important studies.").also { stage = 3 }
         }
     }
@@ -226,8 +226,8 @@ class SithikIntsPortraitDialogueFile : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {
         val papyrus = Item(Items.PAPYRUS_970)
-        val correctPortrait = ZogreQuestUtils.REALIST_PORTRAIT
-        val incorrectPortrait = ZogreQuestUtils.UNREALIST_PORTRAIT
+        val correctPortrait = ZUtils.REALIST_PORTRAIT
+        val incorrectPortrait = ZUtils.UNREALIST_PORTRAIT
         npc = NPC(NPCs.SITHIK_INTS_2061)
         when (stage) {
             0 -> npcl("Oh lovely! You're making my portrait! Let me see it afterwards!").also { stage++ }
@@ -240,12 +240,12 @@ class SithikIntsPortraitDialogueFile : DialogueFile() {
                             when ((0..1).random()) {
                                 0 -> {
                                     addItem(player!!, correctPortrait)
-                                    sendItemDialogue(player!!, ZogreQuestUtils.REALIST_PORTRAIT, "You get a portrait of Sithik.")
+                                    sendItemDialogue(player!!, ZUtils.REALIST_PORTRAIT, "You get a portrait of Sithik.")
                                 }
 
                                 1 -> {
                                     addItem(player!!, incorrectPortrait)
-                                    sendItemDialogue(player!!, ZogreQuestUtils.UNREALIST_PORTRAIT, "You get a portrait of Sithik.")
+                                    sendItemDialogue(player!!, ZUtils.UNREALIST_PORTRAIT, "You get a portrait of Sithik.")
                                 }
                             }
                         }
@@ -268,10 +268,10 @@ class SithikIntsUsedPortraitDialogueFile : DialogueFile() {
         npc = NPC(NPCs.SITHIK_INTS_2061)
         when (stage) {
             0 -> playerl(FacialExpression.HAPPY, "Here you go, what do you think?").also { stage++ }
-            1 -> if (inInventory(player!!, ZogreQuestUtils.REALIST_PORTRAIT)) {
-                sendItemDialogue(player!!, ZogreQuestUtils.REALIST_PORTRAIT, "You get a portrait of Sithik.").also { stage++ }
+            1 -> if (inInventory(player!!, ZUtils.REALIST_PORTRAIT)) {
+                sendItemDialogue(player!!, ZUtils.REALIST_PORTRAIT, "You get a portrait of Sithik.").also { stage++ }
             } else {
-                sendItemDialogue(player!!, ZogreQuestUtils.UNREALIST_PORTRAIT, "You show the sketch...").also { stage = 3 }
+                sendItemDialogue(player!!, ZUtils.UNREALIST_PORTRAIT, "You show the sketch...").also { stage = 3 }
             }
             2 -> npcl(FacialExpression.THINKING, "Hmmm, well it's not the most flattering of portraits, but I like the 'honesty' of the work...well done.").also { stage = END_DIALOGUE }
             3 -> npcl(FacialExpression.HAPPY, "Hmmm, well it's an interesting interpretation, but not really classic realist representation is it? It's not my favourite, but I like the 'truth' of the work...well done.").also { stage = END_DIALOGUE }
@@ -288,7 +288,7 @@ class SithikIntsSignedPortraitDialogueFile : DialogueFile() {
         npc = NPC(NPCs.SITHIK_INTS_2061)
         when (stage) {
             0 -> playerl("Hey, what do you think of this? I'm going to show it to Zavistic and you're going to be in trouble!").also { stage++ }
-            1 -> sendItemDialogue(player!!, ZogreQuestUtils.SIGNED_PORTRAIT, "You show the portrait to Sithik.").also { stage++ }
+            1 -> sendItemDialogue(player!!, ZUtils.SIGNED_PORTRAIT, "You show the portrait to Sithik.").also { stage++ }
             2 -> npcl("Hmmm, well, I've got quite a common looking face, I'm often mistaken for other wizards, you know, when I'm wearing my wizard's hat, robes and staff. There's a lot of us around here you know.").also { stage++ }
             3 -> playerl("I don't think so! This is a signed picture of you, someone recognised you, you're in deep trouble!").also { stage++ }
             4 -> npcl("Ok, I'll pay you to keep this secret - how much do you want for the picture?").also { stage++ }
@@ -338,7 +338,7 @@ class SithikIntsAfterTransformDialogueFile : DialogueFile() {
         npc = NPC(NPCs.SITHIK_INTS_2062)
         when (stage) {
             0 -> npcl(FacialExpression.OLD_ANGRY1, "Arghhhh..what's happened to me...you beast!").also { stage++ }
-            1 -> player("It's your own fault, you shouldn't have lied about your", "involvement with the undead Ogres at Jiggig. The", "potion will wear off once you've told the truth!").also { setAttribute(player!!, "/save:${ZogreQuestUtils.TALK_WITH_SITHIK_OGRE_DONE}", true); stage++ }
+            1 -> player("It's your own fault, you shouldn't have lied about your", "involvement with the undead Ogres at Jiggig. The", "potion will wear off once you've told the truth!").also { setAttribute(player!!, "/save:${ZUtils.TALK_WITH_SITHIK_OGRE_DONE}", true); stage++ }
             2 -> npc(FacialExpression.OLD_DEFAULT, "Ok, ok, I admit it, I got Brentle Vahn to cast the spell", "to put an end to those awful Ogres...they're just", "disgusting creatures...").also { stage++ }
             3 -> player("Ok, that's a start...now I want some answers.").also { stage++ }
             4 -> options("How do I remove the effects of the spell from the area?", "How do I get rid of the undead ogres?", "How do I get rid of the disease?", "Sorry, I have to go.").also { stage++ }

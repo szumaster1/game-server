@@ -1,6 +1,6 @@
 package content.global.handlers.item
 
-import content.region.morytania.quest.druidspirit.NSUtils.castBloom
+import content.region.morytania.swamp.quest.druidspirit.NSUtils.castBloom
 import core.api.animate
 import core.api.getQuestStage
 import core.api.sendDialogue

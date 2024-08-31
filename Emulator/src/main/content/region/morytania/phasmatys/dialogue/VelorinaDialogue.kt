@@ -2,7 +2,7 @@ package content.region.morytania.phasmatys.dialogue
 
 import cfg.consts.Items
 import cfg.consts.NPCs
-import content.region.morytania.quest.ahoy.dialogue.VelorinaDialogueFile
+import content.region.morytania.phasmatys.quest.ahoy.dialogue.VelorinaDialogueFile
 import core.api.*
 import core.game.dialogue.Dialogue
 import core.game.node.entity.npc.NPC

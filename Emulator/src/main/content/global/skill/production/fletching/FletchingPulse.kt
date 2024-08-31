@@ -1,7 +1,7 @@
 package content.global.skill.production.fletching
 
 import content.global.skill.production.fletching.FletchingMap.FletchingItems
-import content.region.kandarin.quest.zogre.ZogreQuestUtils
+import content.region.kandarin.quest.zogre.handlers.ZUtils
 import core.api.*
 import cfg.consts.Animations
 import cfg.consts.Items
@@ -47,7 +47,7 @@ class FletchingPulse(player: Player?, node: Item?, amount: Int, fletch: Fletchin
             }
         }
         if(fletch == FletchingItems.OGRE_COMPOSITE_BOW) {
-            if (!getAttribute(player!!, ZogreQuestUtils.TALK_WITH_SITHIK_OGRE_DONE, false) || getVarbit(player, Vars.VARBIT_QUEST_ZORGE_FLESH_EATERS_PROGRESS) < 6) {
+            if (!getAttribute(player!!, ZUtils.TALK_WITH_SITHIK_OGRE_DONE, false) || getVarbit(player, Vars.VARBIT_QUEST_ZORGE_FLESH_EATERS_PROGRESS) < 6) {
                 sendMessage(player, "You must have started Zogre Flesh Eaters to make those.")
                 return false
             }

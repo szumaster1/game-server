@@ -1,6 +1,6 @@
 package content.region.misthalin.dorgeshuun.dialogue
 
-import content.region.misthalin.quest.dttd.dialogue.MistagDialogueFile
+import content.region.misthalin.dorgeshuun.dorgeshkaan.quest.dttd.dialogue.MistagDialogueFile
 import content.region.misthalin.lumbridge.quest.lost_tribe.dialogue.MistagLostTribeDialogue
 import cfg.consts.Items
 import cfg.consts.NPCs

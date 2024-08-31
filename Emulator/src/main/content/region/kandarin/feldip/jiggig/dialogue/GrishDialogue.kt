@@ -1,6 +1,6 @@
 package content.region.kandarin.feldip.jiggig.dialogue
 
-import content.region.kandarin.quest.zogre.ZogreQuestUtils
+import content.region.kandarin.quest.zogre.handlers.ZUtils
 import content.region.kandarin.quest.zogre.dialogue.GrishFinishDialogue
 import core.api.*
 import cfg.consts.Items
@@ -21,7 +21,7 @@ class GrishDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any?): Boolean {
         npc = args[0] as NPC
-        if (getAttribute(player!!, ZogreQuestUtils.TALK_WITH_SITHIK_OGRE_DONE, false)) {
+        if (getAttribute(player!!, ZUtils.TALK_WITH_SITHIK_OGRE_DONE, false)) {
             openDialogue(player, GrishFinishDialogue())
         } else if(inInventory(player, Items.OGRE_ARTEFACT_4818)) {
             openDialogue(player, GrishFinishDialogue())

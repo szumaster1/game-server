@@ -1,6 +1,6 @@
 package content.region.kandarin.quest.zogre.dialogue
 
-import content.region.kandarin.quest.zogre.ZogreQuestUtils
+import content.region.kandarin.quest.zogre.handlers.ZUtils
 import core.api.*
 import cfg.consts.Items
 import cfg.consts.NPCs
@@ -65,19 +65,19 @@ class GrishFinishDialogue : DialogueFile() {
     override fun handle(componentID: Int, buttonID: Int) {
         npc = NPC(NPCs.GRISH_2038)
         when (stage) {
-            0 -> if(getAttribute(player!!, ZogreQuestUtils.RECEIVED_KEY_FROM_GRISH, false)) {
+            0 -> if(getAttribute(player!!, ZUtils.RECEIVED_KEY_FROM_GRISH, false)) {
                 npcl(FacialExpression.OLD_DEFAULT, "Yous creature got da old fings yet?").also { stage++ }
             } else {
                 npcl(FacialExpression.OLD_DEFAULT, "Yous creature dun da fing yet? Da zogries going in da ground?").also { stage++ }
             }
-            1 -> if(getAttribute(player!!, ZogreQuestUtils.RECEIVED_KEY_FROM_GRISH, false)) {
+            1 -> if(getAttribute(player!!, ZUtils.RECEIVED_KEY_FROM_GRISH, false)) {
                 sendDialogueOptions(player!!, "Grish asks if you have the items yet.", "Nope, not yet.", "There must be an easier way to kill these zogres!", "There must be a way to cure this disease!", "Sorry, I have to go.").also { stage++ }
             } else if(inInventory(player!!, Items.OGRE_ARTEFACT_4818)) {
                 options("Yeah, I have them here!", "How everything going now?", "I have some other questions for you.", "Sorry, I have to go now.").also { stage++ }
             } else {
                 options("I found who's responsible for the Zogres being here.", "I've got some information on how to kill the zogres from a distance.", "I've found out how to cure the disease.", "I have some other questions for you.", "Sorry, I have to go.").also { stage++ }
             }
-            2 -> if(getAttribute(player!!, ZogreQuestUtils.RECEIVED_KEY_FROM_GRISH, false)) {
+            2 -> if(getAttribute(player!!, ZUtils.RECEIVED_KEY_FROM_GRISH, false)) {
                 when (buttonID) {
                     1 -> player("Nope, not yet.").also { stage++ }
                     2 -> player("There must be an easier way to kill these zogres!").also { stage = 12 }
@@ -99,7 +99,7 @@ class GrishFinishDialogue : DialogueFile() {
                     4 -> player("Sorry, I have to go.").also { stage = END_DIALOGUE }
                 }
             }
-            3 -> if(getAttribute(player!!, ZogreQuestUtils.RECEIVED_KEY_FROM_GRISH, false)) {
+            3 -> if(getAttribute(player!!, ZUtils.RECEIVED_KEY_FROM_GRISH, false)) {
                 npc(FacialExpression.OLD_DEFAULT,"Yous gets 'em quick tho, cos we'ze wonna do da new Jiggig place...").also { stage++ }
             } else {
                 npcl(FacialExpression.OLD_DEFAULT, "Where is da creature? Me's wants to squeeze him till he's a deadun...").also { stage++ }
@@ -111,7 +111,7 @@ class GrishFinishDialogue : DialogueFile() {
             8 -> npcl(FacialExpression.OLD_DEFAULT, "Urghhh...not good fing creature, yous gotta get da ogrish old fings for da making new jiggig special. You's creature needs da key for getting in da low bury place.").also { stage++ }
             9 -> sendDoubleItemDialogue(player!!, -1, Items.OGRE_GATE_KEY_4839, "Grish gives you a crudely crafted key.").also {
                 sendMessage(player!!, "Grish gives you a crudely crafted key.")
-                setAttribute(player!!, "/save:${ZogreQuestUtils.RECEIVED_KEY_FROM_GRISH}", true)
+                setAttribute(player!!, "/save:${ZUtils.RECEIVED_KEY_FROM_GRISH}", true)
                 setVarbit(player!!, Vars.VARBIT_QUEST_ZORGE_FLESH_EATERS_PROGRESS, 8)
                 addItem(player!!, Items.OGRE_GATE_KEY_4839)
                 stage++

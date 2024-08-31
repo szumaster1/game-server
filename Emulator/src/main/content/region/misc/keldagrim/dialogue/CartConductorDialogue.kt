@@ -1,6 +1,6 @@
 package content.region.misc.keldagrim.dialogue
 
-import content.region.misc.keldagrim.travel.MinecartTravel
+import content.region.misc.keldagrim.handlers.MinecartTravel
 import core.game.component.Component
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression

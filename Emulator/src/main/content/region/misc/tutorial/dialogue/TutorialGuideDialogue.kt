@@ -4,6 +4,8 @@ import content.region.misc.tutorial.handlers.TutorialStage
 import core.api.*
 import cfg.consts.NPCs
 import core.game.dialogue.Dialogue
+import core.game.dialogue.FacialExpression
+import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.game.world.map.Location
 import core.plugin.Initializable
@@ -15,10 +17,13 @@ import core.plugin.Initializable
 class TutorialGuideDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any?): Boolean {
+        npc = args[0] as NPC
+        face(npc,player)
+        player.packetDispatch.sendNpcOnInterface(NPCs.TUTORIAL_GUIDE_8591, 240, 1)
+        interpreter.sendDialogues(npc, FacialExpression.HALF_ASKING, "Hey. Do you wanna skip the Tutorial?", "I can send you straight to Lumbridge, easy.");
         options("Skip tutorial island?", "Nevermind.")
         return true
     }
-
     override fun handle(interfaceId: Int, buttonId: Int): Boolean {
         when (stage) {
             0 -> when (buttonId) {

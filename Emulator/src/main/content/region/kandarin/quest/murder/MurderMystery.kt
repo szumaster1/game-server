@@ -3,6 +3,7 @@ package content.region.kandarin.quest.murder
 import core.api.addItem
 import cfg.consts.Items
 import cfg.consts.Vars
+import content.region.kandarin.quest.murder.handlers.MysteryUtils
 import core.api.removeAttributes
 import core.api.rewardXP
 import core.game.node.entity.player.Player

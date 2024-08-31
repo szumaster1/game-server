@@ -1,6 +1,6 @@
 package content.region.asgarnia.dwarvenmines.handlers
 
-import content.region.misc.keldagrim.travel.MinecartTravel
+import content.region.misc.keldagrim.handlers.MinecartTravel
 import cfg.consts.Items
 import cfg.consts.NPCs
 import cfg.consts.Scenery

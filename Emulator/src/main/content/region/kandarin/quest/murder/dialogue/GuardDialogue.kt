@@ -1,6 +1,6 @@
 package content.region.kandarin.quest.murder.dialogue
 
-import content.region.kandarin.quest.murder.MysteryUtils
+import content.region.kandarin.quest.murder.handlers.MysteryUtils
 import core.api.*
 import cfg.consts.Items
 import cfg.consts.NPCs

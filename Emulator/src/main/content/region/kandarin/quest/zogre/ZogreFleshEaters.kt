@@ -4,6 +4,7 @@ import core.api.*
 import cfg.consts.Components
 import cfg.consts.Items
 import cfg.consts.Vars
+import content.region.kandarin.quest.zogre.handlers.ZUtils
 import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.quest.Quest
 import core.game.node.entity.skill.Skills
@@ -67,7 +68,7 @@ class ZogreFleshEaters : Quest("Zogre Flesh Eaters", 40, 39, 1, Vars.VARBIT_QUES
             line++
         }
 
-        if (getAttribute(player, ZogreQuestUtils.TALK_WITH_SITHIK_OGRE_DONE, false) || getVarbit(player, Vars.VARBIT_QUEST_ZORGE_FLESH_EATERS_PROGRESS) >= 12) {
+        if (getAttribute(player, ZUtils.TALK_WITH_SITHIK_OGRE_DONE, false) || getVarbit(player, Vars.VARBIT_QUEST_ZORGE_FLESH_EATERS_PROGRESS) >= 12) {
             line(player, "Sithik Ints also told me how to make Brutal arrows which are", line++, getVarbit(player, Vars.VARBIT_QUEST_ZORGE_FLESH_EATERS_PROGRESS) == 13)
             line(player, "more effective against Zogres, and he also told me how to", line++, getVarbit(player, Vars.VARBIT_QUEST_ZORGE_FLESH_EATERS_PROGRESS) == 13)
             line(player, "make a disease balm", line++, getVarbit(player, Vars.VARBIT_QUEST_ZORGE_FLESH_EATERS_PROGRESS) == 13)
@@ -100,11 +101,11 @@ class ZogreFleshEaters : Quest("Zogre Flesh Eaters", 40, 39, 1, Vars.VARBIT_QUES
         setVarbit(player, Vars.VARBIT_QUEST_ZORGE_FLESH_EATERS_PROGRESS, 13, true)
         removeAttributes(
             player,
-            ZogreQuestUtils.TORN_PAGE_ON_NECRO_BOOK,
-            ZogreQuestUtils.TALK_WITH_SITHIK_OGRE_DONE,
-            ZogreQuestUtils.TALK_WITH_ZAVISTIC_DONE,
-            ZogreQuestUtils.RECEIVED_KEY_FROM_GRISH,
-            ZogreQuestUtils.ASK_SITHIK_AGAIN
+            ZUtils.TORN_PAGE_ON_NECRO_BOOK,
+            ZUtils.TALK_WITH_SITHIK_OGRE_DONE,
+            ZUtils.TALK_WITH_ZAVISTIC_DONE,
+            ZUtils.RECEIVED_KEY_FROM_GRISH,
+            ZUtils.ASK_SITHIK_AGAIN
         )
     }
 
