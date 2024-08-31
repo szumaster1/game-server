@@ -1,7 +1,7 @@
 package content.region.fremennik.rellekka.dialogue
 
-import content.region.fremennik.waterbirth_island.transport.TravelDestination
-import content.region.fremennik.waterbirth_island.transport.WaterbirthTravel.sail
+import content.region.fremennik.waterbirth_island.handlers.TravelDestination
+import content.region.fremennik.waterbirth_island.handlers.WaterbirthTravel.sail
 import core.api.*
 import cfg.consts.NPCs
 import core.game.dialogue.Dialogue

@@ -1,15 +1,11 @@
 package content.region.misc.tutorial.dialogue
 
-import cfg.consts.Animations
+import cfg.consts.NPCs
 import content.region.misc.tutorial.handlers.TutorialStage
 import core.api.*
-import cfg.consts.NPCs
 import core.game.dialogue.Dialogue
-import core.game.dialogue.FacialExpression
-import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.game.world.map.Location
-import core.game.world.update.flag.context.Animation
 import core.plugin.Initializable
 
 /**

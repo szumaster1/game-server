@@ -1,4 +1,4 @@
-package content.region.kandarin.ardougne.necromancer_tower
+package content.region.kandarin.ardougne.necromancer_tower.handlers
 
 import cfg.consts.NPCs
 import core.api.getPathableRandomLocalCoordinate
