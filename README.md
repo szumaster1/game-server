@@ -88,10 +88,10 @@ AGPL 3.0 license, The license applies to the entire repository, unless otherwise
 
 [kotlin-url]: http://kotlinlang.org
 
-[java-version]: https://img.shields.io/badge/java-19-blue.svg?logo=openjdk
+[java-version]: https://img.shields.io/badge/java-11-blue.svg?logo=openjdk
 
 [java-url]: https://adoptium.net/temurin/releases/?version=11
 
 [wiki-shield]: https://img.shields.io/badge/wiki-guides-blue.svg?logo=wikipedia
 
-[wiki-url]: https://gitlab.com/rs-source/2009scape/-/wikis/home
+[wiki-url]: https://gitlab.com/rs-source/game-server/-/wikis/home
