@@ -7,25 +7,29 @@ import core.network.packet.context.ContactContext;
 import core.network.packet.outgoing.ContactPackets;
 
 /**
- * The enum Management server state.
+ * The management server state.
+ * @author Emperor
  */
 public enum ManagementServerState {
 
     /**
-     * Not available management server state.
+     * Represents the state when the management server is not available
      */
-    NOT_AVAILABLE(2), // Represents the state when the management server is not available
+    NOT_AVAILABLE(2),
 
     /**
-     * Connecting management server state.
+     * Represents the state when the management server is connecting
      */
-    CONNECTING(1), // Represents the state when the management server is connecting
+    CONNECTING(1),
 
     /**
-     * Available management server state.
+     * Represents the state when the management server is available
      */
-    AVAILABLE(2); // Represents the state when the management server is available
+    AVAILABLE(2);
 
+    /**
+     * The value of this state.
+     */
     private final int value;
 
     private ManagementServerState(int value) {
@@ -33,7 +37,7 @@ public enum ManagementServerState {
     }
 
     /**
-     * Set the state for all players.
+     * Called when the state gets set.
      */
     public void set() {
         for (Player player : Repository.getPlayers()) {
@@ -42,9 +46,9 @@ public enum ManagementServerState {
     }
 
     /**
-     * Get the integer value of the state.
+     * Gets the state value.
      *
-     * @return the integer value representing the state
+     * @return The value.
      */
     public int value() {
         return value;

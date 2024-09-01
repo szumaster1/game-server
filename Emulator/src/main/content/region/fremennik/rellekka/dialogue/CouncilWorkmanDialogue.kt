@@ -1,6 +1,6 @@
 package content.region.fremennik.rellekka.dialogue
 
-import content.region.misthalin.varrock.digsite.digsite.CouncilWorkmanDiaryDialogue
+import content.region.misthalin.varrock.digsite.dialogue.CouncilWorkmanDiaryDialogue
 import cfg.consts.NPCs
 import content.region.fremennik.rellekka.quest.viking.dialogue.CouncilWorkerDialogue
 import core.api.getQuestStage

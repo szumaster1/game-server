@@ -1,7 +1,7 @@
 package content.miniquest.knightwave.dialogue
 
 import cfg.consts.NPCs
-import content.miniquest.knightwave.KnightWaves
+import content.miniquest.knightwave.handlers.KnightWaves
 import core.api.getAttribute
 import core.api.hasRequirement
 import core.api.setAttribute

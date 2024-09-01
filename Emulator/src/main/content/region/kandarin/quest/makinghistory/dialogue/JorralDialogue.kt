@@ -1,8 +1,8 @@
 package content.region.kandarin.quest.makinghistory.dialogue
 
-import content.region.kandarin.quest.makinghistory.MHUtils
-import content.region.kandarin.quest.makinghistory.MHUtils.checkRequirements
-import content.region.kandarin.quest.makinghistory.OutpostHistoryCutscene
+import content.region.kandarin.quest.makinghistory.handlers.MHUtils
+import content.region.kandarin.quest.makinghistory.handlers.MHUtils.checkRequirements
+import content.region.kandarin.quest.makinghistory.cutscene.OutpostHistoryCutscene
 import core.api.*
 import cfg.consts.Components
 import cfg.consts.Items

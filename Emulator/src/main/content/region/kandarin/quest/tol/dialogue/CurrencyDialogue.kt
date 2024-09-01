@@ -1,6 +1,6 @@
 package content.region.kandarin.quest.tol.dialogue
 
-import content.region.kandarin.quest.tol.util.TolUtils
+import content.region.kandarin.quest.tol.handlers.TolUtils
 import cfg.consts.NPCs
 import core.api.getAttribute
 import core.api.getQuestStage

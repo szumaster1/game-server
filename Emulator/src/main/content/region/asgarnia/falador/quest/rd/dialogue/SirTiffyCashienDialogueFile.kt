@@ -1,6 +1,6 @@
 package content.region.asgarnia.falador.quest.rd.dialogue
 
-import content.region.asgarnia.falador.quest.rd.RecruitmentDriveListeners
+import content.region.asgarnia.falador.quest.rd.handlers.RecruitmentDriveListeners
 import core.api.finishQuest
 import core.api.getQuestStage
 import core.api.setQuestStage

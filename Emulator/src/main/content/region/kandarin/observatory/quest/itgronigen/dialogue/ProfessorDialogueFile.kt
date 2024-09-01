@@ -1,7 +1,7 @@
 package content.region.kandarin.observatory.quest.itgronigen.dialogue
 
-import content.region.kandarin.observatory.quest.itgronigen.ObservatoryListeners
-import content.region.kandarin.observatory.quest.itgronigen.ObservatoryListeners.Companion.FAIL_ATTRIBUTE
+import content.region.kandarin.observatory.quest.itgronigen.handlers.ObservatoryListeners
+import content.region.kandarin.observatory.quest.itgronigen.handlers.ObservatoryListeners.Companion.FAIL_ATTRIBUTE
 import core.api.*
 import cfg.consts.Animations
 import cfg.consts.Items

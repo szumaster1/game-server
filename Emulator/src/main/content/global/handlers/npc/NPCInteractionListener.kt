@@ -2,8 +2,8 @@ package content.global.handlers.npc
 
 import content.global.random.RandomEvents
 import content.minigame.gnomecook.*
-import content.miniquest.barcrawl.BarcrawlManager
-import content.miniquest.barcrawl.BarcrawlType
+import content.miniquest.barcrawl.handlers.BarcrawlManager
+import content.miniquest.barcrawl.handlers.BarcrawlType
 import core.api.*
 import cfg.consts.*
 import core.game.dialogue.FacialExpression

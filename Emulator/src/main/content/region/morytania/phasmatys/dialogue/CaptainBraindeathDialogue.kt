@@ -1,6 +1,6 @@
 package content.region.morytania.phasmatys.dialogue
 
-import content.region.morytania.quest.deal.CaptainBrainDeathDialogueFile
+import content.region.morytania.quest.deal.dialogue.CaptainBrainDeathDialogueFile
 import core.api.*
 import cfg.consts.NPCs
 import core.game.dialogue.Dialogue

@@ -529,12 +529,12 @@ fun resetAnimator(player: Player) {
  * @return the number of ticks the given animation lasts for.
  */
 fun animationDuration(animation: Animation): Int {
-    return animation.definition.durationTicks
+    return animation.definition.getDurationTicks()
 }
 
 fun animationCycles(animation: Int): Int {
     val def = AnimationDefinition.forId(animation)
-    return def.cycles
+    return def!!.getCycles()
 }
 
 /**

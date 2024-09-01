@@ -1,6 +1,6 @@
 package content.region.morytania.phasmatys.quest.ahoy.dialogue
 
-import content.region.morytania.phasmatys.quest.ahoy.GAUtils.collectSignature
+import content.region.morytania.phasmatys.quest.ahoy.handlers.GAUtils.collectSignature
 import core.api.amountInInventory
 import cfg.consts.Items
 import cfg.consts.NPCs

@@ -8,7 +8,7 @@ import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.game.node.item.Item
 import core.plugin.Initializable
-import content.region.misthalin.varrock.quest.crest.SwapGauntletsHelper
+import content.region.misthalin.varrock.quest.crest.handlers.SwapGauntletsHelper
 
 /**
  * Represents the Caleb dialogue.

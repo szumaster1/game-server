@@ -2,7 +2,7 @@ package content.region.misthalin.varrock.quest.crest.dialogue
 
 import cfg.consts.Items
 import cfg.consts.NPCs
-import content.region.misthalin.varrock.quest.crest.SwapGauntletsHelper
+import content.region.misthalin.varrock.quest.crest.handlers.SwapGauntletsHelper
 import core.api.getAttribute
 import core.game.dialogue.Dialogue
 import core.game.node.entity.npc.NPC

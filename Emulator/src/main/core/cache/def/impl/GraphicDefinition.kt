@@ -9,22 +9,22 @@ import java.nio.ByteBuffer
  */
 class GraphicDefinition {
 
-    var aShortArray1435: ShortArray? = null
-    var aShortArray1438: ShortArray? = null
-    var anInt1440: Int = 0
-    var aBoolean1442: Boolean = false
-    var defaultModel: Int = 0
-    var anInt1446: Int = 0
-    var aBoolean1448: Boolean = false
-    var anInt1449: Int = 0
-    var animationId: Int = 0
-    var anInt1451: Int = 0
-    var graphicsId: Int = 0
-    var anInt1454: Int = 0
-    var aShortArray1455: ShortArray? = null
-    var aShortArray1456: ShortArray? = null
-    var byteValue: Byte = 0
-    var intValue: Int = -1
+    private var aShortArray1435: ShortArray? = null
+    private var aShortArray1438: ShortArray? = null
+    private var anInt1440: Int = 0
+    private var aBoolean1442: Boolean = false
+    private var defaultModel: Int = 0
+    private var anInt1446: Int = 0
+    private var aBoolean1448: Boolean = false
+    private var anInt1449: Int = 0
+    private var animationId: Int = 0
+    private var anInt1451: Int = 0
+    private var graphicsId: Int = 0
+    private var anInt1454: Int = 0
+    private var aShortArray1455: ShortArray? = null
+    private var aShortArray1456: ShortArray? = null
+    private var byteValue: Byte = 0
+    private var intValue: Int = -1
 
 
     companion object {
@@ -36,7 +36,6 @@ class GraphicDefinition {
          * @param [gfxId] the gfx id.
          * @return [GraphicDefinition].
          */
-        @JvmStatic
         fun forId(gfxId: Int): GraphicDefinition {
             val def = graphicDefinitions[gfxId]
             if (def != null) {

@@ -1,7 +1,7 @@
 package content.region.kandarin.seers_village.quest.elemental_workshop.book
 
 import content.global.handlers.iface.BookInterfaceListener
-import content.region.kandarin.seers_village.quest.elemental_workshop.util.EWUtils
+import content.region.kandarin.seers_village.quest.elemental_workshop.handlers.EWUtils
 import cfg.consts.Items
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener

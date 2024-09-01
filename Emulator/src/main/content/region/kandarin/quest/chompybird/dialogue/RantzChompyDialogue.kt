@@ -1,6 +1,6 @@
 package content.region.kandarin.quest.chompybird.dialogue
 
-import content.region.kandarin.quest.chompybird.ChompyBirdHunting
+import content.region.kandarin.quest.chompybird.handlers.ChompyBirdHunting
 import content.region.kandarin.quest.chompybird.handlers.ChompyDialoguesHandler
 import core.api.*
 import cfg.consts.Items

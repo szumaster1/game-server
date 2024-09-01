@@ -1,7 +1,7 @@
 package content.region.kandarin.quest.arthur.dialogue
 
-import content.region.kandarin.quest.arthur.MerlinUtils
-import content.region.kandarin.quest.arthur.npc.BeggarNPC
+import content.region.kandarin.quest.arthur.handlers.MerlinUtils
+import content.region.kandarin.quest.arthur.handlers.BeggarNPC
 import cfg.consts.Items
 import cfg.consts.NPCs
 import core.api.sendDialogue

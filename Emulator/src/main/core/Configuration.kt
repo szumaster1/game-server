@@ -349,6 +349,6 @@ class Configuration {
         var RUNECRAFTING_FORMULA_REVISION = 581
 
         @JvmField
-        var STARTUP_MOMENT = Calendar.getInstance()
+        var STARTUP_MOMENT: Calendar = Calendar.getInstance()
     }
 }

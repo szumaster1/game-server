@@ -2,7 +2,7 @@ package content.region.morytania.swamp.quest.druidspirit.dialogue
 
 import cfg.consts.Items
 import cfg.consts.NPCs
-import content.region.morytania.swamp.quest.druidspirit.NSUtils
+import content.region.morytania.swamp.quest.druidspirit.handlers.NSUtils
 import core.api.*
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression

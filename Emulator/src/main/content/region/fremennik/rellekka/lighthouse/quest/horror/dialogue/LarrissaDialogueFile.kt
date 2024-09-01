@@ -2,6 +2,7 @@ package content.region.fremennik.rellekka.lighthouse.quest.horror.dialogue
 
 import core.api.*
 import cfg.consts.Items
+import content.region.fremennik.rellekka.lighthouse.quest.horror.handlers.HorrorUtils
 import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression
 import core.tools.END_DIALOGUE
@@ -60,16 +61,16 @@ class LarrissaDialogueFile : DialogueFile() {
             }
 
             in 1..29 -> {
-                if (inInventory(player!!, Items.LIGHTHOUSE_KEY_3848) && getAttribute(player!!, content.region.fremennik.rellekka.lighthouse.quest.horror.HorrorUtils.fixBridge, 0) == 2)
+                if (inInventory(player!!, Items.LIGHTHOUSE_KEY_3848) && getAttribute(player!!, HorrorUtils.fixBridge, 0) == 2)
                     when (stage) {
                         0 -> playerl(FacialExpression.FRIENDLY, "I've got your key for you!").also { stage++ }
                         1 -> npcl(FacialExpression.HALF_GUILTY, "Oh, thank you so much!").also { stage++ }
                         2 -> npcl(FacialExpression.HALF_GUILTY, "Quickly, we must go inside and find out what has happened to my beloved Jossik!").also { stage = END_DIALOGUE }
-                    } else if (!inInventory(player!!, Items.LIGHTHOUSE_KEY_3848) && getAttribute(player!!, content.region.fremennik.rellekka.lighthouse.quest.horror.HorrorUtils.fixBridge, 0) == 2)
+                    } else if (!inInventory(player!!, Items.LIGHTHOUSE_KEY_3848) && getAttribute(player!!, HorrorUtils.fixBridge, 0) == 2)
                     when (stage) {
                         0 -> playerl(FacialExpression.FRIENDLY, "I've fixed the bridge for you!").also { stage++ }
                         1 -> npcl(FacialExpression.HALF_GUILTY, "Oh, thank you so much! Please find the key to the lighthouse for me though! I cannot bear to think that something bad may have happened to my darling Jossik...").also { stage = END_DIALOGUE }
-                    } else if (inInventory(player!!, Items.LIGHTHOUSE_KEY_3848) && getAttribute(player!!, content.region.fremennik.rellekka.lighthouse.quest.horror.HorrorUtils.fixBridge, 0) == 0)
+                    } else if (inInventory(player!!, Items.LIGHTHOUSE_KEY_3848) && getAttribute(player!!, HorrorUtils.fixBridge, 0) == 0)
                     when (stage) {
                         0 -> playerl(FacialExpression.FRIENDLY, "I've got your key for you!").also { stage++ }
                         1 -> npcl(FacialExpression.HALF_GUILTY, "Thank you adventurer, but I need you to fix the bridge for me. The key to the lighthouse is of little comfort while I am trapped here on this causeway!").also { stage = END_DIALOGUE }

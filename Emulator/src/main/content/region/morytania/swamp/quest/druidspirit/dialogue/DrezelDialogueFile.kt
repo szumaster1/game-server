@@ -1,7 +1,7 @@
 package content.region.morytania.swamp.quest.druidspirit.dialogue
 
 import cfg.consts.Items
-import content.region.morytania.swamp.quest.druidspirit.BlessingPulse
+import content.region.morytania.swamp.quest.druidspirit.handlers.BlessingPulse
 import core.api.*
 import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression

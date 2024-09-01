@@ -17,338 +17,438 @@ import static core.api.ContentAPIKt.getVarp;
 import static core.api.ContentAPIKt.log;
 
 /**
- * Scenery definition.
+ * Represents an object's definition.
+ * @author Emperor
  */
 public class SceneryDefinition extends Definition<Scenery> {
 
+    /**
+     * The item definitions mapping.
+     */
     private static final Map<Integer, SceneryDefinition> DEFINITIONS = new HashMap<Integer, SceneryDefinition>();
 
+    /**
+     * The default option handlers.
+     */
     private static final Map<String, OptionHandler> OPTION_HANDLERS = new HashMap<>();
 
+    /**
+     * The original model colors.
+     */
     private short[] originalColors;
 
     /**
-     * The Children ids.
+     * The children ids.
      */
     public int[] childrenIds;
 
+    /**
+     * The model ids.
+     */
     private int[] modelIds;
 
+    /**
+     * The model configuration.
+     */
     private int[] modelConfiguration;
 
     /**
-     * The An int 3832.
+     * A unknown integer.
      */
     static int anInt3832;
 
     /**
-     * The An int array 3833.
+     * A unkown integer array.
      */
     int[] anIntArray3833 = null;
 
+    /**
+     * A unknown integer.
+     */
     private int anInt3834;
 
     /**
-     * The An int 3835.
+     * A unknown integer.
      */
     int anInt3835;
 
     /**
-     * The An int 3836.
+     * A unknown integer.
      */
     static int anInt3836;
 
+    /**
+     * A unknown byte.
+     */
     private byte aByte3837;
 
     /**
-     * The An int 3838.
+     * A unknown integer.
      */
     int anInt3838 = -1;
 
     /**
-     * The A boolean 3839.
+     * A unknown boolean.
      */
     boolean aBoolean3839;
 
+    /**
+     * A unknown integer.
+     */
     private int anInt3840;
 
+    /**
+     * A unknown integer.
+     */
     private int anInt3841;
 
     /**
-     * The An int 3842.
+     * A unknown integer.
      */
     static int anInt3842;
 
     /**
-     * The An int 3843.
+     * A unknown integer.
      */
     static int anInt3843;
 
     /**
-     * The An int 3844.
+     * A unknown integer.
      */
     int anInt3844;
 
     /**
-     * The A boolean 3845.
+     * A unknown boolean.
      */
     boolean aBoolean3845;
 
     /**
-     * The An int 3846.
+     * A unknown integer.
      */
     static int anInt3846;
 
+    /**
+     * A unknown byte.
+     */
     private byte aByte3847;
 
+    /**
+     * A unknown byte.
+     */
     private byte aByte3849;
 
     /**
-     * The An int 3850.
+     * A unknown integer.
      */
     int anInt3850;
 
     /**
-     * The An int 3851.
+     * A unknown integer.
      */
     int anInt3851;
 
     /**
-     * The Second bool.
+     * The second boolean.
      */
     public boolean secondBool;
 
     /**
-     * The A boolean 3853.
+     * A unknown boolean.
      */
     public boolean aBoolean3853;
 
     /**
-     * The An int 3855.
+     * A unknown integer.
      */
     int anInt3855;
 
     /**
-     * The Not clipped.
+     * The first boolean.
      */
     public boolean notClipped;
 
     /**
-     * The An int 3857.
+     * A unknown integer.
      */
     int anInt3857;
 
+    /**
+     * A unknown byte array.
+     */
     private byte[] aByteArray3858;
 
     /**
-     * The An int array 3859.
+     * A unknown integer array.
      */
     int[] anIntArray3859;
 
     /**
-     * The An int 3860.
+     * A unknown integer.
      */
     int anInt3860;
 
     /**
-     * The Config file id.
+     * The config file id.
      */
     int configFileId;
 
+    /**
+     * The modified colors.
+     */
     private short[] modifiedColors;
 
     /**
-     * The An int 3865.
+     * A unknown integer.
      */
     int anInt3865;
 
     /**
-     * The A boolean 3866.
+     * A unknown boolean.
      */
     boolean aBoolean3866;
 
     /**
-     * The A boolean 3867.
+     * A unknown boolean.
      */
     boolean aBoolean3867;
 
     /**
-     * The Projectile clipped.
+     * The solid.
      */
     public boolean projectileClipped;
 
+    /**
+     * A unknown integer array.
+     */
     private int[] anIntArray3869;
 
     /**
-     * The A boolean 3870.
+     * A unknown boolean.
      */
     boolean aBoolean3870;
 
     /**
-     * The Size y.
+     * The y-size.
      */
     public int sizeY;
 
     /**
-     * The A boolean 3872.
+     * A unknown boolean.
      */
     boolean aBoolean3872;
 
     /**
-     * The Members only.
+     * A unknown boolean.
      */
     boolean membersOnly;
 
     /**
-     * The Boolean 1.
+     * The third integer.
      */
     public boolean boolean1;
 
+    /**
+     * A unknown integer.
+     */
     private int anInt3875;
 
     /**
-     * The Animation id.
+     * The add object check.
      */
     public int animationId;
 
+    /**
+     * A unknown integer.
+     */
     private int anInt3877;
 
+    /**
+     * A unknown integer.
+     */
     private int anInt3878;
 
     /**
-     * The Clip type.
+     * The clipping type.
      */
     public int clipType;
 
+    /**
+     * A unknown integer.
+     */
     private int anInt3881;
 
+    /**
+     * A unknown integer.
+     */
     private int anInt3882;
 
+    /**
+     * A unknown integer.
+     */
     private int anInt3883;
 
     /**
-     * The Loader.
+     * The loader.
      */
     Object loader;
 
+    /**
+     * A unknown integer.
+     */
     private int anInt3889;
 
     /**
-     * The Size x.
+     * The x-size.
      */
     public int sizeX;
 
     /**
-     * The A boolean 3891.
+     * A unknown boolean.
      */
     public boolean aBoolean3891;
 
     /**
-     * The An int 3892.
+     * A unknown integer.
      */
     int anInt3892;
 
     /**
-     * The Interactable.
+     * The second integer.
      */
     public int interactable;
 
     /**
-     * The A boolean 3894.
+     * A unknown boolean.
      */
     boolean aBoolean3894;
 
     /**
-     * The A boolean 3895.
+     * A unknown boolean.
      */
     boolean aBoolean3895;
 
     /**
-     * The An int 3896.
+     * A unknown integer.
      */
     int anInt3896;
 
     /**
-     * The Config id.
+     * The configuration id.
      */
     int configId;
 
+    /**
+     * A unknown byte array.
+     */
     private byte[] aByteArray3899;
 
     /**
-     * The An int 3900.
+     * A unknown integer.
      */
     int anInt3900;
 
+    /**
+     * A unknown integer.
+     */
     private int anInt3902;
 
     /**
-     * The An int 3904.
+     * A unknown integer.
      */
     int anInt3904;
 
     /**
-     * The An int 3905.
+     * A unknown integer.
      */
     int anInt3905;
 
     /**
-     * The A boolean 3906.
+     * A unknown boolean.
      */
     boolean aBoolean3906;
 
     /**
-     * The An int array 3908.
+     * A unknown integer array.
      */
     int[] anIntArray3908;
 
+    /**
+     * A unknown byte.
+     */
     private byte aByte3912;
 
     /**
-     * The An int 3913.
+     * A unknown integer.
      */
     int anInt3913;
 
+    /**
+     * A unknown byte.
+     */
     private byte aByte3914;
 
+    /**
+     * A unknown integer.
+     */
     private int anInt3915;
 
+    /**
+     * A unknown integer array.
+     */
     private int[][] anIntArrayArray3916;
 
+    /**
+     * A unknown integer.
+     */
     private int anInt3917;
 
+    /**
+     * A unknown short array.
+     */
     private short[] aShortArray3919;
 
+    /**
+     * A unknown short array.
+     */
     private short[] aShortArray3920;
 
     /**
-     * The An int 3921.
+     * A unknown integer.
      */
     int anInt3921;
 
+    /**
+     * A unknown object.
+     */
     private Object aClass194_3922;
 
     /**
-     * The A boolean 3923.
+     * A unknown integer.
      */
     boolean aBoolean3923;
 
     /**
-     * The A boolean 3924.
+     * A unknown integer.
      */
     boolean aBoolean3924;
 
     /**
-     * The Walking flag.
+     * The walking flag.
      */
     int walkingFlag;
 
+    /**
+     * If the object has hidden options.
+     */
     private boolean hasHiddenOptions;
 
+    /**
+     * The map icon.
+     */
     private short mapIcon;
 
     /**
-     * Instantiates a new Scenery definition.
+     * Construct a new {@code ObjectDefinition} {@code Object}.
      */
     public SceneryDefinition() {
         anInt3835 = -1;
@@ -413,10 +513,10 @@ public class SceneryDefinition extends Definition<Scenery> {
     }
 
     /**
-     * The entry point of application.
+     * Main method, used for debugging object definitions.
      *
-     * @param args the input arguments
-     * @throws Throwable the throwable
+     * @param args The arguments cast on runtime.
+     * @throws Throwable When an exception occurs.
      */
     public static void main(String... args) throws Throwable {
         GameWorld.prompt(false);
@@ -469,9 +569,9 @@ public class SceneryDefinition extends Definition<Scenery> {
     }
 
     /**
-     * Parse.
+     * Parses the definitions.
      *
-     * @throws Throwable the throwable
+     * @throws Throwable the throwable.
      */
     public static void parse() throws Throwable {
         for (int objectId = 0; objectId < Cache.getObjectDefinitionsSize(); objectId++) {
@@ -492,10 +592,10 @@ public class SceneryDefinition extends Definition<Scenery> {
     }
 
     /**
-     * For id scenery definition.
+     * Gets an object definition.
      *
-     * @param objectId the object id
-     * @return the scenery definition
+     * @param objectId The object's id.
+     * @return The object definition.
      */
     public static SceneryDefinition forId(int objectId) {
         SceneryDefinition def = DEFINITIONS.get(objectId);
@@ -509,11 +609,11 @@ public class SceneryDefinition extends Definition<Scenery> {
 
 
     /**
-     * Parse definition scenery definition.
+     * Parses an object's definitions.
      *
-     * @param objectId the object id
-     * @param buffer   the buffer
-     * @return the scenery definition
+     * @param objectId The object id.
+     * @param buffer   The buffer.
+     * @return The object definition.
      */
     public static SceneryDefinition parseDefinition(int objectId, ByteBuffer buffer) {
         SceneryDefinition def = new SceneryDefinition();
@@ -721,7 +821,7 @@ public class SceneryDefinition extends Definition<Scenery> {
     }
 
     /**
-     * Configure object.
+     * Configures the object definitions.
      */
     final void configureObject() {
         if (interactable == -1) {
@@ -737,8 +837,8 @@ public class SceneryDefinition extends Definition<Scenery> {
             }
         }
         if (childrenIds != null) {
-            for (int childrenId : childrenIds) {
-                SceneryDefinition def = forId(childrenId);
+            for (int i = 0; i < childrenIds.length; ++i) {
+                SceneryDefinition def = forId(childrenIds[i]);
                 def.configFileId = configFileId;
             }
         }
@@ -755,9 +855,9 @@ public class SceneryDefinition extends Definition<Scenery> {
     }
 
     /**
-     * Has actions boolean.
+     * Checks if the object is visible.
      *
-     * @return the boolean
+     * @return {@code True} if so.
      */
     public boolean hasActions() {
         if (interactable > 0) {
@@ -766,9 +866,9 @@ public class SceneryDefinition extends Definition<Scenery> {
         if (childrenIds == null) {
             return hasOptions(false);
         }
-        for (int childrenId : childrenIds) {
-            if (childrenId != -1) {
-                SceneryDefinition def = forId(childrenId);
+        for (int i = 0; i < childrenIds.length; i++) {
+            if (childrenIds[i] != -1) {
+                SceneryDefinition def = forId(childrenIds[i]);
                 if (def.hasOptions(false)) {
                     return true;
                 }
@@ -778,10 +878,10 @@ public class SceneryDefinition extends Definition<Scenery> {
     }
 
     /**
-     * Gets child object.
+     * Gets the child object definitions.
      *
-     * @param player the player
-     * @return the child object
+     * @param player The player to get it for.
+     * @return The object definition.
      */
     public SceneryDefinition getChildObject(Player player) {
         if (childrenIds == null || childrenIds.length < 1) {
@@ -805,12 +905,6 @@ public class SceneryDefinition extends Definition<Scenery> {
         return childDef;
     }
 
-    /**
-     * Gets child object at index.
-     *
-     * @param index the index
-     * @return the child object at index
-     */
     public SceneryDefinition getChildObjectAtIndex(int index) {
         if (childrenIds == null || childrenIds.length < 1) {
             return this;
@@ -826,9 +920,9 @@ public class SceneryDefinition extends Definition<Scenery> {
     }
 
     /**
-     * Gets config file.
+     * Gets the config file definition.
      *
-     * @return the config file
+     * @return The config file definition.
      */
     public VarbitDefinition getConfigFile() {
         if (configFileId != -1) {
@@ -838,462 +932,465 @@ public class SceneryDefinition extends Definition<Scenery> {
     }
 
     /**
-     * Isa boolean 3839 boolean.
+     * Get the aBoolean3839.
      *
-     * @return the boolean
+     * @return the aBoolean3839
      */
     public boolean isaBoolean3839() {
         return aBoolean3839;
     }
 
     /**
-     * Sets boolean 3839.
-     *
-     * @param aBoolean3839 the a boolean 3839
+     * @param aBoolean3839 the aBoolean3839 to set
      */
     public void setaBoolean3839(boolean aBoolean3839) {
         this.aBoolean3839 = aBoolean3839;
     }
 
     /**
-     * Get original colors short [ ].
+     * Get the originalColors.
      *
-     * @return the short [ ]
+     * @return the originalColors
      */
     public short[] getOriginalColors() {
         return originalColors;
     }
 
     /**
-     * Get children ids int [ ].
+     * Get the childrenIds.
      *
-     * @return the int [ ]
+     * @return the childrenIds
      */
     public int[] getChildrenIds() {
         return childrenIds;
     }
 
     /**
-     * Gets an int 3832.
+     * Get the anInt3832.
      *
-     * @return the an int 3832
+     * @return the anInt3832
      */
     public static int getAnInt3832() {
         return anInt3832;
     }
 
     /**
-     * Get an int array 3833 int [ ].
+     * Get the anIntArray3833.
      *
-     * @return the int [ ]
+     * @return the anIntArray3833
      */
     public int[] getAnIntArray3833() {
         return anIntArray3833;
     }
 
     /**
-     * Gets an int 3834.
+     * Get the anInt3834.
      *
-     * @return the an int 3834
+     * @return the anInt3834
      */
     public int getAnInt3834() {
         return anInt3834;
     }
 
     /**
-     * Gets an int 3835.
+     * Get the anInt3835.
      *
-     * @return the an int 3835
+     * @return the anInt3835
      */
     public int getAnInt3835() {
         return anInt3835;
     }
 
     /**
-     * Gets an int 3836.
+     * Get the anInt3836.
      *
-     * @return the an int 3836
+     * @return the anInt3836
      */
     public static int getAnInt3836() {
         return anInt3836;
     }
 
     /**
-     * Gets byte 3837.
+     * Get the aByte3837.
      *
-     * @return the byte 3837
+     * @return the aByte3837
      */
     public byte getaByte3837() {
         return aByte3837;
     }
 
     /**
-     * Gets an int 3838.
+     * Get the anInt3838.
      *
-     * @return the an int 3838
+     * @return the anInt3838
      */
     public int getAnInt3838() {
         return anInt3838;
     }
 
     /**
-     * Gets an int 3840.
+     * Get the anInt3840.
      *
-     * @return the an int 3840
+     * @return the anInt3840
      */
     public int getAnInt3840() {
         return anInt3840;
     }
 
     /**
-     * Gets an int 3841.
+     * Get the anInt3841.
      *
-     * @return the an int 3841
+     * @return the anInt3841
      */
     public int getAnInt3841() {
         return anInt3841;
     }
 
     /**
-     * Gets an int 3842.
+     * Get the anInt3842.
      *
-     * @return the an int 3842
+     * @return the anInt3842
      */
     public static int getAnInt3842() {
         return anInt3842;
     }
 
     /**
-     * Gets an int 3843.
+     * Get the anInt3843.
      *
-     * @return the an int 3843
+     * @return the anInt3843
      */
     public static int getAnInt3843() {
         return anInt3843;
     }
 
     /**
-     * Gets an int 3844.
+     * Get the anInt3844.
      *
-     * @return the an int 3844
+     * @return the anInt3844
      */
     public int getAnInt3844() {
         return anInt3844;
     }
 
     /**
-     * Isa boolean 3845 boolean.
+     * Get the aBoolean3845.
      *
-     * @return the boolean
+     * @return the aBoolean3845
      */
     public boolean isaBoolean3845() {
         return aBoolean3845;
     }
 
     /**
-     * Gets an int 3846.
+     * Get the anInt3846.
      *
-     * @return the an int 3846
+     * @return the anInt3846
      */
     public static int getAnInt3846() {
         return anInt3846;
     }
 
     /**
-     * Gets byte 3847.
+     * Get the aByte3847.
      *
-     * @return the byte 3847
+     * @return the aByte3847
      */
     public byte getaByte3847() {
         return aByte3847;
     }
 
     /**
-     * Gets byte 3849.
+     * Get the aByte3849.
      *
-     * @return the byte 3849
+     * @return the aByte3849
      */
     public byte getaByte3849() {
         return aByte3849;
     }
 
     /**
-     * Gets an int 3850.
+     * Get the anInt3850.
      *
-     * @return the an int 3850
+     * @return the anInt3850
      */
     public int getAnInt3850() {
         return anInt3850;
     }
 
     /**
-     * Gets an int 3851.
+     * Get the anInt3851.
      *
-     * @return the an int 3851
+     * @return the anInt3851
      */
     public int getAnInt3851() {
         return anInt3851;
     }
 
     /**
-     * Is second bool boolean.
+     * Get the secondBool.
      *
-     * @return the boolean
+     * @return the secondBool
      */
     public boolean isSecondBool() {
         return secondBool;
     }
 
     /**
-     * Isa boolean 3853 boolean.
+     * Get the aBoolean3853.
      *
-     * @return the boolean
+     * @return the aBoolean3853
      */
     public boolean isaBoolean3853() {
         return aBoolean3853;
     }
 
     /**
-     * Gets an int 3855.
+     * Get the anInt3855.
      *
-     * @return the an int 3855
+     * @return the anInt3855
      */
     public int getAnInt3855() {
         return anInt3855;
     }
 
     /**
-     * Is first bool boolean.
+     * Get the firstBool.
      *
-     * @return the boolean
+     * @return the firstBool
      */
     public boolean isFirstBool() {
         return notClipped;
     }
 
     /**
-     * Gets an int 3857.
+     * Get the anInt3857.
      *
-     * @return the an int 3857
+     * @return the anInt3857
      */
     public int getAnInt3857() {
         return anInt3857;
     }
 
     /**
-     * Geta byte array 3858 byte [ ].
+     * Get the aByteArray3858.
      *
-     * @return the byte [ ]
+     * @return the aByteArray3858
      */
     public byte[] getaByteArray3858() {
         return aByteArray3858;
     }
 
     /**
-     * Get an int array 3859 int [ ].
+     * Get the anIntArray3859.
      *
-     * @return the int [ ]
+     * @return the anIntArray3859
      */
     public int[] getAnIntArray3859() {
         return anIntArray3859;
     }
 
     /**
-     * Gets an int 3860.
+     * Get the anInt3860.
      *
-     * @return the an int 3860
+     * @return the anInt3860
      */
     public int getAnInt3860() {
         return anInt3860;
     }
 
+    /**
+     * Get the options.
+     *
+     * @return the options
+     */
     @Override
     public String[] getOptions() {
         return options;
     }
 
     /**
-     * Gets varbit id.
+     * Get the configFileId.
      *
-     * @return the varbit id
+     * @return the configFileId
      */
     public int getVarbitID() {
         return configFileId;
     }
 
     /**
-     * Get modified colors short [ ].
+     * Get the modifiedColors.
      *
-     * @return the short [ ]
+     * @return the modifiedColors
      */
     public short[] getModifiedColors() {
         return modifiedColors;
     }
 
     /**
-     * Gets an int 3865.
+     * Get the anInt3865.
      *
-     * @return the an int 3865
+     * @return the anInt3865
      */
     public int getAnInt3865() {
         return anInt3865;
     }
 
     /**
-     * Isa boolean 3866 boolean.
+     * Get the aBoolean3866.
      *
-     * @return the boolean
+     * @return the aBoolean3866
      */
     public boolean isaBoolean3866() {
         return aBoolean3866;
     }
 
     /**
-     * Isa boolean 3867 boolean.
+     * Get the aBoolean3867.
      *
-     * @return the boolean
+     * @return the aBoolean3867
      */
     public boolean isaBoolean3867() {
         return aBoolean3867;
     }
 
     /**
-     * Is projectile clipped boolean.
+     * Get the solid.
      *
-     * @return the boolean
+     * @return the solid
      */
     public boolean isProjectileClipped() {
         return projectileClipped;
     }
 
     /**
-     * Get an int array 3869 int [ ].
+     * Get the anIntArray3869.
      *
-     * @return the int [ ]
+     * @return the anIntArray3869
      */
     public int[] getAnIntArray3869() {
         return anIntArray3869;
     }
 
     /**
-     * Isa boolean 3870 boolean.
+     * Get the aBoolean3870.
      *
-     * @return the boolean
+     * @return the aBoolean3870
      */
     public boolean isaBoolean3870() {
         return aBoolean3870;
     }
 
     /**
-     * Gets size y.
+     * Get the sizeY.
      *
-     * @return the size y
+     * @return the sizeY
      */
     public int getSizeY() {
         return sizeY;
     }
 
     /**
-     * Isa boolean 3872 boolean.
+     * Get the aBoolean3872.
      *
-     * @return the boolean
+     * @return the aBoolean3872
      */
     public boolean isaBoolean3872() {
         return aBoolean3872;
     }
 
     /**
-     * Isa boolean 3873 boolean.
+     * Get the membersOnly.
      *
-     * @return the boolean
+     * @return the membersOnly
      */
     public boolean isaBoolean3873() {
         return membersOnly;
     }
 
     /**
-     * Gets third boolean.
+     * Get the thirdInt.
      *
-     * @return the third boolean
+     * @return the thirdInt
      */
     public boolean getThirdBoolean() {
         return boolean1;
     }
 
     /**
-     * Gets an int 3875.
+     * Get the anInt3875.
      *
-     * @return the an int 3875
+     * @return the anInt3875
      */
     public int getAnInt3875() {
         return anInt3875;
     }
 
     /**
-     * Gets add object check.
+     * Get the addObjectCheck.
      *
-     * @return the add object check
+     * @return the addObjectCheck
      */
     public int getAddObjectCheck() {
         return animationId;
     }
 
     /**
-     * Gets an int 3877.
+     * Get the anInt3877.
      *
-     * @return the an int 3877
+     * @return the anInt3877
      */
     public int getAnInt3877() {
         return anInt3877;
     }
 
     /**
-     * Gets an int 3878.
+     * Get the anInt3878.
      *
-     * @return the an int 3878
+     * @return the anInt3878
      */
     public int getAnInt3878() {
         return anInt3878;
     }
 
     /**
-     * Gets clip type.
+     * Get the clipType.
      *
-     * @return the clip type
+     * @return the clipType
      */
     public int getClipType() {
         return clipType;
     }
 
     /**
-     * Gets an int 3881.
+     * Get the anInt3881.
      *
-     * @return the an int 3881
+     * @return the anInt3881
      */
     public int getAnInt3881() {
         return anInt3881;
     }
 
     /**
-     * Gets an int 3882.
+     * Get the anInt3882.
      *
-     * @return the an int 3882
+     * @return the anInt3882
      */
     public int getAnInt3882() {
         return anInt3882;
     }
 
     /**
-     * Gets an int 3883.
+     * Get the anInt3883.
      *
-     * @return the an int 3883
+     * @return the anInt3883
      */
     public int getAnInt3883() {
         return anInt3883;
     }
 
     /**
-     * Gets loader.
+     * Get the loader.
      *
      * @return the loader
      */
@@ -1302,43 +1399,43 @@ public class SceneryDefinition extends Definition<Scenery> {
     }
 
     /**
-     * Gets an int 3889.
+     * Get the anInt3889.
      *
-     * @return the an int 3889
+     * @return the anInt3889
      */
     public int getAnInt3889() {
         return anInt3889;
     }
 
     /**
-     * Gets size x.
+     * Get the sizeX.
      *
-     * @return the size x
+     * @return the sizeX
      */
     public int getSizeX() {
         return sizeX;
     }
 
     /**
-     * Isa boolean 3891 boolean.
+     * Get the aBoolean3891.
      *
-     * @return the boolean
+     * @return the aBoolean3891
      */
     public boolean isaBoolean3891() {
         return aBoolean3891;
     }
 
     /**
-     * Gets an int 3892.
+     * Get the anInt3892.
      *
-     * @return the an int 3892
+     * @return the anInt3892
      */
     public int getAnInt3892() {
         return anInt3892;
     }
 
     /**
-     * Gets interactable.
+     * Get the interactable.
      *
      * @return the interactable
      */
@@ -1347,231 +1444,236 @@ public class SceneryDefinition extends Definition<Scenery> {
     }
 
     /**
-     * Isa boolean 3894 boolean.
+     * Get the aBoolean3894.
      *
-     * @return the boolean
+     * @return the aBoolean3894
      */
     public boolean isaBoolean3894() {
         return aBoolean3894;
     }
 
     /**
-     * Isa boolean 3895 boolean.
+     * Get the aBoolean3895.
      *
-     * @return the boolean
+     * @return the aBoolean3895
      */
     public boolean isaBoolean3895() {
         return aBoolean3895;
     }
 
     /**
-     * Gets an int 3896.
+     * Get the anInt3896.
      *
-     * @return the an int 3896
+     * @return the anInt3896
      */
     public int getAnInt3896() {
         return anInt3896;
     }
 
     /**
-     * Gets config id.
+     * Get the configId.
      *
-     * @return the config id
+     * @return the configId
      */
     public int getConfigId() {
         return configId;
     }
 
     /**
-     * Geta byte array 3899 byte [ ].
+     * Get the aByteArray3899.
      *
-     * @return the byte [ ]
+     * @return the aByteArray3899
      */
     public byte[] getaByteArray3899() {
         return aByteArray3899;
     }
 
     /**
-     * Gets an int 3900.
+     * Get the anInt3900.
      *
-     * @return the an int 3900
+     * @return the anInt3900
      */
     public int getAnInt3900() {
         return anInt3900;
     }
 
+    /**
+     * Get the name.
+     *
+     * @return the name
+     */
     @Override
     public String getName() {
         return name;
     }
 
     /**
-     * Gets an int 3902.
+     * Get the anInt3902.
      *
-     * @return the an int 3902
+     * @return the anInt3902
      */
     public int getAnInt3902() {
         return anInt3902;
     }
 
     /**
-     * Gets an int 3904.
+     * Get the anInt3904.
      *
-     * @return the an int 3904
+     * @return the anInt3904
      */
     public int getAnInt3904() {
         return anInt3904;
     }
 
     /**
-     * Gets an int 3905.
+     * Get the anInt3905.
      *
-     * @return the an int 3905
+     * @return the anInt3905
      */
     public int getAnInt3905() {
         return anInt3905;
     }
 
     /**
-     * Isa boolean 3906 boolean.
+     * Get the aBoolean3906.
      *
-     * @return the boolean
+     * @return the aBoolean3906
      */
     public boolean isaBoolean3906() {
         return aBoolean3906;
     }
 
     /**
-     * Get an int array 3908 int [ ].
+     * Get the anIntArray3908.
      *
-     * @return the int [ ]
+     * @return the anIntArray3908
      */
     public int[] getAnIntArray3908() {
         return anIntArray3908;
     }
 
     /**
-     * Gets byte 3912.
+     * Get the aByte3912.
      *
-     * @return the byte 3912
+     * @return the aByte3912
      */
     public byte getaByte3912() {
         return aByte3912;
     }
 
     /**
-     * Gets an int 3913.
+     * Get the anInt3913.
      *
-     * @return the an int 3913
+     * @return the anInt3913
      */
     public int getAnInt3913() {
         return anInt3913;
     }
 
     /**
-     * Gets byte 3914.
+     * Get the aByte3914.
      *
-     * @return the byte 3914
+     * @return the aByte3914
      */
     public byte getaByte3914() {
         return aByte3914;
     }
 
     /**
-     * Gets an int 3915.
+     * Get the anInt3915.
      *
-     * @return the an int 3915
+     * @return the anInt3915
      */
     public int getAnInt3915() {
         return anInt3915;
     }
 
     /**
-     * Get an int array array 3916 int [ ] [ ].
+     * Get the anIntArrayArray3916.
      *
-     * @return the int [ ] [ ]
+     * @return the anIntArrayArray3916
      */
     public int[][] getAnIntArrayArray3916() {
         return anIntArrayArray3916;
     }
 
     /**
-     * Gets an int 3917.
+     * Get the anInt3917.
      *
-     * @return the an int 3917
+     * @return the anInt3917
      */
     public int getAnInt3917() {
         return anInt3917;
     }
 
     /**
-     * Geta short array 3919 short [ ].
+     * Get the aShortArray3919.
      *
-     * @return the short [ ]
+     * @return the aShortArray3919
      */
     public short[] getaShortArray3919() {
         return aShortArray3919;
     }
 
     /**
-     * Geta short array 3920 short [ ].
+     * Get the aShortArray3920.
      *
-     * @return the short [ ]
+     * @return the aShortArray3920
      */
     public short[] getaShortArray3920() {
         return aShortArray3920;
     }
 
     /**
-     * Gets an int 3921.
+     * Get the anInt3921.
      *
-     * @return the an int 3921
+     * @return the anInt3921
      */
     public int getAnInt3921() {
         return anInt3921;
     }
 
     /**
-     * Gets class 194 3922.
+     * Get the aClass194_3922.
      *
-     * @return the class 194 3922
+     * @return the aClass194_3922
      */
     public Object getaClass194_3922() {
         return aClass194_3922;
     }
 
     /**
-     * Isa boolean 3923 boolean.
+     * Get the aBoolean3923.
      *
-     * @return the boolean
+     * @return the aBoolean3923
      */
     public boolean isaBoolean3923() {
         return aBoolean3923;
     }
 
     /**
-     * Isa boolean 3924 boolean.
+     * Get the aBoolean3924.
      *
-     * @return the boolean
+     * @return the aBoolean3924
      */
     public boolean isaBoolean3924() {
         return aBoolean3924;
     }
 
     /**
-     * Get model ids int [ ].
+     * Gets the object's model ids.
      *
-     * @return the int [ ]
+     * @return The model ids array.
      */
     public int[] getModelIds() {
         return modelIds;
     }
 
     /**
-     * Has action boolean.
+     * If the object has a reward.
      *
-     * @param action the action
-     * @return the boolean
+     * @param action The specified reward.
+     * @return If the object has the reward {@code true}.
      */
     public boolean hasAction(String action) {
         if (options == null) {
@@ -1589,7 +1691,7 @@ public class SceneryDefinition extends Definition<Scenery> {
     }
 
     /**
-     * Gets definitions.
+     * Get the definitions.
      *
      * @return the definitions
      */
@@ -1598,11 +1700,12 @@ public class SceneryDefinition extends Definition<Scenery> {
     }
 
     /**
-     * Gets option handler.
+     * Gets the option handler for the given option name.
      *
-     * @param nodeId the node id
-     * @param name   the name
-     * @return the option handler
+     * @param nodeId The node id.
+     * @param name   The name.
+     * @return The option handler, or {@code null} if there was no default
+     * option handler.
      */
     public static OptionHandler getOptionHandler(int nodeId, String name) {
         SceneryDefinition def = forId(nodeId);
@@ -1614,75 +1717,75 @@ public class SceneryDefinition extends Definition<Scenery> {
     }
 
     /**
-     * Sets option handler.
+     * Sets the default option handler for an option.
      *
-     * @param name    the name
-     * @param handler the handler
-     * @return the option handler
+     * @param name    The option name.
+     * @param handler The default option handler.
+     * @return {@code True} if there was a previous default handler mapped.
      */
     public static boolean setOptionHandler(String name, OptionHandler handler) {
         return OPTION_HANDLERS.put(name, handler) != null;
     }
 
     /**
-     * Is has hidden options boolean.
+     * Gets the hasHiddenOptions.
      *
-     * @return the boolean
+     * @return The hasHiddenOptions.
      */
     public boolean isHasHiddenOptions() {
         return hasHiddenOptions;
     }
 
     /**
-     * Sets has hidden options.
+     * Sets the hasHiddenOptions.
      *
-     * @param hasHiddenOptions the has hidden options
+     * @param hasHiddenOptions The hasHiddenOptions to set.
      */
     public void setHasHiddenOptions(boolean hasHiddenOptions) {
         this.hasHiddenOptions = hasHiddenOptions;
     }
 
     /**
-     * Gets walking flag.
+     * Gets the walking flag.
      *
-     * @return the walking flag
+     * @return The walking flag.
      */
     public int getWalkingFlag() {
         return walkingFlag;
     }
 
     /**
-     * Get model configuration int [ ].
+     * Gets the modelConfiguration.
      *
-     * @return the int [ ]
+     * @return The modelConfiguration.
      */
     public int[] getModelConfiguration() {
         return modelConfiguration;
     }
 
     /**
-     * Sets model configuration.
+     * Sets the modelConfiguration.
      *
-     * @param modelConfiguration the model configuration
+     * @param modelConfiguration The modelConfiguration to set.
      */
     public void setModelConfiguration(int[] modelConfiguration) {
         this.modelConfiguration = modelConfiguration;
     }
 
     /**
-     * Gets map icon.
+     * Gets the mapIcon.
      *
-     * @return the map icon
+     * @return The mapIcon.
      */
     public short getMapIcon() {
         return mapIcon;
     }
 
     /**
-     * Gets container id.
+     * Get the container id.
      *
-     * @param id the id
-     * @return the container id
+     * @param id The object id.
+     * @return The container id.
      */
     public static int getContainerId(int id) {
         return id >>> 8;

@@ -1,6 +1,7 @@
 package core.cache.misc.buffer;
 
 import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.nio.ByteBuffer;
 import java.nio.charset.StandardCharsets;
 
@@ -146,19 +147,28 @@ public final class ByteBufferUtils {
         return value;
     }
 
-    /*	*//**
+    /**
      * Writes an object on the buffer.
+     *
      * @param buffer The buffer to write on.
-     * @param o The object.
+     * @param o      The object.
      */
-    /*
-     * public static void putObject(ByteBuffer buffer, Object o) { ByteBuffer b;
-     * try (ObjectOutputStream out = new ObjectOutputStream(new
-     * BufferOutputStream(b = ByteBuffer.allocate(99999)))) {
-     * out.writeObject(o); b.flip(); } catch (Throwable e) {
-     * e.printStackTrace(); b = (ByteBuffer) ByteBuffer.allocate(0).flip(); }
-     * buffer.putInt(b.remaining()); if (b.remaining() > 0) { buffer.put(b); } }
-     */
+    public static void putObject(ByteBuffer buffer, Object o) {
+        ByteBuffer b;
+        try (ObjectOutputStream out = new ObjectOutputStream(new
+            BufferOutputStream(b = ByteBuffer.allocate(99999)))) {
+            out.writeObject(o);
+            b.flip();
+        } catch (Throwable e) {
+            e.printStackTrace();
+            b = (ByteBuffer) ByteBuffer.allocate(0).flip();
+        }
+        buffer.putInt(b.remaining());
+        if (b.remaining() > 0) {
+            buffer.put(b);
+        }
+    }
+
 
     /**
      * Gets an object from the byte buffer.

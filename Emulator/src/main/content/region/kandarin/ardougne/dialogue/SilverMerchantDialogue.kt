@@ -1,7 +1,7 @@
 package content.region.kandarin.ardougne.dialogue
 
 import content.activity.enchkey.EnchantedKey
-import content.region.kandarin.quest.makinghistory.MHUtils
+import content.region.kandarin.quest.makinghistory.handlers.MHUtils
 import content.region.kandarin.quest.makinghistory.dialogue.SilverMerchantDialogueFile
 import core.api.*
 import cfg.consts.Items

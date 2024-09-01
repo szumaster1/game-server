@@ -1,7 +1,6 @@
 package content.region.fremennik.rellekka.quest.viking.handlers
 
 import cfg.consts.Items
-import content.region.fremennik.rellekka.quest.viking.npc.DraugenNPC
 import core.api.getAttribute
 import core.api.sendDialogue
 import core.api.sendMessage

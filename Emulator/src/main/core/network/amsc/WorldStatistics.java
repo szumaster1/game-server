@@ -4,13 +4,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * World statistics.
+ * Holds information of a certain game world.
+ * @author Emperor
  */
 public final class WorldStatistics {
 
-    private final int id; // Unique identifier for the world statistics
+    /**
+     * The world id.
+     */
+    private final int id;
 
-    private final List<String> players = new ArrayList<>(20); // List to store player names
+    /**
+     * The list of players connected to this world.
+     */
+    private final List<String> players = new ArrayList<>(20);
 
     /**
      * Instantiates a new World statistics.
@@ -22,18 +29,18 @@ public final class WorldStatistics {
     }
 
     /**
-     * Gets players.
+     * Gets the players.
      *
-     * @return the players - Returns the list of players
+     * @return the players
      */
     public List<String> getPlayers() {
         return players;
     }
 
     /**
-     * Gets id.
+     * Gets the id.
      *
-     * @return the id - Returns the id of the WorldStatistics
+     * @return the id
      */
     public int getId() {
         return id;

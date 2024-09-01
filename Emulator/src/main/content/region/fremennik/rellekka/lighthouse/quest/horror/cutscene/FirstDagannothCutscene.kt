@@ -1,6 +1,6 @@
 package content.region.fremennik.rellekka.lighthouse.quest.horror.cutscene
 
-import content.region.fremennik.rellekka.lighthouse.quest.horror.npc.DagonnothBabyNPC
+import content.region.fremennik.rellekka.lighthouse.quest.horror.handlers.DagonnothBabyNPC
 import core.api.clearHintIcon
 import core.api.registerHintIcon
 import core.api.runTask

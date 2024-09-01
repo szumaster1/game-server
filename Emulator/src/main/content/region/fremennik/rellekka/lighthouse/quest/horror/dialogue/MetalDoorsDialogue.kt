@@ -3,6 +3,7 @@ package content.region.fremennik.rellekka.lighthouse.quest.horror.dialogue
 import core.api.*
 import cfg.consts.Components
 import cfg.consts.Items
+import content.region.fremennik.rellekka.lighthouse.quest.horror.handlers.HorrorUtils
 import core.game.dialogue.DialogueFile
 import core.game.node.item.Item
 
@@ -33,8 +34,8 @@ class MetalDoorsInteractionDialogue(private var items: Int) : DialogueFile() {
                             sendMessage(player!!, "Nothing interesting happens.")
                         } else {
                             sendMessage(player!!, "you place an arrow into the slot in the wall.")
-                            setAttribute(player!!, content.region.fremennik.rellekka.lighthouse.quest.horror.HorrorUtils.STRANGE_W_ARROW, 1)
-                            player!!.incrementAttribute(content.region.fremennik.rellekka.lighthouse.quest.horror.HorrorUtils.PUZZLE_PROGRESS)
+                            setAttribute(player!!, HorrorUtils.STRANGE_W_ARROW, 1)
+                            player!!.incrementAttribute(HorrorUtils.PUZZLE_PROGRESS)
                         }
                     }
 
@@ -44,8 +45,8 @@ class MetalDoorsInteractionDialogue(private var items: Int) : DialogueFile() {
                             sendMessage(player!!, "Nothing interesting happens.")
                         } else {
                             sendMessage(player!!, "you place an a sword into the slot in the wall.")
-                            setAttribute(player!!, content.region.fremennik.rellekka.lighthouse.quest.horror.HorrorUtils.STRANGE_W_SWORD, 1)
-                            player!!.incrementAttribute(content.region.fremennik.rellekka.lighthouse.quest.horror.HorrorUtils.PUZZLE_PROGRESS)
+                            setAttribute(player!!, HorrorUtils.STRANGE_W_SWORD, 1)
+                            player!!.incrementAttribute(HorrorUtils.PUZZLE_PROGRESS)
                         }
                     }
 
@@ -55,8 +56,8 @@ class MetalDoorsInteractionDialogue(private var items: Int) : DialogueFile() {
                             sendMessage(player!!, "Nothing interesting happens.")
                         } else {
                             sendMessage(player!!, "you place an air rune into the slot in the wall.")
-                            setAttribute(player!!, content.region.fremennik.rellekka.lighthouse.quest.horror.HorrorUtils.STRANGE_W_AIR, 1)
-                            player!!.incrementAttribute(content.region.fremennik.rellekka.lighthouse.quest.horror.HorrorUtils.PUZZLE_PROGRESS)
+                            setAttribute(player!!, HorrorUtils.STRANGE_W_AIR, 1)
+                            player!!.incrementAttribute(HorrorUtils.PUZZLE_PROGRESS)
                         }
                     }
 
@@ -66,8 +67,8 @@ class MetalDoorsInteractionDialogue(private var items: Int) : DialogueFile() {
                             sendMessage(player!!, "Nothing interesting happens.")
                         } else {
                             sendMessage(player!!, "you place a fire rune into the slot in the wall.")
-                            setAttribute(player!!, content.region.fremennik.rellekka.lighthouse.quest.horror.HorrorUtils.STRANGE_W_FIRE, 1)
-                            player!!.incrementAttribute(content.region.fremennik.rellekka.lighthouse.quest.horror.HorrorUtils.PUZZLE_PROGRESS)
+                            setAttribute(player!!, HorrorUtils.STRANGE_W_FIRE, 1)
+                            player!!.incrementAttribute(HorrorUtils.PUZZLE_PROGRESS)
                         }
                     }
 
@@ -77,8 +78,8 @@ class MetalDoorsInteractionDialogue(private var items: Int) : DialogueFile() {
                             sendMessage(player!!, "Nothing interesting happens.")
                         } else {
                             sendMessage(player!!, "you place an earth rune into the slot in the wall.")
-                            setAttribute(player!!, content.region.fremennik.rellekka.lighthouse.quest.horror.HorrorUtils.STRANGE_W_EARTH, 1)
-                            player!!.incrementAttribute(content.region.fremennik.rellekka.lighthouse.quest.horror.HorrorUtils.PUZZLE_PROGRESS)
+                            setAttribute(player!!, HorrorUtils.STRANGE_W_EARTH, 1)
+                            player!!.incrementAttribute(HorrorUtils.PUZZLE_PROGRESS)
                         }
                     }
 
@@ -88,8 +89,8 @@ class MetalDoorsInteractionDialogue(private var items: Int) : DialogueFile() {
                             sendMessage(player!!, "Nothing interesting happens.")
                         } else {
                             sendMessage(player!!, "you place a water rune into the slot in the wall.")
-                            setAttribute(player!!, content.region.fremennik.rellekka.lighthouse.quest.horror.HorrorUtils.STRANGE_W_WATER, 1)
-                            player!!.incrementAttribute(content.region.fremennik.rellekka.lighthouse.quest.horror.HorrorUtils.PUZZLE_PROGRESS)
+                            setAttribute(player!!, HorrorUtils.STRANGE_W_WATER, 1)
+                            player!!.incrementAttribute(HorrorUtils.PUZZLE_PROGRESS)
                         }
                     }
                 }

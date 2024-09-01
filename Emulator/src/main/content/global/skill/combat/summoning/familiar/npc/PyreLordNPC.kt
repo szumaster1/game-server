@@ -78,7 +78,7 @@ class PyreLordNPC @JvmOverloads constructor(owner: Player? = null, id: Int = 737
             val player = event.player
             val log = forId(event.usedItem.id)
             val familiar = event.usedWith as Familiar
-            val ticks = FIREMAKE_ANIMATION.definition.durationTicks
+            val ticks = FIREMAKE_ANIMATION.definition!!.getDurationTicks()
             if (!player.familiarManager.isOwner(familiar)) {
                 return true
             }

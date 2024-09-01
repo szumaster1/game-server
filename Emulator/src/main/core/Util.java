@@ -58,7 +58,7 @@ public class Util {
     /**
      * The constant random.
      */
-    private static final Random r = new Random();
+    private static final Random random = new Random();
 
     /**
      * Generates a random integer between 0 and the specified upper bound (inclusive).
@@ -78,7 +78,7 @@ public class Util {
      * @return the generated random integer
      */
     public static int random(final int i) {
-        return random(r, i); // Calls the overloaded method with the default Random instance
+        return random(random, i); // Calls the overloaded method with the default Random instance
     }
 
     /**
@@ -108,7 +108,7 @@ public class Util {
      * @return the generated random double
      */
     public static final double randomDouble() {
-        return randomDouble(r); // Calls the overloaded method with the default Random instance
+        return randomDouble(random); // Calls the overloaded method with the default Random instance
     }
 
     /**
@@ -432,7 +432,7 @@ public class Util {
      */
     public static final double getRandomDouble(final int minValue, final int maxValue) {
         final int random = random(minValue, maxValue - 1); // Get a random integer within the range
-        final double randomDouble = r.nextDouble(); // Get a random double
+        final double randomDouble = Util.random.nextDouble(); // Get a random double
         return random + randomDouble; // Return the sum of the random integer and double
     }
 
@@ -445,7 +445,7 @@ public class Util {
      */
     public static final double getRandomDouble(final double minValue, final double maxValue) {
         final int random = random((int) minValue, (int) maxValue - 1); // Get a random integer within the range
-        final double randomDouble = r.nextDouble(); // Get a random double
+        final double randomDouble = Util.random.nextDouble(); // Get a random double
         double value = random + randomDouble; // Calculate the final value
         // Ensure the value does not exceed the maximum
         if (value > maxValue) value = maxValue;
@@ -477,8 +477,9 @@ public class Util {
      */
     public static final int random(final int min, final int max) {
         // Delegate to the overloaded method with the Random instance
-        return random(r, min, max);
+        return random(random, min, max);
     }
+
     /**
      * Gets the Random instance used for generating random numbers.
      *
@@ -486,7 +487,7 @@ public class Util {
      */
     public static final Random getRandom() {
         // Return the Random instance
-        return r; // Returns the static Random instance 'r' for random number generation
+        return random; // Returns the static Random instance 'r' for random number generation
     }
 
     /**

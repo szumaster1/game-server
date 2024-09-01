@@ -2,7 +2,7 @@ package content.region.morytania.quest.fenk.dialogue
 
 import cfg.consts.Items
 import cfg.consts.NPCs
-import content.region.morytania.quest.fenk.npc.GardenerGhostNPC
+import content.region.morytania.quest.fenk.handlers.GardenerGhostNPC
 import core.api.*
 import core.game.dialogue.DialogueBuilder
 import core.game.dialogue.DialogueBuilderFile

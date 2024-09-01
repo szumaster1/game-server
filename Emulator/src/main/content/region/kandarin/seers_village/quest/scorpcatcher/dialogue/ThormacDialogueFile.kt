@@ -1,7 +1,7 @@
 package content.region.kandarin.seers_village.quest.scorpcatcher.dialogue
 
 import content.region.kandarin.seers_village.quest.scorpcatcher.ScorpionCatcher
-import content.region.kandarin.seers_village.quest.scorpcatcher.ScorpionCatcherListeners.Companion.getCage
+import content.region.kandarin.seers_village.quest.scorpcatcher.handlers.ScorpionCatcherListeners.Companion.getCage
 import core.api.*
 import cfg.consts.Components
 import cfg.consts.Items

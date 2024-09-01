@@ -4,7 +4,7 @@ import content.global.handlers.iface.BookInterfaceListener
 import content.global.handlers.iface.BookLine
 import content.global.handlers.iface.Page
 import content.global.handlers.iface.PageSet
-import content.region.kandarin.quest.elemental_quest_2.util.EW2Utils
+import content.region.kandarin.quest.elemental_quest_2.handlers.EW2Utils
 import core.api.*
 import cfg.consts.Items
 import core.game.interaction.IntType

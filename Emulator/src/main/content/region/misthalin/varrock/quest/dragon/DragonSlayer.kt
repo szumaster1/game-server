@@ -6,15 +6,13 @@ import content.region.misthalin.varrock.quest.dragon.dialogue.DSChestDialogue
 import content.region.misthalin.varrock.quest.dragon.dialogue.GuildmasterDSDialogue
 import content.region.misthalin.varrock.quest.dragon.dialogue.OziachDSDialogue
 import content.region.misthalin.varrock.quest.dragon.dialogue.WormbrainDSDialogue
-import content.region.misthalin.varrock.quest.dragon.plugin.CrandorMapPlugin
-import content.region.misthalin.varrock.quest.dragon.plugin.DSMagicDoorPlugin
-import content.region.misthalin.varrock.quest.dragon.plugin.DragonSlayerPlugin
+import content.region.misthalin.varrock.quest.dragon.handlers.DragonSlayerPlugin
 import core.api.*
 import cfg.consts.Items
 import cfg.consts.Sounds
 import cfg.consts.Vars
 import content.region.misthalin.lumbridge.dialogue.DukeHoracioDialogue
-import content.region.misthalin.varrock.quest.dragon.npc.*
+import content.region.misthalin.varrock.quest.dragon.handlers.*
 import core.game.component.Component
 import core.game.event.EventHook
 import core.game.event.PickUpEvent

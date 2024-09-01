@@ -3,7 +3,6 @@ package content.region.asgarnia.falador.quest.rd.handlers
 import cfg.consts.Items
 import cfg.consts.NPCs
 import cfg.consts.Scenery
-import content.region.asgarnia.falador.quest.rd.RDUtils
 import content.region.asgarnia.falador.quest.rd.RecruitmentDrive
 import content.region.asgarnia.falador.quest.rd.dialogue.SirTinleyDialogueFile
 import core.api.*

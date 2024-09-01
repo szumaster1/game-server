@@ -103,7 +103,7 @@ object SummoningCreator {
      */
     @JvmStatic
     fun list(player: Player, pouch: SummoningPouch) {
-        player.packetDispatch.sendMessage(CS2Mapping.forId(1186).map[pouch.pouchId] as String?)
+        player.packetDispatch.sendMessage(CS2Mapping.forId(1186)!!.map?.get(pouch.pouchId) as String?)
     }
 
     /**

@@ -1,8 +1,8 @@
 package content.region.asgarnia.falador.quest.rd.dialogue
 
-import content.region.asgarnia.falador.quest.rd.RDUtils
+import content.region.asgarnia.falador.quest.rd.handlers.RDUtils
 import content.region.asgarnia.falador.quest.rd.RecruitmentDrive
-import content.region.asgarnia.falador.quest.rd.RecruitmentDriveListeners
+import content.region.asgarnia.falador.quest.rd.handlers.RecruitmentDriveListeners
 import core.api.getAttribute
 import core.api.removeAttribute
 import core.api.setAttribute

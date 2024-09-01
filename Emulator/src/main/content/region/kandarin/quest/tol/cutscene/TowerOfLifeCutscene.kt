@@ -1,6 +1,6 @@
 package content.region.kandarin.quest.tol.cutscene
 
-import content.region.kandarin.quest.tol.util.TolUtils
+import content.region.kandarin.quest.tol.handlers.TolUtils
 import core.api.setAttribute
 import core.game.activity.Cutscene
 import core.game.dialogue.FacialExpression

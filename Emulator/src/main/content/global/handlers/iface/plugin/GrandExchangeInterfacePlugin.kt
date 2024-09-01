@@ -191,7 +191,7 @@ class GrandExchangeInterfacePlugin : ComponentPlugin() {
             155 -> {
                 val mapping = CS2Mapping.forId(1089)
                 if (mapping != null) {
-                    player.packetDispatch.sendMessage(mapping.map[set.itemId] as String?)
+                    player.packetDispatch.sendMessage(mapping.map?.get(set.itemId) as String?)
                 }
             }
         }

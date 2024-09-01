@@ -7,6 +7,7 @@ import core.network.packet.PacketHeader;
 
 /**
  * The Management server packet repository.
+ * @author Emperor
  */
 object MSPacketRepository {
     /**

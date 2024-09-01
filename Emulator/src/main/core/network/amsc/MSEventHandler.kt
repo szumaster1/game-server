@@ -11,7 +11,8 @@ import java.nio.channels.SocketChannel
 import java.util.concurrent.Executors
 
 /**
- * MS event handler.
+ * Handles the management server events.
+ * @author Emperor
  */
 class MSEventHandler : IoEventHandler(Executors.newSingleThreadExecutor()) {
 

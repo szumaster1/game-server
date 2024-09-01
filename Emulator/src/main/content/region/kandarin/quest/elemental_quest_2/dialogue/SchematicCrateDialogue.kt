@@ -1,6 +1,6 @@
 package content.region.kandarin.quest.elemental_quest_2.dialogue
 
-import content.region.kandarin.quest.elemental_quest_2.util.EW2Utils
+import content.region.kandarin.quest.elemental_quest_2.handlers.EW2Utils
 import core.api.addItemOrDrop
 import core.api.sendDialogueOptions
 import core.api.sendItemDialogue

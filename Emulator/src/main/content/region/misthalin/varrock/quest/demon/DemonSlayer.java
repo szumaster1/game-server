@@ -5,8 +5,8 @@ import content.region.misthalin.varrock.quest.demon.cutscene.WallyCutscenePlugin
 import content.region.misthalin.varrock.quest.demon.dialogue.GypsyArisDialogue;
 import content.region.misthalin.varrock.quest.demon.dialogue.SirPyrsinDialogue;
 import content.region.misthalin.varrock.quest.demon.dialogue.TraibornDialogue;
-import content.region.misthalin.varrock.quest.demon.plugin.DSlayerDrainPlugin;
-import content.region.misthalin.varrock.quest.demon.plugin.DemonSlayerPlugin;
+import content.region.misthalin.varrock.quest.demon.handlers.DSlayerDrainPlugin;
+import content.region.misthalin.varrock.quest.demon.handlers.DemonSlayerPlugin;
 import cfg.consts.Vars;
 import core.game.dialogue.Dialogue;
 import core.game.dialogue.FacialExpression;

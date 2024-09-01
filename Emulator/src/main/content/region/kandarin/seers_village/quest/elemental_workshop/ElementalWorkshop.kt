@@ -1,6 +1,6 @@
 package content.region.kandarin.seers_village.quest.elemental_workshop
 
-import content.region.kandarin.seers_village.quest.elemental_workshop.util.EWUtils
+import content.region.kandarin.seers_village.quest.elemental_workshop.handlers.EWUtils
 import core.api.*
 import cfg.consts.Items
 import cfg.consts.Vars

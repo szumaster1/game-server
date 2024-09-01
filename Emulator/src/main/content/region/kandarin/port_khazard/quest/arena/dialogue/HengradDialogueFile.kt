@@ -1,6 +1,5 @@
 package content.region.kandarin.port_khazard.quest.arena.dialogue
 
-import content.region.kandarin.port_khazard.quest.arena.cutscenes.ScorpionFightCutscene
 import core.api.*
 import cfg.consts.NPCs
 import core.game.dialogue.DialogueFile
@@ -45,7 +44,7 @@ class HengradDialogueFile : DialogueFile() {
                 10 -> {
                     end()
                     setQuestStage(player!!, "Fight Arena", 88)
-                    content.region.kandarin.port_khazard.quest.arena.cutscenes.ScorpionFightCutscene(player!!).start()
+                    content.region.kandarin.port_khazard.quest.arena.cutscene.ScorpionFightCutscene(player!!).start()
                 }
             }
         }

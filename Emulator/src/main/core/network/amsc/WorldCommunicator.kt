@@ -13,17 +13,42 @@ import java.util.concurrent.ConcurrentHashMap
 
 /**
  * Handles world communication.
+ * @author Emperor
  */
 object WorldCommunicator {
+    /**
+     * The handshake events producer.
+     */
     private val HANDSHAKE_PRODUCER: EventProducer = MSHSEventProducer()
+
+    /**
+     * The current state.
+     */
     private var state: ManagementServerState = ManagementServerState.CONNECTING
+
+    /**
+     * The I/O session.
+     */
     private lateinit var session: IoSession
+
+    /**
+     * The world information.
+     */
     private val WORLDS = Array(10) { WorldStatistics(it + 1) }
+
+    /**
+     * The current login attempts.
+     */
     private val loginAttempts = ConcurrentHashMap<String, LoginParser>()
+
+    /**
+     * The NIO reactor.
+     */
     private lateinit var reactor: NioReactor
 
     /**
      * Registers a new world.
+     *
      * @param session The session.
      */
     fun register(session: IoSession) {
@@ -50,6 +75,7 @@ object WorldCommunicator {
 
     /**
      * Checks if the Management server is locally hosted.
+     *
      * @return {@code True} if so.
      * @throws IOException When an I/O exception occurs.
      */
@@ -72,6 +98,7 @@ object WorldCommunicator {
 
     /**
      * Gets and removes the login attempt for the given username.
+     *
      * @param username The username.
      * @return The login attempt.
      */
@@ -81,6 +108,7 @@ object WorldCommunicator {
 
     /**
      * Gets the local world.
+     *
      * @return The world statistics of this world server.
      */
     fun getLocalWorld(): WorldStatistics {
@@ -89,6 +117,7 @@ object WorldCommunicator {
 
     /**
      * Gets the id of the world the player is connected to.
+     *
      * @param playerName The player's name.
      * @return The world id, or -1 if the player wasn't connected.
      */
@@ -103,6 +132,7 @@ object WorldCommunicator {
 
     /**
      * Gets the world statistics for the given index.
+     *
      * @param id The world id.
      * @return The world statistics.
      */
@@ -112,6 +142,7 @@ object WorldCommunicator {
 
     /**
      * Gets the session.
+     *
      * @return the session
      */
     fun getSession(): IoSession {
@@ -120,6 +151,7 @@ object WorldCommunicator {
 
     /**
      * Checks if this world is connected to the Management server.
+     *
      * @return {@code True} if so.
      */
     @JvmStatic
@@ -129,6 +161,7 @@ object WorldCommunicator {
 
     /**
      * Gets the login attempts mapping.
+     *
      * @return The login attempts mapping.
      */
     fun getLoginAttempts(): Map<String, LoginParser> {
@@ -137,6 +170,7 @@ object WorldCommunicator {
 
     /**
      * Gets the state.
+     *
      * @return the state
      */
     fun getState(): ManagementServerState {
@@ -145,6 +179,7 @@ object WorldCommunicator {
 
     /**
      * Sets the state.
+     *
      * @param state the state to set.
      */
     fun setState(state: ManagementServerState) {
@@ -156,6 +191,7 @@ object WorldCommunicator {
 
     /**
      * Gets the reactor.
+     *
      * @return the reactor
      */
     fun getReactor(): NioReactor {
@@ -164,6 +200,7 @@ object WorldCommunicator {
 
     /**
      * Sets the reactor.
+     *
      * @param reactor the reactor to set.
      */
     fun setReactor(reactor: NioReactor) {

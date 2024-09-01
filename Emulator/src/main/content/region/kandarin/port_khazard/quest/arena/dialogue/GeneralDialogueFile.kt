@@ -1,8 +1,6 @@
 package content.region.kandarin.port_khazard.quest.arena.dialogue
 
-import content.region.kandarin.port_khazard.quest.arena.FightArenaListeners.Companion.General
-import content.region.kandarin.port_khazard.quest.arena.cutscenes.BouncerFightCutscene
-import content.region.kandarin.port_khazard.quest.arena.cutscenes.JailAfterFightCutscene
+import content.region.kandarin.port_khazard.quest.arena.handlers.FightArenaListeners.Companion.General
 import core.api.*
 import cfg.consts.Items
 import cfg.consts.NPCs
@@ -65,7 +63,7 @@ class GeneralDialogueFile : DialogueFile() {
                 6 -> npcl(FacialExpression.OLD_ANGRY1, "Guards! Take " + (if (player!!.isMale) "him" else "her") + " to the cells.").also { stage++ }
                 7 -> {
                     end()
-                    content.region.kandarin.port_khazard.quest.arena.cutscenes.JailAfterFightCutscene(player!!).start()
+                    content.region.kandarin.port_khazard.quest.arena.cutscene.JailAfterFightCutscene(player!!).start()
                     setAttribute(player!!, "spawn-scorpion", true)
                     sendMessage(player!!, "A guard grabs the keys to the cell doors.")
                 }
@@ -82,7 +80,7 @@ class GeneralDialogueFile : DialogueFile() {
             88 -> when (stage) {
                 0 -> {
                     end()
-                    content.region.kandarin.port_khazard.quest.arena.cutscenes.JailAfterFightCutscene(player!!).start()
+                    content.region.kandarin.port_khazard.quest.arena.cutscene.JailAfterFightCutscene(player!!).start()
                     setAttribute(player!!, "spawn-scorpion", true)
                 }
             }
@@ -100,7 +98,7 @@ class GeneralDialogueFile : DialogueFile() {
                 2 -> {
                     end()
                     setAttribute(player!!, "spawn-bouncer", true)
-                    content.region.kandarin.port_khazard.quest.arena.cutscenes.BouncerFightCutscene(player!!).start()
+                    content.region.kandarin.port_khazard.quest.arena.cutscene.BouncerFightCutscene(player!!).start()
                 }
             }
 

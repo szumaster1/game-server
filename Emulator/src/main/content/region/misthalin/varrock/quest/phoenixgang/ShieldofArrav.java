@@ -1,10 +1,10 @@
 package content.region.misthalin.varrock.quest.phoenixgang;
 
 import content.region.misthalin.varrock.palace.dialogue.KingRoaldDialogue;
-import content.region.misthalin.varrock.quest.phoenixgang.npc.JohnnyBeardNPC;
-import content.region.misthalin.varrock.quest.phoenixgang.plugin.CertificatePlugin;
+import content.region.misthalin.varrock.quest.phoenixgang.handlers.JohnnyBeardNPC;
+import content.region.misthalin.varrock.quest.phoenixgang.handlers.CertificatePlugin;
 import content.region.misthalin.varrock.quest.phoenixgang.dialogue.*;
-import content.region.misthalin.varrock.quest.phoenixgang.plugin.ShieldArravPlugin;
+import content.region.misthalin.varrock.quest.phoenixgang.handlers.ShieldArravPlugin;
 import cfg.consts.Vars;
 import core.game.node.entity.player.Player;
 import core.game.node.entity.player.link.quest.Quest;

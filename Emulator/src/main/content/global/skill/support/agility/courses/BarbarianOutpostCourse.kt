@@ -2,7 +2,7 @@ package content.global.skill.support.agility.courses
 
 import content.global.skill.support.agility.AgilityCourse
 import content.global.skill.support.agility.AgilityHandler
-import content.miniquest.barcrawl.BarcrawlManager
+import content.miniquest.barcrawl.handlers.BarcrawlManager
 import core.api.*
 import cfg.consts.NPCs
 import cfg.consts.Sounds

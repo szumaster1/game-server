@@ -1,7 +1,7 @@
 package core.cache.def.impl;
 
+import core.Configuration;
 import core.api.EquipmentSlot;
-import cfg.consts.Items;
 import core.cache.Cache;
 import core.cache.def.Definition;
 import core.cache.misc.buffer.ByteBufferUtils;
@@ -11,113 +11,247 @@ import core.game.node.entity.player.Player;
 import core.game.node.entity.skill.Skills;
 import core.game.node.item.Item;
 import core.game.node.item.ItemPlugin;
-import core.game.system.config.ItemConfigParser;
 import core.game.world.GameWorld;
+import core.plugin.Plugin;
 import core.tools.Log;
 import core.tools.StringUtils;
+import core.tools.SystemLogger;
+import core.game.system.config.ItemConfigParser;
+import cfg.consts.Items;
 
 import java.nio.ByteBuffer;
-import java.util.Arrays;
+import java.text.DecimalFormat;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
+import java.util.Arrays;
 
 import static core.api.ContentAPIKt.equipSlot;
 import static core.api.ContentAPIKt.log;
 
 /**
- * Item definition.
+ * Represents an item's definitions.
+ * @author Jagex, Emperor
  */
 public class ItemDefinition extends Definition<Item> {
 
+    /**
+     * The item definitions mapping.
+     */
     private static final Map<Integer, ItemDefinition> DEFINITIONS = new HashMap<>();
 
+    /**
+     * The default option handlers.
+     */
     private static final Map<String, OptionHandler> OPTION_HANDLERS = new HashMap<>();
 
+    /**
+     * The interface model id.
+     */
     private int interfaceModelId;
 
+    /**
+     * The model zoom.
+     */
     private int modelZoom;
 
+    /**
+     * The model rotation.
+     */
     private int modelRotationX;
 
+    /**
+     * The model rotation.
+     */
     private int modelRotationY;
 
+    /**
+     * The model offset.
+     */
     private int modelOffsetX;
 
+    /**
+     * The model offset.
+     */
     private int modelOffsetY;
 
+    /**
+     * If item is stackable.
+     */
     private boolean stackable;
 
+    /**
+     * The item value.
+     */
     private int value = 1;
 
+    /**
+     * If item is members only.
+     */
     private boolean membersOnly;
 
+    /**
+     * The male model wear id.
+     */
     private int maleWornModelId1 = -1;
 
+    /**
+     * The female model wear id.
+     */
     private int femaleWornModelId1 = -1;
 
+    /**
+     * The male model wear id.
+     */
     private int maleWornModelId2 = -1;
 
+    /**
+     * The female wear model id.
+     */
     private int femaleWornModelId2 = -1;
 
+    /**
+     * The male model wear id.
+     */
     private int maleWornModelId3 = -1;
 
+    /**
+     * The female model wear id.
+     */
     private int femaleWornModelId3 = -1;
 
+    /**
+     * The male model wear id.
+     */
     private int maleWornModelId4 = -1;
 
+    /**
+     * The female wear model id.
+     */
     private int femaleWornModelId4 = -1;
 
+    /**
+     * The ground actions.
+     */
     private String[] groundActions;
 
+    /**
+     * The original model colors.
+     */
     private short[] originalModelColors;
 
+    /**
+     * The modified model colors.
+     */
     private short[] modifiedModelColors;
 
+    /**
+     * The texture color 1.
+     */
     private short[] textureColour1;
 
+    /**
+     * The texture color 2.
+     */
     private short[] textureColour2;
 
+    /**
+     * A unknown byte array.
+     */
     private byte[] unknownArray1;
 
+    /**
+     * A unknown integer array.
+     */
     private int[] unknownArray2;
 
+    /**
+     * A unknown integer array.
+     */
     private int[][] unknownArray3;
 
+    /**
+     * If item is noted.
+     */
     private boolean unnoted = true;
 
+    /**
+     * The colour equipment.
+     */
     private int colourEquip1 = -1;
 
+    /**
+     * The colour equipment.
+     */
     private int colourEquip2;
 
+    /**
+     * The note item id if un-noted. The un-noted item id if noted. -1 if no noted counterpart.
+     */
     private int noteId = -1;
 
+    /**
+     * The note template id.
+     */
     private int noteTemplateId = -1;
 
+    /**
+     * The stackable ids.
+     */
     private int[] stackIds;
 
+    /**
+     * The stackable amounts.
+     */
     private int[] stackAmounts;
 
+    /**
+     * The team id.
+     */
     private int teamId;
 
+    /**
+     * The lend id.
+     */
     private int lendId = -1;
 
+    /**
+     * The lend template id.
+     */
     private int lendTemplateId = -1;
 
+    /**
+     * The recolour id.
+     */
     private int recolourId = -1;
 
+    /**
+     * The recolour template id.
+     */
     private int recolourTemplateId = -1;
 
+    /**
+     * The equip id.
+     */
     private int equipId;
 
+    /**
+     * The item requirements
+     */
     private HashMap<Integer, Integer> itemRequirements;
 
+    /**
+     * The clientscript data.
+     */
     private HashMap<Integer, Object> clientScriptData;
 
+    /**
+     * The item type.
+     */
     private int itemType;
 
     /**
-     * Instantiates a new Item definition.
+     * Constructs a new {@code ItemDefinition} {@code Object}.
      */
     public ItemDefinition() {
         groundActions = new String[]{null, null, "take", null, null};
@@ -125,7 +259,7 @@ public class ItemDefinition extends Definition<Item> {
     }
 
     /**
-     * Parse.
+     * Parses the item definitions.
      */
     public static void parse() {
         for (int itemId = 0; itemId < Cache.getItemDefinitionsSize(); itemId++) {
@@ -139,7 +273,8 @@ public class ItemDefinition extends Definition<Item> {
                 log(ItemDefinition.class, Log.ERR, "Could not load item definitions for id " + itemId + " - no definitions found!");
                 return;
             }
-            if (itemId == 14958) def.setStackable(true);
+            if (itemId == 14958)
+                def.setStackable(true);
 
             ItemDefinition.getDefinitions().put(itemId, def);
         }
@@ -147,10 +282,10 @@ public class ItemDefinition extends Definition<Item> {
     }
 
     /**
-     * For id item definition.
+     * Gets an item definition.
      *
-     * @param itemId the item id
-     * @return the item definition
+     * @param itemId The item's id.
+     * @return The item definition.
      */
     public static ItemDefinition forId(int itemId) {
         ItemDefinition def = DEFINITIONS.get(itemId);
@@ -161,11 +296,11 @@ public class ItemDefinition extends Definition<Item> {
     }
 
     /**
-     * Parse definition item definition.
+     * Parses an item's definitions.
      *
-     * @param itemId the item id
-     * @param buffer the buffer
-     * @return the item definition
+     * @param itemId The item id.
+     * @param buffer The buffer.
+     * @return The item definition.
      */
     public static ItemDefinition parseDefinition(int itemId, ByteBuffer buffer) {
         ItemDefinition def = new ItemDefinition();
@@ -189,7 +324,8 @@ public class ItemDefinition extends Definition<Item> {
                 def.modelRotationY = buffer.getShort() & 0xFFFF;
             } else if (opcode == 7) {
                 def.modelOffsetX = buffer.getShort() & 0xFFFF;
-                if (def.modelOffsetX > 32767) def.modelOffsetX -= 65536;
+                if (def.modelOffsetX > 32767)
+                    def.modelOffsetX -= 65536;
             } else if (opcode == 8) {
                 def.modelOffsetY = buffer.getShort() & 0xFFFF;
                 if (def.modelOffsetY > 32767) {
@@ -323,7 +459,7 @@ public class ItemDefinition extends Definition<Item> {
     }
 
     /**
-     * Define templates.
+     * Defines the definitions for noted, lending and recolored items.
      */
     public static void defineTemplates() {
         int equipId = 0;
@@ -346,10 +482,10 @@ public class ItemDefinition extends Definition<Item> {
     }
 
     /**
-     * Transfer note definition.
+     * Transfers definitions for noted items.
      *
-     * @param reference         the reference
-     * @param templateReference the template reference
+     * @param reference         The reference definitions.
+     * @param templateReference The template definitions.
      */
     public void transferNoteDefinition(ItemDefinition reference, ItemDefinition templateReference) {
         membersOnly = reference.membersOnly;
@@ -370,10 +506,10 @@ public class ItemDefinition extends Definition<Item> {
     }
 
     /**
-     * Transfer lend definition.
+     * Transfers definitions for lending items.
      *
-     * @param reference         the reference
-     * @param templateReference the template reference
+     * @param reference         The reference definitions.
+     * @param templateReference The template definitions.
      */
     public void transferLendDefinition(ItemDefinition reference, ItemDefinition templateReference) {
         femaleWornModelId1 = reference.femaleWornModelId1;
@@ -406,10 +542,10 @@ public class ItemDefinition extends Definition<Item> {
     }
 
     /**
-     * Transfer recolour definition.
+     * Transfers definitions for recolored items.
      *
-     * @param reference         the reference
-     * @param templateReference the template reference
+     * @param reference         The reference definitions.
+     * @param templateReference The template definitions.
      */
     public void transferRecolourDefinition(ItemDefinition reference, ItemDefinition templateReference) {
         femaleWornModelId2 = reference.femaleWornModelId2;
@@ -443,12 +579,13 @@ public class ItemDefinition extends Definition<Item> {
     }
 
     /**
-     * Has requirement boolean.
+     * Checks if the player has the needed requirements to use this item.
      *
-     * @param player  the player
-     * @param wield   the wield
-     * @param message the message
-     * @return the boolean
+     * @param player  The player.
+     * @param wield   If requirements are checked for wearing the item.
+     * @param message If a message should be sent when the player does not meet
+     *                a requirement.
+     * @return {@code True} if so.
      */
     public boolean hasRequirement(Player player, boolean wield, boolean message) {
         Map<Integer, Integer> requirements = getConfiguration(ItemConfigParser.REQUIREMENTS);
@@ -472,10 +609,10 @@ public class ItemDefinition extends Definition<Item> {
     }
 
     /**
-     * Can enter entrana boolean.
+     * Checks if the player can enter entrana.
      *
-     * @param player the player
-     * @return the boolean
+     * @param player the player.
+     * @return {@code True} if so.
      */
     public static boolean canEnterEntrana(Player player) {
         Container[] container = new Container[]{player.getInventory(), player.getEquipment()};
@@ -495,16 +632,72 @@ public class ItemDefinition extends Definition<Item> {
         return true;
     }
 
-    private static final HashSet<Integer> entranaAllowedItems = new HashSet(Arrays.asList(Items.PENANCE_GLOVES_10553, Items.ICE_GLOVES_1580, Items.BOOTS_OF_LIGHTNESS_88, Items.CLIMBING_BOOTS_3105, Items.SPOTTED_CAPE_10069, Items.SPOTTIER_CAPE_10071, Items.SARADOMIN_CAPE_2412, Items.ZAMORAK_CAPE_2414, Items.GUTHIX_CAPE_2413, Items.SARADOMIN_CLOAK_10446, Items.ZAMORAK_CLOAK_10450, Items.GUTHIX_CLOAK_10448, Items.HOLY_BOOK_3840, Items.DAMAGED_BOOK_3839, Items.UNHOLY_BOOK_3842, Items.DAMAGED_BOOK_3841, Items.BOOK_OF_BALANCE_3844, Items.DAMAGED_BOOK_3843, Items.WIZARD_BOOTS_2579, Items.COMBAT_BRACELET1_11124, Items.COMBAT_BRACELET2_11122, Items.COMBAT_BRACELET3_11120, Items.COMBAT_BRACELET4_11118, Items.REGEN_BRACELET_11133, Items.WARLOCK_CLOAK_14081, Items.WARLOCK_LEGS_14077, Items.WARLOCK_TOP_14076, Items.MONKS_ROBE_542, Items.MONKS_ROBE_544, Items.HAM_SHIRT_4298, Items.HAM_ROBE_4300, Items.HAM_HOOD_4302, Items.HAM_CLOAK_4304, Items.HAM_LOGO_4306, Items.GLOVES_4308, Items.BOOTS_4310));
+    /**
+     * The allowed ids.
+     */
+    private static final HashSet<Integer> entranaAllowedItems = new HashSet(Arrays.asList(
+        Items.PENANCE_GLOVES_10553,
+        Items.ICE_GLOVES_1580,
+        Items.BOOTS_OF_LIGHTNESS_88,
+        Items.CLIMBING_BOOTS_3105,
+        Items.SPOTTED_CAPE_10069,
+        Items.SPOTTIER_CAPE_10071,
+        Items.SARADOMIN_CAPE_2412,
+        Items.ZAMORAK_CAPE_2414,
+        Items.GUTHIX_CAPE_2413,
+        Items.SARADOMIN_CLOAK_10446,
+        Items.ZAMORAK_CLOAK_10450,
+        Items.GUTHIX_CLOAK_10448,
+        Items.HOLY_BOOK_3840,
+        Items.DAMAGED_BOOK_3839,
+        Items.UNHOLY_BOOK_3842,
+        Items.DAMAGED_BOOK_3841,
+        Items.BOOK_OF_BALANCE_3844,
+        Items.DAMAGED_BOOK_3843,
+        Items.WIZARD_BOOTS_2579,
+        Items.COMBAT_BRACELET1_11124,
+        Items.COMBAT_BRACELET2_11122,
+        Items.COMBAT_BRACELET3_11120,
+        Items.COMBAT_BRACELET4_11118,
+        Items.REGEN_BRACELET_11133,
+        Items.WARLOCK_CLOAK_14081,
+        Items.WARLOCK_LEGS_14077,
+        Items.WARLOCK_TOP_14076,
+        Items.MONKS_ROBE_542,
+        Items.MONKS_ROBE_544,
+        Items.HAM_SHIRT_4298,
+        Items.HAM_ROBE_4300,
+        Items.HAM_HOOD_4302,
+        Items.HAM_CLOAK_4304,
+        Items.HAM_LOGO_4306,
+        Items.GLOVES_4308,
+        Items.BOOTS_4310
+    ));
     private static final HashSet<Integer> entranaBannedItems = new HashSet(Arrays.asList(
-        /**Items.BUTTERFLY_NET_10010, easing the restriction until barehanded implementation**/
-        Items.DWARF_CANNON_SET_11967, Items.CANNON_BARRELS_10, Items.CANNON_BASE_6, Items.CANNON_STAND_8, Items.CANNON_FURNACE_12, Items.COOKING_GAUNTLETS_775, Items.CHAOS_GAUNTLETS_777, Items.GOLDSMITH_GAUNTLETS_776, Items.KARAMJA_GLOVES_1_11136, Items.KARAMJA_GLOVES_2_11138, Items.KARAMJA_GLOVES_3_11140, Items.VYREWATCH_TOP_9634, Items.VYREWATCH_LEGS_9636, Items.VYREWATCH_SHOES_9638));
+        /*
+         * Items.BUTTERFLY_NET_10010, easing the restriction until barehanded implementation
+         */
+        Items.DWARF_CANNON_SET_11967,
+        Items.CANNON_BARRELS_10,
+        Items.CANNON_BASE_6,
+        Items.CANNON_STAND_8,
+        Items.CANNON_FURNACE_12,
+        Items.COOKING_GAUNTLETS_775,
+        Items.CHAOS_GAUNTLETS_777,
+        Items.GOLDSMITH_GAUNTLETS_776,
+        Items.KARAMJA_GLOVES_1_11136,
+        Items.KARAMJA_GLOVES_2_11138,
+        Items.KARAMJA_GLOVES_3_11140,
+        Items.VYREWATCH_TOP_9634,
+        Items.VYREWATCH_LEGS_9636,
+        Items.VYREWATCH_SHOES_9638
+    ));
 
 
     /**
-     * Is allowed on entrana boolean.
+     * Checks if the item is allowed on entrana.
      *
-     * @return the boolean
+     * @return {@code True} if so.
      */
     public boolean isAllowedOnEntrana() {
         if (entranaAllowedItems.contains(getId())) {
@@ -524,10 +717,10 @@ public class ItemDefinition extends Definition<Item> {
     }
 
     /**
-     * Gets requirement.
+     * Gets the level requirement for this item.
      *
-     * @param skillId the skill id
-     * @return the requirement
+     * @param skillId The skill id.
+     * @return The level required.
      */
     public int getRequirement(int skillId) {
         Map<Integer, Integer> requirements = getConfiguration(ItemConfigParser.REQUIREMENTS);
@@ -539,9 +732,9 @@ public class ItemDefinition extends Definition<Item> {
     }
 
     /**
-     * Gets render animation id.
+     * Gets the wielding animation id (render animation id).
      *
-     * @return the render animation id
+     * @return The wield animation id.
      */
     public int getRenderAnimationId() {
         return getConfiguration(ItemConfigParser.RENDER_ANIM_ID, 1426);
@@ -558,174 +751,184 @@ public class ItemDefinition extends Definition<Item> {
     }
 
     /**
-     * Gets interface model id.
+     * Gets the interfaceModelId.
      *
-     * @return the interface model id
+     * @return The interfaceModelId.
      */
     public int getInterfaceModelId() {
         return interfaceModelId;
     }
 
     /**
-     * Sets interface model id.
+     * Sets the interfaceModelId.
      *
-     * @param interfaceModelId the interface model id
+     * @param interfaceModelId The interfaceModelId to set.
      */
     public void setInterfaceModelId(int interfaceModelId) {
         this.interfaceModelId = interfaceModelId;
     }
 
+    /**
+     * Gets the name.
+     *
+     * @return The name.
+     */
     @Override
     public String getName() {
         return name;
     }
 
+    /**
+     * Sets the name.
+     *
+     * @param name The name to set.
+     */
     @Override
     public void setName(String name) {
         this.name = name;
     }
 
     /**
-     * Is player type boolean.
+     * Checks if the item type is for player usage.
      *
-     * @return the boolean
+     * @return {@code True}.
      */
     public boolean isPlayerType() {
         return itemType == 0;
     }
 
     /**
-     * Gets model zoom.
+     * Gets the modelZoom.
      *
-     * @return the model zoom
+     * @return The modelZoom.
      */
     public int getModelZoom() {
         return modelZoom;
     }
 
     /**
-     * Sets model zoom.
+     * Sets the modelZoom.
      *
-     * @param modelZoom the model zoom
+     * @param modelZoom The modelZoom to set.
      */
     public void setModelZoom(int modelZoom) {
         this.modelZoom = modelZoom;
     }
 
     /**
-     * Gets model rotation x.
+     * Gets the modelRotation1.
      *
-     * @return the model rotation x
+     * @return The modelRotation1.
      */
     public int getModelRotationX() {
         return modelRotationX;
     }
 
     /**
-     * Sets model rotation x.
+     * Sets the modelRotation1.
      *
-     * @param modelRotation1 the model rotation 1
+     * @param modelRotation1 The modelRotation1 to set.
      */
     public void setModelRotationX(int modelRotation1) {
         this.modelRotationX = modelRotation1;
     }
 
     /**
-     * Gets model rotation y.
+     * Gets the modelRotation2.
      *
-     * @return the model rotation y
+     * @return The modelRotation2.
      */
     public int getModelRotationY() {
         return modelRotationY;
     }
 
     /**
-     * Sets model rotation y.
+     * Sets the modelRotation2.
      *
-     * @param modelRotation2 the model rotation 2
+     * @param modelRotation2 The modelRotation2 to set.
      */
     public void setModelRotationY(int modelRotation2) {
         this.modelRotationY = modelRotation2;
     }
 
     /**
-     * Gets model offset 1.
+     * Gets the modelOffset1.
      *
-     * @return the model offset 1
+     * @return The modelOffset1.
      */
     public int getModelOffset1() {
         return modelOffsetX;
     }
 
     /**
-     * Sets model offset 1.
+     * Sets the modelOffset1.
      *
-     * @param modelOffset1 the model offset 1
+     * @param modelOffset1 The modelOffset1 to set.
      */
     public void setModelOffset1(int modelOffset1) {
         this.modelOffsetX = modelOffset1;
     }
 
     /**
-     * Gets model offset 2.
+     * Gets the modelOffset2.
      *
-     * @return the model offset 2
+     * @return The modelOffset2.
      */
     public int getModelOffset2() {
         return modelOffsetY;
     }
 
     /**
-     * Sets model offset 2.
+     * Sets the modelOffset2.
      *
-     * @param modelOffset2 the model offset 2
+     * @param modelOffset2 The modelOffset2 to set.
      */
     public void setModelOffset2(int modelOffset2) {
         this.modelOffsetY = modelOffset2;
     }
 
     /**
-     * Is stackable boolean.
+     * Gets the stackable.
      *
-     * @return the boolean
+     * @return The stackable.
      */
     public boolean isStackable() {
         return stackable || !this.unnoted;
     }
 
     /**
-     * Sets stackable.
+     * Sets the stackable.
      *
-     * @param stackable the stackable
+     * @param stackable The stackable to set.
      */
     public void setStackable(boolean stackable) {
         this.stackable = stackable;
     }
 
     /**
-     * Gets value.
+     * Gets the value.
      *
-     * @return the value
+     * @return The value.
      */
     public int getValue() {
         return value;
     }
 
     /**
-     * Has shop currency value boolean.
+     * Gets whether the Item has a value in a custom currency
      *
-     * @param currency the currency
-     * @return the boolean
+     * @param currency the configuration string of the currency in the item definition
+     * @return {@code True} if so.
      */
     public boolean hasShopCurrencyValue(String currency) {
         return getHandlers().getOrDefault(currency, "0") != "0";
     }
 
     /**
-     * Has shop currency value boolean.
+     * Gets whether shops value the Item (even if the value is 0) in a currency
      *
-     * @param currency the currency
-     * @return the boolean
+     * @param currency the ID of the currency
+     * @return {@code True} if so.
      */
     public boolean hasShopCurrencyValue(int currency) {
         switch (currency) {
@@ -743,9 +946,7 @@ public class ItemDefinition extends Definition<Item> {
     }
 
     /**
-     * Gets max value.
-     *
-     * @return the max value
+     * @return The value.
      */
     public int getMaxValue() {
         if ((int) (value * 1.05) <= 0) {
@@ -755,9 +956,7 @@ public class ItemDefinition extends Definition<Item> {
     }
 
     /**
-     * Gets min value.
-     *
-     * @return the min value
+     * @return The value.
      */
     public int getMinValue() {
         if ((int) (value * .95) <= 0) {
@@ -767,505 +966,505 @@ public class ItemDefinition extends Definition<Item> {
     }
 
     /**
-     * Sets value.
+     * Sets the value.
      *
-     * @param value the value
+     * @param value The value to set.
      */
     public void setValue(int value) {
         this.value = value;
     }
 
     /**
-     * Is members only boolean.
+     * Gets the membersOnly.
      *
-     * @return the boolean
+     * @return The membersOnly.
      */
     public boolean isMembersOnly() {
         return membersOnly;
     }
 
     /**
-     * Sets members only.
+     * Sets the membersOnly.
      *
-     * @param membersOnly the members only
+     * @param membersOnly The membersOnly to set.
      */
     public void setMembersOnly(boolean membersOnly) {
         this.membersOnly = membersOnly;
     }
 
     /**
-     * Gets male worn model id 1.
+     * Gets the maleWornModelId1.
      *
-     * @return the male worn model id 1
+     * @return The maleWornModelId1.
      */
     public int getMaleWornModelId1() {
         return maleWornModelId1;
     }
 
     /**
-     * Sets male worn model id 1.
+     * Sets the maleWornModelId1.
      *
-     * @param maleWornModelId1 the male worn model id 1
+     * @param maleWornModelId1 The maleWornModelId1 to set.
      */
     public void setMaleWornModelId1(int maleWornModelId1) {
         this.maleWornModelId1 = maleWornModelId1;
     }
 
     /**
-     * Gets female worn model id 1.
+     * Gets the femaleWornModelId1.
      *
-     * @return the female worn model id 1
+     * @return The femaleWornModelId1.
      */
     public int getFemaleWornModelId1() {
         return femaleWornModelId1;
     }
 
     /**
-     * Sets female worn model id 1.
+     * Sets the femaleWornModelId1.
      *
-     * @param femaleWornModelId1 the female worn model id 1
+     * @param femaleWornModelId1 The femaleWornModelId1 to set.
      */
     public void setFemaleWornModelId1(int femaleWornModelId1) {
         this.femaleWornModelId1 = femaleWornModelId1;
     }
 
     /**
-     * Gets male worn model id 2.
+     * Gets the maleWornModelId2.
      *
-     * @return the male worn model id 2
+     * @return The maleWornModelId2.
      */
     public int getMaleWornModelId2() {
         return maleWornModelId2;
     }
 
     /**
-     * Sets male worn model id 2.
+     * Sets the maleWornModelId2.
      *
-     * @param maleWornModelId2 the male worn model id 2
+     * @param maleWornModelId2 The maleWornModelId2 to set.
      */
     public void setMaleWornModelId2(int maleWornModelId2) {
         this.maleWornModelId2 = maleWornModelId2;
     }
 
     /**
-     * Gets female worn model id 2.
+     * Gets the femaleWornModelId2.
      *
-     * @return the female worn model id 2
+     * @return The femaleWornModelId2.
      */
     public int getFemaleWornModelId2() {
         return femaleWornModelId2;
     }
 
     /**
-     * Sets female worn model id 2.
+     * Sets the femaleWornModelId2.
      *
-     * @param femaleWornModelId2 the female worn model id 2
+     * @param femaleWornModelId2 The femaleWornModelId2 to set.
      */
     public void setFemaleWornModelId2(int femaleWornModelId2) {
         this.femaleWornModelId2 = femaleWornModelId2;
     }
 
     /**
-     * Get ground options string [ ].
+     * Gets the groundOptions.
      *
-     * @return the string [ ]
+     * @return The groundOptions.
      */
     public String[] getGroundOptions() {
         return groundActions;
     }
 
     /**
-     * Sets ground options.
+     * Sets the groundOptions.
      *
-     * @param groundOptions the ground options
+     * @param groundOptions The groundOptions to set.
      */
     public void setGroundOptions(String[] groundOptions) {
         this.groundActions = groundOptions;
     }
 
     /**
-     * Get inventory options string [ ].
+     * Gets the inventoryOptions.
      *
-     * @return the string [ ]
+     * @return The inventoryOptions.
      */
     public String[] getInventoryOptions() {
         return options;
     }
 
     /**
-     * Sets inventory options.
+     * Sets the inventoryOptions.
      *
-     * @param inventoryOptions the inventory options
+     * @param inventoryOptions The inventoryOptions to set.
      */
     public void setInventoryOptions(String[] inventoryOptions) {
         this.options = inventoryOptions;
     }
 
     /**
-     * Get original model colors short [ ].
+     * Gets the originalModelColors.
      *
-     * @return the short [ ]
+     * @return The originalModelColors.
      */
     public short[] getOriginalModelColors() {
         return originalModelColors;
     }
 
     /**
-     * Sets original model colors.
+     * Sets the originalModelColors.
      *
-     * @param originalModelColors the original model colors
+     * @param originalModelColors The originalModelColors to set.
      */
     public void setOriginalModelColors(short[] originalModelColors) {
         this.originalModelColors = originalModelColors;
     }
 
     /**
-     * Get modified model colors short [ ].
+     * Gets the modifiedModelColors.
      *
-     * @return the short [ ]
+     * @return The modifiedModelColors.
      */
     public short[] getModifiedModelColors() {
         return modifiedModelColors;
     }
 
     /**
-     * Sets modified model colors.
+     * Sets the modifiedModelColors.
      *
-     * @param modifiedModelColors the modified model colors
+     * @param modifiedModelColors The modifiedModelColors to set.
      */
     public void setModifiedModelColors(short[] modifiedModelColors) {
         this.modifiedModelColors = modifiedModelColors;
     }
 
     /**
-     * Get texture colour 1 short [ ].
+     * Gets the textureColour1.
      *
-     * @return the short [ ]
+     * @return The textureColour1.
      */
     public short[] getTextureColour1() {
         return textureColour1;
     }
 
     /**
-     * Sets texture colour 1.
+     * Sets the textureColour1.
      *
-     * @param textureColour1 the texture colour 1
+     * @param textureColour1 The textureColour1 to set.
      */
     public void setTextureColour1(short[] textureColour1) {
         this.textureColour1 = textureColour1;
     }
 
     /**
-     * Get texture colour 2 short [ ].
+     * Gets the textureColour2.
      *
-     * @return the short [ ]
+     * @return The textureColour2.
      */
     public short[] getTextureColour2() {
         return textureColour2;
     }
 
     /**
-     * Sets texture colour 2.
+     * Sets the textureColour2.
      *
-     * @param textureColour2 the texture colour 2
+     * @param textureColour2 The textureColour2 to set.
      */
     public void setTextureColour2(short[] textureColour2) {
         this.textureColour2 = textureColour2;
     }
 
     /**
-     * Get unknown array 1 byte [ ].
+     * Gets the unknownArray1.
      *
-     * @return the byte [ ]
+     * @return The unknownArray1.
      */
     public byte[] getUnknownArray1() {
         return unknownArray1;
     }
 
     /**
-     * Sets unknown array 1.
+     * Sets the unknownArray1.
      *
-     * @param unknownArray1 the unknown array 1
+     * @param unknownArray1 The unknownArray1 to set.
      */
     public void setUnknownArray1(byte[] unknownArray1) {
         this.unknownArray1 = unknownArray1;
     }
 
     /**
-     * Get unknown array 2 int [ ].
+     * Gets the unknownArray2.
      *
-     * @return the int [ ]
+     * @return The unknownArray2.
      */
     public int[] getUnknownArray2() {
         return unknownArray2;
     }
 
     /**
-     * Sets unknown array 2.
+     * Sets the unknownArray2.
      *
-     * @param unknownArray2 the unknown array 2
+     * @param unknownArray2 The unknownArray2 to set.
      */
     public void setUnknownArray2(int[] unknownArray2) {
         this.unknownArray2 = unknownArray2;
     }
 
     /**
-     * Is unnoted boolean.
+     * Gets the unnoted.
      *
-     * @return the boolean
+     * @return The unnoted.
      */
     public boolean isUnnoted() {
         return unnoted;
     }
 
     /**
-     * Sets unnoted.
+     * Sets the unnoted.
      *
-     * @param unnoted the unnoted
+     * @param unnoted The unnoted to set.
      */
     public void setUnnoted(boolean unnoted) {
         this.unnoted = unnoted;
     }
 
     /**
-     * Gets colour equip 1.
+     * Gets the colourEquip1.
      *
-     * @return the colour equip 1
+     * @return The colourEquip1.
      */
     public int getColourEquip1() {
         return colourEquip1;
     }
 
     /**
-     * Sets colour equip 1.
+     * Sets the colourEquip1.
      *
-     * @param colourEquip1 the colour equip 1
+     * @param colourEquip1 The colourEquip1 to set.
      */
     public void setColourEquip1(int colourEquip1) {
         this.colourEquip1 = colourEquip1;
     }
 
     /**
-     * Gets colour equip 2.
+     * Gets the colourEquip2.
      *
-     * @return the colour equip 2
+     * @return The colourEquip2.
      */
     public int getColourEquip2() {
         return colourEquip2;
     }
 
     /**
-     * Sets colour equip 2.
+     * Sets the colourEquip2.
      *
-     * @param colourEquip2 the colour equip 2
+     * @param colourEquip2 The colourEquip2 to set.
      */
     public void setColourEquip2(int colourEquip2) {
         this.colourEquip2 = colourEquip2;
     }
 
     /**
-     * Gets note id.
+     * Gets the noteId.
      *
-     * @return the note id
+     * @return The noteId.
      */
     public int getNoteId() {
         return noteId;
     }
 
     /**
-     * Sets note id.
+     * Sets the noteId.
      *
-     * @param noteId the note id
+     * @param noteId The noteId to set.
      */
     public void setNoteId(int noteId) {
         this.noteId = noteId;
     }
 
     /**
-     * Gets note template id.
+     * Gets the noteTemplateId.
      *
-     * @return the note template id
+     * @return The noteTemplateId.
      */
     public int getNoteTemplateId() {
         return noteTemplateId;
     }
 
     /**
-     * Sets note template id.
+     * Sets the noteTemplateId.
      *
-     * @param noteTemplateId the note template id
+     * @param noteTemplateId The noteTemplateId to set.
      */
     public void setNoteTemplateId(int noteTemplateId) {
         this.noteTemplateId = noteTemplateId;
     }
 
     /**
-     * Get stack ids int [ ].
+     * Gets the stackIds.
      *
-     * @return the int [ ]
+     * @return The stackIds.
      */
     public int[] getStackIds() {
         return stackIds;
     }
 
     /**
-     * Sets stack ids.
+     * Sets the stackIds.
      *
-     * @param stackIds the stack ids
+     * @param stackIds The stackIds to set.
      */
     public void setStackIds(int[] stackIds) {
         this.stackIds = stackIds;
     }
 
     /**
-     * Get stack amounts int [ ].
+     * Gets the stackAmounts.
      *
-     * @return the int [ ]
+     * @return The stackAmounts.
      */
     public int[] getStackAmounts() {
         return stackAmounts;
     }
 
     /**
-     * Sets stack amounts.
+     * Sets the stackAmounts.
      *
-     * @param stackAmounts the stack amounts
+     * @param stackAmounts The stackAmounts to set.
      */
     public void setStackAmounts(int[] stackAmounts) {
         this.stackAmounts = stackAmounts;
     }
 
     /**
-     * Gets team id.
+     * Gets the teamId.
      *
-     * @return the team id
+     * @return The teamId.
      */
     public int getTeamId() {
         return teamId;
     }
 
     /**
-     * Sets team id.
+     * Sets the teamId.
      *
-     * @param teamId the team id
+     * @param teamId The teamId to set.
      */
     public void setTeamId(int teamId) {
         this.teamId = teamId;
     }
 
     /**
-     * Gets lend id.
+     * Gets the lendId.
      *
-     * @return the lend id
+     * @return The lendId.
      */
     public int getLendId() {
         return lendId;
     }
 
     /**
-     * Sets lend id.
+     * Sets the lendId.
      *
-     * @param lendId the lend id
+     * @param lendId The lendId to set.
      */
     public void setLendId(int lendId) {
         this.lendId = lendId;
     }
 
     /**
-     * Gets lend template id.
+     * Gets the lendTemplateId.
      *
-     * @return the lend template id
+     * @return The lendTemplateId.
      */
     public int getLendTemplateId() {
         return lendTemplateId;
     }
 
     /**
-     * Sets lend template id.
+     * Sets the lendTemplateId.
      *
-     * @param lendTemplateId the lend template id
+     * @param lendTemplateId The lendTemplateId to set.
      */
     public void setLendTemplateId(int lendTemplateId) {
         this.lendTemplateId = lendTemplateId;
     }
 
     /**
-     * Gets recolour id.
+     * Gets the recolourId.
      *
-     * @return the recolour id
+     * @return The recolourId.
      */
     public int getRecolourId() {
         return recolourId;
     }
 
     /**
-     * Sets recolour id.
+     * Sets the recolourId.
      *
-     * @param recolourId the recolour id
+     * @param recolourId The recolourId to set.
      */
     public void setRecolourId(int recolourId) {
         this.recolourId = recolourId;
     }
 
     /**
-     * Gets recolour template id.
+     * Gets the recolourTemplateId.
      *
-     * @return the recolour template id
+     * @return The recolourTemplateId.
      */
     public int getRecolourTemplateId() {
         return recolourTemplateId;
     }
 
     /**
-     * Sets recolour template id.
+     * Sets the recolourTemplateId.
      *
-     * @param recolourTemplateId the recolour template id
+     * @param recolourTemplateId The recolourTemplateId to set.
      */
     public void setRecolourTemplateId(int recolourTemplateId) {
         this.recolourTemplateId = recolourTemplateId;
     }
 
     /**
-     * Gets equip id.
+     * Gets the equipId.
      *
-     * @return the equip id
+     * @return The equipId.
      */
     public int getEquipId() {
         return equipId;
     }
 
     /**
-     * Sets equip id.
+     * Sets the equipId.
      *
-     * @param equipId the equip id
+     * @param equipId The equipId to set.
      */
     public void setEquipId(int equipId) {
         this.equipId = equipId;
     }
 
     /**
-     * Gets client script data.
+     * Gets the clientScriptData.
      *
-     * @return the client script data
+     * @return The clientScriptData.
      */
     public HashMap<Integer, Object> getClientScriptData() {
         return clientScriptData;
     }
 
     /**
-     * Sets client script data.
+     * Sets the clientScriptData.
      *
-     * @param clientScriptData the client script data
+     * @param clientScriptData The clientScriptData to set.
      */
     public void setClientScriptData(HashMap<Integer, Object> clientScriptData) {
         this.clientScriptData = clientScriptData;
     }
 
     /**
-     * Gets alchemy value.
+     * Gets the alchemy value.
      *
-     * @param highAlchemy the high alchemy
-     * @return the alchemy value
+     * @param highAlchemy If the value is for high alchemy (instead of low).
+     * @return The alchemy value.
      */
     public int getAlchemyValue(boolean highAlchemy) {
         if (!unnoted && noteId > -1) {
@@ -1278,9 +1477,9 @@ public class ItemDefinition extends Definition<Item> {
     }
 
     /**
-     * Is alchemizable boolean.
+     * Checks if the item is alchemizable.
      *
-     * @return the boolean
+     * @return {@code True} if so.
      */
     public boolean isAlchemizable() {
         if (!getConfiguration(ItemConfigParser.ALCHEMIZABLE, false)) {
@@ -1290,9 +1489,9 @@ public class ItemDefinition extends Definition<Item> {
     }
 
     /**
-     * Is tradeable boolean.
+     * Checks if the item is tradeable.
      *
-     * @return the boolean
+     * @return {@code True} if so.
      */
     public boolean isTradeable() {
         if (hasDestroyAction() && !getName().contains("impling jar")) {
@@ -1305,10 +1504,10 @@ public class ItemDefinition extends Definition<Item> {
     }
 
     /**
-     * Has action boolean.
+     * If the item has the specified item.
      *
-     * @param optionName the option name
-     * @return the boolean
+     * @param optionName The reward.
+     * @return If the item has the specified reward {@code true}.
      */
     public boolean hasAction(String optionName) {
         if (options == null) {
@@ -1326,18 +1525,18 @@ public class ItemDefinition extends Definition<Item> {
     }
 
     /**
-     * Has destroy action boolean.
+     * If the item has the destroy reward.
      *
-     * @return the boolean
+     * @return If the item has the destroy reward {@code true}.
      */
     public boolean hasDestroyAction() {
         return hasAction("destroy") || hasAction("dissolve");
     }
 
     /**
-     * Has wear action boolean.
+     * If the item has the wear reward.
      *
-     * @return the boolean
+     * @return If the item has the wear reward {@code true}.
      */
     public boolean hasWearAction() {
         if (options == null) {
@@ -1355,9 +1554,9 @@ public class ItemDefinition extends Definition<Item> {
     }
 
     /**
-     * Has special bar boolean.
+     * If the item has a special bar.
      *
-     * @return the boolean
+     * @return If the item has a special bar {@code true}.
      */
     public boolean hasSpecialBar() {
         if (clientScriptData == null) {
@@ -1371,9 +1570,9 @@ public class ItemDefinition extends Definition<Item> {
     }
 
     /**
-     * Gets quest id.
+     * Get the quest id for the item.
      *
-     * @return the quest id
+     * @return The quest id.
      */
     public int getQuestId() {
         if (clientScriptData == null) {
@@ -1387,38 +1586,39 @@ public class ItemDefinition extends Definition<Item> {
     }
 
     /**
-     * Gets archive id.
+     * Get the archive id.
      *
-     * @return the archive id
+     * @return The archive id.
      */
     public int getArchiveId() {
         return id >>> 8;
     }
 
     /**
-     * Gets file id.
+     * Get the file id.
      *
-     * @return the file id
+     * @return The file id.
      */
     public int getFileId() {
         return 0xff & id;
     }
 
     /**
-     * Gets definitions.
+     * Gets the definitions.
      *
-     * @return the definitions
+     * @return The definitions.
      */
     public static Map<Integer, ItemDefinition> getDefinitions() {
         return DEFINITIONS;
     }
 
     /**
-     * Gets option handler.
+     * Gets the option handler for the given option name.
      *
-     * @param nodeId the node id
-     * @param name   the name
-     * @return the option handler
+     * @param nodeId
+     * @param name   The name.
+     * @return The option handler, or {@code null} if there was no default
+     * option handler.
      */
     public static OptionHandler getOptionHandler(int nodeId, String name) {
         ItemDefinition def = forId(nodeId);
@@ -1434,12 +1634,15 @@ public class ItemDefinition extends Definition<Item> {
         return OPTION_HANDLERS.get(name);
     }
 
+    /**
+     * The bonus names.
+     */
     private static final String[] BONUS_NAMES = {"Stab: ", "Slash: ", "Crush: ", "Magic: ", "Ranged: ", "Stab: ", "Slash: ", "Crush: ", "Magic: ", "Ranged: ", "Summoning: ", "Strength: ", "Prayer: "};
 
     /**
-     * Stats update.
+     * Updates the equipment stats interface.
      *
-     * @param player the player
+     * @param player The player to update for.
      */
     public static void statsUpdate(Player player) {
         if (!player.getAttribute("equip_stats_open", false)) {
@@ -1459,160 +1662,159 @@ public class ItemDefinition extends Definition<Item> {
     }
 
     /**
-     * Has plugin boolean.
+     * Checks if it has a plugin.
      *
-     * @return the boolean
+     * @return {@code True} if so.
      */
     public boolean hasPlugin() {
         return getItemPlugin() != null;
     }
 
     /**
-     * Gets item plugin.
+     * Gets the item plugin.
      *
-     * @return the item plugin
+     * @return the plugin.
      */
     public ItemPlugin getItemPlugin() {
         return getConfiguration("wrapper", null);
     }
 
     /**
-     * Sets item plugin.
+     * Sets the item plugin.
      *
-     * @param plugin the plugin
+     * @param plugin the plugin.
      */
     public void setItemPlugin(ItemPlugin plugin) {
         getHandlers().put("wrapper", plugin);
     }
 
     /**
-     * Sets option handler.
+     * Sets the default option handler for an option.
      *
-     * @param name    the name
-     * @param handler the handler
-     * @return the option handler
+     * @param name    The option name.
+     * @param handler The default option handler.
+     * @return {@code True} if there was a previous default handler mapped.
      */
     public static boolean setOptionHandler(String name, OptionHandler handler) {
         return OPTION_HANDLERS.put(name, handler) != null;
     }
 
     /**
-     * Gets option handlers.
-     *
-     * @return the option handlers
+     * @return the optionHandlers
      */
     public static Map<String, OptionHandler> getOptionHandlers() {
         return OPTION_HANDLERS;
     }
 
     /**
-     * Gets item requirements.
-     *
-     * @return the item requirements
+     * @return the itemRequirements.
      */
     public HashMap<Integer, Integer> getItemRequirements() {
         return itemRequirements;
     }
 
     /**
-     * Sets item requirements.
-     *
-     * @param itemRequirements the item requirements
+     * @param itemRequirements the itemRequirements to set.
      */
     public void setItemRequirements(HashMap<Integer, Integer> itemRequirements) {
         this.itemRequirements = itemRequirements;
     }
 
     /**
-     * Gets item type.
+     * Gets the itemType.
      *
-     * @return the item type
+     * @return The itemType.
      */
     public int getItemType() {
         return itemType;
     }
 
     /**
-     * Sets item type.
+     * Sets the itemType.
      *
-     * @param itemType the item type
+     * @param itemType The itemType to set.
      */
     public void setItemType(int itemType) {
         this.itemType = itemType;
     }
 
     /**
-     * Gets female worn model id 3.
+     * Gets the femaleWornModelId3 value.
      *
-     * @return the female worn model id 3
+     * @return The femaleWornModelId3.
      */
     public int getFemaleWornModelId3() {
         return femaleWornModelId3;
     }
 
     /**
-     * Sets female worn model id 3.
+     * Sets the femaleWornModelId3 value.
      *
-     * @param femaleWornModelId3 the female worn model id 3
+     * @param femaleWornModelId3 The femaleWornModelId3 to set.
      */
     public void setFemaleWornModelId3(int femaleWornModelId3) {
         this.femaleWornModelId3 = femaleWornModelId3;
     }
 
     /**
-     * Gets female worn model id 4.
+     * Gets the femaleWornModelId4 value.
      *
-     * @return the female worn model id 4
+     * @return The femaleWornModelId4.
      */
     public int getFemaleWornModelId4() {
         return femaleWornModelId4;
     }
 
     /**
-     * Sets female worn model id 4.
+     * Sets the femaleWornModelId4 value.
      *
-     * @param femaleWornModelId4 the female worn model id 4
+     * @param femaleWornModelId4 The femaleWornModelId4 to set.
      */
     public void setFemaleWornModelId4(int femaleWornModelId4) {
         this.femaleWornModelId4 = femaleWornModelId4;
     }
 
     /**
-     * Gets male worn model id 3.
+     * Gets the maleWornModelId3 value.
      *
-     * @return the male worn model id 3
+     * @return The maleWornModelId3.
      */
     public int getMaleWornModelId3() {
         return maleWornModelId3;
     }
 
     /**
-     * Sets male worn model id 3.
+     * Sets the maleWornModelId3 value.
      *
-     * @param maleWornModelId3 the male worn model id 3
+     * @param maleWornModelId3 The maleWornModelId3 to set.
      */
     public void setMaleWornModelId3(int maleWornModelId3) {
         this.maleWornModelId3 = maleWornModelId3;
     }
 
     /**
-     * Gets male worn model id 4.
+     * Gets the maleWornModelId4 value.
      *
-     * @return the male worn model id 4
+     * @return The maleWornModelId4.
      */
     public int getMaleWornModelId4() {
         return maleWornModelId4;
     }
 
     /**
-     * Sets male worn model id 4.
+     * Sets the maleWornModelId4 value.
      *
-     * @param maleWornModelId4 the male worn model id 4
+     * @param maleWornModelId4 The maleWornModelId4 to set.
      */
     public void setMaleWornModelId4(int maleWornModelId4) {
         this.maleWornModelId4 = maleWornModelId4;
     }
 
+    /**
+     * Gets the examine.
+     *
+     * @return The examine.
+     */
     @Override
     public String getExamine() {
         examine = super.getExamine();

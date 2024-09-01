@@ -1,6 +1,6 @@
 package content.region.kandarin.quest.arthur.dialogue
 
-import content.region.kandarin.quest.arthur.MerlinUtils
+import content.region.kandarin.quest.arthur.handlers.MerlinUtils
 import core.api.*
 import cfg.consts.NPCs
 import core.game.dialogue.DialogueFile

@@ -1,6 +1,6 @@
 package content.region.morytania.phasmatys.quest.ahoy.dialogue
 
-import content.region.morytania.phasmatys.quest.ahoy.GAUtils
+import content.region.morytania.phasmatys.quest.ahoy.handlers.GAUtils
 import core.api.*
 import cfg.consts.Items
 import cfg.consts.NPCs

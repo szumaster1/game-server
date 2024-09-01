@@ -3,7 +3,6 @@ package content.region.asgarnia.falador.quest.rd.handlers
 import cfg.consts.Items
 import cfg.consts.Scenery
 import cfg.consts.Sounds
-import content.region.asgarnia.falador.quest.rd.RDUtils
 import core.api.*
 import core.game.dialogue.DialogueBuilder
 import core.game.dialogue.DialogueBuilderFile

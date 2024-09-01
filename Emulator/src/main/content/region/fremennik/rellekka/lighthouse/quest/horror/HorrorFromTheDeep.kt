@@ -4,6 +4,7 @@ import core.api.*
 import cfg.consts.Components
 import cfg.consts.Items
 import cfg.consts.Vars
+import content.region.fremennik.rellekka.lighthouse.quest.horror.handlers.HorrorUtils
 import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.quest.Quest
 import core.game.node.entity.skill.Skills
@@ -45,7 +46,7 @@ class HorrorFromTheDeep : Quest("Horror from the Deep", 77, 76, 2, Vars.VARBIT_Q
             line++
             line(player, "I recovered a !!spare key?? from Larrissa's cousin !!Gunnjorn??", line++, inInventory(player, Items.LIGHTHOUSE_KEY_3848) || stage >= 5)
             line(player, "and repaired the !!bridge?? to Rellekka with some planks.", line++, getAttribute(player,
-                content.region.fremennik.rellekka.lighthouse.quest.horror.HorrorUtils.fixBridge, 0) == 2)
+                HorrorUtils.fixBridge, 0) == 2)
             line++
         }
         if (stage >= 20) {
@@ -53,7 +54,7 @@ class HorrorFromTheDeep : Quest("Horror from the Deep", 77, 76, 2, Vars.VARBIT_Q
             line++
         }
         if (stage >= 40 && getAttribute(player,
-                content.region.fremennik.rellekka.lighthouse.quest.horror.HorrorUtils.STRANGE_WALL_DISCOVER, false)){
+                HorrorUtils.STRANGE_WALL_DISCOVER, false)){
             line(player, "After I entered the !!lighthouse??, and repaired the !!lighting mechanism??, ", line++, stage >= 55)
             line(player, "I discovered a !!strange wall?? that blocked the entrance to an underground cavern, ", line++, stage >= 55)
             line(player, "where !!Jossik?? was.", line++, stage >= 55)
