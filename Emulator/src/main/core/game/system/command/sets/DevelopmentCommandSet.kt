@@ -607,7 +607,7 @@ class DevelopmentCommandSet : CommandSet(Privilege.ADMIN) {
             privilege = Privilege.ADMIN,
             usage = "::get_tbwfp",
             description = "Prints your current TBW cleanup points."
-        ) { player: Player, args: Array<String> ->
+        ) { player: Player, _: Array<String> ->
             sendMessage(
                 player,
                 "You have ${player.getAttribute("/save:tbwcleanup", 0).toDouble() / 10}% Tai Bwo Wannai Favour."
