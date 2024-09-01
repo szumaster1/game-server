@@ -388,7 +388,10 @@ fun addItemOrBank(player: Player, id: Int, amount: Int = 1) {
             sendMessage(player, colorize("%RThe ${item.name} has been sent to your secondary bank."))
         } else {
             GroundItemManager.create(item, player)
-            sendMessage(player, colorize("%RAs your inventory and bank account(s) are all full, the ${item.name} has been placed on the ground under your feet. Don't forget to grab it. (Also consider cleaning out some stuff, maybe? I mean, Jesus!)"))
+            sendMessage(
+                player,
+                colorize("%RAs your inventory and bank account(s) are all full, the ${item.name} has been placed on the ground under your feet. Don't forget to grab it. (Also consider cleaning out some stuff, maybe? I mean, Jesus!)")
+            )
         }
     }
 }
@@ -1434,6 +1437,39 @@ fun lock(entity: Entity, duration: Int) {
  */
 fun lockInteractions(entity: Entity, duration: Int) {
     entity.locks.lockInteractions(duration)
+}
+
+/**
+ * Locks specifically an entity's interactions,
+ * allowing lock the movement.
+ *
+ * @param entity   the entity to lock.
+ * @param duration the duration in ticks to lock for.
+ */
+fun lockMovement(entity: Entity, duration: Int) {
+    entity.locks.lockMovement(duration)
+}
+
+/**
+ * Locks specifically an entity's interactions,
+ * allowing lock the equipment.
+ *
+ * @param entity   the entity to lock.
+ * @param duration the duration in ticks to lock for.
+ */
+fun lockEquipment(entity: Entity, duration: Int) {
+    entity.locks.equipmentLock.lock(duration)
+}
+
+/**
+ * Locks specifically an entity's interactions,
+ * allowing lock the teleport spells & methods.
+ *
+ * @param entity   the entity to lock.
+ * @param duration the duration in ticks to lock for.
+ */
+fun lockTeleport(entity: Entity) {
+    entity.locks.isTeleportLocked()
 }
 
 /**
@@ -3259,7 +3295,11 @@ fun clearScripts(entity: Entity): Boolean {
 
 fun restartScript(entity: Entity): Boolean {
     if (entity.scripts.getActiveScript()?.persist != true) {
-        log(entity.scripts.getActiveScript()!!::class.java, Log.ERR, "Tried to call restartScript on a non-persistent script! Either use stopExecuting() or make the script persistent.")
+        log(
+            entity.scripts.getActiveScript()!!::class.java,
+            Log.ERR,
+            "Tried to call restartScript on a non-persistent script! Either use stopExecuting() or make the script persistent."
+        )
         return clearScripts(entity)
     }
     return true
@@ -3272,7 +3312,11 @@ fun keepRunning(entity: Entity): Boolean {
 
 fun stopExecuting(entity: Entity): Boolean {
     if (entity.scripts.getActiveScript()?.persist == true) {
-        log(entity.scripts.getActiveScript()!!::class.java, Log.ERR, "Tried to call stopExecuting() on a persistent script! To halt execution of a persistent script, you MUST call clearScripts()!")
+        log(
+            entity.scripts.getActiveScript()!!::class.java,
+            Log.ERR,
+            "Tried to call stopExecuting() on a persistent script! To halt execution of a persistent script, you MUST call clearScripts()!"
+        )
         return clearScripts(entity)
     }
     return true

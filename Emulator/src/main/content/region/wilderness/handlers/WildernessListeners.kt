@@ -10,6 +10,8 @@ import core.game.node.entity.impl.PulseType
 import core.game.node.entity.player.Player
 import core.game.node.scenery.Scenery
 import cfg.consts.Components
+import core.api.lock
+import core.api.lockInteractions
 
 /**
  * Represents the Wilderness listeners.
@@ -23,6 +25,8 @@ class WildernessListeners : InteractionListener {
          */
 
         on(WILDERNESS_DITCH, IntType.SCENERY, "cross") { player, node ->
+            lock(player, 3)
+            lockInteractions(player, 3)
             if (player.location.getDistance(node.location) < 3) {
                 handleDitch(player, node)
             } else {
