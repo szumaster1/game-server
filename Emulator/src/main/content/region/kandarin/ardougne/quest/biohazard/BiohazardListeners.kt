@@ -195,17 +195,10 @@ class BiohazardListeners : InteractionListener {
         }
 
         on(Scenery.DOOR_2036, IntType.SCENERY, "open") { player, node ->
-            if (inBorders(player, ZoneBorders.forRegion(11825))) {
-                DoorActionHandler.handleAutowalkDoor(player, node.asScenery())
-                return@on true
-            } else {
-                if(getQuestStage(player, "Biohazard") < 6) {
-                    sendMessage(player, "The door is locked. You can hear the mourners eating...")
-                    sendMessageWithDelay(player, "You need to distract them from their stew.", 1)
-                    return@on false
-                } else {
-                    sendMessage(player, "The doors appear to be stuck.")
-                }
+            if(getQuestStage(player, "Biohazard") < 6) {
+                sendMessage(player, "The door is locked. You can hear the mourners eating...")
+                sendMessageWithDelay(player, "You need to distract them from their stew.", 1)
+                return@on false
             }
 
             if (!inEquipment(player, Items.DOCTORS_GOWN_430) && getQuestStage(player, "Biohazard") >= 6) {

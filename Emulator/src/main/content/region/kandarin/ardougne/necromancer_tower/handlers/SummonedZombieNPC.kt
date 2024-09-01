@@ -8,14 +8,10 @@ import core.game.node.entity.player.Player
 import core.game.system.task.Pulse
 import core.game.world.GameWorld
 import core.game.world.map.Location
-import core.plugin.Initializable
 
 /**
- * Summoned zombie NPC.
- *
- * [Source](https://runescape.wiki/w/Summoned_Zombie?oldid=1887450)
+ * Represents the [Summoned zombie NPC](https://runescape.wiki/w/Summoned_Zombie?oldid=1887450).
  */
-@Initializable
 class SummonedZombieNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id, location) {
 
     var clearTime = 0
