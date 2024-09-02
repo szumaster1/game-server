@@ -19,7 +19,6 @@ import core.tools.END_DIALOGUE
 class SquireDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any?): Boolean {
-        npc = args[0] as NPC
         if (!hasRequirement(player, "King's Ransom")) return true
         when {
             getAttribute(player, KWUtils.KW_BEGIN, false) -> npc("Good day, my lord. Is there anything I can do","for you?").also { stage = 14 }

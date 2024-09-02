@@ -714,7 +714,7 @@ enum class Consumables {
      *
      * @constructor Poison Chalice
      */
-    POISON_CHALICE(Drink(intArrayOf(Items.POISON_CHALICE_197, Items.COCKTAIL_GLASS_2026), PoisonChaliceEffect())),
+    POISON_CHALICE(Drink(intArrayOf(Items.POISON_CHALICE_197, Items.COCKTAIL_GLASS_2026), PoisonChaliceEffect(), "You drink the strange green liquid.")),
 
     /**
      * Spicy Sauce

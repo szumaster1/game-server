@@ -16,6 +16,10 @@ import core.plugin.Initializable
 @Initializable
 class MerlinNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id, location) {
 
+    /*
+     * NPC spawn after complete Knight Waves training ground.
+     */
+
     private var cleanTime = 0
     private var player: Player? = null
 
@@ -29,29 +33,18 @@ class MerlinNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id, locat
 
     override fun handleTickActions() {
         super.handleTickActions()
-        player?.let {
-            if (isPlayerInactive(it)) {
-                removeAttributes(it, KWUtils.KW_TIER, KWUtils.KW_BEGIN)
-                poofClear(this)
-            }
-        }
-    }
-
-    private fun isPlayerInactive(player: Player): Boolean {
-        return player.location.getDistance(getLocation()) > 8 ||
-                !player.isActive ||
-                cleanTime++ > 60 ||
-                !player.interfaceManager.isOpened
+        if (cleanTime++ > 300)
+            removeAttributes(player!!, KWUtils.KW_TIER, KWUtils.KW_BEGIN)
+            poofClear(this)
     }
 
     companion object {
         fun spawnMerlin(player: Player) {
-            val merlin = MerlinNPC(NPCs.MERLIN_213).apply {
-                location = Location.create(2750, 3505, 2)
-                isWalks = false
-                isAggressive = false
-                isActive = false
-            }
+            val merlin = MerlinNPC(NPCs.MERLIN_213)
+            merlin.location = Location.create(2750, 3505, 2)
+            merlin.isWalks = false
+            merlin.isAggressive = false
+            merlin.isActive = false
 
             if (merlin.asNpc() != null && merlin.isActive) {
                 merlin.properties.teleportLocation = merlin.properties.spawnLocation
@@ -62,7 +55,7 @@ class MerlinNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id, locat
                     player.lock()
                     merlin.init()
                     face(findLocalNPC(player, NPCs.MERLIN_213)!!, player, 3)
-                    setAttribute(player, KWUtils.KW_COMPLETE, true)
+                    face(player, findLocalNPC(player, NPCs.MERLIN_213)!!)
                     openDialogue(player, MerlinDialogue())
                     return true
                 }

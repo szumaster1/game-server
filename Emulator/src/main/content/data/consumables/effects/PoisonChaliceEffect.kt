@@ -1,6 +1,7 @@
 package content.data.consumables.effects
 
 import core.api.impact
+import core.api.sendMessage
 import core.api.sendMessageWithDelay
 import core.game.consumable.ConsumableEffect
 import core.game.node.entity.combat.ImpactHandler
@@ -17,11 +18,12 @@ class PoisonChaliceEffect : ConsumableEffect() {
 
         when (RandomFunction.nextInt(7)) {
             1 -> {
+                val randomValueBoost = RandomFunction.random(1.0, 4.0)
                 val effect = MultiEffect(
-                    SkillEffect(Skills.ATTACK, -base, 0.0),
-                    SkillEffect(Skills.STRENGTH, -base, 0.0),
-                    SkillEffect(Skills.DEFENCE, -base, 0.0),
-                    SkillEffect(Skills.THIEVING, 1.0, 0.0)
+                    SkillEffect(Skills.ATTACK, -randomValueBoost, 0.0),
+                    SkillEffect(Skills.STRENGTH, -randomValueBoost, 0.0),
+                    SkillEffect(Skills.DEFENCE, -randomValueBoost, 0.0),
+                    SkillEffect(Skills.CRAFTING, 1.0, 0.0)
                 )
                 effect.activate(player)
                 sendMessageWithDelay(player, "You feel a little better.", 1)
@@ -33,7 +35,7 @@ class PoisonChaliceEffect : ConsumableEffect() {
                     SkillEffect(Skills.ATTACK, -1.0, 0.0),
                     SkillEffect(Skills.STRENGTH, -1.0, 0.0),
                     SkillEffect(Skills.DEFENCE, -1.0, 0.0),
-                    SkillEffect(Skills.CRAFTING, 1.0, 0.0)
+                    SkillEffect(Skills.THIEVING, 1.0, 0.0)
                 )
                 effect.activate(player)
                 sendMessageWithDelay(player, "You feel a little strange.", 1)
@@ -62,7 +64,7 @@ class PoisonChaliceEffect : ConsumableEffect() {
                     SkillEffect(Skills.ATTACK, 4.0, 0.0),
                     SkillEffect(Skills.STRENGTH, 4.0, 0.0),
                     SkillEffect(Skills.DEFENCE, 4.0, 0.0),
-                    SkillEffect(Skills.THIEVING, 0.0, 1.0)
+                    SkillEffect(Skills.THIEVING, 1.0, 0.0)
                 )
                 effect.activate(player)
                 sendMessageWithDelay(player, "Wow! That was amazing! You feel really invigorated.", 1)
@@ -70,20 +72,20 @@ class PoisonChaliceEffect : ConsumableEffect() {
             }
 
             6 -> {
-                var rand = RandomFunction.random(1.0, 2.0)
-                var amt = RandomFunction.random(1, 2)
+                val randomValueBoost = RandomFunction.random(1.0, 2.0)
                 val effect = MultiEffect(
-                    SkillEffect(Skills.ATTACK, rand, 0.0),
-                    SkillEffect(Skills.STRENGTH, rand, 0.0),
-                    SkillEffect(Skills.DEFENCE, rand, 0.0),
+                    SkillEffect(Skills.ATTACK, randomValueBoost, 0.0),
+                    SkillEffect(Skills.STRENGTH, randomValueBoost, 0.0),
+                    SkillEffect(Skills.DEFENCE, randomValueBoost, 0.0),
                 )
-                impact(player, amt, ImpactHandler.HitsplatType.NORMAL)
                 effect.activate(player)
-                sendMessageWithDelay(player, "That tasted a bit dodgy. You feel a bit ill.", 1)
+                sendMessage(player, "That tasted a bit dodgy. You feel a bit ill.")
+                impact(player, hitValue, ImpactHandler.HitsplatType.NORMAL)
                 return
             }
 
             else -> sendMessageWithDelay(player, "It has a slight taste of apricot.", 1)
+
         }
 
     }
@@ -93,8 +95,7 @@ class PoisonChaliceEffect : ConsumableEffect() {
     }
 
     companion object {
-        var base = RandomFunction.random(1.0, 4.0)
-        var amt = RandomFunction.random(1, 49)
+        var hitValue = RandomFunction.random(1, 49)
     }
 
 }

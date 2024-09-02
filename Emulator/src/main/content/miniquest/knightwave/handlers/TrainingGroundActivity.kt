@@ -7,6 +7,7 @@ import core.game.node.entity.Entity
 import core.game.node.entity.player.Player
 import core.game.world.map.Location
 import core.game.world.map.zone.ZoneBorders
+import core.game.world.map.zone.ZoneRestriction
 
 /**
  * Represents the training ground activity for the knight wave mini-quest.
@@ -23,9 +24,14 @@ class TrainingGroundActivity : ActivityPlugin("knight wave", true, false, true),
     override fun areaLeave(entity: Entity, logout: Boolean) {
         super.areaLeave(entity, logout)
         if (entity is Player) {
-            removeAttributes(entity, KWUtils.PRAYER_LOCK, KWUtils.KW_SPAWN, KWUtils.KW_TIER, KWUtils.KW_KC, KWUtils.KW_BEGIN)
-            poofClear(KnightNPC())
+            removeAttributes(entity, KWUtils.PRAYER_LOCK, KWUtils.KW_SPAWN, KWUtils.KW_TIER, KWUtils.KW_BEGIN)
+            findLocalNPC(entity, KnightWavesNPC().id)?.let { poofClear(it) }
+            clearLogoutListener(entity, "Knight's training")
         }
+    }
+
+    override fun start(player: Player?, login: Boolean, vararg args: Any?): Boolean {
+        return super.start(player, login, *args)
     }
 
     override fun areaEnter(entity: Entity) {
@@ -43,5 +49,14 @@ class TrainingGroundActivity : ActivityPlugin("knight wave", true, false, true),
         return this
     }
 
-    override fun getSpawnLocation(): Location? = Location.create(2750, 3507, 2)
+    override fun getRestrictions(): Array<ZoneRestriction> {
+        return arrayOf(
+            ZoneRestriction.CANNON,
+            ZoneRestriction.RANDOM_EVENTS,
+            ZoneRestriction.FOLLOWERS,
+            ZoneRestriction.TELEPORT
+        )
+    }
+
+    override fun getSpawnLocation(): Location? = null
 }

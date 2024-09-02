@@ -12,6 +12,7 @@ import core.game.node.entity.npc.AbstractNPC
 import core.game.node.entity.player.Player
 import core.game.system.task.Pulse
 import core.game.world.GameWorld.Pulser
+import core.game.world.map.Direction
 import core.game.world.map.Location
 import core.game.world.map.RegionManager.getLocalPlayers
 import core.plugin.Initializable
@@ -20,7 +21,7 @@ import core.plugin.Initializable
  * Represents the Knights of the Round Table that appear in the Knight Waves training ground activity.
  */
 @Initializable
-class KnightNPC : AbstractNPC {
+class KnightWavesNPC : AbstractNPC {
     var type: KnightType? = null
     private var commenced = false
     var player: Player? = null
@@ -33,6 +34,7 @@ class KnightNPC : AbstractNPC {
         this.isRespawn = false
         this.type = KnightType.forId(id)
         this.player = player
+        this.isInvisible = false
     }
 
     override fun handleTickActions() {
@@ -50,8 +52,8 @@ class KnightNPC : AbstractNPC {
 
     override fun finalizeDeath(killer: Entity?) {
         if (killer == player) {
+            this.asNpc().isInvisible = true
             type?.transform(this, player)
-            this.isInvisible = true
             timer = 0 // Reset the timer each wave.
         } else {
             super.finalizeDeath(killer)
@@ -94,7 +96,7 @@ class KnightNPC : AbstractNPC {
     }
 
     override fun construct(id: Int, location: Location, vararg objects: Any): AbstractNPC {
-        return KnightNPC(id, location, null)
+        return KnightWavesNPC(id, location, null)
     }
 
     override fun getIds(): IntArray {
@@ -117,13 +119,13 @@ class KnightNPC : AbstractNPC {
     enum class KnightType(val id: Int) {
         I(6177), II(6176), III(6175), IV(1883), V(6173), VI(6172), VII(6171), VIII(6170);
 
-        fun transform(npc: KnightNPC, player: Player?) {
+        fun transform(npc: KnightWavesNPC, player: Player?) {
             val newType = next()
             npc.lock()
             npc.pulseManager.clear()
             npc.walkingQueue.reset()
             player?.setAttribute(KWUtils.KW_TIER, this.id)
-            Pulser.submit(object : Pulse(10, npc, player) {
+            Pulser.submit(object : Pulse(3, npc, player) {
                 private var counter = 0
 
                 override fun pulse(): Boolean {
@@ -134,13 +136,12 @@ class KnightNPC : AbstractNPC {
                             npc.fullRestore()
                             npc.type = newType
                             npc.transform(newType!!.id)
-                            npc.getShownNPC(player)
                             npc.impactHandler.disabledTicks = 1
+                            npc.isInvisible = false
                             if (newType != VIII) {
                                 npc.properties.combatPulse.attack(player)
                             } else {
-                                player?.setAttribute(KWUtils.KW_KC, true)
-                                teleport(player!!, Location.create(2750, 3507, 2))
+                                teleport(player!!, Location.create(2750, 3507, 2).transform(Direction.SOUTH))
                                 MerlinNPC.spawnMerlin(player)
                                 npc.clear()
                             }
