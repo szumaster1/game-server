@@ -1,5 +1,6 @@
 package content.region.misthalin.quest.firedup
 
+import cfg.consts.Components
 import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.quest.Quest
 import core.game.node.entity.skill.Skills
@@ -23,9 +24,10 @@ class AllFiredUp : Quest("All Fired Up", 157, 156, 1){
             line(player, "I can start this quest by speaking to !!King Roald?? in !!Varrock??", line++)
             line(player, "!!Palace??.", line++)
             line++
-            line(player, "To start this quest, I require:", line++)
-            line(player, "!!43 Firemaking??", line++, player.skills.getLevel(Skills.FIREMAKING) >= 43)
-            line(player, "!!Completion of Priest in Peril??", line++, player.questRepository.isComplete("Priest in Peril"))
+            line++
+            line(player, "Minimum requirements:", line++)
+            line(player, "I need level !!43 Firemaking?? to start the quest.", line++, getStatLevel(player, Skills.FIREMAKING) >= 43)
+            line(player, "I need to have completed !!Priest in Peril??.", line++, isQuestComplete(player, "Priest in Peril"))
         } else {
             line(player, "I have agreed to help King Roald test the beacon network", line++, true)
             line(player, "that he hopes will serve as an early warning system,", line++, true)
@@ -134,16 +136,20 @@ class AllFiredUp : Quest("All Fired Up", 157, 156, 1){
     override fun finish(player: Player) {
         super.finish(player)
         player ?: return
-        player.packetDispatch.sendString("20,000gp,", 277, 8 + 2)
-        player.packetDispatch.sendString("5,500 Firemaking XP", 277, 9 + 2)
-        player.packetDispatch.sendString("Full access to the beacon network", 277, 10 + 2)
-        player.packetDispatch.sendString("1 Quest Point", 277, 11 + 2)
-        player.packetDispatch.sendItemZoomOnInterface(Items.TINDERBOX_590, 235, 277, 3 + 2)
-        player.skills.addExperience(Skills.FIREMAKING, 5500.0)
-        player.inventory.add(Item(995,20000))
+        setInterfaceText(player, "20,000gp,", 277, 8 + 2)
+        setInterfaceText(player, "5,500 Firemaking XP", 277, 9 + 2)
+        setInterfaceText(player, "Full access to the beacon network", 277, 10 + 2)
+        setInterfaceText(player, "1 Quest Point", 277, 11 + 2)
+        sendItemZoomOnInterface(player, Components.QUEST_COMPLETE_SCROLL_277,5,Items.TINDERBOX_590, 235)
+        rewardXP(player, Skills.FIREMAKING, 5500.0)
+        if(freeSlots(player) == 0){
+            addItemOrBank(player, Items.COINS_995,20000)
+        } else {
+            addItem(player, Items.COINS_995, 20000)
+        }
         AFUBeacon.resetAllBeacons(player)
         setVarbit(player, 1283, 0)
-        player.questRepository.syncronizeTab(player)
+        updateQuestTab(player)
     }
 
     override fun getConfig(player: Player?, stage: Int): IntArray {
