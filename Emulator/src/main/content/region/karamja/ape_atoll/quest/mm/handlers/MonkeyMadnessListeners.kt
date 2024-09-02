@@ -1,11 +1,11 @@
 package content.region.karamja.ape_atoll.quest.mm.handlers
 
-import content.region.karamja.quest.mm.dialogue.*
 import content.region.karamja.ape_atoll.dialogue.dungeon.ZooknockAfterBattleDialogueFile
 import content.region.karamja.ape_atoll.dialogue.dungeon.ZooknockDialogue
 import content.region.karamja.ape_atoll.dialogue.dungeon.ZooknockDialogueFile
 import core.api.*
 import cfg.consts.*
+import content.region.karamja.ape_atoll.quest.mm.dialogue.*
 import core.game.component.Component
 import core.game.global.action.DoorActionHandler
 import core.game.interaction.IntType
