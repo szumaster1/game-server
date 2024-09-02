@@ -1,6 +1,6 @@
 package content.region.karamja.ape_atoll.quest.mm.handlers
 
-import content.region.karamja.quest.mm.dialogue.CrateMonkeyMadnessDialogue
+import content.region.karamja.ape_atoll.quest.mm.dialogue.CrateMonkeyMadnessDialogue
 import core.api.openDialogue
 import core.api.sendMessage
 import core.game.interaction.IntType

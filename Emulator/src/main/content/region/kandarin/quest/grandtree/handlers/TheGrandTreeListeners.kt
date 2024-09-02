@@ -4,12 +4,12 @@ import content.global.handlers.iface.ScrollInterface
 import content.region.kandarin.quest.grandtree.cutscene.BlackDemonCutscene
 import content.region.kandarin.quest.grandtree.dialogue.KingNarnodeUnderGroundDialogue
 import content.region.kandarin.quest.grandtree.dialogue.ShipyardWorkerDialogueFile
-import content.region.karamja.quest.mm.dialogue.KingNarnodeMonkeyMadnessDialogue
 import core.api.*
 import cfg.consts.Components
 import cfg.consts.Items
 import cfg.consts.NPCs
 import cfg.consts.Sounds
+import content.region.karamja.ape_atoll.quest.mm.dialogue.KingNarnodeMonkeyMadnessDialogue
 import core.game.global.action.DoorActionHandler
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
