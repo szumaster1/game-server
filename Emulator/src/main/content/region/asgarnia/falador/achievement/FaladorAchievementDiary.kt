@@ -213,7 +213,7 @@ class FaladorAchievementDiary : DiaryEventHookBase(DiaryType.FALADOR) {
                 }
             }
         }
-
+        /*
         if (event.option == "pickpocket" && (event.target.id in FALADOR_GUARD && inBorders(player, FALADOR_GENERAL_AREA)) && getStatLevel(player, Skills.THIEVING) >= 40) {
             finishTask(
                 player,
@@ -221,6 +221,7 @@ class FaladorAchievementDiary : DiaryEventHookBase(DiaryType.FALADOR) {
                 MediumTasks.PICKPOCKET_GUARD
             )
         }
+        */
     }
 
     override fun onDialogueOptionSelected(player: Player, event: DialogueOptionSelectionEvent) {
