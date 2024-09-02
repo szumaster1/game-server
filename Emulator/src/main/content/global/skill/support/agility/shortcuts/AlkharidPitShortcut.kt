@@ -28,7 +28,7 @@ class AlkharidPitShortcut : AgilityShortcut(intArrayOf(9331, 9332), 38, 0.0, "cl
             else -> return
         }
 
-        val animation = if (scenery.id == 9331) content.global.skill.support.agility.shortcuts.AlkharidPitShortcut.Companion.ANIMATION else content.global.skill.support.agility.shortcuts.AlkharidPitShortcut.Companion.SCALE
+        val animation = if (scenery.id == 9331) ANIMATION else SCALE
         ForceMovement.run(player, player.location, destination, animation, animation, Direction.EAST, 13).apply {
             endAnimation = Animation.RESET
         }

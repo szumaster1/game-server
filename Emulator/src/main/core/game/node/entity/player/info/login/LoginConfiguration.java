@@ -145,10 +145,12 @@ public final class LoginConfiguration {
         player.getSpellBookManager().update(player);
 
         /*
-         *
+         * Sound effect for quest prayers.
          */
         if(getAttribute(player, KWUtils.KW_COMPLETE, false)) {
             setVarbit(player, 3909, 8, false);
+        } else {
+            setVarbit(player, 3909, 0, false);
         }
 
         /*

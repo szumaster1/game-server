@@ -19,9 +19,10 @@ class BuryBonesListener : InteractionListener {
 
     override fun defineListeners() {
 
-        /**
+        /*
          * Handles the bury options for bones in Bones.kt
          */
+
         on(Bones.array, IntType.ITEM, "bury") { player, node ->
             val bones = Bones.forId(node.id) ?: return@on true
             if (!clockReady(player, Clocks.SKILLING)) return@on true
