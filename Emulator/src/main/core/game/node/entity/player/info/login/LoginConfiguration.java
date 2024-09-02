@@ -1,6 +1,6 @@
 package core.game.node.entity.player.info.login;
 
-import content.miniquest.knightwave.handlers.KnightWaves;
+import content.miniquest.knightwave.handlers.KWUtils;
 import core.Configuration;
 import core.game.component.Component;
 import core.game.interaction.InteractionListeners;
@@ -145,9 +145,9 @@ public final class LoginConfiguration {
         player.getSpellBookManager().update(player);
 
         /*
-
+         *
          */
-        if(getAttribute(player, KnightWaves.KW_COMPLETE, false)) {
+        if(getAttribute(player, KWUtils.KW_COMPLETE, false)) {
             setVarbit(player, 3909, 8, false);
         }
 

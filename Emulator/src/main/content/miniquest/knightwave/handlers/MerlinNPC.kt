@@ -11,17 +11,13 @@ import core.game.world.map.Location
 import core.plugin.Initializable
 
 /**
- * Merlin NPC.
+ * Represents the Merlin NPC.
  */
 @Initializable
 class MerlinNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id, location) {
 
-    /*
-     * NPC spawn after complete Knight Waves training ground.
-     */
-
     private var cleanTime = 0
-    private val player: Player? = null
+    private var player: Player? = null
 
     override fun construct(id: Int, location: Location, vararg objects: Any): AbstractNPC {
         return MerlinNPC(id, location)
@@ -33,21 +29,29 @@ class MerlinNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id, locat
 
     override fun handleTickActions() {
         super.handleTickActions()
-        if (player != null) {
-            if (player.location.getDistance(getLocation()) > 8 || !player.isActive || cleanTime++ > 60 || !player.interfaceManager.isOpened) {
-                removeAttributes(player, KnightWaves.KW_TIER, KnightWaves.KW_BEGIN)
+        player?.let {
+            if (isPlayerInactive(it)) {
+                removeAttributes(it, KWUtils.KW_TIER, KWUtils.KW_BEGIN)
                 poofClear(this)
             }
         }
     }
 
+    private fun isPlayerInactive(player: Player): Boolean {
+        return player.location.getDistance(getLocation()) > 8 ||
+                !player.isActive ||
+                cleanTime++ > 60 ||
+                !player.interfaceManager.isOpened
+    }
+
     companion object {
         fun spawnMerlin(player: Player) {
-            val merlin = MerlinNPC(NPCs.MERLIN_213)
-            merlin.location = Location.create(2750, 3505, 2)
-            merlin.isWalks = false
-            merlin.isAggressive = false
-            merlin.isActive = false
+            val merlin = MerlinNPC(NPCs.MERLIN_213).apply {
+                location = Location.create(2750, 3505, 2)
+                isWalks = false
+                isAggressive = false
+                isActive = false
+            }
 
             if (merlin.asNpc() != null && merlin.isActive) {
                 merlin.properties.teleportLocation = merlin.properties.spawnLocation
@@ -58,7 +62,7 @@ class MerlinNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id, locat
                     player.lock()
                     merlin.init()
                     face(findLocalNPC(player, NPCs.MERLIN_213)!!, player, 3)
-                    setAttribute(player, KnightWaves.KW_COMPLETE, true)
+                    setAttribute(player, KWUtils.KW_COMPLETE, true)
                     openDialogue(player, MerlinDialogue())
                     return true
                 }

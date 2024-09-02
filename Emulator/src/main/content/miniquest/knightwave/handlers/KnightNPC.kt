@@ -1,10 +1,13 @@
 package content.miniquest.knightwave.handlers
 
 import cfg.consts.NPCs
+import core.api.poofClear
 import core.api.teleport
 import core.game.node.entity.Entity
 import core.game.node.entity.combat.BattleState
 import core.game.node.entity.combat.CombatStyle
+import core.game.node.entity.combat.equipment.Weapon
+import core.game.node.entity.combat.equipment.WeaponInterface
 import core.game.node.entity.npc.AbstractNPC
 import core.game.node.entity.player.Player
 import core.game.system.task.Pulse
@@ -14,40 +17,17 @@ import core.game.world.map.RegionManager.getLocalPlayers
 import core.plugin.Initializable
 
 /**
- * Knight of Round Table NPC.
+ * Represents the Knights of the Round Table that appear in the Knight Waves training ground activity.
  */
 @Initializable
 class KnightNPC : AbstractNPC {
-    /**
-     * Gets type.
-     *
-     * @return the type
-     */
-    /**
-     * Sets type.
-     *
-     * @param type the type
-     */
     var type: KnightType? = null
     private var commenced = false
-
-    /**
-     * The Player.
-     */
     var player: Player? = null
+    private var timer = 0
 
-    /**
-     * Instantiates a new Knight npc.
-     */
     constructor() : super(0, null)
 
-    /**
-     * Instantiates a new Knight npc.
-     *
-     * @param id       the id
-     * @param location the location
-     * @param player   the player
-     */
     internal constructor(id: Int, location: Location?, player: Player?) : super(id, location) {
         this.isWalks = true
         this.isRespawn = false
@@ -57,21 +37,25 @@ class KnightNPC : AbstractNPC {
 
     override fun handleTickActions() {
         super.handleTickActions()
-        if (!player!!.isActive || !getLocalPlayers(this).contains(player)) {
-            player!!.removeAttribute(KnightWaves.KW_SPAWN)
-            clear()
+        player?.let {
+            if (!it.isActive || !getLocalPlayers(this).contains(it)) {
+                it.removeAttribute(KWUtils.KW_SPAWN)
+                clear()
+            } else if (!properties.combatPulse.isAttacking) {
+                properties.combatPulse.attack(it)
+            }
         }
-        if (!properties.combatPulse.isAttacking) {
-            properties.combatPulse.attack(player)
-        }
+        if (timer++ > 500) poofClear(this)
     }
 
     override fun finalizeDeath(killer: Entity?) {
         if (killer == player) {
-            type!!.transform(this, player)
-            return
+            type?.transform(this, player)
+            this.isInvisible = true
+            timer = 0 // Reset the timer each wave.
+        } else {
+            super.finalizeDeath(killer)
         }
-        super.finalizeDeath(killer)
     }
 
     override fun isAttackable(entity: Entity, style: CombatStyle, message: Boolean): Boolean {
@@ -79,24 +63,32 @@ class KnightNPC : AbstractNPC {
     }
 
     override fun canSelectTarget(target: Entity): Boolean {
-        if (target is Player) {
-            return target == this.player
-        }
-        return true
+        return target is Player && target == player
     }
 
     override fun checkImpact(state: BattleState) {
-        if (state.style == CombatStyle.MELEE) {
-            state.neutralizeHits()
-            state.estimatedHit = state.maximumHit
-        } else {
-            if (state.estimatedHit > -1) {
-                state.estimatedHit = 0
-                return
-            }
-            if (state.secondaryHit > -1) {
-                state.secondaryHit = 0
-                return
+        super.checkImpact(state)
+        if (state.attacker is Player) {
+            when (state.style) {
+                CombatStyle.MELEE -> {
+                    state.neutralizeHits()
+                    state.estimatedHit = state.maximumHit
+                }
+
+                CombatStyle.RANGE, CombatStyle.MAGIC -> {
+                    val specialAttack = player!!.getExtension<WeaponInterface>(WeaponInterface::class.java)
+                    if (specialAttack.isSpecialBar && state.style != CombatStyle.MELEE) {
+                        if (state.estimatedHit > -1) state.estimatedHit = 0
+                    }
+                    if (state.secondaryHit > -1) state.secondaryHit = 0
+                }
+
+                else -> {
+                    if (state.weapon.type != Weapon.WeaponType.DEFAULT) {
+                        if (state.estimatedHit > -1) state.estimatedHit = 0
+                        if (state.secondaryHit > -1) state.secondaryHit = 0
+                    }
+                }
             }
         }
     }
@@ -118,136 +110,57 @@ class KnightNPC : AbstractNPC {
         )
     }
 
-    /**
-     * Sets commenced.
-     *
-     * @param commenced the commenced
-     */
     fun setCommenced(commenced: Boolean) {
         this.commenced = commenced
     }
 
-    /**
-     * The enum knight type.
-     */
-    enum class KnightType(
-        /**
-         * Gets id.
-         *
-         * @return the id
-         */
-        val id: Int
-    ) {
-        /*
-         * First wave.
-         */
-        I(6177),
+    enum class KnightType(val id: Int) {
+        I(6177), II(6176), III(6175), IV(1883), V(6173), VI(6172), VII(6171), VIII(6170);
 
-        /*
-         * Second wave.
-         */
-        II(6176),
-
-        /*
-         * Third wave.
-         */
-        III(6175),
-
-        /*
-         * Four wave.
-         */
-        IV(1883),
-
-        /*
-         * Five wave.
-         */
-        V(6173),
-
-        /*
-         * Six wave.
-         */
-        VI(6172),
-
-        /*
-         * Seven wave.
-         */
-        VII(6171),
-
-        /*
-         * Eight wave.
-         */
-        VIII(6170);
-
-        /**
-         * Transform.
-         *
-         * @param npc    the npc
-         * @param player the player
-         */
         fun transform(npc: KnightNPC, player: Player?) {
             val newType = next()
             npc.lock()
             npc.pulseManager.clear()
             npc.walkingQueue.reset()
-            player!!.setAttribute(KnightWaves.KW_TIER, this.id)
+            player?.setAttribute(KWUtils.KW_TIER, this.id)
             Pulser.submit(object : Pulse(10, npc, player) {
-                var counter: Int = 0
+                private var counter = 0
 
                 override fun pulse(): Boolean {
-                    when (++counter) {
+                    return when (++counter) {
                         1 -> {
                             npc.unlock()
                             npc.animator.reset()
                             npc.fullRestore()
                             npc.type = newType
                             npc.transform(newType!!.id)
+                            npc.getShownNPC(player)
                             npc.impactHandler.disabledTicks = 1
                             if (newType != VIII) {
                                 npc.properties.combatPulse.attack(player)
-                            }
-                            if (newType == VIII) {
-                                player.setAttribute(KnightWaves.KW_KC, true)
-                                teleport(player, Location.create(2750, 3507, 2))
+                            } else {
+                                player?.setAttribute(KWUtils.KW_KC, true)
+                                teleport(player!!, Location.create(2750, 3507, 2))
                                 MerlinNPC.spawnMerlin(player)
                                 npc.clear()
-                                return false
                             }
-                            player.unlock()
-                            return true
+                            player?.unlock()
+                            true
                         }
+
+                        else -> false
                     }
-                    return false
                 }
             })
         }
 
-        /**
-         * Next knight type.
-         *
-         * @return the knight type
-         */
         fun next(): KnightType? {
-            return if (ordinal + 1 < knightTypes.size) {
-                knightTypes[ordinal + 1]
-            } else {
-                knightTypes[ordinal]
-            }
+            return if (ordinal + 1 < knightTypes.size) knightTypes[ordinal + 1] else knightTypes[ordinal]
         }
 
         companion object {
-            /**
-             * For id knight type.
-             *
-             * @param id the id
-             * @return the knight type
-             */
             fun forId(id: Int): KnightType? {
-                for (type in values()) {
-                    if (type.id == id) {
-                        return type
-                    }
-                }
-                return null
+                return values().find { it.id == id }
             }
 
             private val knightTypes = values()

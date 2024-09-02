@@ -1,7 +1,7 @@
 package content.miniquest.knightwave.dialogue
 
 import cfg.consts.NPCs
-import content.miniquest.knightwave.handlers.KnightWaves
+import content.miniquest.knightwave.handlers.KWUtils
 import core.api.getAttribute
 import core.api.hasRequirement
 import core.api.setAttribute
@@ -22,8 +22,8 @@ class SquireDialogue(player: Player? = null) : Dialogue(player) {
         npc = args[0] as NPC
         if (!hasRequirement(player, "King's Ransom")) return true
         when {
-            getAttribute(player, KnightWaves.KW_BEGIN, false) -> npc("Good day, my lord. Is there anything I can do","for you?").also { stage = 14 }
-            getAttribute(player, KnightWaves.KW_COMPLETE, false) -> npc("Congratulations on succeeding in the Knight Waves,","${if (!player.isMale) "my lady" else "my lord"}.").also { stage = 29 }
+            getAttribute(player, KWUtils.KW_BEGIN, false) -> npc("Good day, my lord. Is there anything I can do","for you?").also { stage = 14 }
+            getAttribute(player, KWUtils.KW_COMPLETE, false) -> npc("Congratulations on succeeding in the Knight Waves,","${if (!player.isMale) "my lady" else "my lord"}.").also { stage = 29 }
             else -> npc("Greetings, brave knight!")
         }
         return true
@@ -49,7 +49,7 @@ class SquireDialogue(player: Player? = null) : Dialogue(player) {
             11 -> npc("XP in to each of your combat stats.").also { stage++ }
             12 -> npc("If you do not want your respawn point set to Camelot,", "Merlin can change it for you.").also { stage++ }
             13 -> npc("Would you like me to repeat any of that for you?").also {
-                setAttribute(player, KnightWaves.KW_BEGIN, true)
+                setAttribute(player, KWUtils.KW_BEGIN, true)
                 stage++
             }
             14 -> options("Tell me about the training ground.", "Tell me about dying or leaving the grounds.", "Tell me about the rewards.", "No, thank you.").also { stage++ }
