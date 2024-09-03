@@ -1,24 +1,20 @@
 package content.global.skill.production.fletching
 
+import cfg.consts.Items
 import content.global.skill.production.fletching.data.*
 import content.global.skill.production.fletching.data.BowString
 import content.global.skill.production.fletching.item.*
 import core.api.*
-import cfg.consts.Components
-import cfg.consts.Items
 import core.game.dialogue.SkillDialogueHandler
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 import core.game.system.task.Pulse
-import core.network.packet.PacketRepository
-import core.network.packet.context.ChildPositionContext
-import core.network.packet.outgoing.RepositionChild
 import kotlin.math.min
 
 /**
- * Fletching listeners.
+ * Represents the fletching listener used to handle the fletch ingredients into products.
  */
 class FletchingListeners : InteractionListener {
 
@@ -39,9 +35,10 @@ class FletchingListeners : InteractionListener {
 
     override fun defineListeners() {
 
-        /**
-         * String.
+        /*
+         * Handle the stringing.
          */
+
         onUseWith(IntType.ITEM, stringIds, *unstrungBows) { player, string, bow ->
             val enum = BowString.productMap[bow.id] ?: return@onUseWith false
             if (enum.string != string.id) {
@@ -52,7 +49,8 @@ class FletchingListeners : InteractionListener {
                 object : SkillDialogueHandler(player, SkillDialogue.ONE_OPTION, Item(enum.product)) {
                     override fun create(amount: Int, index: Int) {
                         player.pulseManager.run(
-                            StringPulse(player,
+                            StringPulse(
+                                player,
                                 Item(string.id), enum, amount
                             )
                         )
@@ -63,15 +61,13 @@ class FletchingListeners : InteractionListener {
                     }
                 }
             handler.open()
-            PacketRepository.send(
-                RepositionChild::class.java, ChildPositionContext(player, Components.SKILL_MULTI1_309, 2, 215, 10)
-            )
             return@onUseWith true
         }
 
-        /**
-         * Headless arrows.
+        /*
+         * Handle the unfinished arrows.
          */
+
         onUseWith(IntType.ITEM, arrowShaftId, *featherIds) { player, shaft, feather ->
             val handler: SkillDialogueHandler =
                 object : SkillDialogueHandler(player, SkillDialogue.MAKE_SET_ONE_OPTION, Item(fletchedShaftId)) {
@@ -82,6 +78,7 @@ class FletchingListeners : InteractionListener {
                             )
                         )
                     }
+
                     override fun getAll(index: Int): Int {
                         return player.inventory.getAmount(fletchedShaftId)
                     }
@@ -90,16 +87,18 @@ class FletchingListeners : InteractionListener {
             return@onUseWith true
         }
 
-        /**
-         * Arrow heads.
+        /*
+         * Handle the arrows.
          */
+
         onUseWith(IntType.ITEM, fletchedShaftId, *unfinishedArrows) { player, shaft, unfinished ->
             val head = ArrowHead.productMap[unfinished.id] ?: return@onUseWith false
             val handler: SkillDialogueHandler =
                 object : SkillDialogueHandler(player, SkillDialogue.MAKE_SET_ONE_OPTION, Item(head.finished)) {
                     override fun create(amount: Int, index: Int) {
                         player.pulseManager.run(
-                            ArrowHeadPulse(player,
+                            ArrowHeadPulse(
+                                player,
                                 Item(shaft.id), head, amount
                             )
                         )
@@ -113,9 +112,10 @@ class FletchingListeners : InteractionListener {
             return@onUseWith true
         }
 
-        /**
-         * Grapple.
+        /*
+         * Handle the grapple.
          */
+
         onUseWith(IntType.ITEM, Items.MITHRIL_BOLTS_9142, Items.MITH_GRAPPLE_TIP_9416) { player, used, with ->
             if (getStatLevel(player, Skills.FLETCHING) < 59) {
                 sendMessage(player, "You need a fletching level of 59 to make this.")
@@ -138,9 +138,10 @@ class FletchingListeners : InteractionListener {
             return@onUseWith true
         }
 
-        /**
-         * Limbs.
+        /*
+         * Handle the attaching limbs.
          */
+
         onUseWith(IntType.ITEM, limbIds, *stockIds) { player, limb, stock ->
             val limbEnum = Limb.productMap[stock.id] ?: return@onUseWith false
             if (limbEnum.limb != limb.id) {
@@ -151,7 +152,8 @@ class FletchingListeners : InteractionListener {
                 object : SkillDialogueHandler(player, SkillDialogue.ONE_OPTION, Item(limbEnum.product)) {
                     override fun create(amount: Int, index: Int) {
                         player.pulseManager.run(
-                            LimbPulse(player,
+                            LimbPulse(
+                                player,
                                 Item(stock.id), limbEnum, amount
                             )
                         )
@@ -162,21 +164,20 @@ class FletchingListeners : InteractionListener {
                     }
                 }
             handler.open()
-            PacketRepository.send(
-                RepositionChild::class.java, ChildPositionContext(player, Components.SKILL_MULTI1_309, 2, 210, 10)
-            )
             return@onUseWith true
         }
 
-        /**
-         * Bolt gem tips.
+        /*
+         * Handle the bolt gem tips.
          */
+
         onUseWith(IntType.ITEM, Items.CHISEL_1755, *gemIds) { player, used, with ->
             val gem = GemBolt.productMap[with.id] ?: return@onUseWith true
             object : SkillDialogueHandler(player, SkillDialogue.ONE_OPTION, Item(gem.gem)) {
                 override fun create(amount: Int, index: Int) {
                     player.pulseManager.run(
-                        GemBoltCutPulse(player,
+                        GemBoltCutPulse(
+                            player,
                             Item(used.id), gem, amount
                         )
                     )
@@ -189,9 +190,10 @@ class FletchingListeners : InteractionListener {
             return@onUseWith true
         }
 
-        /**
-         * Bolt tips.
+        /*
+         * Handle the gem bolt.
          */
+
         onUseWith(IntType.ITEM, boltBaseIds, *boltTipIds) { player, used, with ->
             val bolt = GemBolt.productMap[with.id] ?: return@onUseWith true
             if (used.id != bolt.base || with.id != bolt.tip) return@onUseWith true
@@ -199,7 +201,8 @@ class FletchingListeners : InteractionListener {
                 object : SkillDialogueHandler(player, SkillDialogue.MAKE_SET_ONE_OPTION, Item(bolt.product)) {
                     override fun create(amount: Int, index: Int) {
                         player.pulseManager.run(
-                            GemBoltPulse(player,
+                            GemBoltPulse(
+                                player,
                                 Item(used.id), bolt, amount
                             )
                         )
@@ -213,35 +216,34 @@ class FletchingListeners : InteractionListener {
             return@onUseWith true
         }
 
-        /**
-         * Kebbit bolts.
+        /*
+         * Handle the kebbit bolts.
          */
+
         onUseWith(IntType.ITEM, Items.CHISEL_1755, *kebbitSpikeIds) { player, _, base ->
-            val bolt = KebbitBolt.productMap[base.id] ?: return@onUseWith false
             val handler: SkillDialogueHandler =
-                object : SkillDialogueHandler(player, SkillDialogue.ONE_OPTION, Item(bolt.product)) {
+                object : SkillDialogueHandler(player, SkillDialogue.ONE_OPTION, Item(base.id)) {
                     override fun create(amount: Int, index: Int) {
                         player.pulseManager.run(
-                            KebbitBoltPulse(player,
-                                Item(bolt.base), bolt, amount
+                            KebbitBoltPulse(
+                                player,
+                                Item(base.id), KebbitBolt.forId(base.asItem())!!, amount
                             )
                         )
                     }
 
                     override fun getAll(index: Int): Int {
-                        return player.inventory.getAmount(bolt.base)
+                        return player.inventory.getAmount(base.id)
                     }
                 }
             handler.open()
-            PacketRepository.send(
-                RepositionChild::class.java, ChildPositionContext(player, Components.SKILL_MULTI1_309, 2, 210, 10)
-            )
             return@onUseWith true
         }
 
-        /**
-         * Brutal arrows.
+        /*
+         * Handle the flighted ogre arrows.
          */
+
         onUseWith(IntType.ITEM, Items.OGRE_ARROW_SHAFT_2864, *featherIds) { player, used, with ->
             val shaftAmount = amountInInventory(player, used.id)
             val featherAmount = amountInInventory(player, with.id)
@@ -251,7 +253,11 @@ class FletchingListeners : InteractionListener {
                 override fun pulse(): Boolean {
                     val iterAmount = min(maxAmount, 6)
                     val amountThisIter = min(6, maxAmount)
-                    if (removeItem(player, Item(Items.OGRE_ARROW_SHAFT_2864, iterAmount)) && removeItem(player, Item(with.id, iterAmount))) {
+                    if (removeItem(player, Item(Items.OGRE_ARROW_SHAFT_2864, iterAmount)) && removeItem(
+                            player,
+                            Item(with.id, iterAmount)
+                        )
+                    ) {
                         addItem(player, Items.FLIGHTED_OGRE_ARROW_2865, iterAmount)
                         rewardXP(player, Skills.FLETCHING, 0.9 * iterAmount)
                         maxAmount -= iterAmount
@@ -263,6 +269,10 @@ class FletchingListeners : InteractionListener {
 
             return@onUseWith true
         }
+
+        /*
+         * Handle the wolfbone arrow tips.
+         */
 
         onUseWith(IntType.ITEM, Items.WOLF_BONES_2859, Items.CHISEL_1755) { player, used, _ ->
             val maxAmount = amountInInventory(player, used.id)
@@ -296,6 +306,10 @@ class FletchingListeners : InteractionListener {
             return@onUseWith true
         }
 
+        /*
+         * Handle the ogre arrows.
+         */
+
         onUseWith(IntType.ITEM, Items.WOLFBONE_ARROWTIPS_2861, Items.FLIGHTED_OGRE_ARROW_2865) { player, used, with ->
             fun getMaxAmount(_unused: Int = 0): Int {
                 val tips = amountInInventory(player, Items.WOLFBONE_ARROWTIPS_2861)
@@ -305,7 +319,11 @@ class FletchingListeners : InteractionListener {
 
             fun process() {
                 val amountThisIter = min(6, getMaxAmount())
-                if (removeItem(player, Item(used.id, amountThisIter)) && removeItem(player, Item(with.id, amountThisIter))) {
+                if (removeItem(player, Item(used.id, amountThisIter)) && removeItem(
+                        player,
+                        Item(with.id, amountThisIter)
+                    )
+                ) {
                     addItem(player, Items.OGRE_ARROW_2866, amountThisIter)
                     rewardXP(player, Skills.FLETCHING, 6.0)
                     sendMessage(player, "You make $amountThisIter ogre arrows.")
@@ -322,13 +340,18 @@ class FletchingListeners : InteractionListener {
             return@onUseWith true
         }
 
+        /*
+         * Handle the brutal arrows.
+         */
+
         onUseWith(IntType.ITEM, fligtedOgreArrowId, *nailIds) { player, used, with ->
             val brutal = BrutalArrow.productMap[with.id] ?: return@onUseWith false
             val handler: SkillDialogueHandler =
                 object : SkillDialogueHandler(player, SkillDialogue.MAKE_SET_ONE_OPTION, Item(brutal.product)) {
                     override fun create(amount: Int, index: Int) {
                         player.pulseManager.run(
-                            BrutalArrowPulse(player,
+                            BrutalArrowPulse(
+                                player,
                                 Item(used.id), brutal, amount
                             )
                         )
@@ -338,7 +361,7 @@ class FletchingListeners : InteractionListener {
                         return min(amountInInventory(player, used.id), amountInInventory(player, with.id))
                     }
                 }
-                handler.open()
+            handler.open()
             return@onUseWith true
         }
     }

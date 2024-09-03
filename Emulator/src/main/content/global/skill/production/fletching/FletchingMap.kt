@@ -4,7 +4,7 @@ import cfg.consts.Items
 import core.game.node.item.Item
 
 /**
- * Fletching map.
+ * Represents the fletching map.
  */
 object FletchingMap {
 

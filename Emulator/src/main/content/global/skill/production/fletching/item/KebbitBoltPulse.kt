@@ -9,14 +9,7 @@ import core.game.node.item.Item
 import core.game.world.GameWorld.ticks
 
 /**
- * Kebbit bolt pulse
- *
- * @param bolts Represents the type of Kebbit bolt used in the pulse.
- * @param amount Indicates the quantity of Kebbit bolts involved in the pulse.
- * @constructor Represents a new instance of KebbitBoltPulse.
- *
- * @param player The player associated with this pulse, can be null.
- * @param node The item node that this pulse interacts with.
+ * Represents the [KebbitBoltPulse] class to make [KebbitBolt.product].
  */
 class KebbitBoltPulse(player: Player?, node: Item, private val bolts: KebbitBolt, private var amount: Int) : SkillPulse<Item?>(player, node) {
 

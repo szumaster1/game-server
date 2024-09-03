@@ -9,17 +9,10 @@ import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 
 /**
- * Bolt pulse class representing a skill pulse related to bolts.
- *
- * @param feather Represents the feather item associated with the bolt pulse.
- * @param sets Indicates the number of sets for the bolt pulse.
- * @constructor Represents a BoltPulse instance with the specified parameters.
- *
- * @param player The player associated with this bolt pulse.
- * @param node The item node associated with this bolt pulse.
- * @param bolt The bolt object related to this pulse.
+ * Represents the bolt pulse class to make bolts.
  */
-class BoltPulse(player: Player?, node: Item?, bolt: Bolt, private val feather: Item, private var sets: Int) : SkillPulse<Item?>(player, node) {
+class BoltPulse(player: Player?, node: Item?, bolt: Bolt, private val feather: Item, private var sets: Int) :
+    SkillPulse<Item?>(player, node) {
     private val bolt: Bolt = bolt
 
     private val useSets = false
@@ -67,7 +60,10 @@ class BoltPulse(player: Player?, node: Item?, bolt: Bolt, private val feather: I
             val amount = if (featherAmount > boltAmount) boltAmount else featherAmount
             feather.amount = amount
             unfinished.amount = amount
-            sendMessage(player, if (amount == 1) "You attach a feather to a bolt." else "You fletch $amount " + getItemName(bolt.finished) + " bolts.")
+            sendMessage(
+                player,
+                if (amount == 1) "You attach a feather to a bolt." else "You fletch $amount " + getItemName(bolt.finished) + " bolts."
+            )
         }
         if (player.inventory.remove(feather, unfinished)) {
             val product = Item(bolt.finished)

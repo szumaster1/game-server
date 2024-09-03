@@ -3,19 +3,11 @@ package content.global.skill.production.fletching.data
 import cfg.consts.Items
 
 /**
- * Enum class representing different types of Brutal Arrows.
- *
- * @param base The base damage of the arrow.
- * @param product The multiplier for the arrow's damage.
- * @param level The level required to use the arrow.
- * @param experience The experience points gained from using the arrow.
- * @constructor Represents a BrutalArrow with specified base, product, level, and experience.
+ * Represents the different types of brutal arrows.
  */
 enum class BrutalArrow(var base: Int, var product: Int, var level: Int, var experience: Double) {
     /**
-     * Bronze Brutal
-     *
-     * @constructor Bronze Brutal
+     * The bronze brutal arrow.
      */
     BRONZE_BRUTAL(
         base = Items.BRONZE_NAILS_4819,
@@ -25,9 +17,7 @@ enum class BrutalArrow(var base: Int, var product: Int, var level: Int, var expe
     ),
 
     /**
-     * Iron Brutal
-     *
-     * @constructor Iron Brutal
+     * The iron brutal arrow.
      */
     IRON_BRUTAL(
         base = Items.IRON_NAILS_4820,
@@ -37,9 +27,7 @@ enum class BrutalArrow(var base: Int, var product: Int, var level: Int, var expe
     ),
 
     /**
-     * Steel Brutal
-     *
-     * @constructor Steel Brutal
+     * The steel brutal arrow.
      */
     STEEL_BRUTAL(
         base = Items.STEEL_NAILS_1539,
@@ -49,9 +37,7 @@ enum class BrutalArrow(var base: Int, var product: Int, var level: Int, var expe
     ),
 
     /**
-     * Black Brutal
-     *
-     * @constructor Black Brutal
+     * The black brutal arrow.
      */
     BLACK_BRUTAL(
         base = Items.BLACK_NAILS_4821,
@@ -61,9 +47,7 @@ enum class BrutalArrow(var base: Int, var product: Int, var level: Int, var expe
     ),
 
     /**
-     * Mithril Brutal
-     *
-     * @constructor Mithril Brutal
+     * The mithril brutal arrow.
      */
     MITHRIL_BRUTAL(
         base = Items.MITHRIL_NAILS_4822,
@@ -73,9 +57,7 @@ enum class BrutalArrow(var base: Int, var product: Int, var level: Int, var expe
     ),
 
     /**
-     * Adamant Brutal
-     *
-     * @constructor Adamant Brutal
+     * The adamant brutal arrow.
      */
     ADAMANT_BRUTAL(
         base = Items.ADAMANTITE_NAILS_4823,
@@ -85,9 +67,7 @@ enum class BrutalArrow(var base: Int, var product: Int, var level: Int, var expe
     ),
 
     /**
-     * Rune Brutal
-     *
-     * @constructor Rune Brutal
+     * The rune brutal arrow.
      */
     RUNE_BRUTAL(
         base = Items.RUNE_NAILS_4824,

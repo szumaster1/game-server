@@ -3,21 +3,11 @@ package content.global.skill.production.fletching.data
 import cfg.consts.Items
 
 /**
- * Limb
- *
- * @param stock      Represents the quantity of the limb available.
- * @param limb       Represents the identifier for the limb type.
- * @param product    Represents the product associated with the limb.
- * @param level      Represents the required level to use the limb.
- * @param experience Represents the experience points gained from using the limb.
- * @param animation  Represents the animation ID associated with the limb.
- * @constructor limb
+ * Represents the Limb.
  */
 enum class Limb(val stock: Int, val limb: Int, val product: Int, val level: Int, val experience: Double, val animation: Int) {
     /**
-     * Wooden Stock
-     *
-     * @constructor Wooden Stock
+     * The wooden stock.
      */
     WOODEN_STOCK(
         stock = Items.WOODEN_STOCK_9440,
@@ -29,9 +19,7 @@ enum class Limb(val stock: Int, val limb: Int, val product: Int, val level: Int,
     ),
 
     /**
-     * Oak Stock
-     *
-     * @constructor Oak Stock
+     * The oak stock.
      */
     OAK_STOCK(
         stock = Items.OAK_STOCK_9442,
@@ -43,9 +31,7 @@ enum class Limb(val stock: Int, val limb: Int, val product: Int, val level: Int,
     ),
 
     /**
-     * Willow Stock
-     *
-     * @constructor Willow Stock
+     * The willow stock.
      */
     WILLOW_STOCK(
         stock = Items.WILLOW_STOCK_9444,
@@ -57,9 +43,7 @@ enum class Limb(val stock: Int, val limb: Int, val product: Int, val level: Int,
     ),
 
     /**
-     * Teak Stock
-     *
-     * @constructor Teak Stock
+     * The teak stock.
      */
     TEAK_STOCK(
         stock = Items.TEAK_STOCK_9446,
@@ -71,9 +55,7 @@ enum class Limb(val stock: Int, val limb: Int, val product: Int, val level: Int,
     ),
 
     /**
-     * Maple Stock
-     *
-     * @constructor Maple Stock
+     * The maple stock.
      */
     MAPLE_STOCK(
         stock = Items.MAPLE_STOCK_9448,
@@ -85,9 +67,7 @@ enum class Limb(val stock: Int, val limb: Int, val product: Int, val level: Int,
     ),
 
     /**
-     * Mahogany Stock
-     *
-     * @constructor Mahogany Stock
+     * The mahogany stock.
      */
     MAHOGANY_STOCK(
         stock = Items.MAHOGANY_STOCK_9450,
@@ -99,9 +79,7 @@ enum class Limb(val stock: Int, val limb: Int, val product: Int, val level: Int,
     ),
 
     /**
-     * Yew Stock
-     *
-     * @constructor Yew Stock
+     * The yew stock.
      */
     YEW_STOCK(
         stock = Items.YEW_STOCK_9452,

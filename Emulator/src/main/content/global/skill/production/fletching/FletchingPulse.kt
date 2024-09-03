@@ -1,11 +1,11 @@
 package content.global.skill.production.fletching
 
-import content.global.skill.production.fletching.FletchingMap.FletchingItems
-import content.region.kandarin.quest.zogre.handlers.ZUtils
-import core.api.*
 import cfg.consts.Animations
 import cfg.consts.Items
 import cfg.consts.Vars
+import content.global.skill.production.fletching.FletchingMap.FletchingItems
+import content.region.kandarin.quest.zogre.handlers.ZUtils
+import core.api.*
 import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.diary.DiaryType
 import core.game.node.entity.skill.SkillPulse
@@ -16,11 +16,7 @@ import core.tools.RandomFunction
 import core.tools.StringUtils
 
 /**
- * Handles the fletching skill actions.
- *
- * @param node The item node that is being fletched.
- * @param amount The quantity of items to be fletched.
- * @param fletch The specific fletching item being used.
+ * Handles the fletching skill.
  */
 class FletchingPulse(player: Player?, node: Item?, amount: Int, fletch: FletchingItems) : SkillPulse<Item?>(player, node) {
 

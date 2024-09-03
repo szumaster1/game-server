@@ -3,21 +3,11 @@ package content.global.skill.production.fletching.data
 import cfg.consts.Items
 
 /**
- * Gem bolt
- *
- * @param base Represents the base value of the gem bolt.
- * @param gem Represents the type of gem used in the bolt.
- * @param tip Represents the type of tip used in the bolt.
- * @param product Represents the resulting product from combining the base, gem, and tip.
- * @param level Represents the required level to create the gem bolt.
- * @param experience Represents the experience gained from creating the gem bolt.
- * @constructor Gem bolt Represents a new instance of the GemBolt enum class with specified properties.
+ * Represents the gem bolt data.
  */
 enum class GemBolt(var base: Int, var gem: Int, var tip: Int, var product: Int, var level: Int, var experience: Double) {
     /**
-     * Opal
-     *
-     * @constructor Opal
+     * The opal bolt.
      */
     OPAL(
         base = Items.BRONZE_BOLTS_877,
@@ -29,9 +19,7 @@ enum class GemBolt(var base: Int, var gem: Int, var tip: Int, var product: Int, 
     ),
 
     /**
-     * Pearl
-     *
-     * @constructor Pearl
+     * The pearl bolt.
      */
     PEARL(
         base = Items.IRON_BOLTS_9140,
@@ -43,9 +31,7 @@ enum class GemBolt(var base: Int, var gem: Int, var tip: Int, var product: Int, 
     ),
 
     /**
-     * Pearls
-     *
-     * @constructor Pearls
+     * The pearl bolt (2).
      */
     PEARLS(
         base = Items.IRON_BOLTS_9140,
@@ -57,9 +43,7 @@ enum class GemBolt(var base: Int, var gem: Int, var tip: Int, var product: Int, 
     ),
 
     /**
-     * Jade
-     *
-     * @constructor Jade
+     * The jade bolt.
      */
     JADE(
         base = Items.BLURITE_BOLTS_9139,
@@ -71,9 +55,7 @@ enum class GemBolt(var base: Int, var gem: Int, var tip: Int, var product: Int, 
     ),
 
     /**
-     * Red Topaz
-     *
-     * @constructor Red Topaz
+     * The topaz bolt.
      */
     RED_TOPAZ(
         base = Items.STEEL_BOLTS_9141,
@@ -85,9 +67,7 @@ enum class GemBolt(var base: Int, var gem: Int, var tip: Int, var product: Int, 
     ),
 
     /**
-     * Sapphire
-     *
-     * @constructor Sapphire
+     * The sapphire bolt.
      */
     SAPPHIRE(
         base = Items.MITHRIL_BOLTS_9142,
@@ -99,9 +79,7 @@ enum class GemBolt(var base: Int, var gem: Int, var tip: Int, var product: Int, 
     ),
 
     /**
-     * Emerald
-     *
-     * @constructor Emerald
+     * The emerald bolt.
      */
     EMERALD(
         base = Items.MITHRIL_BOLTS_9142,
@@ -113,9 +91,7 @@ enum class GemBolt(var base: Int, var gem: Int, var tip: Int, var product: Int, 
     ),
 
     /**
-     * Ruby
-     *
-     * @constructor Ruby
+     * The ruby bolt.
      */
     RUBY(
         base = Items.ADAMANT_BOLTS_9143,
@@ -127,9 +103,7 @@ enum class GemBolt(var base: Int, var gem: Int, var tip: Int, var product: Int, 
     ),
 
     /**
-     * Diamond
-     *
-     * @constructor Diamond
+     * The diamond bolt.
      */
     DIAMOND(
         base = Items.ADAMANT_BOLTS_9143,
@@ -141,9 +115,7 @@ enum class GemBolt(var base: Int, var gem: Int, var tip: Int, var product: Int, 
     ),
 
     /**
-     * Dragonstone
-     *
-     * @constructor Dragonstone
+     * The dragonstone bolt.
      */
     DRAGONSTONE(
         base = Items.RUNE_BOLTS_9144,
@@ -155,9 +127,7 @@ enum class GemBolt(var base: Int, var gem: Int, var tip: Int, var product: Int, 
     ),
 
     /**
-     * Onyx
-     *
-     * @constructor Onyx
+     * The onyx bolt.
      */
     ONYX(
         base = Items.RUNE_BOLTS_9144,

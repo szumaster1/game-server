@@ -8,14 +8,7 @@ import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 
 /**
- * Limb pulse
- *
- * @param limb Represents the specific limb associated with the pulse.
- * @param amount Indicates the quantity of the pulse effect.
- * @constructor Represents a LimbPulse instance with the specified parameters.
- *
- * @param player The player associated with this pulse, can be null.
- * @param node The item node that this pulse interacts with.
+ * Represents the skill pulse of [Limb].
  */
 class LimbPulse(player: Player?, node: Item, private val limb: Limb, private var amount: Int) : SkillPulse<Item?>(player, node) {
 

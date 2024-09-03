@@ -3,19 +3,11 @@ package content.global.skill.production.fletching.data
 import cfg.consts.Items
 
 /**
- * Arrow head
- *
- * @param unfinished Represents the unfinished state of the arrow head.
- * @param finished Represents the finished state of the arrow head.
- * @param level Indicates the level of the arrow head.
- * @param experience Represents the experience associated with the arrow head.
- * @constructor Arrow head
+ * Represents the arrow head data.
  */
 enum class ArrowHead(var unfinished: Int, var finished: Int, var level: Int, var experience: Double) {
     /**
-     * Bronze Arrow
-     *
-     * @constructor Bronze Arrow
+     * The bronze arrow.
      */
     BRONZE_ARROW(
         unfinished = Items.BRONZE_ARROWTIPS_39,
@@ -25,9 +17,7 @@ enum class ArrowHead(var unfinished: Int, var finished: Int, var level: Int, var
     ),
 
     /**
-     * Iron Arrow
-     *
-     * @constructor Iron Arrow
+     * The iron arrow.
      */
     IRON_ARROW(
         unfinished = Items.IRON_ARROWTIPS_40,
@@ -37,9 +27,7 @@ enum class ArrowHead(var unfinished: Int, var finished: Int, var level: Int, var
     ),
 
     /**
-     * Steel Arrow
-     *
-     * @constructor Steel Arrow
+     * The steel arrow.
      */
     STEEL_ARROW(
         unfinished = Items.STEEL_ARROWTIPS_41,
@@ -49,9 +37,7 @@ enum class ArrowHead(var unfinished: Int, var finished: Int, var level: Int, var
     ),
 
     /**
-     * Mithril Arrow
-     *
-     * @constructor Mithril Arrow
+     * The Mithril arrow.
      */
     MITHRIL_ARROW(
         unfinished = Items.MITHRIL_ARROWTIPS_42,
@@ -61,9 +47,7 @@ enum class ArrowHead(var unfinished: Int, var finished: Int, var level: Int, var
     ),
 
     /**
-     * Adamant Arrow
-     *
-     * @constructor Adamant Arrow
+     * The adamant arrow.
      */
     ADAMANT_ARROW(
         unfinished = Items.ADAMANT_ARROWTIPS_43,
@@ -73,9 +57,7 @@ enum class ArrowHead(var unfinished: Int, var finished: Int, var level: Int, var
     ),
 
     /**
-     * Rune Arrow
-     *
-     * @constructor Rune Arrow
+     * The rune arrow.
      */
     RUNE_ARROW(
         unfinished = Items.RUNE_ARROWTIPS_44,
@@ -85,9 +67,7 @@ enum class ArrowHead(var unfinished: Int, var finished: Int, var level: Int, var
     ),
 
     /**
-     * Dragon Arrow
-     *
-     * @constructor Dragon Arrow
+     * The dragon arrow.
      */
     DRAGON_ARROW(
         unfinished = Items.DRAGON_ARROWTIPS_11237,
@@ -97,9 +77,7 @@ enum class ArrowHead(var unfinished: Int, var finished: Int, var level: Int, var
     ),
 
     /**
-     * Broad Arrow
-     *
-     * @constructor Broad Arrow
+     * The broad arrow.
      */
     BROAD_ARROW(
         unfinished = Items.BROAD_ARROW_HEADS_13278,

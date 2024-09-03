@@ -1,11 +1,11 @@
 package content.global.skill.production.fletching
 
+import cfg.consts.Items
 import content.global.skill.production.fletching.data.Bolt
 import content.global.skill.production.fletching.data.Dart
 import content.global.skill.production.fletching.item.BoltPulse
 import content.global.skill.production.fletching.item.DartPulse
 import core.api.asItem
-import cfg.consts.Items
 import core.game.dialogue.SkillDialogueHandler
 import core.game.interaction.NodeUsageEvent
 import core.game.interaction.UseWithHandler
@@ -14,7 +14,7 @@ import core.plugin.Initializable
 import core.plugin.Plugin
 
 /**
- * Fletching plugin.
+ * Represents the plugin used to open the fletch dialogue.
  */
 @Initializable
 class FletchingPlugin : UseWithHandler(Items.BRONZE_DART_TIP_819, Items.IRON_DART_TIP_820, Items.STEEL_DART_TIP_821, Items.MITHRIL_DART_TIP_822, Items.ADAMANT_DART_TIP_823, Items.RUNE_DART_TIP_824, Items.DRAGON_DART_TIP_11232, Items.BRONZE_BOLTS_UNF_9375, Items.BLURITE_BOLTS_UNF_9376, Items.IRON_BOLTS_UNF_9377, Items.SILVER_BOLTS_UNF_9382, Items.STEEL_BOLTS_UNF_9378, Items.MITHRIL_BOLTS_UNF_9379, Items.ADAMANT_BOLTS_UNF_9380, Items.RUNITE_BOLTS_UNF_9381, Items.BROAD_BOLTS_UNF_13279,) {
@@ -31,9 +31,10 @@ class FletchingPlugin : UseWithHandler(Items.BRONZE_DART_TIP_819, Items.IRON_DAR
 
     override fun handle(event: NodeUsageEvent): Boolean {
 
-        /**
+        /*
          * Handle darts.
          */
+
         if (Dart.isDart(event.usedItem.id)) {
             val dart = Dart.productMap[event.usedItem.id]
             val handler: SkillDialogueHandler =
@@ -50,9 +51,10 @@ class FletchingPlugin : UseWithHandler(Items.BRONZE_DART_TIP_819, Items.IRON_DAR
             return true
         }
 
-        /**
+        /*
          * Handle bolts.
          */
+
         if (Bolt.isBolt(event.usedItem.id) || Bolt.isBolt(event.usedWith.id)) {
             val bolt = if (Bolt.isBolt(event.usedItem.id)) Bolt.productMap[event.usedItem.id] else Bolt.productMap[event.usedWith.id]
             val featherId = if (Bolt.isBolt(event.usedItem.id)) event.usedWith.id else event.usedItem.id

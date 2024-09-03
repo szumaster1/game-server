@@ -1,19 +1,15 @@
 package content.global.skill.production.fletching.item
 
+import cfg.consts.Items
 import content.global.skill.production.fletching.data.BrutalArrow
 import core.api.*
-import cfg.consts.Items
 import core.game.node.entity.player.Player
 import core.game.node.entity.skill.SkillPulse
 import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 
 /**
- * Represents a brutal arrow pulse skill.
- * @param player The player who is using the skill.
- * @param node The item node associated with the skill.
- * @param arrow The specific brutal arrow being used.
- * @param sets The number of sets for the skill.
+ * Represents the [BrutalArrowPulse] class to make [BrutalArrow.product].
  */
 class BrutalArrowPulse(player: Player?, node: Item?, arrow: BrutalArrow, sets: Int) : SkillPulse<Item?>(player, node) {
 
@@ -35,7 +31,7 @@ class BrutalArrowPulse(player: Player?, node: Item?, arrow: BrutalArrow, sets: I
             return false
         }
         if (!hasSpaceFor(player, Item(arrow.product))) {
-            sendDialogue(player,"You do not have enough inventory space.")
+            sendDialogue(player, "You do not have enough inventory space.")
             return false
         }
         return true
@@ -66,7 +62,12 @@ class BrutalArrowPulse(player: Player?, node: Item?, arrow: BrutalArrow, sets: I
         if (player.inventory.remove(base, nail)) {
             player.inventory.add(product)
             rewardXP(player, Skills.FLETCHING, arrow.experience * product.amount)
-            sendMessage(player, if (product.amount == 1) "You attach the " + getItemName(arrow.base) + "to the flighted ogre arrow." else "You fletch " + product.amount + " " + getItemName(arrow.product) + " arrows.")
+            sendMessage(
+                player,
+                if (product.amount == 1) "You attach the " + getItemName(arrow.base) + "to the flighted ogre arrow." else "You fletch " + product.amount + " " + getItemName(
+                    arrow.product
+                ) + " arrows."
+            )
         }
         sets--
         return sets <= 0

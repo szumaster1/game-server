@@ -1,21 +1,14 @@
 package content.global.skill.production.fletching.data
 
 import cfg.consts.Items
+import core.game.node.item.Item
 
 /**
- * Kebbit bolt
- *
- * @param base The base value of the Kebbit bolt, representing its fundamental attribute.
- * @param product The product value of the Kebbit bolt, indicating its output or result.
- * @param level The level required to utilize or craft the Kebbit bolt.
- * @param experience The experience gained from using or crafting the Kebbit bolt.
- * @constructor Kebbit bolt Represents a new instance of the Kebbit bolt with specified attributes.
+ * Represents the Kebbit bolts.
  */
 enum class KebbitBolt(val base: Int, val product: Int, val level: Int, val experience: Double) {
     /**
-     * Kebbit Bolt
-     *
-     * @constructor Kebbit Bolt
+     * The kebbit bolt.
      */
     KEBBIT_BOLT(
         base = Items.KEBBIT_SPIKE_10105,
@@ -25,9 +18,7 @@ enum class KebbitBolt(val base: Int, val product: Int, val level: Int, val exper
     ),
 
     /**
-     * Long Kebbit Bolt
-     *
-     * @constructor Long Kebbit Bolt
+     * The long kebbit bolt.
      */
     LONG_KEBBIT_BOLT(
         base = Items.LONG_KEBBIT_SPIKE_10107,
@@ -37,12 +28,20 @@ enum class KebbitBolt(val base: Int, val product: Int, val level: Int, val exper
     );
 
     companion object {
-        val productMap = HashMap<Int, KebbitBolt>()
 
-        init {
-            for (product in KebbitBolt.values()) {
-                productMap[product.base] = product
+        /**
+         * Get the bolt.
+         *
+         * @param item the item id.
+         * @return the bolt
+         */
+        fun forId(item: Item): KebbitBolt? {
+            for (k in KebbitBolt.values()) {
+                if (k.base == item.id) {
+                    return k
+                }
             }
+            return null
         }
     }
 }

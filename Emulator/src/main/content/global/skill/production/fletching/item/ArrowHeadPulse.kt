@@ -9,23 +9,17 @@ import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 
 /**
- * Arrow head pulse
- *
- * @param sets Number of sets for the pulse
- * @constructor Represents the ArrowHeadPulse with player, node, arrow, and sets
- *
- * @param player The player associated with this pulse
- * @param node The item node associated with this pulse
- * @param arrow The arrow head used in this pulse
+ * Represents the arrow head pulse class to make arrows.
  */
-class ArrowHeadPulse(player: Player?, node: Item?, arrow: ArrowHead, private var sets: Int) : SkillPulse<Item?>(player, node) {
+class ArrowHeadPulse(player: Player?, node: Item?, arrow: ArrowHead, private var sets: Int) :
+    SkillPulse<Item?>(player, node) {
 
     private val arrows: ArrowHead = arrow
 
     override fun checkRequirements(): Boolean {
         if (arrows.unfinished == 4160) {
             if (!getInstance(player).flags.isBroadsUnlocked()) {
-                sendDialogue(player,"You need to unlock the ability to create broad arrows.")
+                sendDialogue(player, "You need to unlock the ability to create broad arrows.")
                 return false
             }
         }
@@ -53,12 +47,17 @@ class ArrowHeadPulse(player: Player?, node: Item?, arrow: ArrowHead, private var
         if (tipAmount >= 15 && shaftAmount >= 15) {
             HEADLESS_ARROW.amount = 15
             tip.amount = 15
-            sendMessage(player, "You attach arrow heads to 15 arrow shafts.")
+            sendMessage(player, "You attach ${getItemName(arrows.unfinished).lowercase()} to 15 arrow shafts.")
         } else {
             val amount = if (tipAmount > shaftAmount) shaftAmount else tipAmount
             HEADLESS_ARROW.amount = amount
             tip.amount = amount
-            sendMessage(player, if (amount == 1) "You attach an arrow head to an arrow shaft." else "You attach arrow heads to $amount arrow shafts.")
+            sendMessage(
+                player,
+                if (amount == 1) "You attach an ${getItemName(arrows.unfinished).lowercase()} to an arrow shaft." else "You attach ${
+                    getItemName(arrows.unfinished).lowercase()
+                } to $amount arrow shafts."
+            )
         }
         if (player.inventory.remove(HEADLESS_ARROW, tip)) {
             rewardXP(player, Skills.FLETCHING, arrows.experience * tip.amount)

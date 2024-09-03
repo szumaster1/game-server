@@ -1,7 +1,7 @@
 package content.global.skill.production.fletching.item
 
-import core.api.*
 import cfg.consts.Items
+import core.api.*
 import core.game.node.entity.player.Player
 import core.game.node.entity.skill.SkillPulse
 import core.game.node.entity.skill.Skills
@@ -9,14 +9,7 @@ import core.game.node.item.Item
 import kotlin.math.min
 
 /**
- * Headless arrow pulse
- *
- * @param feather Represents the feather item associated with the arrow pulse.
- * @param sets Indicates the number of sets for the arrow pulse.
- * @constructor Represents a new instance of HeadlessArrowPulse.
- *
- * @param player The player associated with this arrow pulse.
- * @param node The item node associated with this arrow pulse.
+ * Represents the [HeadlessArrowPulse] for creating unfinished arrows.
  */
 class HeadlessArrowPulse(player: Player?, node: Item?, private val feather: Item?, private var sets: Int) : SkillPulse<Item?>(player, node) {
 

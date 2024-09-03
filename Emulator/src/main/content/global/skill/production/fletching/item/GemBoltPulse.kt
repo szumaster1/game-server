@@ -8,11 +8,7 @@ import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 
 /**
- * Gem bolt pulse class that extends SkillPulse for handling gem bolt actions.
- * @param player The player associated with this pulse.
- * @param node The item node that represents the gem bolt.
- * @param bolt The specific gem bolt being used.
- * @param sets The number of sets associated with this pulse.
+ * Represents the attaching of a [GemBolt] to a [GemBolt.product].
  */
 class GemBoltPulse(player: Player?, node: Item?, bolt: GemBolt, sets: Int) : SkillPulse<Item?>(player, node) {
 

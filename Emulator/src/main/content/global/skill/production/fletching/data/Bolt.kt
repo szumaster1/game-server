@@ -3,19 +3,11 @@ package content.global.skill.production.fletching.data
 import cfg.consts.Items
 
 /**
- * Bolt
- *
- * @param unfinished Represents the number of unfinished tasks associated with the Bolt.
- * @param finished Represents the number of completed tasks associated with the Bolt.
- * @param level Indicates the current level of the Bolt.
- * @param experience Represents the experience points accumulated by the Bolt.
- * @constructor Bolt Represents a new instance of the Bolt enum with specified properties.
+ * Represents the bolt data.
  */
 enum class Bolt(var unfinished: Int, var finished: Int, var level: Int, var experience: Double) {
     /**
-     * Bronze Bolt
-     *
-     * @constructor Bronze Bolt
+     * the bronze bolt.
      */
     BRONZE_BOLT(
         unfinished = Items.BRONZE_BOLTS_UNF_9375,
@@ -25,9 +17,7 @@ enum class Bolt(var unfinished: Int, var finished: Int, var level: Int, var expe
     ),
 
     /**
-     * Blurite Bolt
-     *
-     * @constructor Blurite Bolt
+     * the blurite bolt.
      */
     BLURITE_BOLT(
         unfinished = Items.BLURITE_BOLTS_UNF_9376,
@@ -37,9 +27,7 @@ enum class Bolt(var unfinished: Int, var finished: Int, var level: Int, var expe
     ),
 
     /**
-     * Iron Bolt
-     *
-     * @constructor Iron Bolt
+     * the iron bolt.
      */
     IRON_BOLT(
         unfinished = Items.IRON_BOLTS_UNF_9377,
@@ -49,9 +37,7 @@ enum class Bolt(var unfinished: Int, var finished: Int, var level: Int, var expe
     ),
 
     /**
-     * Silver Bolt
-     *
-     * @constructor Silver Bolt
+     * the silver bolt.
      */
     SILVER_BOLT(
         unfinished = Items.SILVER_BOLTS_UNF_9382,
@@ -61,9 +47,7 @@ enum class Bolt(var unfinished: Int, var finished: Int, var level: Int, var expe
     ),
 
     /**
-     * Steel Bolt
-     *
-     * @constructor Steel Bolt
+     * the steel bolt.
      */
     STEEL_BOLT(
         unfinished = Items.STEEL_BOLTS_UNF_9378,
@@ -73,9 +57,7 @@ enum class Bolt(var unfinished: Int, var finished: Int, var level: Int, var expe
     ),
 
     /**
-     * Mithril Bolt
-     *
-     * @constructor Mithril Bolt
+     * the mithril bolt.
      */
     MITHRIL_BOLT(
         unfinished = Items.MITHRIL_BOLTS_UNF_9379,
@@ -85,9 +67,7 @@ enum class Bolt(var unfinished: Int, var finished: Int, var level: Int, var expe
     ),
 
     /**
-     * Broad Bolt
-     *
-     * @constructor Broad Bolt
+     * the broad bolt.
      */
     BROAD_BOLT(
         unfinished = Items.BROAD_BOLTS_UNF_13279,
@@ -97,11 +77,9 @@ enum class Bolt(var unfinished: Int, var finished: Int, var level: Int, var expe
     ),
 
     /**
-     * Adamantite Bolt
-     *
-     * @constructor Adamantite Bolt
+     * the adamant bolt.
      */
-    ADAMANTITE_BOLT(
+    ADAMANT_BOLT(
         unfinished = Items.ADAMANT_BOLTS_UNF_9380,
         finished = Items.ADAMANT_BOLTS_9143,
         level = 61,
@@ -109,9 +87,7 @@ enum class Bolt(var unfinished: Int, var finished: Int, var level: Int, var expe
     ),
 
     /**
-     * Runite Bolt
-     *
-     * @constructor Runite Bolt
+     * the runite bolt.
      */
     RUNITE_BOLT(
         unfinished = Items.RUNITE_BOLTS_UNF_9381,

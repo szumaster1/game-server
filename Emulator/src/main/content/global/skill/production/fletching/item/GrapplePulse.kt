@@ -1,20 +1,14 @@
 package content.global.skill.production.fletching.item
 
-import core.api.*
 import cfg.consts.Items
+import core.api.*
 import core.game.node.entity.player.Player
 import core.game.node.entity.skill.SkillPulse
 import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 
 /**
- * Grapple pulse
- *
- * @param amount The amount of the grapple pulse, representing its strength or intensity.
- * @constructor Represents a new instance of GrapplePulse with the specified player, node, and amount.
- *
- * @param player The player associated with this grapple pulse.
- * @param node The item node associated with this grapple pulse.
+ * Represents the [GrapplePulse] used to create a mith grapple.
  */
 @Suppress("unused")
 class GrapplePulse(player: Player?, node: Item?, private var amount: Int) : SkillPulse<Item?>(player, node) {

@@ -3,19 +3,11 @@ package content.global.skill.production.fletching.data
 import cfg.consts.Items
 
 /**
- * Dart
- *
- * @param unfinished Represents the number of unfinished darts.
- * @param finished Represents the number of finished darts.
- * @param level Represents the current level of the player.
- * @param experience Represents the experience points of the player.
- * @constructor Dart Represents a Dart instance with the specified properties.
+ * Represents the darts data.
  */
 enum class Dart(var unfinished: Int, var finished: Int, var level: Int, var experience: Double) {
     /**
-     * Bronze Dart
-     *
-     * @constructor Bronze Dart
+     * the bronze dart.
      */
     BRONZE_DART(
         unfinished = Items.BRONZE_DART_TIP_819,
@@ -25,9 +17,7 @@ enum class Dart(var unfinished: Int, var finished: Int, var level: Int, var expe
     ),
 
     /**
-     * Iron Dart
-     *
-     * @constructor Iron Dart
+     * the iron dart.
      */
     IRON_DART(
         unfinished = Items.IRON_DART_TIP_820,
@@ -37,9 +27,7 @@ enum class Dart(var unfinished: Int, var finished: Int, var level: Int, var expe
     ),
 
     /**
-     * Steel Dart
-     *
-     * @constructor Steel Dart
+     * the steel dart.
      */
     STEEL_DART(
         unfinished = Items.STEEL_DART_TIP_821,
@@ -49,9 +37,7 @@ enum class Dart(var unfinished: Int, var finished: Int, var level: Int, var expe
     ),
 
     /**
-     * Mithril Dart
-     *
-     * @constructor Mithril Dart
+     * the mithril dart.
      */
     MITHRIL_DART(
         unfinished = Items.MITHRIL_DART_TIP_822,
@@ -61,9 +47,7 @@ enum class Dart(var unfinished: Int, var finished: Int, var level: Int, var expe
     ),
 
     /**
-     * Adamant Dart
-     *
-     * @constructor Adamant Dart
+     * the adamant dart.
      */
     ADAMANT_DART(
         unfinished = Items.ADAMANT_DART_TIP_823,
@@ -73,9 +57,7 @@ enum class Dart(var unfinished: Int, var finished: Int, var level: Int, var expe
     ),
 
     /**
-     * Rune Dart
-     *
-     * @constructor Rune Dart
+     * the rune dart.
      */
     RUNE_DART(
         unfinished = Items.RUNE_DART_TIP_824,
@@ -85,9 +67,7 @@ enum class Dart(var unfinished: Int, var finished: Int, var level: Int, var expe
     ),
 
     /**
-     * Dragon Dart
-     *
-     * @constructor Dragon Dart
+     * the dragon dart.
      */
     DRAGON_DART(
         unfinished = Items.DRAGON_DART_TIP_11232,

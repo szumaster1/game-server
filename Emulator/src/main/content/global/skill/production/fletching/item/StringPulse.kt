@@ -10,14 +10,7 @@ import core.game.node.item.Item
 import core.game.world.map.zone.ZoneBorders
 
 /**
- * String pulse
- *
- * @param bow Represents the bow string used in the pulse.
- * @param amount Indicates the quantity of the bow string.
- * @constructor Represents a StringPulse instance with the specified player, node, bow, and amount.
- *
- * @param player The player associated with this StringPulse.
- * @param node The item node associated with this StringPulse.
+ * Represents the skill pulse of stringing.
  */
 open class StringPulse(player: Player, node: Item, private val bow: BowString, private var amount: Int) : SkillPulse<Item>(player, node) {
 

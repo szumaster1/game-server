@@ -1,8 +1,8 @@
 package content.global.skill.production.fletching.item
 
+import cfg.consts.Items
 import content.global.skill.production.fletching.data.GemBolt
 import core.api.animate
-import cfg.consts.Items
 import core.api.getStatLevel
 import core.api.rewardXP
 import core.api.sendDialogue
@@ -11,20 +11,17 @@ import core.game.node.entity.skill.SkillPulse
 import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 
+
 /**
- * Gem bolt cut pulse
- *
- * @param gem Represents the gem bolt being used in the pulse.
- * @param amount Indicates the quantity of gems involved in the pulse.
- * @constructor Represents a new instance of GemBoltCutPulse.
- *
- * @param player The player who is executing the pulse.
- * @param node The item node associated with the pulse.
+ * Represents the [GemBoltCutPulse] - [GemBolt].
  */
 class GemBoltCutPulse(player: Player?, node: Item?, private val gem: GemBolt, private var amount: Int) : SkillPulse<Item?>(player, node) {
 
     private var ticks = 0
 
+    /**
+     * Checks if the player meets the requirements to cut the gem bolts.
+     */
     override fun checkRequirements(): Boolean {
         if (getStatLevel(player, Skills.FLETCHING) < gem.level) {
             sendDialogue(player, "You need a fletching level of " + gem.level + " or above to do that.")
@@ -32,13 +29,18 @@ class GemBoltCutPulse(player: Player?, node: Item?, private val gem: GemBolt, pr
         }
         return player.inventory.containsItem(Item(gem.gem))
     }
-
+    /**
+     * Triggers the animation for cutting the gem bolts.
+     */
     override fun animate() {
         if (ticks % 6 == 0) {
             animate(player, 6702)
         }
     }
 
+    /**
+     * Rewards the player.
+     */
     override fun reward(): Boolean {
         if (++ticks % 5 != 0) {
             return false
