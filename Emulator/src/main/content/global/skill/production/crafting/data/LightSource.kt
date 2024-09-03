@@ -4,15 +4,7 @@ import cfg.consts.Items
 import cfg.consts.Sounds
 
 /**
- * Light source data
- *
- * @param emptyId Represents the ID for an empty light source.
- * @param fullId Represents the ID for a fully charged light source.
- * @param litId Represents the ID for a lit light source.
- * @param sfxId Represents the ID for the sound effect associated with the light source.
- * @param levelRequired Represents the level required to use this light source.
- * @param openFlame Indicates whether the light source produces an open flame.
- * @constructor Light source data Represents a new instance of LightSourceData with specified parameters.
+ * Represents the light source items.
  */
 enum class LightSource(
     val emptyId: Int,
@@ -23,7 +15,7 @@ enum class LightSource(
     val openFlame: Boolean
 ) {
     /**
-     * White Candle.
+     * The white candle.
      */
     WHITE_CANDLE(
         emptyId = 0,
@@ -35,7 +27,7 @@ enum class LightSource(
     ),
 
     /**
-     * Black Candle.
+     * The black candle.
      */
     BLACK_CANDLE(
         emptyId = 0,
@@ -47,7 +39,7 @@ enum class LightSource(
     ),
 
     /**
-     * Torch.
+     * The torch.
      */
     TORCH(
         emptyId = 0,
@@ -59,7 +51,7 @@ enum class LightSource(
     ),
 
     /**
-     * White Candle Lantern.
+     * The white candle lantern.
      */
     WHITE_CANDLE_LANTERN(
         emptyId = Items.CANDLE_LANTERN_4527,
@@ -71,7 +63,7 @@ enum class LightSource(
     ),
 
     /**
-     * Black Candle Lantern.
+     * The black candle lantern.
      */
     BLACK_CANDLE_LANTERN(
         emptyId = Items.CANDLE_LANTERN_4527,
@@ -83,7 +75,7 @@ enum class LightSource(
     ),
 
     /**
-     * Oil Lamp.
+     * The oil lamp.
      */
     OIL_LAMP(
         emptyId = Items.OIL_LAMP_4525,
@@ -95,7 +87,7 @@ enum class LightSource(
     ),
 
     /**
-     * Bug Lantern.
+     * The bug lantern.
      */
     BUG_LANTERN(
         emptyId = Items.UNLIT_BUG_LANTERN_7051,
@@ -107,7 +99,7 @@ enum class LightSource(
     ),
 
     /**
-     * Oil Lantern.
+     * The oil lantern.
      */
     OIL_LANTERN(
         emptyId = Items.OIL_LANTERN_4535,
@@ -119,7 +111,7 @@ enum class LightSource(
     ),
 
     /**
-     * Bullseye Lantern.
+     *  The bullseye lantern.
      */
     BULLSEYE_LANTERN(
         emptyId = Items.BULLSEYE_LANTERN_4546,
@@ -131,7 +123,7 @@ enum class LightSource(
     ),
 
     /**
-     * Sapphire Lantern.
+     * The sapphire lantern.
      */
     SAPPHIRE_LANTERN(
         emptyId = 0,
@@ -143,7 +135,7 @@ enum class LightSource(
     ),
 
     /**
-     * Mining Helmet.
+     * The mining helmet.
      */
     MINING_HELMET(
         emptyId = 0,
@@ -155,7 +147,7 @@ enum class LightSource(
     ),
 
     /**
-     * Emerald Lantern.
+     * The emerald lantern.
      */
     EMERALD_LANTERN(
         emptyId = 0,

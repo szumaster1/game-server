@@ -9,12 +9,7 @@ import core.game.node.entity.player.link.diary.DiaryType
 import core.game.node.item.Item
 
 /**
- * Tanning data
- *
- * @param button Represents the button resource ID associated with the tanning data.
- * @param item Represents the item resource ID associated with the tanning data.
- * @param product Represents the product resource ID associated with the tanning data.
- * @constructor Tanning data
+ * Represents the tanning items.
  */
 enum class Tanning(
     val button: Int,
@@ -22,7 +17,7 @@ enum class Tanning(
     val product: Int
 ) {
     /**
-     * Soft Leather.
+     * The soft leather.
      */
     SOFT_LEATHER(
         button = 1,
@@ -31,7 +26,7 @@ enum class Tanning(
     ),
 
     /**
-     * Hard Leather.
+     * The hard leather.
      */
     HARD_LEATHER(
         button = 2,
@@ -40,7 +35,7 @@ enum class Tanning(
     ),
 
     /**
-     * Snakeskin.
+     * The snakeskin.
      */
     SNAKESKIN(
         button = 3,
@@ -49,7 +44,7 @@ enum class Tanning(
     ),
 
     /**
-     * Snakeskin2.
+     * The snakeskin (2).
      */
     SNAKESKIN2(
         button = 4,
@@ -58,7 +53,7 @@ enum class Tanning(
     ),
 
     /**
-     * Green Dhide.
+     * The green d'hide leather.
      */
     GREEN_DHIDE(
         button = 5,
@@ -67,7 +62,7 @@ enum class Tanning(
     ),
 
     /**
-     * Bluedhide.
+     * The blue d'hide leather.
      */
     BLUEDHIDE(
         button = 6,
@@ -76,7 +71,7 @@ enum class Tanning(
     ),
 
     /**
-     * Reddhide.
+     * The red d'hide leather.
      */
     REDDHIDE(
         button = 7,
@@ -85,7 +80,7 @@ enum class Tanning(
     ),
 
     /**
-     * Blackdhide.
+     * The black d'hide leather.
      */
     BLACKDHIDE(
         button = 8,

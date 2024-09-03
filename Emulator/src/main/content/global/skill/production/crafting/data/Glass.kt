@@ -3,14 +3,7 @@ package content.global.skill.production.crafting.data
 import cfg.consts.Items
 
 /**
- * Glass data
- *
- * @param buttonId Unique identifier for the button associated with the glass.
- * @param productId Unique identifier for the product represented by the glass.
- * @param amount Current quantity of the product in the glass.
- * @param requiredLevel Minimum level required to use the glass.
- * @param experience Experience points gained from using the glass.
- * @constructor Glass data
+ * Represents the glass items.
  */
 enum class Glass(
     val buttonId: Int,

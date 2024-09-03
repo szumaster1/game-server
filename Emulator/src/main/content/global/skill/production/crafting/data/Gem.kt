@@ -6,14 +6,7 @@ import core.game.node.item.Item
 import core.game.world.update.flag.context.Animation
 
 /**
- * Gem data
- *
- * @param uncut Represents the uncut version of the gem.
- * @param gem Represents the cut version of the gem.
- * @param level Indicates the level required to use the gem.
- * @param animation Represents the animation associated with the gem.
- * @param exp Represents the experience points gained from using the gem.
- * @constructor Gem data
+ * Represents the gem items.
  */
 enum class Gem(
     val uncut: Item,
@@ -23,7 +16,7 @@ enum class Gem(
     val exp: Double
 ) {
     /**
-     * Sapphire.
+     * The sapphire.
      */
     SAPPHIRE(
         uncut = Item(Items.UNCUT_SAPPHIRE_1623),
@@ -34,7 +27,7 @@ enum class Gem(
     ),
 
     /**
-     * Emerald.
+     * The emerald.
      */
     EMERALD(
         uncut = Item(Items.UNCUT_EMERALD_1621),
@@ -45,7 +38,7 @@ enum class Gem(
     ),
 
     /**
-     * Ruby.
+     * The ruby.
      */
     RUBY(
         uncut = Item(Items.UNCUT_RUBY_1619),
@@ -56,7 +49,7 @@ enum class Gem(
     ),
 
     /**
-     * Diamond.
+     * The diamond.
      */
     DIAMOND(
         uncut = Item(Items.UNCUT_DIAMOND_1617),
@@ -67,7 +60,7 @@ enum class Gem(
     ),
 
     /**
-     * Dragonstone.
+     * The dragonstone.
      */
     DRAGONSTONE(
         uncut = Item(Items.UNCUT_DRAGONSTONE_1631),
@@ -78,7 +71,7 @@ enum class Gem(
     ),
 
     /**
-     * Onyx.
+     * The onyx.
      */
     ONYX(
         uncut = Item(Items.UNCUT_ONYX_6571),
@@ -89,7 +82,7 @@ enum class Gem(
     ),
 
     /**
-     * Opal.
+     * The opal.
      */
     OPAL(
         uncut = Item(Items.UNCUT_OPAL_1625),
@@ -100,7 +93,7 @@ enum class Gem(
     ),
 
     /**
-     * Jade.
+     * The jade.
      */
     JADE(
         uncut = Item(Items.UNCUT_JADE_1627),
@@ -111,7 +104,7 @@ enum class Gem(
     ),
 
     /**
-     * Red Topaz.
+     * The red topaz.
      */
     RED_TOPAZ(
         uncut = Item(Items.UNCUT_RED_TOPAZ_1629),

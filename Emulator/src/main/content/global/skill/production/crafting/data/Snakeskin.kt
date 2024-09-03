@@ -3,13 +3,7 @@ package content.global.skill.production.crafting.data
 import cfg.consts.Items
 import core.game.node.item.Item
 /**
- * Snakeskin data
- *
- * @param product Represents the item associated with the snakeskin.
- * @param level Indicates the required level to use or craft the snakeskin.
- * @param experience Denotes the experience points gained from using the snakeskin.
- * @param requiredAmount Specifies the quantity of snakeskin needed for a particular action.
- * @constructor Snakeskin data Represents the properties of the SnakeskinData enum.
+ * Represents the Snakeskin data.
  */
 enum class Snakeskin(
     val product: Item,
@@ -18,7 +12,7 @@ enum class Snakeskin(
     val requiredAmount: Int
 ) {
     /**
-     * Snakeskin Boot.
+     * The snakeskin boots.
      */
     SNAKESKIN_BOOT(
         product = Item(Items.SNAKESKIN_BOOTS_6328),
@@ -28,7 +22,7 @@ enum class Snakeskin(
     ),
 
     /**
-     * Snakeskin Vambraces.
+     * The snakeskin vambraces.
      */
     SNAKESKIN_VAMBRACES(
         product = Item(Items.SNAKESKIN_VBRACE_6330),
@@ -38,7 +32,7 @@ enum class Snakeskin(
     ),
 
     /**
-     * Snakeskin Bandana.
+     * The snakeskin bandana.
      */
     SNAKESKIN_BANDANA(
         product = Item(Items.SNAKESKIN_BANDANA_6326),
@@ -48,7 +42,7 @@ enum class Snakeskin(
     ),
 
     /**
-     * Snakeskin Chaps.
+     * The snakeskin chaps.
      */
     SNAKESKIN_CHAPS(
         product = Item(Items.SNAKESKIN_CHAPS_6324),
@@ -58,7 +52,7 @@ enum class Snakeskin(
     ),
 
     /**
-     * Snakeskin Body.
+     * The snakeskin body.
      */
     SNAKESKIN_BODY(
         product = Item(Items.SNAKESKIN_BODY_6322),

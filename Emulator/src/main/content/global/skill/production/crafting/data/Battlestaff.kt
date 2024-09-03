@@ -3,24 +3,11 @@ package content.global.skill.production.crafting.data
 import cfg.consts.Items
 
 /**
- * Battlestaff data
- *
- * @param required The minimum level required to use the battlestaff
- * @param productId Unique identifier for the battlestaff product
- * @param amount The quantity of battlestaff available
- * @param requiredLevel The level needed to wield the battlestaff
- * @param experience The experience points gained from using the battlestaff
- * @constructor Battlestaff data
+ * Represents the Battlestaff's.
  */
-enum class Battlestaff(
-    val required: Int,          // Minimum level required to use the battlestaff
-    val productId: Int,        // Unique identifier for the battlestaff product
-    val amount: Int,           // Quantity of battlestaff available
-    val requiredLevel: Int,    // Level needed to wield the battlestaff
-    val experience: Double,     // Experience points gained from using the battlestaff
-) {
+enum class Battlestaff(val required: Int, val productId: Int, val amount: Int, val requiredLevel: Int, val experience: Double, ) {
     /**
-     * Water Battlestaff.
+     * the water battlestaff.
      */
     WATER_BATTLESTAFF(
         required = Items.WATER_ORB_571,
@@ -31,7 +18,7 @@ enum class Battlestaff(
     ),
 
     /**
-     * Earth Battlestaff.
+     * The earth battlestaff.
      */
     EARTH_BATTLESTAFF(
         required = Items.EARTH_ORB_575,
@@ -42,7 +29,7 @@ enum class Battlestaff(
     ),
 
     /**
-     * Fire Battlestaff.
+     * The fire battlestaff.
      */
     FIRE_BATTLESTAFF(
         required = Items.FIRE_ORB_569,
@@ -53,7 +40,7 @@ enum class Battlestaff(
     ),
 
     /**
-     * Air Battlestaff.
+     * The air battlestaff.
      */
     AIR_BATTLESTAFF(
         required = Items.AIR_ORB_573,

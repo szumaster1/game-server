@@ -4,14 +4,7 @@ import cfg.consts.Items
 import core.game.node.item.Item
 
 /**
- * Pottery data
- *
- * @param unfinished Represents the unfinished state of the pottery item.
- * @param product Represents the final product of the pottery item.
- * @param level Indicates the level of the pottery item.
- * @param exp Represents the experience points associated with the pottery item.
- * @param fireExp Represents the experience points gained from firing the pottery item.
- * @constructor Pottery data Represents the properties of the Pottery enum.
+ * Represents the pottery items.
  */
 enum class Pottery(
     val unfinished: Item,
@@ -21,7 +14,7 @@ enum class Pottery(
     val fireExp: Double
 ) {
     /**
-     * Pot.
+     * The pot.
      */
     POT(
         unfinished = Item(Items.UNFIRED_POT_1787),
@@ -32,7 +25,7 @@ enum class Pottery(
     ),
 
     /**
-     * Dish.
+     * The dish.
      */
     DISH(
         unfinished = Item(Items.UNFIRED_PIE_DISH_1789),
@@ -43,7 +36,7 @@ enum class Pottery(
     ),
 
     /**
-     * Bowl.
+     * The bowl.
      */
     BOWL(unfinished = Item(Items.UNFIRED_BOWL_1791),
         product = Item(Items.BOWL_1923),
@@ -52,7 +45,7 @@ enum class Pottery(
     ),
 
     /**
-     * Plant.
+     * The plant.
      */
     PLANT(
         unfinished = Item(Items.UNFIRED_PLANT_POT_5352),
@@ -63,7 +56,7 @@ enum class Pottery(
     ),
 
     /**
-     * Lid.
+     * The lid.
      */
     LID(
         unfinished = Item(Items.UNFIRED_POT_LID_4438),

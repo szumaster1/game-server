@@ -2,14 +2,7 @@ package content.global.skill.production.crafting.data
 
 import cfg.consts.Items
 /**
- * Spinning data
- *
- * @param button Represents the button identifier for the spinning action.
- * @param need Indicates the amount of resources required to perform the spin.
- * @param product Represents the product obtained from the spinning action.
- * @param level Indicates the level of the spinning action.
- * @param exp Represents the experience points gained from the spinning action.
- * @constructor Spinning data
+ * Represents the spinning items.
  */
 enum class Spinning(
     val button: Int,
@@ -19,7 +12,7 @@ enum class Spinning(
     val exp: Double
 ) {
     /**
-     * Wool.
+     * The wool.
      */
     WOOL(
         button = 19,
@@ -29,7 +22,7 @@ enum class Spinning(
         exp = 2.5),
 
     /**
-     * Flax.
+     * The flax.
      */
     FLAX(
         button = 17,
@@ -40,7 +33,7 @@ enum class Spinning(
     ),
 
     /**
-     * Root.
+     * The root.
      */
     ROOT(
         button = 23,
@@ -51,7 +44,7 @@ enum class Spinning(
     ),
 
     /**
-     * Root1.
+     * The root (1).
      */
     ROOT1(
         button = 23,
@@ -62,7 +55,7 @@ enum class Spinning(
     ),
 
     /**
-     * Root2.
+     * The root (2).
      */
     ROOT2(
         button = 23,
@@ -73,7 +66,7 @@ enum class Spinning(
     ),
 
     /**
-     * Root3.
+     * The root (3).
      */
     ROOT3(
         button = 23,
@@ -84,7 +77,7 @@ enum class Spinning(
     ),
 
     /**
-     * Root4.
+     * The root (4).
      */
     ROOT4(
         button = 23,
@@ -95,7 +88,7 @@ enum class Spinning(
     ),
 
     /**
-     * Root5.
+     * The root (5).
      */
     ROOT5(
         button = 23,
@@ -106,7 +99,7 @@ enum class Spinning(
     ),
 
     /**
-     * Sinew.
+     * The sinew.
      */
     SINEW(
         button = 27,
@@ -117,7 +110,7 @@ enum class Spinning(
     ),
 
     /**
-     * Tree Roots.
+     * The tree roots.
      */
     TREE_ROOTS(
         button = 31,
@@ -128,7 +121,7 @@ enum class Spinning(
     ),
 
     /**
-     * Yak.
+     * The yak.
      */
     YAK(
         button = 35,

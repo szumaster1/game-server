@@ -13,24 +13,12 @@ private const val BUTTON_SILVTHRILL_ROD = 52
 private const val BUTTON_CROSSBOW_BOLTS = 66
 
 /**
- * Enum class representing SilverData with various properties.
- * @param buttonId The ID of the button associated with the silver data.
- * @param requiredItemId The ID of the item required to produce silver.
- * @param producedItemId The ID of the item produced from silver.
- * @param amountProduced The quantity of the item produced.
- * @param minimumLevel The minimum level required to use this silver data.
- * @param xpReward The experience points rewarded for using this silver data.
- * @param strungId The ID of the strung item associated with the silver data.
+ * Represents the silver items.
  */
-enum class Silver(
-    val buttonId: Int,
-    val requiredItemId: Int,
-    val producedItemId: Int,
-    val amountProduced: Int,
-    val minimumLevel: Int,
-    val xpReward: Double,
-    val strungId: Int
-) {
+enum class Silver(val buttonId: Int, val requiredItemId: Int, val producedItemId: Int, val amountProduced: Int, val minimumLevel: Int, val xpReward: Double, val strungId: Int) {
+    /**
+     * The holy symbol.
+     */
     HOLY(
         buttonId = BUTTON_UNBLESSED,
         requiredItemId = Items.HOLY_MOULD_1599,
@@ -40,6 +28,10 @@ enum class Silver(
         xpReward = 50.0,
         strungId = Items.UNBLESSED_SYMBOL_1716
     ),
+
+    /**
+     * The unholy symbol.
+     */
     UNHOLY(
         buttonId = BUTTON_UNHOLY,
         requiredItemId = Items.UNHOLY_MOULD_1594,
@@ -49,6 +41,10 @@ enum class Silver(
         xpReward = 50.0,
         strungId = Items.UNHOLY_SYMBOL_1724
     ),
+
+    /**
+     * The silver sickle
+     */
     SICKLE(
         buttonId = BUTTON_SICKLE,
         requiredItemId = Items.SICKLE_MOULD_2976,
@@ -58,6 +54,10 @@ enum class Silver(
         xpReward = 50.0,
         strungId = -1
     ),
+
+    /**
+     * The tiara.
+     */
     TIARA(
         buttonId = BUTTON_TIARA,
         requiredItemId = Items.TIARA_MOULD_5523,
@@ -67,6 +67,10 @@ enum class Silver(
         xpReward = 52.5,
         strungId = -1
     ),
+
+    /**
+     * The Silvthrill chain.
+     */
     SILVTHRIL_CHAIN(
         buttonId = BUTTON_SILVTHRIL_CHAIN,
         requiredItemId = Items.CHAIN_LINK_MOULD_13153,
@@ -76,6 +80,10 @@ enum class Silver(
         xpReward = 100.0,
         strungId = -1
     ),
+
+    /**
+     * The lightning rod.
+     */
     LIGHTNING_ROD(
         buttonId = BUTTON_LIGHTNING_ROD,
         requiredItemId = Items.CONDUCTOR_MOULD_4200,
@@ -85,6 +93,10 @@ enum class Silver(
         xpReward = 50.0,
         strungId = -1
     ),
+
+    /**
+     * The Silvthrill rod.
+     */
     SILVTHRILL_ROD(
         buttonId = BUTTON_SILVTHRILL_ROD,
         requiredItemId = Items.ROD_CLAY_MOULD_7649,
@@ -94,6 +106,10 @@ enum class Silver(
         xpReward = 55.0,
         strungId = -1
     ),
+
+    /**
+     * The silver bolt.
+     */
     CROSSBOW_BOLTS(
         buttonId = BUTTON_CROSSBOW_BOLTS,
         requiredItemId = Items.BOLT_MOULD_9434,
@@ -103,6 +119,10 @@ enum class Silver(
         xpReward = 50.0,
         strungId = -1
     ),
+
+    /**
+     * The demonic sigil.
+     */
     DEMONIC_SIGIL(
         buttonId = BUTTON_DEMONIC_SIGIL,
         requiredItemId = Items.DEMONIC_SIGIL_MOULD_6747,

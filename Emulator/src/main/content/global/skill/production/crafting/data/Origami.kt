@@ -4,16 +4,11 @@ import cfg.consts.Graphics
 import cfg.consts.Items
 
 /**
- * Origami data
- *
- * @param requiredDye The amount of dye required to create the origami.
- * @param ballonId The identifier for the balloon associated with the origami.
- * @param gfxId The graphical identifier for rendering the origami.
- * @constructor Origami data
+ * Reprsents the origami (balloons) items.
  */
 enum class Origami(val requiredDye: Int, val ballonId: Int, val gfxId: Int) {
     /**
-     * Yellow.
+     * The yellow.
      */
     YELLOW(
         requiredDye = Items.YELLOW_DYE_1765,
@@ -22,7 +17,7 @@ enum class Origami(val requiredDye: Int, val ballonId: Int, val gfxId: Int) {
     ),
 
     /**
-     * Blue.
+     * The blue.
      */
     BLUE(
         requiredDye = Items.BLUE_DYE_1767,
@@ -31,7 +26,7 @@ enum class Origami(val requiredDye: Int, val ballonId: Int, val gfxId: Int) {
     ),
 
     /**
-     * Red.
+     * The red.
      */
     RED(
         requiredDye = Items.RED_DYE_1763,
@@ -40,7 +35,7 @@ enum class Origami(val requiredDye: Int, val ballonId: Int, val gfxId: Int) {
     ),
 
     /**
-     * Orange.
+     * The orange.
      */
     ORANGE(
         requiredDye = Items.ORANGE_DYE_1769,
@@ -49,7 +44,7 @@ enum class Origami(val requiredDye: Int, val ballonId: Int, val gfxId: Int) {
     ),
 
     /**
-     * Green.
+     * The green.
      */
     GREEN(
         requiredDye = Items.GREEN_DYE_1771,
@@ -58,7 +53,7 @@ enum class Origami(val requiredDye: Int, val ballonId: Int, val gfxId: Int) {
     ),
 
     /**
-     * Purple.
+     * The purple.
      */
     PURPLE(
         requiredDye = Items.PURPLE_DYE_1773,
@@ -67,7 +62,7 @@ enum class Origami(val requiredDye: Int, val ballonId: Int, val gfxId: Int) {
     ),
 
     /**
-     * Pink.
+     * The pink.
      */
     PINK(
         requiredDye = Items.PINK_DYE_6955,
@@ -76,7 +71,7 @@ enum class Origami(val requiredDye: Int, val ballonId: Int, val gfxId: Int) {
     ),
 
     /**
-     * Black.
+     * The black.
      */
     BLACK(
         requiredDye = Items.BLACK_MUSHROOM_INK_4622,
