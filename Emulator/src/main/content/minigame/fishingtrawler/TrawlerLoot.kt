@@ -124,11 +124,12 @@ object TrawlerLoot {
         WeightedChanceItem(Items.OYSTER_407, 1, 50),
         WeightedChanceItem(Items.EMPTY_POT_1931, 1, 50),
         WeightedChanceItem(Items.RUSTY_SWORD_686, 1, 50),
-        //Inauthentic rewards
+        /*
         WeightedChanceItem(Items.LOOP_HALF_OF_A_KEY_987, 1, 7),
         WeightedChanceItem(Items.TOOTH_HALF_OF_A_KEY_985, 1, 7),
         WeightedChanceItem(Items.CASKET_405, 1, 60),
         WeightedChanceItem(Items.PIRATES_HAT_2651, 1, 2),
         WeightedChanceItem(Items.LUCKY_CUTLASS_7140, 1, 2)
+        */
     )
 }

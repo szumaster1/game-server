@@ -3,6 +3,7 @@ package content.minigame.fishingtrawler
 import core.api.*
 import cfg.consts.Components
 import cfg.consts.Items
+import cfg.consts.Music
 import core.game.component.Component
 import core.game.node.entity.Entity
 import core.game.node.entity.npc.NPC
@@ -72,9 +73,9 @@ class FishingTrawlerSession(val activity: FishingTrawlerActivity? = null) : MapA
     fun start(pl: ArrayList<Player>) {
         // Set the music ID based on a random roll
         if (RandomFunction.roll(2)) {
-            region.setMusicId(38)
+            region.setMusicId(Music.TRAWLER_38)
         } else {
-            region.setMusicId(51)
+            region.setMusicId(Music.TRAWLER_MINOR_51)
         }
         // Add the players to the session
         this.players.addAll(pl)

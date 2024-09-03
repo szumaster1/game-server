@@ -2,6 +2,7 @@ package content.minigame.fishingtrawler
 
 import core.api.*
 import cfg.consts.Items
+import cfg.consts.Scenery
 import core.game.activity.ActivityManager
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression
@@ -21,18 +22,18 @@ import core.plugin.Initializable
  * Option handler for fishing trawler.
  */
 class FishingTrawlerInteractionHandler : InteractionListener {
-    val ENTRANCE_PLANK = 2178
-    val EXIT_PLANK = 2179
-    val HOLE = 2167
-    val NETIDs = intArrayOf(2164, 2165)
-    val REWARD_NET = 2166
-    val BARREL_IDS = intArrayOf(2159, 2160)
-    val BAILING_BUCKET = 583
-    val FULL_BAIL_BUCKET = 585
+    private val entrancePlank = Scenery.GANGPLANK_2178
+    private val exitPlank = Scenery.GANGPLANK_2179
+    private val leakId = Scenery.LEAK_2167
+    private val netIDs = intArrayOf(Scenery.TRAWLER_NET_2164, Scenery.TRAWLER_NET_2165)
+    private val rewardNet = Scenery.TRAWLER_NET_2166
+    private val barrelIDs = intArrayOf(Scenery.BARREL_2159, Scenery.BARREL_2160)
+    private val bailingBucket = Items.BAILING_BUCKET_583
+    private val fullBailBucket = Items.BAILING_BUCKET_585
 
     override fun defineListeners() {
 
-        on(ENTRANCE_PLANK, IntType.SCENERY, "cross") { player, _ ->
+        on(entrancePlank, IntType.SCENERY, "cross") { player, _ ->
             if (getStatLevel(player, Skills.FISHING) < 15) {
                 sendDialogue(player, "You need to be at least level 15 fishing to play.")
                 return@on true
@@ -42,7 +43,7 @@ class FishingTrawlerInteractionHandler : InteractionListener {
             return@on true
         }
 
-        on(EXIT_PLANK, IntType.SCENERY, "cross") { player, _ ->
+        on(exitPlank, IntType.SCENERY, "cross") { player, _ ->
             player.properties.teleportLocation = Location.create(2676, 3170, 0)
             (ActivityManager.getActivity("fishing trawler") as FishingTrawlerActivity).removePlayer(player)
             val session: FishingTrawlerSession? = player.getAttribute("ft-session", null)
@@ -50,7 +51,7 @@ class FishingTrawlerInteractionHandler : InteractionListener {
             return@on true
         }
 
-        on(HOLE, IntType.SCENERY, "fill") { player, node ->
+        on(leakId, IntType.SCENERY, "fill") { player, node ->
             val session: FishingTrawlerSession? = player.getAttribute("ft-session", null)
             session ?: return@on false
             player.lock()
@@ -69,12 +70,12 @@ class FishingTrawlerInteractionHandler : InteractionListener {
             return@on true
         }
 
-        on(NETIDs, IntType.SCENERY, "inspect") { player, _ ->
+        on(netIDs, IntType.SCENERY, "inspect") { player, _ ->
             player.dialogueInterpreter.open(18237583)
             return@on true
         }
 
-        on(REWARD_NET, IntType.SCENERY, "inspect") { player, _ ->
+        on(rewardNet, IntType.SCENERY, "inspect") { player, _ ->
             val rolls = player.getAttribute("/save:ft-rolls", 0)
             if (rolls == 0) {
                 sendPlayerDialogue(player, "I'd better not go stealing other people's fish.", FacialExpression.HALF_GUILTY)
@@ -84,7 +85,7 @@ class FishingTrawlerInteractionHandler : InteractionListener {
             return@on true
         }
 
-        on(BARREL_IDS, IntType.SCENERY, "climb-on") { player, _ ->
+        on(barrelIDs, IntType.SCENERY, "climb-on") { player, _ ->
             player.properties.teleportLocation = Location.create(2672, 3222, 0)
             sendDialogueLines(player, "You climb onto the floating barrel and begin to kick your way to the", "shore.", "You make it to the shore tired and weary.")
             player.appearance.setDefaultAnimations()
@@ -94,7 +95,7 @@ class FishingTrawlerInteractionHandler : InteractionListener {
             return@on true
         }
 
-        on(FULL_BAIL_BUCKET, IntType.ITEM, "empty") { player, node ->
+        on(fullBailBucket, IntType.ITEM, "empty") { player, node ->
             player.lock()
             player.pulseManager.run(
                 object : Pulse() {
@@ -116,7 +117,7 @@ class FishingTrawlerInteractionHandler : InteractionListener {
             return@on true
         }
 
-        on(BAILING_BUCKET, IntType.ITEM, "bail-with") { player, node ->
+        on(bailingBucket, IntType.ITEM, "bail-with") { player, node ->
             val session: FishingTrawlerSession? = player.getAttribute("ft-session", null)
             session ?: return@on false
             if (!session.isActive) {

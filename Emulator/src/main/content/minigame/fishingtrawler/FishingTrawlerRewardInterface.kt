@@ -1,5 +1,6 @@
 package content.minigame.fishingtrawler
 
+import cfg.consts.Components
 import core.game.component.Component
 import core.game.component.ComponentDefinition
 import core.game.component.ComponentPlugin
@@ -13,7 +14,7 @@ import kotlin.math.ceil
  */
 class FishingTrawlerRewardInterface : ComponentPlugin() {
     override fun newInstance(arg: Any?): Plugin<Any> {
-        ComponentDefinition.put(367, this)
+        ComponentDefinition.put(Components.TRAWLER_REWARD_367, this)
         return this
     }
 
