@@ -33,14 +33,15 @@ class PoisonChaliceEffect : ConsumableEffect() {
                     SkillEffect(Skills.ATTACK, -1.0, 0.0),
                     SkillEffect(Skills.STRENGTH, -1.0, 0.0),
                     SkillEffect(Skills.DEFENCE, -1.0, 0.0),
-                    SkillEffect(Skills.THIEVING, 1.0, 0.0)
+                    SkillEffect(Skills.CRAFTING, 1.0, 0.0)
                 )
                 effect.activate(player)
                 sendMessageWithDelay(player, "You feel a little strange.", 1)
             }
 
             3 -> {
-                val effect = HealingEffect(amt)
+                val totalLife = 10 + (player.getSkills().maximumLifepoints - 100) * 0.07
+                val effect = HealingEffect(totalLife.toInt())
                 effect.activate(player)
                 sendMessageWithDelay(player, "It heals some health.", 1)
                 return
@@ -48,7 +49,7 @@ class PoisonChaliceEffect : ConsumableEffect() {
 
             4 -> {
                 val effect = MultiEffect(
-                    HealingEffect(amt),
+                    HealingEffect(getHealthEffectValue(player)),
                     SkillEffect(Skills.THIEVING, 1.0, 0.0)
                 )
                 effect.activate(player)
@@ -57,12 +58,11 @@ class PoisonChaliceEffect : ConsumableEffect() {
             }
 
             5 -> {
-                var rand = RandomFunction.random(0.0, 1.0)
                 val effect = MultiEffect(
-                    SkillEffect(Skills.ATTACK, base, 0.0),
-                    SkillEffect(Skills.STRENGTH, base, 0.0),
-                    SkillEffect(Skills.DEFENCE, base, 0.0),
-                    SkillEffect(Skills.THIEVING, rand, 0.0)
+                    SkillEffect(Skills.ATTACK, 4.0, 0.0),
+                    SkillEffect(Skills.STRENGTH, 4.0, 0.0),
+                    SkillEffect(Skills.DEFENCE, 4.0, 0.0),
+                    SkillEffect(Skills.THIEVING, 0.0, 1.0)
                 )
                 effect.activate(player)
                 sendMessageWithDelay(player, "Wow! That was amazing! You feel really invigorated.", 1)
@@ -70,8 +70,8 @@ class PoisonChaliceEffect : ConsumableEffect() {
             }
 
             6 -> {
-                var rand = RandomFunction.random(2.0, 1.0)
-                var amt = RandomFunction.random(3, 5)
+                var rand = RandomFunction.random(1.0, 2.0)
+                var amt = RandomFunction.random(1, 2)
                 val effect = MultiEffect(
                     SkillEffect(Skills.ATTACK, rand, 0.0),
                     SkillEffect(Skills.STRENGTH, rand, 0.0),
@@ -86,6 +86,10 @@ class PoisonChaliceEffect : ConsumableEffect() {
             else -> sendMessageWithDelay(player, "It has a slight taste of apricot.", 1)
         }
 
+    }
+
+    override fun getHealthEffectValue(player: Player): Int {
+        return (20 + (player.getSkills().maximumLifepoints - 100) * 0.14).toInt()
     }
 
     companion object {
