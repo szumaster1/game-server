@@ -24,8 +24,8 @@ class TutorialGuideDialogue(player: Player? = null) : Dialogue(player) {
         face(findNPC(NPCs.TUTORIAL_GUIDE_8591)!!, player, 1)
         sendDialogueOptions(
             player,
-            "Hey. Do you wanna skip the Tutorial? I can send you straight<br>to Lumbridge.",
-            "Skip tutorial island?", "Nevermind."
+            "Do you wanna skip the Tutorial?",
+            "Yes", "No, thanks."
         )
         return true
     }
