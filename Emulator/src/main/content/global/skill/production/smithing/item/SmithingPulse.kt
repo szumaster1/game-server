@@ -21,7 +21,7 @@ import core.tools.StringUtils
  * @param bars Represents the type of bars used in smithing.
  * @param amount Indicates the quantity of items to be crafted.
  * @param player The player who is performing the smithing action.
- * @param item The item that is being crafted.
+ * @param item The item that is being smelt.
  */
 class SmithingPulse(player: Player?, item: Item?, private val bars: Bars, private var amount: Int) :
     SkillPulse<Item?>(player, item) {

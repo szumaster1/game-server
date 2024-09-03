@@ -39,7 +39,7 @@ object DraynorUtils {
     const val aggie = NPCs.AGGIE_922
 
     /**
-     * Reference [VampyreSlayerListener][content.region.misthalin.draynor.quest.vampire.VampireSlayerListener], [VampyreSlayer][content.region.misthalin.draynor.quest.vampire.VampireSlayer]
+     * Reference [VampireSlayerListener][content.region.misthalin.draynor.quest.vampire.handlers.VampireSlayerListener], [VampyreSlayer][content.region.misthalin.draynor.quest.vampire.VampireSlayer]
      */
 
     const val cupBoard = Scenery.CUPBOARD_33502

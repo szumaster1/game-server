@@ -8,7 +8,7 @@ import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 
 /**
- * Represents the skill pulse of [Limb].
+ * Represents the skill pulse of attaching limbs.
  */
 class LimbPulse(player: Player?, node: Item, private val limb: Limb, private var amount: Int) : SkillPulse<Item?>(player, node) {
 

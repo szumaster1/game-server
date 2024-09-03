@@ -10,14 +10,12 @@ import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 
 /**
- * Gem cut pulse
+ * Represents the pulse used to cut a gem.
  *
- * @param amount The number of gems to be cut.
- * @param gem The specific type of gem being cut.
- * @constructor Represents a GemCutPulse instance.
- *
- * @param player The player who is performing the gem cutting action.
- * @param item The item associated with the gem cutting process.
+ * @param player the player.
+ * @param item The item id.
+ * @param amount the amount of item.
+ * @param gem The gem type.
  */
 class GemCutPulse(player: Player?, item: Item?, var amount: Int, val gem: Gem) : SkillPulse<Item?>(player, item) {
 

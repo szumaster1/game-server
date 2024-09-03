@@ -9,12 +9,11 @@ import core.game.node.entity.skill.Skills
 import core.game.system.task.Pulse
 
 /**
- * Glass make pulse
+ * Represents the molten glass crafting.
  *
- * @param player Represents the player associated with this pulse.
- * @param product Represents the product identifier for this pulse.
- * @param amount Represents the quantity of the product in this pulse.
- * @constructor Represents a GlassMakePulse instance with the specified player, product, and amount.
+ * @param player the player.
+ * @param product the item id.
+ * @param amount the amount.
  */
 class GlassMakePulse(private val player: Player, val product: Int, private var amount: Int) : Pulse() {
 

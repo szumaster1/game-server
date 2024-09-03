@@ -10,7 +10,7 @@ import core.game.node.entity.player.Player
 import core.game.node.item.Item
 
 /**
- * Credit shop interface listener.
+ * Represents the interface listener for the credit shop.
  */
 class CreditShopInterfaceListener : InterfaceListener {
 

@@ -9,15 +9,9 @@ import core.game.node.entity.skill.SkillPulse
 import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 import core.game.world.map.Location
+
 /**
- * Fire pottery pulse
- *
- * @param pottery Represents the data related to the pottery being fired.
- * @param amount Indicates the quantity of pottery to be processed.
- * @constructor Represents a FirePotteryPulse instance with the specified player, node, pottery data, and amount.
- *
- * @param player The player who is performing the pottery firing action.
- * @param node The item node associated with the pottery.
+ * Represents the pulse used to fire pottery.
  */
 class FirePotteryPulse(player: Player?, node: Item?, val pottery: Pottery, var amount: Int) : SkillPulse<Item?>(player, node) {
 

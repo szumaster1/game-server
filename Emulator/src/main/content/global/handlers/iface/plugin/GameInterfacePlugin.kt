@@ -17,7 +17,7 @@ import core.plugin.Initializable
 import core.plugin.Plugin
 
 /**
- * Game interface plugin.
+ * Represents the component plugin handler for the game.
  */
 @Initializable
 class GameInterfacePlugin : ComponentPlugin() {

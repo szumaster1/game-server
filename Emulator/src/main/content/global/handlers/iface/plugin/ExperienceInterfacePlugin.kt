@@ -13,7 +13,7 @@ import core.plugin.Plugin
 import core.tools.Log
 
 /**
- * Experience interface plugin.
+ * Represents the component plugin handler for the experience.
  */
 @Initializable
 class ExperienceInterfacePlugin : ComponentPlugin() {

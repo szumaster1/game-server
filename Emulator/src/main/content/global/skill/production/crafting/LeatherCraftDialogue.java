@@ -2,7 +2,7 @@ package content.global.skill.production.crafting;
 
 import content.global.skill.production.crafting.data.Leather;
 import content.global.skill.production.crafting.item.DragonCraftPulse;
-import content.global.skill.production.crafting.item.HardCraftPulse;
+import content.global.skill.production.crafting.item.HardLeatherCraftPulse;
 import core.api.InputType;
 import core.cache.def.impl.ItemDefinition;
 import core.game.component.Component;
@@ -100,7 +100,7 @@ public final class LeatherCraftDialogue extends Dialogue {
                         break;
                     case 3:
                         sendInputDialogue(player, true, "Enter the amount:", (value) -> {
-                            player.getPulseManager().run(new HardCraftPulse(player, null, (int) value));
+                            player.getPulseManager().run(new HardLeatherCraftPulse(player, null, (int) value));
                             return Unit.INSTANCE;
                         });
                         return true;
@@ -108,7 +108,7 @@ public final class LeatherCraftDialogue extends Dialogue {
                         amt = player.getInventory().getAmount(new Item(Leather.HARD_LEATHER));
                         break;
                 }
-                player.getPulseManager().run(new HardCraftPulse(player, null, amt));
+                player.getPulseManager().run(new HardLeatherCraftPulse(player, null, amt));
                 break;
             case "dragon":
                 int index = 0;

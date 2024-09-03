@@ -17,7 +17,7 @@ import core.plugin.Plugin
 import core.tools.END_DIALOGUE
 
 /**
- * Represents the Shoe store interface plugin.
+ * Represents the interface plugin used for changing feet.
  */
 @Initializable
 class ShoeStoreInterfacePlugin : ComponentPlugin() {

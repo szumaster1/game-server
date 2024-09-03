@@ -1,6 +1,6 @@
 package content.global.skill.production.crafting.handlers
 
-import content.global.skill.production.crafting.item.GranitePulse
+import content.global.skill.production.crafting.item.GraniteSplitPulse
 import core.api.addDialogueAction
 import core.api.amountInInventory
 import cfg.consts.Items
@@ -12,7 +12,7 @@ import core.game.node.item.Item
 import kotlin.math.min
 
 /**
- * Granite split listener.
+ * Represents listener for granite split.
  */
 class GraniteSplitListener : InteractionListener {
 
@@ -22,7 +22,7 @@ class GraniteSplitListener : InteractionListener {
             sendDialogueOptions(player, "What would you like to do?", "Split the block into smaller pieces.", "Nothing.")
             addDialogueAction(player) { player, _ ->
                 var amount = min(amountInInventory(player, used.id), amountInInventory(player, used.id))
-                player.pulseManager.run(GranitePulse(player, Item(used.id), amount))
+                player.pulseManager.run(GraniteSplitPulse(player, Item(used.id), amount))
             }
             return@onUseWith true
         }

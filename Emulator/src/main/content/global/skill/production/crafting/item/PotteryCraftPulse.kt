@@ -14,14 +14,7 @@ import core.game.world.update.flag.context.Animation
 import core.tools.StringUtils
 
 /**
- * Pottery.kt craft pulse
- *
- * @param amount The quantity of pottery being crafted.
- * @param pottery The data related to the specific pottery item.
- * @constructor Represents a PotteryCraftPulse instance.
- *
- * @param player The player who is performing the pottery crafting.
- * @param node The item node associated with the crafting process.
+ * Represents the skill pulse of the pottery unfired items.
  */
 class PotteryCraftPulse(player: Player?, node: Item?, var amount: Int, val pottery: Pottery) : SkillPulse<Item?>(player, node) {
 

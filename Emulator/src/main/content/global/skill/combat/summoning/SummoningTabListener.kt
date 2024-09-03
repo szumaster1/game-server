@@ -8,7 +8,7 @@ import core.api.sendMessage
 import core.game.interaction.InterfaceListener
 
 /**
- * Summoning tab listener.
+ * Represents the interface listener for the summoning tab.
  */
 class SummoningTabListener : InterfaceListener {
 

@@ -36,7 +36,8 @@ import core.plugin.Plugin;
 import static core.api.ContentAPIKt.*;
 
 /**
- * Summoning training room.
+ * Handles the summoning training room.
+ * @author Emperor, Vexia
  */
 @Initializable
 public final class SummoningTrainingRoom extends OptionHandler {
@@ -46,10 +47,11 @@ public final class SummoningTrainingRoom extends OptionHandler {
     private static final Item WOLF_POUCH = new Item(12047);
 
     /**
+     * New instance plugin.
      *
      * @param arg the arg
-     * @return
-     * @throws Throwable
+     * @return the plugin
+     * @throws Throwable the throwable
      */
     @Override
     public Plugin<Object> newInstance(Object arg) throws Throwable {
@@ -65,11 +67,12 @@ public final class SummoningTrainingRoom extends OptionHandler {
     }
 
     /**
+     * Handle boolean.
      *
      * @param player the player
      * @param node   the node
      * @param option the option
-     * @return
+     * @return the boolean
      */
     @Override
     public boolean handle(final Player player, Node node, String option) {

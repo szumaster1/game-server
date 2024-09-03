@@ -41,11 +41,10 @@ class WeaveOptionHandler : OptionHandler() {
     /**
      * Weave pulse
      *
-     * @param type The type of weaving item associated with this pulse.
-     * @param amount The quantity of the weaving item.
-        *
-     * @param player The player who is executing the weaving action.
-     * @param node The scenery node where the weaving action takes place.
+     * @param player the player.
+     * @param node the object id.
+     * @param type the type of item.
+     * @param amount the amount.
      */
     class WeavePulse(player: Player?, node: Scenery?, private val type: WeavingItem, private var amount: Int) :
         SkillPulse<Scenery?>(player, node) {

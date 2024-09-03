@@ -2,6 +2,7 @@ package content.region.misthalin.lumbridge.handlers
 
 import cfg.consts.NPCs
 import content.data.item.RepairItem.Companion.forId
+import content.region.misthalin.lumbridge.dialogue.BobDialogue
 import core.game.interaction.NodeUsageEvent
 import core.game.interaction.UseWithHandler
 import core.plugin.ClassScanner.definePlugin
@@ -16,7 +17,7 @@ class RepairItemHandler : UseWithHandler() {
 
     override fun newInstance(arg: Any?): Plugin<Any?> {
         registerHandlers()
-        definePlugin(content.region.misthalin.lumbridge.dialogue.BobDialogue())
+        definePlugin(BobDialogue())
         return this
     }
 
@@ -39,6 +40,6 @@ class RepairItemHandler : UseWithHandler() {
     }
 
     private fun isBarrowsItem(itemId: Int): Boolean {
-        return content.region.misthalin.lumbridge.dialogue.BobDialogue.BarrowsEquipment.isBarrowsItem(itemId)
+        return BobDialogue.BarrowsEquipment.isBarrowsItem(itemId)
     }
 }

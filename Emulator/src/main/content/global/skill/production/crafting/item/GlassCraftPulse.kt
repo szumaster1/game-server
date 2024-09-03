@@ -11,12 +11,7 @@ import core.game.node.entity.skill.Skills
 import core.game.system.task.Pulse
 
 /**
- * Glass craft pulse
- *
- * @param player Represents the player involved in the glass crafting process.
- * @param product Represents the specific glass product being crafted.
- * @param amount Indicates the quantity of the product to be crafted.
- * @constructor Represents a new instance of GlassCraftPulse with the specified player, product, and amount.
+ * Represents a pulse used to craft glass items.
  */
 class GlassCraftPulse(
     private val player: Player,

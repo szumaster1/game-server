@@ -212,7 +212,7 @@ private val femaleLegIDs = intArrayOf(
 private val COINS = Item(995, 1000)
 
 /**
- * Thessalia interface plugin.
+ * Represents the interface plugin to handle thessalia interfaces.
  */
 @Initializable
 class ThessaliaInterfacePlugin : ComponentPlugin() {

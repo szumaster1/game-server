@@ -9,7 +9,7 @@ import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 
 /**
- * Dragon sq shield pulse
+ * Represents the creation of dragon square shield.
  *
  * @param item Represents the item associated with the Dragon Square Shield.
  * @param player The player who is using the Dragon Square Shield.

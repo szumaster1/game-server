@@ -3,6 +3,7 @@ package content.region.karamja.shilovillage.dialogue
 import core.api.addItemOrDrop
 import cfg.consts.Items
 import cfg.consts.NPCs
+import content.region.karamja.achievement.dialogue.KalebParamayaDiaryDialogue
 import core.api.openDialogue
 import core.api.removeItem
 import core.api.sendMessage

@@ -1,7 +1,6 @@
 package content.region.asgarnia.burthope.quest.death.handlers
 
 import content.region.asgarnia.burthope.quest.death.dialogue.DoorPlateauDialogueFile
-import content.region.asgarnia.burthope.quest.death.scroll.CombinationScrollDialogue
 import core.api.*
 import cfg.consts.Items
 import cfg.consts.Scenery

@@ -123,7 +123,7 @@ private val femaleStyleButtonRange = (148..181)
 private val COINS = Item(995, 2000)
 
 /**
- * Hair dresser interface plugin.
+ * Represents the plugin used to handle the interface of changing hairs.
  */
 @Initializable
 class HairDresserInterfacePlugin : ComponentPlugin() {

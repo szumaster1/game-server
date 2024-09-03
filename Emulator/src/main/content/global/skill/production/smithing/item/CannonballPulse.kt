@@ -11,11 +11,11 @@ import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 
 /**
- * Cannonball pulse
+ * Represents the smelting interaction for creating cannonballs.
  *
- * @param item Represents the item associated with the cannonball pulse.
- * @param amount Indicates the quantity of the item.
- * @param player The player associated with this cannonball pulse.
+ * @param item the required item.
+ * @param amount the amount.
+ * @param player the player.
  */
 class CannonballPulse(player: Player?, val item: Item?, private var amount: Int) :
     SkillPulse<Item?>(player, null) {

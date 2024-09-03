@@ -2,6 +2,7 @@ package content.region.karamja.brimhaven.dialogue
 
 import cfg.consts.Components
 import cfg.consts.NPCs
+import content.region.karamja.achievement.dialogue.PirateJackieDiaryDialogue
 import core.api.openDialogue
 import core.api.openInterface
 import core.game.dialogue.DialogueFile

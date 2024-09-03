@@ -14,14 +14,13 @@ import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 
 /**
- * Snakeskin craft pulse
+ * Represents the pulse used to craft snake skin.
  *
- * @param amount The number of skins to be crafted.
- * @param skin The specific type of snakeskin being used.
- * @constructor Represents a new instance of SnakeskinCraftPulse.
- *
- * @param player The player who is performing the crafting action.
- * @param node The item node associated with the crafting process.
+ * @param player The player who is crafting the item.
+ * @param node The item id.
+ * @param amount the amount of item crafted.
+ * @param skin The snake skin id.
+ * @constructor Represents a new instance of [SnakeskinCraftPulse].
  */
 class SnakeskinCraftPulse(player: Player?, node: Item?, var amount: Int, val skin: Snakeskin) : SkillPulse<Item?>(player, node) {
 

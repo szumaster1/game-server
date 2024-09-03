@@ -9,7 +9,7 @@ import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 
 /**
- * Represents the arrow head pulse class to make arrows.
+ * Represents the arrow head pulse to complete the headless arrow.
  */
 class ArrowHeadPulse(player: Player?, node: Item?, arrow: ArrowHead, private var sets: Int) :
     SkillPulse<Item?>(player, node) {

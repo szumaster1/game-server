@@ -9,9 +9,9 @@ import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 
 /**
- * Godsword assembling pulse
+ * Represents the godsword assembling into a godsword blade.
  *
- * @param used Represents the item used in the godsword assembly process.
+ * @param used the used item itd.
  * @param player The player who is assembling the godsword.
  */
 class GodswordAssemblingPulse(player: Player?, val used: Item) : SkillPulse<Item>(player, null) {

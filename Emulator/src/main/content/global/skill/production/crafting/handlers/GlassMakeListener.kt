@@ -9,7 +9,7 @@ import core.game.interaction.InteractionListener
 import kotlin.math.min
 
 /**
- * Glass make listener.
+ * Represents the plugin used to make molten glass.
  */
 class GlassMakeListener : InteractionListener {
 

@@ -3,7 +3,7 @@ package content.global.skill.production.fletching.data
 import cfg.consts.Items
 
 /**
- * Represents the arrow head data.
+ * Represents the enum storing the arrow head information.
  */
 enum class ArrowHead(var unfinished: Int, var finished: Int, var level: Int, var experience: Double) {
     /**

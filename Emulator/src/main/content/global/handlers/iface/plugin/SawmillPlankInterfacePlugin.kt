@@ -14,7 +14,7 @@ import core.plugin.Initializable
 import core.plugin.Plugin
 
 /**
- * Sawmill plank interface plugin.
+ * Represents the component handler for the plank make.
  */
 @Initializable
 class SawmillPlankInterfacePlugin : ComponentPlugin() {

@@ -6,7 +6,7 @@ import cfg.consts.Vars
 import core.game.interaction.InterfaceListener
 
 /**
- * Quick chat tutorial interface listener.
+ * Represents the interface listener for the quick chat tutorial.
  */
 class QuickChatTutorialInterfaceListener : InterfaceListener {
 

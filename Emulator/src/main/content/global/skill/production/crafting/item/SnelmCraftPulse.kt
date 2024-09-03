@@ -7,17 +7,18 @@ import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 
 /**
- * Snelm craft pulse.
- * @param node Represents the item being crafted.
- * @param data Contains additional data related to the crafting process.
+ * Represents the pulse of crafting a snelm helmet.
+ *
+ * @param node the item id.
+ * @param item the required item id.
  */
-class SnelmCraftPulse(player: Player?, node: Item?, data: IntArray) : SkillPulse<Item?>(player, node) {
+class SnelmCraftPulse(player: Player?, node: Item?, item: IntArray) : SkillPulse<Item?>(player, node) {
 
-    private val data: IntArray
+    private val item: IntArray
 
     init {
         delay = 1
-        this.data = data
+        this.item = item
     }
 
     override fun checkRequirements(): Boolean {
@@ -32,7 +33,7 @@ class SnelmCraftPulse(player: Player?, node: Item?, data: IntArray) : SkillPulse
 
     override fun reward(): Boolean {
         sendMessage(player, "You craft the shell into a helmet.")
-        replaceSlot(player, Item(data[1]).index, Item(node!!.slot))
+        replaceSlot(player, Item(item[1]).index, Item(node!!.slot))
         rewardXP(player, Skills.CRAFTING, 32.5)
         return true
     }

@@ -4,7 +4,7 @@ import cfg.consts.Components
 import core.game.interaction.InterfaceListener
 
 /**
- * Doomsayer interface listener.
+ * Represents the interface listener for the warning messages.
  */
 class DoomsayerInterfaceListener : InterfaceListener {
 

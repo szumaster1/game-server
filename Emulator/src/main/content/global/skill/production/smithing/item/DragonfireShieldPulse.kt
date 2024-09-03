@@ -9,10 +9,10 @@ import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 
 /**
- * Dragonfire shield pulse
+ * Represents the attaching a draconic visage to an anti-dragon shield.
  *
- * @param item Represents the item associated with the Dragonfire shield pulse.
- * @param player The player who is using the Dragonfire shield pulse.
+ * @param item the required item.
+ * @param player the player.
  */
 class DragonfireShieldPulse(player: Player?, val item: Item) : SkillPulse<Item>(player, null) {
 
