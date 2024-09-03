@@ -1,5 +1,6 @@
 package core.game.node.entity.player.info.login;
 
+import content.miniquest.knightwave.handlers.KnightWaves;
 import core.Configuration;
 import core.game.component.Component;
 import core.game.interaction.InteractionListeners;
@@ -144,14 +145,12 @@ public final class LoginConfiguration {
         player.getSpellBookManager().update(player);
 
         /*
-         * 1050 is checked client-side for making piety/chivalry disallowed sfx,
-         * likely due to the minigame requirement.
-         * Set it here unconditionally until the minigame is implemented.
-         */
 
-        if (hasRequirement(player, "King's Ransom", false)) {
+         */
+        if(getAttribute(player, KnightWaves.KW_COMPLETE, false)) {
             setVarbit(player, 3909, 8, false);
         }
+
         /*
          * if (TutorialSession.getExtension(player).getStage() != 73) {
          *     TutorialStage.load(player, TutorialSession.getExtension(player).getStage(), true);

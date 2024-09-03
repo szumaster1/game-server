@@ -3,6 +3,7 @@ package content.miniquest.knightwave.handlers
 import core.api.*
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
+import core.game.node.entity.player.link.prayer.PrayerType
 import core.game.system.task.Pulse
 import core.game.world.GameWorld
 import core.game.world.map.Location
