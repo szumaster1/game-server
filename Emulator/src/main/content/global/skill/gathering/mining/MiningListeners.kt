@@ -5,7 +5,7 @@ import content.global.skill.skillcape.SkillcapePerks
 import core.api.*
 import cfg.consts.Items
 import cfg.consts.Sounds
-import content.dd.star.StarBonus
+import content.dd.star.handlers.StarBonus
 import core.game.event.ResourceProducedEvent
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener

@@ -11,6 +11,7 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.interaction.InterfaceListener
 import core.game.node.entity.npc.NPC
+import core.game.node.entity.player.Player
 import core.game.node.item.Item
 import core.game.world.map.Location
 import core.tools.END_DIALOGUE
@@ -219,59 +220,7 @@ class GhostsAhoyListeners : InteractionListener, InterfaceListener {
                             sendDialogueOptions(player, "Which part of the flag do you want to dye?", "Top half", "Bottom half", "Skull emblem")
                             stage++
                         }
-
-                        1 -> when (buttonID) {
-                            1 -> when {
-                                removeItem(player, Item(Items.YELLOW_DYE_1765, 1)) -> {
-                                    sendItemDialogue(player, GAUtils.shipModel, "You dye the top of the flag yellow.")
-                                    setAttribute(player, GAUtils.shipFlag, "yellow")
-                                }
-
-                                removeItem(player, Item(Items.BLUE_DYE_1767, 1)) -> {
-                                    sendItemDialogue(player, GAUtils.shipModel, "You dye the top of the flag blue.")
-                                    setAttribute(player, GAUtils.shipFlag, "blue")
-                                }
-
-                                removeItem(player, Item(Items.RED_DYE_1763, 1)) -> {
-                                    sendItemDialogue(player, GAUtils.shipModel, "You dye the top of the flag red.")
-                                    setAttribute(player, GAUtils.shipFlag, "red")
-                                }
-                            }
-
-                            2 -> when {
-                                removeItem(player, Item(Items.YELLOW_DYE_1765, 1)) -> {
-                                    sendItemDialogue(player, GAUtils.shipModel, "You dye the bottom of the flag yellow.")
-                                    setAttribute(player, GAUtils.shipBottom, "yellow")
-                                }
-
-                                removeItem(player, Item(Items.BLUE_DYE_1767, 1)) -> {
-                                    sendItemDialogue(player, GAUtils.shipModel, "You dye the bottom of the flag blue.")
-                                    setAttribute(player, GAUtils.shipBottom, "blue")
-                                }
-
-                                removeItem(player, Item(Items.RED_DYE_1763, 1)) -> {
-                                    sendItemDialogue(player, GAUtils.shipModel, "You dye the bottom of the flag red.")
-                                    setAttribute(player, GAUtils.shipBottom, "red")
-                                }
-                            }
-
-                            3 -> when {
-                                removeItem(player, Item(Items.YELLOW_DYE_1765, 1)) -> {
-                                    sendItemDialogue(player, GAUtils.shipModel, "You dye the skull emblem yellow.")
-                                    setAttribute(player, GAUtils.shipSkull, "yellow")
-                                }
-
-                                removeItem(player, Item(Items.BLUE_DYE_1767, 1)) -> {
-                                    sendItemDialogue(player, GAUtils.shipModel, "You dye the skull emblem blue.")
-                                    setAttribute(player, GAUtils.shipSkull, "blue")
-                                }
-
-                                removeItem(player, Item(Items.RED_DYE_1763, 1)) -> {
-                                    sendItemDialogue(player, GAUtils.shipModel, "You dye the skull emblem red.")
-                                    setAttribute(player, GAUtils.shipSkull, "red")
-                                }
-                            }
-                        }
+                        1 -> GAUtils.handleDyeSelection(player, buttonID)
                     }
                 }
             }, node.asItem())

@@ -33,6 +33,7 @@ class SinclairMansionLogShortcut : InteractionListener {
             var fromSouth = false
 
             lock(player, 10)
+            lockInteractions(player, 10)
             face(player, node)
             if (node.id == Scenery.LOG_BALANCE_9324) {
                 fromSouth = true

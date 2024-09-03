@@ -9,6 +9,7 @@ import core.game.component.Component
 import core.game.interaction.QueueStrength
 import core.game.node.entity.combat.ImpactHandler
 import core.game.node.entity.player.Player
+import core.game.node.item.Item
 import core.tools.RandomFunction
 
 object GAUtils {
@@ -57,13 +58,27 @@ object GAUtils {
 
     fun collectSignature(player: Player) {
         player.incrementAttribute(petitionsigns)
-        sendItemDialogue(player, Items.PETITION_FORM_4283, "The ghost signs your petition. You have obtained ${getAttribute(player, petitionsigns, signatures.toString())} " + if (getAttribute(player, petitionsigns, 0) == 1) "signature so far." else "signature's so far.")
+        sendItemDialogue(
+            player,
+            Items.PETITION_FORM_4283,
+            "The ghost signs your petition. You have obtained ${
+                getAttribute(
+                    player,
+                    petitionsigns,
+                    signatures.toString()
+                )
+            } " + if (getAttribute(player, petitionsigns, 0) == 1) "signature so far." else "signature's so far."
+        )
         if (getAttribute(player, petitionsigns, 0) > 9) {
             setAttribute(player, petitioncomplete, true)
             setQuestStage(player, "Ghosts Ahoy", 50)
             removeItem(player, Items.PETITION_FORM_4283)
             removeAttributes(player, petitionstart, petitionsigns)
-            sendItemDialogue(player, Items.PETITION_FORM_4283, "You have succeeded in obtaining 10 signatures on the petition form!")
+            sendItemDialogue(
+                player,
+                Items.PETITION_FORM_4283,
+                "You have succeeded in obtaining 10 signatures on the petition form!"
+            )
         }
     }
 
@@ -107,4 +122,24 @@ object GAUtils {
         }
     }
 
+    fun handleDyeSelection(player: Player, buttonID: Int) {
+        val dyeColor = mapOf(
+            1 to { color: String -> dyeFlag(player, color, shipFlag) },
+            2 to { color: String -> dyeFlag(player, color, shipBottom) },
+            3 to { color: String -> dyeFlag(player, color, shipSkull) }
+        )
+
+        dyeColor[buttonID]?.let { action ->
+            when {
+                removeItem(player, Item(Items.YELLOW_DYE_1765, 1)) -> action("yellow")
+                removeItem(player, Item(Items.BLUE_DYE_1767, 1)) -> action("blue")
+                removeItem(player, Item(Items.RED_DYE_1763, 1)) -> action("red")
+            }
+        }
+    }
+
+    fun dyeFlag(player: Player, color: String, attribute: String) {
+        sendItemDialogue(player, shipModel, "You dye the flag $color.")
+        setAttribute(player, attribute, color)
+    }
 }
