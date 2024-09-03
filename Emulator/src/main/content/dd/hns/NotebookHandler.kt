@@ -10,7 +10,7 @@ import core.game.node.entity.player.Player
 import core.plugin.Plugin
 
 /**
- * Notebook handler.
+ * Handles the notebook interacts.
  */
 class NotebookHandler : OptionHandler() {
 

@@ -14,7 +14,7 @@ import core.game.system.task.Pulse
 import core.tools.END_DIALOGUE
 
 /**
- * Larry handler.
+ * Represents the Larry dialogue.
  */
 class LarryDialogue(player: Player? = null) : Dialogue(player) {
 

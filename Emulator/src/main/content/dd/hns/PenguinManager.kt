@@ -9,6 +9,9 @@ import core.tools.Log
 import org.json.simple.JSONArray
 import org.json.simple.JSONObject
 
+/**
+ * Represents the penguin menager for hide & seek.
+ */
 class PenguinManager {
 
     companion object {
