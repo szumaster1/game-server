@@ -28,6 +28,50 @@ class RockingOut : Quest("Rocking Out", 154, 153, 2, Vars.VARBIT_QUEST_ROCKING_O
             line(player, if (getStatLevel(player, Skills.THIEVING) < 60) "60 Agility" else "---60 Agility/--", line++, false)
             line(player, if (!isQuestComplete(player, "The Great Brain Robbery")) "Completed The Great Brain Robbery." else "---Completed The Great Brain Robbery./--", line++, false)
         }
+        if (stage >= 2) {
+            line(player, "I have asked Bill Teach about Rabid Jack. He told me that I need to", line++, false)
+            line(player, "get arrested and go to the Rock Island Prison.", line++, false)
+
+            line(player, "There I will see Young Ralph, who will tell me what I need to know.", line++, false)
+            line(player, "I have convinced the Customs Agents that I am a pirate!", line++, false)
+            line(player, "Now I just need to be sent to the prison.", line++, false)
+
+            line(player, "I have been told to store all my equipment in the locker", line++, false)
+            line(player, "so I can be arrested.", line++, false)
+
+            line(player, "I have been sent to the prison and put in the cell with", line++, false)
+            line(player, "a huge hole in the back.", line++, false)
+
+            line(player, "Helpfully, Young Ralph is stone deaf. I need to look around and", line++, false)
+            line(player, "try to make something out of available materials to attract", line++, false)
+            line(player, "his attention.", line++, false)
+
+            line(player, "I have managed to make Young Ralph turn around.", line++, false)
+            line(player, "I should speak to him to find out what this is all about.", line++, false)
+
+            line(player, "Young Ralph has told me I need the marks of 5 captains to get the story.", line++, false)
+
+            line(player, "Captain Braindeath on Braindeath Island.", line++, false)
+            line(player, "Captain Bill Teach", line++, false)
+            line(player, "Captain Brass Hand Harry on Mos le'Harmless", line++, false)
+            line(player, "Captain Izzy No-Beard in the Brimhaven Agility Arena", line++, false)
+            line(player, "Redbeard Frank in Port Sarim", line++, false)
+
+            line(player, "I have all the captain's marks.", line++, false)
+
+            line(player, "I am going to smuggle them to Ralph inside the folder the Customs Officer has given me.", line++, false)
+
+            line(player, "I sent the folder to the prison and now I need to go there and retrieve it.", line++, false)
+
+            line(player, "I have given the marks to Young Ralph and he is", line++, false)
+            line(player, "ready to tell me the story now.", line++, false)
+
+            line(player, "I have heard the story of Rabid Jack and how he was killed.", line++, false)
+
+            line(player, "Now I know, I must find some way to investigate if, and why,", line++, false)
+            line(player, "he has come back.", line++, false)
+            line++
+        }
         if (stage == 100) {
             line++
             line(player, "<col=FF0000>QUEST COMPLETE!", line, false)
