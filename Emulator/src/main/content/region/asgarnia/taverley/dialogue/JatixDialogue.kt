@@ -7,6 +7,7 @@ import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
+import core.tools.END_DIALOGUE
 
 /**
  * Represents the Jatix dialogue.
@@ -15,9 +16,10 @@ import core.plugin.Initializable
 class JatixDialogue(player: Player? = null) : Dialogue(player) {
 
     /*
-     * Jatix is the herblore skill tutor and the owner
-     * of Jatix's Herblore Shop, a Herblore shop
-     * in eastern Taverley.
+     * Jatix is the herblore skill tutor and the owner of Jatix's Herblore Shop,
+     * a Herblore shop in eastern Taverley.
+     * His name ends with "-ix", which is a reference to the Asterix comic books.
+     * Sources: https://runescape.wiki/w/Jatix%27s_Herblore_Shop?oldid=1772601
      */
 
     override fun newInstance(player: Player): Dialogue {
@@ -26,17 +28,17 @@ class JatixDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any?): Boolean {
         npc = args[0] as NPC
-        npc(FacialExpression.HAPPY, "Hello, adventurer.")
+        npc(FacialExpression.HALF_GUILTY, "Hello, how can I help you?")
         return true
     }
 
     override fun handle(interfaceId: Int, buttonId: Int): Boolean {
         when (stage) {
-            0 -> player(FacialExpression.FRIENDLY, "Hello.").also { stage++ }
-            1 -> player(FacialExpression.FRIENDLY, "What are you selling?").also { stage++ }
-            2 -> {
-                end()
-                openNpcShop(player, NPCs.JATIX_587)
+            0 -> options("What are you selling?", "You can't; I'm beyond help.", "I'm okay, thank you.").also { stage++ }
+            1 -> when(buttonId){
+                1 -> end().also { openNpcShop(player, NPCs.JATIX_587) }
+                2 -> player(FacialExpression.NEUTRAL, "You can't; I'm beyond help.").also { stage = END_DIALOGUE }
+                3 -> player("I'm okay, thank you.").also { stage = END_DIALOGUE }
             }
         }
         return true
