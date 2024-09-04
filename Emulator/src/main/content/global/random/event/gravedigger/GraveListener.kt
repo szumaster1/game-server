@@ -1,5 +1,6 @@
 package content.global.random.event.gravedigger
 
+import cfg.consts.Items
 import core.api.*
 import cfg.consts.Scenery
 import core.game.interaction.IntType
@@ -105,11 +106,11 @@ class GraveListener : InteractionListener {
         item: Item? = null
     ) {
         lock(player, 3)
-        player.animate(GraveUtils.PICK_AND_DROP_ANIM)
+        animate(player, GraveUtils.PICK_AND_DROP_ANIM)
         if (action == "take") {
             replaceScenery(Scenery(grave, location), emptyGrave, -1)
             sendMessage(player, "You take the coffin from the grave.")
-            addItemOrDrop(player, GraveUtils.COFFIN_1 + coffinIndex - 1)
+            addItemOrDrop(player, Items.COFFIN_7587 + coffinIndex - 1)
         } else if (action == "drop" && item != null) {
             removeItem(player, item)
             replaceScenery(Scenery(emptyGrave, location), grave, -1)
