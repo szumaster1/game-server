@@ -90,7 +90,7 @@ class GoblinDiplomacy :
                 line(player, "out that they liked the original colour the most.", line++, true)
                 line(player, "That's goblins for you I guess.", line-1, true)
                 line++
-                line(player, "<col=FF0000>QUEST COMPLETE!</col>", line, true)
+                line(player, "<col=FF0000>QUEST COMPLETE!</col>", line, false)
             }
         }
     }
