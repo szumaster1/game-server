@@ -200,7 +200,8 @@ enum class SlayerMaster(
         Task(Tasks.SPIRTUAL_MAGES, 4),
         Task(Tasks.STEEL_DRAGONS, 9),
         Task(Tasks.TROLLS, 11),
-        Task(Tasks.TUROTHS, 10)
+        Task(Tasks.TUROTHS, 10),
+        Task(Tasks.ZYGOMITES, 7),
     ),
 
     /**

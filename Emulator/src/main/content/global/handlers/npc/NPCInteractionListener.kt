@@ -122,6 +122,19 @@ class NPCInteractionListener : InteractionListener {
             return@on true
         }
 
+        /*
+         * Special interaction for (Fungi) mushrooms.
+         */
+
+        on(intArrayOf(NPCs.FUNGI_3344,NPCs.FUNGI_3345),IntType.NPC, "pick") { player, node ->
+            node.asNpc().attack(player)
+            return@on true
+        }
+
+        /*
+         * Talk-to global interaction.
+         */
+
         on(IntType.NPC, "talk-to", "talk", "talk to") { player, node ->
             val npc = node.asNpc()
 
@@ -174,9 +187,8 @@ class NPCInteractionListener : InteractionListener {
     }
 
     companion object {
-
-        val barCrawlNPCs = intArrayOf(NPCs.BARTENDER_733, NPCs.BLURBERRY_848, NPCs.BARTENDER_735, NPCs.BARTENDER_739, NPCs.BARTENDER_737, NPCs.BARTENDER_738, NPCs.BARTENDER_731, NPCs.ZAMBO_568, NPCs.KAYLEE_3217, NPCs.EMILY_736, NPCs.BARTENDER_734)
         val peerTheSeerNPC = NPCs.PEER_THE_SEER_1288
+        val barCrawlNPCs = intArrayOf(NPCs.BARTENDER_733, NPCs.BLURBERRY_848, NPCs.BARTENDER_735, NPCs.BARTENDER_739, NPCs.BARTENDER_737, NPCs.BARTENDER_738, NPCs.BARTENDER_731, NPCs.ZAMBO_568, NPCs.KAYLEE_3217, NPCs.EMILY_736, NPCs.BARTENDER_734)
         val dummySceneryIds = intArrayOf(Scenery.DUMMY_2038, Scenery.DUMMY_15624, Scenery.DUMMY_15625, Scenery.DUMMY_15626, Scenery.DUMMY_15627, Scenery.DUMMY_15628, Scenery.DUMMY_15629, Scenery.DUMMY_15630, Scenery.DUMMY_18238, Scenery.DUMMY_25648, Scenery.DUMMY_PAWYA_CORPSE_28912, Scenery.DUMMY_823, Scenery.DUMMY_23921)
         val cowSceneryIds = intArrayOf(Scenery.DAIRY_COW_8689, Scenery.DAIRY_COW_12111)
         val items: Array<Item> = arrayOf(Item(Items.BUCKET_1925, 1), Item(Items.EMPTY_BUCKET_3727, 1), Item(Items.BUCKET_OF_MILK_1927, 1))

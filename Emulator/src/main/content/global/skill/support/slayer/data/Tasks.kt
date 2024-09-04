@@ -1193,6 +1193,20 @@ enum class Tasks {
     ),
 
     /**
+     * Zygomites
+     *
+     * @constructor Zygomites
+     */
+    ZYGOMITES(
+        combatCheck = 10,
+        ids = intArrayOf(3346, 3347),
+        info = arrayOf("Mutated zygomites are monsters that appear as Fungi","until provoked."),
+        levelReq = 1,
+        undead = true,
+        dragon = false
+    ),
+
+    /**
      * Jad
      *
      * @constructor Jad
