@@ -246,15 +246,7 @@ class Configuration {
             arrayOf(Location.create(2544, 3759, 0), "waterbirth"),
             arrayOf(Location.create(2899, 4450, 0), "dks"),
             arrayOf(Location.create(2575, 3250, 0), "clocktower"),
-            arrayOf(
-                CastleWars.lobbyBankArea.randomLoc,
-                "cwars",
-                "castle wars",
-                "castle war",
-                "castlewars",
-                "castlewar",
-                "castle"
-            )
+            arrayOf(CastleWars.lobbyBankArea.randomLoc, "cwars", "castle wars", "castle war", "castlewars", "castlewar", "castle")
         )
 
         @JvmField
