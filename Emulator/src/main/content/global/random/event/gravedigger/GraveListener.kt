@@ -7,15 +7,18 @@ import cfg.consts.Scenery
 import core.game.dialogue.FacialExpression
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
+import core.game.node.entity.Entity
 import core.game.node.entity.player.Player
 import core.game.node.item.Item
 import core.game.node.scenery.*
 import core.game.world.map.Location
+import core.game.world.map.zone.ZoneBorders
+import core.game.world.map.zone.ZoneRestriction
 
 /**
  * Handles the gravedigger random event interaction.
  */
-class GraveListener : InteractionListener {
+class GraveListener : InteractionListener, MapArea {
     private val graves = listOf(
         Scenery.GRAVE_12722 to Scenery.GRAVE_12726,
         Scenery.GRAVE_12724 to Scenery.GRAVE_12727,
@@ -120,6 +123,17 @@ class GraveListener : InteractionListener {
             player.incrementAttribute(GraveUtils.LEO_COFFIN_POINTS)
         } else {
             sendMessage(player, "Nothing interesting happens.")
+        }
+    }
+
+    override fun defineAreaBorders(): Array<ZoneBorders> {
+        return arrayOf(ZoneBorders(1934, 4993, 1921, 5006))
+    }
+
+    override fun areaLeave(entity: Entity, logout: Boolean) {
+        super.areaLeave(entity, logout)
+        if (entity is Player) {
+            removeAll(entity, GraveUtils.coffins)
         }
     }
 }
