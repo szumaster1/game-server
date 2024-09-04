@@ -1,8 +1,10 @@
 package content.global.random.event.gravedigger
 
 import cfg.consts.Items
+import cfg.consts.NPCs
 import core.api.*
 import cfg.consts.Scenery
+import core.game.dialogue.FacialExpression
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.entity.player.Player
@@ -112,10 +114,12 @@ class GraveListener : InteractionListener {
             sendMessage(player, "You take the coffin from the grave.")
             addItemOrDrop(player, Items.COFFIN_7587 + coffinIndex - 1)
         } else if (action == "drop" && item != null) {
-            removeItem(player, item)
+            replaceSlot(player, item.slot, Item(-1))
             replaceScenery(Scenery(emptyGrave, location), grave, -1)
             sendMessage(player, "You put the coffin into the grave.")
             player.incrementAttribute(GraveUtils.LEO_COFFIN_POINTS)
+        } else {
+            sendMessage(player, "Nothing interesting happens.")
         }
     }
 }

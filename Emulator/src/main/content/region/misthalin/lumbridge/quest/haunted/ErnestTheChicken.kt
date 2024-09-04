@@ -68,7 +68,7 @@ class ErnestTheChicken : Quest("Ernest the Chicken", 19, 18, 4, Vars.VARP_QUEST_
         }
     }
 
-    override fun newInstance(`object`: Any): Quest {
+    override fun newInstance(`object`: Any?): Quest {
         definePlugins(ErnestNPC(), ErnestChickenNPC())
         return this
     }

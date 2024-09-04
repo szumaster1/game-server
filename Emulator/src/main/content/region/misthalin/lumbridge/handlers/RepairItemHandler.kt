@@ -17,7 +17,6 @@ class RepairItemHandler : UseWithHandler() {
 
     override fun newInstance(arg: Any?): Plugin<Any?> {
         registerHandlers()
-        definePlugin(BobDialogue())
         return this
     }
 

@@ -43,7 +43,7 @@ class GeneralKhazardDialogue(player: Player? = null) : Dialogue(player) {
         } else if (getAttribute(player, GSUtils.START_GENERAL_SHADOW, false)) {
             player("Err, what was I supposed to do again?").also { stage = 21 }
         } else if (getAttribute(player, GSUtils.GS_START, false)) {
-            npc("Do you make progress in finding my scouts?").also { stage = 34 }
+            npc(FacialExpression.OLD_NORMAL,"Do you make progress in finding my scouts?").also { stage = 34 }
         } else if (getAttribute(player, GSUtils.GS_PROGRESS, 0) == 4) {
             player("I did it, sir! I found all the scouts and delivered", "your message. The last one said I should report back to", "you.").also { stage = 41 }
         } else {
@@ -86,15 +86,15 @@ class GeneralKhazardDialogue(player: Player? = null) : Dialogue(player) {
             }
             21 -> npc(FacialExpression.OLD_NORMAL, "You goldfish! Go find the Sin Seer - she will determine if", "you are trustworthy. She lives in Seer's village to the", "south of here.").also { stage++ }
             22 -> end()
-            23 -> npc("And?").also { stage++ }
+            23 -> npc(FacialExpression.OLD_NORMAL,"And?").also { stage++ }
             24 -> player("She said to give you this note to prove I went to see her.").also { stage++ }
-            25 -> npc("The note says you have committed many sins and atrocities in your life. I'm impressed; I will use you.").also { stage++ }
-            26 -> npc("It has been a long time since I have left my home in the south. I have lost track of what is going on in the world, but now it is imperative that I know.").also { stage++ }
-            27 -> npc("So I sent out four scouts to gather information for me. I brought them to walk like me in the Shadow Realm, so they would be safe from my enemies.").also { stage++ }
-            28 -> npc("I sent them on four missions. One was to go to the land of the gnomes and explore their holdings. One was to go to a jungle to the sound. One was to explore where the White Knights rule. And one was to the place that").also { stage++ }
-            29 -> npc("I once called home - a place of great heat.").also { stage++ }
-            30 -> npc("I am going to entrust you with a very important message, which you must deliver to each one of them.").also { stage++ }
-            31 -> npc("Tell them: The planets are nearing alignment; we will meet in the place of half light and ice soon. Beware the others, for though they are weak and few, they are cunning.").also { stage++ }
+            25 -> npc(FacialExpression.OLD_NORMAL,"The note says you have committed many sins and atrocities in your life. I'm impressed; I will use you.").also { stage++ }
+            26 -> npc(FacialExpression.OLD_NORMAL,"It has been a long time since I have left my home in the south. I have lost track of what is going on in the world, but now it is imperative that I know.").also { stage++ }
+            27 -> npc(FacialExpression.OLD_NORMAL,"So I sent out four scouts to gather information for me. I brought them to walk like me in the Shadow Realm, so they would be safe from my enemies.").also { stage++ }
+            28 -> npc(FacialExpression.OLD_NORMAL,"I sent them on four missions. One was to go to the land of the gnomes and explore their holdings. One was to go to a jungle to the sound. One was to explore where the White Knights rule. And one was to the place that").also { stage++ }
+            29 -> npc(FacialExpression.OLD_NORMAL,"I once called home - a place of great heat.").also { stage++ }
+            30 -> npc(FacialExpression.OLD_NORMAL,"I am going to entrust you with a very important message, which you must deliver to each one of them.").also { stage++ }
+            31 -> npc(FacialExpression.OLD_NORMAL,"Tell them: The planets are nearing alignment; we will meet in the place of half light and ice soon. Beware the others, for though they are weak and few, they are cunning.").also { stage++ }
             32 -> player("You can trust me to do it, sir!").also { stage++ }
             33 -> {
                 end()
@@ -107,30 +107,30 @@ class GeneralKhazardDialogue(player: Player? = null) : Dialogue(player) {
             } else {
                 player("I've found ${getAttribute(player, GSUtils.GS_PROGRESS, 0)}, but they're kind of hard to find.", "Where were they headed again?").also { stage++ }
             }
-            35 -> npc("One was to go to a jungle to the south.").also { stage++ }
-            36 -> npc("One was to go to the land of the gnomes and explore", "their holdings.").also { stage++ }
-            37 -> npc("One was to explore where the White Knights rule.").also { stage++ }
-            38 -> npc("One was to go to a place of great heat.").also { stage++ }
-            39 -> npc("If I knew more of their locations I would go myself.", "Now go and finish the job.").also { stage++ }
+            35 -> npc(FacialExpression.OLD_NORMAL,"One was to go to a jungle to the south.").also { stage++ }
+            36 -> npc(FacialExpression.OLD_NORMAL,"One was to go to the land of the gnomes and explore", "their holdings.").also { stage++ }
+            37 -> npc(FacialExpression.OLD_NORMAL,"One was to explore where the White Knights rule.").also { stage++ }
+            38 -> npc(FacialExpression.OLD_NORMAL,"One was to go to a place of great heat.").also { stage++ }
+            39 -> npc(FacialExpression.OLD_NORMAL,"If I knew more of their locations I would go myself.", "Now go and finish the job.").also { stage++ }
             40 -> end()
-            41 -> npc("Oh, and what did he say that for?").also { stage++ }
+            41 -> npc(FacialExpression.OLD_NORMAL,"Oh, and what did he say that for?").also { stage++ }
             42 -> player("He said to tell you, 'We of the blood are still loyal.", "Pavlov is the messenger.'").also { stage++ }
-            43 -> npc("Ah. Interesting. Well, you have served your purpose.", "Now to award you with something appropriate.").also { stage++ }
-            44 -> npc("There is a cave near where the fish-men gather. Go to", "the east branch of this cave and seek out the one who lives", "in the Shadow Realm. He will reward you well.").also { stage++ }
+            43 -> npc(FacialExpression.OLD_NORMAL,"Ah. Interesting. Well, you have served your purpose.", "Now to award you with something appropriate.").also { stage++ }
+            44 -> npc(FacialExpression.OLD_NORMAL,"There is a cave near where the fish-men gather. Go to", "the east branch of this cave and seek out the one who lives", "in the Shadow Realm. He will reward you well.").also { stage++ }
             45 -> player("Right! Fish-men. Cave. Ghost. Thanks, General!").also { stage++ }
-            46 -> npc("Wait! Take this, it is the key to your reward.").also { stage++ }
+            46 -> npc(FacialExpression.OLD_NORMAL,"Wait! Take this, it is the key to your reward.").also { stage++ }
             47 -> sendItemDialogue(player, Items.SEVERED_LEG_10857, "The General hands you a severed leg.").also { stage++ }
             48 -> player(FacialExpression.SCARED, "Ugh, well, at least it's not another hand.").also { stage++ }
-            49 -> npc("Ah, you have dealt with severed limbs before?").also { stage++ }
+            49 -> npc(FacialExpression.OLD_NORMAL,"Ah, you have dealt with severed limbs before?").also { stage++ }
             50 -> player("It's a long story.").also { stage++ }
-            51 -> npc("Don't worry if you lose it, I can always get more to", "replace it.").also { stage++ }
+            51 -> npc(FacialExpression.OLD_NORMAL,"Don't worry if you lose it, I can always get more to", "replace it.").also { stage++ }
             52 -> {
                 end()
                 addItemOrDrop(player, Items.SEVERED_LEG_10857)
                 setAttribute(player, GSUtils.GS_SEVERED_LEG, true)
             }
-            100 -> npc("He was angry that you killed him.", "Quite natural, really.").also { stage++ }
-            101 -> npc("Now get out of here, you filthy skinbag.", "I will not waste my time on you.").also { stage = END_DIALOGUE }
+            100 -> npc(FacialExpression.OLD_NORMAL,"He was angry that you killed him.", "Quite natural, really.").also { stage++ }
+            101 -> npc(FacialExpression.OLD_NORMAL,"Now get out of here, you filthy skinbag.", "I will not waste my time on you.").also { stage = END_DIALOGUE }
         }
         return true
     }

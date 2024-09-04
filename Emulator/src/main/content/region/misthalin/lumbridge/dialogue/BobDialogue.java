@@ -87,7 +87,7 @@ public final class BobDialogue extends Dialogue {
                     }
                     String cost = "free";
                     if (repairitem.getCost() != 0) {
-                        cost = repairitem.getCost() + "gp";
+                        cost = repairitem.getCost() + " gold coins";
                     }
                 }
                 if (repairitem == null) {
@@ -98,7 +98,7 @@ public final class BobDialogue extends Dialogue {
                     String newString = type.toLowerCase().replace(single, "").trim().replace("'s", "");
                     final BarrowsEquipment.BarrowsFullEquipment fullequip = BarrowsEquipment.BarrowsFullEquipment.forName(newString + " " + equipment);
                     if (BarrowsEquipment.getFormattedCost(equipment, item) != 0) {
-                        cost = BarrowsEquipment.getFormattedCost(equipment, item) + "gp";
+                        cost = BarrowsEquipment.getFormattedCost(equipment, item) + " gold coins";
                     }
                     if (!player.getInventory().contains(995, BarrowsEquipment.getFormattedCost(equipment, item))) {
                         end();
@@ -293,7 +293,7 @@ public final class BobDialogue extends Dialogue {
             String cost = "free";
             if (repairitem != null) {
                 if (repairitem.getCost() != 0) {
-                    cost = repairitem.getCost() + "gp";
+                    cost = repairitem.getCost() + " gold coins";
                 }
             } else {
                 String type = BarrowsEquipment.formattedName(itemId);
@@ -303,10 +303,10 @@ public final class BobDialogue extends Dialogue {
                 StringBuilder newewString = new StringBuilder();
                 newewString.append(newString).append(" " + equipment);
                 if (BarrowsEquipment.getFormattedCost(equipment, item) != 0) {
-                    cost = BarrowsEquipment.getFormattedCost(equipment, item) + "gp";
+                    cost = BarrowsEquipment.getFormattedCost(equipment, item) + " gold coins";
                 }
             }
-            npc("That'll cost you " + cost + "gold coins to fix, are you sure?");
+            npc("That'll cost you " + cost + " to fix, are you sure?");
             stage = 754;
             return true;
         }

@@ -1,11 +1,9 @@
 package content.global.random.event.lostandfound
 
-import core.api.getAttribute
-import core.api.removeAttribute
-import core.api.setMinimapState
-import core.api.setVarp
+import core.api.*
 import core.cache.def.impl.SceneryDefinition
 import core.game.node.entity.player.Player
+import core.game.node.item.Item
 import core.game.node.scenery.Scenery
 import core.game.world.map.Location
 import core.tools.RandomFunction
@@ -68,14 +66,14 @@ object LostAndFoundUtils {
         setVarp(player, 531, value) // Set the varp value for the player.
     }
 
-    /*
-     * fun reward(player: Player) {
-     *     val runes = player.getAttribute("teleport:items", emptyArray<Item>())
-     *     runes.size
-     *     for (rune in runes) {
-     *         addItem(player, rune.id, rune.amount)
-     *         sendDoubleItemDialogue(player, RUNE_1, RUNE_2, "")
-     *     }
-     * }
-     */
+
+    fun reward(player: Player) {
+        val runes = player.getAttribute("teleport:items", emptyArray<Item>())
+        runes.size
+        for (rune in runes) {
+            addItem(player, rune.id, rune.amount)
+            sendDoubleItemDialogue(player, runes[0], runes[1], "Abyssal Services apologise for any inconvenience. Please accept these runes in way of recompense.")
+        }
+    }
+
 }

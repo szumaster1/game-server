@@ -12,7 +12,7 @@ import core.game.node.entity.combat.equipment.WeaponInterface
 import core.game.node.entity.combat.equipment.WeaponInterface.WeaponInterfaces
 import core.game.node.entity.player.Player
 import core.game.node.entity.player.info.Rights
-import core.game.world.GameWorld.settings
+import core.game.world.GameWorld
 import core.plugin.Initializable
 import core.plugin.Plugin
 
@@ -45,20 +45,8 @@ class GameInterfacePlugin : ComponentPlugin() {
 
             Components.TOPLEVEL_FULLSCREEN_746 -> {
                 when (button) {
-                    12 -> setInterfaceText(
-                        player,
-                        "When you have finished playing " + settings!!.name + ", always use the button below to logout safely. ",
-                        182,
-                        0
-                    )
-
-                    49 -> setInterfaceText(
-                        player,
-                        "Friends List - " + settings!!.name + " " + settings!!.worldId,
-                        550,
-                        3
-                    )
-
+                    12 -> player.packetDispatch.sendString("When you have finished playing " + GameWorld.settings!!.name + ", always use the button below to logout safely.", 182, 0)
+                    49 -> setInterfaceText(player, "Friends List - " + GameWorld.settings!!.name + " " + GameWorld.settings!!.worldId, 550, 3)
                     110 -> configureWorldMap(player)
                 }
                 return true
@@ -69,13 +57,7 @@ class GameInterfacePlugin : ComponentPlugin() {
                     player.interfaceManager.currentTabIndex = getTabIndex(button)
                 }
                 when (button) {
-                    21 -> setInterfaceText(
-                        player,
-                        "Friends List -" + settings!!.name + " " + settings!!.worldId,
-                        Components.FRIENDS2_550,
-                        3
-                    )
-
+                    21 -> setInterfaceText(player, "Friends List -" + GameWorld.settings!!.name + " " + GameWorld.settings!!.worldId, Components.FRIENDS2_550, 3)
                     22 -> {}
                     24 -> {}
                     25 -> {}
@@ -94,13 +76,7 @@ class GameInterfacePlugin : ComponentPlugin() {
                     43 -> {}
                     44 -> {}
                     66, 110 -> configureWorldMap(player)
-                    69 -> setInterfaceText(
-                        player,
-                        "When you have finished playing " + settings!!.name + ", always use the button below to logout safely. ",
-                        182,
-                        0
-                    )
-
+                    69 -> setInterfaceText(player, "When you have finished playing ${GameWorld.settings!!.name}, always use the button below to logout safely.", 182, 0)
                     else -> throw IllegalStateException("Unexpected value: $button")
                 }
                 return true

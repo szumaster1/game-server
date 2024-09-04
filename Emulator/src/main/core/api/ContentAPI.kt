@@ -1472,6 +1472,10 @@ fun lockTeleport(entity: Entity) {
     entity.locks.isTeleportLocked()
 }
 
+fun lockTeleport(entity: Entity, ticks : Int) {
+    entity.locks.lockTeleport(ticks)
+}
+
 /**
  * Unlocks the given entity.
  *
