@@ -186,7 +186,7 @@ class ErnestTheChickenPlugin : OptionHandler() {
             var value = 0
             for (i in levers.indices) {
                 if (!levers[i]) {
-                    value += 2.pow((i + 1).toDouble())
+                    value += (1 shl (i + 1))
                 }
             }
             return value
