@@ -3,6 +3,7 @@ package content.region.asgarnia.portsarim.dialogue
 import cfg.consts.NPCs
 import core.api.sendDialogue
 import core.game.dialogue.Dialogue
+import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
@@ -30,7 +31,7 @@ class PortSarimGuardDialogue(player: Player? = null) : Dialogue(player) {
             0 -> options("Don't worry, I'm not going to cause trouble.", "I am Player the Mighty!", "No-one, there's no-one here.").also { stage++ }
             1 -> when (buttonId) {
                 1 -> player("Don't worry, I'm not going to cause trouble.").also { stage++ }
-                2 -> player("I am Player the Mighty!").also { stage = 4 }
+                2 -> player(FacialExpression.JOLLY, "I am Player the Mighty!").also { stage = 4 }
                 3 -> player("No-one, there's no-one here.").also { stage = 11 }
             }
             2 -> npc("But you shouldn't be here - be off with you!").also { stage++ }
@@ -40,13 +41,13 @@ class PortSarimGuardDialogue(player: Player? = null) : Dialogue(player) {
             6 -> npc("I'll have you know it's a very important job guarding this", "jail!").also { stage++ }
             7 -> npc("If anyone comes sneaking in here to mess around with ", "the prisoners, the lads downstairs will make mincemeat of them, and I'll be", "here to pick them off if they try to escape.").also { stage++ }
             8 -> player("You mean people aren't meant to be able to shoot the", "prisoners in the cells?").also { stage++ }
-            9 -> npc("Yes, that's right.").also { stage++ }
+            9 -> npc(FacialExpression.NOD_YES,"Yes, that's right.").also { stage++ }
             10 -> player("Okay, it's been nice talking to you.").also { stage = END_DIALOGUE }
-            11 -> npc("What? I can see you!").also { stage++ }
+            11 -> npc(FacialExpression.THINKING,"What? I can see you!").also { stage++ }
             12 -> player("No, you're just imagining it. Perhaps you've been up here in the sun for too long?").also { stage++ }
-            13 -> npc("So who am I talking to?").also { stage++ }
+            13 -> npc(FacialExpression.HALF_ASKING, "So who am I talking to?").also { stage++ }
             14 -> player("Oh dear, you've started talking to yourself. That's a common sign that you're going mad!").also { stage++ }
-            15 -> npc("But... but... you're standing right there...").also { stage++ }
+            15 -> npc(FacialExpression.SAD, "But... but... you're standing right there...").also { stage++ }
             16 -> sendDialogue(player, "Maybe you should leave him alone now.").also { stage = END_DIALOGUE }
         }
         return true

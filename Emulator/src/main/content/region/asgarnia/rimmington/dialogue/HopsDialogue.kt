@@ -20,6 +20,7 @@ class HopsDialogue(player: Player? = null) : Dialogue(player) {
     override fun handle(interfaceId: Int, buttonId: Int): Boolean {
         when (stage) {
             START_DIALOGUE -> {
+                end()
                 if (getAttribute(player, BiohazardUtils.THIRD_VIAL_CORRECT, true)) {
                     openDialogue(player, HopsDialogueFile())
                 } else {

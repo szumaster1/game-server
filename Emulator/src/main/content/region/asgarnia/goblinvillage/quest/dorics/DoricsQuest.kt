@@ -52,11 +52,12 @@ class DoricsQuest : Quest("Doric's Quest", 17, 16, 1, Vars.VARP_QUEST_DORICS_QUE
         drawReward(player, "1 Quest Point", line++)
         drawReward(player, "1300 Mining XP", line++)
         drawReward(player, "180 Coins", line++)
-        drawReward(player, "Use of Doric's Anvils", line++)
+        drawReward(player, "Use of Doric's Anvils", line)
 
         rewardXP(player, Skills.MINING, 1300.0)
         addItemOrDrop(player, Items.COINS_995, 180)
         removeAttribute(player, "doric-angy-count")
+        updateQuestTab(player)
     }
 
     override fun newInstance(`object`: Any?): Quest {

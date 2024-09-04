@@ -11,9 +11,9 @@ import core.game.interaction.InteractionListener
 class RimmingtonListeners : InteractionListener {
 
     override fun defineListeners() {
+
         /*
          * Handling the Scenery NPC (Rocking Out)
-         * The Rimmington customs officer should have a yellow dot on the minimap. After (18 August 2009)
          */
 
         on(Scenery.CUSTOMS_SERGEANT_31459, IntType.SCENERY, "talk-to") { player, _ ->
@@ -22,6 +22,10 @@ class RimmingtonListeners : InteractionListener {
             }
             return@on true
         }
+
+        /*
+         * Lock the doors in the Port Sarim corner house.
+         */
 
         on(Scenery.DOOR_1534, IntType.SCENERY, "close", "open") { player, node ->
             if(node.location.x == 2950 && node.location.y == 3207) {

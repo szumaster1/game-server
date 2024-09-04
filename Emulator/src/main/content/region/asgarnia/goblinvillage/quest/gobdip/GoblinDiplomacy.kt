@@ -6,10 +6,7 @@ import cfg.consts.Vars
 import content.region.asgarnia.goblinvillage.quest.gobdip.cutscene.GDiplomacyCutscene
 import content.region.asgarnia.goblinvillage.quest.gobdip.dialogue.GrubfootDialogue
 import content.region.asgarnia.goblinvillage.quest.gobdip.plugin.GoblinDiplomacyPlugin
-import core.api.inInventory
-import core.api.rewardXP
-import core.api.sendItemZoomOnInterface
-import core.api.setInterfaceText
+import core.api.*
 import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.quest.Quest
 import core.game.node.entity.skill.Skills
@@ -108,15 +105,17 @@ class GoblinDiplomacy :
         player ?: return
         var line = 10
 
-        setInterfaceText(player, "5 Quests Points", Components.QUEST_COMPLETE_SCROLL_277, line++)
-        setInterfaceText(player, "200 Crafting XP", Components.QUEST_COMPLETE_SCROLL_277, line++)
-        setInterfaceText(player, "A gold bar", Components.QUEST_COMPLETE_SCROLL_277, line++)
-        setInterfaceText(player, "You have completed the Goblin Diplomacy Quest!", Components.QUEST_COMPLETE_SCROLL_277, line++)
+        drawReward(player, "5 Quests Points", line++)
+        drawReward(player, "200 Crafting XP", line++)
+        drawReward(player, "A gold bar", line++)
+        drawReward(player, "You have completed the Goblin Diplomacy Quest!", line)
+
         sendItemZoomOnInterface(player, Components.QUEST_COMPLETE_SCROLL_277, 5, Items.GOBLIN_MAIL_288, 230)
         rewardXP(player, Skills.CRAFTING, 200.0)
         if (!player.inventory.add(Item(Items.GOLD_BAR_2357, 1))) {
             GroundItemManager.create(Item(Items.GOLD_BAR_2357, 1), player)
         }
+        updateQuestTab(player)
     }
 
     override fun getConfig(player: Player, stage: Int): IntArray {

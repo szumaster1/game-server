@@ -24,7 +24,7 @@ class RoomikDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun handle(interfaceId: Int, buttonId: Int): Boolean {
         when (stage) {
-            0 -> sendDialogueOptions(player, "Choose an option:", "Let's see what you've got, then.", "No thanks, I've got all the crafting equipment I need.").also { stage++ }
+            0 -> sendDialogueOptions(player, "Choose an option:", "Let's see what you've got, then.", "No thanks.").also { stage++ }
             1 -> when (buttonId) {
                 1 -> end().also { openNpcShop(player, NPCs.ROMMIK_585)}
                 2 -> player(FacialExpression.HALF_GUILTY, "No thanks, I've got all the crafting equipment I need.").also { stage++ }

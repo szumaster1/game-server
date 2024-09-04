@@ -25,7 +25,7 @@ class HengelDialogue(player: Player? = null) : Dialogue(player) {
             0 -> npc("What are you doing here?").also { stage++ }
             1 -> options("I'm just wandering around.", "I was hoping you'd give me some free stuff.", "I've come to kill you.").also { stage++ }
             2 -> when (buttonId) {
-                1 -> player("I'm just wondering around.").also { stage = 3 }
+                1 -> player("I'm just wondering around.").also { stage++ }
                 2 -> player("I was hoping you'd give me some free stuff.").also { stage = 7 }
                 3 -> player("I've come to kill you.").also { stage = 9 }
             }

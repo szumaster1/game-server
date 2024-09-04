@@ -26,6 +26,25 @@ class CustomsSergeantDialogue : DialogueFile() {
             3 -> player("Okay.").also { stage++ }
             4 -> npc(FacialExpression.ANNOYED, "Now!").also { stage = END_DIALOGUE }
         }
+
+        /*
+        If partially completed "Rocking Out" and after he arrested the player once:
+
+        0 -> npcl(FacialExpression.STRUGGLE, "You? How did you escape?").also { stage++ }
+        1 -> player("With awesome daring and courage.").also { stage++ }
+        2 -> {
+        If carrying items:
+             npc(FacialExpression.ANNOYED, "Store all of that no-doubt stolen gear, so I can send you back where you belong.").also { stage++ }
+
+        If not carrying items:
+             npc(FacialExpression.ANNOYED, "Right, let's see if you can get out this time.").also { stage++ }
+        }
+
+        3 -> player("Okay, okay, keep your cap on!").also { stage++ }
+        4 -> {
+        The screen fades to black, then returns to normal. The player appears in Rock Island Prison.
+        }
+        */
     }
 
 }
