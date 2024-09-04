@@ -6,12 +6,7 @@ import core.game.node.entity.player.Player
 import core.game.node.item.Item
 
 /**
- * Enum class representing different types of GrubFoot.
- *
- * @param id unique identifier for the GrubFoot type.
- * @param value numerical value associated with the GrubFoot type.
- * @param mail item associated with the GrubFoot type.
- * @constructor Represents a GrubFoot with the specified id, value, and mail item.
+ * Represents the different types of GrubFoot.
  */
 enum class GrubFoot(val id: Int, val value: Int, val mail: Item) {
     /**
