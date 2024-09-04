@@ -56,17 +56,14 @@ class SirReniteeDialogue(player: Player? = null) : Dialogue(player) {
                     val crest = crests[c]
                     player.houseManager.crest = crest
                     setAttribute(player, "/save:sir-renitee-assigned-crest", true)
-                    if (crest === CrestType.ASGARNIA) {
-                        setAttribute(player, "/save:con:crest-type", 2)
-                    } else if (crest === CrestType.KANDARIN) {
-                        setAttribute(player, "/save:con:crest-type", 10)
-                    } else if (crest === CrestType.MISTHALIN) {
-                        setAttribute(player, "/save:con:crest-type", 11)
-                    } else {
-                        setAttribute(player, "/save:con:crest-type", 15)
+                    when (crest) {
+                        CrestType.ASGARNIA -> setAttribute(player, "/save:con:crest-type", 2)
+                        CrestType.KANDARIN -> setAttribute(player, "/save:con:crest-type", 10)
+                        CrestType.MISTHALIN -> setAttribute(player, "/save:con:crest-type", 11)
+                        else -> setAttribute(player, "/save:con:crest-type", 15)
                     }
                     var message = "that can be your"
-                    if (crest === CrestType.VARROCK) {
+                    if (crest == CrestType.VARROCK) {
                         message = "you can use that city's"
                     }
                     npc(FacialExpression.HALF_GUILTY, "Well, I don't think you have any noble blood,", "but I see that your ancestors came from " + Util.enumToString(player.houseManager.crest.name) + ",", " so $message crest.")

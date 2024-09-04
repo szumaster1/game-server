@@ -12,7 +12,5 @@ interface CrestRequirement {
      * @param player The player whose eligibility is being checked.
      * @return True if the player is eligible, false otherwise.
      */
-    fun eligible(player: Player): Boolean {
-        return true
-    }
+    fun eligible(player: Player) = true
 }

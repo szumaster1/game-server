@@ -1,151 +1,72 @@
 package content.global.skill.support.construction
 
 import cfg.consts.Items
+import core.api.anyInInventory
+import core.api.hasLevelStat
 import core.api.isQuestComplete
 import core.game.node.entity.player.Player
 import core.game.node.entity.skill.Skills
 
-private val ARRAV_CREST_SYMBOL      = "the Shield of Arrav symbol"
-private val ASGARNIA_CREST_SYMBOL   = "the symbol of Asgarnia"
-private val DORGESHUUN_CREST_SYMBOL = "the Dorgeshuun brooch"
-private val DRAGON_CREST_SYMBOL     = "a dragon"
-private val FAIRY_CREST_SYMBOL      = "a fairy"
-private val GUTHIX_CREST_SYMBOL     = "the symbol of Guthix"
-private val H_A_M_CREST_SYMBOL      = "the symbol of the HAM cult."
-private val HORSE_CREST_SYMBOL      = "a horse"
-private val JOGRE_CREST_SYMBOL      = "Jiggig"
-private val KANDARIN_CREST_SYMBOL   = "the symbol of Kandarin"
-private val MISTHALIN_CREST_SYMBOL  = "the symbol of Misthalin"
-private val MONEY_CREST_SYMBOL      = "a bag of money"
-private val SARADOMIN_CREST_SYMBOL  = "the symbol of Saradomin"
-private val SKULL_CREST_SYMBOL      = "a skull"
-private val VARROCK_CREST_SYMBOL    = "the symbol of Varrock"
-private val ZAMORAK_CREST_SYMBOL    = "the symbol of Zamorak"
+private val CREST_SYMBOLS = mapOf(
+    "ARRAV"      to "the Shield of Arrav symbol",
+    "ASGARNIA"   to "the symbol of Asgarnia",
+    "DORGESHUUN" to "the Dorgeshuun brooch",
+    "DRAGON"     to "a dragon",
+    "FAIRY"      to "a fairy",
+    "GUTHIX"     to "the symbol of Guthix",
+    "HAM"        to "the symbol of the HAM cult.",
+    "HORSE"      to "a horse",
+    "JOGRE"      to "Jiggig",
+    "KANDARIN"   to "the symbol of Kandarin",
+    "MISTHALIN"  to "the symbol of Misthalin",
+    "MONEY"      to "a bag of money",
+    "SARADOMIN"  to "the symbol of Saradomin",
+    "SKULL"      to "a skull",
+    "VARROCK"    to "the symbol of Varrock",
+    "ZAMORAK"    to "the symbol of Zamorak"
+)
 
 /**
- * Crest type
- *
- * @property cost The cost associated with the crest type, (default `5000`).
- * @constructor Initializes a CrestType with a name and an optional cost.
- *
- * @param name The name of the crest type.
+ * Represents the Family crest types.
  */
-enum class CrestType(name: String, val cost: Int = 5000) : CrestRequirement {
-    /**
-     * Arrav.
-     */
-    ARRAV(ARRAV_CREST_SYMBOL) {
-        override fun eligible(player: Player): Boolean {
-            return isQuestComplete(player, "Shield of Arrav")
-        }
+enum class CrestType(val cost: Int = 5000) : CrestRequirement {
+    ARRAV {
+        override fun eligible(player: Player): Boolean = isQuestComplete(player, "Shield of Arrav")
     },
-
-    /**
-     * Asgarnia.
-     */
-    ASGARNIA(ASGARNIA_CREST_SYMBOL),
-
-    /**
-     * Dorgeshuun.
-     */
-    DORGESHUUN(DORGESHUUN_CREST_SYMBOL) {
-        override fun eligible(player: Player): Boolean {
-            return isQuestComplete(player, "The Lost Tribe")
-        }
+    ASGARNIA,
+    DORGESHUUN {
+        override fun eligible(player: Player): Boolean = isQuestComplete(player, "The Lost Tribe")
     },
-
-    /**
-     * Dragon.
-     */
-    DRAGON(DRAGON_CREST_SYMBOL) {
-        override fun eligible(player: Player): Boolean {
-            return isQuestComplete(player, "Dragon Slayer")
-        }
+    DRAGON {
+        override fun eligible(player: Player): Boolean = isQuestComplete(player, "Dragon Slayer")
     },
-
-    /**
-     * Fairy.
-     */
-    FAIRY(FAIRY_CREST_SYMBOL) {
-        override fun eligible(player: Player): Boolean {
-            return isQuestComplete(player, "Lost City")
-        }
+    FAIRY {
+        override fun eligible(player: Player): Boolean = isQuestComplete(player, "Lost City")
     },
-
-    /**
-     * Guthix.
-     */
-    GUTHIX(GUTHIX_CREST_SYMBOL) {
-        override fun eligible(player: Player): Boolean {
-            return player.getSkills().hasLevel(Skills.PRAYER, 70)
-        }
+    GUTHIX {
+        override fun eligible(player: Player): Boolean = hasLevelStat(player, Skills.PRAYER, 70)
     },
-
-    /**
-     * Ham.
-     */
-    HAM(H_A_M_CREST_SYMBOL),
-
-    /**
-     * Horse.
-     */
-    HORSE(HORSE_CREST_SYMBOL) {
-        override fun eligible(player: Player): Boolean {
-            return player.inventory.containsAtLeastOneItem(
-                intArrayOf(Items.TOY_HORSEY_2524, Items.TOY_HORSEY_2520, Items.TOY_HORSEY_2526, Items.TOY_HORSEY_2522)
-            )
-        }
+    HAM,
+    HORSE {
+        override fun eligible(player: Player): Boolean = anyInInventory(player, Items.TOY_HORSEY_2524, Items.TOY_HORSEY_2520, Items.TOY_HORSEY_2526, Items.TOY_HORSEY_2522)
     },
-
-    /**
-     * Jogre.
-     */
-    JOGRE(JOGRE_CREST_SYMBOL),
-
-    /**
-     * Kandarin.
-     */
-    KANDARIN(KANDARIN_CREST_SYMBOL),
-
-    /**
-     * Misthalin.
-     */
-    MISTHALIN(MISTHALIN_CREST_SYMBOL),
-
-    /**
-     * Money.
-     */
-    MONEY(MONEY_CREST_SYMBOL, 500000),
-
-    /**
-     * Saradomin.
-     */
-    SARADOMIN(SARADOMIN_CREST_SYMBOL) {
-        override fun eligible(player: Player): Boolean {
-            return player.getSkills().hasLevel(Skills.PRAYER, 70)
-        }
+    JOGRE,
+    KANDARIN,
+    MISTHALIN,
+    MONEY(500000),
+    SARADOMIN {
+        override fun eligible(player: Player): Boolean = hasLevelStat(player, Skills.PRAYER, 70)
     },
-
-    /**
-     * Skull.
-     */
-    SKULL(SKULL_CREST_SYMBOL) {
-        override fun eligible(player: Player): Boolean {
-            return player.skullManager.isSkulled()
-        }
+    SKULL {
+        override fun eligible(player: Player): Boolean = player.skullManager.isSkulled
     },
+    VARROCK,
+    ZAMORAK {
+        override fun eligible(player: Player): Boolean = hasLevelStat(player, Skills.PRAYER, 70)
+    };
 
     /**
-     * Varrock.
+     * Gets the symbol.
      */
-    VARROCK(VARROCK_CREST_SYMBOL),
-
-    /**
-     * Zamorak.
-     */
-    ZAMORAK(ZAMORAK_CREST_SYMBOL) {
-        override fun eligible(player: Player): Boolean {
-            return player.getSkills().hasLevel(Skills.PRAYER, 70)
-        }
-    }
+    fun getSymbol(): String = CREST_SYMBOLS[this.name] ?: "unknown crest"
 }
