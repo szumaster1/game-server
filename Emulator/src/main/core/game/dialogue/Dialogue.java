@@ -40,7 +40,7 @@ public abstract class Dialogue implements Plugin<Player> {
     protected Player player;
 
     /**
-     * The Interpreter.
+     * The dialogue interpreter.
      */
     protected DialogueInterpreter interpreter;
 
@@ -53,43 +53,46 @@ public abstract class Dialogue implements Plugin<Player> {
      * The Option names.
      */
     protected ArrayList<String> optionNames = new ArrayList<String>(10);
+
     /**
      * The Option files.
      */
     protected ArrayList<DialogueFile> optionFiles = new ArrayList<DialogueFile>(10);
 
     /**
-     * The Two options.
+     * The Two options interface.
      */
     protected final int TWO_OPTIONS = 228;
 
     /**
-     * The Three options.
+     * The Three options interface.
      */
     protected final int THREE_OPTIONS = 230;
 
     /**
-     * The Four options.
+     * The Four options interface.
      */
     protected final int FOUR_OPTIONS = 232;
 
     /**
-     * The Five options.
+     * The Five options interface.
      */
     protected final int FIVE_OPTIONS = 234;
 
     /**
-     * The Npc.
+     * The NPC the player is talking with.
      */
+
     protected NPC npc;
 
     /**
-     * The Stage.
+     * The current dialogue stage.
      */
+
     public int stage;
 
     /**
-     * The Finished.
+     * If the dialogue is finished.
      */
     protected boolean finished;
 
@@ -125,7 +128,7 @@ public abstract class Dialogue implements Plugin<Player> {
     }
 
     /**
-     * Init.
+     * Initializes this class.
      */
     public void init() {
         for (int id : getIds()) {
@@ -134,9 +137,9 @@ public abstract class Dialogue implements Plugin<Player> {
     }
 
     /**
-     * Close boolean.
+     * Closes (but does not end) the dialogue.
      *
-     * @return the boolean
+     * @return true if the dialogue succesfully closed.
      */
     public boolean close() {
         player.getInterfaceManager().closeChatbox();
@@ -158,7 +161,7 @@ public abstract class Dialogue implements Plugin<Player> {
     }
 
     /**
-     * Increment.
+     * Increments the stage variable.
      */
     public void increment() {
         stage++;
@@ -166,16 +169,16 @@ public abstract class Dialogue implements Plugin<Player> {
 
 
     /**
-     * Gets and increment.
+     * Increments the stage variable.
      *
-     * @return the and increment
+     * @return The stage variable.
      */
     public int getAndIncrement() {
         return stage++;
     }
 
     /**
-     * End.
+     * Ends the dialogue.
      */
     public void end() {
         if (interpreter != null) {
@@ -199,21 +202,28 @@ public abstract class Dialogue implements Plugin<Player> {
     public Dialogue newInstance(Player player) {
         try {
             Class<?> classReference = Class.forName(this.getClass().getCanonicalName());
-
-            return (Dialogue) classReference.getDeclaredConstructor(Player.class).newInstance(player);
-        } catch (ClassNotFoundException | IllegalAccessException | IllegalArgumentException | NoSuchMethodException |
-                 InvocationTargetException | InstantiationException e) {
+            return (Dialogue) classReference
+                .getDeclaredConstructor(Player.class)
+                .newInstance(player);
+        } catch (ClassNotFoundException
+                 | IllegalAccessException
+                 | IllegalArgumentException
+                 | NoSuchMethodException
+                 | InvocationTargetException
+                 | InstantiationException e) {
             e.printStackTrace();
             return null;
         }
     }
 
+
     /**
-     * Open boolean.
+     * Opens the dialogue.
      *
-     * @param args the args
-     * @return the boolean
+     * @param args The arguments.
+     * @return {@code True} if the dialogue plugin succesfully opened.
      */
+
     public boolean open(Object... args) {
         player.getDialogueInterpreter().activeTopics.clear();
         if (args.length > 0 && args[0] instanceof NPC) {
@@ -229,19 +239,18 @@ public abstract class Dialogue implements Plugin<Player> {
     }
 
     /**
-     * Handle boolean.
+     * Handles the progress of this dialogue..
      *
-     * @param interfaceId the interface id
-     * @param buttonId    the button id
-     * @return the boolean
+     * @return {@code True} if the dialogue has started.
      */
     public abstract boolean handle(int interfaceId, int buttonId);
 
     /**
-     * Get ids int [ ].
+     * Gets the ids of the NPCs using this dialogue plugin.
      *
-     * @return the int [ ]
+     * @return The array of NPC ids.
      */
+
     public abstract int[] getIds();
 
     /**
@@ -258,12 +267,12 @@ public abstract class Dialogue implements Plugin<Player> {
     }
 
     /**
-     * Npc component.
+     * Method wrapper to send an npc dial.
      *
-     * @param id       the id
-     * @param messages the messages
-     * @return the component
+     * @param id the id.
+     * @return the component.
      */
+
     public Component npc(int id, final String... messages) {
         return interpreter.sendDialogues(id, FacialExpression.FRIENDLY, messages);
     }
@@ -279,12 +288,11 @@ public abstract class Dialogue implements Plugin<Player> {
     }
 
     /**
-     * Npc component.
+     * Method wrapper to send an npc dial.
      *
-     * @param expression the expression
-     * @param messages   the messages
-     * @return the component
+     * @return the component.
      */
+
     public Component npc(FacialExpression expression, final String... messages) {
         if (npc == null) {
             return interpreter.sendDialogues(getIds()[0], expression, messages);
@@ -293,57 +301,57 @@ public abstract class Dialogue implements Plugin<Player> {
     }
 
     /**
-     * Player component.
+     * Method wrapper to send a player dial.
      *
-     * @param messages the messages
-     * @return the component
+     * @return the component.
      */
+
     public Component player(final String... messages) {
         return interpreter.sendDialogues(player, null, messages);
     }
 
     /**
-     * Player component.
+     * Method wrapper to send a player dial.
      *
-     * @param expression the expression
-     * @param messages   the messages
-     * @return the component
+     * @return the component.
      */
+
     public Component player(FacialExpression expression, final String... messages) {
         return interpreter.sendDialogues(player, expression, messages);
     }
 
     /**
-     * Options.
+     * Method used to send options.
      *
-     * @param options the options
+     * @param options the options.
      */
+
     public void options(final String... options) {
         interpreter.sendOptions("Select an Option", options);
     }
 
     /**
-     * Is finished boolean.
+     * Checks if the dialogue plugin is finished.
      *
-     * @return the boolean
+     * @return true if so.
      */
     public boolean isFinished() {
         return finished;
     }
 
     /**
-     * Gets player.
+     * Gets the player.
      *
-     * @return the player
+     * @return The player.
      */
     public Player getPlayer() {
         return player;
     }
 
     /**
-     * Sets stage.
+     * Sets the stage.
      *
-     * @param i the
+     * @param i the stage.
      */
     public void setStage(int i) {
         this.stage = i;
@@ -357,9 +365,9 @@ public abstract class Dialogue implements Plugin<Player> {
     }
 
     /**
-     * Load file.
+     * Loads a DialogueFile and sets its stage to START_DIALOGUE, and diverts all further handling for the conversation to the file.
      *
-     * @param file the file
+     * @param file the DialogueFile to load.
      */
     public void loadFile(DialogueFile file) {
         if (file == null) return;
@@ -369,10 +377,10 @@ public abstract class Dialogue implements Plugin<Player> {
     }
 
     /**
-     * Add option.
+     * Add an option to the list of possible choices a player can pick from. Helps build the options interface for sendChoices()
      *
-     * @param name the name
-     * @param file the file
+     * @param name the name of the quest/activity to talk about. Turns into "Talk about $name" on the option interface.
+     * @param file the DialogueFile that the option loads when selected.
      */
     public void addOption(String name, DialogueFile file) {
         optionNames.add("Talk about " + name);
@@ -380,9 +388,9 @@ public abstract class Dialogue implements Plugin<Player> {
     }
 
     /**
-     * Send choices boolean.
+     * Send the player a list of conversation options if there's more than one choice. I.E. multiple quest lines.
      *
-     * @return the boolean
+     * @return true if an options interface was sent, false if not.
      */
     public boolean sendChoices() {
         if (optionNames.size() == 1) {
@@ -399,22 +407,21 @@ public abstract class Dialogue implements Plugin<Player> {
     }
 
     /**
-     * Npcl component.
+     * Use the automatic line splitting feature in DialUtils to produce npc dialogues.
      *
-     * @param expr the expr
-     * @param msg  the msg
-     * @return the component
+     * @param expr the FacialExpression to use, located in the FacialExpression enum.
+     * @param msg  the message for the NPC to say.
      */
+
     public Component npcl(FacialExpression expr, String msg) {
         return npc(expr, splitLines(msg, 54));
     }
 
     /**
-     * Playerl component.
+     * Use the automatic line splitting feature in DialUtils to produce player dialogues.
      *
-     * @param expr the expr
-     * @param msg  the msg
-     * @return the component
+     * @param expr the FacialExpression to use, located in the FacialExpression enum.
+     * @param msg  the message for the player to say.
      */
     public Component playerl(FacialExpression expr, String msg) {
         return player(expr, splitLines(msg, 54));
@@ -423,8 +430,8 @@ public abstract class Dialogue implements Plugin<Player> {
     /**
      * Show topics boolean.
      *
-     * @param topics the topics
-     * @return the boolean
+     * @param topics the topics.
+     * @return the boolean.
      */
     public boolean showTopics(Topic<?>... topics) {
         ArrayList<String> validTopics = new ArrayList<>();

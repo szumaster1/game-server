@@ -2,6 +2,7 @@ package content.region.asgarnia.portsarim.dialogue
 
 import cfg.consts.NPCs
 import core.api.sendDialogueOptions
+import core.api.sendNPCDialogue
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC
@@ -24,6 +25,7 @@ class JackSeagullDialogue(player: Player? = null) : Dialogue(player) {
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
         npc(FacialExpression.HALF_GUILTY, "Arrr, matey!")
+        sendNPCDialogue(player, NPCs.LONGBOW_BEN_2691, "")
         return true
     }
 
