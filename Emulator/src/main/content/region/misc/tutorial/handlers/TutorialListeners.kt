@@ -17,11 +17,10 @@ import core.game.world.repository.Repository
  */
 class TutorialListeners : InteractionListener {
 
-    private val tutorialGuide = NPCs.TUTORIAL_GUIDE_8591
     private val guideDoor = cfg.consts.Scenery.DOOR_3014
     private val cookDoor = cfg.consts.Scenery.DOOR_3017
     private val cooksExit = cfg.consts.Scenery.DOOR_3018
-    private val questDoor_1 = cfg.consts.Scenery.DOOR_3019
+    private val questDoor = cfg.consts.Scenery.DOOR_3019
     private val questLadder_1 = cfg.consts.Scenery.LADDER_3029
     private val questLadder = cfg.consts.Scenery.LADDER_3028
     private val combatLadder = cfg.consts.Scenery.LADDER_3030
@@ -33,15 +32,6 @@ class TutorialListeners : InteractionListener {
     private val ratGatesIDs = intArrayOf(cfg.consts.Scenery.GATE_3022, cfg.consts.Scenery.GATE_3023)
 
     override fun defineListeners() {
-
-        /*
-         * Handling a skip option for the tutorial island.
-         */
-
-        on(tutorialGuide, IntType.NPC, "Skip-tutorial") { player, _ ->
-            openDialogue(player, NPCs.TUTORIAL_GUIDE_8591)
-            return@on true
-        }
 
         /*
          * Handling open the guide house door.
@@ -102,7 +92,7 @@ class TutorialListeners : InteractionListener {
          * Handling open door leads to the quest guide area.
          */
 
-        on(questDoor_1, IntType.SCENERY, "open") { player, node ->
+        on(questDoor, IntType.SCENERY, "open") { player, node ->
             if (getAttribute(player, "tutorial:stage", 0) != 26)
                 return@on true
 

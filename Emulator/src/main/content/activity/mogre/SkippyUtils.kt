@@ -1,8 +1,9 @@
 package content.activity.mogre
 
+import core.game.world.map.zone.ZoneBorders
+
 /**
- * Object containing utility constants related to Skippy and the Mogres activity.
- * @author szumaster
+ * Skippy utils.
  */
 object SkippyUtils {
     // Variable representing the progress of Skippy and the Mogres activity
@@ -13,4 +14,7 @@ object SkippyUtils {
 
     // Animation ID for throwing a bucket
     const val ANIMATION_THROW_BUCKET = 4255
+
+    // Check
+    val TUTORIAL_ISLAND: ZoneBorders = ZoneBorders.forRegion(12336)
 }

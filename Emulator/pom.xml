@@ -67,7 +67,7 @@
         <dependency>
             <groupId>cfg.consts</groupId>
             <artifactId>constants</artifactId>
-            <version>[0.0.0,)</version>
+            <version>[0.0,)</version>
             <scope>compile</scope>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-api -->
@@ -126,14 +126,14 @@
                 <version>3.0.1</version>
                 <executions>
                     <execution>
-                        <id>mvn install:install-file</id>
+                        <id>install-constants</id>
                         <phase>clean</phase>
                         <configuration>
                             <file>${project.basedir}/library/constants-0.0.19.jar</file>
                             <repositoryLayout>default</repositoryLayout>
-                            <groupId>cfg.consts</groupId>
+                            <groupId>cfg</groupId>
                             <artifactId>constants</artifactId>
-                            <version>0.0.19</version>
+                            <version>0.0</version>
                             <packaging>jar</packaging>
                             <generatePom>true</generatePom>
                         </configuration>
@@ -141,6 +141,7 @@
                             <goal>install-file</goal>
                         </goals>
                     </execution>
+
                 </executions>
             </plugin>
             <plugin>

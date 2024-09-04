@@ -3,6 +3,7 @@ package content.activity.mogre
 import core.api.*
 import cfg.consts.Items
 import cfg.consts.Sounds
+import content.region.misc.tutorial.dialogue.SkippyTutorialDialogue
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression
 import core.game.interaction.QueueStrength
@@ -20,20 +21,32 @@ class SkippyDialogue(player: Player? = null) : Dialogue(player) {
 
     /*
      * Skippy is found behind Hetty's house in Rimmington.
-     * He is drunk and you need to sober him up, before he
+     * He is drunk, and you need to sober him up, before he
      * will tell you about the Mogres.
      */
 
     override fun open(vararg args: Any?): Boolean {
-        when(getVarbit(player, SkippyUtils.VARBIT_SKIPPY_AND_THE_MOGRES_PROGRESS)){
-            0 -> if(!inInventory(player, Items.BUCKET_OF_WATER_1929)) {
-                playerl(FacialExpression.HALF_GUILTY, "You know, I could shock him out of it if I could find some cold water...").also { stage = END_DIALOGUE }
-            } else {
-                playerl(FacialExpression.HALF_GUILTY,"Well, I could dump this bucket of water over him. That would sober him up a little.").also { stage = 0 }
+        if (inBorders(player, SkippyUtils.TUTORIAL_ISLAND)) {
+            openDialogue(player, SkippyTutorialDialogue())
+            return true
+        } else {
+            when (getVarbit(player, SkippyUtils.VARBIT_SKIPPY_AND_THE_MOGRES_PROGRESS)) {
+                0 -> if (!inInventory(player, Items.BUCKET_OF_WATER_1929)) {
+                    playerl(
+                        FacialExpression.HALF_GUILTY,
+                        "You know, I could shock him out of it if I could find some cold water..."
+                    ).also { stage = END_DIALOGUE }
+                } else {
+                    playerl(
+                        FacialExpression.HALF_GUILTY,
+                        "Well, I could dump this bucket of water over him. That would sober him up a little."
+                    ).also { stage = 0 }
+                }
+
+                1 -> player("Hey, Skippy.").also { stage = 12 }
+                2 -> player("Hey, Skippy.").also { stage = 30 }
+                else -> player("Hey, Skippy.").also { stage = 77 }
             }
-            1 -> player("Hey, Skippy.").also { stage = 12 }
-            2 -> player("Hey, Skippy.").also { stage = 30 }
-            else -> player("Hey, Skippy.").also { stage = 77 }
         }
         return true
     }
@@ -45,6 +58,7 @@ class SkippyDialogue(player: Player? = null) : Dialogue(player) {
                 1 -> player("Hey, Skippy!").also { stage++ }
                 2 -> end()
             }
+
             2 -> npc("What?").also { stage++ }
             3 -> queueScript(player, 1, QueueStrength.WEAK) { tick: Int ->
                 when (tick) {
@@ -55,13 +69,16 @@ class SkippyDialogue(player: Player? = null) : Dialogue(player) {
                         addItem(player!!, Items.BUCKET_1925)
                         return@queueScript delayScript(player, animationDuration(Animation(SkippyUtils.ANIMATION_THROW_BUCKET)))
                     }
+
                     1 -> {
                         npc("Ahhhhhhhhhhgh! That's cold! Are you trying to kill me?")
                         return@queueScript stopExecuting(player).also { stage = 5 }
                     }
+
                     else -> return@queueScript stopExecuting(player)
                 }
             }
+
             5 -> playerl(FacialExpression.HALF_ASKING, "Nope. Just sober you up. Memory coming back yet?").also { stage++ }
             6 -> npcl(FacialExpression.NEUTRAL, "No. But I could do with a bowl of tea to warm myself up a bit. Go grab me one and we'll talk.").also { stage++ }
             7 -> playerl(FacialExpression.HAPPY, "Any particular type of tea?").also { stage++ }
@@ -76,14 +93,14 @@ class SkippyDialogue(player: Player? = null) : Dialogue(player) {
                 if (!anyInInventory(player, NETTLE_TEA_BOWL, NETTLE_TEA_CUP, NETTLE_TEA_PORCELAIN_CUP)) {
                     playerl(FacialExpression.NEUTRAL, "No real reason. I just thought I would check up on you is all.").also { stage = 29 }
                 } else {
-                    if((inInventory(player, NETTLE_TEA_BOWL) && removeItem(player, NETTLE_TEA_BOWL) && addItem(player, EMPTY_BOWL)) || (inInventory(player, NETTLE_TEA_CUP) && removeItem(player, NETTLE_TEA_CUP) && addItem(player, EMPTY_CUP)) || (inInventory(player, NETTLE_TEA_PORCELAIN_CUP) && removeItem(player, NETTLE_TEA_PORCELAIN_CUP) && addItem(player, EMPTY_PORCELAIN_CUP))) {
+                    if ((inInventory(player, NETTLE_TEA_BOWL) && removeItem(player, NETTLE_TEA_BOWL) && addItem(player, EMPTY_BOWL)) || (inInventory(player, NETTLE_TEA_CUP) && removeItem(player, NETTLE_TEA_CUP) && addItem(player, EMPTY_CUP)) || (inInventory(player, NETTLE_TEA_PORCELAIN_CUP) && removeItem(player, NETTLE_TEA_PORCELAIN_CUP) && addItem(player, EMPTY_PORCELAIN_CUP))) {
                         playerl(FacialExpression.HAPPY, "I've come to give you your tea.").also { stage++ }
                     } else {
                         playerl(FacialExpression.NEUTRAL, "No real reason. I just thought I would check up on you is all.").also { stage = 29 }
                     }
                 }
             }
-            16 -> npcl(FacialExpression.HALF_GUILTY,"Excellent! I was thinking I was going to freeze out here!").also { stage++ }
+            16 -> npcl(FacialExpression.HALF_GUILTY, "Excellent! I was thinking I was going to freeze out here!").also { stage++ }
             17 -> sendDialogue(player!!, "Skippy drinks the tea and clutches his forehead in pain.").also { stage++ }
             18 -> npc("Ohhhhh...").also { stage++ }
             19 -> player("What? What's wrong?").also { stage++ }
@@ -97,14 +114,14 @@ class SkippyDialogue(player: Player? = null) : Dialogue(player) {
             27 -> player("Ahhh. Yes, I've made some of that stuff before. I should", "be able to get you some, no problem.").also { stage++ }
             28 -> end().also { setVarbit(player!!, SkippyUtils.VARBIT_SKIPPY_AND_THE_MOGRES_PROGRESS, 2, true) }
             29 -> npc("Well, I'm still wet, still cold and still", "waiting on that nettle tea.").also { stage = END_DIALOGUE }
-            30 -> npcl(FacialExpression.HALF_GUILTY,"Egad! Don't you know not to shout around a guy with a hangover?").also { stage++ }
-            31 -> npcl(FacialExpression.HALF_GUILTY,"Ahhhhhg...No more shouting for me...").also { stage++ }
-            32 -> npcl(FacialExpression.HALF_GUILTY,"What is it anyway?").also { stage++ }
+            30 -> npcl(FacialExpression.HALF_GUILTY, "Egad! Don't you know not to shout around a guy with a hangover?").also { stage++ }
+            31 -> npcl(FacialExpression.HALF_GUILTY, "Ahhhhhg...No more shouting for me...").also { stage++ }
+            32 -> npcl(FacialExpression.HALF_GUILTY, "What is it anyway?").also { stage++ }
             33 -> {
                 if (!removeItem(player!!, Items.HANGOVER_CURE_1504)) {
-                    playerl(FacialExpression.HALF_GUILTY,"I just came back to ask you something.").also { stage++ }
+                    playerl(FacialExpression.HALF_GUILTY, "I just came back to ask you something.").also { stage++ }
                 } else {
-                    playerl(FacialExpression.HAPPY,"Well Skippy, you will no doubt be glad to hear that I got you your hangover cure!").also {
+                    playerl(FacialExpression.HAPPY, "Well Skippy, you will no doubt be glad to hear that I got you your hangover cure!").also {
                         addItem(player!!, Items.BUCKET_1925)
                         stage = 46
                     }
@@ -116,15 +133,15 @@ class SkippyDialogue(player: Player? = null) : Dialogue(player) {
                 1 -> player("How do I make that hangover cure again?").also { stage++ }
                 2 -> player("Why do they call you 'Skippy'?").also { stage = 15 }
             }
-            37 -> npcl(FacialExpression.HALF_GUILTY,"Give me strength...Here's what you do. Pay attention!").also { stage++ }
-            38 -> npcl(FacialExpression.HALF_GUILTY,"You take a bucket of milk, a bar of chocolate and some snape grass.").also { stage++ }
-            39 -> npcl(FacialExpression.HALF_GUILTY,"Grind the chocolate with a pestle and mortar.").also { stage++ }
-            40 -> npcl(FacialExpression.HALF_GUILTY,"Add the chocolate powder to the milk, then add the snape grass.").also { stage++ }
-            41 -> npcl(FacialExpression.HALF_GUILTY,"Then bring it here and I will drink it.").also { stage++ }
-            42 -> npcl(FacialExpression.HALF_GUILTY,"Are you likely to remember that or should I go get some crayons and draw you a picture?").also { stage++ }
-            43 -> playerl(FacialExpression.HALF_GUILTY,"Hey! I remember it now, ok! See you in a bit.").also { stage = END_DIALOGUE }
-            44 -> npcl(FacialExpression.HALF_GUILTY,"I think it may have something to do with my near-constant raving about mudskippers.").also { stage++ }
-            45 -> npcl(FacialExpression.HALF_GUILTY,"That or it's something to do with that time with the dress and the field full of daisies...").also { stage = END_DIALOGUE }
+            37 -> npcl(FacialExpression.HALF_GUILTY, "Give me strength...Here's what you do. Pay attention!").also { stage++ }
+            38 -> npcl(FacialExpression.HALF_GUILTY, "You take a bucket of milk, a bar of chocolate and some snape grass.").also { stage++ }
+            39 -> npcl(FacialExpression.HALF_GUILTY, "Grind the chocolate with a pestle and mortar.").also { stage++ }
+            40 -> npcl(FacialExpression.HALF_GUILTY, "Add the chocolate powder to the milk, then add the snape grass.").also { stage++ }
+            41 -> npcl(FacialExpression.HALF_GUILTY, "Then bring it here and I will drink it.").also { stage++ }
+            42 -> npcl(FacialExpression.HALF_GUILTY, "Are you likely to remember that or should I go get some crayons and draw you a picture?").also { stage++ }
+            43 -> playerl(FacialExpression.HALF_GUILTY, "Hey! I remember it now, ok! See you in a bit.").also { stage = END_DIALOGUE }
+            44 -> npcl(FacialExpression.HALF_GUILTY, "I think it may have something to do with my near-constant raving about mudskippers.").also { stage++ }
+            45 -> npcl(FacialExpression.HALF_GUILTY, "That or it's something to do with that time with the dress and the field full of daisies...").also { stage = END_DIALOGUE }
             46 -> npc("Gimme!").also { stage++ }
             47 -> sendDialogue(player!!, "Skippy chugs the hangover cure... very impressive.").also { stage++ }
             48 -> npc("Ahhhhhhhhhhhhhhh...").also { stage++ }
@@ -137,22 +154,22 @@ class SkippyDialogue(player: Player? = null) : Dialogue(player) {
             55 -> npc("It's all becoming clear to me now...").also { stage++ }
             56 -> npc("I was fishing using a Fishing Explosive...").also { stage++ }
             57 -> player("A Fishing Explosive?").also { stage++ }
-            58 -> npcl(FacialExpression.HALF_GUILTY,"Well, Slayer Masters sell these highly volatile potions for killing underwater creatures.").also { stage++ }
-            59 -> npcl(FacialExpression.HALF_GUILTY,"If you don't feel like lobbing a net about all day you can use them to fish with...").also { stage++ }
-            60 -> npcl(FacialExpression.HALF_GUILTY,"But this time I was startled by what I thought was a giant mudskipper.").also { stage++ }
-            61 -> npcl(FacialExpression.HALF_GUILTY,"What it was, infact, was a...").also { stage++ }
+            58 -> npcl(FacialExpression.HALF_GUILTY, "Well, Slayer Masters sell these highly volatile potions for killing underwater creatures.").also { stage++ }
+            59 -> npcl(FacialExpression.HALF_GUILTY, "If you don't feel like lobbing a net about all day you can use them to fish with...").also { stage++ }
+            60 -> npcl(FacialExpression.HALF_GUILTY, "But this time I was startled by what I thought was a giant mudskipper.").also { stage++ }
+            61 -> npcl(FacialExpression.HALF_GUILTY, "What it was, infact, was a...").also { stage++ }
             62 -> npc("Dramatic Pause...").also { stage++ }
             63 -> npc("A Mogre!").also { stage++ }
             64 -> player("What exactly is a Mogre?").also { stage++ }
-            65 -> npcl(FacialExpression.HALF_GUILTY,"A Mogre is a type of Ogre that spends most of its time underwater.").also { stage++ }
-            66 -> npcl(FacialExpression.HALF_GUILTY,"They hunt giant mudskippers by wearing their skins and swimming close until they can attack them.").also { stage++ }
-            67 -> npcl(FacialExpression.HALF_GUILTY,"When I used the Fishing Explosive I scared off all the fish, and so the Mogre got out of the water to express its extreme displeasure.").also { stage++ }
+            65 -> npcl(FacialExpression.HALF_GUILTY, "A Mogre is a type of Ogre that spends most of its time underwater.").also { stage++ }
+            66 -> npcl(FacialExpression.HALF_GUILTY, "They hunt giant mudskippers by wearing their skins and swimming close until they can attack them.").also { stage++ }
+            67 -> npcl(FacialExpression.HALF_GUILTY, "When I used the Fishing Explosive I scared off all the fish, and so the Mogre got out of the water to express its extreme displeasure.").also { stage++ }
             68 -> npc("My head still hurts.").also { stage++ }
-            69 -> playerl(FacialExpression.HALF_ASKING,"I take it the head injury is responsible for the staggering and yelling?").also { stage++ }
+            69 -> playerl(FacialExpression.HALF_ASKING, "I take it the head injury is responsible for the staggering and yelling?").also { stage++ }
             70 -> npc("No, no.").also { stage++ }
-            71 -> npcl(FacialExpression.HALF_GUILTY,"My addiction to almost-lethal alcohol did that.").also { stage++ }
-            72 -> npcl(FacialExpression.HALF_GUILTY,"But if you are set on finding those Mogres just head south from here until you find Mudskipper Point.").also { stage++ }
-            73 -> playerl(FacialExpression.HALF_ASKING,"The mudskipper-eating monsters are to be found at Mudskipper point?").also { stage++ }
+            71 -> npcl(FacialExpression.HALF_GUILTY, "My addiction to almost-lethal alcohol did that.").also { stage++ }
+            72 -> npcl(FacialExpression.HALF_GUILTY, "But if you are set on finding those Mogres just head south from here until you find Mudskipper Point.").also { stage++ }
+            73 -> playerl(FacialExpression.HALF_ASKING, "The mudskipper-eating monsters are to be found at Mudskipper point?").also { stage++ }
             74 -> player("Shock!").also { stage++ }
             75 -> player("Thanks. I'll be careful.").also { stage++ }
             76 -> end().also { setVarbit(player!!, SkippyUtils.VARBIT_SKIPPY_AND_THE_MOGRES_PROGRESS, 3, true) }
@@ -172,7 +189,7 @@ class SkippyDialogue(player: Player? = null) : Dialogue(player) {
     }
 
     override fun getIds(): IntArray {
-        return intArrayOf(2795,2796,2797,2798,2799)
+        return intArrayOf(2795, 2796, 2797, 2798, 2799)
     }
 
     companion object {

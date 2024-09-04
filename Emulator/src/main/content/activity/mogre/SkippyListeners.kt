@@ -3,6 +3,7 @@ package content.activity.mogre
 import core.api.*
 import cfg.consts.Items
 import cfg.consts.NPCs
+import content.region.misc.tutorial.dialogue.SkippyTutorialDialogue
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 
@@ -21,6 +22,10 @@ class SkippyListeners : InteractionListener {
          * Handle the interaction when player tries to sober up Skippy
          */
         on(skippyWrapperIDs, IntType.NPC, "sober-up") { player, node ->
+            if(inBorders(player, SkippyUtils.TUTORIAL_ISLAND)){
+                openDialogue(player, SkippyTutorialDialogue())
+                return@on true
+            }
             player.dialogueInterpreter.open(node.id)
             return@on true
         }

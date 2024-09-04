@@ -7,6 +7,7 @@ import core.api.setVarp
 import core.game.component.Component
 import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.appearance.Gender
+import core.game.world.GameWorld
 import core.tools.RandomFunction
 import kotlin.math.abs
 
@@ -98,6 +99,10 @@ object CharacterDesign {
                 randomize(player, false)
                 return true
             }
+            167 -> {
+                Component.setUnclosable(player, player.dialogueInterpreter.sendPlaneMessageWithBlueTitle("Getting started", "To start the tutorial use your left mouse button to click on the", "" + GameWorld.settings!!.name + " Guide in this room. He is indicated by a flashing", "yellow arrow above his head. If you can't see him, use your", "keyboard's arrow keys to rotate the view."))
+                return true
+            }
 
             169 -> {
                 randomize(player, true) // RANDOMIZE HAIR
@@ -156,7 +161,7 @@ object CharacterDesign {
 
     private fun changeColor(player: Player, index: Int, array: IntArray, startId: Int, buttonId: Int) {
         val col = array[abs((buttonId - startId).toDouble()).toInt()]
-        setAttribute(player, "color-val:$index", array[abs((buttonId - startId).toDouble()).toInt()])
+        setAttribute(player, "color-val:$index", col)
     }
 
     private fun reset(player: Player) {
