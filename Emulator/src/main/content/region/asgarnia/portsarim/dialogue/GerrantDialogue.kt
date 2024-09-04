@@ -20,7 +20,7 @@ import core.tools.END_DIALOGUE
 class GerrantDialogue(player: Player? = null) : Dialogue(player) {
 
     /*
-     * Gerrant is the owner of Gerrant's Fishy Business in Port Sarim.
+     * Gerrant is the owner of Fishy Business in Port Sarim.
      */
 
     override fun open(vararg args: Any): Boolean {
@@ -33,10 +33,10 @@ class GerrantDialogue(player: Player? = null) : Dialogue(player) {
         when (stage) {
             0 -> options("Let's see what you've got then.", "Sorry, I'm not interested.").also { stage++ }
             1 -> when (buttonId) {
-                1 -> player(FacialExpression.HAPPY, "Let's see what you've got then.").also { stage = 10 }
+                1 -> player(FacialExpression.HAPPY, "Let's see what you've got then.").also { stage++ }
                 2 -> player(FacialExpression.HALF_GUILTY, "Sorry, I'm not interested.").also { stage = END_DIALOGUE }
             }
-            10 -> {
+            2 -> {
                 end()
                 openNpcShop(player, NPCs.GERRANT_558)
             }

@@ -37,7 +37,7 @@ class GrumDialogue(player: Player? = null) : Dialogue(player) {
                 }
                 2 -> player(FacialExpression.HALF_GUILTY, "No, I', not that rich.").also { stage++ }
             }
-            20 -> npc(FacialExpression.ANNOYED, "Get out, then! We don't want any riff-raff in here.").also { stage = END_DIALOGUE }
+            2 -> npc(FacialExpression.ANNOYED, "Get out, then! We don't want any riff-raff in here.").also { stage = END_DIALOGUE }
         }
         return true
     }

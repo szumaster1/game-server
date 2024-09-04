@@ -31,13 +31,13 @@ class JackSeagullDialogue(player: Player? = null) : Dialogue(player) {
         when (stage) {
             0 -> sendDialogueOptions(player, "What would you like to say?", "What are you doing here?", "Have you got any quests I could do?").also { stage++ }
             1 -> when (buttonId) {
-                1 -> player(FacialExpression.HALF_GUILTY, "What are you doing here?").also { stage = 10 }
-                2 -> player(FacialExpression.HALF_GUILTY, "Have you got any quests I could do?").also { stage = 20 }
+                1 -> player(FacialExpression.HALF_GUILTY, "What are you doing here?").also { stage++ }
+                2 -> player(FacialExpression.HALF_GUILTY, "Have you got any quests I could do?").also { stage = 4 }
             }
-            10 -> npc(FacialExpression.HALF_GUILTY, "Drinking.").also { stage++ }
-            11 -> player(FacialExpression.HALF_GUILTY, "Fair enough.").also { stage = END_DIALOGUE }
-            20 -> npc(FacialExpression.HALF_GUILTY, "Nay, I've nothing for ye to do.").also { stage++ }
-            21 -> player(FacialExpression.HALF_GUILTY, "Thanks.").also { stage = END_DIALOGUE }
+            2 -> npc(FacialExpression.HALF_GUILTY, "Drinking.").also { stage++ }
+            3 -> player(FacialExpression.HALF_GUILTY, "Fair enough.").also { stage = END_DIALOGUE }
+            4 -> npc(FacialExpression.HALF_GUILTY, "Nay, I've nothing for ye to do.").also { stage++ }
+            5 -> player(FacialExpression.HALF_GUILTY, "Thanks.").also { stage = END_DIALOGUE }
         }
         return true
     }

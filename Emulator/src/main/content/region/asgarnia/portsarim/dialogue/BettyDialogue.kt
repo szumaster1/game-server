@@ -51,7 +51,7 @@ class BettyDialogue(player: Player? = null) : Dialogue(player) {
             }
             5 -> {
                 end()
-                if (freeSlots(player) < 1) {
+                if (freeSlots(player) == 0) {
                     sendMessage(player, "You don't have enough inventory space.")
                 } else if (!removeItem(player, Item(Items.COINS_995, 20))) {
                     sendDialogue(player, "You don't have enough coins for that.")
