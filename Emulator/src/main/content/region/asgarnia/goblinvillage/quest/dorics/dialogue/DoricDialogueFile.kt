@@ -1,4 +1,4 @@
-package content.region.asgarnia.goblinvillage.quest.doric.dialogue
+package content.region.asgarnia.goblinvillage.quest.dorics.dialogue
 
 import core.api.*
 import cfg.consts.Items

@@ -1,4 +1,4 @@
-package content.region.asgarnia.taverley.quest.eadgar
+package content.region.asgarnia.taverley.quest.eadgar.dialogue
 
 import cfg.consts.NPCs
 import core.api.isQuestComplete

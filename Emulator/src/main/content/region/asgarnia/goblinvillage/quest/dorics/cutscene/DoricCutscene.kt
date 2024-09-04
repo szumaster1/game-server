@@ -1,4 +1,4 @@
-package content.region.asgarnia.goblinvillage.quest.doric.cutscene
+package content.region.asgarnia.goblinvillage.quest.dorics.cutscene
 
 import core.api.animate
 import cfg.consts.NPCs

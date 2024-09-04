@@ -57,7 +57,7 @@ public final class GDiplomacyCutscene extends CutscenePlugin {
 
     @Override
     public boolean start(final Player player, final boolean login, Object... args) {
-        Quest quest = player.getQuestRepository().getQuest(GoblinDiplomacy.NAME);
+        Quest quest = player.getQuestRepository().getQuest("Goblin Diplomacy");
         final NPC grubfoot = NPC.create(quest.getStage(player) == 10 ? 4495 : quest.getStage(player) == 20 ? 4497 : quest.getStage(player) == 30 ? 4498 : 4496, getBase().transform(10, 55, 0));
         grubfoot.setWalks(false);
         npcs.add(grubfoot);
@@ -167,7 +167,7 @@ public final class GDiplomacyCutscene extends CutscenePlugin {
             type = GrubFoot.forConfig(player);
             dialIndex = RandomFunction.random(DIALOGUES.length);
             other = Repository.findNPC(npc.getId() == 4494 ? 4493 : 4494);
-            quest = player.getQuestRepository().getQuest(GoblinDiplomacy.NAME);
+            quest = player.getQuestRepository().getQuest("Goblin Diplomacy");
             if (player.getQuestRepository().getQuest("Lost Tribe").getStage(player) == 43) {
                 player("Have you heard of the Dorgeshuun?");
                 stage = 5000;

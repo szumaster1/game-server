@@ -1,4 +1,4 @@
-package content.miniquest.dsd
+package content.miniquest.surok
 
 import cfg.consts.NPCs
 import core.game.dialogue.Dialogue

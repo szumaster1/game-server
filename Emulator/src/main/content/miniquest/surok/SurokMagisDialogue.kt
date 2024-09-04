@@ -1,4 +1,4 @@
-package content.miniquest.dsd
+package content.miniquest.surok
 
 import cfg.consts.Music
 import cfg.consts.NPCs

@@ -1,7 +1,7 @@
 package content.region.asgarnia.falador.dialogue
 
-import content.region.asgarnia.goblinvillage.quest.doric.cutscene.DoricCutscene
-import content.region.asgarnia.goblinvillage.quest.doric.dialogue.DoricDialogueFile
+import content.region.asgarnia.goblinvillage.quest.dorics.cutscene.DoricCutscene
+import content.region.asgarnia.goblinvillage.quest.dorics.dialogue.DoricDialogueFile
 import core.api.*
 import cfg.consts.NPCs
 import core.game.dialogue.Dialogue
