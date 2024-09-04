@@ -2,7 +2,6 @@ package content.region.misthalin.lumbridge.dialogue;
 
 import content.data.item.RepairItem;
 import content.global.handlers.item.equipment.BarrowsEquipmentRegister;
-import core.cache.def.impl.ItemDefinition;
 import core.game.dialogue.Dialogue;
 import core.game.dialogue.FacialExpression;
 import core.game.node.entity.npc.NPC;
@@ -16,20 +15,31 @@ import core.game.world.GameWorld;
  * Represents the Bob dialogue.
  */
 public final class BobDialogue extends Dialogue {
-
+    /**
+     * Represents the item id being repaired.
+     */
     private int itemId = 0;
+    /**
+     * Represents the item being repaired.
+     */
     private Item item;
+    /**
+     * Represents the item repairing.
+     */
     private static RepairItem repairitem = null;
+    /**
+     * The achievement diary.
+     */
     private final int level = 1;
 
     /**
-     * Instantiates a new Bob dialogue.
+     * Constructs a new Bob dialogue.
      */
     public BobDialogue() {
     }
 
     /**
-     * Instantiates a new Bob dialogue.
+     * Constructs a new Bob dialogue.
      *
      * @param player the player
      */
@@ -51,7 +61,7 @@ public final class BobDialogue extends Dialogue {
                         stage = 757;
                         break;
                     case 2:
-                        player("No, thank you.");
+                        player("On second throughts, no thanks.");
                         stage = 756;
                         break;
                 }
@@ -79,36 +89,34 @@ public final class BobDialogue extends Dialogue {
                     if (repairitem.getCost() != 0) {
                         cost = repairitem.getCost() + "gp";
                     }
-                    player.getPacketDispatch().sendMessage("Bob fixes your " + ItemDefinition.forId(itemId).getName().toLowerCase().replace("broken", "").trim() + " for " + cost + ".");
                 }
                 if (repairitem == null) {
                     String cost = "free";
-                    String type = BarrowsEquipment.formatedName(itemId);
+                    String type = BarrowsEquipment.formattedName(itemId);
                     String single = BarrowsEquipment.getSingleName(type);
                     String equipment = BarrowsEquipment.getEquipmentType(type);
                     String newString = type.toLowerCase().replace(single, "").trim().replace("'s", "");
                     final BarrowsEquipment.BarrowsFullEquipment fullequip = BarrowsEquipment.BarrowsFullEquipment.forName(newString + " " + equipment);
-                    if (BarrowsEquipment.getFormatedCost(equipment, item) != 0) {
-                        cost = BarrowsEquipment.getFormatedCost(equipment, item) + "gp";
+                    if (BarrowsEquipment.getFormattedCost(equipment, item) != 0) {
+                        cost = BarrowsEquipment.getFormattedCost(equipment, item) + "gp";
                     }
-                    if (!player.getInventory().contains(995, BarrowsEquipment.getFormatedCost(equipment, item))) {
+                    if (!player.getInventory().contains(995, BarrowsEquipment.getFormattedCost(equipment, item))) {
                         end();
                         player.getPacketDispatch().sendMessage("You don't have enough to pay him.");
                         break;
                     }
                     if (fullequip == null || fullequip.getFull() == null) {
-                        player.getPacketDispatch().sendMessage("Report this to an administrator!");
+                        player.getPacketDispatch().sendMessage("Nothing interesting happens.");
                         return true;
                     }
                     if (!player.getInventory().contains(itemId, 1)) {
                         end();
                         return true;
                     }
-                    player.getInventory().remove(new Item(995, BarrowsEquipment.getFormatedCost(equipment, item)));
+                    player.getInventory().remove(new Item(995, BarrowsEquipment.getFormattedCost(equipment, item)));
                     if (player.getInventory().remove(new Item(itemId, 1))) {
                         player.getInventory().add(fullequip.getFull());
                     }
-                    player.getPacketDispatch().sendMessage("Bob fixes your " + equipment + " for " + cost + ".");
                 }
                 break;
             case 678:
@@ -288,17 +296,17 @@ public final class BobDialogue extends Dialogue {
                     cost = repairitem.getCost() + "gp";
                 }
             } else {
-                String type = BarrowsEquipment.formatedName(itemId);
+                String type = BarrowsEquipment.formattedName(itemId);
                 String single = BarrowsEquipment.getSingleName(type);
                 String equipment = BarrowsEquipment.getEquipmentType(type);
                 String newString = type.toLowerCase().replace(single, "").trim().replace("'s", "");
                 StringBuilder newewString = new StringBuilder();
                 newewString.append(newString).append(" " + equipment);
-                if (BarrowsEquipment.getFormatedCost(equipment, item) != 0) {
-                    cost = BarrowsEquipment.getFormatedCost(equipment, item) + "gp";
+                if (BarrowsEquipment.getFormattedCost(equipment, item) != 0) {
+                    cost = BarrowsEquipment.getFormattedCost(equipment, item) + "gp";
                 }
             }
-            npc("Quite badly damaged, but easy to repair. Would you", "like me to repair it for " + cost + "?");
+            npc("That'll cost you " + cost + "gold coins to fix, are you sure?");
             stage = 754;
             return true;
         }
@@ -312,44 +320,57 @@ public final class BobDialogue extends Dialogue {
 
     @Override
     public int[] getIds() {
-        return new int[]{519, 3797};
+        return new int[]{519, 3797, 1799};
     }
 
+
     /**
-     * Barrows equipment.
+     * Barrows equipment information.
      */
     public static class BarrowsEquipment {
 
-
+        /**
+         * Represents the base names.
+         */
         private final String[] base = new String[]{"dharok", "verac", "ahrim", "torag", "guthan"};
 
-
+        /**
+         * The weapon names.
+         */
         private static final String[] weapon_names = new String[]{"flail", "greataxe", "spear", "x-bow", "hammer", "hammers", "staff"};
 
-
+        /**
+         * The body names.
+         */
         private static final String[] body_names = new String[]{"top", "platebody", "body"};
 
-
+        /**
+         * The helm names.
+         */
         private static final String[] helm_names = new String[]{"hood", "helm", "coif"};
 
-
+        /**
+         * The leg names.
+         */
         private static final String[] leg_names = new String[]{"skirt", "legs", "plateskirt", "platelegs"};
 
-
+        /**
+         * The prices.
+         */
         private static final Object[][] prices = new Object[][]{{"weapon", 100}, {"body", 90}, {"legs", 80}, {"helm", 60}};
 
-
+        /**
+         * Represents the items.
+         */
         private static final Object[][] ITEMS = {{4856, "Ahrim's hood"}, {4857, "Ahrim's hood"}, {4858, "Ahrim's hood"}, {4859, "Ahrim's hood"}, {4860, "Ahrim's hood"}, {4862, "Ahrim's staff"}, {4863, "Ahrim's staff"}, {4864, "Ahrim's staff"}, {4865, "Ahrim's staff"}, {4866, "Ahrim's staff"}, {4868, "Ahrim's top"}, {4869, "Ahrim's top"}, {4870, "Ahrim's top"}, {4871, "Ahrim's top"}, {4872, "Ahrim's top"}, {4874, "Ahrim's skirt"}, {4875, "Ahrim's skirt"}, {4876, "Ahrim's skirt"}, {4877, "Ahrim's skirt"}, {4878, "Ahrim's skirt"}, {4880, "Dharok's helm"}, {4881, "Dharok's helm"}, {4882, "Dharok's helm"}, {4883, "Dharok's helm"}, {4884, "Dharok's helm"}, {4886, "Dharok's greataxe"}, {4887, "Dharok's greataxe"}, {4888, "Dharok's greataxe"}, {4889, "Dharok's greataxe"}, {4890, "Dharok's greataxe"}, {4892, "Dharok's platebody"}, {4893, "Dharok's platebody"}, {4894, "Dharok's platebody"}, {4895, "Dharok's platebody"}, {4896, "Dharok's platebody"}, {4898, "Dharok's platelegs"}, {4899, "Dharok's platelegs"}, {4900, "Dharok's platelegs"}, {4901, "Dharok's platelegs"}, {4902, "Dharok's platelegs"}, {4904, "Guthan's helm"}, {4905, "Guthan's helm"}, {4906, "Guthan's helm"}, {4907, "Guthan's helm"}, {4908, "Guthan's helm"}, {4910, "Guthan's spear"}, {4911, "Guthan's spear"}, {4912, "Guthan's spear"}, {4913, "Guthan's spear"}, {4914, "Guthan's spear"}, {4916, "Guthan's body"}, {4917, "Guthan's body"}, {4918, "Guthan's body"}, {4919, "Guthan's body"}, {4920, "Guthan's body"}, {4922, "Guthan's skirt"}, {4923, "Guthan's skirt"}, {4924, "Guthan's skirt"}, {4925, "Guthan's skirt"}, {4926, "Guthan's skirt"}, {4928, "Karil's coif"}, {4929, "Karil's coif"}, {4930, "Karil's coif"}, {4931, "Karil's coif"}, {4932, "Karil's coif"}, {4934, "Karil's x-bow"}, {4935, "Karil's x-bow"}, {4936, "Karil's x-bow"}, {4937, "Karil's x-bow"}, {4938, "Karil's x-bow"}, {4940, "Karil's top"}, {4941, "Karil's top"}, {4942, "Karil's top"}, {4943, "Karil's top"}, {4944, "Karil's top"}, {4946, "Karil's skirt"}, {4947, "Karil's skirt"}, {4948, "Karil's skirt"}, {4949, "Karil's skirt"}, {4950, "Karil's skirt"}, {4952, "Torag's helm"}, {4953, "Torag's helm"}, {4954, "Torag's helm"}, {4955, "Torag's helm"}, {4956, "Torag's helm"}, {4958, "Torag's hammers"}, {4959, "Torag's hammers"}, {4960, "Torag's hammers"}, {4961, "Torag's hammers"}, {4962, "Torag's hammers"}, {4964, "Torag's body"}, {4965, "Torag's body"}, {4966, "Torag's body"}, {4967, "Torag's body"}, {4968, "Torag's body"}, {4970, "Torag's legs"}, {4971, "Torag's legs"}, {4972, "Torag's legs"}, {4973, "Torag's legs"}, {4974, "Torag's legs"}, {4976, "Verac's helm"}, {4977, "Verac's helm"}, {4978, "Verac's helm"}, {4979, "Verac's helm"}, {4980, "Verac's helm"}, {4982, "Verac's flail"}, {4983, "Verac's flail"}, {4984, "Verac's flail"}, {4985, "Verac's flail"}, {4986, "Verac's flail"}, {4988, "Verac's top"}, {4989, "Verac's top"}, {4990, "Verac's top"}, {4991, "Verac's top"}, {4992, "Verac's top"}, {4994, "Verac's skirt"}, {4995, "Verac's skirt"}, {4996, "Verac's skirt"}, {4997, "Verac's skirt"}, {4998, "Verac's skirt"}};
 
-
         /**
-         * Gets formated cost.
+         * Gets the cost.
          *
-         * @param name the name
-         * @param item the item
-         * @return the formated cost
+         * @param name the name.
+         * @return the price.
          */
-        public static int getFormatedCost(String name, Item item) {
+        public static int getFormattedCost(String name, Item item) {
             int ticks = BarrowsEquipmentRegister.TICKS;
             int[] degrades = new int[]{100, 75, 50, 25, 0};
             for (int i = 0; i < prices.length; i++) {
@@ -362,7 +383,7 @@ public final class BobDialogue extends Dialogue {
                             break;
                         }
                     }
-                    degrade -= 25 - (25 * ((double) item.getCharge() / (double) ticks));
+                    degrade -= (int) (25 - (25 * ((double) item.getCharge() / (double) ticks)));
                     int max = (int) prices[i][1] * 1000;
                     return (int) (max - (max * (degrade * 0.01)));
                 }
@@ -370,12 +391,11 @@ public final class BobDialogue extends Dialogue {
             return 0;
         }
 
-
         /**
-         * Gets cost.
+         * Gets the cost of the item type.
          *
-         * @param name the name
-         * @return the cost
+         * @param name the name.
+         * @return the return type.
          */
         public static int getCost(String name) {
             for (int i = 0; i < prices.length; i++) {
@@ -387,12 +407,11 @@ public final class BobDialogue extends Dialogue {
             return 0;
         }
 
-
         /**
-         * Is barrows item boolean.
+         * Represents if an item is a barrows item.
          *
-         * @param id the id
-         * @return the boolean
+         * @param id the id.
+         * @return true.
          */
         public static boolean isBarrowsItem(int id) {
             for (int i = 0; i < ITEMS.length; i++) {
@@ -403,14 +422,13 @@ public final class BobDialogue extends Dialogue {
             return false;
         }
 
-
         /**
-         * Formated name string.
+         * Gets the formatted name.
          *
-         * @param id the id
-         * @return the string
+         * @param id the id.
+         * @return the name.
          */
-        public static String formatedName(int id) {
+        public static String formattedName(int id) {
             for (int i = 0; i < ITEMS.length; i++) {
                 if ((int) ITEMS[i][0] == id) {
                     return (String) ITEMS[i][1];
@@ -419,12 +437,11 @@ public final class BobDialogue extends Dialogue {
             return null;
         }
 
-
         /**
-         * Gets equipment type.
+         * Gets the equipment type.
          *
-         * @param name the name
-         * @return the equipment type
+         * @param name the name.
+         * @return the type.
          */
         public static String getEquipmentType(String name) {
             name = name.toLowerCase().replace("verac's", "").replace("karil's", "").replace("dharok's", "").replace("torag's", "").replace("guthan's", "").replace("ahrim's", "").trim();
@@ -451,12 +468,11 @@ public final class BobDialogue extends Dialogue {
             return null;
         }
 
-
         /**
-         * Gets single name.
+         * Method used to get its single name.
          *
-         * @param name the name
-         * @return the single name
+         * @param name the name.
+         * @return the name.
          */
         public static String getSingleName(String name) {
             name = name.toLowerCase().replace("verac's", "").replace("karil's", "").replace("dharok's", "").replace("torag's", "").replace("guthan's", "").replace("ahrim's", "").trim();
@@ -483,19 +499,17 @@ public final class BobDialogue extends Dialogue {
             return null;
         }
 
-
         /**
-         * Get base string [ ].
+         * Gets the bases.
          *
-         * @return the string [ ]
+         * @return the base.
          */
         public String[] getBase() {
             return base;
         }
 
-
         /**
-         * The enum Barrows full equipment.
+         * Represents the multiple full barrows equipment items.
          */
         public enum BarrowsFullEquipment {
             /**
@@ -600,15 +614,16 @@ public final class BobDialogue extends Dialogue {
                 this.full = full;
             }
 
-
+            /**
+             * Represents the full item.
+             */
             private final Item full;
 
-
             /**
-             * For name barrows full equipment.
+             * For name.
              *
-             * @param name the name
-             * @return the barrows full equipment
+             * @param name the name.
+             * @return the equipment.
              */
             public static BarrowsFullEquipment forName(String name) {
                 if (name.equals("guthan body body")) {
@@ -626,11 +641,10 @@ public final class BobDialogue extends Dialogue {
                 return null;
             }
 
-
             /**
-             * Gets full.
+             * Gets the full.
              *
-             * @return the full
+             * @return The full.
              */
             public Item getFull() {
                 return full;

@@ -1,9 +1,9 @@
 package content.global.skill.support.construction.decoration.workshop
 
+import cfg.consts.Items
 import content.global.skill.support.construction.BuildHotspot
 import content.global.skill.support.construction.BuildingUtils.buildDecoration
 import content.global.skill.support.construction.Decoration
-import cfg.consts.Items
 import core.api.sendMessage
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
@@ -12,7 +12,7 @@ import core.game.node.item.Item
 import core.game.node.scenery.Scenery
 
 /**
- * Flatpack listener.
+ * Handles interaction for creation of flatpacks in the workshop.
  */
 class FlatpackListener: InteractionListener {
     val FLATPACK = Decoration.values().map { it.flatpackItemID }.toIntArray()

@@ -3,16 +3,7 @@ package content.global.skill.support.construction.decoration.workshop
 import cfg.consts.Items
 import core.game.node.item.Item
 
-/**
- * Furniture flatpack
- *
- * @param interfaceItem
- * @param producedItemId
- * @param requiredLevel
- * @param experience
- * @param items
- * @constructor Furniture flatpack
- */
+@Suppress("unused")
 enum class FurnitureFlatpack(val interfaceItem: Int, val producedItemId: Int, val requiredLevel: Int, val experience: Double, val items: Array<Item>) {
     /**
      * Crude Wooden Chair Flatpack
