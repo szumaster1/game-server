@@ -1,4 +1,4 @@
-package content.region.misthalin.lumbridge.dialogue.tutors
+package content.region.misthalin.lumbridge.dialogue.tutor
 
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression
@@ -12,7 +12,7 @@ import cfg.consts.NPCs
  * Represents the Mining Tutor dialogue.
  */
 @Initializable
-class MiningtutorDialogue(player: Player? = null) : Dialogue(player) {
+class MiningTutorDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC

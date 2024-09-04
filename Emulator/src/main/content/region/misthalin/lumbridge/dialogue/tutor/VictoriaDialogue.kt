@@ -1,4 +1,4 @@
-package content.region.misthalin.lumbridge.dialogue.tutors
+package content.region.misthalin.lumbridge.dialogue.tutor
 
 import cfg.consts.NPCs
 import core.api.getQuestStage

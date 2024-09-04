@@ -9,7 +9,7 @@ import core.tools.END_DIALOGUE
 import cfg.consts.NPCs
 
 /**
- * Represents the Lumbridge swamp monk dialogue.
+ * Represents the Lumbridge swamp Monk dialogue.
  */
 @Initializable
 class LumbridgeSwampMonkDialogue(player: Player? = null) : Dialogue(player) {

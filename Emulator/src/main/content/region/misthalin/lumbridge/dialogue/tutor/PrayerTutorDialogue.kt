@@ -1,4 +1,4 @@
-package content.region.misthalin.lumbridge.dialogue.tutors
+package content.region.misthalin.lumbridge.dialogue.tutor
 
 import core.api.sendItemDialogue
 import core.game.dialogue.Dialogue

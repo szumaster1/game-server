@@ -1,13 +1,19 @@
 package content.region.misthalin.lumbridge.dialogue
 
+import cfg.consts.Items
+import cfg.consts.NPCs
+import core.api.addItem
+import core.api.getStatLevel
+import core.api.hasAnItem
+import core.api.sendItemDialogue
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression
 import core.game.global.Skillcape.purchase
 import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.game.node.entity.skill.Skills
-import core.game.node.item.Item
 import core.plugin.Initializable
+import core.tools.END_DIALOGUE
 
 /**
  * Represents the Harlan dialogue.
@@ -24,190 +30,80 @@ class HarlanDialogue(player: Player? = null) : Dialogue(player) {
     override fun handle(interfaceId: Int, buttonId: Int): Boolean {
         when (stage) {
             0 -> when (buttonId) {
-                1 -> {
-                    player(FacialExpression.HALF_GUILTY, "Can you tell me about different weapon types I can", "use?")
-                    stage = 10
-                }
+                1 -> player(FacialExpression.HALF_GUILTY, "Can you tell me about different weapon types I can", "use?").also { stage = 10 }
 
-                2 -> {
-                    player(FacialExpression.HALF_GUILTY, "Please tell me about Skillcapes.")
-                    stage = 20
-                }
-
-                3 -> {
-                    player(FacialExpression.HALF_GUILTY, "Bye.")
-                    stage = 30
-                }
+                2 -> player(FacialExpression.HALF_GUILTY, "Please tell me about Skillcapes.").also { stage = 20 }
+                3 -> player(FacialExpression.HALF_GUILTY, "Bye.").also { stage = END_DIALOGUE }
             }
-
-            10 -> {
-                npc(FacialExpression.HALF_GUILTY, "Well let me see now...There are stabbing type weapons", "such as daggers, then you have swords which are", "slashing, maces that have great crushing abilities, battle", "axes which are powerful and spears which can be good")
-                stage = 11
-            }
-
-            11 -> {
-                npc(FacialExpression.HALF_GUILTY, "for Defence and many forms of Attack.")
-                stage = 12
-            }
-
-            12 -> {
-                npc(FacialExpression.HALF_GUILTY, "It depends a lot on how you want to fight. Experiment", "and find out what is best for you. Never be scared to", "try out a new weapon; you never know, you might like", "it! Why, I tried all of them for a while and settled on")
-                stage = 13
-            }
-
-            13 -> {
-                npc(FacialExpression.HALF_GUILTY, "this rather good sword!")
-                stage = 14
-            }
-
-            14 -> {
-                options( "I'd like a training sword and shield.", "Bye")
-                stage = 15
-            }
-
+            10 -> npc(FacialExpression.HALF_GUILTY, "Well let me see now...There are stabbing type weapons", "such as daggers, then you have swords which are", "slashing, maces that have great crushing abilities, battle", "axes which are powerful and spears which can be good").also { stage++ }
+            11 -> npc(FacialExpression.HALF_GUILTY, "for Defence and many forms of Attack.").also { stage++ }
+            12 -> npc(FacialExpression.HALF_GUILTY, "It depends a lot on how you want to fight. Experiment", "and find out what is best for you. Never be scared to", "try out a new weapon; you never know, you might like", "it! Why, I tried all of them for a while and settled on").also { stage++ }
+            13 -> npc(FacialExpression.HALF_GUILTY, "this rather good sword!").also { stage++ }
+            14 -> options("I'd like a training sword and shield.", "Bye").also { stage++ }
             15 -> when (buttonId) {
-                1 -> {
-                    player(FacialExpression.HALF_GUILTY, "I'd like a training sword and shield.")
-                    stage = 16
-                }
-
-                2 -> {
-                    player(FacialExpression.HALF_GUILTY, "Bye.")
-                    stage = 30
-                }
+                1 -> player(FacialExpression.HALF_GUILTY, "I'd like a training sword and shield.").also { stage++ }
+                2 -> player(FacialExpression.HALF_GUILTY, "Bye.").also { stage = END_DIALOGUE }
             }
-
             16 -> {
-                if (hasBoth()) {
+                if (hasAnItem(player, Items.TRAINING_SWORD_9703).container != null && hasAnItem(player, Items.TRAINING_SHIELD_9704).container != null) {
                     npc("You already have them! If they're not in your", "inventory, perhaps you should check your bank.")
-                    stage = 99
+                    stage = 30
                     return true
                 }
-                if (hasItem(SHIELD)) {
+                if (hasAnItem(player, Items.TRAINING_SHIELD_9704).container != null) {
                     npc("You already have a shield but I can give you a sword.")
                     stage = 16
                     return true
                 }
-                if (hasItem(SWORD)) {
+                if (hasAnItem(player, Items.TRAINING_SWORD_9703).container != null) {
                     npc("You already have a sword but I can give you a shield.")
                     stage = 17
                     return true
                 }
-                if (player.inventory.add(SWORD)) {
-                    interpreter.sendItemMessage(SWORD, "Harlan gives you a training sword.")
+                if (addItem(player, Items.TRAINING_SWORD_9703)) {
+                    sendItemDialogue(player, Items.TRAINING_SWORD_9703, "Harlan gives you a training sword.")
                 } else {
                     end()
                 }
-                stage = 17
+                stage++
             }
 
             17 -> {
-                if (player.inventory.add(SHIELD)) {
-                    interpreter.sendItemMessage(SHIELD, "Harlan gives you a training shield.")
+                if (addItem(player, Items.TRAINING_SHIELD_9704)) {
+                    sendItemDialogue(player, Items.TRAINING_SHIELD_9704, "Harlan gives you a training shield.")
                 } else {
                     end()
                 }
-                stage = 18
+                stage = END_DIALOGUE
             }
-
-            18 -> end()
-            20 -> {
-                npc("Of course. Skillcapes are a symbol of achievement. Only", "people who have mastered a skill and reached level 99", "can get their hands on them and gain the benefits they", "carry. Is there something else I can help you with,")
-                stage = 21
-            }
-
-            21 -> {
-                npc("perhaps?")
-                stage = 22
-            }
-
+            20 -> npc("Of course. Skillcapes are a symbol of achievement. Only", "people who have mastered a skill and reached level 99", "can get their hands on them and gain the benefits they", "carry. Is there something else I can help you with,").also { stage++ }
+            21 -> npc("perhaps?").also { stage++ }
             22 -> {
-                if (player.getSkills().getStaticLevel(Skills.DEFENCE) >= 99) {
-                    interpreter.sendOptions("Select an Option", "Can you tell me about different weapon types I can use?", "Can I purchase a defence cape?", "Bye.")
-                    stage = 23
-                    return true
+                if (getStatLevel(player, Skills.DEFENCE) >= 99) {
+                    options("Can you tell me about different weapon types I can use?", "Can I purchase a defence cape?", "Bye.").also { stage++ }
+                } else {
+                    options("Can you tell me about different weapon types I can use?", "Please tell me about skillcapes.", "Bye.").also { stage = 0 }
                 }
-                options("Can you tell me about different weapon types I can use?", "Please tell me about skillcapes.", "Bye.")
-                stage = 0
             }
-
-            23 -> {
-                npc("You will have to pay a fee of 99,000 gp.")
-                stage = 24
-            }
-
-            24 -> {
-                options( "Okay.", "No, thanks.")
-                stage = 25
-            }
-
+            23 -> npc("You will have to pay a fee of 99,000 gp.").also { stage++ }
+            24 -> options("Okay.", "No, thanks.").also { stage++ }
             25 -> when (buttonId) {
-                1 -> {
-                    player("Okay.")
-                    stage = 27
-                }
-
-                2 -> {
-                    player("No, thanks.")
-                    stage = 26
-                }
+                1 -> player("Okay.").also { stage++ }
+                2 -> player("No, thanks.").also { stage = END_DIALOGUE }
             }
-
-            27 -> {
+            26 -> {
                 if (purchase(player, Skills.DEFENCE)) {
-                    npc("There you go! Enjoy.")
+                    npc("There you go! Enjoy.").also { stage = END_DIALOGUE }
                 }
-                stage = 26
+                stage = 30
             }
-
-            26 -> end()
             30 -> end()
-            99 -> end()
         }
         return true
     }
 
     override fun getIds(): IntArray {
-        return intArrayOf(705)
+        return intArrayOf(NPCs.MELEE_TUTOR_705)
     }
 
-    /**
-     * Has both
-     *
-     * @return
-     */
-    fun hasBoth(): Boolean {
-        val containers = arrayOf(player.inventory, player.bank, player.equipment)
-        var count = 0
-        for (c in containers) {
-            if (c.containsItem(SWORD)) {
-                count++
-            }
-            if (c.containsItem(SHIELD)) {
-                count++
-            }
-        }
-        return count >= 2
-    }
-
-    /**
-     * Has item
-     *
-     * @param item
-     * @return
-     */
-    fun hasItem(item: Item?): Boolean {
-        val containers = arrayOf(player.inventory, player.bank, player.equipment)
-        for (c in containers) {
-            if (c.containsItem(item)) {
-                return true
-            }
-        }
-        return false
-    }
-
-    companion object {
-        private val SWORD = Item(9703)
-        private val SHIELD = Item(9704)
-    }
 }

@@ -45,7 +45,7 @@ class DoomsayerDialogue(player: Player? = null) : Dialogue(player) {
     }
 
     override fun newInstance(player: Player): Dialogue {
-        return content.region.misthalin.lumbridge.dialogue.DoomsayerDialogue(player)
+        return DoomsayerDialogue(player)
     }
 
     override fun getIds(): IntArray {

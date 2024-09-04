@@ -17,13 +17,15 @@ import core.game.world.update.flag.context.Animation
  */
 class LumbridgeListeners : InteractionListener {
 
+    var FLAG_IN_USE: Boolean = false
+
     override fun defineListeners() {
 
         /*
          * Handling npc interaction.
          */
 
-        on(GAME_INSTRUCTOR, IntType.NPC, "claim") { player, node ->
+        on(intArrayOf(4707, 1861), IntType.NPC, "claim") { player, node ->
             openDialogue(player, node.asNpc().id, node, true)
             return@on true
         }
@@ -199,7 +201,7 @@ class LumbridgeListeners : InteractionListener {
          * Interaction with Dark hole (Lumbridge swamp).
          */
 
-        on(DARK_HOLE, IntType.SCENERY, "climb-down", "climb") { player, node ->
+        on(intArrayOf(Scenery.DARK_HOLE_5947, Scenery.CLIMBING_ROPE_5946), IntType.SCENERY, "climb-down", "climb") { player, node ->
             when(getUsedOption(player)) {
                 "climb-down" -> {
                     if (!player.getSavedData().globalData.hasTiedLumbridgeRope()) {
@@ -228,12 +230,6 @@ class LumbridgeListeners : InteractionListener {
             }
             return@on true
         }
-    }
-
-    companion object {
-        var FLAG_IN_USE: Boolean = false
-        private val DARK_HOLE = intArrayOf(Scenery.DARK_HOLE_5947, Scenery.CLIMBING_ROPE_5946)
-        private val GAME_INSTRUCTOR = intArrayOf(4707, 1861)
     }
 
 }
