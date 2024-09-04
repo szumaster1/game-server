@@ -1,6 +1,7 @@
 package content.global.random.event.gravedigger
 
 import cfg.consts.Items
+import cfg.consts.NPCs
 import cfg.consts.Scenery
 import core.api.*
 import core.game.node.entity.player.Player
@@ -14,6 +15,9 @@ import core.network.packet.outgoing.MinimapState
  * Grave utils.
  */
 object GraveUtils {
+
+    const val MAUSOLEUM = Scenery.MAUSOLEUM_12731
+    const val LEO = NPCs.LEO_3508
 
     // Attributes
     const val LEO_TASK = "gravedigger:task" // The task attribute for the gravedigger.
