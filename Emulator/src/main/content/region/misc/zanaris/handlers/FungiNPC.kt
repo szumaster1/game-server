@@ -18,7 +18,6 @@ import core.plugin.Initializable
 /**
  * Represents the Fungi NPC.
  */
-@Initializable
 class FungiNPC : NPCBehavior(*intArrayOf(/*
                                           * Level-74            Level-86
                                           */NPCs.FUNGI_3344, NPCs.FUNGI_3345)
@@ -37,16 +36,16 @@ class FungiNPC : NPCBehavior(*intArrayOf(/*
         if (victim is Player) {
             val player = victim.asPlayer()
 
-            lock(player, 3)
+            lock(player, 1)
             animate(player, firstAnimation)
             submitWorldPulse(object : Pulse() {
                 var counter = 0
                 override fun pulse(): Boolean {
                     when (counter++) {
-                        2 -> {
-                            animate(player, Animations.UPROOT_PULL_THING_9573)
+                        0 -> {
+                            animate(player, secondAnimation)
                             self.impactHandler.disabledTicks = 1
-                            transformNpc(self, self.id + 1, -1)
+                            transformNpc(self, self.id + 2, -1)
                             self.attack(victim)
                             return true
                         }
