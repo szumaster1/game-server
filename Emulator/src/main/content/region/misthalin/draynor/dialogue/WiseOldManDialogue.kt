@@ -89,7 +89,7 @@ class WiseOldManDialogue(player: Player? = null) : Dialogue(player) {
                 2 -> options("Biggest & Baddest", "Poison and how to survive it", "Wealth through slaughter", "Random events").also { stage = 84 }
                 3 -> options("Heroic figures", "The origin of magic", "Settlements", "The Wise Old Man of Draynor Village").also { stage = 108 }
                 4 -> options("Three gods?", "The wars of the gods", "The Mahjarrat", "Wielding the power of the gods").also { stage = 158 }
-                5 -> options("I want to ask you about your hat.").also { stage++ }
+                5 -> player("I want to ask you about your hat.").also { stage++ }
             }
             43 -> npc("Why, thank you! I rather like it myself.").also { stage++ }
             44 -> {
@@ -322,7 +322,7 @@ class WiseOldManDialogue(player: Player? = null) : Dialogue(player) {
                 }
                 if (player.inventory.remove(COINS) && player.inventory.add(*ITEMS)) {
                     npc("Have fun with it.")
-
+                    return true
                 } else {
                     player("I don't seem to have enough coins with", "me at this time.")
                 }
