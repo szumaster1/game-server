@@ -70,7 +70,7 @@ class ZygomiteNPC : NPCBehavior(*Tasks.ZYGOMITES.npcs), InteractionListener {
                 }
 
                 else -> {
-                    replaceSlot(player, used.asItem().slot, Item(used.id - 1))
+                    replaceSlot(player, used.asItem().slot, Item(used.id + 1))
                     continue
                 }
             }
