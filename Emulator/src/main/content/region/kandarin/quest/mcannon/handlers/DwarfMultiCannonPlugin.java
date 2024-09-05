@@ -9,7 +9,7 @@ import core.game.node.Node;
 import core.game.node.entity.player.Player;
 import core.game.node.entity.player.info.Rights;
 import core.game.node.item.Item;
-import core.plugin.ClassScanner;
+import core.plugin.PluginManager;
 import core.plugin.Initializable;
 import core.plugin.Plugin;
 
@@ -61,7 +61,7 @@ public final class DwarfMultiCannonPlugin extends OptionHandler {
             }
 
         });
-        ClassScanner.definePlugin(new DMCZone());
+        PluginManager.definePlugin(new DMCZone());
         return this;
     }
 

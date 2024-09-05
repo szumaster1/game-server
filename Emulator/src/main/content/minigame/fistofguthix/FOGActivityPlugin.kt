@@ -7,7 +7,7 @@ import core.game.node.Node
 import core.game.node.entity.player.Player
 import core.game.world.map.Location
 import core.game.world.map.zone.ZoneBorders
-import core.plugin.ClassScanner.definePlugin
+import core.plugin.PluginManager.definePlugin
 import core.plugin.Plugin
 
 /**

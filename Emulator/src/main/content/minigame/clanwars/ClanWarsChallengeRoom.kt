@@ -7,7 +7,7 @@ import core.game.node.entity.player.Player
 import core.game.node.scenery.Scenery
 import core.game.world.map.zone.*
 import core.game.world.map.zone.impl.WildernessZone
-import core.plugin.ClassScanner.definePlugin
+import core.plugin.PluginManager.definePlugin
 import core.plugin.Initializable
 import core.plugin.Plugin
 import java.util.*

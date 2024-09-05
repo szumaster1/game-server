@@ -27,7 +27,7 @@ public final class PortalOptionPlugin extends OptionHandler {
         }
         SceneryDefinition.forId(13405).getHandlers().put("option:lock", this);
         SceneryDefinition.forId(13405).getHandlers().put("option:enter", this);
-        ClassScanner.definePlugin(new PortalDialogue());
+        PluginManager.definePlugin(new PortalDialogue());
         return this;
     }
 

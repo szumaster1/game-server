@@ -2,7 +2,7 @@ package content.global.skill.support.construction.servants;
 
 import core.game.interaction.NodeUsageEvent;
 import core.game.interaction.UseWithHandler;
-import core.plugin.ClassScanner;
+import core.plugin.PluginManager;
 import core.plugin.Initializable;
 import core.plugin.Plugin;
 
@@ -30,7 +30,7 @@ public class HouseServantPlugin extends UseWithHandler {
         addHandler(4239, NPC_TYPE, this);
         addHandler(4241, NPC_TYPE, this);
         addHandler(4243, NPC_TYPE, this);
-        ClassScanner.definePlugin(new HouseServantDialogue());
+        PluginManager.definePlugin(new HouseServantDialogue());
         return this;
     }
 

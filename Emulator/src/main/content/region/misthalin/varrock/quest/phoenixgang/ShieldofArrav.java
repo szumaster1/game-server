@@ -10,7 +10,7 @@ import core.game.node.entity.player.Player;
 import core.game.node.entity.player.link.quest.Quest;
 import core.game.node.item.Item;
 import core.plugin.Initializable;
-import core.plugin.ClassScanner;
+import core.plugin.PluginManager;
 
 import static core.api.ContentAPIKt.removeAttribute;
 import static core.api.ContentAPIKt.setAttribute;
@@ -66,7 +66,7 @@ public class ShieldofArrav extends Quest {
 
     @Override
     public Quest newInstance(Object object) {
-        ClassScanner.definePlugins(new CertificatePlugin(), new JohnnyBeardNPC(), new JonnytheBeardDialogue(), new KatrineDialogue(), new KingRoaldDialogue(), new ReldoDialogue(), new ShieldArravPlugin(), new StravenDialogue(), new WeaponsMasterDialogue());
+        PluginManager.definePlugins(new CertificatePlugin(), new JohnnyBeardNPC(), new JonnytheBeardDialogue(), new KatrineDialogue(), new KingRoaldDialogue(), new ReldoDialogue(), new ShieldArravPlugin(), new StravenDialogue(), new WeaponsMasterDialogue());
         return this;
     }
 

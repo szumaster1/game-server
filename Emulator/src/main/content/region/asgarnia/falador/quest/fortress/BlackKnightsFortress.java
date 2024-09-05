@@ -5,7 +5,7 @@ import cfg.consts.Vars;
 import core.game.node.entity.player.Player;
 import core.game.node.entity.player.link.quest.Quest;
 import core.game.node.item.Item;
-import core.plugin.ClassScanner;
+import core.plugin.PluginManager;
 import core.plugin.Initializable;
 
 /**
@@ -28,7 +28,7 @@ public final class BlackKnightsFortress extends Quest {
 
     @Override
     public Quest newInstance(Object object) {
-        ClassScanner.definePlugins(new BKCabbagePlugin(), new BKFortressPlugin(), new SirAmikVarzeDialogue());
+        PluginManager.definePlugins(new BKCabbagePlugin(), new BKFortressPlugin(), new SirAmikVarzeDialogue());
         return this;
     }
 

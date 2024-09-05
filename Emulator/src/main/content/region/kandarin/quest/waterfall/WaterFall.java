@@ -7,7 +7,7 @@ import core.game.node.entity.player.Player;
 import core.game.node.entity.player.link.quest.Quest;
 import core.game.node.entity.skill.Skills;
 import core.game.node.item.Item;
-import core.plugin.ClassScanner;
+import core.plugin.PluginManager;
 import core.plugin.Initializable;
 
 /**
@@ -85,7 +85,7 @@ public class WaterFall extends Quest {
 
     @Override
     public Quest newInstance(Object object) {
-        ClassScanner.definePlugins(new AlmeraDialogue(), new GolrieDialogue(), new HadleyDialogue(), new HudonDialogue(), new WaterfallPlugin(), new WaterfallTreeDialogue());
+        PluginManager.definePlugins(new AlmeraDialogue(), new GolrieDialogue(), new HadleyDialogue(), new HudonDialogue(), new WaterfallPlugin(), new WaterfallTreeDialogue());
         return this;
     }
 

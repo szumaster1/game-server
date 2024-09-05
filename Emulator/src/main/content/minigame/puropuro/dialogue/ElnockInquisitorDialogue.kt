@@ -10,7 +10,7 @@ import core.game.component.ComponentPlugin
 import core.game.dialogue.Dialogue
 import core.game.node.entity.player.Player
 import core.game.node.item.Item
-import core.plugin.ClassScanner.definePlugin
+import core.plugin.PluginManager.definePlugin
 import core.plugin.Initializable
 import core.plugin.Plugin
 

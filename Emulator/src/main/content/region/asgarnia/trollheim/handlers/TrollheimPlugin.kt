@@ -31,7 +31,7 @@ import core.network.packet.PacketRepository
 import core.network.packet.context.CameraContext
 import core.network.packet.context.CameraContext.CameraType
 import core.network.packet.outgoing.CameraViewPacket
-import core.plugin.ClassScanner.definePlugin
+import core.plugin.PluginManager.definePlugin
 import core.plugin.Initializable
 import core.plugin.Plugin
 

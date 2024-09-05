@@ -25,7 +25,7 @@ import core.game.world.update.flag.context.Animation;
 import core.network.packet.PacketRepository;
 import core.network.packet.context.MinimapStateContext;
 import core.network.packet.outgoing.MinimapState;
-import core.plugin.ClassScanner;
+import core.plugin.PluginManager;
 import core.plugin.Initializable;
 import core.plugin.Plugin;
 import core.tools.RandomFunction;
@@ -52,7 +52,7 @@ public final class AncientCavern extends MapZone implements Plugin<Object> {
     @Override
     public Plugin<Object> newInstance(Object arg) throws Throwable {
         ZoneBuilder.configure(this);
-        ClassScanner.definePlugin(new OptionHandler() {
+        PluginManager.definePlugin(new OptionHandler() {
 
             @Override
             public Plugin<Object> newInstance(Object arg) throws Throwable {

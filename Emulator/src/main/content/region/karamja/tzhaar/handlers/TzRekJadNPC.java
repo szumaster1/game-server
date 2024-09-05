@@ -9,7 +9,7 @@ import core.game.node.Node;
 import core.game.node.entity.npc.NPC;
 import core.game.node.entity.player.Player;
 import core.game.node.item.Item;
-import core.plugin.ClassScanner;
+import core.plugin.PluginManager;
 import core.plugin.Initializable;
 import core.plugin.Plugin;
 import core.tools.RandomFunction;
@@ -31,7 +31,7 @@ public class TzRekJadNPC extends OptionHandler {
     @Override
     public Plugin<Object> newInstance(Object arg) throws Throwable {
         NPCDefinition.forId(TZHAAR_MEJ_ID).getHandlers().put("option:exchange fire cape", this);
-        ClassScanner.definePlugins(new TzhaarMejJalDialogue(), new TzRekJadDialogue());
+        PluginManager.definePlugins(new TzhaarMejJalDialogue(), new TzRekJadDialogue());
         return this;
     }
 

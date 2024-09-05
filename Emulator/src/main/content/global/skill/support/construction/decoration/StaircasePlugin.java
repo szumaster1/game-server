@@ -13,7 +13,7 @@ import core.game.system.task.Pulse;
 import core.game.world.GameWorld;
 import core.game.world.map.Direction;
 import core.game.world.map.Location;
-import core.plugin.ClassScanner;
+import core.plugin.PluginManager;
 import core.plugin.Initializable;
 import core.plugin.Plugin;
 
@@ -25,8 +25,8 @@ public final class StaircasePlugin extends OptionHandler {
 
     @Override
     public Plugin<Object> newInstance(Object arg) throws Throwable {
-        ClassScanner.definePlugin(new BuildDialogue());
-        ClassScanner.definePlugin(new ClimbPohLadder());
+        PluginManager.definePlugin(new BuildDialogue());
+        PluginManager.definePlugin(new ClimbPohLadder());
         for (int i = 13497; i < 13507; i++) {
             SceneryDefinition.forId(i).getHandlers().put("option:climb", this);
             SceneryDefinition.forId(i).getHandlers().put("option:climb-up", this);

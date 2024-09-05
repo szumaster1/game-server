@@ -11,7 +11,7 @@ import core.game.component.ComponentPlugin
 import core.game.interaction.NodeUsageEvent
 import core.game.interaction.UseWithHandler
 import core.game.node.entity.player.Player
-import core.plugin.ClassScanner
+import core.plugin.PluginManager
 import core.plugin.Initializable
 import core.plugin.Plugin
 
@@ -26,7 +26,7 @@ class SummoningCreationPlugin : ComponentPlugin() {
     override fun newInstance(arg: Any?): Plugin<Any> {
         ComponentDefinition.put(669, this)
         ComponentDefinition.put(673, this)
-        ClassScanner.definePlugin(ObeliskHandler())
+        PluginManager.definePlugin(ObeliskHandler())
         return this
     }
 

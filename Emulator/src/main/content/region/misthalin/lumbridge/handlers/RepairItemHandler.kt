@@ -5,7 +5,6 @@ import content.data.item.RepairItem.Companion.forId
 import content.region.misthalin.lumbridge.dialogue.BobDialogue
 import core.game.interaction.NodeUsageEvent
 import core.game.interaction.UseWithHandler
-import core.plugin.ClassScanner.definePlugin
 import core.plugin.Initializable
 import core.plugin.Plugin
 

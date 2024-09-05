@@ -17,7 +17,7 @@ import core.game.world.map.zone.ZoneBorders;
 import core.game.world.map.zone.ZoneBuilder;
 import core.game.world.map.zone.ZoneRestriction;
 import core.game.world.update.flag.context.Graphic;
-import core.plugin.ClassScanner;
+import core.plugin.PluginManager;
 import core.plugin.Initializable;
 import core.plugin.Plugin;
 import core.tools.RandomFunction;
@@ -54,7 +54,7 @@ public final class ChaosTunnel extends MapZone implements Plugin<Object> {
     @Override
     public Plugin<Object> newInstance(Object arg) throws Throwable {
         ZoneBuilder.configure(this);
-        ClassScanner.definePlugin(new OptionHandler() {
+        PluginManager.definePlugin(new OptionHandler() {
             @Override
             public Plugin<Object> newInstance(Object arg) throws Throwable {
                 for (int i = 0; i < ENTRANCE_DATA.length; i++) {

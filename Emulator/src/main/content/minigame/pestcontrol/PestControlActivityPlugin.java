@@ -20,7 +20,7 @@ import core.game.world.map.build.DynamicRegion;
 import core.game.world.map.zone.RegionZone;
 import core.game.world.map.zone.ZoneBuilder;
 import core.game.world.map.zone.ZoneRestriction;
-import core.plugin.ClassScanner;
+import core.plugin.PluginManager;
 import core.plugin.Initializable;
 import core.tools.RandomFunction;
 import core.tools.StringUtils;
@@ -199,17 +199,17 @@ public final class PestControlActivityPlugin extends ActivityPlugin {
             ActivityManager.register(activities[1]);
             ActivityManager.register(activities[2]);
             // Load abstract NPC plugins
-            ClassScanner.definePlugin(new PCPortalNPC());
-            ClassScanner.definePlugin(new PCSquireNPC());
-            ClassScanner.definePlugin(new PCTorcherNPC());
-            ClassScanner.definePlugin(new PCDefilerNPC());
-            ClassScanner.definePlugin(new PCRavagerNPC());
-            ClassScanner.definePlugin(new PCShifterNPC());
-            ClassScanner.definePlugin(new PCSplatterNPC());
-            ClassScanner.definePlugin(new PCSpinnerNPC());
-            ClassScanner.definePlugin(new PCBrawlerNPC());
-            ClassScanner.definePlugin(new PCObjectHandler());
-            ClassScanner.definePlugin(new VoidSealPlugin());
+            PluginManager.definePlugin(new PCPortalNPC());
+            PluginManager.definePlugin(new PCSquireNPC());
+            PluginManager.definePlugin(new PCTorcherNPC());
+            PluginManager.definePlugin(new PCDefilerNPC());
+            PluginManager.definePlugin(new PCRavagerNPC());
+            PluginManager.definePlugin(new PCShifterNPC());
+            PluginManager.definePlugin(new PCSplatterNPC());
+            PluginManager.definePlugin(new PCSpinnerNPC());
+            PluginManager.definePlugin(new PCBrawlerNPC());
+            PluginManager.definePlugin(new PCObjectHandler());
+            PluginManager.definePlugin(new VoidSealPlugin());
             ZoneBuilder.configure(new PCLanderZone(activities));
             ZoneBuilder.configure(new PestControlIsland());
         }

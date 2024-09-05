@@ -16,7 +16,7 @@ import core.game.system.task.Pulse;
 import core.game.world.GameWorld;
 import core.game.world.map.Location;
 import core.game.world.update.flag.context.Animation;
-import core.plugin.ClassScanner;
+import core.plugin.PluginManager;
 import core.plugin.Initializable;
 import core.plugin.Plugin;
 import kotlin.Unit;
@@ -48,7 +48,7 @@ public final class RugMerchantDialogue extends Dialogue {
 	@Override
 	public void init() {
 		super.init();
-		ClassScanner.definePlugin(new RugMerchantPlugin());
+		PluginManager.definePlugin(new RugMerchantPlugin());
 	}
 
     /**

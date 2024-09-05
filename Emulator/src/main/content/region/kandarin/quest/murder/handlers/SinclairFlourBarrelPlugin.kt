@@ -12,7 +12,7 @@ import core.game.node.item.Item
 import core.game.node.scenery.Scenery
 import core.plugin.Initializable
 import core.plugin.Plugin
-import core.plugin.ClassScanner
+import core.plugin.PluginManager
 
 /**
  * Plugin that enables getting flour from barrel in Sinclair mansion kitchen.
@@ -64,7 +64,7 @@ class SinclairFlourBarrelPlugin : OptionHandler() {
     @Throws(Throwable::class)
     override fun newInstance(arg: Any?): Plugin<Any> {
         SceneryDefinition.forId(26122).handlers["option:take from"] = this
-        ClassScanner.definePlugin(FlourHandler())
+        PluginManager.definePlugin(FlourHandler())
         return this
     }
 

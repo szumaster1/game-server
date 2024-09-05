@@ -2,7 +2,7 @@ package core.game.worldevents
 
 import core.ServerStore
 import core.api.ContentInterface
-import core.plugin.ClassScanner
+import core.plugin.PluginManager
 import core.plugin.Plugin
 import core.tools.Log
 import org.json.simple.JSONObject
@@ -66,7 +66,7 @@ class PluginSet(vararg val plugins: Plugin<*>) {
      *
      */
     fun initialize() {
-        ClassScanner.definePlugins(*set.toTypedArray()) // Convert the list to an array and define the plugins.
+        PluginManager.definePlugins(*set.toTypedArray()) // Convert the list to an array and define the plugins.
     }
 
     /**

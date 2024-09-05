@@ -13,7 +13,7 @@ import core.game.node.item.Item;
 import core.game.node.scenery.Scenery;
 import core.game.world.map.Location;
 import core.game.world.update.flag.context.Animation;
-import core.plugin.ClassScanner;
+import core.plugin.PluginManager;
 import core.plugin.Initializable;
 import core.plugin.Plugin;
 
@@ -122,7 +122,7 @@ public class PortalChamberPlugin extends OptionHandler {
         for (int i = 13615; i <= 13635; i++) {
             SceneryDefinition.forId(i).getHandlers().put("option:enter", this);
         }
-        ClassScanner.definePlugin(new DirectPortalDialogue());
+        PluginManager.definePlugin(new DirectPortalDialogue());
         return this;
     }
 

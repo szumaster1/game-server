@@ -15,7 +15,7 @@ import core.game.node.item.Item;
 import core.game.node.scenery.Scenery;
 import core.game.world.update.flag.context.Animation;
 import core.game.world.update.flag.context.Graphic;
-import core.plugin.ClassScanner;
+import core.plugin.PluginManager;
 import core.plugin.Initializable;
 import core.plugin.Plugin;
 import core.tools.RandomFunction;
@@ -52,7 +52,7 @@ public class CompostMoundNPC extends Forager {
 
     @Override
     public void configureFamiliar() {
-        ClassScanner.definePlugin(new CompostBucketPlugin());
+        PluginManager.definePlugin(new CompostBucketPlugin());
     }
 
     @Override

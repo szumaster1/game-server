@@ -10,7 +10,7 @@ import core.game.node.entity.Entity
 import core.game.node.entity.player.Player
 import core.game.world.map.zone.MapZone
 import core.game.world.map.zone.ZoneBuilder
-import core.plugin.ClassScanner.definePlugins
+import core.plugin.PluginManager.definePlugins
 import core.plugin.Initializable
 import core.plugin.Plugin
 

@@ -22,7 +22,7 @@ import core.game.node.item.Item;
 import core.game.node.item.ItemPlugin;
 import core.game.world.map.Location;
 import core.game.world.update.flag.context.Animation;
-import core.plugin.ClassScanner;
+import core.plugin.PluginManager;
 import core.plugin.Initializable;
 import core.plugin.Plugin;
 
@@ -44,14 +44,14 @@ public final class TreasureTrailPlugin extends OptionHandler {
 		}
 		ItemDefinition.forId(CoordinateClueScroll.SEXTANT.getId()).getHandlers().put("option:look through", this);
 	//  ClassScanner.definePlugin(new ChallengeCluePlugin());
-		ClassScanner.definePlugin(new MapCluePlugin());
-		ClassScanner.definePlugin(new ClueItemPlugin());
-		ClassScanner.definePlugin(new EmoteCluePlugin());
-		ClassScanner.definePlugin(new TTrailOptionHandler());
-		ClassScanner.definePlugin(new SextantComponentPlugin());
-		ClassScanner.definePlugin(new CoordinateCluePlugin());
-		ClassScanner.definePlugin(new SaradominWizardNPC());
-		ClassScanner.definePlugin(new ZamorakWizardNPC());
+		PluginManager.definePlugin(new MapCluePlugin());
+		PluginManager.definePlugin(new ClueItemPlugin());
+		PluginManager.definePlugin(new EmoteCluePlugin());
+		PluginManager.definePlugin(new TTrailOptionHandler());
+		PluginManager.definePlugin(new SextantComponentPlugin());
+		PluginManager.definePlugin(new CoordinateCluePlugin());
+		PluginManager.definePlugin(new SaradominWizardNPC());
+		PluginManager.definePlugin(new ZamorakWizardNPC());
 		return this;
 	}
 

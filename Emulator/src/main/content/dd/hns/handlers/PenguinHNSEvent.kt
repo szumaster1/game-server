@@ -4,7 +4,7 @@ import content.dd.hns.dialogue.LarryDialogue
 import core.ServerStore
 import core.api.StartupListener
 import core.api.log
-import core.plugin.ClassScanner
+import core.plugin.PluginManager
 import core.tools.Log
 import org.json.simple.JSONObject
 
@@ -17,7 +17,7 @@ class PenguinHNSEvent : StartupListener {
 
     override fun startup() {
         manager.rebuildVars() // Rebuild variables in the PenguinManager
-        ClassScanner.definePlugins(LarryDialogue(), NotebookHandler()) // Define plugins using ClassScanner
+        PluginManager.definePlugins(LarryDialogue(), NotebookHandler()) // Define plugins using ClassScanner
         log(this::class.java, Log.FINE, "Penguin HNS initialized.") // Log initialization message
     }
 

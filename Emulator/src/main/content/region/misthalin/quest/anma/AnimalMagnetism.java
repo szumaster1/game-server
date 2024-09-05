@@ -9,7 +9,7 @@ import core.game.node.entity.player.Player;
 import core.game.node.entity.player.link.quest.Quest;
 import core.game.node.entity.skill.Skills;
 import core.game.node.item.Item;
-import core.plugin.ClassScanner;
+import core.plugin.PluginManager;
 import core.plugin.Initializable;
 
 /**
@@ -76,15 +76,15 @@ public final class AnimalMagnetism extends Quest {
 
     @Override
     public Quest newInstance(Object object) {
-        ClassScanner.definePlugin(new AvaDialogue());
-        ClassScanner.definePlugin(new AliceDialogue());
-        ClassScanner.definePlugin(new WitchDialogue());
-        ClassScanner.definePlugin(new AnimalMagnetismPlugin.ContainerHandler());
-        ClassScanner.definePlugin(new AnimalMagnetismPlugin.UndeadTreePlugin());
-        ClassScanner.definePlugin(new AnimalMagnetismPlugin.HammerMagnetPlugin());
-        ClassScanner.definePlugin(new AnimalMagnetismPlugin.ResearchNoteHandler());
-        ClassScanner.definePlugin(new AliceHusbandDialogue());
-        ClassScanner.definePlugin(new AnimalMagnetismPlugin());
+        PluginManager.definePlugin(new AvaDialogue());
+        PluginManager.definePlugin(new AliceDialogue());
+        PluginManager.definePlugin(new WitchDialogue());
+        PluginManager.definePlugin(new AnimalMagnetismPlugin.ContainerHandler());
+        PluginManager.definePlugin(new AnimalMagnetismPlugin.UndeadTreePlugin());
+        PluginManager.definePlugin(new AnimalMagnetismPlugin.HammerMagnetPlugin());
+        PluginManager.definePlugin(new AnimalMagnetismPlugin.ResearchNoteHandler());
+        PluginManager.definePlugin(new AliceHusbandDialogue());
+        PluginManager.definePlugin(new AnimalMagnetismPlugin());
         return this;
     }
 

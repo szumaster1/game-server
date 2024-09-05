@@ -14,7 +14,7 @@ import core.game.node.Node;
 import core.game.node.entity.player.Player;
 import core.game.node.entity.skill.Skills;
 import core.game.node.item.Item;
-import core.plugin.ClassScanner;
+import core.plugin.PluginManager;
 import core.plugin.Initializable;
 import core.plugin.Plugin;
 
@@ -37,7 +37,7 @@ public class SlayerRewardPlugin extends ComponentPlugin {
         ComponentDefinition.forId(161).setPlugin(this);
         ComponentDefinition.forId(163).setPlugin(this);
         ComponentDefinition.forId(164).setPlugin(this);
-        ClassScanner.definePlugins(new SlayerMasterPlugin(), new SlayerHelmCraftPlugin());
+        PluginManager.definePlugins(new SlayerMasterPlugin(), new SlayerHelmCraftPlugin());
         return this;
     }
 
@@ -312,7 +312,7 @@ public class SlayerRewardPlugin extends ComponentPlugin {
         @Override
         public Plugin<Object> newInstance(Object arg) throws Throwable {
             addHandler(SPINY_HELMET.getId(), ITEM_TYPE, this);
-            ClassScanner.definePlugin(new OptionHandler() {
+            PluginManager.definePlugin(new OptionHandler() {
 
                 @Override
                 public Plugin<Object> newInstance(Object arg) throws Throwable {

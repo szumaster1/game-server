@@ -12,7 +12,7 @@ import core.game.node.item.Item;
 import core.game.node.scenery.Scenery;
 import core.plugin.Initializable;
 import core.plugin.Plugin;
-import core.plugin.ClassScanner;
+import core.plugin.PluginManager;
 
 /**
  * Plugin that enables getting flour from barrel in Sinclair mansion kitchen.
@@ -63,7 +63,7 @@ public final class SinclairFlourBarrelPlugin extends OptionHandler {
     @Override
     public Plugin<Object> newInstance(Object arg) throws Throwable {
         SceneryDefinition.forId(26122).getHandlers().put("option:take from", this);
-        ClassScanner.definePlugin(new FlourHandler());
+        PluginManager.definePlugin(new FlourHandler());
         return this;
     }
 

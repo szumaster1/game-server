@@ -14,7 +14,7 @@ import core.game.node.item.Item
 import core.game.system.task.Pulse
 import core.game.world.update.flag.context.Animation
 import core.game.world.update.flag.context.Graphic
-import core.plugin.ClassScanner
+import core.plugin.PluginManager
 import core.plugin.Initializable
 import core.plugin.Plugin
 
@@ -31,7 +31,7 @@ class SnowGlobePlugin : OptionHandler() {
     private val SNOW = Graphic(Graphics.SNOW_FALLING_FROM_SNOW_GLOBE_1284)
 
     override fun newInstance(arg: Any?): Plugin<Any> {
-        ClassScanner.definePlugin(SnowGlobeInterface())
+        PluginManager.definePlugin(SnowGlobeInterface())
         return this
     }
 

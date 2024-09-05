@@ -14,7 +14,7 @@ import core.game.node.entity.npc.NPC;
 import core.game.node.entity.player.Player;
 import core.game.node.entity.player.link.quest.Quest;
 import core.game.node.item.Item;
-import core.plugin.ClassScanner;
+import core.plugin.PluginManager;
 import core.plugin.Initializable;
 
 import java.util.ArrayList;
@@ -61,7 +61,7 @@ public class DemonSlayer extends Quest {
 
     @Override
     public Quest newInstance(Object object) {
-        ClassScanner.definePlugins(new DemonSlayerPlugin(), new DSlayerDrainPlugin(), new DemonSlayerCutscene(), new WallyCutscenePlugin(), new GypsyArisDialogue(), new SirPyrsinDialogue(), new TraibornDialogue(), new CaptainRovinDialogue());
+        PluginManager.definePlugins(new DemonSlayerPlugin(), new DSlayerDrainPlugin(), new DemonSlayerCutscene(), new WallyCutscenePlugin(), new GypsyArisDialogue(), new SirPyrsinDialogue(), new TraibornDialogue(), new CaptainRovinDialogue());
         return this;
     }
 

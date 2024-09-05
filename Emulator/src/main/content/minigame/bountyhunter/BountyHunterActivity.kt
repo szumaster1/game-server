@@ -31,7 +31,7 @@ import core.game.world.map.zone.ZoneRestriction
 import core.game.world.map.zone.impl.MultiwayCombatZone
 import core.game.world.map.zone.impl.WildernessZone
 import core.game.world.update.flag.context.Animation
-import core.plugin.ClassScanner.definePlugin
+import core.plugin.PluginManager.definePlugin
 import core.plugin.Initializable
 import core.plugin.Plugin
 import core.tools.RandomFunction

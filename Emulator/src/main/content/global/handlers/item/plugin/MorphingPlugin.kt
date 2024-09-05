@@ -13,7 +13,7 @@ import core.game.component.ComponentPlugin
 import core.game.node.entity.player.Player
 import core.game.node.item.Item
 import core.game.world.GameWorld
-import core.plugin.ClassScanner
+import core.plugin.PluginManager
 import core.plugin.Initializable
 import core.plugin.Plugin
 import core.tools.RandomFunction
@@ -38,7 +38,7 @@ class MorphingPlugin : Plugin<Any> {
         // Assign this plugin as the handler for specific items
         ItemDefinition.forId(Items.EASTER_RING_7927).handlers["equipment"] = this
         ItemDefinition.forId(Items.RING_OF_STONE_6583).handlers["equipment"] = this
-        ClassScanner.definePlugin(MorphInterfacePlugin())
+        PluginManager.definePlugin(MorphInterfacePlugin())
         return this
     }
 

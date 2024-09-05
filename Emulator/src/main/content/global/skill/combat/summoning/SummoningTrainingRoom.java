@@ -29,7 +29,7 @@ import core.network.packet.context.CameraContext.CameraType;
 import core.network.packet.context.MinimapStateContext;
 import core.network.packet.outgoing.CameraViewPacket;
 import core.network.packet.outgoing.MinimapState;
-import core.plugin.ClassScanner;
+import core.plugin.PluginManager;
 import core.plugin.Initializable;
 import core.plugin.Plugin;
 
@@ -232,7 +232,7 @@ public final class SummoningTrainingRoom extends OptionHandler {
 
         @Override
         public void register() {
-            ClassScanner.definePlugin(new FluffyDialogue());
+            PluginManager.definePlugin(new FluffyDialogue());
         }
 
         /**

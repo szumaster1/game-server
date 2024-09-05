@@ -10,7 +10,7 @@ import core.game.node.entity.npc.NPC;
 import core.game.node.entity.player.Player;
 import core.game.world.map.Location;
 import core.game.world.map.RegionManager;
-import core.plugin.ClassScanner;
+import core.plugin.PluginManager;
 import core.plugin.Plugin;
 import core.tools.RandomFunction;
 
@@ -113,7 +113,7 @@ public final class UriNPC extends AbstractNPC {
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		ClassScanner.definePlugin(new UriDialogue());
+		PluginManager.definePlugin(new UriDialogue());
 		return super.newInstance(arg);
 	}
 

@@ -16,7 +16,7 @@ import core.game.world.map.Direction
 import core.game.world.map.Location
 import core.game.world.map.zone.ZoneBuilder
 import core.game.world.update.flag.context.Animation
-import core.plugin.ClassScanner.definePlugins
+import core.plugin.PluginManager.definePlugins
 import core.plugin.Initializable
 import core.plugin.Plugin
 

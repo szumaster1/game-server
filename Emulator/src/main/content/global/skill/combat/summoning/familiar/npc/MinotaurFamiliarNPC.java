@@ -11,7 +11,7 @@ import core.game.system.task.Pulse;
 import core.game.world.GameWorld;
 import core.game.world.update.flag.context.Animation;
 import core.game.world.update.flag.context.Graphic;
-import core.plugin.ClassScanner;
+import core.plugin.PluginManager;
 import core.plugin.Initializable;
 import core.plugin.Plugin;
 import core.tools.RandomFunction;
@@ -26,12 +26,12 @@ public final class MinotaurFamiliarNPC implements Plugin<Object> {
 
     @Override
     public Plugin<Object> newInstance(Object arg) throws Throwable {
-        ClassScanner.definePlugin(new BronzeMinotaurNPC());
-        ClassScanner.definePlugin(new IronMinotaurNPC());
-        ClassScanner.definePlugin(new SteelMinotaurNPC());
-        ClassScanner.definePlugin(new MithrilMinotaurNPC());
-        ClassScanner.definePlugin(new AdamantMinotaurNPC());
-        ClassScanner.definePlugin(new RuneMinotaurNPC());
+        PluginManager.definePlugin(new BronzeMinotaurNPC());
+        PluginManager.definePlugin(new IronMinotaurNPC());
+        PluginManager.definePlugin(new SteelMinotaurNPC());
+        PluginManager.definePlugin(new MithrilMinotaurNPC());
+        PluginManager.definePlugin(new AdamantMinotaurNPC());
+        PluginManager.definePlugin(new RuneMinotaurNPC());
         return this;
     }
 

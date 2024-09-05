@@ -18,7 +18,7 @@ import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 import core.game.node.item.WeightedChanceItem
 import core.game.world.update.flag.context.Animation
-import core.plugin.ClassScanner.definePlugin
+import core.plugin.PluginManager.definePlugin
 import core.plugin.Initializable
 import core.plugin.Plugin
 import core.tools.RandomFunction

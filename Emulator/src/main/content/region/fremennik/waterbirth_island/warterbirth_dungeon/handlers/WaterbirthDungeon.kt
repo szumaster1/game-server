@@ -32,7 +32,7 @@ import core.game.world.map.zone.ZoneBuilder
 import core.game.world.map.zone.ZoneRestriction
 import core.game.world.repository.Repository.findNPC
 import core.game.world.update.flag.context.Animation
-import core.plugin.ClassScanner.definePlugin
+import core.plugin.PluginManager.definePlugin
 import core.plugin.Initializable
 import core.plugin.Plugin
 

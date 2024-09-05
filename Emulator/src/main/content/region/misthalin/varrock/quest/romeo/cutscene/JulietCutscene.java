@@ -14,7 +14,7 @@ import core.network.packet.PacketRepository;
 import core.network.packet.context.CameraContext;
 import core.network.packet.context.CameraContext.CameraType;
 import core.network.packet.outgoing.CameraViewPacket;
-import core.plugin.ClassScanner;
+import core.plugin.PluginManager;
 import core.plugin.Initializable;
 
 /**
@@ -40,7 +40,7 @@ public final class JulietCutscene extends CutscenePlugin {
     public JulietCutscene(final Player player) {
         super("Juliet Cutscene");
         this.player = player;
-        ClassScanner.definePlugin(new JulietDialogue());
+        PluginManager.definePlugin(new JulietDialogue());
     }
 
 

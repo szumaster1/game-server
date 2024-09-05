@@ -16,12 +16,8 @@ import core.game.node.entity.impl.PulseType
 import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.game.world.GameWorld
-import core.game.world.map.Region
-import core.network.packet.PacketProcessor
-import core.plugin.ClassScanner
 import core.plugin.Plugin
 import core.tools.Log
-import cfg.consts.NPCs
 
 class PathfinderTests {
     companion object {init {TestUtils.preTestSetup(); GatheringListener().defineListeners(); WoodcuttingListener().defineListeners() }; val NPC_TEST_LOC = Configuration.HOME_LOCATION!!.transform(2, 10, 0)}

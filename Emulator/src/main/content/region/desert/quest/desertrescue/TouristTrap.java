@@ -17,7 +17,7 @@ import core.game.system.task.Pulse;
 import core.game.world.GameWorld;
 import core.game.world.map.Location;
 import core.game.world.map.zone.ZoneBorders;
-import core.plugin.ClassScanner;
+import core.plugin.PluginManager;
 import core.plugin.Initializable;
 
 import static core.api.ContentAPIKt.setVarp;
@@ -124,7 +124,7 @@ public final class TouristTrap extends Quest {
 
     @Override
     public Quest newInstance(Object object) {
-        ClassScanner.definePlugins(new TouristTrapPlugin(), new AnaDialogue(), new CaptainSiadDialogue(), new DesertGuardDialogue(), new IrenaDialogue(), new MaleSlaveDialogue(), new MercenaryCaptainDialogue(), new MercenaryDialogue(), new MinecartDriverDialogue(), new MineSlaveNPC(), new MiningCampZone(), new RowdySlaveNPC(), new AlShabimDialogue(), new BedabinNomadDialogue());
+        PluginManager.definePlugins(new TouristTrapPlugin(), new AnaDialogue(), new CaptainSiadDialogue(), new DesertGuardDialogue(), new IrenaDialogue(), new MaleSlaveDialogue(), new MercenaryCaptainDialogue(), new MercenaryDialogue(), new MinecartDriverDialogue(), new MineSlaveNPC(), new MiningCampZone(), new RowdySlaveNPC(), new AlShabimDialogue(), new BedabinNomadDialogue());
         return this;
     }
 

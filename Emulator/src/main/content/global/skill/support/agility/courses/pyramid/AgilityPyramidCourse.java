@@ -17,7 +17,7 @@ import core.game.world.GameWorld;
 import core.game.world.map.Direction;
 import core.game.world.map.Location;
 import core.game.world.update.flag.context.Animation;
-import core.plugin.ClassScanner;
+import core.plugin.PluginManager;
 import core.plugin.Initializable;
 
 import static core.api.ContentAPIKt.*;
@@ -81,8 +81,8 @@ public final class AgilityPyramidCourse extends AgilityCourse {
         SceneryDefinition.forId(10858).getHandlers().put("option:climb-down", this);
         SceneryDefinition.forId(10865).getHandlers().put("option:climb-over", this);
         RollingBlock.BlockSets.values();
-        ClassScanner.definePlugin(new MovingBlockNPC());
-        ClassScanner.definePlugin(new AgilityPyramidZone());
+        PluginManager.definePlugin(new MovingBlockNPC());
+        PluginManager.definePlugin(new AgilityPyramidZone());
     }
 
     @Override

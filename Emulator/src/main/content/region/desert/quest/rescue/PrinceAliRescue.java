@@ -8,7 +8,7 @@ import core.game.node.entity.player.Player;
 import core.game.node.entity.player.link.quest.Quest;
 import core.game.node.item.GroundItemManager;
 import core.game.node.item.Item;
-import core.plugin.ClassScanner;
+import core.plugin.PluginManager;
 import core.plugin.Initializable;
 
 import static core.api.ContentAPIKt.removeAttribute;
@@ -33,7 +33,7 @@ public class PrinceAliRescue extends Quest {
 
     @Override
     public Quest newInstance(Object object) {
-        ClassScanner.definePlugins(new LadyKeliNPC(), new PrinceAliRescuePlugin(), new WigDyePlugin());
+        PluginManager.definePlugins(new LadyKeliNPC(), new PrinceAliRescuePlugin(), new WigDyePlugin());
         return this;
     }
 

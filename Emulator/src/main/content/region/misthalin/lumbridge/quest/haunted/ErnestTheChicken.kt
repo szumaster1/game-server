@@ -12,7 +12,7 @@ import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.quest.Quest
 import core.game.node.item.GroundItemManager
 import core.game.node.item.Item
-import core.plugin.ClassScanner.definePlugins
+import core.plugin.PluginManager.definePlugins
 import core.plugin.Initializable
 
 /**

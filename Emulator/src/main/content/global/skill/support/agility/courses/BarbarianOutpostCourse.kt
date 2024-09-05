@@ -21,7 +21,7 @@ import core.game.world.GameWorld
 import core.game.world.map.Location
 import core.game.world.update.flag.context.Animation
 import core.game.world.update.flag.context.Graphic
-import core.plugin.ClassScanner
+import core.plugin.PluginManager
 import core.plugin.Initializable
 
 /**
@@ -159,7 +159,7 @@ class BarbarianOutpostCourse
         NPCDefinition.forId(385).handlers["option:pick-up"] = this
         NPCDefinition.forId(386).handlers["option:pick-up"] = this
         NPCDefinition.forId(387).handlers["option:pick-up"] = this
-        ClassScanner.definePlugin(BarbarianGuardDialogue())
+        PluginManager.definePlugin(BarbarianGuardDialogue())
     }
 
     override fun getDestination(node: Node, n: Node): Location? {

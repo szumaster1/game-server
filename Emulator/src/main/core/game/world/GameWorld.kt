@@ -17,7 +17,7 @@ import core.game.world.map.Location
 import core.game.world.map.Region
 import core.game.world.map.RegionManager
 import core.game.world.repository.Repository
-import core.plugin.ClassScanner
+import core.plugin.PluginManager
 import core.plugin.type.StartupPlugin
 import core.storage.AccountStorageProvider
 import core.tools.Log
@@ -116,13 +116,13 @@ object GameWorld {
          */
         Auth.configure()
         ConfigParser().prePlugin()
-        ClassScanner.scanClasspath()
-        ClassScanner.loadPureInterfaces()
-        ClassScanner.loadTimers()
+        PluginManager.scanClasspath()
+        PluginManager.loadPureInterfaces()
+        PluginManager.loadTimers()
         val s = worldPersists.filterIsInstance<ServerStore>().first()
         s.parse()
         worldPersists.filter { it !is ServerStore }.forEach { it.parse() }
-        ClassScanner.loadSideEffectfulPlugins()
+        PluginManager.loadSideEffectfulPlugins()
         configParser.postPlugin()
         startupListeners.forEach { it.startup() }
         if (run) {

@@ -13,8 +13,8 @@ import core.game.node.entity.player.link.request.RequestType
 import core.game.world.map.Location
 import core.game.world.map.zone.ZoneBorders
 import core.game.world.map.zone.ZoneBuilder
-import core.plugin.ClassScanner.definePlugin
-import core.plugin.ClassScanner.definePlugins
+import core.plugin.PluginManager.definePlugin
+import core.plugin.PluginManager.definePlugins
 import core.plugin.Initializable
 import core.tools.RandomFunction
 import java.util.*

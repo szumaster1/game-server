@@ -8,7 +8,7 @@ import core.game.node.Node
 import core.game.node.entity.player.Player
 import core.game.node.item.GroundItem
 import core.game.node.item.ItemPlugin
-import core.plugin.ClassScanner
+import core.plugin.PluginManager
 import core.plugin.Initializable
 import core.plugin.Plugin
 
@@ -22,7 +22,7 @@ class GodBookPlugin : OptionHandler() {
         for (book in GodBook.values()) {
             book.damagedBook.definition.handlers["option:check"] = this
         }
-        ClassScanner.definePlugins(PageHandler(), GodBookItem())
+        PluginManager.definePlugins(PageHandler(), GodBookItem())
         return this
     }
 

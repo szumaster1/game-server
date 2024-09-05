@@ -30,7 +30,7 @@ import core.game.world.update.flag.context.Animation;
 import core.network.packet.PacketRepository;
 import core.network.packet.context.MusicContext;
 import core.network.packet.outgoing.MusicPacket;
-import core.plugin.ClassScanner;
+import core.plugin.PluginManager;
 import core.plugin.Initializable;
 import core.plugin.Plugin;
 import core.tools.RandomFunction;
@@ -55,13 +55,13 @@ public final class StrongholdPlugin extends MapZone implements Plugin<Object> {
     @Override
     public Plugin<Object> newInstance(Object arg) throws Throwable {
         ZoneBuilder.configure(this);
-        ClassScanner.definePlugin(new ExplorerDialogue());
-        ClassScanner.definePlugin(new StrongholdDialogue());
-        ClassScanner.definePlugin(new GrainOfPlentyDialogue());
-        ClassScanner.definePlugin(new GiftOfPeaceDialogue());
-        ClassScanner.definePlugin(new CradleOfLifeDialogue());
-        ClassScanner.definePlugin(new BoxOfHealthDialogue());
-        ClassScanner.definePlugin(new OptionHandler() {
+        PluginManager.definePlugin(new ExplorerDialogue());
+        PluginManager.definePlugin(new StrongholdDialogue());
+        PluginManager.definePlugin(new GrainOfPlentyDialogue());
+        PluginManager.definePlugin(new GiftOfPeaceDialogue());
+        PluginManager.definePlugin(new CradleOfLifeDialogue());
+        PluginManager.definePlugin(new BoxOfHealthDialogue());
+        PluginManager.definePlugin(new OptionHandler() {
             @Override
             public Plugin<Object> newInstance(Object arg) throws Throwable {
                 SceneryDefinition.forId(16154).getHandlers().put("option:climb-down", this);

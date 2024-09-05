@@ -35,7 +35,7 @@ import java.util.function.Consumer
  * scanning and loading plugins and content interfaces.
  * @author Ceikry
  */
-object ClassScanner {
+object PluginManager {
 
     var disabledPlugins = HashMap<String, Boolean>()
 

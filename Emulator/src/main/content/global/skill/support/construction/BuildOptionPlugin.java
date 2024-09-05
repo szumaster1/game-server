@@ -8,7 +8,7 @@ import core.game.interaction.OptionHandler;
 import core.game.node.Node;
 import core.game.node.entity.player.Player;
 import core.game.node.scenery.Scenery;
-import core.plugin.ClassScanner;
+import core.plugin.PluginManager;
 import core.plugin.Initializable;
 import core.plugin.Plugin;
 import core.tools.Log;
@@ -25,7 +25,7 @@ public final class BuildOptionPlugin extends OptionHandler {
     public Plugin<Object> newInstance(Object arg) throws Throwable {
         SceneryDefinition.setOptionHandler("build", this);
         SceneryDefinition.setOptionHandler("remove", this);
-        ClassScanner.definePlugin(new RemoveDialogue());
+        PluginManager.definePlugin(new RemoveDialogue());
         return this;
     }
 

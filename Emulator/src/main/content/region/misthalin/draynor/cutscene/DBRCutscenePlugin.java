@@ -33,7 +33,7 @@ import core.network.packet.PacketRepository;
 import core.network.packet.context.CameraContext;
 import core.network.packet.context.CameraContext.CameraType;
 import core.network.packet.outgoing.CameraViewPacket;
-import core.plugin.ClassScanner;
+import core.plugin.PluginManager;
 import core.plugin.Initializable;
 import core.plugin.Plugin;
 
@@ -130,7 +130,7 @@ public final class DBRCutscenePlugin extends CutscenePlugin {
         } catch (Throwable e) {
             e.printStackTrace();
         }
-        ClassScanner.definePlugin(new BluePhatItem());
+        PluginManager.definePlugin(new BluePhatItem());
     }
 
     @Override

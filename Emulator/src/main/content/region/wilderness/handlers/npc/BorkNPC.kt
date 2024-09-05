@@ -34,7 +34,7 @@ import core.network.packet.context.CameraContext.CameraType
 import core.network.packet.context.MinimapStateContext
 import core.network.packet.outgoing.CameraViewPacket
 import core.network.packet.outgoing.MinimapState
-import core.plugin.ClassScanner.definePlugin
+import core.plugin.PluginManager.definePlugin
 import core.plugin.Initializable
 import core.plugin.Plugin
 import core.tools.RandomFunction

@@ -6,7 +6,7 @@ import core.game.interaction.OptionHandler;
 import core.game.node.Node;
 import core.game.node.entity.player.Player;
 import core.game.node.entity.skill.Skills;
-import core.plugin.ClassScanner;
+import core.plugin.PluginManager;
 import core.plugin.Initializable;
 import core.plugin.Plugin;
 import kotlin.Unit;
@@ -27,7 +27,7 @@ public final class BogrogPlugin extends OptionHandler {
 
     private void registerPlugin() {
         NPCDefinition.forId(4472).getHandlers().put("option:swap", this);
-        ClassScanner.definePlugin(new BogrogDialogue());
+        PluginManager.definePlugin(new BogrogDialogue());
     }
 
     @Override

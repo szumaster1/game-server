@@ -26,7 +26,7 @@ import core.tools.RandomFunction;
 import cfg.consts.Items;
 import core.game.world.GameWorld;
 import core.game.world.repository.Repository;
-import core.plugin.ClassScanner;
+import core.plugin.PluginManager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -46,7 +46,7 @@ public final class PyreSitePlugin extends OptionHandler {
     @Override
     public Plugin<Object> newInstance(Object arg) throws Throwable {
         SceneryDefinition.forId(25286).getHandlers().put("option:construct", this);
-        ClassScanner.definePlugin(new FerociousBarbarianNPC());
+        PluginManager.definePlugin(new FerociousBarbarianNPC());
         return this;
     }
 

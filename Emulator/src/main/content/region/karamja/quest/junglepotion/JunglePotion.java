@@ -11,7 +11,7 @@ import core.game.node.scenery.Scenery;
 import core.game.node.scenery.SceneryBuilder;
 import core.game.system.task.Pulse;
 import core.game.world.update.flag.context.Animation;
-import core.plugin.ClassScanner;
+import core.plugin.PluginManager;
 import core.plugin.Initializable;
 import core.tools.RandomFunction;
 import core.tools.StringUtils;
@@ -39,9 +39,9 @@ public final class JunglePotion extends Quest {
 
     @Override
     public Quest newInstance(Object object) {
-        ClassScanner.definePlugin(new TrufitusDialogue());
-        ClassScanner.definePlugin(new JunglePotionPlugin.JogreCavernDialogue());
-        ClassScanner.definePlugin(new JunglePotionPlugin());
+        PluginManager.definePlugin(new TrufitusDialogue());
+        PluginManager.definePlugin(new JunglePotionPlugin.JogreCavernDialogue());
+        PluginManager.definePlugin(new JunglePotionPlugin());
         return this;
     }
 
