@@ -47,8 +47,6 @@ class ZygomiteNPC : NPCBehavior(*Tasks.ZYGOMITES.npcs), InteractionListener {
             state.estimatedHit = lifepoints - 1
             state.secondaryHit = -1
             setAttribute(self, "shouldRun", true)
-        } else {
-            sendMessage(attacker.asPlayer(), "The Zygomite is on its last legs! Finish it quickly!")
         }
     }
 
@@ -78,6 +76,7 @@ class ZygomiteNPC : NPCBehavior(*Tasks.ZYGOMITES.npcs), InteractionListener {
             }
         }
         if (with.getSkills().lifepoints > 7) {
+          //sendMessage(player, "The Zygomite is on its last legs! Finish it quickly!")
             sendMessage(player, "The zygomite isn't weak enough to be affected by the fungicide.")
         } else {
             sendMessage(player, "The Zygomite is covered in fungicide. It bubbles away to nothing!")
