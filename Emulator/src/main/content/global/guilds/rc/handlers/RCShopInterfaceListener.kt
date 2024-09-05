@@ -65,8 +65,7 @@ class RCShopInterfaceListener : InterfaceListener {
 
     override fun defineInterfaceListeners() {
         onOpen(Components.RCGUILD_REWARDS_779) { player, _ ->
-            setAttribute(player, "rcshop:purchase", 0)
-            sendTokens(player)
+            initializeShop(player)
             return@onOpen true
         }
 
@@ -76,8 +75,7 @@ class RCShopInterfaceListener : InterfaceListener {
                 return@on true
             }
             if (button == 163) {
-                if (getAttribute(player, "rcshop:purchase", -1) < 1000)
-                    sendMessage(player, "You must select something to buy before you can confirm your purchase")
+                validatePurchaseSelection(player)
             } else {
                 confirmPurchase(choice, opcode, player)
             }
@@ -86,19 +84,31 @@ class RCShopInterfaceListener : InterfaceListener {
         }
     }
 
+    private fun initializeShop(player: Player) {
+        setAttribute(player, "rcshop:purchase", 0)
+        sendTokens(player)
+    }
+
+    private fun validatePurchaseSelection(player: Player) {
+        if (getAttribute(player, "rcshop:purchase", -1) < 1000) {
+            sendMessage(player, "You must select something to buy before you can confirm your purchase")
+        }
+    }
+
     private fun sendBuyOption(item: ShopItem, amount: Int, player: Player) {
-        getAttribute(player, "rcshop:purchase", setAttribute(player, "rcshop:item", item.id))
-        setInterfaceText(player, getItemName(item.id) + "(${amount})", Components.RCGUILD_REWARDS_779, 136)
+        setAttribute(player, "rcshop:item", item.id)
+        setInterfaceText(player, "${getItemName(item.id)}($amount)", Components.RCGUILD_REWARDS_779, 136)
     }
 
     private fun confirmPurchase(item: ShopItem, amount: Int, player: Player) {
-        var neededTokens = Item(Items.RUNECRAFTING_GUILD_TOKEN_13650, item.price * amount)
+        val neededTokens = Item(Items.RUNECRAFTING_GUILD_TOKEN_13650, item.price * amount)
         if (!player.inventory.containsItem(neededTokens)) {
             sendMessage(player, "You don't have enough tokens to purchase that.")
             return
         }
         if (!hasSpaceFor(player, Item(item.id, amount))) {
             sendMessage(player, "You don't have enough space in your inventory.")
+            return
         }
         removeItem(player, neededTokens)
         addItem(player, item.id, amount)
@@ -109,25 +119,15 @@ class RCShopInterfaceListener : InterfaceListener {
 
     private fun handleOpcode(item: ShopItem, opcode: Int, player: Player) {
         when (opcode) {
-            155 -> {
-                sendBuyOption(item, 1, player)
-            }
-
-            196 -> {
-                sendInputDialogue(player, InputType.AMOUNT, "Enter the amount to buy:") { value ->
-                    val amt = value as Int
-                    sendBuyOption(item, amt, player)
-                }
+            155 -> sendBuyOption(item, 1, player)
+            196 -> sendInputDialogue(player, InputType.AMOUNT, "Enter the amount to buy:") { value ->
+                val amt = value as Int
+                sendBuyOption(item, amt, player)
             }
         }
     }
 
     private fun sendTokens(player: Player) {
-        setInterfaceText(
-            player,
-            "Tokens: ${amountInInventory(player, Items.RUNECRAFTING_GUILD_TOKEN_13650)}",
-            Components.RCGUILD_REWARDS_779,
-            135
-        )
+        setInterfaceText(player, "Tokens: ${amountInInventory(player, Items.RUNECRAFTING_GUILD_TOKEN_13650)}", Components.RCGUILD_REWARDS_779, 135)
     }
 }
