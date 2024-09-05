@@ -1,8 +1,6 @@
 package content.region.misc.zanaris.handlers
 
-import cfg.consts.Animations
-import cfg.consts.Items
-import cfg.consts.Scenery
+import cfg.consts.*
 import content.region.misc.keldagrim.dialogue.MagicDoorDialogue
 import core.api.*
 import core.game.global.action.ClimbActionHandler
@@ -10,6 +8,9 @@ import core.game.global.action.DoorActionHandler
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.interaction.QueueStrength
+import core.game.node.entity.npc.NPC
+import core.game.node.entity.skill.Skills
+import core.game.system.task.Pulse
 import core.game.world.map.Location
 import core.game.world.update.flag.context.Animation
 
@@ -18,28 +19,65 @@ import core.game.world.update.flag.context.Animation
  */
 class ZanarisListeners : InteractionListener {
 
-    companion object {
-        private val TP_ANIM_START = Animation(2755)
-        private val TP_ANIM_ENDED = Animation(2757)
-        private val ENTER_LOCATION = location(2461, 4356, 0)
-        private val EXIT_LOCATION = location(2453, 4476, 0)
-        private val MAGIC_DOORS = intArrayOf(12045, 12047)
-        private val REQUIRED_ITEMS = intArrayOf(Items.RAW_CHICKEN_2138, Items.EGG_1944)
-        private const val CHICKEN_SHRINE = Scenery.CHICKEN_SHRINE_12093
-        private const val TUNNEL_ENTRANCE = Scenery.TUNNEL_ENTRANCE_12253
-        private const val ENTRANCE_ROPE = Scenery.TUNNEL_ENTRANCE_12254
-        private const val ROPE_SCENERY = Scenery.ROPE_12255
-        private const val PORTAL_ENTRANCE = Scenery.PORTAL_12260
-        private const val ROPE = Items.ROPE_954
-    }
+    private val teleportAnimationStart: Animation = Animation(2755)
+    private val teleportAnimationEnd: Animation = Animation(2757)
+    private val firstAnimation: Animation = Animation(3335)
+    private val secondAnimation: Animation = Animation(3322)
+    private val enterLocation = location(2461, 4356, 0)
+    private val exitLocation = location(2453, 4476, 0)
+    private val magicDoorIDs = intArrayOf(12045, 12047)
+    private val requiredItemIDs = intArrayOf(Items.RAW_CHICKEN_2138, Items.EGG_1944)
+    private val chickenShrineStatue = Scenery.CHICKEN_SHRINE_12093
+    private val portalEntrance = Scenery.PORTAL_12260
+    private val tunnelEntrance = Scenery.TUNNEL_ENTRANCE_12253
+    private val ropeEntrance = Scenery.TUNNEL_ENTRANCE_12254
+    private val ropeScenery = Scenery.ROPE_12255
+    private val ropeId = Items.ROPE_954
 
     override fun defineListeners() {
 
         /*
-         * Zanaris magic doors interaction.
+         * Special interaction for (Fungi) mushrooms.
          */
 
-        on(MAGIC_DOORS, IntType.SCENERY, "open") { player, node ->
+        on(intArrayOf(NPCs.FUNGI_3344, NPCs.FUNGI_3345), IntType.NPC, "pick") { player, node ->
+            val fungi = node as NPC
+            if (getStatLevel(player, Skills.SLAYER) < 57) {
+                sendMessage(player, "Zygomite is Slayer monster that require a Slayer level of 57 to kill.")
+                return@on true
+            }
+            lock(player, 1)
+            animate(player, firstAnimation)
+            submitWorldPulse(object : Pulse() {
+                var counter = 0
+                override fun pulse(): Boolean {
+                    when (counter++) {
+                        0 -> {
+                            animate(
+                                entity = fungi,
+                                anim = secondAnimation,
+                                /*
+                                gfx = if (fungi.id == NPCs.FUNGI_3344)
+                                    Graphics.MUSHROOM_DUDE_577 else Graphics.HUGE_MUSHROOM_DUDE_578
+                                */
+                            )
+                            transformNpc(fungi, fungi.id + 2, 500)
+                            fungi.impactHandler.disabledTicks = 1
+                            fungi.attack(player)
+                            return true
+                        }
+                    }
+                    return false
+                }
+            })
+            return@on true
+        }
+
+        /*
+         * Zanaris magic door interaction.
+         */
+
+        on(magicDoorIDs, IntType.SCENERY, "open") { player, node ->
             if ((node.id == 12045 && node.location == Location(2469, 4438, 0) && player.location.x >= 2470) || (player.location.y < 4434 && (node.id == 12045 || node.id == 12047 && node.location == Location(2465, 4434, 0))) || (node.id == 12047 && player.location.x >= 2470)) {
                 DoorActionHandler.handleAutowalkDoor(player, node.asScenery())
             } else {
@@ -52,10 +90,7 @@ class ZanarisListeners : InteractionListener {
          * Evil Chicken lair interactions.
          */
 
-        onUseWith(IntType.SCENERY,
-            REQUIRED_ITEMS,
-            CHICKEN_SHRINE
-        ) { player, used, _ ->
+        onUseWith(IntType.SCENERY, requiredItemIDs, chickenShrineStatue) { player, used, _ ->
             if (used.id != Items.RAW_CHICKEN_2138) {
                 sendMessage(player, "Nice idea, but nothing interesting happens.")
                 return@onUseWith false
@@ -67,13 +102,13 @@ class ZanarisListeners : InteractionListener {
                 queueScript(player, 1, QueueStrength.SOFT) { stage: Int ->
                     when (stage) {
                         0 -> {
-                            animate(player, TP_ANIM_START)
+                            animate(player, teleportAnimationStart)
                             return@queueScript keepRunning(player)
                         }
 
                         1 -> {
-                            teleport(player, ENTER_LOCATION)
-                            animate(player, TP_ANIM_ENDED)
+                            teleport(player, enterLocation)
+                            animate(player, teleportAnimationEnd)
                             return@queueScript stopExecuting(player)
                         }
 
@@ -88,8 +123,8 @@ class ZanarisListeners : InteractionListener {
          * Handling the Portal entrance.
          */
 
-        on(PORTAL_ENTRANCE, IntType.SCENERY, "use") { player, _ ->
-            teleport(player, EXIT_LOCATION)
+        on(portalEntrance, IntType.SCENERY, "use") { player, _ ->
+            teleport(player, exitLocation)
             return@on true
         }
 
@@ -97,16 +132,13 @@ class ZanarisListeners : InteractionListener {
          * Handling use rope on entrance.
          */
 
-        onUseWith(IntType.SCENERY,
-            ROPE,
-            TUNNEL_ENTRANCE
-        ) { player, used, _ ->
+        onUseWith(IntType.SCENERY, ropeId, tunnelEntrance) { player, used, _ ->
             if (!removeItem(player, used.asItem())) {
                 sendMessage(player, "Nothing interesting happens.")
             } else {
                 replaceScenery(
-                    core.game.node.scenery.Scenery(TUNNEL_ENTRANCE, location(2455, 4380, 0)),
-                    ENTRANCE_ROPE,
+                    core.game.node.scenery.Scenery(tunnelEntrance, location(2455, 4380, 0)),
+                    ropeEntrance,
                     80
                 )
             }
@@ -117,7 +149,7 @@ class ZanarisListeners : InteractionListener {
          * Handling climb down interaction on entrance.
          */
 
-        on(ENTRANCE_ROPE, IntType.SCENERY, "climb-down") { player, _ ->
+        on(ropeEntrance, IntType.SCENERY, "climb-down") { player, _ ->
             ClimbActionHandler.climb(
                 player,
                 Animation(Animations.MULTI_USE_BEND_OVER_827),
@@ -130,7 +162,7 @@ class ZanarisListeners : InteractionListener {
          * Handle exit from the cave.
          */
 
-        on(ROPE_SCENERY, IntType.SCENERY, "climb-up") { player, _ ->
+        on(ropeScenery, IntType.SCENERY, "climb-up") { player, _ ->
             ClimbActionHandler.climb(
                 player,
                 Animation(Animations.MULTI_USE_BEND_OVER_827),

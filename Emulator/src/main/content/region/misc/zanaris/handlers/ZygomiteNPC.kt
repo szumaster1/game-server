@@ -12,6 +12,7 @@ import core.game.node.entity.combat.ImpactHandler
 import core.game.node.entity.npc.NPC
 import core.game.node.entity.npc.NPCBehavior
 import core.game.node.entity.player.Player
+import core.game.node.item.Item
 
 /**
  * Represents the Zygomite NPC.
@@ -70,7 +71,10 @@ class ZygomiteNPC : NPCBehavior(*Tasks.ZYGOMITES.npcs), InteractionListener {
                     return true
                 }
 
-                else -> continue
+                else -> {
+                    replaceSlot(player, used.asItem().slot, Item(used.id - 1))
+                    continue
+                }
             }
         }
         if (with.getSkills().lifepoints > 7) {
@@ -81,4 +85,5 @@ class ZygomiteNPC : NPCBehavior(*Tasks.ZYGOMITES.npcs), InteractionListener {
         }
         return true
     }
+
 }

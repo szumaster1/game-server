@@ -84,12 +84,7 @@ class NPCInteractionListener : InteractionListener {
                 openDepositBox(player)
                 setInterfaceText(player, "Peer the Seer's Deposits", Components.BANK_DEPOSIT_BOX_11, 12)
             } else {
-                sendNPCDialogue(
-                    player,
-                    NPCs.PEER_THE_SEER_1288,
-                    "Do not pester me, outerlander! I will only deposit items into the banks of those who have earned Fremennik sea boots!",
-                    FacialExpression.ANNOYED
-                ).also { END_DIALOGUE }
+                sendNPCDialogue(player, NPCs.PEER_THE_SEER_1288, "Do not pester me, outerlander! I will only deposit items into the banks of those who have earned Fremennik sea boots!", FacialExpression.ANNOYED).also { END_DIALOGUE }
             }
             return@on true
         }
@@ -119,15 +114,6 @@ class NPCInteractionListener : InteractionListener {
                     node.disturb(player)
                 }
             }
-            return@on true
-        }
-
-        /*
-         * Special interaction for (Fungi) mushrooms.
-         */
-
-        on(intArrayOf(NPCs.FUNGI_3344,NPCs.FUNGI_3345),IntType.NPC, "pick") { player, node ->
-            node.asNpc().attack(player)
             return@on true
         }
 
