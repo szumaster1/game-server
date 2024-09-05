@@ -31,7 +31,7 @@ class ShootingStarBot : Script() {
             State.FULL_IDLE -> {}
 
             State.TELEPORT_TO -> {
-                scriptAPI!!.teleport(star.crash_locations[star.location]!!.transform(0, -1, 0))
+                scriptAPI!!.teleport(star.crashLocations[star.location]!!.transform(0, -1, 0))
                 state = State.MINING
                 timerCountdown = 15
             }

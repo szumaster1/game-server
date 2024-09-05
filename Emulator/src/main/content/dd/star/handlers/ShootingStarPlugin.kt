@@ -99,7 +99,7 @@ class ShootingStarPlugin : LoginListener, InteractionListener, TickListener, Com
                         }
                         if (!condition.invoke(player)) {
                             sendDialogue(player,"Magical forces prevent your teleportation.")
-                        } else if (teleport(player, star.crash_locations[star.location]!!.transform(0, -1, 0), TeleportManager.TeleportType.MINIGAME)) {
+                        } else if (teleport(player, star.crashLocations[star.location]!!.transform(0, -1, 0), TeleportManager.TeleportType.MINIGAME)) {
                             getRingStoreFile()[player.username.lowercase()] = true
                         }
                     }

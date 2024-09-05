@@ -18,7 +18,7 @@ import core.game.world.map.Location
  */
 class ShootingStar(var level: ShootingStarType = ShootingStarType.values().random()) {
 
-    private val crashLocations = mapOf(
+    val crashLocations = mapOf(
         "East of Dark Wizards' Tower" to Location.create(2925, 3339, 0),
         "Crafting Guild" to Location.create(2940, 3280, 0),
         "Falador East Bank" to Location.create(3030, 3349, 0),
