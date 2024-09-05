@@ -20,6 +20,7 @@ import core.game.node.item.Item
 class ZygomiteNPC : NPCBehavior(*Tasks.ZYGOMITES.npcs), InteractionListener {
 
     private val fungicideSpray = intArrayOf(
+        Items.FUNGICIDE_SPRAY_10_7421,
         Items.FUNGICIDE_SPRAY_9_7422,
         Items.FUNGICIDE_SPRAY_8_7423,
         Items.FUNGICIDE_SPRAY_7_7424,
@@ -42,41 +43,42 @@ class ZygomiteNPC : NPCBehavior(*Tasks.ZYGOMITES.npcs), InteractionListener {
     }
 
     override fun beforeDamageReceived(self: NPC, attacker: Entity, state: BattleState) {
-        val lifepoints = self.skills.lifepoints
-        if (state.estimatedHit + Integer.max(state.secondaryHit, 0) > lifepoints - 1) {
-            state.estimatedHit = lifepoints - 1
-            state.secondaryHit = -1
-            setAttribute(self, "shouldRun", true)
+        val lifepoints = self.getSkills().lifepoints
+        if (state.estimatedHit > -1) {
+            if (lifepoints - state.estimatedHit < 1) {
+                state.estimatedHit = 0
+                if (lifepoints > 1) {
+                    state.estimatedHit = lifepoints - 1
+                }
+            }
         }
-    }
-
-    override fun tick(self: NPC): Boolean {
-        if (getAttribute(self, "shouldRun", false)) {
-            self.properties.combatPulse.stop()
-            forceWalk(self, self.properties.spawnLocation, "smart")
-            removeAttribute(self, "shouldRun")
+        if (state.secondaryHit > -1) {
+            if (lifepoints - state.secondaryHit < 1) {
+                state.secondaryHit = 0
+                if (lifepoints > 1) {
+                    state.secondaryHit = lifepoints - 1
+                }
+            }
         }
-        return true
+        val totalHit = state.estimatedHit + state.secondaryHit
+        if (lifepoints - totalHit < 1) {
+            state.estimatedHit = 0
+            state.secondaryHit = 0
+        }
     }
 
     private fun handleFungicideSpray(player: Player, used: Node, with: Node): Boolean {
         if (with !is NPC) return false
-        if (!removeItem(player, used.id) || used.id == Items.FUNGICIDE_SPRAY_0_7431) return false
-        for (i in fungicideSpray) {
-            when (i) {
-                Items.FUNGICIDE_SPRAY_0_7431 -> {
-                    sendMessage(player, "Your fungicide spray is currently empty.")
-                    return true
-                }
-
-                else -> {
-                    replaceSlot(player, used.asItem().slot, Item(used.id + 1))
-                    continue
-                }
+        if (used.id != Items.FUNGICIDE_SPRAY_0_7431) {
+            if (used.id in fungicideSpray) {
+                replaceSlot(player, used.asItem().slot, Item(used.id + 1))
+            } else {
+                sendMessage(player, "Nothing interesting happens.")
             }
+        } else {
+            sendMessage(player, "Your fungicide spray is currently empty.")
         }
         if (with.getSkills().lifepoints > 7) {
-          //sendMessage(player, "The Zygomite is on its last legs! Finish it quickly!")
             sendMessage(player, "The zygomite isn't weak enough to be affected by the fungicide.")
         } else {
             sendMessage(player, "The Zygomite is covered in fungicide. It bubbles away to nothing!")

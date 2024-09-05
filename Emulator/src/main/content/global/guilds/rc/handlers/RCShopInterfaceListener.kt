@@ -60,7 +60,7 @@ class RCShopInterfaceListener : InterfaceListener {
         84 to ShopItem(13610, 45, 1),
         85 to ShopItem(13598, 15, 1),
         114 to ShopItem(13629, 10000, 1),
-        115 to ShopItem(7937, 100, 1)
+        115 to ShopItem(7937, 100, 1),
     )
 
     override fun defineInterfaceListeners() {
@@ -69,17 +69,15 @@ class RCShopInterfaceListener : InterfaceListener {
             return@onOpen true
         }
 
-        on(Components.RCGUILD_REWARDS_779) { player, _, opcode, button, _, _ ->
+        on(Components.RCGUILD_REWARDS_779) { player, _, opcode, button, _, itemID ->
             val choice = shopItems[button] ?: run {
                 log(this::class.java, Log.WARN, "Unhandled button ID for RC shop interface: $button")
                 return@on true
             }
+            handleOpcode(choice, opcode, player)
             if (button == 163) {
-                validatePurchaseSelection(player)
-            } else {
                 confirmPurchase(choice, opcode, player)
             }
-            handleOpcode(choice, opcode, player)
             return@on true
         }
     }
@@ -87,12 +85,6 @@ class RCShopInterfaceListener : InterfaceListener {
     private fun initializeShop(player: Player) {
         setAttribute(player, "rcshop:purchase", 0)
         sendTokens(player)
-    }
-
-    private fun validatePurchaseSelection(player: Player) {
-        if (getAttribute(player, "rcshop:purchase", -1) < 1000) {
-            sendMessage(player, "You must select something to buy before you can confirm your purchase")
-        }
     }
 
     private fun sendBuyOption(item: ShopItem, amount: Int, player: Player) {
@@ -110,6 +102,13 @@ class RCShopInterfaceListener : InterfaceListener {
             sendMessage(player, "You don't have enough space in your inventory.")
             return
         }
+
+        val selectedItemId = player.getAttribute("rcshop:item", -1).toInt()
+        if (selectedItemId == -1 || selectedItemId != item.id) {
+            sendMessage(player, "You must select something to buy before you can confirm your purchase")
+            return
+        }
+
         removeItem(player, neededTokens)
         addItem(player, item.id, amount)
         sendMessage(player, "Your purchase has been added to your inventory.")
@@ -121,7 +120,11 @@ class RCShopInterfaceListener : InterfaceListener {
         when (opcode) {
             155 -> sendBuyOption(item, 1, player)
             196 -> sendInputDialogue(player, InputType.AMOUNT, "Enter the amount to buy:") { value ->
-                val amt = value as Int
+                val amt = value.toString().toIntOrNull()
+                if (amt == null || amt <= 0) {
+                    sendDialogue(player, "Please enter a valid amount greater than zero.")
+                    return@sendInputDialogue
+                }
                 sendBuyOption(item, amt, player)
             }
         }
