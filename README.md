@@ -11,6 +11,8 @@
 
 ### 2009scape
 
+![](https://i.imgur.com/0UWgSWc.png)
+
 Fork for educational purposes & single-player experience.
 
 ##### Setting Up the Project
@@ -50,9 +52,9 @@ the project's setup, things won't work. At all.
 ##### Project Setup
 
 1. If you haven't already, make sure to follow
-   our [Git Basics](https://gitlab.com/2009scape/2009scape/-/wikis/git-basics) guide.
-2. Run `git lfs pull` in the 2009scape folder you cloned as part of that guide. This only has to be done once, ever.
-3. Follow our [IntelliJ IDEA Setup Guide](https://gitlab.com/2009scape/2009scape/-/wikis/Setup-for-IntelliJ-IDEA-IDE)
+   our [Git Basics](https://gitlab.com/rs-source/game-server/-/wikis/home) guide.
+2. Run `git lfs pull` in the project folder you cloned as part of that guide.
+3. Follow guide [IntelliJ IDEA Setup Guide](https://gitlab.com/rs-source/game-server/-/wikis/home)
 
 ***
 

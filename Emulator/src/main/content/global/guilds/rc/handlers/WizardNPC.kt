@@ -1,4 +1,4 @@
-package content.global.guilds.rc.npc
+package content.global.guilds.rc.handlers
 
 import cfg.consts.NPCs
 import core.game.node.entity.combat.CombatStyle
