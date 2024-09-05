@@ -32,7 +32,7 @@ class ZygomiteNPC : NPCBehavior(*Tasks.ZYGOMITES.npcs), InteractionListener {
     )
 
     override fun defineListeners() {
-        onUseWith(IntType.NPC, Items.FUNGICIDE_SPRAY_9_7422, *ids, handler = ::handleFungicideSpray)
+        onUseWith(IntType.NPC, fungicideSpray, *ids, handler = ::handleFungicideSpray)
     }
 
     override fun onDeathFinished(self: NPC, killer: Entity) {

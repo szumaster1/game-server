@@ -13,7 +13,6 @@ import core.game.node.entity.npc.NPCBehavior
 import core.game.node.entity.player.Player
 import core.game.system.task.Pulse
 import core.game.world.update.flag.context.Animation
-import core.plugin.Initializable
 
 /**
  * Represents the Fungi NPC.
