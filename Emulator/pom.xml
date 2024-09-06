@@ -133,7 +133,7 @@
                             <repositoryLayout>default</repositoryLayout>
                             <groupId>cfg</groupId>
                             <artifactId>constants</artifactId>
-                            <version>0.0</version>
+                            <version>0.0.19</version>
                             <packaging>jar</packaging>
                             <generatePom>true</generatePom>
                         </configuration>
