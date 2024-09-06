@@ -9,7 +9,7 @@ import core.game.world.GameWorld
 import core.game.world.map.Location
 
 /**
- * Goblin follower.
+ * Functions for travel between lumbridge basement and dorgeshuun mines.
  */
 object GoblinFollower {
 
@@ -24,8 +24,8 @@ object GoblinFollower {
     }
 
     private fun travel(player: Player, location: Location) {
-        lock(player, 1000)
-        lockInteractions(player, 1000)
+        lock(player, 8)
+        lockInteractions(player, 8)
         GameWorld.Pulser.submit(object : Pulse() {
             var counter = 0
             override fun pulse(): Boolean {
@@ -33,10 +33,9 @@ object GoblinFollower {
                     0 -> openInterface(player, Components.FADE_TO_BLACK_120)
                     4 -> {
                         teleport(player, location, TeleportManager.TeleportType.INSTANT)
-                        openInterface(player, Components.FADE_FROM_BLACK_170)
                     }
-                    8 ->{
-                        unlock(player)
+                    8 -> {
+                        openInterface(player, Components.FADE_FROM_BLACK_170)
                         return true
                     }
                 }

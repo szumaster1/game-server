@@ -456,13 +456,13 @@ enum class SkillingTool(@JvmField val id: Int, val level: Int, @JvmField val rat
             return tool
         }
 
-        fun getToolForSkill(player: Player, skill: Int): SkillingTool? {
+        fun getToolForSkill(player: Player?, skill: Int): SkillingTool? {
             return when (skill) {
-                Skills.MINING -> getPickaxe(player)
-                Skills.WOODCUTTING -> getHatchet(player)
-                Skills.FISHING -> getHarpoon(player)
-                Skills.HUNTER -> getButterflyNet(player)
-                Skills.FIREMAKING -> getFiremakingTool(player)
+                Skills.MINING -> getPickaxe(player!!)
+                Skills.WOODCUTTING -> getHatchet(player!!)
+                Skills.FISHING -> getHarpoon(player!!)
+                Skills.HUNTER -> getButterflyNet(player!!)
+                Skills.FIREMAKING -> getFiremakingTool(player!!)
                 else -> null
             }
         }

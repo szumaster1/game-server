@@ -1,5 +1,6 @@
 package content.region.misthalin.lumbridge.quest.lost_tribe.handlers
 
+import cfg.consts.NPCs
 import core.game.node.entity.Entity
 import core.game.node.entity.npc.AbstractNPC
 import core.game.world.map.Location
@@ -22,7 +23,7 @@ class CaveGoblinMinerNPC(id: Int = 0, location: Location? = null) : AbstractNPC(
     }
 
     override fun getIds(): IntArray {
-        return intArrayOf(2078, 2077, 2076, 2075, 2072, 2071, 2070, 2069)
+        return intArrayOf(NPCs.CAVE_GOBLIN_MINER_2078, NPCs.CAVE_GOBLIN_MINER_2077, NPCs.CAVE_GOBLIN_MINER_2076, NPCs.CAVE_GOBLIN_MINER_2075, NPCs.CAVE_GOBLIN_MINER_2072, NPCs.CAVE_GOBLIN_MINER_2071, NPCs.CAVE_GOBLIN_MINER_2070, NPCs.CAVE_GOBLIN_MINER_2069)
     }
 
     override fun tick() {

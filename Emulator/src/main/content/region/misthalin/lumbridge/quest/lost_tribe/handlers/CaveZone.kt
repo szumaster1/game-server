@@ -1,5 +1,8 @@
 package content.region.misthalin.lumbridge.quest.lost_tribe.handlers
 
+import cfg.consts.Animations
+import cfg.consts.Graphics
+import core.api.resetAnimator
 import core.game.node.entity.Entity
 import core.game.node.entity.combat.ImpactHandler
 import core.game.node.entity.player.Player
@@ -47,21 +50,17 @@ class CaveZone : MapZone("TLT Cave Zone", true), Plugin<Unit> {
         return super.move(e, from, to)
     }
 
-    /**
-     * Trigger
-     *
-     * @param player
-     */
     fun trigger(player: Player) {
         if (RandomFunction.random(1, 6) <= 2) {
-            player.animator.animate(Animation(1950),
-                Graphic(572, 1, 3)
+            player.animator.animate(
+                Animation(Animations.FALL_DOWN_TRAPDOOR_1950),
+                Graphic(Graphics.HOLE_OPENS_IN_GROUND_572, 1, 3)
             )
             GameWorld.Pulser.submit(object : Pulse(5) {
                 override fun pulse(): Boolean {
                     player.unlock()
                     player.properties.teleportLocation = Location.create(3159, 9546, 0)
-                    player.animator.reset()
+                    resetAnimator(player)
                     return true
                 }
             })
