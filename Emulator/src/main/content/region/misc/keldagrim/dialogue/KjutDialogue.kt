@@ -24,24 +24,28 @@ class KjutDialogue(player: Player? = null) : Dialogue(player) {
     override fun handle(interfaceId: Int, buttonId: Int): Boolean {
         when (stage) {
             START_DIALOGUE -> npcl(FacialExpression.OLD_DEFAULT, "Kebabs! Get your kebabs here! One gold each!").also { stage++ }
-            1 -> showTopics(Topic(FacialExpression.FRIENDLY, "Sure, one kebab please.", 2, true), Topic(FacialExpression.FRIENDLY, "I'm looking for a drunken dwarf.", 6), Topic(FacialExpression.FRIENDLY, "Do you have any quests?", 17))
-            2 -> if (!inInventory(player, Items.COINS_995, 1)) {
+
+            1 -> showTopics(
+                Topic(FacialExpression.FRIENDLY, "Sure, one kebab please.", 2),
+                Topic(FacialExpression.FRIENDLY, "I'm looking for a drunken dwarf.", 6),
+                Topic(FacialExpression.FRIENDLY, "Do you have any quests?", 17)
+            )
+
+            2 -> if (!removeItem(player, Item(Items.COINS_995, 1))) {
                 playerl(FacialExpression.FRIENDLY, "Sure, one kebab please.").also { stage = 3 }
             } else {
-                if (removeItem(player, Item(Items.COINS_995, 1))) {
-                    addItemOrDrop(player, Items.KEBAB_1971)
-                    playerl(FacialExpression.FRIENDLY, "Sure, one kebab please.").also { stage = END_DIALOGUE }
-                }
+                playerl(FacialExpression.FRIENDLY, "Sure, one kebab please.")
+                end()
+                addItemOrDrop(player, Items.KEBAB_1971)
             }
+
             3 -> npcl(FacialExpression.OLD_ANGRY1, "Yes? Are you going to give me that one gold coin then?").also { stage++ }
             4 -> playerl(FacialExpression.FRIENDLY, "Sorry, I don't seem to have any money on me.").also { stage++ }
             5 -> npcl(FacialExpression.OLD_DEFAULT, "The bank is Keldagrim-West. Hurry back!").also { stage = END_DIALOGUE }
-            6 -> {
-                if (isQuestComplete(player, "Forgettable Tale of a Drunken Dwarf")) {
-                    npcl(FacialExpression.OLD_DEFAULT, "I thought you would know plenty!").also { stage = 14 }
-                } else {
-                    npcl(FacialExpression.OLD_DEFAULT, "Just go out in the streets, they can't be hard to find!").also { stage = 7 }
-                }
+            6 -> if (isQuestComplete(player, "Forgettable Tale of a Drunken Dwarf")) {
+                npcl(FacialExpression.OLD_DEFAULT, "I thought you would know plenty!").also { stage = 14 }
+            } else {
+                npcl(FacialExpression.OLD_DEFAULT, "Just go out in the streets, they can't be hard to find!").also { stage = 7 }
             }
             7 -> playerl(FacialExpression.FRIENDLY, "No, a specific drunken dwarf, he keeps harassing me.").also { stage++ }
             8 -> npcl(FacialExpression.OLD_DEFAULT, "That's still not very helpful. But let me see. There is one particularly drunken dwarf just to the northeast of here.").also { stage++ }

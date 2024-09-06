@@ -19,7 +19,7 @@ class MosleharmlessListeners : InteractionListener {
 
     companion object {
         // Array of shop owners.
-        private val SHOP_OWNERS = intArrayOf(3166, 3161, 3164, 3163, 4362)
+        private val SHOP_OWNERS = intArrayOf(NPCs.MIKE_3166, NPCs.CHARLEY_3161, NPCs.MAMA_3164, NPCs.JOE_3163, NPCs.HONEST_JIMMY_4362)
         // Constant for the item "Beret and Mask".
         private const val BERET_AND_MASK = Items.BERET_AND_MASK_11282
     }

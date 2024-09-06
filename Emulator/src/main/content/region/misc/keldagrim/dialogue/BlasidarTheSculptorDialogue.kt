@@ -63,13 +63,14 @@ class BlasidarTheSculptorDialogue(player: Player? = null) : Dialogue(player) {
             35 -> player(FacialExpression.HALF_ASKING, "But... wait, wait, how am I supposed to find all this?").also { stage++ }
             36 -> npc(FacialExpression.OLD_NORMAL, "I don't know! You're supposed to find that out for me!").also { stage++ }
             37 -> npc(FacialExpression.OLD_NORMAL, "But it's a beautiful city, Keldagrim is,", "I'm sure you'll see many things while you do these tasks!").also { stage = END_DIALOGUE }
+
+            // Before retrieving any items during The Giant Dwarf quest.
             38 -> player(FacialExpression.SAD, "I don't have your boots yet.").also { stage++ }
-            39 -> player(FacialExpression.SAD, "I don't have your boots yet.").also { stage++ }
-            40 -> npc(FacialExpression.OLD_NORMAL, "What else?").also { stage++ }
-            41 -> player(FacialExpression.NEUTRAL, "I also don't have your clothes yet,", "I'm afraid.").also { stage++ }
-            42 -> npc(FacialExpression.OLD_NORMAL, "And? The battleaxe?").also { stage++ }
-            43 -> player(FacialExpression.NEUTRAL, "Sorry, no, I'm still looking for it.").also { stage++ }
-            44 -> npc(FacialExpression.OLD_NORMAL, "Look a little harder please!").also { stage++ }
+            39 -> npc(FacialExpression.OLD_NORMAL, "What else?").also { stage++ }
+            40 -> player(FacialExpression.NEUTRAL, "I also don't have your clothes yet,", "I'm afraid.").also { stage++ }
+            41 -> npc(FacialExpression.OLD_NORMAL, "And? The battleaxe?").also { stage++ }
+            42 -> player(FacialExpression.NEUTRAL, "Sorry, no, I'm still looking for it.").also { stage++ }
+            43 -> npc(FacialExpression.OLD_NORMAL, "Look a little harder please!").also { stage = END_DIALOGUE }
         }
         return true
     }

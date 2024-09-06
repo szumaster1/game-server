@@ -1,5 +1,7 @@
 package content.region.misthalin.lumbridge.quest.imp.dialogue
 
+import cfg.consts.Animations
+import cfg.consts.Graphics
 import core.api.*
 import cfg.consts.NPCs
 import cfg.consts.Sounds
@@ -91,7 +93,7 @@ class WizardMizgogDialogueFile : DialogueFile() {
 
                                     2 -> {
                                         findLocalNPC(player!!, NPCs.WIZARD_MIZGOG_706)?.let {
-                                            animate(it, Animation(4285))
+                                            animate(it, Animation(Animations.WIZARD_MIZGOG_COLLECTS_BEADS_IMP_CATCHER_4285))
                                         }
                                         playGlobalAudio(player!!.location, Sounds.MIZGOG_PLACEBEADS_1632, 20)
                                     }
@@ -102,7 +104,7 @@ class WizardMizgogDialogueFile : DialogueFile() {
                                     }
 
                                     7 -> {
-                                        sendGraphics(84, Location(3102, 3163, 2))
+                                        sendGraphics(Graphics.MONK_CAST_HEAL_84, Location(3102, 3163, 2))
                                     }
 
                                     12 -> {

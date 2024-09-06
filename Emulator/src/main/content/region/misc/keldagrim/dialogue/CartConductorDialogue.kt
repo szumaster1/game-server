@@ -1,6 +1,9 @@
 package content.region.misc.keldagrim.dialogue
 
+import cfg.consts.Items
 import content.region.misc.keldagrim.handlers.MinecartTravel
+import core.api.removeItem
+import core.api.sendDialogue
 import core.game.component.Component
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression
@@ -68,16 +71,15 @@ class CartConductorDialogue(player: Player? = null) : Dialogue(player) {
     /**
      * Purchase trip
      *
-     * @param player
-     * @param cost
+     * @param player the player.
+     * @param cost the cost of trip.
      */
     fun purchaseTrip(player: Player, cost: Int) {
-        val coins = Item(995, cost)
-        if (player.inventory.containsItem(coins)) {
-            player.inventory.remove(coins)
-            MinecartTravel.goToKeldagrim(player)
+        val coins = Item(Items.COINS_995, cost)
+        if (!removeItem(player, coins)) {
+            sendDialogue(player, "You can not afford that.")
         } else {
-            player.dialogueInterpreter.sendDialogue("You can not afford that.")
+            MinecartTravel.goToKeldagrim(player)
         }
     }
 

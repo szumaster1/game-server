@@ -2,6 +2,8 @@ package content.region.misc.keldagrim.dialogue
 
 import content.global.skill.production.crafting.data.Gem
 import cfg.consts.NPCs
+import core.api.removeItem
+import core.api.sendMessage
 import core.game.dialogue.Dialogue
 import core.game.dialogue.DialogueInterpreter
 import core.game.dialogue.FacialExpression
@@ -9,6 +11,7 @@ import core.game.global.action.DoorActionHandler
 import core.game.node.entity.player.Player
 import core.game.node.scenery.Scenery
 import core.plugin.Initializable
+import core.tools.END_DIALOGUE
 
 /**
  * Represents the Magic door dialogue.
@@ -35,51 +38,20 @@ class MagicDoorDialogue(player: Player? = null) : Dialogue(player) {
                 3 -> player("I haven't brought my diamonds with me.").also { stage = 30 }
                 4 -> player("What do you do with all the diamonds you get?").also { stage = 40 }
             }
-
-            10 -> if (!player.inventory.containsItem(Gem.DIAMOND.gem)) {
+            10 -> if (!removeItem(player, Gem.DIAMOND.gem)) {
                 player("...but...")
-                stage = 11
+                stage++
             } else {
                 end()
-                if (player.inventory.remove(Gem.DIAMOND.gem)) {
-                    DoorActionHandler.handleAutowalkDoor(player, door!!)
-                    player.packetDispatch.sendMessage("You give the doorman a diamond.")
-                }
+                DoorActionHandler.handleAutowalkDoor(player, door!!)
+                sendMessage(player,"You give the doorman a diamond.")
             }
-
-            11 -> {
-                player("I haven't brought my diamonds with me.")
-                stage = 30
-            }
-
-            20 -> {
-                npc(FacialExpression.OLD_CALM_TALK1, "Not at all. Those are the rules.")
-                stage++
-            }
-
-            21 -> end()
-            30 -> {
-                npc(FacialExpression.OLD_CALM_TALK1, "No tax, no entry.")
-                stage++
-            }
-
-            31 -> end()
-            40 -> {
-                npc(FacialExpression.OLD_CALM_TALK1, "Ever heard of fairylights? Well how do you think we", "make 'em? First we collect a pile of gems and then we", "get a spider to spin 'em into a long web, we light the", "jewels by imbuing each one with a little bit of magic.")
-                stage++
-            }
-
-            41 -> {
-                player("So you're telling me fairylights are made out of gems?")
-                stage++
-            }
-
-            42 -> {
-                npc(FacialExpression.OLD_CALM_TALK1, "That's right, how else could we make 'em twinkle so", "beautifully?")
-                stage++
-            }
-
-            43 -> end()
+            11 -> player("I haven't brought my diamonds with me.").also { stage = 30 }
+            20 -> npc(FacialExpression.OLD_CALM_TALK1, "Not at all. Those are the rules.").also { stage = END_DIALOGUE }
+            30 -> npc(FacialExpression.OLD_CALM_TALK1, "No tax, no entry.").also { stage = END_DIALOGUE }
+            40 -> npc(FacialExpression.OLD_CALM_TALK1, "Ever heard of fairylights? Well how do you think we", "make 'em? First we collect a pile of gems and then we", "get a spider to spin 'em into a long web, we light the", "jewels by imbuing each one with a little bit of magic.").also { stage++ }
+            41 -> player("So you're telling me fairylights are made out of gems?").also { stage++ }
+            42 -> npc(FacialExpression.OLD_CALM_TALK1, "That's right, how else could we make 'em twinkle so", "beautifully?").also { stage = END_DIALOGUE }
         }
         return true
     }

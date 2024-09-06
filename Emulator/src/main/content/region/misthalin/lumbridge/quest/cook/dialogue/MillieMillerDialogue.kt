@@ -31,8 +31,7 @@ class MillieMillerDialogue(player: Player? = null) : Dialogue(player) {
                 4 -> player(FacialExpression.NEUTRAL, "I'm fine, thanks.").also { stage = END_DIALOGUE }
             }
             10 -> npc(FacialExpression.FRIENDLY, "I'm Miss Millicent Miller the Miller of Mill Lane Mill.", "Our family have been milling flour for generations.").also { stage++ }
-            11 -> player(FacialExpression.FRIENDLY, "It's a good business to be in. People will always need", "flour.").also { stage++ }
-            12 -> player(FacialExpression.ASKING, "How do I mill flour?").also { stage = 30 }
+            11 -> player(FacialExpression.FRIENDLY, "It's a good business to be in. People will always need", "flour.").also { stage = 22 }
             20 -> npc(FacialExpression.SUSPICIOUS, "This is Mill Lane Mill. Millers of the finest flour in", Configuration.SERVER_NAME + ", and home to the Miller family for many", "generations").also { stage++ }
             21 -> npc(FacialExpression.HAPPY, "We take grain from the field nearby and mill into flour.").also { stage++ }
             22 -> player(FacialExpression.ASKING, "How do I mill flour?").also { stage = 30 }

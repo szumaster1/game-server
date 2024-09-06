@@ -27,7 +27,6 @@ class MyndillDialogue(player: Player? = null) : Dialogue(player) {
                 1 -> player(FacialExpression.HALF_ASKING, "Do you have any news?").also { stage = 4 }
                 2 -> player(FacialExpression.HALF_ASKING, "Do you have any quests?").also { stage = 10 }
                 3 -> player(FacialExpression.FRIENDLY, "See you later!").also { stage = 12 }
-
             }
             4 -> npc(FacialExpression.OLD_NORMAL, "The Red Axe has departed the city recently.", "Ill omens.").also { stage++ }
             5 -> player(FacialExpression.HALF_ASKING, "How is that? Do you know anything", "about this?").also { stage++ }

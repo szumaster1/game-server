@@ -1,11 +1,8 @@
 package content.region.misc.keldagrim.dialogue
 
-import core.api.addItemOrDrop
 import cfg.consts.Items
 import cfg.consts.NPCs
-import core.api.removeItem
-import core.api.sendDialogue
-import core.api.sendItemDialogue
+import core.api.*
 import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC
@@ -27,6 +24,10 @@ class BlastFusionHammerDialogue : DialogueFile() {
             }
             3 -> {
                 end()
+                if(!inInventory(player!!, Items.COINS_995) && freeSlots(player!!) == 0) {
+                    sendMessage(player!!, "You don't have enough inventory space for this.")
+                    return
+                }
                 if (!removeItem(player!!, Items.BLAST_FUSION_HAMMER_14478)) {
                     sendDialogue(player!!, "You don't have required item in your inventory.")
                 } else {

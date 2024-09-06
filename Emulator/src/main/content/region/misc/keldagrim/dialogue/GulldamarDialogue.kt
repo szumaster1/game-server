@@ -21,7 +21,7 @@ class GulldamarDialogue(player: Player? = null) : Dialogue(player) {
             1 -> options("Right, what do you have?", "Not interested, thanks.").also { stage++ }
             2 -> when (buttonId) {
                 1 -> playerl(FacialExpression.FRIENDLY, "Right, what do you have?").also { stage++ }
-                3 -> playerl(FacialExpression.FRIENDLY, "Not interested, thanks.").also { stage = 5 }
+                2 -> playerl(FacialExpression.FRIENDLY, "Not interested, thanks.").also { stage = 5 }
             }
             3 -> npcl(FacialExpression.OLD_NORMAL, "Silver, what else!").also { stage++ }
             4 -> {

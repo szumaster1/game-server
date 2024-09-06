@@ -96,7 +96,7 @@ class KeldagrimListeners : InteractionListener {
         on(Scenery.BOOKCASE_6091, IntType.SCENERY, "search") { player, _ ->
             if (inInventory(player, Items.EXPLORERS_NOTES_11677)) {
                 sendMessage(player, "You search the books...")
-                sendMessage(player, "You find nothing of interest to you.")
+                sendMessageWithDelay(player, "You find nothing of interest to you.", 1)
             } else if (freeSlots(player) < 1) {
                 sendMessage(player, "You need at least one free inventory space to take from the shelves.")
             } else {
