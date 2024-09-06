@@ -10,6 +10,7 @@ import core.plugin.Initializable
  */
 @Initializable
 class RuneMysteries: Quest("Rune Mysteries", 27, 26, 1, Vars.VARP_QUEST_RUNE_MYSTERIES_PROGRESS, 0, 1, 6) {
+
     override fun drawJournal(player: Player, stage: Int) {
         super.drawJournal(player, stage)
         if (getStage(player) == 0) {
@@ -21,11 +22,7 @@ class RuneMysteries: Quest("Rune Mysteries", 27, 26, 1, Vars.VARP_QUEST_RUNE_MYS
             line(player, "<str>talisman that had been found by one of his subjects.", 5 + 7)
             line(player, "<str>I agreed to take it to the Wizards' Tower, South West of", 6 + 7)
             line(player, "<str>Lumbridge for further examination by the wizards.", 7 + 7)
-            line(
-                player,
-                BLUE + "I need to find the " + RED + "Head Wizard " + BLUE + "and give him the " + RED + "Talisman",
-                8 + 7
-            )
+            line(player, BLUE + "I need to find the " + RED + "Head Wizard " + BLUE + "and give him the " + RED + "Talisman", 8 + 7)
         }
         if (getStage(player) == 20) {
             line(player, "<str>I spoke to Duke Horacio and he showed me a strange", 4 + 7)
@@ -34,11 +31,7 @@ class RuneMysteries: Quest("Rune Mysteries", 27, 26, 1, Vars.VARP_QUEST_RUNE_MYS
             line(player, "<str>Lumbridge for further examination by the wizards.", 7 + 7)
             line(player, "<str>I gave the Talisman to the Wizard but I didn't want to help", 8 + 7)
             line(player, "<str>him in his research right now.", 9 + 7)
-            line(
-                player,
-                BLUE + "I should talk to " + RED + "Sedridor " + BLUE + "again to continue this quest.",
-                10 + 7
-            )
+            line(player, BLUE + "I should talk to " + RED + "Sedridor " + BLUE + "again to continue this quest.", 10 + 7)
         }
         if (getStage(player) == 30) {
             line(player, "<str>I spoke to Duke Horacio and he showed me a strange", 4 + 7)
@@ -47,11 +40,7 @@ class RuneMysteries: Quest("Rune Mysteries", 27, 26, 1, Vars.VARP_QUEST_RUNE_MYS
             line(player, "<str>Lumbridge for further examination by the wizards.", 7 + 7)
             line(player, "<str>I gave the Talisman to the Head of the Tower and", 8 + 7)
             line(player, "<str>agreed to help him with his research into rune stones.", 9 + 7)
-            line(
-                player,
-                BLUE + "I should take this " + RED + "Research Package " + BLUE + "to " + RED + "Aubury " + BLUE + "in " + RED + "Varrock",
-                10 + 7
-            )
+            line(player, BLUE + "I should take this " + RED + "Research Package " + BLUE + "to " + RED + "Aubury " + BLUE + "in " + RED + "Varrock", 10 + 7)
         }
         if (getStage(player) == 40) {
             line(player, "<str>I spoke to Duke Horacio and he showed me a strange", 4 + 7)
@@ -62,11 +51,7 @@ class RuneMysteries: Quest("Rune Mysteries", 27, 26, 1, Vars.VARP_QUEST_RUNE_MYS
             line(player, "<str>agreed to help him with his research into rune stones.", 9 + 7)
             line(player, "<str>I took the research package to Varrock and delivered it.", 10 + 7)
             line(player, BLUE + "I should speak to " + RED + "Aubury " + BLUE + "again when he has finished", 11 + 7)
-            line(
-                player,
-                BLUE + "examining the " + RED + "research package " + BLUE + " I have delivered to him.",
-                12 + 7
-            )
+            line(player, BLUE + "examining the " + RED + "research package " + BLUE + " I have delivered to him.", 12 + 7)
         }
         if (getStage(player) == 50) {
             line(player, "<str>I spoke to Duke Horacio and he showed me a strange", 4 + 7)
@@ -78,11 +63,7 @@ class RuneMysteries: Quest("Rune Mysteries", 27, 26, 1, Vars.VARP_QUEST_RUNE_MYS
             line(player, "<str>I took the research package to Varrock and delivered it.", 10 + 7)
             line(player, "<str>Aubury was interested in the research package and gave", 11 + 7)
             line(player, "<str>me his own research notes to deliver to Sedridor.", 12 + 7)
-            line(
-                player,
-                BLUE + "I should take the " + RED + "notes " + BLUE + "to " + RED + "Sedridor " + BLUE + "and see what he says",
-                13 + 7
-            )
+            line(player, BLUE + "I should take the " + RED + "notes " + BLUE + "to " + RED + "Sedridor " + BLUE + "and see what he says", 13 + 7)
         }
         if (stage == 100) {
             line(player, "<str>I spoke to Duke Horacio and he showed me a strange", 4 + 7)

@@ -25,22 +25,14 @@ class FatherUhrneyDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun handle(interfaceId: Int, buttonId: Int): Boolean {
         when (stage) {
-            0 -> if (getQuestStage(player, RestlessGhost.NAME)  == 0) {
+            0 -> if (getQuestStage(player, "The Restless Ghost")  == 0) {
                 options("Well, that's friendly.", "I've come to repossess your house.")
                 stage = 1
-            } else if (getQuestStage(player, RestlessGhost.NAME) == 10) {
-                options(
-                    "Well, that's friendly.",
-                    "I've come to repossess your house.",
-                    "Father Aereck sent me to talk to you."
-                )
+            } else if (getQuestStage(player, "The Restless Ghost") == 10) {
+                options("Well, that's friendly.", "I've come to repossess your house.", "Father Aereck sent me to talk to you.")
                 stage = 500
-            } else if (player.gameAttributes.attributes.containsKey("restless-ghost:urhney") || isQuestComplete(player, RestlessGhost.NAME)) {
-                options(
-                    "Well, that's friendly.",
-                    "I've come to repossess your house.",
-                    "I've lost the Amulet of Ghostspeak."
-                )
+            } else if (player.gameAttributes.attributes.containsKey("restless-ghost:urhney") || isQuestComplete(player, "The Restless Ghost")) {
+                options("Well, that's friendly.", "I've come to repossess your house.", "I've lost the Amulet of Ghostspeak.")
                 stage = 514
             }
 
@@ -87,11 +79,7 @@ class FatherUhrneyDialogue(player: Player? = null) : Dialogue(player) {
             }
 
             506 -> {
-                npc(
-                    "Well, I can't go back and exorcise it. I vowed not to",
-                    "leave this place. Until I had done a full two years of",
-                    "prayer and meditation."
-                )
+                npc("Well, I can't go back and exorcise it. I vowed not to", "leave this place. Until I had done a full two years of", "prayer and meditation.")
                 stage = 507
             }
 
@@ -107,7 +95,7 @@ class FatherUhrneyDialogue(player: Player? = null) : Dialogue(player) {
                 }
                 interpreter.sendItemMessage(552, "Father Urhney hands you an amulet.")
                 player.inventory.add(Item(552, 1))
-                player.getQuestRepository().getQuest(RestlessGhost.NAME).setStage(player, 20)
+                player.getQuestRepository().getQuest("The Restless Ghost").setStage(player, 20)
                 player.gameAttributes.setAttribute("/save:restless-ghost:urhney", true)
                 stage = 509
             }
@@ -118,20 +106,12 @@ class FatherUhrneyDialogue(player: Player? = null) : Dialogue(player) {
             }
 
             510 -> {
-                npc(
-                    "So called, because when you wear it you can speak to",
-                    "ghosts. A lot of ghosts are doomed to be ghosts because",
-                    "they have left some important task uncompleted."
-                )
+                npc("So called, because when you wear it you can speak to", "ghosts. A lot of ghosts are doomed to be ghosts because", "they have left some important task uncompleted.")
                 stage = 511
             }
 
             511 -> {
-                npc(
-                    "Maybe if you know what this task is, you can get rid of",
-                    "the ghost. I'm not making any guarantees mind you,",
-                    "but it is the best I can do right now."
-                )
+                npc("Maybe if you know what this task is, you can get rid of", "the ghost. I'm not making any guarantees mind you,", "but it is the best I can do right now.")
                 stage = 512
             }
 
@@ -183,10 +163,7 @@ class FatherUhrneyDialogue(player: Player? = null) : Dialogue(player) {
 
             518 -> end()
             519 -> {
-                npc(
-                    "How careless can you get? Those things aren't easy to",
-                    "come by you know! It's a good job I've got a spare."
-                )
+                npc("How careless can you get? Those things aren't easy to", "come by you know! It's a good job I've got a spare.")
                 stage = 520
             }
 

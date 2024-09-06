@@ -1,6 +1,6 @@
 package content.region.misthalin.lumbridge.quest.priest.dialogue
 
-import content.region.misthalin.lumbridge.quest.priest.RestlessGhost
+import cfg.consts.NPCs
 import core.api.getQuestStage
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression
@@ -28,15 +28,15 @@ class RestlessGhostDialogue(player: Player? = null) : Dialogue(player) {
                     npc(FacialExpression.HALF_GUILTY, "Wooo wooo wooooo!")
                     stage = 1
                 } else {
-                    if (getQuestStage(player, RestlessGhost.NAME) == 20) {
+                    if (getQuestStage(player, "The Restless Ghost") == 20) {
                         npc(FacialExpression.HALF_GUILTY, "Not very good actually.")
                         stage = 500
                     }
-                    if (getQuestStage(player, RestlessGhost.NAME) == 30) {
+                    if (getQuestStage(player, "The Restless Ghost") == 30) {
                         npc(FacialExpression.HALF_GUILTY, "How are you doing finding my skull?")
                         stage = 520
                     }
-                    if (getQuestStage(player, RestlessGhost.NAME) == 40) {
+                    if (getQuestStage(player, "The Restless Ghost") == 40) {
                         npc(FacialExpression.HALF_GUILTY, "How are you doing finding my skull?")
                         stage = 550
                     }
@@ -72,10 +72,7 @@ class RestlessGhostDialogue(player: Player? = null) : Dialogue(player) {
             }
 
             505 -> {
-                player(FacialExpression.HALF_GUILTY,
-                    "But have you any idea WHY you're doomed to be a",
-                    "ghost?"
-                )
+                player(FacialExpression.HALF_GUILTY, "But have you any idea WHY you're doomed to be a", "ghost?")
                 stage = 506
             }
 
@@ -85,43 +82,28 @@ class RestlessGhostDialogue(player: Player? = null) : Dialogue(player) {
             }
 
             507 -> {
-                player(FacialExpression.HALF_GUILTY,
-                    "I've been told a certain task may need to be completed",
-                    "so you can rest in peace."
-                )
+                player(FacialExpression.HALF_GUILTY, "I've been told a certain task may need to be completed", "so you can rest in peace.")
                 stage = 508
             }
 
             508 -> {
-                npc(FacialExpression.HALF_GUILTY,
-                    "I should think it is probably because a warlock has come",
-                    "along and stolen my skull. If you look inside my coffin",
-                    "there, you'll find my corpse without a head on it."
-                )
+                npc(FacialExpression.HALF_GUILTY, "I should think it is probably because a warlock has come", "along and stolen my skull. If you look inside my coffin", "there, you'll find my corpse without a head on it.")
                 stage = 509
             }
 
             509 -> {
-                player(FacialExpression.HALF_GUILTY,
-                    "Do you know where this warlock might be now?"
-                )
+                player(FacialExpression.HALF_GUILTY, "Do you know where this warlock might be now?")
                 stage = 510
             }
 
             510 -> {
-                npc(FacialExpression.HALF_GUILTY,
-                    "I think it was one of the warlocks who lives in the big",
-                    "tower by the sea south-west from here."
-                )
+                npc(FacialExpression.HALF_GUILTY, "I think it was one of the warlocks who lives in the big", "tower by the sea south-west from here.")
                 stage = 511
             }
 
             511 -> {
-                player(FacialExpression.HALF_GUILTY,
-                    "Ok. I will try and get the skull back for you, then you",
-                    "can rest in peace."
-                )
-                player.getQuestRepository().getQuest(RestlessGhost.NAME).setStage(player, 30)
+                player(FacialExpression.HALF_GUILTY, "Ok. I will try and get the skull back for you, then you", "can rest in peace.")
+                player.getQuestRepository().getQuest("The Restless Ghost").setStage(player, 30)
                 stage = 512
             }
 
@@ -151,11 +133,7 @@ class RestlessGhostDialogue(player: Player? = null) : Dialogue(player) {
             }
 
             522 -> {
-                npc(FacialExpression.HALF_GUILTY,
-                    "I'm pretty sure it's somewhere in the tower south-west",
-                    "from here. There's a lot of levels to the tower, though. I",
-                    "suppose it might take a little while to find."
-                )
+                npc(FacialExpression.HALF_GUILTY, "I'm pretty sure it's somewhere in the tower south-west", "from here. There's a lot of levels to the tower, though. I", "suppose it might take a little while to find.")
                 stage = 523
             }
 
@@ -166,18 +144,12 @@ class RestlessGhostDialogue(player: Player? = null) : Dialogue(player) {
             }
 
             551 -> {
-                npc(FacialExpression.HALF_GUILTY,
-                    "Hurrah! Now I can stop being a ghost! You just need",
-                    "to put it on my coffin there, and I will be free!"
-                )
+                npc(FacialExpression.HALF_GUILTY, "Hurrah! Now I can stop being a ghost! You just need", "to put it on my coffin there, and I will be free!")
                 stage = 523
             }
 
             1 -> {
-                options("Sorry, I don't speak ghost.",
-                    "Ooh... THAT'S interesting.",
-                    "Any hints where I can find some treasure?"
-                )
+                options("Sorry, I don't speak ghost.", "Ooh... THAT'S interesting.", "Any hints where I can find some treasure?")
                 stage = 2
             }
 
@@ -193,9 +165,7 @@ class RestlessGhostDialogue(player: Player? = null) : Dialogue(player) {
                 }
 
                 3 -> {
-                    player(FacialExpression.HALF_GUILTY,
-                        "Any hints where I can find some treasure?"
-                    )
+                    player(FacialExpression.HALF_GUILTY, "Any hints where I can find some treasure?")
                     stage = 30
                 }
             }
@@ -222,10 +192,7 @@ class RestlessGhostDialogue(player: Player? = null) : Dialogue(player) {
 
             14 -> end()
             30 -> {
-                npc(FacialExpression.HALF_GUILTY,
-                    "Wooooooo woo! Wooooo woo wooooo woowoowoo wooo",
-                    "Woo woooo. Wooooo woo woo? Wooooooooooooooooooo!"
-                )
+                npc(FacialExpression.HALF_GUILTY, "Wooooooo woo! Wooooo woo wooooo woowoowoo wooo", "Woo woooo. Wooooo woo woo? Wooooooooooooooooooo!")
                 stage = 31
             }
 
@@ -255,9 +222,7 @@ class RestlessGhostDialogue(player: Player? = null) : Dialogue(player) {
             }
 
             23 -> {
-                player(FacialExpression.HALF_GUILTY,
-                    "My brother had EXACTLY the same problem."
-                )
+                player(FacialExpression.HALF_GUILTY, "My brother had EXACTLY the same problem.")
                 stage = 24
             }
 
@@ -287,6 +252,6 @@ class RestlessGhostDialogue(player: Player? = null) : Dialogue(player) {
     }
 
     override fun getIds(): IntArray {
-        return intArrayOf(457)
+        return intArrayOf(NPCs.RESTLESS_GHOST_457)
     }
 }
