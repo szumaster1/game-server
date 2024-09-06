@@ -40,7 +40,7 @@ class NoraTHaggNPC : AbstractNPC {
     private constructor(id: Int, location: Location) : super(id, location)
 
     @Throws(Throwable::class)
-    override fun newInstance(arg: Any): Plugin<Any> {
+    override fun newInstance(arg: Any?): Plugin<Any> {
         configure()
         init()
         return super.newInstance(arg)

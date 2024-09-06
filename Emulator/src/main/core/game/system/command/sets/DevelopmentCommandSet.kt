@@ -23,6 +23,7 @@ import core.network.packet.context.PlayerContext
 import core.network.packet.outgoing.ResetInterface
 import core.plugin.Initializable
 import core.tools.Log
+import core.tools.RED
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import java.io.BufferedWriter
@@ -50,6 +51,7 @@ class DevelopmentCommandSet : CommandSet(Privilege.ADMIN) {
             description = "Allows you to buy house."
         ) { player, _ ->
             player.houseManager.createNewHouseAt(HouseLocation.RIMMINGTON)
+            sendMessage(player, RED + "The house has been bought.")
         }
 
         /*
