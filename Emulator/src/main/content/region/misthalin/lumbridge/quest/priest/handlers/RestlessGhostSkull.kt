@@ -1,9 +1,8 @@
 package content.region.misthalin.lumbridge.quest.priest.handlers
 
-import content.region.misthalin.lumbridge.quest.priest.RestlessGhost
 import cfg.consts.Items
 import cfg.consts.Sounds
-import core.api.playAudio
+import core.api.*
 import core.game.interaction.NodeUsageEvent
 import core.game.interaction.UseWithHandler
 import core.game.node.item.Item
@@ -18,22 +17,22 @@ import core.plugin.Plugin
 class RestlessGhostSkull : UseWithHandler(Items.SKULL_964) {
 
     override fun newInstance(arg: Any?): Plugin<Any> {
-        addHandler(2145, OBJECT_TYPE, this)
-        addHandler(15052, OBJECT_TYPE, this)
+        addHandler(cfg.consts.Scenery.COFFIN_2145, OBJECT_TYPE, this)
+        addHandler(cfg.consts.Scenery.COFFIN_2145, OBJECT_TYPE, this)
         addHandler(15061, OBJECT_TYPE, this)
         return this
     }
 
     override fun handle(event: NodeUsageEvent): Boolean {
         val scenery = event.usedWith as Scenery
-        if (scenery.id == 2145) {
-            event.player.dialogueInterpreter.sendDialogue("Maybe I should open it first.")
+        if (scenery.id == cfg.consts.Scenery.COFFIN_2145) {
+            sendDialogue(event.player, "Maybe I should open it first.")
             return true
         }
-        if (event.player.inventory.remove(Item(Items.SKULL_964, 1))) {
+        if (removeItem(event.player, Item(Items.SKULL_964, 1))) {
             playAudio(event.player, Sounds.RG_PLACE_SKULL_1744)
-            event.player.packetDispatch.sendMessage("You put the skull in the coffin.")
-            event.player.getQuestRepository().getQuest(RestlessGhost.NAME).finish(event.player)
+            sendMessage(event.player, "You put the skull in the coffin.")
+            finishQuest(event.player, "The Restless Ghost")
         }
         return true
     }
