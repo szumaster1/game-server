@@ -220,7 +220,7 @@ class WitchHousePlugin : OptionHandler() {
             }
             if (used.id == CHEESE.id && scenery.id == 15518 && player.getAttribute<Any?>("mouse_out") == null) {
                 if (removeItem(player, CHEESE)) sendDialogue(player, "A mouse runs out of the hole.")
-                val mouse = MouseNPC.create(NPCs.MOUSE_901, Location.create(2903, 3466, 0)) as MouseNPC
+                val mouse = NPC.create(NPCs.MOUSE_901, Location.create(2903, 3466, 0)) as MouseNPC
                 mouse.player = player
                 mouse.isRespawn = false
                 mouse.isWalks = false
