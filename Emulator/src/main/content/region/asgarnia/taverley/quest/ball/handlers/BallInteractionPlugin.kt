@@ -23,7 +23,7 @@ import core.tools.RED
 @Initializable
 class BallInteractionPlugin : PluginInteraction() {
     @Throws(Throwable::class)
-    override fun newInstance(arg: Any): Plugin<Any> {
+    override fun newInstance(arg: Any?): Plugin<Any> {
         register(TelekineticGrabSpell.SPELL_ID, Item(Items.BALL_2407))
         setIds(intArrayOf(Items.BALL_2407))
         PluginInteractionManager.register(this, PluginInteractionManager.InteractionType.ITEM)

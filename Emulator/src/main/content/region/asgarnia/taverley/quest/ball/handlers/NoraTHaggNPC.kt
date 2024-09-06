@@ -16,9 +16,6 @@ import core.game.world.map.Direction
 import core.game.world.map.Location
 import core.game.world.update.flag.context.Animation
 import core.game.world.update.flag.context.Graphic
-import core.network.packet.PacketRepository
-import core.network.packet.context.MinimapStateContext
-import core.network.packet.outgoing.MinimapState
 import core.plugin.Initializable
 import core.plugin.Plugin
 
@@ -87,9 +84,9 @@ class NoraTHaggNPC : AbstractNPC {
     private fun sendTeleport(player: Player) {
         lock(player, 4)
         Pulser.submit(object : Pulse(1) {
-            var delay = 0
+            var counter = 0
             override fun pulse(): Boolean {
-                when (delay) {
+                when (counter++) {
                     0 -> {
                         face(player)
                         removeItem(player, BALL)
@@ -112,7 +109,6 @@ class NoraTHaggNPC : AbstractNPC {
                         return true
                     }
                 }
-                delay++
                 return false
             }
         })

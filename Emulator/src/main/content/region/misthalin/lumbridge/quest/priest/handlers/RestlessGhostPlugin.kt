@@ -73,7 +73,7 @@ class RestlessGhostPlugin : OptionHandler() {
                         addItem(player, Items.SKULL_964)
                         sendMessage(player, "You find another skull.")
                     }
-                    setQuestStage(player,"The Restless Ghost", 40)
+                    setQuestStage(player, "The Restless Ghost", 40)
                 }
 
                 2145 -> toggleCoffin(player, scenery)

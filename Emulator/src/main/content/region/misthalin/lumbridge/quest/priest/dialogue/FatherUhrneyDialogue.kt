@@ -1,6 +1,5 @@
 package content.region.misthalin.lumbridge.quest.priest.dialogue
 
-import content.region.misthalin.lumbridge.quest.priest.RestlessGhost
 import core.api.freeSlots
 import core.api.getQuestStage
 import core.api.isQuestComplete
@@ -25,7 +24,7 @@ class FatherUhrneyDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun handle(interfaceId: Int, buttonId: Int): Boolean {
         when (stage) {
-            0 -> if (getQuestStage(player, "The Restless Ghost")  == 0) {
+            0 -> if (getQuestStage(player, "The Restless Ghost") == 0) {
                 options("Well, that's friendly.", "I've come to repossess your house.")
                 stage = 1
             } else if (getQuestStage(player, "The Restless Ghost") == 10) {

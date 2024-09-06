@@ -1,6 +1,5 @@
 package content.region.misthalin.lumbridge.quest.priest.dialogue
 
-import content.region.misthalin.lumbridge.quest.priest.RestlessGhost
 import core.api.*
 import cfg.consts.Components
 import core.game.dialogue.Dialogue
@@ -16,7 +15,7 @@ class FatherAereckDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
-        val questStage = getQuestStage(player, RestlessGhost.NAME)
+        val questStage = getQuestStage(player, "The Restless Ghost")
         if (questStage == 10) {
             npc("Have you got rid of the ghost yet?")
             stage = 520
@@ -108,7 +107,7 @@ class FatherAereckDialogue(player: Player? = null) : Dialogue(player) {
 
             509 -> end()
             510 -> {
-                player.getQuestRepository().getQuest(RestlessGhost.NAME).start(player)
+                player.getQuestRepository().getQuest("The Restless Ghost").start(player)
                 player.getQuestRepository().syncronizeTab(player)
                 npc(
                     "Thank you. The problem is, there is a ghost in the",
@@ -327,14 +326,12 @@ class FatherAereckDialogue(player: Player? = null) : Dialogue(player) {
             254 -> end()
             300 -> end()
             570 -> {
-                player( "Yes, I have!")
+                player("Yes, I have!")
                 stage = 571
             }
 
             571 -> {
-                npc("Thank you for getting rid of that awful ghost for me!",
-                    "May Saradomin always smile upon you!"
-                )
+                npc("Thank you for getting rid of that awful ghost for me!", "May Saradomin always smile upon you!")
                 stage = 572
             }
 
@@ -344,7 +341,7 @@ class FatherAereckDialogue(player: Player? = null) : Dialogue(player) {
             }
 
             573 -> {
-                npc( "Sorry, I only had the one quest.")
+                npc("Sorry, I only had the one quest.")
                 stage = 300
             }
         }
