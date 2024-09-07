@@ -13,13 +13,13 @@
   },
   {
     "id": "24",
-    "replaceId": "24",
+    "replaceId": "8791",
     "fence": "false",
     "metal": "false"
   },
   {
     "id": "59",
-    "replaceId": "59",
+    "replaceId": "1534",
     "fence": "false",
     "metal": "false"
   },
@@ -144,32 +144,14 @@
     "metal": "false"
   },
   {
-    "id": "1517",
-    "replaceId": "1516",
-    "fence": "false",
-    "metal": "false"
-  },
-  {
     "id": "1519",
     "replaceId": "1520",
     "fence": "false",
     "metal": "false"
   },
   {
-    "id": "1520",
-    "replaceId": "1519",
-    "fence": "false",
-    "metal": "false"
-  },
-  {
     "id": "1530",
-    "replaceId": "1534",
-    "fence": "false",
-    "metal": "false"
-  },
-  {
-    "id": "1528",
-    "replaceId": "1530",
+    "replaceId": "1531",
     "fence": "false",
     "metal": "false"
   },
@@ -181,7 +163,7 @@
   },
   {
     "id": "1536",
-    "replaceId": "1538",
+    "replaceId": "1537",
     "fence": "false",
     "metal": "false"
   },
@@ -205,19 +187,13 @@
   },
   {
     "id": "1551",
-    "replaceId": "1553",
+    "replaceId": "1552",
     "fence": "true",
     "metal": "false"
   },
   {
     "id": "1553",
-    "replaceId": "1554",
-    "fence": "false",
-    "metal": "false"
-  },
-  {
-    "id": "1554",
-    "replaceId": "1555",
+    "replaceId": "1556",
     "fence": "true",
     "metal": "false"
   },
@@ -342,12 +318,6 @@
     "metal": "false"
   },
   {
-    "id": "1531",
-    "replaceId": "1534",
-    "fence": "false",
-    "metal": "false"
-  },
-  {
     "id": "2039",
     "replaceId": "1560",
     "fence": "false",
@@ -362,13 +332,13 @@
   {
     "id": "2050",
     "replaceId": "15511",
-    "fence": "false",
+    "fence": "true",
     "metal": "false"
   },
   {
     "id": "2051",
     "replaceId": "15513",
-    "fence": "false",
+    "fence": "true",
     "metal": "false"
   },
   {
@@ -955,7 +925,7 @@
   },
   {
     "id": "3747",
-    "replaceId": "1530",
+    "replaceId": "1534",
     "fence": "false",
     "metal": "false"
   },
@@ -1268,12 +1238,12 @@
   {
     "id": "7049",
     "replaceId": "7051",
-    "fence": "false",
+    "fence": "true",
     "metal": "false"
   },
   {
     "id": "7050",
-    "replaceId": "23919",
+    "replaceId": "7052",
     "fence": "true",
     "metal": "false"
   },
@@ -2018,6 +1988,14 @@
     "questRequirement": "Icthlarin's Little Helper"
   },
   {
+    "id": "28514",
+    "replaceId": "28518",
+    "fence": "false",
+    "metal": "true",
+    "autowalk": "true",
+    "questRequirement": "Icthlarin's Little Helper"
+  },
+  {
     "id": "21065",
     "replaceId": "21161",
     "fence": "false",
@@ -2378,10 +2356,24 @@
     "metal": "true"
   },
   {
+    "id": "26081",
+    "replaceId": "26083",
+    "fence": "false",
+    "metal": "true",
+    "autowalk": "true"
+  },
+  {
+    "id": "26082",
+    "replaceId": "26084",
+    "fence": "false",
+    "metal": "true",
+    "autowalk": "true"
+  },
+  {
     "id": "26130",
     "replaceId": "26132",
     "fence": "false",
-    "metal": "false"
+    "metal": "true"
   },
   {
     "id": "26131",
@@ -2526,14 +2518,6 @@
     "replaceId": "28410",
     "fence": "false",
     "metal": "false"
-  },
-  {
-    "id": "28514",
-    "replaceId": "28518",
-    "fence": "false",
-    "metal": "true",
-    "autowalk": "true",
-    "questRequirement": "Icthlarin's Little Helper"
   },
   {
     "id": "28589",
@@ -2820,7 +2804,7 @@
   {
     "id": "34780",
     "replaceId": "34778",
-    "fence": "false",
+    "fence": "true",
     "metal": "false"
   },
   {
