@@ -24,8 +24,7 @@ class AntonDialogue(player: Player? = null) : Dialogue(player) {
         when (stage) {
             0 -> playerl(FacialExpression.NEUTRAL, "Looks like you have a good selection of weapons around here...").also { stage++ }
             1 -> npcl(FacialExpression.FRIENDLY, "Indeed so, specially imported from the finest smiths around the lands, take a look at my wares.").also { stage++ }
-            2 -> npcl(FacialExpression.FRIENDLY, "Indeed so, specially imported from the finest smiths around the lands, take a look at my wares.").also { stage++ }
-            3 -> {
+            2 -> {
                 end()
                 openNpcShop(player, NPCs.ANTON_4295)
             }

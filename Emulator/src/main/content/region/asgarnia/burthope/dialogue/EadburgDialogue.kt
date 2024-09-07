@@ -24,9 +24,8 @@ class EadburgDialogue(player: Player? = null) : Dialogue(player) {
         when (stage) {
             0 -> npcl(FacialExpression.FRIENDLY, "The stew for the servant's main meal.").also { stage++ }
             1 -> playerl(FacialExpression.HALF_WORRIED, "Um...er...see you later.").also { stage++ }
-            2 -> playerl(FacialExpression.HALF_WORRIED, "Um...er...see you later.").also { stage++ }
-            3 -> npcl(FacialExpression.FRIENDLY, "Bye!").also { stage++ }
-            4 -> {
+            2 -> npcl(FacialExpression.FRIENDLY, "Bye!").also { stage++ }
+            3 -> {
                 end()
                 openNpcShop(player, NPCs.ANTON_4295)
             }

@@ -15,7 +15,7 @@ import core.tools.END_DIALOGUE
  * Represents the Gam fred dialoue.
  */
 @Initializable
-class GamFredDialoue(player: Player? = null) : Dialogue(player) {
+class GamfredDialoue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
@@ -41,6 +41,7 @@ class GamFredDialoue(player: Player? = null) : Dialogue(player) {
                 5 -> player("Bye!").also { stage = 16 }
             }
             2 -> npc(FacialExpression.CHILD_SAD, "WHAT!? I'll have you know that is the finest piece of", "dwarven engineering for miles around! How DARE you", "insult my work!").also { stage = END_DIALOGUE }
+            3 -> end()
             4 -> npc(FacialExpression.CHILD_NORMAL, "Nice to meet someone who appreciates fine work, have", "you tried it out yet?").also { stage++ }
             5 -> options("Yes", "No, how do I do that?").also { stage++ }
             6 -> when (buttonId) {

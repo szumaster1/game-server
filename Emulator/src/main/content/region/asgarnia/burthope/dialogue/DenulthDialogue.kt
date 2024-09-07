@@ -78,7 +78,7 @@ class DenulthDialogue(player: Player? = null) : Dialogue(player) {
             }
             return true
         }
-        openDialogue(player!!, content.region.asgarnia.burthope.quest.death.dialogue.DenulthDialogueFile(), npc)
+        openDialogue(player!!, DenulthDialogueFile(), npc)
         return true
     }
 
