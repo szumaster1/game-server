@@ -7994,6 +7994,11 @@
     "id": "593"
   },
   {
+    "examine": "He runs a pickaxe store.,",
+    "name": "Nurmof",
+    "id": "594"
+  },
+  {
     "examine": "He seems to sell tea.",
     "melee_animation": "0",
     "range_animation": "0",
@@ -75672,10 +75677,5 @@
     "examine": "He collects flax.",
     "name": "Geoffrey",
     "id": "8590"
-  },
-  {
-    "examine": "He determines the rules.",
-    "name": "Tutorial Guide",
-    "id": "8591"
   }
 ]

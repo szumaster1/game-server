@@ -9,10 +9,15 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 
 /**
- * Represents the Dwarf shop dialogue.
+ * Represents the Dwarven shopkeeper dialogue.
  */
 @Initializable
-class DwarfShopDialogue(player: Player? = null) : Dialogue(player) {
+class DwarvenShopkeeperDialogue(player: Player? = null) : Dialogue(player) {
+
+    /*
+     * This dwarf is the shopkeeper of the Dwarven Shopping Store in
+     * the Dwarven Mine.
+     */
 
     override fun open(vararg args: Any?): Boolean {
         npc = args[0] as NPC
@@ -22,14 +27,17 @@ class DwarfShopDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun handle(interfaceId: Int, buttonId: Int): Boolean {
         when (stage) {
-            0 -> options("Yes please, what are you selling?", "No thanks.").also { stage++ }
+            0 -> options("Yes please, what are you selling?", "How should I use your shop?", "No thanks.").also { stage++ }
             1 -> when (buttonId) {
                 1 -> {
                     end()
                     openNpcShop(player, NPCs.DWARF_582)
                 }
-                2 -> end()
+                2 -> player("How should I use your shop?").also { stage++ }
+                3 -> player("No, thanks.").also { stage = 3 }
             }
+            2 -> npc(FacialExpression.OLD_HAPPY, "I'm glad you ask! You can buy as many of the items", "stocked as you wish. You can also sell most items to", "the shop.").also { stage = 0 }
+            3 -> end()
         }
         return true
     }

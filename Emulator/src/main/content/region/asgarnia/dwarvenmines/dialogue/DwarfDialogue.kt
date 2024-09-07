@@ -14,7 +14,7 @@ import core.plugin.Initializable
  * Represents the Mining skill cape dwarf dialogue.
  */
 @Initializable
-class MiningSkillCapeDwarfDialogue(player: Player? = null) : Dialogue(player) {
+class DwarfDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC

@@ -26,7 +26,7 @@ class HuraDialogue(player: Player? = null) : Dialogue(player) {
             1 -> npc(FacialExpression.OLD_DEFAULT, "A crossbow, are you interested?").also { stage++ }
             2 -> player(FacialExpression.HALF_GUILTY, "Maybe, are they any good?").also { stage++ }
             3 -> npc(FacialExpression.OLD_DEFAULT, "Are they any good?! They're dwarven engineering at", "its best!").also { stage++ }
-            4 -> options("How do I make one for myself?", "What about ammo?", "Thanks for teling me. Bye!").also { stage++ }
+            4 -> options("How do I make one for myself?", "What about ammo?", "Thanks for telling me. Bye!").also { stage++ }
             5 -> when (buttonId) {
                 1 -> player(FacialExpression.HALF_GUILTY, "How do I make one for myself?").also { stage = 10 }
                 2 -> player(FacialExpression.HALF_GUILTY, "What about ammo?").also { stage = 20 }

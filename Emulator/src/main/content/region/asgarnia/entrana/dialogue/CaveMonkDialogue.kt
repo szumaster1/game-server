@@ -10,6 +10,7 @@ import core.game.node.entity.player.link.quest.Quest
 import core.game.node.entity.skill.Skills
 import core.game.world.map.Location
 import core.plugin.Initializable
+import core.tools.END_DIALOGUE
 
 /**
  * Represents the Cave Monk dialogue.
@@ -38,40 +39,14 @@ class CaveMonkDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun handle(interfaceId: Int, buttonId: Int): Boolean {
         when (stage) {
-            100 -> {
-                npc("None of your business.")
-                stage = 101
-            }
-
-            101 -> end()
-            0 -> {
-                npc(FacialExpression.HALF_GUILTY, "so our prayers seem to have less effect down there. Oh,", "also, you won't be able to come back this way - This", "ladder only goes one way!")
-                stage = 1
-            }
-
-            1 -> {
-                npc(FacialExpression.HALF_GUILTY, "The only exit from the caves below is a portal which", "leads only to the deepest wilderness!")
-                stage = 2
-            }
-
-            2 -> {
-                options("I don't think I'm strong enough to enter then.", "Well that is a risk I will have to take.")
-                stage = 3
-            }
-
+            100 -> npc("None of your business.").also { stage = END_DIALOGUE }
+            0 -> npc(FacialExpression.HALF_GUILTY, "so our prayers seem to have less effect down there. Oh,", "also, you won't be able to come back this way - This", "ladder only goes one way!").also { stage++ }
+            1 -> npc(FacialExpression.HALF_GUILTY, "The only exit from the caves below is a portal which", "leads only to the deepest wilderness!").also { stage++ }
+            2 -> options("I don't think I'm strong enough to enter then.", "Well that is a risk I will have to take.").also { stage++ }
             3 -> when (buttonId) {
-                1 -> {
-                    player(FacialExpression.HALF_GUILTY, "I don't think I'm strong enough to enter then.")
-                    stage = 10
-                }
-
-                2 -> {
-                    player(FacialExpression.HALF_GUILTY, "Well that is a risk I will have to take.")
-                    stage = 20
-                }
+                1 -> player(FacialExpression.HALF_GUILTY, "I don't think I'm strong enough to enter then.").also { stage = END_DIALOGUE }
+                2 -> player(FacialExpression.HALF_GUILTY, "Well that is a risk I will have to take.").also { stage = 20 }
             }
-
-            10 -> end()
             20 -> {
                 if (getStatLevel(player, Skills.PRAYER) > 2 && player.getSkills().prayerPoints > 2) {
                     player.getSkills().decrementPrayerPoints((player.getSkills().getLevel(Skills.PRAYER) - 2).toDouble())

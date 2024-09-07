@@ -4,7 +4,9 @@ import content.region.kandarin.ardougne.quest.biohazard.dialogue.HopsDialogueFil
 import content.region.kandarin.ardougne.quest.biohazard.util.BiohazardUtils
 import cfg.consts.NPCs
 import core.api.getAttribute
+import core.api.getQuestStage
 import core.api.openDialogue
+import core.api.sendDialogue
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression
 import core.game.node.entity.player.Player
@@ -21,6 +23,10 @@ class HopsDialogue(player: Player? = null) : Dialogue(player) {
         when (stage) {
             START_DIALOGUE -> {
                 end()
+                if (getQuestStage(player, "Biohazard") < 1) {
+                    sendDialogue(player, "Hops doesn't feel like talking.")
+                    return true
+                }
                 if (getAttribute(player, BiohazardUtils.THIRD_VIAL_CORRECT, true)) {
                     openDialogue(player, HopsDialogueFile())
                 } else {
