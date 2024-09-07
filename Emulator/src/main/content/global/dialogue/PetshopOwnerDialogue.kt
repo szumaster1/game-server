@@ -62,6 +62,7 @@ class PetshopOwnerDialogue(player: Player? = null) : Dialogue(player) {
             304 -> npc(FacialExpression.FRIENDLY, "There are also a number of fabulous and exotic lizards in", "Karamja. Some can be caught easily in a box trap, while", "other will need to be raised from an egg.").also { stage++ }
             305 -> player(FacialExpression.HAPPY, "Thanks a lot! You've been very helpfull.").also { stage++ }
             306 -> npc(FacialExpression.HAPPY, "It's always a pleasure to help a fellow animal-lover. Come", "back and visit soon.").also { stage = END_DIALOGUE }
+            699 -> npc(FacialExpression.FRIENDLY, "500 gold.").also { stage++ }
             700 -> player(FacialExpression.HALF_ASKING, "Isn't that a little steep?").also { stage++ }
             701 -> npc(FacialExpression.FRIENDLY, "Well, if we gave them away for free then people would", "just buy them and dump them without a care.").also { stage++ }
             702 -> npc(FacialExpression.FRIENDLY, "Dogs are a big responsibility and should be cared for.").also { stage++ }
@@ -89,7 +90,6 @@ class PetshopOwnerDialogue(player: Player? = null) : Dialogue(player) {
                     npc(FacialExpression.HAPPY, "There you go! I hope you two get on.")
                 }
             }
-            699 -> npc(FacialExpression.FRIENDLY, "500 gold.").also { stage = 700 }
         }
         return true
     }

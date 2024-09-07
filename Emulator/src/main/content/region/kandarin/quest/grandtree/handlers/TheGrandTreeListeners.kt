@@ -9,7 +9,7 @@ import cfg.consts.Components
 import cfg.consts.Items
 import cfg.consts.NPCs
 import cfg.consts.Sounds
-import content.region.karamja.ape_atoll.quest.mm.dialogue.KingNarnodeMonkeyMadnessDialogue
+import content.region.karamja.apeatoll.quest.mm.dialogue.KingNarnodeMonkeyMadnessDialogue
 import core.game.global.action.DoorActionHandler
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener

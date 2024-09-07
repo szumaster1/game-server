@@ -1,6 +1,6 @@
 package content.global.handlers.item.withnpc
 
-import content.region.karamja.ape_atoll.dialogue.dungeon.ZooknockDialogueFile
+import content.region.karamja.apeatoll.dialogue.dungeon.ZooknockDialogueFile
 import cfg.consts.Items
 import cfg.consts.NPCs
 import core.api.openDialogue

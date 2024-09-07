@@ -17,7 +17,7 @@ class FurTradeDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
-        npc(FacialExpression.HALF_GUILTY, "Would you like to trade in fur?").also { stage++ }
+        npc(FacialExpression.HALF_GUILTY, "Would you like to trade in fur?")
         return true
     }
 
