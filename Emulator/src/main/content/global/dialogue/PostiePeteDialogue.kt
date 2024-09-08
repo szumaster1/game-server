@@ -1,13 +1,15 @@
 package content.global.dialogue
 
 import cfg.consts.NPCs
-import core.api.findLocalNPC
-import core.api.sendChat
-import core.api.sendNPCDialogue
+import core.api.*
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
+import core.game.system.config.NPCConfigParser
+import core.game.system.task.Pulse
+import core.game.world.GameWorld
+import core.game.world.map.Location
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
@@ -101,8 +103,43 @@ class PostiePeteDialogue(player: Player? = null) : Dialogue(player) {
 
             /*
              * At the Varrock Library.
+             * https://www.youtube.com/watch?v=e-BAgfznEmI
              */
             12854 -> {
+                // Talk player with Postie pete.
+                when(stage) {
+                    0 -> player(FacialExpression.LAUGH, "HEY PETE, WHAT ARE YOU DOING HERE?").also { stage++ }
+                    1 -> npc(FacialExpression.OLD_NORMAL, "Shhhh! It's a library you know!").also { stage++ }
+                    2 -> player(FacialExpression.HAPPY, "Oh, sorry! So, what's new?").also { stage++ }
+                    3 -> npc(FacialExpression.OLD_NORMAL,"Not much, just doing some research on Dwarvern", "Culture. Did you know that Keldagrim was originally", "constructed by a long lost clan who embraced the power", "of magic, and used it to aid with glorious buildings like").also { stage++ }
+                    4 -> npc(FacialExpression.OLD_NORMAL,"the royal palace?").also { stage++ }
+                    5 -> player(FacialExpression.HAPPY,"Really??").also { stage++ }
+                    6 -> npc(FacialExpression.OLD_NORMAL,"Yes. They even stayed down there for 1000 years or", "more, in a time they call 'The age of Kings'.").also { stage++ }
+                    7 -> player(FacialExpression.HAPPY,"WOW!").also { stage++ }
+                    8 -> npc(FacialExpression.OLD_NORMAL,"Shhhh! That's enough history for one day I think!").also { stage = END_DIALOGUE }
+                    9 -> {
+                        GameWorld.Pulser.submit(object : Pulse(1, npc) {
+                            var counter = 0
+                            override fun pulse(): Boolean {
+                                when(counter++) {
+                                    0 -> forceWalk(npc, Location.create(3210, 3490, 0), "smart")
+                                    // 1 -> [MISSING TRANSCRIPT]
+                                    // 2 -> [MISSING TRANSCRIPT]
+                                    3 -> {
+                                        poofClear(npc).also {
+                                            npc.respawnTick =
+                                                GameWorld.ticks + npc.definition.getConfiguration(NPCConfigParser.RESPAWN_DELAY, 60)
+                                        }
+                                    }
+                                }
+                                return true
+                            }
+                        })
+                    }
+                }
+
+                // Talk with Reldo.
+                /*
                 when (stage) {
                     0 -> npcl(FacialExpression.OLD_NORMAL, "Reldo, have you found that book I was looking for yet?").also {
                         sendChat(npc, "Reldo, have you found that book I was looking for yet?")
@@ -129,6 +166,7 @@ class PostiePeteDialogue(player: Player? = null) : Dialogue(player) {
                         stage = END_DIALOGUE
                     }
                 }
+                */
             }
 
             /*
@@ -216,7 +254,7 @@ class PostiePeteDialogue(player: Player? = null) : Dialogue(player) {
                         findLocalNPC(player, NPCs.NOTERAZZO_597)?.let { sendChat(it, "Perfectly. Everyone is prepared.") }
                         stage++
                     }
-                    2 -> npcl(FacialExpression.FRIENDLY, "Great. Now don't forget- nobody does anything until I give the signal.").also {
+                    2 -> npcl(FacialExpression.OLD_NORMAL, "Great. Now don't forget- nobody does anything until I give the signal.").also {
                         sendChat(npc, "Great. Now don't forget- nobody does anything until I give the signal.")
                         stage++
                     }
@@ -273,8 +311,38 @@ class PostiePeteDialogue(player: Player? = null) : Dialogue(player) {
 
             /*
              * At Castle Wars.
+             * https://www.youtube.com/watch?v=QCNWwmioYJ8&ab_channel=RXXZutXXS
              */
             9776 -> {
+                when (stage) {
+                    0 -> player("Hey Pete, what you doing here?").also { stage++ }
+                    1 -> npc(FacialExpression.OLD_NORMAL,"Just doing a quick survey on famous people and their", "favourite colour. It's a special feature for 'West", "Wyverns Women's Weekly'.").also { stage++ }
+                    2 -> player("Can I get a copy?").also { stage++ }
+                    3 -> npc(FacialExpression.OLD_NORMAL,"Can you speak Wyvern?").also { stage++ }
+                    4 -> player("No. Can you?").also { stage++ }
+                    5 -> npc(FacialExpression.OLD_NORMAL,"Well obviously.").also { stage++ }
+                    6 -> player("Go on then.").also { stage++ }
+                    7 -> npc(FacialExpression.OLD_SAD,"Here! Are you mad? No, 'fraid I can't do that. Could", "cause all sorts of trouble.").also { stage++ }
+                    8 -> player("You're a bit mad really aren't you?").also { stage++ }
+                    9 -> npc(FacialExpression.OLD_SAD, "So would you be if you could speak over 1000", "languages. I bet it's bliss being ignorant of this world's","trouble! I'm off!").also { stage++ }
+                    10 -> {
+                        GameWorld.Pulser.submit(object : Pulse(1, npc) {
+                            var counter = 0
+                            override fun pulse(): Boolean {
+                                when(counter++) {
+                                    1 -> {
+                                        poofClear(npc).also {
+                                            npc.respawnTick =
+                                                GameWorld.ticks + npc.definition.getConfiguration(NPCConfigParser.RESPAWN_DELAY, 60)
+                                        }
+                                    }
+                                }
+                                return true
+                            }
+                        })
+                    }
+                }
+                /*
                 when (stage) {
                     0 -> npcl(FacialExpression.OLD_NORMAL, "Fight! Fight! ...Fight!").also {
                         sendChat(npc, "Fight! Fight! ...Fight!")
@@ -301,6 +369,7 @@ class PostiePeteDialogue(player: Player? = null) : Dialogue(player) {
                         stage = END_DIALOGUE
                     }
                 }
+                */
             }
         }
         return true
