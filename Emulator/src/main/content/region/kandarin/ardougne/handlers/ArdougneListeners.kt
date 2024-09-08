@@ -6,7 +6,6 @@ import core.api.*
 import cfg.consts.Items
 import cfg.consts.NPCs
 import content.region.kandarin.ardougne.dialogue.CaptainBarnabyDialogue
-import content.region.kandarin.ardougne.plaguecity.quest.elena.dialogue.MournerWestArdougneDialogue
 import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression
 import core.game.interaction.IntType
@@ -77,13 +76,5 @@ class ArdougneListeners : InteractionListener {
             return@onUseWith true
         }
 
-        /*
-         * Handles conversation with Mourner outside West Ardougne near the gate.
-         */
-
-        on(NPCs.MOURNER_719, IntType.NPC, "talk-to") { player, _ ->
-            openDialogue(player, MournerWestArdougneDialogue())
-            return@on true
-        }
     }
 }
