@@ -1,7 +1,7 @@
 package core.game.node.entity.combat
 
+import content.global.ame.RandomEventNPC
 import content.global.handlers.item.equipment.special.SalamanderSwingHandler
-import content.global.random.RandomEventNPC
 import core.game.container.impl.EquipmentContainer
 import core.game.interaction.MovementPulse
 import core.game.node.Node
@@ -19,7 +19,6 @@ import core.tools.RandomFunction
 import core.api.*
 import core.game.interaction.DestinationFlag
 import core.game.system.timer.impl.*
-import java.util.*
 
 /**
  * The combat-handling pulse implementation.
@@ -38,20 +37,48 @@ class CombatPulse(
     private var victim: Entity? = null
 
     /**
+     * Gets the style.
+     * @return The style.
+     */
+    /**
+     * Sets the style.
+     * @param style The style to set.
+     */
+    /**
      * The current combat style used.
      */
     var style = CombatStyle.MELEE
 
+    /**
+     * @return the temporaryHandler.
+     */
+    /**
+     * @param temporaryHandler the temporaryHandler to set.
+     */
     /**
      * The temporary combat swing handler.
      */
     var temporaryHandler: CombatSwingHandler? = null
 
     /**
+     * Gets the handler.
+     * @return The handler.
+     */
+    /**
+     * Sets the handler.
+     * @param handler The handler to set.
+     */
+    /**
      * The current combat swing handler.
      */
     var handler = style.swingHandler
 
+    /**
+     * @return the lastVictim.
+     */
+    /**
+     * @param lastVictim the lastVictim to set.
+     */
     /**
      * The last victim.
      */
@@ -140,7 +167,6 @@ class CombatPulse(
 
     /**
      * Sets the "in combat" flag for the victim and handles closing.
-     *
      * @param victim The victim.
      */
     fun setCombatFlags(victim: Entity?) {
@@ -172,7 +198,6 @@ class CombatPulse(
 
     /**
      * Checks if the mover can interact with the victim.
-     *
      * @return `True` if so.
      */
     private fun interactable(): Boolean {
@@ -229,47 +254,67 @@ class CombatPulse(
 
     /**
      * Attacks the node.
-     *
      * @param victim The victim node.
      */
     fun attack(victim: Node?) {
-        if (victim == null) return
-        if (entity!!.locks.isInteractionLocked || (victim === this.victim && isAttacking)) return
-        if (victim is Player && (entity.id == 4474 || entity.id == 7891)) return
-        if (entity is Player && victim.id in 4474..7891 && entity.properties.combatLevel >= 30) {
-            entity.sendMessage("You are too experienced to gain anything from these.")
+        if (victim == null) {
             return
+        }
+        if (entity!!.locks.isInteractionLocked) {
+            return
+        }
+        if (victim === this.victim && isAttacking) {
+            return
+        }
+        //makes sure lumbridge dummies can't attack back (lol)
+        if (victim is Player && (entity.id == 4474 || entity.id == 7891)) {
+            return
+        }
+        if (entity is Player) {
+            if ((victim.id == 4474 || victim.id == 7891) && entity.asPlayer().properties.combatLevel >= 30) {
+                entity.asPlayer().sendMessage("You are too experienced to gain anything from these.")
+                return
+            }
         }
         if (victim is NPC) {
             if (entity is Player && victim !== this.victim && victim !== lastVictim) {
+                // Loar Shade Transformation Animation
                 val shade = Animation(1288, 0, Animator.Priority.VERY_HIGH)
                 val player = entity
                 val mask = player.equipment[EquipmentContainer.SLOT_HAT]
-                if (victim.id == 1240) {
+                if (victim.getId() == 1240) {
                     victim.animate(shade)
                     victim.transform(1241)
                 }
-                mask?.let {
-                    if (it.id in 8901..8919 && RandomFunction.random(50) == 0) {
-                        player.packetDispatch.sendMessage("Your black mask startles your enemy, you have " +
-                                if (it.id == 8919) "no" else ((8920 - it.id) / 2).toString() + " charges left.")
-                        player.equipment.replace(Item(it.id + 2), EquipmentContainer.SLOT_HAT)
-                        var drain = 3 + victim.skills.getLevel(Skills.DEFENCE) / 14
-                        if (drain > 10) drain = 10
-                        victim.skills.updateLevel(Skills.DEFENCE, -drain, victim.skills.getStaticLevel(Skills.DEFENCE) - drain)
+                if (mask != null && mask.id >= 8901 && mask.id < 8920 && RandomFunction.random(50) == 0) {
+                    player.packetDispatch.sendMessage(
+                        "Your black mask startles your enemy, you have " +
+                                (if (mask.id == 8919) "no" else ((8920 - mask.id) / 2).toString()) + " charges left."
+                    )
+                    player.equipment.replace(Item(mask.id + 2), EquipmentContainer.SLOT_HAT)
+                    var drain = 3 + victim.skills.getLevel(Skills.DEFENCE) / 14
+                    if (drain > 10) {
+                        drain = 10
                     }
+                    victim.skills.updateLevel(
+                        Skills.DEFENCE,
+                        -drain,
+                        victim.skills.getStaticLevel(Skills.DEFENCE) - drain
+                    )
                 }
             }
-            if (!victim.locks.isMovementLocked) victim.walkingQueue.reset()
+            if (!victim.locks.isMovementLocked)
+                victim.walkingQueue.reset()
         }
         setVictim(victim)
         entity.onAttack(victim as Entity?)
-        if (!isAttacking) entity.pulseManager.run(this)
+
+        if (!isAttacking)
+            entity.pulseManager.run(this)
     }
 
     /**
      * Sets the victim.
-     *
      * @param victim The victim.
      */
     fun setVictim(victim: Node?) {
@@ -282,7 +327,6 @@ class CombatPulse(
 
     /**
      * Sets the next attack.
-     *
      * @param ticks The amount of ticks.
      */
     fun setNextAttack(ticks: Int) {
@@ -291,7 +335,6 @@ class CombatPulse(
 
     /**
      * Delays the next attack.
-     *
      * @param ticks The amount of ticks to delay the next attack with.
      */
     fun delayNextAttack(ticks: Int) {
@@ -300,7 +343,6 @@ class CombatPulse(
 
     /**
      * Gets the next attack tick.
-     *
      * @return The next attack tick.
      */
     fun getNextAttack(): Int {
@@ -309,7 +351,6 @@ class CombatPulse(
 
     /**
      * Checks if we can fight with the victim.
-     *
      * @return `True` if so.
      */
     fun canInteract(): InteractionType? {
@@ -341,7 +382,7 @@ class CombatPulse(
     override fun removeFor(pulseType: String): Boolean {
         var pulse = pulseType
         if (isAttacking) {
-            pulse = pulse.lowercase(Locale.getDefault())
+            pulse = pulse.toLowerCase()
             if (pulse.startsWith("interaction:attack")) {
                 if (victim.hashCode() == pulse.replace("interaction:attack:", "").toInt()) {
                     return false
@@ -353,7 +394,6 @@ class CombatPulse(
 
     /**
      * Checks if this entity is attacking.
-     *
      * @return `True` if so.
      */
     val isAttacking: Boolean
@@ -361,7 +401,6 @@ class CombatPulse(
 
     /**
      * If the entity has an attacker.
-     *
      * @return `True` if so.
      */
     val isInCombat: Boolean
@@ -372,7 +411,6 @@ class CombatPulse(
 
     /**
      * Gets the current victim.
-     *
      * @return The victim.
      */
     fun getVictim(): Entity? {
@@ -383,7 +421,6 @@ class CombatPulse(
 
         /**
          * Executes a combat swing.
-         *
          * @param entity The entity.
          * @param victim The victim.
          * @param handler The combat swing handler.
