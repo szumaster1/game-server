@@ -195,6 +195,10 @@ class BiohazardListeners : InteractionListener {
         }
 
         on(Scenery.DOOR_2036, IntType.SCENERY, "open") { player, node ->
+            if(!inBorders(player, ZoneBorders.forRegion(10035))) {
+                DoorActionHandler.handleDoor(player, node.asScenery())
+                return@on true
+            }
             if(getQuestStage(player, "Biohazard") < 6) {
                 sendMessage(player, "The door is locked. You can hear the mourners eating...")
                 sendMessageWithDelay(player, "You need to distract them from their stew.", 1)
@@ -219,7 +223,6 @@ class BiohazardListeners : InteractionListener {
             return@on true
         }
 
-
         on(Scenery.BOX_2062, IntType.SCENERY, "open") { _, node ->
             replaceScenery(node.asScenery(), Scenery.BOX_2063, 80)
             return@on true
@@ -236,7 +239,7 @@ class BiohazardListeners : InteractionListener {
             return@on true
         }
 
-        onUseWith(IntType.SCENERY, Items.KEY_2832, *content.region.kandarin.ardougne.quest.biohazard.BiohazardListeners.Companion.PLAGUE_1F_GATES) { player, _, with ->
+        onUseWith(IntType.SCENERY, Items.KEY_2832, *PLAGUE_1F_GATES) { player, _, with ->
             if (getQuestStage(player, "Biohazard") > 8) {
                 sendMessage(player, "The key fits the gate.")
                 DoorActionHandler.handleAutowalkDoor(player, with.asScenery())
@@ -246,7 +249,7 @@ class BiohazardListeners : InteractionListener {
             return@onUseWith true
         }
 
-        on(content.region.kandarin.ardougne.quest.biohazard.BiohazardListeners.Companion.PLAGUE_1F_GATES, IntType.SCENERY, "open") { player, node ->
+        on(PLAGUE_1F_GATES, IntType.SCENERY, "open") { player, node ->
             if (inInventory(player, Items.KEY_2832)) {
                 sendMessage(player, "The key fits the gate.")
                 DoorActionHandler.handleAutowalkDoor(player, node.asScenery())
@@ -269,7 +272,7 @@ class BiohazardListeners : InteractionListener {
             return@on true
         }
 
-        on(content.region.kandarin.ardougne.quest.biohazard.BiohazardListeners.Companion.VARROCK_GATES, IntType.SCENERY, "open") { player, node ->
+        on(VARROCK_GATES, IntType.SCENERY, "open") { player, node ->
             if(player.location.x < 3264) {
                 openDialogue(player, object : DialogueFile() {
                     override fun handle(componentID: Int, buttonID: Int) {
@@ -308,7 +311,7 @@ class BiohazardListeners : InteractionListener {
             return@on true
         }
 
-        on(content.region.kandarin.ardougne.quest.biohazard.BiohazardListeners.Companion.COMBAT_AREA, IntType.SCENERY, "open") { player, node ->
+        on(COMBAT_AREA, IntType.SCENERY, "open") { player, node ->
             if (isQuestComplete(player, "Biohazard")) {
                 DoorActionHandler.handleAutowalkDoor(player, node.asScenery())
             } else {

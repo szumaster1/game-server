@@ -29,8 +29,15 @@ class DeathPlateauListeners : InteractionListener {
     }
 
     override fun defineListeners() {
-        on(Scenery.DOOR_3747, SCENERY, "open") { player, _ ->
-            openDialogue(player, DoorPlateauDialogueFile(1))
+        on(Scenery.DOOR_3747, SCENERY, "open") { player, node ->
+            if(player.location.x == 2906 && player.location.y == 3543) {
+                openDialogue(player, DoorPlateauDialogueFile(1))
+                return@on true
+            } else if(player.location.y == 3542) {
+                DoorActionHandler.handleAutowalkDoor(player, node.asScenery())
+            } else {
+                DoorActionHandler.handleDoor(player, node.asScenery())
+            }
             return@on true
         }
 
