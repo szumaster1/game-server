@@ -21,13 +21,13 @@ class KingNarnodeMonkeyMadnessDialogue : DialogueFile() {
                     2 -> npcl("The Tree? It is fine, as it has always been since we foiled Glough's plans").also { stage++ }
                     3 -> playerl("Good. What ever did happen to Glough?").also { stage++ }
                     4 -> npcl("Oh, I forced him to resign. I have now appointed a new Head Tree Guardian, Daero. He is learning quickly and serves me well.").also { stage++ }
-                    5 -> playerl("King, you look worried. Is anything the metter?").also { stage++ }
+                    5 -> playerl("King, you look worried. Is anything the matter?").also { stage++ }
                     6 -> npcl("Nothing in particular ... Well actually yes - there is.").also { stage++ }
                     7 -> playerl("what is it?").also { stage++ }
                     8 -> npcl("Well, do you remember Glough's ship building facilities in Karamja?").also { stage++ }
                     9 -> playerl("Yes, there were in the eastern coast. What of them?").also { stage++ }
-                    10 -> npcl("After you defeated Glough's demon, I sent an envoy of my Royal Guard, the 10th squad, to oversee the decommission of the shipyard. They were ordered to use force if necessary. ").also { stage++ }
-                    11 -> playerl("I see. Were they successul?").also { stage++ }
+                    10 -> npcl("After you defeated Glough's demon, I sent an envoy of my Royal Guard, the 10th squad, to oversee the decommission of the shipyard. They were ordered to use force if necessary.").also { stage++ }
+                    11 -> playerl("I see. Were they successful?").also { stage++ }
                     12 -> npcl("I ... I don't know. I have heard nothing from them. I do not even know if they reached the shipyard!").also { stage++ }
                     13 -> playerl("It is a long way...").also { stage++ }
                     14 -> npcl("But I need to know what happened. These are elite soldiers - their disappearance cannot simply be ignored. I cannot wait any longer.").also { stage++ }

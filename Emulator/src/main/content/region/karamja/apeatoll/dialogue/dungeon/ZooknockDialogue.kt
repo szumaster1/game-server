@@ -31,11 +31,11 @@ class ZooknockDialogue(player: Player? = null) : Dialogue(player) {
             2 -> playerl(FacialExpression.NEUTRAL, "I am on a mission for King Narode Shareen of the Gnomes.").also { stage++ }
             3 -> playerl(FacialExpression.NEUTRAL, "I have been sent to investigate the whereabouts of the 10th squad of his Royal Guard, which went missing during a recent mission to Karamja.").also { stage++ }
             4 -> npc(FacialExpression.OLD_CALM_TALK1, "Well you've found us - what's left of us, that is.").also { stage++ }
-            5 -> npcl(FacialExpression.OLD_CALM_TALK2, "I am Zooknock, the 10th squad mage. These are Bunkwicker and Waymottin, two of our finest sappers. I assme you will want to know how we got here?").also { stage++ }
+            5 -> npcl(FacialExpression.OLD_CALM_TALK2, "I am Zooknock, the 10th squad mage. These are Bunkwicker and Waymottin, two of our finest sappers. I assume you will want to know how we got here?").also { stage++ }
             6 -> player(FacialExpression.NEUTRAL, "Of course.").also { stage++ }
             7 -> npcl(FacialExpression.OLD_CALM_TALK1, "Your story first, human. What possessed you to travel to this forsaken island?").also { stage++ }
             8 -> playerl(FacialExpression.NEUTRAL, "I am currently in the service of your King. I was the human who exposed Glough's warfaring plans and defeated his demon.").also { stage++ }
-            9 -> playerl(FacialExpression.NEUTRAL, "As far as I understand, the 10th squad were sent to oversee the decomission of Glough's shipyard in east Karamja.").also { stage++ }
+            9 -> playerl(FacialExpression.NEUTRAL, "As far as I understand, the 10th squad were sent to oversee the decommission of Glough's shipyard in east Karamja.").also { stage++ }
             10 -> playerl(FacialExpression.NEUTRAL, "Rumour has it you were blown off course. The King worried as to your fate, and sent me to investigate.").also { stage++ }
             11 -> npc(FacialExpression.OLD_CALM_TALK1, "You were sent alone?").also { stage++ }
             12 -> playerl(FacialExpression.NEUTRAL, "No, I have been accompanied by Flight Commander Waydar. We flew south on a special type of glider and landed on a small island to our east.").also { stage++ }
@@ -83,7 +83,7 @@ class ZooknockDialogue(player: Player? = null) : Dialogue(player) {
             54 -> npcl(FacialExpression.OLD_CALM_TALK1, "I suggest that I invest the ability to communicate with the monkeys in an authentic monkey amulet.").also { stage++ }
             55 -> {
                 hasSpokenToZook = true
-                npcl(FacialExpression.OLD_CALM_TALK1, "Similarily, the transformation spell should be stored in a monkey talisman of some kind.").also { stage++ }
+                npcl(FacialExpression.OLD_CALM_TALK1, "Similarly, the transformation spell should be stored in a monkey talisman of some kind.").also { stage++ }
             }
             56 -> options("What do we need for the monkey amulet?", "What do we need for the monkey talisman?").also { stage++ }
             57 -> when (buttonId) {

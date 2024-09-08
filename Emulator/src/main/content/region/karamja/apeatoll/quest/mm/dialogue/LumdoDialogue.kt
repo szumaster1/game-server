@@ -23,7 +23,7 @@ class LumdoDialogue: DialogueFile() {
                     end()
                 }
             }
-            1 -> playerl("We are on a mission for King Narnode Shareen. I am ${player!!.username} and this is the fligh Commander Wayder.").also { stage++ }
+            1 -> playerl("We are on a mission for King Narnode Shareen. I am ${player!!.username} and this is the flight Commander Wayder.").also { stage++ }
             2 -> npcl("What business do you have here?").also { stage++ }
             3 -> playerl("We are to investigate the disappearance of the 10th squad of the Royal Guard. Am i right in suspecting that you Lumdo, are a member of the 10th squad?").also { stage++ }
             4 -> npcl("I might be. Do you have any way to prove that you are who yo say you are?").also { stage++ }
