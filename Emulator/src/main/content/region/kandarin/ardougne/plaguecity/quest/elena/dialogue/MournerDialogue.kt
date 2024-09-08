@@ -1,4 +1,4 @@
-package content.region.kandarin.ardougne.plaguecity.quest.elena.dialogue.mourners
+package content.region.kandarin.ardougne.plaguecity.quest.elena.dialogue
 
 import cfg.consts.Items
 import cfg.consts.NPCs

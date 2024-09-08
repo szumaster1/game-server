@@ -1,9 +1,10 @@
-package content.region.kandarin.ardougne.plaguecity.quest.elena.dialogue.mourners
+package content.region.kandarin.ardougne.plaguecity.quest.elena.dialogue
 
 import cfg.consts.NPCs
 import core.api.getQuestStage
 import core.api.openDialogue
 import core.game.dialogue.Dialogue
+import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
@@ -11,7 +12,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Represents the Mourner ardougne dialogue.
+ * Represents the Mourner dialogue near Edmond house.
  */
 @Initializable
 class MournerArdougneDialogue(player: Player? = null) : Dialogue(player) {
@@ -37,4 +38,21 @@ class MournerArdougneDialogue(player: Player? = null) : Dialogue(player) {
     }
 
     override fun getIds(): IntArray = intArrayOf(NPCs.MOURNER_3216)
+}
+
+/**
+ * Represents the Mourner dialogue (Outside West Ardougne near the gate).
+ */
+class MournerWestArdougneDialogue : DialogueFile() {
+
+    override fun handle(componentID: Int, buttonID: Int) {
+        npc = NPC(NPCs.MOURNER_719)
+        when(stage){
+            0 -> playerl(FacialExpression.FRIENDLY, "Hello.").also { stage++ }
+            1 -> npcl(FacialExpression.NEUTRAL,"Good day. Are you in need of assistance?").also { stage++ }
+            2 -> playerl(FacialExpression.FRIENDLY, "Yes, but I don't think you can help.").also { stage++ }
+            3 -> npcl(FacialExpression.NEUTRAL,"You will be surprised at how much help the brute force of the Guard can be.").also { stage++ }
+            4 -> playerl(FacialExpression.FRIENDLY, "Well I'll be sure to ask if I'm in need of some muscle.").also { stage = END_DIALOGUE }
+        }
+    }
 }

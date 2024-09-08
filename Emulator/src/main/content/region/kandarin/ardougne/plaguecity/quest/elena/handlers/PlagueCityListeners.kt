@@ -4,9 +4,9 @@ import core.api.*
 import cfg.consts.*
 import content.region.kandarin.ardougne.plaguecity.dialogue.WomanDialogue
 import content.region.kandarin.ardougne.plaguecity.quest.elena.dialogue.ManRehnisonDialogue
-import content.region.kandarin.ardougne.plaguecity.quest.elena.dialogue.mourners.HeadMournerDialogue
-import content.region.kandarin.ardougne.plaguecity.quest.elena.dialogue.mourners.MournerOtherDialogue
-import content.region.kandarin.ardougne.plaguecity.quest.elena.dialogue.mourners.MournerPlagueCityDialogue
+import content.region.kandarin.ardougne.plaguecity.quest.elena.dialogue.HeadMournerDialogue
+import content.region.kandarin.ardougne.plaguecity.quest.elena.dialogue.MournerOtherDialogue
+import content.region.kandarin.ardougne.plaguecity.quest.elena.dialogue.MournerPlagueCityDialogue
 import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression
 import core.game.global.action.DoorActionHandler
