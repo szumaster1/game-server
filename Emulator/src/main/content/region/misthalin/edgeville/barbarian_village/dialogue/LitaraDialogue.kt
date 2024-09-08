@@ -23,7 +23,7 @@ class LitaraDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun handle(interfaceId: Int, buttonId: Int): Boolean {
         when (stage) {
-            0 -> options("I'm looking for  stronghold, or something.", "I'm fine, just passing through.").also { stage++ }
+            0 -> options("I'm looking for stronghold, or something.", "I'm fine, just passing through.").also { stage++ }
             1 -> when (buttonId) {
                 1 -> player(FacialExpression.HALF_GUILTY, "I'm looking for a stronghold, or something.").also { stage++ }
                 2 -> player(FacialExpression.HALF_GUILTY, "I'm fine, just passing through.").also { stage = END_DIALOGUE }

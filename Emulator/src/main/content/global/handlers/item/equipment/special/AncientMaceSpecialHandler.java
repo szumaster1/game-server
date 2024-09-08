@@ -16,15 +16,25 @@ import core.tools.RandomFunction;
 import static core.api.ContentAPIKt.playGlobalAudio;
 
 /**
- * Ancient mace special handler.
+ * Handles the ancient mace special attack "Favour of the War God".
+ * @author Emperor
  */
 @Initializable
 public final class AncientMaceSpecialHandler extends MeleeSwingHandler implements Plugin<Object> {
 
+    /**
+     * The special energy required.
+     */
     private static final int SPECIAL_ENERGY = 100;
 
+    /**
+     * The attack animation.
+     */
     private static final Animation ANIMATION = new Animation(6147, Priority.HIGH);
 
+    /**
+     * The graphic.
+     */
     private static final Graphic GRAPHIC = new Graphic(1052);
 
     @Override

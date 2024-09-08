@@ -17,15 +17,25 @@ import core.tools.RandomFunction;
 import static core.api.ContentAPIKt.playGlobalAudio;
 
 /**
- * Warstrike special handler.
+ * Handles the Warstrike special attack.
+ * @author Emperor
  */
 @Initializable
 public final class WarstrikeSpecialHandler extends MeleeSwingHandler implements Plugin<Object> {
 
+    /**
+     * The special energy required.
+     */
     private static final int SPECIAL_ENERGY = 100;
 
+    /**
+     * The attack animation.
+     */
     private static final Animation ANIMATION = new Animation(7073, Priority.HIGH);
 
+    /**
+     * The graphic.
+     */
     private static final Graphic GRAPHIC = new Graphic(1223);
 
     @Override

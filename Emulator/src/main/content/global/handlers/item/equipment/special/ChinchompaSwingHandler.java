@@ -16,16 +16,23 @@ import core.tools.RandomFunction;
 import java.util.List;
 
 /**
- * Chinchompa swing handler.
+ * Handles a combat swing using red chinchompas.
+ * @author Emperor
  */
 public final class ChinchompaSwingHandler extends RangeSwingHandler {
 
+    /**
+     * The instance.
+     */
     private static final ChinchompaSwingHandler INSTANCE = new ChinchompaSwingHandler();
 
+    /**
+     * The impact graphic.
+     */
     private static final Graphic END_GRAPHIC = new Graphic(157, 96);
 
     /**
-     * Instantiates a new Chinchompa swing handler.
+     * Constructs a new {@code ChinchompaSwingHandler} {@code Object}.
      */
     public ChinchompaSwingHandler() {
         super(SwingHandlerFlag.IGNORE_STAT_BOOSTS_DAMAGE);
@@ -139,9 +146,9 @@ public final class ChinchompaSwingHandler extends RangeSwingHandler {
     }
 
     /**
-     * Gets instance.
+     * Gets the ChinchompaSwingHandler instance.
      *
-     * @return the instance
+     * @return The instance.
      */
     public static ChinchompaSwingHandler getInstance() {
         return INSTANCE;

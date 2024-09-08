@@ -16,15 +16,25 @@ import core.tools.RandomFunction;
 import static core.api.ContentAPIKt.playGlobalAudio;
 
 /**
- * Energy drain special handler.
+ * Handles the Abyssal whip's Energy drain special attack.
+ * @author Emperor
  */
 @Initializable
 public final class EnergyDrainSpecialHandler extends MeleeSwingHandler implements Plugin<Object> {
 
+    /**
+     * The special energy required.
+     */
     private static final int SPECIAL_ENERGY = 50;
 
+    /**
+     * The attack animation.
+     */
     private static final Animation ANIMATION = new Animation(1658, Priority.HIGH);
 
+    /**
+     * The graphic.
+     */
     private static final Graphic GRAPHIC = new Graphic(341, 96);
 
     @Override

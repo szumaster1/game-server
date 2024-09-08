@@ -21,15 +21,25 @@ import java.util.List;
 import static core.api.ContentAPIKt.playGlobalAudio;
 
 /**
- * Powerstab special handler.
+ * Handles the Powerstab special attack.
+ * @author Emperor
  */
 @Initializable
 public final class PowerstabSpecialHandler extends MeleeSwingHandler implements Plugin<Object> {
 
+    /**
+     * The special energy required.
+     */
     private static final int SPECIAL_ENERGY = 60;
 
+    /**
+     * The attack animation.
+     */
     private static final Animation ANIMATION = new Animation(3157, Priority.HIGH);
 
+    /**
+     * The graphic.
+     */
     private static final Graphic GRAPHIC = new Graphic(1225);
 
     @Override

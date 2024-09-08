@@ -1,8 +1,9 @@
 package content.global.handlers.item.equipment.special
 
-import core.Configuration
+import cfg.consts.Graphics
 import cfg.consts.Items
 import cfg.consts.Sounds
+import core.Configuration
 import core.api.playAudio
 import core.game.container.impl.EquipmentContainer
 import core.game.node.entity.Entity
@@ -21,7 +22,8 @@ import core.plugin.Plugin
 import core.tools.RandomFunction
 
 /**
- * Clobber special handler.
+ * Handles the Dragon axe special attack.
+ * @author Crash
  */
 @Initializable
 class ClobberSpecialHandler : MeleeSwingHandler(), Plugin<Any> {
@@ -46,6 +48,9 @@ class ClobberSpecialHandler : MeleeSwingHandler(), Plugin<Any> {
         }
     }
 
+    /**
+     * https://runescape.wiki/w/Dragon_hatchet?oldid=1107166
+     */
     private fun swingAuthentic(entity: Entity?, victim: Entity?, state: BattleState?): Int {
         val player = entity as? Player ?: return -1
         if (victim == null) return -1
@@ -69,6 +74,9 @@ class ClobberSpecialHandler : MeleeSwingHandler(), Plugin<Any> {
         return 1
     }
 
+    /**
+     * https://oldschool.runescape.wiki/w/Dragon_axe
+     */
     private fun swingOSRS(entity: Entity?): Int {
         val player = entity as? Player ?: return -1
         if (!player.settings.drainSpecial(SPECIAL_ENERGY)) return -1
@@ -81,16 +89,24 @@ class ClobberSpecialHandler : MeleeSwingHandler(), Plugin<Any> {
     }
 
     companion object {
-
+        /**
+         * The special energy required.
+         */
         private const val SPECIAL_ENERGY = 100
 
-
+        /**
+         * The attack animation.
+         */
         private val ANIMATION = Animation(2876, Priority.HIGH)
 
+        /**
+         * The graphic.
+         */
+        private val GRAPHIC = Graphic(Graphics.DRAGON_HATCHET_SPECIAL_479, 96)
 
-        private val GRAPHIC = Graphic(479, 96)
-
-
+        /**
+         * The item.
+         */
         private val ITEM = Item(Items.DRAGON_AXE_6739)
     }
 }

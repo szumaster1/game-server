@@ -17,13 +17,20 @@ import core.tools.RandomFunction;
 import static core.api.ContentAPIKt.playGlobalAudio;
 
 /**
- * Backstab special handler.
+ * Handles the Bone dagger special attack "Backstab".
+ * @author Emperor
  */
 @Initializable
 public final class BackstabSpecialHandler extends MeleeSwingHandler implements Plugin<Object> {
 
+    /**
+     * The special energy required.
+     */
     private static final int SPECIAL_ENERGY = 75;
 
+    /**
+     * The attack animation.
+     */
     private static final Animation ANIMATION = new Animation(4198, Priority.HIGH);
 
     private static final Graphic GRAPHIC = new Graphic(704);

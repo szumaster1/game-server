@@ -20,26 +20,37 @@ import core.tools.RandomFunction;
 import static core.api.ContentAPIKt.*;
 
 /**
- * Dragonfire swing handler.
+ * Handles dragonfire combat.
+ * @author Emperor
  */
 public class DragonfireSwingHandler extends CombatSwingHandler {
 
+    /**
+     * If the NPC has to be in melee range.
+     */
     private boolean meleeRange;
 
+    /**
+     * The maximum hit.
+     */
     private int maximumHit;
 
+    /**
+     * The attack data.
+     */
     private SwitchAttack attack;
 
+    /**
+     * IF the dragon attack is firey or icey.
+     */
     private boolean fire;
 
-
     /**
-     * Instantiates a new Dragonfire swing handler.
+     * Constructs a new {@code DragonfireSwingHandler} {@code Object}.
      *
-     * @param meleeRange the melee range
-     * @param maximumHit the maximum hit
-     * @param attack     the attack
-     * @param fire       the fire
+     * @param meleeRange If the NPC has to be in melee range.
+     * @param maximumHit The maximum hit.
+     * @param fire       if firey.
      */
     public DragonfireSwingHandler(boolean meleeRange, int maximumHit, SwitchAttack attack, boolean fire) {
         super(CombatStyle.MAGIC);
@@ -49,17 +60,16 @@ public class DragonfireSwingHandler extends CombatSwingHandler {
         this.fire = fire;
     }
 
-
     /**
-     * Get switch attack.
+     * Gets the switch attack instance for a dragonfire attack.
      *
-     * @param meleeRange   the melee range
-     * @param maximumHit   the maximum hit
-     * @param animation    the animation
-     * @param startGraphic the start graphic
-     * @param endGraphic   the end graphic
-     * @param projectile   the projectile
-     * @return the switch attack
+     * @param meleeRange   If the attack is melee range.
+     * @param maximumHit   The maximum hit.
+     * @param animation    The animation.
+     * @param startGraphic The start graphic.
+     * @param endGraphic   The end graphic.
+     * @param projectile   The projectile.
+     * @return The switch attack instance.
      */
     public static SwitchAttack get(boolean meleeRange, int maximumHit, Animation animation, Graphic startGraphic, Graphic endGraphic, Projectile projectile) {
         SwitchAttack attack = new SwitchAttack(null, animation, startGraphic, endGraphic, projectile).setUseHandler(true);
@@ -67,18 +77,16 @@ public class DragonfireSwingHandler extends CombatSwingHandler {
         return attack;
     }
 
-
     /**
-     * Get switch attack.
+     * Gets the switch attack instance for a dragonfire attack.
      *
-     * @param meleeRange   the melee range
-     * @param maximumHit   the maximum hit
-     * @param animation    the animation
-     * @param startGraphic the start graphic
-     * @param endGraphic   the end graphic
-     * @param projectile   the projectile
-     * @param fire         the fire
-     * @return the switch attack
+     * @param meleeRange   If the attack is melee range.
+     * @param maximumHit   The maximum hit.
+     * @param animation    The animation.
+     * @param startGraphic The start graphic.
+     * @param endGraphic   The end graphic.
+     * @param projectile   The projectile.
+     * @return The switch attack instance.
      */
     public static SwitchAttack get(boolean meleeRange, int maximumHit, Animation animation, Graphic startGraphic, Graphic endGraphic, Projectile projectile, boolean fire) {
         SwitchAttack attack = new SwitchAttack(null, animation, startGraphic, endGraphic, projectile).setUseHandler(true);

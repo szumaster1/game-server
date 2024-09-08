@@ -20,18 +20,30 @@ import static core.api.ContentAPIKt.playGlobalAudio;
 import static core.api.ContentAPIKt.stun;
 
 /**
- * Shove special handler.
+ * Handles the dragon spear special attack.
+ * @author Emperor
  */
 @Initializable
 public final class ShoveSpecialHandler extends MeleeSwingHandler implements Plugin<Object> {
 
+    /**
+     * The special energy required.
+     */
     private static final int SPECIAL_ENERGY = 25;
 
+    /**
+     * The attack animation.
+     */
     private static final Animation ANIMATION = new Animation(1064, Priority.HIGH);
 
+    /**
+     * The graphic.
+     */
     private static final Graphic GRAPHIC = new Graphic(253, 96);
 
-
+    /**
+     * The stun animation.
+     */
     private static Animation STUN_ANIM = new Animation(424);
 
     @Override
@@ -47,6 +59,7 @@ public final class ShoveSpecialHandler extends MeleeSwingHandler implements Plug
         CombatStyle.MELEE.getSwingHandler().register(5716, this);
         CombatStyle.MELEE.getSwingHandler().register(5730, this);
         CombatStyle.MELEE.getSwingHandler().register(11716, this);
+        CombatStyle.MELEE.getSwingHandler().register(14662, this);
         return this;
     }
 

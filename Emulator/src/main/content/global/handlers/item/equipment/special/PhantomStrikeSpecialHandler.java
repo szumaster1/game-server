@@ -1,7 +1,7 @@
 package content.global.handlers.item.equipment.special;
 
-import core.api.ContentAPIKt;
 import cfg.consts.Items;
+import core.api.ContentAPIKt;
 import core.game.node.entity.Entity;
 import core.game.node.entity.combat.BattleState;
 import core.game.node.entity.combat.CombatStyle;
@@ -15,10 +15,11 @@ import core.plugin.Plugin;
 import core.tools.RandomFunction;
 
 /**
- * Phantom strike special handler.
+ * Handles Morrigans javelin special attack.
  */
 @Initializable
 public final class PhantomStrikeSpecialHandler extends RangeSwingHandler implements Plugin<Object> {
+
     private static final int SPECIAL_ENERGY = 50;
 
     @Override

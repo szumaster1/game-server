@@ -16,15 +16,25 @@ import core.plugin.Plugin;
 import static core.api.ContentAPIKt.playAudio;
 
 /**
- * Rampage special handler.
+ * Handles the Rampage special attack.
+ * @author Emperor
  */
 @Initializable
 public final class RampageSpecialHandler extends MeleeSwingHandler implements Plugin<Object> {
 
+    /**
+     * The special energy required.
+     */
     private static final int SPECIAL_ENERGY = 100;
 
+    /**
+     * The attack animation.
+     */
     private static final Animation ANIMATION = new Animation(1056, Priority.HIGH);
 
+    /**
+     * The graphic.
+     */
     private static final Graphic GRAPHIC = new Graphic(246);
 
     @Override

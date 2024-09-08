@@ -17,15 +17,25 @@ import core.tools.RandomFunction;
 import static core.api.ContentAPIKt.playGlobalAudio;
 
 /**
- * Smash special handler.
+ * Handles Statius' Warhammer special attack - Smash.
+ * @author Splinter
  */
 @Initializable
 public final class SmashSpecialHandler extends MeleeSwingHandler implements Plugin<Object> {
 
+    /**
+     * The special energy required.
+     */
     private static final int SPECIAL_ENERGY = 35;
 
+    /**
+     * The attack animation.
+     */
     private static final Animation ANIMATION = new Animation(10501, Priority.HIGH);
 
+    /**
+     * The gfx
+     */
     private static final Graphic GRAPHIC = new Graphic(1840, 0, 16);
 
     @Override

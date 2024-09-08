@@ -16,15 +16,25 @@ import core.tools.RandomFunction;
 import static core.api.ContentAPIKt.playGlobalAudio;
 
 /**
- * Saradomins lightning handler.
+ * Handles the Saradomin sword special attack.
+ * @author Emperor
  */
 @Initializable
 public final class SaradominsLightningHandler extends MeleeSwingHandler implements Plugin<Object> {
 
+    /**
+     * The special energy required.
+     */
     private static final int SPECIAL_ENERGY = 100;
 
+    /**
+     * The attack animation.
+     */
     private static final Animation ANIMATION = new Animation(7072, Priority.HIGH);
 
+    /**
+     * The graphic.
+     */
     private static final Graphic GRAPHIC = new Graphic(1224);
 
     @Override

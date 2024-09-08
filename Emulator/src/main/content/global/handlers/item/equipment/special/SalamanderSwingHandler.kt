@@ -1,7 +1,7 @@
 package content.global.handlers.item.equipment.special
 
-import core.api.EquipmentSlot
 import cfg.consts.Items
+import core.api.EquipmentSlot
 import core.api.getItemFromEquipment
 import core.game.node.entity.Entity
 import core.game.node.entity.combat.BattleState
@@ -20,10 +20,11 @@ import kotlin.math.ceil
 import kotlin.math.floor
 
 /**
- * Salamander swing handler.
+ * Handles a combat swing using a salamander.
+ * @author Vexia, itsmedoggo
  */
 class SalamanderSwingHandler(private var style: CombatStyle) : CombatSwingHandler(style) {
-    override fun canSwing(entity: Entity, victim: Entity): InteractionType {
+    override fun canSwing(entity: Entity, victim: Entity): InteractionType? {
         checkStyle(entity)
         if (!isProjectileClipped(entity, victim, false)) {
             return InteractionType.NO_INTERACT
@@ -53,7 +54,7 @@ class SalamanderSwingHandler(private var style: CombatStyle) : CombatSwingHandle
         if (entity is Player) {
             state.weapon = Weapon(entity.equipment[3])
         }
-        if (state.weapon == null || !hasAmmo(entity, state)) {
+        if (state!!.weapon == null || !hasAmmo(entity, state)) {
             entity!!.properties.combatPulse.stop()
             return -1
         }
@@ -77,9 +78,7 @@ class SalamanderSwingHandler(private var style: CombatStyle) : CombatSwingHandle
     }
 
     override fun visualize(entity: Entity, victim: Entity?, state: BattleState?) {
-        entity.visualize(Animation.create(5247),
-            Graphic(952, 100)
-        )
+        entity.visualize(Animation.create(5247), Graphic(952, 100))
     }
 
     override fun visualizeImpact(entity: Entity?, victim: Entity?, state: BattleState?) {
@@ -93,6 +92,8 @@ class SalamanderSwingHandler(private var style: CombatStyle) : CombatSwingHandle
     }
 
     override fun calculateHit(entity: Entity?, victim: Entity?, modifier: Double): Int {
+        entity ?: return 0
+
         //Checking style is necessary for ::calcmaxhit to function after changing attack style but before attacking
         checkStyle(entity)
         if (style == CombatStyle.MAGIC) {
@@ -130,6 +131,10 @@ class SalamanderSwingHandler(private var style: CombatStyle) : CombatSwingHandle
         return style.swingHandler.getSetMultiplier(e, skillId)
     }
 
+    /**
+     * Sets the local style
+     * @param e The entity
+     */
     private fun checkStyle(e: Entity?) {
         val index = e!!.properties.attackStyle.style
         style = when (index) {
@@ -140,10 +145,16 @@ class SalamanderSwingHandler(private var style: CombatStyle) : CombatSwingHandle
     }
 
     companion object {
+        /**
+         * The instance for the swing handler.
+         */
+        val INSTANCE = SalamanderSwingHandler(CombatStyle.RANGE)
 
-        val INSTANCE = SalamanderSwingHandler(CombatStyle.MELEE)
-
-
+        /**
+         * Gets the id of the tar used by a salamander.
+         * @param id The salamander id.
+         * @return The tar id.
+         */
         fun getAmmoId(id: Int): Int {
             when (id) {
                 Items.SWAMP_LIZARD_10149 -> {
@@ -168,7 +179,11 @@ class SalamanderSwingHandler(private var style: CombatStyle) : CombatSwingHandle
             }
         }
 
-
+        /**
+         * Gets the magic damage bonus of a salamander.
+         * @param id The salamander id.
+         * @return The magic damage bonus.
+         */
         fun getSalamanderMagicDamageBonus(id: Int): Int {
             when (id) {
                 Items.SWAMP_LIZARD_10149 -> {
@@ -193,7 +208,12 @@ class SalamanderSwingHandler(private var style: CombatStyle) : CombatSwingHandle
             }
         }
 
-
+        /**
+         * Checks if the entity has the ammunition needed to proceed.
+         * @param e The entity.
+         * @param state The battle state.
+         * @return `True` if so.
+         */
         fun hasAmmo(e: Entity?, state: BattleState?): Boolean {
             if (e !is Player) {
                 return true
@@ -210,12 +230,17 @@ class SalamanderSwingHandler(private var style: CombatStyle) : CombatSwingHandle
             return false
         }
 
-
+        /**
+         * Uses the ammunition for the range weapon.
+         * @param e The entity.
+         * @param state The battle state.
+         * @param location The drop location.
+         */
         fun useAmmo(e: Entity, state: BattleState) {
             if (e !is Player) {
                 return
             }
-            e.equipment.remove(Item(getAmmoId(state.weapon.id), 1))
+            e.equipment.remove(Item(getAmmoId(state!!.weapon.id), 1))
         }
     }
 

@@ -1,7 +1,7 @@
 package content.global.handlers.item.equipment.special;
 
-import content.global.skill.combat.summoning.familiar.Familiar;
 import cfg.consts.Sounds;
+import content.global.skill.combat.summoning.familiar.Familiar;
 import core.game.node.entity.Entity;
 import core.game.node.entity.combat.BattleState;
 import core.game.node.entity.combat.CombatStyle;
@@ -24,15 +24,25 @@ import java.util.List;
 import static core.api.ContentAPIKt.playGlobalAudio;
 
 /**
- * Sweep special handler.
+ * Handles the Dragon halberd special attack.
+ * @author Emperor
  */
 @Initializable
 public final class SweepSpecialHandler extends MeleeSwingHandler implements Plugin<Object> {
 
+    /**
+     * The special energy required.
+     */
     private static final int SPECIAL_ENERGY = 30;
 
+    /**
+     * The attack animation.
+     */
     private static final Animation ANIMATION = new Animation(1203, Priority.HIGH);
 
+    /**
+     * The graphic.
+     */
     private static final Graphic GRAPHIC = new Graphic(282, 96);
 
     @Override
@@ -71,6 +81,14 @@ public final class SweepSpecialHandler extends MeleeSwingHandler implements Plug
         return 1;
     }
 
+    /**
+     * Gets the targets.
+     *
+     * @param entity The entity.
+     * @param victim The victim.
+     * @param state  The battle state.
+     * @return The targets array.
+     */
     private BattleState[] getTargets(Entity entity, Entity victim, BattleState state) {
         if (!entity.getProperties().isMultiZone() || !victim.getProperties().isMultiZone()) {
             return new BattleState[]{state};

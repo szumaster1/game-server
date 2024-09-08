@@ -15,13 +15,20 @@ import core.tools.RandomFunction;
 import static core.api.ContentAPIKt.playGlobalAudio;
 
 /**
- * Powershot special handler.
+ * Handles the Magic longbow special attack "Powershot".
+ * @author Emperor
  */
 @Initializable
 public final class PowershotSpecialHandler extends RangeSwingHandler implements Plugin<Object> {
 
+    /**
+     * The special energy required.
+     */
     private static final int SPECIAL_ENERGY = 35;
 
+    /**
+     * The graphic.
+     */
     private static final Graphic GRAPHIC = new Graphic(250, 96);
 
     @Override

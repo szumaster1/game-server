@@ -21,15 +21,25 @@ import java.util.List;
 import static core.api.ContentAPIKt.playGlobalAudio;
 
 /**
- * Spear wall special handler.
+ * Handles Vesta's Spear special attack - Spear Wall.
+ * @author Splinter
  */
 @Initializable
 public final class SpearWallSpecialHandler extends MeleeSwingHandler implements Plugin<Object> {
 
+    /**
+     * The special energy required.
+     */
     private static final int SPECIAL_ENERGY = 50;
 
+    /**
+     * The attack animation.
+     */
     private static final Animation ANIMATION = new Animation(10499, Priority.HIGH);
 
+    /**
+     * The graphic.
+     */
     private static final Graphic GRAPHIC = new Graphic(1835);
 
     @Override

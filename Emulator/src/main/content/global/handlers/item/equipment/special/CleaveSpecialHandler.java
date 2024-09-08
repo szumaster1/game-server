@@ -16,15 +16,25 @@ import core.tools.RandomFunction;
 import static core.api.ContentAPIKt.playGlobalAudio;
 
 /**
- * Cleave special handler.
+ * Represents the cleave special handler.
+ * @author Emperor
  */
 @Initializable
 public final class CleaveSpecialHandler extends MeleeSwingHandler implements Plugin<Object> {
 
+    /**
+     * The special energy required.
+     */
     private static final int SPECIAL_ENERGY = 25;
 
+    /**
+     * The attack animation.
+     */
     private static final Animation ANIMATION = new Animation(1058, Priority.HIGH);
 
+    /**
+     * The graphic.
+     */
     private static final Graphic GRAPHIC = new Graphic(248, 96);
 
     @Override

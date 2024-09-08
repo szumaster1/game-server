@@ -17,15 +17,25 @@ import core.plugin.Plugin;
 import static core.api.ContentAPIKt.*;
 
 /**
- * Excalibur special handler.
+ * Handles the excalibur special attack.
+ * @author Emperor
  */
 @Initializable
 public final class ExcaliburSpecialHandler extends MeleeSwingHandler implements Plugin<Object> {
 
+    /**
+     * The special energy required.
+     */
     private static final int SPECIAL_ENERGY = 100;
 
+    /**
+     * The attack animation.
+     */
     private static final Animation ANIMATION = new Animation(1057, Priority.HIGH);
 
+    /**
+     * The graphic.
+     */
     private static final Graphic GRAPHIC = new Graphic(247);
 
     @Override
@@ -60,8 +70,8 @@ public final class ExcaliburSpecialHandler extends MeleeSwingHandler implements 
             case 14632: // enhanced excalibur
                 registerTimer(p, spawnTimer("healovertime", 3, 20, 4));
                 p.getSkills().updateLevel(Skills.DEFENCE,
-                        (int) (p.getSkills().getStaticLevel(Skills.DEFENCE) * 0.15),
-                        (int) (p.getSkills().getStaticLevel(Skills.DEFENCE) * 1.15));
+                    (int) (p.getSkills().getStaticLevel(Skills.DEFENCE) * 0.15),
+                    (int) (p.getSkills().getStaticLevel(Skills.DEFENCE) * 1.15));
         }
         return -1;
     }

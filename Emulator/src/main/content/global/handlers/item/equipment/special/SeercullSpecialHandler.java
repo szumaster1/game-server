@@ -16,13 +16,20 @@ import core.tools.RandomFunction;
 import static core.api.ContentAPIKt.playGlobalAudio;
 
 /**
- * Seercull special handler.
+ * Represents the Seercull's special attack which lowers the opponent's magic level.
+ * @author Splinter
  */
 @Initializable
 public final class SeercullSpecialHandler extends RangeSwingHandler implements Plugin<Object> {
 
+    /**
+     * The special energy required.
+     */
     private static final int SPECIAL_ENERGY = 100;
 
+    /**
+     * The attack animation.
+     */
     private static final Graphic DRAWBACK_GFX = new Graphic(472, 96);
 
     @Override

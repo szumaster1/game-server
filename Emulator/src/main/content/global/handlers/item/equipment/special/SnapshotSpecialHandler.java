@@ -19,15 +19,25 @@ import core.tools.RandomFunction;
 import static core.api.ContentAPIKt.playGlobalAudio;
 
 /**
- * Snapshot special handler.
+ * Handles the magic shortbow special attack "Snapshot".
+ * @author Emperor
  */
 @Initializable
 public final class SnapshotSpecialHandler extends RangeSwingHandler implements Plugin<Object> {
 
+    /**
+     * The special energy required.
+     */
     private static final int SPECIAL_ENERGY = 55;
 
+    /**
+     * The attack animation.
+     */
     private static final Animation ANIMATION = new Animation(1074, Priority.HIGH);
 
+    /**
+     * The graphic.
+     */
     private static final Graphic GRAPHIC = new Graphic(249, 96);
 
     @Override

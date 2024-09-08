@@ -17,15 +17,25 @@ import core.tools.RandomFunction;
 import static core.api.ContentAPIKt.playGlobalAudio;
 
 /**
- * Impale special handler.
+ * Handles the Rune claws special attack "Impale".
+ * @author Emperor
  */
 @Initializable
 public final class ImpaleSpecialHandler extends MeleeSwingHandler implements Plugin<Object> {
 
+    /**
+     * The special energy required.
+     */
     private static final int SPECIAL_ENERGY = 25;
 
+    /**
+     * The attack animation.
+     */
     private static final Animation ANIMATION = new Animation(923, Priority.HIGH);
 
+    /**
+     * The graphic.
+     */
     private static final Graphic GRAPHIC = new Graphic(274, 96);
 
     @Override

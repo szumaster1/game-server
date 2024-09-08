@@ -16,15 +16,25 @@ import core.tools.RandomFunction;
 import static core.api.ContentAPIKt.*;
 
 /**
- * Ice cleave special handler.
+ * Handles the Ice cleave special attack.
+ * @author Emperor
  */
 @Initializable
 public final class IceCleaveSpecialHandler extends MeleeSwingHandler implements Plugin<Object> {
 
+    /**
+     * The special energy required.
+     */
     private static final int SPECIAL_ENERGY = 60;
 
+    /**
+     * The attack animation.
+     */
     private static final Animation ANIMATION = new Animation(7070, Priority.HIGH);
 
+    /**
+     * The graphic.
+     */
     private static final Graphic GRAPHIC = new Graphic(1221);
 
     @Override

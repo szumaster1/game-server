@@ -1,7 +1,7 @@
 package content.global.handlers.item.equipment.special;
 
-import core.api.ContentAPIKt;
 import cfg.consts.Items;
+import core.api.ContentAPIKt;
 import core.game.node.entity.Entity;
 import core.game.node.entity.combat.BattleState;
 import core.game.node.entity.combat.CombatStyle;
@@ -14,7 +14,7 @@ import core.plugin.Plugin;
 import core.tools.RandomFunction;
 
 /**
- * Hamstring special handler.
+ * Handles Morrigans throwing axe special attack.
  */
 @Initializable
 public final class HamstringSpecialHandler extends RangeSwingHandler implements Plugin<Object> {

@@ -16,15 +16,25 @@ import core.tools.RandomFunction;
 import static core.api.ContentAPIKt.playGlobalAudio;
 
 /**
- * Slice and dice special handler.
+ * Handles the Dragon claws special attack "Slice and Dice".
+ * @author Emperor
  */
 @Initializable
 public final class SliceAndDiceSpecialHandler extends MeleeSwingHandler implements Plugin<Object> {
 
+    /**
+     * The special energy required.
+     */
     private static final int SPECIAL_ENERGY = 50;
 
+    /**
+     * The attack animation.
+     */
     private static final Animation ANIMATION = new Animation(10961, Priority.HIGH);
 
+    /**
+     * The graphic.
+     */
     private static final Graphic GRAPHIC = new Graphic(1950);
 
     @Override
@@ -77,6 +87,14 @@ public final class SliceAndDiceSpecialHandler extends MeleeSwingHandler implemen
         return 1;
     }
 
+    /**
+     * Gets the current hit.
+     *
+     * @param entity  The attacking entity.
+     * @param victim  The victim.
+     * @param maximum The maximum hit.
+     * @return The hit.
+     */
     private int getHit(Entity entity, Entity victim, int maximum) {
         if (isAccurateImpact(entity, victim, CombatStyle.MELEE, 1.25, 0.98)) {
             return RandomFunction.random(maximum);

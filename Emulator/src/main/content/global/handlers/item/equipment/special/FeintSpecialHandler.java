@@ -15,13 +15,20 @@ import core.tools.RandomFunction;
 import static core.api.ContentAPIKt.playGlobalAudio;
 
 /**
- * Feint special handler.
+ * Handles Vesta's Longsword special attack, feint.
+ * @author Splinter
  */
 @Initializable
 public final class FeintSpecialHandler extends MeleeSwingHandler implements Plugin<Object> {
 
+    /**
+     * The special energy required.
+     */
     private static final int SPECIAL_ENERGY = 25;
 
+    /**
+     * The attack animation.
+     */
     private static final Animation ANIMATION = new Animation(10502, Priority.HIGH);
 
 

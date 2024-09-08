@@ -16,15 +16,25 @@ import core.tools.RandomFunction;
 import static core.api.ContentAPIKt.playGlobalAudio;
 
 /**
- * Healing blade special handler.
+ * Handles the healing blade special attack.
+ * @author Emperor
  */
 @Initializable
 public final class HealingBladeSpecialHandler extends MeleeSwingHandler implements Plugin<Object> {
 
+    /**
+     * The special energy required.
+     */
     private static final int SPECIAL_ENERGY = 50;
 
+    /**
+     * The attack animation.
+     */
     private static final Animation ANIMATION = new Animation(7071, Priority.HIGH);
 
+    /**
+     * The graphic.
+     */
     private static final Graphic GRAPHIC = new Graphic(1220);
 
     @Override

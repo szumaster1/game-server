@@ -17,13 +17,21 @@ import core.tools.RandomFunction;
 import static core.api.ContentAPIKt.playGlobalAudio;
 
 /**
- * Snipe special handler.
+ * Represents the Dorgeshuun crossbow's special attack - snipe.
+ * @author Splinter
  */
 @Initializable
 public final class SnipeSpecialHandler extends RangeSwingHandler implements Plugin<Object> {
 
+    /**
+     * The special energy required.
+     */
     private static final int SPECIAL_ENERGY = 75;
 
+    /**
+     * The attack animation. TODO: This is techically the wrong animation. The
+     * real one is incredibly similiar but I can't find it anywhere.
+     */
     private static final Animation ANIMATION = new Animation(4230, Priority.HIGH);
 
     @Override

@@ -17,15 +17,25 @@ import core.tools.RandomFunction;
 import static core.api.ContentAPIKt.playGlobalAudio;
 
 /**
- * Sever special handler.
+ * Handles the Sever special attack.
+ * @author Emperor
  */
 @Initializable
 public final class SeverSpecialHandler extends MeleeSwingHandler implements Plugin<Object> {
 
+    /**
+     * The special energy required.
+     */
     private static final int SPECIAL_ENERGY = 55;
 
+    /**
+     * The attack animation.
+     */
     private static final Animation ANIMATION = new Animation(1872, Priority.HIGH);
 
+    /**
+     * The graphic.
+     */
     private static final Graphic GRAPHIC = new Graphic(347, 96);
 
     @Override
