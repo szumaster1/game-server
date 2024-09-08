@@ -26,42 +26,48 @@ enum class GodBook(
      * Holy Book.
      */
     HOLY_BOOK(
-        "Holy Book of Saradomin",
-        Item(Items.HOLY_BOOK_3840),
-        Item(Items.DAMAGED_BOOK_3839),
-        arrayOf(Item(Items.HOLY_SYMBOL_1718)),
-        Item(Items.SARADOMIN_PAGE_1_3827),
-        Item(Items.SARADOMIN_PAGE_2_3828),
-        Item(Items.SARADOMIN_PAGE_3_3829),
-        Item(Items.SARADOMIN_PAGE_4_3830)
+        bookName = "Holy Book of Saradomin",
+        book = Item(Items.HOLY_BOOK_3840),
+        damagedBook = Item(Items.DAMAGED_BOOK_3839),
+        blessItem = arrayOf(Item(Items.HOLY_SYMBOL_1718)),
+        pages = arrayOf(
+            Item(Items.SARADOMIN_PAGE_1_3827),
+            Item(Items.SARADOMIN_PAGE_2_3828),
+            Item(Items.SARADOMIN_PAGE_3_3829),
+            Item(Items.SARADOMIN_PAGE_4_3830)
+        )
     ),
 
     /**
      * Book of balance.
      */
     BOOK_OF_BALANCE(
-        "Guthix's Book of Balance",
-        Item(Items.BOOK_OF_BALANCE_3844),
-        Item(Items.DAMAGED_BOOK_3843),
-        arrayOf(Item(Items.HOLY_SYMBOL_1718), Item(Items.UNHOLY_SYMBOL_1724)),
-        Item(Items.GUTHIX_PAGE_1_3835),
-        Item(Items.GUTHIX_PAGE_2_3836),
-        Item(Items.GUTHIX_PAGE_3_3837),
-        Item(Items.GUTHIX_PAGE_4_3838)
+        bookName = "Guthix's Book of Balance",
+        book = Item(Items.BOOK_OF_BALANCE_3844),
+        damagedBook = Item(Items.DAMAGED_BOOK_3843),
+        blessItem = arrayOf(Item(Items.HOLY_SYMBOL_1718), Item(Items.UNHOLY_SYMBOL_1724)),
+        pages = arrayOf(
+            Item(Items.GUTHIX_PAGE_1_3835),
+            Item(Items.GUTHIX_PAGE_2_3836),
+            Item(Items.GUTHIX_PAGE_3_3837),
+            Item(Items.GUTHIX_PAGE_4_3838)
+        )
     ),
 
     /**
      * Unholy book.
      */
     UNHOLY_BOOK(
-        "Unholy Book of Zamorak",
-        Item(Items.UNHOLY_BOOK_3842),
-        Item(Items.DAMAGED_BOOK_3841),
-        arrayOf(Item(Items.UNHOLY_SYMBOL_1724)),
-        Item(Items.ZAMORAK_PAGE_1_3831),
-        Item(Items.ZAMORAK_PAGE_2_3832),
-        Item(Items.ZAMORAK_PAGE_3_3833),
-        Item(Items.ZAMORAK_PAGE_4_3834)
+        bookName = "Unholy Book of Zamorak",
+        book = Item(Items.UNHOLY_BOOK_3842),
+        damagedBook = Item(Items.DAMAGED_BOOK_3841),
+        blessItem = arrayOf(Item(Items.UNHOLY_SYMBOL_1724)),
+        pages = arrayOf(
+            Item(Items.ZAMORAK_PAGE_1_3831),
+            Item(Items.ZAMORAK_PAGE_2_3832),
+            Item(Items.ZAMORAK_PAGE_3_3833),
+            Item(Items.ZAMORAK_PAGE_4_3834)
+        )
     );
 
     val pages: Array<Item> = pages as Array<Item>

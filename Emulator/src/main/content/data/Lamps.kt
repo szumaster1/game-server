@@ -13,189 +13,331 @@ import core.game.node.item.Item
  */
 enum class Lamps(val item: Int, val experience: Int, val levelRequired: Int = 0) {
     /**
-     * Genie lamp.
+     * The genie reward lamp.
      */
-    GENIE_LAMP(item = Items.LAMP_2528, experience = 10),
+    GENIE_LAMP(
+        item = Items.LAMP_2528,
+        experience = 10
+    ),
 
     /**
-     * Stronghold lamp.
+     * The stronghold reward lamp.
      */
-    STRONGHOLD_LAMP(item = Items.ANTIQUE_LAMP_4447, experience = 500),
+    STRONGHOLD_LAMP(
+        item = Items.ANTIQUE_LAMP_4447,
+        experience = 500
+    ),
 
     /**
-     * Blessed lamp.
+     * The blessed reward lamp.
      */
-    BLESSED_LAMP(item = Items.BLESSED_LAMP_10889, experience = 5000, levelRequired = 30),
+    BLESSED_LAMP(
+        item = Items.BLESSED_LAMP_10889,
+        experience = 5000,
+        levelRequired = 30
+    ),
 
     /**
-     * Unassigned lamp 0.
+     * The unassigned lamp 0.
      */
-    UNASSIGNED_0(item = Items.ANTIQUE_LAMP_11189, experience = 1),
+    UNASSIGNED_0(
+        item = Items.ANTIQUE_LAMP_11189,
+        experience = 1
+    ),
 
     /**
-     * Unassigned lamp 1.
+     * The unassigned lamp 1.
      */
-    UNASSIGNED_1(item = Items.ANTIQUE_LAMP_12627, experience = 1),
+    UNASSIGNED_1(
+        item = Items.ANTIQUE_LAMP_12627,
+        experience = 1
+    ),
 
     /**
-     * Combat lamp.
+     * The combat reward lamp.
      */
-    COMBAT_LAMP(item = Items.COMBAT_LAMP_10586, experience = 7000),
+    COMBAT_LAMP(
+        item = Items.COMBAT_LAMP_10586,
+        experience = 7000
+    ),
 
     /**
-     * Dreamy lamp.
+     * The dreamy reward lamp.
      */
-    DREAMY_LAMP(item = Items.DREAMY_LAMP_11157, experience = 15000),
+    DREAMY_LAMP(
+        item = Items.DREAMY_LAMP_11157,
+        experience = 15000
+    ),
 
     /**
-     * Mysterious lamp.
+     * The mysterious reward lamp.
      */
-    MYSTERIOUS_LAMP(Items.MYSTERIOUS_LAMP_13227, experience = 10000, levelRequired = 30),
+    MYSTERIOUS_LAMP(
+        Items.MYSTERIOUS_LAMP_13227,
+        experience = 10000,
+        levelRequired = 30
+    ),
 
     /**
-     * Quest reward lamp 1.
+     * The quest reward lamp (1).
      */
-    QUEST_REWARD_LAMP_1(item = Items.ANTIQUE_LAMP_7498, experience = 2500, levelRequired = 30),
+    QUEST_REWARD_LAMP_1(
+        item = Items.ANTIQUE_LAMP_7498,
+        experience = 2500,
+        levelRequired = 30
+    ),
 
     /**
-     * Quest reward lamp 2.
+     * The quest reward lamp (2).
      */
-    QUEST_REWARD_LAMP_2(item = Items.ANTIQUE_LAMP_13446, experience = 600, levelRequired = 1),
+    QUEST_REWARD_LAMP_2(
+        item = Items.ANTIQUE_LAMP_13446,
+        experience = 600,
+        levelRequired = 1
+    ),
 
     /**
-     * Quest reward lamp 3.
+     * The quest reward lamp (3).
      */
-    QUEST_REWARD_LAMP_3(item = Items.ANTIQUE_LAMP_13447, experience = 5000, levelRequired = 30),
+    QUEST_REWARD_LAMP_3(
+        item = Items.ANTIQUE_LAMP_13447,
+        experience = 5000,
+        levelRequired = 30
+    ),
 
     /**
-     * Quest reward lamp 4.
+     * The quest reward lamp (4).
      */
-    QUEST_REWARD_LAMP_4(item = Items.ANTIQUE_LAMP_13448, experience = 7000, levelRequired = 50),
+    QUEST_REWARD_LAMP_4(
+        item = Items.ANTIQUE_LAMP_13448,
+        experience = 7000,
+        levelRequired = 50
+    ),
 
     /**
-     * Quest reward lamp 5.
+     * The quest reward lamp (5).
      */
-    QUEST_REWARD_LAMP_5(item = Items.ANTIQUE_LAMP_13463, experience = 20000, 50),
+    QUEST_REWARD_LAMP_5(
+        item = Items.ANTIQUE_LAMP_13463,
+        experience = 20000,
+        50
+    ),
 
     /**
-     * Karamja Achievement lamp 1.
+     * The Karamja achievement lamp reward (easy).
      */
-    K_ACHIEVEMENT_1(item = Items.ANTIQUE_LAMP_11137, experience = 1000, levelRequired = 30),
+    K_ACHIEVEMENT_1(
+        item = Items.ANTIQUE_LAMP_11137,
+        experience = 1000,
+        levelRequired = 30
+    ),
 
     /**
-     * Karamja Achievement lamp 2.
+     * The Karamja achievement lamp reward (medium).
      */
-    K_ACHIEVEMENT_2(item = Items.ANTIQUE_LAMP_11139, experience = 5000, levelRequired = 40),
+    K_ACHIEVEMENT_2(
+        item = Items.ANTIQUE_LAMP_11139,
+        experience = 5000,
+        levelRequired = 40
+    ),
 
     /**
-     * Karamja Achievement lamp 3.
+     * The Karamja achievement lamp reward (hard).
      */
-    K_ACHIEVEMENT_3(item = Items.ANTIQUE_LAMP_11141, experience = 10000, levelRequired = 50),
+    K_ACHIEVEMENT_3(
+        item = Items.ANTIQUE_LAMP_11141,
+        experience = 10000,
+        levelRequired = 50
+    ),
 
     /**
-     * Varrock Achievement lamp 1.
+     * The Varrock achievement lamp reward (easy).
      */
-    V_ACHIEVEMENT_1(item = Items.ANTIQUE_LAMP_11753, experience = 1000, levelRequired = 30),
+    V_ACHIEVEMENT_1(
+        item = Items.ANTIQUE_LAMP_11753,
+        experience = 1000,
+        levelRequired = 30
+    ),
 
     /**
-     * Varrock Achievement lamp 2.
+     * The Varrock achievement lamp reward (medium).
      */
-    V_ACHIEVEMENT_2(item = Items.ANTIQUE_LAMP_11754, experience = 5000, levelRequired = 40),
+    V_ACHIEVEMENT_2(
+        item = Items.ANTIQUE_LAMP_11754,
+        experience = 5000,
+        levelRequired = 40
+    ),
 
     /**
-     * Varrock Achievement lamp 3.
+     * The Varrock achievement lamp reward (hard).
      */
-    V_ACHIEVEMENT_3(item = Items.ANTIQUE_LAMP_11755, experience = 10000, levelRequired = 50),
+    V_ACHIEVEMENT_3(
+        item = Items.ANTIQUE_LAMP_11755,
+        experience = 10000,
+        levelRequired = 50
+    ),
 
     /**
-     * Lumbridge Achievement lamp 1.
+     * The Lumbridge achievement lamp reward (easy).
      */
-    L_ACHIEVEMENT_1(item = Items.ANTIQUE_LAMP_11185, experience = 500, levelRequired = 1),
+    L_ACHIEVEMENT_1(
+        item = Items.ANTIQUE_LAMP_11185,
+        experience = 500,
+        levelRequired = 1
+    ),
 
     /**
-     * Lumbridge Achievement lamp 2.
+     * The Lumbridge achievement lamp reward (medium).
      */
-    L_ACHIEVEMENT_2(item = Items.ANTIQUE_LAMP_11186, experience = 1000, levelRequired = 30),
+    L_ACHIEVEMENT_2(
+        item = Items.ANTIQUE_LAMP_11186,
+        experience = 1000,
+        levelRequired = 30
+    ),
 
     /**
-     * Lumbridge Achievement diary lamp 3.
+     * The Lumbridge achievement lamp reward (hard).
      */
-    L_ACHIEVEMENT_3(item = Items.ANTIQUE_LAMP_11187, experience = 1500, levelRequired = 35),
+    L_ACHIEVEMENT_3(
+        item = Items.ANTIQUE_LAMP_11187,
+        experience = 1500,
+        levelRequired = 35
+    ),
 
     /**
-     * Falador Achievement 1 lamp.
+     * The Falador achievement lamp reward (easy).
      */
-    FALLY_ACHIEVEMENT_1(item = Items.ANTIQUE_LAMP_14580, experience = 1000, levelRequired = 30),
+    FALLY_ACHIEVEMENT_1(
+        item = Items.ANTIQUE_LAMP_14580,
+        experience = 1000,
+        levelRequired = 30
+    ),
 
     /**
-     * Falador Achievement 2 lamp.
+     * The Falador achievement lamp reward (medium).
      */
-    FALLY_ACHIEVEMENT_2(item = Items.ANTIQUE_LAMP_14581, experience = 5000, levelRequired = 40),
+    FALLY_ACHIEVEMENT_2(
+        item = Items.ANTIQUE_LAMP_14581,
+        experience = 5000,
+        levelRequired = 40
+    ),
 
     /**
-     * Falador Achievement 3 lamp.
+     * The Falador achievement lamp reward (hard).
      */
-    FALLY_ACHIEVEMENT_3(item = Items.ANTIQUE_LAMP_14582, experience = 10000, levelRequired = 50),
+    FALLY_ACHIEVEMENT_3(
+        item = Items.ANTIQUE_LAMP_14582,
+        experience = 10000,
+        levelRequired = 50
+    ),
 
     /**
-     * Fremennik Province Achievement 1 lamp.
+     * The Fremennik Province achievement lamp reward (easy).
      */
-    FREM_ACHIEVEMENT_1(item = Items.ANTIQUE_LAMP_14574, experience = 5000, levelRequired = 30),
+    FREM_ACHIEVEMENT_1(
+        item = Items.ANTIQUE_LAMP_14574,
+        experience = 5000,
+        levelRequired = 30
+    ),
 
     /**
-     * Fremennik Province Achievement 2 lamp.
+     * The Fremennik Province achievement lamp reward (medium).
      */
-    FREM_ACHIEVEMENT_2(item = Items.ANTIQUE_LAMP_14575, experience = 10000, levelRequired = 40),
+    FREM_ACHIEVEMENT_2(
+        item = Items.ANTIQUE_LAMP_14575,
+        experience = 10000,
+        levelRequired = 40
+    ),
 
     /**
-     * Fremennik Province Achievement 3 lamp.
+     * The Fremennik Province achievement lamp reward (hard).
      */
-    FREM_ACHIEVEMENT_3(item = Items.ANTIQUE_LAMP_14576, experience = 15000, levelRequired = 50),
+    FREM_ACHIEVEMENT_3(
+        item = Items.ANTIQUE_LAMP_14576,
+        experience = 15000,
+        levelRequired = 50
+    ),
 
     /**
-     * Seers Achievement 1.
+     * The Seers achievement lamp reward (easy).
      */
-    SEERS_ACHIEVEMENT_1(item = Items.ANTIQUE_LAMP_14633, experience = 1000, levelRequired = 30),
+    SEERS_ACHIEVEMENT_1(
+        item = Items.ANTIQUE_LAMP_14633,
+        experience = 1000,
+        levelRequired = 30
+    ),
 
     /**
-     * Seers Achievement 2.
+     * The Seers achievement lamp reward (medium).
      */
-    SEERS_ACHIEVEMENT_2(item = Items.ANTIQUE_LAMP_14634, experience = 5000, levelRequired = 40),
+    SEERS_ACHIEVEMENT_2(
+        item = Items.ANTIQUE_LAMP_14634,
+        experience = 5000,
+        levelRequired = 40
+    ),
 
     /**
-     * Seers Achievement 3.
+     * The Seers achievement lamp reward (hard).
      */
-    SEERS_ACHIEVEMENT_3(item = Items.ANTIQUE_LAMP_14635, experience = 10000, levelRequired = 50),
+    SEERS_ACHIEVEMENT_3(
+        item = Items.ANTIQUE_LAMP_14635,
+        experience = 10000,
+        levelRequired = 50
+    ),
 
     /**
-     * Exp Book 3.
+     * The exp book (3).
      */
-    EXP_BOOK_3(item = Items.TOME_OF_XP_3_9656, experience = 2000, levelRequired = 30),
+    EXP_BOOK_3(
+        item = Items.TOME_OF_XP_3_9656,
+        experience = 2000,
+        levelRequired = 30
+    ),
 
     /**
-     * Exp Book 2.
+     * The exp book (2).
      */
-    EXP_BOOK_2(item = Items.TOME_OF_XP_2_9657, experience = 2000, levelRequired = 30),
+    EXP_BOOK_2(
+        item = Items.TOME_OF_XP_2_9657,
+        experience = 2000,
+        levelRequired = 30
+    ),
 
     /**
-     * Exp Book 1.
+     * The exp book (1).
      */
-    EXP_BOOK_1(item = Items.TOME_OF_XP_1_9658, experience = 2000, levelRequired = 30),
+    EXP_BOOK_1(
+        item = Items.TOME_OF_XP_1_9658,
+        experience = 2000,
+        levelRequired = 30
+    ),
 
     /**
-     * Exp Book 2nd 3.
+     * The exp book 2nd (3).
      */
-    EXP_BOOK_2ND_3(item = Items.TOME_OF_XP_2ND_ED_3_13160, experience = 2500, levelRequired = 35),
+    EXP_BOOK_2ND_3(
+        item = Items.TOME_OF_XP_2ND_ED_3_13160,
+        experience = 2500,
+        levelRequired = 35
+    ),
 
     /**
-     * Exp Book 2nd 2.
+     * The exp book 2nd (2).
      */
-    EXP_BOOK_2ND_2(item = Items.TOME_OF_XP_2ND_ED_2_13161, experience = 2500, levelRequired = 35),
+    EXP_BOOK_2ND_2(
+        item = Items.TOME_OF_XP_2ND_ED_2_13161,
+        experience = 2500,
+        levelRequired = 35
+    ),
 
     /**
-     * Exp Book 2nd 1.
+     * The exp book 2nd (1).
      */
-    EXP_BOOK_2ND_1(item = Items.TOME_OF_XP_2ND_ED_1_13162, experience = 2500, levelRequired = 35);
+    EXP_BOOK_2ND_1(
+        item = Items.TOME_OF_XP_2ND_ED_1_13162,
+        experience = 2500,
+        levelRequired = 35
+    );
 
     companion object {
         /**

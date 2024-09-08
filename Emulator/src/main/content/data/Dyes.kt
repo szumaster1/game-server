@@ -13,42 +13,42 @@ enum class Dyes(val item: Item) {
     /**
      * Black.
      */
-    BLACK(Item(Items.BLACK_MUSHROOM_INK_4622)),
+    BLACK(item = Item(Items.BLACK_MUSHROOM_INK_4622)),
 
     /**
      * Red.
      */
-    RED(Item(Items.RED_DYE_1763)),
+    RED(item = Item(Items.RED_DYE_1763)),
 
     /**
      * Yellow.
      */
-    YELLOW(Item(Items.YELLOW_DYE_1765)),
+    YELLOW(item = Item(Items.YELLOW_DYE_1765)),
 
     /**
      * Blue.
      */
-    BLUE(Item(Items.BLUE_DYE_1767)),
+    BLUE(item = Item(Items.BLUE_DYE_1767)),
 
     /**
      * Orange.
      */
-    ORANGE(Item(Items.ORANGE_DYE_1769)),
+    ORANGE(item = Item(Items.ORANGE_DYE_1769)),
 
     /**
      * Green.
      */
-    GREEN(Item(Items.GREEN_DYE_1771)),
+    GREEN(item = Item(Items.GREEN_DYE_1771)),
 
     /**
      * Purple.
      */
-    PURPLE(Item(Items.PURPLE_DYE_1773)),
+    PURPLE(item = Item(Items.PURPLE_DYE_1773)),
 
     /**
      * Pink.
      */
-    PINK(Item(Items.PINK_DYE_6955));
+    PINK(item = Item(Items.PINK_DYE_6955));
 
     companion object {
         /**
