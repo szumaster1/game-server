@@ -26,14 +26,8 @@ class GripNPC : NPCBehavior(NPCs.GRIP_792) {
             openDialogue(attacker, object : DialogueFile() {
                 override fun handle(componentID: Int, buttonID: Int) {
                     when (stage) {
-                        START_DIALOGUE -> sendPlayerDialogue(
-                            attacker,
-                            "I can't attack the head guard here! There are too many witnesses around to see me do it! I'd have the whole of Brimhaven after me! Besides, if he dies I want the promotion!"
-                        ).also { stage++ }
-
-                        1 -> sendDialogueLines(attacker, "Perhaps you need another player's help...?").also {
-                            stage = END_DIALOGUE
-                        }
+                        START_DIALOGUE -> sendPlayerDialogue(attacker, "I can't attack the head guard here! There are too many witnesses around to see me do it! I'd have the whole of Brimhaven after me! Besides, if he dies I want the promotion!").also { stage++ }
+                        1 -> sendDialogueLines(attacker, "Perhaps you need another player's help...?").also { stage = END_DIALOGUE }
                     }
                 }
             })

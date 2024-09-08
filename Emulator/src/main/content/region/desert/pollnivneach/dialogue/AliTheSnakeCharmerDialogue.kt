@@ -26,7 +26,7 @@ class AliTheSnakeCharmerDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun handle(interfaceId: Int, buttonId: Int): Boolean {
         when (stage) {
-            0 -> sendDialogue("The snake charmer fails to acknowledge you,", "he seems too deep into the music to notice you.").also {stage = END_DIALOGUE }
+            0 -> sendDialogue("The snake charmer fails to acknowledge you,", "he seems too deep into the music to notice you.").also { stage = END_DIALOGUE }
             5 -> sendDialogue("The snake charmer snaps out of his trance", "and directs his full attention to you.").also { stage++ }
             6 -> player(FacialExpression.JOLLY, "Wow a snake charmer. Can I have a go? Please?").also { stage++ }
             7 -> {

@@ -17,8 +17,8 @@ class DrunkenAliDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any?): Boolean {
         npc = args[0] as NPC
-        if(!isQuestComplete(player, "The Feud")){
-            npcl(FacialExpression.DRUNK,"Ahh, a kind stranger. Get this old man another drink so that he may wet his throat and talk to you.").also { stage = END_DIALOGUE }
+        if (!isQuestComplete(player, "The Feud")) {
+            npcl(FacialExpression.DRUNK, "Ahh, a kind stranger. Get this old man another drink so that he may wet his throat and talk to you.").also { stage = END_DIALOGUE }
         } else {
             npcl(FacialExpression.DRUNK, "What were we talking about again? Yes yes, when I was a boy..... no that's not it.").also { stage = END_DIALOGUE }
         }

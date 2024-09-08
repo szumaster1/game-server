@@ -1,10 +1,10 @@
 package content.region.misc.ancient
 
-import core.api.*
 import cfg.consts.Animations
 import cfg.consts.Graphics
 import cfg.consts.Items
 import cfg.consts.Scenery
+import core.api.*
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.interaction.QueueStrength
@@ -43,47 +43,38 @@ class DragonforgeListeners : InteractionListener {
          * Handling the Dragonkin anvil interactions.
          */
 
-        onUseWith(IntType.SCENERY,
-            content.region.misc.ancient.DragonforgeListeners.Companion.DRAGON_ANVIL, *content.region.misc.ancient.DragonforgeListeners.Companion.RUINED_PIECES
-        ) { player, _, _ ->
+        onUseWith(IntType.SCENERY, DRAGON_ANVIL, *RUINED_PIECES) { player, _, _ ->
             if (!hasRequirement(player, "While Guthix Sleeps")) return@onUseWith false
             if (getStatLevel(player, Skills.SMITHING) < 92) {
                 sendMessage(player, "You need at least 92 smithing level to do this.")
                 return@onUseWith false
             }
 
-            if (!player.inventory.containsItem(content.region.misc.ancient.DragonforgeListeners.Companion.FUSION_HAMMER)) {
+            if (!player.inventory.containsItem(FUSION_HAMMER)) {
                 sendDialogue(player, "You need a hammer to work the metal with.")
                 return@onUseWith false
             }
 
-            if (!anyInInventory(player, *content.region.misc.ancient.DragonforgeListeners.Companion.RUINED_PIECES)) {
+            if (!anyInInventory(player, *RUINED_PIECES)) {
                 sendDialogue(player, "you do not have the required items.")
                 return@onUseWith false
             }
 
             lock(player, 1000)
             lockInteractions(player, 1000)
-
             queueScript(player, 1, QueueStrength.SOFT) { stage: Int ->
                 when (stage) {
                     0 -> {
                         sendMessage(player, "You set to work repairing the ruined armour.")
-                        animate(player,
-                            content.region.misc.ancient.DragonforgeListeners.Companion.SMITHING_ANIMATION
-                        )
-                        return@queueScript delayScript(player, content.region.misc.ancient.DragonforgeListeners.Companion.SMITHING_ANIMATION.duration)
+                        animate(player, SMITHING_ANIMATION)
+                        return@queueScript delayScript(player, SMITHING_ANIMATION.duration)
                     }
 
                     1 -> {
-                        if (removeAll(player,
-                                content.region.misc.ancient.DragonforgeListeners.Companion.RUINED_PIECES
-                            )) {
+                        if (removeAll(player, RUINED_PIECES)) {
                             sendMessage(player, "You finish your efforts...")
-                            removeItem(player,
-                                content.region.misc.ancient.DragonforgeListeners.Companion.FUSION_HAMMER
-                            )
-                            player.inventory.add(content.region.misc.ancient.DragonforgeListeners.Companion.DRAGON_PLATEBODY)
+                            removeItem(player, FUSION_HAMMER)
+                            player.inventory.add(DRAGON_PLATEBODY)
                             rewardXP(player, Skills.SMITHING, 2000.0)
                         }
                         unlock(player)
@@ -100,7 +91,7 @@ class DragonforgeListeners : InteractionListener {
          * Handling the mithril doors interactions.
          */
 
-        on(content.region.misc.ancient.DragonforgeListeners.Companion.MITHRIL_DOOR, IntType.SCENERY, "open") { player, node ->
+        on(MITHRIL_DOOR, IntType.SCENERY, "open") { player, node ->
             if (!inInventory(player, Items.DRAGONKIN_KEY_14471) && !hasRequirement(player, "While Guthix Sleeps", false)) {
                 sendDialogue(player, "The door is solid and resists all attempts to open it. There's no way past it at all, so best to ignore it.")
                 return@on true
@@ -114,7 +105,7 @@ class DragonforgeListeners : InteractionListener {
             return@on true
         }
 
-        onUseWith(IntType.SCENERY, Items.DRAGONKIN_KEY_14471, *content.region.misc.ancient.DragonforgeListeners.Companion.MITHRIL_DOOR) { player, _, node ->
+        onUseWith(IntType.SCENERY, Items.DRAGONKIN_KEY_14471, *MITHRIL_DOOR) { player, _, node ->
             if (!inInventory(player, Items.DRAGONKIN_KEY_14471) && !hasRequirement(player, "While Guthix Sleeps", false)) {
                 sendDialogue(player, "The door is solid and resists all attempts to open it. There's no way past it at all, so best to ignore it.")
                 return@onUseWith true
@@ -131,13 +122,9 @@ class DragonforgeListeners : InteractionListener {
          * Handling the dragonkin key fusing.
          */
 
-        onUseWith(IntType.NPC,
-            content.region.misc.ancient.DragonforgeListeners.Companion.STRANGE_KEYS, *content.region.misc.ancient.DragonforgeListeners.Companion.MITHRIL_DRAGON_NPC
-        ) { player, _, with ->
+        onUseWith(IntType.NPC, STRANGE_KEYS, *MITHRIL_DRAGON_NPC) { player, _, with ->
             val npc = with.asNpc()
-            if (player.inventory.containItems(*content.region.misc.ancient.DragonforgeListeners.Companion.STRANGE_KEYS) && player.equipment.containsAtLeastOneItem(
-                    content.region.misc.ancient.DragonforgeListeners.Companion.REQUIRED_SHIELD
-                )) {
+            if (player.inventory.containItems(*STRANGE_KEYS) && player.equipment.containsAtLeastOneItem(REQUIRED_SHIELD)) {
                 if (!hasRequirement(player, "While Guthix Sleeps", false)) {
                     sendMessage(player, "You cannot currently use any items on that dragon.")
                     return@onUseWith true
@@ -149,24 +136,17 @@ class DragonforgeListeners : InteractionListener {
                         when (counter++) {
                             0 -> {
                                 face(player, npc)
-                                visualize(npc!!,
-                                    content.region.misc.ancient.DragonforgeListeners.Companion.DRAGON_BREATH_ANIMATION,
-                                    content.region.misc.ancient.DragonforgeListeners.Companion.DRAGON_BREATH_GFX
-                                )
+                                visualize(npc!!, DRAGON_BREATH_ANIMATION, DRAGON_BREATH_GFX)
                             }
 
                             1 -> {
-                                visualize(player,
-                                    content.region.misc.ancient.DragonforgeListeners.Companion.DRAGON_SHIELD_ABSORB_ANIM,
-                                    content.region.misc.ancient.DragonforgeListeners.Companion.DRAGON_BREATH_ABSORB_GFX
-                                )
+                                visualize(player, DRAGON_SHIELD_ABSORB_ANIM, DRAGON_BREATH_ABSORB_GFX)
                             }
 
                             3 -> {
-                                player.inventory.removeAll(content.region.misc.ancient.DragonforgeListeners.Companion.STRANGE_KEYS)
-                                sendItemDialogue(player,
-                                    content.region.misc.ancient.DragonforgeListeners.Companion.DRAGONKIN_KEY, "The intense heat of the mithril dragon's breath fuses the key halves together.")
-                                player.inventory.add(content.region.misc.ancient.DragonforgeListeners.Companion.DRAGONKIN_KEY)
+                                player.inventory.removeAll(STRANGE_KEYS)
+                                sendItemDialogue(player, DRAGONKIN_KEY, "The intense heat of the mithril dragon's breath fuses the key halves together.")
+                                player.inventory.add(DRAGONKIN_KEY)
                             }
 
                             6 -> {

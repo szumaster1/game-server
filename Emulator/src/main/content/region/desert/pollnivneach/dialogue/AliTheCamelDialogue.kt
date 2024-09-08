@@ -18,11 +18,11 @@ import core.tools.RandomFunction
 class AliTheCamelDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any): Boolean {
-        val phrase = RandomFunction.random(1, 4)
+        val phrase = RandomFunction.random(0, 2)
         when (phrase) {
-            1 -> player(FacialExpression.AFRAID, "That beast would probably bite my fingers off", "if I tried to pet it")
-            2 -> player(FacialExpression.DISGUSTED, "I'm not going to pet that! I might get fleas", "or something else that nasty creature", "might have.")
-            3 -> player(FacialExpression.THINKING, "Mmmm... Won't you make the nicest kebab?")
+            0 -> player(FacialExpression.AFRAID, "That beast would probably bite my fingers off", "if I tried to pet it")
+            1 -> player(FacialExpression.DISGUSTED, "I'm not going to pet that! I might get fleas", "or something else that nasty creature", "might have.")
+            2 -> player(FacialExpression.THINKING, "Mmmm... Won't you make the nicest kebab?")
         }
         return true
     }

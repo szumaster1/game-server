@@ -24,7 +24,7 @@ import core.plugin.Plugin
 import core.tools.colorize
 
 /**
- * Represents the Rug merchant dialogue.
+ * Represents the Rug Merchant dialogue.
  */
 @Initializable
 class RugMerchantDialogue(player: Player? = null) : Dialogue(player) {
