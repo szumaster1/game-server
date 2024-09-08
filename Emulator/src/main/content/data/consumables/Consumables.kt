@@ -14,170 +14,122 @@ import core.tools.secondsToTicks
  */
 enum class Consumables {
     /**
-     * Bat Shish
-     *
-     * @constructor Bat Shish
+     * The Bat Shish food.
      */
     BAT_SHISH(Food(intArrayOf(Items.BAT_SHISH_10964), HealingEffect(2))),
 
     /**
-     * Fingers
-     *
-     * @constructor Fingers
+     * The Fingers food.
      */
     FINGERS(Food(intArrayOf(Items.FINGERS_10965), HealingEffect(2))),
 
     /**
-     * Coated Frog Legs
-     *
-     * @constructor Coated Frog Legs
+     * The Coated Frog Legs food.
      */
     COATED_FROG_LEGS(Food(intArrayOf(Items.COATED_FROGS_LEGS_10963), HealingEffect(2))),
 
     /**
-     * Cooked Meat
-     *
-     * @constructor Cooked Meat
+     * The Cooked meat food.
      */
     COOKED_MEAT(Food(intArrayOf(Items.COOKED_MEAT_2142), HealingEffect(3))),
 
     /**
-     * Shrimps
-     *
-     * @constructor Shrimps
+     * The Shrimps food.
      */
     SHRIMPS(Food(intArrayOf(Items.SHRIMPS_315), HealingEffect(3))),
 
     /**
-     * Cooked Chicken
-     *
-     * @constructor Cooked Chicken
+     * The Cooked Chicken food.
      */
     COOKED_CHICKEN(Food(intArrayOf(Items.COOKED_CHICKEN_2140), HealingEffect(3))),
 
     /**
-     * Cooked Rabbit
-     *
-     * @constructor Cooked Rabbit
+     * The Cooked Rabbit food.
      */
     COOKED_RABBIT(Food(intArrayOf(Items.COOKED_RABBIT_3228), HealingEffect(5))),
 
     /**
-     * Anchovies
-     *
-     * @constructor Anchovies
+     * The Anchovies food.
      */
     ANCHOVIES(Food(intArrayOf(Items.ANCHOVIES_319), HealingEffect(1))),
 
     /**
-     * Sardine
-     *
-     * @constructor Sardine
+     * The Sardine food.
      */
     SARDINE(Food(intArrayOf(Items.SARDINE_325), HealingEffect(4))),
 
     /**
-     * Poison Karambwan
-     *
-     * @constructor Poison Karambwan
+     * The Poison Karambwan.
      */
     POISON_KARAMBWAN(Food(intArrayOf(Items.POISON_KARAMBWAN_3146), PoisonKarambwanEffect())),
 
     /**
-     * Ugthanki Meat
-     *
-     * @constructor Ugthanki Meat
+     * The Ugthanki meat food.
      */
     UGTHANKI_MEAT(Food(intArrayOf(Items.UGTHANKI_MEAT_1861), HealingEffect(3))),
 
     /**
-     * Herring
-     *
-     * @constructor Herring
+     * The Herring food.
      */
     HERRING(Food(intArrayOf(Items.HERRING_347), HealingEffect(5))),
 
     /**
-     * Mackerel
-     *
-     * @constructor Mackerel
+     * The Mackerel food.
      */
     MACKEREL(Food(intArrayOf(Items.MACKEREL_355), HealingEffect(6))),
 
     /**
-     * Roast Bird Meat
-     *
-     * @constructor Roast Bird Meat
+     * The Roast Bird meat food.
      */
     ROAST_BIRD_MEAT(Food(intArrayOf(Items.ROAST_BIRD_MEAT_9980), HealingEffect(6))),
 
     /**
-     * Thin Snail Meat
-     *
-     * @constructor Thin Snail Meat
+     * The Thin Snail meat food.
      */
     THIN_SNAIL_MEAT(Food(intArrayOf(Items.THIN_SNAIL_MEAT_3369), HealingEffect(5))),
 
     /**
-     * Trout
-     *
-     * @constructor Trout
+     * The Trout food.
      */
     TROUT(Food(intArrayOf(Items.TROUT_333), HealingEffect(7))),
 
     /**
-     * Spider On Stick
-     *
-     * @constructor Spider On Stick
+     * The Spider On Stick food.
      */
     SPIDER_ON_STICK(Food(intArrayOf(Items.SPIDER_ON_STICK_6297), HealingEffect(7))),
 
     /**
-     * Spider On Shaft
-     *
-     * @constructor Spider On Shaft
+     * The Spider On Shaft food.
      */
     SPIDER_ON_SHAFT(Food(intArrayOf(Items.SPIDER_ON_SHAFT_6299), HealingEffect(7))),
 
     /**
-     * Roast Rabbit
-     *
-     * @constructor Roast Rabbit
+     * The Roast Rabbit.
      */
     ROAST_RABBIT(Food(intArrayOf(Items.ROAST_RABBIT_7223), HealingEffect(7))),
 
     /**
-     * Lean Snail Meat
-     *
-     * @constructor Lean Snail Meat
+     * The Lean Snail meat food.
      */
     LEAN_SNAIL_MEAT(Food(intArrayOf(Items.LEAN_SNAIL_MEAT_3371), HealingEffect(8))),
 
     /**
-     * Cod
-     *
-     * @constructor Cod
+     * The Cod.
      */
     COD(Food(intArrayOf(Items.COD_339), HealingEffect(7))),
 
     /**
-     * Pike
-     *
-     * @constructor Pike
+     * The Pike.
      */
     PIKE(Food(intArrayOf(Items.PIKE_351), HealingEffect(8))),
 
     /**
-     * Roast Beast Meat
-     *
-     * @constructor Roast Beast Meat
+     * The Roast Beast meat food.
      */
     ROAST_BEAST_MEAT(Food(intArrayOf(Items.ROAST_BEAST_MEAT_9988), HealingEffect(8))),
 
     /**
-     * Cooked Crab Meat
-     *
-     * @constructor Cooked Crab Meat
+     * The Cooked Crab meat food.
      */
     COOKED_CRAB_MEAT(
         Food(
@@ -192,142 +144,102 @@ enum class Consumables {
     ),
 
     /**
-     * Fat Snail
-     *
-     * @constructor Fat Snail
+     * The Fat Snail food.
      */
     FAT_SNAIL(Food(intArrayOf(Items.FAT_SNAIL_MEAT_3373), HealingEffect(9))),
 
     /**
-     * Salmon
-     *
-     * @constructor Salmon
+     * The Salmon food.
      */
     SALMON(Food(intArrayOf(Items.SALMON_329), HealingEffect(9))),
 
     /**
-     * Slimy Eel
-     *
-     * @constructor Slimy Eel
+     * The Slimy Eel food.
      */
     SLIMY_EEL(Food(intArrayOf(Items.COOKED_SLIMY_EEL_3381), HealingEffect(6))),
 
     /**
-     * Tuna
-     *
-     * @constructor Tuna
+     * The Tuna food.
      */
     TUNA(Food(intArrayOf(Items.TUNA_361), HealingEffect(10))),
 
     /**
-     * Cooked Karambwan
-     *
-     * @constructor Cooked Karambwan
+     * The Cooked Karambwan food.
      */
     COOKED_KARAMBWAN(Food(intArrayOf(Items.COOKED_KARAMBWAN_3144), HealingEffect(18)), true),
 
     /**
-     * Cooked Chompy
-     *
-     * @constructor Cooked Chompy
+     * The Cooked Chompy food.
      */
     COOKED_CHOMPY(Food(intArrayOf(Items.COOKED_CHOMPY_2878), HealingEffect(10))),
 
     /**
-     * Rainbow Fish
-     *
-     * @constructor Rainbow Fish
+     * The Rainbow Fish food.
      */
     RAINBOW_FISH(Food(intArrayOf(Items.RAINBOW_FISH_10136), HealingEffect(11))),
 
     /**
-     * Cave Eel
-     *
-     * @constructor Cave Eel
+     * The Cave Eel food.
      */
     CAVE_EEL(Food(intArrayOf(Items.CAVE_EEL_5003), HealingEffect(7))),
 
     /**
-     * Caviar
-     *
-     * @constructor Caviar
+     * The Caviar food.
      */
     CAVIAR(Food(intArrayOf(Items.CAVIAR_11326), HealingEffect(5))),
 
     /**
-     * Lobster
-     *
-     * @constructor Lobster
+     * The Lobster food.
      */
     LOBSTER(Food(intArrayOf(Items.LOBSTER_379), HealingEffect(12))),
 
     /**
-     * Cooked Jubbly
-     *
-     * @constructor Cooked Jubbly
+     * The Cooked Jubbly food.
      */
     COOKED_JUBBLY(Food(intArrayOf(Items.COOKED_JUBBLY_7568), HealingEffect(15))),
 
     /**
-     * Bass
-     *
-     * @constructor Bass
+     * The Bass food.
      */
     BASS(Food(intArrayOf(Items.BASS_365), HealingEffect(13))),
 
     /**
-     * Swordfish
-     *
-     * @constructor Swordfish
+     * The Swordfish food.
      */
     SWORDFISH(Food(intArrayOf(Items.SWORDFISH_373), HealingEffect(14))),
 
     /**
-     * Lava Eel
-     *
-     * @constructor Lava Eel
+     * The Lava Eel food.
      */
     LAVA_EEL(Food(intArrayOf(Items.LAVA_EEL_2149), HealingEffect(14))),
 
     /**
-     * Monkfish
-     *
-     * @constructor Monkfish
+     * The Monkfish food.
      */
     MONKFISH(Food(intArrayOf(Items.MONKFISH_7946), HealingEffect(16))),
 
     /**
-     * Shark
-     *
-     * @constructor Shark
+     * The Shark food.
      */
     SHARK(Food(intArrayOf(Items.SHARK_385), HealingEffect(20))),
 
     /**
-     * Sea Turtle
-     *
-     * @constructor Sea Turtle
+     * The Sea Turtle food.
      */
     SEA_TURTLE(Food(intArrayOf(Items.SEA_TURTLE_397), HealingEffect(21))),
 
     /**
-     * Manta Ray
-     *
-     * @constructor Manta Ray
+     * The Manta Ray food.
      */
     MANTA_RAY(Food(intArrayOf(Items.MANTA_RAY_391), HealingEffect(22))),
 
     /**
-     * Karambwanji
-     *
-     * @constructor Karambwanji
+     * The Karambwanji food.
      */
     KARAMBWANJI(Food(intArrayOf(Items.KARAMBWANJI_3151), HealingEffect(3))),
 
     /**
-     * Stuffed Snake
-     *
-     * @constructor Stuffed Snake
+     * The Stuffed Snake food.
      */
     STUFFED_SNAKE(
         Food(
@@ -338,51 +250,37 @@ enum class Consumables {
     ),
 
     /**
-     * Crayfish
-     *
-     * @constructor Crayfish
+     * The Crayfish food.
      */
     CRAYFISH(Food(intArrayOf(Items.CRAYFISH_13433), HealingEffect(2))),
 
     /**
-     * Giant Frog Legs
-     *
-     * @constructor Giant Frog Legs
+     * The Giant Frog Legs food.
      */
     GIANT_FROG_LEGS(Food(intArrayOf(Items.GIANT_FROG_LEGS_4517), HealingEffect(6))),
 
     /**
-     * Bread
-     *
-     * @constructor Bread
+     * The Bread food.
      */
     BREAD(Food(intArrayOf(Items.BREAD_2309), HealingEffect(5))),
 
     /**
-     * Baguette
-     *
-     * @constructor Baguette
+     * The Baguette food.
      */
     BAGUETTE(Food(intArrayOf(Items.BAGUETTE_6961), HealingEffect(6))),
 
     /**
-     * Triangle Sandwich
-     *
-     * @constructor Triangle Sandwich
+     * The Triangle Sandwich food.
      */
     TRIANGLE_SANDWICH(Food(intArrayOf(Items.TRIANGLE_SANDWICH_6962), HealingEffect(6))),
 
     /**
-     * Square Sandwich
-     *
-     * @constructor Square Sandwich
+     * The Square Sandwich food.
      */
     SQUARE_SANDWICH(Food(intArrayOf(Items.SQUARE_SANDWICH_6965), HealingEffect(6))),
 
     /**
-     * Seaweed Sandwich
-     *
-     * @constructor Seaweed Sandwich
+     * The Seaweed Sandwich fake food.
      */
     SEAWEED_SANDWICH(
         FakeConsumable(
@@ -392,44 +290,32 @@ enum class Consumables {
     ),
 
     /**
-     * Frogburger
-     *
-     * @constructor Frogburger
+     * The Frogburger food.
      */
     FROGBURGER(Food(intArrayOf(Items.FROGBURGER_10962), HealingEffect(2))),
 
     /**
-     * Ugthanki Kebab
-     *
-     * @constructor Ugthanki Kebab
+     * The Ugthanki Kebab food.
      */
     UGTHANKI_KEBAB(Food(intArrayOf(Items.UGTHANKI_KEBAB_1883), UgthankiKebabEffect())),
 
     /**
-     * Ugthanki Kebab Smelling
-     *
-     * @constructor Ugthanki Kebab Smelling
+     * The Ugthanki Kebab Smelling food.
      */
     UGTHANKI_KEBAB_SMELLING(Food(intArrayOf(Items.UGTHANKI_KEBAB_1885), SmellingUgthankiKebabEffect())),
 
     /**
-     * Kebab
-     *
-     * @constructor Kebab
+     * The Kebab food.
      */
     KEBAB(Food(intArrayOf(Items.KEBAB_1971), KebabEffect())),
 
     /**
-     * Super Kebab
-     *
-     * @constructor Super Kebab
+     * The Super Kebab food.
      */
     SUPER_KEBAB(Food(intArrayOf(Items.SUPER_KEBAB_4608), SuperKebabEffect())),
 
     /**
-     * Redberry Pie
-     *
-     * @constructor Redberry Pie
+     * The Redberry pie halfable food.
      */
     REDBERRY_PIE(
         HalfableFood(
@@ -439,9 +325,7 @@ enum class Consumables {
     ),
 
     /**
-     * Meat Pie
-     *
-     * @constructor Meat Pie
+     * The Meat pie halfable food.
      */
     MEAT_PIE(
         HalfableFood(
@@ -451,9 +335,7 @@ enum class Consumables {
     ),
 
     /**
-     * Apple Pie
-     *
-     * @constructor Apple Pie
+     * The Apple pie halfable food.
      */
     APPLE_PIE(
         HalfableFood(
@@ -463,9 +345,7 @@ enum class Consumables {
     ),
 
     /**
-     * Garden Pie
-     *
-     * @constructor Garden Pie
+     * The Garden pie halfable food.
      */
     GARDEN_PIE(
         HalfableFood(
@@ -475,9 +355,7 @@ enum class Consumables {
     ),
 
     /**
-     * Fish Pie
-     *
-     * @constructor Fish Pie
+     * The Fish pie halfable food.
      */
     FISH_PIE(
         HalfableFood(
@@ -487,9 +365,7 @@ enum class Consumables {
     ),
 
     /**
-     * Admiral Pie
-     *
-     * @constructor Admiral Pie
+     * The Admiral pie halfable food.
      */
     ADMIRAL_PIE(
         HalfableFood(
@@ -499,9 +375,7 @@ enum class Consumables {
     ),
 
     /**
-     * Wild Pie
-     *
-     * @constructor Wild Pie
+     * The Wild pie halfable food.
      */
     WILD_PIE(
         HalfableFood(
@@ -511,9 +385,7 @@ enum class Consumables {
     ),
 
     /**
-     * Summer Pie
-     *
-     * @constructor Summer Pie
+     * The Summer pie halfable food.
      */
     SUMMER_PIE(
         HalfableFood(
@@ -523,58 +395,42 @@ enum class Consumables {
     ),
 
     /**
-     * Stew
-     *
-     * @constructor Stew
+     * The Stew food.
      */
     STEW(Food(intArrayOf(2003, 1923), HealingEffect(11))),
 
     /**
-     * Spicy Stew
-     *
-     * @constructor Spicy Stew
+     * The Spicy Stew food.
      */
     SPICY_STEW(Food(intArrayOf(7479, 1923), HealingEffect(11))),
 
     /**
-     * Curry
-     *
-     * @constructor Curry
+     * The Curry food.
      */
     CURRY(Food(intArrayOf(2011, 1923), HealingEffect(19))),
 
     /**
-     * Banana Stew
-     *
-     * @constructor Banana Stew
+     * The Banana Stew food.
      */
     BANANA_STEW(Food(intArrayOf(4016, 1923), HealingEffect(11))),
 
     /**
-     * Plain Pizza
-     *
-     * @constructor Plain Pizza
+     * The Plain Pizza halfable food.
      */
     PLAIN_PIZZA(HalfableFood(intArrayOf(2289, 2291), HealingEffect(7))),
 
     /**
-     * Meat Pizza
-     *
-     * @constructor Meat Pizza
+     * The Meat Pizza halfable food.
      */
     MEAT_PIZZA(HalfableFood(intArrayOf(2293, 2295), HealingEffect(8))),
 
     /**
-     * Anchovy Pizza
-     *
-     * @constructor Anchovy Pizza
+     * The Anchovy Pizza halfable food.
      */
     ANCHOVY_PIZZA(HalfableFood(intArrayOf(2297, 2299), HealingEffect(9))),
 
     /**
-     * White Pearl
-     *
-     * @constructor White Pearl
+     * The White Pearl halfable food.
      */
     WHITE_PEARL(
         HalfableFood(
@@ -585,16 +441,12 @@ enum class Consumables {
     ),
 
     /**
-     * Pineapple Pizza
-     *
-     * @constructor Pineapple Pizza
+     * The Pineapple Pizza halfable food.
      */
     PINEAPPLE_PIZZA(HalfableFood(intArrayOf(2301, 2303), HealingEffect(11))),
 
     /**
-     * Cake
-     *
-     * @constructor Cake
+     * The Cake food.
      */
     CAKE(
         Cake(
@@ -607,9 +459,7 @@ enum class Consumables {
     ),
 
     /**
-     * Chocolate Cake
-     *
-     * @constructor Chocolate Cake
+     * The Chocolate cake food.
      */
     CHOCOLATE_CAKE(
         Cake(
@@ -622,16 +472,12 @@ enum class Consumables {
     ),
 
     /**
-     * Rock Cake
-     *
-     * @constructor Rock Cake
+     * The Rock Cake.
      */
     ROCK_CAKE(Food(intArrayOf(2379), RockCakeEffect(), "The rock cake resists all attempts to eat it.")),
 
     /**
-     * Cave Nightshade
-     *
-     * @constructor Cave Nightshade
+     * The Cave Nightshade food.
      */
     CAVE_NIGHTSHADE(
         Food(
@@ -642,9 +488,7 @@ enum class Consumables {
     ),
 
     /**
-     * Dwarven Rock Cake
-     *
-     * @constructor Dwarven Rock Cake
+     * The Dwarven Rock cake food.
      */
     DWARVEN_ROCK_CAKE(
         Food(
@@ -656,9 +500,7 @@ enum class Consumables {
     ),
 
     /**
-     * Hot Dwarven Rock Cake
-     *
-     * @constructor Hot Dwarven Rock Cake
+     * The Hot Dwarven Rock cake food.
      */
     HOT_DWARVEN_ROCK_CAKE(
         Food(
@@ -670,37 +512,27 @@ enum class Consumables {
     ),
 
     /**
-     * Cooked Fishcake
-     *
-     * @constructor Cooked Fishcake
+     * The Cooked Fishcake food.
      */
     COOKED_FISHCAKE(Food(intArrayOf(7530), HealingEffect(11))),
 
     /**
-     * Mint Cake
-     *
-     * @constructor Mint Cake
+     * The Mint Cake food.
      */
     MINT_CAKE(Food(intArrayOf(9475), EnergyEffect(50))),
 
     /**
-     * Potato
-     *
-     * @constructor Potato
+     * The Potato food.
      */
     POTATO(Food(intArrayOf(1942), HealingEffect(1), "You eat the potato. Yuck!")),
 
     /**
-     * Baked Potato
-     *
-     * @constructor Baked Potato
+     * The Baked Potato food.
      */
     BAKED_POTATO(Food(intArrayOf(6701), HealingEffect(2))),
 
     /**
-     * Poisoned Cheese
-     *
-     * @constructor Poisoned Cheese
+     * The Poisoned Cheese fake food.
      */
     POISONED_CHEESE(
         FakeConsumable(
@@ -710,23 +542,17 @@ enum class Consumables {
     ),
 
     /**
-     * Poison Chalice
-     *
-     * @constructor Poison Chalice
+     * The Poison Chalice drink.
      */
     POISON_CHALICE(Drink(intArrayOf(Items.POISON_CHALICE_197, Items.COCKTAIL_GLASS_2026), PoisonChaliceEffect(), "You drink the strange green liquid.")),
 
     /**
-     * Spicy Sauce
-     *
-     * @constructor Spicy Sauce
+     * The Spicy Sauce food.
      */
     SPICY_SAUCE(Food(intArrayOf(7072, 1923), HealingEffect(2))),
 
     /**
-     * Locust Meat
-     *
-     * @constructor Locust Meat
+     * The Locust meat food.
      */
     LOCUST_MEAT(
         Food(
@@ -737,72 +563,52 @@ enum class Consumables {
     ),
 
     /**
-     * Chilli Con Carne
-     *
-     * @constructor Chilli Con Carne
+     * The chilli con carne food.
      */
     CHILLI_CON_CARNE(Food(intArrayOf(7062, 1923), HealingEffect(5))),
 
     /**
-     * Scrambled Egg
-     *
-     * @constructor Scrambled Egg
+     * The scrambled egg food.
      */
     SCRAMBLED_EGG(Food(intArrayOf(7078, 1923), HealingEffect(5))),
 
     /**
-     * Egg And Tomato
-     *
-     * @constructor Egg And Tomato
+     * The egg And tomato food.
      */
     EGG_AND_TOMATO(Food(intArrayOf(7064, 1923), HealingEffect(8))),
 
     /**
-     * Sweet Corn
-     *
-     * @constructor Sweet Corn
+     * The sweet corn food.
      */
     SWEET_CORN(Food(intArrayOf(5988), MultiEffect(HealingEffect(1), PercentageHealthEffect(10)))),
 
     /**
-     * Sweetcorn Bowl
-     *
-     * @constructor Sweetcorn Bowl
+     * The sweetcorn bowl food.
      */
     SWEETCORN_BOWL(Food(intArrayOf(7088, 1923), MultiEffect(HealingEffect(1), PercentageHealthEffect(10)))),
 
     /**
-     * Potato With Butter
-     *
-     * @constructor Potato With Butter
+     * The potato with butter food.
      */
     POTATO_WITH_BUTTER(Food(intArrayOf(6703), HealingEffect(7))),
 
     /**
-     * Chilli Potato
-     *
-     * @constructor Chilli Potato
+     * The Chilli Potato food.
      */
     CHILLI_POTATO(Food(intArrayOf(7054), HealingEffect(14))),
 
     /**
-     * Fried Onions
-     *
-     * @constructor Fried Onions
+     * The Fried Onions food.
      */
     FRIED_ONIONS(Food(intArrayOf(7084, 1923), HealingEffect(5))),
 
     /**
-     * Fried Mushrooms
-     *
-     * @constructor Fried Mushrooms
+     * The Fried Mushrooms food.
      */
     FRIED_MUSHROOMS(Food(intArrayOf(7082, 1923), HealingEffect(5))),
 
     /**
-     * Black Mushroom
-     *
-     * @constructor Black Mushroom
+     * The Black Mushroom fake food.
      */
     BLACK_MUSHROOM(
         FakeConsumable(
@@ -812,65 +618,47 @@ enum class Consumables {
     ),
 
     /**
-     * Potato With Cheese
-     *
-     * @constructor Potato With Cheese
+     * The Potato With Cheese food.
      */
     POTATO_WITH_CHEESE(Food(intArrayOf(6705), HealingEffect(16))),
 
     /**
-     * Egg Potato
-     *
-     * @constructor Egg Potato
+     * The Egg Potato food.
      */
     EGG_POTATO(Food(intArrayOf(7056), HealingEffect(11))),
 
     /**
-     * Mushrooms And Onions
-     *
-     * @constructor Mushrooms And Onions
+     * The Mushrooms And Onions food.
      */
     MUSHROOMS_AND_ONIONS(Food(intArrayOf(7066, 1923), HealingEffect(11))),
 
     /**
-     * Mushroom Potato
-     *
-     * @constructor Mushroom Potato
+     * The Mushroom Potato food.
      */
     MUSHROOM_POTATO(Food(intArrayOf(7058), HealingEffect(20))),
 
     /**
-     * Tuna And Corn
-     *
-     * @constructor Tuna And Corn
+     * The Tuna And Corn food.
      */
     TUNA_AND_CORN(Food(intArrayOf(7068, 1923), HealingEffect(13))),
 
     /**
-     * Tuna Potato
-     *
-     * @constructor Tuna Potato
+     * The Tuna Potato food.
      */
     TUNA_POTATO(Food(intArrayOf(7060), HealingEffect(22))),
 
     /**
-     * Onion
-     *
-     * @constructor Onion
+     * The Onion food.
      */
     ONION(Food(intArrayOf(1957), HealingEffect(2), "It's always sad to see a grown man/woman cry.")),
 
     /**
-     * Cabbage
-     *
-     * @constructor Cabbage
+     * The Cabbage food.
      */
     CABBAGE(Food(intArrayOf(1965), HealingEffect(2), "You eat the cabbage. Yuck!")),
 
     /**
-     * Draynor Cabbage
-     *
-     * @constructor Draynor Cabbage
+     * The Draynor Cabbage food.
      */
     DRAYNOR_CABBAGE(
         Food(
@@ -882,65 +670,47 @@ enum class Consumables {
     ),
 
     /**
-     * Rotten Apple
-     *
-     * @constructor Rotten Apple
+     * The Rotten Apple food.
      */
     ROTTEN_APPLE(Food(intArrayOf(1984), HealingEffect(2), "It's rotten, you spit it out")),
 
     /**
-     * Evil Turnip
-     *
-     * @constructor Evil Turnip
+     * The Evil Turnip food.
      */
     EVIL_TURNIP(Food(intArrayOf(12134, 12136, 12138), HealingEffect(6))),
 
     /**
-     * Spinach Roll
-     *
-     * @constructor Spinach Roll
+     * The Spinach Roll food.
      */
     SPINACH_ROLL(Food(intArrayOf(1969), HealingEffect(2))),
 
     /**
-     * Pot Of Cream
-     *
-     * @constructor Pot Of Cream
+     * The Pot Of Cream food.
      */
     POT_OF_CREAM(Food(intArrayOf(2130), HealingEffect(1), "You eat the cream. You get some on your nose.")),
 
     /**
-     * Cheese
-     *
-     * @constructor Cheese
+     * The Cheese food.
      */
     CHEESE(Food(intArrayOf(1985), HealingEffect(2))),
 
     /**
-     * Chocolatey Milk
-     *
-     * @constructor Chocolatey Milk
+     * The Chocolatey Milk food.
      */
     CHOCOLATEY_MILK(Drink(intArrayOf(1977, 1925), HealingEffect(4))),
 
     /**
-     * Banana
-     *
-     * @constructor Banana
+     * The Banana food.
      */
     BANANA(Food(intArrayOf(1963), HealingEffect(2))),
 
     /**
-     * Sliced Banana
-     *
-     * @constructor Sliced Banana
+     * The Sliced Banana food.
      */
     SLICED_BANANA(Food(intArrayOf(3162), HealingEffect(2))),
 
     /**
-     * Red Banana
-     *
-     * @constructor Red Banana
+     * The Red Banana food.
      */
     RED_BANANA(
         Food(
@@ -951,79 +721,57 @@ enum class Consumables {
     ),
 
     /**
-     * Sliced Red Banana
-     *
-     * @constructor Sliced Red Banana
+     * The Sliced Red Banana food.
      */
     SLICED_RED_BANANA(Food(intArrayOf(7574), HealingEffect(5), "You eat the sliced red banana. Yum.")),
 
     /**
-     * Orange
-     *
-     * @constructor Orange
+     * The Orange food.
      */
     ORANGE(Food(intArrayOf(2108), HealingEffect(2))),
 
     /**
-     * Orange Chunks
-     *
-     * @constructor Orange Chunks
+     * The Orange Chunks food.
      */
     ORANGE_CHUNKS(Food(intArrayOf(2110), HealingEffect(2))),
 
     /**
-     * Orange Slices
-     *
-     * @constructor Orange Slices
+     * The Orange Slices food.
      */
     ORANGE_SLICES(Food(intArrayOf(2112), HealingEffect(2))),
 
     /**
-     * Papaya Fruit
-     *
-     * @constructor Papaya Fruit
+     * The Papaya Fruit food.
      */
     PAPAYA_FRUIT(Food(intArrayOf(5972), HealingEffect(2))),
 
     /**
-     * Tenti Pineapple
-     *
-     * @constructor Tenti Pineapple
+     * The Tenti Pineapple fake food.
      */
     TENTI_PINEAPPLE(FakeConsumable(1851, arrayOf("Try using a knife to slice it into pieces."))),
 
     /**
-     * Pineapple
-     *
-     * @constructor Pineapple
+     * The Pineapple fake food.
      */
     PINEAPPLE(FakeConsumable(2114, arrayOf("Try using a knife to slice it into pieces."))),
 
     /**
-     * Pineapple Chunks
-     *
-     * @constructor Pineapple Chunks
+     * The Pineapple Chunks food.
      */
     PINEAPPLE_CHUNKS(Food(intArrayOf(2116), HealingEffect(2))),
 
     /**
-     * Pineapple FairyRing
-     *
-     * @constructor Pineapple FairyRing
+     * The Pineapple ring food.
      */
     PINEAPPLE_RING(Food(intArrayOf(2118), HealingEffect(2))),
 
     /**
-     * Dwellberries
-     *
-     * @constructor Dwellberries
+     * The Dwellberries food.
      */
     DWELLBERRIES(Food(intArrayOf(2126), HealingEffect(2))),
 
     /**
-     * Jangerberries
-     *
-     * @constructor Jangerberries
+     * The Jangerberries food.
      */
     JANGERBERRIES(
         Food(
@@ -1040,93 +788,69 @@ enum class Consumables {
     ),
 
     /**
-     * Strawberry
-     *
-     * @constructor Strawberry
+     * The Strawberry food.
      */
     STRAWBERRY(Food(intArrayOf(5504), MultiEffect(HealingEffect(1), PercentageHealthEffect(6)))),
 
     /**
-     * Tomato
-     *
-     * @constructor Tomato
+     * The Tomato food.
      */
     TOMATO(Food(intArrayOf(1982), HealingEffect(2))),
 
     /**
-     * Watermelon
-     *
-     * @constructor Watermelon
+     * The Watermelon fake food.
      */
     WATERMELON(FakeConsumable(5982, arrayOf("You can't eat it whole; maybe you should cut it up."))),
 
     /**
-     * Watermelon Slice
-     *
-     * @constructor Watermelon Slice
+     * The Watermelon Slice food.
      */
     WATERMELON_SLICE(Food(intArrayOf(5984), PercentageHealthEffect(5))),
 
     /**
-     * Lemon
-     *
-     * @constructor Lemon
+     * The Lemon food.
      */
     LEMON(Food(intArrayOf(2102), HealingEffect(2))),
 
     /**
-     * Lemon Chunks
+     * The Lemon Chunks food.
      *
      * @constructor Lemon Chunks
      */
     LEMON_CHUNKS(Food(intArrayOf(2104), HealingEffect(2))),
 
     /**
-     * Lemon Slices
-     *
-     * @constructor Lemon Slices
+     * The Lemon Slices food.
      */
     LEMON_SLICES(Food(intArrayOf(2106), HealingEffect(2))),
 
     /**
-     * Lime
-     *
-     * @constructor Lime
+     * The Lime food.
      */
     LIME(Food(intArrayOf(2120), HealingEffect(2))),
 
     /**
-     * Lime Chunks
-     *
-     * @constructor Lime Chunks
+     * The Lime Chunks food.
      */
     LIME_CHUNKS(Food(intArrayOf(2122), HealingEffect(2))),
 
     /**
-     * Lime Slices
-     *
-     * @constructor Lime Slices
+     * The Lime Slices food.
      */
     LIME_SLICES(Food(intArrayOf(2124), HealingEffect(2))),
 
     /**
-     * Peach
-     *
-     * @constructor Peach
+     * The Peach food.
      */
     PEACH(Food(intArrayOf(6883), HealingEffect(8))),
 
     /**
-     * White Tree Fruit
-     *
-     * @constructor White Tree Fruit
+     * The White Tree Fruit food.
      */
     WHITE_TREE_FRUIT(Food(intArrayOf(6469), MultiEffect(RandomEnergyEffect(5, 10), HealingEffect(3)))),
 
     /**
-     * Strange Fruit
-     *
-     * @constructor Strange Fruit
+     * The Strange Fruit food.
      */
     STRANGE_FRUIT(
         Food(
@@ -1138,205 +862,147 @@ enum class Consumables {
     ),
 
     /**
-     * Toad Crunchies
-     *
-     * @constructor Toad Crunchies
+     * The Toad Crunchies food.
      */
     TOAD_CRUNCHIES(Food(intArrayOf(2217), HealingEffect(12))),
 
     /**
-     * Premade Td Crunch
-     *
-     * @constructor Premade Td Crunch
+     * The Premade Td Crunch food.
      */
     PREMADE_TD_CRUNCH(Food(intArrayOf(2243), HealingEffect(12))),
 
     /**
-     * Spicy Crunchies
-     *
-     * @constructor Spicy Crunchies
+     * The Spicy Crunchies food.
      */
     SPICY_CRUNCHIES(Food(intArrayOf(2213), HealingEffect(7))),
 
     /**
-     * Premade Sy Crunch
-     *
-     * @constructor Premade Sy Crunch
+     * The Premade Sy Crunch food.
      */
     PREMADE_SY_CRUNCH(Food(intArrayOf(2241), HealingEffect(7))),
 
     /**
-     * Worm Crunchies
-     *
-     * @constructor Worm Crunchies
+     * The Worm Crunchies food.
      */
     WORM_CRUNCHIES(Food(intArrayOf(2205), HealingEffect(8))),
 
     /**
-     * Premade Wm Crunc
-     *
-     * @constructor Premade Wm Crunc
+     * The Premade Wm Crunc food.
      */
     PREMADE_WM_CRUNC(Food(intArrayOf(2237), HealingEffect(8))),
 
     /**
-     * Chocchip Crunchies
-     *
-     * @constructor Chocchip Crunchies
+     * The Chocchip Crunchies food.
      */
     CHOCCHIP_CRUNCHIES(Food(intArrayOf(2209), HealingEffect(7))),
 
     /**
-     * Premade Ch Crunch
-     *
-     * @constructor Premade Ch Crunch
+     * The Premade Ch Crunch food.
      */
     PREMADE_CH_CRUNCH(Food(intArrayOf(2239), HealingEffect(7))),
 
     /**
-     * Fruit Batta
-     *
-     * @constructor Fruit Batta
+     * The Fruit Batta food.
      */
     FRUIT_BATTA(Food(intArrayOf(2277), HealingEffect(11))),
 
     /**
-     * Premade Frt Batta
-     *
-     * @constructor Premade Frt Batta
+     * The Premade Frt Batta food.
      */
     PREMADE_FRT_BATTA(Food(intArrayOf(2225), HealingEffect(11))),
 
     /**
-     * Toad Batta
-     *
-     * @constructor Toad Batta
+     * The Toad Batta food.
      */
     TOAD_BATTA(Food(intArrayOf(2255), HealingEffect(11))),
 
     /**
-     * Premade Td Batta
-     *
-     * @constructor Premade Td Batta
+     * The Premade Td Batta food.
      */
     PREMADE_TD_BATTA(Food(intArrayOf(2221), HealingEffect(11))),
 
     /**
-     * Worm Batta
-     *
-     * @constructor Worm Batta
+     * The Worm Batta food.
      */
     WORM_BATTA(Food(intArrayOf(2253), HealingEffect(11))),
 
     /**
-     * Premade Wm Batta
-     *
-     * @constructor Premade Wm Batta
+     * The Premade Wm Batta food.
      */
     PREMADE_WM_BATTA(Food(intArrayOf(2219), HealingEffect(11))),
 
     /**
-     * Vegetable Batta
-     *
-     * @constructor Vegetable Batta
+     * The Vegetable Batta food.
      */
     VEGETABLE_BATTA(Food(intArrayOf(2281), HealingEffect(11))),
 
     /**
-     * Premade Veg Batta
-     *
-     * @constructor Premade Veg Batta
+     * The Premade Veg Batta food.
      */
     PREMADE_VEG_BATTA(Food(intArrayOf(2227), HealingEffect(11))),
 
     /**
-     * Cheese And Tomatoes Batta
-     *
-     * @constructor Cheese And Tomatoes Batta
+     * The Cheese And Tomatoes Batta food.
      */
     CHEESE_AND_TOMATOES_BATTA(Food(intArrayOf(2259), HealingEffect(11))),
 
     /**
-     * Premade Ct Batta
-     *
-     * @constructor Premade Ct Batta
+     * The Premade Ct Batta food.
      */
     PREMADE_CT_BATTA(Food(intArrayOf(2223), HealingEffect(11))),
 
     /**
-     * Worm Hole
-     *
-     * @constructor Worm Hole
+     * The Worm Hole food.
      */
     WORM_HOLE(Food(intArrayOf(2191), HealingEffect(12))),
 
     /**
-     * Premade Worm Hole
-     *
-     * @constructor Premade Worm Hole
+     * The Premade Worm Hole food.
      */
     PREMADE_WORM_HOLE(Food(intArrayOf(2233), HealingEffect(12))),
 
     /**
-     * Veg Ball
-     *
-     * @constructor Veg Ball
+     * The Veg Ball food.
      */
     VEG_BALL(Food(intArrayOf(2195), HealingEffect(12))),
 
     /**
-     * Premade Veg Ball
-     *
-     * @constructor Premade Veg Ball
+     * The Premade Veg Ball food.
      */
     PREMADE_VEG_BALL(Food(intArrayOf(2235), HealingEffect(12))),
 
     /**
-     * Tangled Toads Legs
-     *
-     * @constructor Tangled Toads Legs
+     * The Tangled Toads Legs food.
      */
     TANGLED_TOADS_LEGS(Food(intArrayOf(2187), HealingEffect(15))),
 
     /**
-     * Premade Ttl
-     *
-     * @constructor Premade Ttl
+     * The Premade Ttl food.
      */
     PREMADE_TTL(Food(intArrayOf(2231), HealingEffect(15))),
 
     /**
-     * Chocolate Bomb
-     *
-     * @constructor Chocolate Bomb
+     * The Chocolate Bomb food.
      */
     CHOCOLATE_BOMB(Food(intArrayOf(2195), HealingEffect(15))),
 
     /**
-     * Premade Choc Bomb
-     *
-     * @constructor Premade Choc Bomb
+     * The Premade Choc Bomb food.
      */
     PREMADE_CHOC_BOMB(Food(intArrayOf(2229), HealingEffect(15))),
 
     /**
-     * Toad Legs
-     *
-     * @constructor Toad Legs
+     * The Toad Legs food.
      */
     TOAD_LEGS(Food(intArrayOf(2152), HealingEffect(3), "You eat the toad's legs. They're a bit chewy.")),
 
     /**
-     * King Worm
-     *
-     * @constructor King Worm
+     * The King Worm food.
      */
     KING_WORM(Food(intArrayOf(2162), HealingEffect(2))),
 
     /**
-     * Asgoldian Ale
-     *
-     * @constructor Asgoldian Ale
+     * The Asgoldian Ale fake drink.
      */
     ASGOLDIAN_ALE(
         FakeConsumable(
@@ -1346,9 +1012,7 @@ enum class Consumables {
     ),
 
     /**
-     * Asgarnian Ale
-     *
-     * @constructor Asgarnian Ale
+     * The Asgarnian Ale drink.
      */
     ASGARNIAN_ALE(
         Drink(
@@ -1364,9 +1028,7 @@ enum class Consumables {
     ),
 
     /**
-     * Asgarnian Ale Keg
-     *
-     * @constructor Asgarnian Ale Keg
+     * The Asgarnian Ale Keg drink.
      */
     ASGARNIAN_ALE_KEG(
         Drink(
@@ -1379,9 +1041,7 @@ enum class Consumables {
     ),
 
     /**
-     * Asgarnian Ale M
-     *
-     * @constructor Asgarnian Ale M
+     * The Asgarnian Ale M drink.
      */
     ASGARNIAN_ALE_M(
         Drink(
@@ -1391,9 +1051,7 @@ enum class Consumables {
     ),
 
     /**
-     * Asgarnian Ale M Keg
-     *
-     * @constructor Asgarnian Ale M Keg
+     * The Asgarnian Ale M Keg drink.
      */
     ASGARNIAN_ALE_M_KEG(
         Drink(
@@ -1404,9 +1062,7 @@ enum class Consumables {
     ),
 
     /**
-     * Axemans Folly
-     *
-     * @constructor Axemans Folly
+     * The Axemans Folly drink.
      */
     AXEMANS_FOLLY(
         Drink(
@@ -1421,9 +1077,7 @@ enum class Consumables {
     ),
 
     /**
-     * Axemans Folly Keg
-     *
-     * @constructor Axemans Folly Keg
+     * The Axemans Folly Keg drink.
      */
     AXEMANS_FOLLY_KEG(
         Drink(
@@ -1439,9 +1093,7 @@ enum class Consumables {
     ),
 
     /**
-     * Axemans Folly M
-     *
-     * @constructor Axemans Folly M
+     * The Axemans Folly M drink.
      */
     AXEMANS_FOLLY_M(
         Drink(
@@ -1456,9 +1108,7 @@ enum class Consumables {
     ),
 
     /**
-     * Axemans Folly M Keg
-     *
-     * @constructor Axemans Folly M Keg
+     * The Axemans Folly M Keg drink.
      */
     AXEMANS_FOLLY_M_KEG(
         Drink(
@@ -1474,9 +1124,7 @@ enum class Consumables {
     ),
 
     /**
-     * Bandits Brew
-     *
-     * @constructor Bandits Brew
+     * The Bandits Brew drink.
      */
     BANDITS_BREW(
         Drink(
@@ -1494,9 +1142,7 @@ enum class Consumables {
     ),
 
     /**
-     * Beer
-     *
-     * @constructor Beer
+     * The Beer drink.
      */
     BEER(
         Drink(
@@ -1512,9 +1158,7 @@ enum class Consumables {
     ),
 
     /**
-     * Beer Tankard
-     *
-     * @constructor Beer Tankard
+     * The Beer Tankard drink.
      */
     BEER_TANKARD(
         Drink(
@@ -1526,9 +1170,7 @@ enum class Consumables {
     ),
 
     /**
-     * Keg Of Beer
-     *
-     * @constructor Keg Of Beer
+     * The Keg Of Beer drink.
      */
     KEG_OF_BEER(
         Drink(
@@ -1541,9 +1183,7 @@ enum class Consumables {
     ),
 
     /**
-     * Chefs Delight
-     *
-     * @constructor Chefs Delight
+     * The Chefs Delight drink.
      */
     CHEFS_DELIGHT(
         Drink(
@@ -1558,9 +1198,7 @@ enum class Consumables {
     ),
 
     /**
-     * Chefs Delight Keg
-     *
-     * @constructor Chefs Delight Keg
+     * The Chefs Delight Keg drink.
      */
     CHEFS_DELIGHT_KEG(
         Drink(
@@ -1576,9 +1214,7 @@ enum class Consumables {
     ),
 
     /**
-     * Chefs Delight M
-     *
-     * @constructor Chefs Delight M
+     * The Chefs Delight M drink.
      */
     CHEFS_DELIGHT_M(
         Drink(
@@ -1593,9 +1229,7 @@ enum class Consumables {
     ),
 
     /**
-     * Chefs Delight M Keg
-     *
-     * @constructor Chefs Delight M Keg
+     * The Chefs Delight M Keg drink.
      */
     CHEFS_DELIGHT_M_KEG(
         Drink(
@@ -1611,9 +1245,7 @@ enum class Consumables {
     ),
 
     /**
-     * Cider
-     *
-     * @constructor Cider
+     * The Cider drink.
      */
     CIDER(
         Drink(
@@ -1630,9 +1262,7 @@ enum class Consumables {
     ),
 
     /**
-     * Cider Keg
-     *
-     * @constructor Cider Keg
+     * The Cider Keg drink.
      */
     CIDER_KEG(
         Drink(
@@ -1650,9 +1280,7 @@ enum class Consumables {
     ),
 
     /**
-     * Mature Cider
-     *
-     * @constructor Mature Cider
+     * The Mature Cider drink.
      */
     MATURE_CIDER(
         Drink(
@@ -1669,9 +1297,7 @@ enum class Consumables {
     ),
 
     /**
-     * Cider M Keg
-     *
-     * @constructor Cider M Keg
+     * The Cider M Keg drink.
      */
     CIDER_M_KEG(
         Drink(
@@ -1689,9 +1315,7 @@ enum class Consumables {
     ),
 
     /**
-     * Dragon Bitter
-     *
-     * @constructor Dragon Bitter
+     * The Dragon Bitter drink.
      */
     DRAGON_BITTER(
         Drink(
@@ -1707,9 +1331,7 @@ enum class Consumables {
     ),
 
     /**
-     * Dragon Bitter Keg
-     *
-     * @constructor Dragon Bitter Keg
+     * The Dragon Bitter Keg drink.
      */
     DRAGON_BITTER_KEG(
         Drink(
@@ -1724,9 +1346,7 @@ enum class Consumables {
     ),
 
     /**
-     * Dragon Bitter M
-     *
-     * @constructor Dragon Bitter M
+     * The Dragon Bitter M drink.
      */
     DRAGON_BITTER_M(
         Drink(
@@ -1736,9 +1356,7 @@ enum class Consumables {
     ),
 
     /**
-     * Dragon Bitter M Keg
-     *
-     * @constructor Dragon Bitter M Keg
+     * The Dragon Bitter M Keg drink.
      */
     DRAGON_BITTER_M_KEG(
         Drink(
@@ -1753,9 +1371,7 @@ enum class Consumables {
     ),
 
     /**
-     * Dwarven Stout
-     *
-     * @constructor Dwarven Stout
+     * The Dwarven Stout drink.
      */
     DWARVEN_STOUT(
         Drink(
@@ -1774,9 +1390,7 @@ enum class Consumables {
     ),
 
     /**
-     * Dwarven Stout Keg
-     *
-     * @constructor Dwarven Stout Keg
+     * The Dwarven Stout Keg drink.
      */
     DWARVEN_STOUT_KEG(
         Drink(
@@ -1796,9 +1410,7 @@ enum class Consumables {
     ),
 
     /**
-     * Dwarven Stout M
-     *
-     * @constructor Dwarven Stout M
+     * The Dwarven Stout M drink.
      */
     DWARVEN_STOUT_M(
         Drink(
@@ -1815,9 +1427,7 @@ enum class Consumables {
     ),
 
     /**
-     * Dwarven Stout M Keg
-     *
-     * @constructor Dwarven Stout M Keg
+     * The Dwarven Stout M Keg drink.
      */
     DWARVEN_STOUT_M_KEG(
         Drink(
@@ -1835,9 +1445,7 @@ enum class Consumables {
     ),
 
     /**
-     * Greenmans Ale
-     *
-     * @constructor Greenmans Ale
+     * The Greenmans Ale drink.
      */
     GREENMANS_ALE(
         Drink(
@@ -1853,9 +1461,7 @@ enum class Consumables {
     ),
 
     /**
-     * Greenmans Ale Keg
-     *
-     * @constructor Greenmans Ale Keg
+     * The Greenmans Ale Keg drink.
      */
     GREENMANS_ALE_KEG(
         Drink(
@@ -1872,9 +1478,7 @@ enum class Consumables {
     ),
 
     /**
-     * Greenmans Ale M
-     *
-     * @constructor Greenmans Ale M
+     * The Greenmans Ale M drink.
      */
     GREENMANS_ALE_M(
         Drink(
@@ -1889,9 +1493,7 @@ enum class Consumables {
     ),
 
     /**
-     * Greenmans Ale M Keg
-     *
-     * @constructor Greenmans Ale M Keg
+     * The Greenmans Ale M Keg drink.
      */
     GREENMANS_ALE_M_KEG(
         Drink(
@@ -1907,9 +1509,7 @@ enum class Consumables {
     ),
 
     /**
-     * Grog
-     *
-     * @constructor Grog
+     * The Grog drink.
      */
     GROG(
         Drink(
@@ -1919,9 +1519,7 @@ enum class Consumables {
     ),
 
     /**
-     * Moonlight Mead
-     *
-     * @constructor Moonlight Mead
+     * The Moonlight Mead drink.
      */
     MOONLIGHT_MEAD(
         Drink(
@@ -1932,9 +1530,7 @@ enum class Consumables {
     ),
 
     /**
-     * Moonlight Mead Keg
-     *
-     * @constructor Moonlight Mead Keg
+     * The Moonlight Mead Keg drink.
      */
     MOONLIGHT_MEAD_KEG(
         Drink(
@@ -1946,23 +1542,17 @@ enum class Consumables {
     ),
 
     /**
-     * Moonlight Mead M
-     *
-     * @constructor Moonlight Mead M
+     * The Moonlight Mead M drink.
      */
     MOONLIGHT_MEAD_M(Drink(intArrayOf(5749, 1919), HealingEffect(6))),
 
     /**
-     * Moonlight Mead M Keg
-     *
-     * @constructor Moonlight Mead M Keg
+     * The Moonlight Mead M Keg drink.
      */
     MOONLIGHT_MEAD_M_KEG(Drink(intArrayOf(5897, 5895, 5893, 5891, 5769), HealingEffect(6), Animation(2289))),
 
     /**
-     * Slayers Respite
-     *
-     * @constructor Slayers Respite
+     * The Slayers Respite drink.
      */
     SLAYERS_RESPITE(
         Drink(
@@ -1977,9 +1567,7 @@ enum class Consumables {
     ),
 
     /**
-     * Slayers Respite Keg
-     *
-     * @constructor Slayers Respite Keg
+     * The Slayers Respite Keg drink.
      */
     SLAYERS_RESPITE_KEG(
         Drink(
@@ -1995,9 +1583,7 @@ enum class Consumables {
     ),
 
     /**
-     * Slayers Respite M
-     *
-     * @constructor Slayers Respite M
+     * The Slayers Respite M drink.
      */
     SLAYERS_RESPITE_M(
         Drink(
@@ -2012,9 +1598,7 @@ enum class Consumables {
     ),
 
     /**
-     * Slayers Respite M Keg
-     *
-     * @constructor Slayers Respite M Keg
+     * The Slayers Respite M Keg drink.
      */
     SLAYERS_RESPITE_M_KEG(
         Drink(
@@ -2030,9 +1614,7 @@ enum class Consumables {
     ),
 
     /**
-     * Wizards Mind Bomb
-     *
-     * @constructor Wizards Mind Bomb
+     * The Wizards Mind Bomb drink.
      */
     WIZARDS_MIND_BOMB(
         Drink(
@@ -2044,58 +1626,42 @@ enum class Consumables {
     ),
 
     /**
-     * Mature Wmb
-     *
-     * @constructor Mature Wmb
+     * The Mature Wmb drink.
      */
     MATURE_WMB(Drink(intArrayOf(5741, 1919), MatureWmbEffect())),
 
     /**
-     * Fruit Blast
-     *
-     * @constructor Fruit Blast
+     * The Fruit Blast drink.
      */
     FRUIT_BLAST(Drink(intArrayOf(2084, 2026), HealingEffect(9))),
 
     /**
-     * Premade Fr Blast
-     *
-     * @constructor Premade Fr Blast
+     * The Premade Fr Blast drink.
      */
     PREMADE_FR_BLAST(Drink(intArrayOf(2034, 2026), HealingEffect(9))),
 
     /**
-     * Crafted Fr Blast
-     *
-     * @constructor Crafted Fr Blast
+     * The Crafted Fr Blast drink.
      */
     CRAFTED_FR_BLAST(Drink(intArrayOf(9514, 2026), HealingEffect(9))),
 
     /**
-     * Pineapple Punch
-     *
-     * @constructor Pineapple Punch
+     * The Pineapple Punch drink.
      */
     PINEAPPLE_PUNCH(Drink(intArrayOf(2048, 2026), HealingEffect(9), "You drink the cocktail. It tastes great.")),
 
     /**
-     * Premade P Punch
-     *
-     * @constructor Premade P Punch
+     * The Premade P Punch drink.
      */
     PREMADE_P_PUNCH(Drink(intArrayOf(2036, 2026), HealingEffect(9), "You drink the cocktail. It tastes great.")),
 
     /**
-     * Crafted P Punch
-     *
-     * @constructor Crafted P Punch
+     * The Crafted P Punch drink.
      */
     CRAFTED_P_PUNCH(Drink(intArrayOf(9512, 2026), HealingEffect(9))),
 
     /**
-     * Wizard Blizzard
-     *
-     * @constructor Wizard Blizzard
+     * The Wizard Blizzard drink.
      */
     WIZARD_BLIZZARD(
         Drink(
@@ -2105,9 +1671,7 @@ enum class Consumables {
     ),
 
     /**
-     * Premade Wiz Blzd
-     *
-     * @constructor Premade Wiz Blzd
+     * The Premade Wiz Blzd drink.
      */
     PREMADE_WIZ_BLZD(
         Drink(
@@ -2117,9 +1681,7 @@ enum class Consumables {
     ),
 
     /**
-     * Crafted Wiz Blzd
-     *
-     * @constructor Crafted Wiz Blzd
+     * The Crafted Wiz Blzd drink.
      */
     CRAFTED_WIZ_BLZD(
         Drink(
@@ -2129,9 +1691,7 @@ enum class Consumables {
     ),
 
     /**
-     * Short Green Guy
-     *
-     * @constructor Short Green Guy
+     * The Short Green Guy drink.
      */
     SHORT_GREEN_GUY(
         Drink(
@@ -2141,9 +1701,7 @@ enum class Consumables {
     ),
 
     /**
-     * Premade Sgg
-     *
-     * @constructor Premade Sgg
+     * The Premade Sgg drink.
      */
     PREMADE_SGG(
         Drink(
@@ -2153,9 +1711,7 @@ enum class Consumables {
     ),
 
     /**
-     * Crafted Sgg
-     *
-     * @constructor Crafted Sgg
+     * The Crafted Sgg drink.
      */
     CRAFTED_SGG(
         Drink(
@@ -2165,9 +1721,7 @@ enum class Consumables {
     ),
 
     /**
-     * Drunk Dragon
-     *
-     * @constructor Drunk Dragon
+     * The Drunk Dragon drink.
      */
     DRUNK_DRAGON(
         Drink(
@@ -2177,9 +1731,7 @@ enum class Consumables {
     ),
 
     /**
-     * Premade Dr Dragon
-     *
-     * @constructor Premade Dr Dragon
+     * The Premade Dr Dragon drink.
      */
     PREMADE_DR_DRAGON(
         Drink(
@@ -2189,9 +1741,7 @@ enum class Consumables {
     ),
 
     /**
-     * Crafted Dr Dragon
-     *
-     * @constructor Crafted Dr Dragon
+     * The Crafted Dr Dragon drink.
      */
     CRAFTED_DR_DRAGON(
         Drink(
@@ -2201,9 +1751,7 @@ enum class Consumables {
     ),
 
     /**
-     * Choc Saturday
-     *
-     * @constructor Choc Saturday
+     * The Choc Saturday drink.
      */
     CHOC_SATURDAY(
         Drink(
@@ -2213,9 +1761,7 @@ enum class Consumables {
     ),
 
     /**
-     * Premade Choc Sdy
-     *
-     * @constructor Premade Choc Sdy
+     * The Premade Choc Sdy drink.
      */
     PREMADE_CHOC_SDY(
         Drink(
@@ -2225,9 +1771,7 @@ enum class Consumables {
     ),
 
     /**
-     * Crafted Choc Sdy
-     *
-     * @constructor Crafted Choc Sdy
+     * The Crafted Choc Sdy drink.
      */
     CRAFTED_CHOC_SDY(
         Drink(
@@ -2237,9 +1781,7 @@ enum class Consumables {
     ),
 
     /**
-     * Blurberry Special
-     *
-     * @constructor Blurberry Special
+     * The Blurberry Special drink.
      */
     BLURBERRY_SPECIAL(
         Drink(
@@ -2249,9 +1791,7 @@ enum class Consumables {
     ),
 
     /**
-     * Premade Blurb Sp
-     *
-     * @constructor Premade Blurb Sp
+     * The Premade Blurb Sp drink.
      */
     PREMADE_BLURB_SP(
         Drink(
@@ -2261,9 +1801,7 @@ enum class Consumables {
     ),
 
     /**
-     * Crafted Blurb Sp
-     *
-     * @constructor Crafted Blurb Sp
+     * The Crafted Blurb Sp drink.
      */
     CRAFTED_BLURB_SP(
         Drink(
@@ -2273,9 +1811,7 @@ enum class Consumables {
     ),
 
     /**
-     * Karamjan Rum
-     *
-     * @constructor Karamjan Rum
+     * The Karamjan Rum drink.
      */
     KARAMJAN_RUM(
         Drink(
@@ -2290,9 +1826,7 @@ enum class Consumables {
     ),
 
     /**
-     * Braindeath Rum
-     *
-     * @constructor Braindeath Rum
+     * The Braindeath Rum drink.
      */
     BRAINDEATH_RUM(
         Drink(
@@ -2312,9 +1846,7 @@ enum class Consumables {
     ),
 
     /**
-     * Rum Trouble Brewing Red
-     *
-     * @constructor Rum Trouble Brewing Red
+     * The Rum Trouble Brewing Red drink.
      */
     RUM_TROUBLE_BREWING_RED(
         Drink(
@@ -2325,9 +1857,7 @@ enum class Consumables {
     ),
 
     /**
-     * Rum Trouble Brewing Blue
-     *
-     * @constructor Rum Trouble Brewing Blue
+     * The Rum Trouble Brewing Blue drink.
      */
     RUM_TROUBLE_BREWING_BLUE(
         Drink(
@@ -2338,9 +1868,7 @@ enum class Consumables {
     ),
 
     /**
-     * Vodka
-     *
-     * @constructor Vodka
+     * The Vodka drink.
      */
     VODKA(
         Drink(
@@ -2350,9 +1878,7 @@ enum class Consumables {
     ),
 
     /**
-     * Gin
-     *
-     * @constructor Gin
+     * The Gin drink.
      */
     GIN(
         Drink(
@@ -2366,16 +1892,12 @@ enum class Consumables {
     ),
 
     /**
-     * Brandy
-     *
-     * @constructor Brandy
+     * The Brandy drink.
      */
     BRANDY(Drink(intArrayOf(2021), MultiEffect(HealingEffect(5), SkillEffect(Skills.ATTACK, 4.0, 0.0)))),
 
     /**
-     * Whisky
-     *
-     * @constructor Whisky
+     * The Whisky drink.
      */
     WHISKY(
         Drink(
@@ -2385,9 +1907,7 @@ enum class Consumables {
     ),
 
     /**
-     * Bottle Of Wine
-     *
-     * @constructor Bottle Of Wine
+     * The Bottle Of Wine drink.
      */
     BOTTLE_OF_WINE(
         Drink(
@@ -2397,30 +1917,22 @@ enum class Consumables {
     ),
 
     /**
-     * Jug Of Wine
-     *
-     * @constructor Jug Of Wine
+     * The Jug Of Wine drink.
      */
     JUG_OF_WINE(Drink(intArrayOf(1993, 1935), MultiEffect(HealingEffect(11), SkillEffect(Skills.ATTACK, -2.0, 0.0)))),
 
     /**
-     * Half Full Wine Jug
-     *
-     * @constructor Half Full Wine Jug
+     * The Half Full Wine Jug drink.
      */
     HALF_FULL_WINE_JUG(Drink(intArrayOf(1989, 1935), HealingEffect(7))),
 
     /**
-     * Jug Of Bad Wine
-     *
-     * @constructor Jug Of Bad Wine
+     * The Jug Of Bad Wine drink.
      */
     JUG_OF_BAD_WINE(Drink(intArrayOf(1991, 1935), SkillEffect(Skills.ATTACK, -3.0, 0.0))),
 
     /**
-     * Cup Of Tea
-     *
-     * @constructor Cup Of Tea
+     * The Cup Of Tea drink.
      */
     CUP_OF_TEA(
         Drink(
@@ -2431,58 +1943,42 @@ enum class Consumables {
     ),
 
     /**
-     * Cup Of Tea Nettle
-     *
-     * @constructor Cup Of Tea Nettle
+     * The Cup Of Tea Nettle drink.
      */
     CUP_OF_TEA_NETTLE(Drink(intArrayOf(4242, 1980), EnergyEffect(10))),
 
     /**
-     * Cup Of Tea Milky Nettle
-     *
-     * @constructor Cup Of Tea Milky Nettle
+     * The Cup Of Tea Milky Nettle drink.
      */
     CUP_OF_TEA_MILKY_NETTLE(Drink(intArrayOf(4243, 1980), EnergyEffect(10))),
 
     /**
-     * Nettle Water
-     *
-     * @constructor Nettle Water
+     * The Nettle Water drink.
      */
     NETTLE_WATER(Drink(intArrayOf(4237, 1923), HealingEffect(1))),
 
     /**
-     * Nettle Tea
-     *
-     * @constructor Nettle Tea
+     * The Nettle Tea drink.
      */
     NETTLE_TEA(Drink(intArrayOf(4239, 1923), NettleTeaEffect())),
 
     /**
-     * Nettle Tea Milky
-     *
-     * @constructor Nettle Tea Milky
+     * The Nettle Tea Milky drink.
      */
     NETTLE_TEA_MILKY(Drink(intArrayOf(4240, 1923), NettleTeaEffect())),
 
     /**
-     * Nettle Tea Porcelain
-     *
-     * @constructor Nettle Tea Porcelain
+     * The Nettle Tea Porcelain drink.
      */
     NETTLE_TEA_PORCELAIN(Drink(intArrayOf(4245, 4244), NettleTeaEffect())),
 
     /**
-     * Nettle Tea Milky Porcelain
-     *
-     * @constructor Nettle Tea Milky Porcelain
+     * The Nettle Tea Milky Porcelain drink.
      */
     NETTLE_TEA_MILKY_PORCELAIN(Drink(intArrayOf(4246, 4244), NettleTeaEffect())),
 
     /**
-     * Cup Of Tea Clay
-     *
-     * @constructor Cup Of Tea Clay
+     * The Cup Of Tea Clay drink.
      */
     CUP_OF_TEA_CLAY(
         Drink(
@@ -2493,16 +1989,12 @@ enum class Consumables {
     ),
 
     /**
-     * Cup Of Tea Clay Milky
-     *
-     * @constructor Cup Of Tea Clay Milky
+     * The Cup Of Tea Clay Milky drink.
      */
     CUP_OF_TEA_CLAY_MILKY(Drink(intArrayOf(7731, 7728), SkillEffect(Skills.CONSTRUCTION, 1.0, 0.0))),
 
     /**
-     * Cup Of Tea White
-     *
-     * @constructor Cup Of Tea White
+     * The Cup Of Tea White drink.
      */
     CUP_OF_TEA_WHITE(
         Drink(
@@ -2513,16 +2005,12 @@ enum class Consumables {
     ),
 
     /**
-     * Cup Of Tea White Milky
-     *
-     * @constructor Cup Of Tea White Milky
+     * The Cup Of Tea White Milky drink.
      */
     CUP_OF_TEA_WHITE_MILKY(Drink(intArrayOf(7734, 7732), SkillEffect(Skills.CONSTRUCTION, 2.0, 0.0))),
 
     /**
-     * Cup Of Tea Gold
-     *
-     * @constructor Cup Of Tea Gold
+     * The Cup Of Tea Gold drink.
      */
     CUP_OF_TEA_GOLD(
         Drink(
@@ -2533,30 +2021,22 @@ enum class Consumables {
     ),
 
     /**
-     * Cup Of Tea Gold Milky
-     *
-     * @constructor Cup Of Tea Gold Milky
+     * The Cup Of Tea Gold Milky drink.
      */
     CUP_OF_TEA_GOLD_MILKY(Drink(intArrayOf(7737, 7735), SkillEffect(Skills.CONSTRUCTION, 3.0, 0.0))),
 
     /**
-     * Chocolate Bar
-     *
-     * @constructor Chocolate Bar
+     * The Chocolate Bar food.
      */
     CHOCOLATE_BAR(Food(intArrayOf(1973), HealingEffect(3))),
 
     /**
-     * Purple Sweets
-     *
-     * @constructor Purple Sweets
+     * The Purple Sweets food.
      */
     PURPLE_SWEETS(Food(intArrayOf(4561), HealingEffect(0))),
 
     /**
-     * Purple Sweets Stackable
-     *
-     * @constructor Purple Sweets Stackable
+     * The Purple Sweets Stackable
      */
     PURPLE_SWEETS_STACKABLE(
         Food(
@@ -2568,30 +2048,22 @@ enum class Consumables {
     ),
 
     /**
-     * Field Ration
-     *
-     * @constructor Field Ration
+     * The Field Ration food.
      */
     FIELD_RATION(Food(intArrayOf(7934), HealingEffect(10))),
 
     /**
-     * Roll
-     *
-     * @constructor Roll
+     * The Roll food.
      */
     ROLL(Food(intArrayOf(6963), HealingEffect(6))),
 
     /**
-     * Tchiki Monkey Nuts
-     *
-     * @constructor Tchiki Monkey Nuts
+     * The Tchiki Monkey Nuts food.
      */
     TCHIKI_MONKEY_NUTS(Food(intArrayOf(7573), HealingEffect(5), "You eat the Tchiki monkey nuts. They taste nutty.")),
 
     /**
-     * Tchiki Monkey Paste
-     *
-     * @constructor Tchiki Monkey Paste
+     * The Tchiki Monkey Paste food.
      */
     TCHIKI_MONKEY_PASTE(
         Food(
@@ -2602,9 +2074,7 @@ enum class Consumables {
     ),
 
     /**
-     * Oomlie Wrap
-     *
-     * @constructor Oomlie Wrap
+     * The Oomlie Wrap food.
      */
     OOMLIE_WRAP(
         Food(
@@ -2614,142 +2084,102 @@ enum class Consumables {
     ),
 
     /**
-     * Roe
-     *
-     * @constructor Roe
+     * The Roe food.
      */
     ROE(Food(intArrayOf(11324), HealingEffect(3))),
 
     /**
-     * Equa Leaves
-     *
-     * @constructor Equa Leaves
+     * The Equa Leaves food.
      */
     EQUA_LEAVES(Food(intArrayOf(2128), HealingEffect(1), "You eat the leaves; chewy but tasty.")),
 
     /**
-     * Choc Ice
-     *
-     * @constructor Choc Ice
+     * The Choc Ice food.
      */
     CHOC_ICE(Food(intArrayOf(6794), HealingEffect(6))),
 
     /**
-     * Edible Seaweed
-     *
-     * @constructor Edible Seaweed
+     * The Edible Seaweed food.
      */
     EDIBLE_SEAWEED(Food(intArrayOf(403), HealingEffect(4))),
 
     /**
-     * Frog Spawn
-     *
-     * @constructor Frog Spawn
+     * The Frog Spawn food.
      */
     FROG_SPAWN(Food(intArrayOf(5004), RandomHealthEffect(3, 7), "You eat the frogspawn. Yuck.")),
 
     /**
-     * Pumpkin
-     *
-     * @constructor Pumpkin
+     * The Pumpkin food.
      */
     PUMPKIN(Food(intArrayOf(1959), HealingEffect(14))),
 
     /**
-     * Easter Egg
-     *
-     * @constructor Easter Egg
+     * The Easter Egg.
      */
     EASTER_EGG(Food(intArrayOf(1961), HealingEffect(14))),
 
     /**
-     * Strength
-     *
-     * @constructor Strength
+     * The Strength potion.
      */
     STRENGTH(Potion(intArrayOf(113, 115, 117, 119), SkillEffect(Skills.STRENGTH, 3.0, 0.1))),
 
     /**
-     * Attack
-     *
-     * @constructor Attack
+     * The Attack potion.
      */
     ATTACK(Potion(intArrayOf(2428, 121, 123, 125), SkillEffect(Skills.ATTACK, 3.0, 0.1))),
 
     /**
-     * Defence
-     *
-     * @constructor Defence
+     * The Defence potion.
      */
     DEFENCE(Potion(intArrayOf(2432, 133, 135, 137), SkillEffect(Skills.DEFENCE, 3.0, 0.1))),
 
     /**
-     * Ranging
-     *
-     * @constructor Ranging
+     * The Ranging potion.
      */
     RANGING(Potion(intArrayOf(2444, 169, 171, 173), SkillEffect(Skills.RANGE, 4.0, 0.1))),
 
     /**
-     * Magic
-     *
-     * @constructor Magic
+     * The Magic potion.
      */
     MAGIC(Potion(intArrayOf(3040, 3042, 3044, 3046), SkillEffect(Skills.MAGIC, 4.0, 0.1))),
 
     /**
-     * Super Strength
-     *
-     * @constructor Super Strength
+     * The Super Strength potion.
      */
     SUPER_STRENGTH(Potion(intArrayOf(2440, 157, 159, 161), SkillEffect(Skills.STRENGTH, 5.0, 0.15))),
 
     /**
-     * Super Attack
-     *
-     * @constructor Super Attack
+     * The Super Attack potion.
      */
     SUPER_ATTACK(Potion(intArrayOf(2436, 145, 147, 149), SkillEffect(Skills.ATTACK, 5.0, 0.15))),
 
     /**
-     * Super Defence
-     *
-     * @constructor Super Defence
+     * The Super Defence potion.
      */
     SUPER_DEFENCE(Potion(intArrayOf(2442, 163, 165, 167), SkillEffect(Skills.DEFENCE, 5.0, 0.15))),
 
     /**
-     * Antipoison
-     *
-     * @constructor Antipoison
+     * The Antipoison potion.
      */
     ANTIPOISON(Potion(intArrayOf(2446, 175, 177, 179), AddTimerEffect("poison:immunity", secondsToTicks(90)))),
 
     /**
-     * Antipoison
-     *
-     * @constructor Antipoison
+     * The Antipoison potion.
      */
     ANTIPOISON_(Potion(intArrayOf(5943, 5945, 5947, 5949), AddTimerEffect("poison:immunity", minutesToTicks(9)))),
 
     /**
-     * Antipoison
-     *
-     * @constructor Antipoison
+     * The Antipoison potion.
      */
     ANTIPOISON__(Potion(intArrayOf(5952, 5954, 5956, 5958), AddTimerEffect("poison:immunity", minutesToTicks(12)))),
 
     /**
-     * Super Antip
-     *
-     * @constructor Super Antip
+     * The Super Antipoison.
      */
     SUPER_ANTIP(Potion(intArrayOf(2448, 181, 183, 185), AddTimerEffect("poison:immunity", minutesToTicks(6)))),
 
     /**
-     * Relicym
-     *
-     * @constructor Relicym
+     * The Relicym potion.
      */
     RELICYM(
         Potion(
@@ -2759,30 +2189,22 @@ enum class Consumables {
     ),
 
     /**
-     * Agility
-     *
-     * @constructor Agility
+     * The Agility potion.
      */
     AGILITY(Potion(intArrayOf(3032, 3034, 3036, 3038), SkillEffect(Skills.AGILITY, 3.0, 0.0))),
 
     /**
-     * Hunter
-     *
-     * @constructor Hunter
+     * The Hunter potion.
      */
     HUNTER(Potion(intArrayOf(9998, 10000, 10002, 10004), SkillEffect(Skills.HUNTER, 3.0, 0.0))),
 
     /**
-     * Restore
-     *
-     * @constructor Restore
+     * The Restore potion.
      */
     RESTORE(Potion(intArrayOf(2430, 127, 129, 131), RestoreEffect(10.0, 0.3))),
 
     /**
-     * Sara Brew
-     *
-     * @constructor Sara Brew
+     * The Saradomin brew potion.
      */
     SARA_BREW(
         Potion(
@@ -2799,9 +2221,7 @@ enum class Consumables {
     ),
 
     /**
-     * Summoning
-     *
-     * @constructor Summoning
+     * The Summoning potion.
      */
     SUMMONING(
         Potion(
@@ -2811,9 +2231,7 @@ enum class Consumables {
     ),
 
     /**
-     * Combat
-     *
-     * @constructor Combat
+     * The Combat potion.
      */
     COMBAT(
         Potion(
@@ -2823,30 +2241,22 @@ enum class Consumables {
     ),
 
     /**
-     * Energy
-     *
-     * @constructor Energy
+     * The Energy potion.
      */
     ENERGY(Potion(intArrayOf(3008, 3010, 3012, 3014), MultiEffect(EnergyEffect(10)))),
 
     /**
-     * Fishing
-     *
-     * @constructor Fishing
+     * The Fishing potion.
      */
     FISHING(Potion(intArrayOf(2438, 151, 153, 155), SkillEffect(Skills.FISHING, 3.0, 0.0))),
 
     /**
-     * Prayer
-     *
-     * @constructor Prayer
+     * The Prayer potion.
      */
     PRAYER(Potion(intArrayOf(2434, 139, 141, 143), PrayerEffect(7.0, 0.25))),
 
     /**
-     * Super Resto
-     *
-     * @constructor Super Resto
+     * The Super Restore potion.
      */
     SUPER_RESTO(
         Potion(
@@ -2856,9 +2266,7 @@ enum class Consumables {
     ),
 
     /**
-     * Zammy Brew
-     *
-     * @constructor Zammy Brew
+     * The Zammy Brew potion.
      */
     ZAMMY_BREW(
         Potion(
@@ -2874,16 +2282,12 @@ enum class Consumables {
     ),
 
     /**
-     * Antifire
-     *
-     * @constructor Antifire
+     * The Antifire potion.
      */
     ANTIFIRE(Potion(intArrayOf(2452, 2454, 2456, 2458), SetAttributeEffect("fire:immune", 600, true))),
 
     /**
-     * Guth Rest
-     *
-     * @constructor Guth Rest
+     * The Guth Rest potion.
      */
     GUTH_REST(
         Potion(
@@ -2893,16 +2297,12 @@ enum class Consumables {
     ),
 
     /**
-     * Magic Ess
-     *
-     * @constructor Magic Ess
+     * The Magic Ess potion.
      */
     MAGIC_ESS(Potion(intArrayOf(11491, 11489), SkillEffect(Skills.MAGIC, 3.0, 0.0))),
 
     /**
-     * Sanfew
-     *
-     * @constructor Sanfew
+     * The Sanfew potion.
      */
     SANFEW(
         Potion(
@@ -2915,30 +2315,22 @@ enum class Consumables {
     ),
 
     /**
-     * Super Energy
-     *
-     * @constructor Super Energy
+     * The Super Energy potion.
      */
     SUPER_ENERGY(Potion(intArrayOf(3016, 3018, 3020, 3022), EnergyEffect(20))),
 
     /**
-     * Blamish Oil
-     *
-     * @constructor Blamish Oil
+     * The Blamish Oil.
      */
     BLAMISH_OIL(FakeConsumable(1582, arrayOf("You know... I'd really rather not."))),
 
     /**
-     * Prayermix
-     *
-     * @constructor Prayermix
+     * The Prayer mix.
      */
     PRAYERMIX(BarbarianMix(intArrayOf(11465, 11467), MultiEffect(PrayerEffect(7.0, 0.25), HealingEffect(6)))),
 
     /**
-     * Zammy Mix
-     *
-     * @constructor Zammy Mix
+     * The Zammy Mix.
      */
     ZAMMY_MIX(
         BarbarianMix(
@@ -2954,9 +2346,7 @@ enum class Consumables {
     ),
 
     /**
-     * Att Mix
-     *
-     * @constructor Att Mix
+     * The Att Mix.
      */
     ATT_MIX(
         BarbarianMix(
@@ -2966,9 +2356,7 @@ enum class Consumables {
     ),
 
     /**
-     * Antip Mix
-     *
-     * @constructor Antip Mix
+     * The Antip Mix.
      */
     ANTIP_MIX(
         BarbarianMix(
@@ -2978,9 +2366,7 @@ enum class Consumables {
     ),
 
     /**
-     * Relic Mix
-     *
-     * @constructor Relic Mix
+     * The Relic Mix.
      */
     RELIC_MIX(
         BarbarianMix(
@@ -2990,9 +2376,7 @@ enum class Consumables {
     ),
 
     /**
-     * Str Mix
-     *
-     * @constructor Str Mix
+     * The Str Mix.
      */
     STR_MIX(
         BarbarianMix(
@@ -3002,16 +2386,12 @@ enum class Consumables {
     ),
 
     /**
-     * Resto Mix
-     *
-     * @constructor Resto Mix
+     * The Resto Mix.
      */
     RESTO_MIX(BarbarianMix(intArrayOf(11449, 11451), MultiEffect(RestoreEffect(10.0, 0.3), HealingEffect(3)))),
 
     /**
-     * Super Resto Mix
-     *
-     * @constructor Super Resto Mix
+     * The Super Resto Mix.
      */
     SUPER_RESTO_MIX(
         BarbarianMix(
@@ -3021,16 +2401,12 @@ enum class Consumables {
     ),
 
     /**
-     * Energy Mix
-     *
-     * @constructor Energy Mix
+     * The Energy Mix.
      */
     ENERGY_MIX(BarbarianMix(intArrayOf(11453, 11455), MultiEffect(EnergyEffect(10), HealingEffect(6)))),
 
     /**
-     * Def Mix
-     *
-     * @constructor Def Mix
+     * The Def Mix.
      */
     DEF_MIX(
         BarbarianMix(
@@ -3040,9 +2416,7 @@ enum class Consumables {
     ),
 
     /**
-     * Agil Mix
-     *
-     * @constructor Agil Mix
+     * The Agil Mix.
      */
     AGIL_MIX(
         BarbarianMix(
@@ -3052,9 +2426,7 @@ enum class Consumables {
     ),
 
     /**
-     * Combat Mix
-     *
-     * @constructor Combat Mix
+     * The Combat Mix.
      */
     COMBAT_MIX(
         BarbarianMix(
@@ -3064,9 +2436,7 @@ enum class Consumables {
     ),
 
     /**
-     * Super Att Mix
-     *
-     * @constructor Super Att Mix
+     * The Super Att Mix.
      */
     SUPER_ATT_MIX(
         BarbarianMix(
@@ -3076,9 +2446,7 @@ enum class Consumables {
     ),
 
     /**
-     * Fish Mix
-     *
-     * @constructor Fish Mix
+     * The Fish Mix.
      */
     FISH_MIX(
         BarbarianMix(
@@ -3088,16 +2456,12 @@ enum class Consumables {
     ),
 
     /**
-     * Super Energy Mix
-     *
-     * @constructor Super Energy Mix
+     * The Super Energy Mix.
      */
     SUPER_ENERGY_MIX(BarbarianMix(intArrayOf(11481, 11483), MultiEffect(EnergyEffect(20), HealingEffect(6)))),
 
     /**
-     * Hunting Mix
-     *
-     * @constructor Hunting Mix
+     * The Hunting Mix.
      */
     HUNTING_MIX(
         BarbarianMix(
@@ -3107,9 +2471,7 @@ enum class Consumables {
     ),
 
     /**
-     * Super Str Mix
-     *
-     * @constructor Super Str Mix
+     * The Super Str Mix.
      */
     SUPER_STR_MIX(
         BarbarianMix(
@@ -3119,9 +2481,7 @@ enum class Consumables {
     ),
 
     /**
-     * Antidote Plus Mix
-     *
-     * @constructor Antidote Plus Mix
+     * The Antidote Plus Mix.
      */
     ANTIDOTE_PLUS_MIX(
         BarbarianMix(
@@ -3131,9 +2491,7 @@ enum class Consumables {
     ),
 
     /**
-     * Antip Supermix
-     *
-     * @constructor Antip Supermix
+     * The Antip Supermix.
      */
     ANTIP_SUPERMIX(
         BarbarianMix(
@@ -3143,58 +2501,42 @@ enum class Consumables {
     ),
 
     /**
-     * Sc Prayer
-     *
-     * @constructor Sc Prayer
+     * The Sc Prayer potion.
      */
     SC_PRAYER(Potion(intArrayOf(14207, 14209, 14211, 14213, 14215), PrayerEffect(7.0, 0.25))),
 
     /**
-     * Sc Energy
-     *
-     * @constructor Sc Energy
+     * The Sc Energy potion.
      */
     SC_ENERGY(Potion(intArrayOf(14217, 14219, 14221, 14223, 14225), EnergyEffect(20))),
 
     /**
-     * Sc Attack
-     *
-     * @constructor Sc Attack
+     * The Sc Attack potion.
      */
     SC_ATTACK(Potion(intArrayOf(14227, 14229, 14231, 14233, 14235), SkillEffect(Skills.ATTACK, 3.0, 0.2))),
 
     /**
-     * Sc Strength
-     *
-     * @constructor Sc Strength
+     * The Sc Strength potion.
      */
     SC_STRENGTH(Potion(intArrayOf(14237, 14239, 14241, 14243, 14245), SkillEffect(Skills.STRENGTH, 3.0, 0.2))),
 
     /**
-     * Sc Range
-     *
-     * @constructor Sc Range
+     * The Sc Range potion.
      */
     SC_RANGE(Potion(intArrayOf(14247, 14249, 14251, 14253, 14255), SkillEffect(Skills.RANGE, 3.0, 0.1))),
 
     /**
-     * Sc Defence
-     *
-     * @constructor Sc Defence
+     * The Sc Defence potion.
      */
     SC_DEFENCE(Potion(intArrayOf(14257, 14259, 14261, 14263, 14265), SkillEffect(Skills.DEFENCE, 3.0, 0.1))),
 
     /**
-     * Sc Magic
-     *
-     * @constructor Sc Magic
+     * The Sc Magic potion.
      */
     SC_MAGIC(Potion(intArrayOf(14267, 14269, 14271, 14273, 14275), SkillEffect(Skills.MAGIC, 3.0, 0.1))),
 
     /**
-     * Sc Summoning
-     *
-     * @constructor Sc Summoning
+     * The Sc Summoning potion.
      */
     SC_SUMMONING(Potion(intArrayOf(14277, 14279, 14281, 14283, 14285), SummoningEffect(7.0, 0.25)));
 
