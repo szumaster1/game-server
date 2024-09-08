@@ -1,4 +1,4 @@
-package content.region.asgarnia.falador.quest.fortress
+package content.region.asgarnia.falador.quest.fortress.handlers
 
 import cfg.consts.NPCs
 import core.api.finishDiaryTask

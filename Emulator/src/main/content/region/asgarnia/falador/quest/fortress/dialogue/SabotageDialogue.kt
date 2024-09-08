@@ -3,10 +3,7 @@ package content.region.asgarnia.falador.quest.fortress.dialogue
 import cfg.consts.Animations
 import cfg.consts.Items
 import cfg.consts.NPCs
-import core.api.removeItem
-import core.api.sendNPCDialogue
-import core.api.sendNPCDialogueLines
-import core.api.setQuestStage
+import core.api.*
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression
 import core.game.node.entity.player.Player
@@ -14,10 +11,10 @@ import core.game.world.update.flag.context.Animation
 import core.plugin.Initializable
 
 /**
- * Represents the Black Knights listen dialogue.
+ * Represents the Sabotage dialogue.
  */
 @Initializable
-class BKListenDialogue(player: Player? = null) : Dialogue(player) {
+class SabotageDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any): Boolean {
         if (args.size == 2) {
@@ -41,13 +38,19 @@ class BKListenDialogue(player: Player? = null) : Dialogue(player) {
             5 -> sendNPCDialogue(player, NPCs.WITCH_611, "...not to mention the trees!", FacialExpression.AMAZED).also { stage++ }
             6 -> sendNPCDialogueLines(player, NPCs.WITCH_611, FacialExpression.NEUTRAL, false ,"Now remember Greldo, only a Draynor Manor", "cabbage will do! Don't get lazy and bring any old", "cabbage, THAT would ENTIRELY wreck the potion!").also { stage++ }
             7 -> sendNPCDialogue(player, NPCs.GRELDO_612, "Yeth, Mithreth.", FacialExpression.OLD_NORMAL).also { stage++ }
-            8 -> end().also { setQuestStage(player, "Black Knights' Fortress", 20) }
+            8 -> {
+                end()
+                resetAnimator(player)
+                setQuestStage(player, "Black Knights' Fortress", 20)
+            }
+
             10 -> sendNPCDialogue(player, NPCs.BLACK_KNIGHT_CAPTAIN_610, "What's that noise?", FacialExpression.ASKING).also { stage++ }
             11 -> sendNPCDialogueLines(player, NPCs.WITCH_611, FacialExpression.NEUTRAL, false, "Hopefully Greldo with the cabbage... yes, look her it","co....NOOOOOoooo!").also { stage++ }
             12 -> sendNPCDialogue(player, NPCs.WITCH_611, "My potion!", FacialExpression.EXTREMELY_SHOCKED).also { stage++ }
             13 -> sendNPCDialogue(player, NPCs.BLACK_KNIGHT_CAPTAIN_610, "Oh boy, this doesn't look good!", FacialExpression.WORRIED).also { stage++ }
             14 -> sendNPCDialogue(player, NPCs.BLACK_CAT_4607, "Meow!", FacialExpression.CHILD_FRIENDLY).also { stage++ }
             15 -> if (removeItem(player, Items.CABBAGE_1965)) {
+                end()
                 setQuestStage(player, "Black Knights' Fortress", 30)
                 player(FacialExpression.HAPPY, "Looks like my work here is done. Seems like that's", "successfully sabotaged their little secret weapon plan.")
             }
