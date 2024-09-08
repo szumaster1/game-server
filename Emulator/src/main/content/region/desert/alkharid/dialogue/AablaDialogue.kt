@@ -25,7 +25,7 @@ class AablaDialogue(player: Player? = null) : Dialogue(player) {
     override fun handle(interfaceId: Int, buttonId: Int): Boolean {
         when (stage) {
             0 -> showTopics(
-                Topic("Can you heal me?", content.region.desert.alkharid.dialogue.AlKharidHealDialogue(true)),
+                Topic("Can you heal me?", AlKharidHealDialogue(true)),
                 Topic("Do you see a lot of injured fighters?", 101),
                 Topic("Do you come here often?", 201)
             )

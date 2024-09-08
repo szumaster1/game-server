@@ -12,7 +12,6 @@ import core.game.node.item.Item
 import core.game.world.map.Location
 import core.game.world.map.RegionManager
 import core.game.world.map.path.Pathfinder
-import core.integrations.discord.Discord
 import core.api.utils.WeightBasedTable
 import core.game.world.update.flag.context.Graphic
 import core.tools.secondsToTicks

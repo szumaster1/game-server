@@ -1,6 +1,10 @@
 package content.region.misthalin.draynor.quest.vampire
 
+import cfg.consts.Components
+import cfg.consts.Items
 import cfg.consts.Vars
+import core.api.rewardXP
+import core.api.sendItemZoomOnInterface
 import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.quest.Quest
 import core.game.node.entity.skill.Skills
@@ -12,64 +16,75 @@ import core.plugin.Initializable
 @Initializable
 class VampireSlayer: Quest("Vampire Slayer", 30, 29, 3, Vars.VARP_QUEST_VAMPIRE_SLAYER_PROGRESS, 0, 1, 3) {
 
-     /*
-      * The people of Draynor village live in constant terror. Their numbers are dwindling,
-      * all due to a foul creature known as a vampire, lurking in the manor to the north.
-      */
+    /*
+     * The people of Draynor village live in constant terror. Their numbers are dwindling,
+     * all due to a foul creature known as a vampire, lurking in the manor to the north.
+     */
 
     override fun drawJournal(player: Player, stage: Int) {
         super.drawJournal(player, stage)
+        var line = 11
+
         if (getStage(player) == 0) {
-            line(player, BLUE + "I can start this quest by speaking to " + RED + "Morgan who is in", 4 + 7)
-            line(player, RED + "Draynor Village.", 5 + 7)
-            line(player, BLUE + "Requirements:", 7 + 7)
-            line(player, BLUE + "Must be able to kill a level 34 " + RED + "Vampire.", 8 + 7)
+            line(player, "I can start this quest by speaking to !!Morgan who is in???", line++, true)
+            line(player, "!!Draynor Village??.", line++, true)
+            line(player, "Requirements:", line++, true)
+            line(player, "Must be able to kill a level 34 !!Vampire??.", line++, true)
         }
         if (getStage(player) == 10) {
-            line(player, "<str>I spoke to Morgan in Draynor Village. He told me that the", 4 + 7)
-            line(player, "<str>locals are being attacked by a terrifying Vampire!", 5 + 7)
-            line(player, BLUE + "I need to speak to " + RED + "Dr Harlow " + BLUE + "who can normally be found in", 7 + 7)
-            line(player, BLUE + "the " + RED + " Blue Moon Inn" + BLUE + " in " + RED + "Varrock.", 8 + 7)
+            line(player, "I spoke to Morgan in Draynor Village. He told me that the", line++, true)
+            line(player, "locals are being attacked by a terrifying Vampire!", line++, true)
+            line++
+            line(player, "I need to speak to !!Dr Harlow?? who can normally be found in", line++, true)
+            line(player, "the !!Blue Moon Inn?? in !!Varrock??.", line++, true)
         }
         if (getStage(player) == 20) {
-            line(player, "<str>I spoke to Morgan in Draynor Village. He told me that the", 4 + 7)
-            line(player, "<str>locals are being attacked by a terrifying Vampire!", 5 + 7)
-            line(player, "<str>I have spoken to Dr Harlow. He seemed terribly drunk, and", 7 + 7)
-            line(player, "<str>he kept asking me to buy him drinks.", 8 + 7)
-            line(player, BLUE + "I should see what advice " + RED + "Dr Harlow" + BLUE + " can give me about killing", 10 + 7)
-            line(player, RED + "Vampires.", 11 + 7)
-            line(player, BLUE + "When I'm ready, I should go to " + RED + "Draynor Manor" + BLUE + ", north of", 12 + 7)
-            line(player, BLUE + "Draynor to kill the " + RED + "Vampire" + BLUE + " that's living in the basement.", 13 + 7)
+            line(player, "I spoke to Morgan in Draynor Village. He told me that the", line++, true)
+            line(player, "locals are being attacked by a terrifying Vampire!", line++, true)
+            line++
+            line(player, "I have spoken to Dr Harlow. He seemed terribly drunk, and", line++, true)
+            line(player, "he kept asking me to buy him drinks.", line++, true)
+            line++
+            line(player, "I should see what advice !!Dr Harlow?? can give me about killing", line++, true)
+            line(player, "!!Vampires??.", line++, true)
+            line(player, "When I'm ready, I should go to !!Draynor Manor??, north of", line++, true)
+            line(player, "Draynor to kill the !!Vampire?? that's living in the basement.", line++, true)
         }
         if (getStage(player) == 30) {
-            line(player, "<str>I spoke to Morgan in Draynor Village. He told me that the", 4 + 7)
-            line(player, "<str>locals are being attacked by a terrifying Vampire!", 5 + 7)
-            line(player, "<str>I have spoken to Dr Harlow. He seemed terribly drunk, and", 7 + 7)
-            line(player, "<str>he kept asking me to buy him drinks.", 8 + 7)
-            line(player, "<str>Dr Harlow gave me a stake to finish off the Vampire then", 10 + 7)
-            line(player, "<str>I'm fighting it. I've got a hammer to drive the stake deep", 11 + 7)
-            line(player, "<str>into the Vampire's chest, and I have some garlic which", 12 + 7)
-            line(player, "<str>should weaken the Vampire.", 13 + 7)
-            line(player, BLUE + "When i'm ready, I should go to " + RED + "Draynor Manor" + BLUE + ", north of", 14 + 7)
-            line(player, BLUE + "Draynor to kill the " + RED + "Vampire" + BLUE + " that's living in the basement.", 15 + 7)
+            line(player, "I spoke to Morgan in Draynor Village. He told me that the", line++, true)
+            line(player, "locals are being attacked by a terrifying Vampire!", line++, true)
+            line++
+            line(player, "I have spoken to Dr Harlow. He seemed terribly drunk, and", line++, true)
+            line(player, "he kept asking me to buy him drinks.", line++, true)
+            line++
+            line(player, "Dr Harlow gave me a stake to finish off the Vampire then", line++, true)
+            line(player, "I'm fighting it. I've got a hammer to drive the stake deep", line++, true)
+            line(player, "into the Vampire's chest, and I have some garlic which", line++, true)
+            line(player, "should weaken the Vampire.", line++, true)
+            line(player, "When i'm ready, I should go to !!Draynor Manor??, north of", line++, true)
+            line(player, "Draynor to kill the !!Vampire?? that's living in the basement.", line++, true)
         }
         if (getStage(player) == 100) {
-            line(player, "<str>I spoke to Morgan in Draynor Village. He told me that the", 4 + 7)
-            line(player, "<str>locals are being attacked by a terrifying Vampire!", 5 + 7)
-            line(player, "<str>I have spoken to Dr Harlow. He seemed terribly drunk, and", 7 + 7)
-            line(player, "<str>he kept asking me to buy him drinks.", 8 + 7)
-            line(player, "<str>I have killed the Vampire, Count Draynor. Draynor Village is", 10 + 7)
-            line(player, "<str>now safe!", 11 + 7)
-            line(player, "<col=FF0000>QUEST COMPLETE!", 13 + 7)
+            line(player, "I spoke to Morgan in Draynor Village. He told me that the", line++, true)
+            line(player, "locals are being attacked by a terrifying Vampire!", line++, true)
+            line++
+            line(player, "I have spoken to Dr Harlow. He seemed terribly drunk, and", line++, true)
+            line(player, "he kept asking me to buy him drinks.", line++, true)
+            line++
+            line(player, "I have killed the Vampire, Count Draynor. Draynor Village is", line++, true)
+            line(player, "now safe!", line++, true)
+            line++
+            line(player, "<col=FF0000>QUEST COMPLETE!</col>", line, false)
         }
     }
 
     override fun finish(player: Player) {
         super.finish(player)
-        player.getSkills().addExperience(Skills.ATTACK, 4825.0)
-        player.packetDispatch.sendString("3 Quest Point", 277, 8 + 2)
-        player.packetDispatch.sendString("4825 Attack XP", 277, 9 + 2)
-        player.packetDispatch.sendItemZoomOnInterface(1549, 260, 277, 3 + 2)
+        var line = 10
+        sendItemZoomOnInterface(player, Components.QUEST_COMPLETE_SCROLL_277, 5, Items.STAKE_1549, 260)
+        drawReward(player, "3 Quest Point", line++)
+        drawReward(player, "4825 Attack XP", line)
+        rewardXP(player, Skills.ATTACK, 4825.0)
     }
 
     override fun newInstance(`object`: Any?): Quest {

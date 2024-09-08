@@ -57,7 +57,7 @@ class GameInterfacePlugin : ComponentPlugin() {
                     player.interfaceManager.currentTabIndex = getTabIndex(button)
                 }
                 when (button) {
-                    21 -> setInterfaceText(player, "Friends List -" + GameWorld.settings!!.name + " " + GameWorld.settings!!.worldId, Components.FRIENDS2_550, 3)
+                    21 -> setInterfaceText(player, "Friends List - " + GameWorld.settings!!.name + " " + GameWorld.settings!!.worldId, Components.FRIENDS2_550, 3)
                     22 -> {}
                     24 -> {}
                     25 -> {}
@@ -76,7 +76,7 @@ class GameInterfacePlugin : ComponentPlugin() {
                     43 -> {}
                     44 -> {}
                     66, 110 -> configureWorldMap(player)
-                    69 -> setInterfaceText(player, "When you have finished playing ${GameWorld.settings!!.name}, always use the button below to logout safely.", 182, 0)
+                    69 -> setInterfaceText(player, "When you have finished playing ${GameWorld.settings!!.name}" + ", always use the button below to logout safely.", 182, 0)
                     else -> throw IllegalStateException("Unexpected value: $button")
                 }
                 return true

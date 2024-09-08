@@ -3,14 +3,11 @@ package core.api
 import cfg.consts.Items
 
 /**
- * Enum representing different gods in the game.
- *
- * @param validItems The list of valid items associated with the god.
- * @constructor Creates a new God with the specified valid items.
+ * Item represents different gods in the game.
  */
 enum class God(vararg val validItems: Int) {
     /**
-     * Armadyl.
+     * The armadyl.
      */
     ARMADYL(
         Items.ARMADYL_CHESTPLATE_11720,
@@ -23,7 +20,7 @@ enum class God(vararg val validItems: Int) {
     ),
 
     /**
-     * Bandos.
+     * The bandos.
      */
     BANDOS(
         Items.ANCIENT_MACE_11061,
@@ -34,7 +31,7 @@ enum class God(vararg val validItems: Int) {
     ),
 
     /**
-     * Saradomin.
+     * The saradomin.
      */
     SARADOMIN(
         Items.ANCIENT_SYMBOL_11181,
@@ -71,7 +68,7 @@ enum class God(vararg val validItems: Int) {
     ),
 
     /**
-     * Zamorak.
+     * The zamorak.
      */
     ZAMORAK(
         Items.DAGONHAI_HAT_14499,
@@ -112,7 +109,7 @@ enum class God(vararg val validItems: Int) {
     ),
 
     /**
-     * Guthix.
+     * The guthix.
      */
     GUTHIX(
         Items.STEEL_HERALDIC_HELM_8692,
@@ -147,7 +144,7 @@ enum class God(vararg val validItems: Int) {
     ),
 
     /**
-     * Zaros.
+     * The zaros.
      */
     ZAROS(
         Items.ANCIENT_STAFF_13406,

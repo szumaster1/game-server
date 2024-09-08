@@ -45,13 +45,13 @@ class PrayerInterfaceListener : InterfaceListener {
     private fun canUsePrayer(player: Player, type: PrayerType): Boolean {
         return when (type) {
             PrayerType.CHIVALRY -> {
-                if (!getAttribute(player, KWUtils.KW_COMPLETE, false)) {
+                if (!getAttribute(player, KWUtils.KW_COMPLETE, false) && player.skills.prayerPoints >= 1) {
                     sendDialogue(player, "You need a Prayer level of 60, a Defence level of ${PrayerType.CHIVALRY.defenceReq} and have completed the King's Ransom quest's Knight Wave reward to use Chivalry.")
                     false
                 } else true
             }
             PrayerType.PIETY -> {
-                if (!getAttribute(player, KWUtils.KW_COMPLETE, false)) {
+                if (!getAttribute(player, KWUtils.KW_COMPLETE, false) && player.skills.prayerPoints >= 1) {
                     sendDialogue(player, "You need a Prayer level of 70, a Defence level of ${PrayerType.PIETY.defenceReq} and to have completed the King's Ransom quest's Knight Wave reward to use Piety.")
                     false
                 } else true

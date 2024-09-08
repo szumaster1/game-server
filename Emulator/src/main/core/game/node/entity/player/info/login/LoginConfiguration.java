@@ -219,7 +219,7 @@ public final class LoginConfiguration {
         player.getFamiliarManager().login();
         player.getInterfaceManager().openDefaultTabs();
         setInterfaceText(player, "Friends List - " + Configuration.SERVER_NAME + " " + GameWorld.getSettings().getWorldId(), 550, 3);
-        setInterfaceText(player, "When you have finished playing " + Configuration.SERVER_NAME + ", always use the button below to logout safely.", 182, 0);
+        setInterfaceText(player, "When you have finished playing " + Configuration.SERVER_NAME + "," + " always use the button below to logout safely.", 182, 0);
         player.getQuestRepository().syncronizeTab(player);
         player.getInterfaceManager().close();
         player.getEmoteManager().refresh();

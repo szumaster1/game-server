@@ -32,7 +32,7 @@ class FadliDialogue(player: Player? = null) : Dialogue(player) {
 
             101 -> npcl(FacialExpression.FRIENDLY, "You can store your stuff here if you want. You can dump anything you don't want to carry whilst your fighting duels and then pick it up again on the way out.").also { stage++ }
             102 -> npcl(FacialExpression.SAD, "To be honest I'm wasted here.").also { stage++ }
-            103 -> npcl(FacialExpression.EVIL_LAUGH, "I should be winning duels in an arena! I'm the best warrior in Al Kharid!").also { stage++ }
+            103 -> npcl(FacialExpression.EVIL_LAUGH, "I should be winning duels in an arena! I'm the best warrior in Al-Kharid!").also { stage++ }
             104 -> player(FacialExpression.HALF_WORRIED, "Easy, tiger!").also { stage = END_DIALOGUE }
             201 -> npcl(FacialExpression.LAUGH, "Isn't it obvious?").also { stage++ }
             202 -> npcl(FacialExpression.ANNOYED, "This is the Duel Arena...duh!").also { stage = END_DIALOGUE }

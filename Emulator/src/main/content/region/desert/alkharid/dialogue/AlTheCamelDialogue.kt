@@ -1,6 +1,7 @@
 package content.region.desert.alkharid.dialogue
 
 import cfg.consts.NPCs
+import cfg.consts.Sounds
 import core.api.playAudio
 import core.api.sendMessage
 import core.game.dialogue.Dialogue
@@ -18,11 +19,10 @@ class AlTheCamelDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
-        val rand = RandomFunction.random(1, 3)
+        val rand = RandomFunction.random(0, 1)
         when (rand) {
-            1 -> playerl(FacialExpression.HALF_GUILTY, "Mmm... Looks like that camel would make a nice kebab.").also { stage = 0 }
-            2 -> playerl(FacialExpression.HALF_GUILTY, "If I go near that camel, it'll probably bite my hand off.").also { stage = 0 }
-            3 -> playerl(FacialExpression.HALF_GUILTY, "Mmm... Looks like that camel would make a nice kebab.").also { stage = 0 }
+            0 -> playerl(FacialExpression.HALF_GUILTY, "Mmm... Looks like that camel would make a nice kebab.").also { stage = 0 }
+            1 -> playerl(FacialExpression.HALF_GUILTY, "If I go near that camel, it'll probably bite my hand off.").also { stage = 0 }
         }
         return true
     }
@@ -31,7 +31,7 @@ class AlTheCamelDialogue(player: Player? = null) : Dialogue(player) {
         when (stage) {
             0 -> {
                 end()
-                playAudio(player, 327)
+                playAudio(player, Sounds.CAMEL_DISGRUNTLED_327)
                 sendMessage(player, "The camel tries to stomp on your foot, but you pull it back quickly.")
             }
         }

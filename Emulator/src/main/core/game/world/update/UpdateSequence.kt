@@ -6,7 +6,7 @@ import core.game.node.item.GroundItemManager
 import core.game.world.map.RegionManager
 import core.game.world.repository.InitializingNodeList
 import core.game.world.repository.Repository
-import core.integrations.grafana.*
+import core.integration.grafana.*
 import core.network.packet.PacketRepository
 import core.network.packet.context.PlayerContext
 import core.network.packet.outgoing.ClearMinimapFlag
