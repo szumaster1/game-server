@@ -5,8 +5,10 @@ import cfg.consts.Items
 import core.api.openInterface
 import core.api.sendDialogue
 import core.api.sendItemDialogue
+import core.api.setInterfaceText
 import core.game.dialogue.DialogueFile
 import core.game.node.item.Item
+import core.game.world.GameWorld
 import core.tools.START_DIALOGUE
 
 /**
@@ -41,7 +43,15 @@ class BankHelpDialogue : DialogueFile() {
                 2 -> player?.let {
                     end()
                     it.bank.close()
-                    openInterface(it, Components.BANK_V2_HELP_767)
+                    openInterface(it, Components.BANK_V2_HELP_767).also {
+                        if(player!!.interfaceManager.isOpened)
+                        setInterfaceText(
+                            player!!,
+                            "Bank of WHAT THE FUCK Help",
+                            Components.BANK_V2_HELP_767,
+                            40
+                        )
+                    }
                 }
                 3 -> end()
             }
