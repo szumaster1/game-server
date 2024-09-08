@@ -117,7 +117,7 @@ class KnightWavesNPC : AbstractNPC {
     }
 
     enum class KnightType(val id: Int) {
-        I(6177), II(6176), III(6175), IV(1883), V(6173), VI(6172), VII(6171), VIII(6170);
+        I(6177), II(6176), III(6175), IV(1883), V(6173), VI(6172), VII(6171), VIII(6170), IX(-1);
 
         fun transform(npc: KnightWavesNPC, player: Player?) {
             val newType = next()
@@ -138,7 +138,7 @@ class KnightWavesNPC : AbstractNPC {
                             npc.transform(newType!!.id)
                             npc.impactHandler.disabledTicks = 1
                             npc.isInvisible = false
-                            if (newType != VIII) {
+                            if (newType != IX) {
                                 npc.properties.combatPulse.attack(player)
                             } else {
                                 teleport(player!!, Location.create(2750, 3507, 2).transform(Direction.SOUTH))
