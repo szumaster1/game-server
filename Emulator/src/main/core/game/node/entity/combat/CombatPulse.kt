@@ -1,7 +1,8 @@
 package core.game.node.entity.combat
 
-import content.global.ame.RandomEventNPC
+
 import content.global.handlers.item.equipment.special.SalamanderSwingHandler
+import content.global.random.RandomEventNPC
 import core.game.container.impl.EquipmentContainer
 import core.game.interaction.MovementPulse
 import core.game.node.Node
@@ -37,48 +38,20 @@ class CombatPulse(
     private var victim: Entity? = null
 
     /**
-     * Gets the style.
-     * @return The style.
-     */
-    /**
-     * Sets the style.
-     * @param style The style to set.
-     */
-    /**
      * The current combat style used.
      */
     var style = CombatStyle.MELEE
 
-    /**
-     * @return the temporaryHandler.
-     */
-    /**
-     * @param temporaryHandler the temporaryHandler to set.
-     */
     /**
      * The temporary combat swing handler.
      */
     var temporaryHandler: CombatSwingHandler? = null
 
     /**
-     * Gets the handler.
-     * @return The handler.
-     */
-    /**
-     * Sets the handler.
-     * @param handler The handler to set.
-     */
-    /**
      * The current combat swing handler.
      */
     var handler = style.swingHandler
 
-    /**
-     * @return the lastVictim.
-     */
-    /**
-     * @param lastVictim the lastVictim to set.
-     */
     /**
      * The last victim.
      */
@@ -167,6 +140,7 @@ class CombatPulse(
 
     /**
      * Sets the "in combat" flag for the victim and handles closing.
+     *
      * @param victim The victim.
      */
     fun setCombatFlags(victim: Entity?) {
@@ -198,6 +172,7 @@ class CombatPulse(
 
     /**
      * Checks if the mover can interact with the victim.
+     *
      * @return `True` if so.
      */
     private fun interactable(): Boolean {
@@ -254,6 +229,7 @@ class CombatPulse(
 
     /**
      * Attacks the node.
+     *
      * @param victim The victim node.
      */
     fun attack(victim: Node?) {
@@ -315,6 +291,7 @@ class CombatPulse(
 
     /**
      * Sets the victim.
+     *
      * @param victim The victim.
      */
     fun setVictim(victim: Node?) {
@@ -327,6 +304,7 @@ class CombatPulse(
 
     /**
      * Sets the next attack.
+     *
      * @param ticks The amount of ticks.
      */
     fun setNextAttack(ticks: Int) {
@@ -335,6 +313,7 @@ class CombatPulse(
 
     /**
      * Delays the next attack.
+     *
      * @param ticks The amount of ticks to delay the next attack with.
      */
     fun delayNextAttack(ticks: Int) {
@@ -343,6 +322,7 @@ class CombatPulse(
 
     /**
      * Gets the next attack tick.
+     *
      * @return The next attack tick.
      */
     fun getNextAttack(): Int {
@@ -351,6 +331,7 @@ class CombatPulse(
 
     /**
      * Checks if we can fight with the victim.
+     *
      * @return `True` if so.
      */
     fun canInteract(): InteractionType? {
@@ -394,6 +375,7 @@ class CombatPulse(
 
     /**
      * Checks if this entity is attacking.
+     *
      * @return `True` if so.
      */
     val isAttacking: Boolean
@@ -401,6 +383,7 @@ class CombatPulse(
 
     /**
      * If the entity has an attacker.
+     *
      * @return `True` if so.
      */
     val isInCombat: Boolean
@@ -411,6 +394,7 @@ class CombatPulse(
 
     /**
      * Gets the current victim.
+     *
      * @return The victim.
      */
     fun getVictim(): Entity? {
@@ -421,6 +405,7 @@ class CombatPulse(
 
         /**
          * Executes a combat swing.
+         *
          * @param entity The entity.
          * @param victim The victim.
          * @param handler The combat swing handler.
