@@ -25,7 +25,7 @@ Fork for educational purposes & single-player experience.
 
 2. Follow the Git Basics guide [over on the wiki.](https://gitlab.com/rs-source/2009scape/-/wikis/home)
 
-**If at anytime you have an issue with GitLab please refer to the [GitLab help center](https://gitlab.com/help).**
+**If at any time you have an issue with GitLab please refer to the [GitLab help center](https://gitlab.com/help).**
 
 ***
 
