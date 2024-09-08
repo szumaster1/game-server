@@ -19,10 +19,10 @@ class EllyTheCamelDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
-        val rand = RandomFunction.random(1, 3)
+        val rand = RandomFunction.random(0, 2)
         when (rand) {
-            1 -> player(FacialExpression.HALF_GUILTY, "If I go near that camel, it'll probably", "bite my hand off.").also { stage = 0 }
-            2, 3 -> player(FacialExpression.HALF_THINKING, "I wonder if that camel has fleas...").also { stage = 0 }
+            0 -> player(FacialExpression.HALF_GUILTY, "If I go near that camel, it'll probably", "bite my hand off.").also { stage = 0 }
+            1, 2 -> player(FacialExpression.HALF_THINKING, "I wonder if that camel has fleas...").also { stage = 0 }
         }
         return true
     }
