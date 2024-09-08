@@ -119,7 +119,7 @@ class EdgevilleListeners : InteractionListener {
          */
 
         on(intArrayOf(Scenery.METAL_DOOR_29319, Scenery.METAL_DOOR_29320), IntType.SCENERY, "open") { player, node ->
-            if (getUsedOption(player) == "open" && player.location.x < 9918) {
+            if (getUsedOption(player) == "open" && player.location.y < 9918) {
                 openInterface(player, Components.WILDERNESS_WARNING_382)
                 setAttribute(player, "wildy-gate", node)
             } else {
