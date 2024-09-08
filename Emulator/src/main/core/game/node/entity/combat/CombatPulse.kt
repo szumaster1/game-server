@@ -19,6 +19,7 @@ import core.tools.RandomFunction
 import core.api.*
 import core.game.interaction.DestinationFlag
 import core.game.system.timer.impl.*
+import java.util.*
 
 /**
  * The combat-handling pulse implementation.
@@ -340,7 +341,7 @@ class CombatPulse(
     override fun removeFor(pulseType: String): Boolean {
         var pulse = pulseType
         if (isAttacking) {
-            pulse = pulse.toLowerCase()
+            pulse = pulse.lowercase(Locale.getDefault())
             if (pulse.startsWith("interaction:attack")) {
                 if (victim.hashCode() == pulse.replace("interaction:attack:", "").toInt()) {
                     return false
