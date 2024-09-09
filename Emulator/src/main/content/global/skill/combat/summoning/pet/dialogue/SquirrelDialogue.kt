@@ -1,0 +1,64 @@
+package content.global.skill.combat.summoning.pet.dialogue
+
+import cfg.consts.NPCs
+import core.game.dialogue.Dialogue
+import core.game.dialogue.FacialExpression
+import core.game.node.entity.npc.NPC
+import core.game.node.entity.player.Player
+import core.plugin.Initializable
+import core.tools.END_DIALOGUE
+
+/**
+ * Represents the Squirrel dialogue.
+ */
+@Initializable
+class SquirrelDialogue(player: Player? = null) : Dialogue(player) {
+
+    private val babySquirrel = intArrayOf(NPCs.BABY_RACCOON_6913, NPCs.BABY_RACCOON_6997, NPCs.BABY_RACCOON_7271, NPCs.BABY_RACCOON_7273, NPCs.BABY_RACCOON_7275, NPCs.BABY_RACCOON_7276)
+    private val adultSquirrel = intArrayOf(NPCs.RACCOON_6914, NPCs.RACCOON_7272, NPCs.RACCOON_7274)
+
+    override fun open(vararg args: Any): Boolean {
+        npc = args[0] as NPC
+        if (npc.id in babySquirrel) {
+            npcl(FacialExpression.CHILD_NORMAL, "Throw a ball for me!").also { stage = 0 }
+            return true
+        } else {
+            when ((0..3).random()) {
+                0 -> npcl(FacialExpression.CHILD_NORMAL, "Gimme a nut!").also { stage = 5 }
+                1 -> npcl(FacialExpression.CHILD_NORMAL, "Stop doing that and play with me!").also { stage = 7 }
+                2 -> npcl(FacialExpression.CHILD_NORMAL, "This is boring, take me someplace fun.").also { stage = 9 }
+                3 -> npcl(FacialExpression.CHILD_NORMAL, "Is it nearly nut time?").also { stage = 11 }
+            }
+        }
+        return true
+    }
+
+    override fun handle(componentID: Int, buttonID: Int): Boolean {
+        when (stage) {
+            0 -> playerl(FacialExpression.FRIENDLY, "Are you part-dog or something?").also { stage++ }
+            1 -> npcl(FacialExpression.CHILD_NORMAL, "What's a dog?").also { stage++ }
+            2 -> playerl(FacialExpression.FRIENDLY, "It's another kind of animal. Squirrels are more famous for eating nuts than chasing balls.").also { stage++ }
+            3 -> npcl(FacialExpression.CHILD_NORMAL, "Give me a nut, then!").also { stage++ }
+            4 -> playerl(FacialExpression.FRIENDLY, "I walked into that one, didn't I?").also { stage = END_DIALOGUE }
+
+            5 -> playerl(FacialExpression.FRIENDLY, "Not just now, I wouldn't want to spoil your dinner with one.").also { stage++ }
+            6 -> npcl(FacialExpression.CHILD_NORMAL, "Awww...").also { stage = END_DIALOGUE }
+
+            7 -> playerl(FacialExpression.FRIENDLY, "Okay, but just for a minute, I'm busy.").also { stage++ }
+            8 -> npcl(FacialExpression.CHILD_NORMAL, "Yay!").also { stage = END_DIALOGUE }
+
+            9 -> playerl(FacialExpression.FRIENDLY, "I'll be done in a moment, and you can play here if you want.").also { stage++ }
+            10 -> npcl(FacialExpression.CHILD_NORMAL, "Huzzah!").also { stage = END_DIALOGUE }
+
+            11 -> playerl(FacialExpression.FRIENDLY, "Didn't you just ask me that a little while ago?").also { stage++ }
+            12 -> npcl(FacialExpression.CHILD_NORMAL, "Maybe.").also { stage++ }
+            13 -> playerl(FacialExpression.FRIENDLY, "Then whatever answer I gave still applies now.").also { stage = END_DIALOGUE }
+
+        }
+        return true
+    }
+
+    override fun getIds(): IntArray {
+        return intArrayOf(*babySquirrel, *adultSquirrel)
+    }
+}

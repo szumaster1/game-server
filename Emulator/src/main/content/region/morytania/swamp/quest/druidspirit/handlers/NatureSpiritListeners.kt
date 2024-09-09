@@ -4,9 +4,8 @@ import cfg.consts.Items
 import cfg.consts.NPCs
 import cfg.consts.Scenery
 import content.region.morytania.swamp.handlers.GhastNPC
+import content.region.morytania.swamp.quest.druidspirit.dialogue.FillimanCompletionDialogue
 import core.api.*
-import core.game.dialogue.DialogueFile
-import core.game.dialogue.FacialExpression
 import core.game.global.action.PickupHandler
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
@@ -101,8 +100,8 @@ class NatureSpiritListeners : InteractionListener {
         }
 
         /*
-       * Enter grotto (Nature spirit quest).
-       */
+         * Enter grotto (Nature spirit quest).
+         */
 
         on(GROTTO_EXIT, IntType.SCENERY, "exit") { player, _ ->
             sendMessage(player, "You prepare to exit the grotto.")
@@ -326,23 +325,5 @@ class NatureSpiritListeners : InteractionListener {
 
     }
 
-    /**
-     * Filliman Tarlock completion dialogue.
-     */
-    inner class FillimanCompletionDialogue : DialogueFile() {
-
-        override fun handle(componentID: Int, buttonID: Int) {
-            npc = NPC(NPCs.FILLIMAN_TARLOCK_1050)
-            when (stage) {
-                0 -> npcl(FacialExpression.NEUTRAL, "Well, hello there again. I was just enjoying the grotto. Many thanks for your help, I couldn't have become a Spirit of nature without you.").also { stage++ }
-                1 -> npcl(FacialExpression.NEUTRAL, "I must complete the transformation now. Just stand there and watch the show, apparently it's quite good!").also { stage++ }
-                2 -> {
-                    end()
-                    lock(player!!, 10)
-                    submitWorldPulse(CompleteSpellPulse(player!!))
-                }
-            }
-        }
-    }
 }
 

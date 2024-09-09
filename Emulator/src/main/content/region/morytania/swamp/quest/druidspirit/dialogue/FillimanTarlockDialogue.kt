@@ -2,9 +2,11 @@ package content.region.morytania.swamp.quest.druidspirit.dialogue
 
 import cfg.consts.Items
 import cfg.consts.NPCs
+import content.region.morytania.swamp.quest.druidspirit.handlers.CompleteSpellPulse
 import content.region.morytania.swamp.quest.druidspirit.handlers.NSUtils
 import core.api.*
 import core.game.dialogue.Dialogue
+import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
@@ -215,4 +217,23 @@ class FillimanTarlockDialogue(player: Player? = null) : Dialogue(player) {
         player.questRepository.getQuest("Nature Spirit").setStage(player, stage)
     }
 
+}
+
+/**
+ * Represents the Filliman completion dialogue.
+ */
+class FillimanCompletionDialogue : DialogueFile() {
+
+    override fun handle(componentID: Int, buttonID: Int) {
+        npc = NPC(NPCs.FILLIMAN_TARLOCK_1050)
+        when (stage) {
+            0 -> npcl(FacialExpression.NEUTRAL, "Well, hello there again. I was just enjoying the grotto. Many thanks for your help, I couldn't have become a Spirit of nature without you.").also { stage++ }
+            1 -> npcl(FacialExpression.NEUTRAL, "I must complete the transformation now. Just stand there and watch the show, apparently it's quite good!").also { stage++ }
+            2 -> {
+                end()
+                lock(player!!, 10)
+                submitWorldPulse(CompleteSpellPulse(player!!))
+            }
+        }
+    }
 }
