@@ -1,6 +1,7 @@
 package content.region.kandarin.ardougne.necromancer_tower.handlers
 
 import cfg.consts.NPCs
+import core.api.getAttribute
 import core.api.getPathableRandomLocalCoordinate
 import core.game.node.entity.Entity
 import core.game.node.entity.npc.AbstractNPC
@@ -36,20 +37,33 @@ class SummonedZombieNPC(id: Int = 0, location: Location? = null) : AbstractNPC(i
             if (summonedZombie.asNpc() != null && summonedZombie.isActive) {
                 summonedZombie.properties.teleportLocation = summonedZombie.properties.spawnLocation
             }
+
             summonedZombie.isActive = true
+
             GameWorld.Pulser.submit(object : Pulse(0, summonedZombie) {
                 override fun pulse(): Boolean {
+                    if (getAttribute(player, "necro:zombie_alive", 0) >= 2) {
+                        return false
+                    }
                     summonedZombie.init()
                     summonedZombie.attack(player)
                     return true
                 }
             })
         }
-
     }
 
     override fun finalizeDeath(killer: Entity?) {
         super.finalizeDeath(killer)
+        if (killer is Player) {
+            val player = killer.asPlayer()
+            val counter = player.getAttribute("necro:zombie_alive", -1)
+            if (counter >= 3) {
+                core.api.removeAttribute(player, "necro:zombie_alive")
+                return
+            }
+        }
+        clear()
     }
 
 }
