@@ -9,16 +9,18 @@ import core.game.node.entity.player.Player
 import core.game.system.task.Pulse
 import core.game.world.GameWorld
 import core.game.world.map.Location
+import core.plugin.Initializable
 
 /**
  * Represents the [Summoned zombie NPC](https://runescape.wiki/w/Summoned_Zombie?oldid=1887450).
  */
-class SummonedZombieNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id, location) {
+@Initializable
+class SummonedZombiesNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id, location) {
 
     var clearTime = 0
 
     override fun construct(id: Int, location: Location, vararg objects: Any): AbstractNPC {
-        return SummonedZombieNPC(id, location)
+        return SummonedZombiesNPC(id, location)
     }
 
     override fun getIds(): IntArray {
@@ -27,7 +29,7 @@ class SummonedZombieNPC(id: Int = 0, location: Location? = null) : AbstractNPC(i
 
     companion object {
         fun summonZombie(player: Player) {
-            val summonedZombie = SummonedZombieNPC(NPCs.SUMMONED_ZOMBIE_77)
+            val summonedZombie = SummonedZombiesNPC(NPCs.SUMMONED_ZOMBIE_77)
             summonedZombie.location = getPathableRandomLocalCoordinate(summonedZombie, 1, player.location, 2)
             summonedZombie.isWalks = true
             summonedZombie.isAggressive = true
@@ -43,7 +45,7 @@ class SummonedZombieNPC(id: Int = 0, location: Location? = null) : AbstractNPC(i
             GameWorld.Pulser.submit(object : Pulse(0, summonedZombie) {
                 override fun pulse(): Boolean {
                     if (getAttribute(player, "necro:zombie_alive", 0) >= 2) {
-                        return false
+                        return true
                     }
                     summonedZombie.init()
                     summonedZombie.attack(player)
