@@ -47,7 +47,7 @@ class BlackKnightsFortressListeners : InteractionListener {
             animate(player, listenAnimation)
             queueScript(player, 2, QueueStrength.SOFT) {
                 animate(player, lowerAnimation)
-                player.dialogueInterpreter.open(992752973)
+                openDialogue(player, 992752973)
                 return@queueScript stopExecuting(player)
             }
             return@on true

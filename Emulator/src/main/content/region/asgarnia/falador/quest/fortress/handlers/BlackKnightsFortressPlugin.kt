@@ -34,15 +34,15 @@ class BlackKnightsFortressPlugin : OptionHandler() {
 
     private fun registerHandlers() {
         val itemHandlers = mapOf(
-            9589    to "option:read",
-            74      to "option:open",
-            73      to "option:open",
-            2337    to "option:open",
-            2338    to "option:open",
-            2341    to "option:push",
-            17148   to "option:climb-up",
-            17149   to "option:climb-down",
-            17160   to "option:climb-down"
+            9589  to "option:read",
+            74    to "option:open",
+            73    to "option:open",
+            2337  to "option:open",
+            2338  to "option:open",
+            2341  to "option:push",
+            17148 to "option:climb-up",
+            17149 to "option:climb-down",
+            17160 to "option:climb-down"
         )
         itemHandlers.forEach { (id, option) ->
             ItemDefinition.forId(id).handlers[option] = this
@@ -72,6 +72,7 @@ class BlackKnightsFortressPlugin : OptionHandler() {
                 Location(3022, 3518, 1) -> Location.create(3022, 3517, 0)
                 else -> null
             }
+
             17149 -> when (scenery?.location) {
                 Location(3023, 3513, 2) -> Location.create(3023, 3514, 1)
                 Location(3025, 3513, 2) -> Location.create(3025, 3514, 1)
@@ -80,12 +81,14 @@ class BlackKnightsFortressPlugin : OptionHandler() {
                 Location(3017, 3516, 2) -> Location.create(3017, 3515, 1)
                 else -> null
             }
+
             17148 -> when (scenery?.location) {
                 Location(3021, 3510, 0) -> Location.create(3022, 3510, 1)
                 Location(3015, 3519, 0) -> Location.create(3015, 3518, 1)
                 Location(3016, 3519, 0) -> Location.create(3016, 3518, 2)
                 else -> null
             }
+
             else -> null
         }
     }
@@ -99,7 +102,7 @@ class BlackKnightsFortressPlugin : OptionHandler() {
     }
 
     private fun handleSecretPassage(player: Player, node: Node) {
-        player.packetDispatch.sendMessage("You push against the wall. You find a secret passage.")
+        sendMessage(player, "You push against the wall. You find a secret passage.")
         handleAutowalkDoor(player, node as Scenery)
     }
 
@@ -118,6 +121,7 @@ class BlackKnightsFortressPlugin : OptionHandler() {
             } else {
                 player.dialogueInterpreter.open(4605, findNPC(4604), true)
             }
+
             3515 -> handleAutowalkDoor(player, node as Scenery)
         }
     }
@@ -126,7 +130,7 @@ class BlackKnightsFortressPlugin : OptionHandler() {
         if (player.location.x == 3008) {
             handleAutowalkDoor(player, node as Scenery)
         } else {
-            player.packetDispatch.sendMessage("You can't open this door.")
+            sendMessage(player, "You can't open this door.")
         }
     }
 
@@ -140,13 +144,18 @@ class BlackKnightsFortressPlugin : OptionHandler() {
                     when (counter++) {
                         1 -> {
                             animate(player, FIRST_ANIM)
-                            sendDialogueLines(player, "Infiltrate fortress... sabotage secret weapon... self", "destruct in 3...2...ARG!")
+                            sendDialogueLines(
+                                player,
+                                "Infiltrate fortress... sabotage secret weapon... self",
+                                "destruct in 3...2...ARG!"
+                            )
                         }
+
                         5 -> visualize(player, -1, SMOKE)
                         7 -> {
-                            closeChatBox(player)
                             animate(player, LAST_ANIM)
-                            unlock(player)
+                            closeChatBox(player)
+                            resetAnimator(player)
                             return true
                         }
                     }

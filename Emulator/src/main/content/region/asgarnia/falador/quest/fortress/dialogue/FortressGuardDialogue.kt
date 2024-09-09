@@ -44,7 +44,7 @@ class FortressGuardDialogue(player: Player? = null) : Dialogue(player) {
             1 -> npc(FacialExpression.NEUTRAL, "Well, this is the guards' entrance. I might be new here", "but I can tell you're not a guard.").also { stage++ }
             2 -> player(FacialExpression.ASKING, "How can you tell?").also { stage++ }
             3 -> npc(FacialExpression.ANGRY, "You're not even wearing proper guards uniform!").also { stage++ }
-            4 -> options( "Oh pleeeaase let me in!", "So what is this uniform?").also { stage++ }
+            4 -> options("Oh pleeeaase let me in!", "So what is this uniform?").also { stage++ }
             5 -> when (buttonId) {
                 1 -> player(FacialExpression.HALF_GUILTY, "Oh pleeeaaase let me in!").also { stage = 10 }
                 2 -> player(FacialExpression.ASKING, "So what is this uniform?").also { stage = 20 }

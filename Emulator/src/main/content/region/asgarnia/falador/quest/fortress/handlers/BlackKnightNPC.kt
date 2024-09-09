@@ -31,6 +31,12 @@ class BlackKnightNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id, 
     }
 
     override fun getIds(): IntArray {
-        return intArrayOf(NPCs.BLACK_KNIGHT_178, NPCs.BLACK_KNIGHT_179, NPCs.BLACK_KNIGHT_CAPTAIN_610, NPCs.BLACK_KNIGHT_2698, NPCs.BLACK_KNIGHT_6189)
+        return intArrayOf(
+            NPCs.BLACK_KNIGHT_178,
+            NPCs.BLACK_KNIGHT_179,
+            NPCs.BLACK_KNIGHT_CAPTAIN_610,
+            NPCs.BLACK_KNIGHT_2698,
+            NPCs.BLACK_KNIGHT_6189
+        )
     }
 }

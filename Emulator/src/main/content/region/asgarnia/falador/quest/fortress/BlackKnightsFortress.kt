@@ -5,6 +5,7 @@ import cfg.consts.Items
 import cfg.consts.Vars
 import content.region.asgarnia.falador.quest.fortress.dialogue.SirAmikVarzeDialogue
 import content.region.asgarnia.falador.quest.fortress.handlers.BlackKnightsFortressPlugin
+import core.api.getQuestPoints
 import core.api.sendItemZoomOnInterface
 import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.quest.Quest
@@ -30,11 +31,7 @@ class BlackKnightsFortress : Quest("Black Knights' Fortress", 14, 13, 3, Vars.VA
             0 -> {
                 line(player, "I can start this quest by speaking to the !!Sir Amik Varze?? at the", line++, true)
                 line(player, "!!White Knight's Castle?? in !!Falador??.", line++, true)
-                if (player.getQuestRepository().points < 12) {
-                    line(player,"!!I must have a total of at least 12 Quest Points??", line++, true)
-                } else {
-                    line(player, "<str>I have a total of at least 12 Quest Points", line++, true)
-                }
+                line(player,if (getQuestPoints(player) < 12) "!!" else "<str>" + "I must have a total of at least 12 Quest Points", line++, true)
                 line(player, "I would have an advantage if I could fight !!Level 33 Knights??", line++, true)
                 line(player, "and if I had a smithing level of !!26??.", line++, true)
             }
@@ -47,8 +44,8 @@ class BlackKnightsFortress : Quest("Black Knights' Fortress", 14, 13, 3, Vars.VA
             }
 
             20 -> {
-                line(player, "<str>Sir Amik Varze asked me to investigate the Black Knights'", line++, true)
-                line(player, "<str>Fortress. I sneaked inside disguised as a Guard.", line++, true)
+                line(player, "Sir Amik Varze asked me to investigate the Black Knights'", line++, true)
+                line(player, "Fortress. I sneaked inside disguised as a Guard.", line++, true)
                 line(player, "I eavesdropped on a Witch and the Black Knight Captain", line++, true)
                 line(player, "and discovered that their invincibility potion can be", line++, true)
                 line(player, "destroyed with a normal " + RED + "cabbage.", line++, true)
