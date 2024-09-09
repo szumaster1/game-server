@@ -29,6 +29,10 @@ class BiohazardListeners : InteractionListener {
 
     override fun defineListeners() {
 
+        /*
+         * Talk to Chancy.
+         */
+
         on(NPCs.CHANCY_338, IntType.NPC, "talk-to") { player, _ ->
             if (getQuestStage(player, "Biohazard") in 1..100) {
                 if (getAttribute(player, BiohazardUtils.FIRST_VIAL_CORRECT, true)) {
@@ -42,9 +46,13 @@ class BiohazardListeners : InteractionListener {
             return@on true
         }
 
+        /*
+         * Talk to Da Vinci.
+         */
+
         on(NPCs.DA_VINCI_336, IntType.NPC, "talk-to") { player, _ ->
             if (getQuestStage(player, "Biohazard") in 1..100) {
-                if (getAttribute(player, BiohazardUtils.SECOND_VIAL_CORRECT, true)){
+                if (getAttribute(player, BiohazardUtils.SECOND_VIAL_CORRECT, true)) {
                         openDialogue(player, DaVinciDialogueFile())
                 } else {
                     sendNPCDialogue(player, NPCs.DA_VINCI_336, "Oh, it's you again. Please don't distract me now, I'm contemplating the sublime.")
@@ -54,6 +62,10 @@ class BiohazardListeners : InteractionListener {
             }
             return@on true
         }
+
+        /*
+         * Talk to Da Vinci at Varrock.
+         */
 
         on(NPCs.DA_VINCI_337, IntType.NPC, "talk-to") { player, _ ->
             if (getQuestStage(player, "Biohazard") in 1..100) {
@@ -66,6 +78,10 @@ class BiohazardListeners : InteractionListener {
             return@on true
         }
 
+        /*
+         * Talk to Chancy at Varrock.
+         */
+
         on(NPCs.CHANCY_339, IntType.NPC, "talk-to") { player, _ ->
             if (getAttribute(player, BiohazardUtils.FIRST_VIAL_CORRECT, false)) {
                 openDialogue(player, ChancyVarrockDialogueFile())
@@ -74,6 +90,10 @@ class BiohazardListeners : InteractionListener {
             }
             return@on true
         }
+
+        /*
+         * Talk to Hops.
+         */
 
         on(NPCs.HOPS_341, IntType.NPC, "talk-to") { player, _ ->
             if (getAttribute(player, BiohazardUtils.THIRD_VIAL_CORRECT, false)) {
@@ -84,10 +104,18 @@ class BiohazardListeners : InteractionListener {
             return@on true
         }
 
+        /*
+         *  Talk to Guidor.
+         */
+
         on(NPCs.GUIDOR_343, IntType.NPC, "talk-to") { player, _ ->
             openDialogue(player, GuidorDialogueFile())
             return@on true
         }
+
+        /*
+         * Interaction with watchtower fence.
+         */
 
         on(Scenery.WATCHTOWER_FENCE_2067, IntType.SCENERY, "investigate") { player, _ ->
             if (removeItem(player, Items.BIRD_FEED_422)) {
@@ -98,6 +126,9 @@ class BiohazardListeners : InteractionListener {
             return@on true
         }
 
+        /*
+         * Use Bird feed on watchtower fence.
+         */
 
         onUseWith(IntType.SCENERY, Items.BIRD_FEED_422, Scenery.WATCHTOWER_FENCE_2067) { player, used, _ ->
             if (getAttribute(player, BiohazardUtils.FEED_ON_FENCE, true)) {
@@ -111,6 +142,9 @@ class BiohazardListeners : InteractionListener {
             return@onUseWith true
         }
 
+        /*
+         * Open the pigeon cage near the watchtower fence.
+         */
 
         on(Items.PIGEON_CAGE_424, IntType.ITEM, "open") { player, _ ->
             if (getAttribute(player, BiohazardUtils.FEED_ON_FENCE, false)) {
@@ -144,6 +178,10 @@ class BiohazardListeners : InteractionListener {
 
         }
 
+        /*
+         * Open the cupboard at Jerico house.
+         */
+
         on(Scenery.CUPBOARD_2056, IntType.SCENERY, "open") { player, node ->
             animate(player, Animations.OPEN_WARDROBE_542)
             playAudio(player, Sounds.CUPBOARD_OPEN_58)
@@ -152,12 +190,20 @@ class BiohazardListeners : InteractionListener {
             return@on true
         }
 
+        /*
+         * Close the cupboard at Jerico house.
+         */
+
         on(Scenery.CUPBOARD_2057, IntType.SCENERY, "close") { player, node ->
             animate(player, Animations.CLOSE_CUPBOARD_543)
             playAudio(player, Sounds.CUPBOARD_CLOSE_57)
             replaceScenery(node.asScenery(), Scenery.CUPBOARD_2056, -1)
             return@on true
         }
+
+        /*
+         * Search the cupboard at Jerico house.
+         */
 
         on(Scenery.CUPBOARD_2057, IntType.SCENERY, "search") { player, node ->
             if (inInventory(player, Items.BIRD_FEED_422)) {
@@ -181,6 +227,9 @@ class BiohazardListeners : InteractionListener {
             }
         }
 
+        /*
+         * Squeeze-through the fence.
+         */
 
         on(Scenery.FENCE_2068, IntType.SCENERY, "squeeze-through") { player, _ ->
             val animation = Animation.create(3844)
@@ -188,6 +237,10 @@ class BiohazardListeners : InteractionListener {
             sendMessage(player, "You squeeze through the fence.")
             return@on true
         }
+
+        /*
+         * Distract the Mourners by using rotten apple on cauldron.
+         */
 
         onUseWith(IntType.SCENERY, Items.ROTTEN_APPLE_1984, Scenery.CAULDRON_2043) { player, used, _ ->
             if (removeItem(player, used.asItem())) {
@@ -201,6 +254,7 @@ class BiohazardListeners : InteractionListener {
          * Handles plague house doors.
          * https://i.imgur.com/ne76CXK.png
          */
+
         on(Scenery.DOOR_2036, IntType.SCENERY, "open") { player, node ->
             if( player.location == Location.create(2551, 3321, 0) || player.location == Location.create(2551, 3327, 0)) {
                 DoorActionHandler.handleDoor(player, node.asScenery())
@@ -236,15 +290,27 @@ class BiohazardListeners : InteractionListener {
             return@on true
         }
 
+        /*
+         * Open the box at nurse house.
+         */
+
         on(Scenery.BOX_2062, IntType.SCENERY, "open") { _, node ->
             replaceScenery(node.asScenery(), Scenery.BOX_2063, -1)
             return@on true
         }
 
+        /*
+         * Close the box at nurse house.
+         */
+
         on(Scenery.BOX_2063, IntType.SCENERY, "close") { _, node ->
             replaceScenery(node.asScenery(), Scenery.BOX_2062, -1)
             return@on true
         }
+
+        /*
+         * Search the box at nurse house to find the doctor's gown.
+         */
 
         on(Scenery.BOX_2063, IntType.SCENERY, "search") { player, _ ->
             sendMessage(player, "You search the box...")
@@ -257,6 +323,10 @@ class BiohazardListeners : InteractionListener {
             return@on true
         }
 
+        /*
+         * Used key on gates.
+         */
+
         onUseWith(IntType.SCENERY, Items.KEY_2832, *PLAGUE_1F_GATES) { player, _, with ->
             if (getQuestStage(player, "Biohazard") > 8) {
                 sendMessage(player, "The key fits the gate.")
@@ -266,6 +336,10 @@ class BiohazardListeners : InteractionListener {
             }
             return@onUseWith true
         }
+
+        /*
+         * Open the gates.
+         */
 
         on(PLAGUE_1F_GATES, IntType.SCENERY, "open") { player, node ->
             if (inInventory(player, Items.KEY_2832)) {
@@ -278,6 +352,10 @@ class BiohazardListeners : InteractionListener {
             return@on true
         }
 
+        /*
+         * Search the crates.
+         */
+
         on(Scenery.CRATE_34586, IntType.SCENERY, "search") { player, _ ->
             sendMessage(player, "You search the crate...")
             if (!inInventory(player, Items.DISTILLATOR_420) && getQuestStage(player, "Biohazard") in 8..15) {
@@ -289,6 +367,11 @@ class BiohazardListeners : InteractionListener {
             }
             return@on true
         }
+
+        /*
+         * Fence interaction that runs the guard check whether
+         * we don't have prohibited items.
+         */
 
         on(VARROCK_GATES, IntType.SCENERY, "open") { player, node ->
             if(player.location.x < 3264) {
@@ -328,6 +411,10 @@ class BiohazardListeners : InteractionListener {
             }
             return@on true
         }
+
+        /*
+         * Access to the combat area after quest complete.
+         */
 
         on(COMBAT_AREA, IntType.SCENERY, "open") { player, node ->
             if (isQuestComplete(player, "Biohazard")) {
