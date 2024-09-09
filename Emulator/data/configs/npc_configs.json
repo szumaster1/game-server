@@ -34923,6 +34923,21 @@
     "attack_level": "1"
   },
   {
+    "examine": "He looks busy.",
+    "melee_animation": "0",
+    "range_animation": "0",
+    "defence_animation": "0",
+    "magic_animation": "0",
+    "death_animation": "0",
+    "name": "Engineering assistant",
+    "defence_level": "1",
+    "lifepoints": "10",
+    "strength_level": "1",
+    "id": "3281",
+    "range_level": "1",
+    "attack_level": "1"
+  },
+  {
     "examine": "He's building a cannon.",
     "melee_animation": "0",
     "range_animation": "0",
@@ -34938,7 +34953,7 @@
     "attack_level": "1"
   },
   {
-    "examine": "Bushy tail!",
+    "examine": "An experienced nut-thief.",
     "melee_animation": "0",
     "range_animation": "0",
     "defence_animation": "0",
@@ -34953,12 +34968,27 @@
     "attack_level": "1"
   },
   {
-    "examine": "A tiny nut-thief.",
+    "examine": "An experienced nut-thief.",
+    "melee_animation": "0",
+    "range_animation": "0",
+    "defence_animation": "0",
+    "magic_animation": "0",
+    "death_animation": "0",
+    "name": "Squirrel",
+    "defence_level": "1",
+    "lifepoints": "10",
+    "strength_level": "1",
+    "id": "3284",
+    "range_level": "1",
+    "attack_level": "1"
+  },
+  {
+    "examine": "An experienced nut-thief.",
     "name": "Squirrel",
     "id": "3285"
   },
   {
-    "examine": "A raccoon.",
+    "examine": "He can run with us.",
     "melee_animation": "0",
     "range_animation": "0",
     "defence_animation": "0",
@@ -34973,7 +35003,22 @@
     "attack_level": "1"
   },
   {
-    "examine": "A raccoon.",
+    "examine": "He can run with us.",
+    "melee_animation": "0",
+    "range_animation": "0",
+    "defence_animation": "0",
+    "magic_animation": "0",
+    "death_animation": "0",
+    "name": "Raccoon",
+    "defence_level": "1",
+    "lifepoints": "10",
+    "strength_level": "1",
+    "id": "3287",
+    "range_level": "1",
+    "attack_level": "1"
+  },
+  {
+    "examine": "A stripy little baby.",
     "melee_animation": "0",
     "range_animation": "0",
     "defence_animation": "0",
@@ -34984,6 +35029,21 @@
     "lifepoints": "10",
     "strength_level": "1",
     "id": "3288",
+    "range_level": "1",
+    "attack_level": "1"
+  },
+  {
+    "examine": "A strange chicken.",
+    "melee_animation": "0",
+    "range_animation": "0",
+    "defence_animation": "0",
+    "magic_animation": "0",
+    "death_animation": "0",
+    "name": "Ernest",
+    "defence_level": "1",
+    "lifepoints": "10",
+    "strength_level": "1",
+    "id": "3289",
     "range_level": "1",
     "attack_level": "1"
   },
