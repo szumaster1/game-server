@@ -22,7 +22,7 @@ class TheNecromancerNPC : NPCBehavior(*npc_IDs) {
         }
     }
 
-    fun handleZombieSummoning(player: Player) {
+    private fun handleZombieSummoning(player: Player) {
         val random = RandomFunction.random(5, 10)
         if (random == 5) {
             SummonedZombiesNPC.summonZombie(player)
