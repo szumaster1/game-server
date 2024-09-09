@@ -5,11 +5,13 @@ import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
+import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
  * Represents the Mourner dialogue.
  */
+@Initializable
 class MournerWestDialogue(player: Player? = null) : Dialogue(player) {
 
     /*

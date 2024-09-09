@@ -1,12 +1,9 @@
 package content.region.kandarin.ardougne.quest.biohazard
 
+import cfg.consts.*
 import content.region.kandarin.ardougne.quest.biohazard.dialogue.*
 import content.region.kandarin.ardougne.quest.biohazard.util.BiohazardUtils
 import core.api.*
-import cfg.consts.Items
-import cfg.consts.NPCs
-import cfg.consts.Scenery
-import cfg.consts.Sounds
 import core.game.dialogue.DialogueFile
 import core.game.global.action.DoorActionHandler
 import core.game.interaction.IntType
@@ -148,13 +145,19 @@ class BiohazardListeners : InteractionListener {
         }
 
         on(Scenery.CUPBOARD_2056, IntType.SCENERY, "open") { player, node ->
-            animate(player, 536)
+            animate(player, Animations.OPEN_WARDROBE_542)
             playAudio(player, Sounds.CUPBOARD_OPEN_58)
-            replaceScenery(node.asScenery(), Scenery.CUPBOARD_2057, 80)
+            replaceScenery(node.asScenery(), Scenery.CUPBOARD_2057, -1)
             sendMessage(player, "You open the cupboard.")
             return@on true
         }
 
+        on(Scenery.CUPBOARD_2057, IntType.SCENERY, "close") { player, node ->
+            animate(player, Animations.CLOSE_CUPBOARD_543)
+            playAudio(player, Sounds.CUPBOARD_CLOSE_57)
+            replaceScenery(node.asScenery(), Scenery.CUPBOARD_2056, -1)
+            return@on true
+        }
 
         on(Scenery.CUPBOARD_2057, IntType.SCENERY, "search") { player, node ->
             if (inInventory(player, Items.BIRD_FEED_422)) {
@@ -194,11 +197,21 @@ class BiohazardListeners : InteractionListener {
             return@onUseWith true
         }
 
+        /*
+         * Handles plague house doors.
+         * https://i.imgur.com/ne76CXK.png
+         */
         on(Scenery.DOOR_2036, IntType.SCENERY, "open") { player, node ->
-            if(!inBorders(player, ZoneBorders.forRegion(10035))) {
+            if( player.location == Location.create(2551, 3321, 0) || player.location == Location.create(2551, 3327, 0)) {
                 DoorActionHandler.handleDoor(player, node.asScenery())
                 return@on true
             }
+
+            if(!inBorders(player, ZoneBorders.forRegion(10035)) || !inBorders(player, ZoneBorders.forRegion(10036))) {
+                DoorActionHandler.handleDoor(player, node.asScenery())
+                return@on true
+            }
+
             if(getQuestStage(player, "Biohazard") < 6) {
                 sendMessage(player, "The door is locked. You can hear the mourners eating...")
                 sendMessageWithDelay(player, "You need to distract them from their stew.", 1)
@@ -224,7 +237,12 @@ class BiohazardListeners : InteractionListener {
         }
 
         on(Scenery.BOX_2062, IntType.SCENERY, "open") { _, node ->
-            replaceScenery(node.asScenery(), Scenery.BOX_2063, 80)
+            replaceScenery(node.asScenery(), Scenery.BOX_2063, -1)
+            return@on true
+        }
+
+        on(Scenery.BOX_2063, IntType.SCENERY, "close") { _, node ->
+            replaceScenery(node.asScenery(), Scenery.BOX_2062, -1)
             return@on true
         }
 
@@ -265,7 +283,7 @@ class BiohazardListeners : InteractionListener {
             if (!inInventory(player, Items.DISTILLATOR_420) && getQuestStage(player, "Biohazard") in 8..15) {
                 setQuestStage(player, "Biohazard", 10)
                 addItemOrDrop(player, Items.DISTILLATOR_420)
-                sendMessageWithDelay(player, "and find Elena's distillator.", 1)
+                sendMessage(player, "and find Elena's distillator.")
             } else {
                 sendMessage(player, "It's empty.")
             }
