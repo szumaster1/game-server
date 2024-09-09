@@ -1,6 +1,6 @@
 package content.global.activity.jobs
 
-import content.activity.jobs.impl.Employers
+import content.global.activity.jobs.impl.Employers
 import core.tools.RandomFunction
 
 /**

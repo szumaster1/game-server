@@ -1,6 +1,6 @@
 package content.global.activity.treasuretrails.clue;
 
-import content.dd.treasuretrails.ClueLevel;
+import content.global.activity.treasuretrails.ClueLevel;
 import content.global.activity.treasuretrails.scroll.MapClueScroll;
 import core.game.world.map.Location;
 import core.game.world.map.zone.ZoneBorders;

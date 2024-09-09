@@ -1,8 +1,8 @@
 package content.global.activity.jobs
 
-import content.activity.jobs.dialogue.CheckJobDialogue
-import content.activity.jobs.dialogue.StartJobDialogue
-import content.activity.jobs.impl.Employers
+import content.global.activity.jobs.dialogue.CheckJobDialogue
+import content.global.activity.jobs.dialogue.StartJobDialogue
+import content.global.activity.jobs.impl.Employers
 import core.api.openDialogue
 import core.api.sendNPCDialogue
 import core.game.interaction.IntType

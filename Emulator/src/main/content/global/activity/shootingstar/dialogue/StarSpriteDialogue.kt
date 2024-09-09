@@ -5,8 +5,8 @@ import core.ServerStore.Companion.getBoolean
 import core.api.*
 import cfg.consts.Items
 import cfg.consts.NPCs
-import content.dd.shootingstar.handlers.ShootingStarPlugin
-import content.dd.shootingstar.handlers.StarBonus
+import content.global.activity.shootingstar.handlers.ShootingStarPlugin
+import content.global.activity.shootingstar.handlers.StarBonus
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC

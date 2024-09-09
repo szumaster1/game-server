@@ -1,6 +1,6 @@
 package content.global.activity.treasuretrails.scroll;
 
-import content.dd.treasuretrails.ClueLevel;
+import content.global.activity.treasuretrails.ClueLevel;
 import content.global.activity.treasuretrails.clue.ClueScrollPlugin;
 import core.game.global.action.DigAction;
 import core.game.global.action.DigSpadeHandler;

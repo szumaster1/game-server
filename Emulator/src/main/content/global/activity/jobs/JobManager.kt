@@ -1,8 +1,8 @@
 package content.global.activity.jobs
 
-import content.activity.jobs.impl.BoneBuryingJobs
-import content.activity.jobs.impl.CombatJobs
-import content.activity.jobs.impl.ProductionJobs
+import content.global.activity.jobs.impl.BoneBuryingJobs
+import content.global.activity.jobs.impl.CombatJobs
+import content.global.activity.jobs.impl.ProductionJobs
 import core.ServerStore
 import core.ServerStore.Companion.getInt
 import core.api.*

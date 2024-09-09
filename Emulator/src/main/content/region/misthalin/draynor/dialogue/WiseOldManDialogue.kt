@@ -1,6 +1,6 @@
 package content.region.misthalin.draynor.dialogue
 
-import content.activity.oldman.WomDialogue
+import content.global.activity.oldman.WomDialogue
 import core.api.*
 import cfg.consts.Items
 import cfg.consts.NPCs

@@ -23,7 +23,7 @@ class GoblinChampionNPC(id: Int = 0, location: Location? = null) : AbstractNPC(i
     var clearTime = 0
 
     override fun construct(id: Int, location: Location, vararg objects: Any): AbstractNPC {
-        return content.activity.champion.handlers.npc.GoblinChampionNPC(id, location)
+        return GoblinChampionNPC(id, location)
     }
 
     override fun getIds(): IntArray {
@@ -37,7 +37,7 @@ class GoblinChampionNPC(id: Int = 0, location: Location? = null) : AbstractNPC(i
 
     companion object {
         fun spawnGoblinChampion(player: Player) {
-            val champion = content.activity.champion.handlers.npc.GoblinChampionNPC(NPCs.GOBLIN_CHAMPION_3060)
+            val champion = GoblinChampionNPC(NPCs.GOBLIN_CHAMPION_3060)
             champion.location = location(3170, 9758, 0)
             champion.isWalks = true
             champion.isAggressive = true

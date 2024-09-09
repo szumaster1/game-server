@@ -1,6 +1,6 @@
 package core.game.system.config
 
-import content.dd.treasuretrails.ClueLevel
+import content.global.activity.treasuretrails.ClueLevel
 import core.Configuration
 import core.api.log
 import core.cache.def.impl.NPCDefinition

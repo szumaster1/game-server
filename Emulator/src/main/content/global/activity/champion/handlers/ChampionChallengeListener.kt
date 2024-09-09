@@ -1,21 +1,22 @@
 package content.global.activity.champion.handlers
 
-import content.dd.champion.handlers.npc.EarthWarriorChampionNPC.Companion.spawnEarthWarriorChampion
-import content.dd.champion.handlers.npc.GhoulChampionNPC.Companion.spawnGhoulChampion
-import content.global.activity.champion.handlers.npc.GiantChampionNPC.Companion.spawnGiantChampion
-import content.activity.champion.handlers.npc.GoblinChampionNPC.Companion.spawnGoblinChampion
-import content.dd.champion.handlers.npc.HobgoblinChampionNPC.Companion.spawnHobgoblinChampion
-import content.dd.champion.handlers.npc.ImpChampionNPC.Companion.spawnImpChampion
-import content.dd.champion.handlers.npc.JogreChampionNPC.Companion.spawnJogreChampion
-import content.dd.champion.handlers.npc.LesserDemonChampionNPC.Companion.spawnLesserDemonChampion
-import content.dd.champion.handlers.npc.SkeletonChampionNPC.Companion.spawnSkeletonChampion
-import content.dd.champion.handlers.npc.ZombieChampionNPC.Companion.spawnZombieChampion
+
 import core.api.*
 import cfg.consts.Components
 import cfg.consts.Items
 import cfg.consts.NPCs
 import cfg.consts.Scenery
-import content.dd.champion.dialogue.LarxusDialogueFile
+import content.global.activity.champion.dialogue.LarxusDialogueFile
+import content.global.activity.champion.handlers.npc.EarthWarriorChampionNPC.Companion.spawnEarthWarriorChampion
+import content.global.activity.champion.handlers.npc.GhoulChampionNPC.Companion.spawnGhoulChampion
+import content.global.activity.champion.handlers.npc.GiantChampionNPC.Companion.spawnGiantChampion
+import content.global.activity.champion.handlers.npc.GoblinChampionNPC.Companion.spawnGoblinChampion
+import content.global.activity.champion.handlers.npc.HobgoblinChampionNPC.Companion.spawnHobgoblinChampion
+import content.global.activity.champion.handlers.npc.ImpChampionNPC.Companion.spawnImpChampion
+import content.global.activity.champion.handlers.npc.JogreChampionNPC.Companion.spawnJogreChampion
+import content.global.activity.champion.handlers.npc.LesserDemonChampionNPC.Companion.spawnLesserDemonChampion
+import content.global.activity.champion.handlers.npc.SkeletonChampionNPC.Companion.spawnSkeletonChampion
+import content.global.activity.champion.handlers.npc.ZombieChampionNPC.Companion.spawnZombieChampion
 import core.game.global.action.DoorActionHandler
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener

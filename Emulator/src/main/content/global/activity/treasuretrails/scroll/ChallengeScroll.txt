@@ -1,4 +1,4 @@
-package content.dd.treasuretrails.scroll
+package content.global.activity.treasuretrails.scroll
 /*
 import cfg.consts.Components
 import cfg.consts.Items

@@ -1,7 +1,7 @@
 package content.global.activity.treasuretrails.clue;
 
-import content.dd.treasuretrails.ClueLevel;
-import content.dd.treasuretrails.npc.UriNPC;
+import content.global.activity.treasuretrails.ClueLevel;
+import content.global.activity.treasuretrails.npc.UriNPC;
 import content.global.activity.treasuretrails.scroll.EmoteClueScroll;
 import core.game.node.entity.player.link.emote.Emotes;
 import core.game.world.map.zone.ZoneBorders;

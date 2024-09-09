@@ -1,8 +1,8 @@
 package content.global.activity.penguin.dialogue
 
 import cfg.consts.NPCs
-import content.dd.penguin.handlers.Penguin
-import content.dd.penguin.handlers.PenguinManager
+import content.global.activity.penguin.handlers.Penguin
+import content.global.activity.penguin.handlers.PenguinManager
 import core.api.getStatLevel
 import core.api.removeAttribute
 import core.api.sendMessage

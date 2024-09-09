@@ -1,12 +1,12 @@
 package content.global.activity.jobs.dialogue
 
-import content.activity.jobs.impl.BoneBuryingJobs
-import content.activity.jobs.impl.CombatJobs
-import content.activity.jobs.impl.ProductionJobs
+import content.global.activity.jobs.impl.BoneBuryingJobs
+import content.global.activity.jobs.impl.CombatJobs
+import content.global.activity.jobs.impl.ProductionJobs
 import core.api.addItem
 import cfg.consts.Items
-import content.activity.jobs.JobManager
-import content.activity.jobs.JobType
+import content.global.activity.jobs.JobManager
+import content.global.activity.jobs.JobType
 import core.api.hasAnItem
 import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression

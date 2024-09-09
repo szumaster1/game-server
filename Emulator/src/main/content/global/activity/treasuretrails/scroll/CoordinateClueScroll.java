@@ -1,6 +1,6 @@
 package content.global.activity.treasuretrails.scroll;
 
-import content.dd.treasuretrails.ClueLevel;
+import content.global.activity.treasuretrails.ClueLevel;
 import core.game.node.entity.npc.NPC;
 import core.game.node.entity.player.Player;
 import core.game.node.item.Item;
