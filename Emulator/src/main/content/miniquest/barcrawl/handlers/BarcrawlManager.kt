@@ -1,20 +1,32 @@
 package content.miniquest.barcrawl.handlers
 
-import core.api.*
 import cfg.consts.Components
 import cfg.consts.Items
+import core.api.*
 import core.game.node.entity.player.Player
 import core.game.node.item.Item
 import org.json.simple.JSONArray
 import org.json.simple.JSONObject
 
 /**
- * Barcrawl manager.
+ * Manages the players barcrawl quest.
+ * @author Vexia
  */
 class BarcrawlManager : LoginListener, PersistPlayer {
 
+    /**
+     * The player.
+     */
     private val player: Player?
+
+    /**
+     * The bars completed.
+     */
     val bars: BooleanArray = BooleanArray(10)
+
+    /**
+     * If the quest has been started.
+     */
     private var started = false
 
     constructor(player: Player?) {
@@ -50,6 +62,9 @@ class BarcrawlManager : LoginListener, PersistPlayer {
         save["barCrawl"] = barCrawl
     }
 
+    /**
+     * Method used to read the card.
+     */
     fun read() {
         if (isFinished) {
             sendMessage(player!!, "You are too drunk to be able to read the barcrawl card.")
@@ -59,6 +74,9 @@ class BarcrawlManager : LoginListener, PersistPlayer {
         drawCompletions()
     }
 
+    /**
+     * Draws the completed bars on the interface.
+     */
     private fun drawCompletions() {
         setInterfaceText(player!!, "<col=0000FF>The Official Alfred Grimhand Barcrawl!", Components.MESSAGESCROLL_220, 1)
         var complete: Boolean
@@ -68,10 +86,19 @@ class BarcrawlManager : LoginListener, PersistPlayer {
         }
     }
 
+    /**
+     * Completes a bar challenge.
+     *
+     * @param index the index.
+     */
     fun complete(index: Int) {
         bars[index] = true
     }
 
+    /**
+     * Checks if the barcrawl quest is completed.
+     * @return true if so.
+     */
     val isFinished: Boolean
         get() {
             for (i in bars.indices) {
@@ -82,6 +109,9 @@ class BarcrawlManager : LoginListener, PersistPlayer {
             return true
         }
 
+    /**
+     * Resets the bars.
+     */
     fun reset() {
         started = false
         for (i in bars.indices) {
@@ -89,18 +119,39 @@ class BarcrawlManager : LoginListener, PersistPlayer {
         }
     }
 
+    /**
+     * Checks if a bar is completed.
+     *
+     * @param index the index.
+     * @return true if completed.
+     */
     fun isCompleted(index: Int): Boolean {
         return bars[index]
     }
 
+    /**
+     * Checks if the player has the card.
+     *
+     * @return the card.
+     */
     fun hasCard(): Boolean {
         return inInventory(player!!, Items.BARCRAWL_CARD_455) || inBank(player, Items.BARCRAWL_CARD_455)
     }
 
+    /**
+     * Gets the started.
+     *
+     * @return The started.
+     */
     fun isStarted(): Boolean {
         return started
     }
 
+    /**
+     * Sets the started.
+     *
+     * @param started The started to set.
+     */
     fun setStarted(started: Boolean) {
         this.started = started
     }

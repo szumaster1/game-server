@@ -1,8 +1,8 @@
 package content.miniquest.barcrawl.handlers
 
-import core.api.*
 import cfg.consts.Items
 import cfg.consts.NPCs
+import core.api.*
 import core.game.dialogue.FacialExpression
 import core.game.node.entity.combat.ImpactHandler
 import core.game.node.entity.player.Player
@@ -16,7 +16,8 @@ import core.network.packet.outgoing.CameraViewPacket
 import core.tools.StringUtils
 
 /**
- * Barcrawl type.
+ * A barcrawl type NPC.
+ * @author Vexia
  */
 enum class BarcrawlType {
 
@@ -214,11 +215,34 @@ enum class BarcrawlType {
         }
     };
 
+    /**
+     * The npc id.
+     */
     val npc: IntArray
+
+    /**
+     * The name.
+     */
     var barName: String? = null
+
+    /**
+     * The coin required.
+     */
     val coins: Item
+
+    /**
+     * The dialogue to use.
+     */
     val dialogue: Array<Array<String>>
 
+    /**
+     * Constructs a new [BarcrawlType].
+     *
+     * @param npc      the npc.
+     * @param name     the name.
+     * @param coins    the coins.
+     * @param dialogue the dialogue.
+     */
     constructor(npc: Int, coins: Item, name: String, dialogue: Array<Array<String>>) {
         this.npc = intArrayOf(npc)
         this.barName = name
@@ -226,6 +250,12 @@ enum class BarcrawlType {
         this.dialogue = dialogue
     }
 
+    /**
+     * Constructs a new [BarcrawlType].
+     *
+     * @param npc   the npc.
+     * @param coins the coins.
+     */
     constructor(npc: Int, coins: Int, name: String, first: Array<String>, second: Array<String>) {
         this.npc = intArrayOf(npc)
         this.barName = name
@@ -233,6 +263,14 @@ enum class BarcrawlType {
         this.dialogue = arrayOf(first, second)
     }
 
+    /**
+     * Constructs a new [BarcrawlType].
+     *
+     * @param npc    the npc.
+     * @param coins  the coins.
+     * @param first  the first dial.
+     * @param second the second dial.
+     */
     constructor(npc: IntArray, coins: Int, name: String, first: Array<String>, second: Array<String>) {
         this.npc = npc
         this.barName = name
@@ -240,6 +278,12 @@ enum class BarcrawlType {
         this.dialogue = arrayOf(first, second)
     }
 
+    /**
+     * Constructs a new [BarcrawlType].
+     *
+     * @param npc   the npc.
+     * @param coins the coins.
+     */
     constructor(npc: Int, coins: Int, name: String, first: Array<String>) {
         this.npc = intArrayOf(npc)
         this.barName = name
@@ -248,9 +292,20 @@ enum class BarcrawlType {
     }
 
 
+    /**
+     * Method used to effect the player.
+     *
+     * @param player the player.
+     */
     open fun effect(player: Player) {
     }
 
+    /**
+     * Method used to message the player.
+     *
+     * @param player the player.
+     * @param start  or finish.
+     */
     open fun message(player: Player, start: Boolean) {
         if (!start) {
             sendMessage(player, "The bartender signs your card.")
@@ -259,6 +314,13 @@ enum class BarcrawlType {
         }
     }
 
+    /**
+     * Method used to a skill bonus.
+     *
+     * @param player the player.
+     * @param amount the amount.
+     * @param skills the skills.
+     */
     fun addBonus(player: Player, amount: Int, vararg skills: Int) {
         for (i in skills) {
             player.getSkills().updateLevel(i, -amount, 0)
@@ -266,6 +328,12 @@ enum class BarcrawlType {
     }
 
     companion object {
+        /**
+         * Gets the bar crawl type.
+         *
+         * @param id the id.
+         * @return the type.
+         */
         fun forId(id: Int): BarcrawlType? {
             for (type in values()) {
                 for (npc in type.npc) {

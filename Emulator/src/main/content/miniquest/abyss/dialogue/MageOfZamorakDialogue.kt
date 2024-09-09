@@ -12,7 +12,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Mage of zamorak dialogue.
+ * Represents the Mage of Zamorak dialogue.
  */
 @Initializable
 class MageOfZamorakDialogue(player: Player? = null) : Dialogue(player) {

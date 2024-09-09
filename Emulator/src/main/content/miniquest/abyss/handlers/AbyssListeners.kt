@@ -1,12 +1,12 @@
 package content.miniquest.abyss.handlers
 
-import content.data.skill.SkillingTool
-import content.global.skill.production.runecrafting.data.Altar
-import core.api.*
 import cfg.consts.Animations
 import cfg.consts.Items
 import cfg.consts.NPCs
 import cfg.consts.Vars
+import content.data.skill.SkillingTool
+import content.global.skill.production.runecrafting.data.Altar
+import core.api.*
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.Node
@@ -32,28 +32,54 @@ import kotlin.random.Random
 import cfg.consts.Scenery as Object
 
 /**
- * Abyss listener.
+ * A listener used to handle the abyss.
+ * @author lila, cfunny
  */
 class Abyss : InteractionListener {
 
     override fun defineListeners() {
+
+        /*
+         * Handles teleport to the abyss.
+         */
+
         on(NPCs.MAGE_OF_ZAMORAK_2259, IntType.NPC, "teleport") { player, node ->
             teleport(player, node as NPC)
             return@on true
         }
+
+        /*
+         * Handles repair pouch dialogue.
+         */
+
         on(NPCs.DARK_MAGE_2262, IntType.NPC, "repair-pouches") { player, node ->
             player.dialogueInterpreter.open(node.id, node, true)
             return@on true
         }
+
+        /*
+         * Handles the exit from the rift.
+         */
+
         on(IntType.SCENERY, "exit-through") { player, node ->
             val altar = Altar.forScenery(node as Scenery)
             altar?.enterRift(player)
             return@on true
         }
+
+        /*
+         * Handles passage teleport.
+         */
+
         on(Object.PASSAGE_7154, IntType.SCENERY, "go-through") { player, node ->
             player.properties.teleportLocation = innerRing(node)
             return@on true
         }
+
+        /*
+         * Handles the mine interaction.
+         */
+
         on(Object.ROCK_7158, IntType.SCENERY, "mine") { player, node ->
             val tool: SkillingTool? = getTool(player, true)
             if (tool == null) {
@@ -68,6 +94,11 @@ class Abyss : InteractionListener {
                 )
             )
         }
+
+        /*
+         * Handles chop interaction.
+         */
+
         on(Object.TENDRILS_7161, IntType.SCENERY, "chop") { player, node ->
             val tool: SkillingTool? = getTool(player, false)
             if (tool == null) {
@@ -82,6 +113,11 @@ class Abyss : InteractionListener {
                 )
             )
         }
+
+        /*
+         * Handles interaction with boil.
+         */
+
         on(Object.BOIL_7165, IntType.SCENERY, "burn-down") { player, node ->
             if (!inInventory(player, Items.TINDERBOX_590)) {
                 sendMessage(player, "You don't have a tinderbox to burn it.")
@@ -96,6 +132,11 @@ class Abyss : InteractionListener {
                 )
             )
         }
+
+        /*
+         * Handles distract interaction.
+         */
+
         on(Object.EYES_7168, IntType.SCENERY, "distract") { player, node ->
             val distractEmote = Animation(distractEmotes[RandomFunction.random(0, distractEmotes.size)])
             return@on handleObstacle(
@@ -106,6 +147,11 @@ class Abyss : InteractionListener {
                 )
             )
         }
+
+        /*
+         * Handles gap interaction.
+         */
+
         on(Object.GAP_7164, IntType.SCENERY, "squeeze-through") { player, node ->
             return@on handleObstacle(
                 node, player, Skills.AGILITY, null,
@@ -147,7 +193,7 @@ class Abyss : InteractionListener {
             })
         }
 
-        /*
+        /**
          * Represents getting the inner ring location corresponding to a node in the outer ring.
          * Used to send a player to the inner ring when they pass an obstacle.
          */
@@ -161,7 +207,7 @@ class Abyss : InteractionListener {
         }
 
 
-        /*
+        /**
          * Represents rotating the abyssal obstacles for the player.
          * Used to make sure the player lands by the blocked obstacle.
          */
@@ -169,17 +215,15 @@ class Abyss : InteractionListener {
             setVarbit(player, Vars.VARBIT_SCENERY_ABYSS_OBSTACLES, abyssLoc.getSegment(), true)
         }
 
-        /*
+        /**
          * Handles attempts at passing abyssal obstacles to
-         * get from outer ring to inner ring
+         * get from outer ring to inner ring.
          */
         const val MINE_PROGRESS = 12
         const val CHOP_PROGRESS = 14
         const val BURN_PROGRESS = 16
         const val DISTRACT_PROGRESS = 18
-        fun handleObstacle(
-            obstacle: Node, player: Player, skill: Int, varbitVal: Int?, animation: Animation, messages: Array<String>
-        ): Boolean {
+        fun handleObstacle(obstacle: Node, player: Player, skill: Int, varbitVal: Int?, animation: Animation, messages: Array<String>): Boolean {
             log(this::class.java, Log.FINE, "handled abyss ${obstacle.name}")
             player.lock()
             player.animate(animation)
@@ -226,22 +270,11 @@ class Abyss : InteractionListener {
 }
 
 /**
- * Abyss loc
- *
- * @param radius
- * @param angle
- * @constructor Abyss loc
- *//*
  * Polar coordinates class for abyss.
  */
 class AbyssLoc(val radius: Double, val angle: Double) {
 
     /**
-     * Attract
-     *
-     * @param steps
-     * @return
-     *//*
      * Attract the location towards the center.
      */
     fun attract(steps: Int = 1): AbyssLoc {
@@ -249,14 +282,10 @@ class AbyssLoc(val radius: Double, val angle: Double) {
     }
 
     /**
-     * Get segment
-     *
-     * @return
-     *//*
-     * Get the segment of an abyssloc - its angle as an integer modulo 12,
+     * Get the segment of an [AbyssLoc] - its angle as an integer modulo 12,
      * with south = 0 and positive = clockwise this is used to determine
      * which of the 12 evenly spaced obstacles around the outer ring the
-     * location is nearest to
+     * location is nearest to.
      */
     fun getSegment(): Int {
         val segments = 12
@@ -271,11 +300,7 @@ class AbyssLoc(val radius: Double, val angle: Double) {
     }
 
     /**
-     * To abs
-     *
-     * @return
-     *//*
-     * Transform back to absolute coordinates
+     * Transform back to absolute coordinates.
      */
     fun toAbs(): Location {
         val x = (radius * cos(angle)).toInt()
@@ -284,11 +309,7 @@ class AbyssLoc(val radius: Double, val angle: Double) {
     }
 
     /**
-     * Is valid
-     *
-     * @return
-     *//*
-     * Check if location is valid
+     * Check if location is valid.
      */
     fun isValid(): Boolean {
         val abs = toAbs()
@@ -297,21 +318,21 @@ class AbyssLoc(val radius: Double, val angle: Double) {
 
     companion object {
 
-        /*
+        /**
          * origin and outer radius values of the abyss itself:
-         * origin: the exact center of the abyss, inside that spinny ball thing
+         * origin: the exact center of the abyss, inside that spinny ball thing.
          */
         val origin = Location(3039, 4832, 0)
 
-        /*
+        /**
          * the outer ring is generally at radius 24-26;
          * testing shows that a minimum of 25.1 guarantees that
          * players don't end up on an obstacle or inner wall.
          */
         const val outerRadius = 25.1
 
-        /*
-         * turn an absolute location into an abyss location
+        /**
+         * turn an absolute location into an abyss location.
          */
         fun fromAbs(loc: Location): AbyssLoc {
             val local = Location.getDelta(origin, loc)
@@ -320,8 +341,8 @@ class AbyssLoc(val radius: Double, val angle: Double) {
             return AbyssLoc(radius, angle)
         }
 
-        /*
-         * get a random location around the abyss outer ring
+        /**
+         * get a random location around the abyss outer ring.
          */
         fun randomLoc(): AbyssLoc {
             val angle = Random.nextDouble() * 2 * Math.PI

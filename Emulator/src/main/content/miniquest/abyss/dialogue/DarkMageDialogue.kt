@@ -11,7 +11,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Dark mage dialogue.
+ * Represents the Dark Mage dialogue.
  */
 @Initializable
 class DarkMageDialogue(player: Player? = null) : Dialogue(player) {
@@ -67,8 +67,7 @@ class DarkMageDialogue(player: Player? = null) : Dialogue(player) {
     fun repair(): Boolean {
         player.pouchManager.pouches.forEach { (id: Int, pouch: RCPouch) ->
             pouch.currentCap = pouch.capacity
-            val newCharges: Int
-            newCharges = when (id) {
+            val newCharges: Int = when (id) {
                 Items.MEDIUM_POUCH_5510 -> 264
                 Items.LARGE_POUCH_5512 -> 186
                 Items.GIANT_POUCH_5514 -> 140
