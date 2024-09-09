@@ -1,8 +1,8 @@
 package content.region.misthalin.varrock.quest.demon.dialogue
 
-import content.region.misthalin.varrock.quest.demon.DemonSlayer
-import core.api.setAttribute
-import core.api.setVarp
+import cfg.consts.NPCs
+import content.region.misthalin.varrock.quest.demon.handlers.DSUtils
+import core.api.*
 import core.game.dialogue.Dialogue
 import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
@@ -55,20 +55,15 @@ class SirPyrsinDialogue(player: Player? = null) : Dialogue(player) {
     override fun handle(interfaceId: Int, buttonId: Int): Boolean {
         when (quest!!.getStage(player)) {
             30 -> when (stage) {
-                0 -> stage =
-                    if (!player.inventory.containsItem(DemonSlayer.SILVERLIGHT) && !player.bank.containsItem(
-                            DemonSlayer.SILVERLIGHT) && !player.equipment.containsItem(
-                            DemonSlayer.SILVERLIGHT
-                        )
-                    ) {
-                        player("Not yet. And I, um, lost Silverlight.")
-                        1
-                    } else {
-                        player("No, not yet.")
-                        3
-                    }
+                0 -> if (!inInventory(player, DSUtils.SILVERLIGHT.id) && !inBank(player, DSUtils.SILVERLIGHT.id) && !inEquipment(player, DSUtils.SILVERLIGHT.id)) {
+                    player("Not yet. And I, um, lost Silverlight.")
+                    stage = 1
+                } else {
+                    player("No, not yet.")
+                    stage = 3
+                }
 
-                1 -> if (player.inventory.add(DemonSlayer.SILVERLIGHT)) {
+                1 -> if (player.inventory.add(DSUtils.SILVERLIGHT)) {
                     npc(id, "Yes, I know, someone returned it to me. Take better", "care of it this time.")
                     stage = 2
                 }
@@ -84,15 +79,14 @@ class SirPyrsinDialogue(player: Player? = null) : Dialogue(player) {
             }
 
             20 -> when (stage) {
-                0 -> stage = if (player.inventory.containsItem(DemonSlayer.FIRST_KEY) && player.inventory.containsItem(
-                        DemonSlayer.SECOND_KEY
-                    ) && player.inventory.containsItem(DemonSlayer.THIRD_KEY)
-                ) {
-                    player("I've got all three keys!")
-                    300
-                } else {
-                    player("I haven't found them all yet.")
-                    1
+                0 -> {
+                    if (inInventory(player, DSUtils.FIRST_KEY.id) && inInventory(player, DSUtils.SECOND_KEY.id) && inInventory(player, DSUtils.THIRD_KEY.id)) {
+                        player("I've got all three keys!")
+                        stage = 300
+                    } else {
+                        player("I haven't found them all yet.")
+                        stage = 1
+                    }
                 }
 
                 1 -> {
@@ -175,12 +169,12 @@ class SirPyrsinDialogue(player: Player? = null) : Dialogue(player) {
                                 12 -> {
                                     npc.transform(883)
                                     if (player.inventory.remove(
-                                            DemonSlayer.FIRST_KEY,
-                                            DemonSlayer.SECOND_KEY,
-                                            DemonSlayer.THIRD_KEY
+                                            DSUtils.FIRST_KEY,
+                                            DSUtils.SECOND_KEY,
+                                            DSUtils.THIRD_KEY
                                         )
                                     ) {
-                                        if (player.inventory.add(DemonSlayer.SILVERLIGHT)) {
+                                        if (player.inventory.add(DSUtils.SILVERLIGHT)) {
                                             npc.animate(Animation(4608))
                                             player.animate(Animation(4604))
                                             quest!!.setStage(player, 30)
@@ -191,10 +185,7 @@ class SirPyrsinDialogue(player: Player? = null) : Dialogue(player) {
                                 13 -> {
                                     npc.walkingQueue.reset()
                                     npc.unlock()
-                                    interpreter.sendItemMessage(
-                                        DemonSlayer.SILVERLIGHT.id,
-                                        "Sir Prysin hands you a very shiny sword."
-                                    )
+                                    interpreter.sendItemMessage(DSUtils.SILVERLIGHT.id, "Sir Prysin hands you a very shiny sword.")
                                     stage = 302
                                     player.unlock()
                                     return true
@@ -207,11 +198,7 @@ class SirPyrsinDialogue(player: Player? = null) : Dialogue(player) {
 
                 302 -> end()
                 800 -> {
-                    player(
-                        "I don't seem to be able to reach it. I wonder if I can",
-                        "dislodge it somehow. That way it may go down into the",
-                        "sewers."
-                    )
+                    player("I don't seem to be able to reach it. I wonder if I can", "dislodge it somehow. That way it may go down into the", "sewers.")
                     stage = 801
                 }
 
@@ -220,11 +207,7 @@ class SirPyrsinDialogue(player: Player? = null) : Dialogue(player) {
 
             10 -> when (stage) {
                 0 -> {
-                    options(
-                        "I am a mighty adventurer. Who are you?",
-                        "I'm not sure, I was hoping you could tell me.",
-                        "Gypsy Aris said I should come and talk to you."
-                    )
+                    options("I am a mighty adventurer. Who are you?", "I'm not sure, I was hoping you could tell me.", "Gypsy Aris said I should come and talk to you.")
                     stage = 1
                 }
 
@@ -237,12 +220,7 @@ class SirPyrsinDialogue(player: Player? = null) : Dialogue(player) {
                 }
 
                 2 -> {
-                    npc(
-                        id,
-                        "Gypsy Aris? Is she still alive? I remember her from",
-                        "when I was pretty young. Well what do you need to",
-                        "talk to me about?"
-                    )
+                    npc(id, "Gypsy Aris? Is she still alive? I remember her from", "when I was pretty young. Well what do you need to", "talk to me about?")
                     stage = 3
                 }
 
@@ -279,10 +257,7 @@ class SirPyrsinDialogue(player: Player? = null) : Dialogue(player) {
                 }
 
                 43 -> {
-                    options(
-                        "Well, the gypsy's crystal ball seems to think otherwise.",
-                        "He's back and unfortunately I've got to deal with him."
-                    )
+                    options("Well, the gypsy's crystal ball seems to think otherwise.", "He's back and unfortunately I've got to deal with him.")
                     stage = 44
                 }
 
@@ -314,22 +289,12 @@ class SirPyrsinDialogue(player: Player? = null) : Dialogue(player) {
                 }
 
                 48 -> {
-                    npc(
-                        id,
-                        "You don't look up to much. I suppose Silverlight may be",
-                        "good enough to carry you though though."
-                    )
+                    npc(id, "You don't look up to much. I suppose Silverlight may be", "good enough to carry you though though.")
                     stage = 46
                 }
 
                 60 -> {
-                    npc(
-                        id,
-                        "Oh I do have it, but it is so powerful that the king",
-                        "made me put it in a special box which needs three",
-                        "different keys to open it. That way it won't fall into the",
-                        "wrong hands."
-                    )
+                    npc(id, "Oh I do have it, but it is so powerful that the king", "made me put it in a special box which needs three", "different keys to open it. That way it won't fall into the", "wrong hands.")
                     stage = 61
                 }
 
@@ -369,11 +334,7 @@ class SirPyrsinDialogue(player: Player? = null) : Dialogue(player) {
                 }
 
                 68 -> {
-                    npc(
-                        id,
-                        "I managed to drop the key in the drain just outside the",
-                        "palace kitchen. It is just inside and I can't reach it."
-                    )
+                    npc(id, "I managed to drop the key in the drain just outside the", "palace kitchen. It is just inside and I can't reach it.")
                     stage = 69
                 }
 
@@ -383,20 +344,12 @@ class SirPyrsinDialogue(player: Player? = null) : Dialogue(player) {
                 }
 
                 70 -> {
-                    npc(
-                        id,
-                        "It is the drain for the drainpipe running from the sink",
-                        "in the kitchen down to the palace sewers."
-                    )
+                    npc(id, "It is the drain for the drainpipe running from the sink", "in the kitchen down to the palace sewers.")
                     stage = 71
                 }
 
                 71 -> {
-                    options(
-                        "Where can I find Captain Rovin?",
-                        "Where does the wizard live?",
-                        "Well I'd better go key hunting."
-                    )
+                    options("Where can I find Captain Rovin?", "Where does the wizard live?", "Well I'd better go key hunting.")
                     stage = 72
                 }
 
@@ -433,12 +386,7 @@ class SirPyrsinDialogue(player: Player? = null) : Dialogue(player) {
                 }
 
                 121 -> {
-                    npc(
-                        id,
-                        "He is one of the wizards who lives in the tower on the",
-                        "little island just south coast. I believe his",
-                        "quarters are on the first floor of the tower."
-                    )
+                    npc(id, "He is one of the wizards who lives in the tower on the", "little island just south coast. I believe his", "quarters are on the first floor of the tower.")
                     stage = 122
                 }
 
@@ -460,20 +408,12 @@ class SirPyrsinDialogue(player: Player? = null) : Dialogue(player) {
                 }
 
                 110 -> {
-                    npc(
-                        id,
-                        "Captain Rovin lives at the top of the guards' quarters in",
-                        "the north-west wing of this palace."
-                    )
+                    npc(id, "Captain Rovin lives at the top of the guards' quarters in", "the north-west wing of this palace.")
                     stage = 111
                 }
 
                 111 -> {
-                    options(
-                        "Can you give me your key?",
-                        "Where does the wizard live?",
-                        "Well I'd better go key hunting."
-                    )
+                    options("Can you give me your key?", "Where does the wizard live?", "Well I'd better go key hunting.")
                     stage = 112
                 }
 
@@ -495,12 +435,7 @@ class SirPyrsinDialogue(player: Player? = null) : Dialogue(player) {
                 }
 
                 50 -> {
-                    npc(
-                        id,
-                        "Oh , is that the same gypsy? I would have thought she",
-                        "would have died by now. She was pretty old when I",
-                        "was a lad."
-                    )
+                    npc(id, "Oh , is that the same gypsy? I would have thought she", "would have died by now. She was pretty old when I", "was a lad.")
                     stage = 51
                 }
 
@@ -557,6 +492,6 @@ class SirPyrsinDialogue(player: Player? = null) : Dialogue(player) {
     }
 
     override fun getIds(): IntArray {
-        return intArrayOf(883, 4657)
+        return intArrayOf(NPCs.SIR_PRYSIN_883, NPCs.SIR_PRYSIN_4657)
     }
 }

@@ -1,6 +1,7 @@
 package content.region.misthalin.varrock.quest.demon.dialogue
 
-import content.region.misthalin.varrock.quest.demon.DemonSlayer
+import cfg.consts.NPCs
+import content.region.misthalin.varrock.quest.demon.handlers.DSUtils
 import core.api.removeAttribute
 import core.api.setAttribute
 import core.game.dialogue.Dialogue
@@ -47,16 +48,12 @@ class TraibornDialogue(player: Player? = null) : Dialogue(player) {
         when (quest!!.getStage(player)) {
             20 -> when (stage) {
                 0 -> stage =
-                    if (player.inventory.containsItem(DemonSlayer.THIRD_KEY) && player.bank.containsItem(
-                            DemonSlayer.THIRD_KEY)) {
+                    if (player.inventory.containsItem(DSUtils.THIRD_KEY) && player.bank.containsItem(
+                            DSUtils.THIRD_KEY)) {
                         options("What's a thingummywut?", "Teach me to be a mighty powerful wizard.")
                         1
                     } else {
-                        options(
-                            "What's a thingummywut?",
-                            "Teach me to be a mighty powerful wizard.",
-                            "I need to get a key given to you by Sir Prysin."
-                        )
+                        options("What's a thingummywut?", "Teach me to be a mighty powerful wizard.", "I need to get a key given to you by Sir Prysin.")
                         1
                     }
 
@@ -79,19 +76,12 @@ class TraibornDialogue(player: Player? = null) : Dialogue(player) {
                 }
 
                 302 -> {
-                    npc(
-                        "Now you come to mention it, yes I do have a key. It's",
-                        "in my special closet of valuable stuff. Now how do I get",
-                        "into that?"
-                    )
+                    npc("Now you come to mention it, yes I do have a key. It's", "in my special closet of valuable stuff. Now how do I get", "into that?")
                     stage = 303
                 }
 
                 303 -> {
-                    npc(
-                        "I sealed it using one of my magic rituals. So it would",
-                        "makes sense that another ritual would open it again."
-                    )
+                    npc("I sealed it using one of my magic rituals. So it would", "makes sense that another ritual would open it again.")
                     stage = 304
                 }
 
@@ -106,12 +96,7 @@ class TraibornDialogue(player: Player? = null) : Dialogue(player) {
                 }
 
                 306 -> {
-                    npc(
-                        "Yes a simple drazier style ritual should suffice. Hmm,",
-                        "main problem with that is I'll need 25 sets of bones.",
-                        "Now where am I going to get hold of something like",
-                        "that?"
-                    )
+                    npc("Yes a simple drazier style ritual should suffice. Hmm,", "main problem with that is I'll need 25 sets of bones.", "Now where am I going to get hold of something like", "that?")
                     stage = 307
                 }
 
@@ -153,15 +138,12 @@ class TraibornDialogue(player: Player? = null) : Dialogue(player) {
                     end()
                 }
 
-                380 -> stage = if (player.inventory.containsItem(BONES[0]) || player.inventory.containsItem(
-                        BONES[1]
-                    )
-                ) {
+                380 -> if (player.inventory.containsItem(BONES[0]) || player.inventory.containsItem(BONES[1])) {
                     player("I have some bones.")
-                    382
+                    stage = 382
                 } else {
                     player("I don't have all the bones yet.")
-                    381
+                    stage = 381
                 }
 
                 382 -> {
@@ -181,12 +163,7 @@ class TraibornDialogue(player: Player? = null) : Dialogue(player) {
 
                 385 -> {
                     npc.animate(Animation(4602))
-                    npc(
-                        "Wings of dark and colour too,",
-                        "Spreading in the morning dew;",
-                        "Locked away I have a key;",
-                        "Return it now, please, unto me."
-                    )
+                    npc("Wings of dark and colour too,", "Spreading in the morning dew;", "Locked away I have a key;", "Return it now, please, unto me.")
                     stage = 386
                 }
 
@@ -195,20 +172,14 @@ class TraibornDialogue(player: Player? = null) : Dialogue(player) {
                     SceneryBuilder.add(`object`)
                     npc.faceLocation(`object`.location)
                     npc.animate(ANIMATION)
-                    if (!player.inventory.containsItem(BONES[0]) && !player.inventory.containsItem(
-                            BONES[1]
-                        )
-                    ) {
+                    if (!player.inventory.containsItem(BONES[0]) && !player.inventory.containsItem(BONES[1])) {
                         end()
                         return true
                     }
-                    if (player.inventory.remove(BONES[0]) || player.inventory.remove(
-                            BONES[1]
-                        )
-                    ) {
+                    if (player.inventory.remove(BONES[0]) || player.inventory.remove(BONES[1])) {
                         removeAttribute(player, "demon-slayer:traiborn")
-                        player.inventory.add(DemonSlayer.THIRD_KEY)
-                        interpreter.sendItemMessage(DemonSlayer.THIRD_KEY.id, "Traiborn hands you a key.")
+                        player.inventory.add(DSUtils.THIRD_KEY)
+                        interpreter.sendItemMessage(DSUtils.THIRD_KEY.id, "Traiborn hands you a key.")
                         stage = 387
                     }
                     Pulser.submit(object : Pulse(1) {
@@ -250,9 +221,7 @@ class TraibornDialogue(player: Player? = null) : Dialogue(player) {
     private fun handleDefault(buttonId: Int) {
         when (stage) {
             0 -> {
-                options("What's a thingummywut?",
-                    "Teach me to be a mighty and powerful wizard."
-                )
+                options("What's a thingummywut?", "Teach me to be a mighty and powerful wizard.")
                 stage = 1
             }
 
@@ -263,9 +232,7 @@ class TraibornDialogue(player: Player? = null) : Dialogue(player) {
                 }
 
                 2 -> {
-                    player(FacialExpression.HALF_GUILTY,
-                        "Teach  me to be a mighty and powerful wizard."
-                    )
+                    player(FacialExpression.HALF_GUILTY, "Teach  me to be a mighty and powerful wizard.")
                     stage = 20
                 }
             }
@@ -276,25 +243,18 @@ class TraibornDialogue(player: Player? = null) : Dialogue(player) {
             }
 
             11 -> {
-                npc(FacialExpression.HALF_GUILTY,
-                    "Those pesky thingummywuts. They get everywhere.",
-                    "They leave a terrible mess too."
-                )
+                npc(FacialExpression.HALF_GUILTY, "Those pesky thingummywuts. They get everywhere.", "They leave a terrible mess too.")
                 stage = 12
             }
 
             12 -> {
-                options("Err you just called me a thingummywut.",
-                    "Tell me what they look like and I'll mask 'em."
-                )
+                options("Err you just called me a thingummywut.", "Tell me what they look like and I'll mask 'em.")
                 stage = 13
             }
 
             13 -> when (buttonId) {
                 1 -> {
-                    player(FacialExpression.HALF_GUILTY,
-                        "Err you just called me thingummywut."
-                    )
+                    player(FacialExpression.HALF_GUILTY, "Err you just called me thingummywut.")
                     stage = 100
                 }
 
@@ -307,42 +267,28 @@ class TraibornDialogue(player: Player? = null) : Dialogue(player) {
             }
 
             120 -> {
-                npc(FacialExpression.HALF_GUILTY,
-                    "Don't be ridiculous. No-one has ever seen one."
-                )
+                npc(FacialExpression.HALF_GUILTY, "Don't be ridiculous. No-one has ever seen one.")
                 stage = 121
             }
 
             121 -> {
-                npc(FacialExpression.HALF_GUILTY,
-                    "They're invisible, or a myth, or a figment of my",
-                    "imagination. Can't remember which right now."
-                )
+                npc(FacialExpression.HALF_GUILTY, "They're invisible, or a myth, or a figment of my", "imagination. Can't remember which right now.")
                 stage = 122
             }
 
             122 -> end()
             100 -> {
-                npc(FacialExpression.HALF_GUILTY,
-                    "You're a thingummywut? I've never seen one up close",
-                    "before. They said I was mad!"
-                )
+                npc(FacialExpression.HALF_GUILTY, "You're a thingummywut? I've never seen one up close", "before. They said I was mad!")
                 stage = 101
             }
 
             101 -> {
-                npc(FacialExpression.HALF_GUILTY,
-                    "Now you are my proof! There ARE thingummywuts in",
-                    "this tower. Now where can I find a cage big enough to",
-                    "keep you?"
-                )
+                npc(FacialExpression.HALF_GUILTY, "Now you are my proof! There ARE thingummywuts in", "this tower. Now where can I find a cage big enough to", "keep you?")
                 stage = 102
             }
 
             102 -> {
-                options("Err I'd better be off really.",
-                    "They're right, you are mad."
-                )
+                options("Err I'd better be off really.", "They're right, you are mad.")
                 stage = 103
             }
 
@@ -359,36 +305,24 @@ class TraibornDialogue(player: Player? = null) : Dialogue(player) {
             }
 
             130 -> {
-                npc(FacialExpression.HALF_GUILTY,
-                    "That's a pity. I thought maybe they were winding me",
-                    "up."
-                )
+                npc(FacialExpression.HALF_GUILTY, "That's a pity. I thought maybe they were winding me", "up.")
                 stage = 131
             }
 
             131 -> end()
             110 -> {
-                npc(FacialExpression.HALF_GUILTY,
-                    "Oh ok, have a good time, and watch out for sheep!",
-                    "They're more cunning than they look."
-                )
+                npc(FacialExpression.HALF_GUILTY, "Oh ok, have a good time, and watch out for sheep!", "They're more cunning than they look.")
                 stage = 111
             }
 
             111 -> end()
             20 -> {
-                npc(FacialExpression.HALF_GUILTY,
-                    "Wizard eh? You don't want any truck with that sort.",
-                    "They're not to be trusted. That's what I've heard",
-                    "anyways."
-                )
+                npc(FacialExpression.HALF_GUILTY, "Wizard eh? You don't want any truck with that sort.", "They're not to be trusted. That's what I've heard", "anyways.")
                 stage = 21
             }
 
             21 -> {
-                options("So aren't you a wizard?",
-                    "Oh I'd better stop talking to you then."
-                )
+                options("So aren't you a wizard?", "Oh I'd better stop talking to you then.")
                 stage = 22
             }
 
@@ -399,26 +333,19 @@ class TraibornDialogue(player: Player? = null) : Dialogue(player) {
                 }
 
                 2 -> {
-                    player(FacialExpression.HALF_GUILTY,
-                        "Oh I'd better stop talking to you then."
-                    )
+                    player(FacialExpression.HALF_GUILTY, "Oh I'd better stop talking to you then.")
                     stage = 60
                 }
             }
 
             60 -> {
-                npc(FacialExpression.HALF_GUILTY,
-                    "Cheerio then. It was nice chatting to you."
-                )
+                npc(FacialExpression.HALF_GUILTY, "Cheerio then. It was nice chatting to you.")
                 stage = 61
             }
 
             61 -> end()
             40 -> {
-                npc(FacialExpression.HALF_GUILTY,
-                    "How dare you? Of course I'm a wizard. Now don't be",
-                    "so cheeky or I'll turn you into a frog."
-                )
+                npc(FacialExpression.HALF_GUILTY, "How dare you? Of course I'm a wizard. Now don't be", "so cheeky or I'll turn you into a frog.")
                 stage = 41
             }
 
@@ -427,7 +354,7 @@ class TraibornDialogue(player: Player? = null) : Dialogue(player) {
     }
 
     override fun getIds(): IntArray {
-        return intArrayOf(881)
+        return intArrayOf(NPCs.TRAIBORN_881)
     }
 
     companion object {

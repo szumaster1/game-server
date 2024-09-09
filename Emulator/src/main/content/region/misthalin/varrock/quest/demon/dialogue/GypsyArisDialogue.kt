@@ -1,6 +1,8 @@
 package content.region.misthalin.varrock.quest.demon.dialogue
 
-import content.region.misthalin.varrock.quest.demon.DemonSlayer
+import cfg.consts.Animations
+import cfg.consts.NPCs
+import content.region.misthalin.varrock.quest.demon.handlers.DSUtils
 import core.api.sendNPCDialogue
 import core.game.activity.ActivityManager
 import core.game.activity.CutscenePlugin
@@ -123,7 +125,7 @@ class GypsyArisDialogue(player: Player? = null) : Dialogue(player) {
                 }
 
                 10 -> {
-                    npc(DemonSlayer.getIncantation(player) + ".")
+                    npc(DSUtils.getIncantation(player) + ".")
                     stage = 11
                 }
 
@@ -178,7 +180,7 @@ class GypsyArisDialogue(player: Player? = null) : Dialogue(player) {
                 }
 
                 10 -> {
-                    npc(DemonSlayer.getIncantation(player) + ".")
+                    npc(DSUtils.getIncantation(player) + ".")
                     stage = 11
                 }
 
@@ -249,7 +251,7 @@ class GypsyArisDialogue(player: Player? = null) : Dialogue(player) {
                 }
 
                 12 -> {
-                    npc(DemonSlayer.getIncantation(player) + ".", "Have you got that?")
+                    npc(DSUtils.getIncantation(player) + ".", "Have you got that?")
                     stage = 13
                 }
 
@@ -737,7 +739,7 @@ class GypsyArisDialogue(player: Player? = null) : Dialogue(player) {
                 }
 
                 202 -> {
-                    sendNPCDialogue(player, wally!!.id, DemonSlayer.generateIncantation(player) + "!")
+                    sendNPCDialogue(player, wally!!.id, DSUtils.generateIncantation(player) + "!")
                     stage = 203
                 }
 
@@ -821,11 +823,11 @@ class GypsyArisDialogue(player: Player? = null) : Dialogue(player) {
     }
 
     override fun getIds(): IntArray {
-        return intArrayOf(882)
+        return intArrayOf(NPCs.GYPSY_ARIS_882)
     }
 
     companion object {
         private val COINS = Item(995, 1)
-        private val ANIMATION = Animation(4615)
+        private val ANIMATION = Animation(Animations.LOOK_BACK_FORWARD_4615)
     }
 }

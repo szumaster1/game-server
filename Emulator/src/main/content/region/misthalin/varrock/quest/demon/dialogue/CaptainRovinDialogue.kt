@@ -1,6 +1,10 @@
 package content.region.misthalin.varrock.quest.demon.dialogue
 
-import content.region.misthalin.varrock.quest.demon.DemonSlayer
+import cfg.consts.NPCs
+import content.region.misthalin.varrock.quest.demon.handlers.DSUtils
+import core.api.freeSlots
+import core.api.inBank
+import core.api.inInventory
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC
@@ -17,13 +21,10 @@ class CaptainRovinDialogue(player: Player? = null) : Dialogue(player) {
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
         quest = player.getQuestRepository().getQuest("Demon Slayer")
-        stage = when (quest!!.getStage(player)) {
+        when (quest!!.getStage(player)) {
             else -> {
-                npc(FacialExpression.HALF_GUILTY,
-                    "What are you doing up here? Only the palace guards",
-                    "are allowed up here."
-                )
-                0
+                npc(FacialExpression.HALF_GUILTY, "What are you doing up here? Only the palace guards", "are allowed up here.")
+                stage = 0
             }
         }
         return true
@@ -36,13 +37,11 @@ class CaptainRovinDialogue(player: Player? = null) : Dialogue(player) {
         return true
     }
 
+
     private fun defaultDialogue(buttonId: Int) {
         when (stage) {
             0 -> {
-                options("I am one of the palace guards.",
-                    "What about the King?",
-                    "Yes I know, but this is important."
-                )
+                options("I am one of the palace guards.", "What about the King?", "Yes I know, but this is important.")
                 stage = 1
             }
 
@@ -53,24 +52,18 @@ class CaptainRovinDialogue(player: Player? = null) : Dialogue(player) {
                 }
 
                 2 -> {
-                    player(FacialExpression.HALF_GUILTY,
-                        "What about the King? Surely you'd let him up here."
-                    )
+                    player(FacialExpression.HALF_GUILTY, "What about the King? Surely you'd let him up here.")
                     stage = 20
                 }
 
                 3 -> {
-                    player(FacialExpression.HALF_GUILTY,
-                        "Yes, I know but this is important."
-                    )
+                    player(FacialExpression.HALF_GUILTY, "Yes, I know but this is important.")
                     stage = 30
                 }
             }
 
             30 -> {
-                npc(FacialExpression.HALF_GUILTY,
-                    "Ok, I'm listening. Tell me what's so important."
-                )
+                npc(FacialExpression.HALF_GUILTY, "Ok, I'm listening. Tell me what's so important.")
                 stage = 31
             }
 
@@ -78,40 +71,35 @@ class CaptainRovinDialogue(player: Player? = null) : Dialogue(player) {
                 if (quest!!.getStage(player) == 20) {
                     player("There's a demon who wants to invade the city.")
                     stage = 600
-                    return
+                } else {
+                    player(FacialExpression.HALF_GUILTY, "Erm... I forgot.")
+                    stage = 32
                 }
-                player(FacialExpression.HALF_GUILTY, "Erm... I forgot.")
-                stage = 32
-            }
-
-            32 -> end()
-            21 -> end()
-            20 -> {
-                npc(FacialExpression.HALF_GUILTY,
-                    "Well, yes I suppose we'd let him up, He doesn't",
-                    "generally want to come up here, but if he did want to,",
-                    "he could."
-                )
-                stage = 21
             }
 
             10 -> {
-                npc(FacialExpression.HALF_GUILTY,
-                    "No, you're not! I know all the palace guards."
-                )
+                npc(FacialExpression.HALF_GUILTY, "No, you're not! I know all the palace guards.")
                 stage = 11
             }
 
             11 -> end()
+
+            20 -> {
+                npc(FacialExpression.HALF_GUILTY, "Well, yes I suppose we'd let him up, He doesn't", "generally want to come up here, but if he did want to,", "he could.")
+                stage = 21
+            }
+
+            21 -> end()
+            32 -> end()
+
             600 -> {
-                if (player.inventory.containsItem(DemonSlayer.SECOND_KEY) || player.bank.containsItem(
-                        DemonSlayer.SECOND_KEY)) {
+                if (inInventory(player, DSUtils.SECOND_KEY.id) || inBank(player, DSUtils.SECOND_KEY.id)) {
                     npc("Yes, you said before, haven't you killed it yet?")
                     stage = 620
-                    return
+                } else {
+                    npc("Is it a powerful demon?")
+                    stage = 601
                 }
-                npc("Is it a powerful demon?")
-                stage = 601
             }
 
             601 -> {
@@ -120,10 +108,7 @@ class CaptainRovinDialogue(player: Player? = null) : Dialogue(player) {
             }
 
             602 -> {
-                npc(
-                    "As good as the palace guards are, I don't know if",
-                    "they're up to taking on a very powerful demon."
-                )
+                npc("As good as the palace guards are, I don't know if", "they're up to taking on a very powerful demon.")
                 stage = 603
             }
 
@@ -138,10 +123,7 @@ class CaptainRovinDialogue(player: Player? = null) : Dialogue(player) {
             }
 
             605 -> {
-                player(
-                    "I'm going to use the powerful sword Silverlight, which I",
-                    "believe you have one of the keys for?"
-                )
+                player("I'm going to use the powerful sword Silverlight, which I", "believe you have one of the keys for?")
                 stage = 606
             }
 
@@ -161,12 +143,7 @@ class CaptainRovinDialogue(player: Player? = null) : Dialogue(player) {
             }
 
             609 -> {
-                npc(
-                    "I didn't work my way up through the ranks of the",
-                    "palace guards so I could take orders from an ill-bred",
-                    "moron who only has his job because his great-",
-                    "grandfather was a hero with a silly name!"
-                )
+                npc("I didn't work my way up through the ranks of the", "palace guards so I could take orders from an ill-bred", "moron who only has his job because his great-", "grandfather was a hero with a silly name!")
                 stage = 610
             }
 
@@ -176,12 +153,7 @@ class CaptainRovinDialogue(player: Player? = null) : Dialogue(player) {
             }
 
             611 -> {
-                npc(
-                    "Only because the king ordered him to! The king",
-                    "couldn't get Sir Prysin to part with his precious",
-                    "ancestral sword, but he made him lock it up so he",
-                    "couldn't lose it."
-                )
+                npc("Only because the king ordered him to! The king", "couldn't get Sir Prysin to part with his precious", "ancestral sword, but he made him lock it up so he", "couldn't lose it.")
                 stage = 612
             }
 
@@ -206,24 +178,19 @@ class CaptainRovinDialogue(player: Player? = null) : Dialogue(player) {
             }
 
             616 -> {
-                if (player.inventory.freeSlots() == 0) {
+                end()
+                if (freeSlots(player) == 0) {
                     npc("Talk to me again when you have free inventory space.")
-                    stage = 617
                     return
                 }
-                if (player.inventory.add(DemonSlayer.SECOND_KEY)) {
-                    interpreter.sendItemMessage(DemonSlayer.SECOND_KEY.id, "Captain Rovin hands you a key.")
-                    stage = 618
+                if (player.inventory.add(DSUtils.SECOND_KEY)) {
+                    interpreter.sendItemMessage(DSUtils.SECOND_KEY, "Captain Rovin hands you a key.")
+                    return
                 }
             }
 
-            617 -> end()
-            618 -> end()
             620 -> {
-                player(
-                    "Well I'm going to use the powerful sword Silverlight",
-                    "which I believe you have one of the keys for?"
-                )
+                player("Well I'm going to use the powerful sword Silverlight", "which I believe you have one of the keys for?")
                 stage = 621
             }
 
@@ -236,7 +203,11 @@ class CaptainRovinDialogue(player: Player? = null) : Dialogue(player) {
         }
     }
 
+    override fun newInstance(player: Player): Dialogue {
+        return CaptainRovinDialogue(player)
+    }
+
     override fun getIds(): IntArray {
-        return intArrayOf(884)
+        return intArrayOf(NPCs.CAPTAIN_ROVIN_884)
     }
 }

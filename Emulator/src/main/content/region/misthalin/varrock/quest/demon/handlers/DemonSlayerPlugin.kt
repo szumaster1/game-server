@@ -1,6 +1,5 @@
 package content.region.misthalin.varrock.quest.demon.handlers
 
-import content.region.misthalin.varrock.quest.demon.DemonSlayer
 import content.region.misthalin.varrock.quest.demon.cutscene.DemonSlayerCutscene
 import core.api.removeAttribute
 import core.api.setVarp
@@ -41,7 +40,7 @@ class DemonSlayerPlugin : OptionHandler() {
         when (id) {
             880 -> player.dialogueInterpreter.open(8427322)
             879 -> {
-                if (!player.equipment.containsItem(DemonSlayer.SILVERLIGHT)) {
+                if (!player.equipment.containsItem(DSUtils.SILVERLIGHT)) {
                     player.packetDispatch.sendMessage("I'd better wield Silverlight first.")
                     return true
                 }
@@ -71,11 +70,11 @@ class DemonSlayerPlugin : OptionHandler() {
                 "close" -> SceneryBuilder.replace((node as Scenery), node.transform(881))
             }
 
-            17429 -> if (quest.getStage(player) == 20 && player.inventory.add(DemonSlayer.FIRST_KEY)) {
+            17429 -> if (quest.getStage(player) == 20 && player.inventory.add(DSUtils.FIRST_KEY)) {
                 setVarp(player, 222, 4757762, true)
                 removeAttribute(player, "demon-slayer:poured")
                 removeAttribute(player, "demon-slayer:just-poured")
-                player.dialogueInterpreter.sendItemMessage(DemonSlayer.FIRST_KEY.id, "You pick up an old rusty key.")
+                player.dialogueInterpreter.sendItemMessage(DSUtils.FIRST_KEY.id, "You pick up an old rusty key.")
             } else {
                 if (player.inventory.freeSlots() == 0) {
                     player.packetDispatch.sendMessage("Not enough inventory space.")

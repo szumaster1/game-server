@@ -1,6 +1,5 @@
 package content.region.misthalin.varrock.quest.demon.handlers
 
-import content.region.misthalin.varrock.quest.demon.DemonSlayer
 import core.api.setAttribute
 import core.api.setVarp
 import core.game.interaction.NodeUsageEvent
@@ -13,9 +12,9 @@ import core.game.world.update.flag.context.Animation
 import core.plugin.Plugin
 
 /**
- * Represents the D slayer drain plugin.
+ * Represents the Demon slayer drain plugin.
  */
-class DSlayerDrainPlugin: UseWithHandler(1929) {
+class DemonSlayerDrainPlugin: UseWithHandler(1929) {
 
     override fun newInstance(arg: Any?): Plugin<Any> {
         addHandler(17424, OBJECT_TYPE, this)
@@ -35,10 +34,10 @@ class DSlayerDrainPlugin: UseWithHandler(1929) {
             if (player.getAttribute("demon-slayer:just-poured", false)) {
                 return true
             }
-            if (!player.hasItem(DemonSlayer.FIRST_KEY)) {
+            if (!player.hasItem(DSUtils.FIRST_KEY)) {
                 player.getSavedData().questData.demonSlayer[0] = false
             }
-            if (quest.getStage(player) == 20 && !player.hasItem(DemonSlayer.FIRST_KEY) && !player.getSavedData().questData.demonSlayer[0]) {
+            if (quest.getStage(player) == 20 && !player.hasItem(DSUtils.FIRST_KEY) && !player.getSavedData().questData.demonSlayer[0]) {
                 player.dialogueInterpreter.sendDialogues(player, null, "OK, I think I've washed the key down into the sewer.", "I'd better go down and get it!")
                 player.getSavedData().questData.demonSlayer[0] = true // poured
                 setVarp(player, 222, 2660610, true)

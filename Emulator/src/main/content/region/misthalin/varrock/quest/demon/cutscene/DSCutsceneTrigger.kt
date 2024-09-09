@@ -1,7 +1,7 @@
 package content.region.misthalin.varrock.quest.demon.cutscene
 
-import core.api.*
 import cfg.consts.Items
+import core.api.*
 import core.game.activity.ActivityManager
 import core.game.node.entity.Entity
 import core.game.node.entity.player.Player

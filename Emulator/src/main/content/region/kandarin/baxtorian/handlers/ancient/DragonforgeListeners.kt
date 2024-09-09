@@ -1,4 +1,4 @@
-package content.region.misc.ancient
+package content.region.kandarin.baxtorian.handlers.ancient
 
 import cfg.consts.Animations
 import cfg.consts.Graphics

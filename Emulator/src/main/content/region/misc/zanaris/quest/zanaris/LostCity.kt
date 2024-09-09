@@ -1,7 +1,10 @@
 package content.region.misc.zanaris.quest.zanaris
 
+import cfg.consts.Components
 import cfg.consts.Items
 import cfg.consts.Vars
+import core.api.hasLevelStat
+import core.api.sendItemZoomOnInterface
 import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.quest.Quest
 import core.game.node.entity.skill.Skills
@@ -21,21 +24,63 @@ class LostCity : Quest("Lost City", 83, 82, 3, Vars.VARP_QUEST_LOST_CITY_PROGRES
     override fun drawJournal(player: Player, stage: Int) {
         super.drawJournal(player, stage)
         var line = 11
+
         when (stage) {
             0 -> {
-                line(player, "I can start this quest by speaking to the Adventurers in", line++, true)
-                line(player, "the Swamp just south of Lumbridge.", line++,true)
+                line(player, "I can start this quest by speaking to the !!Adventurers?? in", line++, true)
+                line(player, "the !!Swamp?? just south of !!Lumbridge??.", line++, true)
                 drawQuestRequirements(player)
+                line++
             }
-            10 -> line(player, "According to one of the adventurers in Lumbridge Swamp<br><br><str>the entrance to Zanaris is somewhere around there.<br><br><blue>Apparently there is a <red>leprechaun<blue> hiding in a <red>tree<blue> nearby<br><br><blue>who can tell me how to enter the <red>Lost City of Zanaris", line++, true)
-            20 -> line(player, "According to one of the adventurers in Lumbridge Swamp<br><br><str>the entrance to Zanaris is somewhere around there.<br><br><str>I found the Leprechaun hiding in a nearby tree.<br><br><blue>He told me that the entrance to <red>Zanaris<blue> is in the <red>shed<blue> in<br><br><red>Lumbridge swamp<blue> but only if I am carrying a <red>Dramen Staff<br><br><blue>I can find a <red>Dramen Tree <blue>in a cave on <red>Entrana <blue>somewhere", line++, true)
+            10 -> {
+                line(player, "According to one of the adventurers in Lumbridge Swamp", line++, true)
+                line(player, "the entrance to Zanaris is somewhere around there.", line++, true)
+                line(player, "Apparently there is a !!leprechaun?? hiding in a !!tree?? nearby", line++, true)
+                line(player, "who can tell me how to enter the !!Lost City of Zanaris??", line++, true)
+                line++
+            }
+            20 -> {
+                line(player, "According to one of the adventurers in Lumbridge Swamp", line++, true)
+                line(player, "the entrance to Zanaris is somewhere around there.", line++, true)
+                line(player, "I found the Leprechaun hiding in a nearby tree.", line++, true)
+                line(player, "He told me that the entrance to !!Zanaris?? is in the !!shed?? in", line++, true)
+                line(player, "!!Lumbridge swamp?? but only if I am carrying a !!Dramen Staff??", line++, true)
+                line(player, "I can find a !!Dramen Tree?? in a cave on !!Entrana?? somewhere", line++, true)
+                line++
+            }
             21 -> if (player.hasItem(Item(Items.DRAMEN_STAFF_772, 1))) {
-                line(player, "According to one of the adventurers in Lumbridge Swamp<br><br><str>the entrance to Zanaris is somewhere around there.<br><br><str>I found the Leprechaun hiding in a nearby tree.<br><br><str>He told me that the entrance to Zanaris is in the shed in<br><br><str>Lumbridge swamp but only if I am carrying a Dramen Staff.<br><br><str>The Dramen Tree was guarded by a powerful Tree Spirit.<br><br><str>I cut a branch from the tree and crafted a Dramen Staff.<br><br><blue>I should enter <red>Zanaris <blue>by going to the <red>shed <blue>in <red>Lumbridge<br><br><red>Swamp <blue>while keeping the <red>Dramen staff<blue> with me", line++, true)
+                line(player, "According to one of the adventurers in Lumbridge Swamp", line++, true)
+                line(player, "the entrance to Zanaris is somewhere around there.", line++, true)
+                line(player, "I found the Leprechaun hiding in a nearby tree.", line++, true)
+                line(player, "He told me that the entrance to Zanaris is in the shed in", line++, true)
+                line(player, "Lumbridge swamp but only if I am carrying a Dramen Staff.", line++, true)
+                line(player, "The Dramen Tree was guarded by a powerful Tree Spirit.", line++, true)
+                line(player, "I cut a branch from the tree and crafted a Dramen Staff.", line++, true)
+                line(player, "I should enter !!Zanaris?? by going to the !!shed?? in !!Lumbridge??", line++, true)
+                line(player, "!!Swamp?? while keeping the !!Dramen staff?? with me", line++, true)
+                line++
             } else {
-                line(player, "According to one of the adventurers in Lumbridge Swamp<br><br><str>the entrance to Zanaris is somewhere around there.<br><br><str>I found the Leprechaun hiding in a nearby tree.<br><br><str>He told me that the entrance to Zanaris is in the shed in<br><br><str>Lumbridge swamp but only if I am carrying a Dramen Staff.<br><br><str>The Dramen Tree was guarded by a powerful Tree Spirit.<br><br><blue>With the <red>Spirit <blue>defeated I can cut a <red>branch <blue>from the tree", line++, true)
+                line(player, "According to one of the adventurers in Lumbridge Swamp", line++, true)
+                line(player, "the entrance to Zanaris is somewhere around there.", line++, true)
+                line(player, "I found the Leprechaun hiding in a nearby tree.", line++, true)
+                line(player, "He told me that the entrance to Zanaris is in the shed in", line++, true)
+                line(player, "Lumbridge swamp but only if I am carrying a Dramen Staff.", line++, true)
+                line(player, "The Dramen Tree was guarded by a powerful Tree Spirit.", line++, true)
+                line(player, "With the !!Spirit?? defeated I can cut a !!branch?? from the tree", line++, true)
+                line++
             }
             100 -> {
-                line(player, "According to one of the adventurers in Lumbridge Swamp<br><br><str>the entrance to Zanaris is somewhere around there.<br><br><str>I found the Leprechaun hiding in a nearby tree.<br><br><str>He told me that the entrance to Zanaris is in the shed in<br><br><str>Lumbridge swamp but only if I am carrying a Dramen Staff.<br><br><str>The Dramen Tree was guarded by a powerful Tree Spirit.<br><br><str>I cut a branch from the tree and crafted a Dramen Staff.<br><br><str>With the mystical Dramen Staff in my possession I was<br><br><str>able to enter Zanaris through the shed in Lumbridge<br><br><str>swamp.", line++)
+                line(player, "According to one of the adventurers in Lumbridge Swamp", line++, true)
+                line(player, "the entrance to Zanaris is somewhere around there.", line++, true)
+                line(player, "I found the Leprechaun hiding in a nearby tree.", line++, true)
+                line(player, "He told me that the entrance to Zanaris is in the shed in", line++, true)
+                line(player, "Lumbridge swamp but only if I am carrying a Dramen Staff.", line++, true)
+                line(player, "The Dramen Tree was guarded by a powerful Tree Spirit.", line++, true)
+                line(player, "I cut a branch from the tree and crafted a Dramen Staff.", line++, true)
+                line(player, "With the mystical Dramen Staff in my possession I was", line++, true)
+                line(player, "able to enter Zanaris through the shed in Lumbridge", line++, true)
+                line(player, "swamp.", line++, true)
+                line++
                 line(player, "<col=FF0000>QUEST COMPLETE!</col>", line++, false)
             }
         }
@@ -45,10 +90,10 @@ class LostCity : Quest("Lost City", 83, 82, 3, Vars.VARP_QUEST_LOST_CITY_PROGRES
         var line = 7 + 7
         val questRequirements = arrayOf("Level 31 Crafting", "Level 36 Woodcutting")
         val requireQuests = booleanArrayOf(
-            player.getSkills().hasLevel(Skills.CRAFTING, 31),
-            player.getSkills().hasLevel(Skills.WOODCUTTING, 36)
+            hasLevelStat(player, Skills.CRAFTING, 31),
+            hasLevelStat(player, Skills.WOODCUTTING, 36)
         )
-        line(player, "To complete this quest I will need:", 6)
+        line(player, "To complete this quest I will need:", line++)
         for (i in 0..1) {
             line(player, questRequirements[i], line++, requireQuests[i])
         }
@@ -58,7 +103,7 @@ class LostCity : Quest("Lost City", 83, 82, 3, Vars.VARP_QUEST_LOST_CITY_PROGRES
     override fun finish(player: Player) {
         super.finish(player)
         var line = 10
-        player.packetDispatch.sendItemZoomOnInterface(Items.DRAMEN_STAFF_772, 235, 277, 3 + 2)
+        sendItemZoomOnInterface(player, Components.QUEST_COMPLETE_SCROLL_277, 5, Items.DRAMEN_STAFF_772, 235)
         drawReward(player, "3 Quest points", line++)
         drawReward(player, "Access to Zanaris", line)
 
