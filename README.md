@@ -11,8 +11,6 @@
 
 ### 2009scape
 
-![](https://i.imgur.com/0UWgSWc.png)
-
 Fork for educational purposes & single-player experience.
 
 ##### Setting Up the Project
