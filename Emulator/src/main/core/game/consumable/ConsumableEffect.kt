@@ -19,7 +19,5 @@ abstract class ConsumableEffect {
      * @param player the player
      * @return the health effect value
      */
-    open fun getHealthEffectValue(player: Player): Int {
-        return 0
-    }
+    open fun getHealthEffectValue(player: Player): Int = 0
 }

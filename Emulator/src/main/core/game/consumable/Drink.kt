@@ -1,7 +1,9 @@
 package core.game.consumable
 
 import cfg.consts.Animations
+import core.api.animate
 import core.api.playAudio
+import core.api.sendMessage
 import core.game.node.entity.player.Player
 import core.game.node.item.Item
 import core.game.world.update.flag.context.Animation
@@ -37,17 +39,19 @@ open class Drink : Consumable {
     )
 
     override fun sendDefaultMessages(player: Player, item: Item) {
-        player.packetDispatch.sendMessage("You drink the " + getFormattedName(item) + ".")
+        sendMessage(player,"You drink the " + getFormattedName(item) + ".")
     }
 
     override fun executeConsumptionActions(player: Player) {
-        player.animate(animation)
+        animate(player, animation)
         playAudio(player, 4580)
     }
 
     override fun getFormattedName(item: Item): String {
-        return item.name.replace("(4)", "").replace("(3)", "").replace("(2)", "").replace("(1)", "").replace("(m4)", "")
-            .replace("(m3)", "").replace("(m2)", "").replace("(m1)", "").replace("(m)", "").trim { it <= ' ' }
+        val doses = listOf("(4)", "(3)", "(2)", "(1)", "(m4)", "(m3)", "(m2)", "(m1)", "(m)")
+        return item.name
+            .replace(Regex(doses.joinToString("|") { Regex.escape(it) }), "")
+            .trim()
             .lowercase()
     }
 }

@@ -5,18 +5,25 @@ import core.game.node.entity.player.Player
 import core.game.node.item.Item
 
 /**
- * Barbarian mix
+ * Represents a Barbarian mix consumable item.
  *
- * @param ids An array of item IDs associated with the Barbarian mix.
- * @param effect The effect that the Barbarian mix will have when consumed.
- * @param messages Vararg parameter for any additional messages related to the Barbarian mix.
+ * @param ids           an array of item IDs associated with the Barbarian mix.
+ * @param effect        the effect that the Barbarian mix will have when consumed.
+ * @param messages      vararg parameter for any additional messages related to the Barbarian mix.
  */
-class BarbarianMix(ids: IntArray?, effect: ConsumableEffect?, vararg messages: String?) :
-    Potion(ids, effect, *messages) { // Inherits from Potion class with specified parameters
+class BarbarianMix(
+    ids: IntArray? = null,
+    effect: ConsumableEffect? = null,
+    vararg messages: String?
+) : Potion(ids, effect, *messages) {
 
-    // Overrides the sendDefaultMessages function to provide a custom message when the potion is consumed
+    /**
+     * Sends a custom message to the player when the potion is consumed.
+     *
+     * @param player    the player consuming the potion.
+     * @param item      the item being consumed.
+     */
     override fun sendDefaultMessages(player: Player, item: Item) {
-        // Sends a message to the player indicating that they have consumed the potion
         sendMessage(player, "You drink the lumpy potion.")
     }
 }

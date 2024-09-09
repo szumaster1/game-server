@@ -23,6 +23,11 @@ class HalfableFood(ids: IntArray?, effect: ConsumableEffect?, vararg messages: S
     }
 
     override fun getFormattedName(item: Item): String {
-        return item.name.replace("1/2", "").replace("Half an", "").replace("Half a", "").trim { it <= ' ' }.lowercase()
+        return item.name
+            .replace("1/2", "")
+            .replace("Half an", "")
+            .replace("Half a", "")
+            .trim()
+            .lowercase()
     }
 }
