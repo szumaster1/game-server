@@ -1,4 +1,4 @@
-package content.region.desert.quest.deserttreasure
+package content.region.desert.quest.deserttreasure.handlers
 
 import core.api.*
 import cfg.consts.Components

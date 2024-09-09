@@ -1,4 +1,4 @@
-package content.region.fremennik.neitiznot.npc
+package content.region.fremennik.neitiznot.handlers
 
 import cfg.consts.NPCs
 import core.api.sendChat

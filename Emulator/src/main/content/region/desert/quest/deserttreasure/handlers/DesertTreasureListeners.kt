@@ -1,9 +1,9 @@
-package content.region.desert.quest.deserttreasure
+package content.region.desert.quest.deserttreasure.handlers
 
 import core.api.*
 import cfg.consts.Items
 import cfg.consts.Scenery
-import core.game.activity.Cutscene
+import content.region.desert.quest.deserttreasure.DesertTreasure
 import core.game.global.action.DoorActionHandler
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
@@ -199,43 +199,5 @@ class DesertTreasureListeners : InteractionListener {
             return@on true
         }
 
-    }
-}
-
-/**
- * Represents the Mirror look cutscene.
- * @author Ovenbreado
- */
-class MirrorLookCutscene(player: Player) : Cutscene(player) {
-
-    override fun setup() {
-        setExit(player.location.transform(0, 0, 0))
-        loadRegion(13642)
-    }
-
-    override fun runStage(stage: Int) {
-        when (stage) {
-            0 -> {
-                fadeToBlack()
-                timedUpdate(4)
-            }
-            1 -> {
-                openInterface(player, 155)
-                rotateCamera(29, 30, 300, 100)
-                moveCamera(29, 38, 600)
-                timedUpdate(2)
-            }
-            2 -> {
-                timedUpdate(2)
-                fadeFromBlack()
-            }
-            3 -> {
-                timedUpdate(4)
-            }
-            4 -> {
-                closeInterface(player)
-                end{ }
-            }
-        }
     }
 }

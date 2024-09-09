@@ -1,4 +1,4 @@
-package content.region.fremennik.lunar_isle.transport
+package content.region.fremennik.lunar_isle.handlers
 
 import cfg.consts.Components
 import core.api.*
