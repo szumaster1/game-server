@@ -7,6 +7,7 @@ import core.game.world.map.RegionManager
 import core.network.packet.IoBuffer
 import core.network.packet.PacketHeader
 import java.nio.ByteBuffer
+import java.util.*
 
 /**
  * The NPC renderer.
