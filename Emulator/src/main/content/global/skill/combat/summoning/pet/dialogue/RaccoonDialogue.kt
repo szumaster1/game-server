@@ -16,27 +16,27 @@ import core.tools.END_DIALOGUE
 @Initializable
 class RaccoonDialogue(player: Player? = null) : Dialogue(player) {
 
-    private val babyRaccoon = intArrayOf(NPCs.BABY_RACCOON_6913, NPCs.BABY_RACCOON_6997, NPCs.BABY_RACCOON_7271, NPCs.BABY_RACCOON_7273, NPCs.BABY_RACCOON_7275, NPCs.BABY_RACCOON_7276)
+    private val babyRaccoon = intArrayOf(NPCs.BABY_RACCOON_6913, NPCs.BABY_RACCOON_7271, NPCs.BABY_RACCOON_7273)
     private val adultRaccoon = intArrayOf(NPCs.RACCOON_6914, NPCs.RACCOON_7272, NPCs.RACCOON_7274)
 
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
         if (npc.id in babyRaccoon) {
-            npcl(FacialExpression.CHILD_NORMAL, "Chitterchatterchittter chatter chatter! (I wanna go play, now!)").also { stage = 0 }
+            npc(FacialExpression.CHILD_NORMAL, "Chitterchatterchittter chatter chatter!","(I wanna go play, now!)").also { stage = 0 }
             return true
         } else {
             when ((0..3).random()) {
-                0 -> npcl(FacialExpression.CHILD_NORMAL, "Chitter chatterchittter chitter? (When we gonna do somethin' fun?)").also { stage = 2 }
-                1 -> npcl(FacialExpression.CHILD_NORMAL, "Chitterchatter chatterchitter chitter? (When are we gonna be done here?)").also { stage = 8 }
-                2 -> npcl(FacialExpression.CHILD_NORMAL, "Chatter chatter chatter chatter? (When is we gonna go back to one of those evergreen forests?)").also { stage = 10 }
-                3 -> npcl(FacialExpression.CHILD_NORMAL, "Chitter chatter chittterchatter chatter? (So where are ya takin' me today?)").also { stage = 16 }
+                0 -> npc(FacialExpression.CHILD_NORMAL, "Chitter chatterchittter chitter?","(When we gonna do somethin' fun?)").also { stage = 2 }
+                1 -> npc(FacialExpression.CHILD_NORMAL, "Chitterchatter chatterchitter chitter?","(When are we gonna be done here?)").also { stage = 8 }
+                2 -> npc(FacialExpression.CHILD_NORMAL, "Chatter chatter chatter chatter?","(When is we gonna go back to one of those evergreen forests?)").also { stage = 10 }
+                3 -> npc(FacialExpression.CHILD_NORMAL, "Chitter chatter chittterchatter chatter?","(So where are ya takin' me today?)").also { stage = 16 }
             }
         }
         return true
     }
 
     override fun handle(componentID: Int, buttonID: Int): Boolean {
-        when(stage){
+        when(stage) {
 
             0  -> playerl(FacialExpression.FRIENDLY,  "Well, why not just look at all this walking around after me as a game.").also { stage++ }
             1  -> npcl(FacialExpression.CHILD_NORMAL, "Chitter! Chatterchitter chitter! (Yay! I win at this here game!)").also { stage = END_DIALOGUE }
@@ -48,7 +48,7 @@ class RaccoonDialogue(player: Player? = null) : Dialogue(player) {
             7  -> npcl(FacialExpression.CHILD_NORMAL, "Chatter chatter chitter? (Don't you keep me waiting too long, now - ya hear?)").also { stage = END_DIALOGUE }
 
             8  -> playerl(FacialExpression.FRIENDLY,  "Well, when I'm finished what I'm doing, I'll tell you.").also { stage++ }
-            9 -> npcl(FacialExpression.CHILD_NORMAL, "Chitterchatter chatterchitter chitter. (You don't tell me nothin'. You'd best start openin' up ter me soon, " + if(player.isMale) "boy" else "girl" + ", or we are gonna fall out.)").also { stage = END_DIALOGUE }
+            9  -> npcl(FacialExpression.CHILD_NORMAL, "Chitterchatter chatterchitter chitter. (You don't tell me nothin'. You'd best start openin' up ter me soon, " + if(player.isMale) "boy" else "girl" + ", or we are gonna fall out.)").also { stage = END_DIALOGUE }
 
             10 -> playerl(FacialExpression.FRIENDLY,  "We'll go soon, I promise.").also { stage++ }
             11 -> npcl(FacialExpression.CHILD_NORMAL, "Chatter chitter. (I like it when them other critters run with us.)").also { stage++ }

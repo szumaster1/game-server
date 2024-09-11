@@ -68593,6 +68593,31 @@
     "attack_level": "1"
   },
   {
+    "examine": "How cute!",
+    "melee_animation": "0",
+    "range_animation": "0",
+    "defence_animation": "0",
+    "magic_animation": "0",
+    "death_animation": "0",
+    "name": "Gecko",
+    "defence_level": "1",
+    "lifepoints": "10",
+    "strength_level": "1",
+    "id": "6918",
+    "range_level": "1",
+    "attack_level": "1"
+  },
+  {
+    "examine": "A tiny nut-thief.",
+    "name": "Baby squirrel",
+    "id": "6919"
+  },
+  {
+    "examine": "An experienced nut-thief.",
+    "name": "Squirrel",
+    "id": "6920"
+  },
+  {
     "examine": "A tiny nut-thief.",
     "melee_animation": "0",
     "range_animation": "0",
@@ -71580,6 +71605,26 @@
     "id": "7293",
     "range_level": "1",
     "attack_level": "1"
+  },
+  {
+    "examine": "A tiny nut-thief.",
+    "name": "Baby squirrels",
+    "id": "7301"
+  },
+  {
+    "examine": "A tiny nut-thief.",
+    "name": "Baby squirrels",
+    "id": "7303"
+  },
+  {
+    "examine": "A tiny nut-thief.",
+    "name": "Baby squirrels",
+    "id": "7305"
+  },
+  {
+    "examine": "A tiny nut-thief.",
+    "name": "Baby squirrels",
+    "id": "7307"
   },
   {
     "examine": "A tiny nut-thief.",

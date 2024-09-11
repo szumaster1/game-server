@@ -14,8 +14,8 @@ import core.tools.END_DIALOGUE
 @Initializable
 class SquirrelDialogue(player: Player? = null) : Dialogue(player) {
 
-    private val babySquirrel = intArrayOf(NPCs.BABY_RACCOON_6913, NPCs.BABY_RACCOON_6997, NPCs.BABY_RACCOON_7271, NPCs.BABY_RACCOON_7273, NPCs.BABY_RACCOON_7275, NPCs.BABY_RACCOON_7276)
-    private val adultSquirrel = intArrayOf(NPCs.RACCOON_6914, NPCs.RACCOON_7272, NPCs.RACCOON_7274)
+    private val babySquirrel = intArrayOf(NPCs.BABY_SQUIRREL_6919, NPCs.BABY_SQUIRREL_7301, NPCs.BABY_SQUIRREL_7303, NPCs.BABY_SQUIRREL_7305, NPCs.BABY_SQUIRREL_7307)
+    private val adultSquirrel = intArrayOf(NPCs.SQUIRREL_6920, NPCs.SQUIRREL_7302, NPCs.SQUIRREL_7304, NPCs.SQUIRREL_7306, NPCs.SQUIRREL_7308)
 
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
