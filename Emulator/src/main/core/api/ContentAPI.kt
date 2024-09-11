@@ -3667,11 +3667,4 @@ fun restoreTabs(player: Player) {
     return player.interfaceManager.restoreTabs()
 }
 
-/**
- * Checks if the player has a pet.
- */
-fun hasPet(player: Player): Boolean {
-    return player.familiarManager.hasPet()
-}
-
 private class ContentAPI

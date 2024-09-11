@@ -1,7 +1,6 @@
 package content.region.misthalin.edgeville.dialogue
 
 import cfg.consts.NPCs
-import core.api.hasPet
 import core.api.isQuestComplete
 import core.api.sendMessage
 import core.game.dialogue.Dialogue
@@ -42,7 +41,7 @@ class DorisDialogue(player: Player? = null) : Dialogue(player) {
             /*
              * Hellcat.
              */
-            5 -> if(hasPet(player)) {
+            5 -> if(player.familiarManager.hasPet()) {
                 options("Pretty good!", "Not too good actually!", "What's it like living so close to the Wilderness?", "How did Dave come to be evil?", "What's happened to my cat?").also { stage++ }
             } else {
                 options("Pretty good!", "Not too good actually!", "What's it like living so close to the Wilderness?", "How did Dave come to be evil?").also { stage++ }

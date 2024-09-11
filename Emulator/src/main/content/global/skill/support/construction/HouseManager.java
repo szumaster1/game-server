@@ -26,6 +26,8 @@ import org.json.simple.JSONObject;
 
 import java.awt.*;
 import java.nio.ByteBuffer;
+import java.util.HashMap;
+import java.util.Map;
 
 import static core.api.ContentAPIKt.*;
 import static core.api.regionspec.RegionSpecificationKt.fillWith;
@@ -59,6 +61,8 @@ public final class HouseManager {
     private boolean hasDungeon;
 
     private CrestType crest = CrestType.ASGARNIA;
+
+    private static final Map<Player, Integer> catsOnBlanket = new HashMap<>();
 
     /**
      * Instantiates a new House manager.
@@ -257,6 +261,11 @@ public final class HouseManager {
         if (house.isInHouse(player)) {
             player.animate(Animation.RESET);
             player.getProperties().setTeleportLocation(house.location.getExitLocation());
+        }
+        if (catsOnBlanket.remove(player) != null) {
+            if (player.getFamiliarManager().hasFamiliar()) {
+                player.getFamiliarManager().getFamiliar().unlock();
+            }
         }
     }
 
@@ -927,5 +936,9 @@ public final class HouseManager {
      */
     public HouseZone getZone() {
         return zone;
+    }
+
+    public Map<Player, Integer> getCatsOnBlanket() {
+        return this.catsOnBlanket;
     }
 }
