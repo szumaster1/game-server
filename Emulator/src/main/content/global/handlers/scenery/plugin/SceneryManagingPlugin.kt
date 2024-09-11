@@ -1,10 +1,6 @@
-package content.global.handlers.scenery.plugin
+package content.global.handlers.scenery
 
 import content.region.kandarin.quest.grail.HolyGrail
-import core.api.animate
-import cfg.consts.Animations
-import cfg.consts.Sounds
-import core.api.playAudio
 import core.cache.def.impl.SceneryDefinition
 import core.game.global.action.DoorActionHandler
 import core.game.global.action.DoorActionHandler.handleDoor
@@ -20,6 +16,7 @@ import core.plugin.Plugin
 
 /**
  * Scenery managing plugin.
+ * @author Emperor
  */
 @Initializable
 class SceneryManagingPlugin : OptionHandler() {
@@ -40,27 +37,7 @@ class SceneryManagingPlugin : OptionHandler() {
         val name = `object`.name.lowercase()
         if (name.contains("drawers") || name.contains("wardrobe") || name.contains("cupboard")) {
             when (option) {
-                "open" -> {
-                    if (name.contains("drawers")) {
-                        playAudio(player, Sounds.DRAWER_OPEN_64)
-                        return true
-                    }
-                    if (name.contains("wardrobe")) {
-                        animate(player, Animations.OPEN_WARDROBE_545, false)
-                        playAudio(player, Sounds.WARDROBE_OPEN_96)
-                        return true
-                    }
-                    if (name.contains("cupboard")) {
-                        playAudio(player, Sounds.CUPBOARD_OPEN_58)
-                        return true
-                    }
-                    if (`object`.isActive) {
-                        SceneryBuilder.replace(`object`, `object`.transform(`object`.id + 1), 80)
-                    }
-                    return true
-                }
-
-                "go-through" -> {
+                "open", "go-through" -> {
                     if (`object`.isActive) {
                         SceneryBuilder.replace(`object`, `object`.transform(`object`.id + 1), 80)
                     }
@@ -68,19 +45,6 @@ class SceneryManagingPlugin : OptionHandler() {
                 }
 
                 "close", "shut" -> {
-                    if (name.contains("drawers")) {
-                        playAudio(player, Sounds.DRAWER_CLOSE_63)
-                        return true
-                    }
-                    if (name.contains("wardrobe")) {
-                        playAudio(player, Sounds.WARDROBE_CLOSE_95)
-                        animate(player, Animations.CLOSE_WARDROBE_544, false)
-                        return true
-                    }
-                    if (name.contains("cupboard")) {
-                        playAudio(player, Sounds.CUPBOARD_CLOSE_57)
-                        return true
-                    }
                     SceneryBuilder.replace(`object`, `object`.transform(`object`.id - 1))
                     return true
                 }
