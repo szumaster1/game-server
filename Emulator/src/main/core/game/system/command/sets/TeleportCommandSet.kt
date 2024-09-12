@@ -42,7 +42,7 @@ class TeleportCommandSet : CommandSet(Privilege.ADMIN) {
                 }
             }
             if (destination != null) {
-                player.teleporter.send(destination, TeleportManager.TeleportType.NORMAL)
+                player.teleporter.send(destination, TeleportManager.TeleportType.INSTANT)
             } else {
                 reject(player, "Could not locate teleport destination [name=$place]!")
             }
