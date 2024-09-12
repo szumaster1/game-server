@@ -3,6 +3,7 @@ package content.global.activity.champion.handlers.npc
 import core.api.*
 import cfg.consts.Items
 import cfg.consts.NPCs
+import content.global.activity.champion.handlers.ChampionChallengeListener
 import core.game.container.impl.EquipmentContainer
 import core.game.global.action.EquipHandler
 import core.game.node.entity.Entity
@@ -63,9 +64,10 @@ class LesserDemonChampionNPC(id: Int = 0, location: Location? = null) : Abstract
         super.checkImpact(state)
         val player = state.attacker
         if (player is Player) {
-            if (!player.equipment[3].hasItemPlugin()) {
+            if (player.equipment.get(3) == null) {
                 state.neutralizeHits()
                 state.estimatedHit = state.maximumHit
+                return
             } else {
                 EquipHandler.unequip(player, EquipmentContainer.SLOT_WEAPON, id)
                 sendMessage(player, "You cannot use weapons in this challenge.")
@@ -96,6 +98,7 @@ class LesserDemonChampionNPC(id: Int = 0, location: Location? = null) : Abstract
             rewardXP(killer, Skills.SLAYER, 592.0)
             removeAttribute("championsarena:start")
             clearHintIcon(killer)
+            ChampionChallengeListener.isFinalBattle(killer)
         }
         clear()
         super.finalizeDeath(killer)

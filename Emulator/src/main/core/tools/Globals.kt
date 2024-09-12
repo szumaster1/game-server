@@ -14,7 +14,7 @@ const val DARK_RED = "<col=8A0808>"
 const val DARK_ORANGE = "<col=ab7000>"
 const val DARK_YELLOW = "<col=a6a300>"
 const val DARK_GREEN = "<col=007d0c>"
-const val DARK_BLUE = "<col=08088a>"
+const val DARK_BLUE = "<col=08088A>"
 const val DARK_PURPLE = "<col=734a75>"
 
 // Define regex pattern for hex color codes

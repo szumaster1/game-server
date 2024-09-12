@@ -10,5 +10,4 @@ object KWUtils {
     const val KW_TIER = "knights-training:wave"
     const val KW_BEGIN = "/save:knights-training:complete-tutorial"
     const val KW_COMPLETE = "/save:knights-training:complete"
-    const val PRAYER_LOCK = "prayer:lock"
 }

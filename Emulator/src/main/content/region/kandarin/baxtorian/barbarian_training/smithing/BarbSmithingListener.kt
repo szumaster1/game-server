@@ -1,15 +1,16 @@
 package content.region.kandarin.baxtorian.barbarian_training.smithing
 
-import content.global.skill.skillcape.SkillcapePerks
-import core.api.*
 import cfg.consts.Items
 import cfg.consts.Scenery
+import content.global.skill.skillcape.SkillcapePerks
+import core.api.*
+import core.game.dialogue.SkillDialogueHandler
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.entity.skill.Skills
 
 /**
- * Listener for Smithing barbarian training.
+ * Handles barbarian smith training.
  */
 class BarbSmithingListener : InteractionListener {
 
@@ -17,9 +18,10 @@ class BarbSmithingListener : InteractionListener {
 
     override fun defineListeners() {
 
-        /**
+        /*
          * Used bar on barbarian anvil.
          */
+
         onUseWith(IntType.SCENERY, bars, Scenery.BARBARIAN_ANVIL_25349) { player, used, _ ->
             val weapon = BarbarianWeapon.weaponMap[used.id] ?: return@onUseWith true
             if (getStatLevel(player, Skills.SMITHING) < weapon.requiredLevel) {
@@ -37,10 +39,18 @@ class BarbSmithingListener : InteractionListener {
             if (!inInventory(player, weapon.requiredBar)) {
                 return@onUseWith false
             }
-            sendDoubleItemOptions(player, "What would you like to make?", weapon.spearId, weapon.hastaId, "a " + getItemName(weapon.spearId) + ".", "a " + getItemName(weapon.hastaId) + ".")
-            addDialogueAction(player) { player, buttonID ->
-                submitIndividualPulse(player, BarbSmithingPulse(player, weapon, 1, buttonID))
-            }
+
+            val dialogue: SkillDialogueHandler =
+                object : SkillDialogueHandler(player, SkillDialogue.TWO_OPTION, weapon.spearId, weapon.hastaId) {
+                    override fun create(amount: Int, index: Int) {
+                        submitIndividualPulse(player, BarbSmithingPulse(player, weapon, 1, index))
+                    }
+
+                    override fun getAll(index: Int): Int {
+                        return amountInInventory(player, used.id)
+                    }
+                }
+            dialogue.open()
             return@onUseWith true
         }
     }

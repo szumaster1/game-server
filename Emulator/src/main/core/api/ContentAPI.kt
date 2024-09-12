@@ -982,7 +982,6 @@ fun sendDialogueOptions(player: Player, title: String, vararg options: String) {
  */
 fun sendPlainDialogue(player: Player, hideContinue: Boolean = false, vararg message: String) {
     player.dialogueInterpreter.sendPlainMessage(hideContinue, *message)
-
 }
 
 /**
@@ -993,34 +992,6 @@ fun sendPlainDialogue(player: Player, hideContinue: Boolean = false, vararg mess
  */
 fun sendUnclosableDialogue(player: Player, hideContinue: Boolean = false, vararg message: String) {
     Component.setUnclosable(player, player.dialogueInterpreter.sendPlainMessage(hideContinue, *message))
-}
-
-/**
- * Send item options based on the amount of specified options.
- *
- * @param title the title.
- * @param i1    the first item to send to dialogue box (left side).
- * @param i2    the second item to send to dialogue box (right side).
- * @param o1    the second text under the first item.
- * @param o2    the second text under the second item.
- */
-
-fun sendDoubleItemOptions(player: Player, title: String, i1: Any, i2: Any, o1: String, o2: String) {
-    val firstOption = when (i1) {
-        is Item -> i1
-        is Int -> Item(i1)
-        else -> {
-            throw java.lang.IllegalArgumentException("Expected an Item or an Int, got ${i1::class.java.simpleName}.")
-        }
-    }
-    val secondOption = when (i2) {
-        is Item -> i2
-        is Int -> Item(i2)
-        else -> {
-            throw java.lang.IllegalArgumentException("Expected an Item or an Int, got ${i2::class.java.simpleName}.")
-        }
-    }
-    player.dialogueInterpreter.sendDoubleItemOptions(title, firstOption, secondOption, o1, o2)
 }
 
 /**
@@ -1136,7 +1107,6 @@ fun closeDialogue(player: Player) {
     player.interfaceManager.closeChatbox()
 }
 
-
 /**
  * Gets an NPC with the given ID from the repository.
  *
@@ -1204,7 +1174,6 @@ fun findLocalNPC(entity: Entity, id: Int): NPC? {
 fun findLocalNPCs(location: Location, distance: Int): MutableList<NPC> {
     return RegionManager.getLocalNpcs(location, distance)
 }
-
 
 /**
  * Gets a list of nearby NPCs that match the given IDs.

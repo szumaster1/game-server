@@ -14896,44 +14896,8 @@
     "ids": "10562,10563"
   },
   {
-    "examine": "A banner proclaiming your victory over the Earth Warrior Champion!",
-    "ids": "10564,10565"
-  },
-  {
-    "examine": "A banner proclaiming your victory over the Ghoul Champion!",
-    "ids": "10566,10567"
-  },
-  {
-    "examine": "A banner proclaiming your victory over the Giant Champion!",
-    "ids": "10568,10569"
-  },
-  {
-    "examine": "A banner proclaiming your victory over the Goblin Champion!",
-    "ids": "10570,10571"
-  },
-  {
-    "examine": "A banner proclaiming your victory over the Hobgoblin Champion!",
-    "ids": "10572,10573"
-  },
-  {
-    "examine": "A banner proclaiming your victory over the Imp Champion!",
-    "ids": "10574,10575"
-  },
-  {
-    "examine": "A banner proclaiming your victory over the Jogre Champion!",
-    "ids": "10576,10577"
-  },
-  {
-    "examine": "A banner proclaiming your victory over the Lesser Demon Champion!",
-    "ids": "10578,10579"
-  },
-  {
-    "examine": "A banner proclaiming your victory over the Skeleton Champion!",
-    "ids": "10580,10581"
-  },
-  {
-    "examine": "A banner proclaiming your victory over the Zombie Champion!",
-    "ids": "10582"
+    "examine": "A banner proclaiming your victory over the champion!",
+    "ids": "10564,10565,10566,10567,10568,10569,10570,10571,10572,10573,10574,10575,10576,10577,10578,10579,10582"
   },
   {
     "examine": "A rocky outcrop.",

@@ -10,6 +10,7 @@ import core.game.interaction.InteractionListener
 import core.game.interaction.QueueStrength
 import core.game.node.entity.Entity
 import core.game.node.entity.player.link.emote.Emotes
+import core.game.world.GameWorld
 import core.game.world.map.Location
 import core.game.world.map.zone.ZoneBorders
 import core.game.world.map.zone.ZoneRestriction
@@ -127,7 +128,7 @@ class EvilBobListeners : InteractionListener, MapArea {
                         }
 
                         3 -> {
-                            sendMessage(player, "Welcome back to 2009Scape.")
+                            sendMessage(player, "Welcome back to ${GameWorld.settings!!.name}.")
                             teleport(player, getAttribute(player,
                                 EvilBobUtils.prevLocation, Location.create(3222, 3219, 0)))
                             EvilBobUtils.reward(player)

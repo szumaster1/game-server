@@ -10,7 +10,7 @@ import core.game.node.item.Item
 import core.game.world.map.zone.MapZone
 import core.game.world.map.zone.ZoneBorders
 
-class Neitiznot : MapZone("Yakzone", true) {
+class YakZone : MapZone("Yakzone", true) {
 
     override fun register(borders: ZoneBorders?) {
         return registerMapZone(this, ZoneBorders(2313, 3786, 2331, 3802))

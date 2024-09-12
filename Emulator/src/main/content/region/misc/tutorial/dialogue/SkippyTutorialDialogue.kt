@@ -4,6 +4,7 @@ import cfg.consts.NPCs
 import content.region.misc.tutorial.handlers.TutorialStage
 import core.api.sendDialogueOptions
 import core.api.setAttribute
+import core.api.setTitle
 import core.api.teleport
 import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression
@@ -23,7 +24,10 @@ class SkippyTutorialDialogue : DialogueFile() {
         npc = NPC(NPCs.SKIPPY_2796)
         when (stage) {
             0 -> npcl(FacialExpression.HALF_ASKING, "Do you wanna skip the Tutorial?").also { stage++ }
-            1 -> sendDialogueOptions(player!!, "What would you like to say?", "Yes, please.", "Who are you?", "Can I decide later?", "I'll stay here for the Tutorial.").also { stage++ }
+            1 -> {
+                setTitle(player!!, 4)
+                sendDialogueOptions(player!!, "What would you like to say?", "Yes, please.", "Who are you?", "Can I decide later?", "I'll stay here for the Tutorial.").also { stage++ }
+            }
             2 -> when (buttonID) {
                 1 -> npc(FacialExpression.HAPPY, "Prepare yourself!").also { stage = 10 }
                 2 -> player(FacialExpression.HALF_ASKING, "Who are you?").also { stage++ }
@@ -35,7 +39,10 @@ class SkippyTutorialDialogue : DialogueFile() {
             5 -> npcl(FacialExpression.HALF_ASKING, "So, anyway, do you want to skip the Tutorial?").also { stage = 8 }
             6 -> npcl(FacialExpression.NOD_NO, "Unfortunately, so far there is no such possibility.").also { stage = 5 }
             7 -> npcl(FacialExpression.NOD_YES, "Good choice.").also { stage = END_DIALOGUE }
-            8 -> sendDialogueOptions(player!!, "What would you like to say?", "Yes, please.", "Can I decide later?", "I'll stay here for the Tutorial.").also { stage++ }
+            8 -> {
+                setTitle(player!!, 3)
+                sendDialogueOptions(player!!, "What would you like to say?", "Yes, please.", "Can I decide later?", "I'll stay here for the Tutorial.").also { stage++ }
+            }
             9 -> when (buttonID) {
                 1 -> npc(FacialExpression.HAPPY, "Prepare yourself!").also { stage = 10 }
                 2 -> player(FacialExpression.HALF_ASKING, "Can I decide later?").also { stage = 6 }

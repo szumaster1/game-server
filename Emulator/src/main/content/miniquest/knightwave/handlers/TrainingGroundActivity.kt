@@ -1,5 +1,6 @@
 package content.miniquest.knightwave.handlers
 
+import content.data.GameAttributes
 import core.api.*
 import core.game.activity.ActivityManager
 import core.game.activity.ActivityPlugin
@@ -24,7 +25,7 @@ class TrainingGroundActivity : ActivityPlugin("knight wave", true, false, true),
     override fun areaLeave(entity: Entity, logout: Boolean) {
         super.areaLeave(entity, logout)
         if (entity is Player) {
-            removeAttributes(entity, KWUtils.PRAYER_LOCK, KWUtils.KW_SPAWN, KWUtils.KW_TIER, KWUtils.KW_BEGIN)
+            removeAttributes(entity, GameAttributes.PRAYER_LOCK, KWUtils.KW_SPAWN, KWUtils.KW_TIER, KWUtils.KW_BEGIN)
             findLocalNPC(entity, KnightWavesNPC().id)?.let { poofClear(it) }
             clearLogoutListener(entity, "Knight's training")
         }
@@ -37,7 +38,7 @@ class TrainingGroundActivity : ActivityPlugin("knight wave", true, false, true),
     override fun areaEnter(entity: Entity) {
         super.areaEnter(entity)
         if (entity is Player) {
-            setAttribute(entity, KWUtils.PRAYER_LOCK, true)
+            setAttribute(entity, GameAttributes.PRAYER_LOCK, true)
         }
     }
 

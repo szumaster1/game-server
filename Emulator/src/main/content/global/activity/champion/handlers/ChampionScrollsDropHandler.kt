@@ -205,6 +205,7 @@ class ChampionScrollsDropHandler : ChampionScrollsEventHookBase() {
 
             idMap[GHOUL] = 6
             idMap[EARTH_WARRIOR] = 7
+            idMap[ZAKLN] = 8
         }
     }
 

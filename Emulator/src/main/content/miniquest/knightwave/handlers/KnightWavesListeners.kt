@@ -1,6 +1,7 @@
 package content.miniquest.knightwave.handlers
 
 import cfg.consts.NPCs
+import content.data.GameAttributes
 import core.api.*
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
@@ -26,7 +27,7 @@ class KnightWavesListeners : InteractionListener {
              */
             if (player.location.x >= 2752 && getAttribute(player, KWUtils.KW_BEGIN, false)) {
                 teleport(player, Location.create(2751, 3507, 2))
-                removeAttributes(player, KWUtils.PRAYER_LOCK, KWUtils.KW_SPAWN, KWUtils.KW_TIER, KWUtils.KW_BEGIN)
+                removeAttributes(player, GameAttributes.PRAYER_LOCK, KWUtils.KW_SPAWN, KWUtils.KW_TIER, KWUtils.KW_BEGIN)
                 clearLogoutListener(player, "Knight's training")
                 return@on true
             }
@@ -35,7 +36,7 @@ class KnightWavesListeners : InteractionListener {
              */
             teleport(player, Location.create(2753, 3507, 2))
             registerLogoutListener(player, "Knight's training") {
-                removeAttributes(player, KWUtils.PRAYER_LOCK, KWUtils.KW_SPAWN, KWUtils.KW_TIER, KWUtils.KW_BEGIN)
+                removeAttributes(player, GameAttributes.PRAYER_LOCK, KWUtils.KW_SPAWN, KWUtils.KW_TIER, KWUtils.KW_BEGIN)
             }
             GameWorld.Pulser.submit(object : Pulse(1) {
                 override fun pulse(): Boolean {

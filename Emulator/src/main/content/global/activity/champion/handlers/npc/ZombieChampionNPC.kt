@@ -3,6 +3,7 @@ package content.global.activity.champion.handlers.npc
 import core.api.*
 import cfg.consts.Items
 import cfg.consts.NPCs
+import content.global.activity.champion.handlers.ChampionChallengeListener
 import core.game.node.entity.Entity
 import core.game.node.entity.combat.BattleState
 import core.game.node.entity.combat.CombatStyle
@@ -96,6 +97,7 @@ class ZombieChampionNPC(id: Int = 0, location: Location? = null) : AbstractNPC(i
             rewardXP(killer, Skills.SLAYER, 240.0)
             removeAttribute("championsarena:start")
             clearHintIcon(killer)
+            ChampionChallengeListener.isFinalBattle(killer)
         }
         clear()
         super.finalizeDeath(killer)

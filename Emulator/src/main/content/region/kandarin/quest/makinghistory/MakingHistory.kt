@@ -21,7 +21,7 @@ class MakingHistory : Quest("Making History", 86, 85, 3, Vars.VARBIT_QUEST_MAKIN
     override fun drawJournal(player: Player, stage: Int) {
         super.drawJournal(player, stage)
         var line = 11
-        player ?: return
+
         if (stage == 0) {
             line(player, "I can start this quest by talking to !!Jorral?? in the !!Outpost??", line++, false)
             line(player, "!!North West of West Ardougne??.", line++, false)
@@ -64,13 +64,12 @@ class MakingHistory : Quest("Making History", 86, 85, 3, Vars.VARBIT_QUEST_MAKIN
 
     override fun finish(player: Player) {
         super.finish(player)
-        player ?: return
         var ln = 10
         sendItemZoomOnInterface(player, Components.QUEST_COMPLETE_SCROLL_277, 5, Items.ENCHANTED_KEY_6754, 230)
         drawReward(player, "3 Quest points, 1000 Prayer", ln++)
         drawReward(player, "1000 Crafting XP, 750", ln++)
         drawReward(player, "gold coins. Use the enchanted", ln++)
-        drawReward(player, "key all over " + GameWorld.settings!!.name + " Visit", ln++)
+        drawReward(player, "key all over " + GameWorld.settings!!.name + ". Visit", ln++)
         drawReward(player, "the silver trader for help.", ln)
         rewardXP(player, Skills.CRAFTING, 1000.0)
         rewardXP(player, Skills.PRAYER, 1000.0)

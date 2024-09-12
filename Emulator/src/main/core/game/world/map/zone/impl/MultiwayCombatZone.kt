@@ -74,6 +74,8 @@ private constructor() : MapZone("Multicombat", true) {
         register(ZoneBorders(2685, 2685, 2825, 2825))
         // Necromancer tower +1.
         register(ZoneBorders(2673, 3238,2666, 3250, 1, false))
+        // Neitiznot
+        register(ZoneBorders(2381, 3823,2306, 3843))
     }
 
     override fun enter(e: Entity): Boolean {

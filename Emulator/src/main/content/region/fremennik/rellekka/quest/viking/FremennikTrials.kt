@@ -17,7 +17,7 @@ class FremennikTrials : Quest("Fremennik Trials", 64, 63, 3, Vars.VARP_QUEST_FRE
 
     class SkillRequirement(val skill: Int?, val level: Int?)
 
-    val requirements = arrayListOf<content.region.fremennik.rellekka.quest.viking.FremennikTrials.SkillRequirement>()
+    val requirements = arrayListOf<SkillRequirement>()
 
     override fun drawJournal(player: Player, stage: Int) {
         super.drawJournal(player, stage)
@@ -94,24 +94,9 @@ class FremennikTrials : Quest("Fremennik Trials", 64, 63, 3, Vars.VARP_QUEST_FRE
     }
 
     override fun newInstance(`object`: Any?): Quest {
-        requirements.add(
-            content.region.fremennik.rellekka.quest.viking.FremennikTrials.SkillRequirement(
-                Skills.FLETCHING,
-                25
-            )
-        )
-        requirements.add(
-            content.region.fremennik.rellekka.quest.viking.FremennikTrials.SkillRequirement(
-                Skills.CRAFTING,
-                40
-            )
-        )
-        requirements.add(
-            content.region.fremennik.rellekka.quest.viking.FremennikTrials.SkillRequirement(
-                Skills.WOODCUTTING,
-                40
-            )
-        )
+        requirements.add(SkillRequirement(Skills.FLETCHING, 25))
+        requirements.add(SkillRequirement(Skills.CRAFTING, 40))
+        requirements.add(SkillRequirement(Skills.WOODCUTTING, 40))
         return this
     }
 

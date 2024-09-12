@@ -14,6 +14,7 @@ import core.game.node.item.Item;
 import core.game.world.map.Location;
 import core.game.world.map.zone.ZoneRestriction;
 import core.game.world.update.flag.context.Animation;
+import core.tools.Log;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
@@ -21,8 +22,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-import static core.api.ContentAPIKt.getVarp;
-import static core.api.ContentAPIKt.setVarp;
+import static core.api.ContentAPIKt.*;
 
 /**
  * Familiar manager.
@@ -155,7 +155,8 @@ public final class FamiliarManager {
         final int npcId = pouch.getNpcId();
         Familiar fam = !renew ? FAMILIARS.get(npcId) : familiar;
         if (fam == null) {
-            player.getPacketDispatch().sendMessage("Invalid familiar " + npcId + " - report on 2009Scape GitLab");
+            player.getPacketDispatch().sendMessage("Nothing interesting happens.");
+            log(this.getClass(), Log.ERR, "Invalid familiar: " + npcId + ".");
             return;
         }
         if(!renew) {
