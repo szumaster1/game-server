@@ -3,7 +3,6 @@ package content.global.skill.support.construction.decoration.kitchen
 import cfg.consts.Animations
 import cfg.consts.Items
 import cfg.consts.Scenery
-import content.global.skill.combat.summoning.pet.Pet
 import content.global.skill.combat.summoning.pet.Pets
 import core.api.animate
 import core.api.lock
@@ -38,41 +37,34 @@ class CatBlanketListener : InteractionListener {
     override fun defineListeners() {
         onUseWith(IntType.SCENERY, petItemIDs, *blanketIDs) { player, used, scenery ->
             val item = used as? Item ?: return@onUseWith false
-            val cat = Pet.create(Pets.forId(item.id)?.getNpcId(item.id) ?: return@onUseWith false, scenery.location)
-
+            val familiar = player.familiarManager.familiar
             if (player.houseManager.isBuildingMode) {
                 sendMessage(player, "You cannot do this in building mode.")
                 return@onUseWith false
             }
-
             if (player.familiarManager.hasFamiliar()) {
                 return@onUseWith false
             }
-
             lock(player, 1)
             animate(player, Animation(Animations.MULTI_USE_BEND_OVER_827))
-
             if (Pets.forId(item.id) != null) {
-                player.familiarManager.morphPet(item, false, scenery.location)
+                player.familiarManager.morphPet(item, if (!player.isAdmin) true else false, scenery.location)
             }
-
             GameWorld.Pulser.submit(object : Pulse() {
                 var counter = 0
 
                 override fun pulse(): Boolean {
                     return when (counter++) {
                         0 -> {
-                            cat.lock()
-                            cat.sendChat("Meeeew!")
-                            cat.animator.animate(Animation(2160))
+                            familiar.lock()
+                            familiar.sendChat("Meeeew!")
+                            familiar.animate(Animation(2160))
                             false
                         }
-
                         1 -> {
-                            player.familiarManager.familiar.animator.animate(Animation(2159))
+                            familiar.animate(Animation(2159))
                             true
                         }
-
                         else -> true
                     }
                 }
