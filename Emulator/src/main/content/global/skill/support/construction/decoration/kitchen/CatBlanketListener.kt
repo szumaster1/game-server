@@ -69,7 +69,6 @@ class CatBlanketListener : InteractionListener {
                         }
 
                         1 -> {
-                            player.familiarManager.familiar.sendChat("Meeeew!")
                             player.familiarManager.familiar.animator.animate(Animation(2159))
                             true
                         }
