@@ -1,4 +1,4 @@
-package content.region.fremennik.neitiznot
+package content.region.fremennik.neitiznot.handlers
 
 import content.global.skill.production.crafting.handlers.YakArmourCraftingHandler
 import cfg.consts.Regions
@@ -18,7 +18,7 @@ import core.plugin.Plugin
  * Represents the Neitiznot zone.
  */
 @Initializable
-class Neitiznot : MapZone("Neitiznot zone", true), Plugin<Any?> {
+class NeitiznotZone : MapZone("Neitiznot zone", true), Plugin<Any?> {
 
     override fun newInstance(arg: Any?): Plugin<Any?> {
         ZoneBuilder.configure(this)

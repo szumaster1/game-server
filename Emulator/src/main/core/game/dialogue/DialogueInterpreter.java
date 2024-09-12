@@ -586,52 +586,6 @@ public final class DialogueInterpreter {
     }
 
     /**
-     * Send double item options component.
-     *
-     * @param title the title
-     * @param i1    the 1
-     * @param i2    the 2
-     * @param o1    the o 1
-     * @param o2    the o 2
-     * @return the component
-     */
-    public Component sendDoubleItemOptions(String title, int i1, int i2, String o1, String o2) {
-        player.getInterfaceManager().openChatbox(140);
-
-        player.getPacketDispatch().sendString(o1, 140, 2);
-        player.getPacketDispatch().sendString(o2, 140, 3);
-        player.getPacketDispatch().sendString(title, 140, 4);
-
-        player.getPacketDispatch().sendItemOnInterface(i1, i1, 140, 5);
-        player.getPacketDispatch().sendItemZoomOnInterface(i2, i2, 140, 6);
-
-        return player.getInterfaceManager().getChatbox();
-    }
-
-    /**
-     * Send double item options component.
-     *
-     * @param title the title
-     * @param i1    the 1
-     * @param i2    the 2
-     * @param o1    the o 1
-     * @param o2    the o 2
-     * @return the component
-     */
-    public Component sendDoubleItemOptions(String title, Item i1, Item i2, String o1, String o2) {
-        player.getInterfaceManager().openChatbox(140);
-
-        player.getPacketDispatch().sendString(o1, 140, 2);
-        player.getPacketDispatch().sendString(o2, 140, 3);
-        player.getPacketDispatch().sendString(title, 140, 4);
-
-        player.getPacketDispatch().sendItemOnInterface(i1.getId(), i1.getAmount(), 140, 5);
-        player.getPacketDispatch().sendItemZoomOnInterface(i2.getId(), i2.getAmount(), 140, 6);
-
-        return player.getInterfaceManager().getChatbox();
-    }
-
-    /**
      * Send input.
      *
      * @param string  the string

@@ -179,7 +179,7 @@ class Discord : TickListener {
 
         fun getItemImage(id: Int) : JSONObject {
             val obj = JSONObject()
-            obj["url"] = "https://github.com/2009scape/2009scape.github.io/raw/master/services/m%3Ddata/img/items/$id.png"
+            obj["url"] = "https://github.com/szumaster3/web/raw/master/services/m%3Ddata/img/items/$id.png"
             return obj
         }
 

@@ -7,6 +7,7 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import cfg.consts.Items
 import cfg.consts.NPCs
+import core.game.world.GameWorld
 
 /**
  * Represents the Examiner dialogue.
@@ -506,7 +507,7 @@ class ExaminerDialogueFile : DialogueBuilderFile() {
                 .playerl(FacialExpression.FRIENDLY, "Hello.")
                 .npcl(FacialExpression.FRIENDLY, "Ah hello there! I am the resident lecturer on antiquities and artefacts. I also set the Earth Sciences exams.")
                 .playerl(FacialExpression.FRIENDLY, "Earth Sciences?")
-                .npcl(FacialExpression.FRIENDLY, "That is right dear, the world of 2009Scape holds many wonders beneath its surface. Students come to me to take exams so that they may join in on the archaeological dig going on just north of here.")
+                .npcl(FacialExpression.FRIENDLY, "That is right dear, the world of ${GameWorld.settings!!.name} holds many wonders beneath its surface. Students come to me to take exams so that they may join in on the archaeological dig going on just north of here.")
                 .playerl(FacialExpression.FRIENDLY, "So if they don't pass the exams they can't dig at all?")
                 .npcl(FacialExpression.FRIENDLY, "That's right! We have to make sure that students know enough to be able to dig safely and not damage the artefacts.")
                 .options().let { optionBuilder ->

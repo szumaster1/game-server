@@ -22,7 +22,7 @@ class GeneralRuleBook {
     companion object {
         private const val BLUE = "<col=08088A>"
         private val SERVER_NAME = GameWorld.settings!!.name
-        private val TITLE = "${content.data.item.book.GeneralRuleBook.Companion.SERVER_NAME} Rules"
+        private val TITLE = "${SERVER_NAME} Rules"
         private val CONTENTS = arrayOf(
             PageSet(
                 Page(

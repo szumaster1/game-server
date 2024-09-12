@@ -1,6 +1,7 @@
 package content.global.skill.combat.prayer
 
 import cfg.consts.Components
+import content.data.GameAttributes
 import content.miniquest.knightwave.handlers.KWUtils
 import core.api.getAttribute
 import core.api.sendDialogue
@@ -9,8 +10,10 @@ import core.game.interaction.InterfaceListener
 import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.prayer.PrayerType
 
+import core.tools.DARK_BLUE
+
 /**
- * Represents the Prayer tab interface interaction listener.
+ * Represents the Prayers tab interface.
  */
 class PrayerInterfaceListener : InterfaceListener {
 
@@ -18,7 +21,12 @@ class PrayerInterfaceListener : InterfaceListener {
         on(Components.PRAYER_271) { player, _, _, buttonID, _, _ ->
             val type = PrayerType.get(buttonID) ?: return@on true
 
-            if (isPrayerLocked(player) || !canUsePrayer(player, type)) {
+            if(!additionalPrayers(player, type)){
+                return@on true
+            }
+
+            if (isPrayerLocked(player)) {
+                type.toggle(player, false)
                 return@on true
             }
 
@@ -28,7 +36,7 @@ class PrayerInterfaceListener : InterfaceListener {
     }
 
     private fun isPrayerLocked(player: Player): Boolean {
-        if (getAttribute(player, KWUtils.PRAYER_LOCK, false)) {
+        if (getAttribute(player, GameAttributes.PRAYER_LOCK, false)) {
             sendMessage(player, "You can't use it right now.")
             return true
         }
@@ -36,23 +44,28 @@ class PrayerInterfaceListener : InterfaceListener {
     }
 
     /**
-     * Can use chivalry or piety.
+     * Checking whether a player can use additional prayers.
      *
-     * @param player the player.
-     * @param type the prayer type.
-     * @return if meets requirements true else false
+     * @param player    the player.
+     * @param type      the prayer type.
+     * @return `true` - if the requirements have been met.
      */
-    private fun canUsePrayer(player: Player, type: PrayerType): Boolean {
+    private fun additionalPrayers(player: Player, type: PrayerType): Boolean {
+        val hasRequirements = getAttribute(player, KWUtils.KW_COMPLETE, false)
+        val hasPrayerPoints = player.skills.prayerPoints >= 1
+
+        if (!hasPrayerPoints) return false
+
         return when (type) {
             PrayerType.CHIVALRY -> {
-                if (!getAttribute(player, KWUtils.KW_COMPLETE, false) && player.skills.prayerPoints >= 1) {
-                    sendDialogue(player, "You need a Prayer level of 60, a Defence level of ${PrayerType.CHIVALRY.defenceReq} and have completed the King's Ransom quest's Knight Wave reward to use Chivalry.")
+                if (!hasRequirements) {
+                    sendDialogue(player, "You need a$DARK_BLUE Prayer level of 60</col>, a$DARK_BLUE Defence level of ${PrayerType.CHIVALRY.defenceReq}</col> and have completed the King's Ransom quest's Knight Wave</col> reward$DARK_BLUE to use Chivalry</col>.")
                     false
                 } else true
             }
             PrayerType.PIETY -> {
-                if (!getAttribute(player, KWUtils.KW_COMPLETE, false) && player.skills.prayerPoints >= 1) {
-                    sendDialogue(player, "You need a Prayer level of 70, a Defence level of ${PrayerType.PIETY.defenceReq} and to have completed the King's Ransom quest's Knight Wave reward to use Piety.")
+                if (!hasRequirements) {
+                    sendDialogue(player, "You need a$DARK_BLUE Prayer level of 70</col>, a$DARK_BLUE Defence level of ${PrayerType.PIETY.defenceReq}</col> and to have completed the King's Ransom quest's Knight Wave</col> reward$DARK_BLUE to use Piety</col>.")
                     false
                 } else true
             }

@@ -3,6 +3,8 @@ package content.global.activity.champion.handlers.npc
 import core.api.*
 import cfg.consts.Items
 import cfg.consts.NPCs
+import content.data.GameAttributes
+import content.global.activity.champion.handlers.ChampionChallengeListener
 import core.game.node.entity.Entity
 import core.game.node.entity.npc.AbstractNPC
 import core.game.node.entity.player.Player
@@ -76,10 +78,7 @@ class EarthWarriorChampionNPC(id: Int = 0, location: Location? = null) : Abstrac
                         Items.SUP_RESTORE_MIX1_11495, Items.SUP_RESTORE_MIX1_11496,
                         Items.SUP_RESTORE_MIX2_11493, Items.SUP_RESTORE_MIX2_11494,
                     )
-                    if (player.inventory.containsAtLeastOneItem(prayerItems) || player.equipment.containsAtLeastOneItem(
-                            prayerItems
-                        )
-                    ) {
+                    if (player.inventory.containsAtLeastOneItem(prayerItems) || player.equipment.containsAtLeastOneItem(prayerItems)) {
                         sendNPCDialogue(player, NPCs.LARXUS_3050, "For this fight you're not allowed to use prayers!")
                         teleport(player, Location.create(3182, 9758, 0)) // Behind Doors.
                     } else {
@@ -106,8 +105,9 @@ class EarthWarriorChampionNPC(id: Int = 0, location: Location? = null) : Abstrac
             setVarbit(killer, 1452, 1, true)
             rewardXP(killer, Skills.HITPOINTS, 432.0)
             rewardXP(killer, Skills.SLAYER, 432.0)
-            removeAttribute("championsarena:start")
+            removeAttributes(killer, "championsarena:start", GameAttributes.PRAYER_LOCK)
             clearHintIcon(killer)
+            ChampionChallengeListener.isFinalBattle(killer)
         }
         clear()
         super.finalizeDeath(killer)

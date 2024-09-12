@@ -1,4 +1,4 @@
-package content.region.fremennik.neitiznot.handlers
+package content.region.fremennik.neitiznot.handlers.splitlogs
 
 import core.api.*
 import cfg.consts.Animations
@@ -7,12 +7,13 @@ import core.game.node.entity.player.Player
 import core.game.node.entity.skill.SkillPulse
 import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
-import core.game.world.update.flag.context.Animation
 
 /**
  * Represents a pulse for Fremennik shield.
  */
 class FremennikShieldPulse(player: Player?, val item: Item, var amount: Int) : SkillPulse<Item>(player, Item(Items.FREMENNIK_ROUND_SHIELD_10826)) {
+
+    private val splitAnimation = Animations.HUMAN_SPLIT_LOGS_5755
 
     override fun checkRequirements(): Boolean {
         if (!anyInInventory(player, Items.HAMMER_2347, Items.ARCTIC_PINE_LOGS_10810, Items.ROPE_954, Items.BRONZE_NAILS_4819)) {
@@ -39,7 +40,7 @@ class FremennikShieldPulse(player: Player?, val item: Item, var amount: Int) : S
     }
 
     override fun animate() {
-        animate(player, Animation(Animations.HUMAN_SPLIT_LOGS_5755))
+        animate(player, splitAnimation)
     }
 
     override fun reward(): Boolean {
@@ -48,9 +49,9 @@ class FremennikShieldPulse(player: Player?, val item: Item, var amount: Int) : S
             return false
         }
 
-        if (player.inventory.remove(Item(Items.ARCTIC_PINE_LOGS_10810, 2)) && player.inventory.remove(Item(Items.ROPE_954, 1)) && player.inventory.remove(Item(Items.BRONZE_NAILS_4819, 1))) {
+        if (player.inventory.remove(Item(Items.ARCTIC_PINE_LOGS_10810, 2), Item(Items.ROPE_954, 1), Item(Items.BRONZE_NAILS_4819, 1))) {
             rewardXP(player, Skills.CRAFTING, 34.0)
-            player.inventory.add(Item(Items.FREMENNIK_ROUND_SHIELD_10826, 1))
+            addItem(player, Items.FREMENNIK_ROUND_SHIELD_10826, 1)
             sendMessage(player, "You make a Fremennik round shield.")
             amount--
             return amount == 0

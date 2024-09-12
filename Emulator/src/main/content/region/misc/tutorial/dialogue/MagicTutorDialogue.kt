@@ -1,13 +1,14 @@
 package content.region.misc.tutorial.dialogue
 
-import core.Configuration
-import core.api.*
 import cfg.consts.Components
 import cfg.consts.Items
 import cfg.consts.NPCs
 import content.region.misc.tutorial.handlers.*
+import core.Configuration
+import core.api.*
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression
+import core.game.interaction.QueueStrength
 import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.IronmanMode
@@ -15,10 +16,14 @@ import core.game.node.entity.player.link.TeleportManager
 import core.game.node.item.GroundItemManager
 import core.game.node.item.Item
 import core.game.world.GameWorld
+import core.game.world.map.Direction
 import core.game.world.map.Location
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 import core.worker.ManagementEvents
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.cancelAndJoin
+import kotlinx.coroutines.launch
 import proto.management.JoinClanRequest
 
 /**
@@ -28,7 +33,9 @@ import proto.management.JoinClanRequest
 class MagicTutorDialogue(player: Player? = null) : Dialogue(player) {
 
     private val STARTER_PACK = arrayOf(
-        // Supplies
+        /*
+         * Supplies.
+         */
         Item(Items.BRONZE_AXE_1351, 1),
         Item(Items.TINDERBOX_590, 1),
         Item(Items.SMALL_FISHING_NET_303, 1),
@@ -36,14 +43,18 @@ class MagicTutorDialogue(player: Player? = null) : Dialogue(player) {
         Item(Items.BUCKET_1925, 1),
         Item(Items.EMPTY_POT_1931, 1),
         Item(Items.BREAD_2309, 1),
-        // Weapons
+        /*
+         * Weapons.
+         */
         Item(Items.BRONZE_PICKAXE_1265, 1),
         Item(Items.BRONZE_DAGGER_1205, 1),
         Item(Items.BRONZE_SWORD_1277, 1),
         Item(Items.WOODEN_SHIELD_1171, 1),
         Item(Items.SHORTBOW_841, 1),
         Item(Items.BRONZE_ARROW_882, 25),
-        // Runes
+        /*
+         * Runes.
+         */
         Item(Items.AIR_RUNE_556, 25),
         Item(Items.MIND_RUNE_558, 15),
         Item(Items.WATER_RUNE_555, 6),
@@ -182,11 +193,10 @@ class MagicTutorDialogue(player: Player? = null) : Dialogue(player) {
                 }
                 38 -> {
                     /*
-                    "You have almost completed the tutorial!"
-
-                    "Just click on the first spell, Home Teleport, in your Magic Spellbook."
-                    "This spell doesn't require any runes, but can only be cast once every"
-                    "30 minutes."
+                     * "You have almost completed the tutorial!"
+                     * "Just click on the first spell, Home Teleport, in your Magic Spellbook."
+                     * "This spell doesn't require any runes, but can only be cast once every"
+                     * "30 minutes."
                      */
 
                     setAttribute(player, "/save:tutorial:complete", true)
@@ -201,12 +211,15 @@ class MagicTutorDialogue(player: Player? = null) : Dialogue(player) {
                     player.interfaceManager.setViewedTab(3)
                     player.inventory.add(*STARTER_PACK)
                     player.bank.add(*STARTER_BANK)
-                    interpreter.sendDialogue(
-                        "Welcome to Lumbridge! To get more help click on the Lumbridge",
-                        "Guide or one of the Tutors - these can be found by looking",
-                        "for the question mark icon on your mini-map. If you are lost",
-                        "at any time, look for a signpost or use the Lumbridge Home Teleport."
-                    )
+                    queueScript(player, 4, QueueStrength.WEAK) {
+                        interpreter.sendDialogue(
+                            "Welcome to Lumbridge! To get more help click on the Lumbridge",
+                            "Guide or one of the Tutors - these can be found by looking",
+                            "for the question mark icon on your mini-map. If you are lost",
+                            "at any time, look for a signpost or use the Lumbridge Home Teleport."
+                        )
+                        return@queueScript stopExecuting(player)
+                    }
                     if (player.ironmanManager.mode == IronmanMode.HARDCORE) {
                         setAttribute(player, "/save:permadeath", true)
                     } else if (player.skills.experienceMultiplier == 1000.0) {
