@@ -129,7 +129,7 @@
                         <id>install-constants</id>
                         <phase>clean</phase>
                         <configuration>
-                            <file>${project.basedir}/library/constants-0.0.19.jar</file>
+                            <file>${project.basedir}/libs/constants-0.0.19.jar</file>
                             <repositoryLayout>default</repositoryLayout>
                             <groupId>cfg</groupId>
                             <artifactId>constants</artifactId>
