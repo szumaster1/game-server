@@ -6,9 +6,9 @@ import core.game.node.entity.player.Player;
 import core.game.node.item.Item;
 import core.game.system.task.Pulse;
 import core.game.world.GameWorld;
-import core.network.packet.PacketRepository;
-import core.network.packet.context.ContainerContext;
-import core.network.packet.outgoing.ContainerPacket;
+import core.net.packet.PacketRepository;
+import core.net.packet.context.ContainerContext;
+import core.net.packet.outgoing.ContainerPacket;
 
 import static core.api.ContentAPIKt.sendMessage;
 import static core.tools.GlobalsKt.colorize;

@@ -6,10 +6,10 @@ import core.game.node.scenery.Constructed;
 import core.game.node.scenery.Scenery;
 import core.game.node.scenery.SceneryBuilder;
 import core.game.world.map.build.LandscapeParser;
-import core.network.packet.IoBuffer;
-import core.network.packet.outgoing.ClearScenery;
-import core.network.packet.outgoing.ConstructGroundItem;
-import core.network.packet.outgoing.ConstructScenery;
+import core.net.packet.IoBuffer;
+import core.net.packet.outgoing.ClearScenery;
+import core.net.packet.outgoing.ConstructGroundItem;
+import core.net.packet.outgoing.ConstructScenery;
 import core.tools.Log;
 
 import java.util.ArrayList;

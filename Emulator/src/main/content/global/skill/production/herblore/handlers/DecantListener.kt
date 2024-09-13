@@ -1,6 +1,6 @@
 package content.global.skill.production.herblore.handlers
 
-import content.data.consumables.Consumables
+import content.data.consumable.Consumables
 import core.api.*
 import cfg.consts.Items
 import cfg.consts.Sounds

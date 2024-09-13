@@ -6,9 +6,9 @@ import core.game.container.ContainerListener;
 import content.global.skill.combat.summoning.SummoningPouch;
 import core.game.node.entity.player.Player;
 import core.game.node.item.Item;
-import core.network.packet.PacketRepository;
-import core.network.packet.context.ContainerContext;
-import core.network.packet.outgoing.ContainerPacket;
+import core.net.packet.PacketRepository;
+import core.net.packet.context.ContainerContext;
+import core.net.packet.outgoing.ContainerPacket;
 
 /**
  * Handles the inventory container listening.

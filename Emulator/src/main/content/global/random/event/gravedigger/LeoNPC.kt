@@ -7,9 +7,9 @@ import core.api.utils.WeightBasedTable
 import core.game.node.entity.npc.NPC
 import core.game.system.timer.impl.AntiMacro
 import core.game.world.map.Location
-import core.network.packet.PacketRepository
-import core.network.packet.context.MinimapStateContext
-import core.network.packet.outgoing.MinimapState
+import core.net.packet.PacketRepository
+import core.net.packet.context.MinimapStateContext
+import core.net.packet.outgoing.MinimapState
 import core.tools.RandomFunction
 
 /**

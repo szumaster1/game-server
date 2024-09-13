@@ -35,9 +35,9 @@ import core.game.world.map.RegionManager.getLocalPlayers
 import core.game.world.map.zone.impl.DarkZone
 import core.game.world.update.flag.context.Animation
 import core.game.world.update.flag.context.Graphic
-import core.network.packet.PacketRepository
-import core.network.packet.context.InterfaceContext
-import core.network.packet.outgoing.Interface
+import core.net.packet.PacketRepository
+import core.net.packet.context.InterfaceContext
+import core.net.packet.outgoing.Interface
 import core.plugin.Initializable
 import core.plugin.Plugin
 import core.tools.RandomFunction

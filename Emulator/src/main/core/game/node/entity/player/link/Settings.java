@@ -3,7 +3,7 @@ package core.game.node.entity.player.link;
 import core.game.node.entity.player.Player;
 import core.game.node.item.Item;
 import core.game.system.config.ItemConfigParser;
-import core.network.packet.IoBuffer;
+import core.net.packet.IoBuffer;
 import org.json.simple.JSONObject;
 
 import java.nio.ByteBuffer;

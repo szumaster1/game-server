@@ -18,9 +18,9 @@ import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 import core.game.system.task.Pulse
 import core.game.world.map.Location
-import core.network.packet.PacketRepository
-import core.network.packet.context.MinimapStateContext
-import core.network.packet.outgoing.MinimapState
+import core.net.packet.PacketRepository
+import core.net.packet.context.MinimapStateContext
+import core.net.packet.outgoing.MinimapState
 
 /**
  * Balloon listeners.

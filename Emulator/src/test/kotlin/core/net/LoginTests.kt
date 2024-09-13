@@ -3,7 +3,7 @@ package core.net
 import core.auth.AuthResponse
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
-import core.network.packet.incoming.Login
+import core.net.packet.incoming.Login
 import java.nio.ByteBuffer
 
 class LoginTests {

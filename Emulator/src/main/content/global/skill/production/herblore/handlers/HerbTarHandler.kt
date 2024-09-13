@@ -7,9 +7,9 @@ import cfg.consts.Items
 import core.game.dialogue.SkillDialogueHandler
 import core.game.interaction.NodeUsageEvent
 import core.game.interaction.UseWithHandler
-import core.network.packet.PacketRepository
-import core.network.packet.context.ChildPositionContext
-import core.network.packet.outgoing.RepositionChild
+import core.net.packet.PacketRepository
+import core.net.packet.context.ChildPositionContext
+import core.net.packet.outgoing.RepositionChild
 import core.plugin.Initializable
 import core.plugin.Plugin
 

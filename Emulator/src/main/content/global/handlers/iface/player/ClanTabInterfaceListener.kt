@@ -6,8 +6,8 @@ import core.api.sendMessage
 import core.game.interaction.InterfaceListener
 import core.game.system.communication.ClanRank
 import core.game.system.communication.ClanRepository
-import core.network.amsc.MSPacketRepository
-import core.network.amsc.WorldCommunicator
+import core.net.amsc.MSPacketRepository
+import core.net.amsc.WorldCommunicator
 import core.tools.StringUtils
 
 /**

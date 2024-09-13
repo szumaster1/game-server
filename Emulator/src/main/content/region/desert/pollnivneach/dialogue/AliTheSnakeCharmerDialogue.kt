@@ -1,6 +1,11 @@
 package content.region.desert.pollnivneach.dialogue
 
+import cfg.consts.Items
 import cfg.consts.NPCs
+import core.api.addItem
+import core.api.anyInInventory
+import core.api.freeSlots
+import core.api.inBank
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression
 import core.game.node.entity.player.Player
@@ -31,13 +36,13 @@ class AliTheSnakeCharmerDialogue(player: Player? = null) : Dialogue(player) {
             6 -> player(FacialExpression.JOLLY, "Wow a snake charmer. Can I have a go? Please?").also { stage++ }
             7 -> {
                 end()
-                if (!player.inventory.containsItems(Item(4605), Item(4606)) && !player.bank.containItems(4605, 4606)) {
-                    if (player.inventory.freeSlots() >= 2) {
-                        player.inventory.add(Item(4605))
-                        player.inventory.add(Item(4606))
+                if (!anyInInventory(player, Items.SNAKE_CHARM_4605, Items.SNAKE_BASKET_4606) && !inBank(player, Items.SNAKE_CHARM_4605) && !inBank(player, Items.SNAKE_BASKET_4606)) {
+                    if (freeSlots(player) >= 2) {
+                        addItem(player, Items.SNAKE_CHARM_4605)
+                        addItem(player, Items.SNAKE_BASKET_4606)
                     } else {
-                        GroundItemManager.create(Item(4605), player.location)
-                        GroundItemManager.create(Item(4606), player.location)
+                        GroundItemManager.create(Item(Items.SNAKE_CHARM_4605), player.location)
+                        GroundItemManager.create(Item(Items.SNAKE_BASKET_4606), player.location)
                     }
                     npc(FacialExpression.ANNOYED, "If it means that you'll leave me alone, I would give you", "my snake charming super starter kit complete", "with flute and basket.")
                 } else {

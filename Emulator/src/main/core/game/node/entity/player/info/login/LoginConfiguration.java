@@ -1,6 +1,6 @@
 package core.game.node.entity.player.info.login;
 
-import content.miniquest.knightwave.handlers.KWUtils;
+import content.miniquest.knights.handlers.KWUtils;
 import core.Configuration;
 import core.game.component.Component;
 import core.game.interaction.InteractionListeners;
@@ -12,9 +12,9 @@ import core.game.world.GameWorld;
 import core.game.world.map.RegionManager;
 import core.game.world.repository.Repository;
 import core.game.world.update.UpdateSequence;
-import core.network.packet.PacketRepository;
-import core.network.packet.context.InterfaceContext;
-import core.network.packet.outgoing.Interface;
+import core.net.packet.PacketRepository;
+import core.net.packet.context.InterfaceContext;
+import core.net.packet.outgoing.Interface;
 import core.plugin.Plugin;
 import core.tools.Log;
 

@@ -1,7 +1,7 @@
 package core.game.world.update.flag;
 
 import core.game.node.entity.Entity;
-import core.network.packet.IoBuffer;
+import core.net.packet.IoBuffer;
 
 /**
  * Represents an update flag, which holds the data the update mask uses to write.

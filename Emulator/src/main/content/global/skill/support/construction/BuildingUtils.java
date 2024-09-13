@@ -14,9 +14,9 @@ import core.game.world.map.Direction;
 import core.game.world.map.Location;
 import core.game.world.map.Region;
 import core.game.world.update.flag.context.Animation;
-import core.network.packet.PacketRepository;
-import core.network.packet.context.ContainerContext;
-import core.network.packet.outgoing.ContainerPacket;
+import core.net.packet.PacketRepository;
+import core.net.packet.context.ContainerContext;
+import core.net.packet.outgoing.ContainerPacket;
 import core.tools.Log;
 import org.jetbrains.annotations.NotNull;
 

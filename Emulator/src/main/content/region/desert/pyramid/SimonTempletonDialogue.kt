@@ -1,8 +1,8 @@
 package content.region.desert.pyramid
 
-import core.api.*
 import cfg.consts.Items
 import cfg.consts.NPCs
+import core.api.*
 import core.game.dialogue.Dialogue
 import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
@@ -16,9 +16,9 @@ import core.plugin.Initializable
 class SimonTempletonDialogue(player: Player? = null) : Dialogue(player) {
 
     val ARTIFACTS = arrayOf(
-        arrayOf(Item(9032), Item(9036), Item(9026)),
-        arrayOf(Item(9042), Item(9030), Item(9038)),
-        arrayOf(Item(9040), Item(9028), Item(9034))
+        arrayOf(Item(Items.POTTERY_SCARAB_9032), Item(Items.POTTERY_STATUETTE_9036), Item(Items.IVORY_COMB_9026)),
+        arrayOf(Item(Items.STONE_SEAL_9042), Item(Items.STONE_SCARAB_9030), Item(Items.STONE_STATUETTE_9038)),
+        arrayOf(Item(Items.GOLD_SEAL_9040), Item(Items.GOLDEN_SCARAB_9028), Item(Items.GOLDEN_STATUETTE_9034))
     )
 
     override fun open(vararg args: Any): Boolean {

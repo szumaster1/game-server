@@ -4,10 +4,10 @@ import core.game.node.entity.Entity;
 import core.game.node.entity.player.Player;
 import core.game.node.item.GroundItem;
 import core.game.world.update.flag.UpdateFlag;
-import core.network.packet.IoBuffer;
-import core.network.packet.outgoing.ClearGroundItem;
-import core.network.packet.outgoing.ConstructGroundItem;
-import core.network.packet.outgoing.UpdateGroundItemAmount;
+import core.net.packet.IoBuffer;
+import core.net.packet.outgoing.ClearGroundItem;
+import core.net.packet.outgoing.ConstructGroundItem;
+import core.net.packet.outgoing.UpdateGroundItemAmount;
 
 /**
  * Handles an item update flag.

@@ -2,8 +2,8 @@ package core.game.world.update.flag.chunk;
 
 import core.game.world.update.flag.UpdateFlag;
 import core.game.world.update.flag.context.Animation;
-import core.network.packet.IoBuffer;
-import core.network.packet.outgoing.AnimateScenery;
+import core.net.packet.IoBuffer;
+import core.net.packet.outgoing.AnimateScenery;
 
 /**
  * The animate object update flag.

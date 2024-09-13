@@ -12,13 +12,13 @@ import core.game.node.entity.player.link.SpellBookManager;
 import core.game.node.item.Item;
 import core.game.system.config.ItemConfigParser;
 import core.game.world.update.flag.context.Animation;
-import core.network.packet.PacketRepository;
-import core.network.packet.context.InterfaceConfigContext;
-import core.network.packet.context.InterfaceContext;
-import core.network.packet.context.StringContext;
-import core.network.packet.outgoing.Interface;
-import core.network.packet.outgoing.InterfaceConfig;
-import core.network.packet.outgoing.StringPacket;
+import core.net.packet.PacketRepository;
+import core.net.packet.context.InterfaceConfigContext;
+import core.net.packet.context.InterfaceContext;
+import core.net.packet.context.StringContext;
+import core.net.packet.outgoing.Interface;
+import core.net.packet.outgoing.InterfaceConfig;
+import core.net.packet.outgoing.StringPacket;
 
 import static core.api.ContentAPIKt.setVarp;
 

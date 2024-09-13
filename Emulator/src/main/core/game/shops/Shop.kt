@@ -16,9 +16,9 @@ import core.game.node.item.Item
 import core.game.shops.Shops.Companion.logShop
 import core.game.system.config.ItemConfigParser
 import core.game.world.GameWorld
-import core.network.packet.PacketRepository
-import core.network.packet.context.ContainerContext
-import core.network.packet.outgoing.ContainerPacket
+import core.net.packet.PacketRepository
+import core.net.packet.context.ContainerContext
+import core.net.packet.outgoing.ContainerPacket
 import java.lang.Integer.max
 import java.lang.Integer.min
 import kotlin.math.ceil

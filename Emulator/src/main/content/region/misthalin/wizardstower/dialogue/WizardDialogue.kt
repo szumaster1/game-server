@@ -8,9 +8,9 @@ import core.game.dialogue.Dialogue
 import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.game.node.item.Item
-import core.network.packet.PacketRepository
-import core.network.packet.context.ChildPositionContext
-import core.network.packet.outgoing.RepositionChild
+import core.net.packet.PacketRepository
+import core.net.packet.context.ChildPositionContext
+import core.net.packet.outgoing.RepositionChild
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 import core.tools.StringUtils

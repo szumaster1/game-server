@@ -6,9 +6,9 @@ import core.game.node.entity.player.link.music.MusicEntry
 import core.game.system.command.Privilege
 import core.game.world.map.Location
 import core.game.world.repository.Repository
-import core.network.packet.PacketRepository
-import core.network.packet.context.MusicContext
-import core.network.packet.outgoing.MusicPacket
+import core.net.packet.PacketRepository
+import core.net.packet.context.MusicContext
+import core.net.packet.outgoing.MusicPacket
 import core.plugin.Initializable
 
 /**

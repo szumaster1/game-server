@@ -5,7 +5,7 @@ import core.game.world.map.Location
 import core.game.world.update.flag.context.Animation
 import core.game.world.update.flag.context.Graphic
 import core.game.world.update.flag.context.HitMark
-import core.network.packet.IoBuffer
+import core.net.packet.IoBuffer
 import kotlin.reflect.typeOf
 
 /**

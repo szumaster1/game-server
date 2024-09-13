@@ -9,9 +9,9 @@ import core.game.dialogue.FacialExpression
 import core.game.node.entity.player.Player
 import core.game.system.task.Pulse
 import core.game.world.GameWorld.settings
-import core.network.packet.PacketRepository
-import core.network.packet.context.DisplayModelContext
-import core.network.packet.outgoing.DisplayModel
+import core.net.packet.PacketRepository
+import core.net.packet.context.DisplayModelContext
+import core.net.packet.outgoing.DisplayModel
 import core.tools.Log
 import core.tools.RandomFunction
 

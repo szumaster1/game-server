@@ -1,6 +1,6 @@
 package content.global.handlers.item
 
-import content.data.consumables.Consumables
+import content.data.consumable.Consumables
 import core.api.delayAttack
 import core.api.getUsedOption
 import core.api.getWorldTicks

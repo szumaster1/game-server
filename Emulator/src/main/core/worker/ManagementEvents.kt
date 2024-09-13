@@ -10,11 +10,11 @@ import core.game.system.communication.ClanRepository
 import core.game.system.communication.CommunicationInfo
 import core.game.world.GameWorld
 import core.game.world.repository.Repository
-import core.network.packet.PacketRepository
-import core.network.packet.context.ContactContext
-import core.network.packet.context.MessageContext
-import core.network.packet.outgoing.CommunicationMessage
-import core.network.packet.outgoing.ContactPackets
+import core.net.packet.PacketRepository
+import core.net.packet.context.ContactContext
+import core.net.packet.context.MessageContext
+import core.net.packet.outgoing.CommunicationMessage
+import core.net.packet.outgoing.ContactPackets
 import core.tools.SystemLogger
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope

@@ -18,9 +18,9 @@ import core.game.node.entity.player.link.diary.DiaryType
 import core.game.node.item.Item
 import core.game.system.command.Privilege
 import core.game.world.map.Location
-import core.network.packet.PacketWriteQueue
-import core.network.packet.context.PlayerContext
-import core.network.packet.outgoing.ResetInterface
+import core.net.packet.PacketWriteQueue
+import core.net.packet.context.PlayerContext
+import core.net.packet.outgoing.ResetInterface
 import core.plugin.Initializable
 import core.tools.Log
 import core.tools.RED

@@ -6,7 +6,7 @@ import core.game.node.entity.combat.ImpactHandler
 import core.game.node.entity.player.Player
 import core.game.world.update.flag.*
 import core.game.world.update.flag.context.HitMark
-import core.network.packet.IoBuffer
+import core.net.packet.IoBuffer
 import core.tools.*
 import java.util.concurrent.atomic.AtomicBoolean
 

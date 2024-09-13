@@ -1,6 +1,6 @@
 package core.game.bots
 
-import core.network.IoSession
+import core.net.IoSession
 import java.nio.ByteBuffer
 
 /**

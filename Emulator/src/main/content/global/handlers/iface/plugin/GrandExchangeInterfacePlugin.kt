@@ -20,9 +20,9 @@ import core.game.node.entity.player.Player
 import core.game.node.item.Item
 import core.game.system.task.Pulse
 import core.game.world.GameWorld.Pulser
-import core.network.packet.PacketRepository
-import core.network.packet.context.ContainerContext
-import core.network.packet.outgoing.ContainerPacket
+import core.net.packet.PacketRepository
+import core.net.packet.context.ContainerContext
+import core.net.packet.outgoing.ContainerPacket
 import core.plugin.Initializable
 import core.plugin.Plugin
 

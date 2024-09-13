@@ -34,9 +34,9 @@ import core.game.world.map.Location
 import core.game.world.map.RegionManager
 import core.game.world.repository.Repository
 import core.game.world.update.UpdateSequence
-import core.network.IoSession
-import core.network.packet.IoBuffer
-import core.network.packet.PacketProcessor
+import core.net.IoSession
+import core.net.packet.IoBuffer
+import core.net.packet.PacketProcessor
 import core.tools.Log
 import java.net.URI
 import java.nio.ByteBuffer
@@ -105,10 +105,10 @@ object TestUtils {
 
     fun simulateInteraction (player: Player, target: Node, optionIndex: Int, iface: Int = -1, child: Int = -1) {
         when (target) {
-            is GroundItem -> PacketProcessor.enqueue(core.network.packet.`incoming`.Packet.GroundItemAction(player, optionIndex, target.id, target.location.x, target.location.y))
-            is Item -> PacketProcessor.enqueue(core.network.packet.`incoming`.Packet.ItemAction(player, optionIndex, target.id, target.slot, iface, child))
-            is NPC -> PacketProcessor.enqueue(core.network.packet.`incoming`.Packet.NpcAction(player, optionIndex, target.clientIndex))
-            is core.game.node.scenery.Scenery -> PacketProcessor.enqueue(core.network.packet.`incoming`.Packet.SceneryAction(player, optionIndex, target.id, target.location.x, target.location.y))
+            is GroundItem -> PacketProcessor.enqueue(core.net.packet.`incoming`.Packet.GroundItemAction(player, optionIndex, target.id, target.location.x, target.location.y))
+            is Item -> PacketProcessor.enqueue(core.net.packet.`incoming`.Packet.ItemAction(player, optionIndex, target.id, target.slot, iface, child))
+            is NPC -> PacketProcessor.enqueue(core.net.packet.`incoming`.Packet.NpcAction(player, optionIndex, target.clientIndex))
+            is core.game.node.scenery.Scenery -> PacketProcessor.enqueue(core.net.packet.`incoming`.Packet.SceneryAction(player, optionIndex, target.id, target.location.x, target.location.y))
         }
         advanceTicks(1, true)
     }

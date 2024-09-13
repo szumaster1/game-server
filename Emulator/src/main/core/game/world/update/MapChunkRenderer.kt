@@ -2,9 +2,9 @@ package core.game.world.update
 
 import core.game.node.entity.player.Player
 import core.game.world.map.RegionChunk
-import core.network.packet.PacketRepository
-import core.network.packet.context.ClearChunkContext
-import core.network.packet.outgoing.ClearRegionChunk
+import core.net.packet.PacketRepository
+import core.net.packet.context.ClearChunkContext
+import core.net.packet.outgoing.ClearRegionChunk
 
 /**
  * Handles the rendering of the player's surrounding map chunks.

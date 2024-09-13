@@ -8,9 +8,9 @@ import core.game.interaction.InteractionListener
 import core.game.interaction.QueueStrength
 import core.game.node.entity.skill.Skills
 import core.game.world.map.Location
-import core.network.packet.PacketRepository
-import core.network.packet.context.MinimapStateContext
-import core.network.packet.outgoing.MinimapState
+import core.net.packet.PacketRepository
+import core.net.packet.context.MinimapStateContext
+import core.net.packet.outgoing.MinimapState
 
 private const val SQUASH_GRAPHICS_BEGIN = 767
 private const val SQUASH_GRAPHICS_END = 769

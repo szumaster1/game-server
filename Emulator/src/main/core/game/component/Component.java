@@ -2,9 +2,9 @@ package core.game.component;
 
 import core.game.node.entity.player.Player;
 import core.game.node.entity.player.link.InterfaceManager;
-import core.network.packet.PacketRepository;
-import core.network.packet.context.InterfaceContext;
-import core.network.packet.outgoing.Interface;
+import core.net.packet.PacketRepository;
+import core.net.packet.context.InterfaceContext;
+import core.net.packet.outgoing.Interface;
 import core.game.interaction.InterfaceListeners;
 
 /**

@@ -1,6 +1,6 @@
 package core.game.bots
 
-import content.data.consumables.Consumables.Companion.getConsumableById
+import content.data.consumable.Consumables.Companion.getConsumableById
 import core.game.node.entity.Entity
 import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player

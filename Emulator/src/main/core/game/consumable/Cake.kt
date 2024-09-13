@@ -1,6 +1,6 @@
 package core.game.consumable
 
-import content.data.consumables.Consumables.Companion.getConsumableById
+import content.data.consumable.Consumables.Companion.getConsumableById
 import core.api.sendMessage
 import core.game.node.entity.player.Player
 import core.game.node.item.Item

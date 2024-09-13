@@ -2,7 +2,7 @@ package core.game.world.update.flag
 
 import core.api.logWithStack
 import core.game.node.entity.Entity
-import core.network.packet.IoBuffer
+import core.net.packet.IoBuffer
 import core.tools.Log
 import kotlin.reflect.KType
 

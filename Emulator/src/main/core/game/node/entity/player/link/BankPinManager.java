@@ -7,11 +7,11 @@ import core.game.component.Component;
 import core.game.ge.GrandExchangeRecords;
 import core.game.node.entity.player.Player;
 import core.game.world.GameWorld;
-import core.network.packet.PacketRepository;
-import core.network.packet.context.ChildPositionContext;
-import core.network.packet.context.StringContext;
-import core.network.packet.outgoing.RepositionChild;
-import core.network.packet.outgoing.StringPacket;
+import core.net.packet.PacketRepository;
+import core.net.packet.context.ChildPositionContext;
+import core.net.packet.context.StringContext;
+import core.net.packet.outgoing.RepositionChild;
+import core.net.packet.outgoing.StringPacket;
 import core.tools.RandomFunction;
 import org.json.simple.JSONObject;
 

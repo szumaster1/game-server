@@ -3,9 +3,9 @@ package core.game.node.entity.player.link;
 import core.game.node.Node;
 import core.game.node.entity.Entity;
 import core.game.node.entity.player.Player;
-import core.network.packet.PacketRepository;
-import core.network.packet.context.HintIconContext;
-import core.network.packet.outgoing.HintIcon;
+import core.net.packet.PacketRepository;
+import core.net.packet.context.HintIconContext;
+import core.net.packet.outgoing.HintIcon;
 
 /**
  * The player's hint icon manager.

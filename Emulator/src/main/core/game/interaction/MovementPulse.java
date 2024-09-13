@@ -7,21 +7,17 @@ import core.game.node.entity.npc.NPC;
 import core.game.node.entity.npc.NPCBehavior;
 import core.game.node.entity.player.Player;
 import core.game.system.task.Pulse;
-import core.game.world.GameWorld;
 import core.game.world.map.Direction;
 import core.game.world.map.Location;
 import core.game.world.map.Point;
 import core.game.world.map.path.Path;
 import core.game.world.map.path.Pathfinder;
-import core.network.packet.PacketRepository;
-import core.network.packet.context.PlayerContext;
-import core.network.packet.outgoing.ClearMinimapFlag;
+import core.net.packet.PacketRepository;
+import core.net.packet.context.PlayerContext;
+import core.net.packet.outgoing.ClearMinimapFlag;
 import kotlin.jvm.functions.Function2;
 import kotlin.Pair;
-import core.tools.SystemLogger;
 import core.api.utils.Vector;
-
-import content.region.wilderness.handlers.revenants.RevenantNPC;
 
 import static core.api.ContentAPIKt.*;
 

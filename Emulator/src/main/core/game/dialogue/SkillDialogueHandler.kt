@@ -5,9 +5,9 @@ import core.api.setInterfaceSprite
 import core.api.setInterfaceText
 import core.game.node.entity.player.Player
 import core.game.node.item.Item
-import core.network.packet.PacketRepository
-import core.network.packet.context.ChildPositionContext
-import core.network.packet.outgoing.RepositionChild
+import core.net.packet.PacketRepository
+import core.net.packet.context.ChildPositionContext
+import core.net.packet.outgoing.RepositionChild
 import core.tools.StringUtils
 
 /**

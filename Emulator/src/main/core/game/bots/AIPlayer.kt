@@ -20,7 +20,7 @@ import core.game.world.map.RegionManager.getObject
 import core.game.world.map.path.Pathfinder
 import core.game.world.map.zone.impl.WildernessZone
 import core.game.world.repository.Repository.players
-import core.network.packet.context.MessageContext
+import core.net.packet.context.MessageContext
 import core.tools.RandomFunction
 import core.tools.StringUtils
 import java.io.File

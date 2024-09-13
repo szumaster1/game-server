@@ -1,0 +1,154 @@
+package content.global.activity.star.handlers
+
+import content.data.skill.SkillingTool
+import core.api.*
+import cfg.consts.Items
+import core.game.node.entity.player.Player
+import core.game.node.entity.skill.SkillPulse
+import core.game.node.entity.skill.Skills
+import core.game.node.scenery.Scenery
+import core.game.world.GameWorld
+import core.tools.RandomFunction
+import core.tools.colorize
+
+/**
+ * The pulse used to handle mining shooting stars.
+ */
+class ShootingStarMiningPulse(player: Player?, node: Scenery?, val star: content.global.activity.star.handlers.ShootingStar) : SkillPulse<Scenery?>(player, node) {
+
+    /**
+     * The amount of ticks it takes to get star dust.
+     */
+    private var ticks = 0
+
+    override fun start() {
+        if (!star.isSpawned) return
+
+        if (!player.isArtificial) {
+            star.notifyNewPlayer(player)
+        }
+        super.start()
+    }
+
+    override fun stop() {
+        super.stop()
+
+        if (!player.isArtificial) {
+            star.notifyPlayerLeave(player)
+        }
+    }
+
+    override fun checkRequirements(): Boolean {
+        tool = SkillingTool.getPickaxe(player)
+        if (!star.starObject.isActive || !star.isSpawned) {
+            return false
+        }
+        //checks if the star has been discovered and if not, awards the bonus xp. Xp can be awarded regardless of mining level as per the wiki.
+        if (!star.isDiscovered && !player.isArtificial) {
+            val bonusXp = 75 * getStatLevel(player, Skills.MINING)
+            player.incrementAttribute("/save:shooting-star:bonus-xp", bonusXp)
+            sendNews(player.username + " is the discoverer of the crashed star near " + star.location + "!")
+            sendMessage(player, "You have ${player.skills.experienceMultiplier * getAttribute(player, "shooting-star:bonus-xp", 0).toDouble()} bonus xp towards mining stardust.")
+            content.global.activity.star.handlers.ShootingStarPlugin.Companion.submitScoreBoard(player)
+            star.isDiscovered = true
+            return getStatLevel(player, Skills.MINING) >= star.miningLevel
+        }
+
+        if (getStatLevel(player, Skills.MINING) < star.miningLevel) {
+            sendDialogue(player, "You need a Mining level of at least " + star.miningLevel + " in order to mine this layer.")
+            return false
+        }
+        if (tool == null) {
+            sendMessage(player, "You do not have a pickaxe to use.")
+            return false
+        }
+        if (freeSlots(player) < 1 && !inInventory(player,
+                content.global.activity.star.handlers.ShootingStarPlugin.Companion.STAR_DUST, 1)) {
+            sendDialogue(player, "Your inventory is too full to hold any more stardust.")
+            return false
+        }
+        return true
+    }
+
+    override fun animate() {
+        animate(player, tool.animation)
+    }
+
+    override fun reward(): Boolean {
+        if (++ticks % 4 != 0) {
+            return false
+        }
+        if (!checkReward()) {
+            return false
+        }
+        if (GameWorld.settings?.isDevMode == true) {
+            star.dustLeft = 1
+        }
+
+        val bonusXp = player.getAttribute("shooting-star:bonus-xp", 0).toDouble()
+        var xp = star.level.exp.toDouble()
+        if (bonusXp > 0) {
+            val delta = Math.min(bonusXp, xp)
+            player.incrementAttribute("/save:shooting-star:bonus-xp", (-delta).toInt())
+            xp += delta
+            if (getAttribute(player, "shooting-star:bonus-xp", 0) <= 0) {
+                sendMessage(player, "You have obtained all of your bonus xp from the star.")
+            }
+        }
+
+        rewardXP(player, Skills.MINING, xp)
+        if (content.global.activity.star.handlers.ShootingStarPlugin.Companion.getStarDust(player) < 200) {
+            addItem(player, content.global.activity.star.handlers.ShootingStarPlugin.Companion.STAR_DUST, 1)
+        }
+        if (!inInventory(player, Items.ANCIENT_BLUEPRINT_14651) && !inBank(player, Items.ANCIENT_BLUEPRINT_14651)) {
+            rollBlueprint(player)
+        }
+
+        star.decDust()
+        return false
+    }
+
+    /**
+     * Roll blueprint
+     *
+     * @param player
+     */
+    fun rollBlueprint(player: Player) {
+        val chance = when (star.level) {
+            content.global.activity.star.handlers.ShootingStarType.LEVEL_9 -> 250
+            content.global.activity.star.handlers.ShootingStarType.LEVEL_8 -> 500
+            content.global.activity.star.handlers.ShootingStarType.LEVEL_7 -> 750
+            content.global.activity.star.handlers.ShootingStarType.LEVEL_6 -> 1000
+            content.global.activity.star.handlers.ShootingStarType.LEVEL_5 -> 2000
+            content.global.activity.star.handlers.ShootingStarType.LEVEL_4 -> 3000
+            content.global.activity.star.handlers.ShootingStarType.LEVEL_3 -> 4000
+            content.global.activity.star.handlers.ShootingStarType.LEVEL_2 -> 5000
+            content.global.activity.star.handlers.ShootingStarType.LEVEL_1 -> 10000
+        }
+
+        if (RandomFunction.roll(chance)) {
+            addItemOrDrop(player, Items.ANCIENT_BLUEPRINT_14651, 1)
+            sendMessage(player, colorize("%RWhile mining the star you find an ancient-looking blueprint."))
+            sendNews("${player.username} found an Ancient Blueprint while mining a shooting star!")
+        }
+    }
+
+    override fun message(type: Int) {
+        when (type) {
+            0 -> sendMessage(player, "You swing your pickaxe at the rock.")
+        }
+    }
+
+    /**
+     * Checks if the player gets rewarded.
+     * @return `True` if so.
+     */
+    private fun checkReward(): Boolean {
+        val skill = Skills.MINING
+        val level = 1 + player.skills.getLevel(skill) + player.familiarManager.getBoost(skill)
+        val hostRatio: Double = Math.random() * (100.0 * star.level.rate)
+        val clientRatio: Double = Math.random() * ((level - star.miningLevel) * (1.0 + tool.ratio))
+        return hostRatio < clientRatio
+    }
+
+}

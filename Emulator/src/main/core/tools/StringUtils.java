@@ -1,6 +1,6 @@
 package core.tools;
 
-import core.network.packet.IoBuffer;
+import core.net.packet.IoBuffer;
 
 import java.text.DecimalFormat;
 import java.util.StringTokenizer;

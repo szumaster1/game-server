@@ -9,9 +9,9 @@ import core.game.node.scenery.Scenery
 import core.game.node.scenery.SceneryBuilder
 import core.game.world.map.zone.ZoneBorders
 import core.game.world.map.zone.ZoneRestriction
-import core.network.packet.PacketRepository
-import core.network.packet.context.CameraContext
-import core.network.packet.outgoing.CameraViewPacket
+import core.net.packet.PacketRepository
+import core.net.packet.context.CameraContext
+import core.net.packet.outgoing.CameraViewPacket
 
 /**
  * Evil twin listeners.

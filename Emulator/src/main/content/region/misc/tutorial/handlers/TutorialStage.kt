@@ -14,9 +14,9 @@ import core.game.world.GameWorld.Pulser
 import core.game.world.GameWorld.settings
 import core.game.world.map.Location
 import core.game.world.repository.Repository
-import core.network.packet.PacketRepository
-import core.network.packet.context.MinimapStateContext
-import core.network.packet.outgoing.MinimapState
+import core.net.packet.PacketRepository
+import core.net.packet.context.MinimapStateContext
+import core.net.packet.outgoing.MinimapState
 import core.tools.BLUE
 
 /**

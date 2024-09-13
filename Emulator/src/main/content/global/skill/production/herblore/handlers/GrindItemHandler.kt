@@ -10,9 +10,9 @@ import core.game.interaction.UseWithHandler
 import core.game.node.entity.skill.SkillPulse
 import core.game.node.item.Item
 import core.game.world.update.flag.context.Animation
-import core.network.packet.PacketRepository
-import core.network.packet.context.ChildPositionContext
-import core.network.packet.outgoing.RepositionChild
+import core.net.packet.PacketRepository
+import core.net.packet.context.ChildPositionContext
+import core.net.packet.outgoing.RepositionChild
 import core.plugin.Initializable
 import core.plugin.Plugin
 import kotlin.math.ceil

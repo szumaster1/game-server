@@ -6,7 +6,7 @@ import core.game.system.SystemState
 import core.game.system.config.ServerConfigParser
 import core.game.world.GameWorld
 import core.game.world.repository.Repository
-import core.network.NioReactor
+import core.net.NioReactor
 import core.tools.Log
 import core.tools.TimeStamp
 import kotlinx.coroutines.*

@@ -9,10 +9,10 @@ import core.game.node.scenery.Scenery;
 import core.game.world.map.build.DynamicRegion;
 import core.game.world.map.build.RegionFlags;
 import core.game.world.update.flag.chunk.ItemUpdateFlag;
-import core.network.packet.PacketRepository;
-import core.network.packet.context.BuildItemContext;
-import core.network.packet.outgoing.ClearGroundItem;
-import core.network.packet.outgoing.ConstructGroundItem;
+import core.net.packet.PacketRepository;
+import core.net.packet.context.BuildItemContext;
+import core.net.packet.outgoing.ClearGroundItem;
+import core.net.packet.outgoing.ConstructGroundItem;
 
 import java.util.ArrayList;
 import java.util.Arrays;

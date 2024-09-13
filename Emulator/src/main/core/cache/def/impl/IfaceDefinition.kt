@@ -1,8 +1,8 @@
 package core.cache.def.impl
 
 import core.cache.Cache
-import core.network.packet.IoBuffer
-import core.network.packet.PacketHeader
+import core.net.packet.IoBuffer
+import core.net.packet.PacketHeader
 import java.nio.ByteBuffer
 import java.util.*
 

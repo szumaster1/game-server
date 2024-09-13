@@ -10,9 +10,9 @@ import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 import core.game.system.task.Pulse
 import core.game.world.GameWorld.Pulser
-import core.network.packet.PacketRepository
-import core.network.packet.context.CameraContext
-import core.network.packet.outgoing.CameraViewPacket
+import core.net.packet.PacketRepository
+import core.net.packet.context.CameraContext
+import core.net.packet.outgoing.CameraViewPacket
 import core.tools.StringUtils
 
 /**

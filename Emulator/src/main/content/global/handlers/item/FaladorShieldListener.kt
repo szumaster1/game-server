@@ -1,6 +1,6 @@
 package content.global.handlers.item
 
-import content.data.consumables.effects.PrayerEffect
+import content.data.consumable.effects.PrayerEffect
 import core.api.*
 import cfg.consts.Animations
 import cfg.consts.Items

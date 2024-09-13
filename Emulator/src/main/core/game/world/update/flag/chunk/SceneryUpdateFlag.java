@@ -2,9 +2,9 @@ package core.game.world.update.flag.chunk;
 
 import core.game.node.scenery.Scenery;
 import core.game.world.update.flag.UpdateFlag;
-import core.network.packet.IoBuffer;
-import core.network.packet.outgoing.ClearScenery;
-import core.network.packet.outgoing.ConstructScenery;
+import core.net.packet.IoBuffer;
+import core.net.packet.outgoing.ClearScenery;
+import core.net.packet.outgoing.ConstructScenery;
 
 /**
  * The object update flag.

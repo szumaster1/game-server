@@ -6,9 +6,9 @@ import core.game.world.GameWorld;
 import core.game.world.map.Location;
 import core.game.world.map.RegionManager;
 import core.game.world.update.flag.chunk.ItemUpdateFlag;
-import core.network.packet.PacketRepository;
-import core.network.packet.context.BuildItemContext;
-import core.network.packet.outgoing.UpdateGroundItemAmount;
+import core.net.packet.PacketRepository;
+import core.net.packet.context.BuildItemContext;
+import core.net.packet.outgoing.UpdateGroundItemAmount;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -22,9 +22,9 @@ import core.game.world.map.zone.MapZone
 import core.game.world.map.zone.ZoneBuilder
 import core.game.world.map.zone.ZoneType
 import core.game.world.update.flag.context.Animation
-import core.network.packet.PacketRepository
-import core.network.packet.context.MinimapStateContext
-import core.network.packet.outgoing.MinimapState
+import core.net.packet.PacketRepository
+import core.net.packet.context.MinimapStateContext
+import core.net.packet.outgoing.MinimapState
 import core.plugin.PluginManager.definePlugin
 import core.plugin.Initializable
 import core.plugin.Plugin

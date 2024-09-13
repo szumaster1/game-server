@@ -5,7 +5,7 @@ import core.game.node.entity.player.Player
 import core.game.world.GameWorld
 import core.game.world.map.Location
 import core.game.world.update.flag.context.*
-import core.network.packet.IoBuffer
+import core.net.packet.IoBuffer
 import core.tools.StringUtils
 import java.nio.charset.StandardCharsets
 import kotlin.math.max

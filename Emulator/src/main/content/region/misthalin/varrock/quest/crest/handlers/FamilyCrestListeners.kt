@@ -11,9 +11,9 @@ import core.game.node.scenery.Scenery
 import core.game.world.map.Direction
 import core.game.world.map.RegionManager
 import core.game.world.update.flag.context.Animation
-import core.network.packet.outgoing.ClearScenery
-import core.network.packet.outgoing.ConstructScenery
-import core.network.packet.outgoing.UpdateAreaPosition
+import core.net.packet.outgoing.ClearScenery
+import core.net.packet.outgoing.ConstructScenery
+import core.net.packet.outgoing.UpdateAreaPosition
 
 /**
  * Represents the Family crest listeners.

@@ -3,11 +3,11 @@ package core.game.node.entity.player.link.music;
 import core.game.node.entity.player.Player;
 import core.game.node.entity.player.link.emote.Emotes;
 import core.game.world.GameWorld;
-import core.network.packet.PacketRepository;
-import core.network.packet.context.MusicContext;
-import core.network.packet.context.StringContext;
-import core.network.packet.outgoing.MusicPacket;
-import core.network.packet.outgoing.StringPacket;
+import core.net.packet.PacketRepository;
+import core.net.packet.context.MusicContext;
+import core.net.packet.context.StringContext;
+import core.net.packet.outgoing.MusicPacket;
+import core.net.packet.outgoing.StringPacket;
 
 import java.util.HashMap;
 import java.util.Map;

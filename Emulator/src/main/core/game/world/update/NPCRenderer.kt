@@ -4,8 +4,8 @@ import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.game.world.GameWorld
 import core.game.world.map.RegionManager
-import core.network.packet.IoBuffer
-import core.network.packet.PacketHeader
+import core.net.packet.IoBuffer
+import core.net.packet.PacketHeader
 import java.nio.ByteBuffer
 import java.util.*
 

@@ -9,11 +9,10 @@ import core.game.node.entity.player.Player;
 import core.game.node.item.Item;
 import core.game.node.scenery.Scenery;
 import core.game.system.task.Pulse;
-import core.network.packet.PacketRepository;
-import core.network.packet.context.InteractionOptionContext;
-import core.network.packet.outgoing.InteractionOption;
+import core.net.packet.PacketRepository;
+import core.net.packet.context.InteractionOptionContext;
+import core.net.packet.outgoing.InteractionOption;
 import core.tools.Log;
-import core.tools.SystemLogger;
 import core.game.world.GameWorld;
 
 import static core.api.ContentAPIKt.log;

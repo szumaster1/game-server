@@ -1,7 +1,7 @@
 package core.game.bots
 
-import content.data.consumables.Consumables
-import content.data.consumables.effects.HealingEffect
+import content.data.consumable.Consumables
+import content.data.consumable.effects.HealingEffect
 import core.game.consumable.Consumable
 import core.game.consumable.Food
 import core.game.node.entity.player.link.appearance.Gender

@@ -3,7 +3,7 @@ package core.game.world.update.flag.chunk;
 import core.game.world.map.Location;
 import core.game.world.update.flag.UpdateFlag;
 import core.game.world.update.flag.context.Graphic;
-import core.network.packet.IoBuffer;
+import core.net.packet.IoBuffer;
 
 /**
  * Handles the location graphic update.

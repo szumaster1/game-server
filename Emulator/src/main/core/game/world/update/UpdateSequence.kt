@@ -7,9 +7,9 @@ import core.game.world.map.RegionManager
 import core.game.world.repository.InitializingNodeList
 import core.game.world.repository.Repository
 import core.integration.grafana.*
-import core.network.packet.PacketRepository
-import core.network.packet.context.PlayerContext
-import core.network.packet.outgoing.ClearMinimapFlag
+import core.net.packet.PacketRepository
+import core.net.packet.context.PlayerContext
+import core.net.packet.outgoing.ClearMinimapFlag
 
 /**
  * The entity update sequence.

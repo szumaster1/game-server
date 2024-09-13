@@ -11,8 +11,8 @@ import core.game.world.GameWorld
 import core.game.world.repository.Repository
 import core.game.world.update.UpdateSequence
 import core.integration.grafana.Grafana
-import core.network.packet.PacketProcessor
-import core.network.packet.PacketWriteQueue
+import core.net.packet.PacketProcessor
+import core.net.packet.PacketWriteQueue
 import core.plugin.type.Managers
 import core.tools.Log
 import core.tools.colorize

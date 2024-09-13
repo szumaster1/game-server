@@ -10,10 +10,10 @@ import core.game.world.update.flag.EntityFlag;
 import core.game.world.update.flag.chunk.AnimateSceneryUpdateFlag;
 import core.game.world.update.flag.context.Animation;
 import core.game.world.update.flag.context.Graphic;
-import core.network.packet.PacketRepository;
-import core.network.packet.context.*;
-import core.network.packet.context.DisplayModelContext.ModelType;
-import core.network.packet.outgoing.*;
+import core.net.packet.PacketRepository;
+import core.net.packet.context.*;
+import core.net.packet.context.DisplayModelContext.ModelType;
+import core.net.packet.outgoing.*;
 import core.tools.Log;
 
 import static core.api.ContentAPIKt.log;

@@ -9,9 +9,9 @@ import core.game.interaction.InteractionListener
 import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.diary.DiaryType
 import core.game.system.task.Pulse
-import core.network.packet.PacketRepository
-import core.network.packet.context.CameraContext
-import core.network.packet.outgoing.CameraViewPacket
+import core.net.packet.PacketRepository
+import core.net.packet.context.CameraContext
+import core.net.packet.outgoing.CameraViewPacket
 
 /**
  * Gnome glider listeners.

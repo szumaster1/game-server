@@ -9,12 +9,12 @@ import core.game.event.InterfaceOpenEvent;
 import core.game.node.entity.combat.equipment.WeaponInterface;
 import core.game.node.entity.player.Player;
 import core.game.world.GameWorld;
-import core.network.packet.PacketRepository;
-import core.network.packet.context.InterfaceContext;
-import core.network.packet.context.WindowsPaneContext;
-import core.network.packet.outgoing.CloseInterface;
-import core.network.packet.outgoing.Interface;
-import core.network.packet.outgoing.WindowsPane;
+import core.net.packet.PacketRepository;
+import core.net.packet.context.InterfaceContext;
+import core.net.packet.context.WindowsPaneContext;
+import core.net.packet.outgoing.CloseInterface;
+import core.net.packet.outgoing.Interface;
+import core.net.packet.outgoing.WindowsPane;
 import core.tools.Log;
 
 import static core.api.ContentAPIKt.*;

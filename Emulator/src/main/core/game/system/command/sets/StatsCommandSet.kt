@@ -3,7 +3,7 @@ package core.game.system.command.sets
 import cfg.consts.Items
 import cfg.consts.NPCs
 import content.data.BossKillCounter
-import content.global.activity.treasuretrails.TreasureTrailManager
+import content.global.activity.ttrails.TreasureTrailManager
 import content.global.handlers.iface.BookInterfaceListener
 import content.global.handlers.iface.Page
 import content.global.handlers.iface.PageSet

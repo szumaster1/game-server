@@ -6,10 +6,10 @@ import core.game.node.entity.player.Player;
 import core.game.world.map.Location;
 import core.game.world.map.build.DynamicRegion;
 import core.game.world.repository.Repository;
-import core.network.packet.PacketRepository;
-import core.network.packet.context.CameraContext;
-import core.network.packet.context.CameraContext.CameraType;
-import core.network.packet.outgoing.CameraViewPacket;
+import core.net.packet.PacketRepository;
+import core.net.packet.context.CameraContext;
+import core.net.packet.context.CameraContext.CameraType;
+import core.net.packet.outgoing.CameraViewPacket;
 
 /**
  * Represents the Wally cutscene plugin.

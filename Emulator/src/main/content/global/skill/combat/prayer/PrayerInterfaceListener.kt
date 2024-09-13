@@ -2,7 +2,7 @@ package content.global.skill.combat.prayer
 
 import cfg.consts.Components
 import content.data.GameAttributes
-import content.miniquest.knightwave.handlers.KWUtils
+import content.miniquest.knights.handlers.KWUtils
 import core.api.getAttribute
 import core.api.sendDialogue
 import core.api.sendMessage

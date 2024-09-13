@@ -4,9 +4,9 @@ import core.game.container.Container
 import core.game.container.ContainerEvent
 import core.game.container.ContainerListener
 import core.game.node.entity.player.Player
-import core.network.packet.PacketRepository
-import core.network.packet.context.ContainerContext
-import core.network.packet.outgoing.ContainerPacket
+import core.net.packet.PacketRepository
+import core.net.packet.context.ContainerContext
+import core.net.packet.outgoing.ContainerPacket
 
 /**
  * Burden container listener.

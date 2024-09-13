@@ -9,10 +9,10 @@ import core.game.world.map.RegionManager.getLocalNpcs
 import core.game.world.map.path.Pathfinder
 import core.game.world.map.zone.MapZone
 import core.game.world.map.zone.ZoneBorders
-import core.network.packet.PacketRepository
-import core.network.packet.context.InterfaceContext
-import core.network.packet.outgoing.CloseInterface
-import core.network.packet.outgoing.Interface
+import core.net.packet.PacketRepository
+import core.net.packet.context.InterfaceContext
+import core.net.packet.outgoing.CloseInterface
+import core.net.packet.outgoing.Interface
 
 /**
  * Handles the multiway combat zones.

@@ -8,11 +8,11 @@ import core.game.ge.*
 import core.game.interaction.InterfaceListener
 import core.game.node.entity.player.Player
 import core.game.node.item.Item
-import core.network.packet.PacketRepository
-import core.network.packet.context.ConfigContext
-import core.network.packet.context.ContainerContext
-import core.network.packet.outgoing.Config
-import core.network.packet.outgoing.ContainerPacket
+import core.net.packet.PacketRepository
+import core.net.packet.context.ConfigContext
+import core.net.packet.context.ContainerContext
+import core.net.packet.outgoing.Config
+import core.net.packet.outgoing.ContainerPacket
 import core.tools.Log
 import core.tools.SystemLogger
 import kotlin.math.min

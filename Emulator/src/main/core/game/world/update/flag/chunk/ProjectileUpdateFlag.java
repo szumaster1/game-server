@@ -5,7 +5,7 @@ import core.game.node.entity.impl.Projectile;
 import core.game.node.entity.player.Player;
 import core.game.world.map.Location;
 import core.game.world.update.flag.UpdateFlag;
-import core.network.packet.IoBuffer;
+import core.net.packet.IoBuffer;
 
 /**
  * Handles the projectile updating.

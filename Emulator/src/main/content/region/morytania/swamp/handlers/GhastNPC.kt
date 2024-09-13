@@ -2,7 +2,7 @@ package content.region.morytania.swamp.handlers
 
 import cfg.consts.Items
 import cfg.consts.NPCs
-import content.data.consumables.Consumables
+import content.data.consumable.Consumables
 import content.region.morytania.swamp.quest.druidspirit.handlers.NSUtils
 import core.api.*
 import core.game.consumable.Food
