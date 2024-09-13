@@ -24,12 +24,12 @@ import core.game.world.update.flag.context.Graphic
  */
 enum class EnchantedJewellery(val options: Array<String>, val locations: Array<Location>, crumble: Boolean, vararg val ids: Int) {
     /**
-     * FairyRing of Slaying.
+     * Ring of Slaying.
      */
     RING_OF_SLAYING(arrayOf("Sumona in Pollnivneach.", "Morytania Slayer Tower.", "Rellekka Slayer Caves.", "Nowhere."), arrayOf(Location.create(3361, 2994, 0), Location.create(3428, 3535, 0), Location.create(2792, 3615, 0)), true, Items.RING_OF_SLAYING8_13281, Items.RING_OF_SLAYING7_13282, Items.RING_OF_SLAYING6_13283, Items.RING_OF_SLAYING5_13284, Items.RING_OF_SLAYING4_13285, Items.RING_OF_SLAYING3_13286, Items.RING_OF_SLAYING2_13287, Items.RING_OF_SLAYING1_13288),
 
     /**
-     * FairyRing of Dueling.
+     * Ring of Dueling.
      */
     RING_OF_DUELING(arrayOf("Al Kharid Duel Arena.", "Castle Wars Arena.", "Fist of Guthix.", "Nowhere."), arrayOf(Location.create(3314, 3235, 0), Location.create(2442, 3089, 0), Location.create(1693, 5600, 0)), true, Items.RING_OF_DUELLING8_2552, Items.RING_OF_DUELLING7_2554, Items.RING_OF_DUELLING6_2556, Items.RING_OF_DUELLING5_2558, Items.RING_OF_DUELLING4_2560, Items.RING_OF_DUELLING3_2562, Items.RING_OF_DUELLING2_2564, Items.RING_OF_DUELLING1_2566),
 
@@ -64,12 +64,12 @@ enum class EnchantedJewellery(val options: Array<String>, val locations: Array<L
     SKILLS_NECKLACE(arrayOf("Fishing Guild.", "Mining Guild.", "Crafting Guild.", "Cooking Guild.", "Nowhere."), arrayOf(Location.create(2611, 3392, 0), Location.create(3016, 3338, 0), Location.create(2933, 3290, 0), Location.create(3143, 3442, 0)), Items.SKILLS_NECKLACE4_11105, Items.SKILLS_NECKLACE3_11107, Items.SKILLS_NECKLACE2_11109, Items.SKILLS_NECKLACE1_11111, Items.SKILLS_NECKLACE_11113),
 
     /**
-     * FairyRing of wealth.
+     * Ring of wealth.
      */
     RING_OF_WEALTH(arrayOf("Grand Exchange.", "Nowhere."), arrayOf(Location.create(3163, 3464, 0)), Items.RING_OF_WEALTH4_14646, Items.RING_OF_WEALTH3_14644, Items.RING_OF_WEALTH2_14642, Items.RING_OF_WEALTH1_14640, Items.RING_OF_WEALTH_14638),
 
     /**
-     * FairyRing of life.
+     * Ring of life.
      */
     RING_OF_LIFE(arrayOf(), arrayOf(Location.create(Configuration.HOME_LOCATION)), true, Items.RING_OF_LIFE_2570);
 
@@ -164,7 +164,7 @@ enum class EnchantedJewellery(val options: Array<String>, val locations: Array<L
         }
         if (isSlayerRing(item)) {
             addItem(player, Items.ENCHANTED_GEM_4155)
-            sendMessage(player, "Your FairyRing of Slaying reverts back into a regular enchanted gem.")
+            sendMessage(player, "Your ring of Slaying reverts back into a regular enchanted gem.")
         }
     }
 

@@ -19,7 +19,7 @@ import core.game.world.map.RegionManager
 import core.tools.RandomFunction
 
 /**
- * Represents the Fairy FairyRing transportation method.
+ * Represents the fairy ring transportation method.
  */
 class FairyRings : InterfaceListener, InteractionListener {
     val RING_1 = arrayOf('a', 'd', 'c', 'b')
@@ -230,7 +230,7 @@ class FairyRings : InterfaceListener, InteractionListener {
             }
 
             player.dispatch(FairyRingDialEvent(it))
-            teleport(player, tile!!, TeleportManager.TeleportType.FAIRY_RING)
+            teleport(player, tile!!, TeleportType.FAIRY_RING)
         }
     }
 }

@@ -85,7 +85,7 @@ class ZogreFleshEatersListeners : InteractionListener {
         }
 
         /*
-         * FairyRing the bell for spawn Zavistic Rarve.
+         * Ring the bell for spawn Zavistic Rarve.
          */
 
         on(Scenery.BELL_6847, IntType.SCENERY, "ring") { player, _ ->

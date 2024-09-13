@@ -101,7 +101,7 @@ class CreatureOfFenkenstrain : Quest("Creature of Fenkenstrain", 41, 40, 2, Vars
             }
             line++
             if (stage >= 8) {
-                line(player, "I stole Fenkenstrain's FairyRing of Charos, and he released me from", line++, true)
+                line(player, "I stole Fenkenstrain's Ring of Charos, and he released me from", line++, true)
                 line(player, "his service.", line++, true)
             } else if (stage >= 7) {
                 line(player, "I must find a way to stop Fenkenstrain's experiments.", line++, false)
@@ -141,7 +141,7 @@ class CreatureOfFenkenstrain : Quest("Creature of Fenkenstrain", 41, 40, 2, Vars
         player.packetDispatch.sendItemZoomOnInterface(Items.RING_OF_CHAROS_4202, 230, 277, 5)
 
         drawReward(player, "2 quest points", ln++)
-        drawReward(player, "FairyRing of Charos", ln++)
+        drawReward(player, "Ring of Charos", ln++)
         drawReward(player, "1,000 Theiving XP", ln++)
 
         addItemOrDrop(player, Items.RING_OF_CHAROS_4202, 1)

@@ -362,8 +362,8 @@ class DesertTreasure : Quest("Desert Treasure", 45, 44, 3, 440, 0, 1, 15) {
                         line(player, "I found Laheeb's treasure chest, and managed to bypass", line++, true)
                         line(player, "the traps on it to take the gilded cross, which I returned to", line++, true)
                         line(player, "Rasolo.", line++, true)
-                        line(player, "In return, he gave me the FairyRing of Visibility.", line++, true)
-                        line(player, "I should put the !!FairyRing of Visibility?? on and try and find the", line++, false)
+                        line(player, "In return, he gave me the Ring of Visibility.", line++, true)
+                        line(player, "I should put the !!Ring of Visibility?? on and try and find the", line++, false)
                         line(player, "hidden home of !!Damis?? - Rasolo suggested it was very", line++, false)
                         line(player, "close by to where he is...", line++, false)
                     } else if (getSubStage(player, attributeShadowStage) >= 2) {
@@ -371,12 +371,7 @@ class DesertTreasure : Quest("Desert Treasure", 45, 44, 3, 440, 0, 1, 15) {
                         line(player, "the traps on it to take the gilded cross.", line++, true)
                         line(player, "I need to return the !!gilded cross?? to !!Rasolo??.", line++, false) // Derived
                     } else if (getSubStage(player, attributeShadowStage) >= 1) {
-                        line(
-                            player,
-                            "I need to find !!Laheeb's loot?? and retrieve the stolen !!gilded??",
-                            line++,
-                            false
-                        )
+                        line(player, "I need to find !!Laheeb's loot?? and retrieve the stolen !!gilded??", line++, false)
                         line(player, "!!cross??.", line++, false)
                     }
                 } else if (getSubStage(player, attributeShadowStage) == 0) {
@@ -450,12 +445,7 @@ class DesertTreasure : Quest("Desert Treasure", 45, 44, 3, 440, 0, 1, 15) {
         removeAttribute(player, attributeTrollKillCount)
         setVarbit(player, varbitFrozenFather, 0, true) // 0-frozen 1-defrosted
         setVarbit(player, varbitFrozenMother, 0, true) // 0-frozen 1-defrosted
-        setVarbit(
-            player,
-            varbitChildReunite,
-            0,
-            true
-        ) // 0-frozen 4-reunited 5-reunited 6-varbitfails/ends (This varbit seems to manage ice stages...)
+        setVarbit(player, varbitChildReunite, 0, true) // 0-frozen 4-reunited 5-reunited 6-varbitfails/ends (This varbit seems to manage ice stages...)
         setVarbit(player, varbitCaveEntrance, 0, true) //  6446 0 - 6 6441
 
         removeAttribute(player, attributeShadowStage)
@@ -496,7 +486,7 @@ class DesertTreasure : Quest("Desert Treasure", 45, 44, 3, 440, 0, 1, 15) {
         // Ice: Cave Entrance Varbit
         setVarbit(player, varbitCaveEntrance, getAttribute(player, attributeTrollKillCount, 0))
 
-        // Shadow: FairyRing of Visibility Ladder Varbit
+        // Shadow: Ring of Visibility Ladder Varbit
         if (inEquipment(player, Items.RING_OF_VISIBILITY_4657)) {
             setVarbit(player, varbitSmokeDungeonLadder, 1)
         } else {

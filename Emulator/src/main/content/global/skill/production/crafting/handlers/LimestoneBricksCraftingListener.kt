@@ -13,7 +13,7 @@ import kotlin.math.min
 /**
  * Limestone bricks crafting listener.
  */
-class LimestoneBricksCraftingListener : InteractionListener {
+class LimestoneBrickCraftingListener : InteractionListener {
 
     override fun defineListeners() {
         onUseWith(IntType.ITEM, Items.LIMESTONE_3211, Items.CHISEL_1755) { player, used, _ ->

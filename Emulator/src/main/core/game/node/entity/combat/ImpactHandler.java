@@ -241,7 +241,7 @@ public final class ImpactHandler {
             int current = player.getSavedData().globalData.getRecoilDamage();
             if (damage >= current) {
                 damage = current;
-                player.getPacketDispatch().sendMessage("Your FairyRing of Recoil has shattered.");
+                player.getPacketDispatch().sendMessage("Your ring of Recoil has shattered.");
                 player.getEquipment().replace(null, EquipmentContainer.SLOT_RING);
                 player.getSavedData().globalData.setRecoilDamage(40);
             } else {

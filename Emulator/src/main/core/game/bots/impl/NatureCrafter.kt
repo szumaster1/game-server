@@ -80,7 +80,7 @@ class NatureCrafter : Script() {
                     if (checkValid()) {
                         timer = teleWaitTime
                         state = State.TELE_WAIT
-                        bot!!.sendMessage("Entering Fairy FairyRing Codes. Please wait...")
+                        bot!!.sendMessage("Entering Fairy ring Codes. Please wait...")
                     }
                 }
             }

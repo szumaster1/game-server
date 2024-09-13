@@ -12,17 +12,17 @@ import core.game.world.update.flag.context.Animation
 /**
  * Represents a pulse for splitting logs.
  */
-class SplitLogPulse(player: Player?, node: Item?, private var amount: Int) : SkillPulse<Item?>(player, node) {
+class SplitLogPulse(player: Player?, node: Item?, var amount: Int) : SkillPulse<Item?>(player, null) {
 
-    private val ARCTIC_PINE_LOG = Items.ARCTIC_PINE_LOGS_10810
-    private val splitLog: Item = Item(Items.SPLIT_LOG_10812)
-    private val splittingAnimation = Animation(Animations.HUMAN_SPLIT_LOGS_5755)
+    val arcticPineLog = Items.ARCTIC_PINE_LOGS_10810
+    val splitLog: Item = Item(Items.SPLIT_LOG_10812)
+    val splittingAnimation = Animation(Animations.HUMAN_SPLIT_LOGS_5755)
 
-    private var ticks = 0
+    var ticks = 0
 
     override fun checkRequirements(): Boolean {
-        if (!inInventory(player, Items.ARCTIC_PINE_LOGS_10810)) {
-            sendMessage(player, "You don't have required items in your inventory.")
+        if (amountInInventory(player, Items.ARCTIC_PINE_LOGS_10810) < 1) {
+            sendMessage(player, "You have run out of an Arctic pine log.")
             return false
         }
         return true
@@ -38,14 +38,12 @@ class SplitLogPulse(player: Player?, node: Item?, private var amount: Int) : Ski
         if (++ticks % 5 != 0) {
             return false
         }
-        if (removeItem(player, ARCTIC_PINE_LOG)) {
+        if (removeItem(player, arcticPineLog)) {
             addItem(player, splitLog.id, 1)
             rewardXP(player, Skills.WOODCUTTING, 42.5)
             sendMessage(player, "You make a split log of Arctic pine.")
         }
         amount--
-        if (amount < 1)
-            sendMessage(player, "You have run out of an Arctic pine log.")
-        return true
+        return amount < 1
     }
 }

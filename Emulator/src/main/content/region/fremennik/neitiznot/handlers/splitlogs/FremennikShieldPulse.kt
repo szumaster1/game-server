@@ -11,9 +11,10 @@ import core.game.node.item.Item
 /**
  * Represents a pulse for Fremennik shield.
  */
-class FremennikShieldPulse(player: Player?, val item: Item, var amount: Int) : SkillPulse<Item>(player, Item(Items.FREMENNIK_ROUND_SHIELD_10826)) {
+class FremennikShieldPulse(player: Player?, node: Item, var amount: Int) : SkillPulse<Item>(player, null) {
 
-    private val splitAnimation = Animations.HUMAN_SPLIT_LOGS_5755
+    val splitAnimation = Animations.HUMAN_SPLIT_LOGS_5755
+    var ticks = 0
 
     override fun checkRequirements(): Boolean {
         if (!anyInInventory(player, Items.HAMMER_2347, Items.ARCTIC_PINE_LOGS_10810, Items.ROPE_954, Items.BRONZE_NAILS_4819)) {
@@ -44,7 +45,7 @@ class FremennikShieldPulse(player: Player?, val item: Item, var amount: Int) : S
     }
 
     override fun reward(): Boolean {
-        if (delay == 1) {
+        if (ticks == 1) {
             delay = 3
             return false
         }

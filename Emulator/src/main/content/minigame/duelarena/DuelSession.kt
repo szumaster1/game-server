@@ -122,7 +122,7 @@ class DuelSession(val player: Player? = null, val other: Player? = null, val sta
         val o = getOpposite(p)
         o.impactHandler.disabledTicks = 6
         o.teleport(RandomFunction.getRandomElement<Location>(DuelArea.RESPAWN_LOCATIONS))
-        var victory: Boolean = type === 0 || type === 2 || (type === 1 && p.impactHandler.playerImpactLog.containsKey(o.details.uid))
+        var victory = type == 0 || type == 2 || type == 1 && p.impactHandler.playerImpactLog.containsKey(o.details.uid)
         fightState = 2
         p.removeExtension(DuelSession::class.java)
         end()

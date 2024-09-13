@@ -22,7 +22,7 @@ class KathyCorkatDialogue(player: Player? = null) : Dialogue(player) {
      * Kathy Corkat, together with Devin Mendelberg have a rowing boat
      * west of the Tree Gnome Stronghold, just across the river, where
      * they sail players up to the Piscatoris Fishing Colony for coins
-     * or for free with a FairyRing of Charos (a).
+     * or for free with a Ring of Charos (a).
      */
 
     override fun open(vararg args: Any?): Boolean {

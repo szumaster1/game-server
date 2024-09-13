@@ -11,7 +11,7 @@ import cfg.consts.Items
  */
 enum class RogueJewellery(val item: Int, val amount: Int, val price: Int) {
     /**
-     * Gold FairyRing.
+     * Gold ring.
      */
     GOLD_RING(
         item = Items.GOLD_RING_1635,
@@ -20,7 +20,7 @@ enum class RogueJewellery(val item: Int, val amount: Int, val price: Int) {
     ),
 
     /**
-     * Gold FairyRing (Noted).
+     * Gold ring (noted).
      */
     GOLD_RING_NOTED(
         item = Items.GOLD_RING_1636,
@@ -29,7 +29,7 @@ enum class RogueJewellery(val item: Int, val amount: Int, val price: Int) {
     ),
 
     /**
-     * Sapphire FairyRing.
+     * Sapphire ring.
      */
     SAPPHIRE_RING(
         item = Items.SAPPHIRE_RING_1637,
@@ -38,7 +38,7 @@ enum class RogueJewellery(val item: Int, val amount: Int, val price: Int) {
     ),
 
     /**
-     * Sapphire FairyRing (Noted).
+     * Sapphire ring (noted).
      */
     SAPPHIRE_RING_NOTED(
         item = Items.SAPPHIRE_RING_1638,
@@ -47,7 +47,7 @@ enum class RogueJewellery(val item: Int, val amount: Int, val price: Int) {
     ),
 
     /**
-     * Emerald FairyRing.
+     * Emerald ring.
      */
     EMERALD_RING(
         item = Items.EMERALD_RING_1639,
@@ -56,7 +56,7 @@ enum class RogueJewellery(val item: Int, val amount: Int, val price: Int) {
     ),
 
     /**
-     * Emerald FairyRing (Noted).
+     * Emerald ring (noted).
      */
     EMERALD_RING_NOTED(
         item = Items.EMERALD_RING_1640,
@@ -65,7 +65,7 @@ enum class RogueJewellery(val item: Int, val amount: Int, val price: Int) {
     ),
 
     /**
-     * Ruby FairyRing.
+     * Ruby ring.
      */
     RUBY_RING(
         item = Items.RUBY_RING_1641,
@@ -74,7 +74,7 @@ enum class RogueJewellery(val item: Int, val amount: Int, val price: Int) {
     ),
 
     /**
-     * Ruby FairyRing (Noted).
+     * Ruby ring (noted).
      */
     RUBY_RING_NOTED(
         item = Items.RUBY_RING_1642,
@@ -83,7 +83,7 @@ enum class RogueJewellery(val item: Int, val amount: Int, val price: Int) {
     ),
 
     /**
-     * Diamond FairyRing.
+     * Diamond ring.
      */
     DIAMOND_RING(
         item = Items.DIAMOND_RING_1643,
@@ -92,7 +92,7 @@ enum class RogueJewellery(val item: Int, val amount: Int, val price: Int) {
     ),
 
     /**
-     * Diamond FairyRing (Noted).
+     * Diamond ring (noted).
      */
     DIAMOND_RING_NOTED(
         item = Items.DIAMOND_RING_1644,
@@ -101,7 +101,7 @@ enum class RogueJewellery(val item: Int, val amount: Int, val price: Int) {
     ),
 
     /**
-     * Dragonstone FairyRing.
+     * Dragonstone ring.
      */
     DRAGONSTONE_RING(
         item = Items.DRAGONSTONE_RING_1645,
@@ -110,7 +110,7 @@ enum class RogueJewellery(val item: Int, val amount: Int, val price: Int) {
     ),
 
     /**
-     * Dragonstone FairyRing (Noted).
+     * Dragonstone ring (noted).
      */
     DRAGONSTONE_RING_NOTED(
         item = Items.DRAGONSTONE_RING_1646,

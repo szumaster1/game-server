@@ -16,7 +16,7 @@ enum class ChargedItem(val ids: IntArray) {
     AMULET_OF_GLORY(ids = (Items.AMULET_OF_GLORY4_1712 downTo Items.AMULET_OF_GLORY_1704 step 2).toIntArray()),
 
     /**
-     * FairyRing Of Duelling.
+     * Ring Of Duelling.
      */
     RING_OF_DUELLING(ids = (Items.RING_OF_DUELLING8_2552..Items.RING_OF_DUELLING1_2566 step 2).toIntArray()),
 
@@ -96,12 +96,12 @@ enum class ChargedItem(val ids: IntArray) {
     IVANDIS_FLAIL(ids = (Items.IVANDIS_FLAIL_30_13117..Items.IVANDIS_FLAIL_1_13146).toIntArray()),
 
     /**
-     * FairyRing Of Slaying.
+     * Ring Of Slaying.
      */
     RING_OF_SLAYING(ids = (Items.RING_OF_SLAYING8_13281..Items.RING_OF_SLAYING1_13288).toIntArray()),
 
     /**
-     * FairyRing Of Wealth.
+     * Ring Of Wealth.
      */
     RING_OF_WEALTH(ids = (Items.RING_OF_WEALTH4_14646 downTo Items.RING_OF_WEALTH_14638 step 2).toIntArray()
     );
