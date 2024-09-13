@@ -1,4 +1,4 @@
-package content.global.guild.runecraft
+package content.global.guild.rc
 
 import core.api.MapArea
 import core.game.world.map.zone.ZoneBorders

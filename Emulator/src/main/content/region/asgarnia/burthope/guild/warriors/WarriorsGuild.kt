@@ -1,4 +1,4 @@
-package content.global.guild.warriors
+package content.region.asgarnia.burthope.guild.warriors
 
 import core.api.hasSpaceFor
 import core.cache.def.impl.NPCDefinition

@@ -1,4 +1,4 @@
-package content.global.guild.runecraft.dialogue
+package content.global.guild.rc.dialogue
 
 import cfg.consts.NPCs
 import core.game.dialogue.Dialogue

@@ -1,4 +1,4 @@
-package content.global.guild.runecraft
+package content.global.guild.rc
 
 import cfg.consts.Items
 import content.global.skill.production.runecrafting.data.Talisman

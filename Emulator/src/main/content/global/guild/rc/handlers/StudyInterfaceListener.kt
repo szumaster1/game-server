@@ -1,9 +1,9 @@
-package content.global.guild.runecraft.handlers
+package content.global.guild.rc.handlers
 
 import cfg.consts.Components
 import cfg.consts.Items
 import cfg.consts.Scenery
-import content.global.guild.runecraft.RCGUtils
+import content.global.guild.rc.RCGUtils
 import core.api.*
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener

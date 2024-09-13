@@ -89,7 +89,7 @@ class VarrockListeners : InteractionListener {
         on(Scenery.DOOR_1805, IntType.SCENERY, "open") { player, node ->
             if (getQuestPoints(player) < 32) {
                 sendDialogue(player, "You have not proved yourself worthy to enter here yet.")
-                sendMessage(player, "The door won't open - you need at least 32 Quest Points.")
+                sendMessage(player, "The door won't open - you need at least 33 Quest Points.")
             } else {
                 when (player.location.y) {
                     3363 -> {

@@ -1,4 +1,4 @@
-package content.global.guild.warriors
+package content.region.asgarnia.burthope.guild.warriors
 
 import cfg.consts.Items
 import core.game.component.Component

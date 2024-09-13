@@ -1,4 +1,4 @@
-package content.global.guild.runecraft.handlers
+package content.global.guild.rc.handlers
 
 import cfg.consts.Components
 import cfg.consts.Items

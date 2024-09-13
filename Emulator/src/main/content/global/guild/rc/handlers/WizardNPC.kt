@@ -1,4 +1,4 @@
-package content.global.guild.runecraft.handlers
+package content.global.guild.rc.handlers
 
 import cfg.consts.NPCs
 import core.game.node.entity.combat.CombatStyle

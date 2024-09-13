@@ -1,4 +1,4 @@
-package content.global.guild.warriors
+package content.region.asgarnia.burthope.guild.warriors
 
 import core.api.removeAttribute
 import core.api.setAttribute
