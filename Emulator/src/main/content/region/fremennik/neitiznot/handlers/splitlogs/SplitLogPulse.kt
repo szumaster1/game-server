@@ -38,6 +38,7 @@ class SplitLogPulse(player: Player?, node: Item?, var amount: Int) : SkillPulse<
         if (++ticks % 5 != 0) {
             return false
         }
+        amount = arcticPineLog
         if (removeItem(player, arcticPineLog)) {
             addItem(player, splitLog.id, 1)
             rewardXP(player, Skills.WOODCUTTING, 42.5)
