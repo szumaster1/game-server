@@ -19,6 +19,11 @@ class BeerOnDrunkenAliListener : InteractionListener {
     private val drunkenAli = NPCs.DRUNKEN_ALI_1863
 
     override fun defineListeners() {
+
+        /*
+         * Handles using the beer on drunken Ali NPC.
+         */
+
         onUseWith(IntType.NPC, beer, drunkenAli) { player, used, with ->
             if (used.id != beer) {
                 sendNPCDialogue(player, NPCs.DRUNKEN_ALI_1863, "Eh? What's this? I don't want that, get me a beer.")

@@ -9,6 +9,7 @@ import core.tools.END_DIALOGUE
 
 /**
  * Represents the Street urchin dialogue.
+ *
  */
 @Initializable
 class StreetUrchinDialogue(player: Player? = null) : Dialogue(player) {
