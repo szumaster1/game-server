@@ -23,7 +23,9 @@ import content.region.misc.keldagrim.handlers.MinecartTravel
 import content.region.misthalin.varrock.dialogue.KnockatDoorDialogue
 import content.region.misthalin.varrock.dialogue.SawmillOperatorDialogue
 import content.region.kandarin.ardougne.quest.biohazard.dialogue.GuidorsWifeDialogueFile
+import core.game.node.item.Item
 import core.tools.Log
+import core.tools.RandomFunction
 
 /**
  * Represents the Varrock listeners.
@@ -101,6 +103,69 @@ class VarrockListeners : InteractionListener {
                     3362 -> DoorActionHandler.handleAutowalkDoor(player, node.asScenery())
                 }
             }
+            return@on true
+        }
+
+        /*
+         * Champions' guild first floor chest interaction.
+         */
+
+        on(Scenery.CLOSED_CHEST_24203, IntType.SCENERY, "open") { _, node ->
+            replaceScenery(node.asScenery(), Scenery.OPEN_CHEST_24204, -1, node.location)
+            return@on true
+        }
+
+        on(Scenery.OPEN_CHEST_24204, IntType.SCENERY, "shut") { _, node ->
+            replaceScenery(node.asScenery(), Scenery.CLOSED_CHEST_24203, -1, node.location)
+            return@on true
+        }
+
+        on(Scenery.OPEN_CHEST_24204, IntType.SCENERY, "search") { player, node ->
+            val amount = 999
+            val charges = node.asScenery().charge
+            val randomAmount = RandomFunction.random(5, 20)
+
+            sendMessage(player, "You search the chest...")
+
+            if (charges >= 0) {
+                node.asScenery().charge -= amount
+
+                when {
+                    inInventory(player, Items.LEATHER_GLOVES_1059) && inInventory(player, Items.LEATHER_BOOTS_1061) -> {
+                        sendMessage(player, "and find a small amount of coins...")
+                        if (freeSlots(player) == 0 && !inInventory(player, Items.COINS_995)) {
+                            sendMessage(player, "Since you can't carry it, you leave it where it is.")
+                        } else {
+                            player.inventory.add(Item(Items.COINS_995, randomAmount))
+                        }
+                    }
+                    inInventory(player, Items.LEATHER_GLOVES_1059) -> {
+                        sendMessage(player, "and find leather boots and a small amount of coins...")
+                        if (freeSlots(player) < 2) {
+                            sendMessage(player, "Since you can't carry it, you leave it where it is.")
+                        } else {
+                            player.inventory.add(Item(Items.LEATHER_BOOTS_1061))
+                            player.inventory.add(Item(Items.COINS_995, randomAmount))
+                        }
+                    }
+                    inInventory(player, Items.LEATHER_BOOTS_1062) -> {
+                        sendMessage(player, "and find leather gloves and a small amount of coins...")
+                        if (freeSlots(player) < 2) {
+                            sendMessage(player, "Since you can't carry it, you leave it where it is.")
+                        } else {
+                            player.inventory.add(Item(Items.LEATHER_GLOVES_1059))
+                            player.inventory.add(Item(Items.COINS_995, randomAmount))
+                        }
+                    }
+                }
+            }
+
+            if (node.asScenery().charge <= 0) {
+                sendMessage(player, "...but you find nothing of interest.")
+                replaceScenery(node.asScenery(), Scenery.CLOSED_CHEST_24203, 80)
+                node.asScenery().charge = 1000
+            }
+
             return@on true
         }
 
