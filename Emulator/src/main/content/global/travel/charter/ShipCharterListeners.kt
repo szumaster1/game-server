@@ -7,7 +7,7 @@ import core.game.interaction.InteractionListener
 import core.game.interaction.InterfaceListener
 
 /**
- * Represents the chip chartering interface plugin.
+ * Represents the ship chartering interface plugin.
  * @author Vexia
  */
 class ShipCharterListeners : InteractionListener, InterfaceListener {

@@ -10,7 +10,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Advisor ghrim dialogue.
+ * Represents the Advisor Ghrim dialogue.
  */
 @Initializable
 class AdvisorGhrimDialogue(player: Player? = null): Dialogue(player) {

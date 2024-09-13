@@ -10,31 +10,30 @@ import core.tools.RandomFunction
 import java.util.stream.IntStream
 
 /**
- * Enum class representing different pickpocketing targets and their attributes.
+ * Pickpocket data.
  *
- * @param ids Array of IDs for the pickpocketing targets
- * @param requiredLevel Level required to perform the pickpocketing action
- * @param low Minimum loot value obtainable
- * @param high Maximum loot value obtainable
- * @param experience Experience points awarded for successful pickpocketing
- * @param stunDamageMin Minimum damage dealt to stun the target
- * @param stunDamageMax Maximum damage dealt to stun the target
- * @param stunTime Duration of the stun effect on the target
- * @param message Optional message displayed upon success
- * @param table Table that defines success probabilities based on weights
- * @return Returns an instance of the Pickpockets enum with specified attributes
+ * @property ids                the array of IDs for the pickpocketing targets
+ * @property requiredLevel      the level required to perform the pickpocketing action
+ * @property low                the minimum loot value obtainable
+ * @property high               the maximum loot value obtainable
+ * @property experience         the experience points awarded for successful pickpocketing
+ * @property stunDamageMin      the minimum damage dealt to stun the target
+ * @property stunDamageMax      the maximum damage dealt to stun the target
+ * @property stunTime           the duration of the stun effect on the target
+ * @property message            the optional message displayed upon success
+ * @property table              the table that defines success probabilities based on weights
  */
-enum class Pickpockets(
-    val ids: IntArray, // Array of IDs for the pickpocketing targets
-    val requiredLevel: Int, // Level required to perform the pickpocketing action
-    val low: Double, // Minimum loot value obtainable
-    val high: Double, // Maximum loot value obtainable
-    val experience: Double, // Experience points awarded for successful pickpocketing
-    val stunDamageMin: Int, // Minimum damage dealt to stun the target
-    val stunDamageMax: Int, // Maximum damage dealt to stun the target
-    val stunTime: Int, // Duration of the stun effect on the target
-    val message: String?, // Optional message displayed upon success
-    val table: WeightBasedTable // Table that defines success probabilities based on weights
+enum class Pickpocket(
+    val ids: IntArray,
+    val requiredLevel: Int,
+    val low: Double,
+    val high: Double,
+    val experience: Double,
+    val stunDamageMin: Int,
+    val stunDamageMax: Int,
+    val stunTime: Int,
+    val message: String?,
+    val table: WeightBasedTable
 ) {
     /**
      * Man.
@@ -502,7 +501,7 @@ enum class Pickpockets(
 
 
     companion object {
-        val idMap = HashMap<Int, Pickpockets>(values().size * 5)
+        val idMap = HashMap<Int, Pickpocket>(values().size * 5)
 
         init {
             values().forEach {
@@ -510,7 +509,7 @@ enum class Pickpockets(
             }
         }
 
-        fun forID(id: Int): Pickpockets? {
+        fun forID(id: Int): Pickpocket? {
             return idMap[id]
         }
     }

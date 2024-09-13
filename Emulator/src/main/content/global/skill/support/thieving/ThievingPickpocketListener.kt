@@ -1,7 +1,7 @@
 package content.global.skill.support.thieving
 
 import content.global.skill.skillcape.SkillcapePerks
-import content.global.skill.support.thieving.data.Pickpockets
+import content.global.skill.support.thieving.data.Pickpocket
 import core.api.*
 import cfg.consts.Animations
 import cfg.consts.Items
@@ -24,7 +24,7 @@ import core.tools.RandomFunction
 /**
  * Thieving listeners.
  */
-class ThievingListeners : InteractionListener {
+class ThievingPickpocketListener : InteractionListener {
 
     companion object {
         val PICKPOCKET_ANIM = Animation(Animations.HUMAN_PICKPOCKETING_881, Animator.Priority.HIGH)
@@ -69,7 +69,7 @@ class ThievingListeners : InteractionListener {
     override fun defineListeners() {
 
         on(IntType.NPC, "pickpocket", "pick-pocket") { player, node ->
-            val pickpocketData = Pickpockets.forID(node.id) ?: return@on false
+            val pickpocketData = Pickpocket.forID(node.id) ?: return@on false
             val npc = node.asNpc()
             val npcName = npc.name.lowercase()
 
