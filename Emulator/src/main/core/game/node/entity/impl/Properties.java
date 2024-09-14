@@ -244,7 +244,7 @@ public final class Properties {
                 //TODO: Split combat levels should also be used for Bounty Hunter
                 return combatLevel;
             } else {
-                return combatLevel + player.getFamiliarManager().getSummoningCombatLevel();
+                return combatLevel + player.getFamiliarManager().summoningCombatLevel;
             }
         }
         return combatLevel;

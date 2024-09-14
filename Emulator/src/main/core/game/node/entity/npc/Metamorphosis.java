@@ -57,17 +57,17 @@ public abstract class Metamorphosis extends OptionHandler {
         switch (option) {
             case "metamorphosis":
                 if (player.getFamiliarManager().isOwner(familiar)) {
-                    int newNpc = player.getFamiliarManager().getFamiliar().getId();
-                    while (newNpc == player.getFamiliarManager().getFamiliar().getId()) {
+                    int newNpc = player.getFamiliarManager().familiar.getId();
+                    while (newNpc == player.getFamiliarManager().familiar.getId()) {
                         newNpc = getRandomNpcId();
                     }
                     for (Pets p : Pets.values()) {
                         if (p.babyNpcId == newNpc) {
-                            player.getFamiliarManager().morphPet(new Item(p.babyItemId), false, player.getFamiliarManager().getFamiliar().getLocation());
+                            player.getFamiliarManager().morphPet(new Item(p.babyItemId), false, player.getFamiliarManager().familiar.getLocation());
                             break;
                         }
                     }
-                    player.getPacketDispatch().sendMessage("You transform your " + player.getFamiliarManager().getFamiliar().getName() + "!");
+                    player.getPacketDispatch().sendMessage("You transform your " + player.getFamiliarManager().familiar.getName() + "!");
                 } else {
                     player.getPacketDispatch().sendMessage("This is not your familiar.");
                 }

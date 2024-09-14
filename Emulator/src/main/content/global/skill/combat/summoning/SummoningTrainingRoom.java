@@ -467,7 +467,7 @@ public final class SummoningTrainingRoom extends OptionHandler {
                                 player.getLocks().lockMovement(100000);
                                 PacketRepository.send(CameraViewPacket.class, new CameraContext(player, CameraType.POSITION, x, y, height, 1, 95));
                                 PacketRepository.send(CameraViewPacket.class, new CameraContext(player, CameraType.ROTATION, x + 1000, y + 17, height, 1, 95));
-                                wolf = player.getFamiliarManager().getFamiliar();
+                                wolf = player.getFamiliarManager().familiar;
                                 GameWorld.getPulser().submit(new Pulse(1, player, fluffy) {
                                     int counter;
 
@@ -556,7 +556,7 @@ public final class SummoningTrainingRoom extends OptionHandler {
             public void end() {
                 super.end();
                 if (player.getFamiliarManager().hasFamiliar()) {
-                    player.getFamiliarManager().getFamiliar().dismiss();
+                    player.getFamiliarManager().familiar.dismiss();
                 }
             }
 

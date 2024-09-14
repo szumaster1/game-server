@@ -318,7 +318,7 @@ public class Player extends Entity {
             logoutListeners.forEach((key, method) -> method.invoke(this));
         }
         if (familiarManager.hasFamiliar()) {
-            familiarManager.getFamiliar().clear();
+            familiarManager.familiar.clear();
         }
         interfaceManager.close();
         interfaceManager.closeSingleTab();

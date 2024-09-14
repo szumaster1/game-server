@@ -88,7 +88,7 @@ public final class Pet extends Familiar {
         if (hunger >= 100.0 && growthRate != 0 && pet.food.length != 0) {
             owner.getFamiliarManager().removeDetails(this.getItemIdHash());
             owner.getFamiliarManager().dismiss();
-            owner.getFamiliarManager().setFamiliar(null);
+            owner.getFamiliarManager().familiar = null;
             setVarp(owner, 1175, 0);
             owner.sendMessage("<col=ff0000>Your pet has run away.</col>");
             return;
@@ -134,7 +134,7 @@ public final class Pet extends Familiar {
         Pet newPet = new Pet(owner, details, newItemId, npcId);
         newPet.growthRate = growthRate;
         newPet.hasWarned = hasWarned;
-        owner.getFamiliarManager().setFamiliar(newPet);
+        owner.getFamiliarManager().familiar = newPet;
         owner.getFamiliarManager().spawnFamiliar();
     }
 

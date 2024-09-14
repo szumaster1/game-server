@@ -28,7 +28,7 @@ class FamiliarNPCOptionPlugin : OptionHandler() {
         if (node !is Familiar) {
             return false
         }
-        if (node.getOwner() !== player) {
+        if (node.owner !== player) {
             sendMessage(player, "This is not your familiar.")
             return true
         }
