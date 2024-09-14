@@ -65,10 +65,10 @@
         </dependency>
         <!-- https://gitlab.com/rs-source/library -->
         <dependency>
-			<groupId>cfg.consts</groupId>
-			<artifactId>constants</artifactId>
-			<version>[0.0.0,)</version>
-            <scope>compile</scope>
+      		<groupId>cfg.consts</groupId>
+      		<artifactId>constants</artifactId>
+      		<version>[0.0.0,)</version>
+      		<scope>compile</scope>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-api -->
         <dependency>
@@ -126,14 +126,14 @@
                 <version>3.0.1</version>
                 <executions>
                     <execution>
-                        <id>install-consts</id>
+                        <id>mvn install:install-file</id>
                         <phase>clean</phase>
                         <configuration>
-                            <file>${project.basedir}/libs/constants-0.0.19.jar</file>
+                            <file>${project.basedir}/library/constants-0.0.19.jar</file>
                             <repositoryLayout>default</repositoryLayout>
-                            <groupId>cfg</groupId>
-                            <artifactId>consts</artifactId>
-                            <version>0.0.19</version>
+                            <groupId>cfg.consts</groupId>
+                            <artifactId>constants</artifactId>
+                            <version>0.0</version>
                             <packaging>jar</packaging>
                             <generatePom>true</generatePom>
                         </configuration>
@@ -143,195 +143,198 @@
                     </execution>
                 </executions>
             </plugin>
-			
             <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-assembly-plugin</artifactId>
-        <version>3.4.2</version>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <version>3.4.2</version>
 
-        <configuration>
-          <descriptorRefs>
-            <descriptorRef>jar-with-dependencies</descriptorRef>
-          </descriptorRefs>
-          <archive>
-            <manifest><mainClass>${project.mainClassName}</mainClass></manifest>
-          </archive>
-        </configuration>
+                <configuration>
+                    <descriptorRefs>
+                        <descriptorRef>jar-with-dependencies</descriptorRef>
+                    </descriptorRefs>
+                    <archive>
+                        <manifest>
+                            <mainClass>${project.mainClassName}</mainClass>
+                        </manifest>
+                    </archive>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>make-assembly</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.jetbrains.kotlin</groupId>
+                <artifactId>kotlin-maven-plugin</artifactId>
+                <version>${kotlin.version}</version>
+                <executions>
+                    <execution>
+                        <id>compile</id>
+                        <goals>
+                            <goal>compile</goal>
+                        </goals>
+                        <configuration>
+                            <sourceDirs>
+                                <sourceDir>${project.basedir}/src/main</sourceDir>
+                            </sourceDirs>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>test-compile</id>
+                        <goals>
+                            <goal>test-compile</goal>
+                        </goals>
+                        <configuration>
+                            <sourceDirs>
+                                <sourceDir>${project.basedir}/src/test/kotlin</sourceDir>
+                            </sourceDirs>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.10.1</version>
+                <configuration>
+                    <maxmem>4096m</maxmem>
+                    <useIncrementalCompilation>false</useIncrementalCompilation>
+                    <compilerArgs>
+                        <arg>-XDcompilePolicy=simple</arg>
+                        <!-- <arg>-Xplugin:ErrorProne</arg> uncomment when fixing java static analysis errors !-->
+                    </compilerArgs>
+                    <annotationProcessorPaths>
+                        <path>
+                            <groupId>com.google.errorprone</groupId>
+                            <artifactId>error_prone_core</artifactId>
+                            <version>2.9.0</version>
+                        </path>
+                        <!-- Other annotation processors go here.
 
-        <executions>
-          <execution>
-            <id>make-assembly</id>
-            <phase>package</phase>
-            <goals>
-              <goal>single</goal>
-            </goals>
-          </execution>
-        </executions>
+                        If 'annotationProcessorPaths' is set, processors will no longer be
+                        discovered on the regular -classpath; see also 'Using Error Prone
+                        together with other annotation processors' below. -->
+                    </annotationProcessorPaths>
+                </configuration>
+                <executions>
+                    <!-- Replacing default-compile as it is treated specially by maven -->
+                    <execution>
+                        <id>default-compile</id>
+                        <phase>none</phase>
+                    </execution>
+                    <!-- Replacing default-testCompile as it is treated specially by maven -->
+                    <execution>
+                        <id>default-testCompile</id>
+                        <phase>none</phase>
+                    </execution>
+                    <execution>
+                        <id>java-compile</id>
+                        <phase>compile</phase>
+                        <goals>
+                            <goal>compile</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>java-test-compile</id>
+                        <phase>test-compile</phase>
+                        <goals>
+                            <goal>testCompile</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration>
+                    <useFile>false</useFile>
+                    <trimStackTrace>false</trimStackTrace>
+                </configuration>
+                <version>2.22.0</version>
+            </plugin>
+            <plugin>
+                <artifactId>maven-failsafe-plugin</artifactId>
+                <version>2.22.0</version>
+            </plugin>
 
-      </plugin>
-      <plugin>
-        <groupId>org.jetbrains.kotlin</groupId>
-        <artifactId>kotlin-maven-plugin</artifactId>
-        <version>${kotlin.version}</version>
-        <executions>
-          <execution>
-            <id>compile</id>
-            <goals>
-              <goal>compile</goal>
-            </goals>
-            <configuration>
-              <sourceDirs>
-                <sourceDir>${project.basedir}/src/main</sourceDir>
-              </sourceDirs>
-            </configuration>
-          </execution>
-          <execution>
-            <id>test-compile</id>
-            <goals> <goal>test-compile</goal> </goals>
-            <configuration>
-              <sourceDirs>
-                <sourceDir>${project.basedir}/src/test/kotlin</sourceDir>
-              </sourceDirs>
-            </configuration>
-          </execution>
-        </executions>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.10.1</version>
-        <configuration>
-          <maxmem>4096m</maxmem>
-          <useIncrementalCompilation>false</useIncrementalCompilation>
-		  <compilerArgs>
-			<arg>-XDcompilePolicy=simple</arg>
-			<!-- <arg>-Xplugin:ErrorProne</arg> uncomment when fixing java static analysis errors !-->
-		  </compilerArgs>
-		  <annotationProcessorPaths>
-			<path>
-			  <groupId>com.google.errorprone</groupId>
-			  <artifactId>error_prone_core</artifactId>
-			  <version>2.9.0</version>
-			</path>
-			<!-- Other annotation processors go here.
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>1.2.1</version>
+                <configuration>
+                    <mainClass>core.Server</mainClass>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-antrun-plugin</artifactId>
+                <version>1.8</version>
+                <executions>
+                    <execution>
+                        <!-- This can be run separately with mvn antrun:run@detekt -->
+                        <id>detekt</id>
+                        <phase>verify</phase>
+                        <configuration>
+                            <target name="detekt">
+                                <java taskname="detekt" dir="${basedir}"
+                                      fork="true"
+                                      failonerror="true"
+                                      classname="io.gitlab.arturbosch.detekt.cli.Main"
+                                      classpathref="maven.plugin.classpath">
+                                    <arg value="--input"/>
+                                    <arg value="${basedir}/src/main"/>
+                                    <arg value="--excludes"/>
+                                    <arg value="**/special/package/internal/**"/>
+                                    <arg value="--report"/>
+                                    <arg value="xml:${basedir}/reports/detekt.xml"/>
+                                    <arg value="--config"/>
+                                    <arg value="${basedir}/detekt.yml"/>
+                                    <!--
+                                    <arg value="-b" />
+                                    <arg value="${basedir}/reports/baseline.xml"/>
+                                    -->
+                                </java>
+                            </target>
+                        </configuration>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <dependencies>
+                    <dependency>
+                        <groupId>io.gitlab.arturbosch.detekt</groupId>
+                        <artifactId>detekt-cli</artifactId>
+                        <version>1.21.0</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+        </plugins>
+    </build>
+    <repositories>
+        <repository>
+            <id>maven_central</id>
+            <name>Maven Central</name>
+            <url>https://repo.maven.apache.org/maven2/</url>
+        </repository>
+        <repository>
+            <id>gitlab-maven</id>
+            <url>https://gitlab.com/api/v4/projects/61046826/packages/maven</url>
+        </repository>
+    </repositories>
+    <distributionManagement>
+        <repository>
+            <id>gitlab-maven</id>
+            <url>https://gitlab.com/api/v4/projects/61046826/packages/maven</url>
+        </repository>
 
-			If 'annotationProcessorPaths' is set, processors will no longer be
-			discovered on the regular -classpath; see also 'Using Error Prone
-			together with other annotation processors' below. -->
-		  </annotationProcessorPaths>
-        </configuration>
-        <executions>
-          <!-- Replacing default-compile as it is treated specially by maven -->
-          <execution>
-            <id>default-compile</id>
-            <phase>none</phase>
-          </execution>
-          <!-- Replacing default-testCompile as it is treated specially by maven -->
-          <execution>
-            <id>default-testCompile</id>
-            <phase>none</phase>
-          </execution>
-          <execution>
-            <id>java-compile</id>
-            <phase>compile</phase>
-            <goals>
-              <goal>compile</goal>
-            </goals>
-          </execution>
-          <execution>
-            <id>java-test-compile</id>
-            <phase>test-compile</phase>
-            <goals>
-              <goal>testCompile</goal>
-            </goals>
-          </execution>
-        </executions>
-      </plugin>
-      <plugin>
-        <artifactId>maven-surefire-plugin</artifactId>
-        <configuration>
-          <useFile>false</useFile>
-          <trimStackTrace>false</trimStackTrace>
-        </configuration>
-        <version>2.22.0</version>
-      </plugin>
-      <plugin>
-        <artifactId>maven-failsafe-plugin</artifactId>
-        <version>2.22.0</version>
-      </plugin>
-
-      <plugin>
-        <groupId>org.codehaus.mojo</groupId>
-        <artifactId>exec-maven-plugin</artifactId>
-        <version>1.2.1</version>
-        <configuration>
-          <mainClass>core.Server</mainClass>
-        </configuration>
-      </plugin>
-        <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-antrun-plugin</artifactId>
-            <version>1.8</version>
-            <executions>
-                <execution>
-                    <!-- This can be run separately with mvn antrun:run@detekt -->
-                    <id>detekt</id>
-                    <phase>verify</phase>
-                    <configuration>
-                        <target name="detekt">
-                            <java taskname="detekt" dir="${basedir}"
-                                  fork="true" 
-                                  failonerror="true"
-                                  classname="io.gitlab.arturbosch.detekt.cli.Main"
-                                  classpathref="maven.plugin.classpath">
-                                <arg value="--input"/>
-                                <arg value="${basedir}/src/main"/>
-                                <arg value="--excludes"/>
-                                <arg value="**/special/package/internal/**"/>
-                                <arg value="--report"/>
-                                <arg value="xml:${basedir}/reports/detekt.xml"/>
-								<arg value="--config"/>
-								<arg value="${basedir}/detekt.yml"/>
-                                <!--
-								<arg value="-b" />
-                                <arg value="${basedir}/reports/baseline.xml"/>
-								-->
-                            </java>
-                        </target>
-                    </configuration>
-                    <goals><goal>run</goal></goals>
-                </execution>
-            </executions>
-            <dependencies>
-                <dependency>
-                    <groupId>io.gitlab.arturbosch.detekt</groupId>
-                    <artifactId>detekt-cli</artifactId>
-                    <version>1.21.0</version>
-                </dependency>
-            </dependencies>
-        </plugin>
-    </plugins>
-  </build>
-  <repositories>
-    <repository>
-      <id>maven_central</id>
-      <name>Maven Central</name>
-      <url>https://repo.maven.apache.org/maven2/</url>
-    </repository>
-    <repository>
-      <id>gitlab-maven</id>
-      <url>https://gitlab.com/api/v4/projects/61046826/packages/maven</url>
-    </repository>
-  </repositories>
-  <distributionManagement>
-    <repository>
-      <id>gitlab-maven</id>
-      <url>https://gitlab.com/api/v4/projects/61046826/packages/maven</url>
-    </repository>
-
-    <snapshotRepository>
-      <id>gitlab-maven</id>
-      <url>https://gitlab.com/api/v4/projects/61046826/packages/maven</url>
-    </snapshotRepository>
-  </distributionManagement>
+        <snapshotRepository>
+            <id>gitlab-maven</id>
+            <url>https://gitlab.com/api/v4/projects/61046826/packages/maven</url>
+        </snapshotRepository>
+    </distributionManagement>
 </project>
