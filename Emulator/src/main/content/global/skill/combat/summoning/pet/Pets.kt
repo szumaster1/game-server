@@ -7,21 +7,36 @@ import core.game.node.entity.player.Player
 import core.tools.Log
 
 /**
- * Represents the Pets data.
+ * Pets
+ *
+ * @param babyItemId      The item ID representing the baby version of the pet.
+ * @param grownItemId     The item ID representing the grown version of the pet.
+ * @param overgrownItemId The item ID representing the overgrown version of the pet.
+ * @param babyNpcId       The NPC ID for the baby version of the pet.
+ * @param grownNpcId      The NPC ID for the grown version of the pet.
+ * @param overgrownNpcId  The NPC ID for the overgrown version of the pet.
+ * @param growthRate      The rate at which the pet grows.
+ * @param summoningLevel  The level required to summon the pet.
+ * @param food            The food items required for the pet.
+ * @constructor Pets      Enum class representing different stages of pets.
  */
 enum class Pets(
-    @JvmField val babyItemId: Int,
-    @JvmField val grownItemId: Int,
-    @JvmField val overgrownItemId: Int,
-    @JvmField val babyNpcId: Int,
-    val grownNpcId: Int,
-    val overgrownNpcId: Int,
-    @JvmField val growthRate: Double,
-    @JvmField val summoningLevel: Int,
-    @JvmField vararg val food: Int
+    @JvmField val babyItemId: Int,          // ID for the baby pet item
+    @JvmField val grownItemId: Int,         // ID for the grown pet item
+    @JvmField val overgrownItemId: Int,     // ID for the overgrown pet item
+    @JvmField val babyNpcId: Int,           // NPC ID for the baby pet
+    val grownNpcId: Int,                    // NPC ID for the grown pet
+    val overgrownNpcId: Int,                // NPC ID for the overgrown pet
+    @JvmField val growthRate: Double,       // Growth rate of the pet
+    @JvmField val summoningLevel: Int,      // Required summoning level for the pet
+    @JvmField vararg val food: Int          // Vararg for food items for the pet
 ) {
     /**
-     * The cats.
+     * Cat
+     *
+     * @constructor Cat
+     *//*
+     * Cats.
      */
     CAT(
         babyItemId = Items.PET_KITTEN_1555,
@@ -36,7 +51,9 @@ enum class Pets(
     ),
 
     /**
-     * The cats 1.
+     * Cat 1
+     *
+     * @constructor Cat 1
      */
     CAT_1(
         babyItemId = Items.PET_KITTEN_1556,
@@ -51,7 +68,9 @@ enum class Pets(
     ),
 
     /**
-     * The cats 2.
+     * Cat 2
+     *
+     * @constructor Cat 2
      */
     CAT_2(
         babyItemId = Items.PET_KITTEN_1557,
@@ -66,7 +85,9 @@ enum class Pets(
     ),
 
     /**
-     * The cats 3.
+     * Cat 3
+     *
+     * @constructor Cat 3
      */
     CAT_3(
         babyItemId = Items.PET_KITTEN_1558,
@@ -81,7 +102,9 @@ enum class Pets(
     ),
 
     /**
-     * The cats 4.
+     * Cat 4
+     *
+     * @constructor Cat 4
      */
     CAT_4(
         babyItemId = Items.PET_KITTEN_1559,
@@ -96,7 +119,9 @@ enum class Pets(
     ),
 
     /**
-     * The cats 5.
+     * Cat 5
+     *
+     * @constructor Cat 5
      */
     CAT_5(
         babyItemId = Items.PET_KITTEN_1560,
@@ -111,37 +136,43 @@ enum class Pets(
     ),
 
     /**
-     * The hellcats.
+     * Hellcat
+     *
+     * @constructor Hellcat
      */
     HELLCAT(
-        babyItemId = Items.HELL_KITTEN_7583,
-        grownItemId = Items.HELL_CAT_7582,
-        overgrownItemId = Items.OVERGROWN_HELLCAT_7581,
-        babyNpcId = NPCs.HELL_KITTEN_3505,
-        grownNpcId = NPCs.HELLCAT_3504,
-        overgrownNpcId = NPCs.OVERGROWN_HELLCAT_3503,
-        growthRate = 0.0154320987654321,
-        summoningLevel = 0,
-        food = intArrayOf(321, 319, 363, 365, 341, 339, 345, 347, 377, 379, 353, 355, 389, 391, 7944, 7946, 349, 351, 331, 329, 327, 325, 395, 397, 383, 385, 317, 315, 371, 373, 335, 333, 359, 361, 1927)
+         babyItemId = Items.HELL_KITTEN_7583,
+         grownItemId = Items.HELL_CAT_7582,
+         overgrownItemId = Items.OVERGROWN_HELLCAT_7581,
+         babyNpcId = NPCs.HELL_KITTEN_3505,
+         grownNpcId = NPCs.HELLCAT_3504,
+         overgrownNpcId = NPCs.OVERGROWN_HELLCAT_3503,
+         growthRate = 0.0154320987654321,
+         summoningLevel = 0,
+         food = intArrayOf(321, 319, 363, 365, 341, 339, 345, 347, 377, 379, 353, 355, 389, 391, 7944, 7946, 349, 351, 331, 329, 327, 325, 395, 397, 383, 385, 317, 315, 371, 373, 335, 333, 359, 361, 1927)
     ),
 
     /**
-     * The cats 7.
+     * Cat 7
+     *
+     * @constructor Cat 7
      */
     CAT_7(
-        babyItemId = Items.PET_KITTEN_14089,
-        grownItemId = Items.PET_CAT_14090,
-        overgrownItemId = Items.OVERGROWN_CAT_14092,
-        babyNpcId = NPCs.KITTEN_8217,
-        grownNpcId = NPCs.CAT_8214,
-        overgrownNpcId = NPCs.OVERGROWN_CAT_8216,
-        growthRate = 0.0154320987654321,
-        summoningLevel = 0,
-        food = intArrayOf(321, 319, 363, 365, 341, 339, 345, 347, 377, 379, 353, 355, 389, 391, 7944, 7946, 349, 351, 331, 329, 327, 325, 395, 397, 383, 385, 317, 315, 371, 373, 335, 333, 359, 361, 1927)
+         babyItemId = Items.PET_KITTEN_14089,
+         grownItemId = Items.PET_CAT_14090,
+         overgrownItemId = Items.OVERGROWN_CAT_14092,
+         babyNpcId = NPCs.KITTEN_8217,
+         grownNpcId = NPCs.CAT_8214,
+         overgrownNpcId = NPCs.OVERGROWN_CAT_8216,
+         growthRate = 0.0154320987654321,
+         summoningLevel = 0,
+         food = intArrayOf(321, 319, 363, 365, 341, 339, 345, 347, 377, 379, 353, 355, 389, 391, 7944, 7946, 349, 351, 331, 329, 327, 325, 395, 397, 383, 385, 317, 315, 371, 373, 335, 333, 359, 361, 1927)
     ),
 
     /**
-     * The clockwork cat.
+     * Clockwork Cat
+     *
+     * @constructor Clockwork Cat
      */
     CLOCKWORK_CAT(
         babyItemId = Items.CLOCKWORK_CAT_7771,
@@ -155,7 +186,11 @@ enum class Pets(
     ),
 
     /**
-     * The bulldog.
+     * Bulldog
+     *
+     * @constructor Bulldog
+     *//*
+     * Bulldogs.
      */
     BULLDOG(
         babyItemId = Items.BULLDOG_PUPPY_12522,
@@ -170,7 +205,9 @@ enum class Pets(
     ),
 
     /**
-     * The bulldog 1.
+     * Bulldog 1
+     *
+     * @constructor Bulldog 1
      */
     BULLDOG_1(
         babyItemId = Items.BULLDOG_PUPPY_12720,
@@ -185,7 +222,9 @@ enum class Pets(
     ),
 
     /**
-     * The bulldog 2.
+     * Bulldog 2
+     *
+     * @constructor Bulldog 2
      */
     BULLDOG_2(
         babyItemId = Items.BULLDOG_PUPPY_12722,
@@ -200,7 +239,11 @@ enum class Pets(
     ),
 
     /**
-     * The dalmatians.
+     * Dalmatian
+     *
+     * @constructor Dalmatian
+     *//*
+     * Dalmatians.
      */
     DALMATIAN(
         babyItemId = Items.DALMATIAN_PUPPY_12518,
@@ -215,7 +258,9 @@ enum class Pets(
     ),
 
     /**
-     * The dalmatians 1.
+     * Dalmatian 1
+     *
+     * @constructor Dalmatian 1
      */
     DALMATIAN_1(
         babyItemId = Items.DALMATIAN_PUPPY_12712,
@@ -230,7 +275,9 @@ enum class Pets(
     ),
 
     /**
-     * The dalmatians 2.
+     * Dalmatian 2
+     *
+     * @constructor Dalmatian 2
      */
     DALMATIAN_2(
         babyItemId = Items.DALMATIAN_PUPPY_12714,
@@ -245,7 +292,11 @@ enum class Pets(
     ),
 
     /**
-     * The greyhounds.
+     * Greyhound
+     *
+     * @constructor Greyhound
+     *//*
+     * Greyhounds.
      */
     GREYHOUND(
         babyItemId = Items.GREYHOUND_PUPPY_12514,
@@ -260,7 +311,9 @@ enum class Pets(
     ),
 
     /**
-     * The greyhound 1.
+     * Greyhound 1
+     *
+     * @constructor Greyhound 1
      */
     GREYHOUND_1(
         babyItemId = Items.GREYHOUND_PUPPY_12704,
@@ -275,7 +328,9 @@ enum class Pets(
     ),
 
     /**
-     * The greyhound 2.
+     * Greyhound 2
+     *
+     * @constructor Greyhound 2
      */
     GREYHOUND_2(
         babyItemId = Items.GREYHOUND_PUPPY_12706,
@@ -290,7 +345,11 @@ enum class Pets(
     ),
 
     /**
-     * The labrador.
+     * Labrador
+     *
+     * @constructor Labrador
+     *//*
+     * Labradors.
      */
     LABRADOR(
         babyItemId = Items.LABRADOR_PUPPY_12516,
@@ -305,7 +364,9 @@ enum class Pets(
     ),
 
     /**
-     * The labrador 1.
+     * Labrador 1
+     *
+     * @constructor Labrador 1
      */
     LABRADOR_1(
         babyItemId = Items.LABRADOR_PUPPY_12708,
@@ -320,7 +381,9 @@ enum class Pets(
     ),
 
     /**
-     * The labrador 2.
+     * Labrador 2
+     *
+     * @constructor Labrador 2
      */
     LABRADOR_2(
         babyItemId = Items.LABRADOR_PUPPY_12710,
@@ -335,7 +398,11 @@ enum class Pets(
     ),
 
     /**
-     * The sheepdog.
+     * Sheepdog
+     *
+     * @constructor Sheepdog
+     *//*
+     * Sheepdogs.
      */
     SHEEPDOG(
         babyItemId = Items.SHEEPDOG_PUPPY_12520,
@@ -350,7 +417,9 @@ enum class Pets(
     ),
 
     /**
-     * The sheepdog 1.
+     * Sheepdog 1
+     *
+     * @constructor Sheepdog 1
      */
     SHEEPDOG_1(
         babyItemId = Items.SHEEPDOG_PUPPY_12716,
@@ -365,7 +434,9 @@ enum class Pets(
     ),
 
     /**
-     * The sheepdog 2.
+     * Sheepdog 2
+     *
+     * @constructor Sheepdog 2
      */
     SHEEPDOG_2(
         babyItemId = Items.SHEEPDOG_PUPPY_12718,
@@ -380,7 +451,11 @@ enum class Pets(
     ),
 
     /**
-     * The terrier.
+     * Terrier
+     *
+     * @constructor Terrier
+     *//*
+     * Terriers.
      */
     TERRIER(
         babyItemId = Items.TERRIER_PUPPY_12512,
@@ -395,7 +470,9 @@ enum class Pets(
     ),
 
     /**
-     * The terrier 1.
+     * Terrier 1
+     *
+     * @constructor Terrier 1
      */
     TERRIER_1(
         babyItemId = Items.TERRIER_PUPPY_12700,
@@ -410,7 +487,9 @@ enum class Pets(
     ),
 
     /**
-     * The terrier 2.
+     * Terrier 2
+     *
+     * @constructor Terrier 2
      */
     TERRIER_2(
         babyItemId = Items.TERRIER_PUPPY_12702,
@@ -425,7 +504,11 @@ enum class Pets(
     ),
 
     /**
-     * The gecko.
+     * Gecko
+     *
+     * @constructor Gecko
+     *//*
+     * Gecko.
      */
     GECKO(
         babyItemId = Items.BABY_GECKO_12488,
@@ -440,7 +523,9 @@ enum class Pets(
     ),
 
     /**
-     * The gecko 1.
+     * Gecko 1
+     *
+     * @constructor Gecko 1
      */
     GECKO_1(
         babyItemId = Items.BABY_GECKO_12738,
@@ -455,7 +540,9 @@ enum class Pets(
     ),
 
     /**
-     * The gecko 2.
+     * Gecko 2
+     *
+     * @constructor Gecko 2
      */
     GECKO_2(
         babyItemId = Items.BABY_GECKO_12739,
@@ -470,7 +557,9 @@ enum class Pets(
     ),
 
     /**
-     * The gecko 3.
+     * Gecko 3
+     *
+     * @constructor Gecko 3
      */
     GECKO_3(
         babyItemId = Items.BABY_GECKO_12740,
@@ -485,7 +574,9 @@ enum class Pets(
     ),
 
     /**
-     * The gecko 4.
+     * Gecko 4
+     *
+     * @constructor Gecko 4
      */
     GECKO_4(
         babyItemId = Items.BABY_GECKO_12741,
@@ -500,7 +591,11 @@ enum class Pets(
     ),
 
     /**
-     * The platypus.
+     * Platypus
+     *
+     * @constructor Platypus
+     *//*
+     * Platypus.
      */
     PLATYPUS(
         babyItemId = Items.BABY_PLATYPUS_12551,
@@ -515,7 +610,9 @@ enum class Pets(
     ),
 
     /**
-     * The platypus 1.
+     * Platypus 1
+     *
+     * @constructor Platypus 1
      */
     PLATYPUS_1(
         babyItemId = Items.BABY_PLATYPUS_12552,
@@ -530,7 +627,9 @@ enum class Pets(
     ),
 
     /**
-     * The platypus 2.
+     * Platypus 2
+     *
+     * @constructor Platypus 2
      */
     PLATYPUS_2(
         babyItemId = Items.BABY_PLATYPUS_12553,
@@ -545,7 +644,11 @@ enum class Pets(
     ),
 
     /**
-     * The broav.
+     * Broav
+     *
+     * @constructor Broav
+     *//*
+     * Broav.
      */
     BROAV(
         babyItemId = Items.BROAV_14533,
@@ -560,7 +663,9 @@ enum class Pets(
     ),
 
     /**
-     * The penguin.
+     * Penguin
+     *
+     * @constructor Penguin
      */
     PENGUIN(
         babyItemId = Items.BABY_PENGUIN_12481,
@@ -575,7 +680,9 @@ enum class Pets(
     ),
 
     /**
-     * The penguin 1.
+     * Penguin 1
+     *
+     * @constructor Penguin 1
      */
     PENGUIN_1(
         babyItemId = Items.BABY_PENGUIN_12763,
@@ -590,7 +697,9 @@ enum class Pets(
     ),
 
     /**
-     * The penguin 2.
+     * Penguin 2
+     *
+     * @constructor Penguin 2
      */
     PENGUIN_2(
         babyItemId = Items.BABY_PENGUIN_12765,
@@ -605,7 +714,11 @@ enum class Pets(
     ),
 
     /**
-     * The giant crab.
+     * Giant Crab
+     *
+     * @constructor Giant Crab
+     *//*
+     * Giant crabs.
      */
     GIANT_CRAB(
         babyItemId = Items.BABY_GIANT_CRAB_12500,
@@ -620,7 +733,9 @@ enum class Pets(
     ),
 
     /**
-     * The giant crab 1.
+     * Giant Crab 1
+     *
+     * @constructor Giant Crab 1
      */
     GIANT_CRAB_1(
         babyItemId = Items.BABY_GIANT_CRAB_12746,
@@ -635,7 +750,9 @@ enum class Pets(
     ),
 
     /**
-     * The giant crab 2.
+     * Giant Crab 2
+     *
+     * @constructor Giant Crab 2
      */
     GIANT_CRAB_2(
         babyItemId = Items.BABY_GIANT_CRAB_12748,
@@ -650,7 +767,9 @@ enum class Pets(
     ),
 
     /**
-     * The giant crab 3.
+     * Giant Crab 3
+     *
+     * @constructor Giant Crab 3
      */
     GIANT_CRAB_3(
         babyItemId = Items.BABY_GIANT_CRAB_12750,
@@ -665,7 +784,9 @@ enum class Pets(
     ),
 
     /**
-     * The giant crab 4.
+     * Giant Crab 4
+     *
+     * @constructor Giant Crab 4
      */
     GIANT_CRAB_4(
         babyItemId = Items.BABY_GIANT_CRAB_12752,
@@ -680,7 +801,11 @@ enum class Pets(
     ),
 
     /**
-     * The raven.
+     * Raven
+     *
+     * @constructor Raven
+     *//*
+     * Ravens.
      */
     RAVEN(
         babyItemId = Items.RAVEN_CHICK_12484,
@@ -695,7 +820,9 @@ enum class Pets(
     ),
 
     /**
-     * The raven 1.
+     * Raven 1
+     *
+     * @constructor Raven 1
      */
     RAVEN_1(
         babyItemId = Items.RAVEN_CHICK_12724,
@@ -710,7 +837,9 @@ enum class Pets(
     ),
 
     /**
-     * The raven 2.
+     * Raven 2
+     *
+     * @constructor Raven 2
      */
     RAVEN_2(
         babyItemId = Items.RAVEN_CHICK_12726,
@@ -725,7 +854,9 @@ enum class Pets(
     ),
 
     /**
-     * The raven 3.
+     * Raven 3
+     *
+     * @constructor Raven 3
      */
     RAVEN_3(
         babyItemId = Items.RAVEN_CHICK_12728,
@@ -740,7 +871,9 @@ enum class Pets(
     ),
 
     /**
-     * The raven 4.
+     * Raven 4
+     *
+     * @constructor Raven 4
      */
     RAVEN_4(
         babyItemId = Items.RAVEN_CHICK_12730,
@@ -755,7 +888,9 @@ enum class Pets(
     ),
 
     /**
-     * The raven 5.
+     * Raven 5
+     *
+     * @constructor Raven 5
      */
     RAVEN_5(
         babyItemId = Items.RAVEN_CHICK_12732,
@@ -770,7 +905,11 @@ enum class Pets(
     ),
 
     /**
-     * The squirrel.
+     * Squirrel
+     *
+     * @constructor Squirrel
+     *//*
+     * Squirrels.
      */
     SQUIRREL(
         babyItemId = Items.BABY_SQUIRREL_12490,
@@ -785,7 +924,9 @@ enum class Pets(
     ),
 
     /**
-     * The squirrel 1.
+     * Squirrel 1
+     *
+     * @constructor Squirrel 1
      */
     SQUIRREL_1(
         babyItemId = Items.BABY_SQUIRREL_12754,
@@ -800,7 +941,9 @@ enum class Pets(
     ),
 
     /**
-     * The squirrel 2.
+     * Squirrel 2
+     *
+     * @constructor Squirrel 2
      */
     SQUIRREL_2(
         babyItemId = Items.BABY_SQUIRREL_12756,
@@ -815,7 +958,9 @@ enum class Pets(
     ),
 
     /**
-     * The squirrel 3.
+     * Squirrel 3
+     *
+     * @constructor Squirrel 3
      */
     SQUIRREL_3(
         babyItemId = Items.BABY_SQUIRREL_12758,
@@ -830,7 +975,9 @@ enum class Pets(
     ),
 
     /**
-     * The squirrel 4.
+     * Squirrel 4
+     *
+     * @constructor Squirrel 4
      */
     SQUIRREL_4(
         babyItemId = Items.BABY_SQUIRREL_12760,
@@ -845,7 +992,11 @@ enum class Pets(
     ),
 
     /**
-     * The saradomin owl.
+     * Saradomin Owl
+     *
+     * @constructor Saradomin Owl
+     *//*
+     * Saradomin owl.
      */
     SARADOMIN_OWL(
         babyItemId = Items.SARADOMIN_CHICK_12503,
@@ -860,7 +1011,11 @@ enum class Pets(
     ),
 
     /**
-     * The zamorak hawk.
+     * Zamorak Hawk
+     *
+     * @constructor Zamorak Hawk
+     *//*
+     * Zamorak hawk.
      */
     ZAMORAK_HAWK(
         babyItemId = Items.ZAMORAK_CHICK_12506,
@@ -875,7 +1030,11 @@ enum class Pets(
     ),
 
     /**
-     * The guthix raptor.
+     * Guthix Raptor
+     *
+     * @constructor Guthix Raptor
+     *//*
+     * Guthix raptor.
      */
     GUTHIX_RAPTOR(
         babyItemId = Items.GUTHIX_CHICK_12509,
@@ -890,7 +1049,11 @@ enum class Pets(
     ),
 
     /**
-     * The ex ex parrot.
+     * Ex Ex Parrot
+     *
+     * @constructor Ex Ex Parrot
+     *//*
+     * Ex ex parrot.
      */
     EX_EX_PARROT(
         babyItemId = Items.EX_EX_PARROT_13335,
@@ -905,7 +1068,11 @@ enum class Pets(
     ),
 
     /**
-     * The phoenix.
+     * Cute Phoenix Eggling
+     *
+     * @constructor Cute Phoenix Eggling
+     *//*
+     * Phoenix.
      */
     CUTE_PHOENIX_EGGLING(
         babyItemId = Items.PHOENIX_EGGLING_14627,
@@ -920,7 +1087,9 @@ enum class Pets(
     ),
 
     /**
-     * The phoenix.
+     * Mean Phoenix Eggling
+     *
+     * @constructor Mean Phoenix Eggling
      */
     MEAN_PHOENIX_EGGLING(
         babyItemId = Items.PHOENIX_EGGLING_14626,
@@ -935,7 +1104,11 @@ enum class Pets(
     ),
 
     /**
-     * The raccoon.
+     * Raccoon
+     *
+     * @constructor Raccoon
+     *//*
+     * Raccoons.
      */
     RACCOON(
         babyItemId = Items.BABY_RACCOON_12486,
@@ -950,7 +1123,9 @@ enum class Pets(
     ),
 
     /**
-     * The raccoon 1.
+     * Raccoon 1
+     *
+     * @constructor Raccoon 1
      */
     RACCOON_1(
         babyItemId = Items.BABY_RACCOON_12734,
@@ -965,7 +1140,9 @@ enum class Pets(
     ),
 
     /**
-     * The raccoon 2.
+     * Raccoon 2
+     *
+     * @constructor Raccoon 2
      */
     RACCOON_2(
         babyItemId = Items.BABY_RACCOON_12736,
@@ -980,7 +1157,11 @@ enum class Pets(
     ),
 
     /**
-     * The vultures.
+     * Vulture
+     *
+     * @constructor Vulture
+     *//*
+     * Vultures.
      */
     VULTURE(
         babyItemId = Items.VULTURE_CHICK_12498,
@@ -995,7 +1176,9 @@ enum class Pets(
     ),
 
     /**
-     * The vultures 1.
+     * Vulture 1
+     *
+     * @constructor Vulture 1
      */
     VULTURE_1(
         babyItemId = Items.VULTURE_CHICK_12766,
@@ -1010,7 +1193,9 @@ enum class Pets(
     ),
 
     /**
-     * The vultures 2.
+     * Vulture 2
+     *
+     * @constructor Vulture 2
      */
     VULTURE_2(
         babyItemId = Items.VULTURE_CHICK_12768,
@@ -1025,7 +1210,9 @@ enum class Pets(
     ),
 
     /**
-     * The vultures 3.
+     * Vulture 3
+     *
+     * @constructor Vulture 3
      */
     VULTURE_3(
         babyItemId = Items.VULTURE_CHICK_12770,
@@ -1040,7 +1227,9 @@ enum class Pets(
     ),
 
     /**
-     * The vultures 4.
+     * Vulture 4
+     *
+     * @constructor Vulture 4
      */
     VULTURE_4(
         babyItemId = Items.VULTURE_CHICK_12772,
@@ -1055,7 +1244,9 @@ enum class Pets(
     ),
 
     /**
-     * The vultures 5.
+     * Vulture 5
+     *
+     * @constructor Vulture 5
      */
     VULTURE_5(
         babyItemId = Items.VULTURE_CHICK_12774,
@@ -1070,7 +1261,11 @@ enum class Pets(
     ),
 
     /**
-     * The chameleon.
+     * Chameleon
+     *
+     * @constructor Chameleon
+     *//*
+     * Chameleon.
      */
     CHAMELEON(
         babyItemId = Items.BABY_CHAMELEON_12492,
@@ -1085,7 +1280,11 @@ enum class Pets(
     ),
 
     /**
-     * The monkey.
+     * Monkey
+     *
+     * @constructor Monkey
+     *//*
+     * Monkeys.
      */
     MONKEY(
         babyItemId = Items.BABY_MONKEY_12496,
@@ -1100,7 +1299,9 @@ enum class Pets(
     ),
 
     /**
-     * The monkey 1.
+     * Monkey 1
+     *
+     * @constructor Monkey 1
      */
     MONKEY_1(
         babyItemId = Items.BABY_MONKEY_12682,
@@ -1115,7 +1316,9 @@ enum class Pets(
     ),
 
     /**
-     * The monkey 2.
+     * Monkey 2
+     *
+     * @constructor Monkey 2
      */
     MONKEY_2(
         babyItemId = Items.BABY_MONKEY_12684,
@@ -1130,7 +1333,9 @@ enum class Pets(
     ),
 
     /**
-     * The monkey 3.
+     * Monkey 3
+     *
+     * @constructor Monkey 3
      */
     MONKEY_3(
         babyItemId = Items.BABY_MONKEY_12686,
@@ -1145,7 +1350,9 @@ enum class Pets(
     ),
 
     /**
-     * The monkey 4.
+     * Monkey 4
+     *
+     * @constructor Monkey 4
      */
     MONKEY_4(
         babyItemId = Items.BABY_MONKEY_12688,
@@ -1160,7 +1367,9 @@ enum class Pets(
     ),
 
     /**
-     * The monkey 5.
+     * Monkey 5
+     *
+     * @constructor Monkey 5
      */
     MONKEY_5(
         babyItemId = Items.BABY_MONKEY_12690,
@@ -1175,7 +1384,9 @@ enum class Pets(
     ),
 
     /**
-     * The monkey 6.
+     * Monkey 6
+     *
+     * @constructor Monkey 6
      */
     MONKEY_6(
         babyItemId = Items.BABY_MONKEY_12692,
@@ -1190,7 +1401,9 @@ enum class Pets(
     ),
 
     /**
-     * The monkey 7.
+     * Monkey 7
+     *
+     * @constructor Monkey 7
      */
     MONKEY_7(
         babyItemId = Items.BABY_MONKEY_12694,
@@ -1205,7 +1418,9 @@ enum class Pets(
     ),
 
     /**
-     * The monkey 8.
+     * Monkey 8
+     *
+     * @constructor Monkey 8
      */
     MONKEY_8(
         babyItemId = Items.BABY_MONKEY_12696,
@@ -1220,7 +1435,9 @@ enum class Pets(
     ),
 
     /**
-     * The monkey 9.
+     * Monkey 9
+     *
+     * @constructor Monkey 9
      */
     MONKEY_9(
         babyItemId = Items.BABY_MONKEY_12698,
@@ -1235,7 +1452,11 @@ enum class Pets(
     ),
 
     /**
-     * The baby dragon.
+     * Baby Dragon
+     *
+     * @constructor Baby Dragon
+     *//*
+     * Baby dragons.
      */
     BABY_DRAGON(
         babyItemId = Items.HATCHLING_DRAGON_12469,
@@ -1250,7 +1471,9 @@ enum class Pets(
     ),
 
     /**
-     * The baby dragon 1.
+     * Baby Dragon 1
+     *
+     * @constructor Baby Dragon 1
      */
     BABY_DRAGON_1(
         babyItemId = Items.HATCHLING_DRAGON_12471,
@@ -1265,7 +1488,9 @@ enum class Pets(
     ),
 
     /**
-     * The baby dragon 2.
+     * Baby Dragon 2
+     *
+     * @constructor Baby Dragon 2
      */
     BABY_DRAGON_2(
         babyItemId = Items.HATCHLING_DRAGON_12473,
@@ -1280,7 +1505,9 @@ enum class Pets(
     ),
 
     /**
-     * The baby dragon 3.
+     * Baby Dragon 3
+     *
+     * @constructor Baby Dragon 3
      */
     BABY_DRAGON_3(
         babyItemId = Items.HATCHLING_DRAGON_12475,
@@ -1295,10 +1522,10 @@ enum class Pets(
     );
 
     /**
-     * Retrieves the NPC ID associated with a given item ID.
+     * Get npc id
      *
-     * @param itemId The ID of the item for which the NPC ID is requested.
-     * @return The corresponding NPC ID, or -1 if no match is found.
+     * @param itemId
+     * @return
      */
     fun getNpcId(itemId: Int): Int {
         if (itemId == babyItemId) {
@@ -1315,10 +1542,10 @@ enum class Pets(
     }
 
     /**
-     * Retrieves the next stage item ID for a given item ID.
+     * Get next stage item id
      *
-     * @param itemId The ID of the current item.
-     * @return The ID of the next stage item, or -1 if no next stage exists.
+     * @param itemId
+     * @return
      */
     fun getNextStageItemId(itemId: Int): Int {
         if (itemId == babyItemId) {
