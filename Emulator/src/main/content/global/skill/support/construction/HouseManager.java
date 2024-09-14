@@ -293,8 +293,8 @@ public final class HouseManager {
             player.getProperties().setTeleportLocation(house.location.getExitLocation());
         }
         if (player.getFamiliarManager().hasPet()) {
-            player.getFamiliarManager().familiar.unlock();
-            player.getFamiliarManager().familiar.call();
+            player.getFamiliarManager().getFamiliar().unlock();
+            player.getFamiliarManager().getFamiliar().call();
         }
     }
 

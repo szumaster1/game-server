@@ -157,7 +157,7 @@ public final class ImpactHandler {
         }
         boolean fam = source instanceof Familiar;
         if (fam) {
-            source = ((Familiar) source).owner;
+            source = ((Familiar) source).getOwner();
         }
         if (disabledTicks > GameWorld.getTicks()) {
             return null;
@@ -189,7 +189,7 @@ public final class ImpactHandler {
         }
         if (style != null && style.getSwingHandler() != null && source instanceof Player) {
             Player player = source.asPlayer();
-            if (fam && player.getFamiliarManager().hasFamiliar() && !(player.getFamiliarManager().familiar instanceof Pet)) {
+            if (fam && player.getFamiliarManager().hasFamiliar() && !(player.getFamiliarManager().getFamiliar() instanceof Pet)) {
                 source.setAttribute("fam-exp", true);
             }
             source.removeAttribute("fam-exp");

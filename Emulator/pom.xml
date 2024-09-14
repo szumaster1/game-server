@@ -266,7 +266,7 @@
                 <artifactId>exec-maven-plugin</artifactId>
                 <version>1.2.1</version>
                 <configuration>
-                    <mainClass>core.Server</mainClass>
+                    <mainClass>core.Main</mainClass>
                 </configuration>
             </plugin>
             <plugin>

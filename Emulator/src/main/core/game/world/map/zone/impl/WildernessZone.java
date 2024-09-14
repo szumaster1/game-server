@@ -144,7 +144,7 @@ public final class WildernessZone extends MapZone {
                 }
             }
             if (p.getFamiliarManager().hasFamiliar() && !p.getFamiliarManager().hasPet()) {
-                Familiar familiar = p.getFamiliarManager().familiar;
+                Familiar familiar = p.getFamiliarManager().getFamiliar();
                 familiar.transform();
             }
             p.getAppearance().sync();
@@ -164,7 +164,7 @@ public final class WildernessZone extends MapZone {
             Player p = (Player) e;
             leave(p);
             if (p.getFamiliarManager().hasFamiliar() && !p.getFamiliarManager().hasPet()) {
-                Familiar familiar = p.getFamiliarManager().familiar;
+                Familiar familiar = p.getFamiliarManager().getFamiliar();
                 if (familiar.isCombatFamiliar()) {
                     familiar.reTransform();
                 }

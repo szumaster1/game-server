@@ -537,8 +537,8 @@ public final class Skills {
         if (entity instanceof Player) {
             Player player = (Player) entity;
             int summon = staticLevels[SUMMONING] / 8;
-            if (summon != player.getFamiliarManager().summoningCombatLevel) {
-                player.getFamiliarManager().summoningCombatLevel = summon;
+            if (summon != player.getFamiliarManager().getSummoningCombatLevel()) {
+                player.getFamiliarManager().setSummoningCombatLevel(summon);
                 update = true;
             }
         }
