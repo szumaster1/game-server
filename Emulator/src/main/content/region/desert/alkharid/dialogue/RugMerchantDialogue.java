@@ -26,7 +26,7 @@ import static core.tools.GlobalsKt.colorize;
 
 /**
  * The dialogue plugin used for the rug merchant.
- * @author 'Vexia
+ * @author Vexia
  */
 @Initializable
 public final class RugMerchantDialogue extends Dialogue {

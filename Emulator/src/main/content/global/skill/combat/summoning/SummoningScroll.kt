@@ -2,7 +2,7 @@ package content.global.skill.combat.summoning
 
 /**
  * Represents a summoning scroll.
- * @author 'Vexia
+ * @author Vexia
  */
 enum class SummoningScroll(
     /**
