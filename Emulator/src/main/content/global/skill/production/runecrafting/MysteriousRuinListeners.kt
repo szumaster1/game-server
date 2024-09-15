@@ -49,6 +49,9 @@ class MysteriousRuinListeners : InteractionListener {
         }
     }
 
+    /**
+     * Map all mysterious ruins.
+     */
     private fun allRuins(): IntArray {
         return MysteriousRuin
             .values()
@@ -56,6 +59,9 @@ class MysteriousRuinListeners : InteractionListener {
             .toIntArray()
     }
 
+    /**
+     * Handles teleport using talisman.
+     */
     private fun handleTalisman(player: Player, used: Node, with: Node): Boolean {
         val ruin = MysteriousRuin.forObject(with.asScenery())
         if (!checkQuestCompletion(player, ruin!!)) {
@@ -76,7 +82,9 @@ class MysteriousRuinListeners : InteractionListener {
         return true
     }
 
-
+    /**
+     * Handles teleport with staff.
+     */
     private fun handleStaff(player: Player, node: Node): Boolean {
         val ruin = MysteriousRuin.forObject(node.asScenery())
 
@@ -88,6 +96,9 @@ class MysteriousRuinListeners : InteractionListener {
         return true
     }
 
+    /**
+     * Handles teleport with tiara.
+     */
     private fun handleTiara(player: Player, node: Node): Boolean {
         val ruin = MysteriousRuin.forObject(node.asScenery())
 
@@ -105,6 +116,9 @@ class MysteriousRuinListeners : InteractionListener {
         return true
     }
 
+    /**
+     * Check if player has all requirements.
+     */
     private fun checkQuestCompletion(player: Player, ruin: MysteriousRuin): Boolean {
         return when (ruin) {
             MysteriousRuin.DEATH -> hasRequirement(player, QuestReq(QuestRequirements.MEP_2), true)
@@ -113,6 +127,9 @@ class MysteriousRuinListeners : InteractionListener {
         }
     }
 
+    /**
+     * Handles teleport to altar using talisman on object.
+     */
     private fun teleportToRuinTalisman(player: Player, talisman: Item, ruin: MysteriousRuin) {
         lock(player, 4)
         animate(player, animation)
@@ -120,6 +137,9 @@ class MysteriousRuinListeners : InteractionListener {
         submitTeleportPulse(player, ruin, 3)
     }
 
+    /**
+     * Handles standard teleport to altar using tiara or rc staff.
+     */
     private fun submitTeleportPulse(player: Player, ruin: MysteriousRuin, delay: Int) {
         sendMessage(player, "You feel a powerful force take hold of you.")
         submitWorldPulse(object : Pulse(delay, player) {

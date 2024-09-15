@@ -4,6 +4,8 @@ import core.api.*
 import cfg.consts.Items
 import cfg.consts.NPCs
 import cfg.consts.Sounds
+import core.api.utils.WeightBasedTable
+import core.api.utils.WeightedItem
 import core.game.interaction.QueueStrength
 import core.game.node.entity.player.Player
 import core.game.system.timer.impl.AntiMacro
@@ -36,7 +38,7 @@ object PrisonUtils {
     val PRISON_ZONE = ZoneBorders(2075, 4458, 2096, 4474)
 
     /**
-     * Cleanup.
+     * Clean all data and attributes related to this random.
      *
      * @param player The player to clean up.
      */
@@ -60,7 +62,7 @@ object PrisonUtils {
     }
 
     /**
-     * Bring key.
+     * Handles bringing key to pete.
      *
      * @param player The player to bring the key.
      */
@@ -86,7 +88,7 @@ object PrisonUtils {
     }
 
     /**
-     * Teleport.
+     * Teleport method.
      *
      * @param player The player to teleport.
      */
@@ -128,30 +130,12 @@ object PrisonUtils {
     }
 
     /**
-     * Reward.
+     * Gets the reward.
      *
      * @param player The player to reward.
+     * @return reward.
      */
     fun reward(player: Player) {
-        // Generate random quantities for the reward items
-        val chaosRunes = (19..23).random()
-        val mithrilArrowTips = (47..50).random()
-
-        // Get a random reward index from the saved attribute, or generate a random index if it doesn't exist
-        val randomReward = getAttribute(player, GET_REWARD, RandomFunction.random(0, 9))
-
-        // Give the player the corresponding reward based on the random reward index
-        when (randomReward) {
-            0 -> addItemOrDrop(player, Items.LAW_RUNE_563, 10)
-            1 -> addItemOrDrop(player, Items.SAPPHIRE_1608, 5)
-            2 -> addItemOrDrop(player, Items.RUBY_1604, 4)
-            3 -> addItemOrDrop(player, Items.DIAMOND_1602, 2)
-            4 -> addItemOrDrop(player, Items.GRIMY_SNAPDRAGON_3052, 4)
-            5 -> addItemOrDrop(player, Items.UNCUT_DIAMOND_1618, 3)
-            6 -> addItemOrDrop(player, Items.COINS_995, 527)
-            7 -> addItemOrDrop(player, Items.UGTHANKI_KEBAB_1884, 2)
-            8 -> addItemOrDrop(player, Items.MITHRIL_ARROWTIPS_42, mithrilArrowTips)
-            9 -> addItemOrDrop(player, Items.CHAOS_RUNE_562, chaosRunes)
-        }
+        AntiMacro.rollEventLoot(player).forEach { addItemOrDrop(player, it.id, it.amount) }
     }
 }

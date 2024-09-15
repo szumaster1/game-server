@@ -28,7 +28,7 @@ import core.tools.RandomFunction
 import kotlin.math.max
 
 /**
- * Represents the pulse of runecrafting.
+ * Represents the pulse of crafting runes.
  */
 class RunecraftingPulse(player: Player?, node: Item?, val altar: Altar, private val combination: Boolean, private val combo: CombinationRune?) : SkillPulse<Item?>(player, node) {
 
@@ -178,7 +178,7 @@ class RunecraftingPulse(player: Player?, node: Item?, val altar: Altar, private 
                     var rune: Rune? = null
                     while (rune == null) {
                         val temp = Rune.values()[RandomFunction.random(Rune.values().size)]
-                        if (player.getSkills().getLevel(Skills.RUNECRAFTING) >= temp.level) {
+                        if (getStatLevel(player, Skills.RUNECRAFTING) >= temp.level) {
                             rune = temp
                         } else {
                             if (RandomFunction.random(3) == 1) {
@@ -186,9 +186,9 @@ class RunecraftingPulse(player: Player?, node: Item?, val altar: Altar, private 
                             }
                         }
                     }
-                    player.getSkills().addExperience(Skills.RUNECRAFTING, rune.experience * 2, true)
+                    rewardXP(player, Skills.RUNECRAFTING, rune.experience * 2)
                     val runeItem = rune.rune
-                    player.inventory.add(runeItem)
+                    addItem(player, runeItem.id)
                 }
             }
         }
@@ -213,8 +213,8 @@ class RunecraftingPulse(player: Player?, node: Item?, val altar: Altar, private 
             if (player.inventory.remove(Item(PURE_ESSENCE.id, amount)) && player.inventory.remove(Item(rune.id, amount))) {
                 for (i in 0 until amount) {
                     if (RandomFunction.random(1, 3) == 1 || hasBindingNecklace()) {
-                        player.inventory.add(Item(combo!!.rune.id, 1))
-                        player.getSkills().addExperience(Skills.RUNECRAFTING, combo.experience, true)
+                        addItem(player, combo!!.rune.id, 1)
+                        rewardXP(player, Skills.RUNECRAFTING, combo.experience)
                     }
                 }
                 if (hasBindingNecklace()) {
@@ -239,15 +239,15 @@ class RunecraftingPulse(player: Player?, node: Item?, val altar: Altar, private 
      */
     private val essenceAmount: Int
         get() {
-            if (altar.isOurania && player.inventory.containsItem(PURE_ESSENCE)) {
-                return player.inventory.getAmount(PURE_ESSENCE)
+            if (altar.isOurania && inInventory(player, Items.PURE_ESSENCE_7936)) {
+                return amountInInventory(player, Items.PURE_ESSENCE_7936)
             }
-            return if (!rune.isNormal && player.inventory.containsItem(PURE_ESSENCE)) {
-                player.inventory.getAmount(PURE_ESSENCE)
-            } else if (rune.isNormal && player.inventory.containsItem(PURE_ESSENCE)) {
-                player.inventory.getAmount(PURE_ESSENCE)
+            return if (!rune.isNormal && inInventory(player, Items.PURE_ESSENCE_7936)) {
+                amountInInventory(player, Items.PURE_ESSENCE_7936)
+            } else if (rune.isNormal && inInventory(player, Items.PURE_ESSENCE_7936)) {
+                amountInInventory(player, Items.PURE_ESSENCE_7936)
             } else {
-                player.inventory.getAmount(RUNE_ESSENCE)
+                amountInInventory(player, Items.RUNE_ESSENCE_1436)
             }
         }
 
@@ -256,12 +256,12 @@ class RunecraftingPulse(player: Player?, node: Item?, val altar: Altar, private 
      */
     private val essence: Item
         get() {
-            if (altar.isOurania && player.inventory.containsItem(PURE_ESSENCE)) {
+            if (altar.isOurania && inInventory(player, Items.PURE_ESSENCE_7936)) {
                 return PURE_ESSENCE
             }
-            return if (!rune.isNormal && player.inventory.containsItem(PURE_ESSENCE)) {
+            return if (!rune.isNormal && inInventory(player, Items.PURE_ESSENCE_7936)) {
                 PURE_ESSENCE
-            } else if (rune.isNormal && player.inventory.containsItem(PURE_ESSENCE)) {
+            } else if (rune.isNormal && inInventory(player, Items.PURE_ESSENCE_7936)) {
                 PURE_ESSENCE
             } else {
                 RUNE_ESSENCE

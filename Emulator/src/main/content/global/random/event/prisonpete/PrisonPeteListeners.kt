@@ -15,6 +15,17 @@ import core.game.world.update.flag.context.Graphic
  */
 class PrisonPeteListeners : InteractionListener, MapArea {
 
+    init {
+        removeScenery(getScenery(Location(2085, 4457, 0))!!.asScenery())
+        removeScenery(getScenery(Location(2083, 4460, 0))!!.asScenery())
+        addScenery(4408, Location(2085, 4457, 0), 0, 22)
+        addScenery(26191, Location(2083, 4460, 0), 0, 10)
+        addScenery(26184, Location(2084, 4459, 0), 1, 0)
+        addScenery(26186, Location(2085, 4459, 0), 1, 0)
+        addScenery(26188, Location(2086, 4459, 0), 1, 0)
+        addScenery(26184, Location(2087, 4459, 0), 1, 0)
+    }
+
     override fun defineListeners() {
         on(NPCs.PRISON_PETE_3118, IntType.NPC, "talk-to") { player, _ ->
             face(player, findNPC(NPCs.PRISON_PETE_3118)!!.location)
@@ -51,7 +62,11 @@ class PrisonPeteListeners : InteractionListener, MapArea {
                 when (stage) {
                     0 -> {
                         lock(player, 3)
-                        visualize(player, Animations.STOMP_ON_BALLOON_794, Graphic(Graphics.WHITE_SPIKE_BALL_POPS_524, 0, 10))
+                        visualize(
+                            player,
+                            Animations.STOMP_ON_BALLOON_794,
+                            Graphic(Graphics.WHITE_SPIKE_BALL_POPS_524, 0, 10)
+                        )
                         playAudio(player, Sounds.POP3_3252, 5)
                         return@queueScript delayScript(player, 4)
                     }

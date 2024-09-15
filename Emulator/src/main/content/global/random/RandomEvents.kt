@@ -24,6 +24,7 @@ import content.global.random.event.swarm.SwarmNPC
 import content.global.random.event.treespirit.TreeSpiritNPC
 import content.global.random.event.zombie.ZombieNPC
 import cfg.consts.Items
+import content.global.random.event.prisonpete.PrisonPeteNPC
 import core.api.utils.WeightBasedTable
 import core.api.utils.WeightedItem
 import core.game.node.entity.skill.Skills
@@ -92,6 +93,11 @@ enum class RandomEvents(
      * Surprise Exam.
      */
     SURPRISE_EXAM(npc = SurpriseExamNPC(), type = "sexam"),
+
+    /**
+     * Prison pete.
+     */
+    // PRISON_PETE(npc = PrisonPeteNPC(), skillIds = intArrayOf(Skills.SUMMONING, Skills.DEFENCE, Skills.FISHING), loot = WeightBasedTable.create(WeightedItem(Items.LAW_RUNE_563, 10, 10, 1.1), WeightedItem(Items.SAPPHIRE_1608, 5, 5, 1.1), WeightedItem(Items.RUBY_1604, 4, 4, 1.1), WeightedItem(Items.DIAMOND_1602, 2, 2, 1.1), WeightedItem(Items.GRIMY_SNAPDRAGON_3052, 1, 4, 0.86), WeightedItem(Items.COINS_995, 527, 527, 0.65), WeightedItem(Items.UGTHANKI_KEBAB_1884, 1, 2, 0.43), WeightedItem(Items.UNCUT_DIAMOND_1618, 1, 3, 0.22), WeightedItem(Items.MITHRIL_ARROWTIPS_42, 1, 1, 0.1), WeightedItem(Items.CHAOS_RUNE_562, 19, 23, 0.1))),
 
     /**
      * Swarm.
