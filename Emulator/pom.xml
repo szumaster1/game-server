@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <modelVersion>4.0.0</modelVersion>
     <groupId>project</groupId>
     <artifactId>emulator</artifactId>
@@ -65,10 +67,10 @@
         </dependency>
         <!-- https://gitlab.com/rs-source/library -->
         <dependency>
-      		<groupId>cfg.consts</groupId>
-      		<artifactId>constants</artifactId>
-      		<version>[0.0.0,)</version>
-      		<scope>compile</scope>
+            <groupId>cfg.consts</groupId>
+            <artifactId>constants</artifactId>
+            <version>[0.0.0,)</version>
+            <scope>compile</scope>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-api -->
         <dependency>
@@ -315,6 +317,7 @@
             </plugin>
         </plugins>
     </build>
+
     <repositories>
         <repository>
             <id>maven_central</id>
@@ -326,6 +329,7 @@
             <url>https://gitlab.com/api/v4/projects/61046826/packages/maven</url>
         </repository>
     </repositories>
+
     <distributionManagement>
         <repository>
             <id>gitlab-maven</id>
