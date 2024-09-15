@@ -32,8 +32,7 @@ import kotlin.random.Random
 import cfg.consts.Scenery as Object
 
 /**
- * A listener used to handle the abyss.
- * @author lila, cfunny
+ * Handles the Abyss interaction.
  */
 class Abyss : InteractionListener {
 

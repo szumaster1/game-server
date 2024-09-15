@@ -1,4 +1,4 @@
-package content.region.asgarnia.burthope.guild.warriors;
+package content.global.guild.warriors;
 
 import core.api.clearLogoutListener;
 import core.api.registerLogoutListener;

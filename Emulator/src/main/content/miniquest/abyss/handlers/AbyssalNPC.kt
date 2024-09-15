@@ -10,7 +10,7 @@ import core.game.world.map.Location
 import core.tools.RandomFunction
 
 /**
- * Abyssal NPC.
+ * Represents the Abyssal NPC.
  */
 class AbyssalNPC : AbstractNPC {
 

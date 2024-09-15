@@ -11,7 +11,7 @@ import core.game.node.entity.skill.Skills
 import core.game.world.map.Location
 
 /**
- * Represents the Burthope listeners.
+ * Represents the Burthope interaction listener.
  */
 class BurthopeListeners : InteractionListener {
 
