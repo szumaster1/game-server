@@ -53,7 +53,7 @@ class Biohazard : Quest("Biohazard", 36, 35, 3, Vars.VARP_QUEST_BIOHAZARD_PROGRE
                 line(player, "of Elena's father, about finding another way into the city.", line++, true)
             }
 
-            if (stage == 2) {
+            if (stage < 2) {
                 line(player, "!!Jerico?? told me that !!Omart??, a friend of his, should be able", line++)
                 line(player, "to help me get into !!West Ardougne??. He is waiting for me at", line++)
                 line(player, "the southern end of the wall.", line++)
@@ -67,36 +67,31 @@ class Biohazard : Quest("Biohazard", 36, 35, 3, Vars.VARP_QUEST_BIOHAZARD_PROGRE
                 line(player, "need to release some !!Pigeons?? nearby and they should", line++)
                 line(player, "distract the guards. !!Jerico?? should be able to supply the", line++)
                 line(player, "!!Pigeons??.", line++)
-            } else if (stage >= 3) {
+            } else if (stage == 3) {
                 line(player, "!!Omart??, a friend of !!Jerico??, has agreed to help me cross the", line++)
                 line(player, "wall into !!West Ardougne??. He is waiting for me at the", line++)
                 line(player, "southern end of the wall.", line++)
-            }
-
-            if (stage >= 4) {
+            } else if (stage > 3) {
                 line(player, "Omart and Kilron, friends of Jerico, helped me cross the", line++, true)
                 line(player, "wall into West Ardougne.", line++, true)
             }
 
-            if (stage > 5) {
+            if (stage == 4) {
                 line(player, "!!Elena's Distillator?? should be somewhere in the !!Mourner??", line++)
                 line(player, "!!Headquarters?? in the north east of !!West Ardougne??. I need", line++)
                 line(player, "to get in and recover it.", line++)
-            }
-
-            if (stage >= 7) {
+            } else if (stage == 7) {
                 line(player, "!!Elena's Distillator?? should be somewhere in the !!Mourner??", line++)
                 line(player, "!!Headquarters?? in the north east of !!West Ardougne??. I need", line++)
                 line(player, "to get in and recover it. I used a !!Rotten Apple?? to poison", line++)
                 line(player, "the !!Mourner's Stew?? which might help me.", line++)
             }
 
-            if (stage >= 8) {
+            if (stage == 8) {
                 line(player, "I managed to get into the !!Mourner Headquarters?? in !!West??", line++)
                 line(player, "!!Ardougne??. I should see if I can find !!Elena's Distillator??", line++)
                 line(player, "inside.", line++)
-            }
-            if (stage == 10) {
+            } else if (stage == 10) {
                 line(player, "I managed to get into the !!Mourner Headquarters?? in !!West??", line++)
                 line(player, "!!Ardougne??. I found !!Elena's Distillator?? inside. I should return", line++)
                 line(player, "it to her.", line++)
@@ -114,7 +109,7 @@ class Biohazard : Quest("Biohazard", 36, 35, 3, Vars.VARP_QUEST_BIOHAZARD_PROGRE
                 line(player, "items to !!Guidor?? in !!Varrock??. She warned me that carrying", line++)
                 line(player, "some of the items into !!Varrock?? might be problematic and", line++)
                 line(player, "suggested I ask the !!Chemist?? for help with this.", line++)
-            } else if (stage >= 10) {
+            } else if (stage > 10) {
                 line(player, "Elena ran some tests on a Plague Sample using her", line++, true)
                 line(player, "Distillator. However, she wasn't able to discover anything.", line++, true)
             }

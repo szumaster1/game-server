@@ -80,24 +80,24 @@ public final class LoginConfiguration {
             }
         }
         Repository.getLobbyPlayers().add(player);
-        setInterfaceText(player, "Welcome to RuneScape", 378, 115);
+        setInterfaceText(player, "Welcome to " + GameWorld.getSettings().getName(), 378, 115);
         setInterfaceText(player, getLastLogin(player), 378, 116);
         setInterfaceText(player, "", 378, 37);
-        setInterfaceText(player, "Jagex staff will NEVER email you. We use the Message Centre on this website instead.", 378, 38);
+        setInterfaceText(player, "Currently not available.", 378, 38);
         setInterfaceText(player, " ", 378, 39);
-        setInterfaceText(player, "Message Centre", 378, 14);
-        setInterfaceText(player, "Message Centre", 378, 129);
-        setInterfaceText(player, "You have not yet set any recovery questions.", 378, 56);
-        setInterfaceText(player, "You do not have a bank pin. Please visit a bank if you would like one.", 378, 62);
+        setInterfaceText(player, "Discord", 378, 14);
+        setInterfaceText(player, "Discord", 378, 129);
+        setInterfaceText(player, "The latest release of the game is available on github.", 378, 56);
+        setInterfaceText(player, "The latest release of the game is available on github.", 378, 62);
 
-        setInterfaceText(player, "You have 0 days of member credit remaining. Please click here to extend your credit.", 378, 93);
-        setInterfaceText(player, "0 days of member credit", 378, 94);
-        setInterfaceText(player, "0", 378, 96);
+        setInterfaceText(player, "You have " + player.getDetails().getCredits() + " credit points. Earning credits is currently not available.", 378, 93);
+        setInterfaceText(player, "credit points", 378, 94);
+        setInterfaceText(player, player.getDetails().getCredits() + "", 378, 96);
 
         setInterfaceText(player, "", 378, 229);
-        setInterfaceText(player, "You do not have a bank pin. Please visit a bank if you would like one.", 378, 230);
+        setInterfaceText(player, "The latest release of the game is available on github.", 378, 230);
         setInterfaceText(player, "", 378, 231);
-        setInterfaceText(player, "Message Centre", 378, 240);
+        setInterfaceText(player, "Github", 378, 240);
         setInterfaceText(player, GameWorld.getSettings().getMessage_string(), messModel, getMessageChild(messModel));
         player.getInterfaceManager().openWindowsPane(LOBBY_PANE);
         player.getInterfaceManager().setOpened(LOBBY_INTERFACE);
