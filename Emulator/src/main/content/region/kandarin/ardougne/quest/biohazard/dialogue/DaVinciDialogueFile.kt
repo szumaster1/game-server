@@ -3,7 +3,7 @@ package content.region.kandarin.ardougne.quest.biohazard.dialogue
 import core.api.*
 import cfg.consts.Items
 import cfg.consts.NPCs
-import content.region.kandarin.ardougne.quest.biohazard.util.BiohazardUtils
+import content.region.kandarin.ardougne.quest.biohazard.handlers.BiohazardUtils
 import core.game.dialogue.DialogueFile
 import core.game.node.entity.npc.NPC
 

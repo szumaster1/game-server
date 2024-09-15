@@ -1,8 +1,7 @@
-package content.region.kandarin.ardougne.quest.biohazard
+package content.region.kandarin.ardougne.quest.biohazard.handlers
 
 import cfg.consts.*
 import content.region.kandarin.ardougne.quest.biohazard.dialogue.*
-import content.region.kandarin.ardougne.quest.biohazard.util.BiohazardUtils
 import core.api.*
 import core.game.dialogue.DialogueFile
 import core.game.global.action.DoorActionHandler

@@ -1,4 +1,4 @@
-package content.region.kandarin.ardougne.quest.biohazard.util
+package content.region.kandarin.ardougne.quest.biohazard.handlers
 
 import core.game.world.map.Location
 

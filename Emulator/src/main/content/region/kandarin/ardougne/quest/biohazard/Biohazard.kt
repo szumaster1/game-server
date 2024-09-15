@@ -3,7 +3,7 @@ package content.region.kandarin.ardougne.quest.biohazard
 import cfg.consts.Components
 import cfg.consts.Items
 import cfg.consts.Vars
-import content.region.kandarin.ardougne.quest.biohazard.util.BiohazardUtils
+import content.region.kandarin.ardougne.quest.biohazard.handlers.BiohazardUtils
 import core.api.isQuestComplete
 import core.api.removeAttributes
 import core.api.rewardXP

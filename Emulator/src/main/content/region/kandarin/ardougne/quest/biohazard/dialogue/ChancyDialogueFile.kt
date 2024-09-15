@@ -6,7 +6,7 @@ import cfg.consts.NPCs
 import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC
-import content.region.kandarin.ardougne.quest.biohazard.util.BiohazardUtils
+import content.region.kandarin.ardougne.quest.biohazard.handlers.BiohazardUtils
 
 /**
  * Represents the Chancy dialogue file.
