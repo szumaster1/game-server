@@ -46,8 +46,9 @@ object EssenceTeleport {
 
     /**
      * Method used to teleport a player.
-     * @param npc the npc.
-     * @param player the player.
+     *
+     * @param npc       the npc.
+     * @param player    the player.
      */
     @JvmStatic
     fun teleport(npc: NPC, player: Player) {
@@ -79,7 +80,10 @@ object EssenceTeleport {
                                     player.savedData.globalData.setAbyssCharge(wizard.ordinal)
                                     item.charge += 1
                                     if (item.charge == 1003) {
-                                        sendMessage(player, "Your scrying orb has absorbed enough teleport information.")
+                                        sendMessage(
+                                            player,
+                                            "Your scrying orb has absorbed enough teleport information."
+                                        )
                                         removeItem(player, 5519)
                                         addItemOrDrop(player, 5518)
                                     }
@@ -90,7 +94,14 @@ object EssenceTeleport {
                         player.graphics(TELEPORT_GFX)
                         val loc = LOCATIONS[RandomFunction.random(0, LOCATIONS.size)]
                         teleport(player, loc)
-                        player.dispatch(TeleportEvent(TeleportManager.TeleportType.TELE_OTHER, TeleportMethod.NPC, npc, loc))
+                        player.dispatch(
+                            TeleportEvent(
+                                TeleportManager.TeleportType.TELE_OTHER,
+                                TeleportMethod.NPC,
+                                npc,
+                                loc
+                            )
+                        )
                     }
 
                     2 -> {
@@ -105,7 +116,9 @@ object EssenceTeleport {
 
     /**
      * Method used to teleport back to the home.
+     *
      * @param player the prayer.
+     * @param node the node.
      */
     @JvmStatic
     fun home(player: Player, node: Node) {
@@ -156,6 +169,7 @@ object EssenceTeleport {
         companion object {
             /**
              * Method used to get a wizard by the npc.
+             *
              * @param npc the npc.
              * @return the wizard.
              */
@@ -166,7 +180,7 @@ object EssenceTeleport {
                     }
                     if (wizard.npc == npc) {
                         return wizard
-                  }
+                    }
                 }
                 return AUBURY
             }

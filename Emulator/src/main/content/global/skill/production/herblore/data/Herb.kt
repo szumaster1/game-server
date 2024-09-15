@@ -4,22 +4,17 @@ import cfg.consts.Items
 import core.game.node.item.Item
 
 /**
- * Herb
+ * Represents the herb data.
  *
- * @param herb Represents the item associated with the herb.
- * @param experience The experience points gained from using the herb.
- * @param level The required level to use or obtain the herb.
- * @param product The product that can be created from the herb.
- * @constructor Herb Represents a new instance of the Herb enum class.
+ * @param herb          The item that represents the herb.
+ * @param experience    The experience points awarded for using the herb.
+ * @param level         The level required to utilize the herb.
+ * @param product       The resulting product derived from the herb.
+ * @return the [Herb].
  */
-enum class Herb(
-    val herb: Item,          // The item that represents the herb.
-    val experience: Double,  // The experience points awarded for using the herb.
-    val level: Int,          // The level required to utilize the herb.
-    val product: Item        // The resulting product derived from the herb.
-) {
+enum class Herb(val herb: Item, val experience: Double, val level: Int, val product: Item) {
     /**
-     * Guam.
+     * The guam.
      */
     GUAM(
         herb = Item(Items.GRIMY_GUAM_199),
@@ -29,7 +24,7 @@ enum class Herb(
     ),
 
     /**
-     * Marrentill.
+     * The marrentill.
      */
     MARRENTILL(
         herb = Item(Items.GRIMY_MARRENTILL_201),
@@ -39,7 +34,7 @@ enum class Herb(
     ),
 
     /**
-     * Tarromin.
+     * The tarromin.
      */
     TARROMIN(
         herb = Item(Items.GRIMY_TARROMIN_203),
@@ -49,7 +44,7 @@ enum class Herb(
     ),
 
     /**
-     * Harralander.
+     * The harralander.
      */
     HARRALANDER(
         herb = Item(Items.GRIMY_HARRALANDER_205),
@@ -59,7 +54,7 @@ enum class Herb(
     ),
 
     /**
-     * Ranarr.
+     * The ranarr.
      */
     RANARR(
         herb = Item(Items.GRIMY_RANARR_207),
@@ -69,7 +64,7 @@ enum class Herb(
     ),
 
     /**
-     * Toadflax.
+     * The toadflax.
      */
     TOADFLAX(
         herb = Item(Items.GRIMY_TOADFLAX_3049),
@@ -79,7 +74,7 @@ enum class Herb(
     ),
 
     /**
-     * Spirit Weed.
+     * The spirit weed.
      */
     SPIRIT_WEED(
         herb = Item(Items.GRIMY_SPIRIT_WEED_12174),
@@ -89,7 +84,7 @@ enum class Herb(
     ),
 
     /**
-     * Irit.
+     * The irit.
      */
     IRIT(
         herb = Item(Items.GRIMY_IRIT_209),
@@ -99,7 +94,7 @@ enum class Herb(
     ),
 
     /**
-     * Avantoe.
+     * The avantoe.
      */
     AVANTOE(
         herb = Item(Items.GRIMY_AVANTOE_211),
@@ -109,7 +104,7 @@ enum class Herb(
     ),
 
     /**
-     * Kwuarm.
+     * The kwuarm.
      */
     KWUARM(
         herb = Item(Items.GRIMY_KWUARM_213),
@@ -119,7 +114,7 @@ enum class Herb(
     ),
 
     /**
-     * Snapdragon.
+     * The snapdragon.
      */
     SNAPDRAGON(
         herb = Item(Items.GRIMY_SNAPDRAGON_3051),
@@ -129,7 +124,7 @@ enum class Herb(
     ),
 
     /**
-     * Cadantine.
+     * The cadantine.
      */
     CADANTINE(
         herb = Item(Items.GRIMY_CADANTINE_215),
@@ -139,7 +134,7 @@ enum class Herb(
     ),
 
     /**
-     * Lantadyme.
+     * The lantadyme.
      */
     LANTADYME(
         herb = Item(Items.GRIMY_LANTADYME_2485),
@@ -149,7 +144,7 @@ enum class Herb(
     ),
 
     /**
-     * Dwarf Weed.
+     * The dwarf weed.
      */
     DWARF_WEED(
         herb = Item(Items.GRIMY_DWARF_WEED_217),
@@ -159,7 +154,7 @@ enum class Herb(
     ),
 
     /**
-     * Torstol.
+     * The torstol.
      */
     TORSTOL(
         herb = Item(Items.GRIMY_TORSTOL_219),
@@ -169,7 +164,7 @@ enum class Herb(
     ),
 
     /**
-     * Snake Weed.
+     * The snake weed.
      */
     SNAKE_WEED(
         herb = Item(Items.GRIMY_SNAKE_WEED_1525),
@@ -179,7 +174,7 @@ enum class Herb(
     ),
 
     /**
-     * Ardrigal.
+     * The ardrigal.
      */
     ARDRIGAL(
         herb = Item(Items.GRIMY_ARDRIGAL_1527),
@@ -189,7 +184,7 @@ enum class Herb(
     ),
 
     /**
-     * Sito Foil.
+     * The sito foil.
      */
     SITO_FOIL(
         herb = Item(Items.GRIMY_SITO_FOIL_1529),
@@ -199,7 +194,7 @@ enum class Herb(
     ),
 
     /**
-     * Volencia Moss.
+     * The volencia moss.
      */
     VOLENCIA_MOSS(
         herb = Item(Items.GRIMY_VOLENCIA_MOSS_1531),
@@ -209,7 +204,7 @@ enum class Herb(
     ),
 
     /**
-     * Rogues Puse.
+     * The rogues puse.
      */
     ROGUES_PUSE(
         herb = Item(Items.GRIMY_ROGUES_PURSE_1533),
@@ -219,6 +214,13 @@ enum class Herb(
     );
 
     companion object {
+        /**
+         * Gets the herb from the item id.
+         *
+         * @param item  the item.
+         * @return the herb.
+         */
+        @JvmStatic
         fun forItem(item: Item): Herb? {
             for (herb in values()) {
                 if (herb.herb.id == item.id) {

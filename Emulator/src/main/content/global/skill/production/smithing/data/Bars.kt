@@ -835,6 +835,12 @@ enum class Bars(
             }
         }
 
+        /**
+         * Gets the bars.
+         *
+         * @param type The type of bar.
+         * @return An array of Bars objects of the specified type.
+         */
         fun getBars(type: BarType): Array<Bars?> {
             val bars: MutableList<Bars> = ArrayList()
             for (bar in values()) {
@@ -849,6 +855,9 @@ enum class Bars(
             return barss
         }
 
+        /**
+         * Get the item ID based on button ID and bar type.
+         */
         fun getItemId(buttonId: Int, type: BarType): Int {
             for (bar in values()) {
                 if (bar.barType != type) {
@@ -863,6 +872,9 @@ enum class Bars(
             return -1
         }
 
+        /**
+         * Get the index of a bar based on player, button ID, and bar type.
+         */
         fun getIndex(player: Player?, buttonId: Int, type: BarType): Int {
             var index = 0
             for (bar in values()) {

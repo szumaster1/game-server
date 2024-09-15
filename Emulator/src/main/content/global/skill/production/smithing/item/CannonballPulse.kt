@@ -13,9 +13,9 @@ import core.game.node.item.Item
 /**
  * Represents the smelting interaction for creating cannonballs.
  *
- * @param item the required item.
- * @param amount the amount.
- * @param player the player.
+ * @param item      the required item.
+ * @param amount    the amount.
+ * @param player    the player.
  */
 class CannonballPulse(player: Player?, val item: Item?, private var amount: Int) :
     SkillPulse<Item?>(player, null) {

@@ -10,14 +10,7 @@ import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 
 /**
- * Herblore pulse
- *
- * @param amount The number of potions to be crafted.
- * @param potion The specific potion being crafted.
- * @constructor Represents a HerblorePulse instance.
- *
- * @param player The player who is performing the herblore action.
- * @param node The item node associated with the herblore action.
+ * Represents the pulse used to create herb tars.
  */
 class HerbTarPulse(player: Player?, node: Item?, val tar: Tar, private var amount: Int) :
     SkillPulse<Item?>(player, node) {

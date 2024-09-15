@@ -4,16 +4,16 @@ import cfg.consts.Items
 import core.game.node.item.Item
 
 /**
- * Represents a grinding item.
+ * Represents an item that will can be ground by pestle and mortar.
  *
- * @param items An array of items that can be ground.
- * @param product The resulting product after grinding the items.
- * @param message A message associated with the grinding process.
- * @constructor Represents a [GrindingItem] with specified items, product, and message.
+ * @param items     the items that can be ground.
+ * @param product   the product after grinding the items.
+ * @param message   the message associated with the grinding process.
+ * @return the [GrindingItem].
  */
 enum class GrindingItem(val items: Array<Item>, val product: Item, val message: String) {
     /**
-     * Unicorn Horn.
+     * The unicorn horn.
      */
     UNICORN_HORN(
         items = arrayOf(Item(Items.UNICORN_HORN_237)),
@@ -22,7 +22,7 @@ enum class GrindingItem(val items: Array<Item>, val product: Item, val message: 
     ),
 
     /**
-     * Kebbit Teeth.
+     * The kebbit teeth.
      */
     KEBBIT_TEETH(
         items = arrayOf(Item(Items.KEBBIT_TEETH_10109)),
@@ -31,7 +31,7 @@ enum class GrindingItem(val items: Array<Item>, val product: Item, val message: 
     ),
 
     /**
-     * Birds Nest.
+     * The birds nest.
      */
     BIRDS_NEST(
         items = arrayOf(Item(Items.BIRDS_NEST_5070), Item(Items.BIRDS_NEST_5071), Item(Items.BIRDS_NEST_5072), Item(Items.BIRDS_NEST_5073), Item(Items.BIRDS_NEST_5074), Item(Items.BIRDS_NEST_5075)),
@@ -40,7 +40,7 @@ enum class GrindingItem(val items: Array<Item>, val product: Item, val message: 
     ),
 
     /**
-     * Goat Horn.
+     * The goat horn.
      */
     GOAT_HORN(
         items = arrayOf(Item(Items.DESERT_GOAT_HORN_9735)),
@@ -49,7 +49,7 @@ enum class GrindingItem(val items: Array<Item>, val product: Item, val message: 
     ),
 
     /**
-     * Mud Rune.
+     * The mud rune.
      */
     MUD_RUNE(
         items = arrayOf(Item(Items.MUD_RUNE_4698)),
@@ -58,7 +58,7 @@ enum class GrindingItem(val items: Array<Item>, val product: Item, val message: 
     ),
 
     /**
-     * Ashes.
+     * The ashes.
      */
     ASHES(
         items = arrayOf(Item(Items.ASHES_592)),
@@ -67,7 +67,7 @@ enum class GrindingItem(val items: Array<Item>, val product: Item, val message: 
     ),
 
     /**
-     * Raw Karambwan.
+     * The raw karambwan.
      */
     RAW_KARAMBWAN(
         items = arrayOf(Item(Items.RAW_KARAMBWAN_3142)),
@@ -76,7 +76,7 @@ enum class GrindingItem(val items: Array<Item>, val product: Item, val message: 
     ),
 
     /**
-     * Poison Karambwan.
+     * The poison karambwan.
      */
     POISON_KARAMBWAN(
         items = arrayOf(Item(Items.POISON_KARAMBWAN_3146)),
@@ -85,7 +85,7 @@ enum class GrindingItem(val items: Array<Item>, val product: Item, val message: 
     ),
 
     /**
-     * Fishing Bait.
+     * The fishing bait.
      */
     FISHING_BAIT(
         items = arrayOf(Item(Items.FISHING_BAIT_313)),
@@ -94,7 +94,7 @@ enum class GrindingItem(val items: Array<Item>, val product: Item, val message: 
     ),
 
     /**
-     * Seaweed.
+     * The seaweed.
      */
     SEAWEED(
         items = arrayOf(Item(Items.SEAWEED_401)),
@@ -103,7 +103,7 @@ enum class GrindingItem(val items: Array<Item>, val product: Item, val message: 
     ),
 
     /**
-     * Bat Bones.
+     * The bat bones.
      */
     BAT_BONES(
         items = arrayOf(Item(Items.BAT_BONES_530)),
@@ -112,7 +112,7 @@ enum class GrindingItem(val items: Array<Item>, val product: Item, val message: 
     ),
 
     /**
-     * Charcoal.
+     * The charcoal.
      */
     CHARCOAL(
         items = arrayOf(Item(Items.CHARCOAL_973)),
@@ -121,7 +121,7 @@ enum class GrindingItem(val items: Array<Item>, val product: Item, val message: 
     ),
 
     /**
-     * Astral Rune Shards.
+     * The astral rune shards.
      */
     ASTRAL_RUNE_SHARDS(
         items = arrayOf(Item(Items.ASTRAL_RUNE_SHARDS_11156)),
@@ -130,7 +130,7 @@ enum class GrindingItem(val items: Array<Item>, val product: Item, val message: 
     ),
 
     /**
-     * Garlic.
+     * The garlic.
      */
     GARLIC(
         items = arrayOf(Item(Items.GARLIC_1550)),
@@ -139,7 +139,7 @@ enum class GrindingItem(val items: Array<Item>, val product: Item, val message: 
     ),
 
     /**
-     * Dragon Scale.
+     * The dragon scale.
      */
     DRAGON_SCALE(
         items = arrayOf(Item(Items.BLUE_DRAGON_SCALE_243)),
@@ -148,7 +148,7 @@ enum class GrindingItem(val items: Array<Item>, val product: Item, val message: 
     ),
 
     /**
-     * Anchovies.
+     * The anchovies.
      */
     ANCHOVIES(
         items = arrayOf(Item(Items.ANCHOVIES_319)),
@@ -157,7 +157,7 @@ enum class GrindingItem(val items: Array<Item>, val product: Item, val message: 
     ),
 
     /**
-     * Chocolate Bar.
+     * The chocolate bar.
      */
     CHOCOLATE_BAR(
         items = arrayOf(Item(Items.CHOCOLATE_BAR_1973)),
@@ -166,7 +166,7 @@ enum class GrindingItem(val items: Array<Item>, val product: Item, val message: 
     ),
 
     /**
-     * Sulphur.
+     * The sulphur.
      */
     SULPHUR(items = arrayOf(Item(Items.SULPHUR_3209)),
         product = Item(Items.GROUND_SULPHUR_3215),
@@ -174,7 +174,7 @@ enum class GrindingItem(val items: Array<Item>, val product: Item, val message: 
     ),
 
     /**
-     * Guam Leaf.
+     * The guam leaf.
      */
     GUAM_LEAF(
         items = arrayOf(Item(Items.CLEAN_GUAM_249)),
@@ -183,6 +183,13 @@ enum class GrindingItem(val items: Array<Item>, val product: Item, val message: 
     );
 
     companion object {
+        /**
+         * Gets the grinding item.
+         *
+         * @param   item the item.
+         * @return the item.
+         */
+        @JvmStatic
         fun forItem(item: Item): GrindingItem? {
             for (g in GrindingItem.values()) {
                 for (i in g.items) {

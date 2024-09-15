@@ -3,23 +3,24 @@ package content.global.skill.production.herblore.data.potion
 import core.game.node.item.Item
 
 /**
- * Generic potion
+ * Represents a generic potion which is used to transform incoming data to represent a potion (finished or unfinished).
  *
- * @param base The base item used for the potion, can be null.
- * @param ingredient The additional ingredient for the potion, can be null.
- * @param level The level required to create the potion.
- * @param experience The experience gained from creating the potion.
- * @param product The resulting product of the potion creation, can be null.
- * @constructor Generic potion that initializes the potion with the provided parameters.
+ * @param base          the base item used for the potion.
+ * @param ingredient    the ingredient required for the potion.
+ * @param level         the level required to craft this potion.
+ * @param experience    the experience points awarded for crafting the potion.
+ * @param product       the final product of the potion.
+ * @return the [GenericPotion].
  */
-class GenericPotion(
-    val base: Item?, // The base item used for the potion, which can be null if not specified.
-    val ingredient: Item?, // The ingredient that enhances the potion, also nullable.
-    val level: Int, // The level required to craft this potion.
-    val experience: Double, // The experience points awarded for crafting the potion.
-    val product: Item? // The final product of the potion, which may be null if not applicable.
-) {
+class GenericPotion(val base: Item?, val ingredient: Item?, val level: Int, val experience: Double, val product: Item?) {
+
     companion object {
+        /**
+         * Method used to transform an unfinished potion into a generic potion.
+         *
+         * @param potion the potion to transform.
+         * @return the transformed potion.
+         */
         fun transform(potion: UnfinishedPotion): GenericPotion {
             return GenericPotion(
                 base = potion.base,
@@ -30,6 +31,12 @@ class GenericPotion(
             )
         }
 
+        /**
+         * Method used to transform a finished potion into a generic potion.
+         *
+         * @param potion the potion to transform.
+         * @return the transformed potion.
+         */
         fun transform(potion: FinishedPotion): GenericPotion {
             return GenericPotion(
                 base = potion.unfinished.potion,

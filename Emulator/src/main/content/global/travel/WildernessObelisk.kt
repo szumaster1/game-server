@@ -21,7 +21,7 @@ import core.plugin.Plugin
 import core.tools.RandomFunction
 
 /**
- * Represents the Wilderness Obelisk option handler.
+ * Represents the wilderness obelisk option handler.
  */
 @Initializable
 class WildernessObelisk : OptionHandler() {

@@ -81,6 +81,12 @@ enum class BarType(
 
     companion object {
 
+        /**
+         * Gets the [BarType] associated with a given item id.
+         *
+         * @param itemId The ID of the item for which the BarType is to be retrieved.
+         * @return The corresponding BarType for the given itemId, or null if no match is found.
+         */
         fun getBarTypeForId(itemId: Int): BarType? {
             when (itemId) {
                 Items.BRONZE_BAR_2349 -> return BRONZE

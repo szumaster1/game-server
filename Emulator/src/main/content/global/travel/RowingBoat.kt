@@ -10,6 +10,9 @@ import core.game.system.task.Pulse
 import core.game.world.GameWorld
 import core.game.world.map.Location
 
+/**
+ * Represents the rowing boat.
+ */
 object RowingBoat {
 
     /*

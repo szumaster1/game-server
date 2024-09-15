@@ -4,19 +4,19 @@ import cfg.consts.Items
 import core.game.node.item.Item
 
 /**
- * Tar
+ * Represents a tar to create.
  *
- * @param ingredient Represents the main ingredient used in the Tar.
- * @param level Indicates the required level to use the Tar.
- * @param experience Represents the experience gained from using the Tar.
- * @param tar Represents the resulting item after using the Tar.
- * @constructor Tar Represents a Tar instance with the specified ingredient, level, experience, and resulting tar item.
+ * @param ingredient    the main ingredient for the Tar.
+ * @param level         the level required to use this Tar.
+ * @param experience    the experience points gained from using this Tar.
+ * @param tar           the resulting item after using the Tar.
+ * @return the [Tar].
  */
 enum class Tar(
-    val ingredient: Item, // The main ingredient for the Tar
-    val level: Int, // The level required to use this Tar
+    val ingredient: Item,   // The main ingredient for the Tar
+    val level: Int,         // The level required to use this Tar
     val experience: Double, // Experience points gained from using this Tar
-    val tar: Item // The resulting item after using the Tar
+    val tar: Item           // The resulting item after using the Tar
 ) {
     /**
      * Guam Tar.
@@ -59,6 +59,14 @@ enum class Tar(
     );
 
     companion object {
+
+        /**
+         * Gets the tar.
+         *
+         * @param item  the item.
+         * @return the tar.
+         */
+        @JvmStatic
         fun forItem(item: Item): Tar? {
             for (tar in values()) {
                 if (tar.ingredient.id == item.id) {

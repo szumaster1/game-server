@@ -1,8 +1,9 @@
 package content.global.skill.production.runecrafting
 
 import cfg.consts.Components
-import content.global.skill.production.runecrafting.data.Talisman
 import content.global.skill.production.runecrafting.data.Altar
+import content.global.skill.production.runecrafting.data.Talisman
+import content.global.skill.production.runecrafting.pouch.RunePouchPlugin
 import content.global.travel.EssenceTeleport.home
 import content.global.travel.EssenceTeleport.teleport
 import core.api.*
@@ -25,19 +26,15 @@ import core.plugin.Plugin
 import core.plugin.PluginManager.definePlugin
 
 /**
- * Handles the runecrafting interactions.
+ * Handles the rc interactions.
  */
 @Initializable
 class Runecrafting : OptionHandler() {
 
     override fun newInstance(arg: Any?): Plugin<Any?> {
-        for (altar in Altar.values()) {
-            SceneryDefinition.forId(altar.`object`).handlers["option:craft-rune"] = this
-            SceneryDefinition.forId(altar.portal).handlers["option:use"] = this
-        }
-        for (talisman in Talisman.values()) {
-            ItemDefinition.forId(talisman.talisman.id).handlers["option:locate"] = this
-        }
+        addNodes()
+        definePlugin(RunePouchPlugin())
+        definePlugin(CombinationRune())
         SceneryDefinition.forId(2492).handlers["option:use"] = this
         NPCDefinition.forId(553).handlers["option:teleport"] = this
         NPCDefinition.forId(2328).handlers["option:teleport"] = this
@@ -46,7 +43,6 @@ class Runecrafting : OptionHandler() {
         SceneryDefinition.forId(268).handlers["option:climb"] = this
         SceneryDefinition.forId(26844).handlers["option:squeeze-through"] = this
         SceneryDefinition.forId(26845).handlers["option:squeeze-through"] = this
-        definePlugin(CombinationRune())
         return this
     }
 
@@ -114,6 +110,20 @@ class Runecrafting : OptionHandler() {
         }
         return true
     }
+
+    /**
+     * Adds the nodes to this plugin.
+     */
+    private fun addNodes() {
+        for (altar in Altar.values()) {
+            SceneryDefinition.forId(altar.`object`).handlers["option:craft-rune"] = this
+            SceneryDefinition.forId(altar.portal).handlers["option:use"] = this
+        }
+        for (talisman in Talisman.values()) {
+            ItemDefinition.forId(talisman.talisman.id).handlers["option:locate"] = this
+        }
+    }
+
 
     override fun isWalk(): Boolean {
         return false

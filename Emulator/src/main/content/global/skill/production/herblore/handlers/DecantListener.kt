@@ -10,7 +10,7 @@ import core.game.interaction.InteractionListener
 import core.game.node.item.Item
 
 /**
- * Decant listener.
+ * Handles decant potions.
  */
 class DecantListener : InteractionListener {
 

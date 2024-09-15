@@ -5,26 +5,18 @@ import cfg.consts.Items
 import core.game.node.item.Item
 
 /**
- * Finished potion
+ * Represents a finished potion.
  *
- * @param unfinished Represents the unfinished potion that is being completed.
- * @param ingredient The item used to finish the potion.
- * @param level The required level to create the finished potion.
- * @param experience The experience gained from creating the finished potion.
- * @param potion The final item that represents the finished potion.
- * @constructor Finished potion
+ * @param unfinished    the unfinished potion base.
+ * @param ingredient    the ingredient.
+ * @param level         the level.
+ * @param experience    the experience.
+ * @param potion        the potion.
+ * @return the [FinishedPotion].
  */
-enum class FinishedPotion(
-    val unfinished: UnfinishedPotion, // Holds the reference to the unfinished potion
-    val ingredient: Item, // Represents the ingredient used to complete the potion
-    val level: Int, // Indicates the level required to craft the potion
-    val experience: Double, // The experience points awarded for crafting the potion
-    val potion: Item // The resulting finished potion item
-) {
+enum class FinishedPotion(val unfinished: UnfinishedPotion, val ingredient: Item, val level: Int, val experience: Double, val potion: Item) {
     /**
-     * Attack Potion
-     *
-     * @constructor Attack Potion
+     * The attack.
      */
     ATTACK_POTION(
         unfinished = UnfinishedPotion.GUAM,
@@ -35,9 +27,7 @@ enum class FinishedPotion(
     ),
 
     /**
-     * Antipoison Potion
-     *
-     * @constructor Antipoison Potion
+     * The anti-poison.
      */
     ANTIPOISON_POTION(
         unfinished = UnfinishedPotion.MARRENTILL,
@@ -48,9 +38,7 @@ enum class FinishedPotion(
     ),
 
     /**
-     * Relicym Balm
-     *
-     * @constructor Relicym Balm
+     * The relicyms balm.
      */
     RELICYM_BALM(
         unfinished = UnfinishedPotion.ROGUE_PURSE,
@@ -61,9 +49,7 @@ enum class FinishedPotion(
     ),
 
     /**
-     * Strength Potion
-     *
-     * @constructor Strength Potion
+     * The strength potion.
      */
     STRENGTH_POTION(
         unfinished = UnfinishedPotion.TARROMIN,
@@ -74,9 +60,7 @@ enum class FinishedPotion(
     ),
 
     /**
-     * Restore Potion
-     *
-     * @constructor Restore Potion
+     * The restore potion.
      */
     RESTORE_POTION(
         unfinished = UnfinishedPotion.HARRALANDER,
@@ -87,9 +71,7 @@ enum class FinishedPotion(
     ),
 
     /**
-     * Energy Potion
-     *
-     * @constructor Energy Potion
+     * The energy potion.
      */
     ENERGY_POTION(
         unfinished = UnfinishedPotion.HARRALANDER,
@@ -100,9 +82,7 @@ enum class FinishedPotion(
     ),
 
     /**
-     * Defence Potion
-     *
-     * @constructor Defence Potion
+     * The defence potion.
      */
     DEFENCE_POTION(
         unfinished = UnfinishedPotion.RANARR,
@@ -113,9 +93,7 @@ enum class FinishedPotion(
     ),
 
     /**
-     * Agility Potion
-     *
-     * @constructor Agility Potion
+     * The agility potion.
      */
     AGILITY_POTION(
         unfinished = UnfinishedPotion.TOADFLAX,
@@ -126,9 +104,7 @@ enum class FinishedPotion(
     ),
 
     /**
-     * Combat Potion
-     *
-     * @constructor Combat Potion
+     * The combat potion.
      */
     COMBAT_POTION(
         unfinished = UnfinishedPotion.HARRALANDER,
@@ -139,9 +115,7 @@ enum class FinishedPotion(
     ),
 
     /**
-     * Prayer Potion
-     *
-     * @constructor Prayer Potion
+     * The prayer potion.
      */
     PRAYER_POTION(
         unfinished = UnfinishedPotion.RANARR,
@@ -152,9 +126,7 @@ enum class FinishedPotion(
     ),
 
     /**
-     * Summoning Potion
-     *
-     * @constructor Summoning Potion
+     * The summoning potion.
      */
     SUMMONING_POTION(
         unfinished = UnfinishedPotion.SPIRIT_WEED,
@@ -165,9 +137,7 @@ enum class FinishedPotion(
     ),
 
     /**
-     * Super Attack
-     *
-     * @constructor Super Attack
+     * The super attack.
      */
     SUPER_ATTACK(
         unfinished = UnfinishedPotion.IRIT,
@@ -178,9 +148,7 @@ enum class FinishedPotion(
     ),
 
     /**
-     * Super Antipoison
-     *
-     * @constructor Super Antipoison
+     * The super anti-poison.
      */
     SUPER_ANTIPOISON(
         unfinished = UnfinishedPotion.IRIT,
@@ -191,9 +159,7 @@ enum class FinishedPotion(
     ),
 
     /**
-     * Fishing Potion
-     *
-     * @constructor Fishing Potion
+     * The fishing potion.
      */
     FISHING_POTION(
         unfinished = UnfinishedPotion.AVANTOE,
@@ -204,9 +170,7 @@ enum class FinishedPotion(
     ),
 
     /**
-     * Super Energy
-     *
-     * @constructor Super Energy
+     * The super energy.
      */
     SUPER_ENERGY(
         unfinished = UnfinishedPotion.AVANTOE,
@@ -217,9 +181,7 @@ enum class FinishedPotion(
     ),
 
     /**
-     * Hunting Potion
-     *
-     * @constructor Hunting Potion
+     * The hunter potion.
      */
     HUNTING_POTION(
         unfinished = UnfinishedPotion.AVANTOE,
@@ -230,9 +192,7 @@ enum class FinishedPotion(
     ),
 
     /**
-     * Super Strength
-     *
-     * @constructor Super Strength
+     * The super strength.
      */
     SUPER_STRENGTH(
         unfinished = UnfinishedPotion.KWUARM,
@@ -243,9 +203,7 @@ enum class FinishedPotion(
     ),
 
     /**
-     * Weapon Poison
-     *
-     * @constructor Weapon Poison
+     * The weapon poison.
      */
     WEAPON_POISON(
         unfinished = UnfinishedPotion.KWUARM,
@@ -256,9 +214,7 @@ enum class FinishedPotion(
     ),
 
     /**
-     * Super Restore
-     *
-     * @constructor Super Restore
+     * The super Restore.
      */
     SUPER_RESTORE(
         unfinished = UnfinishedPotion.SNAPDRAGON,
@@ -269,9 +225,7 @@ enum class FinishedPotion(
     ),
 
     /**
-     * Super Defence
-     *
-     * @constructor Super Defence
+     * The super defence.
      */
     SUPER_DEFENCE(
         unfinished = UnfinishedPotion.CADANTINE,
@@ -282,9 +236,7 @@ enum class FinishedPotion(
     ),
 
     /**
-     * Antifire
-     *
-     * @constructor Antifire
+     * The anti-fire.
      */
     ANTIFIRE(
         unfinished = UnfinishedPotion.LANTADYME,
@@ -295,9 +247,7 @@ enum class FinishedPotion(
     ),
 
     /**
-     * Super Ranging Potion
-     *
-     * @constructor Super Ranging Potion
+     * The super ranging potion.
      */
     SUPER_RANGING_POTION(
         unfinished = UnfinishedPotion.DWARF_WEED,
@@ -308,9 +258,7 @@ enum class FinishedPotion(
     ),
 
     /**
-     * Super Magic
-     *
-     * @constructor Super Magic
+     * The super magic potion.
      */
     SUPER_MAGIC(
         unfinished = UnfinishedPotion.LANTADYME,
@@ -321,9 +269,7 @@ enum class FinishedPotion(
     ),
 
     /**
-     * Zamorak Brew
-     *
-     * @constructor Zamorak Brew
+     * The zamorak brew.
      */
     ZAMORAK_BREW(
         unfinished = UnfinishedPotion.TORSTOL,
@@ -334,9 +280,7 @@ enum class FinishedPotion(
     ),
 
     /**
-     * Saradomin Brew
-     *
-     * @constructor Saradomin Brew
+     * The saradomin brew.
      */
     SARADOMIN_BREW(
         unfinished = UnfinishedPotion.TOADFLAX,
@@ -347,9 +291,7 @@ enum class FinishedPotion(
     ),
 
     /**
-     * Strong Weapon Poison
-     *
-     * @constructor Strong Weapon Poison
+     * The strong weapon poison.
      */
     STRONG_WEAPON_POISON(
         unfinished = UnfinishedPotion.STRONG_WEAPON_POISON,
@@ -360,9 +302,7 @@ enum class FinishedPotion(
     ),
 
     /**
-     * Super Strong Weapon Poison
-     *
-     * @constructor Super Strong Weapon Poison
+     * The super strong weapon poison.
      */
     SUPER_STRONG_WEAPON_POISON(
         unfinished = UnfinishedPotion.SUPER_STRONG_WEAPON_POISON,
@@ -373,11 +313,9 @@ enum class FinishedPotion(
     ),
 
     /**
-     * Strong Antipoison
-     *
-     * @constructor Strong Antipoison
+     * The strong anti-poison.
      */
-    STRONG_ANTIPOISON(
+    STRONG_ANTI_POISON(
         unfinished = UnfinishedPotion.STRONG_ANTIPOISON,
         ingredient = Item(Items.YEW_ROOTS_6049),
         level = 68,
@@ -386,11 +324,9 @@ enum class FinishedPotion(
     ),
 
     /**
-     * Super Strong Antipoison
-     *
-     * @constructor Super Strong Antipoison
+     * The super strong anti-poison.
      */
-    SUPER_STRONG_ANTIPOISON(
+    SUPER_STRONG_ANTI_POISON(
         unfinished = UnfinishedPotion.SUPER_STRONG_ANTIPOISON,
         ingredient = Item(Items.MAGIC_ROOTS_6051),
         level = 79,
@@ -399,9 +335,7 @@ enum class FinishedPotion(
     ),
 
     /**
-     * Blamish Oil
-     *
-     * @constructor Blamish Oil
+     * The blamish oil.
      */
     BLAMISH_OIL(
         unfinished = UnfinishedPotion.HARRALANDER,
@@ -412,6 +346,13 @@ enum class FinishedPotion(
     );
 
     companion object {
+        /**
+         * Gets the finished potion by the unfinished potion and the ingredient.
+         *
+         * @param unf           the unf-potion.
+         * @param ingredient    the ingredient.
+         * @return the finished potion.
+         */
         fun getPotion(unf: Item, ingredient: Item): FinishedPotion? {
             for (pot in values()) {
                 if (pot.unfinished.potion.id == unf.id && pot.ingredient.id == ingredient.id) {

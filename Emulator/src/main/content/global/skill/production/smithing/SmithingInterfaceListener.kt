@@ -10,7 +10,7 @@ import core.game.interaction.InterfaceListener
 import core.game.node.item.Item
 
 /**
- * Smithing interface listener.
+ * Represents the smithing interface.
  */
 class SmithingInterfaceListener : InterfaceListener {
 

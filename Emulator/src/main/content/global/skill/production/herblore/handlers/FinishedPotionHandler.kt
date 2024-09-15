@@ -11,7 +11,7 @@ import core.plugin.Initializable
 import core.plugin.Plugin
 
 /**
- * Finished potion handler.
+ * Represents the finished potion plugin creating.
  */
 @Initializable
 class FinishedPotionHandler : UseWithHandler(*unfinishedItems) {
@@ -49,6 +49,11 @@ class FinishedPotionHandler : UseWithHandler(*unfinishedItems) {
     }
 
     companion object {
+        /**
+         * Method used to gather the unfinished item bases.
+         *
+         * @return the ids.
+         */
         val unfinishedItems: IntArray
             get() {
                 val ids = IntArray(UnfinishedPotion.values().size)

@@ -19,7 +19,7 @@ import kotlin.math.ceil
 import kotlin.math.roundToInt
 
 /**
- * Grind item handler.
+ * Handles the grinding of an item.
  */
 @Initializable
 class GrindItemHandler : UseWithHandler(Items.PESTLE_AND_MORTAR_233) {
@@ -102,7 +102,13 @@ class GrindItemHandler : UseWithHandler(Items.PESTLE_AND_MORTAR_233) {
     }
 
     companion object {
+        /**
+         * Represents the animation to use.
+         */
         private val ANIMATION = Animation(Animations.PESTLE_MORTAR_364)
+        /**
+         * Represents the item to use.
+         */
         private const val FISHING_BAIT = Items.FISHING_BAIT_313
     }
 }

@@ -19,7 +19,7 @@ import core.tools.RandomFunction
 import core.tools.StringUtils
 
 /**
- * Smelting pulse.
+ * Represents the smelting pulse.
  */
 class SmeltingPulse : SkillPulse<Item?> {
 

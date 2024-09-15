@@ -8,22 +8,15 @@ import core.game.node.item.Item
 /**
  * Unfinished potion
  *
- * @param base The base item used for the potion.
- * @param ingredient The additional ingredient required for the potion.
- * @param level The level of complexity or skill required to create the potion.
- * @param potion The final item that represents the potion.
- * @constructor Unfinished potion
+ * @param base          the base item used for the potion.
+ * @param ingredient    the ingredient required for the potion.
+ * @param level         the level required to craft this potion.
+ * @param potion        the final product of the potion.
+ * @return the [UnfinishedPotion].
  */
-enum class UnfinishedPotion(
-    val base: Item, // The base item used for the potion
-    val ingredient: Item, // The additional ingredient required for the potion
-    val level: Int, // The level of complexity or skill required to create the potion
-    val potion: Item // The final item that represents the potion
-) {
+enum class UnfinishedPotion(val base: Item, val ingredient: Item, val level: Int, val potion: Item) {
     /**
-     * Guam
-     *
-     * @constructor Guam
+     * The guam.
      */
     GUAM(
         ingredient = Herb.GUAM.product,
@@ -32,9 +25,7 @@ enum class UnfinishedPotion(
     ),
 
     /**
-     * Rogue Purse
-     *
-     * @constructor Rogue Purse
+     * The rogue purse.
      */
     ROGUE_PURSE(
         ingredient = Herb.ROGUES_PUSE.product,
@@ -43,9 +34,7 @@ enum class UnfinishedPotion(
     ),
 
     /**
-     * Marrentill
-     *
-     * @constructor Marrentill
+     * The marrentill.
      */
     MARRENTILL(
         ingredient = Herb.MARRENTILL.product,
@@ -54,9 +43,7 @@ enum class UnfinishedPotion(
     ),
 
     /**
-     * Tarromin
-     *
-     * @constructor Tarromin
+     * The tarromin.
      */
     TARROMIN(
         ingredient = Herb.TARROMIN.product,
@@ -65,9 +52,7 @@ enum class UnfinishedPotion(
     ),
 
     /**
-     * Harralander
-     *
-     * @constructor Harralander
+     * The harralander.
      */
     HARRALANDER(
         ingredient = Herb.HARRALANDER.product,
@@ -76,9 +61,7 @@ enum class UnfinishedPotion(
     ),
 
     /**
-     * Ranarr
-     *
-     * @constructor Ranarr
+     * The ranarr.
      */
     RANARR(
         ingredient = Herb.RANARR.product,
@@ -87,9 +70,7 @@ enum class UnfinishedPotion(
     ),
 
     /**
-     * Toadflax
-     *
-     * @constructor Toadflax
+     * The toadflax.
      */
     TOADFLAX(
         ingredient = Herb.TOADFLAX.product,
@@ -98,9 +79,7 @@ enum class UnfinishedPotion(
     ),
 
     /**
-     * Spirit Weed
-     *
-     * @constructor Spirit Weed
+     * The spirit weed.
      */
     SPIRIT_WEED(
         ingredient = Herb.SPIRIT_WEED.product,
@@ -109,9 +88,7 @@ enum class UnfinishedPotion(
     ),
 
     /**
-     * Irit
-     *
-     * @constructor Irit
+     * The irit.
      */
     IRIT(
         ingredient = Herb.IRIT.product,
@@ -120,9 +97,7 @@ enum class UnfinishedPotion(
     ),
 
     /**
-     * Avantoe
-     *
-     * @constructor Avantoe
+     * The avantoe.
      */
     AVANTOE(
         ingredient = Herb.AVANTOE.product,
@@ -131,9 +106,7 @@ enum class UnfinishedPotion(
     ),
 
     /**
-     * Kwuarm
-     *
-     * @constructor Kwuarm
+     * The kwuarm.
      */
     KWUARM(
         ingredient = Herb.KWUARM.product,
@@ -142,9 +115,7 @@ enum class UnfinishedPotion(
     ),
 
     /**
-     * Snapdragon
-     *
-     * @constructor Snapdragon
+     * The snapdragon.
      */
     SNAPDRAGON(
         ingredient = Herb.SNAPDRAGON.product,
@@ -153,9 +124,7 @@ enum class UnfinishedPotion(
     ),
 
     /**
-     * Cadantine
-     *
-     * @constructor Cadantine
+     * The cadantine.
      */
     CADANTINE(
         ingredient = Herb.CADANTINE.product,
@@ -164,9 +133,7 @@ enum class UnfinishedPotion(
     ),
 
     /**
-     * Lantadyme
-     *
-     * @constructor Lantadyme
+     * The lantadyme.
      */
     LANTADYME(
         ingredient = Herb.LANTADYME.product,
@@ -175,9 +142,7 @@ enum class UnfinishedPotion(
     ),
 
     /**
-     * Dwarf Weed
-     *
-     * @constructor Dwarf Weed
+     * The dwarf weed.
      */
     DWARF_WEED(
         ingredient = Herb.DWARF_WEED.product,
@@ -186,9 +151,7 @@ enum class UnfinishedPotion(
     ),
 
     /**
-     * Torstol
-     *
-     * @constructor Torstol
+     * The torstol.
      */
     TORSTOL(
         ingredient = Herb.TORSTOL.product,
@@ -197,9 +160,7 @@ enum class UnfinishedPotion(
     ),
 
     /**
-     * Strong Weapon Poison
-     *
-     * @constructor Strong Weapon Poison
+     * The strong weapon poison.
      */
     STRONG_WEAPON_POISON(
         base = HerblorePulse.COCONUT_MILK,
@@ -209,9 +170,7 @@ enum class UnfinishedPotion(
     ),
 
     /**
-     * Super Strong Weapon Poison
-     *
-     * @constructor Super Strong Weapon Poison
+     * The super strong weapon poison.
      */
     SUPER_STRONG_WEAPON_POISON(
         base = HerblorePulse.COCONUT_MILK,
@@ -221,9 +180,7 @@ enum class UnfinishedPotion(
     ),
 
     /**
-     * Strong Antipoison
-     *
-     * @constructor Strong Antipoison
+     * The strong anti-poison.
      */
     STRONG_ANTIPOISON(
         base = HerblorePulse.COCONUT_MILK,
@@ -233,9 +190,7 @@ enum class UnfinishedPotion(
     ),
 
     /**
-     * Super Strong Antipoison
-     *
-     * @constructor Super Strong Antipoison
+     * The super strong anti-poison.
      */
     SUPER_STRONG_ANTIPOISON(
         base = HerblorePulse.COCONUT_MILK,
@@ -244,6 +199,13 @@ enum class UnfinishedPotion(
         potion = Item(Items.ANTIPOISON_PLUS_PLUSUNF_5951)
     );
 
+    /**
+     * Constructs a new [UnfinishedPotion].
+     *
+     * @param ingredient    the ingredient.
+     * @param level         the level.
+     * @param potion        the potion.
+     */
     constructor(ingredient: Item, level: Int, potion: Item) : this(
         HerblorePulse.VIAL_OF_WATER,
         ingredient,
@@ -252,6 +214,13 @@ enum class UnfinishedPotion(
     )
 
     companion object {
+        /**
+         * Gets the [UnfinishedPotion].
+         *
+         * @param item      the item.
+         * @param base      the base item.
+         * @return the unfinished potion.
+         */
         fun forItem(item: Item, base: Item): UnfinishedPotion? {
             for (potion in values()) {
                 if ((potion.ingredient.id == item.id || potion.ingredient.id == base.id) && (item.id == potion.base.id || base.id == potion.base.id)) {

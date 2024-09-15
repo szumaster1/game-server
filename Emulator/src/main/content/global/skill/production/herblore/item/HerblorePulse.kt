@@ -15,14 +15,7 @@ import core.game.node.item.Item
 import core.tools.RandomFunction
 
 /**
- * Herblore pulse
- *
- * @param amount The number of potions to be crafted.
- * @param potion The specific potion being crafted.
- * @constructor Represents a HerblorePulse instance.
- *
- * @param player The player who is performing the herblore action.
- * @param node The item node associated with the herblore action.
+ * Represents the skill pulse used to handle the creating of potions.
  */
 class HerblorePulse(player: Player?, node: Item?, var amount: Int, private val potion: GenericPotion) :
     SkillPulse<Item?>(player, node) {

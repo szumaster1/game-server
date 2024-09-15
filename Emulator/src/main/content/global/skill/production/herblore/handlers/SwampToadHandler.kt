@@ -11,7 +11,7 @@ import core.plugin.Initializable
 import core.plugin.Plugin
 
 /**
- * Swamp toad handler.
+ * Handles remove legs from swamp toad.
  */
 @Initializable
 class SwampToadHandler : OptionHandler() {

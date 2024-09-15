@@ -23,7 +23,7 @@ import core.net.packet.context.MinimapStateContext
 import core.net.packet.outgoing.MinimapState
 
 /**
- * Balloon listeners.
+ * Represents the balloon listener.
  */
 class BalloonListeners : InterfaceListener, InteractionListener {
 

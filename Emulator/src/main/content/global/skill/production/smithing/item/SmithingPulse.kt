@@ -16,18 +16,13 @@ import core.game.node.item.Item
 import core.tools.StringUtils
 
 /**
- * Smithing pulse
- *
- * @param bars Represents the type of bars used in smithing.
- * @param amount Indicates the quantity of items to be crafted.
- * @param player The player who is performing the smithing action.
- * @param item The item that is being smelt.
+ * Represents the smithing pulse.
  */
 class SmithingPulse(player: Player?, item: Item?, private val bars: Bars, private var amount: Int) :
     SkillPulse<Item?>(player, item) {
 
     override fun checkRequirements(): Boolean {
-        if (!inInventory(player, bars.barType.bar, bars.smithingType.requiredBar * amount)) {
+        if (!inInventory(player, bars.barType.bar, bars.smithingType.bar * amount)) {
             amount = amountInInventory(player, bars.barType.bar)
         }
         closeInterface(player)
@@ -35,7 +30,7 @@ class SmithingPulse(player: Player?, item: Item?, private val bars: Bars, privat
             sendDialogue(player, "You need a Smithing level of " + bars.level + " to make a " + getItemName(bars.product) + ".")
             return false
         }
-        if (!inInventory(player, bars.barType.bar, bars.smithingType.requiredBar)) {
+        if (!inInventory(player, bars.barType.bar, bars.smithingType.bar)) {
             sendDialogue(player, "You don't have enough " + getItemName(bars.barType.bar).lowercase() + "s to make a " + bars.smithingType.name.replace("TYPE_", "").replace("_", " ").lowercase() + ".")
             return false
         }
@@ -64,12 +59,12 @@ class SmithingPulse(player: Player?, item: Item?, private val bars: Bars, privat
             delay = 4
             return false
         }
-        removeItem(player, Item(bars.barType.bar, bars.smithingType.requiredBar))
+        removeItem(player, Item(bars.barType.bar, bars.smithingType.bar))
 
-        val item = Item(node!!.id, bars.smithingType.productAmount)
+        val item = Item(node!!.id, bars.smithingType.amount)
         player.inventory.add(item)
         player.dispatch(ResourceProducedEvent(item.id, 1, player, bars.barType.bar))
-        rewardXP(player, Skills.SMITHING, bars.barType.experience * bars.smithingType.requiredBar)
+        rewardXP(player, Skills.SMITHING, bars.barType.experience * bars.smithingType.bar)
 
         val message = if (StringUtils.isPlusN(ItemDefinition.forId(bars.product).name.lowercase())) "an" else "a"
         sendMessage(player, "You hammer the " + bars.barType.barName.lowercase().replace("smithing", "") + "and make " + message + " " + getItemName(bars.product).lowercase() + ".")

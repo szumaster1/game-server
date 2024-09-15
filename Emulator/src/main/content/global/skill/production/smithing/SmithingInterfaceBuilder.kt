@@ -57,12 +57,12 @@ class SmithingInterfaceBuilder(item: Item) {
             var color: String? = ""
             color = if (getStatLevel(player, Skills.SMITHING) < value.level) null else "<col=FFFFFF>"
             setInterfaceText(player, color + StringUtils.formatDisplayName(value.smithingType.name.replace("TYPE_", "")), Components.SMITHING_NEW_300, value.smithingType.nameId)
-            color = if (anyInInventory(player, value.barType.bar, value.smithingType.requiredBar)) "<col=2DE120>" else null
+            color = if (anyInInventory(player, value.barType.bar, value.smithingType.bar)) "<col=2DE120>" else null
             if (color != null) {
-                val amt = if (value.smithingType.requiredBar > 1) "s" else ""
-                setInterfaceText(player, color + value.smithingType.requiredBar + " Bar" + amt, Components.SMITHING_NEW_300, value.smithingType.nameId + 1)
+                val amt = if (value.smithingType.bar > 1) "s" else ""
+                setInterfaceText(player, color + value.smithingType.bar + " Bar" + amt, Components.SMITHING_NEW_300, value.smithingType.nameId + 1)
             }
-            InterfaceContainer.generateItems(player, arrayOf(Item(value.product, value.smithingType.productAmount)), arrayOf(""), Components.SMITHING_NEW_300, value.smithingType.childId - 1)
+            InterfaceContainer.generateItems(player, arrayOf(Item(value.product, value.smithingType.amount)), arrayOf(""), Components.SMITHING_NEW_300, value.smithingType.base - 1)
         }
         setInterfaceText(player, type.barName, Components.SMITHING_NEW_300, 14)
         openInterface(player, Components.SMITHING_NEW_300)

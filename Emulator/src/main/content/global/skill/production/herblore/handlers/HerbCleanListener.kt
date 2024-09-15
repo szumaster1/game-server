@@ -8,7 +8,7 @@ import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 
 /**
- * Herb clean listener.
+ * Handles dirty herb cleaning.
  */
 class HerbCleanListener : InteractionListener {
 

@@ -14,7 +14,7 @@ import core.plugin.Initializable
 import core.plugin.Plugin
 
 /**
- * Herb tar handler.
+ * Represents the plugin used to create a herb tar.
  */
 @Initializable
 class HerbTarHandler : UseWithHandler(Items.SWAMP_TAR_1939) {

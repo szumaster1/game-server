@@ -11,7 +11,7 @@ import core.plugin.Initializable
 import core.plugin.Plugin
 
 /**
- * Unfinished potion handler.
+ * Represents the plugin used to handle the creation of creation an unf-potion.
  */
 @Initializable
 class UnfinishedPotionHandler : UseWithHandler(Items.VIAL_OF_WATER_227, Items.COCONUT_MILK_5935) {
