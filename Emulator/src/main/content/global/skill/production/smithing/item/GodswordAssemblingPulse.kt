@@ -10,9 +10,6 @@ import core.game.node.item.Item
 
 /**
  * Represents the godsword assembling into a godsword blade.
- *
- * @param player    the player who is assembling the godsword.
- * @param used      the used item itd.
  */
 class GodswordAssemblingPulse(player: Player?, val used: Item) : SkillPulse<Item>(player, null) {
 

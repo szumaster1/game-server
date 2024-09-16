@@ -15,10 +15,10 @@ import cfg.consts.Items
  */
 class PouchManager(val player: Player) {
     val pouches = mapOf(
-        Items.SMALL_POUCH_5509  to RCPouch(3, 3,   1),
+        Items.SMALL_POUCH_5509 to RCPouch(3, 3, 1),
         Items.MEDIUM_POUCH_5510 to RCPouch(6, 264, 25),
-        Items.LARGE_POUCH_5512  to RCPouch(9, 186, 50),
-        Items.GIANT_POUCH_5514  to RCPouch(12,140, 75)
+        Items.LARGE_POUCH_5512 to RCPouch(9, 186, 50),
+        Items.GIANT_POUCH_5514 to RCPouch(12, 140, 75)
     )
 
     /**
@@ -35,7 +35,7 @@ class PouchManager(val player: Player) {
         }
         var amt = amount
         val pouch = pouches[pouchId]
-        val otherEssence = when(essence) {
+        val otherEssence = when (essence) {
             Items.RUNE_ESSENCE_1436 -> Items.PURE_ESSENCE_7936
             Items.PURE_ESSENCE_7936 -> Items.RUNE_ESSENCE_1436
             else -> 0
@@ -47,7 +47,7 @@ class PouchManager(val player: Player) {
         if (amt == 0) {
             sendMessage(player, "This pouch is already full.")
         }
-        if (pouch.container.contains(otherEssence,1)) {
+        if (pouch.container.contains(otherEssence, 1)) {
             sendMessage(player, "You can only store one type of essence in each pouch.")
             return
         }
@@ -59,9 +59,9 @@ class PouchManager(val player: Player) {
         if (pouch.charges <= 0) {
             pouch.currentCap -= when (pouchId) {
                 Items.MEDIUM_POUCH_5510 -> 1
-                Items.LARGE_POUCH_5512  -> 2
-                Items.GIANT_POUCH_5514  -> 3
-                else /*small pouch*/    -> 0
+                Items.LARGE_POUCH_5512 -> 2
+                Items.GIANT_POUCH_5514 -> 3
+                else /*small pouch*/ -> 0
             }
             if (pouch.currentCap <= 0) {
                 // The pouch will disappear: https://runescape.wiki/w/Runecrafting_pouches?oldid=708494, https://oldschool.runescape.wiki/w/Essence_pouch
@@ -80,7 +80,8 @@ class PouchManager(val player: Player) {
                     replaceSlot(player, slot, Item(itemId + 1))
                 }
                 sendMessage(player, "Your pouch has decayed through use.") //https://www.youtube.com/watch?v=FUcPYrgPUlQ
-                pouch.charges = 9 * pouch.currentCap //implied by multiple contemporaneous sources, quantified only by https://oldschool.runescape.wiki/w/Large_pouch
+                pouch.charges =
+                    9 * pouch.currentCap //implied by multiple contemporaneous sources, quantified only by https://oldschool.runescape.wiki/w/Large_pouch
                 pouch.remakeContainer()
                 if (amt > pouch.currentCap) {
                     amt = pouch.currentCap
@@ -104,7 +105,7 @@ class PouchManager(val player: Player) {
         val playerFree = freeSlots(player)
         var amount = pouch.currentCap - pouch.container.freeSlots()
         if (amount > playerFree) amount = playerFree
-        if(amount == 0) return
+        if (amount == 0) return
         val essence = Item(pouch.container.get(0).id, amount)
         pouch.container.remove(essence)
         pouch.container.shift()
@@ -118,23 +119,23 @@ class PouchManager(val player: Player) {
     fun save(root: JSONObject) {
         val pouches = JSONArray()
 
-        for(i in this.pouches) {
+        for (i in this.pouches) {
             val pouch = JSONObject()
-            pouch.put("id",i.key.toString())
+            pouch.put("id", i.key.toString())
             val items = JSONArray()
-            for(item in i.value.container.toArray()) {
+            for (item in i.value.container.toArray()) {
                 item ?: continue
                 val it = JSONObject()
-                it.put("itemId",item.id.toString())
-                it.put("amount",item.amount.toString())
+                it.put("itemId", item.id.toString())
+                it.put("amount", item.amount.toString())
                 items.add(it)
             }
-            pouch.put("container",items)
-            pouch.put("charges",i.value.charges.toString())
-            pouch.put("currentCap",i.value.currentCap.toString())
+            pouch.put("container", items)
+            pouch.put("charges", i.value.charges.toString())
+            pouch.put("currentCap", i.value.currentCap.toString())
             pouches.add(pouch)
         }
-        root.put("pouches",pouches)
+        root.put("pouches", pouches)
     }
 
     /**
@@ -142,7 +143,7 @@ class PouchManager(val player: Player) {
      * @param data the JSONArray that contains the data to parse
      */
     fun parse(data: JSONArray) {
-        for (e in data){
+        for (e in data) {
             val pouch = e as JSONObject
             val id = pouch["id"].toString().toInt()
             val p = pouches[id]
@@ -157,7 +158,7 @@ class PouchManager(val player: Player) {
                 it["itemId"] ?: continue
                 val item = it["itemId"].toString().toInt()
                 val amount = it["amount"].toString().toInt()
-                p.container.add(Item(item,amount))
+                p.container.add(Item(item, amount))
             }
         }
     }

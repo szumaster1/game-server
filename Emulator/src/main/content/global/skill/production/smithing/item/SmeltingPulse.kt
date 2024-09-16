@@ -50,8 +50,7 @@ class SmeltingPulse : SkillPulse<Item?> {
             return false
         }
         if (getStatLevel(player, Skills.SMITHING) < bar.level) {
-            sendMessage(player, "You need a Smithing level of at least " + bar.level + " in order to smelt " + bar.product.name.lowercase()
-                .replace("bar", "") + ".")
+            sendMessage(player, "You need a Smithing level of at least " + bar.level + " in order to smelt " + bar.product.name.lowercase().replace("bar", "") + ".")
             closeChatBox(player)
             return false
         }

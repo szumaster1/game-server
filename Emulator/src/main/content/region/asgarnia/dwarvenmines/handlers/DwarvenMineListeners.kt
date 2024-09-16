@@ -16,14 +16,14 @@ import core.game.node.item.Item
 import core.tools.END_DIALOGUE
 
 /**
- * Represents the Dwarven Mines listeners.
+ * Represents the Dwarven Mine listeners.
  */
-class DwarvenMinesListeners : InteractionListener {
+class DwarvenMineListeners : InteractionListener {
 
     override fun defineListeners() {
 
         /*
-         * Handling the Dwarven Mines train cart ride.
+         * Handling the Dwarven Mine train cart ride.
          */
 
         on(Scenery.TRAIN_CART_7029, IntType.SCENERY, "ride") { player, _ ->

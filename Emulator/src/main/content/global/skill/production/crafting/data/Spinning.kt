@@ -1,6 +1,7 @@
 package content.global.skill.production.crafting.data
 
 import cfg.consts.Items
+
 /**
  * Represents the spinning items.
  */

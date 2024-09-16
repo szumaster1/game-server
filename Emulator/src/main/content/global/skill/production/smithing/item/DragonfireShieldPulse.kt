@@ -10,9 +10,6 @@ import core.game.node.item.Item
 
 /**
  * Represents the attaching a draconic visage to an anti-dragon shield.
- *
- * @param item      the required item.
- * @param player    the player.
  */
 class DragonfireShieldPulse(player: Player?, val item: Item) : SkillPulse<Item>(player, null) {
 

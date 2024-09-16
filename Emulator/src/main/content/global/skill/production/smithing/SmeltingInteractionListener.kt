@@ -22,9 +22,10 @@ class SmeltingInteractionListener : InteractionListener {
 
     override fun defineListeners() {
 
-        /**
+        /*
          * Smelt ore interaction.
          */
+
         on(IntType.SCENERY, "smelt", "smelt-ore") { player, node ->
             if (node.id == Scenery.FURNACE_26814 && !isDiaryComplete(player, DiaryType.VARROCK, 0)) {
                 if (!GameWorld.settings!!.isMembers) {
@@ -44,9 +45,10 @@ class SmeltingInteractionListener : InteractionListener {
             return@on true
         }
 
-        /**
+        /*
          * Special interaction related to quest.
          */
+
         on(specialFurnace, IntType.SCENERY, "use") { player, _ ->
             if (!isDiaryComplete(player, DiaryType.VARROCK, 0)) {
                 sendMessage(player, rejectMessage)
@@ -56,9 +58,10 @@ class SmeltingInteractionListener : InteractionListener {
             return@on true
         }
 
-        /**
+        /*
          * Standard smelting interaction.
          */
+
         onUseWith(IntType.SCENERY, ids, *furnaceIDs) { player, _, with ->
             if (with.asScenery().id == Scenery.FURNACE_26814 && !isDiaryComplete(player, DiaryType.VARROCK, 0)) {
                 if (!GameWorld.settings!!.isMembers) {
@@ -77,9 +80,10 @@ class SmeltingInteractionListener : InteractionListener {
             return@onUseWith true
         }
 
-        /**
+        /*
          * Handles base ore smelting interaction for tutorial island.
          */
+
         onUseWith(IntType.SCENERY, tutorialOres, Scenery.FURNACE_3044) { player, used, _ ->
             if (!anyInInventory(player, *tutorialOres)) {
                 sendPlainDialogue(player,false, "<b>You do not have the required ores to make this bar.</b>")

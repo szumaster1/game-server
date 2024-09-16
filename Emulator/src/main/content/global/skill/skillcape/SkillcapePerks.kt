@@ -22,9 +22,6 @@ import core.plugin.Initializable
 
 /**
  * Represents the skillcape perks.
- *
- * @param attribute the attribute associated with the skillcape.
- * @param effect    the effect.
  */
 enum class SkillcapePerks(val attribute: String, val effect: ((Player) -> Unit)? = null) {
     /**

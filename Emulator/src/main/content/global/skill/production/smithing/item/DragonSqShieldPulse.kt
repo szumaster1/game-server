@@ -10,9 +10,6 @@ import core.game.node.item.Item
 
 /**
  * Represents the creation of dragon square shield.
- *
- * @param player    the player.
- * @param item      the item.
  */
 class DragonSqShieldPulse(player: Player?, val item: Item) : SkillPulse<Item>(player, null) {
 

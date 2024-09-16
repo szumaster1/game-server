@@ -49,7 +49,7 @@ class SpinningInterfaceListener : InterfaceListener {
             if (opcode == 199) {
                 return@on true
             }
-            player.pulseManager.run(
+            submitIndividualPulse(player,
                 SpinningPulse(
                     player,
                     Item(spin.need, 1),

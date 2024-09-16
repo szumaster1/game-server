@@ -1,4 +1,4 @@
-package content.region.misc.zanaris.quest.zanaris.npc
+package content.region.misc.zanaris.quest.zanaris.handlers
 
 import cfg.consts.NPCs
 import core.api.getQuestStage

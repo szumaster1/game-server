@@ -2,6 +2,7 @@ package content.global.skill.production.crafting.data
 
 import cfg.consts.Items
 import core.game.node.item.Item
+
 /**
  * Represents the Snakeskin data.
  */

@@ -11,7 +11,6 @@ import core.game.node.item.Item
  * Jewellery data.
  */
 object Jewellery {
-
     const val RING_MOULD: Int = 1592
     const val AMULET_MOULD: Int = 1595
     const val NECKLACE_MOULD: Int = 1597

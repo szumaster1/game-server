@@ -106,12 +106,6 @@ class BeaconTenderDialogue(player: Player? = null) : Dialogue(player) {
         return true
     }
 
-    /**
-     * Get index of
-     *
-     * @param id
-     * @return
-     */
     fun getIndexOf(id: Int): Int {
         if (id == 8065) return 0
         if (id == 8066) return 1
@@ -121,13 +115,6 @@ class BeaconTenderDialogue(player: Player? = null) : Dialogue(player) {
         return -1
     }
 
-    /**
-     * Get logs
-     *
-     * @param player
-     * @param amount
-     * @return
-     */
     fun getLogs(player: Player, amount: Int): Item {
         var logId = 0
         for (log in VALID_LOGS) if (player.inventory.getAmount(log) >= amount) {

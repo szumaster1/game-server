@@ -5,10 +5,7 @@ import cfg.consts.Items
 /**
  * Represents the gem bolt data.
  */
-enum class GemBolt(var base: Int, var gem: Int, var tip: Int, var product: Int, var level: Int, var experience: Double) {
-    /**
-     * The opal bolt.
-     */
+enum class GemBolt(val base: Int, val gem: Int, val tip: Int, val product: Int, val level: Int, val experience: Double) {
     OPAL(
         base = Items.BRONZE_BOLTS_877,
         gem = Items.OPAL_1609,
@@ -17,10 +14,6 @@ enum class GemBolt(var base: Int, var gem: Int, var tip: Int, var product: Int, 
         level = 11,
         experience = 1.6
     ),
-
-    /**
-     * The pearl bolt.
-     */
     PEARL(
         base = Items.IRON_BOLTS_9140,
         gem = Items.OYSTER_PEARL_411,
@@ -29,10 +22,6 @@ enum class GemBolt(var base: Int, var gem: Int, var tip: Int, var product: Int, 
         level = 41,
         experience = 3.2
     ),
-
-    /**
-     * The pearl bolt (2).
-     */
     PEARLS(
         base = Items.IRON_BOLTS_9140,
         gem = Items.OYSTER_PEARLS_413,
@@ -41,10 +30,6 @@ enum class GemBolt(var base: Int, var gem: Int, var tip: Int, var product: Int, 
         level = 41,
         experience = 3.2
     ),
-
-    /**
-     * The jade bolt.
-     */
     JADE(
         base = Items.BLURITE_BOLTS_9139,
         gem = Items.JADE_1611,
@@ -53,10 +38,6 @@ enum class GemBolt(var base: Int, var gem: Int, var tip: Int, var product: Int, 
         level = 26,
         experience = 2.4
     ),
-
-    /**
-     * The topaz bolt.
-     */
     RED_TOPAZ(
         base = Items.STEEL_BOLTS_9141,
         gem = Items.RED_TOPAZ_1613,
@@ -65,10 +46,6 @@ enum class GemBolt(var base: Int, var gem: Int, var tip: Int, var product: Int, 
         level = 48,
         experience = 3.9
     ),
-
-    /**
-     * The sapphire bolt.
-     */
     SAPPHIRE(
         base = Items.MITHRIL_BOLTS_9142,
         gem = Items.SAPPHIRE_1607,
@@ -77,10 +54,6 @@ enum class GemBolt(var base: Int, var gem: Int, var tip: Int, var product: Int, 
         level = 56,
         experience = 4.7
     ),
-
-    /**
-     * The emerald bolt.
-     */
     EMERALD(
         base = Items.MITHRIL_BOLTS_9142,
         gem = Items.EMERALD_1605,
@@ -89,10 +62,6 @@ enum class GemBolt(var base: Int, var gem: Int, var tip: Int, var product: Int, 
         level = 58,
         experience = 5.5
     ),
-
-    /**
-     * The ruby bolt.
-     */
     RUBY(
         base = Items.ADAMANT_BOLTS_9143,
         gem = Items.RUBY_1603,
@@ -101,10 +70,6 @@ enum class GemBolt(var base: Int, var gem: Int, var tip: Int, var product: Int, 
         level = 63,
         experience = 6.3
     ),
-
-    /**
-     * The diamond bolt.
-     */
     DIAMOND(
         base = Items.ADAMANT_BOLTS_9143,
         gem = Items.DIAMOND_1601,
@@ -113,10 +78,6 @@ enum class GemBolt(var base: Int, var gem: Int, var tip: Int, var product: Int, 
         level = 65,
         experience = 7.0
     ),
-
-    /**
-     * The dragonstone bolt.
-     */
     DRAGONSTONE(
         base = Items.RUNE_BOLTS_9144,
         gem = Items.DRAGONSTONE_1615,
@@ -125,10 +86,6 @@ enum class GemBolt(var base: Int, var gem: Int, var tip: Int, var product: Int, 
         level = 71,
         experience = 8.2
     ),
-
-    /**
-     * The onyx bolt.
-     */
     ONYX(
         base = Items.RUNE_BOLTS_9144,
         gem = Items.ONYX_6573,
@@ -139,15 +96,6 @@ enum class GemBolt(var base: Int, var gem: Int, var tip: Int, var product: Int, 
     );
 
     companion object {
-        val productMap = HashMap<Int, GemBolt>()
-
-        init {
-            for (gem in GemBolt.values()) {
-                productMap[gem.gem] = gem
-            }
-            for (tip in GemBolt.values()) {
-                productMap[tip.gem] = tip
-            }
-        }
+        val productMap: Map<Int, GemBolt> = values().associateBy { it.gem }
     }
 }

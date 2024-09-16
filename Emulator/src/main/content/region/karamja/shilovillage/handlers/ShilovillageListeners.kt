@@ -44,10 +44,7 @@ class ShilovillageListeners : InteractionListener {
                 when (stage) {
                     0 -> {
                         if (inInventory(player!!, Items.COINS_995, 10)) {
-                            sendDialogue(
-                                player!!,
-                                "You pay the fare and hand 10 gold coins to " + (npc?.name ?: "") + "."
-                            ).also { stage++ }
+                            sendDialogue(player!!, "You pay the fare and hand 10 gold coins to " + (npc?.name ?: "") + ".").also { stage++ }
                         } else {
                             sendMessage(player!!, "You don't have enough coins.").also { stage = END_DIALOGUE }
                         }
@@ -64,20 +61,10 @@ class ShilovillageListeners : InteractionListener {
                                     }
 
                                     1 -> {
-                                        teleport(
-                                            player!!,
-                                            if (shilo) Location.create(2834, 2951, 0) else Location.create(
-                                                2780,
-                                                3212,
-                                                0
-                                            )
-                                        )
+                                        teleport(player!!, if (shilo) Location.create(2834, 2951, 0) else Location.create(2780, 3212, 0))
                                         closeOverlay(player!!)
                                         openOverlay(player!!, Components.FADE_FROM_BLACK_170)
-                                        sendDialogue(
-                                            player!!,
-                                            "You feel tired from the journey, but at least you didn't have to walk all that distance."
-                                        )
+                                        sendDialogue(player!!, "You feel tired from the journey, but at least you didn't have to walk all that distance.")
                                     }
                                 }
                                 return@queueScript stopExecuting(player!!)
@@ -109,11 +96,7 @@ class ShilovillageListeners : InteractionListener {
 
         on(BLACKSMITH_DOOR, IntType.SCENERY, "open") { player, node ->
             if (!getAttribute(player, "shilo-village:blacksmith-doors", false)) {
-                sendNPCDialogue(
-                    player,
-                    NPCs.YOHNUS_513,
-                    "Sorry but the blacksmiths is closed. But I can let you use the furnace at the cost of 20 gold pieces."
-                )
+                sendNPCDialogue(player, NPCs.YOHNUS_513, "Sorry but the blacksmiths is closed. But I can let you use the furnace at the cost of 20 gold pieces.")
             } else {
                 DoorActionHandler.handleAutowalkDoor(player, node.asScenery())
             }
@@ -156,11 +139,7 @@ class ShilovillageListeners : InteractionListener {
 
         on(BOARD, IntType.SCENERY, "board") { player, node ->
             if (getUsedOption(player) == "talk-to") {
-                openDialogue(
-                    player,
-                    CartTravelDialogue(),
-                    if (node.id == 510) NPC(NPCs.HAJEDY_510) else NPC(NPCs.VIGROY_511)
-                )
+                openDialogue(player, CartTravelDialogue(), if (node.id == 510) NPC(NPCs.HAJEDY_510) else NPC(NPCs.VIGROY_511))
                 return@on true
             }
 
@@ -201,27 +180,15 @@ class ShilovillageListeners : InteractionListener {
                                 1 -> sendNPCDialogue(player, NPCs.YANNI_SALIKA_515, item.message).also { stage++ }
                                 2 -> {
                                     setTitle(player, 2)
-                                    sendDialogueOptions(
-                                        player,
-                                        "Sell the " + getItemName(used.id) + "?",
-                                        "Yes.",
-                                        "No."
-                                    ).also { stage++ }
+                                    sendDialogueOptions(player, "Sell the " + getItemName(used.id) + "?", "Yes.", "No.").also { stage++ }
                                 }
 
                                 3 -> when (buttonID) {
                                     1 -> {
                                         end()
                                         if (removeItem(player, used.id)) {
-                                            sendNPCDialogue(
-                                                player,
-                                                NPCs.YANNI_SALIKA_515,
-                                                "Here's " + item.price + " for it."
-                                            ).also { stage++ }
-                                            sendMessage(
-                                                player,
-                                                "You sell the " + getItemName(used.id) + " for " + item.price + " gold."
-                                            )
+                                            sendNPCDialogue(player, NPCs.YANNI_SALIKA_515, "Here's " + item.price + " for it.").also { stage++ }
+                                            sendMessage(player, "You sell the " + getItemName(used.id) + " for " + item.price + " gold.")
                                             addItem(player, Items.COINS_995, item.price)
                                         }
                                     }
