@@ -20,6 +20,7 @@ class SkippyTutorialDialogue : DialogueFile() {
     /*
      * Allow players to skip the tutorial.
      */
+
     override fun handle(componentID: Int, buttonID: Int) {
         npc = NPC(NPCs.SKIPPY_2796)
         when (stage) {

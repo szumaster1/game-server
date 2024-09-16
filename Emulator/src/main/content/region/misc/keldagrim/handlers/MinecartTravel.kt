@@ -2,7 +2,7 @@ package content.region.misc.keldagrim.handlers
 
 import cfg.consts.Components
 import cfg.consts.NPCs
-import core.api.hasRequirement
+import core.api.*
 import core.game.component.Component
 import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
@@ -25,7 +25,7 @@ object MinecartTravel {
     fun goToKeldagrim(player: Player) {
         if (!hasRequirement(player, "The Giant Dwarf"))
             return
-        GameWorld.Pulser.submit(TravelToKeldagrimPulse(player))
+        submitWorldPulse(TravelToKeldagrimPulse(player))
     }
 
     /**
@@ -38,7 +38,7 @@ object MinecartTravel {
     fun leaveKeldagrimTo(player: Player, dest: Location) {
         if (!hasRequirement(player, "The Giant Dwarf"))
             return
-        GameWorld.Pulser.submit(TravelFromKeldagrimPulse(player, dest))
+        submitWorldPulse(TravelFromKeldagrimPulse(player, dest))
     }
 
     /**
@@ -52,7 +52,11 @@ object MinecartTravel {
         var counter = 0
         override fun pulse(): Boolean {
             when (counter++) {
-                0 -> player.lock().also { player.interfaceManager.open(Component(Components.FADE_TO_BLACK_120)) }
+                0 -> lock(player, 25).also {
+                    openInterface(player, Components.FADE_TO_BLACK_120)
+                    setMinimapState(player, 2)
+                }
+
                 4 -> {
                     player.properties.teleportLocation = Location.create(2911, 10171, 0)
                     player.appearance.rideCart(true)
@@ -64,13 +68,11 @@ object MinecartTravel {
                 }
 
                 6 -> {
-                    player.interfaceManager.close(Component(Components.FADE_TO_BLACK_120))
-                    player.interfaceManager.open(Component(Components.FADE_FROM_BLACK_170))
+                    closeInterface(player)
+                    openInterface(player, Components.FADE_FROM_BLACK_170)
                 }
 
-                14 -> {
-                    player.interfaceManager.open(Component(Components.FADE_TO_BLACK_120))
-                }
+                14 -> openInterface(player, Components.FADE_TO_BLACK_120)
 
                 21 -> {
                     player.walkingQueue.reset()
@@ -79,13 +81,14 @@ object MinecartTravel {
                 }
 
                 23 -> {
-                    player.interfaceManager.close(Component(Components.FADE_TO_BLACK_120))
-                    player.interfaceManager.open(Component(Components.FADE_FROM_BLACK_170))
+                    closeInterface(player)
+                    openInterface(player, Components.FADE_FROM_BLACK_170)
                 }
 
                 25 -> {
-                    player.unlock()
-                    player.interfaceManager.close(Component(Components.FADE_FROM_BLACK_170))
+                    unlock(player)
+                    setMinimapState(player, 0)
+                    closeInterface(player)
                     return true
                 }
             }
@@ -104,7 +107,11 @@ object MinecartTravel {
         var cartNPC = NPC(NPCs.MINE_CART_1544)
         override fun pulse(): Boolean {
             when (counter++) {
-                0 -> player.lock().also { player.interfaceManager.open(Component(115)) }
+                0 -> lock(player, 20).also {
+                    openInterface(player, Components.FADE_TO_BLACK_115)
+                    setMinimapState(player, 2)
+                }
+
                 3 -> player.properties.teleportLocation =
                     Location.create(2942, 10175, 0).also { player.appearance.rideCart(true) }
 
@@ -114,13 +121,14 @@ object MinecartTravel {
                 }
 
                 7 -> {
-                    player.interfaceManager.close(Component(115))
-                    player.interfaceManager.open(Component(170))
+                    closeInterface(player)
+                    openInterface(player, Components.FADE_FROM_BLACK_170)
                 }
 
                 19 -> {
-                    player.interfaceManager.close(Component(170))
-                    player.unlock()
+                    closeInterface(player)
+                    setMinimapState(player, 0)
+                    unlock(player)
                     player.appearance.rideCart(false)
                     cartNPC.location = player.location
                     cartNPC.direction = Direction.WEST
