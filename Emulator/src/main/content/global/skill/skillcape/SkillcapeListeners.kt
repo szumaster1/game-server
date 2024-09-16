@@ -4,7 +4,7 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 
 /**
- * Skillcape listeners.
+ * Handles skillcape interactions.
  */
 class SkillcapeListeners : InteractionListener {
 

@@ -1,20 +1,18 @@
 package content.global.skill.production.runecrafting.pouch
 
 import cfg.consts.Items
-import core.api.sendMessage
 import core.game.container.Container
 import core.game.node.entity.player.Player
 import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
-import core.tools.colorize
 import org.json.simple.JSONArray
 import org.json.simple.JSONObject
+import core.tools.colorize
 
 /**
- * Pouch manager
- *
- * @param player
- * @constructor Create empty Pouch manager
+ * A class for managing rune pouches.
+ * @param player the player this manager instance belongs to.
+ * @author Ceikry
  */
 class PouchManager(val player: Player) {
 
@@ -28,8 +26,9 @@ class PouchManager(val player: Player) {
     /**
      * Method to add essence to a pouch
      * @param pouchId the id of the pouch we are adding to
-     * @param amount  the amount of essence to add
+     * @param amount the amount of essence to add
      * @param essence the ID of the essence item we are trying to add
+     * @author Ceikry
      */
     fun addToPouch(pouchId: Int, amount: Int, essence: Int) {
         if (!checkRequirement(pouchId)) {
@@ -54,48 +53,17 @@ class PouchManager(val player: Player) {
             player.sendMessage("You can only store one type of essence in each pouch.")
             return
         }
-
-        var disappeared = false;
-        if (pouchId != Items.SMALL_POUCH_5509) {
-            pouch.charges -= amt
-        }
-        if (pouch.charges <= 0) {
-            pouch.currentCap -= when (pouchId) {
-                Items.MEDIUM_POUCH_5510 -> 1
-                Items.LARGE_POUCH_5512  -> 2
-                Items.GIANT_POUCH_5514  -> 3
-                else /*small pouch*/    -> 0
-            }
-            if (pouch.currentCap <= 0) {
-               if (player.inventory.remove(Item(pouchId))) {
-                    disappeared = true
-                    sendMessage(player, "Your pouch has degraded completely.")
-                    pouch.currentCap = pouch.capacity //for when the player obtains a new one
-                }
-            } else {
-                if (!isDecayedPouch(pouchId)) {
-                    val slot = player.inventory.getSlot(Item(pouchId))
-                    player.inventory.replace(Item(pouchId + 1), slot)
-                }
-                sendMessage(player, "Your pouch has decayed through use.")
-                pouch.charges = 9 * pouch.currentCap
-                pouch.remakeContainer()
-                if (amt > pouch.currentCap) {
-                    amt = pouch.currentCap
-                }
-            }
-        }
-        if (!disappeared && player.inventory.remove(Item(essence,amt))) {
-            pouch.container.add(Item(essence,amt))
-        }
+        player.inventory.remove(Item(essence, amt))
+        pouch.container.add(Item(essence, amt))
     }
+
 
     /**
      * Method to withdraw rune essence from a pouch.
      * @param pouchId the item ID of the pouch to withdraw from
+     * @author Ceikry
      */
-    fun withdrawFromPouch(pouchId: Int){
-        val pouchId = if (isDecayedPouch(pouchId)) pouchId - 1 else pouchId
+    fun withdrawFromPouch(pouchId: Int) {
         val pouch = pouches[pouchId]
         pouch ?: return
         val playerFree = player.inventory.freeSlots()
@@ -107,37 +75,60 @@ class PouchManager(val player: Player) {
         pouch.container.remove(essence)
         pouch.container.shift()
         player.inventory.add(essence)
+        if (pouch.charges-- <= 0) {
+            pouch.currentCap -= when (pouchId) {
+                5510 -> 1
+                5512 -> 2
+                5514 -> 3
+                else -> 0
+            }
+            if (pouch.currentCap <= 0) {
+                player.inventory.remove(Item(pouchId))
+                player.inventory.add(Item(pouchId + 1))
+                player.sendMessage(colorize("%RYour ${Item(pouchId).name} has degraded completely."))
+            }
+            pouch.remakeContainer()
+            pouch.charges = 10
+            if (pouchId != 5509) {
+                player.sendMessage(colorize("%RYour ${Item(pouchId).name.toLowerCase()} has degraded slightly from use."))
+            }
+        }
+
     }
+
 
     /**
      * Method to save pouches to a root JSONObject
      * @param root the JSONObject we are adding the "pouches" JSONArray to
+     * @author Ceikry
      */
     fun save(root: JSONObject) {
         val pouches = JSONArray()
 
         for (i in this.pouches) {
             val pouch = JSONObject()
-            pouch["id"] = i.key.toString()
+            pouch.put("id", i.key.toString())
             val items = JSONArray()
             for (item in i.value.container.toArray()) {
                 item ?: continue
                 val it = JSONObject()
-                it["itemId"] = item.id.toString()
-                it["amount"] = item.amount.toString()
+                it.put("itemId", item.id.toString())
+                it.put("amount", item.amount.toString())
                 items.add(it)
             }
-            pouch["container"] = items
-            pouch["charges"] = i.value.charges.toString()
-            pouch["currentCap"] = i.value.currentCap.toString()
+            pouch.put("container", items)
+            pouch.put("charges", i.value.charges.toString())
+            pouch.put("currentCap", i.value.currentCap.toString())
             pouches.add(pouch)
         }
-        root["pouches"] = pouches
+        root.put("pouches", pouches)
     }
+
 
     /**
      * Method to parse save data from a JSONArray
      * @param data the JSONArray that contains the data to parse
+     * @author Ceikry
      */
     fun parse(data: JSONArray) {
         for (e in data) {
@@ -164,6 +155,7 @@ class PouchManager(val player: Player) {
     /**
      * Method for checking the level requirement for a given pouch.
      * @param pouchId the item ID of the pouch to check
+     * @author Ceikry
      */
     fun checkRequirement(pouchId: Int): Boolean {
         val p = pouches[pouchId]
@@ -175,9 +167,9 @@ class PouchManager(val player: Player) {
     /**
      * Method for sending the player a message about how much space is left in a pouch
      * @param pouchId the item ID of the pouch to check
+     * @author Ceikry
      */
     fun checkAmount(pouchId: Int) {
-        val pouchId = if (isDecayedPouch(pouchId)) pouchId - 1 else pouchId
         val p = pouches[pouchId]
         p ?: return
         player.sendMessage("This pouch has space for ${p.container.freeSlots()} more essence.")
@@ -191,6 +183,7 @@ class PouchManager(val player: Player) {
 
     /**
      * A class that represents a runecrafting pouch.
+     * @author Ceikry
      */
     class RCPouch(val capacity: Int, val levelRequirement: Int) {
         var container = Container(capacity)

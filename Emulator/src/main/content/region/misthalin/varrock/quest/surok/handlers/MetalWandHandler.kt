@@ -20,7 +20,7 @@ import core.plugin.Plugin
 class MetalWandHandler : UseWithHandler(WhatLiesBelowListeners.WAND) {
     @Throws(Throwable::class)
     override fun newInstance(arg: Any?): Plugin<Any> {
-        addHandler(Altar.CHAOS.scenery, OBJECT_TYPE, this)
+        addHandler(Altar.CHAOS.`object`, OBJECT_TYPE, this)
         return this
     }
 

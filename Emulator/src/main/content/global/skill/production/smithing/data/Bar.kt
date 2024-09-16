@@ -4,11 +4,12 @@ import cfg.consts.Items
 import core.game.node.item.Item
 
 /**
- * Bar enum class.
+ * Represents the [Bar] that can be created.
  *
- * @param level      the level.
- * @param experience the experience.
- * @param product    the product id.
+ * @param level         the level.
+ * @param experience    the experience.
+ * @param product       the product.
+ * @param ores          the ores.
  */
 enum class Bar(
     val level: Int,
@@ -27,7 +28,7 @@ enum class Bar(
     BLURITE(8, 8.0, Item(Items.BLURITE_BAR_9467, 1), Item(Items.BLURITE_ORE_668, 1)),
 
     /**
-     * Iron.
+     * The iron.
      */
     IRON(15, 12.5, Item(Items.IRON_BAR_2351, 1), Item(Items.IRON_ORE_440)),
 
@@ -37,7 +38,7 @@ enum class Bar(
     SILVER(20, 13.7, Item(Items.SILVER_BAR_2355, 1), Item(Items.SILVER_ORE_442, 1)),
 
     /**
-     * Steel.
+     * The steel.
      */
     STEEL(30, 17.5, Item(Items.STEEL_BAR_2353, 1), Item(Items.COAL_453, 2), Item(Items.IRON_ORE_440, 1)),
 

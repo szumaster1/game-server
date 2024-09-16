@@ -1,20 +1,20 @@
 package content.global.skill.production.runecrafting.tiara
 
-import content.global.skill.production.runecrafting.data.Altar
 import content.global.skill.production.runecrafting.data.Talisman
 import content.global.skill.production.runecrafting.data.TalismanStaff
+import content.global.skill.production.runecrafting.data.Altar
 import core.api.submitIndividualPulse
 import core.game.dialogue.SkillDialogueHandler
 import core.game.dialogue.SkillDialogueHandler.SkillDialogue.ONE_OPTION
 import core.game.node.entity.player.Player
 
 /**
- * Enchant tiara dialogue
+ * Represents the Enchanting tiara dialogue.
  *
- * @param talisman Represents the talisman used in the enchantment process.
- * @param tiara Represents the tiara that will be enchanted.
- * @param altar Represents the altar where the enchantment takes place.
- * @param player The player who is interacting with the enchantment dialogue.
+ * @param player    the player.
+ * @param talisman  the talisman.
+ * @param tiara     the tiara.
+ * @param altar     the altar.
  */
 class EnchantTiaraDialogue(player: Player, val talisman: Talisman, val tiara: TalismanStaff, val altar: Altar) :
     SkillDialogueHandler(player, ONE_OPTION, tiara.item) {

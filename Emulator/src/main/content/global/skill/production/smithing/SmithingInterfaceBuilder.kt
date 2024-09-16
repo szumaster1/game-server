@@ -13,8 +13,7 @@ import core.game.node.item.Item
 import core.tools.StringUtils
 
 /**
- * Smithing interface builder.
- * @param item the item.
+ * Represents the smithing interface builder.
  */
 class SmithingInterfaceBuilder(item: Item) {
 

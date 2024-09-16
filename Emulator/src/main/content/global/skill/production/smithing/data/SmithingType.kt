@@ -15,7 +15,7 @@ enum class SmithingType(
     val productAmount: Int
 ) {
     /**
-     * Type Dagger.
+     * Type dagger.
      */
     TYPE_DAGGER(
         requiredBar = 1,
@@ -26,7 +26,7 @@ enum class SmithingType(
     ),
 
     /**
-     * Type Axe.
+     * Type axe.
      */
     TYPE_AXE(
         requiredBar = 1,
@@ -37,7 +37,7 @@ enum class SmithingType(
     ),
 
     /**
-     * Type Mace.
+     * Type mace.
      */
     TYPE_MACE(
         requiredBar = 1,
@@ -48,7 +48,7 @@ enum class SmithingType(
     ),
 
     /**
-     * Type Medium Helm.
+     * Type med helm.
      */
     TYPE_MEDIUM_HELM(
         requiredBar = 1,
@@ -59,7 +59,7 @@ enum class SmithingType(
     ),
 
     /**
-     * Type Crossbow Bolt.
+     * Type crossbow bolt.
      */
     TYPE_CROSSBOW_BOLT(
         requiredBar = 1,
@@ -70,7 +70,7 @@ enum class SmithingType(
     ),
 
     /**
-     * Type Sword.
+     * Type sword.
      */
     TYPE_SWORD(
         requiredBar = 1,
@@ -147,7 +147,7 @@ enum class SmithingType(
     ),
 
     /**
-     * Type Scimitar.
+     * Type scimitar.
      */
     TYPE_SCIMITAR(
         requiredBar = 2,
@@ -158,7 +158,7 @@ enum class SmithingType(
     ),
 
     /**
-     * Type Crossbow Limb.
+     * Type crossbow Limb.
      */
     TYPE_CROSSBOW_LIMB(
         requiredBar = 1,
@@ -169,7 +169,7 @@ enum class SmithingType(
     ),
 
     /**
-     * Type Longsword.
+     * Type longsword.
      */
     TYPE_LONGSWORD(
         requiredBar = 2,
@@ -180,7 +180,7 @@ enum class SmithingType(
     ),
 
     /**
-     * Type Throwing Knife.
+     * Type throwing knife.
      */
     TYPE_THROWING_KNIFE(
         requiredBar = 1,
@@ -191,7 +191,7 @@ enum class SmithingType(
     ),
 
     /**
-     * Type Full Helm.
+     * Type full helm.
      */
     TYPE_FULL_HELM(
         requiredBar = 2,
@@ -202,7 +202,7 @@ enum class SmithingType(
     ),
 
     /**
-     * Type Square Shield.
+     * Type sq shield.
      */
     TYPE_SQUARE_SHIELD(
         requiredBar = 2,
@@ -257,7 +257,7 @@ enum class SmithingType(
     ),
 
     /**
-     * Type Warhammer.
+     * Type war hammer.
      */
     TYPE_WARHAMMER(
         requiredBar = 3,
@@ -268,7 +268,7 @@ enum class SmithingType(
     ),
 
     /**
-     * Type Battle Axe.
+     * Type Battle axe.
      */
     TYPE_BATTLE_AXE(
         requiredBar = 3,
@@ -279,7 +279,7 @@ enum class SmithingType(
     ),
 
     /**
-     * Type Chainbody.
+     * Type chainbody.
      */
     TYPE_CHAINBODY(
         requiredBar = 3,
@@ -290,7 +290,7 @@ enum class SmithingType(
     ),
 
     /**
-     * Type Kite Shield.
+     * Type kiteshield.
      */
     TYPE_KITE_SHIELD(
         requiredBar = 3,
@@ -301,7 +301,7 @@ enum class SmithingType(
     ),
 
     /**
-     * Type Claws.
+     * Type claws.
      */
     TYPE_CLAWS(
         requiredBar = 2,
@@ -312,7 +312,7 @@ enum class SmithingType(
     ),
 
     /**
-     * Type Two Hand Sword.
+     * Type Two Hand sword.
      */
     TYPE_TWO_HAND_SWORD(
         requiredBar = 3,
@@ -323,7 +323,7 @@ enum class SmithingType(
     ),
 
     /**
-     * Type Plate Skirt.
+     * Type plateskirt.
      */
     TYPE_PLATE_SKIRT(
         requiredBar = 3,
@@ -345,7 +345,7 @@ enum class SmithingType(
     ),
 
     /**
-     * Type Platebody.
+     * Type platebody.
      */
     TYPE_PLATEBODY(
         requiredBar = 5,
@@ -378,7 +378,7 @@ enum class SmithingType(
     ),
 
     /**
-     * Type Pickaxe.
+     * Type pickaxe.
      */
     TYPE_PICKAXE(
         requiredBar = 2,

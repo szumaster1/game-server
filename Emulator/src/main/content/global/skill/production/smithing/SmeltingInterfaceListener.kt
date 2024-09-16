@@ -8,11 +8,16 @@ import core.api.submitIndividualPulse
 import core.game.interaction.InterfaceListener
 
 /**
- * Smelting interface listener.
+ * Represents the smelting interface.
  */
 class SmeltingInterfaceListener : InterfaceListener {
 
     override fun defineInterfaceListeners() {
+
+        /*
+         * Open the smelting interface.
+         */
+
         on(Components.SMELTING_311) { player, _, _, buttonID, _, _ ->
             val barType = BarButton.forId(buttonID) ?: return@on true
             if (barType.amount == -1) {
@@ -34,9 +39,9 @@ class SmeltingInterfaceListener : InterfaceListener {
     /**
      * Bar button.
      *
-     * @param button the button id.
-     * @param bar the bar.
-     * @param amount the amount.
+     * @param button    the button id.
+     * @param bar       the bar.
+     * @param amount    the amount.
      */
     enum class BarButton(val button: Int, val bar: Bar, val amount: Int) {
         /**
@@ -222,6 +227,12 @@ class SmeltingInterfaceListener : InterfaceListener {
 
         companion object {
 
+            /**
+             * Gets the product for the button.
+             *
+             * @param id the id.
+             * @return the [BarButton].
+             */
             @JvmStatic
             fun forId(id: Int): BarButton? {
                 for (button in BarButton.values()) {

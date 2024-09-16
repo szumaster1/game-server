@@ -21,75 +21,74 @@ import core.game.world.map.zone.impl.DarkZone
 import core.plugin.Initializable
 
 /**
- * Skillcape perks
+ * Represents the skillcape perks.
  *
- * @param attribute Represents the specific attribute associated with the skillcape.
- * @param effect A lambda function that defines the effect of the skillcape on a Player.
- * @constructor Skillcape perks Represents a SkillcapePerks enum with the given attribute and effect.
+ * @param attribute the attribute associated with the skillcape.
+ * @param effect    the effect.
  */
 enum class SkillcapePerks(val attribute: String, val effect: ((Player) -> Unit)? = null) {
     /**
-     * Barefisted Smithing.
+     * The barefisted smithing.
      */
     BAREFISTED_SMITHING("cape_perks:barefisted-smithing"),
 
     /**
-     * Divine Favor.
+     * The divine favor.
      */
     DIVINE_FAVOR("cape_perks:divine-favor"),
 
     /**
-     * Constant Glow.
+     * The constant glow.
      */
     CONSTANT_GLOW("cape_perks:eternal-glow"),
 
     /**
-     * Precision Miner.
+     * The precision miner.
      */
     PRECISION_MINER("cape_perks:precision-miner"),
 
     /**
-     * Great Aim.
+     * The great aim.
      */
     GREAT_AIM("cape_perks:great-aim"),
 
     /**
-     * Nest Hunter.
+     * The nest hunter.
      */
     NEST_HUNTER("cape_perks:nest-hunter"),
 
     /**
-     * Precision Strikes.
+     * The precision strikes.
      */
     PRECISION_STRIKES("cape_perks:precision-strikes"),
 
     /**
-     * Fine Attunement.
+     * The fine attunement.
      */
     FINE_ATTUNEMENT("cape_perks:fine-attunement"),
 
     /**
-     * Grand Bullwark.
+     * The grand bullwark.
      */
     GRAND_BULLWARK("cape_perks:grand-bullwark"),
 
     /**
-     * Accurate Marksman.
+     * The accurate marksman.
      */
     ACCURATE_MARKSMAN("cape_perks:accurate-marksman"),
 
     /**
-     * Damage Spong.
+     * The damage spong.
      */
     DAMAGE_SPONG("cape_perks:damage-sponge"),
 
     /**
-     * Marathon Runner.
+     * The marathon runner.
      */
     MARATHON_RUNNER("cape_perks:marathon-runner"),
 
     /**
-     * Librarian Magus.
+     * The librarian magus.
      */
     LIBRARIAN_MAGUS("cape_perks:librarian-magus", { player ->
         val store = ServerStore.getArchive("daily-librarian-magus")
@@ -103,7 +102,7 @@ enum class SkillcapePerks(val attribute: String, val effect: ((Player) -> Unit)?
     }),
 
     /**
-     * Abyss Warping.
+     * The abyss warping.
      */
     ABYSS_WARPING("cape_perks:abyss_warp", { player ->
         val store = ServerStore.getArchive("daily-abyss-warp")
@@ -117,7 +116,7 @@ enum class SkillcapePerks(val attribute: String, val effect: ((Player) -> Unit)?
     }),
 
     /**
-     * Seed Attraction.
+     * The seed attraction.
      */
     SEED_ATTRACTION("cape_perks:seed_attract", { player ->
         val store = ServerStore.getArchive("daily-seed-attract")
@@ -141,7 +140,7 @@ enum class SkillcapePerks(val attribute: String, val effect: ((Player) -> Unit)?
     }),
 
     /**
-     * Tricks Of The Trade.
+     * The tricks of the trade.
      */
     TRICKS_OF_THE_TRADE("cape_perks:tott", { player ->
         val hasHelmetBonus = getAttribute(player, "cape_perks:tott:helmet-stored", false)
@@ -155,38 +154,47 @@ enum class SkillcapePerks(val attribute: String, val effect: ((Player) -> Unit)?
     }),
 
     /**
-     * Hasty Cooking.
+     * The hasty cooking.
      */
     HASTY_COOKING("cape_perks:hasty-cooking"),
 
     /**
-     * Smooth Hands.
+     * The smooth hands.
      */
     SMOOTH_HANDS("cape_perks:smooth-hands"),
 
     /**
-     * Pet Mastery.
+     * The pet mastery.
      */
     PET_MASTERY("cape_perks:pet-mastery"),
 
     /**
-     * Brewmaster.
+     * The brew master.
      */
     BREWMASTER(
         "cape_perks:brewmaster"
     ),
 
     /**
-     * None.
+     * none.
      */
     NONE("cape_perks:none");
 
     companion object {
+        /**
+         * Checks if the perk is active.
+         *
+         * @param player    the player.
+         * @param perk      the perk we check.
+         */
         @JvmStatic
         fun isActive(perk: SkillcapePerks, player: Player): Boolean {
             return player.getAttribute(perk.attribute, false)
         }
 
+        /**
+         * Gets the perk for the skillcape.
+         */
         fun forSkillcape(skillcape: Skillcape): SkillcapePerks {
             return when (skillcape) {
                 Skillcape.ATTACK -> PRECISION_STRIKES
@@ -219,7 +227,7 @@ enum class SkillcapePerks(val attribute: String, val effect: ((Player) -> Unit)?
     }
 
     /**
-     * Activate
+     * Activate the perk.
      *
      * @param player The player who is activating the skillcape.
      */
@@ -240,7 +248,7 @@ enum class SkillcapePerks(val attribute: String, val effect: ((Player) -> Unit)?
     }
 
     /**
-     * Operate
+     * Handles skillcape options.
      *
      * @param player The player who is operating the skillcape.
      */
@@ -256,7 +264,7 @@ enum class SkillcapePerks(val attribute: String, val effect: ((Player) -> Unit)?
     }
 
     /**
-     * Deactivate
+     * Handles deactivating effect (perk).
      *
      * @param player The player who is deactivating the skillcape.
      */
@@ -268,9 +276,7 @@ enum class SkillcapePerks(val attribute: String, val effect: ((Player) -> Unit)?
     }
 
     /**
-     * Magic cape dialogue
-     *
-     * @param player The player associated with the magic cape dialogue.
+     * Represents the Magic cape dialogue.
      */
     @Initializable
     class MagicCapeDialogue(player: Player? = null) : Dialogue(player) {
@@ -338,7 +344,7 @@ enum class SkillcapePerks(val attribute: String, val effect: ((Player) -> Unit)?
     }
 
     /**
-     * RC cape dialogue.
+     * Represents the Runecrafting dialogue.
      */
     @Initializable
     class RCCapeDialogue(player: Player? = null) : Dialogue(player) {
@@ -388,10 +394,10 @@ enum class SkillcapePerks(val attribute: String, val effect: ((Player) -> Unit)?
         }
 
         /**
-         * Send altar
+         * Send player to altar.
          *
-         * @param player The player who will receive the altar.
-         * @param altar The altar object that is being sent to the player.
+         * @param player    the player.
+         * @param altar     the altar.
          */
         fun sendAltar(player: Player, altar: Altar) {
             end()

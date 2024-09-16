@@ -4,14 +4,13 @@ import cfg.consts.Items
 import core.game.node.item.Item
 
 /**
- * Combination rune
+ * Represents the combination runes.
  *
- * @param rune Represents the item associated with the combination rune.
- * @param level Indicates the required level to use the combination rune.
- * @param experience Specifies the experience gained from using the combination rune.
- * @param altars Lists the altars where the combination rune can be utilized.
-*
- * @param runes A variable number of runes that can be combined with this combination rune.
+ * @param rune          the item id.
+ * @param level         the required level.
+ * @param experience    the experience.
+ * @param altars        the related altar.
+ * @param runes         the related runes.
  */
 enum class CombinationRune(
     val rune: Item,
@@ -21,81 +20,69 @@ enum class CombinationRune(
     vararg runes: Rune,
 ) {
     /**
-     * Mist
-     *
-     * @constructor Mist
+     * The mist rune.
      */
     MIST(
         rune = Item(Items.MIST_RUNE_4695),
         level = 6,
         experience = 8.0,
         altars = arrayOf(Altar.WATER, Altar.AIR),
-        Rune.AIR, Rune.WATER
+        runes = arrayOf(Rune.AIR, Rune.WATER)
     ),
 
     /**
-     * Dust
-     *
-     * @constructor Dust
+     * The dust rune.
      */
     DUST(
         rune = Item(Items.DUST_RUNE_4696),
         level = 10,
         experience = 8.3,
         altars = arrayOf(Altar.EARTH, Altar.AIR),
-        Rune.AIR, Rune.EARTH
+        runes = arrayOf(Rune.AIR, Rune.EARTH)
     ),
 
     /**
-     * Mud
-     *
-     * @constructor Mud
+     * The mud rune.
      */
     MUD(
         rune = Item(Items.MUD_RUNE_4698),
         level = 13,
         experience = 9.3,
         altars = arrayOf(Altar.EARTH, Altar.WATER),
-        Rune.WATER, Rune.EARTH
+        runes = arrayOf(Rune.WATER, Rune.EARTH)
     ),
 
     /**
-     * Smoke
-     *
-     * @constructor Smoke
+     * The smoke rune.
      */
     SMOKE(
         rune = Item(Items.SMOKE_RUNE_4697),
         level = 15,
         experience = 8.5,
         altars = arrayOf(Altar.FIRE, Altar.AIR),
-        Rune.AIR, Rune.FIRE
+        runes = arrayOf(Rune.AIR, Rune.FIRE)
     ),
 
     /**
-     * Steam
-     *
-     * @constructor Steam
+     * The steam rune.
      */
     STEAM(
         rune = Item(Items.STEAM_RUNE_4694),
         level = 19,
         experience = 9.3,
         altars = arrayOf(Altar.WATER, Altar.FIRE),
-        Rune.WATER, Rune.FIRE
+        runes = arrayOf(Rune.WATER, Rune.FIRE)
     ),
 
     /**
-     * Lava
-     *
-     * @constructor Lava
+     * The lava rune.
      */
     LAVA(
         rune = Item(Items.LAVA_RUNE_4699),
         level = 23,
         experience = 10.0,
         altars = arrayOf(Altar.FIRE, Altar.EARTH),
-        Rune.EARTH, Rune.FIRE
+        runes = arrayOf(Rune.EARTH, Rune.FIRE)
     );
 
     val runes: Array<Rune> = runes as Array<Rune>
@@ -103,7 +90,12 @@ enum class CombinationRune(
     val highExperience: Double = if (experience % 1 == 0.0) experience + 5 else experience + 8
 
     companion object {
-
+        /**
+         * Method used to get the [Altar] by the scenery.
+         *
+         * @param altar the scenery.
+         * @return the [Altar] or `null`.
+         */
         @JvmStatic
         fun forAltar(altar: Altar, item: Item): CombinationRune? {
             for (rune in values()) {

@@ -4,13 +4,12 @@ import core.game.node.entity.combat.spell.Runes
 import core.game.node.item.Item
 
 /**
- * Rune
+ * Represents the rune.
  *
- * @param rune Represents the item associated with the rune.
- * @param level Indicates the level of the rune.
- * @param experience Represents the experience points gained from the rune.
- * @param multiple Allows for multiple values associated with the rune.
- * @constructor Rune Represents a new instance of the Rune enum class.
+ * @param rune          the item.
+ * @param level         the required level.
+ * @param experience    the experience.
+ * @param multiple      the multiple values.
  */
 enum class Rune(
     val rune: Item,
@@ -19,123 +18,120 @@ enum class Rune(
     private vararg val multiple: Int
 ) {
     /**
-     * Air
-     *
-     * @constructor Air
+     * The air rune.
      */
     AIR(Runes.AIR_RUNE.transform(), 1, 5.0, 1, 11, 22, 33, 44, 55, 66, 77, 88, 99, 110),
 
     /**
-     * Mind
-     *
-     * @constructor Mind
+     * The mind rune.
      */
     MIND(Runes.MIND_RUNE.transform(), 2, 5.5, 1, 14, 28, 42, 56, 70, 84, 98, 112),
 
     /**
-     * Water
-     *
-     * @constructor Water
+     * The water rune.
      */
     WATER(Runes.WATER_RUNE.transform(), 5, 6.0, 1, 19, 38, 57, 76, 95, 114),
 
     /**
-     * Earth
-     *
-     * @constructor Earth
+     * The earth rune.
      */
     EARTH(Runes.EARTH_RUNE.transform(), 9, 6.5, 1, 26, 52, 78, 104),
 
     /**
-     * Fire
-     *
-     * @constructor Fire
+     * The fire rune.
      */
     FIRE(Runes.FIRE_RUNE.transform(), 14, 7.0, 1, 35, 70, 105),
 
     /**
-     * Body
-     *
-     * @constructor Body
+     * The body rune.
      */
     BODY(Runes.BODY_RUNE.transform(), 20, 7.5, 1, 46, 92, 138),
 
     /**
-     * Cosmic
-     *
-     * @constructor Cosmic
+     * The cosmic rune.
      */
     COSMIC(Runes.COSMIC_RUNE.transform(), 27, 8.0, 1, 59, 118),
 
     /**
-     * Chaos
-     *
-     * @constructor Chaos
+     * The chaos rune.
      */
     CHAOS(Runes.CHAOS_RUNE.transform(), 35, 8.5, 1, 74, 148),
 
     /**
-     * Astral
-     *
-     * @constructor Astral
+     * The astral rune.
      */
     ASTRAL(Runes.ASTRAL_RUNE.transform(), 40, 8.7, 1, 82, 164),
 
     /**
-     * Nature
-     *
-     * @constructor Nature
+     * The nature rune.
      */
     NATURE(Runes.NATURE_RUNE.transform(), 44, 9.0, 1, 91, 182),
 
     /**
-     * Law
-     *
-     * @constructor Law
+     * The law rune.
      */
     LAW(Runes.LAW_RUNE.transform(), 54, 9.5, 1, 110),
 
     /**
-     * Death
-     *
-     * @constructor Death
+     * The death rune.
      */
     DEATH(Runes.DEATH_RUNE.transform(), 65, 10.0, 1, 131),
 
     /**
-     * Blood
-     *
-     * @constructor Blood
+     * The blood rune.
      */
-    BLOOD(Runes.BLOOD_RUNE.transform(), 77, 10.5, 1, 154);
+    BLOOD(Runes.BLOOD_RUNE.transform(), 77, 10.5, 1, 154),
 
     /**
-     * Get multiple
+     * The soul rune.
+     */
+    SOUL(Runes.SOUL_RUNE.transform(), 90, 11.0);
+
+
+    /**
+     * Gets the multiple.
      *
-     * @return
+     * @return The multiple.
      */
     fun getMultiple(): IntArray? {
         return multiple
     }
 
+    /**
+     * Checks if this rune uses normal essence.
+     *
+     * @return `true` if so.
+     */
     val isNormal: Boolean
         get() = this == AIR || this == MIND || this == WATER || this == EARTH || this == FIRE || this == BODY
 
     /**
-     * Is multiple
+     * Checks if this rune is a multi creation rune.
      *
-     * @return
+     * @return `true` if so.
      */
     fun isMultiple(): Boolean {
         return getMultiple() != null
     }
 
     companion object {
+        /**
+         * Method used to get the [Rune] by the item.
+         *
+         * @param item the item.
+         * @return the [Rune] or `null`.
+         */
         @JvmStatic
         fun forItem(item: Item): Talisman? {
             return Talisman.values().find { it.talisman.id == item.id }
         }
 
+        /**
+         * Method used to the [Rune] by the name.
+         *
+         * @param name the name.
+         * @return the [Rune] or `null`.
+         */
         @JvmStatic
         fun forName(name: String): Rune? {
             return values().find { it.name == name }

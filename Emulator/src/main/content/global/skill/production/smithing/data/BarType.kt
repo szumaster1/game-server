@@ -6,10 +6,10 @@ import cfg.consts.Items
  * Bar type enum class.
  * @author Emperor
  *
- * @param bar the bar id.
- * @param experience the experience.
- * @param barName the bar name (string).
- * @return Bar type.
+ * @param bar           the bar id.
+ * @param experience    the experience.
+ * @param barName       the bar name (string).
+ * @return the [BarType].
  */
 enum class BarType(
     val bar: Int,
@@ -35,7 +35,7 @@ enum class BarType(
     ),
 
     /**
-     * Iron.
+     * The iron.
      */
     IRON(
         bar = Items.IRON_BAR_2351,
@@ -44,7 +44,7 @@ enum class BarType(
     ),
 
     /**
-     * Steel.
+     * The steel.
      */
     STEEL(
         bar = Items.STEEL_BAR_2353,

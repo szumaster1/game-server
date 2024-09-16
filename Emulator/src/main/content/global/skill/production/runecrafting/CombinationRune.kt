@@ -1,32 +1,23 @@
 package content.global.skill.production.runecrafting
 
-import content.global.skill.production.runecrafting.data.Altar
-import content.global.skill.production.runecrafting.data.Altar.Companion.forScenery
 import content.global.skill.production.runecrafting.data.CombinationRune.Companion.forAltar
 import content.global.skill.production.runecrafting.data.Rune
 import content.global.skill.production.runecrafting.data.Talisman
+import content.global.skill.production.runecrafting.data.Altar
+import content.global.skill.production.runecrafting.data.Altar.Companion.forScenery
 import core.game.interaction.NodeUsageEvent
 import core.game.interaction.UseWithHandler
 import core.game.node.scenery.Scenery
 import core.plugin.Plugin
 
 /**
- * Combination rune.
+ * Handles the combination runes.
  */
-class CombinationRune : UseWithHandler(
-    Talisman.AIR.talisman.id,
-    Talisman.WATER.talisman.id,
-    Talisman.EARTH.talisman.id,
-    Talisman.FIRE.talisman.id,
-    Rune.WATER.rune.id,
-    Rune.EARTH.rune.id,
-    Rune.AIR.rune.id,
-    Rune.FIRE.rune.id
-) {
+class CombinationRune : UseWithHandler(Talisman.AIR.talisman.id, Talisman.WATER.talisman.id, Talisman.EARTH.talisman.id, Talisman.FIRE.talisman.id, Rune.WATER.rune.id, Rune.EARTH.rune.id, Rune.AIR.rune.id, Rune.FIRE.rune.id) {
 
     override fun newInstance(arg: Any?): Plugin<Any> {
         for (altar in Altar.values()) {
-            addHandler(altar.scenery, OBJECT_TYPE, this)
+            addHandler(altar.`object`, OBJECT_TYPE, this)
         }
         return this
     }

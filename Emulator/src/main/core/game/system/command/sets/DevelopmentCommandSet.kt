@@ -38,7 +38,7 @@ class DevelopmentCommandSet : CommandSet(Privilege.ADMIN) {
 
     private val farmKitItems = arrayListOf(Items.RAKE_5341, Items.SPADE_952, Items.SEED_DIBBER_5343, Items.WATERING_CAN8_5340, Items.SECATEURS_5329, Items.GARDENING_TROWEL_5325)
     private val runeKitItems = arrayListOf(Items.AIR_RUNE_556, Items.EARTH_RUNE_557, Items.FIRE_RUNE_554, Items.WATER_RUNE_555, Items.MIND_RUNE_558, Items.BODY_RUNE_559, Items.DEATH_RUNE_560, Items.NATURE_RUNE_561, Items.CHAOS_RUNE_562, Items.LAW_RUNE_563, Items.COSMIC_RUNE_564, Items.BLOOD_RUNE_565, Items.SOUL_RUNE_566, Items.ASTRAL_RUNE_9075)
-
+    private val talismanKitItems = arrayListOf(Items.AIR_TALISMAN_1438, Items.EARTH_TALISMAN_1440, Items.FIRE_TALISMAN_1442, Items.WATER_TALISMAN_1444, Items.MIND_TALISMAN_1448, Items.BODY_TALISMAN_1446, Items.DEATH_TALISMAN_1456, Items.NATURE_TALISMAN_1462, Items.CHAOS_TALISMAN_1452, Items.LAW_TALISMAN_1458, Items.COSMIC_TALISMAN_1454, Items.BLOOD_TALISMAN_1450, Items.SOUL_TALISMAN_1460)
     override fun defineCommands() {
         /*
          * Provides a command that allows you to buy a house.
@@ -47,7 +47,7 @@ class DevelopmentCommandSet : CommandSet(Privilege.ADMIN) {
         define(
             name = "buyhouse",
             privilege = Privilege.ADMIN,
-            usage = "",
+            usage = "::buyhouse",
             description = "Allows you to buy house."
         ) { player, _ ->
             player.houseManager.createNewHouseAt(HouseLocation.RIMMINGTON)
@@ -55,13 +55,27 @@ class DevelopmentCommandSet : CommandSet(Privilege.ADMIN) {
         }
 
         /*
-         * Provides a kit of various farming equipment.
+         * Provides a set of talisman items.
+         */
+        define(
+            name = "talismans",
+            privilege = Privilege.ADMIN,
+            usage = "::talismans",
+            description = "Provides a set of talisman items"
+        ) { player, _ ->
+            for (item in talismanKitItems) {
+                player.inventory.add(Item(item))
+            }
+        }
+
+        /*
+         * Provides a farming equipment.
          */
 
         define(
             name = "farmkit",
             privilege = Privilege.ADMIN,
-            usage = "",
+            usage = "::farmkit",
             description = "Provides a kit of various farming equipment."
         ) { player, _ ->
             for (item in farmKitItems) {
@@ -99,7 +113,12 @@ class DevelopmentCommandSet : CommandSet(Privilege.ADMIN) {
          * Clear all finished achievements diary.
          */
 
-        define(name = "cleardiary", privilege = Privilege.ADMIN) { player, _ ->
+        define(
+            name = "cleardiary",
+            privilege = Privilege.ADMIN,
+            usage = "::cleardiary",
+            description = "Clear all the achievements."
+        ) { player, _ ->
             for (type in DiaryType.values()) {
                 val diary = player.achievementDiaryManager.getDiary(type)
                 if (diary != null) {
@@ -117,7 +136,12 @@ class DevelopmentCommandSet : CommandSet(Privilege.ADMIN) {
          * Clear work-for task.
          */
 
-        define(name = "clearjob", privilege = Privilege.ADMIN) { player, _ ->
+        define(
+            name = "clearjob",
+            privilege = Privilege.ADMIN,
+            usage = "::clearjob",
+            description = "Clear the actually job."
+        ) { player, _ ->
             val playerJobManager = JobManager.getInstance(player)
             playerJobManager.job = null
             playerJobManager.jobAmount = -1
@@ -178,7 +202,7 @@ class DevelopmentCommandSet : CommandSet(Privilege.ADMIN) {
         define(
             name = "killme",
             privilege = Privilege.ADMIN,
-            usage = "",
+            usage = "::killme",
             description = "Does exactly what it says on the tin."
         ) { player, _ ->
             player.impactHandler.manualHit(player, player.skills.lifepoints, HitsplatType.NORMAL)
@@ -205,7 +229,7 @@ class DevelopmentCommandSet : CommandSet(Privilege.ADMIN) {
         define(
             name = "dumpstructs",
             privilege = Privilege.ADMIN,
-            usage = "",
+            usage = "::dumpstructs",
             description = "Dumps all the cache structs to structs.txt"
         ) { _, _ ->
             val dump = File("structs.txt")
@@ -232,7 +256,7 @@ class DevelopmentCommandSet : CommandSet(Privilege.ADMIN) {
         define(
             name = "dumpdatamaps",
             privilege = Privilege.ADMIN,
-            usage = "",
+            usage = "::dumpdatamaps",
             description = "Dumps all the cache data maps to datamaps.txt"
         ) { _, _ ->
             val index = Cache.getIndexes()[17]
@@ -308,7 +332,7 @@ class DevelopmentCommandSet : CommandSet(Privilege.ADMIN) {
         }
 
         /*
-         *
+         * Provides test packet.
          */
 
         define(name = "testpacket") { player, _ ->
@@ -316,7 +340,7 @@ class DevelopmentCommandSet : CommandSet(Privilege.ADMIN) {
         }
 
         /*
-         *
+         * Provides a command to search the npc.
          */
 
         define(

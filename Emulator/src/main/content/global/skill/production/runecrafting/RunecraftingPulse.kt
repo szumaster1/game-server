@@ -1,17 +1,17 @@
 package content.global.skill.production.runecrafting
 
+import cfg.consts.Animations
+import cfg.consts.Graphics
+import cfg.consts.Items
+import cfg.consts.Sounds
 import content.global.handlers.item.equipment.gloves.FOGGlovesManager.Companion.updateCharges
 import content.global.skill.production.runecrafting.data.Altar
 import content.global.skill.production.runecrafting.data.CombinationRune
 import content.global.skill.production.runecrafting.data.Rune
 import content.global.skill.production.runecrafting.data.Talisman
 import core.Configuration
-import core.api.*
-import cfg.consts.Animations
-import cfg.consts.Graphics
-import cfg.consts.Items
-import cfg.consts.Sounds
 import core.Util
+import core.api.*
 import core.game.container.impl.EquipmentContainer
 import core.game.node.entity.impl.Animator.Priority
 import core.game.node.entity.player.Player
@@ -28,22 +28,9 @@ import core.tools.RandomFunction
 import kotlin.math.max
 
 /**
- * Runecrafting pulse
- *
- * @param altar Represents the altar used in the runecrafting process.
- * @param combination Indicates whether a combination of runes is being used.
- * @param combo Holds the specific combination of runes, if applicable.
-*
- * @param player The player who is performing the runecrafting action.
- * @param node The item associated with the runecrafting action.
+ * Represents the pulse of runecrafting.
  */
-class RunecraftingPulse(
-    player: Player?, // The player involved in the runecrafting process, can be null.
-    node: Item?, // The item that is being used in the runecrafting, can also be null.
-    val altar: Altar, // The altar where the runecrafting takes place.
-    private val combination: Boolean, // A flag indicating if a combination of runes is used.
-    private val combo: CombinationRune? // The specific combination of runes, if any.
-) : SkillPulse<Item?>(player, node) { // Inherits from SkillPulse, passing player and node.
+class RunecraftingPulse(player: Player?, node: Item?, val altar: Altar, private val combination: Boolean, private val combo: CombinationRune?) : SkillPulse<Item?>(player, node) {
 
     private val rune: Rune
     private var talisman: Talisman? = null
@@ -126,10 +113,9 @@ class RunecraftingPulse(
         }
     }
 
-    /*
+    /**
      * Method used to craft runes.
      */
-
     private fun craft() {
         val item = Item(essence.id, essenceAmount)
         val amount = player.inventory.getAmount(item)
@@ -159,8 +145,8 @@ class RunecraftingPulse(
                 }
                 rewardXP(player, Skills.RUNECRAFTING, xp)
 
-                /*
-                 * Achievement Diary handling.
+                /**
+                 * Handles the achievements.
                  */
 
                 /*
@@ -208,10 +194,9 @@ class RunecraftingPulse(
         }
     }
 
-    /*
+    /**
      * Method used to combine runes.
      */
-
     private fun combine() {
         val remove = if (node!!.name.contains("talisman")) node!! else if (talisman != null) talisman!!.talisman else Talisman.forName(Rune.forItem(node!!)!!.name)!!.talisman
         val imbued = hasSpellImbue()
@@ -249,6 +234,9 @@ class RunecraftingPulse(
         return player.getAttribute("spell:imbue", 0) > ticks
     }
 
+    /**
+     * Gets the essence amount.
+     */
     private val essenceAmount: Int
         get() {
             if (altar.isOurania && player.inventory.containsItem(PURE_ESSENCE)) {
@@ -263,10 +251,10 @@ class RunecraftingPulse(
             }
         }
 
+    /**
+     * Gets the rune essence that needs to be defined.
+     */
     private val essence: Item
-        /*
-         * Gets the rune essence that needs to be defined.
-         */
         get() {
             if (altar.isOurania && player.inventory.containsItem(PURE_ESSENCE)) {
                 return PURE_ESSENCE
@@ -280,10 +268,10 @@ class RunecraftingPulse(
             }
         }
 
+    /**
+     * Gets the multiplied amount of runes to make.
+     */
     val multiplier: Int
-        /*
-         * Gets the multiplied amount of runes to make.
-         */
         get() {
             if (altar.isOurania) {
                 return 1
@@ -295,10 +283,6 @@ class RunecraftingPulse(
         }
 
     /**
-     * Has binding necklace
-     *
-     * @return
-     *//*
      * Method used to check if the player has a binding necklace.
      */
     fun hasBindingNecklace(): Boolean {
@@ -312,8 +296,8 @@ class RunecraftingPulse(
         private val ANIMATION = Animation(Animations.OLD_RUNECRAFTING_791, Priority.HIGH)
         private val GRAPHIC = Graphic(Graphics.RUNECRAFTING_GRAPHIC_186, 100)
 
-        /*
-         * Gets multiplier.
+        /**
+         * Gets the multiplier.
          */
         fun getMultiplier(rcLevel: Int, rune: Rune, rcFormulaRevision: Int, lumbridgeDiary: Boolean): Int {
             val multipleLevels = rune.getMultiple()

@@ -4,17 +4,11 @@ import cfg.consts.Items
 import core.game.node.item.Item
 
 /**
- * Staff
- *
- * @param item Represents the item associated with the staff member.
- * @param experience Represents the years of experience the staff member has.
- * @constructor Represents a Staff instance with the specified item and experience.
+ * Represents the talisman staff.
  */
 enum class Staff(val item: Item, val experience: Double) {
     /**
-     * Air Rc Staff
-     *
-     * @constructor Air Rc Staff
+     * The air talisman staff.
      */
     AIR_RC_STAFF(
         item = Item(Items.AIR_TALISMAN_STAFF_13630),
@@ -22,9 +16,7 @@ enum class Staff(val item: Item, val experience: Double) {
     ),
 
     /**
-     * Mind Rc Staff
-     *
-     * @constructor Mind Rc Staff
+     * The mind talisman staff.
      */
     MIND_RC_STAFF(
         item = Item(Items.MIND_TALISMAN_STAFF_13631),
@@ -32,9 +24,7 @@ enum class Staff(val item: Item, val experience: Double) {
     ),
 
     /**
-     * Water Rc Staff
-     *
-     * @constructor Water Rc Staff
+     * The water talisman staff.
      */
     WATER_RC_STAFF(
         item = Item(Items.WATER_TALISMAN_STAFF_13632),
@@ -42,9 +32,7 @@ enum class Staff(val item: Item, val experience: Double) {
     ),
 
     /**
-     * Earth Rc Staff
-     *
-     * @constructor Earth Rc Staff
+     * The earth talisman staff.
      */
     EARTH_RC_STAFF(
         item = Item(Items.EARTH_TALISMAN_STAFF_13633),
@@ -52,9 +40,7 @@ enum class Staff(val item: Item, val experience: Double) {
     ),
 
     /**
-     * Fire Rc Staff
-     *
-     * @constructor Fire Rc Staff
+     * The fire talisman staff.
      */
     FIRE_RC_STAFF(
         item = Item(Items.FIRE_TALISMAN_STAFF_13634),
@@ -62,9 +48,7 @@ enum class Staff(val item: Item, val experience: Double) {
     ),
 
     /**
-     * Body Rc Staff
-     *
-     * @constructor Body Rc Staff
+     * The body talisman staff.
      */
     BODY_RC_STAFF(
         item = Item(Items.BODY_TALISMAN_STAFF_13635),
@@ -72,9 +56,7 @@ enum class Staff(val item: Item, val experience: Double) {
     ),
 
     /**
-     * Cosmic Rc Staff
-     *
-     * @constructor Cosmic Rc Staff
+     * The cosmic talisman staff.
      */
     COSMIC_RC_STAFF(
         item = Item(Items.COSMIC_TALISMAN_STAFF_13636),
@@ -82,9 +64,7 @@ enum class Staff(val item: Item, val experience: Double) {
     ),
 
     /**
-     * Chaos Rc Staff
-     *
-     * @constructor Chaos Rc Staff
+     * The chaos talisman staff.
      */
     CHAOS_RC_STAFF(
         item = Item(Items.CHAOS_TALISMAN_STAFF_13637),
@@ -92,9 +72,7 @@ enum class Staff(val item: Item, val experience: Double) {
     ),
 
     /**
-     * Nature Rc Staff
-     *
-     * @constructor Nature Rc Staff
+     * The nature talisman staff.
      */
     NATURE_RC_STAFF(
         item = Item(Items.NATURE_TALISMAN_STAFF_13638),
@@ -102,9 +80,7 @@ enum class Staff(val item: Item, val experience: Double) {
     ),
 
     /**
-     * Law Rc Staff
-     *
-     * @constructor Law Rc Staff
+     * The law talisman staff.
      */
     LAW_RC_STAFF(
         item = Item(Items.LAW_TALISMAN_STAFF_13639),
@@ -112,9 +88,7 @@ enum class Staff(val item: Item, val experience: Double) {
     ),
 
     /**
-     * Death Rc Staff
-     *
-     * @constructor Death Rc Staff
+     * The death talisman staff.
      */
     DEATH_RC_STAFF(
         item = Item(Items.DEATH_TALISMAN_STAFF_13640),
@@ -122,9 +96,7 @@ enum class Staff(val item: Item, val experience: Double) {
     ),
 
     /**
-     * Blood Rc Staff
-     *
-     * @constructor Blood Rc Staff
+     * The blood talisman staff.
      */
     BLOOD_RC_STAFF(
         item = Item(Items.BLOOD_TALISMAN_STAFF_13641),
@@ -132,6 +104,7 @@ enum class Staff(val item: Item, val experience: Double) {
     );
 
     companion object {
+        @JvmStatic
         fun forStaff(item: Item): Staff? {
             return values().find { it.item.id == item.id }
         }

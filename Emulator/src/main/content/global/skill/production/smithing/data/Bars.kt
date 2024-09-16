@@ -6,7 +6,7 @@ import core.game.node.entity.player.Player
 /**
  * Bars enum class.
  * @author Emperor, Vexia
-*/
+ */
 enum class Bars(
     val barType: BarType,
     val smithingType: SmithingType,
@@ -14,804 +14,809 @@ enum class Bars(
     val level: Int
 ) {
     /**
-     * Bronze Dagger.
+     * The bronze dagger.
      */
     BRONZE_DAGGER(BarType.BRONZE, SmithingType.TYPE_DAGGER, Items.BRONZE_DAGGER_1205, 1),
 
     /**
-     * Bronze Axe.
+     * The bronze axe.
      */
     BRONZE_AXE(BarType.BRONZE, SmithingType.TYPE_AXE, Items.BRONZE_AXE_1351, 1),
 
     /**
-     * Bronze Mace.
+     * The bronze mace.
      */
     BRONZE_MACE(BarType.BRONZE, SmithingType.TYPE_MACE, Items.BRONZE_MACE_1422, 2),
 
     /**
-     * Bronze Med Helm.
+     * The bronze Med Helm.
      */
     BRONZE_MED_HELM(BarType.BRONZE, SmithingType.TYPE_MEDIUM_HELM, Items.BRONZE_MED_HELM_1139, 3),
 
     /**
-     * Bronze Crossbow Bolt.
+     * The bronze crossbow bolt.
      */
     BRONZE_CROSSBOW_BOLT(BarType.BRONZE, SmithingType.TYPE_CROSSBOW_BOLT, Items.BRONZE_BOLTS_UNF_9375, 3),
 
     /**
-     * Bronze Sword.
+     * The bronze sword.
      */
     BRONZE_SWORD(BarType.BRONZE, SmithingType.TYPE_SWORD, Items.BRONZE_SWORD_1277, 4),
 
     /**
-     * Bronze Dart Tips.
+     * The bronze dart dips.
      */
     BRONZE_DART_TIPS(BarType.BRONZE, SmithingType.TYPE_DART_TIP, Items.BRONZE_DART_TIP_819, 4),
 
     /**
-     * Bronze Nails.
+     * The bronze nails.
      */
     BRONZE_NAILS(BarType.BRONZE, SmithingType.TYPE_NAIL, Items.BRONZE_NAILS_4819, 4),
 
     /**
-     * Bronze Wire.
+     * The bronze wire.
      */
     BRONZE_WIRE(BarType.BRONZE, SmithingType.TYPE_WIRE, Items.BRONZE_WIRE_1794, 4),
 
     /**
-     * Bronze Arrow Tips.
+     * The bronze arrow tips.
      */
     BRONZE_ARROW_TIPS(BarType.BRONZE, SmithingType.TYPE_ARROW_TIP, Items.BRONZE_ARROWTIPS_39, 5),
 
     /**
-     * Bronze Scimitar.
+     * The bronze scimitar.
      */
     BRONZE_SCIMITAR(BarType.BRONZE, SmithingType.TYPE_SCIMITAR, Items.BRONZE_SCIMITAR_1321, 5),
 
     /**
-     * Bronze Crossbow Limbs.
+     * The bronze crossbow limbs.
      */
     BRONZE_CROSSBOW_LIMBS(BarType.BRONZE, SmithingType.TYPE_CROSSBOW_LIMB, Items.BRONZE_LIMBS_9420, 6),
 
     /**
-     * Bronze Longsword.
+     * The bronze longsword.
      */
     BRONZE_LONGSWORD(BarType.BRONZE, SmithingType.TYPE_LONGSWORD, Items.BRONZE_LONGSWORD_1291, 6),
 
     /**
-     * Bronze Throwingknfie.
+     * The bronze throwing knfie.
      */
     BRONZE_THROWINGKNFIE(BarType.BRONZE, SmithingType.TYPE_THROWING_KNIFE, Items.BRONZE_KNIFE_864, 7),
 
     /**
-     * Bronze Full Helm.
+     * The bronze full helm.
      */
     BRONZE_FULL_HELM(BarType.BRONZE, SmithingType.TYPE_FULL_HELM, Items.BRONZE_FULL_HELM_1155, 7),
 
     /**
-     * Bronze Square Shield.
+     * The bronze sq shield.
      */
     BRONZE_SQUARE_SHIELD(BarType.BRONZE, SmithingType.TYPE_SQUARE_SHIELD, Items.BRONZE_SQ_SHIELD_1173, 8),
 
     /**
-     * Bronze War Hammer.
+     * The bronze war hammer.
      */
     BRONZE_WAR_HAMMER(BarType.BRONZE, SmithingType.TYPE_WARHAMMER, Items.BRONZE_WARHAMMER_1337, 9),
 
     /**
-     * Bronze Battleaxe.
+     * The bronze battleaxe.
      */
     BRONZE_BATTLEAXE(BarType.BRONZE, SmithingType.TYPE_BATTLE_AXE, Items.BRONZE_BATTLEAXE_1375, 10),
 
     /**
-     * Bronze Chainbody.
+     * The bronze chainbody.
      */
     BRONZE_CHAINBODY(BarType.BRONZE, SmithingType.TYPE_CHAINBODY, Items.BRONZE_CHAINBODY_1103, 11),
 
     /**
-     * Bronze Kiteshield.
+     * The bronze kiteshield.
      */
     BRONZE_KITESHIELD(BarType.BRONZE, SmithingType.TYPE_KITE_SHIELD, Items.BRONZE_KITESHIELD_1189, 12),
 
     /**
-     * Bronze Claws.
+     * The bronze claws.
      */
     BRONZE_CLAWS(BarType.BRONZE, SmithingType.TYPE_CLAWS, Items.BRONZE_CLAWS_3095, 13),
 
     /**
-     * Bronze Two Handed.
+     * The bronze two-handed sword.
      */
     BRONZE_TWO_HANDED(BarType.BRONZE, SmithingType.TYPE_TWO_HAND_SWORD, Items.BRONZE_2H_SWORD_1307, 14),
 
     /**
-     * Bronze Plate Skirt.
+     * The bronze plateskirt.
      */
     BRONZE_PLATE_SKIRT(BarType.BRONZE, SmithingType.TYPE_PLATE_SKIRT, Items.BRONZE_PLATESKIRT_1087, 16),
 
     /**
-     * Bronze Platelegs.
+     * The bronze platelegs.
      */
     BRONZE_PLATELEGS(BarType.BRONZE, SmithingType.TYPE_Platelegs, Items.BRONZE_PLATELEGS_1075, 16),
 
     /**
-     * Bronze Platebody.
+     * The bronze platebody.
      */
     BRONZE_PLATEBODY(BarType.BRONZE, SmithingType.TYPE_PLATEBODY, Items.BRONZE_PLATEBODY_1117, 18),
 
     /**
-     * Bronze Pickaxe.
+     * The bronze pickaxe.
      */
     BRONZE_PICKAXE(BarType.BRONZE, SmithingType.TYPE_PICKAXE, Items.BRONZE_PICKAXE_1265, 5),
 
     /**
-     * Iron Dagger.
+     * The iron dagger.
      */
     IRON_DAGGER(BarType.IRON, SmithingType.TYPE_DAGGER, Items.IRON_DAGGER_1203, 15),
 
     /**
-     * Iron Axe.
+     * The iron axe.
      */
     IRON_AXE(BarType.IRON, SmithingType.TYPE_AXE, Items.IRON_AXE_1349, 16),
 
     /**
-     * Iron Mace.
+     * The iron mace.
      */
     IRON_MACE(BarType.IRON, SmithingType.TYPE_MACE, Items.IRON_MACE_1420, 17),
 
     /**
-     * Iron Med Helm.
+     * The iron Med Helm.
      */
     IRON_MED_HELM(BarType.IRON, SmithingType.TYPE_MEDIUM_HELM, Items.IRON_MED_HELM_1137, 18),
 
     /**
-     * Iron Bolt.
+     * The iron bolt.
      */
     IRON_BOLT(BarType.IRON, SmithingType.TYPE_CROSSBOW_BOLT, Items.IRON_BOLTS_UNF_9377, 18),
 
     /**
-     * Iron Sword.
+     * The iron sword.
      */
     IRON_SWORD(BarType.IRON, SmithingType.TYPE_SWORD, Items.IRON_SWORD_1279, 19),
 
     /**
-     * Iron Dart Tips.
+     * The iron dart dips.
      */
     IRON_DART_TIPS(BarType.IRON, SmithingType.TYPE_DART_TIP, Items.IRON_DART_TIP_820, 19),
 
     /**
-     * Iron Nails.
+     * The iron nails.
      */
     IRON_NAILS(BarType.IRON, SmithingType.TYPE_NAIL, Items.IRON_NAILS_4820, 19),
 
     /**
-     * Iron Spit.
+     * The iron Spit.
      */
     IRON_SPIT(BarType.IRON, SmithingType.TYPE_SPIT_IRON, Items.IRON_SPIT_7225, 16),
 
     /**
-     * Iron Arrow Tips.
+     * The iron arrow tips.
      */
     IRON_ARROW_TIPS(BarType.IRON, SmithingType.TYPE_ARROW_TIP, Items.IRON_ARROWTIPS_40, 20),
 
     /**
-     * Iron Scimitar.
+     * The iron scimitar.
      */
     IRON_SCIMITAR(BarType.IRON, SmithingType.TYPE_SCIMITAR, Items.IRON_SCIMITAR_1323, 20),
 
     /**
-     * Iron crossbow limbs.
+     * The iron crossbow limbs.
      */
-    IRON_CROSSBOW_LimbS(BarType.IRON, SmithingType.TYPE_CROSSBOW_LIMB, Items.IRON_LIMBS_9423, 23),
+    IRON_CROSSBOW_LIMBS(BarType.IRON, SmithingType.TYPE_CROSSBOW_LIMB, Items.IRON_LIMBS_9423, 23),
 
     /**
-     * Iron Longsword.
+     * The iron longsword.
      */
     IRON_LONGSWORD(BarType.IRON, SmithingType.TYPE_LONGSWORD, Items.IRON_LONGSWORD_1293, 21),
 
     /**
-     * Iron Knife.
+     * The iron knife.
      */
     IRON_KNIFE(BarType.IRON, SmithingType.TYPE_THROWING_KNIFE, Items.IRON_KNIFE_863, 22),
 
     /**
-     * Iron Full Helm.
+     * The iron full helm.
      */
     IRON_FULL_HELM(BarType.IRON, SmithingType.TYPE_FULL_HELM, Items.IRON_FULL_HELM_1153, 22),
 
     /**
-     * Iron Square Shield.
+     * The iron sq shield.
      */
     IRON_SQUARE_SHIELD(BarType.IRON, SmithingType.TYPE_SQUARE_SHIELD, Items.IRON_SQ_SHIELD_1175, 23),
 
     /**
-     * Oil Lantern Frame.
+     * The oil lantern frame.
      */
     OIL_LANTERN_FRAME(BarType.IRON, SmithingType.TYPE_OIL_LANTERN, Items.OIL_LANTERN_FRAME_4540, 26),
 
     /**
-     * Iron Warhammer.
+     * The iron war hammer.
      */
     IRON_WARHAMMER(BarType.IRON, SmithingType.TYPE_WARHAMMER, Items.IRON_WARHAMMER_1335, 24),
 
     /**
-     * Iron Battleaxe.
+     * The iron battleaxe.
      */
     IRON_BATTLEAXE(BarType.IRON, SmithingType.TYPE_BATTLE_AXE, Items.IRON_BATTLEAXE_1363, 25),
 
     /**
-     * Iron Chainbody.
+     * The iron chainbody.
      */
     IRON_CHAINBODY(BarType.IRON, SmithingType.TYPE_CHAINBODY, Items.IRON_CHAINBODY_1101, 26),
 
     /**
-     * Iron Kite Shield.
+     * The iron kiteshield.
      */
     IRON_KITE_SHIELD(BarType.IRON, SmithingType.TYPE_KITE_SHIELD, Items.IRON_KITESHIELD_1191, 27),
 
     /**
-     * Iron Claws.
+     * The iron claws.
      */
     IRON_CLAWS(BarType.IRON, SmithingType.TYPE_CLAWS, Items.IRON_CLAWS_3096, 28),
 
     /**
-     * Iron Two-Handed Sword.
+     * The iron two-handed sword.
      */
     IRON_TWO_HANDED_SWORD(BarType.IRON, SmithingType.TYPE_TWO_HAND_SWORD, Items.IRON_2H_SWORD_1309, 29),
 
     /**
-     * Iron Plateskirt.
+     * The iron plateskirt.
      */
     IRON_PLATESKIRT(BarType.IRON, SmithingType.TYPE_PLATE_SKIRT, Items.IRON_PLATESKIRT_1081, 31),
 
     /**
-     * Iron Platelegs.
+     * The iron platelegs.
      */
     IRON_PLATELEGS(BarType.IRON, SmithingType.TYPE_Platelegs, Items.IRON_PLATELEGS_1067, 31),
 
     /**
-     * Iron Platebody.
+     * The iron platebody.
      */
     IRON_PLATEBODY(BarType.IRON, SmithingType.TYPE_PLATEBODY, Items.IRON_PLATEBODY_1115, 33),
 
     /**
-     * Iron Pickaxe.
+     * The iron pickaxe.
      */
     IRON_PICKAXE(BarType.IRON, SmithingType.TYPE_PICKAXE, Items.IRON_PICKAXE_1267, 20),
 
     /**
-     * Steel Dagger.
+     * The steel dagger.
      */
     STEEL_DAGGER(BarType.STEEL, SmithingType.TYPE_DAGGER, Items.STEEL_DAGGER_1207, 30),
 
     /**
-     * Steel Axe.
+     * The steel axe.
      */
     STEEL_AXE(BarType.STEEL, SmithingType.TYPE_AXE, Items.STEEL_AXE_1353, 31),
 
     /**
-     * Steel Mace.
+     * The steel mace.
      */
     STEEL_MACE(BarType.STEEL, SmithingType.TYPE_MACE, Items.STEEL_MACE_1424, 32),
 
     /**
-     * Steel Med Helm.
+     * The steel med helm.
      */
     STEEL_MED_HELM(BarType.STEEL, SmithingType.TYPE_MEDIUM_HELM, Items.STEEL_MED_HELM_1141, 33),
 
     /**
-     * Steel Crossbow Bolt.
+     * The steel crossbow bolt.
      */
     STEEL_CROSSBOW_BOLT(BarType.STEEL, SmithingType.TYPE_CROSSBOW_BOLT, Items.STEEL_BOLTS_UNF_9378, 33),
 
     /**
-     * Steel Sword.
+     * The steel sword.
      */
     STEEL_SWORD(BarType.STEEL, SmithingType.TYPE_SWORD, Items.STEEL_SWORD_1281, 34),
 
     /**
-     * Steel Dart Tips.
+     * The steel dart dips.
      */
     STEEL_DART_TIPS(BarType.STEEL, SmithingType.TYPE_DART_TIP, Items.STEEL_DART_TIP_821, 34),
 
     /**
-     * Steel Nails.
+     * The steel nails.
      */
     STEEL_NAILS(BarType.STEEL, SmithingType.TYPE_NAIL, Items.STEEL_NAILS_1539, 34),
 
     /**
-     * Steel Arrow Tips.
+     * The steel arrow tips.
      */
     STEEL_ARROW_TIPS(BarType.STEEL, SmithingType.TYPE_ARROW_TIP, Items.STEEL_ARROWTIPS_41, 35),
 
     /**
-     * Steel Scimitar.
+     * The steel scimitar.
      */
     STEEL_SCIMITAR(BarType.STEEL, SmithingType.TYPE_SCIMITAR, Items.STEEL_SCIMITAR_1325, 35),
 
     /**
-     * Steel Crossbow Limbs.
+     * The steel crossbow limbs.
      */
     STEEL_CROSSBOW_LIMBS(BarType.STEEL, SmithingType.TYPE_CROSSBOW_LIMB, Items.STEEL_LIMBS_9425, 36),
 
     /**
-     * Steel Longsword.
+     * The steel longsword.
      */
     STEEL_LONGSWORD(BarType.STEEL, SmithingType.TYPE_LONGSWORD, Items.STEEL_LONGSWORD_1295, 36),
 
     /**
-     * Steel Throwing Knife.
+     * The steel throwing knife.
      */
     STEEL_THROWING_KNIFE(BarType.STEEL, SmithingType.TYPE_THROWING_KNIFE, Items.STEEL_KNIFE_865, 37),
 
     /**
-     * Steel Full Helm.
+     * The steel full helm.
      */
     STEEL_FULL_HELM(BarType.STEEL, SmithingType.TYPE_FULL_HELM, Items.STEEL_FULL_HELM_1157, 37),
 
     /**
-     * Steel Studs.
+     * The steel studs.
      */
     STEEL_STUDS(BarType.STEEL, SmithingType.TYPE_STUDS, Items.STEEL_STUDS_2370, 36),
 
     /**
-     * Steel Square Shield
-     *
-     * @constructor Steel Square Shield
+     * The steel sq shield.
      */
     STEEL_SQUARE_SHIELD(BarType.STEEL, SmithingType.TYPE_SQUARE_SHIELD, Items.STEEL_SQ_SHIELD_1177, 38),
 
     /**
-     * Steel Lantern.
+     * The steel lantern.
      */
     STEEL_LANTERN(BarType.STEEL, SmithingType.TYPE_LANTERN, Items.CANDLE_LANTERN_4527, 49),
 
     /**
-     * Steel Bullseye.
+     * The steel bullseye.
      */
     STEEL_BULLSEYE(BarType.STEEL, SmithingType.TYPE_BULLSEYE, Items.BULLSEYE_LANTERN_4544, 49),
 
     /**
-     * Steel Warhammer.
+     * The steel war hammer.
      */
     STEEL_WARHAMMER(BarType.STEEL, SmithingType.TYPE_WARHAMMER, Items.STEEL_WARHAMMER_1339, 39),
 
     /**
-     * Steel Battle Axe.
+     * The steel battleaxe.
      */
     STEEL_BATTLE_AXE(BarType.STEEL, SmithingType.TYPE_BATTLE_AXE, Items.STEEL_BATTLEAXE_1365, 40),
 
     /**
-     * Steel Chainbody.
+     * The steel chainbody.
      */
     STEEL_CHAINBODY(BarType.STEEL, SmithingType.TYPE_CHAINBODY, Items.STEEL_CHAINBODY_1105, 41),
 
     /**
-     * Steel Kite Shield.
+     * The steel kiteshield.
      */
     STEEL_KITE_SHIELD(BarType.STEEL, SmithingType.TYPE_KITE_SHIELD, Items.STEEL_KITESHIELD_1193, 42),
 
     /**
-     * Steel Claws.
+     * The steel claws.
      */
     STEEL_CLAWS(BarType.STEEL, SmithingType.TYPE_CLAWS, Items.STEEL_CLAWS_3097, 43),
 
     /**
-     * Steel Two Handed Sword.
+     * The steel two-handed sword.
      */
     STEEL_TWO_HANDED_SWORD(BarType.STEEL, SmithingType.TYPE_TWO_HAND_SWORD, Items.STEEL_2H_SWORD_1311, 44),
 
     /**
-     * Steel Plate Skirt.
+     * The steel plateskirt.
      */
     STEEL_PLATE_SKIRT(BarType.STEEL, SmithingType.TYPE_PLATE_SKIRT, Items.STEEL_PLATESKIRT_1083, 46),
 
     /**
-     * Steel Platelegs.
+     * The steel platelegs.
      */
     STEEL_PLATELEGS(BarType.STEEL, SmithingType.TYPE_Platelegs, Items.STEEL_PLATELEGS_1069, 46),
 
     /**
-     * Steel Platebody.
+     * The steel platebody.
      */
     STEEL_PLATEBODY(BarType.STEEL, SmithingType.TYPE_PLATEBODY, Items.STEEL_PLATEBODY_1119, 48),
 
     /**
-     * Steel Pickaxe.
+     * The steel pickaxe.
      */
     STEEL_PICKAXE(BarType.STEEL, SmithingType.TYPE_PICKAXE, Items.STEEL_PICKAXE_1269, 35),
 
     /**
-     * Blurite Crossbow Bolt.
+     * The blurite crossbow bolt.
      */
     BLURITE_CROSSBOW_BOLT(BarType.BLURITE, SmithingType.TYPE_Crossbow_Bolt, Items.BLURITE_BOLTS_UNF_9376, 8),
 
     /**
-     * Blurite Crossbow Limbs.
+     * The blurite crossbow limbs.
      */
     BLURITE_CROSSBOW_LIMBS(BarType.BLURITE, SmithingType.TYPE_Crossbow_Limb, Items.BLURITE_LIMBS_9422, 13),
 
     /**
-     * Mithril Dagger.
+     * The mithril dagger.
      */
     MITHRIL_DAGGER(BarType.MITHRIL, SmithingType.TYPE_DAGGER, Items.MITHRIL_DAGGER_1209, 50),
 
     /**
-     * Mithril Hatchet.
+     * The mithril axe.
      */
-    MITHRIL_HATCHET(BarType.MITHRIL, SmithingType.TYPE_AXE, Items.MITHRIL_AXE_1355, 51),
+    MITHRIL_AXE(BarType.MITHRIL, SmithingType.TYPE_AXE, Items.MITHRIL_AXE_1355, 51),
 
     /**
-     * Mithril Mace.
+     * The mithril mace.
      */
     MITHRIL_MACE(BarType.MITHRIL, SmithingType.TYPE_MACE, Items.MITHRIL_MACE_1428, 52),
 
     /**
-     * Mithril Med Helm.
+     * The mithril Med Helm.
      */
     MITHRIL_MED_HELM(BarType.MITHRIL, SmithingType.TYPE_MEDIUM_HELM, Items.MITHRIL_MED_HELM_1143, 53),
 
     /**
-     * Mithril Crossbow Bolt.
+     * The mithril crossbow bolt.
      */
     MITHRIL_CROSSBOW_BOLT(BarType.MITHRIL, SmithingType.TYPE_CROSSBOW_BOLT, Items.MITHRIL_BOLTS_UNF_9379, 53),
 
     /**
-     * Mithril Sword.
+     * The mithril sword.
      */
     MITHRIL_SWORD(BarType.MITHRIL, SmithingType.TYPE_SWORD, Items.MITHRIL_SWORD_1285, 54),
 
     /**
-     * Mithril Dart Tips.
+     * The mithril dart dips.
      */
     MITHRIL_DART_TIPS(BarType.MITHRIL, SmithingType.TYPE_DART_TIP, Items.MITHRIL_DART_TIP_822, 54),
 
     /**
-     * Mithril Nails.
+     * The mithril nails.
      */
     MITHRIL_NAILS(BarType.MITHRIL, SmithingType.TYPE_NAIL, Items.MITHRIL_NAILS_4822, 54),
 
     /**
-     * Mithril Arrow Tips.
+     * The mithril arrow tips.
      */
     MITHRIL_ARROW_TIPS(BarType.MITHRIL, SmithingType.TYPE_ARROW_TIP, Items.MITHRIL_ARROWTIPS_42, 55),
 
     /**
-     * Mithril Scimitar.
+     * The mithril scimitar.
      */
     MITHRIL_SCIMITAR(BarType.MITHRIL, SmithingType.TYPE_SCIMITAR, Items.MITHRIL_SCIMITAR_1329, 55),
 
     /**
-     * Mithril Crossbow Limbs.
+     * The mithril crossbow limbs.
      */
     MITHRIL_CROSSBOW_LIMBS(BarType.MITHRIL, SmithingType.TYPE_CROSSBOW_LIMB, Items.MITHRIL_LIMBS_9427, 56),
 
     /**
-     * Mithril Longsword.
+     * The mithril longsword.
      */
     MITHRIL_LONGSWORD(BarType.MITHRIL, SmithingType.TYPE_LONGSWORD, Items.MITHRIL_LONGSWORD_1299, 56),
 
     /**
-     * Mithril Knife.
+     * The mithril knife.
      */
     MITHRIL_KNIFE(BarType.MITHRIL, SmithingType.TYPE_THROWING_KNIFE, Items.MITHRIL_KNIFE_866, 57),
 
     /**
-     * Mithril Full Helm.
+     * The mithril full helm.
      */
     MITHRIL_FULL_HELM(BarType.MITHRIL, SmithingType.TYPE_FULL_HELM, Items.MITHRIL_FULL_HELM_1159, 57),
 
     /**
-     * Mithril Square Shield.
+     * The mithril sq shield.
      */
     MITHRIL_SQUARE_SHIELD(BarType.MITHRIL, SmithingType.TYPE_SQUARE_SHIELD, Items.MITHRIL_SQ_SHIELD_1181, 58),
 
     /**
-     * Mithril Grapple Tips.
+     * The mithril Grapple Tips.
      */
     MITHRIL_GRAPPLE_TIPS(BarType.MITHRIL, SmithingType.TYPE_GRAPPLE_TIP, Items.MITH_GRAPPLE_TIP_9416, 59),
 
     /**
-     * Mithril Warhammer.
+     * The mithril war hammer.
      */
     MITHRIL_WARHAMMER(BarType.MITHRIL, SmithingType.TYPE_WARHAMMER, Items.MITHRIL_WARHAMMER_1343, 59),
 
     /**
-     * Mithril Battleaxe.
+     * The mithril battleaxe.
      */
     MITHRIL_BATTLEAXE(BarType.MITHRIL, SmithingType.TYPE_BATTLE_AXE, Items.MITHRIL_BATTLEAXE_1369, 60),
 
     /**
-     * Mithril Chainbody.
+     * The mithril chainbody.
      */
     MITHRIL_CHAINBODY(BarType.MITHRIL, SmithingType.TYPE_CHAINBODY, Items.MITHRIL_CHAINBODY_1109, 61),
 
     /**
-     * Mithril Kite Shield.
+     * The mithril kiteshield.
      */
     MITHRIL_KITE_SHIELD(BarType.MITHRIL, SmithingType.TYPE_KITE_SHIELD, Items.MITHRIL_KITESHIELD_1197, 62),
 
     /**
-     * Mithril Claws.
+     * The mithril claws.
      */
     MITHRIL_CLAWS(BarType.MITHRIL, SmithingType.TYPE_CLAWS, Items.MITHRIL_CLAWS_3099, 63),
 
     /**
-     * Mithril Two Handed Sword.
+     * The mithril two-handed sword.
      */
     MITHRIL_TWO_HANDED_SWORD(BarType.MITHRIL, SmithingType.TYPE_TWO_HAND_SWORD, Items.MITHRIL_2H_SWORD_1315, 64),
 
     /**
-     * Mithril Plateskirt.
+     * The mithril plateskirt.
      */
     MITHRIL_PLATESKIRT(BarType.MITHRIL, SmithingType.TYPE_PLATE_SKIRT, Items.MITHRIL_PLATESKIRT_1085, 66),
 
     /**
-     * Mithril Platelegs.
+     * The mithril platelegs.
      */
     MITHRIL_PLATELEGS(BarType.MITHRIL, SmithingType.TYPE_Platelegs, Items.MITHRIL_PLATELEGS_1071, 66),
 
     /**
-     * Mithril Platebody.
+     * The mithril platebody.
      */
     MITHRIL_PLATEBODY(BarType.MITHRIL, SmithingType.TYPE_PLATEBODY, Items.MITHRIL_PLATEBODY_1121, 68),
 
     /**
-     * Mithril Pickaxe.
+     * The mithril pickaxe.
      */
     MITHRIL_PICKAXE(BarType.MITHRIL, SmithingType.TYPE_PICKAXE, Items.MITHRIL_PICKAXE_1273, 55),
 
     /**
-     * Adamant Dagger.
+     * The adamant dagger.
      */
     ADAMANT_DAGGER(BarType.ADAMANT, SmithingType.TYPE_DAGGER, Items.ADAMANT_DAGGER_1211, 70),
 
     /**
-     * Adamant Axe.
+     * The adamant axe.
      */
     ADAMANT_AXE(BarType.ADAMANT, SmithingType.TYPE_AXE, Items.ADAMANT_AXE_1357, 71),
 
     /**
-     * Adamant Mace.
+     * The adamant mace.
      */
     ADAMANT_MACE(BarType.ADAMANT, SmithingType.TYPE_MACE, Items.ADAMANT_MACE_1430, 72),
 
     /**
-     * Adamant Medium Helm.
+     * The adamant med helm.
      */
     ADAMANT_MEDIUM_HELM(BarType.ADAMANT, SmithingType.TYPE_MEDIUM_HELM, Items.ADAMANT_MED_HELM_1145, 73),
 
     /**
-     * Adamant Bolt.
+     * The adamant bolt.
      */
     ADAMANT_BOLT(BarType.ADAMANT, SmithingType.TYPE_CROSSBOW_BOLT, Items.ADAMANT_BOLTS_UNF_9380, 73),
 
     /**
-     * Adamant Sword.
+     * The adamant sword.
      */
     ADAMANT_SWORD(BarType.ADAMANT, SmithingType.TYPE_SWORD, Items.ADAMANT_SWORD_1287, 74),
 
     /**
-     * Adamant Dart Tips.
+     * The adamant dart dips.
      */
     ADAMANT_DART_TIPS(BarType.ADAMANT, SmithingType.TYPE_DART_TIP, Items.ADAMANT_DART_TIP_823, 74),
 
     /**
-     * Adamant Nails.
+     * The adamant nails.
      */
     ADAMANT_NAILS(BarType.ADAMANT, SmithingType.TYPE_NAIL, Items.ADAMANTITE_NAILS_4823, 74),
 
     /**
-     * Adamant Arrow Tips.
+     * The adamant arrow tips.
      */
     ADAMANT_ARROW_TIPS(BarType.ADAMANT, SmithingType.TYPE_ARROW_TIP, Items.ADAMANT_ARROWTIPS_43, 75),
 
     /**
-     * Adamant Scimitar.
+     * The adamant scimitar.
      */
     ADAMANT_SCIMITAR(BarType.ADAMANT, SmithingType.TYPE_SCIMITAR, Items.ADAMANT_SCIMITAR_1331, 75),
 
     /**
-     * Adamant Limbs.
+     * The adamant limbs.
      */
     ADAMANT_LIMBS(BarType.ADAMANT, SmithingType.TYPE_CROSSBOW_LIMB, Items.ADAMANTITE_LIMBS_9429, 76),
 
     /**
-     * Adamant Longsword.
+     * The adamant longsword.
      */
     ADAMANT_LONGSWORD(BarType.ADAMANT, SmithingType.TYPE_LONGSWORD, Items.ADAMANT_LONGSWORD_1301, 76),
 
     /**
-     * Adamant Knife.
+     * The adamant knife.
      */
     ADAMANT_KNIFE(BarType.ADAMANT, SmithingType.TYPE_THROWING_KNIFE, Items.ADAMANT_KNIFE_867, 77),
 
     /**
-     * Adamant Full Helm.
+     * The adamant full helm.
      */
     ADAMANT_FULL_HELM(BarType.ADAMANT, SmithingType.TYPE_FULL_HELM, Items.ADAMANT_FULL_HELM_1161, 77),
 
     /**
-     * Adamant Square Shield.
+     * The adamant sq shield.
      */
     ADAMANT_SQUARE_SHIELD(BarType.ADAMANT, SmithingType.TYPE_SQUARE_SHIELD, Items.ADAMANT_SQ_SHIELD_1183, 78),
 
     /**
-     * Adamant Warhammer.
+     * The adamant war hammer.
      */
     ADAMANT_WARHAMMER(BarType.ADAMANT, SmithingType.TYPE_WARHAMMER, Items.ADAMANT_WARHAMMER_1345, 79),
 
     /**
-     * Adamant Battleaxe.
+     * The adamant battleaxe.
      */
     ADAMANT_BATTLEAXE(BarType.ADAMANT, SmithingType.TYPE_BATTLE_AXE, Items.ADAMANT_BATTLEAXE_1371, 80),
 
     /**
-     * Adamant Chainbody.
+     * The adamant chainbody.
      */
     ADAMANT_CHAINBODY(BarType.ADAMANT, SmithingType.TYPE_CHAINBODY, Items.ADAMANT_CHAINBODY_1111, 81),
 
     /**
-     * Adamant Kiteshield.
+     * The adamant kiteshield.
      */
     ADAMANT_KITESHIELD(BarType.ADAMANT, SmithingType.TYPE_KITE_SHIELD, Items.ADAMANT_KITESHIELD_1199, 82),
 
     /**
-     * Adamant Claws.
+     * The adamant claws.
      */
     ADAMANT_CLAWS(BarType.ADAMANT, SmithingType.TYPE_CLAWS, Items.ADAMANT_CLAWS_3100, 83),
 
     /**
-     * Adamant Two-Handed Sword.
+     * The adamant two-handed sword.
      */
     ADAMANT_TWO_HANDED_SWORD(BarType.ADAMANT, SmithingType.TYPE_TWO_HAND_SWORD, Items.ADAMANT_2H_SWORD_1317, 84),
 
     /**
-     * Adamant Plate Skirt.
+     * The adamant plateskirt.
      */
     ADAMANT_PLATE_SKIRT(BarType.ADAMANT, SmithingType.TYPE_PLATE_SKIRT, Items.ADAMANT_PLATESKIRT_1091, 86),
 
     /**
-     * Adamant Plate Legs.
+     * The adamant platelegs.
      */
     ADAMANT_PLATE_LEGS(BarType.ADAMANT, SmithingType.TYPE_Platelegs, Items.ADAMANT_PLATELEGS_1073, 86),
 
     /**
-     * Adamant Plate Body.
+     * The adamant platebody.
      */
     ADAMANT_PLATE_BODY(BarType.ADAMANT, SmithingType.TYPE_PLATEBODY, Items.ADAMANT_PLATEBODY_1123, 88),
 
     /**
-     * Adamant Pickaxe.
+     * The adamant pickaxe.
      */
     ADAMANT_PICKAXE(BarType.ADAMANT, SmithingType.TYPE_PICKAXE, Items.ADAMANT_PICKAXE_1271, 75),
 
     /**
-     * Rune Dagger.
+     * Rune dagger.
      */
     RUNE_DAGGER(BarType.RUNITE, SmithingType.TYPE_DAGGER, Items.RUNE_DAGGER_1213, 85),
 
     /**
-     * Runite Axe.
+     * The runite axe.
      */
     RUNITE_AXE(BarType.RUNITE, SmithingType.TYPE_AXE, Items.RUNE_AXE_1359, 86),
 
     /**
-     * Runite Mace.
+     * The runite mace.
      */
     RUNITE_MACE(BarType.RUNITE, SmithingType.TYPE_MACE, Items.RUNE_MACE_1432, 87),
 
     /**
-     * Runite Medium Helm.
+     * The runite med helm.
      */
     RUNITE_MEDIUM_HELM(BarType.RUNITE, SmithingType.TYPE_MEDIUM_HELM, Items.RUNE_MED_HELM_1147, 88),
 
     /**
-     * Runite Bolt.
+     * The runite bolt.
      */
     RUNITE_BOLT(BarType.RUNITE, SmithingType.TYPE_CROSSBOW_BOLT, Items.RUNITE_BOLTS_UNF_9381, 88),
 
     /**
-     * Runite Sword.
+     * The runite sword.
      */
     RUNITE_SWORD(BarType.RUNITE, SmithingType.TYPE_SWORD, Items.RUNE_SWORD_1289, 89),
 
     /**
-     * Runite Dart Tips.
+     * The runite dart dips.
      */
     RUNITE_DART_TIPS(BarType.RUNITE, SmithingType.TYPE_DART_TIP, Items.RUNE_DART_TIP_824, 89),
 
     /**
-     * Runite Nails.
+     * The runite nails.
      */
     RUNITE_NAILS(BarType.RUNITE, SmithingType.TYPE_NAIL, Items.RUNE_NAILS_4824, 89),
 
     /**
-     * Runite Arrow Tips.
+     * The runite arrow tips.
      */
     RUNITE_ARROW_TIPS(BarType.RUNITE, SmithingType.TYPE_ARROW_TIP, Items.RUNE_ARROWTIPS_44, 90),
 
     /**
-     * Runite Scimitar.
+     * The runite scimitar.
      */
     RUNITE_SCIMITAR(BarType.RUNITE, SmithingType.TYPE_SCIMITAR, Items.RUNE_SCIMITAR_1333, 90),
 
     /**
-     * Runite Limbs.
+     * The runite limbs.
      */
     RUNITE_LIMBS(BarType.RUNITE, SmithingType.TYPE_CROSSBOW_LIMB, Items.RUNITE_LIMBS_9431, 91),
 
     /**
-     * Runite Longsword.
+     * The runite longsword.
      */
     RUNITE_LONGSWORD(BarType.RUNITE, SmithingType.TYPE_LONGSWORD, Items.RUNE_LONGSWORD_1303, 91),
 
     /**
-     * Runite Knife.
+     * The runite knife.
      */
     RUNITE_KNIFE(BarType.RUNITE, SmithingType.TYPE_THROWING_KNIFE, Items.RUNE_KNIFE_868, 92),
 
     /**
-     * Runite Full Helm.
+     * The runite full helm.
      */
     RUNITE_FULL_HELM(BarType.RUNITE, SmithingType.TYPE_FULL_HELM, Items.RUNE_FULL_HELM_1163, 92),
 
     /**
-     * Runite Square Shield.
+     * The runite sq shield.
      */
     RUNITE_SQUARE_SHIELD(BarType.RUNITE, SmithingType.TYPE_SQUARE_SHIELD, Items.RUNE_SQ_SHIELD_1185, 93),
 
     /**
-     * Runite Warhammer.
+     * The runite war hammer.
      */
     RUNITE_WARHAMMER(BarType.RUNITE, SmithingType.TYPE_WARHAMMER, Items.RUNE_WARHAMMER_1347, 94),
 
     /**
-     * Runite Battleaxe.
+     * The runite battleaxe.
      */
     RUNITE_BATTLEAXE(BarType.RUNITE, SmithingType.TYPE_BATTLE_AXE, Items.RUNE_BATTLEAXE_1373, 95),
 
     /**
-     * Runite Chainbody.
+     * The runite chainbody.
      */
     RUNITE_CHAINBODY(BarType.RUNITE, SmithingType.TYPE_CHAINBODY, Items.RUNE_CHAINBODY_1113, 96),
 
     /**
-     * Runite Kiteshield.
+     * The runite kiteshield.
      */
     RUNITE_KITESHIELD(BarType.RUNITE, SmithingType.TYPE_KITE_SHIELD, Items.RUNE_KITESHIELD_1201, 97),
 
     /**
-     * Runite Claws.
+     * The runite claws.
      */
     RUNITE_CLAWS(BarType.RUNITE, SmithingType.TYPE_CLAWS, Items.RUNE_CLAWS_3101, 98),
 
     /**
-     * Runite Two-Handed Sword.
+     * The runite two-handed sword.
      */
     RUNITE_TWO_HANDED_SWORD(BarType.RUNITE, SmithingType.TYPE_TWO_HAND_SWORD, Items.RUNE_2H_SWORD_1319, 99),
 
     /**
-     * Runite Plate Skirt.
+     * The runite plateskirt.
      */
     RUNITE_PLATE_SKIRT(BarType.RUNITE, SmithingType.TYPE_PLATE_SKIRT, Items.RUNE_PLATESKIRT_1093, 99),
 
     /**
-     * Runite Plate Legs.
+     * The runite platelegs.
      */
     RUNITE_PLATE_LEGS(BarType.RUNITE, SmithingType.TYPE_Platelegs, Items.RUNE_PLATELEGS_1079, 99),
 
     /**
-     * Runite Plate Body.
+     * The runite platebody.
      */
     RUNITE_PLATE_BODY(BarType.RUNITE, SmithingType.TYPE_PLATEBODY, Items.RUNE_PLATEBODY_1127, 99),
 
     /**
-     * Runite Pickaxe.
+     * The runite pickaxe.
      */
     RUNITE_PICKAXE(BarType.RUNITE, SmithingType.TYPE_PICKAXE, Items.RUNE_PICKAXE_1275, 90);
 
     companion object {
         private val bars: MutableMap<Short, Bars> = HashMap()
+
+        /**
+         * Gets a bar by an item id.
+         *
+         * @param item The item id.
+         * @return The bar or `null` if the object is not a bar.
+         */
         fun forId(item: Int): Bars? {
             for (bar in values()) {
                 if (bar.product == item) {
@@ -821,6 +826,9 @@ enum class Bars(
             return null
         }
 
+        /**
+         * Populates the bar mapping.
+         */
         init {
             for (bar in values()) {
                 bars[bar.product.toShort()] = bar

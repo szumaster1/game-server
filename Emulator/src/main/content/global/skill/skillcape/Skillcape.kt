@@ -1,7 +1,7 @@
 package content.global.skill.skillcape
 
 /**
- * Skillcape.
+ * Represents the skillcape.
  */
 enum class Skillcape {
     /**
@@ -131,10 +131,10 @@ enum class Skillcape {
 
     companion object {
         /**
-         * Function to retrieve a skillcape by its identifier.
+         * Function to retrieve a [Skillcape] by id.
          *
          * @param id the item id.
-         * @return The player cape with the provided id, or null if not found.
+         * @return The player cape with the provided id, or `null` if not found.
          */
         fun forId(id: Int): Skillcape {
             return when (id) {

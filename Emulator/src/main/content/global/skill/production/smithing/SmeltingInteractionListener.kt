@@ -16,7 +16,7 @@ import core.game.world.GameWorld
 import core.game.world.update.flag.context.Animation
 
 /**
- * Smelting interaction listener.
+ * Handles the smelting interactions.
  */
 class SmeltingInteractionListener : InteractionListener {
 

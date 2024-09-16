@@ -11,7 +11,6 @@ import core.game.interaction.InteractionListener
 import core.game.node.Node
 import core.game.node.entity.player.Player
 import core.game.node.item.Item
-import core.game.node.scenery.Scenery
 import core.game.system.task.Pulse
 import core.game.world.update.flag.context.Animation
 
@@ -24,12 +23,22 @@ class MysteriousRuinListeners : InteractionListener {
     private val allowedUsed = arrayOf(1438, 1448, 1444, 1440, 1442, 5516, 1446, 1454, 1452, 1462, 1458, 1456, 1450, 1460).toIntArray()
     private val allowedWith = allRuins()
     private val talismanStaff = Staff.values().map { it.item.id }.toIntArray()
-    private val nothingInteresting = "Nothing interesting happens"
+    private val nothingInteresting = "Nothing interesting happens."
 
     override fun defineListeners() {
+
+        /*
+         * Handles use talisman to enter the altar.
+         */
+
         onUseWith(IntType.SCENERY, allowedUsed, *allowedWith) { player, used, with ->
             return@onUseWith handleTalisman(player, used, with)
         }
+
+        /*
+         * Handles enter the altar with tiara or staff equip.
+         */
+
         on(allowedWith, IntType.SCENERY, "enter", "search") { player, node ->
             if (anyInEquipment(player, *talismanStaff)) {
                 handleStaff(player, node)
@@ -43,12 +52,12 @@ class MysteriousRuinListeners : InteractionListener {
     private fun allRuins(): IntArray {
         return MysteriousRuin
             .values()
-            .flatMap { ruins -> ruins.scenery.asList() }
+            .flatMap { ruins -> ruins.`object`.asList() }
             .toIntArray()
     }
 
     private fun handleTalisman(player: Player, used: Node, with: Node): Boolean {
-        val ruin = MysteriousRuin.forScenery(with.asScenery())
+        val ruin = MysteriousRuin.forObject(with.asScenery())
         if (!checkQuestCompletion(player, ruin!!)) {
             return true
         }
@@ -67,41 +76,40 @@ class MysteriousRuinListeners : InteractionListener {
         return true
     }
 
-    private fun handleStaff(player: Player, node: Node): Boolean {
-        val ruin = node as Scenery
-        val ruinId = MysteriousRuin.forScenery(ruin)
 
-        if (!checkQuestCompletion(player, ruinId!!)) {
+    private fun handleStaff(player: Player, node: Node): Boolean {
+        val ruin = MysteriousRuin.forObject(node.asScenery())
+
+        if (!checkQuestCompletion(player, ruin!!)) {
             return true
         }
 
-        submitTeleportPulse(player, ruinId, 0)
+        submitTeleportPulse(player, ruin, 0)
         return true
     }
 
     private fun handleTiara(player: Player, node: Node): Boolean {
-        val ruin = node as Scenery
-        val ruinId = MysteriousRuin.forScenery(ruin)
+        val ruin = MysteriousRuin.forObject(node.asScenery())
 
-        if (!checkQuestCompletion(player, ruinId!!)) {
+        if (!checkQuestCompletion(player, ruin!!)) {
             return true
         }
 
         val tiara = Tiara.forItem(player.equipment.get(SLOT_HAT))
-        if (tiara != ruinId.tiara) {
+        if (tiara != ruin.tiara) {
             sendMessage(player, nothingInteresting)
             return false
         }
 
-        submitTeleportPulse(player, ruinId, 0)
+        submitTeleportPulse(player, ruin, 0)
         return true
     }
 
     private fun checkQuestCompletion(player: Player, ruin: MysteriousRuin): Boolean {
         return when (ruin) {
-            MysteriousRuin.DEATH -> hasRequirement(player, "Mourning's End Part II", true)
-            MysteriousRuin.BLOOD -> hasRequirement(player, "Legacy of Seergaze", true)
-            else -> isQuestComplete(player, "Rune Mysteries")
+            MysteriousRuin.DEATH -> hasRequirement(player, QuestReq(QuestRequirements.MEP_2), true)
+            MysteriousRuin.BLOOD -> hasRequirement(player, QuestReq(QuestRequirements.SEERGAZE), true)
+            else -> hasRequirement(player, QuestReq(QuestRequirements.RUNE_MYSTERIES), true)
         }
     }
 

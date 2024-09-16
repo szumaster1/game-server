@@ -1,25 +1,18 @@
 package content.global.skill.production.runecrafting.data
 
 import cfg.consts.Items
-import core.api.sendMessage
 import core.game.node.entity.player.Player
 import core.game.node.item.Item
 
 /**
- * Talisman
+ * Represents a talisman.
  *
- * @param talisman Represents the item associated with the talisman.
- * @param ruin Represents an optional mysterious ruin associated with the talisman.
- * @constructor Talisman Represents a new instance of the Talisman enum class.
+ * @param talisman      the talisman item.
+ * @param ruin          the mysterious ruin.
  */
-enum class Talisman(
-    val talisman: Item, // The item that this talisman represents
-    private val ruin: MysteriousRuin? // An optional mysterious ruin that may be linked to this talisman
-) {
+enum class Talisman(val talisman: Item, private val ruin: MysteriousRuin?) {
     /**
-     * Air
-     *
-     * @constructor Air
+     * The air talisman.
      */
     AIR(
         talisman = Item(Items.AIR_TALISMAN_1438),
@@ -27,9 +20,7 @@ enum class Talisman(
     ),
 
     /**
-     * Mind
-     *
-     * @constructor Mind
+     * The mind talisman.
      */
     MIND(
         talisman = Item(Items.MIND_TALISMAN_1448),
@@ -37,9 +28,7 @@ enum class Talisman(
     ),
 
     /**
-     * Water
-     *
-     * @constructor Water
+     * The water talisman.
      */
     WATER(
         talisman = Item(Items.WATER_TALISMAN_1444),
@@ -47,9 +36,7 @@ enum class Talisman(
     ),
 
     /**
-     * Earth
-     *
-     * @constructor Earth
+     * The earth talisman.
      */
     EARTH(
         talisman = Item(Items.EARTH_TALISMAN_1440),
@@ -57,9 +44,7 @@ enum class Talisman(
     ),
 
     /**
-     * Fire
-     *
-     * @constructor Fire
+     * The fire talisman.
      */
     FIRE(
         talisman = Item(Items.FIRE_TALISMAN_1442),
@@ -67,9 +52,7 @@ enum class Talisman(
     ),
 
     /**
-     * Elemental
-     *
-     * @constructor Elemental
+     * The elemental talisman.
      */
     ELEMENTAL(
         talisman = Item(Items.ELEMENTAL_TALISMAN_5516),
@@ -77,9 +60,7 @@ enum class Talisman(
     ),
 
     /**
-     * Body
-     *
-     * @constructor Body
+     * The body talisman.
      */
     BODY(
         talisman = Item(Items.BODY_TALISMAN_1446),
@@ -87,9 +68,7 @@ enum class Talisman(
     ),
 
     /**
-     * Cosmic
-     *
-     * @constructor Cosmic
+     * The cosmic talisman.
      */
     COSMIC(
         talisman = Item(Items.COSMIC_TALISMAN_1454),
@@ -97,9 +76,7 @@ enum class Talisman(
     ),
 
     /**
-     * Chaos
-     *
-     * @constructor Chaos
+     * The chaos talisman.
      */
     CHAOS(
         talisman = Item(Items.CHAOS_TALISMAN_1452),
@@ -107,9 +84,7 @@ enum class Talisman(
     ),
 
     /**
-     * Nature
-     *
-     * @constructor Nature
+     * The nature talisman.
      */
     NATURE(
         talisman = Item(Items.NATURE_TALISMAN_1462),
@@ -117,9 +92,7 @@ enum class Talisman(
     ),
 
     /**
-     * Law
-     *
-     * @constructor Law
+     * The law talisman.
      */
     LAW(
         talisman = Item(Items.LAW_TALISMAN_1458),
@@ -127,9 +100,7 @@ enum class Talisman(
     ),
 
     /**
-     * Death
-     *
-     * @constructor Death
+     * The death talisman.
      */
     DEATH(
         talisman = Item(Items.DEATH_TALISMAN_1456),
@@ -137,66 +108,101 @@ enum class Talisman(
     ),
 
     /**
-     * Blood
-     *
-     * @constructor Blood
+     * The blood talisman.
      */
     BLOOD(
         talisman = Item(Items.BLOOD_TALISMAN_1450),
         ruin = MysteriousRuin.BLOOD
+    ),
+
+    /**
+     * The soul talisman.
+     */
+    SOUL(
+        talisman = Item(Items.SOUL_TALISMAN_1460),
+        ruin = null
     );
 
     /**
-     * Locate
-     *
-     * @param player
+     * Method used to locate a ruin.
      */
     fun locate(player: Player) {
-        if (this == ELEMENTAL || ruin == null) {
-            sendMessage(player, "You cannot tell which direction the Talisman is pulling...")
+        if (this == ELEMENTAL || getRuin() == null) {
+            player.packetDispatch.sendMessage("You cannot tell which direction the Talisman is pulling...")
             return
         }
-        val loc = ruin.base
-        val direction = when {
-            player.location.y > loc.y && player.location.x - 1 > loc.x -> "south-west"
-            player.location.x < loc.x && player.location.y > loc.y -> "south-east"
-            player.location.x > loc.x + 1 && player.location.y < loc.y -> "north-west"
-            player.location.x < loc.x && player.location.y < loc.y -> "north-east"
-            player.location.y < loc.y -> "north"
-            player.location.y > loc.y -> "south"
-            player.location.x < loc.x + 1 -> "east"
-            player.location.x > loc.x + 1 -> "west"
-            else -> ""
-        }
-        sendMessage(player, "The talisman pulls towards the $direction.")
+        var direction = ""
+        val loc = getRuin()!!.base
+        if (player.location.y > loc.y && player.location.x - 1 > loc.x) direction =
+            "south-west" else if (player.location.x < loc.x && player.location.y > loc.y) direction =
+            "south-east" else if (player.location.x > loc.x + 1 && player.location.y < loc.y) direction =
+            "north-west" else if (player.location.x < loc.x && player.location.y < loc.y) direction =
+            "north-east" else if (player.location.y < loc.y) direction =
+            "north" else if (player.location.y > loc.y) direction =
+            "south" else if (player.location.x < loc.x + 1) direction =
+            "east" else if (player.location.x > loc.x + 1) direction = "west"
+        player.packetDispatch.sendMessage("The talisman pulls towards the $direction.")
     }
 
     /**
-     * Get ruin
+     * Gets the ruin.
      *
-     * @return
+     * @return The ruin.
      */
     fun getRuin(): MysteriousRuin? {
-        return MysteriousRuin.values().find { it.name == name }
+        for (ruin in MysteriousRuin.values()) {
+            if (ruin.name == name) {
+                return ruin
+            }
+        }
+        return ruin
     }
 
     /**
-     * Get tiara
+     * Gets the tiara.
      *
-     * @return
+     * @return the tiara.
      */
-    fun getTiara(): Tiara? {
-        return Tiara.values().find { it.name == name }
-    }
-
-    companion object {
-
-        fun forItem(item: Item): Talisman? {
-            return values().find { it.talisman.id == item.id }
+    val tiara: Tiara?
+        get() {
+            for (tiara in Tiara.values()) {
+                if (tiara.name == name) {
+                    return tiara
+                }
+            }
+            return null
         }
 
+    companion object {
+        /**
+         * Method used to get the [Talisman] by the item.
+         *
+         * @param item the item.
+         * @return the [Talisman] or `null`.
+         */
+        @JvmStatic
+        fun forItem(item: Item): Talisman? {
+            for (talisman in values()) {
+                if (talisman.talisman.id == item.id) {
+                    return talisman
+                }
+            }
+            return null
+        }
+
+        /**
+         * Method used to get the [Talisman] by the item.
+         *
+         * @return the [Talisman] or `null`.
+         */
+        @JvmStatic
         fun forName(name: String): Talisman? {
-            return values().find { it.name == name }
+            for (talisman in values()) {
+                if (talisman.name == name) {
+                    return talisman
+                }
+            }
+            return null
         }
     }
 }
