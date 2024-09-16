@@ -37,6 +37,7 @@ import static core.api.ContentAPIKt.*;
 
 /**
  * Handles the summoning training room.
+ *
  * @author Emperor, Vexia
  */
 @Initializable

@@ -123,7 +123,7 @@ public final class Pet extends Familiar {
         }
         int newItemId = pet.getNextStageItemId(itemId);
         if (newItemId == -1) {
-            // then this pet is already overgrown
+
             return;
         }
         owner.getFamiliarManager().removeDetails(this.getItemIdHash());

@@ -18,7 +18,10 @@ class CarvedEvilTurnipListener : InteractionListener {
 
     override fun defineListeners() {
 
-        // Interaction with knife and evil turnip.
+        /*
+         * Interaction with knife and evil turnip.
+         */
+
         onUseWith(IntType.ITEM, evilTurnip, knife) { player, used, _ ->
             if (removeItem(player, used.asItem())) {
                 sendMessage(player, "You carve a scary face into the evil turnip.")

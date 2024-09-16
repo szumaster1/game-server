@@ -17,21 +17,26 @@ import core.tools.StringUtils
  */
 class IncubatorHandler : InteractionListener {
 
-    // Array of egg IDs from the IncubatorEgg enum
     val eggIds = IncubatorEgg.values().map { it.egg.id }.toIntArray()
-
-    // Array of incubator IDs
     val incubators = intArrayOf(28550, 28352, 28359)
 
-    // Define interaction listeners for the incubators
     override fun defineListeners() {
-        // Listener for inspecting the incubator
+        /*
+         * Listener for inspecting the incubator.
+         */
+
         on(incubators, IntType.SCENERY, "inspect", handler = ::handleInspectOption)
 
-        // Listener for taking the egg from the incubator
+        /*
+         * Listener for taking the egg from the incubator
+         */
+
         on(incubators, IntType.SCENERY, "take-egg", handler = ::handleTakeOption)
 
-        // Listener for using an egg on the incubator
+        /*
+         * Listener for using an egg on the incubator
+         */
+
         onUseWith(IntType.SCENERY, eggIds, *incubators, handler = ::handleEggOnIncubator)
     }
 

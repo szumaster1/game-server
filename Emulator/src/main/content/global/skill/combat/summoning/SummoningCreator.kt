@@ -30,6 +30,7 @@ object SummoningCreator {
         4,
         669 shl 16 or 15
     )
+
     /**
      * Represents the params used for the access mask on the scroll relating interface.
      */
@@ -43,10 +44,12 @@ object SummoningCreator {
         4,
         673 shl 16 or 15
     )
+
     /**
      * Represents the summoning component.
      */
     private val SUMMONING_COMPONENT = Component(669)
+
     /**
      * Represents the scroll component.
      */
@@ -109,16 +112,7 @@ object SummoningCreator {
     /**
      * Represents the skill pulse used to create a summoning node.
      */
-    class CreatePulse(player: Player?, node: Item?,
-                      /**
-                       * Represents the summoning node type.
-                       */
-                      private val type: SummoningNode,
-                      /**
-                       * Represents the amount to make.
-                       */
-                      private val amount: Int) :
-        SkillPulse<Item?>(player, node) {
+    class CreatePulse(player: Player?, node: Item?, private val type: SummoningNode, private val amount: Int) : SkillPulse<Item?>(player, node) {
         /**
          * Represents the object.
          */

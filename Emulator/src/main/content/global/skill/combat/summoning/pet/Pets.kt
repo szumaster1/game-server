@@ -7,37 +7,19 @@ import core.game.node.entity.player.Player
 import core.tools.Log
 
 /**
- * Pets
- *
- * @param babyItemId      The item ID representing the baby version of the pet.
- * @param grownItemId     The item ID representing the grown version of the pet.
- * @param overgrownItemId The item ID representing the overgrown version of the pet.
- * @param babyNpcId       The NPC ID for the baby version of the pet.
- * @param grownNpcId      The NPC ID for the grown version of the pet.
- * @param overgrownNpcId  The NPC ID for the overgrown version of the pet.
- * @param growthRate      The rate at which the pet grows.
- * @param summoningLevel  The level required to summon the pet.
- * @param food            The food items required for the pet.
- * @constructor Pets      Enum class representing different stages of pets.
+ * Represents the Pets.
  */
 enum class Pets(
-    @JvmField val babyItemId: Int,          // ID for the baby pet item
-    @JvmField val grownItemId: Int,         // ID for the grown pet item
-    @JvmField val overgrownItemId: Int,     // ID for the overgrown pet item
-    @JvmField val babyNpcId: Int,           // NPC ID for the baby pet
-    val grownNpcId: Int,                    // NPC ID for the grown pet
-    val overgrownNpcId: Int,                // NPC ID for the overgrown pet
-    @JvmField val growthRate: Double,       // Growth rate of the pet
-    @JvmField val summoningLevel: Int,      // Required summoning level for the pet
-    @JvmField vararg val food: Int          // Vararg for food items for the pet
+    @JvmField val babyItemId: Int,
+    @JvmField val grownItemId: Int,
+    @JvmField val overgrownItemId: Int,
+    @JvmField val babyNpcId: Int,
+    val grownNpcId: Int,
+    val overgrownNpcId: Int,
+    @JvmField val growthRate: Double,
+    @JvmField val summoningLevel: Int,
+    @JvmField vararg val food: Int
 ) {
-    /**
-     * Cat
-     *
-     * @constructor Cat
-     *//*
-     * Cats.
-     */
     CAT(
         babyItemId = Items.PET_KITTEN_1555,
         grownItemId = Items.PET_CAT_1561,
@@ -49,12 +31,6 @@ enum class Pets(
         summoningLevel = 0,
         food = intArrayOf(321, 319, 363, 365, 341, 339, 345, 347, 377, 379, 353, 355, 389, 391, 7944, 7946, 349, 351, 331, 329, 327, 325, 395, 397, 383, 385, 317, 315, 371, 373, 335, 333, 359, 361, 1927)
     ),
-
-    /**
-     * Cat 1
-     *
-     * @constructor Cat 1
-     */
     CAT_1(
         babyItemId = Items.PET_KITTEN_1556,
         grownItemId = Items.PET_CAT_1562,
@@ -66,12 +42,6 @@ enum class Pets(
         summoningLevel = 0,
         food = intArrayOf(321, 319, 363, 365, 341, 339, 345, 347, 377, 379, 353, 355, 389, 391, 7944, 7946, 349, 351, 331, 329, 327, 325, 395, 397, 383, 385, 317, 315, 371, 373, 335, 333, 359, 361, 1927)
     ),
-
-    /**
-     * Cat 2
-     *
-     * @constructor Cat 2
-     */
     CAT_2(
         babyItemId = Items.PET_KITTEN_1557,
         grownItemId = Items.PET_CAT_1563,
@@ -83,12 +53,6 @@ enum class Pets(
         summoningLevel = 0,
         food = intArrayOf(321, 319, 363, 365, 341, 339, 345, 347, 377, 379, 353, 355, 389, 391, 7944, 7946, 349, 351, 331, 329, 327, 325, 395, 397, 383, 385, 317, 315, 371, 373, 335, 333, 359, 361, 1927)
     ),
-
-    /**
-     * Cat 3
-     *
-     * @constructor Cat 3
-     */
     CAT_3(
         babyItemId = Items.PET_KITTEN_1558,
         grownItemId = Items.PET_CAT_1564,
@@ -100,12 +64,6 @@ enum class Pets(
         summoningLevel = 0,
         food = intArrayOf(321, 319, 363, 365, 341, 339, 345, 347, 377, 379, 353, 355, 389, 391, 7944, 7946, 349, 351, 331, 329, 327, 325, 395, 397, 383, 385, 317, 315, 371, 373, 335, 333, 359, 361, 1927)
     ),
-
-    /**
-     * Cat 4
-     *
-     * @constructor Cat 4
-     */
     CAT_4(
         babyItemId = Items.PET_KITTEN_1559,
         grownItemId = Items.PET_CAT_1565,
@@ -117,12 +75,6 @@ enum class Pets(
         summoningLevel = 0,
         food = intArrayOf(321, 319, 363, 365, 341, 339, 345, 347, 377, 379, 353, 355, 389, 391, 7944, 7946, 349, 351, 331, 329, 327, 325, 395, 397, 383, 385, 317, 315, 371, 373, 335, 333, 359, 361, 1927)
     ),
-
-    /**
-     * Cat 5
-     *
-     * @constructor Cat 5
-     */
     CAT_5(
         babyItemId = Items.PET_KITTEN_1560,
         grownItemId = Items.PET_CAT_1566,
@@ -134,46 +86,28 @@ enum class Pets(
         summoningLevel = 0,
         food = intArrayOf(321, 319, 363, 365, 341, 339, 345, 347, 377, 379, 353, 355, 389, 391, 7944, 7946, 349, 351, 331, 329, 327, 325, 395, 397, 383, 385, 317, 315, 371, 373, 335, 333, 359, 361, 1927)
     ),
-
-    /**
-     * Hellcat
-     *
-     * @constructor Hellcat
-     */
     HELLCAT(
-         babyItemId = Items.HELL_KITTEN_7583,
-         grownItemId = Items.HELL_CAT_7582,
-         overgrownItemId = Items.OVERGROWN_HELLCAT_7581,
-         babyNpcId = NPCs.HELL_KITTEN_3505,
-         grownNpcId = NPCs.HELLCAT_3504,
-         overgrownNpcId = NPCs.OVERGROWN_HELLCAT_3503,
-         growthRate = 0.0154320987654321,
-         summoningLevel = 0,
-         food = intArrayOf(321, 319, 363, 365, 341, 339, 345, 347, 377, 379, 353, 355, 389, 391, 7944, 7946, 349, 351, 331, 329, 327, 325, 395, 397, 383, 385, 317, 315, 371, 373, 335, 333, 359, 361, 1927)
+        babyItemId = Items.HELL_KITTEN_7583,
+        grownItemId = Items.HELL_CAT_7582,
+        overgrownItemId = Items.OVERGROWN_HELLCAT_7581,
+        babyNpcId = NPCs.HELL_KITTEN_3505,
+        grownNpcId = NPCs.HELLCAT_3504,
+        overgrownNpcId = NPCs.OVERGROWN_HELLCAT_3503,
+        growthRate = 0.0154320987654321,
+        summoningLevel = 0,
+        food = intArrayOf(321, 319, 363, 365, 341, 339, 345, 347, 377, 379, 353, 355, 389, 391, 7944, 7946, 349, 351, 331, 329, 327, 325, 395, 397, 383, 385, 317, 315, 371, 373, 335, 333, 359, 361, 1927)
     ),
-
-    /**
-     * Cat 7
-     *
-     * @constructor Cat 7
-     */
     CAT_7(
-         babyItemId = Items.PET_KITTEN_14089,
-         grownItemId = Items.PET_CAT_14090,
-         overgrownItemId = Items.OVERGROWN_CAT_14092,
-         babyNpcId = NPCs.KITTEN_8217,
-         grownNpcId = NPCs.CAT_8214,
-         overgrownNpcId = NPCs.OVERGROWN_CAT_8216,
-         growthRate = 0.0154320987654321,
-         summoningLevel = 0,
-         food = intArrayOf(321, 319, 363, 365, 341, 339, 345, 347, 377, 379, 353, 355, 389, 391, 7944, 7946, 349, 351, 331, 329, 327, 325, 395, 397, 383, 385, 317, 315, 371, 373, 335, 333, 359, 361, 1927)
+        babyItemId = Items.PET_KITTEN_14089,
+        grownItemId = Items.PET_CAT_14090,
+        overgrownItemId = Items.OVERGROWN_CAT_14092,
+        babyNpcId = NPCs.KITTEN_8217,
+        grownNpcId = NPCs.CAT_8214,
+        overgrownNpcId = NPCs.OVERGROWN_CAT_8216,
+        growthRate = 0.0154320987654321,
+        summoningLevel = 0,
+        food = intArrayOf(321, 319, 363, 365, 341, 339, 345, 347, 377, 379, 353, 355, 389, 391, 7944, 7946, 349, 351, 331, 329, 327, 325, 395, 397, 383, 385, 317, 315, 371, 373, 335, 333, 359, 361, 1927)
     ),
-
-    /**
-     * Clockwork Cat
-     *
-     * @constructor Clockwork Cat
-     */
     CLOCKWORK_CAT(
         babyItemId = Items.CLOCKWORK_CAT_7771,
         grownItemId = Items.CLOCKWORK_CAT_7772,
@@ -184,14 +118,6 @@ enum class Pets(
         growthRate = 0.0,
         summoningLevel = 0
     ),
-
-    /**
-     * Bulldog
-     *
-     * @constructor Bulldog
-     *//*
-     * Bulldogs.
-     */
     BULLDOG(
         babyItemId = Items.BULLDOG_PUPPY_12522,
         grownItemId = Items.BULLDOG_12523,
@@ -203,12 +129,6 @@ enum class Pets(
         summoningLevel = 4,
         food = intArrayOf(2132, 2134, 2136, 2138, 10816, 9986, 9978, 526)
     ),
-
-    /**
-     * Bulldog 1
-     *
-     * @constructor Bulldog 1
-     */
     BULLDOG_1(
         babyItemId = Items.BULLDOG_PUPPY_12720,
         grownItemId = Items.BULLDOG_12721,
@@ -220,12 +140,6 @@ enum class Pets(
         summoningLevel = 4,
         food = intArrayOf(2132, 2134, 2136, 2138, 10816, 9986, 9978, 526)
     ),
-
-    /**
-     * Bulldog 2
-     *
-     * @constructor Bulldog 2
-     */
     BULLDOG_2(
         babyItemId = Items.BULLDOG_PUPPY_12722,
         grownItemId = Items.BULLDOG_12723,
@@ -237,14 +151,6 @@ enum class Pets(
         summoningLevel = 4,
         food = intArrayOf(2132, 2134, 2136, 2138, 10816, 9986, 9978, 526)
     ),
-
-    /**
-     * Dalmatian
-     *
-     * @constructor Dalmatian
-     *//*
-     * Dalmatians.
-     */
     DALMATIAN(
         babyItemId = Items.DALMATIAN_PUPPY_12518,
         grownItemId = Items.DALMATIAN_12519,
@@ -256,12 +162,6 @@ enum class Pets(
         summoningLevel = 4,
         food = intArrayOf(2132, 2134, 2136, 2138, 10816, 9986, 9978, 526)
     ),
-
-    /**
-     * Dalmatian 1
-     *
-     * @constructor Dalmatian 1
-     */
     DALMATIAN_1(
         babyItemId = Items.DALMATIAN_PUPPY_12712,
         grownItemId = Items.DALMATIAN_12713,
@@ -273,12 +173,6 @@ enum class Pets(
         summoningLevel = 4,
         food = intArrayOf(2132, 2134, 2136, 2138, 10816, 9986, 9978, 526)
     ),
-
-    /**
-     * Dalmatian 2
-     *
-     * @constructor Dalmatian 2
-     */
     DALMATIAN_2(
         babyItemId = Items.DALMATIAN_PUPPY_12714,
         grownItemId = Items.DALMATIAN_12715,
@@ -290,14 +184,6 @@ enum class Pets(
         summoningLevel = 4,
         food = intArrayOf(2132, 2134, 2136, 2138, 10816, 9986, 9978, 526)
     ),
-
-    /**
-     * Greyhound
-     *
-     * @constructor Greyhound
-     *//*
-     * Greyhounds.
-     */
     GREYHOUND(
         babyItemId = Items.GREYHOUND_PUPPY_12514,
         grownItemId = Items.GREYHOUND_12515,
@@ -309,12 +195,6 @@ enum class Pets(
         summoningLevel = 4,
         food = intArrayOf(2132, 2134, 2136, 2138, 10816, 9986, 9978, 526)
     ),
-
-    /**
-     * Greyhound 1
-     *
-     * @constructor Greyhound 1
-     */
     GREYHOUND_1(
         babyItemId = Items.GREYHOUND_PUPPY_12704,
         grownItemId = Items.GREYHOUND_12705,
@@ -326,12 +206,6 @@ enum class Pets(
         summoningLevel = 4,
         food = intArrayOf(2132, 2134, 2136, 2138, 10816, 9986, 9978, 526)
     ),
-
-    /**
-     * Greyhound 2
-     *
-     * @constructor Greyhound 2
-     */
     GREYHOUND_2(
         babyItemId = Items.GREYHOUND_PUPPY_12706,
         grownItemId = Items.GREYHOUND_12707,
@@ -343,14 +217,6 @@ enum class Pets(
         summoningLevel = 4,
         food = intArrayOf(2132, 2134, 2136, 2138, 10816, 9986, 9978, 526)
     ),
-
-    /**
-     * Labrador
-     *
-     * @constructor Labrador
-     *//*
-     * Labradors.
-     */
     LABRADOR(
         babyItemId = Items.LABRADOR_PUPPY_12516,
         grownItemId = Items.LABRADOR_12517,
@@ -362,12 +228,6 @@ enum class Pets(
         summoningLevel = 4,
         food = intArrayOf(2132, 2134, 2136, 2138, 10816, 9986, 9978, 526)
     ),
-
-    /**
-     * Labrador 1
-     *
-     * @constructor Labrador 1
-     */
     LABRADOR_1(
         babyItemId = Items.LABRADOR_PUPPY_12708,
         grownItemId = Items.LABRADOR_12709,
@@ -379,12 +239,6 @@ enum class Pets(
         summoningLevel = 4,
         food = intArrayOf(2132, 2134, 2136, 2138, 10816, 9986, 9978, 526)
     ),
-
-    /**
-     * Labrador 2
-     *
-     * @constructor Labrador 2
-     */
     LABRADOR_2(
         babyItemId = Items.LABRADOR_PUPPY_12710,
         grownItemId = Items.LABRADOR_12711,
@@ -396,14 +250,6 @@ enum class Pets(
         summoningLevel = 4,
         food = intArrayOf(2132, 2134, 2136, 2138, 10816, 9986, 9978, 526)
     ),
-
-    /**
-     * Sheepdog
-     *
-     * @constructor Sheepdog
-     *//*
-     * Sheepdogs.
-     */
     SHEEPDOG(
         babyItemId = Items.SHEEPDOG_PUPPY_12520,
         grownItemId = Items.SHEEPDOG_12521,
@@ -415,12 +261,6 @@ enum class Pets(
         summoningLevel = 4,
         food = intArrayOf(2132, 2134, 2136, 2138, 10816, 9986, 9978, 526)
     ),
-
-    /**
-     * Sheepdog 1
-     *
-     * @constructor Sheepdog 1
-     */
     SHEEPDOG_1(
         babyItemId = Items.SHEEPDOG_PUPPY_12716,
         grownItemId = Items.SHEEPDOG_12717,
@@ -432,12 +272,6 @@ enum class Pets(
         summoningLevel = 4,
         food = intArrayOf(2132, 2134, 2136, 2138, 10816, 9986, 9978, 526)
     ),
-
-    /**
-     * Sheepdog 2
-     *
-     * @constructor Sheepdog 2
-     */
     SHEEPDOG_2(
         babyItemId = Items.SHEEPDOG_PUPPY_12718,
         grownItemId = Items.SHEEPDOG_12719,
@@ -449,14 +283,6 @@ enum class Pets(
         summoningLevel = 4,
         food = intArrayOf(2132, 2134, 2136, 2138, 10816, 9986, 9978, 526)
     ),
-
-    /**
-     * Terrier
-     *
-     * @constructor Terrier
-     *//*
-     * Terriers.
-     */
     TERRIER(
         babyItemId = Items.TERRIER_PUPPY_12512,
         grownItemId = Items.TERRIER_12513,
@@ -468,12 +294,6 @@ enum class Pets(
         summoningLevel = 4,
         food = intArrayOf(2132, 2134, 2136, 2138, 10816, 9986, 9978, 526)
     ),
-
-    /**
-     * Terrier 1
-     *
-     * @constructor Terrier 1
-     */
     TERRIER_1(
         babyItemId = Items.TERRIER_PUPPY_12700,
         grownItemId = Items.TERRIER_12701,
@@ -485,12 +305,6 @@ enum class Pets(
         summoningLevel = 4,
         food = intArrayOf(2132, 2134, 2136, 2138, 10816, 9986, 9978, 526)
     ),
-
-    /**
-     * Terrier 2
-     *
-     * @constructor Terrier 2
-     */
     TERRIER_2(
         babyItemId = Items.TERRIER_PUPPY_12702,
         grownItemId = Items.TERRIER_12703,
@@ -502,14 +316,6 @@ enum class Pets(
         summoningLevel = 4,
         food = intArrayOf(2132, 2134, 2136, 2138, 10816, 9986, 9978, 526)
     ),
-
-    /**
-     * Gecko
-     *
-     * @constructor Gecko
-     *//*
-     * Gecko.
-     */
     GECKO(
         babyItemId = Items.BABY_GECKO_12488,
         grownItemId = Items.GECKO_12489,
@@ -521,12 +327,6 @@ enum class Pets(
         summoningLevel = 10,
         food = intArrayOf(12125, 12127)
     ),
-
-    /**
-     * Gecko 1
-     *
-     * @constructor Gecko 1
-     */
     GECKO_1(
         babyItemId = Items.BABY_GECKO_12738,
         grownItemId = Items.GECKO_12742,
@@ -538,12 +338,6 @@ enum class Pets(
         summoningLevel = 10,
         food = intArrayOf(12125, 12127)
     ),
-
-    /**
-     * Gecko 2
-     *
-     * @constructor Gecko 2
-     */
     GECKO_2(
         babyItemId = Items.BABY_GECKO_12739,
         grownItemId = Items.GECKO_12743,
@@ -555,12 +349,6 @@ enum class Pets(
         summoningLevel = 10,
         food = intArrayOf(12125, 12127)
     ),
-
-    /**
-     * Gecko 3
-     *
-     * @constructor Gecko 3
-     */
     GECKO_3(
         babyItemId = Items.BABY_GECKO_12740,
         grownItemId = Items.GECKO_12744,
@@ -572,12 +360,6 @@ enum class Pets(
         summoningLevel = 10,
         food = intArrayOf(12125, 12127)
     ),
-
-    /**
-     * Gecko 4
-     *
-     * @constructor Gecko 4
-     */
     GECKO_4(
         babyItemId = Items.BABY_GECKO_12741,
         grownItemId = Items.GECKO_12745,
@@ -589,14 +371,6 @@ enum class Pets(
         summoningLevel = 10,
         food = intArrayOf(12125, 12127)
     ),
-
-    /**
-     * Platypus
-     *
-     * @constructor Platypus
-     *//*
-     * Platypus.
-     */
     PLATYPUS(
         babyItemId = Items.BABY_PLATYPUS_12551,
         grownItemId = Items.PLATYPUS_12548,
@@ -608,12 +382,6 @@ enum class Pets(
         summoningLevel = 10,
         food = intArrayOf(321, 363, 341, 345, 377, 353, 389, 7944, 349, 331, 327, 395, 383, 317, 371, 335, 359, 313, 12129)
     ),
-
-    /**
-     * Platypus 1
-     *
-     * @constructor Platypus 1
-     */
     PLATYPUS_1(
         babyItemId = Items.BABY_PLATYPUS_12552,
         grownItemId = Items.PLATYPUS_12549,
@@ -625,12 +393,6 @@ enum class Pets(
         summoningLevel = 10,
         food = intArrayOf(321, 363, 341, 345, 377, 353, 389, 7944, 349, 331, 327, 395, 383, 317, 371, 335, 359, 313, 12129)
     ),
-
-    /**
-     * Platypus 2
-     *
-     * @constructor Platypus 2
-     */
     PLATYPUS_2(
         babyItemId = Items.BABY_PLATYPUS_12553,
         grownItemId = Items.PLATYPUS_12550,
@@ -642,14 +404,6 @@ enum class Pets(
         summoningLevel = 10,
         food = intArrayOf(321, 363, 341, 345, 377, 353, 389, 7944, 349, 331, 327, 395, 383, 317, 371, 335, 359, 313, 12129)
     ),
-
-    /**
-     * Broav
-     *
-     * @constructor Broav
-     *//*
-     * Broav.
-     */
     BROAV(
         babyItemId = Items.BROAV_14533,
         grownItemId = -1,
@@ -661,12 +415,6 @@ enum class Pets(
         summoningLevel = 23,
         food = intArrayOf(2970)
     ),
-
-    /**
-     * Penguin
-     *
-     * @constructor Penguin
-     */
     PENGUIN(
         babyItemId = Items.BABY_PENGUIN_12481,
         grownItemId = Items.PENGUIN_12482,
@@ -678,12 +426,6 @@ enum class Pets(
         summoningLevel = 30,
         food = intArrayOf(321, 363, 341, 345, 377, 353, 389, 7944, 349, 331, 327, 395, 383, 317, 371, 335, 359)
     ),
-
-    /**
-     * Penguin 1
-     *
-     * @constructor Penguin 1
-     */
     PENGUIN_1(
         babyItemId = Items.BABY_PENGUIN_12763,
         grownItemId = Items.PENGUIN_12762,
@@ -695,12 +437,6 @@ enum class Pets(
         summoningLevel = 30,
         food = intArrayOf(321, 363, 341, 345, 377, 353, 389, 7944, 349, 331, 327, 395, 383, 317, 371, 335, 359)
     ),
-
-    /**
-     * Penguin 2
-     *
-     * @constructor Penguin 2
-     */
     PENGUIN_2(
         babyItemId = Items.BABY_PENGUIN_12765,
         grownItemId = Items.PENGUIN_12764,
@@ -712,14 +448,6 @@ enum class Pets(
         summoningLevel = 30,
         food = intArrayOf(321, 363, 341, 345, 377, 353, 389, 7944, 349, 331, 327, 395, 383, 317, 371, 335, 359)
     ),
-
-    /**
-     * Giant Crab
-     *
-     * @constructor Giant Crab
-     *//*
-     * Giant crabs.
-     */
     GIANT_CRAB(
         babyItemId = Items.BABY_GIANT_CRAB_12500,
         grownItemId = Items.GIANT_CRAB_12501,
@@ -731,12 +459,6 @@ enum class Pets(
         summoningLevel = 40,
         food = intArrayOf(321, 363, 341, 345, 377, 353, 389, 7944, 349, 331, 327, 395, 383, 317, 371, 335, 359)
     ),
-
-    /**
-     * Giant Crab 1
-     *
-     * @constructor Giant Crab 1
-     */
     GIANT_CRAB_1(
         babyItemId = Items.BABY_GIANT_CRAB_12746,
         grownItemId = Items.GIANT_CRAB_12747,
@@ -748,12 +470,6 @@ enum class Pets(
         summoningLevel = 40,
         food = intArrayOf(321, 363, 341, 345, 377, 353, 389, 7944, 349, 331, 327, 395, 383, 317, 371, 335, 359)
     ),
-
-    /**
-     * Giant Crab 2
-     *
-     * @constructor Giant Crab 2
-     */
     GIANT_CRAB_2(
         babyItemId = Items.BABY_GIANT_CRAB_12748,
         grownItemId = Items.GIANT_CRAB_12749,
@@ -765,12 +481,6 @@ enum class Pets(
         summoningLevel = 40,
         food = intArrayOf(321, 363, 341, 345, 377, 353, 389, 7944, 349, 331, 327, 395, 383, 317, 371, 335, 359)
     ),
-
-    /**
-     * Giant Crab 3
-     *
-     * @constructor Giant Crab 3
-     */
     GIANT_CRAB_3(
         babyItemId = Items.BABY_GIANT_CRAB_12750,
         grownItemId = Items.GIANT_CRAB_12751,
@@ -782,12 +492,6 @@ enum class Pets(
         summoningLevel = 40,
         food = intArrayOf(321, 363, 341, 345, 377, 353, 389, 7944, 349, 331, 327, 395, 383, 317, 371, 335, 359)
     ),
-
-    /**
-     * Giant Crab 4
-     *
-     * @constructor Giant Crab 4
-     */
     GIANT_CRAB_4(
         babyItemId = Items.BABY_GIANT_CRAB_12752,
         grownItemId = Items.GIANT_CRAB_12753,
@@ -799,14 +503,6 @@ enum class Pets(
         summoningLevel = 40,
         food = intArrayOf(321, 363, 341, 345, 377, 353, 389, 7944, 349, 331, 327, 395, 383, 317, 371, 335, 359)
     ),
-
-    /**
-     * Raven
-     *
-     * @constructor Raven
-     *//*
-     * Ravens.
-     */
     RAVEN(
         babyItemId = Items.RAVEN_CHICK_12484,
         grownItemId = Items.RAVEN_12485,
@@ -818,12 +514,6 @@ enum class Pets(
         summoningLevel = 50,
         food = intArrayOf(313, 12129)
     ),
-
-    /**
-     * Raven 1
-     *
-     * @constructor Raven 1
-     */
     RAVEN_1(
         babyItemId = Items.RAVEN_CHICK_12724,
         grownItemId = Items.RAVEN_12725,
@@ -835,12 +525,6 @@ enum class Pets(
         summoningLevel = 50,
         food = intArrayOf(313, 12129)
     ),
-
-    /**
-     * Raven 2
-     *
-     * @constructor Raven 2
-     */
     RAVEN_2(
         babyItemId = Items.RAVEN_CHICK_12726,
         grownItemId = Items.RAVEN_12727,
@@ -852,12 +536,6 @@ enum class Pets(
         summoningLevel = 50,
         food = intArrayOf(313, 12129)
     ),
-
-    /**
-     * Raven 3
-     *
-     * @constructor Raven 3
-     */
     RAVEN_3(
         babyItemId = Items.RAVEN_CHICK_12728,
         grownItemId = Items.RAVEN_12729,
@@ -869,12 +547,6 @@ enum class Pets(
         summoningLevel = 50,
         food = intArrayOf(313, 12129)
     ),
-
-    /**
-     * Raven 4
-     *
-     * @constructor Raven 4
-     */
     RAVEN_4(
         babyItemId = Items.RAVEN_CHICK_12730,
         grownItemId = Items.RAVEN_12731,
@@ -886,12 +558,6 @@ enum class Pets(
         summoningLevel = 50,
         food = intArrayOf(313, 12129)
     ),
-
-    /**
-     * Raven 5
-     *
-     * @constructor Raven 5
-     */
     RAVEN_5(
         babyItemId = Items.RAVEN_CHICK_12732,
         grownItemId = Items.RAVEN_12733,
@@ -903,14 +569,6 @@ enum class Pets(
         summoningLevel = 50,
         food = intArrayOf(313, 12129)
     ),
-
-    /**
-     * Squirrel
-     *
-     * @constructor Squirrel
-     *//*
-     * Squirrels.
-     */
     SQUIRREL(
         babyItemId = Items.BABY_SQUIRREL_12490,
         grownItemId = Items.SQUIRREL_12491,
@@ -922,12 +580,6 @@ enum class Pets(
         summoningLevel = 60,
         food = intArrayOf(12130)
     ),
-
-    /**
-     * Squirrel 1
-     *
-     * @constructor Squirrel 1
-     */
     SQUIRREL_1(
         babyItemId = Items.BABY_SQUIRREL_12754,
         grownItemId = Items.SQUIRREL_12755,
@@ -939,12 +591,6 @@ enum class Pets(
         summoningLevel = 60,
         food = intArrayOf(12130)
     ),
-
-    /**
-     * Squirrel 2
-     *
-     * @constructor Squirrel 2
-     */
     SQUIRREL_2(
         babyItemId = Items.BABY_SQUIRREL_12756,
         grownItemId = Items.SQUIRREL_12757,
@@ -956,12 +602,6 @@ enum class Pets(
         summoningLevel = 60,
         food = intArrayOf(12130)
     ),
-
-    /**
-     * Squirrel 3
-     *
-     * @constructor Squirrel 3
-     */
     SQUIRREL_3(
         babyItemId = Items.BABY_SQUIRREL_12758,
         grownItemId = Items.SQUIRREL_12759,
@@ -973,12 +613,6 @@ enum class Pets(
         summoningLevel = 60,
         food = intArrayOf(12130)
     ),
-
-    /**
-     * Squirrel 4
-     *
-     * @constructor Squirrel 4
-     */
     SQUIRREL_4(
         babyItemId = Items.BABY_SQUIRREL_12760,
         grownItemId = Items.SQUIRREL_12761,
@@ -990,14 +624,6 @@ enum class Pets(
         summoningLevel = 60,
         food = intArrayOf(12130)
     ),
-
-    /**
-     * Saradomin Owl
-     *
-     * @constructor Saradomin Owl
-     *//*
-     * Saradomin owl.
-     */
     SARADOMIN_OWL(
         babyItemId = Items.SARADOMIN_CHICK_12503,
         grownItemId = Items.SARADOMIN_BIRD_12504,
@@ -1009,14 +635,6 @@ enum class Pets(
         summoningLevel = 70,
         food = intArrayOf(313, 12129)
     ),
-
-    /**
-     * Zamorak Hawk
-     *
-     * @constructor Zamorak Hawk
-     *//*
-     * Zamorak hawk.
-     */
     ZAMORAK_HAWK(
         babyItemId = Items.ZAMORAK_CHICK_12506,
         grownItemId = Items.ZAMORAK_BIRD_12507,
@@ -1028,14 +646,6 @@ enum class Pets(
         summoningLevel = 70,
         food = intArrayOf(313, 12129)
     ),
-
-    /**
-     * Guthix Raptor
-     *
-     * @constructor Guthix Raptor
-     *//*
-     * Guthix raptor.
-     */
     GUTHIX_RAPTOR(
         babyItemId = Items.GUTHIX_CHICK_12509,
         grownItemId = Items.GUTHIX_BIRD_12510,
@@ -1047,14 +657,6 @@ enum class Pets(
         summoningLevel = 70,
         food = intArrayOf(313, 12129)
     ),
-
-    /**
-     * Ex Ex Parrot
-     *
-     * @constructor Ex Ex Parrot
-     *//*
-     * Ex ex parrot.
-     */
     EX_EX_PARROT(
         babyItemId = Items.EX_EX_PARROT_13335,
         grownItemId = -1,
@@ -1066,14 +668,6 @@ enum class Pets(
         summoningLevel = 71,
         food = intArrayOf(13379)
     ),
-
-    /**
-     * Cute Phoenix Eggling
-     *
-     * @constructor Cute Phoenix Eggling
-     *//*
-     * Phoenix.
-     */
     CUTE_PHOENIX_EGGLING(
         babyItemId = Items.PHOENIX_EGGLING_14627,
         grownItemId = -1,
@@ -1085,12 +679,6 @@ enum class Pets(
         summoningLevel = 72,
         food = intArrayOf(592)
     ),
-
-    /**
-     * Mean Phoenix Eggling
-     *
-     * @constructor Mean Phoenix Eggling
-     */
     MEAN_PHOENIX_EGGLING(
         babyItemId = Items.PHOENIX_EGGLING_14626,
         grownItemId = -1,
@@ -1102,14 +690,6 @@ enum class Pets(
         summoningLevel = 72,
         food = intArrayOf(592)
     ),
-
-    /**
-     * Raccoon
-     *
-     * @constructor Raccoon
-     *//*
-     * Raccoons.
-     */
     RACCOON(
         babyItemId = Items.BABY_RACCOON_12486,
         grownItemId = Items.RACCOON_12487,
@@ -1121,12 +701,6 @@ enum class Pets(
         summoningLevel = 80,
         food = intArrayOf(321, 363, 341, 345, 377, 353, 389, 7944, 349, 331, 327, 395, 383, 317, 371, 335, 359, 2132, 2134, 2136, 2138, 10816, 9986, 9978)
     ),
-
-    /**
-     * Raccoon 1
-     *
-     * @constructor Raccoon 1
-     */
     RACCOON_1(
         babyItemId = Items.BABY_RACCOON_12734,
         grownItemId = Items.RACCOON_12735,
@@ -1138,12 +712,6 @@ enum class Pets(
         summoningLevel = 80,
         food = intArrayOf(321, 363, 341, 345, 377, 353, 389, 7944, 349, 331, 327, 395, 383, 317, 371, 335, 359, 2132, 2134, 2136, 2138, 10816, 9986, 9978)
     ),
-
-    /**
-     * Raccoon 2
-     *
-     * @constructor Raccoon 2
-     */
     RACCOON_2(
         babyItemId = Items.BABY_RACCOON_12736,
         grownItemId = Items.RACCOON_12737,
@@ -1155,14 +723,6 @@ enum class Pets(
         summoningLevel = 80,
         food = intArrayOf(321, 363, 341, 345, 377, 353, 389, 7944, 349, 331, 327, 395, 383, 317, 371, 335, 359, 2132, 2134, 2136, 2138, 10816, 9986, 9978)
     ),
-
-    /**
-     * Vulture
-     *
-     * @constructor Vulture
-     *//*
-     * Vultures.
-     */
     VULTURE(
         babyItemId = Items.VULTURE_CHICK_12498,
         grownItemId = Items.VULTURE_12499,
@@ -1174,12 +734,6 @@ enum class Pets(
         summoningLevel = 85,
         food = intArrayOf(313, 12129)
     ),
-
-    /**
-     * Vulture 1
-     *
-     * @constructor Vulture 1
-     */
     VULTURE_1(
         babyItemId = Items.VULTURE_CHICK_12766,
         grownItemId = Items.VULTURE_12767,
@@ -1191,12 +745,6 @@ enum class Pets(
         summoningLevel = 85,
         food = intArrayOf(313, 12129)
     ),
-
-    /**
-     * Vulture 2
-     *
-     * @constructor Vulture 2
-     */
     VULTURE_2(
         babyItemId = Items.VULTURE_CHICK_12768,
         grownItemId = Items.VULTURE_12769,
@@ -1208,12 +756,6 @@ enum class Pets(
         summoningLevel = 85,
         food = intArrayOf(313, 12129)
     ),
-
-    /**
-     * Vulture 3
-     *
-     * @constructor Vulture 3
-     */
     VULTURE_3(
         babyItemId = Items.VULTURE_CHICK_12770,
         grownItemId = Items.VULTURE_12771,
@@ -1225,12 +767,6 @@ enum class Pets(
         summoningLevel = 85,
         food = intArrayOf(313, 12129)
     ),
-
-    /**
-     * Vulture 4
-     *
-     * @constructor Vulture 4
-     */
     VULTURE_4(
         babyItemId = Items.VULTURE_CHICK_12772,
         grownItemId = Items.VULTURE_12773,
@@ -1242,12 +778,6 @@ enum class Pets(
         summoningLevel = 85,
         food = intArrayOf(313, 12129)
     ),
-
-    /**
-     * Vulture 5
-     *
-     * @constructor Vulture 5
-     */
     VULTURE_5(
         babyItemId = Items.VULTURE_CHICK_12774,
         grownItemId = Items.VULTURE_12775,
@@ -1259,14 +789,6 @@ enum class Pets(
         summoningLevel = 85,
         food = intArrayOf(313, 12129)
     ),
-
-    /**
-     * Chameleon
-     *
-     * @constructor Chameleon
-     *//*
-     * Chameleon.
-     */
     CHAMELEON(
         babyItemId = Items.BABY_CHAMELEON_12492,
         grownItemId = Items.CHAMELEON_12493,
@@ -1278,14 +800,6 @@ enum class Pets(
         summoningLevel = 90,
         food = intArrayOf(12125)
     ),
-
-    /**
-     * Monkey
-     *
-     * @constructor Monkey
-     *//*
-     * Monkeys.
-     */
     MONKEY(
         babyItemId = Items.BABY_MONKEY_12496,
         grownItemId = Items.MONKEY_12497,
@@ -1297,12 +811,6 @@ enum class Pets(
         summoningLevel = 95,
         food = intArrayOf(1963)
     ),
-
-    /**
-     * Monkey 1
-     *
-     * @constructor Monkey 1
-     */
     MONKEY_1(
         babyItemId = Items.BABY_MONKEY_12682,
         grownItemId = Items.MONKEY_12683,
@@ -1314,12 +822,6 @@ enum class Pets(
         summoningLevel = 95,
         food = intArrayOf(1963)
     ),
-
-    /**
-     * Monkey 2
-     *
-     * @constructor Monkey 2
-     */
     MONKEY_2(
         babyItemId = Items.BABY_MONKEY_12684,
         grownItemId = Items.MONKEY_12685,
@@ -1331,12 +833,6 @@ enum class Pets(
         summoningLevel = 95,
         food = intArrayOf(1963)
     ),
-
-    /**
-     * Monkey 3
-     *
-     * @constructor Monkey 3
-     */
     MONKEY_3(
         babyItemId = Items.BABY_MONKEY_12686,
         grownItemId = Items.MONKEY_12687,
@@ -1348,12 +844,6 @@ enum class Pets(
         summoningLevel = 95,
         food = intArrayOf(1963)
     ),
-
-    /**
-     * Monkey 4
-     *
-     * @constructor Monkey 4
-     */
     MONKEY_4(
         babyItemId = Items.BABY_MONKEY_12688,
         grownItemId = Items.MONKEY_12689,
@@ -1365,12 +855,6 @@ enum class Pets(
         summoningLevel = 95,
         food = intArrayOf(1963)
     ),
-
-    /**
-     * Monkey 5
-     *
-     * @constructor Monkey 5
-     */
     MONKEY_5(
         babyItemId = Items.BABY_MONKEY_12690,
         grownItemId = Items.MONKEY_12691,
@@ -1382,12 +866,6 @@ enum class Pets(
         summoningLevel = 95,
         food = intArrayOf(1963)
     ),
-
-    /**
-     * Monkey 6
-     *
-     * @constructor Monkey 6
-     */
     MONKEY_6(
         babyItemId = Items.BABY_MONKEY_12692,
         grownItemId = Items.MONKEY_12693,
@@ -1399,12 +877,6 @@ enum class Pets(
         summoningLevel = 95,
         food = intArrayOf(1963)
     ),
-
-    /**
-     * Monkey 7
-     *
-     * @constructor Monkey 7
-     */
     MONKEY_7(
         babyItemId = Items.BABY_MONKEY_12694,
         grownItemId = Items.MONKEY_12695,
@@ -1416,12 +888,6 @@ enum class Pets(
         summoningLevel = 95,
         food = intArrayOf(1963)
     ),
-
-    /**
-     * Monkey 8
-     *
-     * @constructor Monkey 8
-     */
     MONKEY_8(
         babyItemId = Items.BABY_MONKEY_12696,
         grownItemId = Items.MONKEY_12697,
@@ -1433,12 +899,6 @@ enum class Pets(
         summoningLevel = 95,
         food = intArrayOf(1963)
     ),
-
-    /**
-     * Monkey 9
-     *
-     * @constructor Monkey 9
-     */
     MONKEY_9(
         babyItemId = Items.BABY_MONKEY_12698,
         grownItemId = Items.MONKEY_12699,
@@ -1450,14 +910,6 @@ enum class Pets(
         summoningLevel = 95,
         food = intArrayOf(1963)
     ),
-
-    /**
-     * Baby Dragon
-     *
-     * @constructor Baby Dragon
-     *//*
-     * Baby dragons.
-     */
     BABY_DRAGON(
         babyItemId = Items.HATCHLING_DRAGON_12469,
         grownItemId = Items.BABY_DRAGON_12470,
@@ -1469,12 +921,6 @@ enum class Pets(
         summoningLevel = 99,
         food = intArrayOf(2132, 2134, 2136, 2138, 10816, 9986, 9978, 321, 363, 341, 345, 377, 353, 389, 7944, 349, 331, 327, 395, 383, 317, 371, 335, 359)
     ),
-
-    /**
-     * Baby Dragon 1
-     *
-     * @constructor Baby Dragon 1
-     */
     BABY_DRAGON_1(
         babyItemId = Items.HATCHLING_DRAGON_12471,
         grownItemId = Items.BABY_DRAGON_12472,
@@ -1486,12 +932,6 @@ enum class Pets(
         summoningLevel = 99,
         food = intArrayOf(2132, 2134, 2136, 2138, 10816, 9986, 9978, 321, 363, 341, 345, 377, 353, 389, 7944, 349, 331, 327, 395, 383, 317, 371, 335, 359)
     ),
-
-    /**
-     * Baby Dragon 2
-     *
-     * @constructor Baby Dragon 2
-     */
     BABY_DRAGON_2(
         babyItemId = Items.HATCHLING_DRAGON_12473,
         grownItemId = Items.BABY_DRAGON_12474,
@@ -1503,12 +943,6 @@ enum class Pets(
         summoningLevel = 99,
         food = intArrayOf(2132, 2134, 2136, 2138, 10816, 9986, 9978, 321, 363, 341, 345, 377, 353, 389, 7944, 349, 331, 327, 395, 383, 317, 371, 335, 359)
     ),
-
-    /**
-     * Baby Dragon 3
-     *
-     * @constructor Baby Dragon 3
-     */
     BABY_DRAGON_3(
         babyItemId = Items.HATCHLING_DRAGON_12475,
         grownItemId = Items.BABY_DRAGON_12476,
@@ -1521,12 +955,6 @@ enum class Pets(
         food = intArrayOf(2132, 2134, 2136, 2138, 10816, 9986, 9978, 321, 363, 341, 345, 377, 353, 389, 7944, 349, 331, 327, 395, 383, 317, 371, 335, 359)
     );
 
-    /**
-     * Get npc id
-     *
-     * @param itemId
-     * @return
-     */
     fun getNpcId(itemId: Int): Int {
         if (itemId == babyItemId) {
             return babyNpcId
@@ -1541,12 +969,6 @@ enum class Pets(
         return -1
     }
 
-    /**
-     * Get next stage item id
-     *
-     * @param itemId
-     * @return
-     */
     fun getNextStageItemId(itemId: Int): Int {
         if (itemId == babyItemId) {
             return grownItemId
@@ -1561,6 +983,7 @@ enum class Pets(
         private val babyPets: MutableMap<Int, Pets> = HashMap()
         private val grownPets: MutableMap<Int, Pets> = HashMap()
         private val overgrownPets: MutableMap<Int, Pets> = HashMap()
+
 
         init {
             for (pet in values()) {

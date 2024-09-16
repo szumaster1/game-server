@@ -44,7 +44,7 @@ class CompostBin(val player: Player, val bin: CompostBins) {
      *
      * @return true if the compost bin is full, false otherwise.
      */
-    fun isFull() : Boolean {
+    fun isFull(): Boolean {
         return items.size == 15
     }
 
@@ -57,14 +57,14 @@ class CompostBin(val player: Player, val bin: CompostBins) {
         animate(player, 810)
         playAudio(player, Sounds.COMPOST_CLOSE_2428)
         sendMessageWithDelay(player, "The contents have begun to rot.", 1)
-        finishedTime = System.currentTimeMillis() + TimeUnit.MINUTES.toMillis(RandomFunction.random(35,50).toLong())
+        finishedTime = System.currentTimeMillis() + TimeUnit.MINUTES.toMillis(RandomFunction.random(35, 50).toLong())
         updateBit()
     }
 
     /**
      * Open the compost bin.
      */
-    fun open(){
+    fun open() {
         isClosed = false
         animate(player, 810)
         playAudio(player, Sounds.COMPOST_OPEN_2429)
@@ -77,11 +77,11 @@ class CompostBin(val player: Player, val bin: CompostBins) {
      *
      * @return the item taken from the compost bin, or null if the bin is empty.
      */
-    fun takeItem(): Item?{
-        if(items.isEmpty()) return null
+    fun takeItem(): Item? {
+        if (items.isEmpty()) return null
         val item = items[0]
         items.remove(item)
-        if(items.isEmpty()){
+        if (items.isEmpty()) {
             isFinished = false
             finishedTime = 0L
             isTomatoes = true
@@ -90,7 +90,7 @@ class CompostBin(val player: Player, val bin: CompostBins) {
         }
         playAudio(player, Sounds.FARMING_SCOOP_2443)
         updateBit()
-        if(isSuperCompost) rewardXP(player, Skills.FARMING, 8.5)
+        if (isSuperCompost) rewardXP(player, Skills.FARMING, 8.5)
         else rewardXP(player, Skills.FARMING, 4.5)
         return Item(item)
     }
@@ -100,7 +100,7 @@ class CompostBin(val player: Player, val bin: CompostBins) {
      *
      * @return true if the compost bin is in its default state, false otherwise.
      */
-    fun isDefaultState() : Boolean {
+    fun isDefaultState(): Boolean {
         return (isFinished == false && finishedTime == 0L && items.size == 0)
     }
 
@@ -119,8 +119,8 @@ class CompostBin(val player: Player, val bin: CompostBins) {
      * @param id the ID of the item to check.
      * @return true if the item is a super compost item, false otherwise.
      */
-    fun checkSuperCompostItem(id: Int): Boolean{
-        return when (id){
+    fun checkSuperCompostItem(id: Int): Boolean {
+        return when (id) {
             Items.WATERMELON_5982,
             Items.PINEAPPLE_2114,
             Items.CALQUAT_FRUIT_5980,
@@ -151,6 +151,7 @@ class CompostBin(val player: Player, val bin: CompostBins) {
             Items.GRIMY_LANTADYME_2485,
             Items.GRIMY_SNAPDRAGON_3051,
             Items.GRIMY_CADANTINE_215 -> true
+
             else -> false
         }
     }
@@ -160,13 +161,13 @@ class CompostBin(val player: Player, val bin: CompostBins) {
      *
      * @param item the ID of the item to add.
      */
-    fun addItem(item: Int){
-        if(!isFull()) {
+    fun addItem(item: Int) {
+        if (!isFull()) {
             items.add(item)
             if (!checkSuperCompostItem(item)) {
                 isSuperCompost = false
             }
-            if(item != Items.TOMATO_1982) isTomatoes = false
+            if (item != Items.TOMATO_1982) isTomatoes = false
         }
         updateBit()
     }
@@ -176,12 +177,12 @@ class CompostBin(val player: Player, val bin: CompostBins) {
      *
      * @param item the item to add.
      */
-    fun addItem(item: Item){
+    fun addItem(item: Item) {
         val remaining = 15 - items.size
-        val amount = if(item.amount > remaining){
+        val amount = if (item.amount > remaining) {
             remaining
         } else item.amount
-        for(i in 0 until amount) {
+        for (i in 0 until amount) {
 
             playAudio(player, Sounds.FARMING_PUTIN_2441)
             addItem(item.id)
@@ -191,8 +192,8 @@ class CompostBin(val player: Player, val bin: CompostBins) {
     /**
      * Update the varbit value of the compost bin.
      */
-    fun updateBit(){
-        if(items.isNotEmpty()) {
+    fun updateBit() {
+        if (items.isNotEmpty()) {
             if (isClosed) {
                 setVarbit(player, bin.varbit, 0x40)
             } else if (isFinished) {
@@ -213,11 +214,11 @@ class CompostBin(val player: Player, val bin: CompostBins) {
      *
      * @param root the root JSON object to save the data to.
      */
-    fun save(root: JSONObject){
+    fun save(root: JSONObject) {
         val binObject = JSONObject()
         binObject["isSuper"] = this.isSuperCompost
         val items = JSONArray()
-        for(id in this.items){
+        for (id in this.items) {
             items.add(id)
         }
         binObject["items"] = items
@@ -233,26 +234,26 @@ class CompostBin(val player: Player, val bin: CompostBins) {
      *
      * @param _data the JSON object containing the data.
      */
-    fun parse(_data: JSONObject){
-        val isSuper = if(_data.containsKey("isSuper")) (_data["isSuper"] as Boolean) else true
-        if(_data.containsKey("items")){
+    fun parse(_data: JSONObject) {
+        val isSuper = if (_data.containsKey("isSuper")) (_data["isSuper"] as Boolean) else true
+        if (_data.containsKey("items")) {
             (_data["items"] as JSONArray).forEach {
                 addItem(it.toString().toInt())
             }
         }
-        if(_data.containsKey("finishTime")) finishedTime = _data["finishTime"].toString().toLong()
-        if(_data.containsKey("isTomato")) isTomatoes = _data["isTomato"] as Boolean
-        if(_data.containsKey("isClosed")) isClosed = _data["isClosed"] as Boolean
-        if(_data.containsKey("isFinished")) isFinished = _data["isFinished"] as Boolean
+        if (_data.containsKey("finishTime")) finishedTime = _data["finishTime"].toString().toLong()
+        if (_data.containsKey("isTomato")) isTomatoes = _data["isTomato"] as Boolean
+        if (_data.containsKey("isClosed")) isClosed = _data["isClosed"] as Boolean
+        if (_data.containsKey("isFinished")) isFinished = _data["isFinished"] as Boolean
         updateBit()
     }
 
     /**
      * Finish the composting process.
      */
-    fun finish(){
-        if(isTomatoes) items = items.map { Items.ROTTEN_TOMATO_2518 } as ArrayList<Int>
-        else if(isSuperCompost) items = items.map { Items.SUPERCOMPOST_6034 } as ArrayList<Int>
+    fun finish() {
+        if (isTomatoes) items = items.map { Items.ROTTEN_TOMATO_2518 } as ArrayList<Int>
+        else if (isSuperCompost) items = items.map { Items.SUPERCOMPOST_6034 } as ArrayList<Int>
         else items = items.map { Items.COMPOST_6032 } as ArrayList<Int>
         isFinished = true
     }
@@ -260,8 +261,8 @@ class CompostBin(val player: Player, val bin: CompostBins) {
     /**
      * Convert the compost to super compost.
      */
-    fun convert(){
-        if(!isSuperCompost){
+    fun convert() {
+        if (!isSuperCompost) {
             items = items.map { Items.SUPERCOMPOST_6034 } as ArrayList<Int>
             isSuperCompost = true
             updateBit()
