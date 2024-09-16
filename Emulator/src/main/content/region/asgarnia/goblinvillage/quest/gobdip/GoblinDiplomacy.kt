@@ -28,9 +28,9 @@ class GoblinDiplomacy :
         var line = 11
         when (stage) {
             0 -> {
-                line(player, "I can start this quest by speaking to !!Generals Wartface??", line++, true)
-                line(player, "and Bentnoze in the !!Goblin Village??.", line++, true)
-                line(player, "There are no requirements for this quest.", line, true)
+                line(player, "I can start this quest by speaking to !!Generals Wartface??", line++)
+                line(player, "and Bentnoze in the !!Goblin Village??.", line++)
+                line(player, "There are no requirements for this quest.", line)
             }
             in 1..9 -> {
                 line(player, "I spoke to Generals Wartface and Bentnoze in the Goblin", line++, true)

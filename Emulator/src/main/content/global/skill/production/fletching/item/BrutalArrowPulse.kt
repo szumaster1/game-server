@@ -62,12 +62,7 @@ class BrutalArrowPulse(player: Player?, node: Item?, arrow: BrutalArrow, sets: I
         if (player.inventory.remove(base, nail)) {
             player.inventory.add(product)
             rewardXP(player, Skills.FLETCHING, arrow.experience * product.amount)
-            sendMessage(
-                player,
-                if (product.amount == 1) "You attach the " + getItemName(arrow.base) + "to the flighted ogre arrow." else "You fletch " + product.amount + " " + getItemName(
-                    arrow.product
-                ) + " arrows."
-            )
+            sendMessage(player, if (product.amount == 1) "You attach the " + getItemName(arrow.base) + "to the flighted ogre arrow." else "You fletch " + product.amount + " " + getItemName(arrow.product) + " arrows.")
         }
         sets--
         return sets <= 0

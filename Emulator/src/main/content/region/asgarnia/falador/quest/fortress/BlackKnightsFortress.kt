@@ -29,11 +29,11 @@ class BlackKnightsFortress : Quest("Black Knights' Fortress", 14, 13, 3, Vars.VA
 
         when (stage) {
             0 -> {
-                line(player, "I can start this quest by speaking to the !!Sir Amik Varze?? at the", line++, true)
-                line(player, "!!White Knight's Castle?? in !!Falador??.", line++, true)
+                line(player, "I can start this quest by speaking to the !!Sir Amik Varze?? at the", line++)
+                line(player, "!!White Knight's Castle?? in !!Falador??.", line++)
                 line(player,if (getQuestPoints(player) < 12) "!!" else "<str>" + "I must have a total of at least 12 Quest Points", line++, true)
-                line(player, "I would have an advantage if I could fight !!Level 33 Knights??", line++, true)
-                line(player, "and if I had a smithing level of !!26??.", line++, true)
+                line(player, "I would have an advantage if I could fight !!Level 33 Knights??", line++)
+                line(player, "and if I had a smithing level of !!26??.", line++)
             }
 
             10 -> {
@@ -70,7 +70,7 @@ class BlackKnightsFortress : Quest("Black Knights' Fortress", 14, 13, 3, Vars.VA
                 line(player, "I found a cabbage, and used it to a destroy the potion, then", line++, true)
                 line(player, "claimed my reward for a job well done.", line++, true)
                 line++
-                line(player, "<col=FF0000>QUEST COMPLETE!</col>", line++, false)
+                line(player, "<col=FF0000>QUEST COMPLETE!</col>", line++)
                 line++
                 line(player, "!!Reward:??", line++, false)
                 line(player, "3 Quest Points", line++, false)

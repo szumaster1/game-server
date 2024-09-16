@@ -27,8 +27,8 @@ class LostCity : Quest("Lost City", 83, 82, 3, Vars.VARP_QUEST_LOST_CITY_PROGRES
 
         when (stage) {
             0 -> {
-                line(player, "I can start this quest by speaking to the !!Adventurers?? in", line++, true)
-                line(player, "the !!Swamp?? just south of !!Lumbridge??.", line++, true)
+                line(player, "I can start this quest by speaking to the !!Adventurers?? in", line++)
+                line(player, "the !!Swamp?? just south of !!Lumbridge??.", line++)
                 drawQuestRequirements(player)
                 line++
             }

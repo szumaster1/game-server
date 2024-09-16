@@ -20,9 +20,9 @@ class WitchHouse : Quest("Witch's House", 124, 123, 4, Vars.VARP_QUEST_WTICHS_HO
         var line = 12
 
         if (getStage(player) >= 0) {
-            line(player, "I can start this quest by speaking to the !!little boy??", line++, true)
-            line(player, "standing by the long garden just !!north of Taverley??", line++, true)
-            line(player, "I must be able to defeat a !!level 53 enemy??.", line++, true)
+            line(player, "I can start this quest by speaking to the !!little boy??", line++)
+            line(player, "standing by the long garden just !!north of Taverley??", line++)
+            line(player, "I must be able to defeat a !!level 53 enemy??.", line++)
             line++
         }
 

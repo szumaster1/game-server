@@ -37,9 +37,9 @@ class DemonSlayer : Quest("Demon Slayer", 16, 15, 3, Vars.VARP_QUEST_DEMON_SLAYE
         var line = 12
         when (getStage(player)) {
             0 -> {
-                line(player, "I can start this quest by speaking to the !!Gypsy?? in the !!tent??", line++, true)
-                line(player, "in !!Varrock's?? main square", line++, true)
-                line(player, "I must be able to defeat a level 27 !!apocalyptic demon!", line++, true)
+                line(player, "I can start this quest by speaking to the !!Gypsy?? in the !!tent??", line++)
+                line(player, "in !!Varrock's?? main square", line++)
+                line(player, "I must be able to defeat a level 27 !!apocalyptic demon!", line++)
             }
 
             10 -> {

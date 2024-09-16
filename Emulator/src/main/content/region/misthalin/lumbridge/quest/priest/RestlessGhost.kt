@@ -20,9 +20,9 @@ class RestlessGhost : Quest("The Restless Ghost", 25, 24, 1, Vars.VARP_QUEST_RES
         var line = 11
 
         if (stage == 0) {
-            line(player, "I can start this quest by speaking to !!Father Aereck?? in the", line++, true)
-            line(player, "!!church?? next to !!Lumbridge Castle??.", line++, true)
-            line(player, "I must be unafraid of a !!Level 13 Skeleton??.", line++, true)
+            line(player, "I can start this quest by speaking to !!Father Aereck?? in the", line++)
+            line(player, "!!church?? next to !!Lumbridge Castle??.", line++)
+            line(player, "I must be unafraid of a !!Level 13 Skeleton??.", line++)
             line++
         }
         if (stage == 10) {

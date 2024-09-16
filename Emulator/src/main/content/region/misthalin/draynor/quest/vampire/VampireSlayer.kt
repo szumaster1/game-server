@@ -26,10 +26,10 @@ class VampireSlayer: Quest("Vampire Slayer", 30, 29, 3, Vars.VARP_QUEST_VAMPIRE_
         var line = 11
 
         if (getStage(player) == 0) {
-            line(player, "I can start this quest by speaking to !!Morgan who is in???", line++, true)
-            line(player, "!!Draynor Village??.", line++, true)
-            line(player, "Requirements:", line++, true)
-            line(player, "Must be able to kill a level 34 !!Vampire??.", line++, true)
+            line(player, "I can start this quest by speaking to !!Morgan who is in???", line++)
+            line(player, "!!Draynor Village??.", line++)
+            line(player, "Requirements:", line++)
+            line(player, "Must be able to kill a level 34 !!Vampire??.", line++)
         }
         if (getStage(player) == 10) {
             line(player, "I spoke to Morgan in Draynor Village. He told me that the", line++, true)
