@@ -8,7 +8,7 @@ import core.game.interaction.InteractionListener
 import core.game.node.item.Item
 
 /**
- * Cleaning cloth listener.
+ * Handles cleaning cloth creation.
  */
 class CleaningClothListener : InteractionListener {
 

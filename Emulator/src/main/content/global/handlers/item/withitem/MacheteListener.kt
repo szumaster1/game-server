@@ -8,7 +8,7 @@ import core.tools.RandomFunction
 import core.game.node.Node
 
 /**
- * Machete on thatching spar listener.
+ * Handles the machete on thatching spar creation.
  */
 class MacheteListener : InteractionListener{
 
@@ -52,10 +52,7 @@ class MacheteListener : InteractionListener{
             Items.OPAL_MACHETE_6313 -> 2429
             Items.JADE_MACHETE_6315 -> 6430
             Items.RED_TOPAZ_MACHETE_6317 -> 2431
-            else -> {
-                print("Something went wrong, please report this error")
-                return 2389
-            }
+            else -> return 2389
         }
     }
 }

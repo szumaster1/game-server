@@ -8,9 +8,6 @@ import core.game.node.entity.npc.NPC
 
 /**
  * Represents the High priest entrana holy grail dialogue file.
- *
- * Related to [Holy Grail][content.region.kandarin.quest.grail.HolyGrail] quest.
- * @author lostmyphat
  */
 class HighPriestEntranaHolyGrailDialogueFile : DialogueFile() {
 

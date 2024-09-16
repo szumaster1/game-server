@@ -37,8 +37,6 @@ object RCGUtils {
 
     /**
      * Function to check if the player has all required items to receive a reward.
-     *
-     * Related with [WizardElrissDialogue][content.region.misthalin.handlers.guild.runecrafting.dialogue.WizardElrissDialogue]
      */
     fun checkReward(player: Player) {
         // List of required items for the reward

@@ -11,9 +11,6 @@ import core.tools.END_DIALOGUE
 
 /**
  * Represents the Sir bedivere holy grail quest dialogue file.
- *
- * Related to [Holy Grail][content.region.kandarin.quest.grail.HolyGrail] quest.
- * @author lostmyphat
  */
 class SirBedivereHolyGrailQuestDialogueFile  : DialogueFile() {
 

@@ -22,23 +22,24 @@ import core.game.world.update.flag.context.Graphic
  */
 class PharaohSceptreListener : InteractionListener {
 
+    private val sceptreIDs = intArrayOf(
+        Items.PHARAOHS_SCEPTRE_9044,
+        Items.PHARAOHS_SCEPTRE_9046,
+        Items.PHARAOHS_SCEPTRE_9048,
+        Items.PHARAOHS_SCEPTRE_9050
+    )
+
     override fun defineListeners() {
-        val SCEPTRES = intArrayOf(
-            Items.PHARAOHS_SCEPTRE_9044,
-            Items.PHARAOHS_SCEPTRE_9046,
-            Items.PHARAOHS_SCEPTRE_9048,
-            Items.PHARAOHS_SCEPTRE_9050
-        )
 
         /*
          * Handles the Pharaoh's Sceptre interactions.
          */
 
-        on(SCEPTRES, IntType.ITEM, "teleport", "operate") { player, node ->
+        on(sceptreIDs, IntType.ITEM, "teleport", "operate") { player, node ->
             if (!hasRequirement(player, "Icthlarin's Little Helper")) return@on true
             val sceptre = node.asItem()
 
-            if (sceptre.id == SCEPTRES.last()) {
+            if (sceptre.id == sceptreIDs.last()) {
                 sendMessage(player, "You have used up all the charges on this sceptre.")
                 return@on true
             }

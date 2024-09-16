@@ -1,7 +1,7 @@
 package core.game.bots.impl
 
 import cfg.consts.Items
-import content.global.travel.charter.Ships
+import content.global.travel.charter.Ship
 import core.cache.def.impl.ItemDefinition
 import core.game.bots.*
 import core.game.node.item.Item
@@ -86,7 +86,7 @@ class LawCrafter : Script() {
                     if (boatGuy.location.withinDistance(bot!!.location, 2)) {
                         if (ItemDefinition.canEnterEntrana(bot)) {
                             endDialogue = false
-                            Ships.PORT_SARIM_TO_ENTRANA.sail(bot!!)
+                            Ship.PORT_SARIM_TO_ENTRANA.sail(bot!!)
                             state = State.CROSS_GANGPLANK
                         } else {
                             state = State.INVALID
@@ -153,7 +153,7 @@ class LawCrafter : Script() {
                 if (boatGuy != null) {
                     if (boatGuy.location.withinDistance(bot!!.location, 2)) {
                         endDialogue = false
-                        Ships.ENTRANA_TO_PORT_SARIM.sail(bot!!)
+                        Ship.ENTRANA_TO_PORT_SARIM.sail(bot!!)
                         state = State.HALF_BANK
                     } else {
                         scriptAPI!!.walkTo(boatGuy.location)

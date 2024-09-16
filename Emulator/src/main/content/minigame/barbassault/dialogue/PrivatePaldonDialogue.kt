@@ -10,7 +10,6 @@ import core.tools.END_DIALOGUE
 
 /**
  * Represents the Private Paldon dialogue.
- * @author Szumaster
  */
 @Initializable
 class PrivatePaldonDialogue(player: Player? = null) : Dialogue(player) {

@@ -1,6 +1,6 @@
 package content.minigame.pestcontrol
 
-import content.global.travel.charter.Ships
+import content.global.travel.charter.Ship
 import cfg.consts.NPCs
 import core.api.getUsedOption
 import core.api.openDialogue
@@ -35,7 +35,7 @@ class PestControlListeners : InteractionListener {
 
                 "leave" -> {
                     if (session == null) {
-                        Ships.PEST_TO_PORT_SARIM.sail(player)
+                        Ship.PEST_TO_PORT_SARIM.sail(player)
                         return@on true
                     }
                     player.properties.teleportLocation = session.activity.leaveLocation

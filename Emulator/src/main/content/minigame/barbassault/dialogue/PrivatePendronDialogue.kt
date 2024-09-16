@@ -10,7 +10,6 @@ import core.tools.END_DIALOGUE
 
 /**
  * Represents the Private Pendron dialogue.
- * @author Szumaster
  */
 @Initializable
 class PrivatePendronDialogue(player: Player? = null) : Dialogue(player) {

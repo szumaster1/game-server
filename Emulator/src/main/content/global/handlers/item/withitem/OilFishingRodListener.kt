@@ -11,7 +11,7 @@ import core.game.system.task.Pulse
 import core.game.world.update.flag.context.Animation
 
 /**
- * Oil fishing rod listener.
+ * Handles the oily fishing rod creation.
  */
 class OilFishingRodListener : InteractionListener {
 
@@ -22,7 +22,10 @@ class OilFishingRodListener : InteractionListener {
 
     override fun defineListeners() {
 
-        // Creating Oily fishing rod interaction.
+        /*
+         * Creating Oily fishing rod interaction.
+         */
+
         onUseWith(IntType.ITEM, blamishOil, fishingRod) { player, used, with ->
             player.pulseManager.run(object : Pulse() {
                 var counter = 0

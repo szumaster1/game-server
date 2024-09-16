@@ -103,7 +103,7 @@ class SeamanDialogue(player: Player? = null) : Dialogue(player) {
 
     fun travel() {
         end()
-        Ships.PORT_SARIM_TO_KARAMAJA.sail(player)
+        Ship.PORT_SARIM_TO_KARAMAJA.sail(player)
     }
 
     override fun getIds(): IntArray {

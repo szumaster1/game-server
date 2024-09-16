@@ -8,7 +8,7 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 
 /**
- * Crystal key create listener.
+ * Handles crystal key creation.
  */
 class CrystalKeyCreateListener : InteractionListener {
 

@@ -1,6 +1,6 @@
 package content.minigame.pestcontrol.dialogue
 
-import content.global.travel.charter.Ships
+import content.global.travel.charter.Ship
 import cfg.consts.NPCs
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression
@@ -80,7 +80,7 @@ class SquireDialogue(player: Player? = null) : Dialogue(player) {
 
             503 -> {
                 end()
-                Ships.PEST_TO_PORT_SARIM.sail(player)
+                Ship.PEST_TO_PORT_SARIM.sail(player)
             }
 
             1 -> when (buttonId) {
@@ -155,7 +155,7 @@ class SquireDialogue(player: Player? = null) : Dialogue(player) {
 
             24 -> {
                 end()
-                Ships.PORT_SARIM_TO_PEST_CONTROL.sail(player)
+                Ship.PORT_SARIM_TO_PEST_CONTROL.sail(player)
             }
 
             200 -> end()

@@ -1,6 +1,6 @@
 package content.region.karamja.brimhaven.dialogue
 
-import content.global.travel.charter.Ships
+import content.global.travel.charter.Ship
 import core.api.amountInInventory
 import cfg.consts.Items
 import cfg.consts.NPCs
@@ -84,12 +84,12 @@ class CustomsOfficerDialogue(player: Player? = null): Dialogue(player) {
                     return true
                 }
                 end()
-                var ship: Ships? = null
+                var ship: Ship? = null
                 if (player.location.getDistance(LOCATIONS[0]) < 40) {
-                    ship = Ships.BRIMHAVEN_TO_ARDOUGNE
+                    ship = Ship.BRIMHAVEN_TO_ARDOUGNE
                 }
                 if (player.location.getDistance(LOCATIONS[1]) < 40) {
-                    ship = Ships.KARAMJAMA_TO_PORT_SARIM
+                    ship = Ship.KARAMJAMA_TO_PORT_SARIM
                 }
                 getPrice()
                 ship!!.sail(player)

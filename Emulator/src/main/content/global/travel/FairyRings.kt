@@ -18,7 +18,7 @@ import core.game.world.map.RegionManager
 import core.tools.RandomFunction
 
 /**
- * Represents the fairy ring transportation method.
+ * Represents the fairy ring transportation.
  */
 class FairyRings : InterfaceListener, InteractionListener {
     val RING_1 = arrayOf('a', 'd', 'c', 'b')

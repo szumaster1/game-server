@@ -64,10 +64,10 @@ class LightSourceLighterHandler : UseWithHandler(Items.TINDERBOX_590, Items.CAND
     /**
      * Light function to manage lighting effects in the game.
      *
-     * @param player The player object that is interacting with the light.
-     * @param item The item that is being used to create light.
-     * @param lightSource The data related to the light source being utilized.
-     * @return Returns true if the light was successfully activated, false otherwise.
+     * @param player        the player object that is interacting with the light.
+     * @param item          the item that is being used to create light.
+     * @param lightSource   the data related to the light source being utilized.
+     * @return Returns `true` if the light was successfully activated, `false` otherwise.
      */
     fun light(player: Player, item: Item, lightSource: LightSource): Boolean {
         val requiredLevel = lightSource.levelRequired

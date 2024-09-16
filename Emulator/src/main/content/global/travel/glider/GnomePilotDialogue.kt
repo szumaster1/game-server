@@ -13,8 +13,6 @@ import core.tools.END_DIALOGUE
 
 /**
  * Represents the Gnome Pilot dialogue.
- *
- * Related [NPCs.CAPTAIN_ERRDO_3811][content.region.kandarin.quest.grandtree.dialogue.CaptainErrdoDialogue]
  */
 @Initializable
 class GnomePilotDialogue(player: Player? = null) : Dialogue(player) {

@@ -10,7 +10,6 @@ import core.tools.END_DIALOGUE
 
 /**
  * Represents the Commander Connad dialogue.
- * @author Szumaster
  */
 @Initializable
 class CommanderConnadDialogue(player: Player? = null) : Dialogue(player) {

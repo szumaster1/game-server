@@ -8,12 +8,16 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 
 /**
- * Hay on spear listener.
+ * Handles use hay on a spear.
  */
 class HayOnSpearListener : InteractionListener {
 
     override fun defineListeners() {
-        // Bronze spear used on the hay sack to create a hay sack spear.
+
+        /*
+         * Bronze spear used on the hay sack to create a hay sack spear.
+         */
+
         onUseWith(IntType.ITEM, Items.HAY_SACK_6057, Items.BRONZE_SPEAR_1237) { player, used, with ->
             if (removeItem(player, used.asItem()) && removeItem(player, with.asItem())) {
                 sendMessage(player, "You stab the hay sack with a spear.")

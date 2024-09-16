@@ -13,7 +13,7 @@ import core.game.system.task.Pulse
 import core.game.world.update.flag.context.Animation
 
 /**
- * Handles the god book option interaction.
+ * Handles a god book option interaction.
  */
 class GodBookListeners : InteractionListener {
 

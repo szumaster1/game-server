@@ -15,9 +15,6 @@ import core.tools.END_DIALOGUE
 
 /**
  * Represents the Merlin holy grail quest dialogue file.
- *
- * Related to [Holy Grail][content.region.kandarin.quest.grail.HolyGrail] quest.
- * @author lostmyphat
  */
 class MerlinHolyGrailQuestDialogueFile : DialogueFile() {
 

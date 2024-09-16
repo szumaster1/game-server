@@ -22,8 +22,8 @@ import core.tools.RandomFunction
  * @author Vexia
  */
 object EssenceTeleport {
-    /**
-     * Array of all the possible `Location` locations.
+    /*
+     * Array of all the possible locations.
      */
     val LOCATIONS = arrayOf(
         Location.create(2911, 4832, 0),
@@ -35,7 +35,7 @@ object EssenceTeleport {
         Location.create(2931, 4813, 0)
     )
 
-    /**
+    /*
      * Represents constants used for gfx/animation
      */
     private const val CURSE_PROJECTILE = 109

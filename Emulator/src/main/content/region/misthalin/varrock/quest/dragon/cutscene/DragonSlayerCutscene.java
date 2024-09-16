@@ -1,6 +1,6 @@
 package content.region.misthalin.varrock.quest.dragon.cutscene;
 
-import content.global.travel.charter.Ships;
+import content.global.travel.charter.Ship;
 import core.game.activity.ActivityManager;
 import core.game.activity.ActivityPlugin;
 import core.game.activity.CutscenePlugin;
@@ -103,7 +103,7 @@ public final class DragonSlayerCutscene extends CutscenePlugin {
     public void end() {
         super.end();
         this.getBobinPulse().stop();
-        player.getProperties().setTeleportLocation(Ships.PORT_SARIM_TO_CRANDOR.location);
+        player.getProperties().setTeleportLocation(Ship.PORT_SARIM_TO_CRANDOR.location);
         player.getInterfaceManager().close();
         player.animate(ANIMATION);
         player.getDialogueInterpreter().close();
@@ -496,8 +496,8 @@ public final class DragonSlayerCutscene extends CutscenePlugin {
                             stage = 512;
                             break;
                         case 512:
-                            setAttribute(player, "real-end", Ships.PORT_SARIM_TO_CRANDOR.location);
-                            setAttribute(player, "cutscene:original-loc", Ships.PORT_SARIM_TO_CRANDOR.location);
+                            setAttribute(player, "real-end", Ship.PORT_SARIM_TO_CRANDOR.location);
+                            setAttribute(player, "cutscene:original-loc", Ship.PORT_SARIM_TO_CRANDOR.location);
                             PacketRepository.send(CameraViewPacket.class, new CameraContext(player, CameraType.SHAKE, 4, 4, 1200, 4, 4));
                             player.getDialogueInterpreter().sendPlainMessage(true, "<col=8A0808>CRASH!");
                             cutscene.stop(true);
@@ -524,7 +524,7 @@ public final class DragonSlayerCutscene extends CutscenePlugin {
                             break;
                         case 10:
                             end();
-                            Ships.PORT_SARIM_TO_CRANDOR.sail(player);
+                            Ship.PORT_SARIM_TO_CRANDOR.sail(player);
                             GameWorld.getPulser().submit(new Pulse(17) {
                                 @Override
                                 public boolean pulse() {

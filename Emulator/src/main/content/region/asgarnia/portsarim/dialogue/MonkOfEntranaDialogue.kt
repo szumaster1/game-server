@@ -1,6 +1,6 @@
 package content.region.asgarnia.portsarim.dialogue
 
-import content.global.travel.charter.Ships
+import content.global.travel.charter.Ship
 import cfg.consts.NPCs
 import core.api.finishDiaryTask
 import core.api.hasDiaryTaskComplete
@@ -55,7 +55,7 @@ class MonkOfEntranaDialogue(player: Player? = null) : Dialogue(player) {
             23 -> npc("Do not try and decieve us again. Come back when you", "have liad down your Zamorakian instruments of death.").also { stage = END_DIALOGUE }
             24 -> {
                 end()
-                Ships.PORT_SARIM_TO_ENTRANA.sail(player)
+                Ship.PORT_SARIM_TO_ENTRANA.sail(player)
                 if (!hasDiaryTaskComplete(player, DiaryType.FALADOR, 0, 14)) {
                     finishDiaryTask(player, DiaryType.FALADOR,  0, 14)
                 }
@@ -70,7 +70,7 @@ class MonkOfEntranaDialogue(player: Player? = null) : Dialogue(player) {
             27 -> npc("Okay, let's board...").also { stage++ }
             28 -> {
                 end()
-                Ships.ENTRANA_TO_PORT_SARIM.sail(player)
+                Ship.ENTRANA_TO_PORT_SARIM.sail(player)
             }
         }
         return true

@@ -47,10 +47,6 @@ class Giftmas : Commands, StartupListener, LoginListener, InteractionListener {
         player.hook(Event.XpGained, XpGainHook) // Hook the XP gain event for the player
     }
 
-    /**
-     * Init
-     *
-     */
     fun init() {
         try {
             // Set up interaction for opening the mystery box
@@ -73,10 +69,6 @@ class Giftmas : Commands, StartupListener, LoginListener, InteractionListener {
             player.hook(Event.XpGained, XpGainHook) // Hook the XP gain event for each player
     }
 
-    /**
-     * Cleanup
-     *
-     */
     fun cleanup() {
         // Unhook all players from the XP gain event
         for (player in Repository.players)

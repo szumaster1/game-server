@@ -71,10 +71,10 @@ class CanoeListeners : InteractionListener, InterfaceListener {
         /**
          * To scale woodcutting success. Follows WoodcuttingNode values at 15,30,45,60 (3 levels 'harder').
          *
-         * @param player The player attempting to cut wood.
-         * @param resource The type of resource being cut, represented as Canoes.
-         * @param tool The tool used for woodcutting, represented as SkillingTool.
-         * @return Returns true if the woodcutting attempt is successful, false otherwise.
+         * @param player    the player attempting to cut wood.
+         * @param resource  the type of resource being cut, represented as [Canoes].
+         * @param tool      the tool used for woodcutting, represented as [SkillingTool].
+         * @return return `true` if the woodcutting attempt is successful, `false` otherwise.
          */
         private fun checkSuccess(player: Player, resource: Canoes, tool: SkillingTool): Boolean {
             val skill = Skills.WOODCUTTING
@@ -161,60 +161,60 @@ class CanoeListeners : InteractionListener, InterfaceListener {
             }
         }
 
-        enum class CanoeStationLocations(val stationRegion: Int, val stationVarbit: Int, val playerChopLocation: Location, val playerFloatLocation: Location, val playerFacingLocation: Location, val canoeSinkLocation: Location, val playerDestination: Location, val locationName: String) {
+        enum class CanoeStationLocations(val region: Int, val varbit: Int, val chopLocation: Location, val floatLocation: Location, val facingLocation: Location, val sinkLocation: Location, val destination: Location, val locationName: String) {
             LUMBRIDGE(
-                stationRegion = 12850,
-                stationVarbit = 1839,
-                playerChopLocation = Location(3243, 3235),
-                playerFloatLocation = Location(3243, 3237),
-                playerFacingLocation = Location(-1, 0),
-                canoeSinkLocation = Location.create(3239, 3242,0),
-                playerDestination = Location(3240, 3242, 0),
+                region = 12850,
+                varbit = 1839,
+                chopLocation = Location(3243, 3235),
+                floatLocation = Location(3243, 3237),
+                facingLocation = Location(-1, 0),
+                sinkLocation = Location.create(3239, 3242,0),
+                destination = Location(3240, 3242, 0),
                 locationName = "Lumbridge"
             ),
             CHAMPIONS(
-                stationRegion = 12852,
-                stationVarbit = 1840,
-                playerChopLocation = Location(3204, 3343),
-                playerFloatLocation = Location(3202, 3343),
-                playerFacingLocation = Location(0, -1),
-                canoeSinkLocation = Location.create(3199, 3344,0),
-                playerDestination = Location(3199, 3344, 0),
+                region = 12852,
+                varbit = 1840,
+                chopLocation = Location(3204, 3343),
+                floatLocation = Location(3202, 3343),
+                facingLocation = Location(0, -1),
+                sinkLocation = Location.create(3199, 3344,0),
+                destination = Location(3199, 3344, 0),
                 locationName = "the Champion's Guild"
             ),
             BARBARIAN(
-                stationRegion = 12341,
-                stationVarbit = 1841,
-                playerChopLocation = Location(3112, 3409),
-                playerFloatLocation = Location(3112, 3411),
-                playerFacingLocation = Location(-1, 0),
-                canoeSinkLocation = Location.create(3109, 3411,0),
-                playerDestination = Location(3109, 3415),
+                region = 12341,
+                varbit = 1841,
+                chopLocation = Location(3112, 3409),
+                floatLocation = Location(3112, 3411),
+                facingLocation = Location(-1, 0),
+                sinkLocation = Location.create(3109, 3411,0),
+                destination = Location(3109, 3415),
                 locationName = "Barbarian Village"
             ),
             EDGEVILLE(
-                stationRegion = 12342,
-                stationVarbit = 1842,
-                playerChopLocation = Location(3132, 3508),
-                playerFloatLocation = Location(3132, 3510),
-                playerFacingLocation = Location(-1, 0),
-                canoeSinkLocation = Location.create(3132, 3510,0),
-                playerDestination = Location(3132, 3510),
+                region = 12342,
+                varbit = 1842,
+                chopLocation = Location(3132, 3508),
+                floatLocation = Location(3132, 3510),
+                facingLocation = Location(-1, 0),
+                sinkLocation = Location.create(3132, 3510,0),
+                destination = Location(3132, 3510),
                 locationName = "Edgeville"
             ),
             WILDERNESS(
-                stationRegion = 12603,
-                stationVarbit = 0,
-                playerChopLocation = Location(0, 0),
-                playerFloatLocation = Location(0, 0),
-                playerFacingLocation = Location(0, 0),
-                canoeSinkLocation = Location.create(3142, 3795,0),
-                playerDestination = Location(3141, 3796, 0),
+                region = 12603,
+                varbit = 0,
+                chopLocation = Location(0, 0),
+                floatLocation = Location(0, 0),
+                facingLocation = Location(0, 0),
+                sinkLocation = Location.create(3142, 3795,0),
+                destination = Location(3141, 3796, 0),
                 locationName = "the Wilderness Pond"
             );
 
             companion object {
-                private val stationRegionMap = CanoeStationLocations.values().associateBy { it.stationRegion }
+                private val stationRegionMap = CanoeStationLocations.values().associateBy { it.region }
 
                 @JvmStatic
                 fun getCanoeStationbyLocation(location: Location): CanoeStationLocations {
@@ -227,11 +227,11 @@ class CanoeListeners : InteractionListener, InterfaceListener {
     override fun defineDestinationOverrides() {
         // Set player's standing location when chopping down the tree.
         setDest(IntType.SCENERY, CanoeStationSceneries.stationIdArray, "chop-down") { _, node ->
-            return@setDest CanoeStationLocations.getCanoeStationbyLocation(node.location).playerChopLocation
+            return@setDest CanoeStationLocations.getCanoeStationbyLocation(node.location).chopLocation
         }
         // Set player's standing location when shaping and floating the canoe.
         setDest(IntType.SCENERY, CanoeStationSceneries.stationIdArray, "shape-canoe", "float canoe", "float log", "float waka") { _, node ->
-            return@setDest CanoeStationLocations.getCanoeStationbyLocation(node.location).playerFloatLocation
+            return@setDest CanoeStationLocations.getCanoeStationbyLocation(node.location).floatLocation
         }
     }
 
@@ -261,7 +261,7 @@ class CanoeListeners : InteractionListener, InterfaceListener {
                     }
                     1 -> {
                         setVarbit(player, stationVarbit, CanoeStationSceneries.TREE_FALLEN.varbitValue)
-                        face(player, canoeStation.playerChopLocation.transform(canoeStation.playerFacingLocation))
+                        face(player, canoeStation.chopLocation.transform(canoeStation.facingLocation))
                         return@queueScript stopExecuting(player)
                     }
                     else -> return@queueScript stopExecuting(player)
@@ -273,8 +273,8 @@ class CanoeListeners : InteractionListener, InterfaceListener {
         // Stage 3: Tree is on the cradle after the chop, option to shape-canoe via interface CANOE_52.
         on(CanoeStationSceneries.stationIdArray, IntType.SCENERY, "shape-canoe") { player, node ->
             val canoeStation = CanoeStationLocations.getCanoeStationbyLocation(node.location)
-            setAttribute(player, CANOE_STATION_VARBIT_ATTRIBUTE, canoeStation.stationVarbit)
-            face(player, canoeStation.playerFloatLocation.transform(canoeStation.playerFacingLocation))
+            setAttribute(player, CANOE_STATION_VARBIT_ATTRIBUTE, canoeStation.varbit)
+            face(player, canoeStation.floatLocation.transform(canoeStation.facingLocation))
             openInterface(player, CANOE_SHAPING_INTERFACE)
             openOverlay(player, Components.BLACK_OVERLAY_333)
             return@on true
@@ -284,10 +284,10 @@ class CanoeListeners : InteractionListener, InterfaceListener {
         on(CanoeStationSceneries.stationIdArray, IntType.SCENERY, "float canoe", "float log", "float waka") { player, node ->
             val canoeStation = CanoeStationLocations.getCanoeStationbyLocation(node.location)
             val canoe = Canoes.indexMap[getAttribute(player, CANOE_SELECTED_ATTRIBUTE, 0)]!!
-            setVarbit(player, canoeStation.stationVarbit, canoe.canoePushing.varbitValue)
+            setVarbit(player, canoeStation.varbit, canoe.canoePushing.varbitValue)
             lock(player, CANOE_PLAYER_PUSHING_ANIMATION.duration)
             playAudio(player, Sounds.CANOE_ROLL_2731)
-            face(player, canoeStation.playerFloatLocation.transform(canoeStation.playerFacingLocation))
+            face(player, canoeStation.floatLocation.transform(canoeStation.facingLocation))
             queueScript(player, 0, QueueStrength.SOFT) { stage: Int ->
                 when (stage) {
                     0 -> {
@@ -296,7 +296,7 @@ class CanoeListeners : InteractionListener, InterfaceListener {
                         return@queueScript delayScript(player, CANOE_PLAYER_PUSHING_ANIMATION.duration)
                     }
                     1 -> {
-                        setVarbit(player, canoeStation.stationVarbit, canoe.canoeFloating.varbitValue)
+                        setVarbit(player, canoeStation.varbit, canoe.canoeFloating.varbitValue)
                         resetAnimator(player)
                         return@queueScript stopExecuting(player)
                     }
@@ -365,7 +365,8 @@ class CanoeListeners : InteractionListener, InterfaceListener {
                 setComponentVisibility(player, component.id, CANOE_DESTINATION_HIDE_ROW[i.ordinal], true)
                 if (i == CanoeStationLocations.WILDERNESS) {
                     if (canoe == Canoes.WAKA) {
-                        // setComponentVisibility(player, component.id, 22, false) // Some red text on Wildy text.
+                        // setComponentVisibility(player, component.id, 22, false)
+                        // Some red text on Wildy text.
                         setComponentVisibility(player, component.id, CANOE_DESTINATION_HIDE_ROW[i.ordinal], false)
                     }
                 } else if (i.ordinal == origin.ordinal) {
@@ -407,7 +408,7 @@ class CanoeListeners : InteractionListener, InterfaceListener {
                             removeTabs(player, 0, 1, 2, 3, 4, 5, 6, 11, 12)
                         }
                         Animation(interfaceAnimationId).duration + 1 -> {
-                            teleport(player, destination.playerDestination)
+                            teleport(player, destination.destination)
                             closeInterface(player)
                             closeOverlay(player)
                             openOverlay(player, Components.FADE_FROM_BLACK_170)
@@ -416,14 +417,14 @@ class CanoeListeners : InteractionListener, InterfaceListener {
                             unlock(player)
                             restoreTabs(player)
                             setMinimapState(player, 0)
-                            val sinkingScenery = SceneryBuilder.add(core.game.node.scenery.Scenery(Scenery.A_SINKING_CANOE_12159, destination.canoeSinkLocation, 1), 3).asScenery()
+                            val sinkingScenery = SceneryBuilder.add(core.game.node.scenery.Scenery(Scenery.A_SINKING_CANOE_12159, destination.sinkLocation, 1), 3).asScenery()
                             animateScenery(sinkingScenery, CANOE_SINKING_ANIMATION.id)
                             sendMessage(player, "You arrive at $arrivalMessage.")
                             sendMessage(player, "Your canoe sinks from the long journey.")
                             if (destination == CanoeStationLocations.WILDERNESS) {
                                 sendMessage(player, "There are no trees nearby to make a new canoe. Guess you're walking.")
                             }
-                            setVarbit(player, origin.stationVarbit, 0)
+                            setVarbit(player, origin.varbit, 0)
                             return true
                         }
                     }

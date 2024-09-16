@@ -1,6 +1,6 @@
 package content.region.kandarin.ardougne.handlers
 
-import content.global.travel.charter.Ships
+import content.global.travel.charter.Ship
 import content.region.kandarin.quest.grail.dialogue.GalahadHolyGrailDialogueFile
 import core.api.*
 import cfg.consts.Items
@@ -52,7 +52,7 @@ class ArdougneListeners : InteractionListener {
             } else {
                 sendMessage(player, "You pay 30 coins and board the ship.")
                 playJingle(player, 171)
-                Ships.ARDOUGNE_TO_BRIMHAVEN.sail(player)
+                Ship.ARDOUGNE_TO_BRIMHAVEN.sail(player)
             }
             return@on true
         }

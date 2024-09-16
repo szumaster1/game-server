@@ -1,6 +1,6 @@
 package content.region.karamja.brimhaven.dialogue
 
-import content.global.travel.charter.Ships
+import content.global.travel.charter.Ship
 import core.api.*
 import cfg.consts.Items
 import cfg.consts.NPCs
@@ -83,14 +83,14 @@ class CaptainShanksDialogue(player: Player? = null) : Dialogue(player) {
             11 -> {
                 end()
                 if (removeItem(player, TICKET)) {
-                    Ships.sail(player, Ships.CAIRN_ISLAND_TO_PORT_KHAZARD)
+                    Ship.sail(player, Ship.CAIRN_ISLAND_TO_PORT_KHAZARD)
                 }
             }
             20 -> npcl(FacialExpression.HAPPY, "Very well then me old shipmate, I'll just take your ticket and then we'll set sail.").also { stage++ }
             21 -> {
                 end()
                 if (removeItem(player, TICKET)) {
-                    Ships.sail(player, Ships.PORT_SARIM)
+                    Ship.sail(player, Ship.PORT_SARIM)
                 }
             }
         }

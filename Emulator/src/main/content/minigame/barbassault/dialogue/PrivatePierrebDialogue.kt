@@ -13,7 +13,6 @@ import core.tools.END_DIALOGUE
 
 /**
  * Represents the Private Pierreb dialogue.
- * @author Szumaster
  */
 @Initializable
 class PrivatePierrebDialogue(player: Player? = null) : Dialogue(player) {

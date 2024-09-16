@@ -18,8 +18,6 @@ import core.plugin.Plugin
 
 /**
  * Black knight titan zone.
- *
- * Related to [Holy Grail][content.region.kandarin.quest.grail.HolyGrail] quest.
  */
 @Initializable
 class BlackKnightTitanZone : MapZone("BlackKnightTitanZone",true), Plugin<Any?> {

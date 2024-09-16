@@ -12,7 +12,6 @@ import core.tools.END_DIALOGUE
 
 /**
  * Represents the Captain Cain dialogue.
- * @author Szumaster
  */
 @Initializable
 class CaptainCainDialogue(player: Player? = null) : Dialogue(player) {

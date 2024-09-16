@@ -8,7 +8,7 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 
 /**
- * Desert disguised listener.
+ * Handles desert disguised creation.
  */
 class DesertDisguisedListener : InteractionListener {
 

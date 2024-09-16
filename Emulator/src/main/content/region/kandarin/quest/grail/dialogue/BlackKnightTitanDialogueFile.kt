@@ -10,10 +10,7 @@ import core.game.world.repository.Repository
 import core.tools.END_DIALOGUE
 
 /**
- * Represents the Black knight titan dialogue file.
- *
- * Related to [Holy Grail][content.region.kandarin.quest.grail.HolyGrail] quest.
- * @author lostmyphat
+ * Represents the Black knight titan dialogue.
  */
 class BlackKnightTitanDialogueFile(val forced: Boolean) : DialogueFile() {
 

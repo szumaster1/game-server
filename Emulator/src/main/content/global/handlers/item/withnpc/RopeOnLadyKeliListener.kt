@@ -7,7 +7,7 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 
 /**
- * Rope on lady keli listener.
+ * Handles use the rope on Lady Keli NPC.
  */
 class RopeOnLadyKeliListener : InteractionListener {
 

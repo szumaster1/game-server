@@ -13,9 +13,6 @@ import core.tools.END_DIALOGUE
 
 /**
  * Represents the King arthur holy grail quest dialogue file.
- *
- * Related to [Holy Grail][content.region.kandarin.quest.grail.HolyGrail] quest.
- * @author lostmyphat
  */
 class KingArthurHolyGrailQuestDialogueFile : DialogueFile() {
 
