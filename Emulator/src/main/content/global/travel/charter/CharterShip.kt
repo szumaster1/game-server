@@ -16,7 +16,7 @@ import core.tools.StringUtils
 /**
  * Ship charter.
  */
-object ShipCharter {
+object CharterShip {
 
     val component: Component = Component(Components.SAILING_TRANSPORT_WORLD_MAP_95)
 

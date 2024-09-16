@@ -1,0 +1,2667 @@
+{
+    "familiarManager": {
+        "petDetails": [
+            {
+                "petId": "1555",
+                "stage": "2",
+                "growth": "100.0",
+                "hunger": "100.0"
+            }
+        ]
+    },
+    "ge-history": [
+        {
+            "completedAmount": "1",
+            "itemId": "1353",
+            "isSell": false,
+            "totalCoinExchange": "190"
+        },
+        {
+            "completedAmount": "9",
+            "itemId": "451",
+            "isSell": true,
+            "totalCoinExchange": "92700"
+        },
+        {
+            "completedAmount": "1",
+            "itemId": "451",
+            "isSell": true,
+            "totalCoinExchange": "10300"
+        },
+        {
+            "completedAmount": "3",
+            "itemId": "1511",
+            "isSell": false,
+            "totalCoinExchange": "342"
+        },
+        {
+            "completedAmount": "1",
+            "itemId": "1511",
+            "isSell": false,
+            "totalCoinExchange": "114"
+        }
+    ],
+    "barCrawl": {
+        "started": true,
+        "bars": [
+            false,
+            false,
+            false,
+            false,
+            false,
+            true,
+            false,
+            false,
+            false,
+            false
+        ]
+    },
+    "exp_multiplier": "5.0",
+    "brawlingGloves": [
+        {
+            "charges": "305",
+            "gloveId": "6"
+        },
+        {
+            "charges": "446",
+            "gloveId": "8"
+        }
+    ],
+    "unlockedMusic": [
+        "177",
+        "8",
+        "141",
+        "50",
+        "102",
+        "90",
+        "36",
+        "178",
+        "487",
+        "123",
+        "444",
+        "334",
+        "443",
+        "336",
+        "19",
+        "160",
+        "186",
+        "337",
+        "339",
+        "25",
+        "26",
+        "180",
+        "347",
+        "2",
+        "152",
+        "99",
+        "83",
+        "355",
+        "64",
+        "104",
+        "325",
+        "358",
+        "352",
+        "359",
+        "181",
+        "169",
+        "182",
+        "326",
+        "37",
+        "174",
+        "56",
+        "327",
+        "173",
+        "372",
+        "69",
+        "138",
+        "106",
+        "496",
+        "72",
+        "383",
+        "167",
+        "119",
+        "387",
+        "163",
+        "98",
+        "389",
+        "159",
+        "125",
+        "22",
+        "33",
+        "397",
+        "116",
+        "76",
+        "407",
+        "55",
+        "18",
+        "411",
+        "188",
+        "96",
+        "6",
+        "172",
+        "191",
+        "60",
+        "66",
+        "447",
+        "113",
+        "74",
+        "161",
+        "12",
+        "20",
+        "463",
+        "13",
+        "469",
+        "185",
+        "157",
+        "473",
+        "193",
+        "107",
+        "475",
+        "476",
+        "479",
+        "10",
+        "62",
+        "127",
+        "7",
+        "93",
+        "329",
+        "91",
+        "505",
+        "5",
+        "144",
+        "331",
+        "332",
+        "515",
+        "92",
+        "35",
+        "52",
+        "122",
+        "175",
+        "77",
+        "108",
+        "151",
+        "111",
+        "170",
+        "544",
+        "109",
+        "165",
+        "454",
+        "192",
+        "183",
+        "179",
+        "3",
+        "70",
+        "75",
+        "85",
+        "32",
+        "49",
+        "435",
+        "42",
+        "43",
+        "587",
+        "14",
+        "588",
+        "81",
+        "15",
+        "54",
+        "120",
+        "145",
+        "105",
+        "87",
+        "46",
+        "164",
+        "176",
+        "67",
+        "71",
+        "88",
+        "48",
+        "84",
+        "61",
+        "225",
+        "220",
+        "121",
+        "149",
+        "9",
+        "132",
+        "245",
+        "244",
+        "251",
+        "253",
+        "254",
+        "255",
+        "259",
+        "268",
+        "270",
+        "286",
+        "289",
+        "290",
+        "291",
+        "292",
+        "391",
+        "399",
+        "303",
+        "305",
+        "304",
+        "317",
+        "320"
+    ],
+    "states": [],
+    "skills": [
+        {
+            "static": "99",
+            "dynamic": "99",
+            "id": "0",
+            "experience": "1.3034431E7"
+        },
+        {
+            "static": "99",
+            "dynamic": "99",
+            "id": "1",
+            "experience": "1.3044811E7"
+        },
+        {
+            "static": "99",
+            "dynamic": "99",
+            "id": "2",
+            "experience": "1.3034431E7"
+        },
+        {
+            "static": "99",
+            "dynamic": "99",
+            "id": "3",
+            "experience": "1.3037895649999993E7"
+        },
+        {
+            "static": "99",
+            "dynamic": "99",
+            "id": "4",
+            "experience": "1.3034431E7"
+        },
+        {
+            "static": "99",
+            "dynamic": "99",
+            "id": "5",
+            "experience": "1.3034431E7"
+        },
+        {
+            "static": "99",
+            "dynamic": "99",
+            "id": "6",
+            "experience": "1.3039016E7"
+        },
+        {
+            "static": "99",
+            "dynamic": "99",
+            "id": "7",
+            "experience": "1.3034431E7"
+        },
+        {
+            "static": "99",
+            "dynamic": "99",
+            "id": "8",
+            "experience": "1.3034431E7"
+        },
+        {
+            "static": "99",
+            "dynamic": "99",
+            "id": "9",
+            "experience": "1.3034431E7"
+        },
+        {
+            "static": "99",
+            "dynamic": "99",
+            "id": "10",
+            "experience": "1.3034431E7"
+        },
+        {
+            "static": "99",
+            "dynamic": "99",
+            "id": "11",
+            "experience": "1.3034431E7"
+        },
+        {
+            "static": "99",
+            "dynamic": "99",
+            "id": "12",
+            "experience": "1.3034431E7"
+        },
+        {
+            "static": "99",
+            "dynamic": "99",
+            "id": "13",
+            "experience": "1.3034431E7"
+        },
+        {
+            "static": "99",
+            "dynamic": "99",
+            "id": "14",
+            "experience": "1.3034431E7"
+        },
+        {
+            "static": "99",
+            "dynamic": "99",
+            "id": "15",
+            "experience": "1.3034431E7"
+        },
+        {
+            "static": "99",
+            "dynamic": "99",
+            "id": "16",
+            "experience": "1.3034431E7"
+        },
+        {
+            "static": "99",
+            "dynamic": "99",
+            "id": "17",
+            "experience": "1.3034431E7"
+        },
+        {
+            "static": "99",
+            "dynamic": "99",
+            "id": "18",
+            "experience": "1.3034431E7"
+        },
+        {
+            "static": "99",
+            "dynamic": "99",
+            "id": "19",
+            "experience": "1.3034431E7"
+        },
+        {
+            "static": "99",
+            "dynamic": "99",
+            "id": "20",
+            "experience": "1.3034431E7"
+        },
+        {
+            "static": "99",
+            "dynamic": "99",
+            "id": "21",
+            "experience": "1.3034431E7"
+        },
+        {
+            "static": "99",
+            "dynamic": "99",
+            "id": "22",
+            "experience": "1.3034431E7"
+        },
+        {
+            "static": "99",
+            "dynamic": "99",
+            "id": "23",
+            "experience": "1.3034431E7"
+        }
+    ],
+    "spellbook": "192",
+    "activityData": {
+        "elnockSupplies": false,
+        "lostCannon": true,
+        "barrowBrothers": [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+        ],
+        "barrowTunnelIndex": "0",
+        "bountyRogueRate": "0",
+        "borkKills": "0",
+        "solvedMazes": "0",
+        "bountyHunterRate": "0",
+        "pizazzPoints": [
+            "0",
+            "0",
+            "0",
+            "0"
+        ],
+        "startedMta": false,
+        "hardcoreDeath": false,
+        "pestPoints": "3",
+        "kolodionBoss": "0",
+        "warriorGuildTokens": "0",
+        "kolodionStage": "0",
+        "godCasts": [
+            "0",
+            "0",
+            "0"
+        ],
+        "barrowKills": "0",
+        "fogRating": "0",
+        "bonesToPeaches": false,
+        "lastBorkBattle": "0",
+        "topGrabbed": false
+    },
+    "emoteData": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15",
+        "16",
+        "17",
+        "18",
+        "19",
+        "20",
+        "21",
+        "37"
+    ],
+    "questData": {
+        "dragonSlayerPlanks": "0",
+        "talkedDrezel": false,
+        "desertTreasureNode": [
+            {
+                "amount": "12",
+                "id": "1513"
+            },
+            {
+                "amount": "10",
+                "id": "592"
+            },
+            {
+                "amount": "6",
+                "id": "1775"
+            },
+            {
+                "amount": "6",
+                "id": "2353"
+            },
+            {
+                "amount": "2",
+                "id": "526"
+            },
+            {
+                "amount": "2",
+                "id": "973"
+            },
+            {
+                "amount": "1",
+                "id": "565"
+            }
+        ],
+        "cooksAssistant": [
+            false,
+            false,
+            false,
+            false
+        ],
+        "witchsExperimentKilled": false,
+        "draynorLever": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+        ],
+        "dragonSlayer": [
+            false,
+            false,
+            false,
+            false,
+            false,
+            true,
+            false,
+            false,
+            false
+        ],
+        "witchsExperimentStage": "0",
+        "demonSlayer": [
+            false,
+            false
+        ],
+        "gardenerAttack": false
+    },
+    "settings": {
+        "attackStyle": "3",
+        "splitPrivate": true,
+        "disableChatEffects": false,
+        "clanChatSetting": "0",
+        "runToggled": true,
+        "assistSetting": "0",
+        "acceptAid": false,
+        "soundEffectVolume": "0",
+        "areaSoundVolume": "0",
+        "brightness": "2",
+        "publicChatSetting": "0",
+        "singleMouse": false,
+        "specialEnergy": "100",
+        "tradeSetting": "0",
+        "retaliation": true,
+        "privateChatSetting": "0",
+        "musicVolume": "0",
+        "runEnergy": "100.0"
+    },
+    "slayer": {
+        "taskStreak": "0",
+        "rewardFlags": 0,
+        "equipmentFlags": 0,
+        "taskFlags": 109218,
+        "totalTasks": "0"
+    },
+    "quests": {
+        "questStages": [
+            {
+                "questId": "136",
+                "questStage": "100"
+            },
+            {
+                "questId": "14",
+                "questStage": "100"
+            },
+            {
+                "questId": "15",
+                "questStage": "100"
+            },
+            {
+                "questId": "16",
+                "questStage": "100"
+            },
+            {
+                "questId": "17",
+                "questStage": "50"
+            },
+            {
+                "questId": "18",
+                "questStage": "90"
+            },
+            {
+                "questId": "146",
+                "questStage": "100"
+            },
+            {
+                "questId": "19",
+                "questStage": "100"
+            },
+            {
+                "questId": "20",
+                "questStage": "100"
+            },
+            {
+                "questId": "21",
+                "questStage": "100"
+            },
+            {
+                "questId": "22",
+                "questStage": "100"
+            },
+            {
+                "questId": "23",
+                "questStage": "100"
+            },
+            {
+                "questId": "24",
+                "questStage": "100"
+            },
+            {
+                "questId": "25",
+                "questStage": "100"
+            },
+            {
+                "questId": "26",
+                "questStage": "100"
+            },
+            {
+                "questId": "27",
+                "questStage": "100"
+            },
+            {
+                "questId": "28",
+                "questStage": "100"
+            },
+            {
+                "questId": "157",
+                "questStage": "100"
+            },
+            {
+                "questId": "29",
+                "questStage": "100"
+            },
+            {
+                "questId": "30",
+                "questStage": "100"
+            },
+            {
+                "questId": "31",
+                "questStage": "100"
+            },
+            {
+                "questId": "33",
+                "questStage": "100"
+            },
+            {
+                "questId": "35",
+                "questStage": "0"
+            },
+            {
+                "questId": "38",
+                "questStage": "0"
+            },
+            {
+                "questId": "44",
+                "questStage": "0"
+            },
+            {
+                "questId": "48",
+                "questStage": "100"
+            },
+            {
+                "questId": "49",
+                "questStage": "100"
+            },
+            {
+                "questId": "52",
+                "questStage": "0"
+            },
+            {
+                "questId": "59",
+                "questStage": "100"
+            },
+            {
+                "questId": "61",
+                "questStage": "0"
+            },
+            {
+                "questId": "62",
+                "questStage": "0"
+            },
+            {
+                "questId": "64",
+                "questStage": "100"
+            },
+            {
+                "questId": "65",
+                "questStage": "100"
+            },
+            {
+                "questId": "67",
+                "questStage": "100"
+            },
+            {
+                "questId": "70",
+                "questStage": "0"
+            },
+            {
+                "questId": "71",
+                "questStage": "0"
+            },
+            {
+                "questId": "81",
+                "questStage": "100"
+            },
+            {
+                "questId": "83",
+                "questStage": "100"
+            },
+            {
+                "questId": "84",
+                "questStage": "100"
+            },
+            {
+                "questId": "87",
+                "questStage": "100"
+            },
+            {
+                "questId": "89",
+                "questStage": "100"
+            },
+            {
+                "questId": "95",
+                "questStage": "100"
+            },
+            {
+                "questId": "98",
+                "questStage": "0"
+            },
+            {
+                "questId": "99",
+                "questStage": "100"
+            },
+            {
+                "questId": "103",
+                "questStage": "0"
+            },
+            {
+                "questId": "105",
+                "questStage": "100"
+            },
+            {
+                "questId": "113",
+                "questStage": "100"
+            },
+            {
+                "questId": "123",
+                "questStage": "100"
+            },
+            {
+                "questId": "124",
+                "questStage": "100"
+            },
+            {
+                "questId": "125",
+                "questStage": "0"
+            },
+            {
+                "questId": "126",
+                "questStage": "100"
+            }
+        ],
+        "points": "78"
+    },
+    "globalData": {
+        "luthasTask": false,
+        "doubleExpDelay": "0",
+        "macroDisabled": false,
+        "abyssData": [
+            false,
+            false,
+            false,
+            false
+        ],
+        "starSpriteDelay": "0",
+        "taskAmount": "0",
+        "wydinEmployee": false,
+        "godPages": [
+            false,
+            false,
+            false,
+            false
+        ],
+        "zafTime": "0",
+        "bossCounters": [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "27",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+        ],
+        "strongHoldRewards": [
+            false,
+            false,
+            false,
+            false
+        ],
+        "lowAlchemyCharges": "0",
+        "rcDecays": [
+            "0",
+            "0",
+            "0"
+        ],
+        "apprentice": false,
+        "zafAmount": "8",
+        "barrowsLoots": "0",
+        "taskPoints": "0",
+        "playerTestStage": "0",
+        "hunterCapeDelay": "0",
+        "globalTeleporterDelay": "0",
+        "recoilDamage": "40",
+        "lumbridgeRope": true,
+        "hunterCapeCharges": "0",
+        "dropDelay": "0",
+        "geTutorial": false,
+        "assistTime": "1649141372541",
+        "magicSkillCapeDelay": "0",
+        "lootSharePoints": "0",
+        "essenceTeleporter": "3021",
+        "readPlaques": [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+        ],
+        "chatPing": "0",
+        "overChargeDelay": "0",
+        "lowAlchemyDelay": "0",
+        "travelLogs": [
+            true,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+        ],
+        "homeTeleportDelay": "0",
+        "karamjaBananas": "0",
+        "forgingUses": "0",
+        "joinedMonastery": false,
+        "charmingDelay": "0",
+        "disableDeathScreen": true,
+        "silkSteal": "0",
+        "draynorRecording": false,
+        "assistExperience": [
+            "0.0",
+            "0.0",
+            "0.0",
+            "0.0",
+            "0.0",
+            "0.0",
+            "0.0",
+            "0.0",
+            "0.0"
+        ],
+        "lootShareDelay": "1645284930161",
+        "godBooks": [
+            false,
+            false,
+            false
+        ],
+        "fritzGlass": false,
+        "tutorialStage": "73",
+        "ectoCharges": "0",
+        "tutorClaim": "0",
+        "disableNews": false,
+        "runReplenishDelay": "0",
+        "doubleExp": "0",
+        "runReplenishCharges": "0"
+    },
+    "core_data": {
+        "blastCoal": [],
+        "timers": {
+            "antimacro": {
+                "ticksRemaining": "1622"
+            }
+        },
+        "useSecondaryBank": true,
+        "equipment": [
+            {
+                "amount": "1",
+                "charge": "1000",
+                "slot": "0",
+                "id": "1161"
+            },
+            {
+                "amount": "1",
+                "charge": "1000",
+                "slot": "3",
+                "id": "6739"
+            },
+            {
+                "amount": "1",
+                "charge": "1000",
+                "slot": "12",
+                "id": "13282"
+            },
+            {
+                "amount": "7",
+                "charge": "1000",
+                "slot": "13",
+                "id": "877"
+            }
+        ],
+        "bankTabs": [
+            {
+                "startSlot": "0",
+                "index": "0"
+            },
+            {
+                "startSlot": "0",
+                "index": "1"
+            },
+            {
+                "startSlot": "2",
+                "index": "2"
+            },
+            {
+                "startSlot": "3",
+                "index": "3"
+            },
+            {
+                "startSlot": "3",
+                "index": "4"
+            },
+            {
+                "startSlot": "3",
+                "index": "5"
+            },
+            {
+                "startSlot": "3",
+                "index": "6"
+            },
+            {
+                "startSlot": "3",
+                "index": "7"
+            },
+            {
+                "startSlot": "3",
+                "index": "8"
+            },
+            {
+                "startSlot": "3",
+                "index": "9"
+            },
+            {
+                "startSlot": "3",
+                "index": "10"
+            }
+        ],
+        "inventory": [
+            {
+                "amount": "1000",
+                "charge": "1000",
+                "slot": "0",
+                "id": "556"
+            },
+            {
+                "amount": "983",
+                "charge": "1000",
+                "slot": "1",
+                "id": "557"
+            },
+            {
+                "amount": "1000",
+                "charge": "1000",
+                "slot": "2",
+                "id": "554"
+            },
+            {
+                "amount": "983",
+                "charge": "1000",
+                "slot": "3",
+                "id": "555"
+            },
+            {
+                "amount": "1000",
+                "charge": "1000",
+                "slot": "4",
+                "id": "558"
+            },
+            {
+                "amount": "1000",
+                "charge": "1000",
+                "slot": "5",
+                "id": "559"
+            },
+            {
+                "amount": "999",
+                "charge": "1000",
+                "slot": "6",
+                "id": "560"
+            },
+            {
+                "amount": "996",
+                "charge": "1000",
+                "slot": "7",
+                "id": "561"
+            },
+            {
+                "amount": "999",
+                "charge": "1000",
+                "slot": "8",
+                "id": "562"
+            },
+            {
+                "amount": "999",
+                "charge": "1000",
+                "slot": "9",
+                "id": "563"
+            },
+            {
+                "amount": "1000",
+                "charge": "1000",
+                "slot": "10",
+                "id": "564"
+            },
+            {
+                "amount": "1000",
+                "charge": "1000",
+                "slot": "11",
+                "id": "565"
+            },
+            {
+                "amount": "999",
+                "charge": "1000",
+                "slot": "12",
+                "id": "566"
+            },
+            {
+                "amount": "1000",
+                "charge": "1000",
+                "slot": "13",
+                "id": "9075"
+            },
+            {
+                "amount": "1",
+                "charge": "1000",
+                "slot": "14",
+                "id": "303"
+            }
+        ],
+        "blastOre": [],
+        "bankTabsSecondary": [
+            {
+                "startSlot": "0",
+                "index": "0"
+            },
+            {
+                "startSlot": "0",
+                "index": "1"
+            },
+            {
+                "startSlot": "2",
+                "index": "2"
+            },
+            {
+                "startSlot": "2",
+                "index": "3"
+            },
+            {
+                "startSlot": "2",
+                "index": "4"
+            },
+            {
+                "startSlot": "2",
+                "index": "5"
+            },
+            {
+                "startSlot": "2",
+                "index": "6"
+            },
+            {
+                "startSlot": "2",
+                "index": "7"
+            },
+            {
+                "startSlot": "2",
+                "index": "8"
+            },
+            {
+                "startSlot": "2",
+                "index": "9"
+            },
+            {
+                "startSlot": "2",
+                "index": "10"
+            }
+        ],
+        "bank": [
+            {
+                "amount": "4",
+                "charge": "1000",
+                "slot": "0",
+                "id": "1925"
+            },
+            {
+                "amount": "275",
+                "charge": "1000",
+                "slot": "1",
+                "id": "12158"
+            },
+            {
+                "amount": "2",
+                "charge": "1000",
+                "slot": "2",
+                "id": "379"
+            },
+            {
+                "amount": "1",
+                "charge": "1000",
+                "slot": "3",
+                "id": "449"
+            },
+            {
+                "amount": "1",
+                "charge": "1000",
+                "slot": "4",
+                "id": "373"
+            },
+            {
+                "amount": "1",
+                "charge": "1000",
+                "slot": "5",
+                "id": "385"
+            },
+            {
+                "amount": "2",
+                "charge": "1000",
+                "slot": "6",
+                "id": "1601"
+            },
+            {
+                "amount": "1",
+                "charge": "1000",
+                "slot": "7",
+                "id": "10487"
+            },
+            {
+                "amount": "1",
+                "charge": "1000",
+                "slot": "8",
+                "id": "10499"
+            },
+            {
+                "amount": "1",
+                "charge": "1000",
+                "slot": "9",
+                "id": "1897"
+            },
+            {
+                "amount": "1",
+                "charge": "1000",
+                "slot": "10",
+                "id": "2003"
+            },
+            {
+                "amount": "146",
+                "charge": "1000",
+                "slot": "11",
+                "id": "563"
+            },
+            {
+                "amount": "1",
+                "charge": "1000",
+                "slot": "12",
+                "id": "7956"
+            },
+            {
+                "amount": "1",
+                "charge": "1000",
+                "slot": "13",
+                "id": "2952"
+            },
+            {
+                "amount": "40",
+                "charge": "1000",
+                "slot": "14",
+                "id": "299"
+            },
+            {
+                "amount": "505",
+                "charge": "1000",
+                "slot": "15",
+                "id": "7936"
+            },
+            {
+                "amount": "1",
+                "charge": "1000",
+                "slot": "16",
+                "id": "2307"
+            },
+            {
+                "amount": "1",
+                "charge": "1000",
+                "slot": "17",
+                "id": "1953"
+            },
+            {
+                "amount": "2",
+                "charge": "1000",
+                "slot": "18",
+                "id": "14652"
+            },
+            {
+                "amount": "1",
+                "charge": "1000",
+                "slot": "19",
+                "id": "9770"
+            },
+            {
+                "amount": "1",
+                "charge": "1000",
+                "slot": "20",
+                "id": "778"
+            },
+            {
+                "amount": "1",
+                "charge": "1000",
+                "slot": "21",
+                "id": "9751"
+            },
+            {
+                "amount": "4",
+                "charge": "1000",
+                "slot": "22",
+                "id": "1931"
+            },
+            {
+                "amount": "1",
+                "charge": "1000",
+                "slot": "23",
+                "id": "1863"
+            },
+            {
+                "amount": "1",
+                "charge": "1000",
+                "slot": "24",
+                "id": "1478"
+            },
+            {
+                "amount": "3",
+                "charge": "1000",
+                "slot": "25",
+                "id": "2357"
+            },
+            {
+                "amount": "24674",
+                "charge": "1000",
+                "slot": "26",
+                "id": "995"
+            },
+            {
+                "amount": "1",
+                "charge": "1000",
+                "slot": "27",
+                "id": "7394"
+            },
+            {
+                "amount": "1",
+                "charge": "1000",
+                "slot": "28",
+                "id": "9769"
+            },
+            {
+                "amount": "1",
+                "charge": "1000",
+                "slot": "29",
+                "id": "1710"
+            },
+            {
+                "amount": "1",
+                "charge": "1000",
+                "slot": "30",
+                "id": "13661"
+            },
+            {
+                "amount": "1",
+                "charge": "1000",
+                "slot": "31",
+                "id": "11756"
+            },
+            {
+                "amount": "1",
+                "charge": "1000",
+                "slot": "32",
+                "id": "1171"
+            },
+            {
+                "amount": "1",
+                "charge": "1000",
+                "slot": "33",
+                "id": "776"
+            },
+            {
+                "amount": "1299",
+                "charge": "1000",
+                "slot": "34",
+                "id": "877"
+            },
+            {
+                "amount": "1",
+                "charge": "1000",
+                "slot": "35",
+                "id": "1021"
+            },
+            {
+                "amount": "1",
+                "charge": "1000",
+                "slot": "36",
+                "id": "9752"
+            },
+            {
+                "amount": "1",
+                "charge": "1000",
+                "slot": "37",
+                "id": "1275"
+            },
+            {
+                "amount": "1",
+                "charge": "1000",
+                "slot": "38",
+                "id": "2283"
+            },
+            {
+                "amount": "1",
+                "charge": "1000",
+                "slot": "39",
+                "id": "2570"
+            }
+        ],
+        "blastBars": [],
+        "location": "3421,4774,0",
+        "bankSecondary": [
+            {
+                "amount": "1",
+                "charge": "1000",
+                "slot": "0",
+                "id": "484"
+            },
+            {
+                "amount": "1",
+                "charge": "1000",
+                "slot": "1",
+                "id": "7720"
+            },
+            {
+                "amount": "4",
+                "charge": "1000",
+                "slot": "2",
+                "id": "1511"
+            },
+            {
+                "amount": "1",
+                "charge": "1000",
+                "slot": "3",
+                "id": "1171"
+            },
+            {
+                "amount": "1",
+                "charge": "1000",
+                "slot": "4",
+                "id": "1275"
+            },
+            {
+                "amount": "6",
+                "charge": "1000",
+                "slot": "5",
+                "id": "444"
+            },
+            {
+                "amount": "1",
+                "charge": "1000",
+                "slot": "6",
+                "id": "480"
+            },
+            {
+                "amount": "1",
+                "charge": "1000",
+                "slot": "7",
+                "id": "1351"
+            },
+            {
+                "amount": "19",
+                "charge": "1000",
+                "slot": "8",
+                "id": "401"
+            },
+            {
+                "amount": "1",
+                "charge": "1000",
+                "slot": "9",
+                "id": "436"
+            },
+            {
+                "amount": "1",
+                "charge": "1000",
+                "slot": "10",
+                "id": "1291"
+            },
+            {
+                "amount": "1",
+                "charge": "1000",
+                "slot": "11",
+                "id": "772"
+            },
+            {
+                "amount": "3",
+                "charge": "1000",
+                "slot": "12",
+                "id": "440"
+            },
+            {
+                "amount": "1",
+                "charge": "1000",
+                "slot": "13",
+                "id": "1139"
+            },
+            {
+                "amount": "1",
+                "charge": "1000",
+                "slot": "14",
+                "id": "438"
+            },
+            {
+                "amount": "1",
+                "charge": "1000",
+                "slot": "15",
+                "id": "1271"
+            },
+            {
+                "amount": "35",
+                "charge": "1000",
+                "slot": "16",
+                "id": "2114"
+            },
+            {
+                "amount": "1",
+                "charge": "1000",
+                "slot": "17",
+                "id": "1269"
+            },
+            {
+                "amount": "1",
+                "charge": "1000",
+                "slot": "18",
+                "id": "952"
+            },
+            {
+                "amount": "1",
+                "charge": "1000",
+                "slot": "19",
+                "id": "13852"
+            },
+            {
+                "amount": "3",
+                "charge": "1000",
+                "slot": "20",
+                "id": "434"
+            },
+            {
+                "amount": "1",
+                "charge": "1000",
+                "slot": "21",
+                "id": "1353"
+            },
+            {
+                "amount": "1",
+                "charge": "1000",
+                "slot": "22",
+                "id": "1521"
+            },
+            {
+                "amount": "1",
+                "charge": "1000",
+                "slot": "23",
+                "id": "1307"
+            },
+            {
+                "amount": "1",
+                "charge": "1000",
+                "slot": "24",
+                "id": "3828"
+            },
+            {
+                "amount": "1",
+                "charge": "1000",
+                "slot": "25",
+                "id": "1115"
+            },
+            {
+                "amount": "1",
+                "charge": "1000",
+                "slot": "26",
+                "id": "1163"
+            },
+            {
+                "amount": "149977",
+                "charge": "1000",
+                "slot": "27",
+                "id": "995"
+            },
+            {
+                "amount": "18",
+                "charge": "1000",
+                "slot": "28",
+                "id": "1519"
+            }
+        ],
+        "varp": [
+            {
+                "index": "520",
+                "value": "8192"
+            },
+            {
+                "index": "534",
+                "value": "38346752"
+            },
+            {
+                "index": "1048",
+                "value": "17"
+            },
+            {
+                "index": "304",
+                "value": "1"
+            },
+            {
+                "index": "640",
+                "value": "3"
+            },
+            {
+                "index": "1181",
+                "value": "768"
+            },
+            {
+                "index": "728",
+                "value": "31"
+            }
+        ]
+    },
+    "pouches": [
+        {
+            "container": [],
+            "charges": "10",
+            "id": "5509",
+            "currentCap": "3"
+        },
+        {
+            "container": [],
+            "charges": "10",
+            "id": "5510",
+            "currentCap": "6"
+        },
+        {
+            "container": [],
+            "charges": "10",
+            "id": "5512",
+            "currentCap": "9"
+        },
+        {
+            "container": [],
+            "charges": "10",
+            "id": "5514",
+            "currentCap": "12"
+        }
+    ],
+    "achievementDiaries": [
+        {
+            "KARAMJA": {
+                "completedLevels": [
+                    [
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true
+                    ],
+                    [
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true
+                    ],
+                    [
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true
+                    ]
+                ],
+                "rewardedLevels": [
+                    false,
+                    false,
+                    false
+                ],
+                "startedLevels": [
+                    true,
+                    true,
+                    true
+                ]
+            }
+        },
+        {
+            "VARROCK": {
+                "completedLevels": [
+                    [
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true
+                    ],
+                    [
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true
+                    ],
+                    [
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true
+                    ]
+                ],
+                "rewardedLevels": [
+                    true,
+                    false,
+                    false
+                ],
+                "startedLevels": [
+                    true,
+                    true,
+                    true
+                ]
+            }
+        },
+        {
+            "LUMBRIDGE": {
+                "completedLevels": [
+                    [
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true
+                    ],
+                    [
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true
+                    ],
+                    [
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true
+                    ]
+                ],
+                "rewardedLevels": [
+                    false,
+                    false,
+                    true
+                ],
+                "startedLevels": [
+                    true,
+                    true,
+                    true
+                ]
+            }
+        },
+        {
+            "FALADOR": {
+                "completedLevels": [
+                    [
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true
+                    ],
+                    [
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true
+                    ],
+                    [
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true
+                    ]
+                ],
+                "rewardedLevels": [
+                    true,
+                    false,
+                    false
+                ],
+                "startedLevels": [
+                    true,
+                    true,
+                    true
+                ]
+            }
+        },
+        {
+            "FREMENNIK": {
+                "completedLevels": [
+                    [
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true
+                    ],
+                    [
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true
+                    ],
+                    [
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true
+                    ]
+                ],
+                "rewardedLevels": [
+                    false,
+                    false,
+                    false
+                ],
+                "startedLevels": [
+                    true,
+                    true,
+                    true
+                ]
+            }
+        },
+        {
+            "SEERS_VILLAGE": {
+                "completedLevels": [
+                    [
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true
+                    ],
+                    [
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true
+                    ],
+                    [
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true
+                    ]
+                ],
+                "rewardedLevels": [
+                    false,
+                    false,
+                    false
+                ],
+                "startedLevels": [
+                    true,
+                    true,
+                    true
+                ]
+            }
+        }
+    ],
+    "totalEXP": "3047950.5833333116",
+    "appearance": {
+        "appearance_cache": [
+            {
+                "color": "0",
+                "look": "0"
+            },
+            {
+                "color": "0",
+                "look": "10"
+            },
+            {
+                "color": "0",
+                "look": "18"
+            },
+            {
+                "color": "0",
+                "look": "26"
+            },
+            {
+                "color": "0",
+                "look": "33"
+            },
+            {
+                "color": "0",
+                "look": "36"
+            },
+            {
+                "color": "0",
+                "look": "42"
+            }
+        ],
+        "gender": "0"
+    },
+    "milestone": {
+        "skillMilestone": "3",
+        "combatMilestone": "9"
+    },
+    "bankPinManager": {
+        "longRecovery": false
+    },
+    "attributes": [
+        {
+            "type": "bool",
+            "value": true,
+            "key": "tutorial:complete"
+        },
+        {
+            "type": "bool",
+            "value": true,
+            "key": "quest-varps-converted"
+        },
+        {
+            "type": "int",
+            "value": "446",
+            "key": "stats_manager:enemies_killed"
+        },
+        {
+            "type": "bool",
+            "value": true,
+            "key": "PeerStarted"
+        },
+        {
+            "type": "bool",
+            "value": true,
+            "key": "riddlesolved"
+        },
+        {
+            "type": "bool",
+            "value": true,
+            "key": "housepuzzlesolved"
+        },
+        {
+            "type": "bool",
+            "value": true,
+            "key": "fremtrials:peer-vote"
+        },
+        {
+            "type": "int",
+            "value": "1",
+            "key": "fremtrials:votes"
+        },
+        {
+            "type": "int",
+            "value": "43",
+            "key": "stats_manager:fish_caught"
+        },
+        {
+            "type": "bool",
+            "value": true,
+            "key": "UnlockedSecondaryBank"
+        },
+        {
+            "type": "bool",
+            "value": true,
+            "key": "tutorial:complete"
+        },
+        {
+            "type": "bool",
+            "value": true,
+            "key": "barbtraining:fishing"
+        },
+        {
+            "type": "bool",
+            "value": true,
+            "key": "rules:confirmed"
+        },
+        {
+            "type": "int",
+            "value": "24",
+            "key": "stats_manager:deaths"
+        },
+        {
+            "type": "int",
+            "value": "627",
+            "key": "stats_manager:logs_chopped"
+        },
+        {
+            "type": "int",
+            "value": "71",
+            "key": "tutorial:stage"
+        },
+        {
+            "type": "int",
+            "value": "0",
+            "key": "phns:points"
+        },
+        {
+            "type": "bool",
+            "value": true,
+            "key": "tarik-spoken-to"
+        },
+        {
+            "type": "bool",
+            "value": true,
+            "key": "pp:mummy-spoken-to"
+        },
+        {
+            "type": "bool",
+            "value": true,
+            "key": "diaries:varrock:alttele"
+        },
+        {
+            "type": "long",
+            "value": "1650354744661",
+            "key": "diary:falador:shield-restore-time"
+        },
+        {
+            "type": "bool",
+            "value": true,
+            "key": "levelup:2"
+        },
+        {
+            "type": "int",
+            "value": "776",
+            "key": "family-crest:gauntlets"
+        },
+        {
+            "type": "int",
+            "value": "22217",
+            "key": "shooting-star:bonus-xp"
+        },
+        {
+            "type": "bool",
+            "value": true,
+            "key": "levelup:1"
+        },
+        {
+            "type": "int",
+            "value": "27",
+            "key": "stats_manager:rocks_mined"
+        },
+        {
+            "type": "bool",
+            "value": true,
+            "key": "levelup:3"
+        },
+        {
+            "type": "bool",
+            "value": true,
+            "key": "levelup:19"
+        },
+        {
+            "type": "int",
+            "value": "3008",
+            "key": "vinesweeper:return-tele:x"
+        },
+        {
+            "type": "int",
+            "value": "3369",
+            "key": "vinesweeper:return-tele:y"
+        },
+        {
+            "type": "int",
+            "value": "9",
+            "key": "vinesweeper:stored-flags"
+        },
+        {
+            "type": "int",
+            "value": "0",
+            "key": "vinesweeper:points"
+        },
+        {
+            "type": "bool",
+            "value": true,
+            "key": "levelup:21"
+        },
+        {
+            "type": "int",
+            "value": "0",
+            "key": "the-golem:statuette-rotation:0"
+        },
+        {
+            "type": "int",
+            "value": "0",
+            "key": "the-golem:statuette-rotation:1"
+        },
+        {
+            "type": "int",
+            "value": "1",
+            "key": "the-golem:statuette-rotation:2"
+        },
+        {
+            "type": "int",
+            "value": "1",
+            "key": "the-golem:statuette-rotation:3"
+        },
+        {
+            "type": "bool",
+            "value": true,
+            "key": "the-golem:statuette-rotation:initialized"
+        },
+        {
+            "type": "bool",
+            "value": true,
+            "key": "levelup:5"
+        },
+        {
+            "type": "int",
+            "value": "0",
+            "key": "gravetype"
+        },
+        {
+            "type": "long",
+            "value": "1671615393654",
+            "key": "christmas-cooldown"
+        },
+        {
+            "type": "long",
+            "value": "3369563",
+            "key": "last-wealth"
+        },
+        {
+            "type": "long",
+            "value": "1692503481030",
+            "key": "last-wealth-check"
+        },
+        {
+            "type": "int",
+            "value": "-1",
+            "key": "jobs:id"
+        },
+        {
+            "type": "int",
+            "value": "-1",
+            "key": "jobs:type"
+        },
+        {
+            "type": "int",
+            "value": "-1",
+            "key": "jobs:amount"
+        },
+        {
+            "type": "int",
+            "value": "-1",
+            "key": "jobs:original_amount"
+        },
+        {
+            "type": "bool",
+            "value": false,
+            "key": "globalmute"
+        },
+        {
+            "type": "location",
+            "value": "[2644, 3349, 0]",
+            "key": "puro-exit"
+        }
+    ],
+    "treasureTrails": {
+        "completedClues": [
+            "0",
+            "5",
+            "2"
+        ]
+    },
+    "houseData": {
+        "rooms": [
+            {
+                "rotation": "2",
+                "x": "3",
+                "y": "3",
+                "z": "0",
+                "hotspots": [],
+                "properties": "12"
+            },
+            {
+                "rotation": "0",
+                "x": "4",
+                "y": "3",
+                "z": "0",
+                "hotspots": [
+                    {
+                        "decorationIndex": "0",
+                        "hotspotIndex": "0"
+                    },
+                    {
+                        "decorationIndex": "2",
+                        "hotspotIndex": "1"
+                    },
+                    {
+                        "decorationIndex": "5",
+                        "hotspotIndex": "2"
+                    },
+                    {
+                        "decorationIndex": "2",
+                        "hotspotIndex": "3"
+                    },
+                    {
+                        "decorationIndex": "2",
+                        "hotspotIndex": "4"
+                    },
+                    {
+                        "decorationIndex": "0",
+                        "hotspotIndex": "5"
+                    },
+                    {
+                        "decorationIndex": "6",
+                        "hotspotIndex": "6"
+                    }
+                ],
+                "properties": "1"
+            },
+            {
+                "rotation": "0",
+                "x": "4",
+                "y": "4",
+                "z": "0",
+                "hotspots": [
+                    {
+                        "decorationIndex": "0",
+                        "hotspotIndex": "17"
+                    },
+                    {
+                        "decorationIndex": "0",
+                        "hotspotIndex": "18"
+                    },
+                    {
+                        "decorationIndex": "0",
+                        "hotspotIndex": "19"
+                    },
+                    {
+                        "decorationIndex": "0",
+                        "hotspotIndex": "20"
+                    },
+                    {
+                        "decorationIndex": "0",
+                        "hotspotIndex": "21"
+                    },
+                    {
+                        "decorationIndex": "0",
+                        "hotspotIndex": "22"
+                    },
+                    {
+                        "decorationIndex": "0",
+                        "hotspotIndex": "23"
+                    },
+                    {
+                        "decorationIndex": "0",
+                        "hotspotIndex": "24"
+                    },
+                    {
+                        "decorationIndex": "0",
+                        "hotspotIndex": "25"
+                    },
+                    {
+                        "decorationIndex": "0",
+                        "hotspotIndex": "26"
+                    },
+                    {
+                        "decorationIndex": "0",
+                        "hotspotIndex": "27"
+                    },
+                    {
+                        "decorationIndex": "0",
+                        "hotspotIndex": "28"
+                    },
+                    {
+                        "decorationIndex": "0",
+                        "hotspotIndex": "29"
+                    },
+                    {
+                        "decorationIndex": "0",
+                        "hotspotIndex": "30"
+                    },
+                    {
+                        "decorationIndex": "0",
+                        "hotspotIndex": "31"
+                    },
+                    {
+                        "decorationIndex": "0",
+                        "hotspotIndex": "32"
+                    }
+                ],
+                "properties": "0"
+            },
+            {
+                "rotation": "0",
+                "x": "5",
+                "y": "4",
+                "z": "0",
+                "hotspots": [
+                    {
+                        "decorationIndex": "0",
+                        "hotspotIndex": "1"
+                    }
+                ],
+                "properties": "10"
+            },
+            {
+                "rotation": "0",
+                "x": "3",
+                "y": "3",
+                "z": "1",
+                "hotspots": [],
+                "properties": "23"
+            },
+            {
+                "rotation": "1",
+                "x": "4",
+                "y": "4",
+                "z": "1",
+                "hotspots": [],
+                "properties": "23"
+            },
+            {
+                "rotation": "1",
+                "x": "5",
+                "y": "4",
+                "z": "1",
+                "hotspots": [],
+                "properties": "23"
+            }
+        ],
+        "location": "1",
+        "style": "0"
+    },
+    "statistics": []
+}

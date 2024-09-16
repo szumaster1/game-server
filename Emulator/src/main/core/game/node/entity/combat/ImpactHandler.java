@@ -3,7 +3,7 @@ package core.game.node.entity.combat;
 import cfg.consts.Items;
 import content.global.skill.combat.summoning.familiar.Familiar;
 import content.global.skill.combat.summoning.pet.Pet;
-import content.global.travel.item.EnchantedJewellery;
+import content.data.EnchantedJewellery;
 import core.game.bots.AIPlayer;
 import core.game.container.impl.EquipmentContainer;
 import core.game.node.entity.Entity;

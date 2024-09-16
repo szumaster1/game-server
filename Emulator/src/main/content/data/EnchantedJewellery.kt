@@ -1,4 +1,4 @@
-package content.global.travel.item
+package content.data
 
 import content.global.skill.combat.magic.TeleportMethod
 import content.global.skill.support.slayer.SlayerManager.Companion.getInstance

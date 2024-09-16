@@ -1,4 +1,4 @@
-package content.global.travel.item
+package content.global.handlers.item
 
 import core.api.*
 import cfg.consts.Items

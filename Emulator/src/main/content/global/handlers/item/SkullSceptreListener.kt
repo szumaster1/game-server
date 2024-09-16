@@ -1,4 +1,4 @@
-package content.global.travel.item
+package content.global.handlers.item
 
 import cfg.consts.Animations
 import cfg.consts.Graphics

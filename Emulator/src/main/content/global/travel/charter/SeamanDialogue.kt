@@ -91,11 +91,6 @@ class SeamanDialogue(player: Player? = null) : Dialogue(player) {
         return SeamanDialogue(player)
     }
 
-    /**
-     * Pay
-     *
-     * @param price
-     */
     fun pay(price: Int) {
         if (!removeItem(player, Item(Items.COINS_995, price))) {
             player(FacialExpression.HALF_GUILTY, "Sorry, I don't have enough coins for that.")
@@ -106,10 +101,6 @@ class SeamanDialogue(player: Player? = null) : Dialogue(player) {
         }
     }
 
-    /**
-     * Travel
-     *
-     */
     fun travel() {
         end()
         Ships.PORT_SARIM_TO_KARAMAJA.sail(player)

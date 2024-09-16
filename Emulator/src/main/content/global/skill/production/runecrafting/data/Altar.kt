@@ -1,116 +1,177 @@
 package content.global.skill.production.runecrafting.data
 
 import core.api.hasRequirement
+import core.api.isQuestComplete
+import core.api.sendMessage
 import core.cache.def.impl.ItemDefinition
 import core.game.node.entity.player.Player
 import core.game.node.scenery.Scenery
+import cfg.consts.Scenery as Object
 
 /**
  * Represents an altar relative information.
+ *
+ * @param scenery   the altar.
+ * @param portal    the portal associated with the altar.
+ * @param riftId    the rift linked to the altar.
+ * @param ruin      reference to a [MysteriousRuin].
+ * @param rune      reference to a [Rune].
+ * @return the [Altar].
  */
-enum class Altar
-/**
- * Constructs a new `Altar` `Object`.
- * @param object the object.
- * @param ruin the ruin.
- * @param rune the rune.
- */(
-    /**
-     * Represents the object of the altar.
-     */
-    val `object`: Int,
-    /**
-     * Represents the portal object.
-     */
-    val portal: Int,
-    /**
-     * The rift id.
-     */
-    val riftId: Int,
-    /**
-     * Represents the corresponding ruin.
-     */
-    val ruin: MysteriousRuin?,
-    /**
-     * Represents the rune constructed.
-     */
-    val rune: Rune?
-) {
+enum class Altar(val scenery: Int, val portal: Int, val riftId: Int, val ruin: MysteriousRuin?, val rune: Rune?) {
     /**
      * The air altar.
      */
-    AIR(2478, 2465, 7139, MysteriousRuin.AIR, Rune.AIR),
+    AIR(
+        scenery = Object.AIR_ALTAR_2478,
+        portal = Object.AIR_ALTAR_EXIT_2465,
+        riftId = Object.AIR_RIFT_7139,
+        ruin = MysteriousRuin.AIR,
+        rune = Rune.AIR
+    ),
 
     /**
      * The mind altar.
      */
-    MIND(2479, 2466, 7140, MysteriousRuin.MIND, Rune.MIND),
+    MIND(
+        scenery = Object.MIND_ALTAR_2479,
+        portal = Object.MIND_ALTAR_EXIT_2466,
+        riftId = Object.MIND_RIFT_7140,
+        ruin = MysteriousRuin.MIND,
+        rune = Rune.MIND
+    ),
 
     /**
      * The water altar.
      */
-    WATER(2480, 2467, 7137, MysteriousRuin.WATER, Rune.WATER),
+    WATER(
+        scenery = Object.WATER_ALTAR_2480,
+        portal = Object.WATER_ALTAR_EXIT_2467,
+        riftId = Object.WATER_RIFT_7137,
+        ruin = MysteriousRuin.WATER,
+        rune = Rune.WATER
+    ),
 
     /**
      * The earth altar.
      */
-    EARTH(2481, 2468, 7130, MysteriousRuin.EARTH, Rune.EARTH),
+    EARTH(
+        scenery = Object.EARTH_ALTAR_2481,
+        portal = Object.EARTH_ALTAR_EXIT_2468,
+        riftId = Object.EARTH_RIFT_7130,
+        ruin = MysteriousRuin.EARTH,
+        rune = Rune.EARTH
+    ),
 
     /**
      * The fire altar.
      */
-    FIRE(2482, 2469, 7129, MysteriousRuin.FIRE, Rune.FIRE),
+    FIRE(
+        scenery = Object.FIRE_ALTAR_2482,
+        portal = Object.FIRE_ALTAR_EXIT_2469,
+        riftId = Object.FIRE_RIFT_7129,
+        ruin = MysteriousRuin.FIRE,
+        rune = Rune.FIRE
+    ),
 
     /**
      * The body altar.
      */
-    BODY(2483, 2470, 7131, MysteriousRuin.BODY, Rune.BODY),
+    BODY(
+        scenery = Object.BODY_ALTAR_2483,
+        portal = Object.BODY_ALTAR_EXIT_2470,
+        riftId = Object.BODY_RIFT_7131,
+        ruin = MysteriousRuin.BODY,
+        rune = Rune.BODY
+    ),
 
     /**
      * The cosmic altar.
      */
-    COSMIC(2484, 2471, 7132, MysteriousRuin.COSMIC, Rune.COSMIC),
+    COSMIC(
+        scenery = Object.COSMIC_ALTAR_2484,
+        portal = Object.COSMIC_ALTAR_EXIT_2471,
+        riftId = Object.COSMIC_RIFT_7132,
+        ruin = MysteriousRuin.COSMIC,
+        rune = Rune.COSMIC
+    ),
 
     /**
      * The chaos altar.
      */
-    CHAOS(2487, 2474, 7134, MysteriousRuin.CHAOS, Rune.CHAOS),
+    CHAOS(
+        scenery = Object.CHAOS_ALTAR_2487,
+        portal = Object.CHAOS_ALTAR_EXIT_2474,
+        riftId = Object.CHAOS_RIFT_7134,
+        ruin = MysteriousRuin.CHAOS,
+        rune = Rune.CHAOS
+    ),
 
     /**
      * The astral altar.
      */
-    ASTRAL(17010, 0, 0, null, Rune.ASTRAL),
+    ASTRAL(
+        scenery = Object.ALTAR_17010,
+        portal = 0,
+        riftId = 0,
+        ruin = null,
+        rune = Rune.ASTRAL
+    ),
 
     /**
      * The nature altar.
      */
-    NATURE(2486, 2473, 7133, MysteriousRuin.NATURE, Rune.NATURE),
+    NATURE(
+        scenery = Object.NATURE_ALTAR_2486,
+        portal = Object.NATURE_ALTAR_EXIT_2473,
+        riftId = Object.NATURE_RIFT_7133,
+        ruin = MysteriousRuin.NATURE,
+        rune = Rune.NATURE
+    ),
 
     /**
      * The law altar.
      */
-    LAW(2485, 2472, 7135, MysteriousRuin.LAW, Rune.LAW),
+    LAW(
+        scenery = Object.LAW_ALTAR_2485,
+        portal = Object.LAW_PORTAL_EXIT_2472,
+        riftId = Object.LAW_RIFT_7135,
+        ruin = MysteriousRuin.LAW,
+        rune = Rune.LAW
+    ),
 
     /**
      * The death altar.
      */
-    DEATH(2488, 2475, 7136, MysteriousRuin.DEATH, Rune.DEATH),
+    DEATH(
+        scenery = Object.DEATH_ALTAR_2488,
+        portal = Object.DEATH_ALTAR_EXIT_2475,
+        riftId = Object.DEATH_RIFT_7136,
+        ruin = MysteriousRuin.DEATH,
+        rune = Rune.DEATH
+    ),
 
     /**
      * The blood altar.
      */
-    BLOOD(30624, 2477, 7141, MysteriousRuin.BLOOD, Rune.BLOOD),
-
-    /**
-     * The soul altar.
-     */
-    SOUL(2489, 0, 7138, null, Rune.SOUL),
+    BLOOD(
+        scenery = Object.BLOOD_ALTAR_30624,
+        portal = Object.BLOOD_ALTAR_EXIT_2477,
+        riftId = Object.BLOOD_RIFT_7141,
+        ruin = MysteriousRuin.BLOOD,
+        rune = Rune.BLOOD
+    ),
 
     /**
      * The ourania altar.
      */
-    OURANIA(26847, 0, 0, null, null);
-
+    OURANIA(
+        scenery = Object.OURANIA_ALTAR_26847,
+        portal = 0,
+        riftId = 0,
+        ruin = null,
+        rune = null
+    );
 
     /**
      * Enters a rift.
@@ -129,55 +190,33 @@ enum class Altar
         }
         if (this == LAW) {
             if (!ItemDefinition.canEnterEntrana(player)) {
-                player.sendMessage("You can't take weapons and armour into the law rift.")
+                sendMessage(player, "You can't take weapons and armour into the law rift.")
                 return
             }
         }
-        if (this == COSMIC && !player.getQuestRepository().isComplete("Lost City")) {
-            player.packetDispatch.sendMessage("You need to have completed the Lost City quest in order to do that.")
+        if (this == COSMIC && !isQuestComplete(player, "Lost City")) {
+            sendMessage(player, "You need to have completed the Lost City quest in order to do that.")
             return
         }
-        if (getRuin() == null) {
+        if (ruin == null) {
             return
         }
-        if (getRuin()!!.end == null) {
-            return
-        }
-        player.properties.teleportLocation = getRuin()!!.end
+        player.properties.teleportLocation = ruin.end
     }
 
     /**
-     * Gets the ruin.
+     * Checks if it's the ourania altar.
      *
-     * @return The ruin.
+     * @return the ourania.
      */
-    fun getRuin(): MysteriousRuin? {
-        return ruin
-    }
+    val isOurania: Boolean = rune == null
 
     /**
-     * Gets the rune.
+     * Gets the talisman.
      *
-     * @return The rune.
+     * @return the talisman.
      */
-    fun getRune(): Rune? {
-        return rune
-    }
-
-    val isOurania: Boolean
-        /**
-         * Checks if its the ourania altar.
-         *
-         * @return the ourania.
-         */
-        get() = getRune() == null
-
     val talisman: Talisman?
-        /**
-         * Gets the talisman.
-         *
-         * @return the talisman.
-         */
         get() {
             for (talisman in Talisman.values()) {
                 if (talisman.name == name) {
@@ -187,12 +226,12 @@ enum class Altar
             return null
         }
 
+    /**
+     * Gets the tiara.
+     *
+     * @return the tiara.
+     */
     val tiara: Tiara?
-        /**
-         * Gets the tiara.
-         *
-         * @return the tiara.
-         */
         get() {
             for (tiara in Tiara.values()) {
                 if (tiara.name == name) {
@@ -209,9 +248,10 @@ enum class Altar
          * @param object the object.
          * @return the `Altar` or `Null`.
          */
-        fun forScenery(`object`: Scenery): Altar? {
+        @JvmStatic
+        fun forScenery(scenery: Scenery): Altar? {
             for (altar in values()) {
-                if (altar.`object` == `object`.id || altar.portal == `object`.id || `object`.id == altar.riftId) {
+                if (altar.scenery == scenery.id || altar.portal == scenery.id || scenery.id == altar.riftId) {
                     return altar
                 }
             }

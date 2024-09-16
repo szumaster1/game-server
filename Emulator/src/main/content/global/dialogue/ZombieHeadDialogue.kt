@@ -27,6 +27,7 @@ class ZombieHeadDialogue : DialogueFile() {
             4 -> npcl(FacialExpression.FRIENDLY, "I stuck my neck out for an old friend.").also { stage++ }
             5 -> playerl(FacialExpression.FRIENDLY, "You shouldn't get so cut up about it.").also { stage++ }
             6 -> npcl(FacialExpression.FRIENDLY, "Well if I keep it all bottled up I'll turn into a total head case.").also { stage = 0 }
+
             7 -> npcl(FacialExpression.ANNOYED, "What?").also { stage++ }
             8 -> playerl(FacialExpression.FRIENDLY, "What is your name?").also { stage++ }
             9 -> npcl(FacialExpression.FRIENDLY, "Mumblemumblemumble...").also { stage++ }
@@ -41,7 +42,6 @@ class ZombieHeadDialogue : DialogueFile() {
             17 -> npcl(FacialExpression.ANNOYED, "Not any more...").also { stage++ }
             18 -> playerl(FacialExpression.HALF_ASKING, "How come?").also { stage++ }
             19 -> npcl(FacialExpression.ANNOYED, "Because I used to be able to do a handstand for over an hour while juggling cannon balls with my feet...").also { stage++ }
-
             20 -> playerl(FacialExpression.FRIENDLY, "Wow, you were quite the entertainer.").also { stage++ }
             21 -> npcl(FacialExpression.ANNOYED, "Yep. Now I can barely roll my eyes...").also { stage++ }
             22 -> playerl(FacialExpression.FRIENDLY, "I know what you can do!").also { stage++ }
@@ -54,7 +54,6 @@ class ZombieHeadDialogue : DialogueFile() {
             28 -> playerl(FacialExpression.FRIENDLY, "No!").also { stage++ }
             29 -> playerl(FacialExpression.HALF_ASKING, "Would you like a new hat?").also { stage++ }
             30 -> npcl(FacialExpression.ANGRY, "No, but could you screw a handle into the top of my head?").also { stage++ }
-
             31 -> playerl(FacialExpression.FRIENDLY, "A handle? Why?").also { stage++ }
             32 -> npcl(FacialExpression.ANNOYED, "Because currently you wave me about by my hair, and it hurts.").also { stage = 0 }
 

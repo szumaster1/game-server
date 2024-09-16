@@ -1,7 +1,7 @@
 package content.global.guild.heroes
 
-import content.global.travel.item.EnchantedJewellery
-import content.global.travel.item.EnchantedJewellery.Companion.idMap
+import content.data.EnchantedJewellery
+import content.data.EnchantedJewellery.Companion.idMap
 import content.global.skill.combat.summoning.familiar.Familiar
 import cfg.consts.Items
 import core.api.hasRequirement

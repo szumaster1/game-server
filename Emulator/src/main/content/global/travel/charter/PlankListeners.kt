@@ -52,8 +52,8 @@ class PlankListeners : InteractionListener {
             if (!player.getSavedData().questData.getDragonSlayerAttribute("ship")) {
                 openDialogue(player, NPCs.KLARENSE_744, findNPC(NPCs.KLARENSE_744)!!, true)
             } else {
-                sendMessage(player,"You board the ship.")
-                cross(player, Location(3047, 3207, 1)) // [2]
+                sendMessage(player, "You board the ship.")
+                cross(player, Location(3047, 3207, 1))
             }
             return@on true
         }
@@ -63,7 +63,11 @@ class PlankListeners : InteractionListener {
          */
 
         on(Scenery.GANGPLANK_11209, IntType.SCENERY, "cross") { player, _ ->
-            sendDialogueLines(player,"I don't think that whoever owns this ship will be happy", "with me wandering all over it.")
+            sendDialogueLines(
+                player,
+                "I don't think that whoever owns this ship will be happy",
+                "with me wandering all over it."
+            )
             return@on true
         }
 
@@ -73,49 +77,51 @@ class PlankListeners : InteractionListener {
 
         on(PLANK, IntType.SCENERY, "cross") { player, node ->
             lock(player, 1)
-            forceMove(player, player.location, node.location, 8,60)
+            forceMove(player, player.location, node.location, 8, 60)
             if (getUsedOption(player) == "cross") {
                 when (node.id) {
-                    2081 -> cross(player, KARAMJA[0])
-                    2082 -> cross(player, KARAMJA[1])
-                    2083 -> cross(player, PORT_SARIM[4])
-                    2084 -> cross(player, PORT_SARIM[5])
-                    2085 -> cross(player, ARDOUGNE[0]).also { sendMessage(player, "You must speak to Captain Barnaby before it will set sail.") }
-                    2086 -> cross(player, ARDOUGNE[1])
-                    2087 -> cross(player, BRIMHAVEN[2]).also { sendMessage(player, "You must speak to the Customs Officer before it will set sail.") }
-                    2088 -> cross(player, BRIMHAVEN[3])
-                    2412 -> cross(player, PORT_SARIM[0])
-                    2413 -> cross(player, PORT_SARIM[1])
-                    2414 -> cross(player, ENTRANA[0])
-                    2415 -> cross(player, ENTRANA[1])
-                    2594 -> cross(player, Location(3047, 3204, 0)) // [1]
-                    11211 -> cross(player, MOS_SHIP[0])
-                    11212 -> cross(player, MOS_SHIP[1])
-                    14304 -> cross(player, PORT_SARIM[6]).also { sendMessage(player, "You board the ship.") }
-                    14305 -> cross(player, PORT_SARIM[7]).also { sendMessage(player, "You disembark the ship.") }
-                    14306 -> cross(player, PEST_CONTROL[0]).also { sendMessage(player, "You board the ship.") }
-                    14307 -> cross(player, PEST_CONTROL[1]).also { sendMessage(player, "You disembark the ship.") }
-                    17392 -> cross(player, PORT_PHASMATYS[0])
-                    17393 -> cross(player, PORT_PHASMATYS[1])
-                    17394 -> cross(player, CATHERBY[0])
-                    17395 -> cross(player, CATHERBY[1])
-                    17396 -> cross(player, SHIP_YARD[0])
-                    17397 -> cross(player, SHIP_YARD[1])
-                    17398 -> cross(player, KARAMJA[2]).also { sendMessage(player, "You must speak to the Customs Officer before it will set sail.") }
-                    17399 -> cross(player, KARAMJA[3]).also { sendMessage(player, "You must speak to the Customs Officer before it will set sail.") }
-                    17400 -> cross(player, BRIMHAVEN[0])
-                    17401 -> cross(player, BRIMHAVEN[1])
-                    17402 -> cross(player, PORT_KHAZARD[0])
-                    17403 -> cross(player, PORT_KHAZARD[1])
-                    17404 -> cross(player, PORT_SARIM[3])
-                    17405 -> cross(player, PORT_SARIM[2])
-                    17406 -> cross(player, MOS_LE_HARMESS[0])
-                    17407 -> cross(player, MOS_LE_HARMESS[1])
-                    17408 -> cross(player, TYRAS[0])
-                    17409 -> cross(player, TYRAS[1])
-                    29168 -> cross(player, OO_GLOG[0])
-                    29169 -> cross(player, OO_GLOG[1])
-                    else -> sendDialogueLines(player,"I don't think that whoever owns this ship will be happy", "with me wandering all over it.")
+                    Scenery.GANGPLANK_2081 -> cross(player, KARAMJA[0])
+                    Scenery.GANGPLANK_2082 -> cross(player, KARAMJA[1])
+                    Scenery.GANGPLANK_2083 -> cross(player, PORT_SARIM[4])
+                    Scenery.GANGPLANK_2084 -> cross(player, PORT_SARIM[5])
+                    Scenery.GANGPLANK_2085 -> cross(player, ARDOUGNE[0]).also { sendMessage(player, "You must speak to Captain Barnaby before it will set sail.") }
+
+                    Scenery.GANGPLANK_2086 -> cross(player, ARDOUGNE[1])
+                    Scenery.GANGPLANK_2087 -> cross(player, BRIMHAVEN[2]).also { sendMessage(player, "You must speak to the Customs Officer before it will set sail.") }
+
+                    Scenery.GANGPLANK_2088 -> cross(player, BRIMHAVEN[3])
+                    Scenery.GANGPLANK_2412 -> cross(player, PORT_SARIM[0])
+                    Scenery.GANGPLANK_2413 -> cross(player, PORT_SARIM[1])
+                    Scenery.GANGPLANK_2414 -> cross(player, ENTRANA[0])
+                    Scenery.GANGPLANK_2415 -> cross(player, ENTRANA[1])
+                    Scenery.GANGPLANK_2594 -> cross(player, Location(3047, 3204, 0))
+                    Scenery.GANGPLANK_11211 -> cross(player, MOS_SHIP[0])
+                    Scenery.GANGPLANK_11212 -> cross(player, MOS_SHIP[1])
+                    Scenery.GANGPLANK_14304 -> cross(player, PORT_SARIM[6]).also { sendMessage(player, "You board the ship.") }
+                    Scenery.GANGPLANK_14305 -> cross(player, PORT_SARIM[7]).also { sendMessage(player, "You disembark the ship.") }
+                    Scenery.GANGPLANK_14306 -> cross(player, PEST_CONTROL[0]).also { sendMessage(player, "You board the ship.") }
+                    Scenery.GANGPLANK_14307 -> cross(player, PEST_CONTROL[1]).also { sendMessage(player, "You disembark the ship.") }
+                    Scenery.GANGPLANK_17392 -> cross(player, PORT_PHASMATYS[0])
+                    Scenery.GANGPLANK_17393 -> cross(player, PORT_PHASMATYS[1])
+                    Scenery.GANGPLANK_17394 -> cross(player, CATHERBY[0])
+                    Scenery.GANGPLANK_17395 -> cross(player, CATHERBY[1])
+                    Scenery.GANGPLANK_17396 -> cross(player, SHIP_YARD[0])
+                    Scenery.GANGPLANK_17397 -> cross(player, SHIP_YARD[1])
+                    Scenery.GANGPLANK_17398 -> cross(player, KARAMJA[2]).also { sendMessage(player, "You must speak to the Customs Officer before it will set sail.") }
+                    Scenery.GANGPLANK_17399 -> cross(player, KARAMJA[3]).also { sendMessage(player, "You must speak to the Customs Officer before it will set sail.") }
+                    Scenery.GANGPLANK_17400 -> cross(player, BRIMHAVEN[0])
+                    Scenery.GANGPLANK_17401 -> cross(player, BRIMHAVEN[1])
+                    Scenery.GANGPLANK_17402 -> cross(player, PORT_KHAZARD[0])
+                    Scenery.GANGPLANK_17403 -> cross(player, PORT_KHAZARD[1])
+                    Scenery.GANGPLANK_17404 -> cross(player, PORT_SARIM[3])
+                    Scenery.GANGPLANK_17405 -> cross(player, PORT_SARIM[2])
+                    Scenery.GANGPLANK_17406 -> cross(player, MOS_LE_HARMESS[0])
+                    Scenery.GANGPLANK_17407 -> cross(player, MOS_LE_HARMESS[1])
+                    Scenery.GANGPLANK_17408 -> cross(player, TYRAS[0])
+                    Scenery.GANGPLANK_17409 -> cross(player, TYRAS[1])
+                    Scenery.GANGPLANK_29168 -> cross(player, OO_GLOG[0])
+                    Scenery.GANGPLANK_29169 -> cross(player, OO_GLOG[1])
+                    else -> sendDialogueLines(player, "I don't think that whoever owns this ship will be happy", "with me wandering all over it.")
                 }
             }
             return@on true
@@ -123,7 +129,7 @@ class PlankListeners : InteractionListener {
     }
 
     companion object {
-        private val PLANK = intArrayOf(2081, 2082, 2083, 2084, 2085, 2086, 2087, 2088, 2412, 2413, 2414, 2415, 2594, 11211, 11212, 14304, 14305, 14306, 14307, 17392, 17393, 17394, 17395, 17398, 17399, 17400, 17401, 17402, 17403, 17404, 17405, 17406, 17407, 17408, 17409, 29168, 29169)
+        private val PLANK = intArrayOf(Scenery.GANGPLANK_2081, Scenery.GANGPLANK_2082, Scenery.GANGPLANK_2083, Scenery.GANGPLANK_2084, Scenery.GANGPLANK_2085, Scenery.GANGPLANK_2086, Scenery.GANGPLANK_2087, Scenery.GANGPLANK_2088, Scenery.GANGPLANK_2412, Scenery.GANGPLANK_2413, Scenery.GANGPLANK_2414, Scenery.GANGPLANK_2415, Scenery.GANGPLANK_2594, Scenery.GANGPLANK_11211, Scenery.GANGPLANK_11212, Scenery.GANGPLANK_14304, Scenery.GANGPLANK_14305, Scenery.GANGPLANK_14306, Scenery.GANGPLANK_14307, Scenery.GANGPLANK_17392, Scenery.GANGPLANK_17393, Scenery.GANGPLANK_17394, Scenery.GANGPLANK_17395, Scenery.GANGPLANK_17398, Scenery.GANGPLANK_17399, Scenery.GANGPLANK_17400, Scenery.GANGPLANK_17401, Scenery.GANGPLANK_17402, Scenery.GANGPLANK_17403, Scenery.GANGPLANK_17404, Scenery.GANGPLANK_17405, Scenery.GANGPLANK_17406, Scenery.GANGPLANK_17407, Scenery.GANGPLANK_17408, Scenery.GANGPLANK_17409, Scenery.GANGPLANK_29168, Scenery.GANGPLANK_29169)
         private val LADDER = intArrayOf(Scenery.LADDER_2590, Scenery.LADDER_2592)
         private val PORT_SARIM = arrayOf(Location(3048, 3231, 1), Location.create(3048, 3234, 0), Location(3038, 3192, 0), Location(3038, 3189, 1), Location(3032, 3217, 1), Location(3029, 3217, 0), Location(3041, 3199, 1), Location(3041, 3202, 0))
         private val ENTRANA = arrayOf(Location(2834, 3331, 1), Location(2834, 3335, 0))
@@ -137,7 +143,7 @@ class PlankListeners : InteractionListener {
         private val MOS_LE_HARMESS = arrayOf(Location(3668, 2931, 1), Location(3671, 2931, 0))
         private val MOS_SHIP = arrayOf(Location(3684, 2950, 1), Location(3684, 2953, 0))
         private val TYRAS = arrayOf(Location(2142, 3125, 1), Location(2142, 3122, 0))
-        private val SHIP_YARD = arrayOf(Location.create(2998, 3032, 1), Location(3000,3032,0))
+        private val SHIP_YARD = arrayOf(Location.create(2998, 3032, 1), Location(3000, 3032, 0))
         private val OO_GLOG = arrayOf(Location.create(2626, 2857, 1), Location.create(2623, 2857, 0))
 
         fun cross(player: Player, location: Location?) {

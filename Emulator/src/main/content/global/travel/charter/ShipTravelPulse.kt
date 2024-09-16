@@ -9,11 +9,6 @@ import core.tools.StringUtils
 
 /**
  * Represents a pulse used to travel a player to a location.
- * @author Vexia
- *
- * @param player Represents the player associated with the ship.
- * @param ship Represents the ship that is being traveled.
- * @constructor Represents a new instance of Ship travel pulse with the specified player and ship.
  */
 class ShipTravelPulse(private val player: Player, private val ship: Ships) : Pulse(1) {
 

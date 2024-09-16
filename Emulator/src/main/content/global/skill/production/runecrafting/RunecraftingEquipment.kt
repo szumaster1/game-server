@@ -74,7 +74,7 @@ class RunecraftingEquipment : InteractionListener {
             .map { Pair(it, TalismanStaffToAltarMapper.map(it)) }
             .filter { it.second != null }
             .forEach {
-                onUseWith(IntType.SCENERY, it.first.item.id, it.second!!.`object`) { player, used, _ ->
+                onUseWith(IntType.SCENERY, it.first.item.id, it.second!!.scenery) { player, used, _ ->
                     setTitle(player, 2)
                     sendDialogueOptions(player, "Do you want to enchant a tiara or staff?", "Tiara.", "Staff.")
                     openDialogue(player, object : DialogueFile() {

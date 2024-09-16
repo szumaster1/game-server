@@ -12,15 +12,13 @@ import core.plugin.Plugin
 
 /**
  * Handles the infusion of the metal wand.
- *
- * Related to [What Lies Below][content.region.misthalin.quest.member.whatliesbelow.WhatLiesBelow] quest.
  * @author Vexia
  */
 @Initializable
 class MetalWandHandler : UseWithHandler(WhatLiesBelowListeners.WAND) {
     @Throws(Throwable::class)
     override fun newInstance(arg: Any?): Plugin<Any> {
-        addHandler(Altar.CHAOS.`object`, OBJECT_TYPE, this)
+        addHandler(Altar.CHAOS.scenery, OBJECT_TYPE, this)
         return this
     }
 

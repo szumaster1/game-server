@@ -7,9 +7,9 @@ import core.game.world.map.Location
 import core.game.world.map.zone.ZoneBorders
 
 /**
- * Trader crewmember NPC.
+ * Trader crew member NPC.
  */
-class TraderCrewmemberNPC : NPCBehavior(4651,4654) {
+class CharterNPC : NPCBehavior(4651,4654) {
 
     override fun onCreation(self: NPC) {
         if (inBorders(self, PORT_TYRAS_ZONE)) {

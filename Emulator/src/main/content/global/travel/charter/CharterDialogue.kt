@@ -16,15 +16,15 @@ import core.tools.StringUtils
  * @author Vexia
  */
 @Initializable
-class TraderCrewmemberDialogue (player: Player? = null) : Dialogue(player) {
+class CharterDialogue(player: Player? = null) : Dialogue(player) {
 
-    private var destination: ShipCharter.Destination? = null
+    private var destination: CharterShip.Destination? = null
     private var cost = 0
 
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
         if (args.size > 1) {
-            destination = (args[1] as ShipCharter.Destination)
+            destination = (args[1] as CharterShip.Destination)
             cost = args[2] as Int
             core.api.sendDialogue(player, "To sail to " + StringUtils.formatDisplayName(destination!!.name) + " from here will cost you " + cost + " gold. Are you sure you want to pay that?")
             stage = 3000
@@ -63,7 +63,7 @@ class TraderCrewmemberDialogue (player: Player? = null) : Dialogue(player) {
             2000 -> npc(FacialExpression.HAPPY, "Certainly sir, where would you like to go?").also { stage++ }
             2001 -> {
                 end()
-                ShipCharter.open(player)
+                CharterShip.open(player)
             }
 
             3000 -> options("Ok", "Choose again", "No").also { stage = 30001 }
@@ -87,7 +87,7 @@ class TraderCrewmemberDialogue (player: Player? = null) : Dialogue(player) {
 
                 2 -> {
                     end()
-                    ShipCharter.open(player)
+                    CharterShip.open(player)
                 }
                 3 -> end()
             }
@@ -98,7 +98,7 @@ class TraderCrewmemberDialogue (player: Player? = null) : Dialogue(player) {
     }
 
     override fun newInstance(player: Player): Dialogue {
-        return TraderCrewmemberDialogue(player)
+        return CharterDialogue(player)
     }
 
     override fun getIds(): IntArray {

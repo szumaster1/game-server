@@ -116,7 +116,7 @@ class Runecrafting : OptionHandler() {
      */
     private fun addNodes() {
         for (altar in Altar.values()) {
-            SceneryDefinition.forId(altar.`object`).handlers["option:craft-rune"] = this
+            SceneryDefinition.forId(altar.scenery).handlers["option:craft-rune"] = this
             SceneryDefinition.forId(altar.portal).handlers["option:use"] = this
         }
         for (talisman in Talisman.values()) {

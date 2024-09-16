@@ -1,16 +1,11 @@
 package content.global.travel.charter
 
+import core.api.submitIndividualPulse
 import core.game.node.entity.player.Player
 import core.game.world.map.Location
 
 /**
- * Represents a ship to travel on.
- *
- * @param location Represents the current location of the ship.
- * @param config Configuration settings for the ship.
- * @param delay Delay time for the ship's operations, in milliseconds.
- * @param destination The intended destination of the ship.
- * @constructor Ships Represents a new instance of the Ships enum class.
+ * Represents a ship to travel data.
  */
 enum class Ships(
     @JvmField val location: Location,
@@ -185,7 +180,7 @@ enum class Ships(
      */
     fun sail(player: Player) {
         // Initiates the sailing process for the player by running a pulse manager.
-        player.pulseManager.run(ShipTravelPulse(player, this))
+        submitIndividualPulse(player, ShipTravelPulse(player, this))
     }
 
     companion object {
@@ -197,7 +192,7 @@ enum class Ships(
          */
         fun sail(player: Player, ship: Ships) {
             // Initiates the sailing process for the player with a specified ship.
-            player.pulseManager.run(ShipTravelPulse(player, ship))
+            submitIndividualPulse(player, ShipTravelPulse(player, ship))
         }
     }
 }

@@ -1,4 +1,4 @@
-package content.global.travel.item
+package content.global.handlers.item
 
 import content.minigame.pyramidplunder.PyramidPlunderMinigame.Companion.GUARDIAN_ROOM
 import core.api.EquipmentSlot
@@ -20,7 +20,7 @@ import core.game.world.update.flag.context.Graphic
 /**
  * Pharaoh sceptre listener.
  */
-class PharaohSceptre : InteractionListener {
+class PharaohSceptreListener : InteractionListener {
 
     override fun defineListeners() {
         val SCEPTRES = intArrayOf(

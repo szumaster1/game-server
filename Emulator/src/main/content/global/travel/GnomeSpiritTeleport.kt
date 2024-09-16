@@ -1,5 +1,7 @@
 package content.global.travel
 
+import cfg.consts.Animations
+import cfg.consts.Graphics
 import core.api.*
 import cfg.consts.NPCs
 import cfg.consts.Scenery
@@ -19,110 +21,97 @@ import core.tools.END_DIALOGUE
 /**
  * Represents the Gnome spirit teleport.
  */
-class GnomeSpiritTeleport: InteractionListener {
+class GnomeSpiritTeleport : InteractionListener {
 
-    val spiritTrees = intArrayOf(Scenery.SPIRIT_TREE_1317,Scenery.SPIRIT_TREE_1293,Scenery.SPIRIT_TREE_1294)
+    val spiritTrees = intArrayOf(Scenery.SPIRIT_TREE_1317, Scenery.SPIRIT_TREE_1293, Scenery.SPIRIT_TREE_1294)
 
     override fun defineListeners() {
-        on(spiritTrees, IntType.SCENERY, "talk-to"){ player, _ ->
-            openDialogue(player, GnomeSpiritTreeDialogue(), NPC(NPCs.SPIRIT_TREE_3636))
-            return@on true
-        }
-        on(spiritTrees, IntType.SCENERY, "teleport"){ player, _ ->
-            openDialogue(player, GnomeSpiritTreeTeleportDialogue(), NPC(NPCs.SPIRIT_TREE_3636))
+        on(spiritTrees, IntType.SCENERY, "talk-to", "teleport") { player, node ->
+            val option = getUsedOption(player)
+            if (!GnomeSpiritTreeTeleportDialogue().hasQuestCompleted(player)) {
+                return@on true
+            }
+            when (node.asNpc()) {
+                NPC(NPCs.SPIRIT_TREE_3636) -> if (option == "talk-to") {
+                    sendNPCDialogue(player, NPCs.SPIRIT_TREE_3636, "If you are a friend of the gnome people, you are a friend of mine, Do you wish to travel?")
+                    addDialogueAction(player) { _, button ->
+                        if (button >= 1) openDialogue(player, GnomeSpiritTreeTeleportDialogue())
+                        return@addDialogueAction
+                    }
+                } else {
+                    openDialogue(player, GnomeSpiritTreeTeleportDialogue(), NPC(NPCs.SPIRIT_TREE_3636))
+                }
+            }
             return@on true
         }
     }
-}
-
-/**
- * Gnome spirit tree teleport dialogue.
- */
-class GnomeSpiritTreeTeleportDialogue: DialogueFile() {
-    private val locationArray = arrayOf(
-        Location(2542, 3170, 0),
-        Location(2461, 3444, 0),
-        Location(2556, 3259, 0),
-        Location(3184, 3508, 0)
-    )
-    private val animationIds = arrayOf(Animation(7082), Animation(7084))
-    private val graphicIds = arrayOf(
-        Graphic(1228),
-        Graphic(1229)
-    )
 
     /**
-     * Has quest completed.
+     * Gnome spirit tree teleport dialogue.
      */
-    fun hasQuestCompleted(player: Player): Boolean {
-        if (!isQuestComplete(player, "Tree Gnome Village")) {
-            sendDialogue(player, "The tree doesn't feel like talking.")
-            stage = END_DIALOGUE
-            return false
-        }
-        return true
-    }
+    inner class GnomeSpiritTreeTeleportDialogue : DialogueFile() {
+        private val locationArray = arrayOf(
+            Location(2542, 3170, 0),
+            Location(2461, 3444, 0),
+            Location(2556, 3259, 0),
+            Location(3184, 3508, 0)
+        )
+        private val animationIds = arrayOf(Animation(Animations.HUMAN_SPIRIT_TREE_TELE_TO_7082), Animation(Animations.HUMAN_SPIRIT_TREE_TELE_FROM_7084))
+        private val graphicIds = arrayOf(Graphic(Graphics.TELEPORTING_WITH_THE_GRAND_TREE_GFX_START_1228), Graphic(Graphics.TELEPORTING_WITH_THE_GRAND_TREE_GFX_END_1229))
 
-    private fun sendTeleport(player: Player, location: Location) {
-        end()
-        Pulser.submit(object : Pulse(1, player) {
-            var count = 0
-            override fun pulse(): Boolean {
-                when (count) {
-                    0 -> {
-                        player.animate(animationIds[0])
-                        player.graphics(graphicIds[0])
-                    }
-                    3 -> { teleport(player,location) }
-                    5 -> {
-                        player.animate(animationIds[1])
-                        player.graphics(graphicIds[1])
-                        player.face(null)
-                        if (player.location.withinDistance(Location.create(3184, 3508, 0))) {
-                            player.achievementDiaryManager.finishTask(player, DiaryType.VARROCK, 1, 5)
-                        }
-                        return true
-                    }
-                }
-                count++
+        /**
+         * Has quest completed.
+         */
+        fun hasQuestCompleted(player: Player): Boolean {
+            if (!isQuestComplete(player, "Tree Gnome Village")) {
+                sendDialogue(player, "The tree doesn't feel like talking.")
+                stage = END_DIALOGUE
                 return false
             }
-        })
-    }
-
-    override fun handle(componentID: Int, buttonID: Int) {
-        if(!GnomeSpiritTreeTeleportDialogue().hasQuestCompleted(player!!)) {
-            stage = END_DIALOGUE
-            return
+            return true
         }
-        when (stage) {
-            0 -> {
-                setTitle(player!!, 4)
-                sendDialogueOptions(player!!, "Where would you like to go?", "Tree Gnome Village", "Tree Gnome Stronghold", "Battlefield of Khazard", "Grand Exchange").also { stage++ }
+
+        private fun sendTeleport(player: Player, location: Location) {
+            end()
+            Pulser.submit(object : Pulse(1, player) {
+                var count = 0
+                override fun pulse(): Boolean {
+                    when (count) {
+                        0 -> visualize(player, animationIds[0], graphicIds[0])
+                        3 -> teleport(player, location)
+                        5 -> {
+                            visualize(player, animationIds[1], graphicIds[1])
+                            player.face(null)
+                            if (withinDistance(player, Location.create(3184, 3508, 0))) {
+                                finishDiaryTask(player, DiaryType.VARROCK, 1, 5)
+                            }
+                            return true
+                        }
+                    }
+                    count++
+                    return false
+                }
+            })
+        }
+
+        override fun handle(componentID: Int, buttonID: Int) {
+            if (!GnomeSpiritTreeTeleportDialogue().hasQuestCompleted(player!!)) {
+                stage = END_DIALOGUE
+                return
             }
-            1 -> when (buttonID) {
-                1 -> sendTeleport(player!!, locationArray[0])
-                2 -> sendTeleport(player!!, locationArray[1])
-                3 -> sendTeleport(player!!, locationArray[2])
-                4 -> sendTeleport(player!!, locationArray[3])
+            when (stage) {
+                0 -> {
+                    setTitle(player!!, 4)
+                    sendDialogueOptions(player!!, "Where would you like to go?", "Tree Gnome Village", "Tree Gnome Stronghold", "Battlefield of Khazard", "Grand Exchange").also { stage++ }
+                }
+
+                1 -> when (buttonID) {
+                    1 -> sendTeleport(player!!, locationArray[0])
+                    2 -> sendTeleport(player!!, locationArray[1])
+                    3 -> sendTeleport(player!!, locationArray[2])
+                    4 -> sendTeleport(player!!, locationArray[3])
+                }
             }
-        }
-    }
-}
-
-/**
- * Gnome spirit tree dialogue.
- */
-class GnomeSpiritTreeDialogue: DialogueFile() {
-
-    override fun handle(componentID: Int, buttonID: Int) {
-        if(!GnomeSpiritTreeTeleportDialogue().hasQuestCompleted(player!!)) {
-            stage = END_DIALOGUE
-            return
-        }
-        when (stage) {
-            0 -> npcl("If you are a friend of the gnome people, you are a friend of mine, Do you wish to travel?").also{ stage++ }
-            1 -> openDialogue(player!!, GnomeSpiritTreeTeleportDialogue())
         }
     }
 }

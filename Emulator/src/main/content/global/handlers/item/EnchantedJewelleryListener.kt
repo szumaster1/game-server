@@ -1,6 +1,7 @@
-package content.global.travel.item
+package content.global.handlers.item
 
 import cfg.consts.Items
+import content.data.EnchantedJewellery
 import core.api.openDialogue
 import core.api.sendDialogueOptions
 import core.api.sendMessage
@@ -22,15 +23,26 @@ class EnchantedJewelleryListener : InteractionListener {
     val ids = EnchantedJewellery.idMap.keys.toIntArray()
 
     override fun defineListeners() {
-        on(ids, IntType.ITEM, "operate") { player, node ->
-            handle(player, node, true)
-            return@on true
-        }
+
+        /*
+         * Handles use the teleport jewellery option.
+         */
+
         on(ids, IntType.ITEM, "rub") { player, node ->
             handle(player, node, false)
             return@on true
         }
+
+        /*
+         * Handles use the teleport jewellery option from equipment interface.
+         */
+
+        on(ids, IntType.ITEM, "operate") { player, node ->
+            handle(player, node, true)
+            return@on true
+        }
     }
+
     private fun handle(player: Player, node: Node, isEquipped: Boolean) {
         player.pulseManager.clear(PulseType.STANDARD)
         val item = node.asItem()
@@ -41,7 +53,7 @@ class EnchantedJewelleryListener : InteractionListener {
         val jewellery = EnchantedJewellery.idMap[item.id]
         if (jewellery != null) {
             if (jewellery.isLastItemIndex(jewellery.getItemIndex(item)) && !jewellery.isCrumble) {
-                sendMessage(player, "The ${jewellery.getJewelleryType(item)} has lost its charge.")
+                sendMessage(player, "You use your ${jewellery.getJewelleryType(item).lowercase()} last charge.")
                 sendMessage(player, "It will need to be recharged before you can use it again.")
                 return
             }
@@ -55,12 +67,7 @@ class EnchantedJewelleryListener : InteractionListener {
     }
 
     /**
-     * Class representing a dialogue file for enchanted jewellery.
-     *
-     * @param jewellery The enchanted jewellery object associated with the dialogue.
-     * @param item The item object related to the dialogue.
-     * @param isEquipped A boolean indicating if the jewellery is equipped.
-     * @constructor Creates a new instance of EnchantedJewelleryDialogueFile.
+     * Represents the Enchanted Jewellery dialogue.
      */
     class EnchantedJewelleryDialogueFile(val jewellery: EnchantedJewellery, val item: Item, val isEquipped: Boolean) : DialogueFile() {
         override fun handle(componentID: Int, buttonID: Int) {

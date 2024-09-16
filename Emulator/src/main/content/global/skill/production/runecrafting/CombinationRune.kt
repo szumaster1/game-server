@@ -17,7 +17,7 @@ class CombinationRune : UseWithHandler(Talisman.AIR.talisman.id, Talisman.WATER.
 
     override fun newInstance(arg: Any?): Plugin<Any> {
         for (altar in Altar.values()) {
-            addHandler(altar.`object`, OBJECT_TYPE, this)
+            addHandler(altar.scenery, OBJECT_TYPE, this)
         }
         return this
     }

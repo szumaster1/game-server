@@ -47,6 +47,12 @@ the project's setup, things won't work. At all.
 
 ***
 
+##### Server Setup
+
+* Set up `db` user with read/write permissions on server database
+* Put creds in `credentials.json`
+* `sudo apt install libmariadb3 libmariadb-dev`
+
 ##### Project Setup
 
 1. If you haven't already, make sure to follow

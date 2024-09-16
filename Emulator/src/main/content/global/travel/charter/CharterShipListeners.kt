@@ -10,18 +10,18 @@ import core.game.interaction.InterfaceListener
  * Represents the ship chartering interface plugin.
  * @author Vexia
  */
-class ShipCharterListeners : InteractionListener, InterfaceListener {
+class CharterShipListeners : InteractionListener, InterfaceListener {
 
     override fun defineListeners() {
         on(SAILORS, IntType.NPC, "charter") { player, _ ->
-            ShipCharter.open(player)
+            CharterShip.open(player)
             return@on true
         }
     }
 
     override fun defineInterfaceListeners() {
         on(Components.SAILING_TRANSPORT_WORLD_MAP_95){ player, _, _, buttonID, _, _ ->
-            ShipCharter.handle(player, buttonID)
+            CharterShip.handle(player, buttonID)
             return@on true
         }
     }
