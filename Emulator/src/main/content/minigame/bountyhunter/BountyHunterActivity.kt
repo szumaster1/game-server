@@ -2,7 +2,7 @@ package content.minigame.bountyhunter
 
 import core.api.removeAttribute
 import core.api.setAttribute
-import core.api.setInterfaceText
+import core.api.sendInterfaceText
 import core.api.setVarp
 import core.game.activity.ActivityManager
 import core.game.activity.ActivityPlugin
@@ -381,7 +381,7 @@ class BountyHunterActivity @JvmOverloads constructor(val type: CraterType = Crat
         waitingRoom.add(player)
         player.properties.teleportLocation = type.roomLocation
         player.interfaceManager.openOverlay(WAITING_OVERLAY)
-        setInterfaceText(player, "Players waiting (need $MINIMUM_PLAYERS):", 656, 6)
+        sendInterfaceText(player, "Players waiting (need $MINIMUM_PLAYERS):", 656, 6)
         updateWaitingRoomSize()
         if (waitingRoom.size == MINIMUM_PLAYERS) {
             val time = Math.round(waitingTime * 0.6).toInt().toString() + " Sec"

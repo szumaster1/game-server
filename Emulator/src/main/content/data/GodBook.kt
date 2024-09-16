@@ -6,25 +6,15 @@ import core.game.node.entity.player.Player
 import core.game.node.item.Item
 
 /**
- * A god book.
- * @author Vexia
+ * Represents a god book data.
  *
- * @param bookName The name of the book.
- * @param book The book item.
- * @param damagedBook The damaged book item.
- * @param blessItem The array of items used to bless the book.
- * @param pages The array of pages in the book.
+ * @param bookName      the name of the book.
+ * @param book          the book item.
+ * @param damagedBook   the damaged book item.
+ * @param blessItem     the array of items used to bless the book.
+ * @param pages         the array of pages in the book.
  */
-enum class GodBook(
-    val bookName: String,
-    val book: Item,
-    val damagedBook: Item,
-    val blessItem: Array<Item>,
-    vararg pages: Item
-) {
-    /**
-     * Holy Book.
-     */
+enum class GodBook(val bookName: String, val book: Item, val damagedBook: Item, val blessItem: Array<Item>, vararg pages: Item) {
     HOLY_BOOK(
         bookName = "Holy Book of Saradomin",
         book = Item(Items.HOLY_BOOK_3840),
@@ -37,10 +27,6 @@ enum class GodBook(
             Item(Items.SARADOMIN_PAGE_4_3830)
         )
     ),
-
-    /**
-     * Book of balance.
-     */
     BOOK_OF_BALANCE(
         bookName = "Guthix's Book of Balance",
         book = Item(Items.BOOK_OF_BALANCE_3844),
@@ -53,10 +39,6 @@ enum class GodBook(
             Item(Items.GUTHIX_PAGE_4_3838)
         )
     ),
-
-    /**
-     * Unholy book.
-     */
     UNHOLY_BOOK(
         bookName = "Unholy Book of Zamorak",
         book = Item(Items.UNHOLY_BOOK_3842),
@@ -75,8 +57,8 @@ enum class GodBook(
     /**
      * Checks if the player has the god book.
      *
-     * @param player The player.
-     * @param both Boolean indicating whether to check for both the book and the damaged book.
+     * @param player    the player.
+     * @param both      the book and the damaged book.
      * @return True if the player has the book, false otherwise.
      */
     fun hasGodBook(player: Player, both: Boolean): Boolean {
@@ -88,9 +70,9 @@ enum class GodBook(
     /**
      * Inserts a page into the book.
      *
-     * @param player The player.
-     * @param book The book item.
-     * @param page The page item.
+     * @param player    the player.
+     * @param book      the book item.
+     * @param page      the page item.
      */
     fun insertPage(player: Player, book: Item, page: Item) {
         if (!hasRequirement(player, "Horror from the Deep")) return
@@ -117,8 +99,8 @@ enum class GodBook(
     /**
      * Checks if an item is a page.
      *
-     * @param asItem The item.
-     * @return True if the item is a page, false otherwise.
+     * @param asItem    the item.
+     * @return `true` if the item is a page, `false` otherwise.
      */
     fun isPage(asItem: Item): Boolean {
         for (item in pages) {
@@ -132,9 +114,9 @@ enum class GodBook(
     /**
      * Checks if the book is complete.
      *
-     * @param player The player.
-     * @param book The book item.
-     * @return True if the book is complete, false otherwise.
+     * @param player    the player.
+     * @param book      the book item.
+     * @return `true` if the book is complete, `false` otherwise.
      */
     fun isComplete(player: Player, book: Item?): Boolean {
         for (i in 0..3) {
@@ -148,10 +130,10 @@ enum class GodBook(
     /**
      * Checks if the player has a specific page in the book.
      *
-     * @param player The player.
-     * @param book The book item.
-     * @param page The page item.
-     * @return True if the player has the page, false otherwise.
+     * @param player    the player.
+     * @param book      the book item.
+     * @param page      the page item.
+     * @return `true` if the player has the page, `false` otherwise.
      */
     fun hasPage(player: Player, book: Item?, page: Item): Boolean {
         return hasPage(player, book, getPageIndex(page))
@@ -160,9 +142,9 @@ enum class GodBook(
     /**
      * Sets the page hash.
      *
-     * @param player The player.
-     * @param book The book item.
-     * @param pageId The page ID.
+     * @param player    the player.
+     * @param book      the book item.
+     * @param pageId    the page ID.
      */
     fun setPageHash(player: Player, book: Item?, pageId: Int) {
         // int hash = getHash(book);
@@ -174,10 +156,10 @@ enum class GodBook(
     /**
      * Checks if the player has a specific page in the book.
      *
-     * @param player The player.
-     * @param book The book item.
-     * @param pageId The page ID.
-     * @return True if the player has the page, false otherwise.
+     * @param player    the player.
+     * @param book      the book item.
+     * @param pageId    the page ID.
+     * @return `true` if the player has the page, `false` otherwise.
      */
     fun hasPage(player: Player, book: Item?, pageId: Int): Boolean {
         // return (getHash(book) & (1 << pageId)) != 0;
@@ -187,7 +169,7 @@ enum class GodBook(
     /**
      * Gets the hash of the book.
      *
-     * @param book The book item.
+     * @param book      the book item.
      * @return The hash of the book.
      */
     fun getHash(book: Item): Int {
@@ -197,7 +179,7 @@ enum class GodBook(
     /**
      * Gets the index of a page in the book.
      *
-     * @param page The page item.
+     * @param page      the page item.
      * @return The index of the page.
      */
     fun getPageIndex(page: Item): Int {
@@ -214,10 +196,11 @@ enum class GodBook(
         /**
          * Returns the GodBook enum for a given item.
          *
-         * @param item The item.
-         * @param damaged Whether the item is damaged or not.
-         * @return The GodBook enum, or null if not found.
+         * @param item      the item.
+         * @param damaged   the damaged item.
+         * @return The [GodBook] or `null` if not found.
          */
+        @JvmStatic
         fun forItem(item: Item, damaged: Boolean): GodBook? {
             for (book in values()) {
                 if ((if (!damaged) book.book.id else book.damagedBook.id) == item.id) {
@@ -228,11 +211,12 @@ enum class GodBook(
         }
 
         /**
-         * Returns the GodBook enum for a given page.
+         * Returns the [GodBook] for a given page.
          *
-         * @param page The page item.
-         * @return The GodBook enum, or null if not found.
+         * @param page      the page item.
+         * @return The [GodBook] enum, or `null` if not found.
          */
+        @JvmStatic
         fun forPage(page: Item): GodBook? {
             for (book in values()) {
                 for (i in book.pages) {

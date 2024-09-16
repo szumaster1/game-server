@@ -1,6 +1,6 @@
 package content.global.skill.production.herblore.item
 
-import content.data.consumable.Consumables.Companion.getConsumableById
+import content.data.consumables.Consumables.Companion.getConsumableById
 import content.global.skill.production.herblore.data.potion.GenericPotion
 import content.global.skill.skillcape.SkillcapePerks
 import content.global.skill.skillcape.SkillcapePerks.Companion.isActive

@@ -89,10 +89,10 @@ class ImpChampionNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id, 
             lock(killer, 2)
             runTask(killer, 1) {
                 openInterface(killer, 63)
-                setInterfaceText(killer, "Well done, you defeated the Imp Champion!", 63, 2)
+                sendInterfaceText(killer, "Well done, you defeated the Imp Champion!", 63, 2)
                 killer.packetDispatch.sendItemZoomOnInterface(Items.CHAMPION_SCROLL_6803, 260, 63, 3)
-                setInterfaceText(killer, "160 Slayer Xp", 63, 6)
-                setInterfaceText(killer, "160 Hitpoint Xp", 63, 7)
+                sendInterfaceText(killer, "160 Slayer Xp", 63, 6)
+                sendInterfaceText(killer, "160 Hitpoint Xp", 63, 7)
             }
             setVarbit(killer, 1457, 1, true)
             rewardXP(killer, Skills.HITPOINTS, 160.0)

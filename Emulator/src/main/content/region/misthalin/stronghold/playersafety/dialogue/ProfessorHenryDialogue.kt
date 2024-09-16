@@ -98,14 +98,14 @@ class ProfessorHenryDialogue(player: Player? = null) : Dialogue(player) {
          * Clear the other lines.
          */
         for (i in 9..18) {
-            setInterfaceText(player, "", INTERFACE, i)
+            sendInterfaceText(player, "", INTERFACE, i)
         }
-        setInterfaceText(player, "You have completed the Player Safety test!", INTERFACE, 4)
-        setInterfaceText(player, getQuestPoints(player).toString(), INTERFACE, 7)
-        setInterfaceText(player, "2 Experience lamps", INTERFACE, 9)
-        setInterfaceText(player, "Access to the Stronghold of", INTERFACE, 10)
-        setInterfaceText(player, "Player Safety Dungeon", INTERFACE, 11)
-        setInterfaceText(player, "The Safety First' emote", INTERFACE, 12)
+        sendInterfaceText(player, "You have completed the Player Safety test!", INTERFACE, 4)
+        sendInterfaceText(player, getQuestPoints(player).toString(), INTERFACE, 7)
+        sendInterfaceText(player, "2 Experience lamps", INTERFACE, 9)
+        sendInterfaceText(player, "Access to the Stronghold of", INTERFACE, 10)
+        sendInterfaceText(player, "Player Safety Dungeon", INTERFACE, 11)
+        sendInterfaceText(player, "The Safety First' emote", INTERFACE, 12)
         sendItemZoomOnInterface(player, INTERFACE, 5, Items.TEST_PAPER_12626)
     }
 

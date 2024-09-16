@@ -57,7 +57,7 @@ class SergeantDamienDialogue(var isCorrect: Boolean = false, var eventStart: Boo
                 )
                 setComponentVisibility(player!!, Components.DOUBLEOBJBOX_131, 3, true)
                 sendAngleOnInterface(player!!, Components.DOUBLEOBJBOX_131, 2, 2800, 0, 0)
-                setInterfaceText(
+                sendInterfaceText(
                     player!!,
                     when (getAttribute(player!!, DrillDemonUtils.DD_KEY_TASK, -1)) {
                         DrillDemonUtils.DD_SIGN_JOG -> "Go to$DARK_RED this mat</col> and jog on the spot!"

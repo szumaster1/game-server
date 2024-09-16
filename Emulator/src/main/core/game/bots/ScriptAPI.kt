@@ -1,8 +1,8 @@
 package core.game.bots
 
 import cfg.consts.Items
-import content.data.consumable.Consumables
-import content.data.consumable.effects.HealingEffect
+import content.data.consumables.Consumables
+import content.data.consumables.effects.HealingEffect
 import core.Configuration
 import core.Configuration.Companion.SERVER_GE_NAME
 import core.api.itemDefinition

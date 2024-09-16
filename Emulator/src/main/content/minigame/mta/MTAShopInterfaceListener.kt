@@ -149,10 +149,10 @@ class MTAShopInterfaceListener : InterfaceListener {
      * @param player The player whose points are being updated.
      */
     fun updatePoints(player: Player) {
-        setInterfaceText(player, getPoints(player, 0).toString(), Components.MAGICTRAINING_SHOP_197, 8)
-        setInterfaceText(player, getPoints(player, 2).toString(), Components.MAGICTRAINING_SHOP_197, 9)
-        setInterfaceText(player, getPoints(player, 1).toString(), Components.MAGICTRAINING_SHOP_197, 10)
-        setInterfaceText(player, getPoints(player, 3).toString(), Components.MAGICTRAINING_SHOP_197, 11)
+        sendInterfaceText(player, getPoints(player, 0).toString(), Components.MAGICTRAINING_SHOP_197, 8)
+        sendInterfaceText(player, getPoints(player, 2).toString(), Components.MAGICTRAINING_SHOP_197, 9)
+        sendInterfaceText(player, getPoints(player, 1).toString(), Components.MAGICTRAINING_SHOP_197, 10)
+        sendInterfaceText(player, getPoints(player, 3).toString(), Components.MAGICTRAINING_SHOP_197, 11)
     }
 
     /**

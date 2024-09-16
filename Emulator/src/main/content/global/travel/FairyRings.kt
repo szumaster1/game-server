@@ -10,7 +10,6 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.interaction.InterfaceListener
 import core.game.node.entity.player.Player
-import core.game.node.entity.player.link.TeleportManager
 import core.game.node.entity.player.link.TeleportManager.TeleportType
 import core.game.system.task.Pulse
 import core.game.world.GameWorld
@@ -486,7 +485,7 @@ enum class FairyRing(val tile: Location?, val tip: String = "", val childId: Int
                 if (fairyRing.childId == -1) {
                     continue
                 }
-                setInterfaceText(player, "<br>${fairyRing.tip}", 735, fairyRing.childId)
+                sendInterfaceText(player, "<br>${fairyRing.tip}", 735, fairyRing.childId)
             }
         }
     }

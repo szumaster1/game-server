@@ -373,7 +373,7 @@ class PlagueCityListeners : InteractionListener {
     private fun scruffyNote(player: Player) {
         val scruffynotes =
             arrayOf("Got a bncket of nnilk", "Tlen grind sorne lhoculate", "vnith a pestal and rnortar", "ald the grourd dlocolate to tho milt", "finales add 5cme snape gras5")
-        setInterfaceText(player, scruffynotes.joinToString("<br>"), Components.BLANK_SCROLL_222, 5)
+        sendInterfaceText(player, scruffynotes.joinToString("<br>"), Components.BLANK_SCROLL_222, 5)
     }
 
     override fun defineDestinationOverrides() {

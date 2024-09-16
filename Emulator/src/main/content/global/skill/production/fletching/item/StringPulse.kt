@@ -43,7 +43,7 @@ open class StringPulse(player: Player, node: Item, private val bow: BowString, p
             sendMessage(player, "You add a string to the bow.")
 
             if (bow == BowString.MAGIC_SHORTBOW && (ZoneBorders(2721, 3489, 2724, 3493, 0).insideBorder(player) || ZoneBorders(2727, 3487, 2730, 3490, 0).insideBorder(player)) && getAttribute(player,"diary:seers:fletch-magic-short-bow", false)) {
-                player.achievementDiaryManager.finishTask(player, DiaryType.SEERS_VILLAGE, 2, 2)
+                finishDiaryTask(player, DiaryType.SEERS_VILLAGE, 2, 2)
             }
         }
         if (!player.inventory.containsItem(Item(bow.string)) || !player.inventory.containsItem(Item(bow.unfinished))) {

@@ -93,7 +93,7 @@ class Shop(
      */
     fun openFor(player: Player) {
         val cont = getContainer(player)
-        setInterfaceText(player, title, 620, 22)
+        sendInterfaceText(player, title, 620, 22)
         setAttribute(player, "shop", this)
         setAttribute(player, "shop-cont", cont)
         openInterface(player, Components.SHOP_TEMPLATE_620)

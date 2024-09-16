@@ -22,9 +22,9 @@ abstract class ChampionScrollsEventHookBase : LoginListener {
          * @param handler the function to execute if the entity is a valid player
          */
         private fun <T> forEligibleEntityDo(entity: Entity, event: T, handler: (Player, T) -> Unit) {
-            if (entity !is Player) return // Check if the entity is not a Player
-            if (entity.isArtificial) return // Check if the entity is not artificial
-            handler(entity, event) // Execute the handler function with the valid player entity
+            if (entity !is Player) return
+            if (entity.isArtificial) return
+            handler(entity, event)
         }
     }
 
@@ -35,19 +35,17 @@ abstract class ChampionScrollsEventHookBase : LoginListener {
         private val owner: ChampionScrollsEventHookBase, private val handler: (Player, T) -> Unit
     ) : EventHook<T> {
         override fun process(entity: Entity, event: T) {
-            forEligibleEntityDo(entity, event, handler) // Call the function to handle eligible entities
+            forEligibleEntityDo(entity, event, handler)
         }
     }
 
     final override fun login(player: Player) {
-        player.hook(core.api.Event.NPCKilled, EventHandler(this, ::onNpcKilled)) // Hook the NPCKilled event with the EventHandler
+        player.hook(core.api.Event.NPCKilled, EventHandler(this, ::onNpcKilled))
     }
 
     /**
      * Handles the event when an NPC is killed.
      */
-    protected open fun onNpcKilled(player: Player, event: NPCKillEvent) {
-        // Add specific logic here for handling NPC kill events
-    }
+    protected open fun onNpcKilled(player: Player, event: NPCKillEvent) {}
 
 }

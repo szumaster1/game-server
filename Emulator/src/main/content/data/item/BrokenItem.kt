@@ -6,8 +6,7 @@ import core.game.node.item.WeightedChanceItem
 import core.tools.RandomFunction
 
 /**
- * This class represents broken items that can be repaired.
- * @author szumaster
+ * Represents the broken items data that can be repaired.
  */
 object BrokenItem {
 
@@ -112,7 +111,7 @@ object BrokenItem {
             EquipmentType.SCIMITARS -> RandomFunction.rollWeightedChanceTable(rustyScimitars)
             EquipmentType.ARMOUR -> RandomFunction.rollWeightedChanceTable(damagedArmour)
             EquipmentType.LEGS -> RandomFunction.rollWeightedChanceTable(brokenArmour)
-            else -> throw IllegalArgumentException("Invalid equipment type: $type")
+            else -> throw IllegalArgumentException("Invalid equipment type: $type.")
         }
     }
 

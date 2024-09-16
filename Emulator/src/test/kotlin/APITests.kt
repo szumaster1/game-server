@@ -1,4 +1,4 @@
-import content.data.consumable.Consumables
+import content.data.consumables.Consumables
 import core.api.IfaceSettingsBuilder
 import core.api.splitLines
 import content.global.skill.support.slayer.SlayerManager

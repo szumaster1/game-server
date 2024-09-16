@@ -1,6 +1,6 @@
 package content.global.skill.combat.summoning.familiar.npc
 
-import content.data.consumable.Consumables.Companion.getConsumableById
+import content.data.consumables.Consumables.Companion.getConsumableById
 import content.global.skill.combat.summoning.familiar.Familiar
 import content.global.skill.combat.summoning.familiar.FamiliarSpecial
 import cfg.consts.NPCs

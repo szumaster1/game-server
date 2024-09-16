@@ -75,7 +75,7 @@ class CooksAssistant : Quest("Cook's Assistant", 15, 14, 1, Vars.VARP_QUEST_COOK
     override fun finish(player: Player) {
         var ln = 10
         super.finish(player)
-        setInterfaceText(player, "You have completed the Cook's Assistant Quest!", Components.QUEST_COMPLETE_SCROLL_277, 4)
+        sendInterfaceText(player, "You have completed the Cook's Assistant Quest!", Components.QUEST_COMPLETE_SCROLL_277, 4)
         sendItemZoomOnInterface(player, Components.QUEST_COMPLETE_SCROLL_277,5,1891,240)
         drawReward(player, "1 Quest Point", ln++)
         drawReward(player, "300 Cooking XP", ln)

@@ -11,7 +11,6 @@ object FletchingMap {
     private val logMap = HashMap<Int, Array<FletchingItems>>()
 
     init {
-        // Map logs.
         Item.values().forEach { item ->
             logMap[item.id] = item.items
         }

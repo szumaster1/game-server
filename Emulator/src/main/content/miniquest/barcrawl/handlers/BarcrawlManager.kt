@@ -78,11 +78,11 @@ class BarcrawlManager : LoginListener, PersistPlayer {
      * Draws the completed bars on the interface.
      */
     private fun drawCompletions() {
-        setInterfaceText(player!!, "<col=0000FF>The Official Alfred Grimhand Barcrawl!", Components.MESSAGESCROLL_220, 1)
+        sendInterfaceText(player!!, "<col=0000FF>The Official Alfred Grimhand Barcrawl!", Components.MESSAGESCROLL_220, 1)
         var complete: Boolean
         for (i in bars.indices) {
             complete = bars[i]
-            setInterfaceText(player, (if (complete) "<col=00FF00>" else "<col=FF0000>") + NAMES[i] + " - " + (if (complete) "Complete!" else "Not Completed..."), Components.MESSAGESCROLL_220, 3 + i)
+            sendInterfaceText(player, (if (complete) "<col=00FF00>" else "<col=FF0000>") + NAMES[i] + " - " + (if (complete) "Complete!" else "Not Completed..."), Components.MESSAGESCROLL_220, 3 + i)
         }
     }
 

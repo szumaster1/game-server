@@ -73,11 +73,11 @@ class LumbridgeListeners : InteractionListener {
 
         on(Scenery.WARNING_SIGN_15566, IntType.SCENERY, "read"){ player, _ ->
             openInterface(player, Components.MESSAGESCROLL_220).also {
-                setInterfaceText(player, "<col=8A0808>~-~-~ WARNING ~-~-~", 220, 5)
-                setInterfaceText(player, "<col=8A0808>Noxious gases vent into this cave.", 220, 7)
-                setInterfaceText(player, "<col=8A0808>Naked flames may cause an explosion!", 220, 8)
-                setInterfaceText(player, "<col=8A0808>Beware of vicious head-grabbing beasts!", 220, 10)
-                setInterfaceText(player, "<col=8A0808>Contact a Slayer master for protective headgear.", 220, 11)
+                sendInterfaceText(player, "<col=8A0808>~-~-~ WARNING ~-~-~", 220, 5)
+                sendInterfaceText(player, "<col=8A0808>Noxious gases vent into this cave.", 220, 7)
+                sendInterfaceText(player, "<col=8A0808>Naked flames may cause an explosion!", 220, 8)
+                sendInterfaceText(player, "<col=8A0808>Beware of vicious head-grabbing beasts!", 220, 10)
+                sendInterfaceText(player, "<col=8A0808>Contact a Slayer master for protective headgear.", 220, 11)
             }
             return@on true
         }

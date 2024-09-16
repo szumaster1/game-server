@@ -4,7 +4,7 @@ import content.minigame.mta.MTAType
 import content.minigame.mta.MTAZone
 import cfg.consts.Music
 import core.api.setAttribute
-import core.api.setInterfaceText
+import core.api.sendInterfaceText
 import core.game.interaction.Option
 import core.game.node.Node
 import core.game.node.entity.Entity
@@ -29,7 +29,7 @@ import core.tools.StringUtils
 class GraveyardZone : MTAZone("Creature Graveyard", arrayOf(Item(6904), Item(6905), Item(6906), Item(6907), Item(1963), Item(6883))) {
 
     override fun update(player: Player?) {
-        setInterfaceText(
+        sendInterfaceText(
             player!!,
             player.getSavedData().activityData.getPizazzPoints(type!!.ordinal).toString(),
             type!!.overlay.id,

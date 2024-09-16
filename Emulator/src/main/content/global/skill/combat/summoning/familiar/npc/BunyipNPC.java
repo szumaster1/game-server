@@ -1,6 +1,6 @@
 package content.global.skill.combat.summoning.familiar.npc;
 
-import content.data.consumable.Consumables;
+import content.data.consumables.Consumables;
 import content.global.skill.combat.summoning.familiar.Familiar;
 import content.global.skill.combat.summoning.familiar.FamiliarSpecial;
 import content.global.skill.gathering.fishing.data.Fish;

@@ -22,7 +22,6 @@ import core.game.interaction.InteractionListener
 import core.game.node.entity.player.Player
 import core.game.node.item.Item
 import core.game.system.task.Pulse
-import core.game.world.map.Direction
 import core.game.world.map.Location
 import core.game.world.map.zone.ZoneBorders
 import core.game.world.map.zone.ZoneRestriction
@@ -173,10 +172,7 @@ class ChampionChallengeListener : InteractionListener, MapArea {
                             removeItem(player, giantScroll) -> spawnGiantChampion(player)
                             removeItem(player, hobgoblinScroll) -> spawnHobgoblinChampion(player)
                             removeItem(player, ghoulScroll) -> spawnGhoulChampion(player)
-                            removeItem(player, earthWarriorScroll) -> {
-                                spawnEarthWarriorChampion(player)
-                                setAttribute(player, GameAttributes.PRAYER_LOCK, true)
-                            }
+                            removeItem(player, earthWarriorScroll) -> { spawnEarthWarriorChampion(player);setAttribute(player, GameAttributes.PRAYER_LOCK, true) }
                             removeItem(player, jogreScroll) -> spawnJogreChampion(player)
                             removeItem(player, lesserDemonScroll) -> spawnLesserDemonChampion(player)
                             else -> handleFinalChampionSpawn(player)
@@ -222,7 +218,7 @@ class ChampionChallengeListener : InteractionListener, MapArea {
         )
 
         scrollContentMap[id]?.let { content ->
-            setInterfaceText(player, content.joinToString("<br>"), blankScroll, 5)
+            sendInterfaceText(player, content.joinToString("<br>"), blankScroll, 5)
         }
     }
 

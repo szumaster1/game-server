@@ -30,11 +30,11 @@ class PinballListeners : InteractionListener, MapArea {
             animate(player, Animations.HUMAN_MULTI_USE_832)
             if(node.id in PinballUtils.wrongPillars.indices) {
                 setAttribute(player, PinballUtils.PINBALL_SCORE, 0)
-                setInterfaceText(player, "Score: 0", Components.PINBALL_INTERFACE_263, 1)
+                sendInterfaceText(player, "Score: 0", Components.PINBALL_INTERFACE_263, 1)
                 sendUnclosableDialogue(player, true, "", "Wrong post! Your score has been reset.", "Tag the post with the " + BLUE + "flashing rings" + ".")
             } else {
                 player.incrementAttribute(PinballUtils.PINBALL_SCORE)
-                setInterfaceText(player, "Score: " + getAttribute(player, PinballUtils.PINBALL_SCORE, this.toString()) + "", Components.PINBALL_INTERFACE_263, 1)
+                sendInterfaceText(player, "Score: " + getAttribute(player, PinballUtils.PINBALL_SCORE, this.toString()) + "", Components.PINBALL_INTERFACE_263, 1)
                 sendUnclosableDialogue(player, true,"", "Well done! Now tag the next post.")
             }
             lock(player, 1)

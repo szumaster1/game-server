@@ -6,7 +6,7 @@ import core.Configuration
 import core.api.openInterface
 import core.api.sendDialogue
 import core.api.sendItemDialogue
-import core.api.setInterfaceText
+import core.api.sendInterfaceText
 import core.game.dialogue.DialogueFile
 import core.game.node.item.Item
 import core.tools.START_DIALOGUE
@@ -48,7 +48,7 @@ class BankHelpDialogue : DialogueFile() {
                     it.bank.close()
                     openInterface(it, Components.BANK_V2_HELP_767).also {
                         if (player!!.interfaceManager.isOpened)
-                            setInterfaceText(player!!,
+                            sendInterfaceText(player!!,
                                 "Bank of ${Configuration.SERVER_NAME} - Help",
                                 Components.BANK_V2_HELP_767, 40
                             )

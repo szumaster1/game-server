@@ -16,7 +16,7 @@ import core.tools.RandomFunction
 import core.tools.StringUtils
 
 /**
- * Handles the fletching creation pulse.
+ * Handles the fletch creation pulse.
  */
 class FletchingPulse(player: Player?, node: Item?, amount: Int, fletch: FletchingItems) : SkillPulse<Item?>(player, node) {
 

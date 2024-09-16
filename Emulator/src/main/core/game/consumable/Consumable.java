@@ -1,6 +1,6 @@
 package core.game.consumable;
 
-import content.data.consumable.Consumables;
+import content.data.consumables.Consumables;
 import core.api.Container;
 import static core.api.ContentAPIKt.*;
 import core.game.node.entity.player.Player;

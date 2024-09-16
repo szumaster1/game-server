@@ -66,10 +66,10 @@ class LeonDCourNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id, lo
             lock(killer, 2)
             runTask(killer, 1) {
                 openInterface(killer, 63)
-                setInterfaceText(killer, "Well done, you defeated the Human Champion!", 63, 2)
+                sendInterfaceText(killer, "Well done, you defeated the Human Champion!", 63, 2)
                 killer.packetDispatch.sendItemZoomOnInterface(Items.CHAMPION_SCROLL_6808, 260, 63, 3)
-                setInterfaceText(killer, "492 Slayer Xp", 63, 6)
-                setInterfaceText(killer, "492 Hitpoint Xp", 63, 7)
+                sendInterfaceText(killer, "492 Slayer Xp", 63, 6)
+                sendInterfaceText(killer, "492 Hitpoint Xp", 63, 7)
             }
             rewardXP(killer, Skills.HITPOINTS, 492.0)
             rewardXP(killer, Skills.SLAYER, 492.0)

@@ -11,8 +11,6 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.interaction.InterfaceListener
 import core.game.node.entity.npc.NPC
-import core.game.node.entity.player.Player
-import core.game.node.item.Item
 import core.game.world.map.Location
 import core.tools.END_DIALOGUE
 
@@ -331,9 +329,9 @@ class GhostsAhoyListeners : InteractionListener, InterfaceListener {
         onOpen(Components.AHOY_BLACKOUT_7) { player, _ ->
             setMinimapState(player, 2)
             if (!inBorders(player, 3788, 3556, 3797, 3562)) {
-                setInterfaceText(player, "After a long boat trip you arrive at Dragontooth Island...", Components.AHOY_BLACKOUT_7, 1)
+                sendInterfaceText(player, "After a long boat trip you arrive at Dragontooth Island...", Components.AHOY_BLACKOUT_7, 1)
             } else {
-                setInterfaceText(player, "After a long boat trip you return to Port Phasmatys...", Components.AHOY_BLACKOUT_7, 1)
+                sendInterfaceText(player, "After a long boat trip you return to Port Phasmatys...", Components.AHOY_BLACKOUT_7, 1)
             }
             return@onOpen true
         }

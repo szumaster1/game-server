@@ -1,5 +1,6 @@
 package content.global.skill.production.fletching.item
 
+import cfg.consts.Items
 import content.global.skill.production.fletching.data.ArrowHead
 import content.global.skill.support.slayer.SlayerManager.Companion.getInstance
 import core.api.*
@@ -81,6 +82,6 @@ class ArrowHeadPulse(player: Player?, node: Item?, arrow: ArrowHead, private var
     }
 
     companion object {
-        private val HEADLESS_ARROW = Item(53)
+        private val HEADLESS_ARROW = Item(Items.HEADLESS_ARROW_53)
     }
 }

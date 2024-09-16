@@ -4,7 +4,7 @@ import cfg.consts.Items
 import cfg.consts.NPCs
 import cfg.consts.Sounds
 import com.moandjiezana.toml.Toml
-import content.data.consumable.*
+import content.data.consumables.*
 import content.data.skill.SkillingTool
 import content.global.handlers.iface.ge.StockMarketInterfaceListener
 import content.global.skill.combat.summoning.familiar.BurdenBeast
@@ -1441,7 +1441,7 @@ fun lockTeleport(entity: Entity) {
     entity.locks.isTeleportLocked()
 }
 
-fun lockTeleport(entity: Entity, ticks : Int) {
+fun lockTeleport(entity: Entity, ticks: Int) {
     entity.locks.lockTeleport(ticks)
 }
 
@@ -1889,7 +1889,7 @@ fun <T> removeAll(player: Player, item: T, container: Container = Container.INVE
  * @param iface  the ID of the interface to use.
  * @param child  the index of the child to send the string to.
  */
-fun setInterfaceText(player: Player, string: String, iface: Int, child: Int) {
+fun sendInterfaceText(player: Player, string: String, iface: Int, child: Int) {
     player.packetDispatch.sendString(string, iface, child)
 }
 
@@ -3365,7 +3365,7 @@ fun isStunned(entity: Entity): Boolean {
  * @param entity   the entity who will be receiving the poison damage.
  * @param source   the entity to whom credit for the damage should be awarded (the attacker.) You should award credit to the victim if the poison is sourceless (e.g. from a trap or plant or something)
  * @param severity the severity of the poison damage. Severity is not a 1:1 representation of damage, rather the formula `floor((severity + 4) / 5)` is used. Severity is decreased by 1 with each application of the poison, and ends when it reaches 0.
- * @see To         those whe ask "why severity instead of plain damage?" to which the answer is: severity is how it works authentically, and allows for scenarios where, e.g. a poison should hit 6 once, and then drop to 5 immediately.
+ * @see - To those whe ask "why severity instead of plain damage?" to which the answer is: severity is how it works authentically, and allows for scenarios where, e.g. a poison should hit 6 once, and then drop to 5 immediately.
  */
 fun applyPoison(entity: Entity, source: Entity, severity: Int) {
     if (hasTimerActive<PoisonImmunity>(entity)) {
