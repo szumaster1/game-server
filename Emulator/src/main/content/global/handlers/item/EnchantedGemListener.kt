@@ -11,6 +11,9 @@ import core.game.interaction.InteractionListener
 import core.game.interaction.IntType
 import core.tools.END_DIALOGUE
 
+/**
+ * Handles the enchanted gem option interaction.
+ */
 class EnchantedGemListener : InteractionListener {
     override fun defineListeners() {
         on(Items.ENCHANTED_GEM_4155, IntType.ITEM, "activate") { player, _ ->

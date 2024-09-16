@@ -12,7 +12,7 @@ import core.game.interaction.InteractionListener
 import core.game.node.entity.npc.NPC
 
 /**
- * Fremennik sea boots listener.
+ * Handles the fremennik sea boots option interaction.
  */
 class FremennikSeaBootsListener : InteractionListener {
 

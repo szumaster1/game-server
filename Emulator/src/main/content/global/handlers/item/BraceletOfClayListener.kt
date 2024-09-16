@@ -8,7 +8,7 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 
 /**
- * Bracelet of clay listener
+ * Handles the clay bracelet option interaction.
  */
 class BraceletOfClayListener : InteractionListener {
 

@@ -13,7 +13,7 @@ import core.game.world.map.Location
 import core.game.world.update.flag.context.Graphic
 
 /**
- * Skull sceptre assemble listener.
+ * Handles the skull sceptre option interaction.
  */
 class SkullSceptreListener : InteractionListener {
 

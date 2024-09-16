@@ -15,7 +15,7 @@ import core.game.world.update.flag.context.Animation
 import core.game.world.update.flag.context.Graphic
 
 /**
- * Ectophial listener.
+ * Handles the ectophial option interaction.
  */
 class EctophialListener : InteractionListener {
     private val fillAnimation = Animation(832)
@@ -33,10 +33,19 @@ class EctophialListener : InteractionListener {
     }
 
     override fun defineListeners() {
+
+        /*
+         * Handles ectophial interaction with scenery.
+         */
+
         onUseWith(IntType.SCENERY, Items.ECTOPHIAL_4252, Scenery.ECTOFUNTUS_5282) { player, _, _ ->
             refillEctophial(player)
             return@onUseWith true
         }
+
+        /*
+         * Handles emptying the ectophial.
+         */
 
         on(Items.ECTOPHIAL_4251, IntType.ITEM, "empty") { player, node ->
             if (!hasRequirement(player, "Ghosts Ahoy")) return@on true

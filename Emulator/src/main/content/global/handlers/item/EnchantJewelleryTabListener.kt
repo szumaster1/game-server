@@ -9,7 +9,7 @@ import core.game.interaction.InteractionListener
 import core.game.interaction.QueueStrength
 
 /**
- * Enchant jewellery tab listener.
+ * Handles the enchant jewellery tab option interaction.
  */
 class EnchantJewelleryTabListener : InteractionListener {
 

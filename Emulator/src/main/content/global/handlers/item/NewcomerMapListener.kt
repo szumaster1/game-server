@@ -6,7 +6,7 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 
 /**
- * Newcomer map listener.
+ * Handles the newcomer map option interaction.
  */
 class NewcomerMapListener : InteractionListener {
 

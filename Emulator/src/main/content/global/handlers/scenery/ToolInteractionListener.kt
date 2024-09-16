@@ -23,7 +23,7 @@ class ToolInteractionListener : InteractionListener {
                 return@on true
             }
             addItem(player, Items.BRONZE_PICKAXE_1265)
-            replaceScenery(node.asScenery(), node.id.inc(), 250)
+            replaceScenery(node.asScenery(), (node.id + 1), 250)
             return@on true
         }
 
@@ -33,7 +33,7 @@ class ToolInteractionListener : InteractionListener {
                 return@on true
             }
             addItem(player, Items.BRONZE_AXE_1351)
-            replaceScenery(node.asScenery(), node.id.inc(), 250)
+            replaceScenery(node.asScenery(), (node.id + 1), 250)
             return@on true
         }
 
@@ -43,7 +43,7 @@ class ToolInteractionListener : InteractionListener {
                 return@on true
             }
             addItem(player, Items.BRONZE_AXE_1351)
-            replaceScenery(node.asScenery(), node.id.inc(), 250)
+            replaceScenery(node.asScenery(), (node.id + 1), 250)
             return@on true
         }
 

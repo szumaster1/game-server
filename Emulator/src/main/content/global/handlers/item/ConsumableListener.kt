@@ -13,7 +13,7 @@ import core.game.node.item.Item
 import core.game.world.GameWorld
 
 /**
- * Consumable listener.
+ * Handles the consumable option interaction.
  */
 class ConsumableListener : InteractionListener {
 

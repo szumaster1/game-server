@@ -9,7 +9,7 @@ import core.game.world.update.flag.context.Animation
 import core.game.world.update.flag.context.Graphic
 
 /**
- * Toys listener.
+ * Handles the toys options interaction.
  */
 class ToysListener : InteractionListener {
 

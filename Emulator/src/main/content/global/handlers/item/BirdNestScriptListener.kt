@@ -7,7 +7,7 @@ import core.game.node.Node
 import core.game.node.entity.player.Player
 
 /**
- * Bird nest script listener
+ * Handles the bird nest script for search option interaction.
  */
 class BirdNestScriptListener : InteractionListener {
 

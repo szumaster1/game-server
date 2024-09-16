@@ -8,7 +8,7 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 
 /**
- * Silver sickle listener.
+ * Handles the silver sickle option interaction.
  */
 class SilverSickleListener : InteractionListener {
 

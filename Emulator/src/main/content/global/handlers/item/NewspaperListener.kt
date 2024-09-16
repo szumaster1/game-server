@@ -9,7 +9,7 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 
 /**
- * Newspaper listener.
+ * Handles the newspaper content and option interaction.
  */
 class NewspaperListener : InteractionListener {
 

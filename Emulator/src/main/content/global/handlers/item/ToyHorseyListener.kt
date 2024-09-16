@@ -9,7 +9,7 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 
 /**
- * Toy horsey listener.
+ * Handles the toy horsey option interaction.
  */
 class ToyHorseyListener : InteractionListener {
 

@@ -15,7 +15,7 @@ import core.game.world.map.Location
 import org.json.simple.JSONObject
 
 /**
- * Explorers ring listener
+ * Handles the explorer's diary ring option interaction.
  */
 class ExplorersRingListener : InteractionListener {
 

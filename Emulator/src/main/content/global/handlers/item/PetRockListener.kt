@@ -15,7 +15,7 @@ import core.tools.END_DIALOGUE
 import core.tools.RandomFunction
 
 /**
- * Pet rock listener.
+ * Handles the Pet Rock options interaction.
  */
 class PetRockListener : InteractionListener {
 

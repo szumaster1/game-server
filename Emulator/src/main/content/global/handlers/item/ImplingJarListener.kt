@@ -10,7 +10,7 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 
 /**
- * Impling jar listener.
+ * Handles the impling jar option interaction.
  */
 class ImplingJarListener : InteractionListener {
 

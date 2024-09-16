@@ -4,7 +4,7 @@ import core.game.node.entity.player.Player
 import core.game.world.map.Location
 
 /**
- * Spade dig listener.
+ * Handles the dig option interaction.
  */
 object SpadeDig {
 

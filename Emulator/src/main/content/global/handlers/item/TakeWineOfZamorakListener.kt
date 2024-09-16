@@ -8,7 +8,7 @@ import core.game.node.item.GroundItem
 import core.game.world.map.RegionManager
 
 /**
- * Handling take of the Wine of Zamorak from the ground.
+ * Handles taking of the wine of zamorak from the ground.
  */
 class TakeWineOfZamorakListener : InteractionListener {
 

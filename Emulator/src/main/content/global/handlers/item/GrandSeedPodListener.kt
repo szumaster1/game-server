@@ -20,11 +20,16 @@ private const val LAUNCH_GRAPHICS = 768
 private const val LAUNCH_ANIMATION = 4547
 
 /**
- * Grand seed pod listener.
+ * Handles the grand seed pod option interaction.
  */
 class GrandSeedPodListener : InteractionListener {
 
     override fun defineListeners() {
+
+        /*
+         * Handles use of the grand seed pod.
+         */
+
         on(intArrayOf(Items.GRAND_SEED_POD_9469), IntType.ITEM, "squash", "launch") { player, _ ->
             val opt = getUsedOption(player)
             if (!removeItem(player, Items.GRAND_SEED_POD_9469)) return@on false

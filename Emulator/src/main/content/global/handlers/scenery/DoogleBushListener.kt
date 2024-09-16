@@ -13,7 +13,7 @@ import core.game.interaction.InteractionListener
 class DoogleBushListener : InteractionListener {
 
     override fun defineListeners() {
-        on(Scenery.DOOGLE_BUSH_31155, IntType.SCENERY, "pick-leaf") { player, node ->
+        on(Scenery.DOOGLE_BUSH_31155, IntType.SCENERY, "pick-leaf") { player, _ ->
             if (!addItem(player, Items.DOOGLE_LEAVES_1573)) {
                 sendMessage(player, "You don't have enough space in your inventory.")
             } else {

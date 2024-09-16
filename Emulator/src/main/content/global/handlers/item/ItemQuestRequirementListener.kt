@@ -6,7 +6,7 @@ import core.game.interaction.InteractionListener
 import core.game.node.entity.player.link.quest.QuestRepository
 
 /**
- * Item quest requirement listener.
+ * Handles the quest requirements for items.
  */
 class ItemQuestRequirementListener : InteractionListener {
 

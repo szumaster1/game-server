@@ -12,7 +12,7 @@ import core.game.node.item.Item
 import core.tools.BLUE
 
 /**
- * Exp reward items listener.
+ * Handles the experience reward items option interaction.
  */
 class ExpRewardItemsListener : InteractionListener {
 

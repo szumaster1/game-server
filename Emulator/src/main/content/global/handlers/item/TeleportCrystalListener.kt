@@ -11,7 +11,7 @@ import core.game.world.map.Location
 import core.game.world.map.zone.impl.WildernessZone
 
 /**
- * Teleport crystal listener.
+ * Handles the teleport crystal option interaction.
  */
 class TeleportCrystalListener : InteractionListener {
 

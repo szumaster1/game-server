@@ -8,7 +8,7 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 
 /**
- * Todolist listener.
+ * Handles the todo list (quest item) option interaction.
  */
 class TodolistListener : InteractionListener {
 

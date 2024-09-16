@@ -18,7 +18,7 @@ import core.game.world.update.flag.context.Animation
 import core.game.world.update.flag.context.Graphic
 
 /**
- * Pharaoh sceptre listener.
+ * Handles the Pharaoh sceptre options interaction.
  */
 class PharaohSceptreListener : InteractionListener {
 

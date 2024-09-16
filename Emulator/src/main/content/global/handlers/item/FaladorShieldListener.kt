@@ -14,7 +14,7 @@ import core.game.world.update.flag.context.Graphic
 import java.util.concurrent.TimeUnit
 
 /**
- * Falador shield listener.
+ * Handles the falador diary shield option interaction.
  */
 class FaladorShieldListener : InteractionListener {
 

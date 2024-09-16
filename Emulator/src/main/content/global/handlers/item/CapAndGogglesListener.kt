@@ -7,7 +7,7 @@ import core.game.interaction.InteractionListener
 import core.game.node.item.Item
 
 /**
- * Cap and goggles listener.
+ * Handles the split interaction for cap and goggles item.
  */
 class CapAndGogglesListener : InteractionListener {
 

@@ -12,7 +12,7 @@ import core.game.node.item.Item
 import core.game.world.update.flag.context.Graphic
 
 /**
- * Handling the Staff of the Raven recolor interaction.
+ * Handles the staff of the raven option interaction.
  */
 class StaffOfTheRaven : InteractionListener {
 

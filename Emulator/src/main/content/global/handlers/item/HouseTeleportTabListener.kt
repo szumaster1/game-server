@@ -8,7 +8,7 @@ import core.game.node.entity.player.link.TeleportManager
 import core.game.node.item.Item
 
 /**
- * House teleport tab listener.
+ * Handles the house teleport tablet option interaction.
  */
 class HouseTeleportTabListener : InteractionListener {
 

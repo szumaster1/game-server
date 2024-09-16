@@ -24,7 +24,7 @@ import core.game.worldevents.holiday.HolidayRandoms
 import core.tools.END_DIALOGUE
 
 /**
- * Handling global NPC interactions.
+ * Handles the NPC option interactions.
  */
 class NPCInteractionListener : InteractionListener {
 

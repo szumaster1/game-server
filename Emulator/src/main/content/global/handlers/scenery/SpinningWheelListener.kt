@@ -19,6 +19,17 @@ class SpinningWheelListener : InteractionListener {
     }
 
     companion object {
-        val SPINING_WHEEL = intArrayOf(Scenery.SPINNING_WHEEL_2644, Scenery.SPINNING_WHEEL_4309, Scenery.SPINNING_WHEEL_8748, Scenery.SPINNING_WHEEL_20365, Scenery.SPINNING_WHEEL_21304, Scenery.SPINNING_WHEEL_25824, Scenery.SPINNING_WHEEL_26143, Scenery.SPINNING_WHEEL_34497, Scenery.SPINNING_WHEEL_36970, Scenery.SPINNING_WHEEL_37476)
+        val SPINING_WHEEL = intArrayOf(
+            Scenery.SPINNING_WHEEL_2644,
+            Scenery.SPINNING_WHEEL_4309,
+            Scenery.SPINNING_WHEEL_8748,
+            Scenery.SPINNING_WHEEL_20365,
+            Scenery.SPINNING_WHEEL_21304,
+            Scenery.SPINNING_WHEEL_25824,
+            Scenery.SPINNING_WHEEL_26143,
+            Scenery.SPINNING_WHEEL_34497,
+            Scenery.SPINNING_WHEEL_36970,
+            Scenery.SPINNING_WHEEL_37476
+        )
     }
 }

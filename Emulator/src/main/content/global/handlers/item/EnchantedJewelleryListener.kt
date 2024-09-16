@@ -16,7 +16,7 @@ import core.game.node.item.Item
 import core.tools.START_DIALOGUE
 
 /**
- * Enchanted jewellery listener.
+ * Handles the enchanted jewellery option interaction.
  */
 class EnchantedJewelleryListener : InteractionListener {
 
