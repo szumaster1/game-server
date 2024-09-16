@@ -2,7 +2,7 @@ package core.game.dialogue
 
 import core.api.sendItemZoomOnInterface
 import core.api.setInterfaceSprite
-import core.api.sendInterfaceText
+import core.api.sendString
 import core.game.node.entity.player.Player
 import core.game.node.item.Item
 import core.net.packet.PacketRepository
@@ -87,7 +87,7 @@ open class SkillDialogueHandler(val player: Player, val type: SkillDialogue?, va
                 val item = handler.data[0] as Item
                 setInterfaceSprite(player, 309, 7, 8, 12)
 
-                sendInterfaceText(player, "<br><br><br><br>" + item.name, 309, 6)
+                sendString(player, "<br><br><br><br>" + item.name, 309, 6)
                 sendItemZoomOnInterface(player, 309, 2, item.id, 160)
 
                 setInterfaceSprite(player, 309, 0, 12, 15)
@@ -117,7 +117,7 @@ open class SkillDialogueHandler(val player: Player, val type: SkillDialogue?, va
                 val item = handler.data[0] as Item
 
                 sendItemZoomOnInterface(player, 582, 2, item.id, 160)
-                sendInterfaceText(player, "<br><br><br><br>" + item.name, 582, 5)
+                sendString(player, "<br><br><br><br>" + item.name, 582, 5)
                 setInterfaceSprite(player, 582, 0, 12, 15)
                 setInterfaceSprite(player, 582, 1, 431, 15)
                 setInterfaceSprite(player, 582, 6, 6, 16)

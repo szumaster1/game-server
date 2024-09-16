@@ -4,7 +4,7 @@ import cfg.consts.Animations
 import cfg.consts.Components
 import cfg.consts.Items
 import core.api.openInterface
-import core.api.sendInterfaceText
+import core.api.sendString
 import core.api.setVarp
 import core.game.node.entity.combat.equipment.Ammunition
 import core.game.node.entity.player.Player
@@ -31,7 +31,7 @@ class ArcheryCompetitionPulse(private val player: Player, private val sceneryId:
         setVarp(player, 156, 11 - arrowsLeft)
         setVarp(player, 157, points)
         setVarp(player, 158, target)
-        sendInterfaceText(player, msg, Components.TARGET_325, 32)
+        sendString(player, msg, Components.TARGET_325, 32)
     }
 
     override fun pulse(): Boolean {

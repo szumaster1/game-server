@@ -49,10 +49,10 @@ class WhatLiesBelow : Quest("What Lies Below", 136, 135, 1) {
      */
     override fun finish(player: Player) {
         super.finish(player)
-        sendInterfaceText(player, "8,000 Runecrafting XP", 277, 8 + 2)
-        sendInterfaceText(player, "2,000 Defence XP", 277, 9 + 2)
-        sendInterfaceText(player, "Beacon ring", 277, 10 + 2)
-        sendInterfaceText(player, "Knowledge of Chaos Tunnel", 277, 11 + 2)
+        sendString(player, "8,000 Runecrafting XP", 277, 8 + 2)
+        sendString(player, "2,000 Defence XP", 277, 9 + 2)
+        sendString(player, "Beacon ring", 277, 10 + 2)
+        sendString(player, "Knowledge of Chaos Tunnel", 277, 11 + 2)
         sendItemZoomOnInterface(player, Components.QUEST_COMPLETE_SCROLL_277, 5, WhatLiesBelowListeners.BEACON_RING, 235)
         rewardXP(player, Skills.RUNECRAFTING, 8000.0)
         rewardXP(player, Skills.DEFENCE, 2000.0)

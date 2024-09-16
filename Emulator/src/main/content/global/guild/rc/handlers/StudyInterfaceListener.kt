@@ -25,7 +25,7 @@ class StudyInterfaceListener : InterfaceListener, InteractionListener {
         onOpen(STUDY_INTERFACE) { player, _ ->
             if (inEquipment(player, Items.OMNI_TALISMAN_STAFF_13642) || inEquipment(player, Items.OMNI_TIARA_13655))
                 for (rune in ALTAR_MAP_MODELS) setComponentVisibility(player, STUDY_INTERFACE, rune, false).also {
-                    sendInterfaceText(player, "All the altars of " + GameWorld.settings!!.name + ".", STUDY_INTERFACE, 33)
+                    sendString(player, "All the altars of " + GameWorld.settings!!.name + ".", STUDY_INTERFACE, 33)
                 }
             return@onOpen true
         }
@@ -53,7 +53,7 @@ class StudyInterfaceListener : InterfaceListener, InteractionListener {
             if (!inEquipment(player, OMNI_TALISMAN) || !inEquipment(player, OMNI_TIARA)) {
                 openInterface(player, STUDY_INTERFACE)
                 for (rune in ALTAR_MAP_MODELS) setComponentVisibility(player, STUDY_INTERFACE, rune, false).also {
-                    sendInterfaceText(player, "All the altars of " + GameWorld.settings!!.name + ".", STUDY_INTERFACE, 33)
+                    sendString(player, "All the altars of " + GameWorld.settings!!.name + ".", STUDY_INTERFACE, 33)
                 }
             }
             return@onUseWith true

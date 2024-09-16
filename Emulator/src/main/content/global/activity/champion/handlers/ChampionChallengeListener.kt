@@ -218,7 +218,7 @@ class ChampionChallengeListener : InteractionListener, MapArea {
         )
 
         scrollContentMap[id]?.let { content ->
-            sendInterfaceText(player, content.joinToString("<br>"), blankScroll, 5)
+            sendString(player, content.joinToString("<br>"), blankScroll, 5)
         }
     }
 

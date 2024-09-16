@@ -135,10 +135,10 @@ class AllFiredUp : Quest("All Fired Up", 157, 156, 1){
     override fun finish(player: Player) {
         super.finish(player)
         player ?: return
-        sendInterfaceText(player, "20,000gp,", 277, 8 + 2)
-        sendInterfaceText(player, "5,500 Firemaking XP", 277, 9 + 2)
-        sendInterfaceText(player, "Full access to the beacon network", 277, 10 + 2)
-        sendInterfaceText(player, "1 Quest Point", 277, 11 + 2)
+        sendString(player, "20,000gp,", 277, 8 + 2)
+        sendString(player, "5,500 Firemaking XP", 277, 9 + 2)
+        sendString(player, "Full access to the beacon network", 277, 10 + 2)
+        sendString(player, "1 Quest Point", 277, 11 + 2)
         sendItemZoomOnInterface(player, Components.QUEST_COMPLETE_SCROLL_277,5,Items.TINDERBOX_590, 235)
         rewardXP(player, Skills.FIREMAKING, 5500.0)
         if(freeSlots(player) == 0){

@@ -2,7 +2,7 @@ package content.global.handlers.item.plugin
 
 import cfg.consts.Components
 import cfg.consts.Items
-import core.api.sendInterfaceText
+import core.api.sendString
 import core.cache.def.impl.ItemDefinition
 import core.game.component.Component
 import core.game.interaction.OptionHandler
@@ -31,7 +31,7 @@ class GnomecopterTicketPlugin : OptionHandler() {
         for (i in 3 until 8) {
             info += RandomFunction.randomize(10)
         }
-        sendInterfaceText(player, info, Components.CARPET_TICKET_729, 2)
+        sendString(player, info, Components.CARPET_TICKET_729, 2)
         return true
     }
 }

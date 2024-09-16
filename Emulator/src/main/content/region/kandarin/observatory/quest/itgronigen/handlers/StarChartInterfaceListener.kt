@@ -1,7 +1,7 @@
 package content.region.kandarin.observatory.quest.itgronigen.handlers
 
 import cfg.consts.Components
-import core.api.sendInterfaceText
+import core.api.sendString
 import core.game.interaction.InterfaceListener
 
 /**
@@ -28,7 +28,7 @@ class StarChartInterfaceListener : InterfaceListener {
             )
             if (buttonID in button) {
                 for (i in zodiac.entries) {
-                    sendInterfaceText(player, zodiac[buttonID].toString(), 104, 57)
+                    sendString(player, zodiac[buttonID].toString(), 104, 57)
                 }
             }
             return@on true

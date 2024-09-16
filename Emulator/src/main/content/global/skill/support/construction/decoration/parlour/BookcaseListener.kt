@@ -21,7 +21,7 @@ class BookcaseListener : InteractionListener, InterfaceListener {
         // Draw description for books.
         onOpen(BOOKCASE_INTERFACE) { player, _ ->
             bookDetails.forEachIndexed { index, (itemId, description) ->
-                sendInterfaceText(player, "$YELLOW${getItemName(itemId)}</col> <br>$description", BOOKCASE_INTERFACE, 55 + index * 2)
+                sendString(player, "$YELLOW${getItemName(itemId)}</col> <br>$description", BOOKCASE_INTERFACE, 55 + index * 2)
             }
             return@onOpen true
         }

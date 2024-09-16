@@ -1889,7 +1889,7 @@ fun <T> removeAll(player: Player, item: T, container: Container = Container.INVE
  * @param iface  the ID of the interface to use.
  * @param child  the index of the child to send the string to.
  */
-fun sendInterfaceText(player: Player, string: String, iface: Int, child: Int) {
+fun sendString(player: Player, string: String, iface: Int, child: Int) {
     player.packetDispatch.sendString(string, iface, child)
 }
 

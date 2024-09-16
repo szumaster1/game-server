@@ -84,7 +84,7 @@ class RestlessGhost : Quest("The Restless Ghost", 25, 24, 1, Vars.VARP_QUEST_RES
         super.finish(player)
         drawReward(player, "1 Quest Point", 10)
         drawReward(player, "1125 Prayer XP", 11)
-        sendInterfaceText(player, "You have completed The Restless Ghost Quest!", Components.QUEST_COMPLETE_SCROLL_277, 4)
+        sendString(player, "You have completed The Restless Ghost Quest!", Components.QUEST_COMPLETE_SCROLL_277, 4)
         sendItemZoomOnInterface(player, Components.QUEST_COMPLETE_SCROLL_277, 5, Items.SKULL_964, 240)
         rewardXP(player, Skills.PRAYER, 1125.0)
         closeChatBox(player)

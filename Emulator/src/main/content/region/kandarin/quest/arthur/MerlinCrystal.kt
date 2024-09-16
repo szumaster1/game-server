@@ -160,8 +160,8 @@ class MerlinCrystal : Quest("Merlin's Crystal", 87, 86, 6, Vars.VARP_QUEST_MERLI
 
     override fun finish(player: Player) {
         super.finish(player)
-        sendInterfaceText(player, "6 Quest Points", 277, 8 + 2)
-        sendInterfaceText(player, "Excalibur", 277, 9 + 2)
+        sendString(player, "6 Quest Points", 277, 8 + 2)
+        sendString(player, "Excalibur", 277, 9 + 2)
         sendItemZoomOnInterface(player, Components.QUEST_COMPLETE_SCROLL_277, 5, Items.EXCALIBUR_35, 235)
         removeAttributes(player, MerlinUtils.ATTR_STATE_ALTAR_FINISH, MerlinUtils.ATTR_STATE_CLAIM_EXCALIBUR, MerlinUtils.ATTR_STATE_TALK_LADY, MerlinUtils.ATTR_STATE_TALK_BEGGAR, MerlinUtils.ATTR_STATE_TALK_CANDLE)
         updateQuestTab(player)

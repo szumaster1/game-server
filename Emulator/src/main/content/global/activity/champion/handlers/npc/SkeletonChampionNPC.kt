@@ -88,10 +88,10 @@ class SkeletonChampionNPC(id: Int = 0, location: Location? = null) : AbstractNPC
             lock(killer, 2)
             runTask(killer, 1) {
                 openInterface(killer, 63)
-                sendInterfaceText(killer, "Well done, you defeated the Skeleton Champion!", 63, 2)
+                sendString(killer, "Well done, you defeated the Skeleton Champion!", 63, 2)
                 killer.packetDispatch.sendItemZoomOnInterface(Items.CHAMPION_SCROLL_6806, 260, 63, 3)
-                sendInterfaceText(killer, "232 Slayer Xp", 63, 6)
-                sendInterfaceText(killer, "232 Hitpoint Xp", 63, 7)
+                sendString(killer, "232 Slayer Xp", 63, 6)
+                sendString(killer, "232 Hitpoint Xp", 63, 7)
             }
             setVarbit(killer, 1460, 1, true)
             rewardXP(killer, Skills.HITPOINTS, 232.0)

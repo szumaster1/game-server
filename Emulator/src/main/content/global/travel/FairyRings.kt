@@ -485,7 +485,7 @@ enum class FairyRing(val tile: Location?, val tip: String = "", val childId: Int
                 if (fairyRing.childId == -1) {
                     continue
                 }
-                sendInterfaceText(player, "<br>${fairyRing.tip}", 735, fairyRing.childId)
+                sendString(player, "<br>${fairyRing.tip}", 735, fairyRing.childId)
             }
         }
     }

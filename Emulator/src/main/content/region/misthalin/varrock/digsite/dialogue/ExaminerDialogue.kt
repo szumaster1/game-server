@@ -185,7 +185,7 @@ class ExaminerDialogueFile : DialogueBuilderFile() {
                                     setQuestStage(player, "The Dig Site", 6)
                                 }
                                 openInterface(player, 444)
-                                sendInterfaceText(player, player.username, 444, 5)
+                                sendString(player, player.username, 444, 5)
                             }
 
                 }
@@ -317,7 +317,7 @@ class ExaminerDialogueFile : DialogueBuilderFile() {
                                     setQuestStage(player, "The Dig Site", 5)
                                 }
                                 openInterface(player, 441)
-                                sendInterfaceText(player, player.username, 441, 5)
+                                sendString(player, player.username, 441, 5)
                             }
 
                 }
@@ -497,7 +497,7 @@ class ExaminerDialogueFile : DialogueBuilderFile() {
                                     setQuestStage(player, "The Dig Site", 4)
                                 }
                                 openInterface(player, 440)
-                                sendInterfaceText(player, player.username, 440, 5)
+                                sendString(player, player.username, 440, 5)
                             }
 
                 }

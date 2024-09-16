@@ -1,6 +1,6 @@
 package core.game.system.command.sets
 
-import core.api.sendInterfaceText
+import core.api.sendString
 import core.game.component.Component
 import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.quest.QuestRepository
@@ -87,13 +87,13 @@ class QuestCommandSet : CommandSet(Privilege.ADMIN) {
     private fun sendQuests(player: Player?) {
         player!!.interfaceManager.open(Component(275))
         for (i in 0..310) {
-            sendInterfaceText(player, "", 275, i)
+            sendString(player, "", 275, i)
         }
         var lineId = 11
-        sendInterfaceText(player, "<col=ecf0f1>" + "Available Quests" + "</col>", 275, 2)
+        sendString(player, "<col=ecf0f1>" + "Available Quests" + "</col>", 275, 2)
         for (q in QuestRepository.getQuests().toSortedMap().values) {
             // Add a space to beginning and end of string for the strikethrough
-            sendInterfaceText(
+            sendString(
                 player,
                 "<col=ecf0f1>" + (if (q.isCompleted(player)) "<str> " else "") + q.name + " ", 275, lineId++
             )
@@ -107,10 +107,10 @@ class QuestCommandSet : CommandSet(Privilege.ADMIN) {
     private fun sendQuestsDebug(admin: Player?, lookupUser: Player?) {
         admin!!.interfaceManager.open(Component(275))
         for (i in 0..310) {
-            sendInterfaceText(admin, "", 275, i)
+            sendString(admin, "", 275, i)
         }
         var lineId = 11
-        sendInterfaceText(admin, "<col=ecf0f1>${lookupUser!!.username}'s Quest Debug</col>", 275, 2)
+        sendString(admin, "<col=ecf0f1>${lookupUser!!.username}'s Quest Debug</col>", 275, 2)
         for (q in QuestRepository.getQuests().values) {
             // Add a space to beginning and end of string for the strikethrough
             val stage = lookupUser.questRepository.getStage(q)
@@ -119,8 +119,8 @@ class QuestCommandSet : CommandSet(Privilege.ADMIN) {
                 stage in 1..99 -> "ff8400"
                 else -> "ff0000"
             }
-            sendInterfaceText(admin, "<col=ecf0f1>${q.name}</col>", 275, lineId++)
-            sendInterfaceText(
+            sendString(admin, "<col=ecf0f1>${q.name}</col>", 275, lineId++)
+            sendString(
                 admin,
                 "<col=ecf0f1>Index: </col><col=ff1f1f><shad=2>${q.index}</shad></col> | <col=ecf0f1>Stage:</col> <col=$statusColor><shad=2>${
                     lookupUser.questRepository.getStage(q)
@@ -128,7 +128,7 @@ class QuestCommandSet : CommandSet(Privilege.ADMIN) {
                 275,
                 lineId++
             )
-            sendInterfaceText(admin, "<str>          ", 275, lineId++)
+            sendString(admin, "<str>          ", 275, lineId++)
         }
     }
 }

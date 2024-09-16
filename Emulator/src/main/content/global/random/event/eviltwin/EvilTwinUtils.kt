@@ -128,7 +128,7 @@ object EvilTwinUtils {
      */
     fun decreaseTries(player: Player) {
         tries--
-        sendInterfaceText(player, "Tries: $tries", 240, 27)
+        sendString(player, "Tries: $tries", 240, 27)
         if (tries < 1) {
             lock(player, 20)
             closeTabInterface(player)

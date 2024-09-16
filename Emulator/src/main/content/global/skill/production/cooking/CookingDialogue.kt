@@ -119,7 +119,7 @@ class CookingDialogue(vararg val args: Any) : DialogueFile() {
      */
     fun display() {
         sendItemZoomOnInterface(player!!, Components.SKILL_COOKMANY_307, 2, initial, 160)
-        sendInterfaceText(player!!, "<br><br><br><br>${getItemName(initial)}", Components.SKILL_COOKMANY_307, 6)
+        sendString(player!!, "<br><br><br><br>${getItemName(initial)}", Components.SKILL_COOKMANY_307, 6)
 
         /*
          * Swords sprite.

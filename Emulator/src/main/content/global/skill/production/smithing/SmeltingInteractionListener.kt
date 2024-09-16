@@ -130,7 +130,7 @@ class SmeltingInteractionListener : InteractionListener {
             openChatbox(player, Components.SMELTING_311)
             sendItemZoomOnInterface(player, Components.SMELTING_311, 4, Bar.BRONZE.product.id, 150)
             if (isQuestComplete(player, "The Knight's Sword")) {
-                sendInterfaceText(player, "<br><br><br><br>Blurite", Components.SMELTING_311, 20)
+                sendString(player, "<br><br><br><br>Blurite", Components.SMELTING_311, 20)
             }
             sendItemZoomOnInterface(player, Components.SMELTING_311, 5, Bar.BLURITE.product.id, 150)
             sendItemZoomOnInterface(player, Components.SMELTING_311, 6, Bar.IRON.product.id, 150)

@@ -90,7 +90,7 @@ class RecruitmentDrive : Quest("Recruitment Drive", 103, 102, 1, 496, 0, 1, 2) {
     override fun finish(player: Player) {
         var ln = 10
         super.finish(player)
-        sendInterfaceText(player, "You have passed the Recruitment Drive!", Components.QUEST_COMPLETE_SCROLL_277, 4)
+        sendString(player, "You have passed the Recruitment Drive!", Components.QUEST_COMPLETE_SCROLL_277, 4)
         sendItemZoomOnInterface(player, Components.QUEST_COMPLETE_SCROLL_277, 5, Items.INITIATE_SALLET_5574, 230)
 
         drawReward(player, "1 Quest Point", ln++)

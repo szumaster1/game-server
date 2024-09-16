@@ -179,15 +179,15 @@ class MiscCommandSet : CommandSet(Privilege.ADMIN) {
             player.interfaceManager.open(Component(Components.QUESTJOURNAL_SCROLL_275))
             var i = 0
             while (i < 257) {
-                sendInterfaceText(player,"", 275, i)
+                sendString(player,"", 275, i)
                 i++
             }
             val red = "<col=8A0808>"
-            sendInterfaceText(player, "<col=8A0808>" + "Players" + "</col>", 275, 2)
+            sendString(player, "<col=8A0808>" + "Players" + "</col>", 275, 2)
             var lineStart = 11
             for (p in Repository.players) {
                 if (!p.isArtificial)
-                    sendInterfaceText(player,
+                    sendString(player,
                         red + "<img=" + (Rights.getChatIcon(p) - 1) + ">" + p.username + if (rights > 0) " [ip=" + p.details.ipAddress + ", name=" + p.details.compName + "]" else "",
                         275,
                         lineStart++

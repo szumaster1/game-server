@@ -3,7 +3,7 @@ package content.data.item.scroll
 import cfg.consts.Components
 import cfg.consts.Items
 import core.api.openInterface
-import core.api.sendInterfaceText
+import core.api.sendString
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 
@@ -34,7 +34,7 @@ class CrumpledScroll : InteractionListener {
     override fun defineListeners() {
         on(Items.CRUMPLED_SCROLL_608, IntType.ITEM, "read") { player, _ ->
             openInterface(player, MESSAGE_SCROLL)
-            sendInterfaceText(
+            sendString(
                 player, crumpledScrollContent.joinToString("<br>"),
                 MESSAGE_SCROLL, 2
             )

@@ -92,7 +92,7 @@ class FurClothingInterfacePlugin : ComponentPlugin() {
             for (CLOTHING in FUR_CLOTHING.values()) {
                 if (checkedFurs.contains(CLOTHING.textContent)) continue
                 if (inInventory(player, CLOTHING.requiredFur.id, CLOTHING.requiredFur.amount)) {
-                    sendInterfaceText(
+                    sendString(
                         player, colorize("%G${CLOTHING.textContent}"), FUR_CLOTHING_COMPONENT_ID, CLOTHING.textChildID
                     )
                     checkedFurs.add(CLOTHING.textContent)

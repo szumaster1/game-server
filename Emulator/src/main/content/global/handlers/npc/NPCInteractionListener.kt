@@ -82,7 +82,7 @@ class NPCInteractionListener : InteractionListener {
         on(peerTheSeerNPC, IntType.NPC, "deposit") { player, _ ->
             if (anyInEquipment(player, Items.FREMENNIK_SEA_BOOTS_1_14571, Items.FREMENNIK_SEA_BOOTS_2_14572, Items.FREMENNIK_SEA_BOOTS_3_14573)) {
                 openDepositBox(player)
-                sendInterfaceText(player, "Peer the Seer's Deposits", Components.BANK_DEPOSIT_BOX_11, 12)
+                sendString(player, "Peer the Seer's Deposits", Components.BANK_DEPOSIT_BOX_11, 12)
             } else {
                 sendNPCDialogue(player, NPCs.PEER_THE_SEER_1288, "Do not pester me, outerlander! I will only deposit items into the banks of those who have earned Fremennik sea boots!", FacialExpression.ANNOYED).also { END_DIALOGUE }
             }

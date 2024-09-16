@@ -329,9 +329,9 @@ class GhostsAhoyListeners : InteractionListener, InterfaceListener {
         onOpen(Components.AHOY_BLACKOUT_7) { player, _ ->
             setMinimapState(player, 2)
             if (!inBorders(player, 3788, 3556, 3797, 3562)) {
-                sendInterfaceText(player, "After a long boat trip you arrive at Dragontooth Island...", Components.AHOY_BLACKOUT_7, 1)
+                sendString(player, "After a long boat trip you arrive at Dragontooth Island...", Components.AHOY_BLACKOUT_7, 1)
             } else {
-                sendInterfaceText(player, "After a long boat trip you return to Port Phasmatys...", Components.AHOY_BLACKOUT_7, 1)
+                sendString(player, "After a long boat trip you return to Port Phasmatys...", Components.AHOY_BLACKOUT_7, 1)
             }
             return@onOpen true
         }

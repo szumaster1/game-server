@@ -86,10 +86,10 @@ class GoblinChampionNPC(id: Int = 0, location: Location? = null) : AbstractNPC(i
             lock(killer, 2)
             runTask(killer, 1) {
                 openInterface(killer, 63)
-                sendInterfaceText(killer, "Well done, you defeated the Goblin Champion!", 63, 2)
+                sendString(killer, "Well done, you defeated the Goblin Champion!", 63, 2)
                 killer.packetDispatch.sendItemZoomOnInterface(Items.CHAMPION_SCROLL_6801, 260, 63, 3)
-                sendInterfaceText(killer, "128 Slayer Xp", 63, 6)
-                sendInterfaceText(killer, "128 Hitpoint Xp", 63, 7)
+                sendString(killer, "128 Slayer Xp", 63, 6)
+                sendString(killer, "128 Hitpoint Xp", 63, 7)
             }
             setVarbit(killer, 1455, 1, true)
             rewardXP(killer, Skills.HITPOINTS, 128.0)

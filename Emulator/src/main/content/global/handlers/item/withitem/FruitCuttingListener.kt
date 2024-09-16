@@ -96,11 +96,11 @@ class FruitCuttingListener : InteractionListener {
                             sendMessage(player!!, "You deftly chop the ${getItemName(fruit).lowercase()} into slices.")
                         }
                     } else {
-                        sendInterfaceText(player!!, "Would you like to...", 140, 4)
+                        sendString(player!!, "Would you like to...", 140, 4)
                         sendItemOnInterface(player!!, 140, 6, chunk, 1)
                         sendItemOnInterface(player!!, 140, 5, slice.id, 1)
-                        sendInterfaceText(player!!, "Slice the ${getItemName(fruit).lowercase()}", 140, 2)
-                        sendInterfaceText(player!!, "Dice the ${getItemName(fruit).lowercase()}", 140, 3)
+                        sendString(player!!, "Slice the ${getItemName(fruit).lowercase()}", 140, 2)
+                        sendString(player!!, "Dice the ${getItemName(fruit).lowercase()}", 140, 3)
                         openInterface(player!!, 140)
                         when (buttonID) {
                             1 -> {

@@ -4,7 +4,7 @@ import cfg.consts.Components
 import cfg.consts.NPCs
 import cfg.consts.Scenery
 import core.api.openInterface
-import core.api.sendInterfaceText
+import core.api.sendString
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.world.map.Location
@@ -37,7 +37,7 @@ class WaterfallListeners : InteractionListener {
 
         on(TOMBSTONE, IntType.SCENERY, "read") { player, node ->
             openInterface(player, TOMBSTONE_INTERFACE).also {
-                sendInterfaceText(player, TOMBSTONE_INTERFACE_CONTENT.joinToString(" <br> "), TOMBSTONE_INTERFACE, 2)
+                sendString(player, TOMBSTONE_INTERFACE_CONTENT.joinToString(" <br> "), TOMBSTONE_INTERFACE, 2)
             }
             return@on true
         }

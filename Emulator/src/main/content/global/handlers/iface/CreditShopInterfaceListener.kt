@@ -4,7 +4,7 @@ import cfg.consts.Components
 import cfg.consts.Items
 import core.api.sendDialogue
 import core.api.sendMessage
-import core.api.sendInterfaceText
+import core.api.sendString
 import core.game.interaction.InterfaceListener
 import core.game.node.entity.player.Player
 import core.game.node.item.Item
@@ -67,7 +67,7 @@ class CreditShopInterfaceListener : InterfaceListener {
      */
     fun sendCredits(player: Player) {
         // Set the interface text to display the player's current credits
-        sendInterfaceText(player, "You have ${player.details.credits} credits to spend.", Components.CREDIT_SHOP_837, 39)
+        sendString(player, "You have ${player.details.credits} credits to spend.", Components.CREDIT_SHOP_837, 39)
     }
 
     /**

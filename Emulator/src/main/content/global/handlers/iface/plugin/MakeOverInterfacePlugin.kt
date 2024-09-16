@@ -37,7 +37,7 @@ class MakeOverInterfacePlugin : ComponentPlugin() {
         sendAnimationOnInterface(player, FacialExpression.SILENT.animationId, component.id, FEMALE_CHILD_ID)
 
         if (inInventory(player, Items.MAKEOVER_VOUCHER_5606)) {
-            sendInterfaceText(player, "USE MAKEOVER VOUCHER", component.id, TEXT_CHILD)
+            sendString(player, "USE MAKEOVER VOUCHER", component.id, TEXT_CHILD)
         }
 
         val currentSkin = player.appearance.skin.color

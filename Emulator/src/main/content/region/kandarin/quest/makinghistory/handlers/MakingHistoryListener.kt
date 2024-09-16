@@ -38,7 +38,7 @@ class MakingHistoryListener : InteractionListener {
                 "kings of Ardougne and the Equal Trade Market.",
                 "",
             )
-        sendInterfaceText(player, outpostScroll.joinToString("<br>"), Components.BLANK_SCROLL_222, 2)
+        sendString(player, outpostScroll.joinToString("<br>"), Components.BLANK_SCROLL_222, 2)
     }
 
     override fun defineListeners() {

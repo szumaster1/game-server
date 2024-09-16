@@ -27,8 +27,8 @@ class ImplingController : TickListener, Commands {
     override fun defineCommands() {
         define("implings", Privilege.ADMIN, "", "Lists the currently active implings/spawners") { player, _ ->
             for (i in 0..310)
-                sendInterfaceText(player, "", 275, i)
-            sendInterfaceText(player, "Implings", 275, 2)
+                sendString(player, "", 275, i)
+            sendString(player, "Implings", 275, 2)
             for ((index, impling) in activeImplings.withIndex()) {
                 var text = "This shouldn't be here -> ${impling.id}"
                 if (impling.id < 1028) {
@@ -36,7 +36,7 @@ class ImplingController : TickListener, Commands {
                     if (table != null)
                         text = table.name
                 } else text = impling.name
-                sendInterfaceText(player, "$text -> ${impling.location}", 275, index + 11)
+                sendString(player, "$text -> ${impling.location}", 275, index + 11)
             }
             openInterface(player, 275)
         }

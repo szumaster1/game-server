@@ -134,7 +134,7 @@ class TradeModule
                 )
                 val acceptMessage = acceptMessage
                 if (acceptMessage !== "") {
-                    player!!.packetDispatch.sendString(acceptMessage, 334, 33)
+                    sendString(player!!, acceptMessage, 334, 33)
                 }
                 player!!.interfaceManager.restoreTabs()
             }

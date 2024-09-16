@@ -88,10 +88,10 @@ class LesserDemonChampionNPC(id: Int = 0, location: Location? = null) : Abstract
             lock(killer, 2)
             runTask(killer, 1) {
                 openInterface(killer, 63)
-                sendInterfaceText(killer, "Well done, you defeated the Lesser Demon Champion!", 63, 2)
+                sendString(killer, "Well done, you defeated the Lesser Demon Champion!", 63, 2)
                 killer.packetDispatch.sendItemZoomOnInterface(Items.CHAMPION_SCROLL_6805, 260, 63, 3)
-                sendInterfaceText(killer, "592 Slayer Xp", 63, 6)
-                sendInterfaceText(killer, "592 Hitpoint Xp", 63, 7)
+                sendString(killer, "592 Slayer Xp", 63, 6)
+                sendString(killer, "592 Hitpoint Xp", 63, 7)
             }
             setVarbit(killer, 1459, 1, true)
             rewardXP(killer, Skills.HITPOINTS, 592.0)

@@ -3,7 +3,7 @@ package content.data.item.scroll.note
 import cfg.consts.Components
 import cfg.consts.Items
 import core.api.openInterface
-import core.api.sendInterfaceText
+import core.api.sendString
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.entity.player.Player
@@ -28,7 +28,7 @@ class ScrumpledNote : InteractionListener {
                     "but never magic that would harm ..."
                 )
 
-            sendInterfaceText(player, scrumpledNoteContent.joinToString("<br>"), Components.BLANK_SCROLL_222, 2)
+            sendString(player, scrumpledNoteContent.joinToString("<br>"), Components.BLANK_SCROLL_222, 2)
         }
     }
 

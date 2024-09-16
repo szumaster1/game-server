@@ -171,7 +171,7 @@ class MagicTutorDialogue(player: Player? = null) : Dialogue(player) {
                     openInterface(player, Components.DOUBLEOBJBOX_131).also {
                         sendModelOnInterface(player, Components.DOUBLEOBJBOX_131,2, 7369, -1)
                         sendAngleOnInterface(player, Components.DOUBLEOBJBOX_131, 2, 1200, 500, 0)
-                        sendInterfaceText(player, "When you get to Lumbridge, look for this icon on your minimap. The Lumbridge Guide and the other tutors will be standing near one of these. The Lumbridge Guide should be standing slightly to the north-east of", Components.DOUBLEOBJBOX_131, 1)
+                        sendString(player, "When you get to Lumbridge, look for this icon on your minimap. The Lumbridge Guide and the other tutors will be standing near one of these. The Lumbridge Guide should be standing slightly to the north-east of", Components.DOUBLEOBJBOX_131, 1)
                     }
                     stage++
                 }
@@ -179,7 +179,7 @@ class MagicTutorDialogue(player: Player? = null) : Dialogue(player) {
                     openInterface(player, Components.DOUBLEOBJBOX_131).also {
                         sendModelOnInterface(player, Components.DOUBLEOBJBOX_131,2, 7369, -1)
                         sendAngleOnInterface(player, Components.DOUBLEOBJBOX_131, 2, 1200, 500, 0)
-                        sendInterfaceText(player, "the castle's courtyard and the others you will find" + "scattered around lumbridge.", Components.DOUBLEOBJBOX_131, 1)
+                        sendString(player, "the castle's courtyard and the others you will find" + "scattered around lumbridge.", Components.DOUBLEOBJBOX_131, 1)
                     }
                     stage++
                 }
