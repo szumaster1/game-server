@@ -21,7 +21,7 @@ public class FletchingLogs extends UseWithHandler {
 
     @Override
     public Plugin<Object> newInstance(Object arg) throws Throwable {
-        addHandler(946, ITEM_TYPE, this);
+        addHandler(Items.KNIFE_946, ITEM_TYPE, this);
         return this;
     }
 

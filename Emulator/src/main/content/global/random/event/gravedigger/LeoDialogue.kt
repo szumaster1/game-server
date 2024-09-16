@@ -32,7 +32,7 @@ class LeoDialogue : DialogueFile() {
             "You can store items in the mausoleum",
             "if you need more inventory space.",
         )
-        setInterfaceText(player, graveFAQ.joinToString("<br><col=FFF900>"), Components.BLANK_SCROLL_222, 3)
+        sendInterfaceText(player, graveFAQ.joinToString("<br><col=FFF900>"), Components.BLANK_SCROLL_222, 3)
     }
 
     override fun handle(componentID: Int, buttonID: Int) {

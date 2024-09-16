@@ -46,8 +46,8 @@ class ShootingStarPlugin : LoginListener, InteractionListener, TickListener, Com
             var index = 0
             scoreboardEntries.forEach { entry ->
                 val timeElapsed = secondsToTicks(GameWorld.ticks - entry.time) / 60
-                setInterfaceText(player, "$timeElapsed minutes ago", scoreboardIface, index + 6)
-                setInterfaceText(player, entry.player, scoreboardIface, index + 11)
+                sendInterfaceText(player, "$timeElapsed minutes ago", scoreboardIface, index + 6)
+                sendInterfaceText(player, entry.player, scoreboardIface, index + 11)
                 ++index
             }
             openInterface(player, scoreboardIface)

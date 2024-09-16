@@ -16,14 +16,10 @@ import core.game.node.entity.player.link.TeleportManager
 import core.game.node.item.GroundItemManager
 import core.game.node.item.Item
 import core.game.world.GameWorld
-import core.game.world.map.Direction
 import core.game.world.map.Location
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 import core.worker.ManagementEvents
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.cancelAndJoin
-import kotlinx.coroutines.launch
 import proto.management.JoinClanRequest
 
 /**
@@ -175,7 +171,7 @@ class MagicTutorDialogue(player: Player? = null) : Dialogue(player) {
                     openInterface(player, Components.DOUBLEOBJBOX_131).also {
                         sendModelOnInterface(player, Components.DOUBLEOBJBOX_131,2, 7369, -1)
                         sendAngleOnInterface(player, Components.DOUBLEOBJBOX_131, 2, 1200, 500, 0)
-                        setInterfaceText(player, "When you get to Lumbridge, look for this icon on your minimap. The Lumbridge Guide and the other tutors will be standing near one of these. The Lumbridge Guide should be standing slightly to the north-east of", Components.DOUBLEOBJBOX_131, 1)
+                        sendInterfaceText(player, "When you get to Lumbridge, look for this icon on your minimap. The Lumbridge Guide and the other tutors will be standing near one of these. The Lumbridge Guide should be standing slightly to the north-east of", Components.DOUBLEOBJBOX_131, 1)
                     }
                     stage++
                 }
@@ -183,7 +179,7 @@ class MagicTutorDialogue(player: Player? = null) : Dialogue(player) {
                     openInterface(player, Components.DOUBLEOBJBOX_131).also {
                         sendModelOnInterface(player, Components.DOUBLEOBJBOX_131,2, 7369, -1)
                         sendAngleOnInterface(player, Components.DOUBLEOBJBOX_131, 2, 1200, 500, 0)
-                        setInterfaceText(player, "the castle's courtyard and the others you will find" + "scattered around lumbridge.", Components.DOUBLEOBJBOX_131, 1)
+                        sendInterfaceText(player, "the castle's courtyard and the others you will find" + "scattered around lumbridge.", Components.DOUBLEOBJBOX_131, 1)
                     }
                     stage++
                 }

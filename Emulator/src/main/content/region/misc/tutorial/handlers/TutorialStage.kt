@@ -1243,7 +1243,7 @@ object TutorialStage {
         val percent = if (stage == 0) 0 else ((stage.toDouble() / 71.0) * 100.0).toInt()
         val barPercent = if (stage == 0) 0 else (((percent.toDouble() / 100.0) * 20.0).toInt() + 1)
         setVarp(player, 406, barPercent)
-        setInterfaceText(player, "$percent% Done", 371, 1)
+        sendInterfaceText(player, "$percent% Done", 371, 1)
     }
 
     fun removeHintIcon(player: Player) {

@@ -29,7 +29,7 @@ class EW2Listener : InteractionListener {
         fun eW2scroll(player: Player) {
             val ew2Scroll =
                 arrayOf("Down", "", "2 N", "", "2 E", "", "2 N", "", "2 E", "", "10 N", "", "4 W", "", "Pipe 3.")
-            setInterfaceText(player, ew2Scroll.joinToString("<br>"), EW2Utils.BlankScroll, 1)
+            sendInterfaceText(player, ew2Scroll.joinToString("<br>"), EW2Utils.BlankScroll, 1)
         }
 
         on(Items.SPELL_SCROLL_2396, IntType.ITEM, "read") { player, _ ->

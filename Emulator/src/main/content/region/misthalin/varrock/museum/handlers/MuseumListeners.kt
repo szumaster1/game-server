@@ -235,15 +235,15 @@ class MuseumListeners : InteractionListener, InterfaceListener, MapArea {
             setComponentVisibility(player, component.id, 27, false)
 
             // The case number to display.
-            setInterfaceText(player, "1", component.id, 25)
+            sendInterfaceText(player, "1", component.id, 25)
 
             // The question text.
-            setInterfaceText(player, "When will the Natural History Quiz be implemented?", component.id, 28)
+            sendInterfaceText(player, "When will the Natural History Quiz be implemented?", component.id, 28)
 
             // The choices.
-            setInterfaceText(player, "Never.", component.id, 29)
-            setInterfaceText(player, "In 2 days.", component.id, 30)
-            setInterfaceText(player, "After Barbarian Assault.", component.id, 31)
+            sendInterfaceText(player, "Never.", component.id, 29)
+            sendInterfaceText(player, "In 2 days.", component.id, 30)
+            sendInterfaceText(player, "After Barbarian Assault.", component.id, 31)
             return@onOpen true
         }
 

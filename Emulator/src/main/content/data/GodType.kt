@@ -18,12 +18,8 @@ import cfg.consts.Scenery as Sceneries
 
 /**
  * A god type.
- * @author Vexia
  */
 enum class GodType(val cape: Item, val staff: Item, val statueId: Int, val npcId: Int, val dropMessage: String) {
-    /**
-     * Saradomin.
-     */
     SARADOMIN(
         cape = Item(Items.SARADOMIN_CAPE_2412),
         staff = Item(Items.SARADOMIN_STAFF_2415),
@@ -31,10 +27,6 @@ enum class GodType(val cape: Item, val staff: Item, val statueId: Int, val npcId
         npcId = NPCs.BATTLE_MAGE_913,
         dropMessage = "The cape disappears in a flash of light as it touches the ground."
     ),
-
-    /**
-     * Guthix.
-     */
     GUTHIX(
         cape = Item(Items.GUTHIX_CAPE_2413),
         staff = Item(Items.GUTHIX_STAFF_2416),
@@ -42,10 +34,6 @@ enum class GodType(val cape: Item, val staff: Item, val statueId: Int, val npcId
         npcId = NPCs.BATTLE_MAGE_914,
         dropMessage = "The cape disintegrates as it touches the earth."
     ),
-
-    /**
-     * Zamorak.
-     */
     ZAMORAK(
         cape = Item(Items.ZAMORAK_CAPE_2414),
         staff = Item(Items.ZAMORAK_STAFF_2417),
@@ -55,13 +43,15 @@ enum class GodType(val cape: Item, val staff: Item, val statueId: Int, val npcId
     );
 
     /**
-     * Pray interaction.
+     * Restore prayer points interaction.
      *
-     * @param player the player.
-     * @param statue the scenery id.
+     * @param player    the player.
+     * @param statue    the scenery id.
      */
     fun pray(player: Player, statue: Scenery) {
-        // Perform the pray interaction if the player has any cape of this GodType.
+        /*
+         * Perform the pray interaction if the player has any cape of this GodType.
+         */
         if (hasAny(player)) {
             lock(player, 3)
             animate(player, Animations.HUMAN_PRAY_645)
@@ -122,9 +112,9 @@ enum class GodType(val cape: Item, val staff: Item, val statueId: Int, val npcId
     }
 
     /**
-     * Is friendly.
+     * Check if the player has a god cape.
      *
-     * @param player the player.
+     * @param player    the player.
      * @return player equip cape.
      */
     fun isFriendly(player: Player): Boolean {
@@ -132,7 +122,7 @@ enum class GodType(val cape: Item, val staff: Item, val statueId: Int, val npcId
     }
 
     /**
-     * Get name.
+     * Get the name.
      *
      * @return string to lowercase.
      */

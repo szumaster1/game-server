@@ -80,25 +80,25 @@ public final class LoginConfiguration {
             }
         }
         Repository.getLobbyPlayers().add(player);
-        setInterfaceText(player, "Welcome to " + GameWorld.getSettings().getName(), 378, 115);
-        setInterfaceText(player, getLastLogin(player), 378, 116);
-        setInterfaceText(player, "", 378, 37);
-        setInterfaceText(player, "Currently not available.", 378, 38);
-        setInterfaceText(player, " ", 378, 39);
-        setInterfaceText(player, "Discord", 378, 14);
-        setInterfaceText(player, "Discord", 378, 129);
-        setInterfaceText(player, "The latest release of the game is available on github.", 378, 56);
-        setInterfaceText(player, "The latest release of the game is available on github.", 378, 62);
+        sendInterfaceText(player, "Welcome to " + GameWorld.getSettings().getName(), 378, 115);
+        sendInterfaceText(player, getLastLogin(player), 378, 116);
+        sendInterfaceText(player, "", 378, 37);
+        sendInterfaceText(player, "Currently not available.", 378, 38);
+        sendInterfaceText(player, " ", 378, 39);
+        sendInterfaceText(player, "Discord", 378, 14);
+        sendInterfaceText(player, "Discord", 378, 129);
+        sendInterfaceText(player, "The latest release of the game is available on github.", 378, 56);
+        sendInterfaceText(player, "The latest release of the game is available on github.", 378, 62);
 
-        setInterfaceText(player, "You have " + player.getDetails().getCredits() + " credit points. Earning credits is currently not available.", 378, 93);
-        setInterfaceText(player, "credit points", 378, 94);
-        setInterfaceText(player, player.getDetails().getCredits() + "", 378, 96);
+        sendInterfaceText(player, "You have " + player.getDetails().getCredits() + " credit points. Earning credits is currently not available.", 378, 93);
+        sendInterfaceText(player, "credit points", 378, 94);
+        sendInterfaceText(player, player.getDetails().getCredits() + "", 378, 96);
 
-        setInterfaceText(player, "", 378, 229);
-        setInterfaceText(player, "The latest release of the game is available on github.", 378, 230);
-        setInterfaceText(player, "", 378, 231);
-        setInterfaceText(player, "Github", 378, 240);
-        setInterfaceText(player, GameWorld.getSettings().getMessage_string(), messModel, getMessageChild(messModel));
+        sendInterfaceText(player, "", 378, 229);
+        sendInterfaceText(player, "The latest release of the game is available on github.", 378, 230);
+        sendInterfaceText(player, "", 378, 231);
+        sendInterfaceText(player, "Github", 378, 240);
+        sendInterfaceText(player, GameWorld.getSettings().getMessage_string(), messModel, getMessageChild(messModel));
         player.getInterfaceManager().openWindowsPane(LOBBY_PANE);
         player.getInterfaceManager().setOpened(LOBBY_INTERFACE);
         PacketRepository.send(Interface.class, new InterfaceContext(player, LOBBY_PANE.getId(), 2, 378, true));
@@ -218,8 +218,8 @@ public final class LoginConfiguration {
         player.getPacketDispatch().sendRunEnergy();
         player.getFamiliarManager().login();
         player.getInterfaceManager().openDefaultTabs();
-        setInterfaceText(player, "Friends List - " + Configuration.SERVER_NAME + " " + GameWorld.getSettings().getWorldId(), 550, 3);
-        setInterfaceText(player, "When you have finished playing " + Configuration.SERVER_NAME + "," + " always use the button below to logout safely.", 182, 0);
+        sendInterfaceText(player, "Friends List - " + Configuration.SERVER_NAME + " " + GameWorld.getSettings().getWorldId(), 550, 3);
+        sendInterfaceText(player, "When you have finished playing " + Configuration.SERVER_NAME + "," + " always use the button below to logout safely.", 182, 0);
         player.getQuestRepository().syncronizeTab(player);
         player.getInterfaceManager().close();
         player.getEmoteManager().refresh();

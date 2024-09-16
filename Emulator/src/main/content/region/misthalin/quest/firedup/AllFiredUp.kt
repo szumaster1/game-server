@@ -4,7 +4,6 @@ import cfg.consts.Components
 import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.quest.Quest
 import core.game.node.entity.skill.Skills
-import core.game.node.item.Item
 import core.plugin.Initializable
 import content.minigame.allfiredup.AFUBeacon
 import core.api.*
@@ -136,10 +135,10 @@ class AllFiredUp : Quest("All Fired Up", 157, 156, 1){
     override fun finish(player: Player) {
         super.finish(player)
         player ?: return
-        setInterfaceText(player, "20,000gp,", 277, 8 + 2)
-        setInterfaceText(player, "5,500 Firemaking XP", 277, 9 + 2)
-        setInterfaceText(player, "Full access to the beacon network", 277, 10 + 2)
-        setInterfaceText(player, "1 Quest Point", 277, 11 + 2)
+        sendInterfaceText(player, "20,000gp,", 277, 8 + 2)
+        sendInterfaceText(player, "5,500 Firemaking XP", 277, 9 + 2)
+        sendInterfaceText(player, "Full access to the beacon network", 277, 10 + 2)
+        sendInterfaceText(player, "1 Quest Point", 277, 11 + 2)
         sendItemZoomOnInterface(player, Components.QUEST_COMPLETE_SCROLL_277,5,Items.TINDERBOX_590, 235)
         rewardXP(player, Skills.FIREMAKING, 5500.0)
         if(freeSlots(player) == 0){

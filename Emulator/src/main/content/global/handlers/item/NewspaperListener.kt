@@ -4,7 +4,7 @@ import cfg.consts.Components
 import cfg.consts.Items
 import core.api.openInterface
 import core.api.sendDialogueLines
-import core.api.setInterfaceText
+import core.api.sendInterfaceText
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 
@@ -67,8 +67,8 @@ class NewspaperListener : InteractionListener {
     override fun defineListeners() {
         on(Items.NEWSPAPER_11169, IntType.ITEM, "read") { player, _ ->
             openInterface(player, NEWSPAPER_INTERFACE_530)
-            setInterfaceText(player, leftPage, NEWSPAPER_INTERFACE_530, 7)
-            setInterfaceText(player, rightPage, NEWSPAPER_INTERFACE_530, 8)
+            sendInterfaceText(player, leftPage, NEWSPAPER_INTERFACE_530, 7)
+            sendInterfaceText(player, rightPage, NEWSPAPER_INTERFACE_530, 8)
             return@on true
         }
 

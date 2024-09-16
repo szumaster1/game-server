@@ -131,7 +131,7 @@ class LetterListener : InterfaceListener {
         onOpen(220) { player, _ ->
             val lines: Array<String> = player.getAttribute("ifaces:220:lines", arrayOf())
             for (i in 0 until Math.min(lines.size, 15)) {
-                setInterfaceText(player, lines[i], 220, i + 1)
+                sendInterfaceText(player, lines[i], 220, i + 1)
                 //setInterfaceText(player, "${i}", 220, i+1)
             }
             return@onOpen true
@@ -149,8 +149,8 @@ class DisplayCaseListener : InterfaceListener {
             val model = player.getAttribute("ifaces:534:model", 0)
             player.packetDispatch.sendModelOnInterface(model, 534, 4, 461)
             //player.packetDispatch.sendModelOnInterface(25576, 534, 12, 973)
-            setInterfaceText(player, DISPLAY_CASE_TEXT.joinToString("<br>"), 534, 2)
-            setInterfaceText(player, "30", 534, 85)
+            sendInterfaceText(player, DISPLAY_CASE_TEXT.joinToString("<br>"), 534, 2)
+            sendInterfaceText(player, "30", 534, 85)
             return@onOpen true
         }
     }

@@ -1,6 +1,6 @@
 package core.game.consumable
 
-import content.data.consumable.Consumables.Companion.getConsumableById
+import content.data.consumables.Consumables.Companion.getConsumableById
 import cfg.consts.Items
 import cfg.consts.Sounds
 import core.api.playAudio

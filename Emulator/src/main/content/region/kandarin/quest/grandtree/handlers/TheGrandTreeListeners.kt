@@ -239,8 +239,8 @@ class TheGrandTreeListeners : InteractionListener {
 
         openInterface(player, Components.BLANK_SCROLL_222).also {
             when (id) {
-                GTUtils.HAZELMERE_SCROLL -> setInterfaceText(player, GTUtils.HAZELMERE_SCROLL_CONTENT.joinToString("<br>"), Components.BLANK_SCROLL_222, 5)
-                GTUtils.LUMBER_ORDER_SCROLL -> setInterfaceText(player, GTUtils.LUMBER_ORDER_SCROLL_CONTENT.joinToString("<br>"), Components.BLANK_SCROLL_222, 1)
+                GTUtils.HAZELMERE_SCROLL -> sendInterfaceText(player, GTUtils.HAZELMERE_SCROLL_CONTENT.joinToString("<br>"), Components.BLANK_SCROLL_222, 5)
+                GTUtils.LUMBER_ORDER_SCROLL -> sendInterfaceText(player, GTUtils.LUMBER_ORDER_SCROLL_CONTENT.joinToString("<br>"), Components.BLANK_SCROLL_222, 1)
             }
         }
     }

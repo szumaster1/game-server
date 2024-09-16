@@ -62,12 +62,12 @@ object QuestTabUtils {
         messageList.add(colorize("%Bto access implemented content that would normally require this quest"))
 
 
-        setInterfaceText(player, questName, Components.QUESTJOURNAL_SCROLL_275, 2)
+        sendInterfaceText(player, questName, Components.QUESTJOURNAL_SCROLL_275, 2)
         var lineId = 11
         for (i in 0..299) {
             val entry = messageList.elementAtOrNull(i)
-            if (entry != null) setInterfaceText(player, entry, Components.QUESTJOURNAL_SCROLL_275, lineId++)
-            else setInterfaceText(player, "", Components.QUESTJOURNAL_SCROLL_275, lineId++)
+            if (entry != null) sendInterfaceText(player, entry, Components.QUESTJOURNAL_SCROLL_275, lineId++)
+            else sendInterfaceText(player, "", Components.QUESTJOURNAL_SCROLL_275, lineId++)
         }
         openInterface(player, Components.QUESTJOURNAL_SCROLL_275)
     }

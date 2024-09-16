@@ -3,7 +3,7 @@ package content.region.asgarnia.burthope.quest.death.handlers
 import cfg.consts.Components
 import cfg.consts.Items
 import core.api.openInterface
-import core.api.setInterfaceText
+import core.api.sendInterfaceText
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.entity.player.Player
@@ -23,7 +23,7 @@ class CombinationScroll : InteractionListener {
                     "Yellow. Purple is East of Red.",
                     "",
                 )
-            setInterfaceText(player, combinationScroll.joinToString("<br>"), Components.BLANK_SCROLL_222, 4)
+            sendInterfaceText(player, combinationScroll.joinToString("<br>"), Components.BLANK_SCROLL_222, 4)
         }
 
     }

@@ -142,7 +142,7 @@ class TheDigSiteListeners : InteractionListener {
 
         on(Items.LEVEL_1_CERTIFICATE_691, ITEM, "look-at") { player, _ ->
             openInterface(player, 440)
-            setInterfaceText(player, player.username, 440, 5)
+            sendInterfaceText(player, player.username, 440, 5)
             return@on true
         }
 
@@ -152,7 +152,7 @@ class TheDigSiteListeners : InteractionListener {
 
         on(Items.LEVEL_2_CERTIFICATE_692, ITEM, "look-at") { player, _ ->
             openInterface(player, 441)
-            setInterfaceText(player, player.username, 441, 5)
+            sendInterfaceText(player, player.username, 441, 5)
             return@on true
         }
 
@@ -162,7 +162,7 @@ class TheDigSiteListeners : InteractionListener {
 
         on(Items.LEVEL_3_CERTIFICATE_693, ITEM, "look-at") { player, _ ->
             openInterface(player, 444)
-            setInterfaceText(player, player.username, 444, 5)
+            sendInterfaceText(player, player.username, 444, 5)
             return@on true
         }
 

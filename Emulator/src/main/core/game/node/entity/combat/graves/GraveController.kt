@@ -121,7 +121,7 @@ class GraveController : PersistWorld, TickListener, InteractionListener, Command
         // Open the interface for the player
         openInterface(player, 266)
         // Set the interface text with the grave's formatted text
-        setInterfaceText(player, grave.retrieveFormattedText(), 266, 23)
+        sendInterfaceText(player, grave.retrieveFormattedText(), 266, 23)
 
         // Notify the player about the time remaining for the grave
         sendMessage(player, "It looks like it'll survive another ${grave.getFormattedTimeRemaining()}.")

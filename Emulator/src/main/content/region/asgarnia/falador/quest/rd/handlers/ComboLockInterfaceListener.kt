@@ -99,7 +99,7 @@ class ComboLockInterfaceListener : InterfaceListener {
         }
 
         setAttribute(player, lockArray[position], newValue)
-        setInterfaceText(player, newValue.toChar().toString(), Components.RD_COMBOLOCK_285, position + 6)
+        sendInterfaceText(player, newValue.toChar().toString(), Components.RD_COMBOLOCK_285, position + 6)
     }
 
     /**

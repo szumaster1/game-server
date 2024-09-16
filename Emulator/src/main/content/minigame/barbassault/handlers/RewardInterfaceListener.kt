@@ -13,7 +13,7 @@ class RewardInterfaceListener : InterfaceListener {
         // Reset points.
         onOpen(Components.BARBASSAULT_REWARD_SHOP_491) { player, _ ->
             for (i in BA_POINTS) {
-                setInterfaceText(player, "0", 491, i)
+                sendInterfaceText(player, "0", 491, i)
             }
             return@onOpen true
         }

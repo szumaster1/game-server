@@ -45,9 +45,9 @@ class DiceGameInterfaceListener : InterfaceListener {
             sendItemOnInterface(player, Components.DEATH_DICE_99, 7, goldID, wager)
             sendItemOnInterface(player, Components.DEATH_DICE_99, 8, goldID, wager)
             setComponentVisibility(player, Components.DEATH_DICE_99, 9, true)
-            setInterfaceText(player, "Harold rolls...", Components.DEATH_DICE_99, 13)
+            sendInterfaceText(player, "Harold rolls...", Components.DEATH_DICE_99, 13)
             preRoll(player)
-            setInterfaceText(player, player.username, Components.DEATH_DICE_99, 6)
+            sendInterfaceText(player, player.username, Components.DEATH_DICE_99, 6)
             (1..4).forEach { sendAnimationOnInterface(player, 1149, Components.DEATH_DICE_99, it) }
             submitRollPulse(player, true)
             return@onOpen true
@@ -129,9 +129,9 @@ class DiceGameInterfaceListener : InterfaceListener {
                 1 -> {
                     setComponentVisibility(player, Components.DEATH_DICE_99, 9, true)
                     if (isNPCTurn) {
-                        setInterfaceText(player, "Harold rolls...", Components.DEATH_DICE_99, 13)
+                        sendInterfaceText(player, "Harold rolls...", Components.DEATH_DICE_99, 13)
                     } else {
-                        setInterfaceText(player, "Your roll...", Components.DEATH_DICE_99, 13)
+                        sendInterfaceText(player, "Your roll...", Components.DEATH_DICE_99, 13)
                     }
                     sendAnimationOnInterface(player, DICEANIM[roll1], Components.DEATH_DICE_99, component1)
                 }
@@ -142,9 +142,9 @@ class DiceGameInterfaceListener : InterfaceListener {
                         setComponentVisibility(player, Components.DEATH_DICE_99, 9, false)
                     } else {
                         if (player.getAttribute("deathplateau:winstate")) {
-                            setInterfaceText(player, "You win!", Components.DEATH_DICE_99, 13)
+                            sendInterfaceText(player, "You win!", Components.DEATH_DICE_99, 13)
                         } else {
-                            setInterfaceText(player, "You lose!", Components.DEATH_DICE_99, 13)
+                            sendInterfaceText(player, "You lose!", Components.DEATH_DICE_99, 13)
                         }
                         setComponentVisibility(player, Components.DEATH_DICE_99, 11, false)
                         setComponentVisibility(player, Components.DEATH_DICE_99, 9, true)

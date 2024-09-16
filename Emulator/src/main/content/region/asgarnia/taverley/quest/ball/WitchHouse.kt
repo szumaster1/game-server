@@ -3,10 +3,8 @@ package content.region.asgarnia.taverley.quest.ball
 import cfg.consts.Components
 import cfg.consts.Items
 import cfg.consts.Vars
-import core.api.closeChatBox
 import core.api.rewardXP
 import core.api.sendItemZoomOnInterface
-import core.api.setInterfaceText
 import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.quest.Quest
 import core.game.node.entity.skill.Skills

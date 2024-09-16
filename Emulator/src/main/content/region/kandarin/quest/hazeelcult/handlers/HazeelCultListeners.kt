@@ -250,7 +250,7 @@ class HazeelCultListeners : InteractionListener {
                 "",
                 "Sottey! Sentey! SOLOMENT!"
             )
-            setInterfaceText(player, scroll.joinToString("<br>"), Components.BLANK_SCROLL_222, 2)
+            sendInterfaceText(player, scroll.joinToString("<br>"), Components.BLANK_SCROLL_222, 2)
         }
 
         onUseWith(IntType.ITEM, CHEST_KEY, HAZEEL_SCROLL) { player, _, _ ->

@@ -136,11 +136,11 @@ object StealingCreation {
         val combatTotal = getTotalLevel(CombatSkillIds, inRedTeam)
         val otherSkillTotal = getTotalLevel(SkillIds, !inRedTeam)
         val otherCombatTotal = getTotalLevel(CombatSkillIds, !inRedTeam)
-        setInterfaceText(player, "$combatTotal", 804, 4)
-        setInterfaceText(player, "$skillTotal", 804, 5)
-        setInterfaceText(player, "$otherSkillTotal", 804, 6)
-        setInterfaceText(player, "$otherCombatTotal", 804, 7)
-        for (i in 33..33) setInterfaceText(
+        sendInterfaceText(player, "$combatTotal", 804, 4)
+        sendInterfaceText(player, "$skillTotal", 804, 5)
+        sendInterfaceText(player, "$otherSkillTotal", 804, 6)
+        sendInterfaceText(player, "$otherCombatTotal", 804, 7)
+        for (i in 33..33) sendInterfaceText(
             player,
             "${if (hidden) 5 - (if (inRedTeam) redTeam.size else blueTeam.size) else if (inRedTeam) redTeam.size else blueTeam.size}",
             804,

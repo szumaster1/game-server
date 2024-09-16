@@ -98,7 +98,7 @@ class RCShopInterfaceListener : InterfaceListener {
         sendMessage(player, "Your purchase has been added to your inventory.")
         player.inventory.remove(neededTokens)
         player.inventory.add(Item(item.id, amount))
-        setInterfaceText(player, " ", Components.RCGUILD_REWARDS_779, 136)
+        sendInterfaceText(player, " ", Components.RCGUILD_REWARDS_779, 136)
         sendTokens(player)
     }
 
@@ -120,11 +120,11 @@ class RCShopInterfaceListener : InterfaceListener {
     }
 
     private fun sendTokens(player: Player) {
-        setInterfaceText(player, "Tokens: ${amountInInventory(player, 13650)}", Components.RCGUILD_REWARDS_779, 135)
+        sendInterfaceText(player, "Tokens: ${amountInInventory(player, 13650)}", Components.RCGUILD_REWARDS_779, 135)
     }
 
     private fun sendItem(item: ShopItem, amount: Int, player: Player) {
-        setInterfaceText(player, "${getItemName(item.id)}($amount)", Components.RCGUILD_REWARDS_779, 136)
+        sendInterfaceText(player, "${getItemName(item.id)}($amount)", Components.RCGUILD_REWARDS_779, 136)
     }
 
     private val airTalisman = ShopItem(1438, 50, 1)

@@ -51,8 +51,8 @@ object LevelUp {
         handleMilestones(player, slot, amount)
 
         // Display level up message in the interface.
-        setInterfaceText(player, "<col=00008B>Congratulations, you've just advanced a " + Skills.SKILL_NAME[slot] + " level!", 740, 0)
-        setInterfaceText(player, "Your " + Skills.SKILL_NAME[slot] + " level is now " + player.getSkills().getStaticLevel(slot) + ".", 740, 1)
+        sendInterfaceText(player, "<col=00008B>Congratulations, you've just advanced a " + Skills.SKILL_NAME[slot] + " level!", 740, 0)
+        sendInterfaceText(player, "Your " + Skills.SKILL_NAME[slot] + " level is now " + player.getSkills().getStaticLevel(slot) + ".", 740, 1)
 
         // Send level up message to the player.
         sendMessage(player, "You've just advanced a " + Skills.SKILL_NAME[slot] + " level! You have reached level " + player.getSkills()

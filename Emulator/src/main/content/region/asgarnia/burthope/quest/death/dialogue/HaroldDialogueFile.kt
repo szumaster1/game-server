@@ -165,7 +165,7 @@ class HaroldDialogueFile : DialogueFile() {
                         }
                         setAttribute(player!!, "deathplateau:dicegameclose", advanceStage)
                         openInterface(player!!, 99)
-                        setInterfaceText(player!!, player!!.name, 99, 6)
+                        sendInterfaceText(player!!, player!!.name, 99, 6)
                     }
 
                     34 -> {
@@ -258,7 +258,7 @@ class HaroldDialogueFile : DialogueFile() {
                         }
                         setAttribute(player!!, "deathplateau:dicegameclose", advanceStage)
                         openInterface(player!!, 99)
-                        setInterfaceText(player!!, player!!.name, 99, 6)
+                        sendInterfaceText(player!!, player!!.name, 99, 6)
                     }
 
                     25 -> npc(FacialExpression.DRUNK, "Shixteen! How am I shupposhed to beat that!").also { stage = 30 }

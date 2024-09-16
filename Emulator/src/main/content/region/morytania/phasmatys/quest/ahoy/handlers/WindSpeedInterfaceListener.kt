@@ -70,7 +70,7 @@ class WindSpeedInterfaceListener : InterfaceListener, InteractionListener, Event
         if (RandomFunction.random(1, 10) == 2) setAttribute(entity.asPlayer(), GAUtils.windSpeed, 1)
         if (RandomFunction.random(1, 10) == 3) setAttribute(entity.asPlayer(), GAUtils.windSpeed, 2)
         if (RandomFunction.random(1, 10) == 4) setAttribute(entity.asPlayer(), GAUtils.windSpeed, 3)
-        setInterfaceText(entity.asPlayer(), if (getAttribute(entity.asPlayer(), GAUtils.windSpeed, 0) == 1) " Low" else " High", Components.AHOY_WINDSPEED_10, 2)
+        sendInterfaceText(entity.asPlayer(), if (getAttribute(entity.asPlayer(), GAUtils.windSpeed, 0) == 1) " Low" else " High", Components.AHOY_WINDSPEED_10, 2)
     }
 
 }

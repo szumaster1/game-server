@@ -3,7 +3,7 @@ package content.region.desert.quest.contact
 import cfg.consts.Components
 import cfg.consts.Items
 import core.api.openInterface
-import core.api.setInterfaceText
+import core.api.sendInterfaceText
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 
@@ -32,7 +32,7 @@ class ContactListeners : InteractionListener {
     override fun defineListeners() {
         on(BLOODY_PARCHMENT, IntType.ITEM, "Read") { player, _ ->
             openInterface(player, BLOODY_SCROLL).also {
-                setInterfaceText(player, PARCHMENT_TEXT.joinToString("<br>"), BLOODY_SCROLL, 1)
+                sendInterfaceText(player, PARCHMENT_TEXT.joinToString("<br>"), BLOODY_SCROLL, 1)
             }
             return@on true
         }

@@ -4,7 +4,7 @@ import cfg.consts.Components
 import core.api.freeSlots
 import core.api.getAttribute
 import core.api.sendMessage
-import core.api.setInterfaceText
+import core.api.sendInterfaceText
 import core.game.interaction.InterfaceListener
 import core.game.node.entity.player.Player
 
@@ -35,7 +35,7 @@ class StealingCreationShop : InterfaceListener {
             sendMessage(player, "You don't have enough points to buy that item.")
             sendMessage(player, "You purchase the reward item; some points have been deducted from your total.")
             sendMessage(player, "You must select something to buy before you can confirm your purchase.")
-            setInterfaceText(player, totalPoints.toString(), Components.SC_REWARD_SHOP_811, 32)
+            sendInterfaceText(player, totalPoints.toString(), Components.SC_REWARD_SHOP_811, 32)
             sendUpdate(player)
             return@on true
         }

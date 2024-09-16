@@ -1,7 +1,6 @@
 package content.global.handlers.iface.player
 
 import cfg.consts.Components
-import core.api.setInterfaceText
 import core.game.component.Component
 import core.game.interaction.InterfaceListener
 import core.game.node.entity.player.link.diary.DiaryType
