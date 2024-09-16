@@ -26,7 +26,8 @@ public final class LeatherCraftDialogue extends Dialogue {
     /**
      * Instantiates a new Leather craft dialogue.
      */
-    public LeatherCraftDialogue() {}
+    public LeatherCraftDialogue() {
+    }
 
     /**
      * Instantiates a new Leather craft dialogue.

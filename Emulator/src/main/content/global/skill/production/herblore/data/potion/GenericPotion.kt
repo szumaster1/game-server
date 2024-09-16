@@ -3,16 +3,16 @@ package content.global.skill.production.herblore.data.potion
 import core.game.node.item.Item
 
 /**
- * Represents a generic potion which is used to transform incoming data to represent a potion (finished or unfinished).
- *
- * @param base          the base item used for the potion.
- * @param ingredient    the ingredient required for the potion.
- * @param level         the level required to craft this potion.
- * @param experience    the experience points awarded for crafting the potion.
- * @param product       the final product of the potion.
- * @return the [GenericPotion].
+ * Represents a generic potion which is used to transform incoming data
+ * to represent a potion (finished or unfinished).
  */
-class GenericPotion(val base: Item?, val ingredient: Item?, val level: Int, val experience: Double, val product: Item?) {
+class GenericPotion(
+    val base: Item?,
+    val ingredient: Item?,
+    val level: Int,
+    val experience: Double,
+    val product: Item?
+) {
 
     companion object {
         /**

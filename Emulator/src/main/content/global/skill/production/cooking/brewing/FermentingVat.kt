@@ -15,12 +15,10 @@ import core.game.world.map.Location
  */
 class FermentingVat : InteractionListener {
 
-    // Scenery
     val fermentingVat = 7437
     val valve = 7442
     val location = Location.create(2916, 10193, 1)
 
-    // Varbits
     val VARBIT_736 = 736
     val VARBIT_738 = 738
 

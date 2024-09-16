@@ -58,19 +58,18 @@ class StuddedArmourHandler : UseWithHandler(Items.STEEL_STUDS_2370) {
      * @constructor Creates an instance of StuddedArmour with specified parameters.
      */
     enum class StuddedArmour(val item: Item, val studded: Item, val level: Int, val experience: Double) {
-        /**
-         * Chaps
-         *
-         * @constructor Chaps
-         */
-        CHAPS(Item(Items.LEATHER_CHAPS_1095), Item(Items.STUDDED_CHAPS_1097), 44, 42.0),
-
-        /**
-         * Body
-         *
-         * @constructor Body
-         */
-        BODY(Item(Items.LEATHER_BODY_1129), Item(Items.STUDDED_BODY_1133), 41, 40.0);
+        CHAPS(
+            item = Item(Items.LEATHER_CHAPS_1095),
+            studded = Item(Items.STUDDED_CHAPS_1097),
+            level = 44,
+            experience = 42.0
+        ),
+        BODY(
+            item = Item(Items.LEATHER_BODY_1129),
+            studded = Item(Items.STUDDED_BODY_1133),
+            level = 41,
+            experience = 40.0
+        );
 
         companion object {
             fun forItem(item: Item): StuddedArmour? {
@@ -86,20 +85,8 @@ class StuddedArmourHandler : UseWithHandler(Items.STEEL_STUDS_2370) {
 
     /**
      * Represents a pulse for studded armor in the game.
-     *
-     * @param armour The instance of StuddedArmour associated with this pulse.
-     * @param amount The quantity of the armor being processed.
-     * @constructor Initializes a new StudArmourPulse with the specified player, node, armour, and amount.
-     *
-     * @param player The player who is using the armor pulse.
-     * @param node The item node associated with the armor pulse.
      */
-    class StudArmourPulse(
-        player: Player?, // The player who is executing the pulse action
-        node: Item?, // The item node that represents the armor in the game
-        private val armour: StuddedArmour?, // The specific studded armor being used
-        private var amount: Int // The amount of armor being processed
-    ) : SkillPulse<Item?>(player, node) { // Inherits from SkillPulse, passing player and node
+    class StudArmourPulse(player: Player?, node: Item?, private val armour: StuddedArmour?, private var amount: Int) : SkillPulse<Item?>(player, node) {
 
         private var ticks = 0
 

@@ -7,7 +7,6 @@ import core.game.node.item.Item;
 import core.plugin.Initializable;
 import core.plugin.Plugin;
 
-
 /**
  * Cake making plugin.
  */

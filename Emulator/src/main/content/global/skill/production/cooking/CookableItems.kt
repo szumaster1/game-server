@@ -4,18 +4,7 @@ import cfg.consts.Items
 import core.game.node.item.Item
 
 /**
- * Cookable items
- *
- * @param cooked Represents the cooked state of the item.
- * @param raw Represents the raw state of the item.
- * @param burnt Represents the burnt state of the item.
- * @param level Indicates the cooking level required for the item.
- * @param experience Represents the experience gained from cooking the item.
- * @param low Represents the minimum value associated with the item.
- * @param high Represents the maximum value associated with the item.
- * @param lowRange Represents the lower range limit for the item.
- * @param highRange Represents the upper range limit for the item.
- * @constructor Cookable items
+ * Represents the cookable data.
  */
 enum class CookableItems(
     val cooked: Int,

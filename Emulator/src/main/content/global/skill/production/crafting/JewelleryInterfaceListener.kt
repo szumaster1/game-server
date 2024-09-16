@@ -43,7 +43,9 @@ class JewelleryInterfaceListener : InterfaceListener {
                 20 -> data = JewelleryItem.GOLD_RING
                 22 -> data = JewelleryItem.SAPPIRE_RING
                 24 -> data = JewelleryItem.EMERALD_RING
-                26 -> data = if (inInventory(player, PERFECT_GOLD_BAR)) JewelleryItem.PERFECT_RING else JewelleryItem.RUBY_RING
+                26 -> data =
+                    if (inInventory(player, PERFECT_GOLD_BAR)) JewelleryItem.PERFECT_RING else JewelleryItem.RUBY_RING
+
                 28 -> data = JewelleryItem.DIAMOND_RING
                 30 -> data = JewelleryItem.DRAGONSTONE_RING
                 32 -> data = JewelleryItem.ONYX_RING
@@ -54,7 +56,12 @@ class JewelleryInterfaceListener : InterfaceListener {
                 39 -> data = JewelleryItem.GOLD_NECKLACE
                 41 -> data = JewelleryItem.SAPPHIRE_NECKLACE
                 43 -> data = JewelleryItem.EMERALD_NECKLACE
-                45 -> data = if (inInventory(player, PERFECT_GOLD_BAR)) JewelleryItem.PERFECT_NECKLACE else JewelleryItem.RUBY_NECKLACE
+                45 -> data = if (inInventory(
+                        player,
+                        PERFECT_GOLD_BAR
+                    )
+                ) JewelleryItem.PERFECT_NECKLACE else JewelleryItem.RUBY_NECKLACE
+
                 47 -> data = JewelleryItem.DIAMOND_NECKLACE
                 49 -> data = JewelleryItem.DRAGONSTONE_NECKLACE
                 51 -> data = JewelleryItem.ONYX_NECKLACE
@@ -80,7 +87,10 @@ class JewelleryInterfaceListener : InterfaceListener {
 
             if (getStatLevel(player, Skills.CRAFTING) < data.level) {
                 val an = if (StringUtils.isPlusN(ItemDefinition.forId(data.sendItem).name.lowercase())) "an" else "a"
-                sendMessage(player, "You need a crafting level of " + data.level + " to craft " + an + " " + ItemDefinition.forId(data.sendItem).name.lowercase() + ".")
+                sendMessage(
+                    player,
+                    "You need a crafting level of " + data.level + " to craft " + an + " " + ItemDefinition.forId(data.sendItem).name.lowercase() + "."
+                )
                 return@on true
             }
 
@@ -135,7 +145,10 @@ class JewelleryInterfaceListener : InterfaceListener {
             }
 
             if (!getInstance(player).flags.isRingUnlocked() && data == JewelleryItem.SLAYER_RING) {
-                player.sendMessages("You don't know how to make this. Talk to any Slayer master in order to learn the", "ability that creates Slayer rings.")
+                player.sendMessages(
+                    "You don't know how to make this. Talk to any Slayer master in order to learn the",
+                    "ability that creates Slayer rings."
+                )
                 return@on true
             }
 

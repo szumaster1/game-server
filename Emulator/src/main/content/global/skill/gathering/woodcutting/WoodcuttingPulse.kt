@@ -89,7 +89,7 @@ class WoodcuttingPulse(private val player: Player, private val node: Scenery) : 
 
     fun checkRequirements(): Boolean {
         if (getStatLevel(player, Skills.WOODCUTTING) < resource!!.level) {
-            sendMessage(player,"You need a woodcutting level of " + resource!!.level + " to chop this tree.")
+            sendMessage(player, "You need a woodcutting level of " + resource!!.level + " to chop this tree.")
             return false
         }
         if (getHatchet(player) == null) {
@@ -97,7 +97,10 @@ class WoodcuttingPulse(private val player: Player, private val node: Scenery) : 
             return false
         }
         if (freeSlots(player) < 1) {
-            sendDialogue(player, "Your inventory is too full to hold any more " + getItemName(resource!!.reward).lowercase() + ".")
+            sendDialogue(
+                player,
+                "Your inventory is too full to hold any more " + getItemName(resource!!.reward).lowercase() + "."
+            )
             return false
         }
         return true
@@ -110,7 +113,9 @@ class WoodcuttingPulse(private val player: Player, private val node: Scenery) : 
     fun animate() {
         if (!player.animator.isAnimating) {
             player.animate(getHatchet(player)!!.animation)
-            val playersAroundMe = getLocalPlayers(player, 2).stream().filter { p: Player -> p.username != player.username }.collect(Collectors.toList())
+            val playersAroundMe =
+                getLocalPlayers(player, 2).stream().filter { p: Player -> p.username != player.username }
+                    .collect(Collectors.toList())
             val soundIndex = RandomFunction.random(0, woodcuttingSounds.size)
             for (p in playersAroundMe) playAudio(p!!, woodcuttingSounds[soundIndex])
         }
@@ -124,7 +129,12 @@ class WoodcuttingPulse(private val player: Player, private val node: Scenery) : 
             return false
         }
         if (node.id == 10041) {
-            sendNPCDialogue(player, NPCs.BANK_GUARD_2574, if (RandomFunction.random(2) == 1) "You'll blow my cover! I'm meant to be hidden!" else "Will you stop that?", FacialExpression.FURIOUS)
+            sendNPCDialogue(
+                player,
+                NPCs.BANK_GUARD_2574,
+                if (RandomFunction.random(2) == 1) "You'll blow my cover! I'm meant to be hidden!" else "Will you stop that?",
+                FacialExpression.FURIOUS
+            )
             return true
         }
         if (!checkReward(getHatchet(player))) {
@@ -135,8 +145,9 @@ class WoodcuttingPulse(private val player: Player, private val node: Scenery) : 
          * 20% chance to auto burn logs when using "inferno adze" item.
          */
         if (getHatchet(player)!!.id == 13661 && RandomFunction.random(100) < 25) {
-            sendMessage(player,"You chop some logs. The heat of the inferno adze incinerates them.")
-            Projectile.create(player, null, 1776, 35, 30, 20, 25).transform(player, Location(player.location.x + 2, player.location.y), true, 25, 25).send()
+            sendMessage(player, "You chop some logs. The heat of the inferno adze incinerates them.")
+            Projectile.create(player, null, 1776, 35, 30, 20, 25)
+                .transform(player, Location(player.location.x + 2, player.location.y), true, 25, 25).send()
             rewardXP(player, Skills.WOODCUTTING, resource!!.experience)
             rewardXP(player, Skills.FIREMAKING, resource!!.experience)
             return rollDepletion()
@@ -235,7 +246,12 @@ class WoodcuttingPulse(private val player: Player, private val node: Scenery) : 
         /**
          * Seers village medium reward - extra normal log while in seer's village.
          */
-        if (reward == 1511 && isDiaryComplete(player, DiaryType.SEERS_VILLAGE, 1) && player.viewport.region.id == 10806) {
+        if (reward == 1511 && isDiaryComplete(
+                player,
+                DiaryType.SEERS_VILLAGE,
+                1
+            ) && player.viewport.region.id == 10806
+        ) {
             amount = 2
         }
 
@@ -261,7 +277,9 @@ class WoodcuttingPulse(private val player: Player, private val node: Scenery) : 
         /**
          * Seers village medium reward - extra 10% xp from maples while wearing headband.
          */
-        if (reward == 1517 && player.achievementDiaryManager.getDiary(DiaryType.SEERS_VILLAGE)!!.isComplete(1) && player.equipment[EquipmentContainer.SLOT_HAT] != null && player.equipment[EquipmentContainer.SLOT_HAT].id == 14631) {
+        if (reward == 1517 && player.achievementDiaryManager.getDiary(DiaryType.SEERS_VILLAGE)!!
+                .isComplete(1) && player.equipment[EquipmentContainer.SLOT_HAT] != null && player.equipment[EquipmentContainer.SLOT_HAT].id == 14631
+        ) {
             experience *= 1.10
         }
         return experience * amount

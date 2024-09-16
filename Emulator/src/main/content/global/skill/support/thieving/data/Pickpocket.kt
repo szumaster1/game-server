@@ -11,30 +11,8 @@ import java.util.stream.IntStream
 
 /**
  * Pickpocket data.
- *
- * @property ids                the array of IDs for the pickpocketing targets
- * @property requiredLevel      the level required to perform the pickpocketing action
- * @property low                the minimum loot value obtainable
- * @property high               the maximum loot value obtainable
- * @property experience         the experience points awarded for successful pickpocketing
- * @property stunDamageMin      the minimum damage dealt to stun the target
- * @property stunDamageMax      the maximum damage dealt to stun the target
- * @property stunTime           the duration of the stun effect on the target
- * @property message            the optional message displayed upon success
- * @property table              the table that defines success probabilities based on weights
  */
-enum class Pickpocket(
-    val ids: IntArray,
-    val requiredLevel: Int,
-    val low: Double,
-    val high: Double,
-    val experience: Double,
-    val stunDamageMin: Int,
-    val stunDamageMax: Int,
-    val stunTime: Int,
-    val message: String?,
-    val table: WeightBasedTable
-) {
+enum class Pickpocket(val ids: IntArray, val requiredLevel: Int, val low: Double, val high: Double, val experience: Double, val stunDamageMin: Int, val stunDamageMax: Int, val stunTime: Int, val message: String?, val table: WeightBasedTable) {
     /**
      * Man.
      */

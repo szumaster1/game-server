@@ -1,5 +1,6 @@
 package content.global.skill.production.crafting.data
 
+import cfg.consts.Components
 import cfg.consts.Items
 import core.game.component.Component
 import core.game.node.entity.player.Player
@@ -10,54 +11,47 @@ import core.game.node.item.Item
  */
 object Leather {
 
-    const val NEEDLE: Int = 1733
-    @JvmField
-    val THREAD: Item = Item(1734, 1)
-    const val LEATHER: Int = 1741
-    const val HARD_LEATHER: Int = 1743
-    const val GREEN_LEATHER: Int = 1745
-    const val BLUE_LEATHER: Int = 2505
-    const val RED_LEATHER: Int = 2507
-    const val BLACK_LEATHER: Int = 2509
-    private val COMPONENT = Component(154)
-
+    const val NEEDLE: Int = Items.NEEDLE_1733
+    val THREAD: Item = Item(Items.THREAD_1734, 1)
+    const val LEATHER: Int = Items.LEATHER_1741
+    const val HARD_LEATHER: Int = Items.HARD_LEATHER_1743
+    const val GREEN_LEATHER: Int = Items.GREEN_D_LEATHER_1745
+    const val BLUE_LEATHER: Int = Items.BLUE_D_LEATHER_2505
+    const val RED_LEATHER: Int = Items.RED_DRAGON_LEATHER_2507
+    const val BLACK_LEATHER: Int = Items.BLACK_D_LEATHER_2509
+    private val COMPONENT = Component(Components.LEATHER_CRAFTING_154)
 
     @JvmStatic
     fun isLastThread(player: Player): Boolean {
-        val thread = getThread(player) ?: return false
-        val charge = thread.charge
-        return charge >= 1004
+        return getThread(player)?.charge?.let { it >= 1004 } ?: false
     }
 
     @JvmStatic
     fun decayThread(player: Player) {
-        val thread = getThread(player) ?: return
-        val charge = thread.charge
-        thread.charge = charge + 1
+        getThread(player)?.let { thread ->
+            thread.charge += 1
+        }
     }
 
     @JvmStatic
     fun removeThread(player: Player) {
         if (player.inventory.remove(THREAD)) {
             player.packetDispatch.sendMessage("You use a reel of your thread.")
-            val thread = getThread(player)
-            if (thread != null) {
-                thread.charge = 1000
-            }
+            getThread(player)?.charge = 1000
         }
     }
 
     @JvmStatic
-    fun getThread(player: Player): Item {
+    fun getThread(player: Player): Item? {
         return player.inventory[player.inventory.getSlot(THREAD)]
     }
 
     enum class DragonHide(
-        @JvmField val leather: Int,
-        @JvmField val amount: Int,
-        @JvmField val product: Int,
-        @JvmField val level: Int,
-        @JvmField val experience: Double
+        val leather: Int,
+        val amount: Int,
+        val product: Int,
+        val level: Int,
+        val experience: Double
     ) {
         GREEN_D_HIDE_VAMBS(
             leather = Items.GREEN_D_LEATHER_1745,
@@ -144,26 +138,19 @@ object Leather {
             experience = 258.0
         );
 
-
         companion object {
-
             @JvmStatic
             fun forLeather(leather: Int): DragonHide? {
-                for (hide in values()) {
-                    if (hide.leather == leather) {
-                        return hide
-                    }
-                }
-                return null
+                return values().find { it.leather == leather }
             }
         }
     }
 
     enum class SoftLeather(
         val button: Int,
-        @JvmField val level: Int,
-        @JvmField val experience: Double,
-        @JvmField val product: Item
+        val level: Int,
+        val experience: Double,
+        val product: Item
     ) {
         ARMOUR(
             button = 28,
@@ -208,9 +195,7 @@ object Leather {
             product = Item(Items.LEATHER_COWL_1167)
         );
 
-
         companion object {
-
             @JvmStatic
             fun open(player: Player) {
                 player.interfaceManager.open(COMPONENT)
@@ -218,12 +203,7 @@ object Leather {
 
             @JvmStatic
             fun forButton(button: Int): SoftLeather? {
-                for (soft in values()) {
-                    if (soft.button == button) {
-                        return soft
-                    }
-                }
-                return null
+                return values().find { it.button == button }
             }
         }
     }

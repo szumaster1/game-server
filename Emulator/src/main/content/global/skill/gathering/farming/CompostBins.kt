@@ -8,29 +8,11 @@ import core.game.node.scenery.Scenery
 
 /**
  * Compost bins.
- *
- * @param varbit Represents the varbit associated with each CompostBin.
- * @constructor Represents the CompostBins enum class.
  */
 enum class CompostBins(val varbit: Int) {
-    /**
-     * Falador Compost.
-     */
     FALADOR_COMPOST(740),
-
-    /**
-     * Catherby Compost.
-     */
     CATHERBY_COMPOST(741),
-
-    /**
-     * Port Phasmatys Compost.
-     */
     PORT_PHAS_COMPOST(742),
-
-    /**
-     * Ardougne Compost.
-     */
     ARDOUGNE_COMPOST(743);
 
     companion object {

@@ -100,7 +100,7 @@ enum class BarbarianWeapon(
         @JvmStatic
         fun forId(itemId: Int): Origami? {
             for (product in Origami.values()) {
-                if (product.requiredDye == itemId) {
+                if (product.base == itemId) {
                     return product
                 }
             }

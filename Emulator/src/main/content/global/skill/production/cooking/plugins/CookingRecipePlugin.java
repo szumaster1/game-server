@@ -14,7 +14,6 @@ import core.plugin.Plugin;
 import java.util.ArrayList;
 import java.util.List;
 
-
 /**
  * Cooking recipe plugin.
  */

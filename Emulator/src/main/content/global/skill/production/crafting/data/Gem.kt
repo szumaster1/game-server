@@ -15,9 +15,6 @@ enum class Gem(
     val animation: Animation,
     val exp: Double
 ) {
-    /**
-     * The sapphire.
-     */
     SAPPHIRE(
         uncut = Item(Items.UNCUT_SAPPHIRE_1623),
         gem = Item(Items.SAPPHIRE_1607),
@@ -25,10 +22,6 @@ enum class Gem(
         animation = Animation(Animations.CUT_SAPPHIRE_888),
         exp = 50.0
     ),
-
-    /**
-     * The emerald.
-     */
     EMERALD(
         uncut = Item(Items.UNCUT_EMERALD_1621),
         gem = Item(Items.EMERALD_1605),
@@ -36,10 +29,6 @@ enum class Gem(
         animation = Animation(Animations.CUT_EMERALD_889),
         exp = 67.0
     ),
-
-    /**
-     * The ruby.
-     */
     RUBY(
         uncut = Item(Items.UNCUT_RUBY_1619),
         gem = Item(Items.RUBY_1603),
@@ -47,10 +36,6 @@ enum class Gem(
         animation = Animation(Animations.CUT_RUBY_887),
         exp = 85.0
     ),
-
-    /**
-     * The diamond.
-     */
     DIAMOND(
         uncut = Item(Items.UNCUT_DIAMOND_1617),
         gem = Item(Items.DIAMOND_1601),
@@ -58,10 +43,6 @@ enum class Gem(
         animation = Animation(Animations.CUT_DIAMOND_886),
         exp = 107.5
     ),
-
-    /**
-     * The dragonstone.
-     */
     DRAGONSTONE(
         uncut = Item(Items.UNCUT_DRAGONSTONE_1631),
         gem = Item(Items.DRAGONSTONE_1615),
@@ -69,10 +50,6 @@ enum class Gem(
         animation = Animation(Animations.CUT_DRAGONSTONE_885),
         exp = 137.5
     ),
-
-    /**
-     * The onyx.
-     */
     ONYX(
         uncut = Item(Items.UNCUT_ONYX_6571),
         gem = Item(Items.ONYX_6573),
@@ -80,10 +57,6 @@ enum class Gem(
         animation = Animation(Animations.CHISEL_ONYX_2717),
         exp = 168.0
     ),
-
-    /**
-     * The opal.
-     */
     OPAL(
         uncut = Item(Items.UNCUT_OPAL_1625),
         gem = Item(Items.OPAL_1609),
@@ -91,10 +64,6 @@ enum class Gem(
         animation = Animation(Animations.CUT_OPAL_890),
         exp = 10.0
     ),
-
-    /**
-     * The jade.
-     */
     JADE(
         uncut = Item(Items.UNCUT_JADE_1627),
         gem = Item(Items.JADE_1611),
@@ -102,10 +71,6 @@ enum class Gem(
         animation = Animation(Animations.CUT_JADE_891),
         exp = 20.0
     ),
-
-    /**
-     * The red topaz.
-     */
     RED_TOPAZ(
         uncut = Item(Items.UNCUT_RED_TOPAZ_1629),
         gem = Item(Items.RED_TOPAZ_1613),
@@ -115,13 +80,6 @@ enum class Gem(
     );
 
     companion object {
-        fun forId(item: Item): Gem? {
-            for (gem in values()) {
-                if (gem.uncut.id == item.id) {
-                    return gem
-                }
-            }
-            return null
-        }
+        fun forId(item: Item): Gem? = values().find { it.uncut.id == item.id }
     }
 }

@@ -15,13 +15,7 @@ import kotlin.math.min
 /**
  * Represents the pulse of creating tiara.
  */
-class EnchantTiaraPulse(
-    player: Player?,
-    val talisman: Talisman,
-    val altar: Altar,
-    val tiara: TalismanStaff,
-    var amount: Int,
-) : SkillPulse<Item>(player, null) {
+class EnchantTiaraPulse(player: Player?, val talisman: Talisman, val altar: Altar, val tiara: TalismanStaff, var amount: Int) : SkillPulse<Item>(player, null) {
 
     private val plainTiara = Item(Items.TIARA_5525)
 

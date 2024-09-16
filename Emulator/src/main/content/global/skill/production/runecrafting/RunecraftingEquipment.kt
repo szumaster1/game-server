@@ -20,8 +20,34 @@ class RunecraftingEquipment : InteractionListener {
 
     private val talismanStaff = Staff.values().map { it.item.id }.toIntArray()
     private val tiaraItem = Tiara.values().map { it.item.id }.toIntArray()
-    private val tiaraValues = mapOf(Items.AIR_TIARA_5527 to 1, Items.MIND_TIARA_5529 to 2, Items.WATER_TIARA_5531 to 4, Items.EARTH_TIARA_5535 to 8, Items.FIRE_TIARA_5537 to 16, Items.BODY_TIARA_5533 to 32, Items.COSMIC_TIARA_5539 to 64, Items.CHAOS_TIARA_5543 to 128, Items.NATURE_TIARA_5541 to 256, Items.LAW_TIARA_5545 to 512, Items.DEATH_TIARA_5547 to 1024, Items.BLOOD_TIARA_5549 to 2048)
-    private val varpMap = mapOf(13630 to 1, 13631 to 2, 13632 to 4, 13633 to 8, 13634 to 16, 13635 to 32, 13636 to 64, 13637 to 128, 13638 to 256, 13639 to 512, 13640 to 1024, 13641 to 2048)
+    private val tiaraValues = mapOf(
+        Items.AIR_TIARA_5527 to 1,
+        Items.MIND_TIARA_5529 to 2,
+        Items.WATER_TIARA_5531 to 4,
+        Items.EARTH_TIARA_5535 to 8,
+        Items.FIRE_TIARA_5537 to 16,
+        Items.BODY_TIARA_5533 to 32,
+        Items.COSMIC_TIARA_5539 to 64,
+        Items.CHAOS_TIARA_5543 to 128,
+        Items.NATURE_TIARA_5541 to 256,
+        Items.LAW_TIARA_5545 to 512,
+        Items.DEATH_TIARA_5547 to 1024,
+        Items.BLOOD_TIARA_5549 to 2048
+    )
+    private val varpMap = mapOf(
+        13630 to 1,
+        13631 to 2,
+        13632 to 4,
+        13633 to 8,
+        13634 to 16,
+        13635 to 32,
+        13636 to 64,
+        13637 to 128,
+        13638 to 256,
+        13639 to 512,
+        13640 to 1024,
+        13641 to 2048
+    )
 
     override fun defineListeners() {
 

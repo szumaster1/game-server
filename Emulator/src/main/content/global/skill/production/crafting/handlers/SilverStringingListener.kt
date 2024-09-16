@@ -24,7 +24,7 @@ class SilverStringingListener : InteractionListener {
     private fun stringSilverProduct(player: Player, used: Node, with: Node): Boolean {
         Silver.forId(with.id)?.let {
             if (removeItem(player, with.id) && removeItem(player, used.id)) {
-                addItem(player, it.strungId)
+                addItem(player, it.strung)
             }
         }
 

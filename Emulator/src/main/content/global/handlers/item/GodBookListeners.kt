@@ -1,5 +1,6 @@
 package content.global.handlers.item
 
+import cfg.consts.Animations
 import core.api.*
 import cfg.consts.Items
 import core.game.dialogue.DialogueFile
@@ -139,9 +140,9 @@ class GodBookListeners : InteractionListener {
 
         private fun say(player: Player, message: String, book: BOOK, preach: Boolean) {
             val animation = when (book) {
-                BOOK.SARA -> Animation(1335)
-                BOOK.ZAM -> Animation(1336)
-                BOOK.GUTHIX -> Animation(1337)
+                BOOK.SARA -> Animation(Animations.PREACH_WHITE_BOOK_1335)
+                BOOK.ZAM -> Animation(Animations.PREACH_RED_BOOK_1336)
+                BOOK.GUTHIX -> Animation(Animations.PREACH_GREEN_BOOK_1337)
             }
 
             val preachText = when (book) {

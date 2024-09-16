@@ -3,717 +3,517 @@ package content.global.skill.gathering.woodcutting
 import core.Configuration
 import core.game.world.repository.Repository.players
 
-/**
- * Woodcutting node.
- */
 enum class WoodcuttingNode {
-    /**
-     * Standard Tree 1
-     *
-     * @constructor Standard Tree 1
-     */
-    STANDARD_TREE_1(1276, 1342, 1.toByte()),
-
-    /**
-     * Standard Tree 2
-     *
-     * @constructor Standard Tree 2
-     */
-    STANDARD_TREE_2(1277, 1343, 1.toByte()),
-
-    /**
-     * Standard Tree 3
-     *
-     * @constructor Standard Tree 3
-     */
-    STANDARD_TREE_3(1278, 1342, 1.toByte()),
-
-    /**
-     * Standard Tree 4
-     *
-     * @constructor Standard Tree 4
-     */
-    STANDARD_TREE_4(1279, 1345, 1.toByte()),
-
-    /**
-     * Standard Tree 5
-     *
-     * @constructor Standard Tree 5
-     */
-    STANDARD_TREE_5(1280, 1343, 1.toByte()),
-
-    /**
-     * Standard Tree 6
-     *
-     * @constructor Standard Tree 6
-     */
-    STANDARD_TREE_6(1330, 1341, 1.toByte()),
-
-    /**
-     * Standard Tree 7
-     *
-     * @constructor Standard Tree 7
-     */
-    STANDARD_TREE_7(1331, 1341, 1.toByte()),
-
-    /**
-     * Standard Tree 8
-     *
-     * @constructor Standard Tree 8
-     */
-    STANDARD_TREE_8(1332, 1341, 1.toByte()),
-
-    /**
-     * Standard Tree 9
-     *
-     * @constructor Standard Tree 9
-     */
-    STANDARD_TREE_9(2409, 1342, 1.toByte()),
-
-    /**
-     * Standard Tree 10
-     *
-     * @constructor Standard Tree 10
-     */
-    STANDARD_TREE_10(3033, 1345, 1.toByte()),
-
-    /**
-     * Standard Tree 11
-     *
-     * @constructor Standard Tree 11
-     */
-    STANDARD_TREE_11(3034, 1345, 1.toByte()),
-
-    /**
-     * Standard Tree 12
-     *
-     * @constructor Standard Tree 12
-     */
-    STANDARD_TREE_12(3035, 1347, 1.toByte()),
-
-    /**
-     * Standard Tree 13
-     *
-     * @constructor Standard Tree 13
-     */
-    STANDARD_TREE_13(3036, 1351, 1.toByte()),
-
-    /**
-     * Standard Tree 14
-     *
-     * @constructor Standard Tree 14
-     */
-    STANDARD_TREE_14(3879, 3880, 1.toByte()),
-
-    /**
-     * Standard Tree 15
-     *
-     * @constructor Standard Tree 15
-     */
-    STANDARD_TREE_15(3881, 3880, 1.toByte()),
-
-    /**
-     * Standard Tree 16
-     *
-     * @constructor Standard Tree 16
-     */
-    STANDARD_TREE_16(3882, 3880, 1.toByte()),
-
-    /**
-     * Standard Tree 17
-     *
-     * @constructor Standard Tree 17
-     */
-    STANDARD_TREE_17(3883, 3884, 1.toByte()),
-
-    /**
-     * Standard Tree 18
-     *
-     * @constructor Standard Tree 18
-     */
-    STANDARD_TREE_18(10041, 1342, 1.toByte()),
-
-    /**
-     * Standard Tree 19
-     *
-     * @constructor Standard Tree 19
-     */
-    STANDARD_TREE_19(14308, 1342, 1.toByte()),
-
-    /**
-     * Standard Tree 20
-     *
-     * @constructor Standard Tree 20
-     */
-    STANDARD_TREE_20(14309, 1342, 1.toByte()),
-
-    /**
-     * Standard Tree 21
-     *
-     * @constructor Standard Tree 21
-     */
-    STANDARD_TREE_21(16264, 1342, 1.toByte()),
-
-    /**
-     * Standard Tree 22
-     *
-     * @constructor Standard Tree 22
-     */
-    STANDARD_TREE_22(16265, 1342, 1.toByte()),
-
-    /**
-     * Standard Tree 23
-     *
-     * @constructor Standard Tree 23
-     */
-    STANDARD_TREE_23(30132, 1342, 1.toByte()),
-
-    /**
-     * Standard Tree 24
-     *
-     * @constructor Standard Tree 24
-     */
-    STANDARD_TREE_24(30133, 1342, 1.toByte()),
-
-    /**
-     * Standard Tree 25
-     *
-     * @constructor Standard Tree 25
-     */
-    STANDARD_TREE_25(37477, 1342, 1.toByte()),
-
-    /**
-     * Standard Tree 26
-     *
-     * @constructor Standard Tree 26
-     */
-    STANDARD_TREE_26(37478, 37653, 1.toByte()),
-
-    /**
-     * Standard Tree 27
-     *
-     * @constructor Standard Tree 27
-     */
-    STANDARD_TREE_27(37652, 37653, 1.toByte()),
-
-    /**
-     * Dead Tree 1
-     *
-     * @constructor Dead Tree 1
-     */
-    DEAD_TREE_1(1282, 1347, 2.toByte()),
-
-    /**
-     * Dead Tree 2
-     *
-     * @constructor Dead Tree 2
-     */
-    DEAD_TREE_2(1283, 1347, 2.toByte()),
-
-    /**
-     * Dead Tree 3
-     *
-     * @constructor Dead Tree 3
-     */
-    DEAD_TREE_3(1284, 1348, 2.toByte()),
-
-    /**
-     * Dead Tree 4
-     *
-     * @constructor Dead Tree 4
-     */
-    DEAD_TREE_4(1285, 1349, 2.toByte()),
-
-    /**
-     * Dead Tree 5
-     *
-     * @constructor Dead Tree 5
-     */
-    DEAD_TREE_5(1286, 1351, 2.toByte()),
-
-    /**
-     * Dead Tree 6
-     *
-     * @constructor Dead Tree 6
-     */
-    DEAD_TREE_6(1289, 1353, 2.toByte()),
-
-    /**
-     * Dead Tree 7
-     *
-     * @constructor Dead Tree 7
-     */
-    DEAD_TREE_7(1290, 1354, 2.toByte()),
-
-    /**
-     * Dead Tree 8
-     *
-     * @constructor Dead Tree 8
-     */
-    DEAD_TREE_8(1291, 23054, 2.toByte()),
-
-    /**
-     * Dead Tree 9
-     *
-     * @constructor Dead Tree 9
-     */
-    DEAD_TREE_9(1365, 1352, 2.toByte()),
-
-    /**
-     * Dead Tree 10
-     *
-     * @constructor Dead Tree 10
-     */
-    DEAD_TREE_10(1383, 1358, 2.toByte()),
-
-    /**
-     * Dead Tree 11
-     *
-     * @constructor Dead Tree 11
-     */
-    DEAD_TREE_11(1384, 1359, 2.toByte()),
-
-    /**
-     * Dead Tree 12
-     *
-     * @constructor Dead Tree 12
-     */
-    DEAD_TREE_12(5902, 1347, 2.toByte()),
-
-    /**
-     * Dead Tree 13
-     *
-     * @constructor Dead Tree 13
-     */
-    DEAD_TREE_13(5903, 1353, 2.toByte()),
-
-    /**
-     * Dead Tree 14
-     *
-     * @constructor Dead Tree 14
-     */
-    DEAD_TREE_14(5904, 1353, 2.toByte()),
-
-    /**
-     * Dead Tree 15
-     *
-     * @constructor Dead Tree 15
-     */
-    DEAD_TREE_15(32294, 1353, 2.toByte()),
-
-    /**
-     * Dead Tree 16
-     *
-     * @constructor Dead Tree 16
-     */
-    DEAD_TREE_16(37481, 1347, 2.toByte()),
-
-    /**
-     * Dead Tree 17
-     *
-     * @constructor Dead Tree 17
-     */
-    DEAD_TREE_17(37482, 1351, 2.toByte()),
-
-    /**
-     * Dead Tree 18
-     *
-     * @constructor Dead Tree 18
-     */
-    DEAD_TREE_18(37483, 1358, 2.toByte()),
-
-    /**
-     * Dead Tree 19
-     *
-     * @constructor Dead Tree 19
-     */
-    DEAD_TREE_19(24168, 24169, 2.toByte()),
-
-    /**
-     * Evergreen 1
-     *
-     * @constructor Evergreen 1
-     */
-    EVERGREEN_1(1315, 1342, 3.toByte()),
-
-    /**
-     * Evergreen 2
-     *
-     * @constructor Evergreen 2
-     */
-    EVERGREEN_2(1316, 1355, 3.toByte()),
-
-    /**
-     * Evergreen 3
-     *
-     * @constructor Evergreen 3
-     */
-    EVERGREEN_3(1318, 1355, 3.toByte()),
-
-    /**
-     * Evergreen 4
-     *
-     * @constructor Evergreen 4
-     */
-    EVERGREEN_4(1319, 1355, 3.toByte()),
-
-    /**
-     * Jungle Tree 1
-     *
-     * @constructor Jungle Tree 1
-     */
-    JUNGLE_TREE_1(2887, 0, 4.toByte()),
-
-    /**
-     * Jungle Tree 2
-     *
-     * @constructor Jungle Tree 2
-     */
-    JUNGLE_TREE_2(2889, 0, 4.toByte()),
-
-    /**
-     * Jungle Tree 3
-     *
-     * @constructor Jungle Tree 3
-     */
-    JUNGLE_TREE_3(2890, 0, 4.toByte()),
-
-    /**
-     * Jungle Tree 4
-     *
-     * @constructor Jungle Tree 4
-     */
-    JUNGLE_TREE_4(4818, 0, 4.toByte()),
-
-    /**
-     * Jungle Tree 5
-     *
-     * @constructor Jungle Tree 5
-     */
-    JUNGLE_TREE_5(4820, 0, 4.toByte()),
-
-    /**
-     * Jungle Bush 1
-     *
-     * @constructor Jungle Bush 1
-     */
-    JUNGLE_BUSH_1(2892, 2894, 5.toByte()),
-
-    /**
-     * Jungle Bush 2
-     *
-     * @constructor Jungle Bush 2
-     */
-    JUNGLE_BUSH_2(2893, 2895, 5.toByte()),
-
-    /**
-     * Achey Tree
-     *
-     * @constructor Achey Tree
-     */
-    ACHEY_TREE(2023, 3371, 6.toByte()),
-
-    /**
-     * Oak Tree 1
-     *
-     * @constructor Oak Tree 1
-     */
-    OAK_TREE_1(1281, 1356, 7.toByte()),
-
-    /**
-     * Oak Tree 2
-     *
-     * @constructor Oak Tree 2
-     */
-    OAK_TREE_2(3037, 1357, 7.toByte()),
-
-    /**
-     * Oak Tree 3
-     *
-     * @constructor Oak Tree 3
-     */
-    OAK_TREE_3(37479, 1356, 7.toByte()),
-
-    /**
-     * Oak Tree 4
-     *
-     * @constructor Oak Tree 4
-     */
-    OAK_TREE_4(8467, 1356, 19.toByte(), true),
-
-    /**
-     * Willow Tree 1
-     *
-     * @constructor Willow Tree 1
-     */
-    WILLOW_TREE_1(1308, 7399, 8.toByte()),
-
-    /**
-     * Willow Tree 2
-     *
-     * @constructor Willow Tree 2
-     */
-    WILLOW_TREE_2(5551, 5554, 8.toByte()),
-
-    /**
-     * Willow Tree 3
-     *
-     * @constructor Willow Tree 3
-     */
-    WILLOW_TREE_3(5552, 5554, 8.toByte()),
-
-    /**
-     * Willow Tree 4
-     *
-     * @constructor Willow Tree 4
-     */
-    WILLOW_TREE_4(5553, 5554, 8.toByte()),
-
-    /**
-     * Willow Tree 5
-     *
-     * @constructor Willow Tree 5
-     */
-    WILLOW_TREE_5(37480, 7399, 8.toByte()),
-
-    /**
-     * Willow Tree 6
-     *
-     * @constructor Willow Tree 6
-     */
-    WILLOW_TREE_6(8488, 7399, 20.toByte(), true),
-
-    /**
-     * Teak 1
-     *
-     * @constructor Teak 1
-     */
-    TEAK_1(9036, 9037, 9.toByte()),
-
-    /**
-     * Teak 2
-     *
-     * @constructor Teak 2
-     */
-    TEAK_2(15062, 9037, 9.toByte()),
-
-    /**
-     * Maple Tree 1
-     *
-     * @constructor Maple Tree 1
-     */
-    MAPLE_TREE_1(1307, 7400, 10.toByte()),
-
-    /**
-     * Maple Tree 2
-     *
-     * @constructor Maple Tree 2
-     */
-    MAPLE_TREE_2(4674, 7400, 10.toByte()),
-
-    /**
-     * Maple Tree 3
-     *
-     * @constructor Maple Tree 3
-     */
-    MAPLE_TREE_3(8444, 7400, 21.toByte(), true),
-
-    /**
-     * Hollow Tree 1
-     *
-     * @constructor Hollow Tree 1
-     */
-    HOLLOW_TREE_1(2289, 2310, 11.toByte()),
-
-    /**
-     * Hollow Tree 2
-     *
-     * @constructor Hollow Tree 2
-     */
-    HOLLOW_TREE_2(4060, 4061, 11.toByte()),
-
-    /**
-     * Mahogany
-     *
-     * @constructor Mahogany
-     */
-    MAHOGANY(9034, 9035, 12.toByte()),
-
-    /**
-     * Swaying Tree
-     *
-     * @constructor Swaying Tree
-     */
-    SWAYING_TREE(4142, -1, 30.toByte()),
-
-    /**
-     * Arctic Pine
-     *
-     * @constructor Arctic Pine
-     */
-    ARCTIC_PINE(21273, 21274, 13.toByte()),
-
-    /**
-     * Eucalyptus 1
-     *
-     * @constructor Eucalyptus 1
-     */
-    EUCALYPTUS_1(28951, 28954, 14.toByte()),
-
-    /**
-     * Eucalyptus 2
-     *
-     * @constructor Eucalyptus 2
-     */
-    EUCALYPTUS_2(28952, 28955, 14.toByte()),
-
-    /**
-     * Eucalyptus 3
-     *
-     * @constructor Eucalyptus 3
-     */
-    EUCALYPTUS_3(28953, 28956, 14.toByte()),
-
-    /**
-     * Yew
-     *
-     * @constructor Yew
-     */
-    YEW(1309, 7402, 15.toByte()),
-
-    /**
-     * Yew 1
-     *
-     * @constructor Yew 1
-     */
-    YEW_1(8513, 7402, 22.toByte(), true),
-
-    /**
-     * Magic Tree 1
-     *
-     * @constructor Magic Tree 1
-     */
-    MAGIC_TREE_1(1306, 7401, 16.toByte()),
-
-    /**
-     * Magic Tree 2
-     *
-     * @constructor Magic Tree 2
-     */
-    MAGIC_TREE_2(37823, 37824, 16.toByte()),
-
-    /**
-     * Magic Tree 3
-     *
-     * @constructor Magic Tree 3
-     */
-    MAGIC_TREE_3(8409, 37824, 23.toByte(), true),
-
-    /**
-     * Cursed Magic Tree
-     *
-     * @constructor Cursed Magic Tree
-     */
-    CURSED_MAGIC_TREE(37821, 37822, 17.toByte()),
-
-    /**
-     * Dramen Tree
-     *
-     * @constructor Dramen Tree
-     */
-    DRAMEN_TREE(1292, -1, 18.toByte()),
-
-    /**
-     * Windswept Tree
-     *
-     * @constructor Windswept Tree
-     */
-    WINDSWEPT_TREE(18137, 1353, 19.toByte()),
-
-    /**
-     * Light Jungle 1
-     *
-     * @constructor Create empty Light Jungle 1
-     */
-    LIGHT_JUNGLE_1(9010, 9010, 31.toByte()),
-
-    /**
-     * Light Jungle 2
-     *
-     * @constructor Create empty Light Jungle 2
-     */
-    LIGHT_JUNGLE_2(9011, 9010, 31.toByte()),
-
-    /**
-     * Light Jungle 3
-     *
-     * @constructor Create empty Light Jungle 3
-     */
-    LIGHT_JUNGLE_3(9012, 9010, 31.toByte()),
-
-    /**
-     * Light Jungle 4
-     *
-     * @constructor Create empty Light Jungle 4
-     */
-    LIGHT_JUNGLE_4(9013, 9010, 31.toByte()),
-
-    /**
-     * Medium Jungle 1
-     *
-     * @constructor Create empty Medium Jungle 1
-     */
-    MEDIUM_JUNGLE_1(9015, 9015, 32.toByte()),
-
-    /**
-     * Medium Jungle 2
-     *
-     * @constructor Create empty Medium Jungle 2
-     */
-    MEDIUM_JUNGLE_2(9016, 9015, 32.toByte()),
-
-    /**
-     * Medium Jungle 3
-     *
-     * @constructor Create empty Medium Jungle 3
-     */
-    MEDIUM_JUNGLE_3(9017, 9015, 32.toByte()),
-
-    /**
-     * Medium Jungle 4
-     *
-     * @constructor Create empty Medium Jungle 4
-     */
-    MEDIUM_JUNGLE_4(9018, 9015, 32.toByte()),
-
-    /**
-     * Dense Jungle 1
-     *
-     * @constructor Create empty Medium Jungle 2
-     */
-    DENSE_JUNGLE_1(9020, 9020, 33.toByte()),
-
-    /**
-     * Dense Jungle 2
-     *
-     * @constructor Create empty Dense Jungle 1
-     */
-
-    DENSE_JUNGLE_2(9021, 9020, 33.toByte()),
-
-    /**
-     * Dense Jungle 3
-     *
-     * @constructor Create empty Dense Jungle 2
-     */
-    DENSE_JUNGLE_3(9022, 9020, 33.toByte()),
-
-    /**
-     * Dense Jungle 4
-     *
-     * @constructor Create empty Dense Jungle 3
-     */
-    DENSE_JUNGLE_4(9023, 9020, 33.toByte());
+    STANDARD_TREE_1(
+        full = 1276,
+        empty = 1342,
+        identifier = 1.toByte()
+    ),
+    STANDARD_TREE_2(
+        full = 1277,
+        empty = 1343,
+        identifier = 1.toByte()
+    ),
+    STANDARD_TREE_3(
+        full = 1278,
+        empty = 1342,
+        identifier = 1.toByte()
+    ),
+    STANDARD_TREE_4(
+        full = 1279,
+        empty = 1345,
+        identifier = 1.toByte()
+    ),
+    STANDARD_TREE_5(
+        full = 1280,
+        empty = 1343,
+        identifier = 1.toByte()
+    ),
+    STANDARD_TREE_6(
+        full = 1330,
+        empty = 1341,
+        identifier = 1.toByte()
+    ),
+    STANDARD_TREE_7(
+        full = 1331,
+        empty = 1341,
+        identifier = 1.toByte()
+    ),
+    STANDARD_TREE_8(
+        full = 1332,
+        empty = 1341,
+        identifier = 1.toByte()
+    ),
+    STANDARD_TREE_9(
+        full = 2409,
+        empty = 1342,
+        identifier = 1.toByte()
+    ),
+    STANDARD_TREE_10(
+        full = 3033,
+        empty = 1345,
+        identifier = 1.toByte()
+    ),
+    STANDARD_TREE_11(
+        full = 3034,
+        empty = 1345,
+        identifier = 1.toByte()
+    ),
+    STANDARD_TREE_12(
+        full = 3035,
+        empty = 1347,
+        identifier = 1.toByte()
+    ),
+    STANDARD_TREE_13(
+        full = 3036,
+        empty = 1351,
+        identifier = 1.toByte()
+    ),
+    STANDARD_TREE_14(
+        full = 3879,
+        empty = 3880,
+        identifier = 1.toByte()
+    ),
+    STANDARD_TREE_15(
+        full = 3881,
+        empty = 3880,
+        identifier = 1.toByte()
+    ),
+    STANDARD_TREE_16(
+        full = 3882,
+        empty = 3880,
+        identifier = 1.toByte()
+    ),
+    STANDARD_TREE_17(
+        full = 3883,
+        empty = 3884,
+        identifier = 1.toByte()
+    ),
+    STANDARD_TREE_18(
+        full = 10041,
+        empty = 1342,
+        identifier = 1.toByte()
+    ),
+    STANDARD_TREE_19(
+        full = 14308,
+        empty = 1342,
+        identifier = 1.toByte()
+    ),
+    STANDARD_TREE_20(
+        full = 14309,
+        empty = 1342,
+        identifier = 1.toByte()
+    ),
+    STANDARD_TREE_21(
+        full = 16264,
+        empty = 1342,
+        identifier = 1.toByte()
+    ),
+    STANDARD_TREE_22(
+        full = 16265,
+        empty = 1342,
+        identifier = 1.toByte()
+    ),
+    STANDARD_TREE_23(
+        full = 30132,
+        empty = 1342,
+        identifier = 1.toByte()
+    ),
+    STANDARD_TREE_24(
+        full = 30133,
+        empty = 1342,
+        identifier = 1.toByte()
+    ),
+    STANDARD_TREE_25(
+        full = 37477,
+        empty = 1342,
+        identifier = 1.toByte()
+    ),
+    STANDARD_TREE_26(
+        full = 37478,
+        empty = 37653,
+        identifier = 1.toByte()
+    ),
+    STANDARD_TREE_27(
+        full = 37652,
+        empty = 37653,
+        identifier = 1.toByte()
+    ),
+    DEAD_TREE_1(
+        full = 1282,
+        empty = 1347,
+        identifier = 2.toByte()
+    ),
+    DEAD_TREE_2(
+        full = 1283,
+        empty = 1347,
+        identifier = 2.toByte()
+    ),
+    DEAD_TREE_3(
+        full = 1284,
+        empty = 1348,
+        identifier = 2.toByte()
+    ),
+    DEAD_TREE_4(
+        full = 1285,
+        empty = 1349,
+        identifier = 2.toByte()
+    ),
+    DEAD_TREE_5(
+        full = 1286,
+        empty = 1351,
+        identifier = 2.toByte()
+    ),
+    DEAD_TREE_6(
+        full = 1289,
+        empty = 1353,
+        identifier = 2.toByte()
+    ),
+    DEAD_TREE_7(
+        full = 1290,
+        empty = 1354,
+        identifier = 2.toByte()
+    ),
+    DEAD_TREE_8(
+        full = 1291,
+        empty = 23054,
+        identifier = 2.toByte()
+    ),
+    DEAD_TREE_9(
+        full = 1365,
+        empty = 1352,
+        identifier = 2.toByte()
+    ),
+    DEAD_TREE_10(
+        full = 1383,
+        empty = 1358,
+        identifier = 2.toByte()
+    ),
+    DEAD_TREE_11(
+        full = 1384,
+        empty = 1359,
+        identifier = 2.toByte()
+    ),
+    DEAD_TREE_12(
+        full = 5902,
+        empty = 1347,
+        identifier = 2.toByte()
+    ),
+    DEAD_TREE_13(
+        full = 5903,
+        empty = 1353,
+        identifier = 2.toByte()
+    ),
+    DEAD_TREE_14(
+        full = 5904,
+        empty = 1353,
+        identifier = 2.toByte()
+    ),
+    DEAD_TREE_15(
+        full = 32294,
+        empty = 1353,
+        identifier = 2.toByte()
+    ),
+    DEAD_TREE_16(
+        full = 37481,
+        empty = 1347,
+        identifier = 2.toByte()
+    ),
+    DEAD_TREE_17(
+        full = 37482,
+        empty = 1351,
+        identifier = 2.toByte()
+    ),
+    DEAD_TREE_18(
+        full = 37483,
+        empty = 1358,
+        identifier = 2.toByte()
+    ),
+    DEAD_TREE_19(
+        full = 24168,
+        empty = 24169,
+        identifier = 2.toByte()
+    ),
+    EVERGREEN_1(
+        full = 1315,
+        empty = 1342,
+        identifier = 3.toByte()
+    ),
+    EVERGREEN_2(
+        full = 1316,
+        empty = 1355,
+        identifier = 3.toByte()
+    ),
+    EVERGREEN_3(
+        full = 1318,
+        empty = 1355,
+        identifier = 3.toByte()
+    ),
+    EVERGREEN_4(
+        full = 1319,
+        empty = 1355,
+        identifier = 3.toByte()
+    ),
+    JUNGLE_TREE_1(
+        full = 2887,
+        empty = 0,
+        identifier = 4.toByte()
+    ),
+    JUNGLE_TREE_2(
+        full = 2889,
+        empty = 0,
+        identifier = 4.toByte()
+    ),
+    JUNGLE_TREE_3(
+        full = 2890,
+        empty = 0,
+        identifier = 4.toByte()
+    ),
+    JUNGLE_TREE_4(
+        full = 4818,
+        empty = 0,
+        identifier = 4.toByte()
+    ),
+    JUNGLE_TREE_5(
+        full = 4820,
+        empty = 0,
+        identifier = 4.toByte()
+    ),
+    JUNGLE_BUSH_1(
+        full = 2892,
+        empty = 2894,
+        identifier = 5.toByte()
+    ),
+    JUNGLE_BUSH_2(
+        full = 2893,
+        empty = 2895,
+        identifier = 5.toByte()
+    ),
+    ACHEY_TREE(
+        full = 2023,
+        empty = 3371,
+        identifier = 6.toByte()
+    ),
+    OAK_TREE_1(
+        full = 1281,
+        empty = 1356,
+        identifier = 7.toByte()
+    ),
+    OAK_TREE_2(
+        full = 3037,
+        empty = 1357,
+        identifier = 7.toByte()
+    ),
+    OAK_TREE_3(
+        full = 37479,
+        empty = 1356,
+        identifier = 7.toByte()
+    ),
+    OAK_TREE_4(
+        full = 8467,
+        empty = 1356,
+        identifier = 19.toByte(),
+        farming = true
+    ),
+    WILLOW_TREE_1(
+        full = 1308,
+        empty = 7399,
+        identifier = 8.toByte()
+    ),
+    WILLOW_TREE_2(
+        full = 5551,
+        empty = 5554,
+        identifier = 8.toByte()
+    ),
+    WILLOW_TREE_3(
+        full = 5552,
+        empty = 5554,
+        identifier = 8.toByte()
+    ),
+    WILLOW_TREE_4(
+        full = 5553,
+        empty = 5554,
+        identifier = 8.toByte()
+    ),
+    WILLOW_TREE_5(
+        full = 37480,
+        empty = 7399,
+        identifier = 8.toByte()
+    ),
+    WILLOW_TREE_6(
+        full = 8488,
+        empty = 7399,
+        identifier = 20.toByte(),
+        farming = true
+    ),
+    TEAK_1(
+        full = 9036,
+        empty = 9037,
+        identifier = 9.toByte()
+    ),
+    TEAK_2(
+        full = 15062,
+        empty = 9037,
+        identifier = 9.toByte()
+    ),
+    MAPLE_TREE_1(
+        full = 1307,
+        empty = 7400,
+        identifier = 10.toByte()
+    ),
+    MAPLE_TREE_2(
+        full = 4674,
+        empty = 7400,
+        identifier = 10.toByte()
+    ),
+    MAPLE_TREE_3(
+        full = 8444,
+        empty = 7400,
+        identifier = 21.toByte(),
+        farming = true
+    ),
+    HOLLOW_TREE_1(
+        full = 2289,
+        empty = 2310,
+        identifier = 11.toByte()
+    ),
+    HOLLOW_TREE_2(
+        full = 4060,
+        empty = 4061,
+        identifier = 11.toByte()
+    ),
+    MAHOGANY(
+        full = 9034,
+        empty = 9035,
+        identifier = 12.toByte()
+    ),
+    SWAYING_TREE(
+        full = 4142,
+        empty = -1,
+        identifier = 30.toByte()
+    ),
+    ARCTIC_PINE(
+        full = 21273,
+        empty = 21274,
+        identifier = 13.toByte()
+    ),
+    EUCALYPTUS_1(
+        full = 28951,
+        empty = 28954,
+        identifier = 14.toByte()
+    ),
+    EUCALYPTUS_2(
+        full = 28952,
+        empty = 28955,
+        identifier = 14.toByte()
+    ),
+    EUCALYPTUS_3(
+        full = 28953,
+        empty = 28956,
+        identifier = 14.toByte()
+    ),
+    YEW(
+        full = 1309,
+        empty = 7402,
+        identifier = 15.toByte()
+    ),
+    YEW_1(
+        full = 8513,
+        empty = 7402,
+        identifier = 22.toByte(),
+        farming = true
+    ),
+    MAGIC_TREE_1(
+        full = 1306,
+        empty = 7401,
+        identifier = 16.toByte()
+    ),
+    MAGIC_TREE_2(
+        full = 37823,
+        empty = 37824,
+        identifier = 16.toByte()
+    ),
+    MAGIC_TREE_3(
+        full = 8409,
+        empty = 37824,
+        identifier = 23.toByte(),
+        farming = true
+    ),
+    CURSED_MAGIC_TREE(
+        full = 37821,
+        empty = 37822,
+        identifier = 17.toByte()
+    ),
+    DRAMEN_TREE(
+        full = 1292,
+        empty = -1,
+        identifier = 18.toByte()
+    ),
+    WINDSWEPT_TREE(
+        full = 18137,
+        empty = 1353,
+        identifier = 19.toByte()
+    ),
+    LIGHT_JUNGLE_1(
+        full = 9010,
+        empty = 9010,
+        identifier = 31.toByte()
+    ),
+    LIGHT_JUNGLE_2(
+        full = 9011,
+        empty = 9010,
+        identifier = 31.toByte()
+    ),
+    LIGHT_JUNGLE_3(
+        full = 9012,
+        empty = 9010,
+        identifier = 31.toByte()
+    ),
+    LIGHT_JUNGLE_4(
+        full = 9013,
+        empty = 9010,
+        identifier = 31.toByte()
+    ),
+    MEDIUM_JUNGLE_1(
+        full = 9015,
+        empty = 9015,
+        identifier = 32.toByte()
+    ),
+    MEDIUM_JUNGLE_2(
+        full = 9016,
+        empty = 9015,
+        identifier = 32.toByte()
+    ),
+    MEDIUM_JUNGLE_3(
+        full = 9017,
+        empty = 9015,
+        identifier = 32.toByte()
+    ),
+    MEDIUM_JUNGLE_4(
+        full = 9018,
+        empty = 9015,
+        identifier = 32.toByte()
+    ),
+    DENSE_JUNGLE_1(
+        full = 9020,
+        empty = 9020,
+        identifier = 33.toByte()
+    ),
+    DENSE_JUNGLE_2(
+        full = 9021,
+        empty = 9020,
+        identifier = 33.toByte()
+    ),
+    DENSE_JUNGLE_3(
+        full = 9022,
+        empty = 9020,
+        identifier = 33.toByte()
+    ),
+    DENSE_JUNGLE_4(
+        full = 9023,
+        empty = 9020,
+        identifier = 33.toByte()
+    );
 
     var id: Int
     var emptyId: Int
@@ -726,17 +526,14 @@ enum class WoodcuttingNode {
 
     @JvmField
     var level: Int = 0
-
     var rewardAmount: Int = 0
 
     @JvmField
     var experience: Double = 0.0
-
     var rate: Double = 0.0
 
     @JvmField
     var identifier: Byte
-
     var isFarming: Boolean
 
     @JvmField
@@ -960,8 +757,6 @@ enum class WoodcuttingNode {
                 level = 40
                 rewardAmount = Int.MAX_VALUE
             }
-
-
         }
     }
 
@@ -1016,12 +811,12 @@ enum class WoodcuttingNode {
                 rewardAmount = 50
             }
 
-            31 -> { // Just some initial values for testing
-                reward = 6281 // This should be correct
+            31 -> {
+                reward = 6281
                 respawnRate = 200 or (317 shl 16)
                 rate = 0.2
-                experience = 32.0 // This should be correct
-                level = 10 // This should be correct
+                experience = 32.0
+                level = 10
                 rewardAmount = 50
                 baseLow = 0.0
                 baseHigh = 9.5
@@ -1029,12 +824,12 @@ enum class WoodcuttingNode {
                 tierModHigh = 0.25
             }
 
-            32 -> { // Just some initial values for testing
-                reward = 6283 // This should be correct
+            32 -> {
+                reward = 6283
                 respawnRate = 200 or (317 shl 16)
                 rate = 0.2
-                experience = 55.0 // This should be correct
-                level = 20 // This should be correct
+                experience = 55.0
+                level = 20
                 rewardAmount = 50
                 baseLow = 0.0
                 baseHigh = 8.0
@@ -1042,12 +837,12 @@ enum class WoodcuttingNode {
                 tierModHigh = 0.25
             }
 
-            33 -> { // Just some initial values for testing
-                reward = 6285 // This should be correct
+            33 -> {
+                reward = 6285
                 respawnRate = 200 or (317 shl 16)
                 rate = 0.2
-                experience = 80.0 // This should be correct
-                level = 35 // This should be correct
+                experience = 80.0
+                level = 35
                 rewardAmount = 50
                 baseLow = 0.0
                 baseHigh = 6.0
@@ -1057,53 +852,36 @@ enum class WoodcuttingNode {
         }
     }
 
-    // Property to get the minimum respawn time by applying a bitwise AND operation with 0xFFFF
     val minimumRespawn: Int
         get() = respawnRate and 0xFFFF
-
-    // Property to get the maximum respawn time by shifting respawnRate 16 bits to the right and applying a bitwise AND operation with 0xFFFF
     val maximumRespawn: Int
         get() = (respawnRate shr 16) and 0xFFFF
-
-    // Property to calculate the respawn duration based on minimum and maximum respawn times and the player ratio
     val respawnDuration: Int
         get() {
-            // Calculate minimum respawn time
             val minimum = respawnRate and 0xFFFF
-            // Calculate maximum respawn time
             val maximum = (respawnRate shr 16) and 0xFFFF
-            // Calculate the ratio of maximum players to current players
             val playerRatio = Configuration.MAX_PLAYERS.toDouble() / players.size
-            // Return the calculated respawn duration as an integer
             return (minimum + ((maximum - minimum) / playerRatio)).toInt()
         }
 
     companion object {
-        // HashMap to store WoodcuttingNode instances by their IDs
         private val NODE_MAP = HashMap<Int, WoodcuttingNode>()
-        // HashMap to store empty node IDs and their corresponding node IDs
         private val EMPTY_MAP = HashMap<Int, Int?>()
 
-        // Initialization block to populate NODE_MAP and EMPTY_MAP with node data
         init {
             for (node in values()) {
-                // Add node to NODE_MAP if it is not already present
                 NODE_MAP.putIfAbsent(node.id, node)
-                // Add empty node ID to EMPTY_MAP if it is not already present
                 EMPTY_MAP.putIfAbsent(node.emptyId, node.id)
             }
         }
 
-        // Static method to retrieve a WoodcuttingNode by its ID
         @JvmStatic
         fun forId(id: Int): WoodcuttingNode? {
             return NODE_MAP[id] as WoodcuttingNode
         }
 
-        // Function to check if a node ID corresponds to an empty node
         fun isEmpty(id: Int): Boolean {
             return EMPTY_MAP[id] != null
         }
     }
-
 }

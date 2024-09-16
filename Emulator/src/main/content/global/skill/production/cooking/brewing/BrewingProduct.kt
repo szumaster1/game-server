@@ -5,12 +5,7 @@ import core.game.node.item.Item
 import java.util.*
 
 /**
- * Brewing Products
- *
- * @param level The level of the brewing product, represented as an integer.
- * @param experience The experience points gained from brewing this product, represented as a double.
- * @param product The item produced by brewing, represented as an instance of the Item class.
- * @param inputs An array of items required for brewing this product.
+ * Represents the brewing products.
  */
 enum class BrewingProduct(
     val level: Int,

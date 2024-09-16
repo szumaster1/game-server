@@ -61,15 +61,12 @@ class PouchManager(val player: Player) {
                 Items.MEDIUM_POUCH_5510 -> 1
                 Items.LARGE_POUCH_5512 -> 2
                 Items.GIANT_POUCH_5514 -> 3
-                else /*small pouch*/ -> 0
+                else -> 0
             }
             if (pouch.currentCap <= 0) {
-                // The pouch will disappear: https://runescape.wiki/w/Runecrafting_pouches?oldid=708494, https://oldschool.runescape.wiki/w/Essence_pouch
-                // "Degraded pouches will continue to degrade and lose essence capacity until they disappear or are repaired." implies that this is the end result of a gradual decay process
                 if (removeItem(player, itemId)) {
                     disappeared = true
                     sendMessage(player, "Your pouch has degraded completely.")
-                    // Reset the pouch for when the player obtains a new one
                     pouch.currentCap = pouch.capacity
                     pouch.charges = pouch.maxCharges
                     pouch.remakeContainer()
@@ -79,9 +76,8 @@ class PouchManager(val player: Player) {
                     val slot = player.inventory.getSlot(Item(itemId))
                     replaceSlot(player, slot, Item(itemId + 1))
                 }
-                sendMessage(player, "Your pouch has decayed through use.") //https://www.youtube.com/watch?v=FUcPYrgPUlQ
-                pouch.charges =
-                    9 * pouch.currentCap //implied by multiple contemporaneous sources, quantified only by https://oldschool.runescape.wiki/w/Large_pouch
+                sendMessage(player, "Your pouch has decayed through use.")
+                pouch.charges = 9 * pouch.currentCap
                 pouch.remakeContainer()
                 if (amt > pouch.currentCap) {
                     amt = pouch.currentCap

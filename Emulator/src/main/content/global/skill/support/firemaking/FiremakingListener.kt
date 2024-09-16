@@ -21,19 +21,28 @@ class FiremakingListener : InteractionListener {
 
     override fun defineListeners() {
 
-        // Handling fire logs from inventory.
+        /*
+         * Handling fire logs from inventory.
+         */
+
         onUseWith(IntType.ITEM, Items.TINDERBOX_590, *logs) { player, _, with ->
             player.pulseManager.run(FireMakingPulse(player, with.asItem(), null))
             return@onUseWith true
         }
 
-        // Handling fire logs from ground.
+        /*
+         * Handling fire logs from ground.
+         */
+
         onUseWith(IntType.GROUNDITEM, Items.TINDERBOX_590, *logs) { player, _, with ->
             player.pulseManager.run(FireMakingPulse(player, with.asItem(), with as GroundItem))
             return@onUseWith true
         }
 
-        // Handling the gnomish firelighters.
+        /*
+         * Handling the gnomish firelighters.
+         */
+
         onUseWith(IntType.ITEM, log, *firelighter) { player, used, with ->
             var firelighter = GnomishFirelighters.forProduct(with.id)
             if (with.asItem().id == firelighter!!.product || used.id == firelighter.base) {

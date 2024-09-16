@@ -1,6 +1,10 @@
 package content.global.skill.production.crafting.data
 
 import content.global.skill.production.crafting.item.JewelleryCraftPulse
+import core.api.closeInterface
+import core.api.getStatLevel
+import core.api.sendMessage
+import core.api.submitIndividualPulse
 import core.cache.def.impl.ItemDefinition
 import core.game.component.Component
 import core.game.node.entity.player.Player
@@ -115,19 +119,19 @@ object Jewellery {
             }
         }
         if (length != data.items.size) {
-            player.packetDispatch.sendMessage("You don't have the required items to make this item.")
+            sendMessage(player, "You don't have the required items to make this item.")
             return
         }
-        if (player.getSkills().getLevel(Skills.CRAFTING) < data.level) {
-            player.packetDispatch.sendMessage("You need a crafting level of " + data.level + " to craft this.")
+        if (getStatLevel(player, Skills.CRAFTING) < data.level) {
+            sendMessage(player, "You need a crafting level of " + data.level + " to craft this.")
             return
         }
         val items = arrayOfNulls<Item>(data.items.size)
         for ((index, i) in data.items.indices.withIndex()) {
             items[index] = Item(data.items[i], 1 * amount)
         }
-        player.interfaceManager.close()
-        player.pulseManager.run(JewelleryCraftPulse(player, null, data, amount))
+        closeInterface(player)
+        submitIndividualPulse(player, JewelleryCraftPulse(player, null, data, amount))
     }
 
     private fun mouldFor(name: String): Int {

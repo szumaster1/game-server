@@ -97,38 +97,21 @@ class WeaveOptionHandler : OptionHandler() {
     }
 
     /**
-     * Weaving item
-     *
-     * @param product The item that is produced through weaving.
-     * @param required The item that is needed to create the weaving product.
-     * @param level The skill level required to weave the item.
-     * @param experience The amount of experience gained from weaving the item.
-     * @constructor Weaving item
+     * Represents the weave items.
      */
     enum class WeavingItem(val product: Item, val required: Item, val level: Int, val experience: Double) {
-        /**
-         * Sack.
-         */
         SACK(
             product = Item(Items.EMPTY_SACK_5418),
             required = Item(Items.JUTE_FIBRE_5931, 4),
             level = 21,
             experience = 38.0
         ),
-
-        /**
-         * Basket.
-         */
         BASKET(
             product = Item(Items.BASKET_5376),
             required = Item(Items.WILLOW_BRANCH_5933, 6),
             level = 36,
             experience = 56.0
         ),
-
-        /**
-         * Cloth.
-         */
         CLOTH(
             product = Item(Items.STRIP_OF_CLOTH_3224),
             required = Item(Items.BALL_OF_WOOL_1759, 4),

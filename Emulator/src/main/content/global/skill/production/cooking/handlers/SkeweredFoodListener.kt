@@ -33,43 +33,28 @@ class SkeweredFoodListener : InteractionListener {
 }
 
 /**
- * Skewered set
- *
- * @param raw
- * @param product
- * @constructor Skewered set
+ * Represents the skewered set.
  */
 enum class SkeweredSet(val raw: Item, val product: Item) {
-    /**
-     * Chompy.
-     */
-    CHOMPY(raw = Item(Items.RAW_CHOMPY_2876), product = Item(Items.SKEWERED_CHOMPY_7230)),
-
-    /**
-     * Rabbit.
-     */
-    RABBIT(raw = Item(Items.RAW_RABBIT_3226), product = Item(Items.SKEWERED_RABBIT_7224)),
-
-    /**
-     * Bird.
-     */
-    BIRD(raw = Item(Items.RAW_BIRD_MEAT_9978), product = Item(Items.SKEWERED_BIRD_MEAT_9984)),
-
-    /**
-     * Beast.
-     */
-    BEAST(raw = Item(Items.RAW_BEAST_MEAT_9986), product = Item(Items.SKEWERED_BEAST_9992));
-
+    CHOMPY(
+        raw = Item(Items.RAW_CHOMPY_2876),
+        product = Item(Items.SKEWERED_CHOMPY_7230)
+    ),
+    RABBIT(
+        raw = Item(Items.RAW_RABBIT_3226),
+        product = Item(Items.SKEWERED_RABBIT_7224)
+    ),
+    BIRD(
+        raw = Item(Items.RAW_BIRD_MEAT_9978),
+        product = Item(Items.SKEWERED_BIRD_MEAT_9984)
+    ),
+    BEAST(
+        raw = Item(Items.RAW_BEAST_MEAT_9986),
+        product = Item(Items.SKEWERED_BEAST_9992)
+    );
 
     companion object {
         @JvmStatic
-        fun forItem(item: Item): SkeweredSet? {
-            for (set in values()) {
-                if (set.raw.id == item.id) {
-                    return set
-                }
-            }
-            return null
-        }
+        fun forItem(item: Item): SkeweredSet? = values().find { it.raw.id == item.id }
     }
 }

@@ -12,14 +12,7 @@ import core.game.node.item.Item
 import java.util.*
 
 /**
- * Rune pouch
- *
- * @param pouch Represents the item contained in the rune pouch.
- * @param level Indicates the required level to use the rune pouch.
- * @param capacity Defines the maximum number of runes the pouch can hold.
- * @param cumulativeCapacity Represents the total capacity of the pouch over time.
- * @param uses Specifies how many times the pouch can be used.
- * @constructor Rune pouch Represents a new instance of the RunePouch enum class.
+ * Represents the rune pouch.
  */
 enum class RunePouch(
     val pouch: Item,
@@ -28,25 +21,34 @@ enum class RunePouch(
     val cumulativeCapacity: Int,
     val uses: Int
 ) {
-    /**
-     * Small pouch.
-     */
-    SMALL(Item(Items.SMALL_POUCH_5509), 1, 3, 3, 0),
-
-    /**
-     * Medium pouch.
-     */
-    MEDIUM(Item(Items.MEDIUM_POUCH_5510), 25, 6, 9, 45),
-
-    /**
-     * Large pouch.
-     */
-    LARGE(Item(Items.LARGE_POUCH_5512), 50, 9, 18, 29),
-
-    /**
-     * Giant pouch.
-     */
-    GIANT(Item(Items.GIANT_POUCH_5514), 75, 12, 30, 10);
+    SMALL(
+        pouch = Item(Items.SMALL_POUCH_5509),
+        level = 1,
+        capacity = 3,
+        cumulativeCapacity = 3,
+        uses = 0
+    ),
+    MEDIUM(
+        pouch = Item(Items.MEDIUM_POUCH_5510),
+        level = 25,
+        capacity = 6,
+        cumulativeCapacity = 9,
+        uses = 45
+    ),
+    LARGE(
+        pouch = Item(Items.LARGE_POUCH_5512),
+        level = 50,
+        capacity = 9,
+        cumulativeCapacity = 18,
+        uses = 29
+    ),
+    GIANT(
+        pouch = Item(Items.GIANT_POUCH_5514),
+        level = 75,
+        capacity = 12,
+        cumulativeCapacity = 30,
+        uses = 10
+    );
 
     val decayedPouch = Item(pouch.id + 1)
 

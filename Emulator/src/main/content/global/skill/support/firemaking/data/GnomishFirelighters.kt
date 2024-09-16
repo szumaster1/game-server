@@ -3,55 +3,16 @@ package content.global.skill.support.firemaking.data
 import cfg.consts.Items
 
 /**
- * Gnomish firelighters
- *
- * @param base The base item ID for the firelighter.
- * @param product The product item ID associated with the firelighter.
- * @return An instance of GnomishFirelighters.
+ * Represents the gnomish firelighters.
  */
 enum class GnomishFirelighters(val base: Int, val product: Int) {
-    /**
-     * Red firelighter
-     *
-     * @return init the red firelighter with its associated log.
-     */
     RED(Items.RED_FIRELIGHTER_7329, Items.RED_LOGS_7404),
-
-    /**
-     * Green firelighter
-     *
-     * @return init the green firelighter with its associated log.
-     */
     GREEN(Items.GREEN_FIRELIGHTER_7330, Items.GREEN_LOGS_7405),
-
-    /**
-     * Blue firelighter
-     *
-     * @return init the blue firelighter with its associated log.
-     */
     BLUE(Items.BLUE_FIRELIGHTER_7331, Items.BLUE_LOGS_7406),
-
-    /**
-     * Purple firelighter
-     *
-     * @return init the purple firelighter with its associated log.
-     */
     PURPLE(Items.PURPLE_FIRELIGHTER_10326, Items.PURPLE_LOGS_10329),
-
-    /**
-     * White firelighter
-     *
-     * @return init the white firelighter with its associated log.
-     */
     WHITE(Items.WHITE_FIRELIGHTER_10327, Items.WHITE_LOGS_10328);
 
     companion object {
-        /**
-         * Finds a Gnomish firelighter by its product ID.
-         *
-         * @param product The product ID to search for.
-         * @return The corresponding GnomishFirelighter or null if not found.
-         */
         fun forProduct(product: Int): GnomishFirelighters? = values().find { it.base == product }
     }
 }

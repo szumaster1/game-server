@@ -274,12 +274,19 @@ class ModernListeners : SpellListener("modern") {
             return
         }
 
-        var bar = Bar.forOre(item.id) ?: return
-        if (bar == Bar.IRON && player.inventory.getAmount(Items.COAL_453) >= 2 && player.skills.getLevel(Skills.SMITHING) >= Bar.STEEL.level && player.inventory.contains(
-                Items.IRON_ORE_441,
-                1
-            )
-        ) bar = Bar.STEEL
+        fun returnBar(player: Player, item: Item): Bar? {
+            for (potentialBar in Bar.values().reversed()) {
+                val inputOreInBar = potentialBar.ores.map { it.id }.contains(item.id)
+                val playerHasNecessaryOres = potentialBar.ores.all { ore -> inInventory(player, ore.id, ore.amount) }
+                if (inputOreInBar && playerHasNecessaryOres) return potentialBar
+            }
+            sendMessage(player, "You do not have the required ores to make this bar.")
+            return null
+        }
+
+        var bar = returnBar(player, item) ?: return
+
+        if (bar == Bar.IRON && player.inventory.getAmount(Items.COAL_453) >= 2 && player.skills.getLevel(Skills.SMITHING) >= Bar.STEEL.level && player.inventory.contains(Items.IRON_ORE_441, 1)) bar = Bar.STEEL
 
         if (getStatLevel(player, Skills.SMITHING) < bar.level) {
             sendMessage(player, "You need a smithing level of ${bar.level} to superheat that ore.")
@@ -312,14 +319,8 @@ class ModernListeners : SpellListener("modern") {
      * @return Boolean value indicating the success of alchemizing the item.
      */
     fun alchemize(player: Player, item: Item, high: Boolean, explorersRing: Boolean = false): Boolean {
-        if (item.name == "Coins") sendMessage(
-            player,
-            "You can't alchemize something that's already gold!"
-        ).also { return false }
-        if ((!item.definition.isTradeable) && (!item.definition.isAlchemizable)) sendMessage(
-            player,
-            "You can't cast this spell on something like that."
-        ).also { return false }
+        if (item.name == "Coins") sendMessage(player, "You can't alchemize something that's already gold!").also { return false }
+        if ((!item.definition.isTradeable) && (!item.definition.isAlchemizable)) sendMessage(player, "You can't cast this spell on something like that.").also { return false }
 
         if (player.zoneMonitor.isInZone("Alchemists' Playground")) {
             sendMessage(player, "You can only alch items from the cupboards!")
@@ -336,23 +337,15 @@ class ModernListeners : SpellListener("modern") {
             player.pulseManager.clear()
         }
 
+        val staves = intArrayOf(Items.STAFF_OF_FIRE_1387, Items.FIRE_BATTLESTAFF_1393, Items.MYSTIC_FIRE_STAFF_1401, Items.LAVA_BATTLESTAFF_3053, Items.MYSTIC_LAVA_STAFF_3054, Items.STEAM_BATTLESTAFF_11736, Items.MYSTIC_STEAM_STAFF_11738)
+
         if (explorersRing) {
             visualize(entity = player, anim = LOW_ALCH_ANIM, gfx = EXPLORERS_RING_GFX)
         } else {
-
-            val staves = intArrayOf(Items.STAFF_OF_FIRE_1387, Items.FIRE_BATTLESTAFF_1393, Items.MYSTIC_FIRE_STAFF_1401, Items.LAVA_BATTLESTAFF_3053, Items.MYSTIC_LAVA_STAFF_3054, Items.STEAM_BATTLESTAFF_11736, Items.MYSTIC_STEAM_STAFF_11738)
             if (anyInEquipment(player, *staves)) {
-                visualize(
-                    entity = player,
-                    anim = if (high) HIGH_ALCH_STAFF_ANIM else LOW_ALCH_STAFF_ANIM,
-                    gfx = if (high) HIGH_ALCH_STAFF_GFX else LOW_ALCH_STAFF_GFX
-                )
+                visualize(entity = player, anim = if (high) HIGH_ALCH_STAFF_ANIM else LOW_ALCH_STAFF_ANIM, gfx = if (high) HIGH_ALCH_STAFF_GFX else LOW_ALCH_STAFF_GFX)
             } else {
-                visualize(
-                    entity = player,
-                    anim = if (high) HIGH_ALCH_ANIM else LOW_ALCH_ANIM,
-                    gfx = if (high) HIGH_ALCH_GFX else LOW_ALCH_GFX
-                )
+                visualize(entity = player, anim = if (high) HIGH_ALCH_ANIM else LOW_ALCH_ANIM, gfx = if (high) HIGH_ALCH_GFX else LOW_ALCH_GFX)
             }
         }
         playAudio(player, if (high) Sounds.HIGH_ALCHEMY_97 else Sounds.LOW_ALCHEMY_98)
@@ -419,8 +412,8 @@ class ModernListeners : SpellListener("modern") {
         setDelay(player, true)
         submitWorldPulse(object : Pulse(4) {
             override fun pulse(): Boolean {
-                PacketRepository.send(MinimapState::class.java, MinimapStateContext(player, 2))
-                player.interfaceManager.openComponent(Components.POH_HOUSE_LOADING_SCREEN_399)
+                setMinimapState(player, 2)
+                openInterface(player, Components.POH_HOUSE_LOADING_SCREEN_399)
                 player.houseManager.postEnter(player, false)
                 return true
             }

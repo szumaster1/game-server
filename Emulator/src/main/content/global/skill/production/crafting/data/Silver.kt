@@ -15,143 +15,102 @@ private const val BUTTON_CROSSBOW_BOLTS = 66
 /**
  * Represents the silver items.
  */
-enum class Silver(val buttonId: Int, val requiredItemId: Int, val producedItemId: Int, val amountProduced: Int, val minimumLevel: Int, val xpReward: Double, val strungId: Int) {
-    /**
-     * The holy symbol.
-     */
+enum class Silver(
+    val buttonId: Int,
+    val required: Int,
+    val product: Int,
+    val amount: Int,
+    val level: Int,
+    val experience: Double,
+    val strung: Int)
+{
     HOLY(
         buttonId = BUTTON_UNBLESSED,
-        requiredItemId = Items.HOLY_MOULD_1599,
-        producedItemId = Items.UNSTRUNG_SYMBOL_1714,
-        amountProduced = 1,
-        minimumLevel = 16,
-        xpReward = 50.0,
-        strungId = Items.UNBLESSED_SYMBOL_1716
+        required = Items.HOLY_MOULD_1599,
+        product = Items.UNSTRUNG_SYMBOL_1714,
+        amount = 1,
+        level = 16,
+        experience = 50.0,
+        strung = Items.UNBLESSED_SYMBOL_1716
     ),
-
-    /**
-     * The unholy symbol.
-     */
     UNHOLY(
         buttonId = BUTTON_UNHOLY,
-        requiredItemId = Items.UNHOLY_MOULD_1594,
-        producedItemId = Items.UNSTRUNG_EMBLEM_1720,
-        amountProduced = 1,
-        minimumLevel = 17,
-        xpReward = 50.0,
-        strungId = Items.UNHOLY_SYMBOL_1724
+        required = Items.UNHOLY_MOULD_1594,
+        product = Items.UNSTRUNG_EMBLEM_1720,
+        amount = 1,
+        level = 17,
+        experience = 50.0,
+        strung = Items.UNHOLY_SYMBOL_1724
     ),
-
-    /**
-     * The silver sickle
-     */
     SICKLE(
         buttonId = BUTTON_SICKLE,
-        requiredItemId = Items.SICKLE_MOULD_2976,
-        producedItemId = Items.SILVER_SICKLE_2961,
-        amountProduced = 1,
-        minimumLevel = 18,
-        xpReward = 50.0,
-        strungId = -1
+        required = Items.SICKLE_MOULD_2976,
+        product = Items.SILVER_SICKLE_2961,
+        amount = 1,
+        level = 18,
+        experience = 50.0,
+        strung = -1
     ),
-
-    /**
-     * The tiara.
-     */
     TIARA(
         buttonId = BUTTON_TIARA,
-        requiredItemId = Items.TIARA_MOULD_5523,
-        producedItemId = Items.TIARA_5525,
-        amountProduced = 1,
-        minimumLevel = 23,
-        xpReward = 52.5,
-        strungId = -1
+        required = Items.TIARA_MOULD_5523,
+        product = Items.TIARA_5525,
+        amount = 1,
+        level = 23,
+        experience = 52.5,
+        strung = -1
     ),
-
-    /**
-     * The Silvthrill chain.
-     */
     SILVTHRIL_CHAIN(
         buttonId = BUTTON_SILVTHRIL_CHAIN,
-        requiredItemId = Items.CHAIN_LINK_MOULD_13153,
-        producedItemId = Items.SILVTHRIL_CHAIN_13154,
-        amountProduced = 1,
-        minimumLevel = 47,
-        xpReward = 100.0,
-        strungId = -1
+        required = Items.CHAIN_LINK_MOULD_13153,
+        product = Items.SILVTHRIL_CHAIN_13154,
+        amount = 1,
+        level = 47,
+        experience = 100.0,
+        strung = -1
     ),
-
-    /**
-     * The lightning rod.
-     */
     LIGHTNING_ROD(
         buttonId = BUTTON_LIGHTNING_ROD,
-        requiredItemId = Items.CONDUCTOR_MOULD_4200,
-        producedItemId = Items.CONDUCTOR_4201,
-        amountProduced = 1,
-        minimumLevel = 20,
-        xpReward = 50.0,
-        strungId = -1
+        required = Items.CONDUCTOR_MOULD_4200,
+        product = Items.CONDUCTOR_4201,
+        amount = 1,
+        level = 20,
+        experience = 50.0,
+        strung = -1
     ),
-
-    /**
-     * The Silvthrill rod.
-     */
     SILVTHRILL_ROD(
         buttonId = BUTTON_SILVTHRILL_ROD,
-        requiredItemId = Items.ROD_CLAY_MOULD_7649,
-        producedItemId = Items.SILVTHRILL_ROD_7637,
-        amountProduced = 1,
-        minimumLevel = 25,
-        xpReward = 55.0,
-        strungId = -1
+        required = Items.ROD_CLAY_MOULD_7649,
+        product = Items.SILVTHRILL_ROD_7637,
+        amount = 1,
+        level = 25,
+        experience = 55.0,
+        strung = -1
     ),
-
-    /**
-     * The silver bolt.
-     */
     CROSSBOW_BOLTS(
         buttonId = BUTTON_CROSSBOW_BOLTS,
-        requiredItemId = Items.BOLT_MOULD_9434,
-        producedItemId = Items.SILVER_BOLTS_UNF_9382,
-        amountProduced = 10,
-        minimumLevel = 21,
-        xpReward = 50.0,
-        strungId = -1
+        required = Items.BOLT_MOULD_9434,
+        product = Items.SILVER_BOLTS_UNF_9382,
+        amount = 10,
+        level = 21,
+        experience = 50.0,
+        strung = -1
     ),
-
-    /**
-     * The demonic sigil.
-     */
     DEMONIC_SIGIL(
         buttonId = BUTTON_DEMONIC_SIGIL,
-        requiredItemId = Items.DEMONIC_SIGIL_MOULD_6747,
-        producedItemId = Items.DEMONIC_SIGIL_6748,
-        amountProduced = 1,
-        minimumLevel = 30,
-        xpReward = 50.00,
-        strungId = -1
+        required = Items.DEMONIC_SIGIL_MOULD_6747,
+        product = Items.DEMONIC_SIGIL_6748,
+        amount = 1,
+        level = 30,
+        experience = 50.0,
+        strung = -1
     );
 
     companion object {
+        @JvmStatic
+        fun forId(itemId: Int): Silver? = values().find { it.required == itemId }
 
         @JvmStatic
-        fun forId(itemId: Int): Silver? {
-            for (product in Silver.values()) {
-                if (product.requiredItemId == itemId) {
-                    return product
-                }
-            }
-            return null
-        }
-        @JvmStatic
-        fun forButton(button: Int): Silver? {
-            for (soft in Silver.values()) {
-                if (soft.buttonId == button) {
-                    return soft
-                }
-            }
-            return null
-        }
+        fun forButton(button: Int): Silver? = values().find { it.buttonId == button }
     }
 }

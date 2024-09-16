@@ -55,7 +55,7 @@ class MysteriousRuinListeners : InteractionListener {
     private fun allRuins(): IntArray {
         return MysteriousRuin
             .values()
-            .flatMap { ruins -> ruins.`object`.asList() }
+            .flatMap { ruins -> ruins.objects.asList() }
             .toIntArray()
     }
 

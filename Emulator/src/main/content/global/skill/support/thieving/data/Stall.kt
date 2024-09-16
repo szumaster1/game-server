@@ -7,24 +7,16 @@ import core.tools.RandomFunction
 import java.util.*
 
 /**
- * Enum class representing a Stall with various properties and states.
- *
- * @param level The current level of the stall.
- * @param rewards An array of items that can be rewarded.
- * @param experience The experience points gained from the stall.
- * @param delay The time delay associated with the stall's operation.
- * @param message A message that can be displayed regarding the stall.
- * @param full An array representing the stall's full state.
- * @param empty An array representing the stall's empty state.
+ * Representing a stall with various properties and states.
  */
 enum class Stall(
-    full: Array<Int>, // Represents the stall's full state with an array of integers.
-    empty: Array<Int>, // Represents the stall's empty state with an array of integers.
-    var level: Int, // The current level of the stall, mutable to allow changes.
-    var rewards: Array<Item>, // An array of items that can be rewarded, mutable to allow updates.
-    var experience: Double, // The experience points gained from the stall, mutable for adjustments.
-    var delay: Int, // The time delay for stall operations, mutable to modify as needed.
-    var message: String // A message related to the stall's operation, mutable for flexibility.
+    full: Array<Int>,
+    empty: Array<Int>,
+    var level: Int,
+    var rewards: Array<Item>,
+    var experience: Double,
+    var delay: Int,
+    var message: String
 ) {
     /**
      * Vegetable Stall.
@@ -276,40 +268,24 @@ enum class Stall(
     var fullIDs: List<Int> = ArrayList(Arrays.asList(*full))
     var empty_ids: List<Int> = ArrayList(Arrays.asList(*empty))
 
-    /**
-     * Get empty
-     *
-     * @param id The identifier for which we want to retrieve the empty ID.
-     * @return The empty ID corresponding to the provided identifier.
-     */
     fun getEmpty(id: Int): Int {
-        // Find the index of the provided ID in the fullIDs list
         val fullIndex = fullIDs.indexOf(id)
-        // Return the empty ID at the found index
         return empty_ids[fullIndex]
     }
 
-    // Property to get a random loot item from the rewards list
     val randomLoot: Item
-        // Use a custom random function to select an item from the rewards
         get() = rewards[RandomFunction.random(rewards.size)]
 
     companion object {
-        // A HashMap to map IDs to their corresponding Stall objects
         var idMap: HashMap<Int, Stall> = HashMap()
 
-        // Initialization block to populate the idMap with Stall entries
         init {
-            // Stream through all Stall values
             Arrays.stream(values()).forEach { entry: Stall ->
-                // For each full ID in the entry, add it to the idMap if it doesn't already exist
                 entry.fullIDs.stream().forEach { id: Int -> idMap.putIfAbsent(id, entry) }
             }
         }
 
-        // Function to retrieve a Stall object based on the provided scenery
         fun forScenery(scenery: Scenery): Stall? {
-            // Return the Stall object associated with the scenery's ID from the idMap
             return idMap[scenery.id]
         }
     }

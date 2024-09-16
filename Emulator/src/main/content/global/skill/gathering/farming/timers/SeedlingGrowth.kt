@@ -20,13 +20,7 @@ class SeedlingGrowth : PersistTimer (1, "farming:seedling", isSoft = true) {
      * Add seedling.
      */
     fun addSeedling(seedling: Int){
-        seedlings.add(
-            Seedling(
-                seedling,
-                System.currentTimeMillis() + TimeUnit.MINUTES.toMillis(5),
-                seedling + if(seedling > 5400) 8 else 6
-            )
-        )
+        seedlings.add(Seedling(seedling, System.currentTimeMillis() + TimeUnit.MINUTES.toMillis(5), seedling + if (seedling > 5400) 8 else 6))
     }
 
     override fun onRegister (entity: Entity) {

@@ -11,12 +11,7 @@ import core.game.system.task.Pulse
 import core.tools.RandomFunction
 
 /**
- * Wine fermenting pulse
- *
- * @param player The player associated with the wine fermenting process
- * @constructor Initializes the WineFermentingPulse with a specified delay and player
- *
- * @param delay The time delay for the pulse in milliseconds
+ * Represents the wine fermenting pulse.
  */
 class WineFermentingPulse(delay: Int, val player: Player) : Pulse(delay) {
     private var count = 0

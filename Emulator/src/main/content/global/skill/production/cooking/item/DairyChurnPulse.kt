@@ -13,10 +13,7 @@ import core.game.node.item.Item
 import core.tools.StringUtils
 
 /**
- * Dairy churn pulse.
- * @param item The item being processed in the dairy churn.
- * @param product The type of dairy product being produced.
- * @param amount The quantity of the product to be churned.
+ * Represents the dairy churn pulse.
  */
 class DairyChurnPulse(player: Player?, item: Item?, product: DairyProduct, amount: Int) :
     SkillPulse<Item?>(player, item) {
@@ -76,7 +73,7 @@ class DairyChurnPulse(player: Player?, item: Item?, product: DairyProduct, amoun
                     }
                 }
                 player.dispatch(ResourceProducedEvent(dairy.product.id, amount, node!!, Items.BUCKET_OF_MILK_1927))
-                sendMessage(player, "You make " + (if (StringUtils.isPlusN(dairy.product.name.lowercase())) "an" else "a") + " " + dairy.product.name.lowercase() + ".")
+                sendMessage(player = player, message = "You make " + (if (StringUtils.isPlusN(dairy.product.name.lowercase())) "an" else "a") + " " + dairy.product.name.lowercase() + ".")
                 rewardXP(player, Skills.COOKING, dairy.experience)
                 break
             }

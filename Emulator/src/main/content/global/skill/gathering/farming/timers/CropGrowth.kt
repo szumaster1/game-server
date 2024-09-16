@@ -38,7 +38,6 @@ class CropGrowth : PersistTimer (500, "farming:crops", isSoft = true) {
                 patch.nextGrowth = System.currentTimeMillis() + 60000
                 continue
             }
-
             //Go ahead and grow anything within 4 minutes of the 5-minute-synced growth cycles, bringing out-of-sync patches into sync.
             //This seems to be authentic as well, with the RS wiki sometimes stating 20-minute patches can grow in as little as 7 minutes depending on timing of planting
             //It also makes sense, as otherwise if you e.g. planted something at 10:34 that takes 5 minutes to grow, it would take 6 minutes in reality instead of 5.
@@ -87,21 +86,10 @@ class CropGrowth : PersistTimer (500, "farming:crops", isSoft = true) {
         }
     }
 
-    /**
-     * Get patch
-     *
-     * @param patch
-     * @return
-     */
     fun getPatch(patch: FarmingPatch): Patch {
         return patchMap[patch] ?: (Patch(player,patch).also { patchMap[patch] = it })
     }
 
-    /**
-     * Get patches
-     *
-     * @return
-     */
     fun getPatches(): MutableCollection<Patch>{
         return patchMap.values
     }

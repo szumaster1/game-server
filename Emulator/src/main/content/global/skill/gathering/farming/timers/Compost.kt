@@ -38,21 +38,10 @@ class Compost : PersistTimer (500, "farming:compost", isSoft = true) {
         return binMap.isNotEmpty()
     }
 
-    /**
-     * Get bin
-     *
-     * @param bin
-     * @return
-     */
     fun getBin (bin: CompostBins) : CompostBin{
         return binMap[bin] ?: (CompostBin (player, bin).also { binMap[bin] = it })
     }
 
-    /**
-     * Get bins
-     *
-     * @return
-     */
     fun getBins(): MutableCollection<CompostBin>{
         return binMap.values
     }

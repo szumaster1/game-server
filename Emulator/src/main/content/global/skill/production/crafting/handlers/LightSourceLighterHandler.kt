@@ -49,12 +49,6 @@ class LightSourceLighterHandler : UseWithHandler(Items.TINDERBOX_590, Items.CAND
         return true
     }
 
-    /**
-     * Replace
-     *
-     * @param item
-     * @param with
-     */
     fun Container.replace(item: Item, with: Item) {
         if (remove(item)) {
             add(with)

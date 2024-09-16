@@ -13,44 +13,35 @@ import core.game.node.item.Item
  * @return the [Tar].
  */
 enum class Tar(
-    val ingredient: Item,   // The main ingredient for the Tar
-    val level: Int,         // The level required to use this Tar
-    val experience: Double, // Experience points gained from using this Tar
-    val tar: Item           // The resulting item after using the Tar
+    val ingredient: Item,
+    val level: Int,
+    val experience: Double,
+    val tar: Item
 ) {
-    /**
-     * Guam Tar.
-     */
     GUAM_TAR(
         ingredient = Herb.GUAM.product,
         level = 19,
         experience = 30.0,
         tar = Item(Items.GUAM_TAR_10142)
     ),
-
-    /**
-     * Marrentill Tar.
-     */
+    GROUND_GUAM_TAR(
+        ingredient = Item(Items.GROUND_GUAM_6681),
+        level = 19,
+        experience = 30.0,
+        tar = Item(Items.GUAM_TAR_10142)
+    ),
     MARRENTILL_TAR(
         ingredient = Herb.MARRENTILL.product,
         level = 31,
         experience = 42.5,
         tar = Item(Items.MARRENTILL_TAR_10143)
     ),
-
-    /**
-     * Tarromin Tar.
-     */
     TARROMIN_TAR(
         ingredient = Herb.TARROMIN.product,
         level = 39,
         experience = 55.0,
         tar = Item(Items.TARROMIN_TAR_10144)
     ),
-
-    /**
-     * Harralander Tar.
-     */
     HARRALANDER_TAR(
         ingredient = Herb.HARRALANDER.product,
         level = 44,

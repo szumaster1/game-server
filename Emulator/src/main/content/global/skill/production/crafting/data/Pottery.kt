@@ -13,9 +13,6 @@ enum class Pottery(
     val exp: Double,
     val fireExp: Double
 ) {
-    /**
-     * The pot.
-     */
     POT(
         unfinished = Item(Items.UNFIRED_POT_1787),
         product = Item(Items.EMPTY_POT_1931),
@@ -23,10 +20,6 @@ enum class Pottery(
         exp = 6.3,
         fireExp = 6.3
     ),
-
-    /**
-     * The dish.
-     */
     DISH(
         unfinished = Item(Items.UNFIRED_PIE_DISH_1789),
         product = Item(Items.PIE_DISH_2313),
@@ -34,19 +27,13 @@ enum class Pottery(
         exp = 15.0,
         fireExp = 10.0
     ),
-
-    /**
-     * The bowl.
-     */
-    BOWL(unfinished = Item(Items.UNFIRED_BOWL_1791),
+    BOWL(
+        unfinished = Item(Items.UNFIRED_BOWL_1791),
         product = Item(Items.BOWL_1923),
-        level = 8, 18.0,
+        level = 8,
+        exp = 18.0,
         fireExp = 15.0
     ),
-
-    /**
-     * The plant.
-     */
     PLANT(
         unfinished = Item(Items.UNFIRED_PLANT_POT_5352),
         product = Item(Items.PLANT_POT_5350),
@@ -54,10 +41,6 @@ enum class Pottery(
         exp = 20.0,
         fireExp = 17.5
     ),
-
-    /**
-     * The lid.
-     */
     LID(
         unfinished = Item(Items.UNFIRED_POT_LID_4438),
         product = Item(Items.POT_LID_4440),
@@ -69,12 +52,7 @@ enum class Pottery(
     companion object {
         @JvmStatic
         fun forId(id: Int): Pottery? {
-            for (def in values()) {
-                if (def.unfinished.id == id) {
-                    return def
-                }
-            }
-            return null
+            return values().find { it.unfinished.id == id }
         }
     }
 }

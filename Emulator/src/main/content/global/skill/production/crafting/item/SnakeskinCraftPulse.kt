@@ -38,8 +38,8 @@ class SnakeskinCraftPulse(player: Player?, node: Item?, var amount: Int, val ski
             sendDialogue(player, "You need thread to make this.")
             return false
         }
-        if (!inInventory(player, Items.SNAKESKIN_6289, skin.requiredAmount)) {
-            sendDialogue(player, "You need " + skin.requiredAmount + " snakeskins in order to do this.")
+        if (!inInventory(player, Items.SNAKESKIN_6289, skin.amount)) {
+            sendDialogue(player, "You need " + skin.amount + " snakeskins in order to do this.")
             return false
         }
         closeInterface(player)
@@ -56,7 +56,7 @@ class SnakeskinCraftPulse(player: Player?, node: Item?, var amount: Int, val ski
         if (++ticks % 5 != 0) {
             return false
         }
-        if (removeItem(player, Item(Items.SNAKESKIN_6289, skin.requiredAmount))) {
+        if (removeItem(player, Item(Items.SNAKESKIN_6289, skin.amount))) {
             val item = skin.product
             addItem(player, item.id)
             rewardXP(player, Skills.CRAFTING, skin.experience)

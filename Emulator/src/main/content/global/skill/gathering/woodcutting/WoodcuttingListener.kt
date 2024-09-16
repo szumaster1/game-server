@@ -244,7 +244,10 @@ class WoodcuttingListener : InteractionListener {
             return false
         }
         if (player.inventory.freeSlots() < 1 && node.isActive) {
-            sendMessage(player, "Your inventory is too full to hold any more " + ItemDefinition.forId(resource.reward).name.lowercase() + ".")
+            sendMessage(
+                player,
+                "Your inventory is too full to hold any more " + ItemDefinition.forId(resource.reward).name.lowercase() + "."
+            )
             return false
         }
         return node.isActive
@@ -263,7 +266,12 @@ class WoodcuttingListener : InteractionListener {
         /*
          * Seers village medium reward - extra normal log while in seer's village.
          */
-        if (reward == 1511 && isDiaryComplete(player, DiaryType.SEERS_VILLAGE, 1) && player.viewport.region.id == 10806) {
+        if (reward == 1511 && isDiaryComplete(
+                player,
+                DiaryType.SEERS_VILLAGE,
+                1
+            ) && player.viewport.region.id == 10806
+        ) {
             amount = 2
         }
         return amount
@@ -294,7 +302,11 @@ class WoodcuttingListener : InteractionListener {
         /*
          * Seers village medium reward - extra 10% xp from maples while wearing headband.
          */
-        if (reward == 1517 && player.achievementDiaryManager.getDiary(DiaryType.SEERS_VILLAGE)!!.isComplete(1) && player.equipment.get(EquipmentContainer.SLOT_HAT) != null && player.equipment.get(EquipmentContainer.SLOT_HAT).id == 14631) {
+        if (reward == 1517 && player.achievementDiaryManager.getDiary(DiaryType.SEERS_VILLAGE)!!
+                .isComplete(1) && player.equipment.get(EquipmentContainer.SLOT_HAT) != null && player.equipment.get(
+                EquipmentContainer.SLOT_HAT
+            ).id == 14631
+        ) {
             experience *= 1.10
         }
         return experience * amount

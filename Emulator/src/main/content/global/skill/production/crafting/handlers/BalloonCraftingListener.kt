@@ -46,7 +46,7 @@ class BalloonCraftingListener : InteractionListener {
         onUseWith(IntType.ITEM, dyesId, defaultBalloon) { player, used, balloon ->
             val product = Origami.forId(used.id) ?: return@onUseWith true
             if (amountInInventory(player, used.id) == amountInInventory(player, balloon.id)) {
-                if (removeItem(player, product.requiredDye) && removeItem(player, defaultBalloon)) {
+                if (removeItem(player, product.base) && removeItem(player, defaultBalloon)) {
                     addItem(player, product.ballonId, 1)
                 }
                 return@onUseWith true
@@ -56,7 +56,7 @@ class BalloonCraftingListener : InteractionListener {
                 create { _, a ->
                     runTask(player, 2, a) {
                         if (a < 1) return@runTask
-                        if (removeItem(player, product.requiredDye) && removeItem(player, defaultBalloon)) {
+                        if (removeItem(player, product.base) && removeItem(player, defaultBalloon)) {
                             addItem(player, product.ballonId, 1)
                         }
                     }
@@ -88,7 +88,7 @@ class BalloonCraftingListener : InteractionListener {
     }
 
     companion object {
-        private val dyesId = Origami.values().map { it.requiredDye }.toIntArray()
+        private val dyesId = Origami.values().map { it.base }.toIntArray()
         private val balloonId = Origami.values().map { it.ballonId }.toIntArray()
         private const val defaultBalloon = Items.ORIGAMI_BALLOON_9934
         private const val balloonStructure = Items.BALLOON_STRUCTURE_9933

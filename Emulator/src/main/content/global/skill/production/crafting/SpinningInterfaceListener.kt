@@ -26,7 +26,8 @@ class SpinningInterfaceListener : InterfaceListener {
                 124 -> amt = player.inventory.getAmount(Item(spin.need))
                 199 -> sendInputDialogue(player, true, "Enter the amount:") { value: Any ->
                     if (value is String) {
-                        submitIndividualPulse(player,
+                        submitIndividualPulse(
+                            player,
                             SpinningPulse(
                                 player,
                                 Item(spin.need, 1),
@@ -35,7 +36,8 @@ class SpinningInterfaceListener : InterfaceListener {
                             )
                         )
                     } else {
-                        submitIndividualPulse(player,
+                        submitIndividualPulse(
+                            player,
                             SpinningPulse(
                                 player,
                                 Item(spin.need, 1),
@@ -49,7 +51,8 @@ class SpinningInterfaceListener : InterfaceListener {
             if (opcode == 199) {
                 return@on true
             }
-            submitIndividualPulse(player,
+            submitIndividualPulse(
+                player,
                 SpinningPulse(
                     player,
                     Item(spin.need, 1),

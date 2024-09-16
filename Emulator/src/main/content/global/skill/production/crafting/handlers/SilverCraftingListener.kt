@@ -53,10 +53,10 @@ class SilverCraftingListener : InterfaceListener, InteractionListener {
         on(Components.CRAFTING_SILVER_CASTING_438) { player, _, opcode, buttonID, _, _ ->
             val product = Silver.forButton(buttonID) ?: return@on true
 
-            if (!inInventory(player, product.requiredItemId)) {
+            if (!inInventory(player, product.required)) {
                 sendMessage(
                     player,
-                    "You need a ${getItemName(product.requiredItemId).lowercase()} to make this item."
+                    "You need a ${getItemName(product.required).lowercase()} to make this item."
                 )
                 return@on true
             }
@@ -66,8 +66,8 @@ class SilverCraftingListener : InterfaceListener, InteractionListener {
                 return@on true
             }
 
-            if (!hasLevelDyn(player, Skills.CRAFTING, product.minimumLevel)) {
-                sendMessage(player, "You need a Crafting level of ${product.minimumLevel} to make this.")
+            if (!hasLevelDyn(player, Skills.CRAFTING, product.level)) {
+                sendMessage(player, "You need a Crafting level of ${product.level} to make this.")
                 return@on true
             }
 

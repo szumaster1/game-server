@@ -307,10 +307,12 @@ class MiningListeners : InteractionListener {
                     amount += 1
                     sendMessage(player, "The Varrock armour allows you to mine an additional ore.")
                 }
+
                 Items.GOLD_ORE_444, Items.GRANITE_500G_6979, Items.GRANITE_2KG_6981, Items.GRANITE_5KG_6983, Items.MITHRIL_ORE_447 -> if (player.achievementDiaryManager.armour >= 1 && RandomFunction.random(100) < 3) {
                     amount += 1
                     sendMessage(player, "The Varrock armour allows you to mine an additional ore.")
                 }
+
                 Items.ADAMANTITE_ORE_449 -> if (player.achievementDiaryManager.armour >= 2 && RandomFunction.random(100) < 2) {
                     amount += 1
                     sendMessage(player, "The Varrock armour allows you to mine an additional ore.")

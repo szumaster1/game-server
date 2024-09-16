@@ -61,10 +61,6 @@ class HerblorePulse(player: Player?, node: Item?, var amount: Int, private val p
         return amount == 0
     }
 
-    /**
-     * Handle unfinished
-     *
-     */
     fun handleUnfinished() {
         if (cycles == 0) {
             animate(player, ANIMATION)
@@ -85,10 +81,6 @@ class HerblorePulse(player: Player?, node: Item?, var amount: Int, private val p
         }
     }
 
-    /**
-     * Handle finished
-     *
-     */
     fun handleFinished() {
         if (inInventory(player, potion.base!!.id) && inInventory(player, potion.ingredient!!.id) && player.inventory.remove(potion.base, potion.ingredient)) {
             var item = potion.product
