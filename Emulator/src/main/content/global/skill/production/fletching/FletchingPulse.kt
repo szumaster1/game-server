@@ -16,7 +16,7 @@ import core.tools.RandomFunction
 import core.tools.StringUtils
 
 /**
- * Handles the fletching skill.
+ * Handles the fletching creation pulse.
  */
 class FletchingPulse(player: Player?, node: Item?, amount: Int, fletch: FletchingItems) : SkillPulse<Item?>(player, node) {
 
@@ -30,7 +30,7 @@ class FletchingPulse(player: Player?, node: Item?, amount: Int, fletch: Fletchin
 
     override fun checkRequirements(): Boolean {
         if (getStatLevel(player, Skills.FLETCHING) < fletch.level) {
-            sendDialogue(player, "You need a fletching skill of " + fletch.level + " or above to make " + (if (StringUtils.isPlusN(getItemName(fletch.item).replace("(u)", "").trim())) "an" else "a") + " " + getItemName(fletch.item).replace("(u)", "").trim())
+            sendDialogue(player, "You need a fletching skill of " + fletch.level + " or above to make " + (if (StringUtils.isPlusN(getItemName(fletch.id).replace("(u)", "").trim())) "an" else "a") + " " + getItemName(fletch.id).replace("(u)", "").trim())
             return false
         }
         if (amount > player.inventory.getAmount(node)) {
@@ -57,7 +57,7 @@ class FletchingPulse(player: Player?, node: Item?, amount: Int, fletch: Fletchin
 
     override fun reward(): Boolean {
         if (bankZone.insideBorder(player) && fletch == FletchingItems.MAGIC_SHORTBOW) {
-            player.achievementDiaryManager.finishTask(player, DiaryType.SEERS_VILLAGE, 2, 2)
+            finishDiaryTask(player, DiaryType.SEERS_VILLAGE, 2, 2)
         }
         if (delay == 1) {
             super.setDelay(4)
@@ -90,7 +90,7 @@ class FletchingPulse(player: Player?, node: Item?, amount: Int, fletch: Fletchin
         get() = when (fletch) {
             FletchingItems.ARROW_SHAFT -> "You carefully cut the wood into 15 arrow shafts."
             FletchingItems.OGRE_COMPOSITE_BOW -> "You carefully cut the wood into composite ogre bow."
-            else -> ("You carefully cut the wood into " + (if (StringUtils.isPlusN(getItemName(fletch.item))) "an" else "a") + " " + getItemName(fletch.item).replace("(u)", "").trim()) + "."
+            else -> ("You carefully cut the wood into " + (if (StringUtils.isPlusN(getItemName(fletch.id))) "an" else "a") + " " + getItemName(fletch.id).replace("(u)", "").trim()) + "."
         }
 
     companion object {

@@ -5,70 +5,43 @@ import cfg.consts.Items
 /**
  * Represents the darts data.
  */
-enum class Dart(var unfinished: Int, var finished: Int, var level: Int, var experience: Double) {
-    /**
-     * the bronze dart.
-     */
+enum class Dart(val unfinished: Int, val finished: Int, val level: Int, val experience: Double) {
     BRONZE_DART(
         unfinished = Items.BRONZE_DART_TIP_819,
         finished = Items.BRONZE_DART_806,
         level = 1,
         experience = 1.8
     ),
-
-    /**
-     * the iron dart.
-     */
     IRON_DART(
         unfinished = Items.IRON_DART_TIP_820,
         finished = Items.IRON_DART_807,
         level = 22,
         experience = 3.8
     ),
-
-    /**
-     * the steel dart.
-     */
     STEEL_DART(
         unfinished = Items.STEEL_DART_TIP_821,
         finished = Items.STEEL_DART_808,
         level = 37,
         experience = 7.5
     ),
-
-    /**
-     * the mithril dart.
-     */
     MITHRIL_DART(
         unfinished = Items.MITHRIL_DART_TIP_822,
         finished = Items.MITHRIL_DART_809,
         level = 52,
         experience = 11.2
     ),
-
-    /**
-     * the adamant dart.
-     */
     ADAMANT_DART(
         unfinished = Items.ADAMANT_DART_TIP_823,
         finished = Items.ADAMANT_DART_810,
         level = 67,
         experience = 15.0
     ),
-
-    /**
-     * the rune dart.
-     */
     RUNE_DART(
         unfinished = Items.RUNE_DART_TIP_824,
         finished = Items.RUNE_DART_811,
         level = 81,
         experience = 18.8
     ),
-
-    /**
-     * the dragon dart.
-     */
     DRAGON_DART(
         unfinished = Items.DRAGON_DART_TIP_11232,
         finished = Items.DRAGON_DART_11230,
@@ -77,16 +50,8 @@ enum class Dart(var unfinished: Int, var finished: Int, var level: Int, var expe
     );
 
     companion object {
-        val productMap = HashMap<Int, Dart>()
+        val productMap = Dart.values().associateBy { it.unfinished }
 
-        init {
-            for (product in Dart.values()) {
-                productMap[product.unfinished] = product
-            }
-        }
-
-        fun isDart(id: Int): Boolean {
-            return productMap[id] != null
-        }
+        fun isDart(id: Int): Boolean = id in productMap
     }
 }

@@ -6,6 +6,7 @@ import content.global.skill.production.smithing.data.SmithingType.Companion.forB
 import content.global.skill.production.smithing.item.SmithingPulse
 import cfg.consts.Components
 import core.api.sendInputDialogue
+import core.api.submitIndividualPulse
 import core.game.interaction.InterfaceListener
 import core.game.node.item.Item
 
@@ -23,7 +24,7 @@ class SmithingInterfaceListener : InterfaceListener {
             player.gameAttributes.setAttribute("smith-item", item)
             if (amount == -1) {
                 sendInputDialogue(player, true, "Enter the amount:") { value: Any ->
-                    player.pulseManager.run(
+                    submitIndividualPulse(player,
                         SmithingPulse(
                             player,
                             Item(player.gameAttributes.getAttribute<Any>("smith-item") as Int, value as Int),
@@ -34,7 +35,7 @@ class SmithingInterfaceListener : InterfaceListener {
                 }
                 return@on true
             }
-            player.pulseManager.run(SmithingPulse(player, Item(item, amount), Bars.forId(item)!!, amount))
+            submitIndividualPulse(player, SmithingPulse(player, Item(item, amount), Bars.forId(item)!!, amount))
             return@on true
         }
 

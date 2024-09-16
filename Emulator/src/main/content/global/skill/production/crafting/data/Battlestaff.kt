@@ -3,7 +3,7 @@ package content.global.skill.production.crafting.data
 import cfg.consts.Items
 
 /**
- * Represents the Battlestaff's.
+ * Represents the Battlestaff.
  */
 enum class Battlestaff(val required: Int, val productId: Int, val amount: Int, val requiredLevel: Int, val experience: Double, ) {
     /**

@@ -20,8 +20,8 @@ class RuneMysteries: Quest("Rune Mysteries", 27, 26, 1, Vars.VARP_QUEST_RUNE_MYS
         var line = 11
 
         if (getStage(player) == 0) {
-            line(player, "I can start this quest by speaking to !!Duke Horacio?? of", line++, true)
-            line(player, "!!Lumbridge??, upstairs in !!Lumbridge Castle??.", line++, true)
+            line(player, "I can start this quest by speaking to !!Duke Horacio?? of", line++)
+            line(player, "!!Lumbridge??, upstairs in !!Lumbridge Castle??.", line++)
             line++
         }
         if (getStage(player) == 10) {

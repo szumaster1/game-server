@@ -4,7 +4,7 @@ import cfg.consts.Graphics
 import cfg.consts.Items
 
 /**
- * Reprsents the origami (balloons) items.
+ * Represents the origami (balloons) items.
  */
 enum class Origami(val requiredDye: Int, val ballonId: Int, val gfxId: Int) {
     /**

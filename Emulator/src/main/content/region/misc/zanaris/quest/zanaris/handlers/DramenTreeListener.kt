@@ -3,7 +3,6 @@ package content.region.misc.zanaris.quest.zanaris.handlers
 import cfg.consts.NPCs
 import content.data.skill.SkillingTool
 import content.global.skill.gathering.woodcutting.WoodcuttingPulse
-import content.region.misc.zanaris.quest.zanaris.npc.TreeSpiritNPC
 import core.api.getQuestStage
 import core.api.sendMessage
 import core.api.setAttribute
