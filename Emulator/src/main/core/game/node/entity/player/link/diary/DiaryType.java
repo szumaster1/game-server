@@ -386,8 +386,8 @@ public enum DiaryType {
             {new Item(14572), new Item(14575)},
             {new Item(14573), new Item(14576)}
         },
-        "", // todo
-        // Council Workman, Yrsa, Advisor Ghrim  // TODO dialogues for all these
+        "To start marking off tasks in your journal, speak to<br><br>to Council Workman on the bridge between the Seers'<br><br>Village and Rellekka, Yrsa in Rellekka or Advisor Ghrim<br><br>on the Miscellania.", // todo
+        // Council Workman, Yrsa, Advisor Ghrim
         new int[]{1287, 1301, 1375}
     ),
     // https://2009scape.wiki/w/Seers%27_Village_achievements?oldid=900527
@@ -441,10 +441,9 @@ public enum DiaryType {
         // 1k 30 and up, 5k, 10k xp lamps
         new Item[][]{
             {new Item(14631), new Item(14633)},
-            {new Item(14659), new Item(14634)},
-            {new Item(14660), new Item(14635)}
-        },
-        "To start marking off tasks in your journal, speak to<br><br>any seer in Seers' Village, Stankers by the coal<br><br>trucks or Sir Kay in Camelot.", // todo made up, can't find source
+            {new Item(14631), new Item(14634)},
+            {new Item(14631), new Item(14635)}
+        }, "To start marking off tasks in your journal, speak to<br><br>any seer in Seers' Village, Stankers by the coal<br><br>trucks or Sir Kay in Camelot.", // todo made up, can't find source
         // Seer, Stankers, Sir Kay
         new int[]{388, 383, 241}
         /**
