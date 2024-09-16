@@ -1,6 +1,5 @@
 package content.region.kandarin.seers_village.achievement
 
-import content.global.handlers.item.withnpc.PoisonChaliceOnKingArthurDialogue
 import content.region.kandarin.quest.grail.dialogue.GalahadHolyGrailDialogueFile
 import content.region.kandarin.seers_village.quest.scorpcatcher.dialogue.ThormacDialogueFile
 import content.global.travel.FairyRing
@@ -17,6 +16,7 @@ import core.game.world.map.zone.ZoneBorders
 import cfg.consts.Items
 import cfg.consts.NPCs
 import cfg.consts.Scenery
+import content.global.handlers.item.withnpc.PoisonChaliceListener
 import core.api.hasLevelDyn
 import core.api.isQuestComplete
 import core.game.node.entity.player.link.SpellBookManager
@@ -269,7 +269,7 @@ class SeersVillageAchievementDiary : DiaryEventHookBase(DiaryType.SEERS_VILLAGE)
 
     override fun onDialogueOptionSelected(player: Player, event: DialogueOptionSelectionEvent) {
         when (event.dialogue) {
-            is PoisonChaliceOnKingArthurDialogue -> {
+            is PoisonChaliceListener.PoisonChaliceOnKingArthurDialogue -> {
                 if (event.currentStage == 4) {
                     finishTask(
                         player,

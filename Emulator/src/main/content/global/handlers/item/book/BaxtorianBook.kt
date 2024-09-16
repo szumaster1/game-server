@@ -159,7 +159,7 @@ class BaxtorianBook : InteractionListener {
             BookInterfaceListener.openBook(
                 player,
                 BookInterfaceListener.FANCY_BOOK_3_49,
-                content.data.item.book.BaxtorianBook.Companion::display
+                Companion::display
             )
             return@on true
         }

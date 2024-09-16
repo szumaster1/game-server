@@ -1,7 +1,7 @@
 package content.region.kandarin.ardougne.dialogue
 
-import content.data.item.book.GeneralRuleBook.Companion.openBook
 import cfg.consts.NPCs
+import content.global.handlers.item.book.GeneralRuleBook.Companion.openBook
 import core.api.lock
 import core.api.runTask
 import core.api.stopWalk

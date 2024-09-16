@@ -58,4 +58,4 @@ Start the game server with the included run script. Use `./run -h` for more info
 2. Click New merge request option, select target branch master, continue, fill in the description (of the changes you made) and approve.<br>
    ![10](https://i.imgur.com/9A4q5jK.png)
 
-If you have encountered an problem with GitLab please refer to the help center available at this [link]( https://gitlab.com/help).
+If you have encountered a problem with GitLab please refer to the help center available at this [link]( https://gitlab.com/help).

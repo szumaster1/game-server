@@ -149,9 +149,9 @@ class GnomeTranslationBook : InteractionListener {
 
     override fun defineListeners() {
         on(Items.TRANSLATION_BOOK_784, IntType.ITEM, "read") { player, _ ->
-            setAttribute(player, "bookInterfaceCallback", content.data.item.book.GnomeTranslationBook.Companion::display)
+            setAttribute(player, "bookInterfaceCallback", Companion::display)
             setAttribute(player, "bookInterfaceCurrentPage", 0)
-            content.data.item.book.GnomeTranslationBook.Companion.display(player, 0, 0)
+            display(player, 0, 0)
             return@on true
         }
     }

@@ -90,8 +90,8 @@ class DwarvenBook : InteractionListener {
     private fun display(player: Player, pageNum: Int, buttonID: Int): Boolean {
         BookInterfaceListener.pageSetup(
             player, BookInterfaceListener.FANCY_BOOK_3_49,
-            content.data.item.book.DwarvenBook.Companion.TITLE,
-            content.data.item.book.DwarvenBook.Companion.CONTENTS
+            TITLE,
+            CONTENTS
         )
         return true
     }

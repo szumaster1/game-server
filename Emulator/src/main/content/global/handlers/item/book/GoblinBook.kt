@@ -204,9 +204,7 @@ class GoblinBook : InteractionListener {
 
     override fun defineListeners() {
         on(Items.GOBLIN_BOOK_10999, IntType.ITEM, "read") { player, _ ->
-            BookInterfaceListener.openBook(player, BookInterfaceListener.FANCY_BOOK_26,
-                content.data.item.book.GoblinBook.Companion::display
-            )
+            BookInterfaceListener.openBook(player, BookInterfaceListener.FANCY_BOOK_26, Companion::display)
             return@on true
         }
     }
