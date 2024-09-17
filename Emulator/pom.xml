@@ -67,9 +67,9 @@
         </dependency>
         <!-- https://gitlab.com/rs-source/library -->
         <dependency>
-            <groupId>cfg.consts</groupId>
-            <artifactId>constants</artifactId>
-            <version>[0.0.0,)</version>
+            <groupId>org.rs.consts</groupId>
+            <artifactId>Constants</artifactId>
+            <version>[1.0.0,)</version>
             <scope>compile</scope>
         </dependency>
         <!-- https://mvnrepository.com/artifact/com.mysql/mysql-connector-j -->
@@ -118,13 +118,14 @@
                 <version>3.0.1</version>
                 <executions>
                     <execution>
-                        <id>mvn install:install-file</id>
+                        <id>install-consts</id>
                         <phase>clean</phase>
                         <configuration>
-                            <file>${project.basedir}/library/constants-0.0.19.jar</file>
-                            <groupId>cfg.consts</groupId>
-                            <artifactId>constants</artifactId>
-                            <version>0.0</version>
+                            <file>${project.basedir}/libs/Constants-1.0.jar</file>
+                            <repositoryLayout>default</repositoryLayout>
+                            <groupId>org.rs</groupId>
+                            <artifactId>consts</artifactId>
+                            <version>1.0</version>
                             <packaging>jar</packaging>
                             <generatePom>true</generatePom>
                         </configuration>
@@ -132,6 +133,7 @@
                             <goal>install-file</goal>
                         </goals>
                     </execution>
+
                 </executions>
             </plugin>
 
@@ -317,21 +319,18 @@
         </repository>
         <repository>
             <id>gitlab-maven</id>
-            <url>https://gitlab.com/api/v4/projects/61046826/packages/maven</url>
-            <layout>default</layout>
+            <url>https://gitlab.com/api/v4/projects/61769995/packages/maven</url>
         </repository>
     </repositories>
     <distributionManagement>
         <repository>
             <id>gitlab-maven</id>
-            <url>https://gitlab.com/api/v4/projects/61046826/packages/maven</url>
-            <layout>default</layout>
+            <url>https://gitlab.com/api/v4/projects/61769995/packages/maven</url>
         </repository>
 
         <snapshotRepository>
             <id>gitlab-maven</id>
-            <url>https://gitlab.com/api/v4/projects/61046826/packages/maven</url>
-            <layout>default</layout>
+            <url>https://gitlab.com/api/v4/projects/61769995/packages/maven</url>
         </snapshotRepository>
     </distributionManagement>
 </project>
