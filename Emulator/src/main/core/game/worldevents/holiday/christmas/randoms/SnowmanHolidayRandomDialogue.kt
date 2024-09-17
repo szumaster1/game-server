@@ -1,7 +1,7 @@
 package core.game.worldevents.holiday.christmas.randoms
 
 import core.api.*
-import cfg.consts.Items
+import org.rs.consts.Items
 import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression
 import core.game.interaction.QueueStrength

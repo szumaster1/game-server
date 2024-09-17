@@ -3,9 +3,9 @@ package content.region.kandarin.feldip.jiggig.dialogue
 import content.region.kandarin.quest.zogre.handlers.ZUtils
 import content.region.kandarin.quest.zogre.dialogue.GrishFinishDialogue
 import core.api.*
-import cfg.consts.Items
-import cfg.consts.NPCs
-import cfg.consts.Vars
+import org.rs.consts.Items
+import org.rs.consts.NPCs
+import org.rs.consts.Vars
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC

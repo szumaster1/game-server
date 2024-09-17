@@ -1,6 +1,6 @@
 package content.region.misthalin.quest.anma.handlers
 
-import cfg.consts.Items
+import org.rs.consts.Items
 import core.api.*
 import core.game.event.EventHook
 import core.game.event.TickEvent

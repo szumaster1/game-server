@@ -1,7 +1,7 @@
 package content.region.karamja.apeatoll.quest.mm.dialogue
 
 import core.api.addItemOrDrop
-import cfg.consts.Items
+import org.rs.consts.Items
 import core.api.sendItemDialogue
 import core.api.setAttribute
 import core.game.dialogue.DialogueFile

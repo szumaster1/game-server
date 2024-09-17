@@ -1,7 +1,7 @@
 package content.region.asgarnia.falador.quest.fortress.dialogue
 
-import cfg.consts.Items
-import cfg.consts.NPCs
+import org.rs.consts.Items
+import org.rs.consts.NPCs
 import content.region.asgarnia.falador.quest.fortress.BlackKnightsFortress
 import content.region.asgarnia.falador.quest.rd.dialogue.SirAmikVarzeDialogueFile
 import core.api.*

@@ -1,6 +1,6 @@
 package core.game.consumable
 
-import cfg.consts.Animations
+import org.rs.consts.Animations
 import core.api.animate
 import core.api.playAudio
 import core.api.sendMessage

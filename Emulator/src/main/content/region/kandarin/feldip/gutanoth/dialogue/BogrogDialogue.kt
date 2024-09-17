@@ -1,6 +1,6 @@
 package content.region.kandarin.feldip.gutanoth.dialogue
 
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import content.region.kandarin.feldip.gutanoth.handlers.BogrogPlugin
 import core.api.openNpcShop
 import core.game.dialogue.Dialogue

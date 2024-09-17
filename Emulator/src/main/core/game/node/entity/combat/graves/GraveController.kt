@@ -1,7 +1,7 @@
 package core.game.node.entity.combat.graves
 
-import cfg.consts.Items
-import cfg.consts.Sounds
+import org.rs.consts.Items
+import org.rs.consts.Sounds
 import core.ServerStore
 import core.api.*
 import core.game.interaction.IntType

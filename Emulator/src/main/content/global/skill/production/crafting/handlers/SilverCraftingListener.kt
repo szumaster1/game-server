@@ -3,9 +3,9 @@ package content.global.skill.production.crafting.handlers
 import content.global.skill.production.crafting.data.Silver
 import content.global.skill.production.crafting.item.SilverCraftPulse
 import core.api.*
-import cfg.consts.Components
-import cfg.consts.Items
-import cfg.consts.Scenery
+import org.rs.consts.Components
+import org.rs.consts.Items
+import org.rs.consts.Scenery
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.interaction.InterfaceListener

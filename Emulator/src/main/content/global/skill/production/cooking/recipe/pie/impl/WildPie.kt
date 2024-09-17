@@ -1,7 +1,7 @@
 package content.global.skill.production.cooking.recipe.pie.impl
 
 import content.global.skill.production.cooking.recipe.pie.PieRecipe
-import cfg.consts.Items
+import org.rs.consts.Items
 import core.game.node.item.Item
 
 /**

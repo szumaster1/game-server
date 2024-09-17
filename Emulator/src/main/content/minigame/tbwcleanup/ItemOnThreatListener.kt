@@ -1,8 +1,8 @@
 package content.minigame.tbwcleanup
 
 import content.data.consumables.Consumables
-import cfg.consts.Items
-import cfg.consts.NPCs
+import org.rs.consts.Items
+import org.rs.consts.NPCs
 import core.game.node.item.Item
 import core.game.node.entity.npc.NPC
 import core.api.impact

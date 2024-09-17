@@ -1,6 +1,6 @@
 package content.region.asgarnia.falador.dialogue
 
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import core.api.openInterface
 import core.game.container.impl.EquipmentContainer
 import core.game.dialogue.Dialogue

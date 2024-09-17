@@ -1,8 +1,8 @@
 package content.region.desert.alkharid.shantay_pass.dialogue
 
 import core.api.*
-import cfg.consts.Items
-import cfg.consts.NPCs
+import org.rs.consts.Items
+import org.rs.consts.NPCs
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC

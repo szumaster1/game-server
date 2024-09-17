@@ -1,9 +1,9 @@
 package content.global.random.event.pinball
 
 import core.api.*
-import cfg.consts.Animations
-import cfg.consts.Components
-import cfg.consts.NPCs
+import org.rs.consts.Animations
+import org.rs.consts.Components
+import org.rs.consts.NPCs
 import core.api.utils.PlayerCamera
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener

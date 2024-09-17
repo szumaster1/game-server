@@ -1,6 +1,6 @@
 package core.game.bots.impl
 
-import cfg.consts.Items
+import org.rs.consts.Items
 import content.global.skill.gathering.mining.MiningNode
 import content.global.skill.production.smithing.data.Bar
 import content.global.skill.production.smithing.item.SmeltingPulse

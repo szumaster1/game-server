@@ -1,6 +1,6 @@
 package content.region.kandarin.quest.zogre.handlers
 
-import cfg.consts.*
+import org.rs.consts.*
 import content.global.skill.support.thieving.ThievingPickpocketListener
 import content.region.kandarin.quest.zogre.handlers.BrentleVahnNPC.Companion.spawnHumanZombie
 import content.region.kandarin.quest.zogre.handlers.SlashBashNPC.Companion.spawnZogreBoss

@@ -1,7 +1,7 @@
 package content.region.kandarin.witchaven.dialogue
 
 import content.region.kandarin.witchaven.quest.seaslug.dialogue.CarolineDialogueFile
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import core.api.isQuestInProgress
 import core.api.openDialogue
 import core.game.dialogue.Dialogue

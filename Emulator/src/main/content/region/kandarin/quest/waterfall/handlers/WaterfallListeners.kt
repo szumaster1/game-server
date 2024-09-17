@@ -1,8 +1,8 @@
 package content.region.kandarin.quest.waterfall.handlers
 
-import cfg.consts.Components
-import cfg.consts.NPCs
-import cfg.consts.Scenery
+import org.rs.consts.Components
+import org.rs.consts.NPCs
+import org.rs.consts.Scenery
 import core.api.openInterface
 import core.api.sendString
 import core.game.interaction.IntType

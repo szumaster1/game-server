@@ -1,6 +1,6 @@
 package content.global.guild.mining
 
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import core.api.getDynLevel
 import core.api.sendNPCDialogue
 import core.cache.def.impl.SceneryDefinition

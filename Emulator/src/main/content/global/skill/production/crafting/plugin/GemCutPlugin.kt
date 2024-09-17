@@ -3,7 +3,7 @@ package content.global.skill.production.crafting.plugin
 import content.global.skill.production.crafting.data.Gem
 import content.global.skill.production.crafting.item.GemCutPulse
 import core.api.amountInInventory
-import cfg.consts.Items
+import org.rs.consts.Items
 import core.game.dialogue.SkillDialogueHandler
 import core.game.interaction.NodeUsageEvent
 import core.game.interaction.UseWithHandler

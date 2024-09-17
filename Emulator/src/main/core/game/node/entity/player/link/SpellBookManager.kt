@@ -1,6 +1,6 @@
 package core.game.node.entity.player.link
 
-import cfg.consts.Components
+import org.rs.consts.Components
 import core.game.component.Component
 import core.game.node.entity.combat.spell.MagicSpell
 import core.game.node.entity.player.Player

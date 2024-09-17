@@ -1,6 +1,6 @@
 package content.global.skill.support.firemaking.data
 
-import cfg.consts.Items
+import org.rs.consts.Items
 
 /**
  * Represents the gnomish firelighters.

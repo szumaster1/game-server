@@ -1,6 +1,6 @@
 package content.miniquest.knights.handlers
 
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import content.miniquest.knights.dialogue.MerlinDialogue
 import core.api.*
 import core.game.node.entity.npc.AbstractNPC

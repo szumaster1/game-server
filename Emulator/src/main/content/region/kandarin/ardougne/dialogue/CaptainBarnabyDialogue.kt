@@ -1,7 +1,7 @@
 package content.region.kandarin.ardougne.dialogue
 
 import content.global.travel.charter.Ship
-import cfg.consts.Items
+import org.rs.consts.Items
 import core.api.playJingle
 import core.api.removeItem
 import core.api.sendMessage

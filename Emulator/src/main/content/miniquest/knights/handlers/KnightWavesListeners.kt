@@ -1,6 +1,6 @@
 package content.miniquest.knights.handlers
 
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import content.data.GameAttributes
 import core.api.*
 import core.game.interaction.IntType

@@ -1,6 +1,6 @@
 package content.global.handlers.item.equipment
 
-import cfg.consts.Items
+import org.rs.consts.Items
 import core.plugin.Initializable
 import core.plugin.Plugin
 

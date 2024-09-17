@@ -1,8 +1,8 @@
 package content.global.handlers.item
 
 import core.api.animate
-import cfg.consts.Animations
-import cfg.consts.Items
+import org.rs.consts.Animations
+import org.rs.consts.Items
 import core.api.lock
 import core.api.sendChat
 import core.api.submitIndividualPulse

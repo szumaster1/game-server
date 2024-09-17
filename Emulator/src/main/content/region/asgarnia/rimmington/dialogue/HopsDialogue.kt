@@ -2,7 +2,7 @@ package content.region.asgarnia.rimmington.dialogue
 
 import content.region.kandarin.ardougne.quest.biohazard.dialogue.HopsDialogueFile
 import content.region.kandarin.ardougne.quest.biohazard.handlers.BiohazardUtils
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import core.api.getAttribute
 import core.api.getQuestStage
 import core.api.openDialogue

@@ -2,7 +2,7 @@ package content.global.skill.support.firemaking
 
 import content.global.skill.support.firemaking.data.GnomishFirelighters
 import core.api.*
-import cfg.consts.Items
+import org.rs.consts.Items
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.item.GroundItem

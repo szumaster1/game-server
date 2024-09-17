@@ -1,8 +1,8 @@
 package content.minigame.barbassault.dialogue
 
 import content.global.random.event.drilldemon.DrillDemonUtils
-import cfg.consts.NPCs
-import cfg.consts.Sounds
+import org.rs.consts.NPCs
+import org.rs.consts.Sounds
 import core.api.playAudio
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression

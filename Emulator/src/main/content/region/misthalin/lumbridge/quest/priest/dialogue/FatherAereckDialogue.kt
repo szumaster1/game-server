@@ -1,7 +1,7 @@
 package content.region.misthalin.lumbridge.quest.priest.dialogue
 
 import core.api.*
-import cfg.consts.Components
+import org.rs.consts.Components
 import core.game.dialogue.Dialogue
 import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player

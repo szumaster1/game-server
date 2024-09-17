@@ -1,6 +1,6 @@
 package content.region.fremennik.rellekka.dialogue
 
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import core.api.getAttribute
 import core.api.isQuestComplete
 import core.api.openNpcShop

@@ -1,10 +1,10 @@
 package content.global.skill.support.agility.grapple
 
 import core.api.*
-import cfg.consts.Animations
-import cfg.consts.Components
-import cfg.consts.Graphics
-import cfg.consts.Items
+import org.rs.consts.Animations
+import org.rs.consts.Components
+import org.rs.consts.Graphics
+import org.rs.consts.Items
 import core.cache.def.impl.SceneryDefinition
 import core.game.component.Component
 import core.game.interaction.OptionHandler

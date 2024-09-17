@@ -1,8 +1,8 @@
 package content.global.guild.range
 
-import cfg.consts.Items
-import cfg.consts.NPCs
-import cfg.consts.Scenery
+import org.rs.consts.Items
+import org.rs.consts.NPCs
+import org.rs.consts.Scenery
 import core.api.inInventory
 import core.api.sendMessage
 import core.api.sendNPCDialogueLines

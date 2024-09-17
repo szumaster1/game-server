@@ -1,7 +1,7 @@
 package content.region.fremennik.rellekka.lighthouse.quest.horror.handlers
 
 import core.api.*
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import content.region.fremennik.rellekka.lighthouse.quest.horror.dialogue.JossikDialogueFile
 import core.game.node.entity.Entity
 import core.game.node.entity.npc.AbstractNPC

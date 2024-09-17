@@ -1,8 +1,8 @@
 package content.global.random.event.surpriseexam
 
 import core.api.closeInterface
-import cfg.consts.Components
-import cfg.consts.NPCs
+import org.rs.consts.Components
+import org.rs.consts.NPCs
 import core.api.getAttribute
 import core.api.openDialogue
 import core.api.sendMessage

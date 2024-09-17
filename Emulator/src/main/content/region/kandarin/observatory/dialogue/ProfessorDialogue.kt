@@ -2,7 +2,7 @@ package content.region.kandarin.observatory.dialogue
 
 import content.region.kandarin.observatory.quest.itgronigen.dialogue.ProfessorDialogueFile
 import core.api.*
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC

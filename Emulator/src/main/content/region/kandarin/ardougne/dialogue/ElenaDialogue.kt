@@ -1,6 +1,6 @@
 package content.region.kandarin.ardougne.dialogue
 
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import content.region.kandarin.ardougne.quest.biohazard.dialogue.ElenaDialogueFile
 import core.api.isQuestComplete
 import core.api.isQuestInProgress

@@ -1,9 +1,9 @@
 package content.region.morytania.quest.deal.cutscene
 
 import core.api.*
-import cfg.consts.Graphics
-import cfg.consts.Music
-import cfg.consts.NPCs
+import org.rs.consts.Graphics
+import org.rs.consts.Music
+import org.rs.consts.NPCs
 import content.region.morytania.quest.deal.dialogue.CaptainBrainDeathDialogueFile
 import core.game.activity.Cutscene
 import core.game.dialogue.FacialExpression

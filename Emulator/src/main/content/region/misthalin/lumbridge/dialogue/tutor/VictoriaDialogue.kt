@@ -1,6 +1,6 @@
 package content.region.misthalin.lumbridge.dialogue.tutor
 
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import core.api.getQuestStage
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression

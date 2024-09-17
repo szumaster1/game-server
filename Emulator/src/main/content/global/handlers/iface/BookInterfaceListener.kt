@@ -1,8 +1,8 @@
 package content.global.handlers.iface
 
 import core.api.*
-import cfg.consts.Components
-import cfg.consts.Sounds
+import org.rs.consts.Components
+import org.rs.consts.Sounds
 import core.game.interaction.InterfaceListener
 import core.game.node.entity.player.Player
 

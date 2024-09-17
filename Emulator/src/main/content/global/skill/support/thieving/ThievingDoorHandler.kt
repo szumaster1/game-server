@@ -1,6 +1,6 @@
 package content.global.skill.support.thieving
 
-import cfg.consts.Items
+import org.rs.consts.Items
 import core.api.*
 import core.cache.def.impl.SceneryDefinition
 import core.game.global.action.DoorActionHandler

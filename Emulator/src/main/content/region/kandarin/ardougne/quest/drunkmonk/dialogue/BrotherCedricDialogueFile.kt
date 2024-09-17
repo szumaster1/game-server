@@ -1,6 +1,6 @@
 package content.region.kandarin.ardougne.quest.drunkmonk.dialogue
 
-import cfg.consts.Items
+import org.rs.consts.Items
 import core.api.getQuestStage
 import core.api.sendItemDialogue
 import core.api.setQuestStage

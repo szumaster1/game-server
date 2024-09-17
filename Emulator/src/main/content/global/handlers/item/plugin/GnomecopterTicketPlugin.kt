@@ -1,7 +1,7 @@
 package content.global.handlers.item.plugin
 
-import cfg.consts.Components
-import cfg.consts.Items
+import org.rs.consts.Components
+import org.rs.consts.Items
 import core.api.sendString
 import core.cache.def.impl.ItemDefinition
 import core.game.component.Component

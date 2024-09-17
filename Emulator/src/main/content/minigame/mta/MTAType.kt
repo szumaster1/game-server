@@ -5,9 +5,9 @@ import content.minigame.mta.impl.EnchantingZone
 import content.minigame.mta.impl.GraveyardZone
 import content.minigame.mta.impl.TelekineticZone
 import core.api.*
-import cfg.consts.Components
-import cfg.consts.Items
-import cfg.consts.Scenery
+import org.rs.consts.Components
+import org.rs.consts.Items
+import org.rs.consts.Scenery
 import core.game.component.Component
 import core.game.node.entity.player.Player
 import core.game.node.entity.skill.Skills

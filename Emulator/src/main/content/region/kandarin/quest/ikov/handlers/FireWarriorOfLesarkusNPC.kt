@@ -8,7 +8,7 @@ import core.game.node.entity.combat.CombatStyle
 import core.game.node.entity.npc.AbstractNPC
 import core.game.node.entity.player.Player
 import core.game.world.map.Location
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import content.region.kandarin.quest.ikov.TempleOfIkov
 
 class FireWarriorOfLesarkusNPC(id: Int = 0, val player: Player?, location: Location? = null) : AbstractNPC(id, location) {

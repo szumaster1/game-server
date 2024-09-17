@@ -3,10 +3,10 @@ package content.region.kandarin.witchaven.quest.seaslug.handlers
 import content.region.kandarin.witchaven.quest.seaslug.cutscene.SafeAndSoundCustcene
 import content.region.kandarin.witchaven.quest.seaslug.dialogue.KennithDialogueFile
 import core.api.*
-import cfg.consts.Items
-import cfg.consts.NPCs
-import cfg.consts.Scenery
-import cfg.consts.Sounds
+import org.rs.consts.Items
+import org.rs.consts.NPCs
+import org.rs.consts.Scenery
+import org.rs.consts.Sounds
 import content.region.kandarin.witchaven.quest.seaslug.SeaSlug
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener

@@ -5,7 +5,7 @@ import content.minigame.blastfurnace.BFBeltOre
 import content.minigame.blastfurnace.BlastFurnace
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
-import cfg.consts.Items
+import org.rs.consts.Items
 
 class BFBeltOreTests {
     init {TestUtils.preTestSetup()}

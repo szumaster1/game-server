@@ -1,6 +1,6 @@
 package content.region.fremennik.waterbirth_island.handlers
 
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import core.api.findLocalNPCs
 import core.game.node.entity.npc.AbstractNPC
 import core.game.world.map.Location

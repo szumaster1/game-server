@@ -1,13 +1,13 @@
 package content.region.misthalin.quest.firedup
 
-import cfg.consts.Components
+import org.rs.consts.Components
 import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.quest.Quest
 import core.game.node.entity.skill.Skills
 import core.plugin.Initializable
 import content.minigame.allfiredup.AFUBeacon
 import core.api.*
-import cfg.consts.Items
+import org.rs.consts.Items
 
 /**
  * Represents the All fired up.

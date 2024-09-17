@@ -1,8 +1,8 @@
 package content.global.random.event.pinball
 
 import core.api.*
-import cfg.consts.NPCs
-import cfg.consts.Sounds
+import org.rs.consts.NPCs
+import org.rs.consts.Sounds
 import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.game.node.scenery.Scenery

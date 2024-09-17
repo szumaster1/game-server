@@ -1,6 +1,6 @@
 package content.minigame.gnomecook.cocktails
 
-import cfg.consts.Items
+import org.rs.consts.Items
 import core.api.inInventory
 import core.cache.def.impl.ItemDefinition
 import core.game.interaction.OptionHandler

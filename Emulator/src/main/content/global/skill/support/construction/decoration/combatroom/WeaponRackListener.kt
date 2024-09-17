@@ -2,7 +2,7 @@ package content.global.skill.support.construction.decoration.combatroom
 
 import content.global.skill.support.construction.BuildHotspot
 import core.api.*
-import cfg.consts.Items
+import org.rs.consts.Items
 import core.game.dialogue.DialogueFile
 import core.game.dialogue.IfTopic
 import core.game.dialogue.Topic

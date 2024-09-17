@@ -1,6 +1,6 @@
 package content.region.morytania.quest.fenk.dialogue
 
-import cfg.consts.Items
+import org.rs.consts.Items
 import core.api.addItemOrDrop
 import core.api.amountInInventory
 import core.api.removeItem

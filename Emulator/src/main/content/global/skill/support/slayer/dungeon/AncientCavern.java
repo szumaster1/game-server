@@ -1,7 +1,7 @@
 package content.global.skill.support.slayer.dungeon;
 
 import content.global.skill.support.agility.AgilityHandler;
-import cfg.consts.Components;
+import org.rs.consts.Components;
 import core.cache.def.impl.SceneryDefinition;
 import core.game.component.Component;
 import core.game.interaction.Option;

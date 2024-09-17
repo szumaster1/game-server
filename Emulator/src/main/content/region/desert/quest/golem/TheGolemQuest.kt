@@ -4,7 +4,7 @@ import content.region.desert.quest.golem.dialogue.ClayGolemProgramDialogueFile
 import content.region.desert.quest.golem.dialogue.DISPLAY_CASE_TEXT
 import content.region.desert.quest.golem.dialogue.LETTER_LINES
 import core.api.*
-import cfg.consts.*
+import org.rs.consts.*
 import core.game.global.action.ClimbActionHandler
 import core.game.global.action.SpecialLadders
 import core.game.interaction.IntType
@@ -480,10 +480,10 @@ class TheGolemListeners : InteractionListener {
 
     override fun defineListeners() {
         onUseWith(IntType.NPC, Items.SOFT_CLAY_1761, 1907) { player, _, _ -> return@onUseWith repairGolem(player) }
-        on(cfg.consts.Scenery.STAIRCASE_34978, IntType.SCENERY, "climb-down") { player, node ->
+        on(org.rs.consts.Scenery.STAIRCASE_34978, IntType.SCENERY, "climb-down") { player, node ->
             ClimbActionHandler.climb(player, ClimbActionHandler.CLIMB_DOWN, SpecialLadders.getDestination(node.location)); return@on true
         }
-        on(cfg.consts.Scenery.STAIRCASE_6372, IntType.SCENERY, "climb-up") { player, node ->
+        on(org.rs.consts.Scenery.STAIRCASE_6372, IntType.SCENERY, "climb-up") { player, node ->
            ClimbActionHandler.climb(player, ClimbActionHandler.CLIMB_UP, SpecialLadders.getDestination(node.location)); return@on true
         }
         on(Items.LETTER_4615, IntType.ITEM, "read") { player, _ ->
@@ -492,7 +492,7 @@ class TheGolemListeners : InteractionListener {
             openInterface(player, 220)
             return@on true
         }
-        on(cfg.consts.Scenery.BOOKCASE_35226, IntType.SCENERY, "search") { player, _ ->
+        on(org.rs.consts.Scenery.BOOKCASE_35226, IntType.SCENERY, "search") { player, _ ->
             player.packetDispatch.sendMessage("You search the bookcase.")
             val readLetter = player.getAttribute("the-golem:read-elissa-letter", false)
             if (!player.inventory.containsAtLeastOneItem(4616) && !player.bank.containsAtLeastOneItem(4616) && readLetter) {
@@ -503,13 +503,13 @@ class TheGolemListeners : InteractionListener {
             }
             return@on true
         }
-        on(cfg.consts.Scenery.DOOR_6363, IntType.SCENERY, "open") { player, _ ->
+        on(org.rs.consts.Scenery.DOOR_6363, IntType.SCENERY, "open") { player, _ ->
             sendMessage(
                 player,
                 "The door doesn't open."
             ); return@on true
         }
-        on(cfg.consts.Scenery.DOOR_6364, IntType.SCENERY, "enter") { player, _ ->
+        on(org.rs.consts.Scenery.DOOR_6364, IntType.SCENERY, "enter") { player, _ ->
             sendMessage(player, "You step into the portal.")
             if (!player.getAttribute("the-golem:seen-demon", false)) {
                 sendMessage(player, "The room is dominated by a colossal horned skeleton!")
@@ -520,7 +520,7 @@ class TheGolemListeners : InteractionListener {
             teleport(player, Location.create(3552, 4948, 0))
             return@on true
         }
-        on(cfg.consts.Scenery.PORTAL_6282, IntType.SCENERY, "enter") { player, _ ->
+        on(org.rs.consts.Scenery.PORTAL_6282, IntType.SCENERY, "enter") { player, _ ->
             sendMessage(player, "You step into the portal.")
             playGlobalAudio(player.location, Sounds.GOLEM_TELEPORT_1851)
             teleport(player, Location.create(2722, 4911, 0))
@@ -529,7 +529,7 @@ class TheGolemListeners : InteractionListener {
 
         onUseWith(IntType.SCENERY, Items.HAMMER_2347, 6301) { player, _, _ -> takeThroneGems(player); return@onUseWith true }
         onUseWith(IntType.SCENERY, Items.CHISEL_1755, 6301) { player, _, _ -> takeThroneGems(player); return@onUseWith true }
-        on(intArrayOf(cfg.consts.Scenery.DISPLAY_CASE_24627, cfg.consts.Scenery.DISPLAY_CASE_24550), IntType.SCENERY, "study") { player, node ->
+        on(intArrayOf(org.rs.consts.Scenery.DISPLAY_CASE_24627, org.rs.consts.Scenery.DISPLAY_CASE_24550), IntType.SCENERY, "study") { player, node ->
             return@on displayCase(player, node as Scenery)
         }
         on(24627, IntType.SCENERY, "open") { player, node -> return@on openDisplayCase(player, node) }

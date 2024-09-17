@@ -3,7 +3,7 @@ package content.global.skill.combat.summoning
 import content.global.skill.combat.summoning.familiar.BurdenBeast
 import content.global.skill.combat.summoning.familiar.FamiliarSpecial
 import content.global.skill.combat.summoning.pet.Pet
-import cfg.consts.Components
+import org.rs.consts.Components
 import core.api.sendMessage
 import core.game.interaction.InterfaceListener
 

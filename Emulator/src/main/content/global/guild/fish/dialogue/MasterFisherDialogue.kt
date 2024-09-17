@@ -1,6 +1,6 @@
 package content.global.guild.fish.dialogue
 
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import core.game.dialogue.Dialogue
 import core.game.global.Skillcape
 import core.game.node.entity.player.Player

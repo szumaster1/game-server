@@ -1,6 +1,6 @@
 package content.global.travel
 
-import cfg.consts.Sounds
+import org.rs.consts.Sounds
 import core.api.playAudio
 import core.cache.def.impl.SceneryDefinition
 import core.game.interaction.OptionHandler

@@ -1,8 +1,8 @@
 package content.region.morytania.swamp.quest.druidspirit
 
-import cfg.consts.Components
-import cfg.consts.Items
-import cfg.consts.Vars
+import org.rs.consts.Components
+import org.rs.consts.Items
+import org.rs.consts.Vars
 import content.region.morytania.swamp.quest.druidspirit.handlers.NSUtils
 import core.api.rewardXP
 import core.api.sendItemZoomOnInterface

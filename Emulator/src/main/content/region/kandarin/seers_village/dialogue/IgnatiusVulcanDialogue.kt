@@ -1,7 +1,7 @@
 package content.region.kandarin.seers_village.dialogue
 
 import content.region.kandarin.seers_village.handlers.IgnatiusVulcanNPC
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import core.game.dialogue.Dialogue
 import core.game.global.Skillcape.isMaster
 import core.game.global.Skillcape.purchase

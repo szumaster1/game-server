@@ -2,8 +2,8 @@ package content.global.random.event.evilbob
 
 import content.global.random.RandomEventNPC
 import core.api.*
-import cfg.consts.NPCs
-import cfg.consts.Sounds
+import org.rs.consts.NPCs
+import org.rs.consts.Sounds
 import core.api.utils.WeightBasedTable
 import core.game.interaction.QueueStrength
 import core.game.node.entity.npc.NPC

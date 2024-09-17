@@ -1,9 +1,9 @@
 package content.region.misthalin.draynor.quest.vampire.handlers
 
-import cfg.consts.Sounds
+import org.rs.consts.Sounds
 import core.api.*
-import cfg.consts.Animations
-import cfg.consts.NPCs
+import org.rs.consts.Animations
+import org.rs.consts.NPCs
 import content.region.misthalin.draynor.handlers.DraynorUtils
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener

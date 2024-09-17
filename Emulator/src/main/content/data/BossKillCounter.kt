@@ -1,6 +1,6 @@
 package content.data
 
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import core.game.node.entity.player.Player
 import core.tools.StringUtils
 

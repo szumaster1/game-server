@@ -3,8 +3,8 @@ package content.region.desert.quest.deserttreasure.npc
 import content.global.skill.combat.magic.modern.WaterSpell
 import content.region.desert.quest.deserttreasure.DesertTreasure
 import core.api.*
-import cfg.consts.Items
-import cfg.consts.NPCs
+import org.rs.consts.Items
+import org.rs.consts.NPCs
 import core.game.container.impl.EquipmentContainer
 import core.game.global.action.EquipHandler
 import core.game.node.entity.Entity

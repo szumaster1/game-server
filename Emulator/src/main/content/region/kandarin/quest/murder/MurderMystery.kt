@@ -1,8 +1,8 @@
 package content.region.kandarin.quest.murder
 
 import core.api.addItem
-import cfg.consts.Items
-import cfg.consts.Vars
+import org.rs.consts.Items
+import org.rs.consts.Vars
 import content.region.kandarin.quest.murder.handlers.MysteryUtils
 import core.api.removeAttributes
 import core.api.rewardXP

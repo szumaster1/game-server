@@ -1,8 +1,8 @@
 package core.game.worldevents.holiday.christmas.randoms
 
 import core.api.*
-import cfg.consts.NPCs
-import cfg.consts.Sounds
+import org.rs.consts.NPCs
+import org.rs.consts.Sounds
 import core.game.interaction.QueueStrength
 import core.game.node.entity.impl.Projectile
 import core.game.node.entity.npc.NPC

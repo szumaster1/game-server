@@ -1,7 +1,7 @@
 package content.global.activity.pengs.handlers
 
 import core.api.*
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.entity.npc.NPC

@@ -1,6 +1,6 @@
 package core.game.node.entity.player.link.prayer;
 
-import cfg.consts.Sounds;
+import org.rs.consts.Sounds;
 import content.global.skill.skillcape.SkillcapePerks;
 import core.game.event.PrayerDeactivatedEvent;
 import core.game.node.entity.Entity;

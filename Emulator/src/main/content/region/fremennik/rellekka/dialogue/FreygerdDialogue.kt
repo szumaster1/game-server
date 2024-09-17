@@ -1,6 +1,6 @@
 package content.region.fremennik.rellekka.dialogue
 
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression
 import core.game.node.entity.player.Player

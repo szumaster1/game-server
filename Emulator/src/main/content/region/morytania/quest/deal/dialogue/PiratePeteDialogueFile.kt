@@ -1,7 +1,7 @@
 package content.region.morytania.quest.deal.dialogue
 
 import core.api.*
-import cfg.consts.*
+import org.rs.consts.*
 import content.region.morytania.quest.deal.cutscene.MysteriousTeleportCutscene
 import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression

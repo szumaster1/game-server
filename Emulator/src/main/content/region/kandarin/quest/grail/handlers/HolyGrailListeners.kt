@@ -2,8 +2,8 @@ package content.region.kandarin.quest.grail.handlers
 
 import content.region.kandarin.quest.grail.dialogue.*
 import core.api.*
-import cfg.consts.Items
-import cfg.consts.NPCs
+import org.rs.consts.Items
+import org.rs.consts.NPCs
 import content.region.kandarin.quest.grail.HolyGrail
 import core.game.global.action.ClimbActionHandler
 import core.game.global.action.DoorActionHandler
@@ -134,23 +134,23 @@ class HolyGrailListeners : InteractionListener {
             return@on true
         }
 
-        on(cfg.consts.Scenery.SACKS_23, IntType.SCENERY, "Prod") { player, _ ->
+        on(org.rs.consts.Scenery.SACKS_23, IntType.SCENERY, "Prod") { player, _ ->
             openDialogue(player, SirPercivalHolyGrailDialogueFile("Prod"))
             return@on true
         }
 
-        on(cfg.consts.Scenery.SACKS_23, IntType.SCENERY, "Open") { player, _ ->
+        on(org.rs.consts.Scenery.SACKS_23, IntType.SCENERY, "Open") { player, _ ->
             openDialogue(player, SirPercivalHolyGrailDialogueFile("Open"))
             return@on true
         }
 
-        on(cfg.consts.Scenery.STAIRCASE_1730, IntType.SCENERY, "walk-up") { player, stairs ->
+        on(org.rs.consts.Scenery.STAIRCASE_1730, IntType.SCENERY, "walk-up") { player, stairs ->
             ClimbActionHandler.climbLadder(player, stairs.asScenery(), "walk-up")
             spawnGrail(player)
             return@on true
         }
 
-        on(cfg.consts.Scenery.LADDER_1750, IntType.SCENERY, "climb-up") { player, stairs ->
+        on(org.rs.consts.Scenery.LADDER_1750, IntType.SCENERY, "climb-up") { player, stairs ->
             ClimbActionHandler.climbLadder(player, stairs.asScenery(), "climb-up")
             spawnGrail(player)
             return@on true
@@ -177,7 +177,7 @@ class HolyGrailListeners : InteractionListener {
             return@on true
         }
 
-        on(cfg.consts.Scenery.DOOR_22, IntType.SCENERY, "open") { player, door ->
+        on(org.rs.consts.Scenery.DOOR_22, IntType.SCENERY, "open") { player, door ->
             if (!door.location.equals(HolyGrail.DOOR_MAGIC_WHISTLE_LOCATION)) {
                 DoorActionHandler.handleDoor(player, door.asScenery())
                 return@on true

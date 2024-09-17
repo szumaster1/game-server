@@ -1,9 +1,9 @@
 package content.region.kandarin.port_khazard.quest.arena
 
 import core.api.addItemOrDrop
-import cfg.consts.Components
-import cfg.consts.Items
-import cfg.consts.Vars
+import org.rs.consts.Components
+import org.rs.consts.Items
+import org.rs.consts.Vars
 import core.api.rewardXP
 import core.api.sendItemZoomOnInterface
 import core.game.node.entity.player.Player

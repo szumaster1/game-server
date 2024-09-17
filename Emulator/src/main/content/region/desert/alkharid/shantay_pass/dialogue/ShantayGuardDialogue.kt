@@ -1,8 +1,8 @@
 package content.region.desert.alkharid.shantay_pass.dialogue
 
 import content.global.skill.support.agility.AgilityHandler
-import cfg.consts.Items
-import cfg.consts.NPCs
+import org.rs.consts.Items
+import org.rs.consts.NPCs
 import core.api.sendDialogueLines
 import core.api.sendItemDialogue
 import core.game.dialogue.Dialogue

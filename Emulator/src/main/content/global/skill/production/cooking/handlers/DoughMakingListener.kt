@@ -1,7 +1,7 @@
 package content.global.skill.production.cooking.handlers
 
 import core.api.*
-import cfg.consts.Items
+import org.rs.consts.Items
 import core.game.dialogue.DialogueFile
 import core.game.event.ResourceProducedEvent
 import core.game.interaction.IntType

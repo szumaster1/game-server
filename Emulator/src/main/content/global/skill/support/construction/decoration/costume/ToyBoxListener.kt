@@ -1,7 +1,7 @@
 package content.global.skill.support.construction.decoration.costume
 
 import content.global.handlers.iface.plugin.DiangoReclaimInterfacePlugin
-import cfg.consts.Scenery
+import org.rs.consts.Scenery
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 

@@ -1,6 +1,6 @@
 package content.region.kandarin.quest.arthur.handlers
 
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import core.api.removeAttribute
 import core.game.node.entity.npc.AbstractNPC
 import core.game.node.entity.player.Player

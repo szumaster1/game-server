@@ -1,6 +1,6 @@
 package content.global.skill.combat.summoning
 
-import cfg.consts.Sounds
+import org.rs.consts.Sounds
 import core.api.*
 import core.cache.def.impl.CS2Mapping
 import core.game.component.Component

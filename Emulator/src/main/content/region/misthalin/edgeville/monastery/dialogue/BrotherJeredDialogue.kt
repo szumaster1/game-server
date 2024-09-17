@@ -1,8 +1,8 @@
 package content.region.misthalin.edgeville.monastery.dialogue
 
 import core.api.addItem
-import cfg.consts.Items
-import cfg.consts.NPCs
+import org.rs.consts.Items
+import org.rs.consts.NPCs
 import core.api.inInventory
 import core.api.removeItem
 import core.api.sendMessage

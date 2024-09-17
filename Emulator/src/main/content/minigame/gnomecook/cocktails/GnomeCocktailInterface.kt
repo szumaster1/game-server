@@ -1,6 +1,6 @@
 package content.minigame.gnomecook.cocktails
 
-import cfg.consts.Items
+import org.rs.consts.Items
 import core.game.component.Component
 import core.game.component.ComponentDefinition
 import core.game.component.ComponentPlugin

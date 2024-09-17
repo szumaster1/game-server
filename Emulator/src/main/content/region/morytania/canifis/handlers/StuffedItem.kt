@@ -1,6 +1,6 @@
 package content.region.morytania.canifis.handlers
 
-import cfg.consts.Items
+import org.rs.consts.Items
 
 /**
  * Represents the Stuffed item enum class.

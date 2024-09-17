@@ -1,6 +1,6 @@
 package content.region.asgarnia.whitewolf.handlers
 
-import cfg.consts.Scenery
+import org.rs.consts.Scenery
 import content.data.skill.SkillingTool
 import core.api.*
 import core.game.interaction.InteractionListener

@@ -1,6 +1,6 @@
 package content.global.skill.support.agility.shortcuts
 
-import cfg.consts.Animations
+import org.rs.consts.Animations
 import content.global.skill.support.agility.AgilityShortcut
 import core.api.getStatLevel
 import core.api.sendMessage

@@ -1,7 +1,7 @@
 package content.global.skill.combat.summoning.familiar.npc
 
 import content.global.skill.combat.summoning.familiar.Familiar
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import core.api.visualize
 import core.game.node.entity.combat.equipment.WeaponInterface
 import core.game.node.entity.player.Player

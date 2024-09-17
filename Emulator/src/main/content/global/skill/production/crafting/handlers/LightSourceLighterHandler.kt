@@ -1,7 +1,7 @@
 package content.global.skill.production.crafting.handlers
 
 import content.global.skill.production.crafting.data.LightSource
-import cfg.consts.Items
+import org.rs.consts.Items
 import core.api.getStatLevel
 import core.api.playAudio
 import core.api.sendMessage

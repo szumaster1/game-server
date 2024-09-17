@@ -2,7 +2,7 @@ package content.global.handlers.item
 
 import content.global.travel.glider.Glider
 import core.api.*
-import cfg.consts.Items
+import org.rs.consts.Items
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.interaction.QueueStrength

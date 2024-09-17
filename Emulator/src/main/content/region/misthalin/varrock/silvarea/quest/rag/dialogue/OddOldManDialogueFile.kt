@@ -1,6 +1,6 @@
 package content.region.misthalin.varrock.silvarea.quest.rag.dialogue
 
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import content.region.misthalin.varrock.silvarea.quest.rag.RagAndBoneMan
 import core.api.*
 import core.game.dialogue.DialogueFile

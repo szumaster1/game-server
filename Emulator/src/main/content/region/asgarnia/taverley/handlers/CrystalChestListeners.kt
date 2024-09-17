@@ -1,7 +1,7 @@
 package content.region.asgarnia.taverley.handlers
 
-import cfg.consts.Items
-import cfg.consts.Scenery
+import org.rs.consts.Items
+import org.rs.consts.Scenery
 import core.api.freeSlots
 import core.api.inInventory
 import core.api.removeItem

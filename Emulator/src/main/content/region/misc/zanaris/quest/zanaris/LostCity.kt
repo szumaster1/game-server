@@ -1,8 +1,8 @@
 package content.region.misc.zanaris.quest.zanaris
 
-import cfg.consts.Components
-import cfg.consts.Items
-import cfg.consts.Vars
+import org.rs.consts.Components
+import org.rs.consts.Items
+import org.rs.consts.Vars
 import core.api.hasLevelStat
 import core.api.sendItemZoomOnInterface
 import core.game.node.entity.player.Player

@@ -1,7 +1,7 @@
 package content.region.desert.alkharid.handlers
 
-import cfg.consts.NPCs
-import cfg.consts.Scenery
+import org.rs.consts.NPCs
+import org.rs.consts.Scenery
 import core.api.findNPC
 import core.api.getScenery
 import core.api.replaceScenery

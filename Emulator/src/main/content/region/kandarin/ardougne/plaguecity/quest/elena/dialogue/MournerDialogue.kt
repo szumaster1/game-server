@@ -1,7 +1,7 @@
 package content.region.kandarin.ardougne.plaguecity.quest.elena.dialogue
 
-import cfg.consts.Items
-import cfg.consts.NPCs
+import org.rs.consts.Items
+import org.rs.consts.NPCs
 import core.api.inBorders
 import core.api.inEquipment
 import core.game.dialogue.Dialogue

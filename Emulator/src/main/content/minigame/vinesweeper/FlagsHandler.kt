@@ -1,6 +1,6 @@
 package content.minigame.vinesweeper
 
-import cfg.consts.Items
+import org.rs.consts.Items
 import core.api.getAttribute
 import core.api.setAttribute
 import core.game.dialogue.DialogueFile

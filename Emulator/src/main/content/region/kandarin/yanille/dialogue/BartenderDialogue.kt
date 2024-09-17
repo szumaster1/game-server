@@ -2,8 +2,8 @@ package content.region.kandarin.yanille.dialogue
 
 import core.api.addItemOrDrop
 import core.api.amountInInventory
-import cfg.consts.Items
-import cfg.consts.NPCs
+import org.rs.consts.Items
+import org.rs.consts.NPCs
 import core.api.sendDialogue
 import core.api.sendMessage
 import core.game.dialogue.Dialogue

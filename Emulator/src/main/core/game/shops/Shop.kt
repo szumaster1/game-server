@@ -1,7 +1,7 @@
 package core.game.shops
 
-import cfg.consts.Components
-import cfg.consts.Items
+import org.rs.consts.Components
+import org.rs.consts.Items
 import core.Configuration
 import core.api.*
 import core.game.component.Component

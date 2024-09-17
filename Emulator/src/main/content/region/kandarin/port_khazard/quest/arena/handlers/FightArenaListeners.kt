@@ -1,9 +1,9 @@
 package content.region.kandarin.port_khazard.quest.arena.handlers
 
 import core.api.*
-import cfg.consts.Items
-import cfg.consts.NPCs
-import cfg.consts.Scenery
+import org.rs.consts.Items
+import org.rs.consts.NPCs
+import org.rs.consts.Scenery
 import content.region.kandarin.port_khazard.quest.arena.dialogue.*
 import core.game.global.action.DoorActionHandler
 import core.game.interaction.IntType

@@ -1,8 +1,8 @@
 package content.region.kandarin.quest.tree.handlers
 
 import core.api.addItemOrDrop
-import cfg.consts.Items
-import cfg.consts.NPCs
+import org.rs.consts.Items
+import org.rs.consts.NPCs
 import core.api.getQuestStage
 import core.api.sendDialogue
 import core.game.interaction.InteractionListener

@@ -1,8 +1,8 @@
 package content.global.guild.rc.dialogue
 
-import cfg.consts.Components
-import cfg.consts.Items
-import cfg.consts.NPCs
+import org.rs.consts.Components
+import org.rs.consts.Items
+import org.rs.consts.NPCs
 import content.global.guild.rc.RCGUtils
 import core.api.*
 import core.game.dialogue.Dialogue

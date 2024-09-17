@@ -1,7 +1,7 @@
 package content.global.skill.support.construction.servants;
 
 
-import cfg.consts.NPCs;
+import org.rs.consts.NPCs;
 import core.game.node.item.Item;
 
 /**

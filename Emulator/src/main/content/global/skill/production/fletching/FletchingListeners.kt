@@ -1,6 +1,6 @@
 package content.global.skill.production.fletching
 
-import cfg.consts.Items
+import org.rs.consts.Items
 import content.global.skill.production.fletching.data.*
 import content.global.skill.production.fletching.data.BowString
 import content.global.skill.production.fletching.item.*

@@ -1,6 +1,6 @@
 package content.region.asgarnia.taverley.quest.ball.handlers
 
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import core.game.node.entity.npc.AbstractNPC
 import core.game.node.entity.player.Player
 import core.game.world.GameWorld.ticks

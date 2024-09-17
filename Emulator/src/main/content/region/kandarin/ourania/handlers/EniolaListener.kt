@@ -1,7 +1,7 @@
 package content.region.kandarin.ourania.handlers
 
-import cfg.consts.Components
-import cfg.consts.NPCs
+import org.rs.consts.Components
+import org.rs.consts.NPCs
 import core.api.openInterface
 import core.api.restrictForIronman
 import core.api.setAttribute

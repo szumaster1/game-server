@@ -1,6 +1,6 @@
 package core.game.system.command.sets
 
-import cfg.consts.Items
+import org.rs.consts.Items
 import content.global.activity.jobs.JobManager
 import content.global.skill.support.construction.HouseLocation
 import content.minigame.tbwcleanup.changeSpawnChance

@@ -1,7 +1,7 @@
 package content.region.tirannwn.dialogue
 
-import cfg.consts.Items
-import cfg.consts.NPCs
+import org.rs.consts.Items
+import org.rs.consts.NPCs
 import core.api.inEquipment
 import core.api.inInventory
 import core.game.dialogue.Dialogue

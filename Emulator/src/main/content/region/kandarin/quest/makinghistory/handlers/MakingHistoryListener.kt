@@ -1,10 +1,10 @@
 package content.region.kandarin.quest.makinghistory.handlers
 
 import core.api.*
-import cfg.consts.Components
-import cfg.consts.Items
-import cfg.consts.Scenery
-import cfg.consts.Sounds
+import org.rs.consts.Components
+import org.rs.consts.Items
+import org.rs.consts.Scenery
+import org.rs.consts.Sounds
 import core.game.dialogue.DialogueFile
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener

@@ -1,6 +1,6 @@
 package content.region.morytania.phasmatys.quest.ahoy.handlers
 
-import cfg.consts.*
+import org.rs.consts.*
 import content.region.morytania.phasmatys.quest.ahoy.handlers.GAUtils.jumpRockPath
 import content.region.morytania.phasmatys.quest.ahoy.handlers.GiantLobsterNPC.Companion.spawnGiantLobster
 import content.region.morytania.phasmatys.quest.ahoy.dialogue.RobinDialogueFile

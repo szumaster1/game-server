@@ -1,7 +1,7 @@
 package content.global.skill.support.construction.servants
 
 import content.global.handlers.iface.plugin.Plank
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import core.api.freeSlots
 import core.api.getStatLevel
 import core.game.dialogue.Dialogue

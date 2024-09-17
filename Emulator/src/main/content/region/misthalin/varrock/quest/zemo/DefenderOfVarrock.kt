@@ -1,7 +1,7 @@
 /*package content.region.miscquest.zemo
 
 
-import cfg.consts.Vars
+import org.rs.consts.Vars
 import core.api.hasLevelStat
 import core.api.isQuestComplete
 import core.api.rewardXP

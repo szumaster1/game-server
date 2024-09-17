@@ -1,7 +1,7 @@
 package content.global.random.event.shade
 
 import content.global.random.RandomEventNPC
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import core.api.utils.WeightBasedTable
 import core.game.node.entity.Entity
 import core.game.node.entity.npc.NPC

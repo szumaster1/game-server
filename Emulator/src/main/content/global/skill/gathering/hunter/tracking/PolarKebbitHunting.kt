@@ -1,6 +1,6 @@
 package content.global.skill.gathering.hunter.tracking
 
-import cfg.consts.Items
+import org.rs.consts.Items
 import core.cache.def.impl.SceneryDefinition
 import core.game.node.item.Item
 import core.game.world.map.Location

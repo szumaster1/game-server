@@ -1,7 +1,7 @@
 package content.global.skill.combat.summoning.item
 
 import core.api.addItem
-import cfg.consts.Items
+import org.rs.consts.Items
 import core.api.removeItem
 import core.api.sendMessage
 import core.game.interaction.IntType

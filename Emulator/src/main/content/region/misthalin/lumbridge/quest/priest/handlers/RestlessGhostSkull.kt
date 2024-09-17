@@ -1,7 +1,7 @@
 package content.region.misthalin.lumbridge.quest.priest.handlers
 
-import cfg.consts.Items
-import cfg.consts.Sounds
+import org.rs.consts.Items
+import org.rs.consts.Sounds
 import core.api.*
 import core.game.interaction.NodeUsageEvent
 import core.game.interaction.UseWithHandler
@@ -17,15 +17,15 @@ import core.plugin.Plugin
 class RestlessGhostSkull : UseWithHandler(Items.SKULL_964) {
 
     override fun newInstance(arg: Any?): Plugin<Any> {
-        addHandler(cfg.consts.Scenery.COFFIN_2145, OBJECT_TYPE, this)
-        addHandler(cfg.consts.Scenery.COFFIN_2145, OBJECT_TYPE, this)
+        addHandler(org.rs.consts.Scenery.COFFIN_2145, OBJECT_TYPE, this)
+        addHandler(org.rs.consts.Scenery.COFFIN_2145, OBJECT_TYPE, this)
         addHandler(15061, OBJECT_TYPE, this)
         return this
     }
 
     override fun handle(event: NodeUsageEvent): Boolean {
         val scenery = event.usedWith as Scenery
-        if (scenery.id == cfg.consts.Scenery.COFFIN_2145) {
+        if (scenery.id == org.rs.consts.Scenery.COFFIN_2145) {
             sendDialogue(event.player, "Maybe I should open it first.")
             return true
         }

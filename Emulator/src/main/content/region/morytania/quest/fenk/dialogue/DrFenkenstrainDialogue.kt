@@ -1,8 +1,8 @@
 package content.region.morytania.quest.fenk.dialogue
 
-import cfg.consts.Items
-import cfg.consts.NPCs
-import cfg.consts.Vars
+import org.rs.consts.Items
+import org.rs.consts.NPCs
+import org.rs.consts.Vars
 import content.region.morytania.quest.fenk.CreatureOfFenkenstrain
 import core.api.*
 import core.game.dialogue.DialogueBuilder

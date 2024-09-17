@@ -1,8 +1,8 @@
 package content.minigame.castlewars
 
-import cfg.consts.Items
-import cfg.consts.NPCs
-import cfg.consts.Scenery
+import org.rs.consts.Items
+import org.rs.consts.NPCs
+import org.rs.consts.Scenery
 import core.game.world.map.zone.ZoneBorders
 
 /**

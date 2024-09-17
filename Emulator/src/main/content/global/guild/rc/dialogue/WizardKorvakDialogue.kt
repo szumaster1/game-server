@@ -1,7 +1,7 @@
 package content.global.guild.rc.dialogue
 
-import cfg.consts.Items
-import cfg.consts.NPCs
+import org.rs.consts.Items
+import org.rs.consts.NPCs
 import content.global.skill.production.runecrafting.pouch.PouchManager.RCPouch
 import core.api.*
 import core.game.dialogue.Dialogue

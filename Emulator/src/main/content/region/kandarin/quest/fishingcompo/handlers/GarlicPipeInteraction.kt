@@ -1,7 +1,7 @@
 package content.region.kandarin.quest.fishingcompo.handlers
 
 import content.region.kandarin.quest.fishingcompo.FishingContest
-import cfg.consts.Items
+import org.rs.consts.Items
 import core.api.setAttribute
 import core.game.interaction.MovementPulse
 import core.game.interaction.NodeUsageEvent

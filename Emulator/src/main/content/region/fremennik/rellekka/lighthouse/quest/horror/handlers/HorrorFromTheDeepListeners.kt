@@ -1,9 +1,9 @@
 package content.region.fremennik.rellekka.lighthouse.quest.horror.handlers
 
 import core.api.*
-import cfg.consts.Items
-import cfg.consts.NPCs
-import cfg.consts.Scenery
+import org.rs.consts.Items
+import org.rs.consts.NPCs
+import org.rs.consts.Scenery
 import content.region.fremennik.rellekka.lighthouse.quest.horror.dialogue.JossikDialogueFile
 import core.game.dialogue.FacialExpression
 import core.game.global.action.DoorActionHandler

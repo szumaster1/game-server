@@ -1,7 +1,7 @@
 package content.region.misthalin.varrock.quest.demon.dialogue
 
-import cfg.consts.Animations
-import cfg.consts.NPCs
+import org.rs.consts.Animations
+import org.rs.consts.NPCs
 import content.region.misthalin.varrock.quest.demon.handlers.DSUtils
 import core.api.sendNPCDialogue
 import core.game.activity.ActivityManager

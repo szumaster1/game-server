@@ -1,6 +1,6 @@
 package core.game.global.action
 
-import cfg.consts.Sounds
+import org.rs.consts.Sounds
 import content.global.handlers.item.equipment.gloves.BrawlingGlovesManager
 import content.global.skill.support.slayer.SlayerEquipmentFlags
 import core.api.playAudio

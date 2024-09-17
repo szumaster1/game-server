@@ -1,9 +1,9 @@
 package content.region.morytania.phasmatys.quest.ahoy.dialogue
 
 import core.api.*
-import cfg.consts.Animations
-import cfg.consts.Items
-import cfg.consts.NPCs
+import org.rs.consts.Animations
+import org.rs.consts.Items
+import org.rs.consts.NPCs
 import core.game.dialogue.DialogueFile
 import core.game.interaction.QueueStrength
 import core.game.node.entity.npc.NPC

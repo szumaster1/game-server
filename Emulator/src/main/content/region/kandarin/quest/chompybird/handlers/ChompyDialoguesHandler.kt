@@ -2,7 +2,7 @@ package content.region.kandarin.quest.chompybird.handlers
 
 import content.region.kandarin.quest.chompybird.BigChompyBirdHunting
 import core.api.*
-import cfg.consts.Items
+import org.rs.consts.Items
 import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression
 import core.game.node.entity.player.Player

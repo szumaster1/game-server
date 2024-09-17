@@ -2,7 +2,7 @@ package content.global.skill.gathering.hunter.falconry
 
 import core.api.Container
 import core.api.MapArea
-import cfg.consts.Items
+import org.rs.consts.Items
 import core.api.removeAttribute
 import core.api.removeItem
 import core.game.node.entity.Entity

@@ -2,9 +2,9 @@ package content.region.kandarin.baxtorian.barbarian_training.fishing
 
 import content.region.kandarin.baxtorian.barbarian_training.BarbarianTraining
 import core.api.*
-import cfg.consts.Items
-import cfg.consts.NPCs
-import cfg.consts.Scenery
+import org.rs.consts.Items
+import org.rs.consts.NPCs
+import org.rs.consts.Scenery
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 

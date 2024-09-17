@@ -1,7 +1,7 @@
 /*package content.region.miscquest.fever
 
 
-import cfg.consts.Vars
+import org.rs.consts.Vars
 import core.api.addItemOrDrop
 import core.api.hasLevelStat
 import core.api.isQuestComplete

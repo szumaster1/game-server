@@ -2,7 +2,7 @@ package content.region.misthalin.varrock.quest.phoenixgang.dialogue
 
 import content.region.asgarnia.burthope.quest.hero.dialogue.StravenDialogueFile
 import content.region.misthalin.varrock.quest.phoenixgang.ShieldofArrav
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import core.api.openDialogue
 import core.game.dialogue.Dialogue
 import core.game.node.entity.npc.NPC

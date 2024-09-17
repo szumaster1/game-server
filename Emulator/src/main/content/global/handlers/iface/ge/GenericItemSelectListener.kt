@@ -1,6 +1,6 @@
 package content.global.handlers.iface.ge
 
-import cfg.consts.Components
+import org.rs.consts.Components
 import core.api.getAttribute
 import core.api.log
 import core.api.removeAttribute

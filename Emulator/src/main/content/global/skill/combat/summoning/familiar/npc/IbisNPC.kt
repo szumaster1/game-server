@@ -4,8 +4,8 @@ import content.global.skill.combat.summoning.familiar.Familiar
 import content.global.skill.combat.summoning.familiar.FamiliarSpecial
 import content.global.skill.combat.summoning.familiar.Forager
 import content.global.skill.gathering.fishing.data.Fish
-import cfg.consts.Items
-import cfg.consts.NPCs
+import org.rs.consts.Items
+import org.rs.consts.NPCs
 import core.api.rewardXP
 import core.game.node.entity.player.Player
 import core.game.node.entity.skill.SkillBonus

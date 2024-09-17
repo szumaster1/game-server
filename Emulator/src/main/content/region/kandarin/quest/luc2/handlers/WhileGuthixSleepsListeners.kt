@@ -1,10 +1,10 @@
 package content.region.kandarin.quest.luc2.handlers
 
 import core.api.*
-import cfg.consts.Components
-import cfg.consts.Items
-import cfg.consts.Music
-import cfg.consts.Scenery
+import org.rs.consts.Components
+import org.rs.consts.Items
+import org.rs.consts.Music
+import org.rs.consts.Scenery
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.system.task.Pulse

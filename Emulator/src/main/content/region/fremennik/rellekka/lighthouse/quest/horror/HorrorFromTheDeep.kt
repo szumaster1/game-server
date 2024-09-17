@@ -1,9 +1,9 @@
 package content.region.fremennik.rellekka.lighthouse.quest.horror
 
 import core.api.*
-import cfg.consts.Components
-import cfg.consts.Items
-import cfg.consts.Vars
+import org.rs.consts.Components
+import org.rs.consts.Items
+import org.rs.consts.Vars
 import content.region.fremennik.rellekka.lighthouse.quest.horror.handlers.HorrorUtils
 import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.quest.Quest

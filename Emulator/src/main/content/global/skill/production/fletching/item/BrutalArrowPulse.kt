@@ -1,6 +1,6 @@
 package content.global.skill.production.fletching.item
 
-import cfg.consts.Items
+import org.rs.consts.Items
 import content.global.skill.production.fletching.data.BrutalArrow
 import core.api.*
 import core.game.node.entity.player.Player

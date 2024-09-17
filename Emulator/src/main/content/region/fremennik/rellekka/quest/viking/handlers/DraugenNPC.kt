@@ -1,7 +1,7 @@
 package content.region.fremennik.rellekka.quest.viking.handlers
 
 import core.api.*
-import cfg.consts.Items
+import org.rs.consts.Items
 import core.game.node.entity.Entity
 import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player

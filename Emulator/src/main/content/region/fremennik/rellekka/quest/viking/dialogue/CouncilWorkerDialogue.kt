@@ -1,7 +1,7 @@
 package content.region.fremennik.rellekka.quest.viking.dialogue
 
 import core.api.addItem
-import cfg.consts.Items
+import org.rs.consts.Items
 import core.api.getQuestStage
 import core.api.inInventory
 import core.api.removeItem

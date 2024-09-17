@@ -1,6 +1,6 @@
 package content.minigame.fistofguthix.dialogue
 
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import core.api.sendDialogueOptions
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression

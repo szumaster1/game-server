@@ -1,6 +1,6 @@
 package core.game.global
 
-import cfg.consts.Items
+import org.rs.consts.Items
 import core.api.closeDialogue
 import core.api.freeSlots
 import core.api.removeItem

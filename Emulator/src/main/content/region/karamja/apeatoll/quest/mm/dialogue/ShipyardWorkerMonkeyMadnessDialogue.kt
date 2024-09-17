@@ -1,7 +1,7 @@
 package content.region.karamja.apeatoll.quest.mm.dialogue
 
 import content.region.kandarin.quest.grandtree.dialogue.ShipyardWorkerDialogue
-import cfg.consts.Items
+import org.rs.consts.Items
 import core.api.getQuestStage
 import core.api.sendItemDialogue
 import core.game.dialogue.DialogueFile

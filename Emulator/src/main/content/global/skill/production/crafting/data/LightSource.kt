@@ -1,7 +1,7 @@
 package content.global.skill.production.crafting.data
 
-import cfg.consts.Items
-import cfg.consts.Sounds
+import org.rs.consts.Items
+import org.rs.consts.Sounds
 
 /**
  * Represents the light source items.

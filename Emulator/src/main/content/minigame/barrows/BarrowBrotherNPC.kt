@@ -1,7 +1,7 @@
 package content.minigame.barrows
 
 import core.api.clearHintIcon
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import core.api.removeAttribute
 import core.game.node.entity.Entity
 import core.game.node.entity.combat.BattleState

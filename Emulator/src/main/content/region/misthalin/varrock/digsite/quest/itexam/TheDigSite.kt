@@ -5,7 +5,7 @@ import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.quest.Quest
 import core.game.node.entity.skill.Skills
 import core.plugin.Initializable
-import cfg.consts.Items
+import org.rs.consts.Items
 
 /**
  * Represents the The dig site quest.

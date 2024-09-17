@@ -1,7 +1,7 @@
 package content.region.kandarin.quest.arthur.dialogue
 
 import content.region.kandarin.quest.arthur.cutscene.CrateCutscene
-import cfg.consts.Animations
+import org.rs.consts.Animations
 import core.api.sendDialogue
 import core.api.sendDialogueLines
 import core.api.sendDialogueOptions

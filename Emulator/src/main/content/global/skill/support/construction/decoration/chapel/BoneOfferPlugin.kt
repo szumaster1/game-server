@@ -1,8 +1,8 @@
 package content.global.skill.support.construction.decoration.chapel
 
-import cfg.consts.Graphics
+import org.rs.consts.Graphics
 import content.global.skill.combat.prayer.Bones
-import cfg.consts.Sounds
+import org.rs.consts.Sounds
 import core.api.playAudio
 import core.api.sendMessage
 import core.api.submitIndividualPulse

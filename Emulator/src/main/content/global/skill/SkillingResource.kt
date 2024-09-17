@@ -1,6 +1,6 @@
 package content.global.skill
 
-import cfg.consts.Scenery
+import org.rs.consts.Scenery
 import core.Configuration
 import core.cache.def.impl.SceneryDefinition
 import core.game.node.entity.skill.Skills

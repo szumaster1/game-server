@@ -1,8 +1,8 @@
 package content.region.asgarnia.falador.dialogue
 
 import core.api.*
-import cfg.consts.Items
-import cfg.consts.NPCs
+import org.rs.consts.Items
+import org.rs.consts.NPCs
 import content.region.asgarnia.falador.achievement.dialogue.FaladorSquireDiaryDialogue
 import core.game.dialogue.Dialogue
 import core.game.node.entity.npc.NPC

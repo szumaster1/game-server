@@ -2,8 +2,8 @@ package content.region.kandarin.quest.makinghistory.dialogue
 
 import content.region.kandarin.quest.makinghistory.handlers.MHUtils
 import core.api.*
-import cfg.consts.Items
-import cfg.consts.NPCs
+import org.rs.consts.Items
+import org.rs.consts.NPCs
 import core.game.dialogue.DialogueFile
 import core.game.node.entity.npc.NPC
 import core.tools.END_DIALOGUE

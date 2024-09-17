@@ -1,7 +1,7 @@
 package content.data.consumables
 
 import content.data.consumables.effects.*
-import cfg.consts.Items
+import org.rs.consts.Items
 import core.game.consumable.*
 import core.game.node.entity.player.link.diary.DiaryType
 import core.game.node.entity.skill.Skills

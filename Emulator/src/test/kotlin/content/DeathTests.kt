@@ -9,7 +9,7 @@ import core.game.node.entity.player.link.IronmanMode
 import core.game.world.map.Location
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
-import cfg.consts.Items
+import org.rs.consts.Items
 import core.game.node.entity.combat.graves.GraveType
 import core.game.node.entity.combat.graves.GraveController
 import core.game.world.GameWorld

@@ -3,8 +3,8 @@ package content.region.kandarin.quest.chompybird.dialogue
 import content.region.kandarin.quest.chompybird.handlers.ChompyBirdHunting
 import content.region.kandarin.quest.chompybird.handlers.ChompyDialoguesHandler
 import core.api.*
-import cfg.consts.Items
-import cfg.consts.NPCs
+import org.rs.consts.Items
+import org.rs.consts.NPCs
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression
 import core.game.dialogue.IfTopic

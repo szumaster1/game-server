@@ -1,6 +1,6 @@
 package core.game.bots
 
-import cfg.consts.Items
+import org.rs.consts.Items
 import content.data.consumables.Consumables
 import content.data.consumables.effects.HealingEffect
 import core.Configuration

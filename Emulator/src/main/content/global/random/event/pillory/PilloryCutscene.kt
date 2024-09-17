@@ -1,7 +1,7 @@
 package content.global.random.event.pillory
 
-import cfg.consts.Components
-import cfg.consts.NPCs
+import org.rs.consts.Components
+import org.rs.consts.NPCs
 import core.api.location
 import core.api.openInterface
 import core.api.sendChat

@@ -1,7 +1,7 @@
 package content.region.karamja.shilovillage.dialogue
 
 import core.api.anyInInventory
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import content.region.karamja.shilovillage.handlers.ShilovillageListeners
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression

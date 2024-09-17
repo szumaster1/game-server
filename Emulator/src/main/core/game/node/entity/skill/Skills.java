@@ -1,7 +1,7 @@
 package core.game.node.entity.skill;
 
-import cfg.consts.Items;
-import cfg.consts.Sounds;
+import org.rs.consts.Items;
+import org.rs.consts.Sounds;
 import content.global.handlers.item.equipment.gloves.BrawlingGloves;
 import content.global.handlers.item.equipment.gloves.BrawlingGlovesManager;
 import content.global.skill.skillcape.SkillcapePerks;

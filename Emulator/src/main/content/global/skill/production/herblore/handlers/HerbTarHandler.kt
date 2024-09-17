@@ -3,7 +3,7 @@ package content.global.skill.production.herblore.handlers
 import content.global.skill.production.herblore.data.Tar
 import content.global.skill.production.herblore.data.Tar.Companion.forItem
 import content.global.skill.production.herblore.item.HerbTarPulse
-import cfg.consts.Items
+import org.rs.consts.Items
 import core.game.dialogue.SkillDialogueHandler
 import core.game.interaction.NodeUsageEvent
 import core.game.interaction.UseWithHandler

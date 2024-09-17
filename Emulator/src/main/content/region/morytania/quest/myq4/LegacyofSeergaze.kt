@@ -1,7 +1,7 @@
 /*package content.region.miscquest.myq4
 
 
-import cfg.consts.Vars
+import org.rs.consts.Vars
 import core.api.addItemOrDrop
 import core.api.rewardXP
 import core.api.setVarbit

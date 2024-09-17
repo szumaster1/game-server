@@ -1,6 +1,6 @@
 package content.region.misthalin.varrock.quest.crest.handlers
 
-import cfg.consts.Items
+import org.rs.consts.Items
 import core.api.*
 import core.game.node.entity.player.Player
 import core.game.node.item.Item

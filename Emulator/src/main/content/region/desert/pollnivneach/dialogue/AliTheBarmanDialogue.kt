@@ -1,6 +1,6 @@
 package content.region.desert.pollnivneach.dialogue
 
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import core.api.openNpcShop
 import core.api.sendDialogue
 import core.game.dialogue.DialogueFile

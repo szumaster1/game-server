@@ -1,8 +1,8 @@
 package content.region.asgarnia.burthope.quest.death.dialogue
 
 import core.api.*
-import cfg.consts.Animations
-import cfg.consts.Items
+import org.rs.consts.Animations
+import org.rs.consts.Items
 import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression
 import core.game.dialogue.Topic

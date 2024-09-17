@@ -1,6 +1,6 @@
 package content.region.misthalin.varrock.museum.dialogue
 
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import core.api.location
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression

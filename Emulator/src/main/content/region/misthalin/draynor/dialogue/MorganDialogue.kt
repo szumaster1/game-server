@@ -1,6 +1,6 @@
 package content.region.misthalin.draynor.dialogue
 
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import content.region.misthalin.draynor.quest.vampire.dialogue.MorganDialogue
 import core.api.getQuest
 import core.api.getQuestStage

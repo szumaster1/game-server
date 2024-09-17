@@ -1,7 +1,7 @@
 package content.region.asgarnia.portsarim.dialogue
 
 import content.global.travel.charter.Ship
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import core.api.finishDiaryTask
 import core.api.hasDiaryTaskComplete
 import core.api.sendDialogue

@@ -2,8 +2,8 @@ package content.global.skill.production.herblore.handlers
 
 import content.global.skill.production.herblore.data.GrindingItem
 import core.api.*
-import cfg.consts.Animations
-import cfg.consts.Items
+import org.rs.consts.Animations
+import org.rs.consts.Items
 import core.game.dialogue.SkillDialogueHandler
 import core.game.interaction.NodeUsageEvent
 import core.game.interaction.UseWithHandler

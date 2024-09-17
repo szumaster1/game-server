@@ -1,9 +1,9 @@
 package content.global.skill.support.agility.shortcuts
 
-import cfg.consts.Animations
-import cfg.consts.Graphics
-import cfg.consts.Scenery
-import cfg.consts.Sounds
+import org.rs.consts.Animations
+import org.rs.consts.Graphics
+import org.rs.consts.Scenery
+import org.rs.consts.Sounds
 import content.global.skill.support.agility.AgilityHandler
 import core.api.*
 import core.game.interaction.IntType

@@ -2,9 +2,9 @@ package content.global.handlers.npc
 
 import content.region.misthalin.lumbridge.quest.sheep.SheepShearer
 import core.api.*
-import cfg.consts.Items
-import cfg.consts.NPCs
-import cfg.consts.Sounds
+import org.rs.consts.Items
+import org.rs.consts.NPCs
+import org.rs.consts.Sounds
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.entity.combat.DeathTask

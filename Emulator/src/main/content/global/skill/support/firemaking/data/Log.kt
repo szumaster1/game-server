@@ -1,7 +1,7 @@
 package content.global.skill.support.firemaking.data
 
-import cfg.consts.Items
-import cfg.consts.Scenery
+import org.rs.consts.Items
+import org.rs.consts.Scenery
 
 /**
  * Representing different types of logs.

@@ -7,8 +7,8 @@ import core.game.node.entity.npc.NPCBehavior
 import core.game.node.entity.player.Player
 import core.game.node.item.Item
 import core.tools.RandomFunction
-import cfg.consts.Items
-import cfg.consts.NPCs
+import org.rs.consts.Items
+import org.rs.consts.NPCs
 import content.region.kandarin.quest.ikov.TempleOfIkov
 
 class GuardianOfArmadylBehavior : NPCBehavior(*guardianOfArmadylIds) {

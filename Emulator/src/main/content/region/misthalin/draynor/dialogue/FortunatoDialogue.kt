@@ -1,6 +1,6 @@
 package content.region.misthalin.draynor.dialogue
 
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import core.api.openNpcShop
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression

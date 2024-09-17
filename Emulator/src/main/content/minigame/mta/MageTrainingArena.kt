@@ -2,7 +2,7 @@ package content.minigame.mta
 
 import content.global.skill.support.agility.AgilityHandler
 import content.minigame.mta.impl.TelekineticZone
-import cfg.consts.Items
+import org.rs.consts.Items
 import core.cache.def.impl.ItemDefinition
 import core.cache.def.impl.NPCDefinition
 import core.cache.def.impl.SceneryDefinition

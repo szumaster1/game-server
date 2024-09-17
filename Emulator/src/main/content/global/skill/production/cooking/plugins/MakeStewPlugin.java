@@ -1,7 +1,7 @@
 package content.global.skill.production.cooking.plugins;
 
-import cfg.consts.Items;
-import cfg.consts.Scenery;
+import org.rs.consts.Items;
+import org.rs.consts.Scenery;
 import core.game.interaction.NodeUsageEvent;
 import core.game.interaction.UseWithHandler;
 import core.plugin.Initializable;

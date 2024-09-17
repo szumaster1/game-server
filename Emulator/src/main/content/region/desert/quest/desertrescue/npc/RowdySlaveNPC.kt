@@ -1,6 +1,6 @@
 package content.region.desert.quest.desertrescue.npc
 
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import content.region.desert.quest.desertrescue.TouristTrap
 import core.cache.def.impl.NPCDefinition
 import core.game.interaction.OptionHandler

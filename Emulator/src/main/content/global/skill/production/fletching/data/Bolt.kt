@@ -1,6 +1,6 @@
 package content.global.skill.production.fletching.data
 
-import cfg.consts.Items
+import org.rs.consts.Items
 
 /**
  * Represents the bolt data.

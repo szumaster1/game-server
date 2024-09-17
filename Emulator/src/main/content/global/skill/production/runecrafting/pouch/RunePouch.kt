@@ -1,6 +1,6 @@
 package content.global.skill.production.runecrafting.pouch
 
-import cfg.consts.Items
+import org.rs.consts.Items
 import core.api.freeSlots
 import core.api.getStatLevel
 import core.api.hasSpaceFor

@@ -1,6 +1,6 @@
 package content.minigame.pyramidplunder
 
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import core.api.sendDialogueOptions
 import core.api.setAttribute
 import core.game.dialogue.Dialogue

@@ -1,6 +1,6 @@
 package content.global.skill.support.thieving.data
 
-import cfg.consts.Items
+import org.rs.consts.Items
 import core.game.node.item.Item
 import core.game.node.scenery.Scenery
 import core.tools.RandomFunction
@@ -172,8 +172,8 @@ enum class Stall(
         message = "food"
     ),
     CANDLES(
-        full = arrayOf(cfg.consts.Scenery.CANDLES_19127),
-        empty = arrayOf(cfg.consts.Scenery.CANDLES_19127),
+        full = arrayOf(org.rs.consts.Scenery.CANDLES_19127),
+        empty = arrayOf(org.rs.consts.Scenery.CANDLES_19127),
         level = 20,
         rewards = arrayOf(Item(Items.CANDLE_36, 1)),
         experience = 20.0,

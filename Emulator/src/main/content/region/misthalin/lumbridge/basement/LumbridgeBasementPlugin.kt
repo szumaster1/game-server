@@ -1,7 +1,7 @@
 package content.region.misthalin.lumbridge.basement
 
-import cfg.consts.Animations
-import cfg.consts.NPCs
+import org.rs.consts.Animations
+import org.rs.consts.NPCs
 import core.api.hasRequirement
 import core.cache.def.impl.SceneryDefinition
 import core.game.interaction.NodeUsageEvent

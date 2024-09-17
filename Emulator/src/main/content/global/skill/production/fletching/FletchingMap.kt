@@ -1,6 +1,6 @@
 package content.global.skill.production.fletching
 
-import cfg.consts.Items
+import org.rs.consts.Items
 import core.game.node.item.Item
 
 /**

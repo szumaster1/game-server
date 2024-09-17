@@ -1,7 +1,7 @@
 package content.region.misthalin.varrock.quest.phoenixgang.dialogue
 
-import cfg.consts.Items
-import cfg.consts.NPCs
+import org.rs.consts.Items
+import org.rs.consts.NPCs
 import content.region.misthalin.varrock.quest.phoenixgang.ShieldofArrav
 import core.api.inInventory
 import core.game.dialogue.Dialogue

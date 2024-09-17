@@ -1,8 +1,8 @@
 package content.region.kandarin.quest.arthur.dialogue
 
 import content.region.kandarin.quest.arthur.handlers.MerlinUtils
-import cfg.consts.Items
-import cfg.consts.NPCs
+import org.rs.consts.Items
+import org.rs.consts.NPCs
 import core.api.sendDialogue
 import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression

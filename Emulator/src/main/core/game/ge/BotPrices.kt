@@ -1,6 +1,6 @@
 package core.game.ge
 
-import cfg.consts.Items
+import org.rs.consts.Items
 import core.cache.def.impl.ItemDefinition
 
 /**

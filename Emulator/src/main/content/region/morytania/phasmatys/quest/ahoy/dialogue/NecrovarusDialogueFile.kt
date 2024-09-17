@@ -2,8 +2,8 @@ package content.region.morytania.phasmatys.quest.ahoy.dialogue
 
 import content.region.morytania.phasmatys.quest.ahoy.handlers.GAUtils
 import core.api.*
-import cfg.consts.Items
-import cfg.consts.NPCs
+import org.rs.consts.Items
+import org.rs.consts.NPCs
 import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC

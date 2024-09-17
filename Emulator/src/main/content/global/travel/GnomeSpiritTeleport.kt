@@ -1,10 +1,10 @@
 package content.global.travel
 
-import cfg.consts.Animations
-import cfg.consts.Graphics
+import org.rs.consts.Animations
+import org.rs.consts.Graphics
 import core.api.*
-import cfg.consts.NPCs
-import cfg.consts.Scenery
+import org.rs.consts.NPCs
+import org.rs.consts.Scenery
 import core.game.dialogue.DialogueFile
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener

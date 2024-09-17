@@ -1,6 +1,6 @@
 package content.global.guild.warrior
 
-import cfg.consts.Sounds
+import org.rs.consts.Sounds
 import core.api.playAudio
 import core.api.setAttribute
 import core.api.setVarp

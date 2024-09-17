@@ -1,7 +1,7 @@
 package core.game.system.command.sets
 
-import cfg.consts.Items
-import cfg.consts.NPCs
+import org.rs.consts.Items
+import org.rs.consts.NPCs
 import content.data.BossKillCounter
 import content.global.activity.ttrails.TreasureTrailManager
 import content.global.handlers.iface.BookInterfaceListener

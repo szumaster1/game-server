@@ -1,7 +1,7 @@
 /*package content.region.morytania.phasmatys.quest.rocko
 
-import cfg.consts.Items
-import cfg.consts.Vars
+import org.rs.consts.Items
+import org.rs.consts.Vars
 import core.api.getStatLevel
 import core.api.isQuestComplete
 import core.api.rewardXP

@@ -1,6 +1,6 @@
 package content.region.karamja.brimhaven.handlers
 
-import cfg.consts.Components
+import org.rs.consts.Components
 import core.api.inInventory
 import core.api.sendMessage
 import core.game.interaction.InterfaceListener

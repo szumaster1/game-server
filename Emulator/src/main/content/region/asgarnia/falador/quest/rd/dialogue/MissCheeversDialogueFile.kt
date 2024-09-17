@@ -1,6 +1,6 @@
 package content.region.asgarnia.falador.quest.rd.dialogue
 
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import content.region.asgarnia.falador.quest.rd.handlers.MissCheeversRoomListeners
 import core.api.getAttribute
 import core.api.location

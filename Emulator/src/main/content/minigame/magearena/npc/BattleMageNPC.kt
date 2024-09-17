@@ -2,7 +2,7 @@ package content.minigame.magearena.npc
 
 import content.data.GodType
 import content.minigame.magearena.MageArenaMapZone
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import core.game.node.entity.Entity
 import core.game.node.entity.combat.CombatStyle
 import core.game.node.entity.combat.spell.CombatSpell

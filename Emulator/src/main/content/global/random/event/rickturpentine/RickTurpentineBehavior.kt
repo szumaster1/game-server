@@ -1,6 +1,6 @@
 package content.global.random.event.rickturpentine
 
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import core.game.node.entity.Entity
 import core.game.node.entity.combat.BattleState
 import core.game.node.entity.npc.NPC

@@ -6,8 +6,8 @@ import content.global.skill.combat.summoning.familiar.FamiliarSpecial
 import core.api.Container
 import core.api.addItem
 import core.api.amountInInventory
-import cfg.consts.Items
-import cfg.consts.NPCs
+import org.rs.consts.Items
+import org.rs.consts.NPCs
 import core.api.removeItem
 import core.game.node.entity.combat.equipment.WeaponInterface
 import core.game.node.entity.player.Player

@@ -1,7 +1,7 @@
 package content.global.handlers.npc
 
-import cfg.consts.Items
-import cfg.consts.NPCs
+import org.rs.consts.Items
+import org.rs.consts.NPCs
 import core.api.getQuest
 import core.game.node.entity.Entity
 import core.game.node.entity.npc.AbstractNPC

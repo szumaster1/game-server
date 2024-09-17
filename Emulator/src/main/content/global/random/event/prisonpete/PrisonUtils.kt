@@ -1,9 +1,9 @@
 package content.global.random.event.prisonpete
 
 import core.api.*
-import cfg.consts.Items
-import cfg.consts.NPCs
-import cfg.consts.Sounds
+import org.rs.consts.Items
+import org.rs.consts.NPCs
+import org.rs.consts.Sounds
 import core.api.utils.WeightBasedTable
 import core.api.utils.WeightedItem
 import core.game.interaction.QueueStrength

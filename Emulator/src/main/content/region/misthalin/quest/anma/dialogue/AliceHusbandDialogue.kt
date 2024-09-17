@@ -2,8 +2,8 @@ package content.region.misthalin.quest.anma.dialogue
 
 import content.region.misthalin.quest.anma.AnimalMagnetism
 import content.region.misthalin.quest.anma.cutscene.AnmaCutscene
-import cfg.consts.Items
-import cfg.consts.NPCs
+import org.rs.consts.Items
+import org.rs.consts.NPCs
 import core.game.dialogue.Dialogue
 import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player

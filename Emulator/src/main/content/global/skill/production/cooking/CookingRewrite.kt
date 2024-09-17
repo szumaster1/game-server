@@ -4,7 +4,7 @@ import content.global.skill.production.cooking.item.PieCookingPulse
 import content.global.skill.production.cooking.item.PizzaCookingPulse
 import content.global.skill.production.cooking.item.StandardCookingPulse
 import core.api.amountInInventory
-import cfg.consts.Items
+import org.rs.consts.Items
 import core.api.sendMessage
 import core.api.submitIndividualPulse
 import core.game.interaction.IntType

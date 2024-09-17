@@ -1,6 +1,6 @@
 package content.global.handlers.iface.plugin
 
-import cfg.consts.Components
+import org.rs.consts.Components
 import core.game.component.Component
 import core.game.component.ComponentDefinition
 import core.game.component.ComponentPlugin

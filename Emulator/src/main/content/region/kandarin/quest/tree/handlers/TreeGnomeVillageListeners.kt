@@ -7,8 +7,8 @@ import content.region.kandarin.quest.tree.dialogue.BallistaDialogue
 import content.region.kandarin.quest.tree.dialogue.ElkoyDialogue
 import content.region.kandarin.quest.tree.dialogue.KhazardWarlordDialogue
 import core.api.*
-import cfg.consts.Items
-import cfg.consts.NPCs
+import org.rs.consts.Items
+import org.rs.consts.NPCs
 import core.game.dialogue.DialogueFile
 import core.game.global.action.ClimbActionHandler
 import core.game.global.action.DoorActionHandler

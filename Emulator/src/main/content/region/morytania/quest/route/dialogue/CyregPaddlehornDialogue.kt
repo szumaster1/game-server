@@ -1,6 +1,6 @@
 package content.region.morytania.quest.route.dialogue
 
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import core.api.getQuestStage
 import core.api.sendDialogue
 import core.game.dialogue.Dialogue

@@ -1,7 +1,7 @@
 package content.region.fremennik.waterbirth_island.warterbirth_dungeon.handlers
 
 import content.data.BossKillCounter.Companion.addtoKillcount
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import core.game.node.entity.Entity
 import core.game.node.entity.combat.BattleState
 import core.game.node.entity.combat.CombatStyle

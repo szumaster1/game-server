@@ -1,7 +1,7 @@
 package content.global.guild.wizard.dialogue
 
 import content.global.travel.EssenceTeleport
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import core.api.isQuestComplete
 import core.game.dialogue.Dialogue
 import core.game.node.entity.npc.NPC

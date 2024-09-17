@@ -2,8 +2,8 @@ package content.region.misthalin.stronghold.playersafety.dialogue
 
 import core.Configuration
 import core.api.*
-import cfg.consts.Items
-import cfg.consts.NPCs
+import org.rs.consts.Items
+import org.rs.consts.NPCs
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression
 import core.game.dialogue.Topic

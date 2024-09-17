@@ -1,7 +1,7 @@
 package content.global.handlers.item.withscenery
 
-import cfg.consts.Items
-import cfg.consts.Scenery
+import org.rs.consts.Items
+import org.rs.consts.Scenery
 import core.api.removeItem
 import core.api.sendMessage
 import core.api.setAttribute

@@ -1,7 +1,7 @@
 package content.region.kandarin.ardougne.monastery.dialogue
 
 import content.region.kandarin.ardougne.quest.cog.dialogue.BrotherKojoDialogueFile
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import core.api.openDialogue
 import core.game.dialogue.Dialogue
 import core.game.node.entity.player.Player

@@ -1,8 +1,8 @@
 package content.region.kandarin.gnome_stronghold.handlers
 
 import content.global.travel.EssenceTeleport
-import cfg.consts.NPCs
-import cfg.consts.Scenery
+import org.rs.consts.NPCs
+import org.rs.consts.Scenery
 import core.api.sendDialogue
 import core.api.sendNPCDialogue
 import core.api.teleport

@@ -1,7 +1,7 @@
 package content.region.kandarin.witchaven.quest.seaslug.cutscene
 
 import core.api.animate
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import core.api.sendDialogue
 import core.api.setQuestStage
 import core.api.transformNpc

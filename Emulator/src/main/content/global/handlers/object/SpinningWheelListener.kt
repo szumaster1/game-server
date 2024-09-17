@@ -1,7 +1,7 @@
 package content.global.handlers.`object`
 
-import cfg.consts.Components
-import cfg.consts.Scenery
+import org.rs.consts.Components
+import org.rs.consts.Scenery
 import core.api.openInterface
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener

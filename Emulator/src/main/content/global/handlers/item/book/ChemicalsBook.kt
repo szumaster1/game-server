@@ -7,7 +7,7 @@ import content.global.handlers.iface.PageSet
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.entity.player.Player
-import cfg.consts.Items
+import org.rs.consts.Items
 
 /**
  * Represents the Chemicals book.

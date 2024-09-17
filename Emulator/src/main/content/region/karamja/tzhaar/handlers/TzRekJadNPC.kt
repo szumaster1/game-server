@@ -1,7 +1,7 @@
 package content.region.karamja.tzhaar.handlers
 
-import cfg.consts.Items
-import cfg.consts.NPCs
+import org.rs.consts.Items
+import org.rs.consts.NPCs
 import content.region.karamja.tzhaar.dialogue.TzhaarMejJalDialogue
 import core.cache.def.impl.NPCDefinition
 import core.game.dialogue.DialogueInterpreter

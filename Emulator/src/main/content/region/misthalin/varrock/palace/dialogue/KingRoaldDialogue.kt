@@ -1,6 +1,6 @@
 package content.region.misthalin.varrock.palace.dialogue
 
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import content.minigame.allfiredup.KingRoaldAFUDialogue
 import content.region.misthalin.varrock.quest.phoenixgang.dialogue.KingRoaldDialogue
 import content.region.misthalin.quest.firedup.dialogue.KingRoaldDialogueFile

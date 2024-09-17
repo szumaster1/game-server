@@ -1,8 +1,8 @@
 package content.region.karamja.apeatoll.quest.mm.handlers
 
 import core.api.*
-import cfg.consts.Items
-import cfg.consts.NPCs
+import org.rs.consts.Items
+import org.rs.consts.NPCs
 import core.game.global.action.EquipHandler
 import core.game.interaction.InteractionListener
 import core.game.node.entity.Entity

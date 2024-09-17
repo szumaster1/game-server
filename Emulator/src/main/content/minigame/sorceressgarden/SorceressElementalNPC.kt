@@ -1,6 +1,6 @@
 package content.minigame.sorceressgarden
 
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import core.api.setMinimapState
 import core.game.component.Component
 import core.game.node.entity.Entity

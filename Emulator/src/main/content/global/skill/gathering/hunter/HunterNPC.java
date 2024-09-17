@@ -6,7 +6,7 @@ import core.game.node.entity.combat.BattleState;
 import core.game.node.entity.npc.AbstractNPC;
 import core.game.node.entity.player.Player;
 import core.game.node.entity.player.link.TeleportManager;
-import cfg.consts.NPCs;
+import org.rs.consts.NPCs;
 import core.game.world.GameWorld;
 import core.game.world.map.Location;
 import core.tools.RandomFunction;

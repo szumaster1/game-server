@@ -1,7 +1,7 @@
 package content.region.fremennik.rellekka.lighthouse.quest.horror.handlers
 
-import cfg.consts.Items
-import cfg.consts.Scenery
+import org.rs.consts.Items
+import org.rs.consts.Scenery
 
 /**
  * Horror from the Deep utils.

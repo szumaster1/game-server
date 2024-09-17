@@ -4,7 +4,7 @@ import content.global.handlers.iface.BookInterfaceListener
 import content.global.handlers.iface.BookLine
 import content.global.handlers.iface.Page
 import content.global.handlers.iface.PageSet
-import cfg.consts.Items
+import org.rs.consts.Items
 import core.api.getAttribute
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener

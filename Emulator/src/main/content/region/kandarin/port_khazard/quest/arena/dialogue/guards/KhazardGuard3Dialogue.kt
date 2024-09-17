@@ -1,8 +1,8 @@
 package content.region.kandarin.port_khazard.quest.arena.dialogue.guards
 
 import core.api.allInEquipment
-import cfg.consts.Items
-import cfg.consts.NPCs
+import org.rs.consts.Items
+import org.rs.consts.NPCs
 import core.api.isQuestComplete
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression

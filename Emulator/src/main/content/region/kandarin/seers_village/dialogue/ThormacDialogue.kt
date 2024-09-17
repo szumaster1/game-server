@@ -1,7 +1,7 @@
 package content.region.kandarin.seers_village.dialogue
 
 import content.region.kandarin.seers_village.quest.scorpcatcher.dialogue.ThormacDialogueFile
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import core.api.openDialogue
 import core.game.dialogue.Dialogue
 import core.game.node.entity.player.Player

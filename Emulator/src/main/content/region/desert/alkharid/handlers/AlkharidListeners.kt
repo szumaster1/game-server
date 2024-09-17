@@ -1,8 +1,8 @@
 package content.region.desert.alkharid.handlers
 
 import core.api.*
-import cfg.consts.Items
-import cfg.consts.NPCs
+import org.rs.consts.Items
+import org.rs.consts.NPCs
 import content.region.desert.alkharid.dialogue.AlKharidHealDialogue
 import content.region.desert.alkharid.dialogue.AliTheLeafletDropperDialogue
 import content.region.desert.alkharid.dialogue.BorderGuardDialogue

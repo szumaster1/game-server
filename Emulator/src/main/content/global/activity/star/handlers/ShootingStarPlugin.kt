@@ -3,8 +3,8 @@ package content.global.activity.star.handlers
 import core.ServerStore
 import core.ServerStore.Companion.getBoolean
 import core.api.*
-import cfg.consts.Items
-import cfg.consts.Scenery
+import org.rs.consts.Items
+import org.rs.consts.Scenery
 import core.game.dialogue.DialogueFile
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener

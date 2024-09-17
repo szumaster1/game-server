@@ -1,7 +1,7 @@
 package content.region.misc.keldagrim.dialogue
 
-import cfg.consts.Components
-import cfg.consts.NPCs
+import org.rs.consts.Components
+import org.rs.consts.NPCs
 import core.api.openInterface
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression

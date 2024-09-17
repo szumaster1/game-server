@@ -3,8 +3,8 @@ package content.global.activity.star.dialogue
 import core.ServerStore
 import core.ServerStore.Companion.getBoolean
 import core.api.*
-import cfg.consts.Items
-import cfg.consts.NPCs
+import org.rs.consts.Items
+import org.rs.consts.NPCs
 import content.global.activity.star.handlers.ShootingStarPlugin
 import content.global.activity.star.handlers.StarBonus
 import core.game.dialogue.Dialogue

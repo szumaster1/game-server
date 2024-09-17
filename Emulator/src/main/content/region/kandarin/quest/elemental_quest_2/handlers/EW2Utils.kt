@@ -1,9 +1,9 @@
 package content.region.kandarin.quest.elemental_quest_2.handlers
 
-import cfg.consts.Components
-import cfg.consts.Items
-import cfg.consts.NPCs
-import cfg.consts.Scenery
+import org.rs.consts.Components
+import org.rs.consts.Items
+import org.rs.consts.NPCs
+import org.rs.consts.Scenery
 import core.game.node.entity.npc.NPC
 import core.game.world.map.Location
 

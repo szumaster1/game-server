@@ -1,6 +1,6 @@
 package content.data
 
-import cfg.consts.Items
+import org.rs.consts.Items
 
 /**
  * Meat state.

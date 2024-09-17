@@ -1,8 +1,8 @@
 package content.minigame.vinesweeper.dialogue
 
 import content.minigame.vinesweeper.FlagsHandler
-import cfg.consts.Items
-import cfg.consts.NPCs
+import org.rs.consts.Items
+import org.rs.consts.NPCs
 import core.api.openDialogue
 import core.game.component.Component
 import core.game.dialogue.Dialogue

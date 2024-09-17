@@ -1,8 +1,8 @@
 package content.region.asgarnia.falador.quest.fortress
 
-import cfg.consts.Components
-import cfg.consts.Items
-import cfg.consts.Vars
+import org.rs.consts.Components
+import org.rs.consts.Items
+import org.rs.consts.Vars
 import content.region.asgarnia.falador.quest.fortress.dialogue.SirAmikVarzeDialogue
 import content.region.asgarnia.falador.quest.fortress.handlers.BlackKnightsFortressPlugin
 import core.api.getQuestPoints

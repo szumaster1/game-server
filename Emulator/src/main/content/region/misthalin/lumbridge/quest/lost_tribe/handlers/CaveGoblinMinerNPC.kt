@@ -1,6 +1,6 @@
 package content.region.misthalin.lumbridge.quest.lost_tribe.handlers
 
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import core.game.node.entity.Entity
 import core.game.node.entity.npc.AbstractNPC
 import core.game.world.map.Location

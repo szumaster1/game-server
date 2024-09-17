@@ -1,9 +1,9 @@
 package content.region.asgarnia.dwarvenmines.handlers
 
 import content.region.misc.keldagrim.handlers.MinecartTravel
-import cfg.consts.Items
-import cfg.consts.NPCs
-import cfg.consts.Scenery
+import org.rs.consts.Items
+import org.rs.consts.NPCs
+import org.rs.consts.Scenery
 import core.api.openDialogue
 import core.api.removeItem
 import core.api.sendDialogue

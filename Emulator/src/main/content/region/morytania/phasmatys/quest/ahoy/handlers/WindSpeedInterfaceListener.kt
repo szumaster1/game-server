@@ -1,8 +1,8 @@
 package content.region.morytania.phasmatys.quest.ahoy.handlers
 
 import core.api.*
-import cfg.consts.Components
-import cfg.consts.Scenery
+import org.rs.consts.Components
+import org.rs.consts.Scenery
 import core.game.component.Component
 import core.game.event.EventHook
 import core.game.event.TickEvent

@@ -2,8 +2,8 @@ package content.minigame.puropuro
 
 import content.minigame.puropuro.dialogue.ElnockInquisitorDialogue
 import core.api.addItemOrDrop
-import cfg.consts.Items
-import cfg.consts.NPCs
+import org.rs.consts.Items
+import org.rs.consts.NPCs
 import core.api.sendNPCDialogue
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener

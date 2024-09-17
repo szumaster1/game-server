@@ -1,7 +1,7 @@
 package content.region.kandarin.ardougne.dialogue
 
 import content.region.kandarin.ardougne.quest.biohazard.dialogue.KilronDialogueFile
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import core.api.isQuestComplete
 import core.api.isQuestInProgress
 import core.api.openDialogue

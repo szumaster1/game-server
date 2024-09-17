@@ -1,7 +1,7 @@
 package content.region.kandarin.ardougne.plaguecity.quest.elena.handlers
 
 import core.api.*
-import cfg.consts.*
+import org.rs.consts.*
 import content.region.kandarin.ardougne.plaguecity.dialogue.WomanDialogue
 import content.region.kandarin.ardougne.plaguecity.quest.elena.dialogue.ManRehnisonDialogue
 import content.region.kandarin.ardougne.plaguecity.quest.elena.dialogue.HeadMournerDialogue

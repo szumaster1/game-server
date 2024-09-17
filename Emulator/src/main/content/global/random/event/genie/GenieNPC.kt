@@ -1,9 +1,9 @@
 package content.global.random.event.genie
 
 import content.global.random.RandomEventNPC
-import cfg.consts.Items
-import cfg.consts.NPCs
-import cfg.consts.Sounds
+import org.rs.consts.Items
+import org.rs.consts.NPCs
+import org.rs.consts.Sounds
 import core.api.playAudio
 import core.api.setAttribute
 import core.api.utils.WeightBasedTable

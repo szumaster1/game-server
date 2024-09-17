@@ -1,6 +1,6 @@
 package content.region.misc.keldagrim.dialogue.library
 
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import core.api.isQuestComplete
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression

@@ -1,7 +1,7 @@
 package content.global.travel.glider
 
-import cfg.consts.Components
-import cfg.consts.NPCs
+import org.rs.consts.Components
+import org.rs.consts.NPCs
 import core.api.isQuestComplete
 import core.api.openInterface
 import core.game.dialogue.Dialogue

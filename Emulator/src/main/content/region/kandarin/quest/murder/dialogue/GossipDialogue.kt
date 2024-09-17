@@ -1,6 +1,6 @@
 package content.region.kandarin.quest.murder.dialogue
 
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import core.api.getQuestStage
 import core.api.isQuestComplete
 import core.game.dialogue.Dialogue

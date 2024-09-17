@@ -3,8 +3,8 @@ package content.global.skill.gathering.mining
 import content.data.skill.SkillingTool
 import content.global.skill.skillcape.SkillcapePerks
 import core.api.*
-import cfg.consts.Items
-import cfg.consts.Sounds
+import org.rs.consts.Items
+import org.rs.consts.Sounds
 import content.global.activity.star.handlers.StarBonus
 import core.game.event.ResourceProducedEvent
 import core.game.interaction.IntType

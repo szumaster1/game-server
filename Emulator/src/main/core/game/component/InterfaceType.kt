@@ -1,6 +1,6 @@
 package core.game.component
 
-import cfg.consts.Components
+import org.rs.consts.Components
 
 /**
  * Represents an interface type.

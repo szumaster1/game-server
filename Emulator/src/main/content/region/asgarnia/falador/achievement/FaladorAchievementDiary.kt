@@ -4,9 +4,9 @@ import content.global.skill.gathering.farming.FarmingPatch
 import content.global.skill.production.crafting.data.LightSource
 import content.global.travel.FairyRing
 import core.api.*
-import cfg.consts.Items
-import cfg.consts.NPCs
-import cfg.consts.Scenery
+import org.rs.consts.Items
+import org.rs.consts.NPCs
+import org.rs.consts.Scenery
 import content.region.asgarnia.falador.dialogue.RisingSunInnBartenderDialogue
 import core.game.diary.AreaDiaryTask
 import core.game.diary.DiaryEventHookBase

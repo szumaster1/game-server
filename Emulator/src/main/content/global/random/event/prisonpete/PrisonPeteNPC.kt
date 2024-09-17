@@ -1,7 +1,7 @@
 package content.global.random.event.prisonpete
 
 import content.global.random.RandomEventNPC
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import core.api.lock
 import core.api.lockInteractions
 import core.api.sendMessage

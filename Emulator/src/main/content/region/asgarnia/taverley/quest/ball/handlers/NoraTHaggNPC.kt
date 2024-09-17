@@ -1,6 +1,6 @@
 package content.region.asgarnia.taverley.quest.ball.handlers
 
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import content.region.asgarnia.taverley.quest.ball.handlers.WitchHousePlugin.Companion.BALL
 import content.region.asgarnia.taverley.quest.ball.handlers.WitchHousePlugin.Companion.DOOR_KEY
 import content.region.asgarnia.taverley.quest.ball.handlers.WitchHousePlugin.Companion.KEY

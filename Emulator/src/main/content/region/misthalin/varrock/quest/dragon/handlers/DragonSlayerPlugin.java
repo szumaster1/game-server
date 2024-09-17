@@ -1,7 +1,7 @@
 package content.region.misthalin.varrock.quest.dragon.handlers;
 
 import content.region.misthalin.varrock.quest.dragon.DragonSlayer;
-import cfg.consts.Animations;
+import org.rs.consts.Animations;
 import core.cache.def.impl.ItemDefinition;
 import core.cache.def.impl.NPCDefinition;
 import core.cache.def.impl.SceneryDefinition;

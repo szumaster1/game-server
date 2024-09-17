@@ -1,7 +1,7 @@
 package content.region.kandarin.witchaven.quest.seaslug.cutscene
 
 import core.api.*
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import core.game.activity.Cutscene
 import core.game.node.entity.player.Player
 import core.game.world.map.Direction

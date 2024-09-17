@@ -1,7 +1,7 @@
 package content.region.kandarin.quest.elemental_quest_2.handlers
 
 import core.api.*
-import cfg.consts.Components
+import org.rs.consts.Components
 import core.game.dialogue.FacialExpression
 import core.game.interaction.InterfaceListener
 

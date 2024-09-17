@@ -1,6 +1,6 @@
 package content.region.morytania.quest.fenk.handlers
 
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import core.api.teleport
 import core.game.interaction.MovementPulse
 import core.game.node.entity.impl.PulseType

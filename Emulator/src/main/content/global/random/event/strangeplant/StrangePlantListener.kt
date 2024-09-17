@@ -1,8 +1,8 @@
 package content.global.random.event.strangeplant
 
 import core.api.addItemOrDrop
-import cfg.consts.Items
-import cfg.consts.NPCs
+import org.rs.consts.Items
+import org.rs.consts.NPCs
 import core.api.getAttribute
 import core.api.sendMessage
 import core.api.setAttribute

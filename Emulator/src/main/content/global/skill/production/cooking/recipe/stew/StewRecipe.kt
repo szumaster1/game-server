@@ -1,7 +1,7 @@
 package content.global.skill.production.cooking.recipe.stew
 
 import content.global.skill.production.cooking.recipe.Recipe
-import cfg.consts.Items
+import org.rs.consts.Items
 import core.api.removeItem
 import core.api.sendMessage
 import core.game.interaction.NodeUsageEvent

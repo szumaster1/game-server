@@ -1,7 +1,7 @@
 package content.region.kandarin.quest.makinghistory.dialogue
 
 import content.region.kandarin.quest.makinghistory.handlers.MHUtils
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import core.api.setQuestStage
 import core.api.setVarbit
 import core.api.updateQuestTab

@@ -1,6 +1,6 @@
 package content.region.asgarnia.burthope.quest.troll.dialogue
 
-import cfg.consts.Items
+import org.rs.consts.Items
 import core.api.getQuestStage
 import core.api.hasAnItem
 import core.game.dialogue.DialogueFile

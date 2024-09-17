@@ -1,7 +1,7 @@
 package content.minigame.templetrekking
 
-import cfg.consts.Items
-import cfg.consts.NPCs
+import org.rs.consts.Items
+import org.rs.consts.NPCs
 
 /**
  * Follower inventory listener.

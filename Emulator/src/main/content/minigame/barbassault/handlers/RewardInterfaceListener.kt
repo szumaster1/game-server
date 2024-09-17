@@ -1,7 +1,7 @@
 package content.minigame.barbassault.handlers
 
 import core.api.*
-import cfg.consts.Components
+import org.rs.consts.Components
 import core.game.interaction.InterfaceListener
 
 /**

@@ -1,6 +1,6 @@
 package content.global.activity.pengs.handlers
 
-import cfg.consts.Items
+import org.rs.consts.Items
 import core.api.getAttribute
 import core.api.sendDialogue
 import core.cache.def.impl.ItemDefinition

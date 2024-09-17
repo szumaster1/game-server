@@ -1,7 +1,7 @@
 package content.minigame.tbwcleanup
 
 import core.api.applyPoison
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import core.api.getAttribute
 import core.api.poofClear
 import core.api.rewardXP

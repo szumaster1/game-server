@@ -1,6 +1,6 @@
 package core.game.node.entity.player.link;
 
-import cfg.consts.Components;
+import org.rs.consts.Components;
 import content.region.misc.tutorial.handlers.TutorialStage;
 import core.game.component.Component;
 import core.game.component.InterfaceType;

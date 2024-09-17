@@ -1,7 +1,7 @@
 package content.region.kandarin.baxtorian.handlers
 
-import cfg.consts.Items
-import cfg.consts.NPCs
+import org.rs.consts.Items
+import org.rs.consts.NPCs
 import content.data.skill.SkillingTool
 import content.global.skill.support.firemaking.data.Log
 import core.api.sendNews

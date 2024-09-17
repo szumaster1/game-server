@@ -1,6 +1,6 @@
 package content.global.guild.rc
 
-import cfg.consts.Items
+import org.rs.consts.Items
 import content.global.skill.production.runecrafting.data.Talisman
 import core.api.*
 import core.game.node.entity.player.Player

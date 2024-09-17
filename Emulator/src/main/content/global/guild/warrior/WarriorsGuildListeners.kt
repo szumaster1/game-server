@@ -1,6 +1,6 @@
 package content.global.guild.warrior
 
-import cfg.consts.Items
+import org.rs.consts.Items
 import core.game.component.Component
 import core.game.container.impl.EquipmentContainer
 import core.game.interaction.InteractionListener

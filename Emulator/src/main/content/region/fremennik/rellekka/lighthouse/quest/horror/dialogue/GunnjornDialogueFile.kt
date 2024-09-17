@@ -1,7 +1,7 @@
 package content.region.fremennik.rellekka.lighthouse.quest.horror.dialogue
 
 import core.api.addItem
-import cfg.consts.Items
+import org.rs.consts.Items
 import core.api.freeSlots
 import core.api.setQuestStage
 import core.game.dialogue.DialogueFile

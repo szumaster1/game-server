@@ -1,7 +1,7 @@
 package content.global.skill.support.agility.shortcuts
 
-import cfg.consts.Animations
-import cfg.consts.Scenery
+import org.rs.consts.Animations
+import org.rs.consts.Scenery
 import content.global.skill.support.agility.AgilityHandler
 import core.api.queueScript
 import core.api.stopExecuting

@@ -1,7 +1,7 @@
 package content.region.misthalin.varrock.quest.surok
 
-import cfg.consts.Components
-import cfg.consts.Items
+import org.rs.consts.Components
+import org.rs.consts.Items
 import content.region.misthalin.varrock.quest.surok.handlers.WhatLiesBelowListeners
 import core.api.*
 import core.game.node.entity.player.Player

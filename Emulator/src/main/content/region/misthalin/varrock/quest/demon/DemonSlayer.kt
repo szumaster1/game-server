@@ -1,7 +1,7 @@
 package content.region.misthalin.varrock.quest.demon
 
-import cfg.consts.Components
-import cfg.consts.Vars
+import org.rs.consts.Components
+import org.rs.consts.Vars
 import content.region.misthalin.varrock.quest.demon.cutscene.DemonSlayerCutscene
 import content.region.misthalin.varrock.quest.demon.cutscene.WallyCutscenePlugin
 import content.region.misthalin.varrock.quest.demon.dialogue.CaptainRovinDialogue

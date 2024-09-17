@@ -1,7 +1,7 @@
 package content.region.fremennik.neitiznot.handlers.splitlogs
 
-import cfg.consts.Animations
-import cfg.consts.Items
+import org.rs.consts.Animations
+import org.rs.consts.Items
 import core.api.*
 import core.game.node.entity.player.Player
 import core.game.node.entity.skill.SkillPulse

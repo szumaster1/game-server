@@ -1,7 +1,7 @@
 package content.region.asgarnia.goblinvillage.quest.dorics.cutscene
 
 import core.api.animate
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import core.api.sendChat
 import core.api.setAttribute
 import core.game.activity.Cutscene

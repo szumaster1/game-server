@@ -1,6 +1,6 @@
 package content.region.misc.keldagrim.dialogue
 
-import cfg.consts.Items
+import org.rs.consts.Items
 import content.region.misc.keldagrim.handlers.MinecartTravel
 import core.api.removeItem
 import core.api.sendDialogue

@@ -2,7 +2,7 @@ package content.global.skill.gathering.farming
 
 import content.global.skill.gathering.farming.timers.SeedlingGrowth
 import core.api.*
-import cfg.consts.Items
+import org.rs.consts.Items
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.Node

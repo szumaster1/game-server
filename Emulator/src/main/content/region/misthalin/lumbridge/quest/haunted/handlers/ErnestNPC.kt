@@ -1,6 +1,6 @@
 package content.region.misthalin.lumbridge.quest.haunted.handlers
 
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import core.api.isQuestComplete
 import core.game.node.entity.npc.AbstractNPC
 import core.game.node.entity.player.Player

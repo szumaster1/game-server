@@ -2,7 +2,7 @@ package content.global.activity.jobs.dialogue
 
 import core.api.addItem
 import core.api.amountInInventory
-import cfg.consts.Items
+import org.rs.consts.Items
 import content.global.activity.jobs.JobManager
 import content.global.activity.jobs.JobType
 import content.global.activity.jobs.impl.BoneBuryingJobs

@@ -1,7 +1,7 @@
 package content.region.kandarin.quest.mcannon.handlers;
 
 import core.api.LogoutListener;
-import cfg.consts.Sounds;
+import org.rs.consts.Sounds;
 import core.game.node.entity.combat.CombatStyle;
 import core.game.node.entity.combat.CombatSwingHandler;
 import core.game.node.entity.combat.ImpactHandler.HitsplatType;

@@ -1,7 +1,7 @@
 package content.global.handlers.item
 
-import cfg.consts.Graphics
-import cfg.consts.Items
+import org.rs.consts.Graphics
+import org.rs.consts.Items
 import core.api.getUsedOption
 import core.api.sendDialogueOptions
 import core.api.setTitle

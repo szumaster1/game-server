@@ -1,7 +1,7 @@
 package content.region.misthalin.varrock.quest.fluffs.handlers
 
 import core.api.*
-import cfg.consts.*
+import org.rs.consts.*
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.entity.npc.NPC

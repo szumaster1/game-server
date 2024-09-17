@@ -1,8 +1,8 @@
 package content.region.kandarin.observatory.quest.itgronigen
 
 import core.api.amountInInventory
-import cfg.consts.Items
-import cfg.consts.Vars
+import org.rs.consts.Items
+import org.rs.consts.Vars
 import core.api.inInventory
 import core.api.removeAttribute
 import core.api.rewardXP

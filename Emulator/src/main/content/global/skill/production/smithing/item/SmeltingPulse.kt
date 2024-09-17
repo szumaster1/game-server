@@ -2,10 +2,10 @@ package content.global.skill.production.smithing.item
 
 import content.global.skill.production.smithing.data.Bar
 import core.api.*
-import cfg.consts.Animations
-import cfg.consts.Graphics
-import cfg.consts.Items
-import cfg.consts.Sounds
+import org.rs.consts.Animations
+import org.rs.consts.Graphics
+import org.rs.consts.Items
+import org.rs.consts.Sounds
 import core.game.container.impl.EquipmentContainer
 import core.game.event.ResourceProducedEvent
 import core.game.node.entity.player.Player

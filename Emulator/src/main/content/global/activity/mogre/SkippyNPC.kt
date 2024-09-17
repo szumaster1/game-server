@@ -1,8 +1,8 @@
 package content.global.activity.mogre
 
 import core.api.*
-import cfg.consts.Graphics
-import cfg.consts.Sounds
+import org.rs.consts.Graphics
+import org.rs.consts.Sounds
 import core.game.interaction.QueueStrength
 import core.game.node.entity.npc.NPC
 import core.game.node.entity.npc.NPCBehavior

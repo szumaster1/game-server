@@ -1,7 +1,7 @@
 package content.global.skill.production.herblore.data.potion
 
 import content.global.skill.production.herblore.data.GrindingItem
-import cfg.consts.Items
+import org.rs.consts.Items
 import core.game.node.item.Item
 
 /**

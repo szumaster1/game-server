@@ -1,6 +1,6 @@
 package content.global.skill.support.construction
 
-import cfg.consts.Items
+import org.rs.consts.Items
 import core.api.anyInInventory
 import core.api.hasLevelStat
 import core.api.isQuestComplete

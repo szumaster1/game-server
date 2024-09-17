@@ -1,7 +1,7 @@
 package content.region.asgarnia.entrana.quest.zep.cutscene
 
-import cfg.consts.Animations
-import cfg.consts.NPCs
+import org.rs.consts.Animations
+import org.rs.consts.NPCs
 import core.api.face
 import core.api.location
 import core.api.setQuestStage

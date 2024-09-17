@@ -1,6 +1,6 @@
 package content.region.asgarnia.falador.quest.rd.handlers
 
-import cfg.consts.*
+import org.rs.consts.*
 import core.api.*
 import core.game.interaction.QueueStrength
 import core.game.node.Node

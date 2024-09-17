@@ -1,6 +1,6 @@
 package content.region.misthalin.stronghold.playersafety.handlers
 
-import cfg.consts.Music
+import org.rs.consts.Music
 import core.api.inBorders
 import core.game.node.entity.Entity
 import core.game.node.entity.player.Player

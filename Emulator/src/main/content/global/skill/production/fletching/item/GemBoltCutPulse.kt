@@ -1,6 +1,6 @@
 package content.global.skill.production.fletching.item
 
-import cfg.consts.Items
+import org.rs.consts.Items
 import content.global.skill.production.fletching.data.GemBolt
 import core.api.animate
 import core.api.getStatLevel

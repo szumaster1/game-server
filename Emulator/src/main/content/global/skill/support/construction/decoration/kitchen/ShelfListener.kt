@@ -1,6 +1,6 @@
 package content.global.skill.support.construction.decoration.kitchen
 
-import cfg.consts.Items
+import org.rs.consts.Items
 import core.api.addItem
 import core.api.freeSlots
 import core.api.sendMessage

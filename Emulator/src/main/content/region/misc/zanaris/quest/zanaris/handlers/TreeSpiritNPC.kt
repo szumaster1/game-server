@@ -1,6 +1,6 @@
 package content.region.misc.zanaris.quest.zanaris.handlers
 
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import core.api.getQuestStage
 import core.api.sendDialogue
 import core.api.setQuestStage

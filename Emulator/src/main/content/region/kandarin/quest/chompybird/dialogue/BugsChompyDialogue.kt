@@ -1,7 +1,7 @@
 package content.region.kandarin.quest.chompybird.dialogue
 
 import content.region.kandarin.quest.chompybird.BigChompyBirdHunting
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import core.api.getAttribute
 import core.api.getItemName
 import core.api.setAttribute

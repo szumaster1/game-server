@@ -1,6 +1,6 @@
 package content.region.misthalin.dorgeshuun.dorgeshkaan.quest.dttd.dialogue
 
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import core.api.getQuestStage
 import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression

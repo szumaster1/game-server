@@ -2,7 +2,7 @@ package content.global.skill.support.slayer.npc
 
 import content.global.skill.support.slayer.data.Tasks
 import core.api.*
-import cfg.consts.Items
+import org.rs.consts.Items
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.Node

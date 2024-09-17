@@ -1,7 +1,7 @@
 package content.global.skill.production.cooking.recipe.potato.impl
 
 import content.global.skill.production.cooking.recipe.potato.PotatoRecipe
-import cfg.consts.Items
+import org.rs.consts.Items
 import core.game.node.item.Item
 
 /**

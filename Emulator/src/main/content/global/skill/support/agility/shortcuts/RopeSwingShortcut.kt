@@ -2,8 +2,8 @@ package content.global.skill.support.agility.shortcuts
 
 import content.global.skill.support.agility.AgilityHandler
 import core.api.animationDuration
-import cfg.consts.Items
-import cfg.consts.Sounds
+import org.rs.consts.Items
+import org.rs.consts.Sounds
 import core.api.playAudio
 import core.api.sendMessage
 import core.api.withinDistance
@@ -37,7 +37,7 @@ class RopeSwingShortcut : UseWithHandler() {
 
         ropeDelay = GameWorld.ticks + animationDuration(Animation.create(497))
 
-        if (objId == cfg.consts.Scenery.LONG_BRANCHED_TREE_2327 && usedId == Items.ROPE_954) {
+        if (objId == org.rs.consts.Scenery.LONG_BRANCHED_TREE_2327 && usedId == Items.ROPE_954) {
             if (!withinDistance(player, scenery.location, 2)) {
                 sendMessage(player, "I can't reach that.")
                 return true

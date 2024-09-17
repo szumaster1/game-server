@@ -1,6 +1,6 @@
 package content.minigame.gnomecook
 
-import cfg.consts.Items
+import org.rs.consts.Items
 import core.game.node.item.Item
 import core.game.node.item.WeightedChanceItem
 import core.tools.RandomFunction

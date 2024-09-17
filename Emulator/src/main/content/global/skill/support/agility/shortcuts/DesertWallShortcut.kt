@@ -1,6 +1,6 @@
 package content.global.skill.support.agility.shortcuts
 
-import cfg.consts.Animations
+import org.rs.consts.Animations
 import core.api.sendMessage
 import core.cache.def.impl.SceneryDefinition
 import core.game.interaction.OptionHandler

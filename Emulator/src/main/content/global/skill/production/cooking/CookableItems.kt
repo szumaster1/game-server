@@ -1,6 +1,6 @@
 package content.global.skill.production.cooking
 
-import cfg.consts.Items
+import org.rs.consts.Items
 import core.game.node.item.Item
 
 /**

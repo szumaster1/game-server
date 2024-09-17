@@ -1,6 +1,6 @@
 package content.minigame.mta.dialogue
 
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import core.api.sendDialogueLines
 import core.api.sendDialogueOptions
 import core.game.dialogue.Dialogue

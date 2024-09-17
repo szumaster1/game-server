@@ -1,7 +1,7 @@
 package content.region.misthalin.varrock.silvarea.quest.rag.handlers
 
-import cfg.consts.Items
-import cfg.consts.NPCs
+import org.rs.consts.Items
+import org.rs.consts.NPCs
 import core.api.isQuestInProgress
 import core.game.node.entity.Entity
 import core.game.node.entity.npc.NPC

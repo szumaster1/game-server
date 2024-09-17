@@ -1,7 +1,7 @@
 package content.region.kandarin.baxtorian.barbarian_training.smithing
 
-import cfg.consts.Items
-import cfg.consts.Scenery
+import org.rs.consts.Items
+import org.rs.consts.Scenery
 import content.global.skill.skillcape.SkillcapePerks
 import core.api.*
 import core.game.dialogue.SkillDialogueHandler

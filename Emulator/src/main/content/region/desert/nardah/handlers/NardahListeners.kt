@@ -1,6 +1,6 @@
 package content.region.desert.nardah.handlers
 
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import core.api.getUsedOption
 import core.api.openNpcShop
 import core.game.interaction.IntType

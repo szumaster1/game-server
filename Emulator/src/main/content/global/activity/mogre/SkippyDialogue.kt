@@ -1,8 +1,8 @@
 package content.global.activity.mogre
 
 import core.api.*
-import cfg.consts.Items
-import cfg.consts.Sounds
+import org.rs.consts.Items
+import org.rs.consts.Sounds
 import content.region.misc.tutorial.dialogue.SkippyTutorialDialogue
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression

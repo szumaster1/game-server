@@ -1,6 +1,6 @@
 package content.global.handlers.item.equipment.gloves
 
-import cfg.consts.Items
+import org.rs.consts.Items
 import core.api.sendMessage
 import core.api.toIntArray
 import core.game.interaction.IntType

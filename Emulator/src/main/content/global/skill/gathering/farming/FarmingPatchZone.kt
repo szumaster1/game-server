@@ -1,7 +1,7 @@
 package content.global.skill.gathering.farming
 
 import core.api.*
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression
 import core.game.node.entity.Entity

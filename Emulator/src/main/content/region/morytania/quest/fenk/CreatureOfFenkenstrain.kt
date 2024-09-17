@@ -1,7 +1,7 @@
 package content.region.morytania.quest.fenk
 
-import cfg.consts.Items
-import cfg.consts.Vars
+import org.rs.consts.Items
+import org.rs.consts.Vars
 import core.api.*
 import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.quest.Quest

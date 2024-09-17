@@ -1,6 +1,6 @@
 package content.region.fremennik.rellekka.lighthouse.quest.horror.handlers
 
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import core.api.location
 import core.game.node.entity.player.Player
 

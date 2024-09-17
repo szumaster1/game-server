@@ -1,6 +1,6 @@
 package content.global.skill.production.runecrafting
 
-import cfg.consts.Components
+import org.rs.consts.Components
 import content.global.skill.production.runecrafting.data.Altar
 import content.global.skill.production.runecrafting.data.Talisman
 import content.global.skill.production.runecrafting.pouch.RunePouchPlugin

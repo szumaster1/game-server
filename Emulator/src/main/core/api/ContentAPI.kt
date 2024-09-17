@@ -1,8 +1,8 @@
 package core.api
 
-import cfg.consts.Items
-import cfg.consts.NPCs
-import cfg.consts.Sounds
+import org.rs.consts.Items
+import org.rs.consts.NPCs
+import org.rs.consts.Sounds
 import com.moandjiezana.toml.Toml
 import content.data.consumables.*
 import content.data.skill.SkillingTool

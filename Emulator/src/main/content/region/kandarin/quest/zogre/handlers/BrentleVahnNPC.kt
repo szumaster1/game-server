@@ -1,9 +1,9 @@
 package content.region.kandarin.quest.zogre.handlers
 
 import core.api.*
-import cfg.consts.Items
-import cfg.consts.NPCs
-import cfg.consts.Vars
+import org.rs.consts.Items
+import org.rs.consts.NPCs
+import org.rs.consts.Vars
 import core.game.node.entity.Entity
 import core.game.node.entity.npc.AbstractNPC
 import core.game.node.entity.player.Player

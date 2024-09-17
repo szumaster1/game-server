@@ -1,10 +1,10 @@
 package content.region.kandarin.quest.tol.handlers
 
 import core.api.*
-import cfg.consts.Animations
-import cfg.consts.Items
-import cfg.consts.NPCs
-import cfg.consts.Scenery
+import org.rs.consts.Animations
+import org.rs.consts.Items
+import org.rs.consts.NPCs
+import org.rs.consts.Scenery
 import core.game.dialogue.FacialExpression
 import core.game.global.action.DoorActionHandler
 import core.game.interaction.IntType

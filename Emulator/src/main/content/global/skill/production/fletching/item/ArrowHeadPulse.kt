@@ -1,6 +1,6 @@
 package content.global.skill.production.fletching.item
 
-import cfg.consts.Items
+import org.rs.consts.Items
 import content.global.skill.production.fletching.data.ArrowHead
 import content.global.skill.support.slayer.SlayerManager.Companion.getInstance
 import core.api.*

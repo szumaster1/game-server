@@ -3,8 +3,8 @@ package content.region.misthalin.varrock.museum.dialogue
 import content.region.desert.quest.golem.dialogue.CuratorHaigHalenGolemDialogue
 import content.region.misthalin.varrock.quest.phoenixgang.dialogue.CuratorHaigHalenDialogueFile
 import core.api.*
-import cfg.consts.Items
-import cfg.consts.NPCs
+import org.rs.consts.Items
+import org.rs.consts.NPCs
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression
 import core.game.dialogue.IfTopic

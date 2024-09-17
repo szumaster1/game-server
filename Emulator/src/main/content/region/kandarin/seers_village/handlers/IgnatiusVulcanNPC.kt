@@ -1,7 +1,7 @@
 package content.region.kandarin.seers_village.handlers
 
-import cfg.consts.Animations
-import cfg.consts.NPCs
+import org.rs.consts.Animations
+import org.rs.consts.NPCs
 import core.game.node.entity.impl.Animator.Priority
 import core.game.node.entity.npc.AbstractNPC
 import core.game.node.entity.npc.NPC

@@ -3,7 +3,7 @@ package content.region.kandarin.ardougne.quest.drunkmonk
 import content.region.kandarin.ardougne.quest.drunkmonk.dialogue.BrotherCedricDialogueFile
 import content.region.kandarin.ardougne.quest.drunkmonk.dialogue.BrotherOmadDialogueFile
 import content.region.kandarin.ardougne.quest.drunkmonk.dialogue.MonasteryMonkDialogueFile
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import core.api.openDialogue
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener

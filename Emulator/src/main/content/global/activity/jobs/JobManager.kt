@@ -6,7 +6,7 @@ import content.global.activity.jobs.impl.ProductionJobs
 import core.ServerStore
 import core.ServerStore.Companion.getInt
 import core.api.*
-import cfg.consts.Items
+import org.rs.consts.Items
 import core.game.event.BoneBuryEvent
 import core.game.event.EventHook
 import core.game.event.JobAssignmentEvent

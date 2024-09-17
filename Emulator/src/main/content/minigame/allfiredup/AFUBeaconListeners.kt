@@ -1,6 +1,6 @@
 package content.minigame.allfiredup
 
-import cfg.consts.Items
+import org.rs.consts.Items
 import core.api.inInventory
 import core.api.sendMessage
 import core.api.setAttribute

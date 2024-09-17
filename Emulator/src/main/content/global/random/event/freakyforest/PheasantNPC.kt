@@ -1,7 +1,7 @@
 package content.global.random.event.freakyforest
 
-import cfg.consts.Items
-import cfg.consts.NPCs
+import org.rs.consts.Items
+import org.rs.consts.NPCs
 import core.api.getAttribute
 import core.api.setAttribute
 import core.game.node.entity.Entity

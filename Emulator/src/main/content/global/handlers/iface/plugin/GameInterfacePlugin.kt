@@ -1,7 +1,7 @@
 package content.global.handlers.iface.plugin
 
 import core.api.closeChatBox
-import cfg.consts.Components
+import org.rs.consts.Components
 import core.api.openOverlay
 import core.api.sendMessage
 import core.api.sendString

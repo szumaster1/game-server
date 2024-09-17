@@ -1,7 +1,7 @@
 package content.region.desert.quest.agrith.handlers
 
 import core.api.addItem
-import cfg.consts.Items
+import org.rs.consts.Items
 import core.api.hasRequirement
 import core.api.inInventory
 import core.api.removeItem

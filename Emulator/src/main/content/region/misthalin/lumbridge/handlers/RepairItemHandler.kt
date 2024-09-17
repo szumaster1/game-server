@@ -1,6 +1,6 @@
 package content.region.misthalin.lumbridge.handlers
 
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import content.data.item.RepairItem.Companion.forId
 import content.region.misthalin.lumbridge.dialogue.BobDialogue
 import core.game.interaction.NodeUsageEvent

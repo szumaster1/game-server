@@ -1,6 +1,6 @@
 package core.game.node.entity.combat.spell;
 
-import cfg.consts.Sounds;
+import org.rs.consts.Sounds;
 import core.game.node.Node;
 import core.game.node.entity.Entity;
 import core.game.node.entity.combat.BattleState;

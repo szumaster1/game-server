@@ -1,6 +1,6 @@
 package content.region.fremennik.achievement.dialogue
 
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import core.api.freeSlots
 import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression

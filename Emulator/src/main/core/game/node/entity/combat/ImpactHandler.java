@@ -1,6 +1,6 @@
 package core.game.node.entity.combat;
 
-import cfg.consts.Items;
+import org.rs.consts.Items;
 import content.global.skill.combat.summoning.familiar.Familiar;
 import content.global.skill.combat.summoning.pet.Pet;
 import content.data.EnchantedJewellery;

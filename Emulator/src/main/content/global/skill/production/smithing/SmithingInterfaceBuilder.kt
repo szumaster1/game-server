@@ -5,7 +5,7 @@ import content.global.skill.production.smithing.data.BarType
 import content.global.skill.production.smithing.data.Bars
 import content.global.skill.production.smithing.data.SmithingType
 import core.api.*
-import cfg.consts.Components
+import org.rs.consts.Components
 import core.game.container.access.InterfaceContainer
 import core.game.node.entity.player.Player
 import core.game.node.entity.skill.Skills

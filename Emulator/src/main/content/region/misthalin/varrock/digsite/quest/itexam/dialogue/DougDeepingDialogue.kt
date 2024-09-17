@@ -4,8 +4,8 @@ import core.api.*
 import core.game.dialogue.*
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
-import cfg.consts.Items
-import cfg.consts.NPCs
+import org.rs.consts.Items
+import org.rs.consts.NPCs
 
 /**
  * Represents the Doug Deeping dialogue.

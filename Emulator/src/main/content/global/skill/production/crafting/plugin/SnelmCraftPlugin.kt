@@ -1,7 +1,7 @@
 package content.global.skill.production.crafting.plugin
 
 import content.global.skill.production.crafting.item.SnelmCraftPulse
-import cfg.consts.Items
+import org.rs.consts.Items
 import core.api.lock
 import core.game.interaction.NodeUsageEvent
 import core.game.interaction.UseWithHandler

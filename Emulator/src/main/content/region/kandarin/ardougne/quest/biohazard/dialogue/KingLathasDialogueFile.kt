@@ -1,6 +1,6 @@
 package content.region.kandarin.ardougne.quest.biohazard.dialogue
 
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import core.api.finishQuest
 import core.api.getQuestStage
 import core.game.dialogue.DialogueFile

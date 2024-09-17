@@ -1,7 +1,7 @@
 package content.region.asgarnia.burthope.quest.troll.handlers
 
 import core.api.*
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import content.region.asgarnia.burthope.quest.troll.dialogue.DadDialogueFile
 import core.game.node.entity.Entity
 import core.game.node.entity.combat.BattleState

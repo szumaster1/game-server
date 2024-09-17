@@ -1,6 +1,6 @@
 package content.region.misthalin.lumbridge.quest.lost_tribe.dialogue
 
-import cfg.consts.Items
+import org.rs.consts.Items
 import core.api.*
 import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression

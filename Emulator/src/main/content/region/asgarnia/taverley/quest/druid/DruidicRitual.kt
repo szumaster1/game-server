@@ -1,8 +1,8 @@
 package content.region.asgarnia.taverley.quest.druid
 
 import core.api.*
-import cfg.consts.Items
-import cfg.consts.NPCs
+import org.rs.consts.Items
+import org.rs.consts.NPCs
 import core.game.component.Component
 import core.game.interaction.QueueStrength
 import core.game.node.entity.npc.NPC

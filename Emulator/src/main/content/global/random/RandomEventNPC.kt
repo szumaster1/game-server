@@ -1,7 +1,7 @@
 package content.global.random
 
 import content.global.random.event.surpriseexam.SurpriseExamNPC
-import cfg.consts.Sounds
+import org.rs.consts.Sounds
 import core.api.playGlobalAudio
 import core.api.poofClear
 import core.game.interaction.MovementPulse

@@ -1,8 +1,8 @@
 package content.region.misthalin.varrock.quest.surok.handlers
 
-import cfg.consts.Components
-import cfg.consts.Items
-import cfg.consts.Scenery
+import org.rs.consts.Components
+import org.rs.consts.Items
+import org.rs.consts.Scenery
 import content.data.skill.SkillingTool.Companion.getPickaxe
 import core.api.*
 import core.game.interaction.IntType

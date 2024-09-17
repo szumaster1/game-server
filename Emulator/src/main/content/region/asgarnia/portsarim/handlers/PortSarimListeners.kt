@@ -1,7 +1,7 @@
 package content.region.asgarnia.portsarim.handlers
 
 import core.api.*
-import cfg.consts.*
+import org.rs.consts.*
 import core.game.dialogue.DialogueFile
 import core.game.global.action.DoorActionHandler
 import core.game.interaction.IntType

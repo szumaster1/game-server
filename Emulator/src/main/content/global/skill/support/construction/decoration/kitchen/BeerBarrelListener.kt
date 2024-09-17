@@ -1,7 +1,7 @@
 package content.global.skill.support.construction.decoration.kitchen
 
-import cfg.consts.Animations
-import cfg.consts.Items
+import org.rs.consts.Animations
+import org.rs.consts.Items
 import core.api.addItem
 import core.api.animate
 import core.api.removeItem

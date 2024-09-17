@@ -1,9 +1,9 @@
 package content.minigame.gnomeball
 
 import core.api.*
-import cfg.consts.Animations
-import cfg.consts.Items
-import cfg.consts.NPCs
+import org.rs.consts.Animations
+import org.rs.consts.Items
+import org.rs.consts.NPCs
 import core.game.global.action.EquipHandler
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener

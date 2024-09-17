@@ -1,8 +1,8 @@
 package core.game.world.map.zone.impl
 
-import cfg.consts.Animations
-import cfg.consts.Items
-import cfg.consts.Regions
+import org.rs.consts.Animations
+import org.rs.consts.Items
+import org.rs.consts.Regions
 import core.api.*
 import core.game.node.entity.Entity
 import core.game.node.entity.combat.ImpactHandler.HitsplatType

@@ -1,7 +1,7 @@
 /*package content.kingdom.misthalin.quest.member.fairy
 
 
-import cfg.consts.Vars
+import org.rs.consts.Vars
 import core.api.addItemOrDrop
 import core.api.isQuestComplete
 import core.api.rewardXP

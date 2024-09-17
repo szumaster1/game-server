@@ -1,10 +1,10 @@
 package content.region.misc.keldagrim.handlers
 
-import cfg.consts.Components
+import org.rs.consts.Components
 import core.api.*
-import cfg.consts.Items
-import cfg.consts.NPCs
-import cfg.consts.Scenery
+import org.rs.consts.Items
+import org.rs.consts.NPCs
+import org.rs.consts.Scenery
 import content.region.misc.keldagrim.dialogue.BlastFusionHammerDialogue
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener

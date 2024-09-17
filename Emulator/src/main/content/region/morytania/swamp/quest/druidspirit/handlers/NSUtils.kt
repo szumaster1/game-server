@@ -1,7 +1,7 @@
 package content.region.morytania.swamp.quest.druidspirit.handlers
 
-import cfg.consts.Items
-import cfg.consts.Sounds
+import org.rs.consts.Items
+import org.rs.consts.Sounds
 import content.region.morytania.swamp.handlers.GhastNPC
 import core.api.*
 import core.game.node.entity.player.Player

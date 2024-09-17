@@ -2,7 +2,7 @@ package content.global.skill.production.cooking.handlers
 
 
 import core.api.addItemOrDrop
-import cfg.consts.Items
+import org.rs.consts.Items
 import core.api.removeItem
 import core.api.sendMessage
 import core.game.interaction.IntType

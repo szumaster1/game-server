@@ -1,6 +1,6 @@
 package content.region.misthalin.lumbridge.dialogue
 
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import core.api.sendDialogue
 import core.game.dialogue.Dialogue
 import core.game.node.entity.player.Player

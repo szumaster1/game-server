@@ -1,7 +1,7 @@
 package content.global.random.event.evilbob
 
 import core.api.closeInterface
-import cfg.consts.Components
+import org.rs.consts.Components
 import core.api.openInterface
 import core.api.setAttribute
 import core.game.activity.Cutscene

@@ -1,9 +1,9 @@
 package content.region.misthalin.varrock.dialogue
 
-import cfg.consts.Components
-import cfg.consts.Items
-import cfg.consts.NPCs
-import cfg.consts.Sounds
+import org.rs.consts.Components
+import org.rs.consts.Items
+import org.rs.consts.NPCs
+import org.rs.consts.Sounds
 import core.api.*
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression

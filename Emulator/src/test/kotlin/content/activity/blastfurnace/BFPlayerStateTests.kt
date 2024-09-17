@@ -9,7 +9,7 @@ import core.api.amountInInventory
 import core.api.setVarbit
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
-import cfg.consts.Items
+import org.rs.consts.Items
 
 class BFPlayerStateTests {
     init { TestUtils.preTestSetup() }

@@ -1,7 +1,7 @@
 package content.region.misthalin.quest.anma.cutscene
 
-import cfg.consts.Animations
-import cfg.consts.NPCs
+import org.rs.consts.Animations
+import org.rs.consts.NPCs
 import core.api.*
 import core.game.activity.Cutscene
 import core.game.dialogue.FacialExpression

@@ -1,6 +1,6 @@
 package content.global.random.event.quizmaster
 
-import cfg.consts.Items
+import org.rs.consts.Items
 import core.api.getAttribute
 import core.api.removeAttributes
 import core.game.node.entity.player.Player

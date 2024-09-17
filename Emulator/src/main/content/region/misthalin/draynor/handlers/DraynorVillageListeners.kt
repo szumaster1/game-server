@@ -3,8 +3,8 @@ package content.region.misthalin.draynor.handlers
 import content.global.handlers.iface.plugin.DiangoReclaimInterfacePlugin
 import content.region.misthalin.draynor.dialogue.TreeGuardDialogue
 import core.api.*
-import cfg.consts.Items
-import cfg.consts.NPCs
+import org.rs.consts.Items
+import org.rs.consts.NPCs
 import core.game.activity.ActivityManager
 import core.game.dialogue.FacialExpression
 import core.game.interaction.IntType

@@ -1,7 +1,7 @@
 package content.global.handlers.item.equipment
 
 import core.api.StartupListener
-import cfg.consts.Items
+import org.rs.consts.Items
 
 /**
  * Crystal equipment register.

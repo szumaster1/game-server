@@ -1,7 +1,7 @@
 package content.region.desert.sophanem.dialogue
 
-import cfg.consts.Items
-import cfg.consts.NPCs
+import org.rs.consts.Items
+import org.rs.consts.NPCs
 import core.api.inEquipment
 import core.api.sendChat
 import core.api.sendDialogue

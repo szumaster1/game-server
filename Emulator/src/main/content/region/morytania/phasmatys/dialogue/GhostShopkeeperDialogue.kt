@@ -1,7 +1,7 @@
 package content.region.morytania.phasmatys.dialogue
 
-import cfg.consts.Items
-import cfg.consts.NPCs
+import org.rs.consts.Items
+import org.rs.consts.NPCs
 import core.api.inEquipment
 import core.api.openNpcShop
 import core.api.sendDialogue

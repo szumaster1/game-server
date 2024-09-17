@@ -16,9 +16,9 @@ import core.game.node.item.GroundItem
 import core.game.world.map.Location
 import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
-import cfg.consts.Items
-import cfg.consts.NPCs
-import cfg.consts.Scenery
+import org.rs.consts.Items
+import org.rs.consts.NPCs
+import org.rs.consts.Scenery
 import content.region.asgarnia.burthope.quest.hero.HeroesQuest
 
 /**

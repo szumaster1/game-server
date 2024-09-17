@@ -1,6 +1,6 @@
 package core.game.bots.impl
 
-import cfg.consts.Items
+import org.rs.consts.Items
 import content.global.skill.production.fletching.FletchingMap
 import content.global.skill.production.fletching.FletchingPulse
 import core.game.bots.Script

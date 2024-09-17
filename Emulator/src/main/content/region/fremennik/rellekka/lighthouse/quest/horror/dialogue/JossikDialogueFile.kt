@@ -1,6 +1,6 @@
 package content.region.fremennik.rellekka.lighthouse.quest.horror.dialogue
 
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import content.region.fremennik.rellekka.lighthouse.quest.horror.cutscene.FirstDagannothCutscene
 import content.region.fremennik.rellekka.lighthouse.quest.horror.cutscene.SecondDagannothCutscene
 import core.api.getQuestStage

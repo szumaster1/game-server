@@ -1,6 +1,6 @@
 package content.global.skill.gathering.farming
 
-import cfg.consts.Items
+import org.rs.consts.Items
 
 /**
  * Represents the baskets and sacks data.

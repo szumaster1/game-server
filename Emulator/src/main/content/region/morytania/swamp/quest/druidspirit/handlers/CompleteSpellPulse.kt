@@ -1,6 +1,6 @@
 package content.region.morytania.swamp.quest.druidspirit.handlers
 
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import core.api.findLocalNPC
 import core.api.openDialogue
 import core.api.spawnProjectile

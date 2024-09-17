@@ -1,9 +1,9 @@
 package content.global.activity.oldman
 
 import content.global.handlers.iface.ScrollInterface
-import cfg.consts.Components
-import cfg.consts.Items
-import cfg.consts.NPCs
+import org.rs.consts.Components
+import org.rs.consts.Items
+import org.rs.consts.NPCs
 import core.api.getAttribute
 import core.api.openInterface
 import core.api.sendNPCDialogue

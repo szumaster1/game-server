@@ -1,8 +1,8 @@
 package content.region.desert.alkharid.shantay_pass.handlers
 
-import cfg.consts.Components
-import cfg.consts.Items
-import cfg.consts.NPCs
+import org.rs.consts.Components
+import org.rs.consts.Items
+import org.rs.consts.NPCs
 import content.global.skill.support.agility.AgilityHandler
 import core.api.*
 import core.cache.def.impl.NPCDefinition
@@ -28,10 +28,10 @@ class ShantayPassPlugin : OptionHandler() {
 
     override fun newInstance(arg: Any?): Plugin<Any> {
         val sceneryIds = listOf(
-            cfg.consts.Scenery.SHANTAY_PASS_35542,
-            cfg.consts.Scenery.SHANTAY_PASS_35543,
-            cfg.consts.Scenery.SHANTAY_PASS_35544,
-            cfg.consts.Scenery.SHANTAY_PASS_35400
+            org.rs.consts.Scenery.SHANTAY_PASS_35542,
+            org.rs.consts.Scenery.SHANTAY_PASS_35543,
+            org.rs.consts.Scenery.SHANTAY_PASS_35544,
+            org.rs.consts.Scenery.SHANTAY_PASS_35400
         )
         sceneryIds.forEach { id ->
             SceneryDefinition.forId(id).handlers.apply {
@@ -41,8 +41,8 @@ class ShantayPassPlugin : OptionHandler() {
             }
         }
         NPCDefinition.forId(NPCs.SHANTAY_GUARD_838).handlers["option:bribe"] = this
-        SceneryDefinition.forId(cfg.consts.Scenery.JAIL_DOOR_35401).handlers["option:open"] = this
-        SceneryDefinition.forId(cfg.consts.Scenery.SHANTAY_CHEST_2693).handlers["option:open"] = this
+        SceneryDefinition.forId(org.rs.consts.Scenery.JAIL_DOOR_35401).handlers["option:open"] = this
+        SceneryDefinition.forId(org.rs.consts.Scenery.SHANTAY_CHEST_2693).handlers["option:open"] = this
         return this
     }
 
@@ -73,7 +73,7 @@ class ShantayPassPlugin : OptionHandler() {
     }
 
     private fun handleOpenOption(player: Player, node: Node, id: Int): Boolean {
-        if (id == cfg.consts.Scenery.SHANTAY_CHEST_2693) {
+        if (id == org.rs.consts.Scenery.SHANTAY_CHEST_2693) {
             player.bank.open()
             return true
         }

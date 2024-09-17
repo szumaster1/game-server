@@ -1,6 +1,6 @@
 package content.region.misthalin.varrock.quest.demon.dialogue
 
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import content.region.misthalin.varrock.quest.demon.handlers.DSUtils
 import core.api.removeAttribute
 import core.api.setAttribute

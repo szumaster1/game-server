@@ -1,6 +1,6 @@
 package content.global.skill.gathering.hunter.implings
 
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import core.api.utils.WeightedTable
 import core.game.world.map.Location
 import core.game.world.map.RegionManager

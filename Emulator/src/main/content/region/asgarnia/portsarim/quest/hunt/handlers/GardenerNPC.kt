@@ -1,6 +1,6 @@
 package content.region.asgarnia.portsarim.quest.hunt.handlers
 
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import core.game.node.entity.Entity
 import core.game.node.entity.combat.CombatStyle
 import core.game.node.entity.npc.AbstractNPC

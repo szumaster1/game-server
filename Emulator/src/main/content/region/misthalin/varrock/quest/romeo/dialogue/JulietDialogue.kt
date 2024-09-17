@@ -1,9 +1,9 @@
 package content.region.misthalin.varrock.quest.romeo.dialogue
 
-import cfg.consts.Animations
+import org.rs.consts.Animations
 import content.region.misthalin.varrock.quest.romeo.cutscene.JulietCutscene
-import cfg.consts.Items
-import cfg.consts.NPCs
+import org.rs.consts.Items
+import org.rs.consts.NPCs
 import core.api.*
 import core.game.activity.ActivityManager
 import core.game.dialogue.Dialogue

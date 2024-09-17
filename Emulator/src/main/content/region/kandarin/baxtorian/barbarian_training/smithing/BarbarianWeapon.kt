@@ -1,6 +1,6 @@
 package content.region.kandarin.baxtorian.barbarian_training.smithing
 
-import cfg.consts.Items
+import org.rs.consts.Items
 import content.global.skill.production.crafting.data.Origami
 
 /**

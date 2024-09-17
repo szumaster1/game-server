@@ -1,6 +1,6 @@
 package content.region.kandarin.port_khazard.quest.arena.handlers
 
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import core.api.inBorders
 import core.game.node.entity.npc.NPC
 import core.game.node.entity.npc.NPCBehavior

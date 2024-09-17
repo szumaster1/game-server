@@ -1,8 +1,8 @@
 package content.global.handlers.npc
 
 import core.api.animate
-import cfg.consts.Animations
-import cfg.consts.NPCs
+import org.rs.consts.Animations
+import org.rs.consts.NPCs
 import core.api.sendChat
 import core.api.stopWalk
 import core.api.toIntArray

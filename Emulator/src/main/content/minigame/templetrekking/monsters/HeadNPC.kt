@@ -1,7 +1,7 @@
 package content.minigame.templetrekking.monsters
 
 import content.minigame.templetrekking.monsters.TentacleNPC.Companion.spawnTentacleNPC
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import core.api.getAttribute
 import core.game.node.entity.Entity
 import core.game.node.entity.combat.BattleState

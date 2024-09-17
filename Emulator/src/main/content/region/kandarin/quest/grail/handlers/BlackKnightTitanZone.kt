@@ -1,8 +1,8 @@
 package content.region.kandarin.quest.grail.handlers
 
 import content.region.kandarin.quest.grail.dialogue.BlackKnightTitanDialogueFile
-import cfg.consts.Items
-import cfg.consts.NPCs
+import org.rs.consts.Items
+import org.rs.consts.NPCs
 import content.region.kandarin.quest.grail.HolyGrail
 import core.api.openDialogue
 import core.api.sendMessage

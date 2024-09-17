@@ -1,6 +1,6 @@
 package content.region.morytania.phasmatys.handlers
 
-import cfg.consts.Items
+import org.rs.consts.Items
 import core.api.*
 import core.game.global.action.EquipHandler
 import core.game.node.entity.Entity

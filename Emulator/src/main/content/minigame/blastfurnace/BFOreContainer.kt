@@ -4,7 +4,7 @@ import content.global.skill.production.smithing.data.Bar
 import content.minigame.blastfurnace.BlastFurnace.Companion.getBarForOreId
 import content.minigame.blastfurnace.BlastFurnace.Companion.getNeededCoal
 import content.minigame.blastfurnace.BlastUtils.BAR_LIMIT
-import cfg.consts.Items
+import org.rs.consts.Items
 import core.game.node.item.Item
 import org.json.simple.JSONArray
 import org.json.simple.JSONObject

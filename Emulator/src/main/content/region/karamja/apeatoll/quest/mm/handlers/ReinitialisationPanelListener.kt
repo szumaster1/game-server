@@ -1,6 +1,6 @@
 package content.region.karamja.apeatoll.quest.mm.handlers
 
-import cfg.consts.Components
+import org.rs.consts.Components
 import core.api.getAttribute
 import core.api.setAttribute
 import core.game.interaction.InterfaceListener

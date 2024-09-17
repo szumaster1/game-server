@@ -7,9 +7,9 @@ import content.global.skill.skillcape.SkillcapePerks
 import content.global.skill.skillcape.SkillcapePerks.Companion.isActive
 import content.global.skill.support.firemaking.data.Log
 import core.api.*
-import cfg.consts.Items
-import cfg.consts.NPCs
-import cfg.consts.Sounds
+import org.rs.consts.Items
+import org.rs.consts.NPCs
+import org.rs.consts.Sounds
 import content.region.fremennik.miscellania.dialogue.KjallakOnChopDialogue
 import core.cache.def.impl.ItemDefinition
 import core.game.container.impl.EquipmentContainer

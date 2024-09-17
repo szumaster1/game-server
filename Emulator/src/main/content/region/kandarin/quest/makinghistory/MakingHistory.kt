@@ -1,9 +1,9 @@
 package content.region.kandarin.quest.makinghistory
 
 import core.api.*
-import cfg.consts.Components
-import cfg.consts.Items
-import cfg.consts.Vars
+import org.rs.consts.Components
+import org.rs.consts.Items
+import org.rs.consts.Vars
 import content.global.activity.enchkey.EnchantedKey
 import content.region.kandarin.quest.makinghistory.handlers.MHUtils
 import core.game.node.entity.player.Player

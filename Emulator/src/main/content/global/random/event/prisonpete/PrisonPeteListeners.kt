@@ -1,7 +1,7 @@
 package content.global.random.event.prisonpete
 
 import core.api.*
-import cfg.consts.*
+import org.rs.consts.*
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.interaction.QueueStrength

@@ -1,7 +1,7 @@
 package content.global.handlers.item.withitem
 
 import core.api.*
-import cfg.consts.Items
+import org.rs.consts.Items
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.tools.RandomFunction

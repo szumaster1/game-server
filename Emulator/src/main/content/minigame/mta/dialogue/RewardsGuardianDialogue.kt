@@ -2,8 +2,8 @@ package content.minigame.mta.dialogue
 
 import content.minigame.mta.MageTrainingArena
 import core.api.addItemOrDrop
-import cfg.consts.Items
-import cfg.consts.NPCs
+import org.rs.consts.Items
+import org.rs.consts.NPCs
 import core.api.removeItem
 import core.api.sendMessage
 import core.game.dialogue.Dialogue

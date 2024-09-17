@@ -4,8 +4,8 @@ import core.api.*
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.world.map.Location
-import cfg.consts.Components
-import cfg.consts.Scenery
+import org.rs.consts.Components
+import org.rs.consts.Scenery
 import core.game.node.entity.player.Player
 
 /**

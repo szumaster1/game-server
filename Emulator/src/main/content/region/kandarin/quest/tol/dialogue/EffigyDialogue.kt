@@ -1,7 +1,7 @@
 package content.region.kandarin.quest.tol.dialogue
 
 import content.region.kandarin.quest.tol.handlers.TolUtils
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import core.api.getAttribute
 import core.api.getQuestStage
 import core.api.setQuestStage

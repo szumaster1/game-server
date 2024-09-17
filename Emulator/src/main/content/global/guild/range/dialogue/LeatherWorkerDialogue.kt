@@ -1,7 +1,7 @@
 package content.global.guild.range.dialogue
 
 import content.global.skill.production.crafting.data.Tanning
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import core.game.dialogue.Dialogue
 import core.game.node.entity.player.Player
 import core.plugin.Initializable

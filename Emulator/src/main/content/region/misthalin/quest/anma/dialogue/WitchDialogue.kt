@@ -1,8 +1,8 @@
 package content.region.misthalin.quest.anma.dialogue
 
 import content.region.misthalin.quest.anma.AnimalMagnetism
-import cfg.consts.Items
-import cfg.consts.NPCs
+import org.rs.consts.Items
+import org.rs.consts.NPCs
 import core.api.setQuestStage
 import core.game.dialogue.Dialogue
 import core.game.node.entity.player.Player

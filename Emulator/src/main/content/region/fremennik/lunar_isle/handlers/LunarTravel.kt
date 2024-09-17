@@ -1,6 +1,6 @@
 package content.region.fremennik.lunar_isle.handlers
 
-import cfg.consts.Components
+import org.rs.consts.Components
 import core.api.*
 import core.game.node.entity.player.Player
 import core.game.system.task.Pulse

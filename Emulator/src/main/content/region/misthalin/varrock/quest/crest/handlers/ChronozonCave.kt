@@ -11,8 +11,8 @@ import core.plugin.Initializable
 import core.plugin.Plugin
 import core.api.getQuestStage
 import core.api.hasAnItem
-import cfg.consts.Items
-import cfg.consts.NPCs
+import org.rs.consts.Items
+import org.rs.consts.NPCs
 
 /**
  * Represents the Chronozon cave zone.

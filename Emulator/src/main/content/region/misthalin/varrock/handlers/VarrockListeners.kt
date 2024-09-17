@@ -1,6 +1,6 @@
 package content.region.misthalin.varrock.handlers
 
-import cfg.consts.*
+import org.rs.consts.*
 import content.region.kandarin.ardougne.quest.biohazard.dialogue.GuidorsWifeDialogueFile
 import content.region.misc.keldagrim.handlers.MinecartTravel
 import content.region.misthalin.varrock.dialogue.KnockatDoorDialogue

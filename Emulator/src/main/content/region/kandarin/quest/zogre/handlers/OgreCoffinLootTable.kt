@@ -1,7 +1,7 @@
 package content.region.kandarin.quest.zogre.handlers
 
-import cfg.consts.Items
-import cfg.consts.Scenery
+import org.rs.consts.Items
+import org.rs.consts.Scenery
 import core.api.utils.WeightBasedTable
 import core.api.utils.WeightedItem
 

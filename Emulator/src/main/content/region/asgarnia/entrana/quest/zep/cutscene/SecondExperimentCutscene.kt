@@ -1,6 +1,6 @@
 package content.region.asgarnia.entrana.quest.zep.cutscene
 
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import core.api.location
 import core.api.setQuestStage
 import core.game.activity.Cutscene

@@ -1,8 +1,8 @@
 package content.global.guild.rc.handlers
 
-import cfg.consts.Components
-import cfg.consts.Items
-import cfg.consts.Scenery
+import org.rs.consts.Components
+import org.rs.consts.Items
+import org.rs.consts.Scenery
 import content.global.guild.rc.RCGUtils
 import core.api.*
 import core.game.interaction.IntType

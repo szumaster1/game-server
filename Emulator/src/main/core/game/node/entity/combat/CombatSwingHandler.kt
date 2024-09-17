@@ -1,6 +1,6 @@
 package core.game.node.entity.combat
 
-import cfg.consts.Sounds
+import org.rs.consts.Sounds
 import content.global.skill.combat.summoning.familiar.Familiar
 import core.api.log
 import core.api.playGlobalAudio

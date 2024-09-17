@@ -1,6 +1,6 @@
 package content.region.misc.zanaris.quest.zanaris.handlers
 
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import content.data.skill.SkillingTool
 import content.global.skill.gathering.woodcutting.WoodcuttingPulse
 import core.api.getQuestStage
@@ -10,7 +10,7 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.scenery.Scenery
 import core.game.world.map.Location
-import cfg.consts.Scenery as Sceneries
+import org.rs.consts.Scenery as Sceneries
 
 /**
  * Represents the Dramen Tree listener.

@@ -1,6 +1,6 @@
 package content.region.wilderness.handlers;
 
-import cfg.consts.Sounds;
+import org.rs.consts.Sounds;
 import core.cache.def.impl.SceneryDefinition;
 import core.game.component.Component;
 import core.game.global.action.ClimbActionHandler;

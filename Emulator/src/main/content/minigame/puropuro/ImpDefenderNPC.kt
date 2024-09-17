@@ -2,8 +2,8 @@ package content.minigame.puropuro
 
 import content.global.skill.gathering.hunter.bnet.BNetTypes
 import core.api.*
-import cfg.consts.Items
-import cfg.consts.NPCs
+import org.rs.consts.Items
+import org.rs.consts.NPCs
 import core.game.node.entity.npc.NPC
 import core.game.node.entity.npc.NPCBehavior
 import core.game.node.entity.player.Player

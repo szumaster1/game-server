@@ -7,11 +7,11 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import core.api.addItemOrDrop
 import core.api.anyInEquipment
 import core.game.dialogue.Topic
-import cfg.consts.Items
+import org.rs.consts.Items
 import kotlin.math.min
 
 /**

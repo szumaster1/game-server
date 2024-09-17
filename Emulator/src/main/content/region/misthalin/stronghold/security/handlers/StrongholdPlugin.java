@@ -1,6 +1,6 @@
 package content.region.misthalin.stronghold.security.handlers;
 
-import cfg.consts.Sounds;
+import org.rs.consts.Sounds;
 import content.region.misthalin.stronghold.security.dialogue.BoxOfHealthDialogue;
 import content.region.misthalin.stronghold.security.dialogue.CradleOfLifeDialogue;
 import content.region.misthalin.stronghold.security.dialogue.GiftOfPeaceDialogue;

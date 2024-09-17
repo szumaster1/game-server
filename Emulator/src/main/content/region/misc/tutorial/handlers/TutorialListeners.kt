@@ -1,7 +1,7 @@
 package content.region.misc.tutorial.handlers
 
 import core.api.*
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import core.game.dialogue.FacialExpression
 import core.game.global.action.ClimbActionHandler
 import core.game.global.action.DoorActionHandler
@@ -17,19 +17,19 @@ import core.game.world.repository.Repository
  */
 class TutorialListeners : InteractionListener {
 
-    private val guideDoor = cfg.consts.Scenery.DOOR_3014
-    private val cookDoor = cfg.consts.Scenery.DOOR_3017
-    private val cooksExit = cfg.consts.Scenery.DOOR_3018
-    private val questDoor = cfg.consts.Scenery.DOOR_3019
-    private val questLadder_1 = cfg.consts.Scenery.LADDER_3029
-    private val questLadder = cfg.consts.Scenery.LADDER_3028
-    private val combatLadder = cfg.consts.Scenery.LADDER_3030
-    private val bankDoor = cfg.consts.Scenery.DOOR_3024
-    private val financeDoor = cfg.consts.Scenery.DOOR_3025
-    private val churchDoor = cfg.consts.Scenery.DOOR_3026
-    private val firstGatesIDs = intArrayOf(cfg.consts.Scenery.GATE_3015, cfg.consts.Scenery.GATE_3016)
-    private val combatGatesIDs = intArrayOf(cfg.consts.Scenery.GATE_3020, cfg.consts.Scenery.GATE_3021)
-    private val ratGatesIDs = intArrayOf(cfg.consts.Scenery.GATE_3022, cfg.consts.Scenery.GATE_3023)
+    private val guideDoor = org.rs.consts.Scenery.DOOR_3014
+    private val cookDoor = org.rs.consts.Scenery.DOOR_3017
+    private val cooksExit = org.rs.consts.Scenery.DOOR_3018
+    private val questDoor = org.rs.consts.Scenery.DOOR_3019
+    private val questLadder_1 = org.rs.consts.Scenery.LADDER_3029
+    private val questLadder = org.rs.consts.Scenery.LADDER_3028
+    private val combatLadder = org.rs.consts.Scenery.LADDER_3030
+    private val bankDoor = org.rs.consts.Scenery.DOOR_3024
+    private val financeDoor = org.rs.consts.Scenery.DOOR_3025
+    private val churchDoor = org.rs.consts.Scenery.DOOR_3026
+    private val firstGatesIDs = intArrayOf(org.rs.consts.Scenery.GATE_3015, org.rs.consts.Scenery.GATE_3016)
+    private val combatGatesIDs = intArrayOf(org.rs.consts.Scenery.GATE_3020, org.rs.consts.Scenery.GATE_3021)
+    private val ratGatesIDs = intArrayOf(org.rs.consts.Scenery.GATE_3022, org.rs.consts.Scenery.GATE_3023)
 
     override fun defineListeners() {
 

@@ -1,7 +1,7 @@
 package content.region.misthalin.wizardstower.dialogue
 
-import cfg.consts.NPCs
-import cfg.consts.Sounds
+import org.rs.consts.NPCs
+import org.rs.consts.Sounds
 import core.api.*
 import core.game.dialogue.Dialogue
 import core.game.node.entity.impl.Projectile

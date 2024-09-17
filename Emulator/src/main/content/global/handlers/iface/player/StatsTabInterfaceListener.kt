@@ -1,7 +1,7 @@
 package content.global.handlers.iface.player
 
 import core.api.*
-import cfg.consts.Components
+import org.rs.consts.Components
 import core.game.interaction.InterfaceListener
 import core.game.node.entity.skill.LevelUp
 import core.game.node.entity.skill.Skills

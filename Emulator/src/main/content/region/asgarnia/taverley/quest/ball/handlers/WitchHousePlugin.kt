@@ -1,8 +1,8 @@
 package content.region.asgarnia.taverley.quest.ball.handlers
 
 import core.api.*
-import cfg.consts.Items
-import cfg.consts.NPCs
+import org.rs.consts.Items
+import org.rs.consts.NPCs
 import core.cache.def.impl.ItemDefinition
 import core.cache.def.impl.SceneryDefinition
 import core.game.global.action.DoorActionHandler.handleAutowalkDoor
@@ -148,23 +148,23 @@ class WitchHousePlugin : OptionHandler() {
     override fun newInstance(arg: Any?): Plugin<Any> {
         definePlugin(WitchHouseUseWithHandler())
         definePlugin(MouseNPC())
-        SceneryDefinition.forId(cfg.consts.Scenery.POTTED_PLANT_2867).handlers["option:look-under"] = this
-        SceneryDefinition.forId(cfg.consts.Scenery.DOOR_2861).handlers["option:open"] = this
-        SceneryDefinition.forId(cfg.consts.Scenery.GATE_2865).handlers["option:open"] = this
-        SceneryDefinition.forId(cfg.consts.Scenery.GATE_2866).handlers["option:open"] = this
-        SceneryDefinition.forId(cfg.consts.Scenery.DOOR_2862).handlers["option:open"] = this
-        SceneryDefinition.forId(cfg.consts.Scenery.GRAMOPHONE_24724).handlers["option:wind-up"] = this
-        SceneryDefinition.forId(cfg.consts.Scenery.STAIRCASE_24673).handlers["option:walk-down"] = this
-        SceneryDefinition.forId(cfg.consts.Scenery.STAIRCASE_24672).handlers["option:walk-up"] = this
-        SceneryDefinition.forId(cfg.consts.Scenery.PIANO_24721).handlers["option:play"] = this
-        SceneryDefinition.forId(cfg.consts.Scenery.BOXES_24692).handlers["option:search"] = this
-        SceneryDefinition.forId(cfg.consts.Scenery.CUPBOARD_2869).handlers["option:search"] = this
+        SceneryDefinition.forId(org.rs.consts.Scenery.POTTED_PLANT_2867).handlers["option:look-under"] = this
+        SceneryDefinition.forId(org.rs.consts.Scenery.DOOR_2861).handlers["option:open"] = this
+        SceneryDefinition.forId(org.rs.consts.Scenery.GATE_2865).handlers["option:open"] = this
+        SceneryDefinition.forId(org.rs.consts.Scenery.GATE_2866).handlers["option:open"] = this
+        SceneryDefinition.forId(org.rs.consts.Scenery.DOOR_2862).handlers["option:open"] = this
+        SceneryDefinition.forId(org.rs.consts.Scenery.GRAMOPHONE_24724).handlers["option:wind-up"] = this
+        SceneryDefinition.forId(org.rs.consts.Scenery.STAIRCASE_24673).handlers["option:walk-down"] = this
+        SceneryDefinition.forId(org.rs.consts.Scenery.STAIRCASE_24672).handlers["option:walk-up"] = this
+        SceneryDefinition.forId(org.rs.consts.Scenery.PIANO_24721).handlers["option:play"] = this
+        SceneryDefinition.forId(org.rs.consts.Scenery.BOXES_24692).handlers["option:search"] = this
+        SceneryDefinition.forId(org.rs.consts.Scenery.CUPBOARD_2869).handlers["option:search"] = this
         //TODO
         // Trying to enter the shed while another player is fighting the experiment will yield the message
         // "I'd better not go in there yet... I think I can hear someone inside!"
-        SceneryDefinition.forId(cfg.consts.Scenery.DOOR_2863).handlers["option:open"] = this
-        SceneryDefinition.forId(cfg.consts.Scenery.FOUNTAIN_2864).handlers["option:check"] = this
-        ItemDefinition.forId(cfg.consts.Scenery.LADDER_2408).handlers["option:read"] = this
+        SceneryDefinition.forId(org.rs.consts.Scenery.DOOR_2863).handlers["option:open"] = this
+        SceneryDefinition.forId(org.rs.consts.Scenery.FOUNTAIN_2864).handlers["option:check"] = this
+        ItemDefinition.forId(org.rs.consts.Scenery.LADDER_2408).handlers["option:read"] = this
 
         return this
     }
@@ -180,7 +180,7 @@ class WitchHousePlugin : OptionHandler() {
     class WitchHouseUseWithHandler : UseWithHandler(CHEESE.id) {
 
         override fun newInstance(arg: Any?): Plugin<Any> {
-            addHandler(cfg.consts.Scenery.MOUSE_HOLE_15518, OBJECT_TYPE, this)
+            addHandler(org.rs.consts.Scenery.MOUSE_HOLE_15518, OBJECT_TYPE, this)
             addHandler(NPCs.MOUSE_901, NPC_TYPE, object : UseWithHandler(2410) {
 
                 override fun newInstance(arg: Any?): Plugin<Any> {

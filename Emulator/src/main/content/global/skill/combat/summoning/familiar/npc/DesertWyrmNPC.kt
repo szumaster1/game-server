@@ -4,7 +4,7 @@ import content.global.skill.combat.summoning.familiar.Familiar
 import content.global.skill.combat.summoning.familiar.FamiliarSpecial
 import content.global.skill.combat.summoning.familiar.Forager
 import content.global.skill.gathering.mining.MiningNode
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import core.cache.def.impl.NPCDefinition
 import core.game.interaction.OptionHandler
 import core.game.node.Node

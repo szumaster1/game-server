@@ -1,7 +1,7 @@
 package content.global.skill.support.construction.decoration.study
 
-import cfg.consts.Items
-import cfg.consts.Scenery
+import org.rs.consts.Items
+import org.rs.consts.Scenery
 import core.api.sendMessage
 import core.game.interaction.OptionHandler
 import core.game.node.Node

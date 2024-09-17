@@ -1,7 +1,7 @@
 package content.region.misthalin.varrock.quest.phoenixgang.handlers
 
 import content.region.misthalin.varrock.quest.phoenixgang.ShieldofArrav
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import core.game.node.entity.Entity
 import core.game.node.entity.npc.AbstractNPC
 import core.game.node.entity.player.Player

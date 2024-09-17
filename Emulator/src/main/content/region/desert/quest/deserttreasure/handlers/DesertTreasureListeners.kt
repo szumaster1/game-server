@@ -1,8 +1,8 @@
 package content.region.desert.quest.deserttreasure.handlers
 
 import core.api.*
-import cfg.consts.Items
-import cfg.consts.Scenery
+import org.rs.consts.Items
+import org.rs.consts.Scenery
 import content.region.desert.quest.deserttreasure.DesertTreasure
 import core.game.global.action.DoorActionHandler
 import core.game.interaction.IntType

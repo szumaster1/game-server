@@ -6,7 +6,7 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 import core.tools.RandomFunction
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 
 /**
  * Represents the Ambassador alvijar dialogue.

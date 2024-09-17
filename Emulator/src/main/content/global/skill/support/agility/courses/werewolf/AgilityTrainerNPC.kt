@@ -1,6 +1,6 @@
 package content.global.skill.support.agility.courses.werewolf
 
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import core.api.sendChat
 import core.game.node.entity.npc.NPC
 import core.game.node.entity.npc.NPCBehavior

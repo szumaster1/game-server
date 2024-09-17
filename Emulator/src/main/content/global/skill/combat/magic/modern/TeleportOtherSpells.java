@@ -1,6 +1,6 @@
 package content.global.skill.combat.magic.modern;
 
-import cfg.consts.Sounds;
+import org.rs.consts.Sounds;
 import core.game.component.Component;
 import core.game.node.Node;
 import core.game.node.entity.Entity;

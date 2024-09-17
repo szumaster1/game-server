@@ -3,8 +3,8 @@ package content.region.kandarin.quest.tree.dialogue
 import content.region.kandarin.quest.tree.TreeGnomeVillage.Companion.mazeEntrance
 import content.region.kandarin.quest.tree.TreeGnomeVillage.Companion.mazeVillage
 import core.api.*
-import cfg.consts.Components
-import cfg.consts.Items
+import org.rs.consts.Components
+import org.rs.consts.Items
 import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression
 import core.game.node.entity.player.Player

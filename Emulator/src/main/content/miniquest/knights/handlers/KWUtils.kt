@@ -1,6 +1,6 @@
 package content.miniquest.knights.handlers
 
-import cfg.consts.Scenery
+import org.rs.consts.Scenery
 
 object KWUtils {
     val DOORS = intArrayOf(Scenery.LARGE_DOOR_25594, Scenery.LARGE_DOOR_25595)

@@ -1,10 +1,10 @@
 package content.global.skill.support.slayer
 
 import core.api.*
-import cfg.consts.Components
-import cfg.consts.Graphics
-import cfg.consts.Scenery
-import cfg.consts.Sounds
+import org.rs.consts.Components
+import org.rs.consts.Graphics
+import org.rs.consts.Scenery
+import org.rs.consts.Sounds
 import core.game.global.action.ClimbActionHandler
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener

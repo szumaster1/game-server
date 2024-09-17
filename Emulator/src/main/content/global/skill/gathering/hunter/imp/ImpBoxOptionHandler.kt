@@ -1,6 +1,6 @@
 package content.global.skill.gathering.hunter.imp
 
-import cfg.consts.Items
+import org.rs.consts.Items
 import core.cache.def.impl.ItemDefinition
 import core.game.component.Component
 import core.game.interaction.OptionHandler

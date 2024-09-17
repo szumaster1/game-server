@@ -1,6 +1,6 @@
 package content.region.kandarin.quest.grail
 
-import cfg.consts.Items
+import org.rs.consts.Items
 import core.api.getAttribute
 import core.api.rewardXP
 import core.game.node.entity.player.Player

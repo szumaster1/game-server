@@ -7,10 +7,10 @@ import content.global.travel.FairyRing
 import content.region.misthalin.varrock.museum.dialogue.CuratorHaigHalenDialogue
 import content.region.misthalin.varrock.museum.dialogue.OrlandoSmithDialogue
 import core.api.*
-import cfg.consts.Components
-import cfg.consts.Items
-import cfg.consts.NPCs
-import cfg.consts.Scenery
+import org.rs.consts.Components
+import org.rs.consts.Items
+import org.rs.consts.NPCs
+import org.rs.consts.Scenery
 import content.region.misthalin.varrock.dialogue.BennyDialogue
 import content.region.misthalin.varrock.dialogue.ElsieDialogue
 import content.region.misthalin.varrock.quest.crest.dialogue.DimintheisDialogue

@@ -1,8 +1,8 @@
 package content.region.misthalin.edgeville.handlers
 
-import cfg.consts.Animations
-import cfg.consts.Components
-import cfg.consts.Scenery
+import org.rs.consts.Animations
+import org.rs.consts.Components
+import org.rs.consts.Scenery
 import core.api.*
 import core.game.global.action.ClimbActionHandler
 import core.game.global.action.DoorActionHandler

@@ -1,7 +1,7 @@
 package content.global.skill.gathering.hunter.pitfall;
 
-import cfg.consts.Items
-import cfg.consts.Sounds
+import org.rs.consts.Items
+import org.rs.consts.Sounds
 import content.global.skill.gathering.hunter.HunterManager
 import core.api.playAudio
 import core.api.sendMessage

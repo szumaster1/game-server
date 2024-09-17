@@ -1,6 +1,6 @@
 package content.global.handlers.item.plugin
 
-import cfg.consts.Items
+import org.rs.consts.Items
 import core.game.interaction.NodeUsageEvent
 import core.game.interaction.UseWithHandler
 import core.game.node.item.Item

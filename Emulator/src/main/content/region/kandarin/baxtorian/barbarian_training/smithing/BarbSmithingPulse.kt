@@ -1,7 +1,7 @@
 package content.region.kandarin.baxtorian.barbarian_training.smithing
 
 import core.api.*
-import cfg.consts.Animations
+import org.rs.consts.Animations
 import core.game.node.entity.player.Player
 import core.game.node.entity.skill.SkillPulse
 import core.game.node.entity.skill.Skills

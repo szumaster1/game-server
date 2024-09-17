@@ -2,7 +2,7 @@ package content.region.fremennik.rellekka.dialogue
 
 import content.region.fremennik.waterbirth_island.handlers.TravelDestination
 import content.region.fremennik.waterbirth_island.handlers.WaterbirthTravel.sail
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import core.api.getVarp
 import core.api.isQuestComplete
 import core.api.sendDialogueOptions

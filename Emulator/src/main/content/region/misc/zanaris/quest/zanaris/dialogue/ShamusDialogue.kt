@@ -1,6 +1,6 @@
 package content.region.misc.zanaris.quest.zanaris.dialogue
 
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import content.region.misc.zanaris.quest.zanaris.handlers.ShamusTreeListener
 import core.api.getQuestStage
 import core.api.setQuestStage

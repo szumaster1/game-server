@@ -2,8 +2,8 @@ package content.global.skill.production.crafting.handlers
 
 import content.global.skill.production.crafting.item.GlassMakePulse
 import core.api.*
-import cfg.consts.Items
-import cfg.consts.Scenery
+import org.rs.consts.Items
+import org.rs.consts.Scenery
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import kotlin.math.min

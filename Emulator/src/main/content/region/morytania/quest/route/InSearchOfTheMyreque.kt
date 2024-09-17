@@ -1,10 +1,10 @@
 package content.region.morytania.quest.route
 
-import cfg.consts.Vars
+import org.rs.consts.Vars
 import core.api.isQuestComplete
 import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.quest.Quest
-import cfg.consts.Items
+import org.rs.consts.Items
 
 /**
  * In search of the myreque quest.

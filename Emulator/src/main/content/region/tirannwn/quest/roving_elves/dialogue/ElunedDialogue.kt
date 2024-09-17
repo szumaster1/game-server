@@ -1,8 +1,8 @@
 package content.region.tirannwn.quest.roving_elves.dialogue
 
 import content.region.tirannwn.quest.roving_elves.RovingElves
-import cfg.consts.Items
-import cfg.consts.NPCs
+import org.rs.consts.Items
+import org.rs.consts.NPCs
 import core.api.sendItemDialogue
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression

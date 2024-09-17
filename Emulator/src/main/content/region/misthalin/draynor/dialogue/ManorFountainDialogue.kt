@@ -1,6 +1,6 @@
 package content.region.misthalin.draynor.dialogue
 
-import cfg.consts.Items
+import org.rs.consts.Items
 import core.api.setAttribute
 import core.game.dialogue.Dialogue
 import core.game.node.entity.combat.ImpactHandler.HitsplatType

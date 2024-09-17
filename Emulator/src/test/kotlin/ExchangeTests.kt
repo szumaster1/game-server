@@ -13,7 +13,7 @@ import core.game.ge.GrandExchange
 import core.game.ge.GrandExchangeOffer
 import core.game.ge.PriceIndex
 import core.game.node.item.Item
-import cfg.consts.Items
+import org.rs.consts.Items
 import java.io.File
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS) class ExchangeTests {

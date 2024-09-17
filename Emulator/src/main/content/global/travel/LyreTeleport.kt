@@ -2,9 +2,9 @@ package content.global.travel
 
 import core.ServerStore.Companion.getArchive
 import core.api.*
-import cfg.consts.Animations
-import cfg.consts.Graphics
-import cfg.consts.Items
+import org.rs.consts.Animations
+import org.rs.consts.Graphics
+import org.rs.consts.Items
 import core.game.node.entity.impl.Animator
 import core.game.node.entity.player.Player
 import core.game.system.task.Pulse

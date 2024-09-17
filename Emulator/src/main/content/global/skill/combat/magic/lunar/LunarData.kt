@@ -1,7 +1,7 @@
 package content.global.skill.combat.magic.lunar
 
 import core.api.addItemOrDrop
-import cfg.consts.Items
+import org.rs.consts.Items
 import core.api.freeSlots
 import core.api.removeItem
 import core.api.sendMessage

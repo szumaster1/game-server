@@ -1,6 +1,6 @@
 package core.game.bots.impl
 
-import cfg.consts.Items
+import org.rs.consts.Items
 import core.game.bots.AIRepository
 import core.game.bots.Script
 import core.game.interaction.DestinationFlag

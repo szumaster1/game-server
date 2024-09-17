@@ -1,6 +1,6 @@
 package content.global.random.event.lostandfound
 
-import cfg.consts.Components
+import org.rs.consts.Components
 import content.global.random.RandomEventNPC
 import core.api.*
 import core.api.utils.WeightBasedTable

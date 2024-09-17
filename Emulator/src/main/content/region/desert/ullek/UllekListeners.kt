@@ -6,7 +6,7 @@ import core.game.interaction.InteractionListener
 import core.game.interaction.QueueStrength
 import core.game.world.map.Location
 import core.game.world.update.flag.context.Animation
-import cfg.consts.Scenery
+import org.rs.consts.Scenery
 
 /**
  * Represents the Ullek listeners.

@@ -1,8 +1,8 @@
 package content.region.asgarnia.burthope.quest.death.handlers
 
 import core.api.*
-import cfg.consts.Components
-import cfg.consts.Items
+import org.rs.consts.Components
+import org.rs.consts.Items
 import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression
 import core.tools.END_DIALOGUE

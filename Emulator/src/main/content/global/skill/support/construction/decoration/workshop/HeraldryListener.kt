@@ -1,7 +1,7 @@
 package content.global.skill.support.construction.decoration.workshop
 
-import cfg.consts.Items
-import cfg.consts.Scenery
+import org.rs.consts.Items
+import org.rs.consts.Scenery
 import core.api.*
 import core.game.dialogue.DialogueFile
 import core.game.interaction.IntType

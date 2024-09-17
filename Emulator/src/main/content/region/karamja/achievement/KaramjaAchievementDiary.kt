@@ -1,8 +1,8 @@
 package content.region.karamja.achievement
 
-import cfg.consts.Items
-import cfg.consts.NPCs
-import cfg.consts.Scenery
+import org.rs.consts.Items
+import org.rs.consts.NPCs
+import org.rs.consts.Scenery
 import core.api.inBorders
 import core.game.diary.AreaDiaryTask
 import core.game.diary.DiaryEventHookBase

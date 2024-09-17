@@ -2,8 +2,8 @@ package content.global.random.event.pinball
 
 import content.global.random.RandomEventNPC
 import core.api.*
-import cfg.consts.Components
-import cfg.consts.NPCs
+import org.rs.consts.Components
+import org.rs.consts.NPCs
 import core.api.utils.WeightBasedTable
 import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.link.TeleportManager

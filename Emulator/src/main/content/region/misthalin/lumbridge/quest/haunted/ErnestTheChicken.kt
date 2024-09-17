@@ -1,8 +1,8 @@
 package content.region.misthalin.lumbridge.quest.haunted
 
-import cfg.consts.Components
-import cfg.consts.Items
-import cfg.consts.Vars
+import org.rs.consts.Components
+import org.rs.consts.Items
+import org.rs.consts.Vars
 import content.region.misthalin.lumbridge.quest.haunted.handlers.ErnestChickenNPC
 import content.region.misthalin.lumbridge.quest.haunted.handlers.ErnestNPC
 import core.api.removeAttributes

@@ -1,7 +1,7 @@
 package content.global.handlers.npc
 
 import content.global.handlers.item.equipment.special.DragonfireSwingHandler
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import core.game.node.entity.combat.CombatStyle
 import core.game.node.entity.combat.CombatSwingHandler
 import core.game.node.entity.combat.MultiSwingHandler

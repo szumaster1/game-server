@@ -5,7 +5,7 @@ import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.link.diary.AchievementDiary
 import core.game.node.entity.player.link.diary.DiaryType
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 
 /**
  * Represents the Chemist Diary dialogue.

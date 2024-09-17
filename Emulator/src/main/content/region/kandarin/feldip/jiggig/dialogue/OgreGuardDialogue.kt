@@ -1,9 +1,9 @@
 package content.region.kandarin.feldip.jiggig.dialogue
 
 import core.api.*
-import cfg.consts.NPCs
-import cfg.consts.Sounds
-import cfg.consts.Vars
+import org.rs.consts.NPCs
+import org.rs.consts.Sounds
+import org.rs.consts.Vars
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC

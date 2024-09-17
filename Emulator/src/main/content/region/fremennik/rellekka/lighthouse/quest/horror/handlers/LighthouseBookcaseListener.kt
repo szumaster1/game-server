@@ -1,8 +1,8 @@
 package content.region.fremennik.rellekka.lighthouse.quest.horror.handlers
 
 import core.api.*
-import cfg.consts.Items
-import cfg.consts.Scenery
+import org.rs.consts.Items
+import org.rs.consts.Scenery
 import core.game.dialogue.DialogueFile
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener

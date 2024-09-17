@@ -1,6 +1,6 @@
 package core.game.worldevents.holiday.christmas.randoms
 
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import core.api.openDialogue
 import core.api.sendChat
 import core.game.node.entity.npc.NPC

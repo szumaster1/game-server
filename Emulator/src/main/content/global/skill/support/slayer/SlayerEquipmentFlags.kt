@@ -2,7 +2,7 @@ package content.global.skill.support.slayer
 
 import content.global.skill.skillcape.SkillcapePerks
 import core.api.EquipmentSlot
-import cfg.consts.Items
+import org.rs.consts.Items
 import core.api.getAttribute
 import core.api.getItemFromEquipment
 import core.game.node.entity.player.Player

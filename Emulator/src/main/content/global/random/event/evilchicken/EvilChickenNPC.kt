@@ -1,8 +1,8 @@
 package content.global.random.event.evilchicken
 
 import content.global.random.RandomEventNPC
-import cfg.consts.Items
-import cfg.consts.NPCs
+import org.rs.consts.Items
+import org.rs.consts.NPCs
 import core.api.getWorldTicks
 import core.api.utils.WeightBasedTable
 import core.game.node.entity.Entity

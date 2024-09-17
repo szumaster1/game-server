@@ -1,7 +1,7 @@
 package content.region.kandarin.witchaven.fishingplatform.handlers
 
 import core.api.*
-import cfg.consts.Components
+import org.rs.consts.Components
 import core.game.node.entity.player.Player
 import core.game.system.task.Pulse
 import core.game.world.map.Location

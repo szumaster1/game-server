@@ -1,6 +1,6 @@
 package content.region.kandarin.ardougne.necromancer_tower.handlers
 
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import core.api.*
 import core.game.node.entity.Entity
 import core.game.node.entity.combat.BattleState

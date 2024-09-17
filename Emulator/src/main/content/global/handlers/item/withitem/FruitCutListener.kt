@@ -1,9 +1,9 @@
 package content.global.handlers.item.withitem
 
 import core.api.*
-import cfg.consts.Animations
-import cfg.consts.Items
-import cfg.consts.Sounds
+import org.rs.consts.Animations
+import org.rs.consts.Items
+import org.rs.consts.Sounds
 import core.game.dialogue.DialogueFile
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener

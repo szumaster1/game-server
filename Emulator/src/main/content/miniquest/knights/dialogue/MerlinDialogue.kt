@@ -1,6 +1,6 @@
 package content.miniquest.knights.dialogue
 
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import content.miniquest.knights.handlers.KWUtils
 import core.api.*
 import core.game.dialogue.DialogueFile

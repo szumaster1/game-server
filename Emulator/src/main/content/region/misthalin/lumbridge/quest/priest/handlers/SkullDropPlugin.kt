@@ -1,6 +1,6 @@
 package content.region.misthalin.lumbridge.quest.priest.handlers
 
-import cfg.consts.Items
+import org.rs.consts.Items
 import core.api.sendMessage
 import core.cache.def.impl.ItemDefinition
 import core.game.interaction.OptionHandler

@@ -3,9 +3,9 @@ package content.minigame.tbwcleanup
 import content.data.skill.SkillingTool
 import content.global.skill.gathering.woodcutting.WoodcuttingNode
 import core.api.*
-import cfg.consts.Items
-import cfg.consts.NPCs
-import cfg.consts.Sounds
+import org.rs.consts.Items
+import org.rs.consts.NPCs
+import org.rs.consts.Sounds
 import core.cache.def.impl.ItemDefinition
 import core.game.event.ResourceProducedEvent
 import core.game.interaction.Clocks

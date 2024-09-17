@@ -1,7 +1,7 @@
 package content.global.skill.support.construction.decoration.bedroom
 
 import core.api.*
-import cfg.consts.Items
+import org.rs.consts.Items
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.interaction.QueueStrength
@@ -10,7 +10,7 @@ import core.game.node.item.Item
 import core.game.node.scenery.Scenery
 import core.game.node.scenery.SceneryBuilder
 import core.game.world.update.flag.context.Animation
-import cfg.consts.Scenery as Object
+import org.rs.consts.Scenery as Object
 
 /**
  * Fireplace listener.

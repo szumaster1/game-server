@@ -1,6 +1,6 @@
 package content.global.skill.combat.magic.lunar;
 
-import cfg.consts.Sounds;
+import org.rs.consts.Sounds;
 import core.game.component.CloseEvent;
 import core.game.component.Component;
 import core.game.node.Node;

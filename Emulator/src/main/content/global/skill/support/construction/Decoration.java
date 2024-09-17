@@ -1,6 +1,6 @@
 package content.global.skill.support.construction;
 
-import cfg.consts.Items;
+import org.rs.consts.Items;
 import core.game.node.entity.player.Player;
 import core.game.node.item.Item;
 import core.game.node.scenery.Scenery;

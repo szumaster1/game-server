@@ -1,6 +1,6 @@
 package core.game.bots.impl
 
-import cfg.consts.Items
+import org.rs.consts.Items
 import content.global.travel.charter.Ship
 import core.cache.def.impl.ItemDefinition
 import core.game.bots.*

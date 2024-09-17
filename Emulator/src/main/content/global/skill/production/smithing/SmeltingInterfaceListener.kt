@@ -2,7 +2,7 @@ package content.global.skill.production.smithing
 
 import content.global.skill.production.smithing.data.Bar
 import content.global.skill.production.smithing.item.SmeltingPulse
-import cfg.consts.Components
+import org.rs.consts.Components
 import core.api.sendInputDialogue
 import core.api.submitIndividualPulse
 import core.game.interaction.InterfaceListener

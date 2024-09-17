@@ -1,7 +1,7 @@
 /*package content.kingdom.misthalin.quest.member.fairy2
 
 
-import cfg.consts.Vars
+import org.rs.consts.Vars
 import core.api.rewardXP
 import core.api.setVarbit
 import core.game.node.entity.player.Player

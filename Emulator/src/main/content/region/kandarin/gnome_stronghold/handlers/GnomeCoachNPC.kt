@@ -1,6 +1,6 @@
 package content.region.kandarin.gnome_stronghold.handlers
 
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import core.api.inBorders
 import core.api.sendChat
 import core.game.node.entity.npc.NPC

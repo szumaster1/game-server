@@ -2,7 +2,7 @@ package content.minigame.blastfurnace
 
 import content.global.skill.production.smithing.data.Bar
 import core.api.animateInterface
-import cfg.consts.Components
+import org.rs.consts.Components
 import core.api.submitIndividualPulse
 import core.game.interaction.InterfaceListener
 import core.game.system.task.Pulse

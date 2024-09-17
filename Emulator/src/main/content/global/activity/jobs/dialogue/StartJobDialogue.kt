@@ -4,7 +4,7 @@ import content.global.activity.jobs.impl.BoneBuryingJobs
 import content.global.activity.jobs.impl.CombatJobs
 import content.global.activity.jobs.impl.ProductionJobs
 import core.api.addItem
-import cfg.consts.Items
+import org.rs.consts.Items
 import content.global.activity.jobs.JobManager
 import content.global.activity.jobs.JobType
 import core.api.hasAnItem

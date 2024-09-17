@@ -1,7 +1,7 @@
 package content.region.misthalin.edgeville.barbarian_village.dialogue
 
 import content.region.kandarin.seers_village.quest.scorpcatcher.dialogue.PeksaDialogueFile
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import core.api.openDialogue
 import core.api.openNpcShop
 import core.game.dialogue.Dialogue

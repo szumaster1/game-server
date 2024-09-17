@@ -1,6 +1,6 @@
 package content.region.misthalin.wizardstower.dialogue
 
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import content.region.misthalin.lumbridge.quest.imp.dialogue.WizardMizgogDialogueFile
 import core.api.isQuestComplete
 import core.api.openDialogue

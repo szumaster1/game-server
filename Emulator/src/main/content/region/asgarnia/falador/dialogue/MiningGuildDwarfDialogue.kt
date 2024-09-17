@@ -1,6 +1,6 @@
 package content.region.asgarnia.falador.dialogue
 
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import core.api.getStatLevel
 import core.api.sendDialogueOptions
 import core.game.dialogue.Dialogue

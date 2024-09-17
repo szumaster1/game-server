@@ -1,6 +1,6 @@
 package content.global.handlers.item.equipment.special
 
-import cfg.consts.Items
+import org.rs.consts.Items
 import core.api.EquipmentSlot
 import core.api.getItemFromEquipment
 import core.game.node.entity.Entity

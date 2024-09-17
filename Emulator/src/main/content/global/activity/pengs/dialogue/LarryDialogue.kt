@@ -1,6 +1,6 @@
 package content.global.activity.pengs.dialogue
 
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import content.global.activity.pengs.handlers.Penguin
 import content.global.activity.pengs.handlers.PenguinManager
 import core.api.getStatLevel

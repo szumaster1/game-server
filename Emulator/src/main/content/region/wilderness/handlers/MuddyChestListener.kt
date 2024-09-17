@@ -1,6 +1,6 @@
 package content.region.wilderness.handlers
 
-import cfg.consts.Items
+import org.rs.consts.Items
 import core.api.sendMessage
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener

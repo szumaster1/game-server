@@ -1,6 +1,6 @@
 package core.game.system.command.sets
 
-import cfg.consts.Items
+import org.rs.consts.Items
 import content.data.item.ChargedItem
 import core.api.*
 import core.cache.def.impl.ItemDefinition

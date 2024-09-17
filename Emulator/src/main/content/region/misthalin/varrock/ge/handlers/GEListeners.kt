@@ -9,8 +9,8 @@ import core.game.ge.GrandExchangeRecords
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.entity.npc.NPC
-import cfg.consts.NPCs
-import cfg.consts.Scenery
+import org.rs.consts.NPCs
+import org.rs.consts.Scenery
 
 /**
  * Represents the Grand exchange listeners.

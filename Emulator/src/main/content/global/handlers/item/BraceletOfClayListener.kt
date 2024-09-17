@@ -1,6 +1,6 @@
 package content.global.handlers.item
 
-import cfg.consts.Items
+import org.rs.consts.Items
 import core.api.getCharge
 import core.api.sendMessage
 import core.api.setCharge

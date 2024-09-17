@@ -1,7 +1,7 @@
 package content.region.misthalin.stronghold.security.dialogue
 
 import core.api.*
-import cfg.consts.Items
+import org.rs.consts.Items
 import core.game.container.Container
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression

@@ -1,6 +1,6 @@
 package content.region.kandarin.quest.grandtree.handlers
 
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import core.api.location
 import core.api.setQuestStage
 import core.game.node.entity.Entity

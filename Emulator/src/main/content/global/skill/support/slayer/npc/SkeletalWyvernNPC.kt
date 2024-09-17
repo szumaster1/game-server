@@ -2,8 +2,8 @@ package content.global.skill.support.slayer.npc
 
 import content.global.handlers.item.equipment.special.DragonfireSwingHandler
 import content.global.skill.support.slayer.data.Tasks
-import cfg.consts.Animations
-import cfg.consts.Items
+import org.rs.consts.Animations
+import org.rs.consts.Items
 import core.game.node.entity.combat.CombatStyle
 import core.game.node.entity.combat.CombatSwingHandler
 import core.game.node.entity.combat.MultiSwingHandler

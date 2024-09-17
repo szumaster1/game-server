@@ -1,6 +1,6 @@
 package content.region.kandarin.ardougne.quest.biohazard.handlers
 
-import cfg.consts.*
+import org.rs.consts.*
 import content.region.kandarin.ardougne.quest.biohazard.dialogue.*
 import core.api.*
 import core.game.dialogue.DialogueFile

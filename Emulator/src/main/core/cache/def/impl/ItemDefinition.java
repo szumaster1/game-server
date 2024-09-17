@@ -17,7 +17,7 @@ import core.tools.Log;
 import core.tools.StringUtils;
 import core.tools.SystemLogger;
 import core.game.system.config.ItemConfigParser;
-import cfg.consts.Items;
+import org.rs.consts.Items;
 
 import java.nio.ByteBuffer;
 import java.text.DecimalFormat;

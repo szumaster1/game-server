@@ -3,8 +3,8 @@ package content.region.fremennik.rellekka.quest.viking.handlers
 import content.global.skill.gathering.woodcutting.WoodcuttingPulse
 import content.global.travel.LyreTeleport
 import core.api.*
-import cfg.consts.Items
-import cfg.consts.NPCs
+import org.rs.consts.Items
+import org.rs.consts.NPCs
 import content.region.fremennik.rellekka.quest.viking.dialogue.CouncilWorkerDialogue
 import content.region.fremennik.rellekka.quest.viking.dialogue.FremennikFishermanDialogue
 import core.game.container.impl.EquipmentContainer.SLOT_WEAPON

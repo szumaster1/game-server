@@ -1,7 +1,7 @@
 package content.region.misthalin.lumbridge.quest.lost_tribe.handlers
 
-import cfg.consts.Components
-import cfg.consts.Scenery
+import org.rs.consts.Components
+import org.rs.consts.Scenery
 import core.api.openInterface
 import core.cache.def.impl.SceneryDefinition
 import core.game.interaction.OptionHandler

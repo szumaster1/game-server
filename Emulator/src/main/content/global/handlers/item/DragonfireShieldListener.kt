@@ -3,8 +3,8 @@ package content.global.handlers.item
 import content.global.handlers.item.equipment.special.DragonfireSwingHandler
 import core.Configuration
 import core.api.*
-import cfg.consts.Items
-import cfg.consts.Sounds
+import org.rs.consts.Items
+import org.rs.consts.Sounds
 import core.game.container.impl.EquipmentContainer
 import core.game.global.action.DropListener
 import core.game.interaction.IntType

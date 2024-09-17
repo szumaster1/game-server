@@ -1,6 +1,6 @@
 package content.region.kandarin.battlefield
 
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import core.api.*
 import core.game.node.entity.npc.NPC
 import core.game.node.entity.npc.NPCBehavior

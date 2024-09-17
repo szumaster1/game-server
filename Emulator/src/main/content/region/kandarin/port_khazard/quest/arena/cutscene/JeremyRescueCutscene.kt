@@ -2,8 +2,8 @@ package content.region.kandarin.port_khazard.quest.arena.cutscene
 
 import content.region.kandarin.port_khazard.quest.arena.handlers.FightArenaListeners.Companion.Jeremy
 import core.api.*
-import cfg.consts.Animations
-import cfg.consts.NPCs
+import org.rs.consts.Animations
+import org.rs.consts.NPCs
 import content.region.kandarin.port_khazard.quest.arena.handlers.OgreNPC.Companion.spawnOgre
 import core.game.activity.Cutscene
 import core.game.dialogue.FacialExpression

@@ -1,7 +1,7 @@
 package content.region.kandarin.ardougne.monastery.dialogue
 
 import content.region.kandarin.ardougne.quest.drunkmonk.dialogue.BrotherOmadDialogueFile
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import core.api.getQuestStage
 import core.api.openDialogue
 import core.api.sendDialogue

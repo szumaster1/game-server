@@ -7,7 +7,7 @@ import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 
 /**
  * Represents the Diango dialogue.

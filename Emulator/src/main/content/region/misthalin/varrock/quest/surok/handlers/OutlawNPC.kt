@@ -1,6 +1,6 @@
 package content.region.misthalin.varrock.quest.surok.handlers
 
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import core.api.amountInBank
 import core.api.amountInInventory
 import core.game.node.entity.Entity

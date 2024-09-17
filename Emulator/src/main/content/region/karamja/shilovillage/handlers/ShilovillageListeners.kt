@@ -1,9 +1,9 @@
 package content.region.karamja.shilovillage.handlers
 
-import cfg.consts.Components
-import cfg.consts.Items
-import cfg.consts.NPCs
-import cfg.consts.Scenery
+import org.rs.consts.Components
+import org.rs.consts.Items
+import org.rs.consts.NPCs
+import org.rs.consts.Scenery
 import content.region.karamja.shilovillage.dialogue.BlackPrismDialogue
 import content.region.karamja.shilovillage.dialogue.CartTravelDialogue
 import core.api.*

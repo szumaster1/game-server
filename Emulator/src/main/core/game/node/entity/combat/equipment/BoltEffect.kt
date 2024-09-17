@@ -1,7 +1,7 @@
 package core.game.node.entity.combat.equipment
 
-import cfg.consts.Items
-import cfg.consts.NPCs
+import org.rs.consts.Items
+import org.rs.consts.NPCs
 import core.api.applyPoison
 import core.api.playGlobalAudio
 import core.game.node.entity.combat.BattleState

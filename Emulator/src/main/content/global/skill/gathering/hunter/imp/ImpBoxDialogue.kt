@@ -1,6 +1,6 @@
 package content.global.skill.gathering.hunter.imp
 
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import core.game.dialogue.Dialogue
 import core.game.dialogue.DialogueInterpreter
 import core.game.dialogue.FacialExpression

@@ -1,7 +1,7 @@
 package content.global.travel.glider
 
 import content.global.travel.glider.GliderListeners.GliderPulse
-import cfg.consts.Components
+import org.rs.consts.Components
 import core.api.setVarp
 import core.api.submitWorldPulse
 import core.api.unlock

@@ -1,7 +1,7 @@
 package content.region.karamja.brimhaven.dialogue
 
 import content.region.asgarnia.burthope.quest.hero.HeroesQuest
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import core.api.getAttribute
 import core.api.getQuestStage
 import core.api.openDialogue

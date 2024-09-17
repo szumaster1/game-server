@@ -2,7 +2,7 @@ package content.global.skill.support.agility.courses.pyramid;
 
 import content.global.skill.support.agility.AgilityCourse;
 import content.global.skill.support.agility.AgilityHandler;
-import cfg.consts.Sounds;
+import org.rs.consts.Sounds;
 import core.cache.def.impl.SceneryDefinition;
 import core.cache.def.impl.VarbitDefinition;
 import core.game.global.action.ClimbActionHandler;

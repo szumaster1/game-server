@@ -1,6 +1,6 @@
 package content.region.misthalin.varrock.museum.dialogue
 
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import core.api.*
 import core.api.utils.PlayerCamera
 import core.game.dialogue.DialogueFile

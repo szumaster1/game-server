@@ -2,7 +2,7 @@ package content.global.skill.production.herblore.data.potion
 
 import content.global.skill.production.herblore.data.Herb
 import content.global.skill.production.herblore.item.HerblorePulse
-import cfg.consts.Items
+import org.rs.consts.Items
 import core.game.node.item.Item
 
 /**

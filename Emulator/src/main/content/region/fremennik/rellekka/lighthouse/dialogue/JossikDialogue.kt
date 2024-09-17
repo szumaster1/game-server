@@ -1,8 +1,8 @@
 package content.region.fremennik.rellekka.lighthouse.dialogue
 
 import content.data.GodBook
-import cfg.consts.Items
-import cfg.consts.NPCs
+import org.rs.consts.Items
+import org.rs.consts.NPCs
 import content.region.fremennik.rellekka.lighthouse.quest.horror.dialogue.JossikRewardDialogue
 import core.game.dialogue.Dialogue
 import core.game.node.entity.npc.NPC

@@ -1,7 +1,7 @@
 package content.global.handlers.item
 
 import core.api.*
-import cfg.consts.Items
+import org.rs.consts.Items
 import core.cache.def.impl.ItemDefinition
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener

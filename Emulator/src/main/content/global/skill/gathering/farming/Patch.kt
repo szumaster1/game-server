@@ -1,6 +1,6 @@
 package content.global.skill.gathering.farming
 
-import cfg.consts.Items
+import org.rs.consts.Items
 import core.api.getVarbit
 import core.api.log
 import core.api.setVarbit

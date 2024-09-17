@@ -1,6 +1,6 @@
 package content.region.misc.tutorial.dialogue
 
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import content.region.misc.tutorial.handlers.TutorialStage
 import core.api.sendDialogueOptions
 import core.api.setAttribute

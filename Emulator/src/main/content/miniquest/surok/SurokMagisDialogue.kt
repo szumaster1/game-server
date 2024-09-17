@@ -1,7 +1,7 @@
 package content.miniquest.surok
 
-import cfg.consts.Music
-import cfg.consts.NPCs
+import org.rs.consts.Music
+import org.rs.consts.NPCs
 import core.api.getVarbit
 import core.game.activity.ActivityPlugin
 import core.game.activity.CutscenePlugin

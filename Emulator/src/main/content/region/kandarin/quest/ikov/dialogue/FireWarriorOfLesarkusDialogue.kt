@@ -5,7 +5,7 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 
 @Initializable
 class FireWarriorOfLesarkusDialogue(player: Player? = null) : Dialogue(player) {

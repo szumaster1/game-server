@@ -1,8 +1,8 @@
 package content.region.kandarin.ardougne.quest.drunkmonk
 
 import core.api.addItemOrDrop
-import cfg.consts.Items
-import cfg.consts.Vars
+import org.rs.consts.Items
+import org.rs.consts.Vars
 import core.api.rewardXP
 import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.quest.Quest

@@ -4,7 +4,7 @@ import content.data.skill.SkillingTool;
 import content.region.kandarin.baxtorian.barbarian_training.BarbarianTraining;
 import content.global.skill.support.firemaking.data.Log;
 import core.api.Container;
-import cfg.consts.Items;
+import org.rs.consts.Items;
 import core.game.event.LitFireEvent;
 import core.game.node.entity.player.Player;
 import core.game.node.entity.skill.SkillPulse;

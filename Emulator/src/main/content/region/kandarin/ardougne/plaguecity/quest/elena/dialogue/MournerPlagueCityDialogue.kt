@@ -1,7 +1,7 @@
 package content.region.kandarin.ardougne.plaguecity.quest.elena.dialogue
 
 import core.api.*
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression
 import core.game.global.action.DoorActionHandler

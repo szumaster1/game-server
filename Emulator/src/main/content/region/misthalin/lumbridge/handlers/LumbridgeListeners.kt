@@ -2,7 +2,7 @@ package content.region.misthalin.lumbridge.handlers
 
 import core.GlobalStatistics
 import core.api.*
-import cfg.consts.*
+import org.rs.consts.*
 import content.region.misthalin.lumbridge.basement.CulinaromancerChestListener
 import core.game.activity.ActivityManager
 import core.game.global.action.ClimbActionHandler

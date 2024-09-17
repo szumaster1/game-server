@@ -2,8 +2,8 @@ package content.global.random.event.certer
 
 import content.global.random.RandomEventNPC
 import core.api.animate
-import cfg.consts.NPCs
-import cfg.consts.Sounds
+import org.rs.consts.NPCs
+import org.rs.consts.Sounds
 import core.api.playAudio
 import core.api.utils.WeightBasedTable
 import core.game.node.entity.npc.NPC

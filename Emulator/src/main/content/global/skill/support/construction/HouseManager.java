@@ -1,6 +1,6 @@
 package content.global.skill.support.construction;
 
-import cfg.consts.Sounds;
+import org.rs.consts.Sounds;
 import content.global.skill.support.construction.servants.Servant;
 import core.api.regionspec.RegionSpecification;
 import core.api.regionspec.contracts.FillChunkContract;

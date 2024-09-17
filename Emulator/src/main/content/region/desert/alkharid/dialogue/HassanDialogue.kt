@@ -1,7 +1,7 @@
 package content.region.desert.alkharid.dialogue
 
-import cfg.consts.Items
-import cfg.consts.NPCs
+import org.rs.consts.Items
+import org.rs.consts.NPCs
 import core.api.finishQuest
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression

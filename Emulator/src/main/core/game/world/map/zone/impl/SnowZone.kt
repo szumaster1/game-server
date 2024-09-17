@@ -1,7 +1,7 @@
 package core.game.world.map.zone.impl
 
-import cfg.consts.Components
-import cfg.consts.Regions
+import org.rs.consts.Components
+import org.rs.consts.Regions
 import core.api.closeOverlay
 import core.api.getRegionBorders
 import core.api.inBorders

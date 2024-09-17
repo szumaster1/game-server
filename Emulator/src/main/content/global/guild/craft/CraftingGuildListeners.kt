@@ -1,8 +1,8 @@
 package content.global.guild.craft
 
 import core.api.anyInEquipment
-import cfg.consts.Items
-import cfg.consts.Scenery
+import org.rs.consts.Items
+import org.rs.consts.Scenery
 import core.api.hasLevelStat
 import core.api.inEquipment
 import core.api.openDialogue

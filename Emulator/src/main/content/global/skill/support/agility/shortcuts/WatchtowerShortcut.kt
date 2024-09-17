@@ -1,8 +1,8 @@
 package content.global.skill.support.agility.shortcuts
 
-import cfg.consts.Animations
-import cfg.consts.NPCs
-import cfg.consts.Scenery
+import org.rs.consts.Animations
+import org.rs.consts.NPCs
+import org.rs.consts.Scenery
 import core.api.*
 import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression

@@ -1,7 +1,7 @@
 package content.region.misthalin.lumbridge.quest.lost_tribe.handlers
 
 import core.api.*
-import cfg.consts.*
+import org.rs.consts.*
 import content.data.skill.SkillingTool
 import content.data.skill.SkillingTool.Companion.getToolForSkill
 import core.game.dialogue.FacialExpression

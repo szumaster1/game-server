@@ -1,6 +1,6 @@
 package core.api
 
-import cfg.consts.Items
+import org.rs.consts.Items
 
 /**
  * Item represents different gods in the game.

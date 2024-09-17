@@ -1,10 +1,10 @@
 package content.region.desert.pollnivneach.handlers
 
 import core.api.*
-import cfg.consts.Animations
-import cfg.consts.Items
-import cfg.consts.NPCs
-import cfg.consts.Scenery
+import org.rs.consts.Animations
+import org.rs.consts.Items
+import org.rs.consts.NPCs
+import org.rs.consts.Scenery
 import content.region.desert.pollnivneach.dialogue.AliTheBarmanDialogue
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener

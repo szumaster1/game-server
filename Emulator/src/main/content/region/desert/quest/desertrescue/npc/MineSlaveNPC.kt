@@ -1,6 +1,6 @@
 package content.region.desert.quest.desertrescue.npc
 
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import core.game.node.entity.npc.AbstractNPC
 import core.game.world.GameWorld.ticks
 import core.game.world.map.Location

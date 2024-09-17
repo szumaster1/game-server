@@ -9,8 +9,8 @@ import content.global.skill.gathering.woodcutting.WoodcuttingNode.Companion.forI
 import content.global.skill.skillcape.SkillcapePerks
 import content.global.skill.skillcape.SkillcapePerks.Companion.isActive
 import core.api.*
-import cfg.consts.NPCs
-import cfg.consts.Sounds
+import org.rs.consts.NPCs
+import org.rs.consts.Sounds
 import core.game.container.impl.EquipmentContainer
 import core.game.dialogue.FacialExpression
 import core.game.event.ResourceProducedEvent

@@ -1,9 +1,9 @@
 package content.global.skill.combat.prayer
 
-import cfg.consts.Animations
+import org.rs.consts.Animations
 import core.api.*
-import cfg.consts.Scenery
-import cfg.consts.Sounds
+import org.rs.consts.Scenery
+import org.rs.consts.Sounds
 import core.game.event.PrayerPointsRechargeEvent
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener

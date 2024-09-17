@@ -1,7 +1,7 @@
 package content.region.karamja.quest.totem.dialogue
 
-import cfg.consts.Items
-import cfg.consts.NPCs
+import org.rs.consts.Items
+import org.rs.consts.NPCs
 import core.api.isQuestComplete
 import core.api.removeItem
 import core.game.dialogue.Dialogue

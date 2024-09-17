@@ -1,6 +1,6 @@
 package content.region.karamja.quest.onesmallfavour.handlers
 
-import cfg.consts.Items
+import org.rs.consts.Items
 import core.api.sendDialogue
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener

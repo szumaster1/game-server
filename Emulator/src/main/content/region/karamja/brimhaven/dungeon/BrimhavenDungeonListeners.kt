@@ -1,7 +1,7 @@
 package content.region.karamja.brimhaven.dungeon
 
-import cfg.consts.NPCs
-import cfg.consts.Scenery
+import org.rs.consts.NPCs
+import org.rs.consts.Scenery
 import content.global.skill.support.agility.AgilityHandler
 import content.region.karamja.brimhaven.handlers.BrimhavenUtils
 import core.api.getAttribute

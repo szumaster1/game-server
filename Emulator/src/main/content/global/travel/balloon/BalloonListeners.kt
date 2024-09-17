@@ -1,10 +1,10 @@
 package content.global.travel.balloon
 
 import core.api.*
-import cfg.consts.Components
-import cfg.consts.Items
-import cfg.consts.NPCs
-import cfg.consts.Vars
+import org.rs.consts.Components
+import org.rs.consts.Items
+import org.rs.consts.NPCs
+import org.rs.consts.Vars
 import core.cache.def.impl.ItemDefinition
 import core.game.component.Component
 import core.game.interaction.IntType

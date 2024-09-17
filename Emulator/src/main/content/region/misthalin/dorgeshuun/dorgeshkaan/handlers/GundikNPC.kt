@@ -4,7 +4,7 @@ import core.api.*
 import core.game.node.entity.npc.NPC
 import core.game.node.entity.npc.NPCBehavior
 import core.tools.RandomFunction
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 
 /**
  * Represents the Gundik NPC.

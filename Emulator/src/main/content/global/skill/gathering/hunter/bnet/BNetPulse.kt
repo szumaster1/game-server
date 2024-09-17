@@ -1,7 +1,7 @@
 package content.global.skill.gathering.hunter.bnet
 
 import core.api.animate
-import cfg.consts.Sounds
+import org.rs.consts.Sounds
 import core.api.getStatLevel
 import core.api.playAudio
 import core.api.sendMessage

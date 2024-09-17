@@ -1,7 +1,7 @@
 package content.global.random.event.freakyforest
 
-import cfg.consts.Items
-import cfg.consts.NPCs
+import org.rs.consts.Items
+import org.rs.consts.NPCs
 import core.api.*
 import core.game.node.entity.player.Player
 import core.game.world.map.zone.ZoneBorders

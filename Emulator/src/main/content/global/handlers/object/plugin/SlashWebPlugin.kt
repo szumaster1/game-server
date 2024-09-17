@@ -1,9 +1,9 @@
 package content.global.handlers.`object`.plugin
 
 import core.api.*
-import cfg.consts.Animations
-import cfg.consts.Items
-import cfg.consts.Sounds
+import org.rs.consts.Animations
+import org.rs.consts.Items
+import org.rs.consts.Sounds
 import core.cache.def.impl.SceneryDefinition
 import core.game.container.Container
 import core.game.container.impl.EquipmentContainer

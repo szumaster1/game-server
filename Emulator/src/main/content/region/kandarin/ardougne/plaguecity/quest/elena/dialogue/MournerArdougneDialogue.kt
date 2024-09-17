@@ -1,6 +1,6 @@
 package content.region.kandarin.ardougne.plaguecity.quest.elena.dialogue
 
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import core.api.getQuestStage
 import core.api.openDialogue
 import core.game.dialogue.Dialogue

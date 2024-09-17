@@ -3,7 +3,7 @@ package content.global.skill.production.herblore.handlers
 import content.global.skill.production.herblore.data.potion.GenericPotion
 import content.global.skill.production.herblore.data.potion.UnfinishedPotion
 import content.global.skill.production.herblore.item.HerblorePulse
-import cfg.consts.Items
+import org.rs.consts.Items
 import core.game.dialogue.SkillDialogueHandler
 import core.game.interaction.NodeUsageEvent
 import core.game.interaction.UseWithHandler

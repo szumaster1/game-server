@@ -2,7 +2,7 @@ package content.region.asgarnia.burthope.quest.hero.dialogue
 
 import content.region.asgarnia.burthope.quest.hero.HeroesQuest
 import core.api.*
-import cfg.consts.Items
+import org.rs.consts.Items
 import core.game.dialogue.*
 
 class StravenDialogueFile : DialogueBuilderFile() {

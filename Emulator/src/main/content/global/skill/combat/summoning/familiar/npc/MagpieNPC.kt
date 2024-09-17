@@ -4,7 +4,7 @@ import content.global.skill.combat.summoning.familiar.Familiar
 import content.global.skill.combat.summoning.familiar.FamiliarSpecial
 import content.global.skill.combat.summoning.familiar.Forager
 import content.global.skill.production.crafting.data.Gem
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import core.api.visualize
 import core.game.node.entity.player.Player
 import core.game.node.entity.skill.SkillBonus

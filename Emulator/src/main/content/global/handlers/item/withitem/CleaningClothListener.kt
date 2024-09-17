@@ -1,6 +1,6 @@
 package content.global.handlers.item.withitem
 
-import cfg.consts.Items
+import org.rs.consts.Items
 import core.api.replaceSlot
 import core.api.sendMessage
 import core.game.interaction.IntType

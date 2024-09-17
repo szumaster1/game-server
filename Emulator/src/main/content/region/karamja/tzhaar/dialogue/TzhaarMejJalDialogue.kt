@@ -1,6 +1,6 @@
 package content.region.karamja.tzhaar.dialogue
 
-import cfg.consts.Items
+import org.rs.consts.Items
 import core.api.removeItem
 import core.api.sendDialogueOptions
 import core.game.dialogue.Dialogue

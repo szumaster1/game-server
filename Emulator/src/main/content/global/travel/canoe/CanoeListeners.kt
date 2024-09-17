@@ -2,10 +2,10 @@ package content.global.travel.canoe
 
 import content.data.skill.SkillingTool
 import core.api.*
-import cfg.consts.Animations
-import cfg.consts.Components
-import cfg.consts.Scenery
-import cfg.consts.Sounds
+import org.rs.consts.Animations
+import org.rs.consts.Components
+import org.rs.consts.Scenery
+import org.rs.consts.Sounds
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.interaction.InterfaceListener

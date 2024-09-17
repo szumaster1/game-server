@@ -1,6 +1,6 @@
 package core.game.ge
 
-import cfg.consts.Sounds
+import org.rs.consts.Sounds
 import core.Configuration
 import core.api.*
 import core.cache.def.impl.ItemDefinition

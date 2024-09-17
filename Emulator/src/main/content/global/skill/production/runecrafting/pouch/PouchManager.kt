@@ -7,7 +7,7 @@ import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 import org.json.simple.JSONArray
 import org.json.simple.JSONObject
-import cfg.consts.Items
+import org.rs.consts.Items
 
 /**
  * A class for managing rune pouches.

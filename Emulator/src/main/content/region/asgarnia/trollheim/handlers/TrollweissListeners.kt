@@ -1,6 +1,6 @@
 package content.region.asgarnia.trollheim.handlers
 
-import cfg.consts.Scenery
+import org.rs.consts.Scenery
 import core.api.teleport
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener

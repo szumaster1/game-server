@@ -1,6 +1,6 @@
 package content.region.karamja.dialogue
 
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import core.api.getAttribute
 import core.api.removeAttribute
 import core.api.sendMessage

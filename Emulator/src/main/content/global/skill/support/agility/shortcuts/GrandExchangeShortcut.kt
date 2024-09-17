@@ -1,6 +1,6 @@
 package content.global.skill.support.agility.shortcuts
 
-import cfg.consts.Animations
+import org.rs.consts.Animations
 import core.api.*
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener

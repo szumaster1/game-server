@@ -1,6 +1,6 @@
 package content.region.misc.keldagrim.dialogue
 
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import core.api.findNPC
 import core.api.sendChat
 import core.api.sendNPCDialogue

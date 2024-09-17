@@ -1,8 +1,8 @@
 package content.region.misthalin.varrock.quest.priest.dialogue
 
 import content.region.morytania.swamp.quest.druidspirit.dialogue.DrezelDialogueFile
-import cfg.consts.Items
-import cfg.consts.NPCs
+import org.rs.consts.Items
+import org.rs.consts.NPCs
 import core.api.hasAnItem
 import core.api.openDialogue
 import core.game.dialogue.Dialogue

@@ -3,7 +3,7 @@ package content.global.guild.hero
 import content.data.EnchantedJewellery
 import content.data.EnchantedJewellery.Companion.idMap
 import content.global.skill.combat.summoning.familiar.Familiar
-import cfg.consts.Items
+import org.rs.consts.Items
 import core.api.hasRequirement
 import core.cache.def.impl.SceneryDefinition
 import core.game.global.action.DoorActionHandler.handleAutowalkDoor

@@ -1,7 +1,7 @@
 package content.region.misthalin.varrock.quest.dragon.handlers
 
-import cfg.consts.NPCs
-import cfg.consts.Scenery
+import org.rs.consts.NPCs
+import org.rs.consts.Scenery
 import core.api.sendMessage
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener

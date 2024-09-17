@@ -1,7 +1,7 @@
 package content.region.misthalin.varrock.dialogue
 
-import cfg.consts.Items
-import cfg.consts.NPCs
+import org.rs.consts.Items
+import org.rs.consts.NPCs
 import core.ServerStore
 import core.ServerStore.Companion.getInt
 import core.api.*

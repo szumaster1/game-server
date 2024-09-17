@@ -1,7 +1,7 @@
 package content.region.misthalin.varrock.quest.dragon.handlers
 
 import content.region.misthalin.varrock.quest.dragon.DragonSlayer
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import core.game.node.entity.Entity
 import core.game.node.entity.combat.CombatStyle
 import core.game.node.entity.npc.AbstractNPC

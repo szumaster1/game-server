@@ -1,6 +1,6 @@
 package content.region.kandarin.seers_village.handlers;
 
-import cfg.consts.Scenery;
+import org.rs.consts.Scenery;
 import core.cache.def.impl.SceneryDefinition;
 import core.game.interaction.OptionHandler;
 import core.game.node.Node;

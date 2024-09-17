@@ -1,8 +1,8 @@
 package content.region.kandarin.gnome_stronghold.dialogue
 
 import content.region.fremennik.rellekka.lighthouse.quest.horror.dialogue.GunnjornDialogueFile
-import cfg.consts.Items
-import cfg.consts.NPCs
+import org.rs.consts.Items
+import org.rs.consts.NPCs
 import core.api.getQuestStage
 import core.api.inInventory
 import core.api.openDialogue

@@ -1,7 +1,7 @@
 package content.region.misc.keldagrim.dialogue
 
 import content.minigame.blastfurnace.BlastFurnace
-import cfg.consts.Items
+import org.rs.consts.Items
 import core.api.removeItem
 import core.api.sendDialogue
 import core.game.dialogue.DialogueFile

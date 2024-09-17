@@ -1,9 +1,9 @@
 package content.minigame.blastfurnace
 
 import core.api.*
-import cfg.consts.Animations
-import cfg.consts.Items
-import cfg.consts.Sounds
+import org.rs.consts.Animations
+import org.rs.consts.Items
+import org.rs.consts.Sounds
 import content.region.misc.keldagrim.dialogue.BlastFurnaceDoorDialogue
 import core.game.dialogue.DialogueFile
 import core.game.dialogue.Topic

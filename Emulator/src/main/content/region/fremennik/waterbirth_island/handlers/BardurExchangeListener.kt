@@ -1,7 +1,7 @@
 package content.region.fremennik.waterbirth_island.handlers
 
-import cfg.consts.Items
-import cfg.consts.NPCs
+import org.rs.consts.Items
+import org.rs.consts.NPCs
 import core.api.isQuestComplete
 import core.api.openDialogue
 import core.api.sendNPCDialogue

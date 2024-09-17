@@ -1,7 +1,7 @@
 package content.region.kandarin.observatory.quest.itgronigen.handlers
 
-import cfg.consts.Items
-import cfg.consts.NPCs
+import org.rs.consts.Items
+import org.rs.consts.NPCs
 import core.api.produceGroundItem
 import core.api.sendChat
 import core.api.setQuestStage

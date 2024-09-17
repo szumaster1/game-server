@@ -1,6 +1,6 @@
 package content.minigame.gnomecook
 
-import cfg.consts.Items
+import org.rs.consts.Items
 import core.api.setAttribute
 import core.cache.def.impl.ItemDefinition
 import core.game.dialogue.Dialogue

@@ -2,7 +2,7 @@ package content.region.kandarin.port_khazard.quest.arena.handlers
 
 import content.region.kandarin.port_khazard.quest.arena.handlers.FightArenaListeners.Companion.General
 import content.region.kandarin.port_khazard.quest.arena.dialogue.JeremyServilDialogueFile
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import core.api.getQuestStage
 import core.api.openDialogue
 import core.api.setQuestStage

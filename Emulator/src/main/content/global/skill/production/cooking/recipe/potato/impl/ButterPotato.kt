@@ -1,7 +1,7 @@
 package content.global.skill.production.cooking.recipe.potato.impl
 
 import content.global.skill.production.cooking.recipe.Recipe
-import cfg.consts.Items
+import org.rs.consts.Items
 import core.api.getStatLevel
 import core.api.rewardXP
 import core.api.sendDialogue

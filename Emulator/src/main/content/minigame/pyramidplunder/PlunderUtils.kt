@@ -1,8 +1,8 @@
 package content.minigame.pyramidplunder
 
 import core.api.*
-import cfg.consts.Components
-import cfg.consts.Items
+import org.rs.consts.Components
+import org.rs.consts.Items
 import core.game.component.Component
 import core.game.node.Node
 import core.game.node.entity.player.Player

@@ -1,7 +1,7 @@
 package content.region.kandarin.seers_village.quest.elemental_workshop.handlers
 
 import content.data.skill.SkillingTool
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import core.api.getTool
 import core.api.sendDialogue
 import core.game.interaction.IntType

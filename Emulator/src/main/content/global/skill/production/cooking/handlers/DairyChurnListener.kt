@@ -1,7 +1,7 @@
 package content.global.skill.production.cooking.handlers
 
-import cfg.consts.Items
-import cfg.consts.Scenery
+import org.rs.consts.Items
+import org.rs.consts.Scenery
 import core.api.inInventory
 import core.api.sendMessage
 import core.game.interaction.IntType

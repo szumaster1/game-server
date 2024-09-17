@@ -1,9 +1,9 @@
 package content.global.random.event.gravedigger
 
-import cfg.consts.Items
-import cfg.consts.NPCs
+import org.rs.consts.Items
+import org.rs.consts.NPCs
 import core.api.*
-import cfg.consts.Scenery
+import org.rs.consts.Scenery
 import core.game.dialogue.FacialExpression
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener

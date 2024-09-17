@@ -1,6 +1,6 @@
 package content.global.handlers.item.equipment.special;
 
-import cfg.consts.Items;
+import org.rs.consts.Items;
 import core.api.ContentAPIKt;
 import core.game.node.entity.Entity;
 import core.game.node.entity.combat.BattleState;

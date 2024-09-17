@@ -1,6 +1,6 @@
 package content.data.skill
 
-import cfg.consts.Items
+import org.rs.consts.Items
 
 /**
  * Handles the skillcape perks.

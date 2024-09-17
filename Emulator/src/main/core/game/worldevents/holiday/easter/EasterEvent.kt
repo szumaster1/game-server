@@ -2,7 +2,7 @@ package core.game.worldevents.holiday.easter
 
 import core.Configuration
 import core.api.*
-import cfg.consts.Items
+import org.rs.consts.Items
 import core.api.utils.WeightBasedTable
 import core.api.utils.WeightedItem
 import core.game.event.EventHook

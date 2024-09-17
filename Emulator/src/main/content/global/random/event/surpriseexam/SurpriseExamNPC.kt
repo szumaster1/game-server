@@ -3,7 +3,7 @@ package content.global.random.event.surpriseexam
 import content.global.random.RandomEventNPC
 import core.Configuration
 import core.api.*
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import core.api.utils.WeightBasedTable
 import core.game.interaction.QueueStrength
 import core.game.node.entity.npc.NPC

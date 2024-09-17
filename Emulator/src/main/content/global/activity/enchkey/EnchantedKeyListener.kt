@@ -1,7 +1,7 @@
 package content.global.activity.enchkey
 
 import core.api.*
-import cfg.consts.Items
+import org.rs.consts.Items
 import core.game.interaction.InteractionListener
 
 /**

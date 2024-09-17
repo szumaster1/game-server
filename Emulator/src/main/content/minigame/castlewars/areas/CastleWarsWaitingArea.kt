@@ -3,7 +3,7 @@ package content.minigame.castlewars.areas
 import content.minigame.castlewars.CastleWars
 import content.minigame.castlewars.CastleWarsOverlay
 import core.api.*
-import cfg.consts.Components
+import org.rs.consts.Components
 import core.game.component.Component
 import core.game.node.entity.Entity
 import core.game.node.entity.player.Player

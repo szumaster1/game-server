@@ -8,9 +8,9 @@ import content.global.skill.gathering.farming.CompostType
 import content.global.skill.gathering.farming.FarmingPatch
 import content.global.skill.production.cooking.CookableItems
 import core.api.*
-import cfg.consts.Components
-import cfg.consts.Items
-import cfg.consts.Sounds
+import org.rs.consts.Components
+import org.rs.consts.Items
+import org.rs.consts.Sounds
 import core.game.component.Component
 import core.game.node.Node
 import core.game.node.entity.combat.ImpactHandler

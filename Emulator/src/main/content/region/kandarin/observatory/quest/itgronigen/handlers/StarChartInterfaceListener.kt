@@ -1,6 +1,6 @@
 package content.region.kandarin.observatory.quest.itgronigen.handlers
 
-import cfg.consts.Components
+import org.rs.consts.Components
 import core.api.sendString
 import core.game.interaction.InterfaceListener
 

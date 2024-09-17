@@ -1,7 +1,7 @@
 package content.region.misthalin.lumbridge.quest.lost_tribe.handlers
 
-import cfg.consts.Animations
-import cfg.consts.Graphics
+import org.rs.consts.Animations
+import org.rs.consts.Graphics
 import core.api.resetAnimator
 import core.game.node.entity.Entity
 import core.game.node.entity.combat.ImpactHandler

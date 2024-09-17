@@ -1,6 +1,6 @@
 package content.region.karamja.achievement.dialogue
 
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import core.game.dialogue.DialogueFile
 import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.link.diary.AchievementDiary

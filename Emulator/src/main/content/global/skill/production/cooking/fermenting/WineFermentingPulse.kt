@@ -1,6 +1,6 @@
 package content.global.skill.production.cooking.fermenting
 
-import cfg.consts.Items
+import org.rs.consts.Items
 import core.api.inInventory
 import core.api.replaceSlot
 import core.api.rewardXP

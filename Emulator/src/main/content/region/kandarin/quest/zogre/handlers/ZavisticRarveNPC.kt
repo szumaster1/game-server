@@ -1,7 +1,7 @@
 package content.region.kandarin.quest.zogre.handlers
 
 import content.region.kandarin.quest.zogre.dialogue.ZavisticRarveDialogueFiles
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import core.api.openDialogue
 import core.api.poofClear
 import core.api.removeAttribute

@@ -1,6 +1,6 @@
 package content.global.travel.charter
 
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import core.api.openNpcShop
 import core.api.sendDialogueOptions
 import core.game.dialogue.Dialogue

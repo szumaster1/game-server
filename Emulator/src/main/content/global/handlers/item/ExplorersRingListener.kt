@@ -1,7 +1,7 @@
 package content.global.handlers.item
 
-import cfg.consts.Graphics
-import cfg.consts.Items
+import org.rs.consts.Graphics
+import org.rs.consts.Items
 import content.global.skill.combat.magic.modern.ModernListeners
 import core.ServerStore
 import core.ServerStore.Companion.getInt

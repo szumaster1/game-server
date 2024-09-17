@@ -2,7 +2,7 @@ package content.region.kandarin.seers_village.dialogue
 
 import content.region.kandarin.quest.grail.dialogue.SirLucanHolyGrailQuestDialogueFile
 import content.region.kandarin.quest.arthur.dialogue.SirLucanDialogueFile
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import core.api.isQuestComplete
 import core.api.openDialogue
 import core.game.dialogue.Dialogue

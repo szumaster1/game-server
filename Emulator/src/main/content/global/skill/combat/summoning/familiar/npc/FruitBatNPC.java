@@ -3,7 +3,7 @@ package content.global.skill.combat.summoning.familiar.npc;
 import content.global.skill.combat.summoning.familiar.Familiar;
 import content.global.skill.combat.summoning.familiar.FamiliarSpecial;
 import content.global.skill.combat.summoning.familiar.Forager;
-import cfg.consts.Items;
+import org.rs.consts.Items;
 import core.game.node.entity.player.Player;
 import core.game.node.item.GroundItemManager;
 import core.game.node.item.Item;

@@ -1,6 +1,6 @@
 package content.global.handlers.item.plugin
 
-import cfg.consts.Items
+import org.rs.consts.Items
 import core.cache.def.impl.ItemDefinition
 import core.game.container.impl.EquipmentContainer
 import core.game.node.entity.player.Player

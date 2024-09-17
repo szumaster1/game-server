@@ -1,8 +1,8 @@
 package core.game.shops
 
-import cfg.consts.Components
-import cfg.consts.Items
-import cfg.consts.NPCs
+import org.rs.consts.Components
+import org.rs.consts.Items
+import org.rs.consts.NPCs
 import content.global.skill.production.crafting.data.Tanning
 import core.Configuration
 import core.api.*

@@ -1,10 +1,10 @@
 package content.region.misthalin.lumbridge.quest.imp.dialogue
 
-import cfg.consts.Animations
-import cfg.consts.Graphics
+import org.rs.consts.Animations
+import org.rs.consts.Graphics
 import core.api.*
-import cfg.consts.NPCs
-import cfg.consts.Sounds
+import org.rs.consts.NPCs
+import org.rs.consts.Sounds
 import core.api.utils.PlayerCamera
 import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression

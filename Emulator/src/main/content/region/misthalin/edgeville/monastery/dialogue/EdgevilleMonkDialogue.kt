@@ -1,7 +1,7 @@
 package content.region.misthalin.edgeville.monastery.dialogue
 
-import cfg.consts.Animations
-import cfg.consts.Graphics
+import org.rs.consts.Animations
+import org.rs.consts.Graphics
 import core.api.getStatLevel
 import core.api.sendMessage
 import core.api.sendNPCDialogue
@@ -15,7 +15,7 @@ import core.game.world.update.flag.context.Animation
 import core.game.world.update.flag.context.Graphic
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 
 /**
  * Represents the Edgeville monk dialogue.

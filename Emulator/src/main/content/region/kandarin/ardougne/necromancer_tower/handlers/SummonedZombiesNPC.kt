@@ -1,6 +1,6 @@
 package content.region.kandarin.ardougne.necromancer_tower.handlers
 
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import core.api.getAttribute
 import core.api.getPathableRandomLocalCoordinate
 import core.game.node.entity.Entity

@@ -1,6 +1,6 @@
 package content.global.skill.support.construction.decoration.workshop
 
-import cfg.consts.Items
+import org.rs.consts.Items
 import content.global.skill.support.construction.BuildingUtils
 import content.global.skill.support.construction.Decoration
 import core.api.*

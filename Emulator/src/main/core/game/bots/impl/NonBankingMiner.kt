@@ -1,6 +1,6 @@
 package core.game.bots.impl
 
-import cfg.consts.Items
+import org.rs.consts.Items
 import core.api.produceGroundItem
 import core.game.bots.Script
 import core.game.bots.SkillingBotAssembler

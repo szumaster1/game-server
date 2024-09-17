@@ -6,7 +6,7 @@ import core.api.sendMessage
 import core.cache.def.impl.ItemDefinition
 import core.game.node.entity.player.Player
 import core.game.node.scenery.Scenery
-import cfg.consts.Scenery as Object
+import org.rs.consts.Scenery as Object
 
 /**
  * Represents an altar relative information.

@@ -1,6 +1,6 @@
 package content.global.skill.production.runecrafting.data
 
-import cfg.consts.Items
+import org.rs.consts.Items
 import core.game.node.entity.player.Player
 import core.game.node.item.Item
 

@@ -1,7 +1,7 @@
 package content.region.fremennik.quest.royal.handlers
 
 import core.api.addItem
-import cfg.consts.Items
+import org.rs.consts.Items
 import core.api.inInventory
 import core.api.removeItem
 import core.api.sendMessage

@@ -3,9 +3,9 @@ package content.region.asgarnia.falador.partyroom
 import content.region.asgarnia.falador.partyroom.PartyRoomOptions.Companion.balloonManager
 import content.region.asgarnia.falador.partyroom.PartyRoomOptions.Companion.isDancing
 import core.api.*
-import cfg.consts.Animations
-import cfg.consts.Items
-import cfg.consts.NPCs
+import org.rs.consts.Animations
+import org.rs.consts.Items
+import org.rs.consts.NPCs
 import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.game.node.item.Item

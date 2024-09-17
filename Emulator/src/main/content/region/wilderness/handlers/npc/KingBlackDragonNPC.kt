@@ -3,7 +3,7 @@ package content.region.wilderness.handlers.npc
 import content.data.BossKillCounter.Companion.addtoKillcount
 import content.global.handlers.item.equipment.special.DragonfireSwingHandler
 import core.api.calculateDragonfireMaxHit
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import core.game.node.entity.Entity
 import core.game.node.entity.combat.*
 import core.game.node.entity.combat.equipment.ArmourSet

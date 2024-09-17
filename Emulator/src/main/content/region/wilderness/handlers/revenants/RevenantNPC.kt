@@ -3,7 +3,7 @@ package content.region.wilderness.handlers.revenants
 import content.global.skill.combat.summoning.familiar.Familiar
 import content.region.wilderness.handlers.revenants.RevenantController.Companion.registerRevenant
 import content.region.wilderness.handlers.revenants.RevenantController.Companion.unregisterRevenant
-import cfg.consts.Sounds
+import org.rs.consts.Sounds
 import core.api.playAudio
 import core.api.playGlobalAudio
 import core.game.node.entity.Entity

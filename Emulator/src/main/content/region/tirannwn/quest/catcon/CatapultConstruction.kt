@@ -1,7 +1,7 @@
 /*package content.region.miscquest.catcon
 
 
-import cfg.consts.Vars
+import org.rs.consts.Vars
 import core.api.*
 import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.quest.Quest

@@ -1,6 +1,6 @@
 package content.region.karamja.shilovillage.dialogue
 
-import cfg.consts.Items
+import org.rs.consts.Items
 import content.region.karamja.shilovillage.handlers.ShilovillageListeners
 import core.api.hasRequirement
 import core.api.inInventory

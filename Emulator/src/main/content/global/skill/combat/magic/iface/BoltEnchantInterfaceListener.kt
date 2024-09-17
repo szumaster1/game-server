@@ -2,9 +2,9 @@ package content.global.skill.combat.magic.iface
 
 import content.global.skill.combat.magic.SpellUtils
 import core.api.*
-import cfg.consts.Components
-import cfg.consts.Items
-import cfg.consts.Sounds
+import org.rs.consts.Components
+import org.rs.consts.Items
+import org.rs.consts.Sounds
 import core.game.interaction.InterfaceListener
 import core.game.interaction.QueueStrength
 import core.game.node.entity.combat.spell.Runes

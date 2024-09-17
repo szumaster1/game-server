@@ -1,6 +1,6 @@
 package content.global.handlers.iface.player
 
-import cfg.consts.Components
+import org.rs.consts.Components
 import core.game.component.CloseEvent
 import core.game.component.Component
 import core.game.interaction.InterfaceListener

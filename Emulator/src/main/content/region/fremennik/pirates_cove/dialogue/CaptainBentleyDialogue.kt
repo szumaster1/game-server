@@ -2,7 +2,7 @@ package content.region.fremennik.pirates_cove.dialogue
 
 import content.region.fremennik.lunar_isle.handlers.Destinaton
 import content.region.fremennik.lunar_isle.handlers.LunarTravel.sail
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import core.game.dialogue.Dialogue
 import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player

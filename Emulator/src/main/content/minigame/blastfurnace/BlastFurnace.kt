@@ -1,7 +1,7 @@
 package content.minigame.blastfurnace
 
-import cfg.consts.Items
-import cfg.consts.NPCs
+import org.rs.consts.Items
+import org.rs.consts.NPCs
 import content.global.skill.production.smithing.data.Bar
 import core.api.*
 import core.game.node.entity.Entity

@@ -2,8 +2,8 @@ package content.global.guild.craft
 
 import core.api.Container
 import core.api.addItemOrDrop
-import cfg.consts.Items
-import cfg.consts.NPCs
+import org.rs.consts.Items
+import org.rs.consts.NPCs
 import core.api.hasLevelStat
 import core.api.removeItem
 import core.game.dialogue.Dialogue

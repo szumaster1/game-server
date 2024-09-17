@@ -3,8 +3,8 @@ package content.global.skill.production.crafting.handlers
 import content.global.skill.production.crafting.data.Glass
 import content.global.skill.production.crafting.item.GlassCraftPulse
 import core.api.*
-import cfg.consts.Components
-import cfg.consts.Items
+import org.rs.consts.Components
+import org.rs.consts.Items
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.interaction.InterfaceListener

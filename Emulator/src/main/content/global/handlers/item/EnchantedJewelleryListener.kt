@@ -1,6 +1,6 @@
 package content.global.handlers.item
 
-import cfg.consts.Items
+import org.rs.consts.Items
 import content.data.EnchantedJewellery
 import core.api.openDialogue
 import core.api.sendDialogueOptions
@@ -53,7 +53,6 @@ class EnchantedJewelleryListener : InteractionListener {
         val jewellery = EnchantedJewellery.idMap[item.id]
         if (jewellery != null) {
             if (jewellery.isLastItemIndex(jewellery.getItemIndex(item)) && !jewellery.isCrumble) {
-                sendMessage(player, "You use your ${jewellery.getJewelleryType(item).lowercase()} last charge.")
                 sendMessage(player, "It will need to be recharged before you can use it again.")
                 return
             }

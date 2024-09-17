@@ -3,7 +3,7 @@ package content.global.activity.jobs
 import content.global.activity.jobs.impl.BoneBuryingJobs
 import content.global.activity.jobs.impl.CombatJobs
 import content.global.activity.jobs.impl.ProductionJobs
-import cfg.consts.Items
+import org.rs.consts.Items
 import core.api.sendDialogue
 import core.api.sendItemDialogue
 import core.api.sendNPCDialogue

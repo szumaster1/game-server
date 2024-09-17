@@ -1,6 +1,6 @@
 package content.global.skill.gathering.hunter.pitfall
 
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import core.game.world.map.Direction
 import core.game.world.map.Location
 

@@ -1,7 +1,7 @@
 package content.global.skill.production.crafting.data
 
-import cfg.consts.Graphics
-import cfg.consts.Items
+import org.rs.consts.Graphics
+import org.rs.consts.Items
 
 /**
  * Represents the origami (balloons) items.

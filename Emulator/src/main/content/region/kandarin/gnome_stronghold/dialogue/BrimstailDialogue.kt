@@ -1,7 +1,7 @@
 package content.region.kandarin.gnome_stronghold.dialogue
 
 import content.global.travel.EssenceTeleport
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import core.api.isQuestComplete
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression

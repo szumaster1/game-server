@@ -1,6 +1,6 @@
 package content.region.asgarnia.falador.quest.rd.npc
 
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import content.region.asgarnia.falador.quest.rd.RecruitmentDrive
 import content.region.asgarnia.falador.quest.rd.dialogue.SirKuamFerentseDialogueFile
 import core.api.*

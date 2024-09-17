@@ -1,6 +1,6 @@
 package content.global.handlers.`object`
 
-import cfg.consts.Scenery
+import org.rs.consts.Scenery
 import core.api.replaceScenery
 import core.api.sendMessage
 import core.game.interaction.IntType

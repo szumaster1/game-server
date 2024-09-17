@@ -1,6 +1,6 @@
 package content.region.misthalin.edgeville.barbarian_village.dialogue
 
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import core.api.sendDialogueLines
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression

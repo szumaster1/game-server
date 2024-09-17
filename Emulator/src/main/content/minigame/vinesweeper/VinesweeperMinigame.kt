@@ -13,7 +13,7 @@ import content.minigame.vinesweeper.VinesweeperMinigame.Companion.sendPoints
 import content.minigame.vinesweeper.dialogue.BlinkinDialogueFile
 import content.minigame.vinesweeper.dialogue.MrsWinkinDialogueFile
 import core.api.*
-import cfg.consts.*
+import org.rs.consts.*
 import core.game.component.Component
 import core.game.dialogue.FacialExpression
 import core.game.interaction.IntType
@@ -41,8 +41,8 @@ import core.game.world.update.flag.context.Graphic
 import core.plugin.Initializable
 import core.tools.RandomFunction
 import kotlin.math.min
-import cfg.consts.Graphics as Gfx
-import cfg.consts.Scenery as Sceneries
+import org.rs.consts.Graphics as Gfx
+import org.rs.consts.Scenery as Sceneries
 
 /**
  * Vinesweeper minigame.

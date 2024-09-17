@@ -1,6 +1,6 @@
 package content.global.skill.production.crafting.data
 
-import cfg.consts.Items
+import org.rs.consts.Items
 
 private const val BUTTON_UNBLESSED = 16
 private const val BUTTON_UNHOLY = 23

@@ -1,7 +1,7 @@
 package content.region.morytania.swamp.handlers
 
-import cfg.consts.Items
-import cfg.consts.NPCs
+import org.rs.consts.Items
+import org.rs.consts.NPCs
 import content.data.consumables.Consumables
 import content.region.morytania.swamp.quest.druidspirit.handlers.NSUtils
 import core.api.*

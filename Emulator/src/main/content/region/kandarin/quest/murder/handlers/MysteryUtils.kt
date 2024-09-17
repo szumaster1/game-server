@@ -1,7 +1,7 @@
 package content.region.kandarin.quest.murder.handlers
 
-import cfg.consts.Items
-import cfg.consts.Scenery
+import org.rs.consts.Items
+import org.rs.consts.Scenery
 import core.api.setAttribute
 import core.api.setQuestStage
 import core.game.node.entity.player.Player

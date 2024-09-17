@@ -1,6 +1,6 @@
 package content.global.random.event.pillory
 
-import cfg.consts.Components
+import org.rs.consts.Components
 import core.api.getAttribute
 import core.api.runTask
 import core.api.setAttribute

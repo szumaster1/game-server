@@ -1,8 +1,8 @@
 package content.region.kandarin.yanille.handlers
 
-import cfg.consts.Components
-import cfg.consts.Items
-import cfg.consts.NPCs
+import org.rs.consts.Components
+import org.rs.consts.Items
+import org.rs.consts.NPCs
 import core.api.openDialogue
 import core.game.interaction.InterfaceListener
 import core.game.node.item.Item

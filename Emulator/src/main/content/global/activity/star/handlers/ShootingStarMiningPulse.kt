@@ -2,7 +2,7 @@ package content.global.activity.star.handlers
 
 import content.data.skill.SkillingTool
 import core.api.*
-import cfg.consts.Items
+import org.rs.consts.Items
 import core.game.node.entity.player.Player
 import core.game.node.entity.skill.SkillPulse
 import core.game.node.entity.skill.Skills

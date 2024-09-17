@@ -3,8 +3,8 @@ package content.region.kandarin.seers_village.quest.scorpcatcher.handlers
 import content.region.kandarin.seers_village.quest.scorpcatcher.dialogue.SeersDialogueFile
 import content.region.kandarin.seers_village.quest.scorpcatcher.dialogue.ThormacDialogueFile
 import core.api.*
-import cfg.consts.Items
-import cfg.consts.NPCs
+import org.rs.consts.Items
+import org.rs.consts.NPCs
 import content.region.kandarin.seers_village.quest.scorpcatcher.ScorpionCatcher
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener

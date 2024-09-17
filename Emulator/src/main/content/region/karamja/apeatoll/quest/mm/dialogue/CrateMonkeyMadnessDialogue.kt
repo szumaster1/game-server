@@ -1,8 +1,8 @@
 package content.region.karamja.apeatoll.quest.mm.dialogue
 
 import core.api.*
-import cfg.consts.Components
-import cfg.consts.Items
+import org.rs.consts.Components
+import org.rs.consts.Items
 import core.game.dialogue.DialogueFile
 import core.game.node.entity.combat.ImpactHandler
 import core.game.node.entity.player.link.TeleportManager

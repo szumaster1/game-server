@@ -1,8 +1,8 @@
 package content.global.activity.mogre
 
 import core.api.*
-import cfg.consts.Items
-import cfg.consts.NPCs
+import org.rs.consts.Items
+import org.rs.consts.NPCs
 import content.region.misc.tutorial.dialogue.SkippyTutorialDialogue
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener

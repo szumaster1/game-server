@@ -1,7 +1,7 @@
 package content.global.random.event.strangeplant
 
 import core.api.applyPoison
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import core.game.node.entity.Entity
 import core.game.node.entity.combat.BattleState
 import core.game.node.entity.combat.CombatStyle

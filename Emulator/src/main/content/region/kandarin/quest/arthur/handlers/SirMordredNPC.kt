@@ -1,7 +1,7 @@
 package content.region.kandarin.quest.arthur.handlers
 
 import content.region.kandarin.quest.arthur.dialogue.MorganLeFayeDialogueFile
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import core.api.openDialogue
 import core.game.node.entity.Entity
 import core.game.node.entity.combat.CombatStyle

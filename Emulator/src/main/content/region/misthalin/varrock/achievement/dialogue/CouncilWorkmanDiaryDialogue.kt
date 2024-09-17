@@ -9,7 +9,7 @@ import core.game.node.entity.player.link.diary.DiaryType
 import core.game.world.GameWorld
 import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 
 /**
  * Represents the Council Workman diary dialogue.

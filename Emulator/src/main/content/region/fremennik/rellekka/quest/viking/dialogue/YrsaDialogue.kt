@@ -1,9 +1,9 @@
 package content.region.fremennik.rellekka.quest.viking.dialogue
 
 import core.api.*
-import cfg.consts.Components
-import cfg.consts.Items
-import cfg.consts.NPCs
+import org.rs.consts.Components
+import org.rs.consts.Items
+import org.rs.consts.NPCs
 import content.region.fremennik.achievement.dialogue.YrsaDiaryDialogue
 import core.game.container.impl.EquipmentContainer
 import core.game.dialogue.Dialogue

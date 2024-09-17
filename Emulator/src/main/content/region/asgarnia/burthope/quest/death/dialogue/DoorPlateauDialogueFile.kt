@@ -1,6 +1,6 @@
 package content.region.asgarnia.burthope.quest.death.dialogue
 
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import core.api.getQuestStage
 import core.api.getScenery
 import core.api.sendDialogue

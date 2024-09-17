@@ -1,6 +1,6 @@
 package content.global.handlers.item.withitem
 
-import cfg.consts.Items
+import org.rs.consts.Items
 import core.api.addItemOrDrop
 import core.api.removeItem
 import core.api.sendDialogue

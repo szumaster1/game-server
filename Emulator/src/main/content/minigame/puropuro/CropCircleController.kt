@@ -1,7 +1,7 @@
 package content.minigame.puropuro
 
 import core.api.*
-import cfg.consts.Sounds
+import org.rs.consts.Sounds
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.entity.player.Player

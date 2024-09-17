@@ -1,8 +1,8 @@
 package content.region.misthalin.lumbridge.quest.cook
 
 import core.api.*
-import cfg.consts.Components
-import cfg.consts.Vars
+import org.rs.consts.Components
+import org.rs.consts.Vars
 import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.quest.Quest
 import core.game.node.entity.skill.Skills

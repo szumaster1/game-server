@@ -1,6 +1,6 @@
 package content.global.skill.combat.summoning
 
-import cfg.consts.Items
+import org.rs.consts.Items
 import core.api.closeInterface
 import core.api.sendInputDialogue
 import core.api.sendMessage

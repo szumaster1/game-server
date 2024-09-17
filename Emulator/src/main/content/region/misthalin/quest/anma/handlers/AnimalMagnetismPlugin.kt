@@ -2,7 +2,7 @@ package content.region.misthalin.quest.anma.handlers
 
 import content.data.skill.SkillingTool.Companion.getHatchet
 import core.api.*
-import cfg.consts.*
+import org.rs.consts.*
 import content.region.misthalin.quest.anma.AnimalMagnetism
 import core.cache.def.impl.ItemDefinition
 import core.cache.def.impl.NPCDefinition

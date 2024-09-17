@@ -1,6 +1,6 @@
 package content.global.skill.support.slayer.data
 
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import core.api.hasRequirement
 import core.cache.def.impl.NPCDefinition
 import core.game.node.entity.player.Player

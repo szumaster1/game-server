@@ -1,8 +1,8 @@
 package content.region.asgarnia.goblinvillage.quest.gobdip
 
-import cfg.consts.Components
-import cfg.consts.Items
-import cfg.consts.Vars
+import org.rs.consts.Components
+import org.rs.consts.Items
+import org.rs.consts.Vars
 import content.region.asgarnia.goblinvillage.quest.gobdip.cutscene.GDiplomacyCutscene
 import content.region.asgarnia.goblinvillage.quest.gobdip.dialogue.GrubfootDialogue
 import content.region.asgarnia.goblinvillage.quest.gobdip.plugin.GoblinDiplomacyPlugin

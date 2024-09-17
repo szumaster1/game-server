@@ -1,8 +1,8 @@
 package content.global.skill.production.fletching
 
-import cfg.consts.Animations
-import cfg.consts.Items
-import cfg.consts.Vars
+import org.rs.consts.Animations
+import org.rs.consts.Items
+import org.rs.consts.Vars
 import content.global.skill.production.fletching.FletchingMap.FletchingItems
 import content.region.kandarin.quest.zogre.handlers.ZUtils
 import core.api.*

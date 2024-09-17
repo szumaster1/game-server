@@ -1,9 +1,9 @@
 package content.minigame.tbwcleanup
 
 import core.api.*
-import cfg.consts.Items
-import cfg.consts.Scenery
-import cfg.consts.Sounds
+import org.rs.consts.Items
+import org.rs.consts.Scenery
+import org.rs.consts.Sounds
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.Node

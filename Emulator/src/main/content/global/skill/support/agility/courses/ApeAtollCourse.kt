@@ -3,7 +3,7 @@ package content.global.skill.support.agility.courses
 import content.global.skill.support.agility.AgilityCourse
 import content.global.skill.support.agility.AgilityHandler
 import core.api.*
-import cfg.consts.Items
+import org.rs.consts.Items
 import core.cache.def.impl.SceneryDefinition
 import core.game.node.Node
 import core.game.node.entity.combat.ImpactHandler

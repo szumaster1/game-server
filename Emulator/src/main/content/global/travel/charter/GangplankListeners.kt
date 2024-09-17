@@ -1,7 +1,7 @@
 package content.global.travel.charter
 
-import cfg.consts.NPCs
-import cfg.consts.Scenery
+import org.rs.consts.NPCs
+import org.rs.consts.Scenery
 import core.api.*
 import core.game.global.action.ClimbActionHandler
 import core.game.interaction.IntType

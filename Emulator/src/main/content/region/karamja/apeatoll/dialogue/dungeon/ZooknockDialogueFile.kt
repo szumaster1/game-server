@@ -2,9 +2,9 @@ package content.region.karamja.apeatoll.dialogue.dungeon
 
 import content.global.handlers.item.withnpc.ZooknockListener
 import core.api.*
-import cfg.consts.Components
-import cfg.consts.Graphics
-import cfg.consts.Items
+import org.rs.consts.Components
+import org.rs.consts.Graphics
+import org.rs.consts.Items
 import core.game.component.Component
 import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression

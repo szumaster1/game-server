@@ -1,6 +1,6 @@
 package content.global.travel.glider
 
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import core.api.setVarp
 import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player

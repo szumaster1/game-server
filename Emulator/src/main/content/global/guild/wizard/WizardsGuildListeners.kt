@@ -1,6 +1,6 @@
 package content.global.guild.wizard
 
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import content.global.travel.EssenceTeleport.teleport
 import core.api.*
 import core.game.global.action.ClimbActionHandler

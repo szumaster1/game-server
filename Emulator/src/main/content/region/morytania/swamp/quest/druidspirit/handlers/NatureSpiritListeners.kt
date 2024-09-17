@@ -1,8 +1,8 @@
 package content.region.morytania.swamp.quest.druidspirit.handlers
 
-import cfg.consts.Items
-import cfg.consts.NPCs
-import cfg.consts.Scenery
+import org.rs.consts.Items
+import org.rs.consts.NPCs
+import org.rs.consts.Scenery
 import content.region.morytania.swamp.handlers.GhastNPC
 import content.region.morytania.swamp.quest.druidspirit.dialogue.FillimanCompletionDialogue
 import core.api.*

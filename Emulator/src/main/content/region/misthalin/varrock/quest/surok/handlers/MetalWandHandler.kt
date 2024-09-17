@@ -1,6 +1,6 @@
 package content.region.misthalin.varrock.quest.surok.handlers
 
-import cfg.consts.Sounds
+import org.rs.consts.Sounds
 import content.global.skill.production.runecrafting.data.Altar
 import core.api.*
 import core.game.interaction.NodeUsageEvent

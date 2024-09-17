@@ -1,6 +1,6 @@
 package content.region.fremennik.miscellania.handlers
 
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import content.region.fremennik.miscellania.dialogue.FarmerFromundDialogue
 import core.api.openDialogue
 import core.game.interaction.IntType

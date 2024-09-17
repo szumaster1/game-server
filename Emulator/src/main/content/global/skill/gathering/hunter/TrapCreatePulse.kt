@@ -1,6 +1,6 @@
 package content.global.skill.gathering.hunter
 
-import cfg.consts.Sounds
+import org.rs.consts.Sounds
 import core.api.lock
 import core.api.playAudio
 import core.game.node.Node

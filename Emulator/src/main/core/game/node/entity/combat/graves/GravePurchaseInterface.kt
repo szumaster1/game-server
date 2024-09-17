@@ -1,7 +1,7 @@
 package core.game.node.entity.combat.graves
 
-import cfg.consts.Components
-import cfg.consts.Items
+import org.rs.consts.Components
+import org.rs.consts.Items
 import core.api.*
 import core.game.interaction.InterfaceListener
 import core.game.node.item.Item

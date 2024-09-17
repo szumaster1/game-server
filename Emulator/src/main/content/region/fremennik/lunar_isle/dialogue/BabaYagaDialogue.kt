@@ -1,6 +1,6 @@
 package content.region.fremennik.lunar_isle.dialogue
 
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import core.api.openNpcShop
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression

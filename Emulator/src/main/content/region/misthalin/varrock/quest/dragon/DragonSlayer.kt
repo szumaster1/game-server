@@ -8,9 +8,9 @@ import content.region.misthalin.varrock.quest.dragon.dialogue.OziachDSDialogue
 import content.region.misthalin.varrock.quest.dragon.dialogue.WormbrainDSDialogue
 import content.region.misthalin.varrock.quest.dragon.handlers.DragonSlayerPlugin
 import core.api.*
-import cfg.consts.Items
-import cfg.consts.Sounds
-import cfg.consts.Vars
+import org.rs.consts.Items
+import org.rs.consts.Sounds
+import org.rs.consts.Vars
 import content.region.misthalin.lumbridge.dialogue.DukeHoracioDialogue
 import content.region.misthalin.varrock.quest.dragon.handlers.*
 import core.game.component.Component

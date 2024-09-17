@@ -1,6 +1,6 @@
 package content.region.misthalin.varrock.ge.dialogue
 
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import content.global.handlers.iface.ge.ExchangeItemSetsListener
 import content.global.handlers.iface.ge.StockMarketInterfaceListener
 import core.game.dialogue.Dialogue

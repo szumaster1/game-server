@@ -2,7 +2,7 @@ package content.global.guild.wizard.dialogue
 
 import content.region.kandarin.quest.zogre.dialogue.ZavisticRarveDefaultDialogue
 import content.region.kandarin.quest.zogre.dialogue.ZavisticRarveDialogueFiles
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import core.api.isQuestComplete
 import core.api.openDialogue
 import core.game.dialogue.Dialogue

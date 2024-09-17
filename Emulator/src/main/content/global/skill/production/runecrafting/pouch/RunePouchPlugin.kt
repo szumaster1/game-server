@@ -6,7 +6,7 @@ import core.game.node.Node
 import core.game.node.entity.player.Player
 import core.game.node.item.Item
 import core.plugin.Plugin
-import cfg.consts.Items
+import org.rs.consts.Items
 
 /**
  * Handles the rune pouches.

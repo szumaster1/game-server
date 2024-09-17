@@ -4,7 +4,7 @@ import content.region.karamja.apeatoll.dialogue.dungeon.ZooknockAfterBattleDialo
 import content.region.karamja.apeatoll.dialogue.dungeon.ZooknockDialogue
 import content.region.karamja.apeatoll.dialogue.dungeon.ZooknockDialogueFile
 import core.api.*
-import cfg.consts.*
+import org.rs.consts.*
 import content.region.karamja.apeatoll.quest.mm.dialogue.*
 import core.game.component.Component
 import core.game.global.action.DoorActionHandler

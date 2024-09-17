@@ -1,9 +1,9 @@
 package content.region.misthalin.lumbridge.quest.imp
 
 import core.api.addItemOrDrop
-import cfg.consts.Components
-import cfg.consts.Items
-import cfg.consts.Vars
+import org.rs.consts.Components
+import org.rs.consts.Items
+import org.rs.consts.Vars
 import core.api.inInventory
 import core.api.rewardXP
 import core.api.sendItemOnInterface

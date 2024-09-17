@@ -1,6 +1,6 @@
 package content.region.misthalin.varrock.quest.surok.cutscene;
 
-import cfg.consts.Music;
+import org.rs.consts.Music;
 import content.region.misthalin.varrock.quest.surok.handlers.KingRoaldNPC;
 import core.game.activity.ActivityPlugin;
 import core.game.activity.CutscenePlugin;

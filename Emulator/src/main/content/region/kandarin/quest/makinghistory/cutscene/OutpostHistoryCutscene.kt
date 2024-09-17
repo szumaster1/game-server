@@ -1,7 +1,7 @@
 package content.region.kandarin.quest.makinghistory.cutscene
 
 import content.region.kandarin.quest.makinghistory.dialogue.JorralDialogueFile
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import core.api.face
 import core.api.openDialogue
 import core.api.runTask

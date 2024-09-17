@@ -1,6 +1,6 @@
 package content.region.kandarin.baxtorian.barbarian_training.fishing
 
-import cfg.consts.Items
+import org.rs.consts.Items
 import core.api.freeSlots
 import core.api.inInventory
 import core.api.sendMessage

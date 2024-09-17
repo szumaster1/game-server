@@ -1,7 +1,7 @@
 package content.region.misthalin.varrock.quest.surok.dialogue
 
-import cfg.consts.Items
-import cfg.consts.NPCs
+import org.rs.consts.Items
+import org.rs.consts.NPCs
 import core.api.addItem
 import core.api.getQuestStage
 import core.api.inInventory

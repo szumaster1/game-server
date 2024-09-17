@@ -1,8 +1,8 @@
 package content.region.kandarin.quest.hazeelcult
 
 import core.api.addItemOrDrop
-import cfg.consts.Items
-import cfg.consts.Vars
+import org.rs.consts.Items
+import org.rs.consts.Vars
 import content.region.kandarin.quest.hazeelcult.handlers.HazeelCultListeners
 import core.api.getAttribute
 import core.api.rewardXP

@@ -3,7 +3,7 @@ package content.global.handlers.item.withitem
 import core.api.*
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
-import cfg.consts.Items
+import org.rs.consts.Items
 import core.game.node.entity.player.Player
 import core.game.node.entity.skill.Skills
 import core.game.node.item.Item

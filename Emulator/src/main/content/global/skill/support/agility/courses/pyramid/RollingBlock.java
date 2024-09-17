@@ -1,7 +1,7 @@
 package content.global.skill.support.agility.courses.pyramid;
 
 import content.global.skill.support.agility.AgilityHandler;
-import cfg.consts.Sounds;
+import org.rs.consts.Sounds;
 import core.game.node.entity.Entity;
 import core.game.node.entity.player.Player;
 import core.game.node.scenery.Scenery;

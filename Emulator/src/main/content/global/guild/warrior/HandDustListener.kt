@@ -1,6 +1,6 @@
 package content.global.guild.warrior
 
-import cfg.consts.Items
+import org.rs.consts.Items
 import core.api.removeItem
 import core.api.sendMessage
 import core.api.setAttribute

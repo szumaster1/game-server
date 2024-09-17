@@ -1,7 +1,7 @@
 package content.region.misthalin.varrock.museum.handlers
 
 import core.api.*
-import cfg.consts.*
+import org.rs.consts.*
 import content.region.misthalin.varrock.museum.dialogue.*
 import core.game.global.action.ClimbActionHandler
 import core.game.global.action.DoorActionHandler

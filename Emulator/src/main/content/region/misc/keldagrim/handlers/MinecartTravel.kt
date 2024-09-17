@@ -1,7 +1,7 @@
 package content.region.misc.keldagrim.handlers
 
-import cfg.consts.Components
-import cfg.consts.NPCs
+import org.rs.consts.Components
+import org.rs.consts.NPCs
 import core.api.*
 import core.game.component.Component
 import core.game.node.entity.npc.NPC

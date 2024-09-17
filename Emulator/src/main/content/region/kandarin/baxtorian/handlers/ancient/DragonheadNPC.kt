@@ -1,6 +1,6 @@
 package content.region.kandarin.baxtorian.handlers.ancient
 
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import core.api.location
 import core.api.sendMessage
 import core.api.transformNpc

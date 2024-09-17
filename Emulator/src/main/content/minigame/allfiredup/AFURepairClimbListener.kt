@@ -1,7 +1,7 @@
 package content.minigame.allfiredup
 
 import content.global.skill.support.construction.NailType
-import cfg.consts.Items
+import org.rs.consts.Items
 import core.api.getVarbit
 import core.api.inInventory
 import core.api.setVarbit

@@ -1,6 +1,6 @@
 package content.global.random.event.prisonpete
 
-import cfg.consts.Components
+import org.rs.consts.Components
 import core.game.interaction.InterfaceListener
 
 /**

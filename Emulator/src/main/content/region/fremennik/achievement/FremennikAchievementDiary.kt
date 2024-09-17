@@ -3,10 +3,10 @@ package content.region.fremennik.achievement
 import content.global.travel.FairyRing
 import content.global.skill.production.cooking.dairy.DairyChurnDialogue
 import content.minigame.barbassault.dialogue.CaptainCainDialogue
-import cfg.consts.Components
-import cfg.consts.Items
-import cfg.consts.NPCs
-import cfg.consts.Scenery
+import org.rs.consts.Components
+import org.rs.consts.Items
+import org.rs.consts.NPCs
+import org.rs.consts.Scenery
 import content.region.fremennik.jatizso.dialogue.TowerGuardDialogue
 import content.region.fremennik.rellekka.dialogue.HuntingExpertRellekkaDialogue
 import content.region.fremennik.rellekka.quest.viking.dialogue.ChieftanBrundtDialogue

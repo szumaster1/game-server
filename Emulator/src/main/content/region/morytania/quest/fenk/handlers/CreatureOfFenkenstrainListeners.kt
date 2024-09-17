@@ -1,8 +1,8 @@
 package content.region.morytania.quest.fenk.handlers
 
-import cfg.consts.Items
-import cfg.consts.NPCs
-import cfg.consts.Scenery
+import org.rs.consts.Items
+import org.rs.consts.NPCs
+import org.rs.consts.Scenery
 import content.region.morytania.quest.fenk.CreatureOfFenkenstrain
 import content.region.morytania.quest.fenk.dialogue.BookcaseEastDialogueFile
 import content.region.morytania.quest.fenk.dialogue.BookcaseWest

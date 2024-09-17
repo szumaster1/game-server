@@ -1,7 +1,7 @@
 package content.global.skill.gathering.farming
 
 import core.api.*
-import cfg.consts.Sounds
+import org.rs.consts.Sounds
 import core.game.dialogue.Dialogue
 import core.game.interaction.QueueStrength
 import core.game.node.entity.player.Player

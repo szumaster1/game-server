@@ -1,6 +1,6 @@
 package content.global.skill.production.runecrafting.tiara
 
-import cfg.consts.Items
+import org.rs.consts.Items
 import content.global.skill.production.runecrafting.data.Talisman
 import content.global.skill.production.runecrafting.data.TalismanStaff
 import content.global.skill.production.runecrafting.data.Altar

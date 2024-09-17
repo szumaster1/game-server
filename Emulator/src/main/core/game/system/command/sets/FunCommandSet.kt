@@ -1,6 +1,6 @@
 package core.game.system.command.sets
 
-import cfg.consts.Sounds
+import org.rs.consts.Sounds
 import content.global.handlers.item.SpadeDig
 import content.region.misc.tutorial.handlers.CharacterDesign
 import core.api.*

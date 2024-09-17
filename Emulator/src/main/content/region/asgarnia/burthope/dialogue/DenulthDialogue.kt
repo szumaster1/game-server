@@ -2,7 +2,7 @@ package content.region.asgarnia.burthope.dialogue
 
 import content.region.asgarnia.burthope.quest.death.dialogue.DenulthDialogueFile
 import content.region.asgarnia.burthope.quest.troll.dialogue.DenulthDialogue
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import core.api.isQuestComplete
 import core.api.isQuestInProgress
 import core.api.openDialogue

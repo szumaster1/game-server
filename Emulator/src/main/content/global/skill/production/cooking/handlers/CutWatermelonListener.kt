@@ -1,8 +1,8 @@
 package content.global.skill.production.cooking.handlers
 
 import core.api.*
-import cfg.consts.Animations
-import cfg.consts.Items
+import org.rs.consts.Animations
+import org.rs.consts.Items
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.item.GroundItemManager

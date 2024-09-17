@@ -1,6 +1,6 @@
 package content.global.random.event.certer
 
-import cfg.consts.Items
+import org.rs.consts.Items
 import core.api.setAttribute
 import core.game.interaction.InterfaceListener
 import core.game.node.entity.player.Player

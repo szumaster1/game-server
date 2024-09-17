@@ -1,6 +1,6 @@
 package content.minigame.castlewars
 
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import core.api.openNpcShop
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener

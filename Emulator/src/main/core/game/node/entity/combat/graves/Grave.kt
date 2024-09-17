@@ -1,6 +1,6 @@
 package core.game.node.entity.combat.graves
 
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import core.api.clearHintIcon
 import core.api.registerHintIcon
 import core.api.sendMessage

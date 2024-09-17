@@ -6,10 +6,10 @@ import content.data.LightSource.Companion.hasActiveLightSource
 import content.global.skill.skillcape.SkillcapePerks
 import content.global.skill.skillcape.SkillcapePerks.Companion.isActive
 import core.api.*
-import cfg.consts.Components
-import cfg.consts.Graphics
-import cfg.consts.NPCs
-import cfg.consts.Sounds
+import org.rs.consts.Components
+import org.rs.consts.Graphics
+import org.rs.consts.NPCs
+import org.rs.consts.Sounds
 import core.cache.def.impl.SceneryDefinition
 import core.game.component.Component
 import core.game.component.ComponentDefinition

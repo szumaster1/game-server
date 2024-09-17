@@ -1,8 +1,8 @@
 package content.region.misc.keldagrim.dialogue
 
 import core.api.addItemOrDrop
-import cfg.consts.Items
-import cfg.consts.NPCs
+import org.rs.consts.Items
+import org.rs.consts.NPCs
 import core.api.inInventory
 import core.api.isQuestComplete
 import core.api.removeItem

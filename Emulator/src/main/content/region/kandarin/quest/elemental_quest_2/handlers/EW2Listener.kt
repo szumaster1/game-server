@@ -2,10 +2,10 @@ package content.region.kandarin.quest.elemental_quest_2.handlers
 
 import content.region.kandarin.quest.elemental_quest_2.dialogue.SchematicCrateDialogue
 import core.api.*
-import cfg.consts.Items
-import cfg.consts.Music
-import cfg.consts.Scenery
-import cfg.consts.Sounds
+import org.rs.consts.Items
+import org.rs.consts.Music
+import org.rs.consts.Scenery
+import org.rs.consts.Sounds
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.entity.npc.NPC

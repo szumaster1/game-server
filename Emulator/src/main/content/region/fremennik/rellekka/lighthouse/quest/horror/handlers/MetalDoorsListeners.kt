@@ -1,8 +1,8 @@
 package content.region.fremennik.rellekka.lighthouse.quest.horror.handlers
 
 import core.api.*
-import cfg.consts.Components
-import cfg.consts.Sounds
+import org.rs.consts.Components
+import org.rs.consts.Sounds
 import content.region.fremennik.rellekka.lighthouse.quest.horror.dialogue.MetalDoorsInteractionDialogue
 import core.game.global.action.DoorActionHandler
 import core.game.interaction.IntType

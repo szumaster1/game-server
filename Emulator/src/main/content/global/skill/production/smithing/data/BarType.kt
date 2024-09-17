@@ -1,6 +1,6 @@
 package content.global.skill.production.smithing.data
 
-import cfg.consts.Items
+import org.rs.consts.Items
 
 /**
  * Bar type enum class.

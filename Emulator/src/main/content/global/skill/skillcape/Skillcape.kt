@@ -1,6 +1,6 @@
 package content.global.skill.skillcape
 
-import cfg.consts.Items
+import org.rs.consts.Items
 
 /**
  * Represents the skillcape.

@@ -1,8 +1,8 @@
 package content.region.asgarnia.falador.quest.rd.handlers
 
-import cfg.consts.Items
-import cfg.consts.Scenery
-import cfg.consts.Sounds
+import org.rs.consts.Items
+import org.rs.consts.Scenery
+import org.rs.consts.Sounds
 import core.api.*
 import core.game.dialogue.DialogueBuilder
 import core.game.dialogue.DialogueBuilderFile

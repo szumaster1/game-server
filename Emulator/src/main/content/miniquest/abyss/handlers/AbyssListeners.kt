@@ -1,9 +1,9 @@
 package content.miniquest.abyss.handlers
 
-import cfg.consts.Animations
-import cfg.consts.Items
-import cfg.consts.NPCs
-import cfg.consts.Vars
+import org.rs.consts.Animations
+import org.rs.consts.Items
+import org.rs.consts.NPCs
+import org.rs.consts.Vars
 import content.data.skill.SkillingTool
 import content.global.skill.production.runecrafting.data.Altar
 import core.api.*
@@ -29,7 +29,7 @@ import java.lang.Math
 import kotlin.math.cos
 import kotlin.math.sin
 import kotlin.random.Random
-import cfg.consts.Scenery as Object
+import org.rs.consts.Scenery as Object
 
 /**
  * Handles the Abyss interaction.

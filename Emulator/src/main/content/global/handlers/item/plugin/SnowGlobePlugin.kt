@@ -1,9 +1,9 @@
 package content.global.handlers.item.plugin
 
-import cfg.consts.Animations
-import cfg.consts.Components
-import cfg.consts.Graphics
-import cfg.consts.Items
+import org.rs.consts.Animations
+import org.rs.consts.Components
+import org.rs.consts.Graphics
+import org.rs.consts.Items
 import core.game.component.Component
 import core.game.component.ComponentDefinition
 import core.game.component.ComponentPlugin

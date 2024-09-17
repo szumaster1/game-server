@@ -1,6 +1,6 @@
 package content.region.kandarin.baxtorian.barbarian_training.herblore
 
-import cfg.consts.Items
+import org.rs.consts.Items
 
 /**
  * Represents the Barbarian mix.

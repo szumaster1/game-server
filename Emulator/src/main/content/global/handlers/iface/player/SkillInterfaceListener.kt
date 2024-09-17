@@ -1,6 +1,6 @@
 package content.global.handlers.iface.player
 
-import cfg.consts.Components
+import org.rs.consts.Components
 import core.api.getAttribute
 import core.api.setVarbit
 import core.game.interaction.InterfaceListener

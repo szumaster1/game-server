@@ -3,7 +3,7 @@ package content.global.skill.production.crafting
 import content.global.skill.production.crafting.data.Leather
 import content.global.skill.production.crafting.data.Leather.SoftLeather
 import content.global.skill.production.crafting.item.SoftLeatherCraftPulse
-import cfg.consts.Components
+import org.rs.consts.Components
 import core.api.sendInputDialogue
 import core.api.submitIndividualPulse
 import core.game.interaction.InterfaceListener

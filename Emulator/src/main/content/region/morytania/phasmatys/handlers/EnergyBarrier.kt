@@ -1,7 +1,7 @@
 package content.region.morytania.phasmatys.handlers
 
 import content.global.skill.support.agility.AgilityHandler
-import cfg.consts.Items
+import org.rs.consts.Items
 import core.api.isQuestComplete
 import core.api.removeItem
 import core.game.node.Node

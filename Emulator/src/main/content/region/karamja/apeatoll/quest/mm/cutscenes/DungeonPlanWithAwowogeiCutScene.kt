@@ -1,7 +1,7 @@
 package content.region.karamja.apeatoll.quest.mm.cutscenes
 
-import cfg.consts.Components
-import cfg.consts.NPCs
+import org.rs.consts.Components
+import org.rs.consts.NPCs
 import core.game.activity.Cutscene
 import core.game.component.Component
 import core.game.dialogue.FacialExpression

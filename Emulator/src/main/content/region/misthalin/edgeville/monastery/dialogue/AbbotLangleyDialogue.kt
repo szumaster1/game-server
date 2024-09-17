@@ -1,8 +1,8 @@
 package content.region.misthalin.edgeville.monastery.dialogue
 
-import cfg.consts.Animations
-import cfg.consts.Graphics
-import cfg.consts.NPCs
+import org.rs.consts.Animations
+import org.rs.consts.Graphics
+import org.rs.consts.NPCs
 import core.api.getStatLevel
 import core.api.sendDialogue
 import core.api.sendMessage

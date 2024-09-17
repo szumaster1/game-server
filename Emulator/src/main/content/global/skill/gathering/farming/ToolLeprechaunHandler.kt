@@ -1,8 +1,8 @@
 package content.global.skill.gathering.farming
 
 import content.minigame.vinesweeper.VinesweeperMinigame
-import cfg.consts.Components
-import cfg.consts.NPCs
+import org.rs.consts.Components
+import org.rs.consts.NPCs
 import core.cache.def.impl.NPCDefinition
 import core.game.component.Component
 import core.game.interaction.OptionHandler

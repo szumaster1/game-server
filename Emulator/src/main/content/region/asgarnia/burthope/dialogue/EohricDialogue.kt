@@ -1,6 +1,6 @@
 package content.region.asgarnia.burthope.dialogue
 
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import content.region.asgarnia.burthope.quest.death.dialogue.EohricDialogueFile
 import core.api.isQuestComplete
 import core.api.openDialogue

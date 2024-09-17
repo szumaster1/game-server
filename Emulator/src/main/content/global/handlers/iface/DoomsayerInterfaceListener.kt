@@ -1,6 +1,6 @@
 package content.global.handlers.iface
 
-import cfg.consts.Components
+import org.rs.consts.Components
 import core.game.interaction.InterfaceListener
 
 /**

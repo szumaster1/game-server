@@ -1,6 +1,6 @@
 package content.region.asgarnia.burthope.dialogue
 
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import core.api.getStatLevel
 import core.api.openDialogue
 import core.game.dialogue.Dialogue

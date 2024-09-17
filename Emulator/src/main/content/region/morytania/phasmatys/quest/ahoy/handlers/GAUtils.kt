@@ -1,10 +1,10 @@
 package content.region.morytania.phasmatys.quest.ahoy.handlers
 
 import core.api.*
-import cfg.consts.Animations
-import cfg.consts.Components
-import cfg.consts.Items
-import cfg.consts.Sounds
+import org.rs.consts.Animations
+import org.rs.consts.Components
+import org.rs.consts.Items
+import org.rs.consts.Sounds
 import core.game.component.Component
 import core.game.interaction.QueueStrength
 import core.game.node.entity.combat.ImpactHandler

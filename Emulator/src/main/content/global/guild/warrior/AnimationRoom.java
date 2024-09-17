@@ -1,6 +1,6 @@
 package content.global.guild.warrior;
 
-import cfg.consts.Sounds;
+import org.rs.consts.Sounds;
 import core.game.interaction.NodeUsageEvent;
 import core.game.interaction.UseWithHandler;
 import core.game.node.entity.Entity;

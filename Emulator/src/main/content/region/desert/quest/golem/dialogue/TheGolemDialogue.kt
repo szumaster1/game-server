@@ -1,6 +1,6 @@
 package content.region.desert.quest.golem.dialogue
 
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import core.api.finishQuest
 import core.api.setQuestStage
 import core.game.dialogue.Dialogue

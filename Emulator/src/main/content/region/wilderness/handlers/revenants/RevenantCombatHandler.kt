@@ -1,7 +1,7 @@
 package content.region.wilderness.handlers.revenants
 
 import core.api.*
-import cfg.consts.Sounds
+import org.rs.consts.Sounds
 import core.game.node.entity.Entity
 import core.game.node.entity.combat.BattleState
 import core.game.node.entity.combat.CombatStyle

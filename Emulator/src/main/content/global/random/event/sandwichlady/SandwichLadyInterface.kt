@@ -1,6 +1,6 @@
 package content.global.random.event.sandwichlady
 
-import cfg.consts.Items
+import org.rs.consts.Items
 import core.api.setAttribute
 import core.game.interaction.InterfaceListener
 import core.game.node.item.Item

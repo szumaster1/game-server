@@ -1,6 +1,6 @@
 package core.game.bots.impl
 
-import cfg.consts.Items
+import org.rs.consts.Items
 import content.global.skill.production.smithing.data.Bars
 import content.global.skill.production.smithing.item.SmithingPulse
 import core.game.bots.Script

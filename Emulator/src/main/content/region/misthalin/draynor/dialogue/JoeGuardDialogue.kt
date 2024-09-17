@@ -1,7 +1,7 @@
 package content.region.misthalin.draynor.dialogue
 
-import cfg.consts.Items
-import cfg.consts.NPCs
+import org.rs.consts.Items
+import org.rs.consts.NPCs
 import core.api.removeItem
 import core.api.sendDialogue
 import core.api.setAttribute

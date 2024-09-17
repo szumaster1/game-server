@@ -1,8 +1,8 @@
 package content.region.misthalin.varrock.quest.crest
 
 
-import cfg.consts.Items
-import cfg.consts.Vars
+import org.rs.consts.Items
+import org.rs.consts.Vars
 import core.api.addItem
 import core.api.getStatLevel
 import core.api.log

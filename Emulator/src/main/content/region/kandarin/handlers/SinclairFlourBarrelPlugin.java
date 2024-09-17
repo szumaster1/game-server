@@ -1,6 +1,6 @@
 package content.region.kandarin.handlers;
 
-import cfg.consts.Items;
+import org.rs.consts.Items;
 import core.cache.def.impl.SceneryDefinition;
 import core.game.interaction.NodeUsageEvent;
 import core.game.interaction.OptionHandler;

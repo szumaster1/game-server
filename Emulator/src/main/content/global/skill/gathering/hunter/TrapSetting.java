@@ -1,6 +1,6 @@
 package content.global.skill.gathering.hunter;
 
-import cfg.consts.Sounds;
+import org.rs.consts.Sounds;
 import core.cache.def.impl.ItemDefinition;
 import core.cache.def.impl.SceneryDefinition;
 import core.game.node.Node;

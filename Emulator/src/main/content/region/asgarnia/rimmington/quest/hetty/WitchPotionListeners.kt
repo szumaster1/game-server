@@ -1,6 +1,6 @@
 package content.region.asgarnia.rimmington.quest.hetty
 
-import cfg.consts.Scenery
+import org.rs.consts.Scenery
 import core.api.getQuestStage
 import core.api.sendMessage
 import core.api.sendPlayerDialogue

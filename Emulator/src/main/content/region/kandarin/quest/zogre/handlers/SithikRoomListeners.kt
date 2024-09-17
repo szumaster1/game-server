@@ -2,7 +2,7 @@ package content.region.kandarin.quest.zogre.handlers
 
 import content.region.kandarin.quest.zogre.dialogue.*
 import core.api.*
-import cfg.consts.*
+import org.rs.consts.*
 import core.game.dialogue.FacialExpression
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener

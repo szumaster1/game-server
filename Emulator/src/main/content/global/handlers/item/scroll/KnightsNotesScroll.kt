@@ -3,8 +3,8 @@ package content.global.handlers.item.scroll
 import content.global.handlers.iface.ScrollInterface
 import content.global.handlers.iface.ScrollLine
 import core.api.*
-import cfg.consts.Components
-import cfg.consts.Items
+import org.rs.consts.Components
+import org.rs.consts.Items
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 

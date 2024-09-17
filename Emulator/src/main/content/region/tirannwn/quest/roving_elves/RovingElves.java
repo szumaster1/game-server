@@ -4,7 +4,7 @@ import content.region.tirannwn.quest.roving_elves.dialogue.ElunedDialogue;
 import content.region.tirannwn.quest.roving_elves.dialogue.IslwynDialogue;
 import content.region.tirannwn.quest.roving_elves.handlers.RovingElvesObstacles;
 import content.region.tirannwn.quest.roving_elves.handlers.MossGiantNPC;
-import cfg.consts.Vars;
+import org.rs.consts.Vars;
 import content.region.tirannwn.quest.roving_elves.handlers.RovingElvesPlugin;
 import core.game.node.entity.player.Player;
 import core.game.node.entity.player.link.quest.Quest;

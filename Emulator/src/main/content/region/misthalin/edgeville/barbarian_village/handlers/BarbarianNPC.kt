@@ -1,6 +1,6 @@
 package content.region.misthalin.edgeville.barbarian_village.handlers
 
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import core.api.sendChat
 import core.game.node.entity.Entity
 import core.game.node.entity.combat.BattleState

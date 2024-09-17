@@ -1,6 +1,6 @@
 package content.region.misthalin.quest.anma.handlers
 
-import cfg.consts.Items
+import org.rs.consts.Items
 import core.api.isQuestComplete
 import core.api.sendMessage
 import core.game.interaction.InteractionListener

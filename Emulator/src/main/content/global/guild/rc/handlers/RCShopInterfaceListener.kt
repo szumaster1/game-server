@@ -1,7 +1,7 @@
 package content.global.guild.rc.handlers
 
-import cfg.consts.Components
-import cfg.consts.Items
+import org.rs.consts.Components
+import org.rs.consts.Items
 import core.api.*
 import core.game.interaction.InterfaceListener
 import core.game.node.entity.player.Player

@@ -1,7 +1,7 @@
 package content.region.morytania.hollows.handlers
 
 import core.api.*
-import cfg.consts.Items
+import org.rs.consts.Items
 import core.game.interaction.QueueStrength
 import core.game.node.entity.Entity
 import core.game.node.entity.combat.BattleState

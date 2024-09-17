@@ -1,7 +1,7 @@
 package content.global.skill.production.runecrafting
 
-import cfg.consts.Items
-import cfg.consts.Vars
+import org.rs.consts.Items
+import org.rs.consts.Vars
 import content.global.skill.production.runecrafting.data.Staff
 import content.global.skill.production.runecrafting.data.TalismanStaff
 import content.global.skill.production.runecrafting.data.Tiara

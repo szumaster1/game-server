@@ -1,7 +1,7 @@
 package content.region.desert.quest.deserttreasure
 
 import core.api.*
-import cfg.consts.Items
+import org.rs.consts.Items
 import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.quest.Quest
 import core.game.node.entity.skill.Skills

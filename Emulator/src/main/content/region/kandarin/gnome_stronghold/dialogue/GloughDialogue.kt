@@ -1,7 +1,7 @@
 package content.region.kandarin.gnome_stronghold.dialogue
 
 import content.region.kandarin.quest.grandtree.dialogue.GloughDialogueFile
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import core.api.getQuestStage
 import core.api.openDialogue
 import core.game.dialogue.Dialogue

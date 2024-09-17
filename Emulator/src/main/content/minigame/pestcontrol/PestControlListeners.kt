@@ -1,7 +1,7 @@
 package content.minigame.pestcontrol
 
 import content.global.travel.charter.Ship
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import core.api.getUsedOption
 import core.api.openDialogue
 import core.cache.def.impl.NPCDefinition

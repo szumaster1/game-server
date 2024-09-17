@@ -1,9 +1,9 @@
 package content.region.kandarin.port_khazard.quest.arena.dialogue
 
 import core.api.addItem
-import cfg.consts.Items
-import cfg.consts.Items.COINS_995
-import cfg.consts.NPCs
+import org.rs.consts.Items
+import org.rs.consts.Items.COINS_995
+import org.rs.consts.NPCs
 import core.api.getQuestStage
 import core.api.removeItem
 import core.api.setQuestStage

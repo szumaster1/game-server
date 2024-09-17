@@ -1,8 +1,8 @@
 package content.region.karamja.apeatoll.quest.mm.cutscenes
 
-import cfg.consts.Components
-import cfg.consts.Items
-import cfg.consts.NPCs
+import org.rs.consts.Components
+import org.rs.consts.Items
+import org.rs.consts.NPCs
 import core.api.openOverlay
 import core.game.activity.Cutscene
 import core.game.component.Component

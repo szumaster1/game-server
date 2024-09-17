@@ -1,6 +1,6 @@
 package content.region.misthalin.varrock.quest.priest.handlers;
 
-import cfg.consts.NPCs;
+import org.rs.consts.NPCs;
 import core.cache.def.impl.NPCDefinition;
 import core.cache.def.impl.SceneryDefinition;
 import core.game.component.Component;

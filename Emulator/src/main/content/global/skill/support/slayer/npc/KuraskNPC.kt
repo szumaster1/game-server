@@ -1,7 +1,7 @@
 package content.global.skill.support.slayer.npc
 
 import content.global.skill.support.slayer.SlayerUtils.hasBroadWeaponEquipped
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import core.game.node.entity.combat.BattleState
 import core.game.node.entity.npc.AbstractNPC
 import core.game.node.entity.player.Player

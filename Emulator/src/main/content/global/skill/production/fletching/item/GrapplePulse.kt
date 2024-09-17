@@ -1,6 +1,6 @@
 package content.global.skill.production.fletching.item
 
-import cfg.consts.Items
+import org.rs.consts.Items
 import core.api.*
 import core.game.node.entity.player.Player
 import core.game.node.entity.skill.SkillPulse

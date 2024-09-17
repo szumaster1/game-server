@@ -1,7 +1,7 @@
 package content.global.skill.production.crafting.data
 
-import cfg.consts.Animations
-import cfg.consts.Items
+import org.rs.consts.Animations
+import org.rs.consts.Items
 import core.game.node.item.Item
 import core.game.world.update.flag.context.Animation
 

@@ -1,6 +1,6 @@
 package content.global.activity.ttrails
 
-import cfg.consts.Items
+import org.rs.consts.Items
 import core.api.IfaceSettingsBuilder
 import core.api.addItemOrDrop
 import core.game.component.Component

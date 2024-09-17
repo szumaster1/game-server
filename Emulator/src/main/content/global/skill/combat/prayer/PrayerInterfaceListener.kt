@@ -1,6 +1,6 @@
 package content.global.skill.combat.prayer
 
-import cfg.consts.Components
+import org.rs.consts.Components
 import content.data.GameAttributes
 import content.miniquest.knights.handlers.KWUtils
 import core.api.getAttribute

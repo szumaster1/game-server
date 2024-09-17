@@ -1,6 +1,6 @@
 package content.region.misthalin.varrock.silvarea.quest.rag.handlers
 
-import cfg.consts.Items
+import org.rs.consts.Items
 
 /**
  * Represents the Bone boiler.

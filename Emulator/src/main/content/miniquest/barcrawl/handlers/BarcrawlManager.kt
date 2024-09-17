@@ -1,7 +1,7 @@
 package content.miniquest.barcrawl.handlers
 
-import cfg.consts.Components
-import cfg.consts.Items
+import org.rs.consts.Components
+import org.rs.consts.Items
 import core.api.*
 import core.game.node.entity.player.Player
 import core.game.node.item.Item

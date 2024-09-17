@@ -2,7 +2,7 @@ package content.global.handlers.item
 
 import content.data.Lamps
 import core.api.*
-import cfg.consts.Items
+import org.rs.consts.Items
 import core.game.component.Component
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener

@@ -2,7 +2,7 @@ package content.region.misthalin.stronghold.security.dialogue
 
 import core.api.Container
 import core.api.addItem
-import cfg.consts.Items
+import org.rs.consts.Items
 import core.api.sendDialogueLines
 import core.api.sendMessage
 import core.game.dialogue.Dialogue

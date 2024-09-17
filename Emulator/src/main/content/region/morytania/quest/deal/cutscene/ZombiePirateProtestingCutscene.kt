@@ -1,7 +1,7 @@
 package content.region.morytania.quest.deal.cutscene
 
-import cfg.consts.Components
-import cfg.consts.NPCs
+import org.rs.consts.Components
+import org.rs.consts.NPCs
 import content.region.morytania.quest.deal.dialogue.CaptainBrainDeathDialogueFile
 import core.api.openDialogue
 import core.api.openOverlay

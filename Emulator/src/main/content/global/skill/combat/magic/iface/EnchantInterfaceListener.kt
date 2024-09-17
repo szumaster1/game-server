@@ -1,9 +1,9 @@
 package content.global.skill.combat.magic.iface
 
 import core.api.*
-import cfg.consts.Components
-import cfg.consts.Items
-import cfg.consts.NPCs
+import org.rs.consts.Components
+import org.rs.consts.Items
+import org.rs.consts.NPCs
 import core.game.interaction.InterfaceListener
 import core.game.node.item.Item
 import core.tools.StringUtils

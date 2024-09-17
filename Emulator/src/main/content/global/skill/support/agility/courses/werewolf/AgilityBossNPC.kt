@@ -1,7 +1,7 @@
 package content.global.skill.support.agility.courses.werewolf
 
 import core.api.animate
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import core.game.node.entity.npc.NPC
 import core.game.node.entity.npc.NPCBehavior
 import core.tools.RandomFunction

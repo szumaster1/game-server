@@ -1,7 +1,7 @@
 package content.region.asgarnia.falador.quest.rd.dialogue
 
-import cfg.consts.Components
-import cfg.consts.NPCs
+import org.rs.consts.Components
+import org.rs.consts.NPCs
 import content.region.asgarnia.falador.quest.rd.RecruitmentDrive
 import content.region.asgarnia.falador.quest.rd.handlers.RecruitmentDriveListeners
 import core.api.*

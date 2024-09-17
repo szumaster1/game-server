@@ -1,7 +1,7 @@
 package content.global.skill.combat.summoning.familiar.dialogue
 
 import content.global.skill.combat.summoning.familiar.Forager
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import core.api.getDynLevel
 import core.api.getStatLevel
 import core.api.sendMessage

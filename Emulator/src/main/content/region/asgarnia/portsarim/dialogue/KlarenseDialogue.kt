@@ -1,6 +1,6 @@
 package content.region.asgarnia.portsarim.dialogue
 
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import core.api.removeItem
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression

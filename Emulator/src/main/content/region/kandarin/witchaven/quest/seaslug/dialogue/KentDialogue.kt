@@ -2,8 +2,8 @@ package content.region.kandarin.witchaven.quest.seaslug.dialogue
 
 import content.region.kandarin.witchaven.quest.seaslug.SeaSlug
 import core.api.*
-import cfg.consts.NPCs
-import cfg.consts.Sounds
+import org.rs.consts.NPCs
+import org.rs.consts.Sounds
 import core.game.dialogue.Dialogue
 import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression

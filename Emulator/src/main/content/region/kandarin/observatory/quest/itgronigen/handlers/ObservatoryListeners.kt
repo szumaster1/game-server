@@ -4,7 +4,7 @@ import content.region.kandarin.observatory.quest.itgronigen.cutscene.TheObservat
 import content.region.kandarin.observatory.quest.itgronigen.handlers.GoblinGuardNPC.Companion.spawnGoblinGuard
 import content.region.kandarin.observatory.quest.itgronigen.handlers.PoisonSpiderNPC.Companion.spawnPoisonSpider
 import core.api.*
-import cfg.consts.*
+import org.rs.consts.*
 import content.region.kandarin.observatory.quest.itgronigen.dialogue.*
 import core.api.utils.PlayerCamera
 import core.game.global.action.DoorActionHandler

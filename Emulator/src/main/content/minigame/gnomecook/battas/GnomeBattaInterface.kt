@@ -1,6 +1,6 @@
 package content.minigame.gnomecook.battas
 
-import cfg.consts.Items
+import org.rs.consts.Items
 import core.api.inInventory
 import core.game.component.Component
 import core.game.component.ComponentDefinition

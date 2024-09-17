@@ -1,8 +1,8 @@
 package content.global.handlers.item.equipment.special
 
-import cfg.consts.Graphics
-import cfg.consts.Items
-import cfg.consts.Sounds
+import org.rs.consts.Graphics
+import org.rs.consts.Items
+import org.rs.consts.Sounds
 import core.Configuration
 import core.api.playAudio
 import core.game.container.impl.EquipmentContainer

@@ -1,7 +1,7 @@
 package content.global.skill.combat.summoning.pet
 
-import cfg.consts.Items
-import cfg.consts.NPCs
+import org.rs.consts.Items
+import org.rs.consts.NPCs
 import core.api.log
 import core.game.node.entity.player.Player
 import core.tools.Log

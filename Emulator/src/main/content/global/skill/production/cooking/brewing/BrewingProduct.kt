@@ -1,6 +1,6 @@
 package content.global.skill.production.cooking.brewing
 
-import cfg.consts.Items
+import org.rs.consts.Items
 import core.game.node.item.Item
 import java.util.*
 

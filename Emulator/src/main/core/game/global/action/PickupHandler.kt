@@ -1,8 +1,8 @@
 package core.game.global.action
 
-import cfg.consts.Items
-import cfg.consts.NPCs
-import cfg.consts.Sounds
+import org.rs.consts.Items
+import org.rs.consts.NPCs
+import org.rs.consts.Sounds
 import content.data.GodType
 import content.global.skill.production.runecrafting.pouch.RunePouch
 import core.api.*

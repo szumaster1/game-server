@@ -1,8 +1,8 @@
 package content.region.asgarnia.dialogue
 
 import core.api.*
-import cfg.consts.Items
-import cfg.consts.NPCs
+import org.rs.consts.Items
+import org.rs.consts.NPCs
 import content.region.asgarnia.falador.achievement.dialogue.ChemistDiaryDialogue
 import content.region.kandarin.ardougne.quest.biohazard.dialogue.ChemistDialogueFile
 import core.game.dialogue.Dialogue

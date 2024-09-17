@@ -1,6 +1,6 @@
 package content.region.misthalin.varrock.silvarea.dialogue
 
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import content.region.misthalin.varrock.silvarea.quest.rag.dialogue.OddOldManDialogueFile
 import core.api.openDialogue
 import core.game.dialogue.Dialogue

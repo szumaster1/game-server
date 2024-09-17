@@ -1,6 +1,6 @@
 package content.miniquest.knights.handlers
 
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import core.api.poofClear
 import core.api.teleport
 import core.game.node.entity.Entity

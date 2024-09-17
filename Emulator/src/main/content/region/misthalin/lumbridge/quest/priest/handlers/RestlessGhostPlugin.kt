@@ -1,10 +1,10 @@
 package content.region.misthalin.lumbridge.quest.priest.handlers
 
-import cfg.consts.Animations
-import cfg.consts.Items
-import cfg.consts.NPCs
+import org.rs.consts.Animations
+import org.rs.consts.Items
+import org.rs.consts.NPCs
 import content.region.misthalin.lumbridge.quest.priest.RestlessGhost
-import cfg.consts.Sounds
+import org.rs.consts.Sounds
 import core.api.*
 import core.cache.def.impl.SceneryDefinition
 import core.game.interaction.OptionHandler

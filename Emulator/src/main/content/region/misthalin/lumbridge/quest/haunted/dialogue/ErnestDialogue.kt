@@ -1,6 +1,6 @@
 package content.region.misthalin.lumbridge.quest.haunted.dialogue
 
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import core.api.finishQuest
 import core.api.isQuestComplete
 import core.api.runTask

@@ -1,6 +1,6 @@
 package content.region.asgarnia.taverley.quest.ball.handlers
 
-import cfg.consts.Items
+import org.rs.consts.Items
 import content.minigame.mta.TelekineticGrabSpell
 import core.api.setAttribute
 import core.game.interaction.MovementPulse

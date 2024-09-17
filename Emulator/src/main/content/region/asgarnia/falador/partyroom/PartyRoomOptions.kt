@@ -1,7 +1,7 @@
 package content.region.asgarnia.falador.partyroom
 
 import core.api.animate
-import cfg.consts.Animations
+import org.rs.consts.Animations
 import core.api.replaceScenery
 import core.api.sendInputDialogue
 import core.api.sendMessage

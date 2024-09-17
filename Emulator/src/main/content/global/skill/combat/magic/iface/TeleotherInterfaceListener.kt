@@ -1,7 +1,7 @@
 package content.global.skill.combat.magic.iface
 
 import core.api.*
-import cfg.consts.Components
+import org.rs.consts.Components
 import core.game.interaction.InterfaceListener
 import core.game.node.entity.player.link.TeleportManager.TeleportType
 

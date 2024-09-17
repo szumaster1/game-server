@@ -1,7 +1,7 @@
 package core.game.global.action
 
-import cfg.consts.Items
-import cfg.consts.Sounds
+import org.rs.consts.Items
+import org.rs.consts.Sounds
 import content.global.skill.combat.summoning.pet.Pets
 import core.api.*
 import core.game.interaction.IntType

@@ -1,7 +1,7 @@
 package content.global.skill.production.cooking.recipe.topping.impl
 
 import content.global.skill.production.cooking.recipe.topping.ToppingRecipe
-import cfg.consts.Items
+import org.rs.consts.Items
 import core.game.node.item.Item
 
 /**

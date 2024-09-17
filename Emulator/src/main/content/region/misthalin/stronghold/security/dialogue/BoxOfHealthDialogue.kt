@@ -1,7 +1,7 @@
 package content.region.misthalin.stronghold.security.dialogue
 
 import core.api.*
-import cfg.consts.Items
+import org.rs.consts.Items
 import core.game.dialogue.Dialogue
 import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.emote.Emotes

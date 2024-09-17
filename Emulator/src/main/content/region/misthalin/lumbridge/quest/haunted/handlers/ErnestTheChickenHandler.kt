@@ -1,6 +1,6 @@
 package content.region.misthalin.lumbridge.quest.haunted.handlers
 
-import cfg.consts.Animations
+import org.rs.consts.Animations
 import content.global.skill.support.agility.AgilityHandler
 import core.api.sendMessage
 import core.api.setVarp
@@ -29,7 +29,7 @@ import java.awt.Point
 class ErnestTheChickenHandler : OptionHandler() {
 
     override fun newInstance(arg: Any?): Plugin<Any> {
-        SceneryDefinition.forId(cfg.consts.Scenery.DOOR_11450).handlers["option:open"] = this
+        SceneryDefinition.forId(org.rs.consts.Scenery.DOOR_11450).handlers["option:open"] = this
         for (lever in Lever.values()) {
             for (i in lever.objectIds) {
                 SceneryDefinition.forId(i).handlers["option:pull"] = this

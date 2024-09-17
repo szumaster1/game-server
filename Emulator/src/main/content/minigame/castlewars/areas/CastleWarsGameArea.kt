@@ -2,7 +2,7 @@ package content.minigame.castlewars.areas
 
 import content.minigame.castlewars.CastleWars
 import core.api.TickListener
-import cfg.consts.Components
+import org.rs.consts.Components
 import core.api.registerTimer
 import core.api.spawnTimer
 import core.game.component.Component

@@ -2,7 +2,7 @@ package content.data.droptable
 
 import core.Configuration
 import core.api.StartupListener
-import cfg.consts.Items
+import org.rs.consts.Items
 import core.api.log
 import core.api.shouldRemoveNothings
 import core.api.utils.WeightBasedTable

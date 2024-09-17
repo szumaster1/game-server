@@ -2,8 +2,8 @@ package content.minigame.sorceressgarden
 
 import content.minigame.sorceressgarden.SorceressGarden.SeasonDefinitions.Companion.forGateId
 import content.minigame.sorceressgarden.dialogue.SorceressApprenticeDialogue
-import cfg.consts.Items
-import cfg.consts.NPCs
+import org.rs.consts.Items
+import org.rs.consts.NPCs
 import core.api.sendItemDialogue
 import core.api.sendMessage
 import core.api.sendNPCDialogue

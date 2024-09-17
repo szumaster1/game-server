@@ -1,6 +1,6 @@
 package content.region.karamja.shilovillage.dialogue
 
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import core.api.isQuestComplete
 import core.api.sendMessage
 import core.api.sendMessageWithDelay

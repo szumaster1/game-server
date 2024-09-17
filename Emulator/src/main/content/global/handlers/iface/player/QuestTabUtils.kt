@@ -1,7 +1,7 @@
 package content.global.handlers.iface.player
 
 import core.api.*
-import cfg.consts.Components
+import org.rs.consts.Components
 import core.game.node.entity.player.Player
 import core.game.node.entity.skill.Skills
 import core.tools.colorize

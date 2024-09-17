@@ -1,7 +1,7 @@
 package content.region.kandarin.observatory.quest.itgronigen.handlers
 
 import core.api.applyPoison
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import core.game.node.entity.Entity
 import core.game.node.entity.npc.AbstractNPC
 import core.game.node.entity.player.Player

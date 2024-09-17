@@ -5,7 +5,7 @@ import content.region.misthalin.varrock.quest.phoenixgang.handlers.JohnnyBeardNP
 import content.region.misthalin.varrock.quest.phoenixgang.handlers.CertificatePlugin;
 import content.region.misthalin.varrock.quest.phoenixgang.dialogue.*;
 import content.region.misthalin.varrock.quest.phoenixgang.handlers.ShieldArravPlugin;
-import cfg.consts.Vars;
+import org.rs.consts.Vars;
 import core.game.node.entity.player.Player;
 import core.game.node.entity.player.link.quest.Quest;
 import core.game.node.item.Item;

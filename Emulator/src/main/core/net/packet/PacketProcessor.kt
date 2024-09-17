@@ -7,7 +7,7 @@ import content.global.skill.combat.magic.SpellUtils
 import content.global.skill.combat.summoning.familiar.FamiliarSpecial
 import core.Configuration
 import core.api.*
-import cfg.consts.Components
+import org.rs.consts.Components
 import core.api.utils.Vector
 import core.cache.def.impl.ItemDefinition
 import core.cache.def.impl.NPCDefinition

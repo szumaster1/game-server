@@ -6,9 +6,9 @@ import content.global.skill.production.smithing.item.DragonfireShieldPulse
 import content.global.skill.production.smithing.item.GodswordAssemblingPulse
 import content.global.skill.skillcape.SkillcapePerks
 import core.api.*
-import cfg.consts.Animations
-import cfg.consts.Items
-import cfg.consts.Scenery
+import org.rs.consts.Animations
+import org.rs.consts.Items
+import org.rs.consts.Scenery
 import core.game.dialogue.SkillDialogueHandler
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener

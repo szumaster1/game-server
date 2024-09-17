@@ -2,8 +2,8 @@ package content.region.kandarin.baxtorian.barbarian_training.fishing
 
 import content.region.kandarin.baxtorian.barbarian_training.BarbarianTraining
 import core.api.*
-import cfg.consts.Items
-import cfg.consts.NPCs
+import org.rs.consts.Items
+import org.rs.consts.NPCs
 import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.game.node.entity.skill.SkillPulse

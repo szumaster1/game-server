@@ -1,6 +1,6 @@
 package content.region.morytania.phasmatys.dialogue
 
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import content.region.morytania.phasmatys.quest.ahoy.dialogue.OldManGADialogue
 import core.api.getQuestStage
 import core.api.isQuestComplete

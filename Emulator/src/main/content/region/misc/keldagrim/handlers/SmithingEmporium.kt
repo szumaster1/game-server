@@ -1,6 +1,6 @@
 package content.region.misc.keldagrim.handlers
 
-import cfg.consts.Components
+import org.rs.consts.Components
 import core.api.*
 import core.game.interaction.InterfaceListener
 import core.game.node.entity.player.Player

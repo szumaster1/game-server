@@ -1,6 +1,6 @@
 package core.game.system.command.sets
 
-import cfg.consts.Components
+import org.rs.consts.Components
 import content.global.handlers.iface.BookInterfaceListener
 import content.global.handlers.iface.BookLine
 import content.global.handlers.iface.Page

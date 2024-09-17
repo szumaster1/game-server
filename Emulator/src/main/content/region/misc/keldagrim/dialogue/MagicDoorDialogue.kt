@@ -1,7 +1,7 @@
 package content.region.misc.keldagrim.dialogue
 
 import content.global.skill.production.crafting.data.Gem
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import core.api.removeItem
 import core.api.sendMessage
 import core.game.dialogue.Dialogue

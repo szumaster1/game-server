@@ -23,7 +23,7 @@ import content.global.random.event.surpriseexam.SurpriseExamNPC
 import content.global.random.event.swarm.SwarmNPC
 import content.global.random.event.treespirit.TreeSpiritNPC
 import content.global.random.event.zombie.ZombieNPC
-import cfg.consts.Items
+import org.rs.consts.Items
 import content.global.random.event.prisonpete.PrisonPeteNPC
 import core.api.utils.WeightBasedTable
 import core.api.utils.WeightedItem

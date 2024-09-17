@@ -2,7 +2,7 @@ package content.region.morytania.phasmatys.dialogue
 
 import content.region.morytania.quest.deal.dialogue.PiratePeteDialogueFile
 import core.api.*
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import core.game.dialogue.Dialogue
 import core.game.node.entity.player.Player
 import core.plugin.Initializable

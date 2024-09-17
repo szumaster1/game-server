@@ -3,9 +3,9 @@ package content.region.kandarin.observatory.quest.itgronigen.dialogue
 import content.region.kandarin.observatory.quest.itgronigen.handlers.ObservatoryListeners
 import content.region.kandarin.observatory.quest.itgronigen.handlers.ObservatoryListeners.Companion.FAIL_ATTRIBUTE
 import core.api.*
-import cfg.consts.Animations
-import cfg.consts.Items
-import cfg.consts.NPCs
+import org.rs.consts.Animations
+import org.rs.consts.Items
+import org.rs.consts.NPCs
 import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression
 import core.game.dialogue.Topic

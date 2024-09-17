@@ -1,6 +1,6 @@
 package content.region.karamja.apeatoll.quest.mm.dialogue
 
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import core.api.getQuestStage
 import core.api.sendNPCDialogue
 import core.api.setQuestStage

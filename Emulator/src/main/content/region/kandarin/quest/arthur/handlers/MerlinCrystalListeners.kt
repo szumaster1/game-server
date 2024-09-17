@@ -2,9 +2,9 @@ package content.region.kandarin.quest.arthur.handlers
 
 import content.region.kandarin.quest.arthur.dialogue.*
 import core.api.*
-import cfg.consts.Items
-import cfg.consts.NPCs
-import cfg.consts.Scenery
+import org.rs.consts.Items
+import org.rs.consts.NPCs
+import org.rs.consts.Scenery
 import core.game.global.action.DoorActionHandler
 import core.game.global.action.DropListener
 import core.game.interaction.IntType

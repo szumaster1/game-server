@@ -1,6 +1,6 @@
 package content.global.skill.support.construction.decoration.workshop
 
-import cfg.consts.Items
+import org.rs.consts.Items
 import content.global.skill.support.construction.BuildHotspot
 import content.global.skill.support.construction.BuildingUtils.buildDecoration
 import content.global.skill.support.construction.Decoration

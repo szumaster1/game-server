@@ -1,6 +1,6 @@
 package content.region.asgarnia.burthope.dialogue
 
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import core.api.isQuestComplete
 import core.api.isQuestInProgress
 import core.api.openDialogue

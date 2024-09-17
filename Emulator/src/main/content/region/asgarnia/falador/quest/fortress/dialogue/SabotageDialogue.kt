@@ -1,8 +1,8 @@
 package content.region.asgarnia.falador.quest.fortress.dialogue
 
-import cfg.consts.Animations
-import cfg.consts.Items
-import cfg.consts.NPCs
+import org.rs.consts.Animations
+import org.rs.consts.Items
+import org.rs.consts.NPCs
 import core.api.*
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression

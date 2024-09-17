@@ -1,7 +1,7 @@
 package content.global.skill.production.cooking.recipe.potato;
 
 import content.global.skill.production.cooking.recipe.Recipe;
-import cfg.consts.Items;
+import org.rs.consts.Items;
 import core.game.interaction.NodeUsageEvent;
 import core.game.node.entity.player.Player;
 import core.game.node.entity.skill.Skills;

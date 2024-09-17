@@ -1,6 +1,6 @@
 package content.region.misc.zanaris.handlers
 
-import cfg.consts.*
+import org.rs.consts.*
 import content.region.misc.keldagrim.dialogue.MagicDoorDialogue
 import core.api.*
 import core.game.global.action.ClimbActionHandler

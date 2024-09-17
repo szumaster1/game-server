@@ -1,7 +1,7 @@
 package content.global.random.event.kissthefrog
 
 import content.global.random.RandomEventNPC
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import core.api.utils.WeightBasedTable
 import core.game.node.entity.npc.NPC
 import core.tools.RandomFunction

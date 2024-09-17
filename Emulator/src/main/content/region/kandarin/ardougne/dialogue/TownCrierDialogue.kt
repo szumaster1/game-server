@@ -1,6 +1,6 @@
 package content.region.kandarin.ardougne.dialogue
 
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import content.global.handlers.item.book.GeneralRuleBook.Companion.openBook
 import core.api.lock
 import core.api.runTask

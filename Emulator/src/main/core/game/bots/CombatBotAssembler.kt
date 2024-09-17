@@ -1,6 +1,6 @@
 package core.game.bots
 
-import cfg.consts.Items
+import org.rs.consts.Items
 import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 import core.game.world.map.Location

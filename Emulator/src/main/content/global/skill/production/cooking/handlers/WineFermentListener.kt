@@ -2,7 +2,7 @@ package content.global.skill.production.cooking.handlers
 
 import content.global.skill.production.cooking.fermenting.WineFermentingPulse
 import core.api.*
-import cfg.consts.Items
+import org.rs.consts.Items
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.entity.skill.Skills

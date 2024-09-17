@@ -1,8 +1,8 @@
 package content.global.handlers.`object`.plugin
 
 import core.api.addItem
-import cfg.consts.Items
-import cfg.consts.Scenery
+import org.rs.consts.Items
+import org.rs.consts.Scenery
 import core.api.inInventory
 import core.api.sendMessage
 import core.api.sendMessageWithDelay

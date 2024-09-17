@@ -2,7 +2,7 @@ package content.region.kandarin.port_khazard.quest.arena.handlers
 
 import content.region.kandarin.port_khazard.quest.arena.dialogue.GeneralDialogueFile
 import core.api.*
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import core.game.node.entity.Entity
 import core.game.node.entity.npc.AbstractNPC
 import core.game.node.entity.player.Player

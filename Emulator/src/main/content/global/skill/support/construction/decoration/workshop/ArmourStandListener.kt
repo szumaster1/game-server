@@ -1,6 +1,6 @@
 package content.global.skill.support.construction.decoration.workshop
 
-import cfg.consts.Items
+import org.rs.consts.Items
 import content.data.item.BrokenItem
 import content.data.item.BrokenItem.getRepair
 import content.data.item.RepairItem

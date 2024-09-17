@@ -1,6 +1,6 @@
 package content.global.handlers.`object`.plugin
 
-import cfg.consts.Sounds
+import org.rs.consts.Sounds
 import core.api.freeSlots
 import core.api.playAudio
 import core.api.sendMessage

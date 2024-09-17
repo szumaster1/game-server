@@ -1,6 +1,6 @@
 package content.minigame.fistofguthix.dialogue
 
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import core.game.component.Component
 import core.game.dialogue.Dialogue
 import core.game.node.entity.player.Player

@@ -1,8 +1,8 @@
 package content.region.desert.quest.deserttreasure.handlers
 
 import core.api.*
-import cfg.consts.Components
-import cfg.consts.NPCs
+import org.rs.consts.Components
+import org.rs.consts.NPCs
 import core.game.interaction.QueueStrength
 import core.game.node.entity.Entity
 import core.game.node.entity.npc.NPC

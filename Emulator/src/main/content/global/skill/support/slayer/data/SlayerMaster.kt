@@ -1,7 +1,7 @@
 package content.global.skill.support.slayer.data
 
 import content.global.skill.support.slayer.SlayerManager.Companion.getInstance
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import core.game.node.entity.player.Player
 import core.game.node.entity.skill.Skills
 import java.util.*

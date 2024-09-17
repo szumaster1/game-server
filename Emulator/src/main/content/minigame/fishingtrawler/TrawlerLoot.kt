@@ -1,7 +1,7 @@
 package content.minigame.fishingtrawler
 
 import content.global.skill.gathering.fishing.data.Fish
-import cfg.consts.Items
+import org.rs.consts.Items
 import core.api.splitLines
 import core.game.node.entity.player.Player
 import core.game.node.item.GroundItemManager

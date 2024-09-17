@@ -2,7 +2,7 @@ package content.global.activity.jobs.impl
 
 import content.global.activity.jobs.Job
 import content.global.activity.jobs.JobType
-import cfg.consts.Items
+import org.rs.consts.Items
 import core.game.world.map.zone.ZoneBorders
 
 /**

@@ -2,7 +2,7 @@ package content.global.activity.jobs.impl
 
 import content.global.activity.jobs.Job
 import content.global.activity.jobs.JobType
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 
 /**
  * An enum of the possible combat jobs that can be assigned to a player.

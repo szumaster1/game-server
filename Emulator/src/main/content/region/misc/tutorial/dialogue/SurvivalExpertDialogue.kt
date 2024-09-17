@@ -2,8 +2,8 @@ package content.region.misc.tutorial.dialogue
 
 import content.region.misc.tutorial.handlers.TutorialStage
 import core.api.addItem
-import cfg.consts.Items
-import cfg.consts.NPCs
+import org.rs.consts.Items
+import org.rs.consts.NPCs
 import core.api.inInventory
 import core.api.sendItemDialogue
 import core.api.setAttribute

@@ -1,8 +1,8 @@
 package content.global.handlers.npc
 
 import core.api.animate
-import cfg.consts.Animations
-import cfg.consts.NPCs
+import org.rs.consts.Animations
+import org.rs.consts.NPCs
 import core.api.stopWalk
 import core.game.node.entity.Entity
 import core.game.node.entity.combat.BattleState

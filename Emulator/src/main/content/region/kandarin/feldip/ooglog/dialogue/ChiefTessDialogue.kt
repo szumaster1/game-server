@@ -1,7 +1,7 @@
 package content.region.kandarin.feldip.ooglog.dialogue
 
 
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import core.api.isQuestComplete
 import core.api.sendDialogue
 import core.api.sendDialogueOptions

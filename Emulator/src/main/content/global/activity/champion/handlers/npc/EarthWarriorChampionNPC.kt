@@ -1,8 +1,8 @@
 package content.global.activity.champion.handlers.npc
 
 import core.api.*
-import cfg.consts.Items
-import cfg.consts.NPCs
+import org.rs.consts.Items
+import org.rs.consts.NPCs
 import content.data.GameAttributes
 import content.global.activity.champion.handlers.ChampionChallengeListener
 import core.game.node.entity.Entity

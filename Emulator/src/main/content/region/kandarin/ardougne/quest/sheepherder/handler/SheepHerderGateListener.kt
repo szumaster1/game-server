@@ -1,8 +1,8 @@
 package content.region.kandarin.ardougne.quest.sheepherder.handler
 
-import cfg.consts.Items
-import cfg.consts.NPCs
-import cfg.consts.Scenery
+import org.rs.consts.Items
+import org.rs.consts.NPCs
+import org.rs.consts.Scenery
 import core.api.inEquipment
 import core.api.sendNPCDialogueLines
 import core.game.dialogue.FacialExpression

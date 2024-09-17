@@ -1,8 +1,8 @@
 package content.region.kandarin.ardougne.quest.biohazard
 
-import cfg.consts.Components
-import cfg.consts.Items
-import cfg.consts.Vars
+import org.rs.consts.Components
+import org.rs.consts.Items
+import org.rs.consts.Vars
 import content.region.kandarin.ardougne.quest.biohazard.handlers.BiohazardUtils
 import core.api.isQuestComplete
 import core.api.removeAttributes

@@ -1,7 +1,7 @@
 package content.region.kandarin.witchaven.dialogue
 
 import content.region.kandarin.witchaven.fishingplatform.handlers.FishingPlatform
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import core.api.isQuestComplete
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression

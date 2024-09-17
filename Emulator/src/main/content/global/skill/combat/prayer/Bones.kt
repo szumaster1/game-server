@@ -1,6 +1,6 @@
 package content.global.skill.combat.prayer
 
-import cfg.consts.Items
+import org.rs.consts.Items
 
 /**
  * Represents the type of bones.

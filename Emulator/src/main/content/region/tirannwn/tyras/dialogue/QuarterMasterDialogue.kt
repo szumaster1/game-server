@@ -1,6 +1,6 @@
 package content.region.tirannwn.tyras.dialogue
 
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import core.api.hasRequirement
 import core.api.openNpcShop
 import core.game.dialogue.Dialogue

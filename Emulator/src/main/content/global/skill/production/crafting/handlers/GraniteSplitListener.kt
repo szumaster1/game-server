@@ -3,7 +3,7 @@ package content.global.skill.production.crafting.handlers
 import content.global.skill.production.crafting.item.GraniteSplitPulse
 import core.api.addDialogueAction
 import core.api.amountInInventory
-import cfg.consts.Items
+import org.rs.consts.Items
 import core.api.sendDialogueOptions
 import core.api.setTitle
 import core.game.interaction.IntType

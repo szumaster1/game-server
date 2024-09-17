@@ -4,7 +4,7 @@ import content.global.skill.production.smithing.data.BarType
 import content.global.skill.production.smithing.data.Bars
 import content.global.skill.production.smithing.data.SmithingType.Companion.forButton
 import content.global.skill.production.smithing.item.SmithingPulse
-import cfg.consts.Components
+import org.rs.consts.Components
 import core.api.sendInputDialogue
 import core.api.submitIndividualPulse
 import core.game.interaction.InterfaceListener

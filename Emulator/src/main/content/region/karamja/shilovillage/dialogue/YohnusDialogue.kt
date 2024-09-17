@@ -1,7 +1,7 @@
 package content.region.karamja.shilovillage.dialogue
 
-import cfg.consts.Items
-import cfg.consts.NPCs
+import org.rs.consts.Items
+import org.rs.consts.NPCs
 import core.api.removeItem
 import core.api.setAttribute
 import core.game.dialogue.Dialogue

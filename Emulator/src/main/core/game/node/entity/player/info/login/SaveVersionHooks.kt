@@ -1,6 +1,6 @@
 package core.game.node.entity.player.info.login
 
-import cfg.consts.Items
+import org.rs.consts.Items
 import core.Configuration
 import core.api.*
 import core.game.node.entity.player.Player

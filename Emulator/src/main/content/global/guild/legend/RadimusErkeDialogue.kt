@@ -1,6 +1,6 @@
 package content.global.guild.legend
 
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import core.api.sendMessage
 import core.api.setVarbit
 import core.game.dialogue.Dialogue

@@ -1,7 +1,7 @@
 package content.miniquest.general.cutscene
 
 import content.miniquest.general.handlers.GhostBouncerNPC.Companion.spawnGhostBouncer
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import content.miniquest.general.handlers.GSUtils
 import core.api.location
 import core.api.removeAttribute

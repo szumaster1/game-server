@@ -1,8 +1,8 @@
 package content.region.kandarin.quest.waterfall.dialogue
 
 import core.api.addItem
-import cfg.consts.Items
-import cfg.consts.NPCs
+import org.rs.consts.Items
+import org.rs.consts.NPCs
 import core.api.hasAnItem
 import core.api.removeItem
 import core.api.sendDialogue

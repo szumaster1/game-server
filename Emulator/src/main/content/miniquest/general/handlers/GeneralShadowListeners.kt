@@ -1,7 +1,7 @@
 package content.miniquest.general.handlers
 
 import core.api.*
-import cfg.consts.Scenery
+import org.rs.consts.Scenery
 import content.miniquest.general.cutscene.CavernCutscene
 import core.game.dialogue.DialogueFile
 import core.game.interaction.IntType

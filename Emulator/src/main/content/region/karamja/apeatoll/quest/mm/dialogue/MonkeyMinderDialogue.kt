@@ -1,6 +1,6 @@
 package content.region.karamja.apeatoll.quest.mm.dialogue
 
-import cfg.consts.Components
+import org.rs.consts.Components
 import core.api.openOverlay
 import core.api.teleport
 import core.game.dialogue.DialogueFile

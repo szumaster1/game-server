@@ -1,9 +1,9 @@
 package content.global.skill.combat.summoning
 
 import core.api.*
-import cfg.consts.Animations
-import cfg.consts.Graphics
-import cfg.consts.Sounds
+import org.rs.consts.Animations
+import org.rs.consts.Graphics
+import org.rs.consts.Sounds
 import core.game.event.SummoningPointsRechargeEvent
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener

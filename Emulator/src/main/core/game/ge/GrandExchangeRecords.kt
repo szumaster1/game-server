@@ -1,6 +1,6 @@
 package core.game.ge
 
-import cfg.consts.Components
+import org.rs.consts.Components
 import core.api.LoginListener
 import core.api.PersistPlayer
 import core.api.playJingle

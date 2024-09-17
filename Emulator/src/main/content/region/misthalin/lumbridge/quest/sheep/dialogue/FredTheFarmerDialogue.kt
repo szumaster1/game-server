@@ -2,7 +2,7 @@ package content.region.misthalin.lumbridge.quest.sheep.dialogue
 
 import content.region.misthalin.lumbridge.quest.sheep.SheepShearer
 import core.api.*
-import cfg.consts.Items
+import org.rs.consts.Items
 import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression
 import core.tools.END_DIALOGUE

@@ -2,9 +2,9 @@ package content.global.skill.production.smithing.item
 
 import content.region.kandarin.quest.mcannon.DwarfCannon
 import core.api.*
-import cfg.consts.Animations
-import cfg.consts.Items
-import cfg.consts.Sounds
+import org.rs.consts.Animations
+import org.rs.consts.Items
+import org.rs.consts.Sounds
 import core.game.node.entity.player.Player
 import core.game.node.entity.skill.SkillPulse
 import core.game.node.entity.skill.Skills

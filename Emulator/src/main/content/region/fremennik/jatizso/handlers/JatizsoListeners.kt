@@ -1,9 +1,9 @@
 package content.region.fremennik.jatizso.handlers
 
 import core.api.*
-import cfg.consts.NPCs
-import cfg.consts.Scenery
-import cfg.consts.Sounds
+import org.rs.consts.NPCs
+import org.rs.consts.Scenery
+import org.rs.consts.Sounds
 import content.region.fremennik.jatizso.dialogue.LeftieRightieDialogue
 import core.game.dialogue.FacialExpression
 import core.game.interaction.IntType

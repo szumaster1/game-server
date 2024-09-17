@@ -4,10 +4,10 @@ import content.data.item.BrokenItem
 import content.data.item.BrokenItem.getRepair
 import content.region.kandarin.port_khazard.dialogue.TindelMerchantDialogue
 import core.api.*
-import cfg.consts.Items
-import cfg.consts.NPCs
-import cfg.consts.Scenery
-import cfg.consts.Sounds
+import org.rs.consts.Items
+import org.rs.consts.NPCs
+import org.rs.consts.Scenery
+import org.rs.consts.Sounds
 import core.game.dialogue.FacialExpression
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener

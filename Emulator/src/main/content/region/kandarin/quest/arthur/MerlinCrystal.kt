@@ -1,8 +1,8 @@
 package content.region.kandarin.quest.arthur
 
-import cfg.consts.Components
-import cfg.consts.Items
-import cfg.consts.Vars
+import org.rs.consts.Components
+import org.rs.consts.Items
+import org.rs.consts.Vars
 import content.region.kandarin.quest.arthur.handlers.MerlinUtils
 import core.api.*
 import core.game.node.entity.player.Player

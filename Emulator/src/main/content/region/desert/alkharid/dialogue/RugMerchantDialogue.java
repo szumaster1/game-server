@@ -1,7 +1,7 @@
 package content.region.desert.alkharid.dialogue;
 
-import cfg.consts.Items;
-import cfg.consts.Sounds;
+import org.rs.consts.Items;
+import org.rs.consts.Sounds;
 import core.api.Container;
 import core.cache.def.impl.NPCDefinition;
 import core.game.container.impl.EquipmentContainer;

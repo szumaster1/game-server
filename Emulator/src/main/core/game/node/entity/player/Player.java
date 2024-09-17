@@ -1,7 +1,7 @@
 package core.game.node.entity.player;
 
-import cfg.consts.Items;
-import cfg.consts.Sounds;
+import org.rs.consts.Items;
+import org.rs.consts.Sounds;
 import content.global.handlers.item.equipment.EquipmentDegrader;
 import content.global.handlers.item.equipment.special.ChinchompaSwingHandler;
 import content.global.handlers.item.equipment.special.SalamanderSwingHandler;

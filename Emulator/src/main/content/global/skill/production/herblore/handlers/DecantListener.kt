@@ -2,8 +2,8 @@ package content.global.skill.production.herblore.handlers
 
 import content.data.consumables.Consumables
 import core.api.*
-import cfg.consts.Items
-import cfg.consts.Sounds
+import org.rs.consts.Items
+import org.rs.consts.Sounds
 import core.game.consumable.Potion
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener

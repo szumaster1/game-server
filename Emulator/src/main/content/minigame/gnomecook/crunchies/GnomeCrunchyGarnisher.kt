@@ -1,6 +1,6 @@
 package content.minigame.gnomecook.crunchies
 
-import cfg.consts.Items
+import org.rs.consts.Items
 import core.game.interaction.NodeUsageEvent
 import core.game.interaction.UseWithHandler
 import core.game.node.entity.skill.Skills

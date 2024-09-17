@@ -1,6 +1,6 @@
 package content.region.kandarin.quest.grandtree.dialogue
 
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import core.api.getQuestStage
 import core.api.openDialogue
 import core.game.dialogue.Dialogue

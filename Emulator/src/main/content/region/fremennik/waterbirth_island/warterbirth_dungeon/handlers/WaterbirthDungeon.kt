@@ -1,7 +1,7 @@
 package content.region.fremennik.waterbirth_island.warterbirth_dungeon.handlers
 
-import cfg.consts.Items
-import cfg.consts.NPCs
+import org.rs.consts.Items
+import org.rs.consts.NPCs
 import core.api.isQuestComplete
 import core.cache.def.impl.NPCDefinition
 import core.cache.def.impl.SceneryDefinition

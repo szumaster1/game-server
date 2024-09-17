@@ -2,8 +2,8 @@ package content.region.kandarin.baxtorian.barbarian_training.herblore
 
 import content.region.kandarin.baxtorian.barbarian_training.BarbarianTraining
 import core.api.*
-import cfg.consts.Animations
-import cfg.consts.Items
+import org.rs.consts.Animations
+import org.rs.consts.Items
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.Node

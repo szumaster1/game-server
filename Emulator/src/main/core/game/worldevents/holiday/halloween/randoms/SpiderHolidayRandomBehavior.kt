@@ -1,6 +1,6 @@
 package core.game.worldevents.holiday.halloween.randoms
 
-import cfg.consts.Sounds
+import org.rs.consts.Sounds
 import core.api.getAttribute
 import core.api.playGlobalAudio
 import core.game.node.entity.Entity

@@ -1,6 +1,6 @@
 package content.region.karamja.shilovillage.handlers
 
-import cfg.consts.Items
+import org.rs.consts.Items
 import core.game.node.item.Item
 
 /**

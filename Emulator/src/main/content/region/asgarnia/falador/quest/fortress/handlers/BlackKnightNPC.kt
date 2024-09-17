@@ -1,6 +1,6 @@
 package content.region.asgarnia.falador.quest.fortress.handlers
 
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import core.api.finishDiaryTask
 import core.api.hasDiaryTaskComplete
 import core.game.node.entity.Entity

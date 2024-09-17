@@ -1,6 +1,6 @@
 package content.region.kandarin.quest.zogre.handlers
 
-import cfg.consts.Items
+import org.rs.consts.Items
 
 object ZUtils {
 

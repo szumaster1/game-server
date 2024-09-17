@@ -1,7 +1,7 @@
 package content.region.misthalin.varrock.quest.crest.dialogue
 
-import cfg.consts.Items
-import cfg.consts.NPCs
+import org.rs.consts.Items
+import org.rs.consts.NPCs
 import core.api.*
 import core.game.dialogue.Dialogue
 import core.game.node.entity.npc.NPC

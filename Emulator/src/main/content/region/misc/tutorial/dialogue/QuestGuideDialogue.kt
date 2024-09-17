@@ -1,8 +1,8 @@
 package content.region.misc.tutorial.dialogue
 
 import content.region.misc.tutorial.handlers.TutorialStage
-import cfg.consts.Components
-import cfg.consts.NPCs
+import org.rs.consts.Components
+import org.rs.consts.NPCs
 import core.api.*
 import core.game.component.Component
 import core.game.dialogue.Dialogue

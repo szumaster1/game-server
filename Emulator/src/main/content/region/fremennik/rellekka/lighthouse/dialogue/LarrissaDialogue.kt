@@ -1,6 +1,6 @@
 package content.region.fremennik.rellekka.lighthouse.dialogue
 
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import content.region.fremennik.rellekka.lighthouse.quest.horror.dialogue.LarrissaDialogueFile
 import core.api.openDialogue
 import core.game.dialogue.Dialogue

@@ -1,7 +1,7 @@
 package content.region.fremennik.quest.olaf.handlers
 
-import cfg.consts.Components
-import cfg.consts.Items
+import org.rs.consts.Components
+import org.rs.consts.Items
 import core.api.openInterface
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener

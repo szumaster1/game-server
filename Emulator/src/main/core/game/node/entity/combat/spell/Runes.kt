@@ -1,6 +1,6 @@
 package core.game.node.entity.combat.spell
 
-import cfg.consts.Items
+import org.rs.consts.Items
 import core.game.node.item.Item
 
 /**

@@ -1,6 +1,6 @@
 package content.global.activity.champion.handlers
 
-import cfg.consts.*
+import org.rs.consts.*
 import content.data.GameAttributes
 import core.api.*
 import content.global.activity.champion.dialogue.LarxusDialogueFile

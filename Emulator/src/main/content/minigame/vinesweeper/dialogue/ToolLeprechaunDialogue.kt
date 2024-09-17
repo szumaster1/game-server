@@ -1,8 +1,8 @@
 package content.minigame.vinesweeper.dialogue
 
 import content.minigame.vinesweeper.VinesweeperMinigame
-import cfg.consts.Components
-import cfg.consts.NPCs
+import org.rs.consts.Components
+import org.rs.consts.NPCs
 import core.api.openInterface
 import core.api.openNpcShop
 import core.game.dialogue.Dialogue

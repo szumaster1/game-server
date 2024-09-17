@@ -1,6 +1,6 @@
 package content.global.skill.combat.summoning.pet
 
-import cfg.consts.Items
+import org.rs.consts.Items
 import core.game.node.item.Item
 
 

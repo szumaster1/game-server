@@ -3,7 +3,7 @@ package content.global.skill.production.crafting.handlers
 import content.global.skill.production.crafting.data.Snakeskin
 import content.global.skill.production.crafting.item.SnakeskinCraftPulse
 import core.api.amountInInventory
-import cfg.consts.Items
+import org.rs.consts.Items
 import core.game.dialogue.SkillDialogueHandler
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener

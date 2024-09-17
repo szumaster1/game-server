@@ -1,7 +1,7 @@
 package content.minigame.stealingcreation
 
-import cfg.consts.Components
-import cfg.consts.NPCs
+import org.rs.consts.Components
+import org.rs.consts.NPCs
 import core.api.openInterface
 import core.api.sendDialogueOptions
 import core.api.setTitle

@@ -1,6 +1,6 @@
 package content.global.guild.fish
 
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import core.api.getDynLevel
 import core.api.sendNPCDialogue
 import core.api.withinDistance

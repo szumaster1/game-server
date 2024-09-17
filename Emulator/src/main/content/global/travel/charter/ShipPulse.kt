@@ -1,7 +1,7 @@
 package content.global.travel.charter
 
 import core.api.*
-import cfg.consts.Components
+import org.rs.consts.Components
 import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.diary.DiaryType
 import core.game.system.task.Pulse

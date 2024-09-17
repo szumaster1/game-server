@@ -1,8 +1,8 @@
 package content.region.kandarin.gnome_stronghold.dialogue
 
 import core.api.addItemOrDrop
-import cfg.consts.Items
-import cfg.consts.NPCs
+import org.rs.consts.Items
+import org.rs.consts.NPCs
 import core.api.openNpcShop
 import core.api.removeItem
 import core.game.dialogue.Dialogue

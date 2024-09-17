@@ -1,6 +1,6 @@
 package content.global.skill.combat
 
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import core.api.sendMessage
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener

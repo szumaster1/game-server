@@ -1,6 +1,6 @@
 package content.region.fremennik.quest.misc.dialogue
 
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import content.region.fremennik.achievement.dialogue.AdvisorGhrimDiaryDialogue
 import core.api.openDialogue
 import core.game.dialogue.Dialogue

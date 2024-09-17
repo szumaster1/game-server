@@ -1,6 +1,6 @@
 package content.region.morytania.swamp.quest.druidspirit.handlers
 
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import core.api.poofClear
 import core.game.node.entity.npc.AbstractNPC
 import core.game.world.map.Location

@@ -1,6 +1,6 @@
 package content.region.kandarin.ardougne.necromancer_tower.dialogue
 
-import cfg.consts.NPCs
+import org.rs.consts.NPCs
 import core.game.dialogue.Dialogue
 import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression

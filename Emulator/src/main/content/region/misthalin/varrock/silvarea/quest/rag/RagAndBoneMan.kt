@@ -1,6 +1,6 @@
 package content.region.misthalin.varrock.silvarea.quest.rag
 
-import cfg.consts.Items
+import org.rs.consts.Items
 import content.region.misthalin.varrock.silvarea.quest.rag.handlers.BoneBoiler
 import core.api.getAttribute
 import core.api.inInventory

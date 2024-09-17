@@ -1,8 +1,8 @@
 package content.global.skill.support.slayer.npc
 
 import content.global.skill.support.slayer.SlayerEquipmentFlags.hasEarmuffs
-import cfg.consts.Animations
-import cfg.consts.NPCs
+import org.rs.consts.Animations
+import org.rs.consts.NPCs
 import core.game.node.entity.Entity
 import core.game.node.entity.combat.*
 import core.game.node.entity.impl.Animator.Priority

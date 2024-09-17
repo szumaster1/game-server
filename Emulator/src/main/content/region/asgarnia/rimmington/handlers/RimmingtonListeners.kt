@@ -1,6 +1,6 @@
 package content.region.asgarnia.rimmington.handlers
 
-import cfg.consts.Scenery
+import org.rs.consts.Scenery
 import content.region.asgarnia.rimmington.dialogue.CustomsSergeantDialogue
 import core.api.openDialogue
 import core.api.sendMessage

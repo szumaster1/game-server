@@ -1,6 +1,6 @@
 package core.game.node.entity.combat
 
-import cfg.consts.Items
+import org.rs.consts.Items
 import content.global.skill.skillcape.SkillcapePerks
 import content.global.skill.support.slayer.SlayerEquipmentFlags
 import core.api.*

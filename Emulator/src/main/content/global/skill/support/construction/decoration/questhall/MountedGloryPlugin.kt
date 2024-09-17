@@ -1,7 +1,7 @@
 package content.global.skill.support.construction.decoration.questhall
 
-import cfg.consts.Graphics
-import cfg.consts.Sounds
+import org.rs.consts.Graphics
+import org.rs.consts.Sounds
 import core.api.*
 import core.cache.def.impl.SceneryDefinition
 import core.game.interaction.OptionHandler

@@ -1,6 +1,6 @@
 package core.game.node.entity.player.link;
 
-import cfg.consts.Sounds;
+import org.rs.consts.Sounds;
 import content.global.handlers.iface.ge.StockMarketInterfaceListener;
 import core.game.component.CloseEvent;
 import core.game.component.Component;

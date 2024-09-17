@@ -1,8 +1,8 @@
 package content.region.morytania.swamp.quest.druidspirit.handlers
 
-import cfg.consts.Animations
-import cfg.consts.Graphics
-import cfg.consts.Sounds
+import org.rs.consts.Animations
+import org.rs.consts.Graphics
+import org.rs.consts.Sounds
 import content.region.morytania.swamp.quest.druidspirit.dialogue.DrezelDialogueFile
 import core.api.*
 import core.game.node.entity.npc.NPC
