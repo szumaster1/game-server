@@ -32,9 +32,6 @@ public final class PotteryPlugin extends UseWithHandler {
         Scenery.POTTERY_OVEN_34802
     };
 
-    /**
-     * Instantiates a new Pottery.kt plugin.
-     */
     public PotteryPlugin() {
         super(Items.SOFT_CLAY_1761);
     }
@@ -80,7 +77,7 @@ public final class PotteryPlugin extends UseWithHandler {
         return items;
     }
 
-    /**
+    /*
      * Fire oven plugin.
      */
     public class FireOvenPlugin extends OptionHandler {
@@ -100,14 +97,11 @@ public final class PotteryPlugin extends UseWithHandler {
             return true;
         }
 
-        /**
+        /*
          * Fire use handler.
          */
         public final class FireUseHandler extends UseWithHandler {
 
-            /**
-             * Instantiates a new Fire use handler.
-             */
             public FireUseHandler() {
                 super(Items.UNFIRED_POT_1787,
                     Items.UNFIRED_PIE_DISH_1789,
@@ -137,8 +131,8 @@ public final class PotteryPlugin extends UseWithHandler {
         /**
          * Gets skill handler.
          *
-         * @param player the player
-         * @return the skill handler
+         * @param player the player.
+         * @return the skill handler.
          */
         public SkillDialogueHandler getSkillHandler(final Player player) {
             return new SkillDialogueHandler(player, SkillDialogue.FIVE_OPTION, (Object[]) getPottery(true)) {

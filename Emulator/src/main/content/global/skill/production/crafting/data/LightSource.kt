@@ -112,6 +112,7 @@ enum class LightSource(
     );
 
     companion object {
+        @JvmStatic
         fun forId(id: Int): LightSource? {
             return values().find { it.fullId == id || it.litId == id }
         }

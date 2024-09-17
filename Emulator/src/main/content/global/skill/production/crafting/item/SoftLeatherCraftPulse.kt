@@ -16,11 +16,6 @@ import core.tools.StringUtils
 
 /**
  * Represents a pulse used to craft soft leather.
- *
- * @param player The player.
- * @param node the item id.
- * @param soft the item id.
- * @param amount the amount of leather crafted.
  */
 class SoftLeatherCraftPulse(player: Player?, node: Item?, val soft: SoftLeather, var amount: Int) :
     SkillPulse<Item?>(player, node) {

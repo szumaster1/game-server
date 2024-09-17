@@ -11,14 +11,7 @@ import core.plugin.Plugin
  * Leather craft interface plugin.
  */
 @Initializable
-class LeatherCraftInterfacePlugin : UseWithHandler(
-    Leather.LEATHER,
-    Leather.HARD_LEATHER,
-    Leather.GREEN_LEATHER,
-    Leather.BLUE_LEATHER,
-    Leather.RED_LEATHER,
-    Leather.BLACK_LEATHER
-) {
+class LeatherCraftInterfacePlugin : UseWithHandler(Leather.LEATHER, Leather.HARD_LEATHER, Leather.GREEN_LEATHER, Leather.BLUE_LEATHER, Leather.RED_LEATHER, Leather.BLACK_LEATHER) {
 
     override fun newInstance(arg: Any?): Plugin<Any> {
         addHandler(Leather.NEEDLE, ITEM_TYPE, this)

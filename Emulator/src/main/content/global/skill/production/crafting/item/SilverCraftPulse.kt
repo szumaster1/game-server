@@ -13,18 +13,8 @@ import core.game.system.task.Pulse
 
 /**
  * Represents the skill pulse for silver crafting.
- *
- * @param player The player who is crafting the item.
- * @param product The product being crafted.
- * @param furnace The furnace where the crafting takes place.
- * @param amount the amount of item crafted.
  */
-class SilverCraftPulse(
-    val player: Player,
-    val product: Silver,
-    val furnace: Scenery,
-    var amount: Int
-) : Pulse() {
+class SilverCraftPulse(val player: Player, val product: Silver, val furnace: Scenery, var amount: Int) : Pulse() {
 
     override fun pulse(): Boolean {
         if (amount < 1) return true

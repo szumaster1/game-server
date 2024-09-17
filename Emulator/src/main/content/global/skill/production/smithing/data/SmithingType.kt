@@ -5,13 +5,6 @@ import core.game.node.item.Item
 
 /**
  * Represents a type of smithing.
- * @author Emperor
- *
- * @param bar       the bars.
- * @param base      the base.
- * @param nameId    the name.
- * @param button    the button.
- * @param amount    the amount.
  */
 enum class SmithingType(val bar: Int, val base: Int, val nameId: Int, val button: IntArray, val amount: Int) {
     TYPE_DAGGER(

@@ -16,11 +16,6 @@ import core.game.world.update.flag.context.Animation
 
 /**
  * Represents the pulse used to spin an item.
- *
- * @param player The player.
- * @param node the item id.
- * @param type the type.
- * @param amount the amount of leather crafted.
  */
 class SpinningPulse(player: Player?, node: Item?, var amount: Int, val type: Spinning) : SkillPulse<Item?>(player, node) {
 

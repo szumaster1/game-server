@@ -5,11 +5,6 @@ import cfg.consts.Items
 /**
  * Bar type enum class.
  * @author Emperor
- *
- * @param bar           the bar id.
- * @param experience    the experience.
- * @param barName       the bar name (string).
- * @return the [BarType].
  */
 enum class BarType(val bar: Int, val experience: Double, val barName: String) {
     BRONZE(
@@ -51,10 +46,10 @@ enum class BarType(val bar: Int, val experience: Double, val barName: String) {
     companion object {
 
         /**
-         * Gets the [BarType] associated with a given item id.
+         * Gets the bar type for a given item id.
          *
-         * @param itemId The ID of the item for which the BarType is to be retrieved.
-         * @return The corresponding BarType for the given itemId, or null if no match is found.
+         * @param itemId the item id.
+         * @return The [BarType] for the given [itemId], or `null` if no match is found.
          */
         fun getBarTypeForId(itemId: Int): BarType? {
             when (itemId) {

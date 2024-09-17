@@ -15,32 +15,24 @@ import kotlin.Unit;
 import static core.api.ContentAPIKt.sendInputDialogue;
 
 /**
- * Leather craft dialogue.
+ * Represents the leather craft dialogue.
  */
 @Initializable
-public final class LeatherCraftDialogue extends Dialogue {
+public final class LeatherCraftingDialogue extends Dialogue {
 
     private String type = "";
     private int leather;
 
-    /**
-     * Instantiates a new Leather craft dialogue.
-     */
-    public LeatherCraftDialogue() {
+    public LeatherCraftingDialogue() {
     }
 
-    /**
-     * Instantiates a new Leather craft dialogue.
-     *
-     * @param player the player
-     */
-    public LeatherCraftDialogue(Player player) {
+    public LeatherCraftingDialogue(Player player) {
         super(player);
     }
 
     @Override
     public Dialogue newInstance(Player player) {
-        return new LeatherCraftDialogue(player);
+        return new LeatherCraftingDialogue(player);
     }
 
     @Override

@@ -13,11 +13,7 @@ import core.game.system.task.Pulse
 /**
  * Represents a pulse used to craft glass items.
  */
-class GlassCraftPulse(
-    private val player: Player,
-    private val product: Glass,
-    private var amount: Int
-) : Pulse() {
+class GlassCraftPulse(private val player: Player, private val product: Glass, private var amount: Int) : Pulse() {
 
     override fun pulse(): Boolean {
         if (amount < 1) {

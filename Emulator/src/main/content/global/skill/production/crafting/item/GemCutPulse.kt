@@ -11,11 +11,6 @@ import core.game.node.item.Item
 
 /**
  * Represents the pulse used to cut a gem.
- *
- * @param player the player.
- * @param item The item id.
- * @param amount the amount of item.
- * @param gem The gem type.
  */
 class GemCutPulse(player: Player?, item: Item?, var amount: Int, val gem: Gem) : SkillPulse<Item?>(player, item) {
 

@@ -71,7 +71,7 @@ enum class Glass(
                 PRODUCT_MAP[product.productId] = product
             }
         }
-
+        @JvmStatic
         fun forButtonID(buttonId: Int): Glass? = BUTTON_MAP[buttonId]
     }
 }

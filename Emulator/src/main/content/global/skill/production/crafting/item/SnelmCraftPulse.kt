@@ -8,9 +8,6 @@ import core.game.node.item.Item
 
 /**
  * Represents the pulse of crafting a snelm helmet.
- *
- * @param node the item id.
- * @param item the required item id.
  */
 class SnelmCraftPulse(player: Player?, node: Item?, item: IntArray) : SkillPulse<Item?>(player, node) {
 

@@ -10,10 +10,6 @@ import core.game.system.task.Pulse
 
 /**
  * Represents the molten glass crafting.
- *
- * @param player the player.
- * @param product the item id.
- * @param amount the amount.
  */
 class GlassMakePulse(private val player: Player, val product: Int, private var amount: Int) : Pulse() {
 

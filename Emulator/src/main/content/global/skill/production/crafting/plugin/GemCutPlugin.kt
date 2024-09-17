@@ -14,17 +14,7 @@ import core.plugin.Plugin
  * Gem cut plugin.
  */
 @Initializable
-class GemCutPlugin : UseWithHandler(
-    Items.UNCUT_DIAMOND_1617,
-    Items.UNCUT_RUBY_1619,
-    Items.UNCUT_EMERALD_1621,
-    Items.UNCUT_SAPPHIRE_1623,
-    Items.UNCUT_OPAL_1625,
-    Items.UNCUT_JADE_1627,
-    Items.UNCUT_RED_TOPAZ_1629,
-    Items.UNCUT_DRAGONSTONE_1631,
-    Items.UNCUT_ONYX_6571
-) {
+class GemCutPlugin : UseWithHandler(Items.UNCUT_DIAMOND_1617, Items.UNCUT_RUBY_1619, Items.UNCUT_EMERALD_1621, Items.UNCUT_SAPPHIRE_1623, Items.UNCUT_OPAL_1625, Items.UNCUT_JADE_1627, Items.UNCUT_RED_TOPAZ_1629, Items.UNCUT_DRAGONSTONE_1631, Items.UNCUT_ONYX_6571) {
 
     override fun newInstance(arg: Any?): Plugin<Any> {
         addHandler(Items.CHISEL_1755, ITEM_TYPE, this)

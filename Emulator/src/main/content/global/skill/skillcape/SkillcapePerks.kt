@@ -24,69 +24,30 @@ import core.plugin.Initializable
  * Represents the skillcape perks.
  */
 enum class SkillcapePerks(val attribute: String, val effect: ((Player) -> Unit)? = null) {
-    /**
-     * The barefisted smithing.
-     */
     BAREFISTED_SMITHING("cape_perks:barefisted-smithing"),
 
-    /**
-     * The divine favor.
-     */
     DIVINE_FAVOR("cape_perks:divine-favor"),
 
-    /**
-     * The constant glow.
-     */
     CONSTANT_GLOW("cape_perks:eternal-glow"),
 
-    /**
-     * The precision miner.
-     */
     PRECISION_MINER("cape_perks:precision-miner"),
 
-    /**
-     * The great aim.
-     */
     GREAT_AIM("cape_perks:great-aim"),
 
-    /**
-     * The nest hunter.
-     */
     NEST_HUNTER("cape_perks:nest-hunter"),
 
-    /**
-     * The precision strikes.
-     */
     PRECISION_STRIKES("cape_perks:precision-strikes"),
 
-    /**
-     * The fine attunement.
-     */
     FINE_ATTUNEMENT("cape_perks:fine-attunement"),
 
-    /**
-     * The grand bullwark.
-     */
     GRAND_BULLWARK("cape_perks:grand-bullwark"),
 
-    /**
-     * The accurate marksman.
-     */
     ACCURATE_MARKSMAN("cape_perks:accurate-marksman"),
 
-    /**
-     * The damage spong.
-     */
     DAMAGE_SPONG("cape_perks:damage-sponge"),
 
-    /**
-     * The marathon runner.
-     */
     MARATHON_RUNNER("cape_perks:marathon-runner"),
 
-    /**
-     * The librarian magus.
-     */
     LIBRARIAN_MAGUS("cape_perks:librarian-magus", { player ->
         val store = ServerStore.getArchive("daily-librarian-magus")
         val used = store.getInt(player.name, 0)
@@ -98,9 +59,6 @@ enum class SkillcapePerks(val attribute: String, val effect: ((Player) -> Unit)?
         }
     }),
 
-    /**
-     * The abyss warping.
-     */
     ABYSS_WARPING("cape_perks:abyss_warp", { player ->
         val store = ServerStore.getArchive("daily-abyss-warp")
         val used = store.getInt(player.name, 0)
@@ -112,9 +70,6 @@ enum class SkillcapePerks(val attribute: String, val effect: ((Player) -> Unit)?
         }
     }),
 
-    /**
-     * The seed attraction.
-     */
     SEED_ATTRACTION("cape_perks:seed_attract", { player ->
         val store = ServerStore.getArchive("daily-seed-attract")
         if (store.getBoolean(player.name)) {
@@ -136,9 +91,6 @@ enum class SkillcapePerks(val attribute: String, val effect: ((Player) -> Unit)?
         }
     }),
 
-    /**
-     * The tricks of the trade.
-     */
     TRICKS_OF_THE_TRADE("cape_perks:tott", { player ->
         val hasHelmetBonus = getAttribute(player, "cape_perks:tott:helmet-stored", false)
         if (hasHelmetBonus) {
@@ -150,31 +102,16 @@ enum class SkillcapePerks(val attribute: String, val effect: ((Player) -> Unit)?
         }
     }),
 
-    /**
-     * The hasty cooking.
-     */
     HASTY_COOKING("cape_perks:hasty-cooking"),
 
-    /**
-     * The smooth hands.
-     */
     SMOOTH_HANDS("cape_perks:smooth-hands"),
 
-    /**
-     * The pet mastery.
-     */
     PET_MASTERY("cape_perks:pet-mastery"),
 
-    /**
-     * The brew master.
-     */
     BREWMASTER(
         "cape_perks:brewmaster"
     ),
 
-    /**
-     * none.
-     */
     NONE("cape_perks:none");
 
     companion object {
@@ -194,40 +131,35 @@ enum class SkillcapePerks(val attribute: String, val effect: ((Player) -> Unit)?
          */
         fun forSkillcape(skillcape: Skillcape): SkillcapePerks {
             return when (skillcape) {
-                Skillcape.ATTACK -> PRECISION_STRIKES
-                Skillcape.STRENGTH -> FINE_ATTUNEMENT
-                Skillcape.DEFENCE -> GRAND_BULLWARK
-                Skillcape.RANGING -> ACCURATE_MARKSMAN
-                Skillcape.PRAYER -> DIVINE_FAVOR
-                Skillcape.MAGIC -> LIBRARIAN_MAGUS
-                Skillcape.RUNECRAFTING -> ABYSS_WARPING
-                Skillcape.HITPOINTS -> DAMAGE_SPONG
-                Skillcape.AGILITY -> MARATHON_RUNNER
-                Skillcape.HERBLORE -> BREWMASTER
-                Skillcape.THIEVING -> SMOOTH_HANDS
-                Skillcape.CRAFTING -> NONE
-                Skillcape.FLETCHING -> NONE
-                Skillcape.SLAYER -> TRICKS_OF_THE_TRADE
-                Skillcape.CONSTRUCTION -> NONE
-                Skillcape.MINING -> PRECISION_MINER
-                Skillcape.SMITHING -> BAREFISTED_SMITHING
-                Skillcape.FISHING -> GREAT_AIM
-                Skillcape.COOKING -> HASTY_COOKING
-                Skillcape.FIREMAKING -> CONSTANT_GLOW
-                Skillcape.WOODCUTTING -> NEST_HUNTER
-                Skillcape.FARMING -> SEED_ATTRACTION
-                Skillcape.HUNTING -> NONE
-                Skillcape.SUMMONING -> PET_MASTERY
+                Skillcape.ATTACK ->         PRECISION_STRIKES
+                Skillcape.STRENGTH ->       FINE_ATTUNEMENT
+                Skillcape.DEFENCE ->        GRAND_BULLWARK
+                Skillcape.RANGING ->        ACCURATE_MARKSMAN
+                Skillcape.PRAYER ->         DIVINE_FAVOR
+                Skillcape.MAGIC ->          LIBRARIAN_MAGUS
+                Skillcape.RUNECRAFTING ->   ABYSS_WARPING
+                Skillcape.HITPOINTS ->      DAMAGE_SPONG
+                Skillcape.AGILITY ->        MARATHON_RUNNER
+                Skillcape.HERBLORE ->       BREWMASTER
+                Skillcape.THIEVING ->       SMOOTH_HANDS
+                Skillcape.CRAFTING ->       NONE
+                Skillcape.FLETCHING ->      NONE
+                Skillcape.SLAYER ->         TRICKS_OF_THE_TRADE
+                Skillcape.CONSTRUCTION ->   NONE
+                Skillcape.MINING ->         PRECISION_MINER
+                Skillcape.SMITHING ->       BAREFISTED_SMITHING
+                Skillcape.FISHING ->        GREAT_AIM
+                Skillcape.COOKING ->        HASTY_COOKING
+                Skillcape.FIREMAKING ->     CONSTANT_GLOW
+                Skillcape.WOODCUTTING ->    NEST_HUNTER
+                Skillcape.FARMING ->        SEED_ATTRACTION
+                Skillcape.HUNTING ->        NONE
+                Skillcape.SUMMONING ->      PET_MASTERY
                 else -> NONE
             }
         }
     }
 
-    /**
-     * Activate the perk.
-     *
-     * @param player The player who is activating the skillcape.
-     */
     fun activate(player: Player) {
 
         if (GameWorld.settings?.skillcape_perks != true) {
@@ -235,46 +167,25 @@ enum class SkillcapePerks(val attribute: String, val effect: ((Player) -> Unit)?
         }
 
         if (!isActive(this, player)) {
-            // Set the attribute to indicate the skillcape is active
             player.setAttribute("/save:$attribute", true)
         }
-        // Log the activation of the skillcape for debugging purposes
         player.debug("Activated ${this.name}")
-        // If the skillcape is the constant glow, check if the player is in a dark area
         if (this == CONSTANT_GLOW) DarkZone.checkDarkArea(player)
     }
 
-    /**
-     * Handles skillcape options.
-     *
-     * @param player The player who is operating the skillcape.
-     */
     fun operate(player: Player) {
-        // Check if skillcape perks are enabled in the game settings
         if (GameWorld.settings?.skillcape_perks != true) {
-            // Inform the player that the item cannot be operated
             player.sendMessage("This item can not be operated.")
-            return // Exit the function if perks are not enabled
+            return
         }
-        // Invoke the effect associated with the skillcape on the player
         effect?.invoke(player)
     }
 
-    /**
-     * Handles deactivating effect (perk).
-     *
-     * @param player The player who is deactivating the skillcape.
-     */
     fun deactivate(player: Player) {
-        // Remove the active attribute of the skillcape from the player
         player.removeAttribute(attribute)
-        // If the skillcape is the constant glow, check if the player is in a dark area
         if (this == CONSTANT_GLOW) DarkZone.checkDarkArea(player)
     }
 
-    /**
-     * Represents the Magic cape dialogue.
-     */
     @Initializable
     class MagicCapeDialogue(player: Player? = null) : Dialogue(player) {
 
@@ -340,9 +251,6 @@ enum class SkillcapePerks(val attribute: String, val effect: ((Player) -> Unit)?
 
     }
 
-    /**
-     * Represents the Runecrafting dialogue.
-     */
     @Initializable
     class RCCapeDialogue(player: Player? = null) : Dialogue(player) {
 
@@ -390,12 +298,6 @@ enum class SkillcapePerks(val attribute: String, val effect: ((Player) -> Unit)?
             return true
         }
 
-        /**
-         * Send player to altar.
-         *
-         * @param player    the player.
-         * @param altar     the altar.
-         */
         fun sendAltar(player: Player, altar: Altar) {
             end()
             if (altar == Altar.DEATH && !hasRequirement(player, "Mourning's End Part II")) return
