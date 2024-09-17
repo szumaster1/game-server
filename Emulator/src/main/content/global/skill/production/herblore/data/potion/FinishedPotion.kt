@@ -6,12 +6,6 @@ import core.game.node.item.Item
 
 /**
  * Represents a finished potion.
- *
- * @param unfinished    the unfinished potion base.
- * @param ingredient    the ingredient.
- * @param level         the level.
- * @param experience    the experience.
- * @param potion        the potion.
  */
 enum class FinishedPotion(val unfinished: UnfinishedPotion, val ingredient: Item, val level: Int, val experience: Double, val potion: Item) {
     ATTACK_POTION(
@@ -227,9 +221,9 @@ enum class FinishedPotion(val unfinished: UnfinishedPotion, val ingredient: Item
 
     companion object {
         /**
-         * Gets the finished potion by the unfinished potion and the ingredient.
+         * Gets the [FinishedPotion] by the [UnfinishedPotion] and the [ingredient].
          *
-         * @param unf           the unf-potion.
+         * @param unf           the unfinished potion id.
          * @param ingredient    the ingredient.
          * @return the finished potion.
          */

@@ -7,7 +7,7 @@ import core.game.node.entity.npc.NPCBehavior
 import core.tools.RandomFunction
 
 /**
- * Agility boss NPC.
+ * Represents the agility boss NPC.
  */
 class AgilityBossNPC : NPCBehavior(NPCs.AGILITY_BOSS_1661) {
 

@@ -5,12 +5,6 @@ import core.game.node.item.Item
 
 /**
  * Represents the combination runes.
- *
- * @param rune          the item id.
- * @param level         the required level.
- * @param experience    the experience.
- * @param altars        the related altar.
- * @param runes         the related runes.
  */
 enum class CombinationRune(
     val rune: Item,

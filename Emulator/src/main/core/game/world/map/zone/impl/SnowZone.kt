@@ -24,7 +24,12 @@ class SnowZone : MapZone("snow", true) {
     private val TROLLWEIS_MOUNTAIN_2 = getRegionBorders(Regions.TROLLWEISS_MOUNTAIN_11068)
 
     override fun configure() {
-        registerZones(BASE_ZONE, MIDDLE_ZONE, WINDSWEPT_AREA, TROLLWEIS_MOUNTAIN_0, TROLLWEIS_MOUNTAIN_1, TROLLWEIS_MOUNTAIN_2)
+        register(BASE_ZONE)
+        register(MIDDLE_ZONE)
+        register(WINDSWEPT_AREA)
+        register(TROLLWEIS_MOUNTAIN_0)
+        register(TROLLWEIS_MOUNTAIN_1)
+        register(TROLLWEIS_MOUNTAIN_2)
     }
 
     override fun enter(e: Entity): Boolean {
@@ -50,7 +55,4 @@ class SnowZone : MapZone("snow", true) {
         openOverlay(player, overlayComponent)
     }
 
-    private fun registerZones(vararg zones: ZoneBorders) {
-        zones.forEach { register(it) }
-    }
 }

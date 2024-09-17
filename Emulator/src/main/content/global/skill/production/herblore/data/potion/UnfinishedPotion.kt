@@ -6,12 +6,8 @@ import cfg.consts.Items
 import core.game.node.item.Item
 
 /**
- * Represents an unfinished potion with its base item, ingredient, required level, and final product.
- *
- * @param base          the base item used for the potion.
- * @param ingredient    the ingredient required for the potion.
- * @param level         the level required to craft this potion.
- * @param potion        the final product of the potion.
+ * Represents an unfinished potion with its
+ * base item, ingredient, required level, and final product.
  */
 enum class UnfinishedPotion(val base: Item, val ingredient: Item, val level: Int, val potion: Item) {
     GUAM(
@@ -137,11 +133,11 @@ enum class UnfinishedPotion(val base: Item, val ingredient: Item, val level: Int
 
     companion object {
         /**
-         * Retrieves the corresponding [UnfinishedPotion] for a given item and base item.
+         * Get the [UnfinishedPotion] for a given [item] and [base] item.
          *
          * @param item      the item to check.
          * @param base      the base item to check.
-         * @return the corresponding unfinished potion, or null if not found.
+         * @return the [UnfinishedPotion], or `null` if not found.
          */
         fun forItem(item: Item, base: Item): UnfinishedPotion? {
             return values().find { potion ->

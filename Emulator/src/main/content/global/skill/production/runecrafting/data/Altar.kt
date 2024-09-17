@@ -10,13 +10,6 @@ import cfg.consts.Scenery as Object
 
 /**
  * Represents an altar relative information.
- *
- * @param scenery   the altar.
- * @param portal    the portal associated with the altar.
- * @param riftId    the rift linked to the altar.
- * @param ruin      reference to a [MysteriousRuin].
- * @param rune      reference to a [Rune].
- * @return the [Altar].
  */
 enum class Altar(val scenery: Int, val portal: Int, val riftId: Int, val ruin: MysteriousRuin?, val rune: Rune?) {
     AIR(

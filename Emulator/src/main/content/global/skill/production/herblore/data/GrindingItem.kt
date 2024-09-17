@@ -5,10 +5,6 @@ import core.game.node.item.Item
 
 /**
  * Represents an item that can be ground by pestle and mortar.
- *
- * @param items     the items that can be ground.
- * @param product   the product after grinding the items.
- * @param message   the message associated with the grinding process.
  */
 enum class GrindingItem(val items: List<Item>, val product: Item, val message: String) {
     UNICORN_HORN(
@@ -112,7 +108,6 @@ enum class GrindingItem(val items: List<Item>, val product: Item, val message: S
     );
 
     companion object {
-
         @JvmStatic
         fun forItem(item: Item): GrindingItem? {
             return values().firstOrNull { g -> g.items.any { it.id == item.id } }

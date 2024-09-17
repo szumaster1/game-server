@@ -5,11 +5,6 @@ import core.game.node.item.Item
 
 /**
  * Represents the rune.
- *
- * @param rune          the item.
- * @param level         the required level.
- * @param experience    the experience.
- * @param multiple      the multiple values.
  */
 enum class Rune(val rune: Item, val level: Int, val experience: Double, private vararg val multiple: Int) {
     AIR(Runes.AIR_RUNE.transform(), 1, 5.0, 1, 11, 22, 33, 44, 55, 66, 77, 88, 99, 110),

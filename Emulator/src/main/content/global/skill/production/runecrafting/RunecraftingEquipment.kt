@@ -141,7 +141,7 @@ class RunecraftingEquipment : InteractionListener {
     }
 }
 
-/**
+/*
  * Rc staffs to altar map.
  */
 object TalismanStaffToAltarMapper {

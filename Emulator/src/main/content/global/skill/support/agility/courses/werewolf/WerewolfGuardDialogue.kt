@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Werewolf guard dialogue.
+ * Represents the werewolf guard dialogue.
  */
 @Initializable
 class WerewolfGuardDialogue(player: Player? = null) : Dialogue(player) {

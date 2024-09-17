@@ -10,11 +10,6 @@ import core.game.node.entity.player.Player
 
 /**
  * Represents the Enchanting tiara dialogue.
- *
- * @param player    the player.
- * @param talisman  the talisman.
- * @param tiara     the tiara.
- * @param altar     the altar.
  */
 class EnchantTiaraDialogue(player: Player, val talisman: Talisman, val tiara: TalismanStaff, val altar: Altar) :
     SkillDialogueHandler(player, ONE_OPTION, tiara.item) {

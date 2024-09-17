@@ -4,11 +4,7 @@ import cfg.consts.Items
 import core.game.node.item.Item
 
 /**
- * Represents the Talisman staff.
- *
- * @param item      the talisman.
- * @param staff     the product.
- * @param tiara     the tiara.
+ * Represents a talisman staff relative information.
  */
 enum class TalismanStaff(val item: Item, val staff: Staff, val tiara: Int) {
     AIR(

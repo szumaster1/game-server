@@ -27,7 +27,7 @@ class BalloonCraftingListener : InteractionListener {
             }
             if (removeItem(player, used.asItem()) && removeItem(player, wool.asItem())) {
                 sendMessage(player, "You create the origami balloon structure.")
-                animate(player, craftAnim)
+                animate(player, craftAnimation)
                 addItemOrDrop(player, balloonStructure)
             }
             return@onUseWith true
@@ -37,27 +37,27 @@ class BalloonCraftingListener : InteractionListener {
             if (removeItem(player, used.asItem()) && removeItem(player, with.asItem())) {
                 sendMessage(player, "You create the origami balloon.")
                 rewardXP(player, Skills.CRAFTING, 35.0)
-                animate(player, craftAnim)
-                addItemOrDrop(player, defaultBalloon)
+                animate(player, craftAnimation)
+                addItemOrDrop(player, base)
             }
             return@onUseWith true
         }
 
-        onUseWith(IntType.ITEM, dyesId, defaultBalloon) { player, used, balloon ->
+        onUseWith(IntType.ITEM, dyes, base) { player, used, balloon ->
             val product = Origami.forId(used.id) ?: return@onUseWith true
             if (amountInInventory(player, used.id) == amountInInventory(player, balloon.id)) {
-                if (removeItem(player, product.base) && removeItem(player, defaultBalloon)) {
-                    addItem(player, product.ballonId, 1)
+                if (removeItem(player, product.base) && removeItem(player, base)) {
+                    addItem(player, product.product, 1)
                 }
                 return@onUseWith true
             }
             sendSkillDialogue(player) {
-                withItems(product.ballonId)
+                withItems(product.product)
                 create { _, a ->
                     runTask(player, 2, a) {
                         if (a < 1) return@runTask
-                        if (removeItem(player, product.base) && removeItem(player, defaultBalloon)) {
-                            addItem(player, product.ballonId, 1)
+                        if (removeItem(player, product.base) && removeItem(player, base)) {
+                            addItem(player, product.product, 1)
                         }
                     }
                 }
@@ -68,17 +68,17 @@ class BalloonCraftingListener : InteractionListener {
             return@onUseWith true
         }
 
-        onUseWith(IntType.ITEM, balloonId, Items.TINDERBOX_590) { player, used, _ ->
-            visualize(player, releaseAnim, Origami.forId(used.id))
+        onUseWith(IntType.ITEM, balloon, Items.TINDERBOX_590) { player, used, _ ->
+            visualize(player, releaseAnimation, Origami.forId(used.id))
             if (removeItem(player, used.asItem())) {
                 queueScript(player, 1, QueueStrength.SOFT) {
                     resetAnimator(player)
                     sendMessage(player, "You light the origami balloon.")
                     rewardXP(player, Skills.FIREMAKING, 20.00)
-                    val animDuration = animationDuration(Animation(releaseAnim))
+                    val animDuration = animationDuration(Animation(releaseAnimation))
                     lock(player, duration = animDuration)
                     lockInteractions(player, duration = animDuration)
-                    visualize(player, releaseAnim, Origami.forId(used.id))
+                    visualize(player, releaseAnimation, Origami.forId(used.id))
                     spawnProjectile(Projectile.getLocation(player), Location.getRandomLocation(Projectile.getLocation(player), 5, true), it.plus(2), 0, 40, 20, 600, 0)
                     return@queueScript stopExecuting(player)
                 }
@@ -88,12 +88,12 @@ class BalloonCraftingListener : InteractionListener {
     }
 
     companion object {
-        private val dyesId = Origami.values().map { it.base }.toIntArray()
-        private val balloonId = Origami.values().map { it.ballonId }.toIntArray()
-        private const val defaultBalloon = Items.ORIGAMI_BALLOON_9934
+        private val dyes = Origami.values().map { it.base }.toIntArray()
+        private val balloon = Origami.values().map { it.product }.toIntArray()
+        private const val base = Items.ORIGAMI_BALLOON_9934
         private const val balloonStructure = Items.BALLOON_STRUCTURE_9933
-        private const val craftAnim = Animations.HUMAN_CRAFT_ORIGAMI_BALLOON_5140
-        private const val releaseAnim = Animations.HUMAN_RELEASE_A_BALLOON_5142
+        private const val craftAnimation = Animations.HUMAN_CRAFT_ORIGAMI_BALLOON_5140
+        private const val releaseAnimation = Animations.HUMAN_RELEASE_A_BALLOON_5142
     }
 
 }

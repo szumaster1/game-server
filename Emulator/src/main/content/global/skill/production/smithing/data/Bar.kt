@@ -5,11 +5,6 @@ import core.game.node.item.Item
 
 /**
  * Represents the [Bar] that can be created.
- *
- * @param level         the required level.
- * @param experience    the gained experience.
- * @param product       the product.
- * @param ores          the required ores.
  */
 enum class Bar(val level: Int, val experience: Double, val product: Item, vararg ores: Item) {
     BRONZE(
@@ -72,14 +67,14 @@ enum class Bar(val level: Int, val experience: Double, val product: Item, vararg
         Item(Items.COAL_453, 8)
     );
 
-    val ores: List<Item> = ores.toList()
+    val ores: Array<Item> = ores as Array<Item>
 
     companion object {
         /**
-         * Gets a bar based on the provided product id.
+         * Gets a [Bar] based on the provided [product] id.
          *
-         * @param id    The ID of the product to search for.
-         * @return The [Bar] associated with the given id, or null if not found.
+         * @param id    The product id
+         * @return The [Bar] with the given id, or `null` if not found.
          */
         @JvmStatic
         fun forId(id: Int): Bar? {
@@ -87,10 +82,10 @@ enum class Bar(val level: Int, val experience: Double, val product: Item, vararg
         }
 
         /**
-         * Gets a bar based on the provided ore id.
+         * Gets a [Bar] based on the provided [ores] id.
          *
          * @param id    The ID of the ore to search for.
-         * @return The [Bar] associated with the given ore id, or null if not found.
+         * @return The bar the given ore id, or `null` if not found.
          */
         @JvmStatic
         fun forOre(id: Int): Bar? {

@@ -16,6 +16,11 @@ import core.game.node.item.Item
 class SmithingInterfaceListener : InterfaceListener {
 
     override fun defineInterfaceListeners() {
+
+        /*
+         * Handles the new smithing interface.
+         */
+
         on(Components.SMITHING_NEW_300) { player, _, _, buttonID, _, _ ->
             val item = Bars.getItemId(buttonID, player.gameAttributes.getAttribute<Any>("smith-type") as BarType)
             val bar = Bars.forId(item) ?: return@on true

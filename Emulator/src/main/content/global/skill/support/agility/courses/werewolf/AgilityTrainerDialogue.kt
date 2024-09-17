@@ -8,7 +8,7 @@ import core.tools.END_DIALOGUE
 import core.tools.RandomFunction
 
 /**
- * Agility trainer dialogue.
+ * Represents the agility trainer dialogue.
  */
 class AgilityTrainerDialogue : DialogueFile() {
 
@@ -24,7 +24,7 @@ class AgilityTrainerDialogue : DialogueFile() {
 }
 
 /**
- * Agility trainer stick dialogue.
+ * Represents the agility trainer stick dialogue.
  */
 class AgilityTrainerStickDialogue : DialogueFile() {
 

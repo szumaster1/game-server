@@ -18,9 +18,6 @@ enum class Stall(
     var delay: Int,
     var message: String
 ) {
-    /**
-     * Vegetable Stall.
-     */
     VEGETABLE_STALL(
         full = arrayOf(4706, 4708),
         empty = arrayOf(634),
@@ -30,10 +27,6 @@ enum class Stall(
         delay = 4,
         message = "vegetables"
     ),
-
-    /**
-     * Baker Stall.
-     */
     BAKER_STALL(
         full = arrayOf(2561, 6163, 34384),
         empty = arrayOf(634, 6984, 34381),
@@ -43,10 +36,6 @@ enum class Stall(
         delay = 4,
         message = "pastries"
     ),
-
-    /**
-     * Crafting Stall.
-     */
     CRAFTING_STALL(
         full = arrayOf(4874, 6166),
         empty = arrayOf(4797, 6984),
@@ -56,10 +45,6 @@ enum class Stall(
         delay = 12,
         message = "crafting supplies"
     ),
-
-    /**
-     * Tea Stall.
-     */
     TEA_STALL(
         full = arrayOf(635, 6574),
         empty = arrayOf(634, 6573),
@@ -69,10 +54,6 @@ enum class Stall(
         delay = 12,
         message = "tea"
     ),
-
-    /**
-     * Silk Stall.
-     */
     SILK_STALL(
         full = arrayOf(34383, 2560),
         empty = arrayOf(34381, 634),
@@ -82,10 +63,6 @@ enum class Stall(
         delay = 13,
         message = "silk"
     ),
-
-    /**
-     * Wine Stall.
-     */
     WINE_STALL(
         full = arrayOf(14011),
         empty = arrayOf(634),
@@ -95,30 +72,15 @@ enum class Stall(
         delay = 27,
         message = "wine"
     ),
-
-    /**
-     * Market Seed Stall.
-     */
     MARKET_SEED_STALL(
         full = arrayOf(7053),
         empty = arrayOf(634),
         level = 27,
-        rewards = arrayOf(
-            Item(5096, 1),
-            Item(5097, 1),
-            Item(5101, 1),
-            Item(5318, 1),
-            Item(5319, 1),
-            Item(5324, 1)
-        ),
+        rewards = arrayOf(Item(5096, 1), Item(5097, 1), Item(5101, 1), Item(5318, 1), Item(5319, 1), Item(5324, 1)),
         experience = 10.0,
         delay = 19,
         message = "seeds"
     ),
-
-    /**
-     * Fur Stall.
-     */
     FUR_STALL(
         full = arrayOf(34387, 2563, 4278),
         empty = arrayOf(34381, 634, 634),
@@ -128,10 +90,6 @@ enum class Stall(
         delay = 25,
         message = "fur"
     ),
-
-    /**
-     * Fish Stall.
-     */
     FISH_STALL(
         full = arrayOf(4277, 4705, 4707),
         empty = arrayOf(634, 634, 634),
@@ -141,10 +99,6 @@ enum class Stall(
         delay = 27,
         message = "fish"
     ),
-
-    /**
-     * Crossbow Stall.
-     */
     CROSSBOW_STALL(
         full = arrayOf(17031),
         empty = arrayOf(6984),
@@ -154,10 +108,6 @@ enum class Stall(
         delay = 19,
         message = "equipment"
     ),
-
-    /**
-     * Silver Stall.
-     */
     SILVER_STALL(
         full = arrayOf(2565, 6164, 34382),
         empty = arrayOf(634, 6984, 34381),
@@ -167,10 +117,6 @@ enum class Stall(
         delay = 50,
         message = "jewellery"
     ),
-
-    /**
-     * Spice Stall.
-     */
     SPICE_STALL(
         full = arrayOf(34386, 6166),
         empty = arrayOf(34381, 6984),
@@ -180,10 +126,6 @@ enum class Stall(
         delay = 134,
         message = "spices"
     ),
-
-    /**
-     * Gem Stall.
-     */
     GEM_STALL(
         full = arrayOf(2562, 6162, 34385),
         empty = arrayOf(634, 6984, 34381),
@@ -193,10 +135,6 @@ enum class Stall(
         delay = 300,
         message = "gems"
     ),
-
-    /**
-     * Scimitar Stall, (Ape Atoll Stalls).
-     */
     SCIMITAR_STALL(
         full = arrayOf(4878),
         empty = arrayOf(4797),
@@ -206,10 +144,6 @@ enum class Stall(
         delay = 134,
         message = "equipment"
     ),
-
-    /**
-     * Magic Stall.
-     */
     MAGIC_STALL(
         full = arrayOf(4877),
         empty = arrayOf(4797),
@@ -219,10 +153,6 @@ enum class Stall(
         delay = 134,
         message = "equipment"
     ),
-
-    /**
-     * General Stall.
-     */
     GENERAL_STALL(
         full = arrayOf(4876),
         empty = arrayOf(4797),
@@ -232,10 +162,6 @@ enum class Stall(
         delay = 12,
         message = "goods"
     ),
-
-    /**
-     * Food Stall.
-     */
     FOOD_STALL(
         full = arrayOf(4875),
         empty = arrayOf(4797),
@@ -245,10 +171,6 @@ enum class Stall(
         delay = 12,
         message = "food"
     ),
-
-    /**
-     * Candles.
-     */
     CANDLES(
         full = arrayOf(cfg.consts.Scenery.CANDLES_19127),
         empty = arrayOf(cfg.consts.Scenery.CANDLES_19127),

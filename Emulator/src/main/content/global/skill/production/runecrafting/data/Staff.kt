@@ -4,7 +4,7 @@ import cfg.consts.Items
 import core.game.node.item.Item
 
 /**
- * Represents the talisman staff.
+ * Represents a talisman staff.
  */
 enum class Staff(val item: Item, val experience: Double) {
     AIR_RC_STAFF(

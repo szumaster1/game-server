@@ -57,24 +57,24 @@ public final class LeatherCraftDialogue extends Dialogue {
             player.getInterfaceManager().openChatbox(component);
             int[] index = new int[3];
             if (leather == Leather.GREEN_LEATHER) {
-                index[0] = Leather.DragonHide.GREEN_D_HIDE_BODY.product;
-                index[1] = Leather.DragonHide.GREEN_D_HIDE_VAMBS.product;
-                index[2] = Leather.DragonHide.GREEN_D_HIDE_CHAPS.product;
+                index[0] = Leather.DragonHide.GREEN_D_HIDE_BODY.getProduct();
+                index[1] = Leather.DragonHide.GREEN_D_HIDE_VAMBS.getProduct();
+                index[2] = Leather.DragonHide.GREEN_D_HIDE_CHAPS.getProduct();
             }
             if (leather == Leather.BLUE_LEATHER) {
-                index[0] = Leather.DragonHide.BLUE_D_HIDE_BODY.product;
-                index[1] = Leather.DragonHide.BLUE_D_HIDE_VAMBS.product;
-                index[2] = Leather.DragonHide.BLUE_D_HIDE_CHAPS.product;
+                index[0] = Leather.DragonHide.BLUE_D_HIDE_BODY.getProduct();
+                index[1] = Leather.DragonHide.BLUE_D_HIDE_VAMBS.getProduct();
+                index[2] = Leather.DragonHide.BLUE_D_HIDE_CHAPS.getProduct();
             }
             if (leather == Leather.RED_LEATHER) {
-                index[0] = Leather.DragonHide.RED_D_HIDE_BODY.product;
-                index[1] = Leather.DragonHide.RED_D_HIDE_VAMBS.product;
-                index[2] = Leather.DragonHide.RED_D_HIDE_CHAPS.product;
+                index[0] = Leather.DragonHide.RED_D_HIDE_BODY.getProduct();
+                index[1] = Leather.DragonHide.RED_D_HIDE_VAMBS.getProduct();
+                index[2] = Leather.DragonHide.RED_D_HIDE_CHAPS.getProduct();
             }
             if (leather == Leather.BLACK_LEATHER) {
-                index[0] = Leather.DragonHide.BLACK_D_HIDE_BODY.product;
-                index[1] = Leather.DragonHide.BLACK_D_HIDE_VAMBS.product;
-                index[2] = Leather.DragonHide.BLACK_D_HIDE_CHAPS.product;
+                index[0] = Leather.DragonHide.BLACK_D_HIDE_BODY.getProduct();
+                index[1] = Leather.DragonHide.BLACK_D_HIDE_VAMBS.getProduct();
+                index[2] = Leather.DragonHide.BLACK_D_HIDE_CHAPS.getProduct();
             }
             player.getPacketDispatch().sendItemZoomOnInterface(index[0], 175, 304, 2);
             player.getPacketDispatch().sendItemZoomOnInterface(index[1], 175, 304, 3);

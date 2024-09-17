@@ -16,7 +16,7 @@ class GenericPotion(
 
     companion object {
         /**
-         * Method used to transform an unfinished potion into a generic potion.
+         * Get transform an [UnfinishedPotion] into a [GenericPotion].
          *
          * @param potion the potion to transform.
          * @return the transformed potion.
@@ -32,7 +32,7 @@ class GenericPotion(
         }
 
         /**
-         * Method used to transform a finished potion into a generic potion.
+         * Get transform a [FinishedPotion] into a [GenericPotion].
          *
          * @param potion the potion to transform.
          * @return the transformed potion.

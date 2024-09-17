@@ -6,9 +6,6 @@ import core.game.node.item.Item
 
 /**
  * Represents a talisman.
- *
- * @param talisman      the talisman item.
- * @param ruin          the mysterious ruin.
  */
 enum class Talisman(val talisman: Item, private val ruin: MysteriousRuin?) {
     AIR(

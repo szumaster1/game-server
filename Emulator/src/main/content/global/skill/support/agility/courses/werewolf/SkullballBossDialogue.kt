@@ -11,7 +11,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Skullball boss dialogue.
+ * Represents the skull ball boss dialogue.
  */
 @Initializable
 class SkullballBossDialogue(player: Player? = null) : Dialogue(player) {

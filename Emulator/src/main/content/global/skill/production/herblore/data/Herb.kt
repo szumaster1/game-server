@@ -5,11 +5,6 @@ import core.game.node.item.Item
 
 /**
  * Represents the herb data.
- *
- * @param herb          the item that represents the herb.
- * @param experience    the experience points awarded for using the herb.
- * @param level         the level required to utilize the herb.
- * @param product       the resulting product derived from the herb.
  */
 enum class Herb(val herb: Item, val experience: Double, val level: Int, val product: Item) {
     GUAM(

@@ -39,12 +39,6 @@ class WerewolfCourse
         return true
     }
 
-    /**
-     * Stepping stone obstacle
-     *
-     * @param p
-     * @param n
-     */
     fun steppingStoneObstacle(p: Player, n: Scenery) {
         val loc = p.location
         val dir = Vector.betweenLocs(loc, n.location).toDirection()
@@ -53,7 +47,12 @@ class WerewolfCourse
             return
         }
         if (!anyInEquipment(p, Items.RING_OF_CHAROS_4202, Items.RING_OF_CHAROSA_6465)) {
-            sendNPCDialogue(p, NPCs.AGILITY_TRAINER_1663, "Grrr - you don't belong in here, human!", FacialExpression.CHILD_NORMAL)
+            sendNPCDialogue(
+                p,
+                NPCs.AGILITY_TRAINER_1663,
+                "Grrr - you don't belong in here, human!",
+                FacialExpression.CHILD_NORMAL
+            )
             return
         }
         if (loc == Location(3538, 9873, 0)) {
@@ -70,12 +69,6 @@ class WerewolfCourse
         })
     }
 
-    /**
-     * Jump hurdle obstacle
-     *
-     * @param p
-     * @param n
-     */
     fun jumpHurdleObstacle(p: Player, n: Scenery) {
         val loc = p.location
         if (loc.y in arrayOf(9894, 9897, 9900)) return sendMessage(p, "You can't do that from here.")
@@ -86,12 +79,6 @@ class WerewolfCourse
         return
     }
 
-    /**
-     * Squeeze through pipe obstacle
-     *
-     * @param p
-     * @param n
-     */
     fun squeezeThroughPipeObstacle(p: Player, n: Node) {
         val loc = p.location
         if (loc.y > 9908) return sendMessage(p, "You can't do that from here.")
@@ -102,7 +89,16 @@ class WerewolfCourse
             GameWorld.Pulser.submit(object : Pulse(1, p) {
                 override fun pulse(): Boolean {
                     lock(p, 6)
-                    AgilityHandler.forceWalk(p, -1, loc, loc.transform(Direction.NORTH, 5), Animation.create(10580), 10, 20.0, null)
+                    AgilityHandler.forceWalk(
+                        p,
+                        -1,
+                        loc,
+                        loc.transform(Direction.NORTH, 5),
+                        Animation.create(10580),
+                        10,
+                        20.0,
+                        null
+                    )
                     p.animate(Animation(844), 3)
                     p.animate(Animation(Animations.CLIMB_OUT_OF_OBSTACLE_10579), 4)
                     return true
@@ -111,32 +107,28 @@ class WerewolfCourse
         }
     }
 
-
-    /**
-     * Climb skull slope obstacle
-     *
-     * @param p
-     * @param n
-     */
     fun climbSkullSlopeObstacle(p: Player, n: Node) {
         val loc = p.location
         if (loc.x == 3530) return sendMessage(p, "You can't do that from here.")
         GameWorld.Pulser.submit(object : Pulse() {
             override fun pulse(): Boolean {
                 lock(p, 3)
-                AgilityHandler.forceWalk(p, -1, loc, loc.transform(Direction.WEST, 3), Animation.create(740), 15, 25.0, null)
+                AgilityHandler.forceWalk(
+                    p,
+                    -1,
+                    loc,
+                    loc.transform(Direction.WEST, 3),
+                    Animation.create(740),
+                    15,
+                    25.0,
+                    null
+                )
                 p.animate(Animation(-1), 2)
                 return true
             }
         })
     }
 
-    /**
-     * Zip line obstacle
-     *
-     * @param p
-     * @param n
-     */
     fun zipLineObstacle(p: Player, n: Node) {
         val loc = p.location
         val helmet = getItemFromEquipment(p, EquipmentSlot.HEAD)
@@ -145,9 +137,9 @@ class WerewolfCourse
             return
         }
 
-        if(!finishedMoving(p))
+        if (!finishedMoving(p))
 
-        lock(p, 16)
+            lock(p, 16)
         face(p, loc.transform(Direction.SOUTH))
         animate(p, Animations.WEREWOLF_AGILITY_ZIPLINE_1601)
         replaceScenery(n.asScenery(), 5142, 6)

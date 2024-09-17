@@ -14,7 +14,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Agility boss dialogue.
+ * Represents the agility boss dialogue.
  */
 @Initializable
 class AgilityBossDialogue(player: Player? = null) : Dialogue(player) {

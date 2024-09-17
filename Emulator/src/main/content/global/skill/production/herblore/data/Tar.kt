@@ -5,12 +5,6 @@ import core.game.node.item.Item
 
 /**
  * Represents a tar to create.
- *
- * @param ingredient    the main ingredient for the Tar.
- * @param level         the level required to use this Tar.
- * @param experience    the experience points gained from using this Tar.
- * @param tar           the resulting item after using the Tar.
- * @return the [Tar].
  */
 enum class Tar(
     val ingredient: Item,
@@ -50,13 +44,6 @@ enum class Tar(
     );
 
     companion object {
-
-        /**
-         * Gets the tar.
-         *
-         * @param item  the item.
-         * @return the tar.
-         */
         @JvmStatic
         fun forItem(item: Item): Tar? {
             for (tar in values()) {
