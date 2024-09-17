@@ -97,11 +97,6 @@ public final class MovingBlockNPC extends AbstractNPC {
         return new MovingBlockNPC(id, location);
     }
 
-    /**
-     * Check block.
-     *
-     * @param player the player
-     */
     public void checkBlock(final Player player) {
         if (player.getAttribute("block-move", -1) > GameWorld.getTicks()) {
             return;
@@ -141,11 +136,6 @@ public final class MovingBlockNPC extends AbstractNPC {
         }
     }
 
-    /**
-     * Get tile locations location [ ].
-     *
-     * @return the location [ ]
-     */
     public Location[] getTileLocations() {
         return LOCATIONS[3125 - getId()];
     }
@@ -155,9 +145,6 @@ public final class MovingBlockNPC extends AbstractNPC {
         return new int[]{3124, 3125};
     }
 
-    /**
-     * Moving block trap.
-     */
     public final class MovingBlockTrap implements MovementHook {
 
         @Override

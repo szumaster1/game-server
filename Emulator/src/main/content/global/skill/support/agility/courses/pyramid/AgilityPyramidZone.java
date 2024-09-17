@@ -18,14 +18,8 @@ import java.util.Map;
  */
 public final class AgilityPyramidZone extends MapZone implements Plugin<Object> {
 
-    /**
-     * The constant LOCATION_TRAPS.
-     */
     public static final Map<Location, MovementHook> LOCATION_TRAPS = new HashMap<>();
 
-    /**
-     * Instantiates a new Agility pyramid zone.
-     */
     public AgilityPyramidZone() {
         super("agility pyramid", true);
     }
