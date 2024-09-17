@@ -12,8 +12,7 @@ import core.plugin.Initializable
 import core.tools.StringUtils
 
 /**
- * Represents the Trader crewmember dialogue.
- * @author Vexia
+ * Represents the Trader crew member dialogue.
  */
 @Initializable
 class CharterDialogue(player: Player? = null) : Dialogue(player) {

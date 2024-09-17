@@ -7,7 +7,7 @@ import core.game.world.map.Location
 import core.game.world.map.zone.ZoneBorders
 
 /**
- * Trader crew member NPC.
+ * Represents the Trader crew member NPC.
  */
 class CharterNPC : NPCBehavior(4651,4654) {
 

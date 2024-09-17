@@ -14,7 +14,7 @@ import core.game.world.repository.Repository.findNPC
 import core.tools.StringUtils
 
 /**
- * Ship charter.
+ * Represents the Charter ship related functions.
  */
 object CharterShip {
 

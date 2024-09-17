@@ -20,8 +20,7 @@ import core.tools.RandomFunction
 import kotlin.math.abs
 
 /**
- * Interaction and interface listener for canoe along river Lum.
- * This handles Components.CANOE_52, Components.CANOE_STATIONS_MAP_53 and Components.CANOE_TRAVEL_758 globally.
+ * Represents canoe interactions.
  */
 class CanoeListeners : InteractionListener, InterfaceListener {
 

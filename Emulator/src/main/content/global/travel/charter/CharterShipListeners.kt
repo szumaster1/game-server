@@ -8,7 +8,6 @@ import core.game.interaction.InterfaceListener
 
 /**
  * Represents the ship chartering interface plugin.
- * @author Vexia
  */
 class CharterShipListeners : InteractionListener, InterfaceListener {
 
