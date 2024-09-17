@@ -1,24 +1,17 @@
-package content.global.skill.gathering.hunter.pitfall
+package content.global.skill.gathering.hunter.pitfall;
 
-import content.global.skill.gathering.hunter.HunterManager
 import cfg.consts.Items
-import cfg.consts.NPCs
 import cfg.consts.Sounds
+import content.global.skill.gathering.hunter.HunterManager
 import core.api.playAudio
 import core.api.sendMessage
 import core.api.setVarbit
 import core.api.teleport
-import core.cache.def.impl.NPCDefinition
-import core.cache.def.impl.SceneryDefinition
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
-import core.game.interaction.OptionHandler
-import core.game.node.Node
 import core.game.node.entity.Entity
-import core.game.node.entity.combat.CombatStyle
-import core.game.node.entity.impl.Animator.Priority
+import core.game.node.entity.impl.Animator
 import core.game.node.entity.impl.ForceMovement
-import core.game.node.entity.npc.AbstractNPC
 import core.game.node.entity.player.Player
 import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
@@ -28,165 +21,30 @@ import core.game.world.GameWorld
 import core.game.world.map.Direction
 import core.game.world.map.Location
 import core.game.world.update.flag.context.Animation
-import core.plugin.Initializable
-import core.plugin.Plugin
 import core.tools.RandomFunction
 import java.util.concurrent.TimeUnit
-
-/**
- * Hunter pitfall.
- */
-@Initializable
-class HunterPitfall : OptionHandler() {
-
-    val graahkPitIds = intArrayOf(19227, 19268, 19267, 19266, 19264, 19265)
-    val graahkIds = 5105
-    val levelRequirements = 41
-
-    override fun handle(player: Player?, node: Node?, option: String?): Boolean {
-        node ?: return true
-        player ?: return true
-        when (option) {
-            "tease" -> {
-                (node as Entity).attack(player)
-            }
-        }
-        return true
-    }
-
-    override fun newInstance(arg: Any?): Plugin<Any> {
-        for (graahkPit in graahkPitIds) {
-            SceneryDefinition.forId(graahkPit).handlers["option:trap"] = this
-            NPCDefinition.forId(graahkIds).handlers["option:tease"] = this
-        }
-        return this
-    }
-}
-
-val LARUPIA_IDS: IntArray = intArrayOf(NPCs.SPINED_LARUPIA_5104)
-val GRAAHK_IDS: IntArray = intArrayOf(NPCs.HORNED_GRAAHK_5105, NPCs.HORNED_GRAAHK_5106, NPCs.HORNED_GRAAHK_5107, NPCs.HORNED_GRAAHK_5108)
-val KYATT_IDS: IntArray = intArrayOf(NPCs.SABRE_TOOTHED_KYATT_5103, NPCs.SABRE_TOOTHED_KYATT_7497)
-val BEAST_IDS: IntArray = intArrayOf(*LARUPIA_IDS, *GRAAHK_IDS, *KYATT_IDS)
-val HUNTER_REQS = hashMapOf("Spined larupia" to 31, "Horned graahk" to 41, "Sabre-toothed kyatt" to 55)
-
-val pitVarpOffsets = hashMapOf(19264 to 3, 19265 to 6, 19266 to 9, 19267 to 12, 19268 to 15)
-
-/**
- * Pit.
- *
- * @param varbitId the varbit id.
- * @param horizontal boolean.
- */
-data class Pit(val varbitId: Int, val horizontal: Boolean)
-
-val pitVarps = hashMapOf(
-    /*
-     * Larupia pits (the duplicate 24 is likely authentic).
-     */
-    Location.create(2565, 2888) to Pit(2967, true),
-    Location.create(2573, 2885) to Pit(2968, false),
-    Location.create(2556, 2893) to Pit(2964, false),
-    Location.create(2552, 2904) to Pit(2966, true),
-    Location.create(2543, 2908) to Pit(2965, false),
-    Location.create(2538, 2899) to Pit(2966, true),
-    /*
-     * Kyatt pits.
-     */
-    Location.create(2700, 3795) to Pit(2958, true),
-    Location.create(2700, 3785) to Pit(2959, false),
-    Location.create(2706, 3789) to Pit(2960, false),
-    Location.create(2730, 3791) to Pit(2961, true),
-    Location.create(2737, 3784) to Pit(2962, true),
-    Location.create(2730, 3780) to Pit(2963, false),
-    /*
-     * Graahk pits.
-     */
-    Location.create(2766, 3010) to Pit(2969, false),
-    Location.create(2762, 3005) to Pit(2970, false),
-    Location.create(2771, 3004) to Pit(2971, true),
-    Location.create(2777, 3001) to Pit(2972, false),
-    Location.create(2784, 3001) to Pit(2973, true),
-)
-
-val pitJumpSpots = hashMapOf(
-    Location.create(2766, 3010) to hashMapOf(
-        Location.create(2766, 3009) to Direction.NORTH,
-        Location.create(2767, 3009) to Direction.NORTH,
-        Location.create(2766, 3012) to Direction.SOUTH,
-        Location.create(2767, 3012) to Direction.SOUTH,
-    ),
-    Location.create(2762, 3005) to hashMapOf(
-        Location.create(2762, 3004) to Direction.NORTH,
-        Location.create(2763, 3004) to Direction.NORTH,
-        Location.create(2762, 3007) to Direction.SOUTH,
-        Location.create(2763, 3007) to Direction.SOUTH,
-    ),
-    Location.create(2771, 3004) to hashMapOf(
-        Location.create(2770, 3004) to Direction.EAST,
-        Location.create(2770, 3005) to Direction.EAST,
-        Location.create(2773, 3004) to Direction.WEST,
-        Location.create(2773, 3005) to Direction.WEST,
-    ),
-    Location.create(2777, 3001) to hashMapOf(
-        Location.create(2777, 3000) to Direction.NORTH,
-        Location.create(2778, 3000) to Direction.NORTH,
-        Location.create(2777, 3003) to Direction.SOUTH,
-        Location.create(2778, 3003) to Direction.SOUTH,
-    ),
-    Location.create(2784, 3001) to hashMapOf(
-        Location.create(2783, 3002) to Direction.EAST,
-        Location.create(2783, 3001) to Direction.EAST,
-        Location.create(2786, 3002) to Direction.WEST,
-        Location.create(2786, 3001) to Direction.WEST,
-    ),
-)
-
-/**
- * Pit jump spots.
- *
- * @param loc the location.
- * @return
- */
-fun pitJumpSpots(loc: Location): HashMap<Location, Direction>? {
-    val pit = pitVarps[loc] ?: return null
-    return if (pit.horizontal) {
-        hashMapOf(
-            loc.transform(-1, 0, 0) to Direction.EAST,
-            loc.transform(-1, 1, 0) to Direction.EAST,
-            loc.transform(2, 0, 0) to Direction.WEST,
-            loc.transform(2, 1, 0) to Direction.WEST,
-        )
-    } else {
-        hashMapOf(
-            loc.transform(0, -1, 0) to Direction.NORTH,
-            loc.transform(1, -1, 0) to Direction.NORTH,
-            loc.transform(0, 2, 0) to Direction.SOUTH,
-            loc.transform(1, 2, 0) to Direction.SOUTH,
-        )
-    }
-}
-
-val KNIFE = Item(Items.KNIFE_946)
-val TEASING_STICK = Item(Items.TEASING_STICK_10029)
-val LOGS = Item(Items.LOGS_1511)
-
-val PIT = 19227
-val SPIKED_PIT = 19228
-val GRAAHK_PIT = 19231
-val LARUPIA_PIT = 19232
-val KYATT_PIT = 19233
 
 /**
  * Pitfall listeners.
  */
 class PitfallListeners : InteractionListener {
 
+    val KNIFE = Item(Items.KNIFE_946)
+    val TEASING_STICK = Item(Items.TEASING_STICK_10029)
+    val LOGS = Item(Items.LOGS_1511)
+
+    val PIT = 19227
+    val SPIKED_PIT = 19228
+    val GRAAHK_PIT = 19231
+    val LARUPIA_PIT = 19232
+    val KYATT_PIT = 19233
+
     override fun defineListeners() {
         setDest(IntType.SCENERY, intArrayOf(PIT, SPIKED_PIT, LARUPIA_PIT, GRAAHK_PIT, KYATT_PIT), "trap", "jump", "dismantle") { player, node ->
             val pit = node as Scenery
             val src = player.location
             var dst = pit.location
-            val locs = pitJumpSpots(dst)
+            val locs = Pitfall.pitJumpSpots(dst)
             if (locs != null) {
                 for (loc in locs.keys) {
                     if (src.getDistance(loc) <= src.getDistance(dst)) {
@@ -195,11 +53,12 @@ class PitfallListeners : InteractionListener {
                 }
             } else {
                 if (player is Player) {
-                    player.sendMessage("Error: Unimplemented pit at ${pit.location}")
+                    sendMessage(player, "Error: Unimplemented pit at ${pit.location}")
                 }
             }
             return@setDest dst
         }
+
         on(PIT, IntType.SCENERY, "trap") { player, node ->
             val pit = node as Scenery
             // TODO: check hunter level, remove logs
@@ -239,10 +98,11 @@ class PitfallListeners : InteractionListener {
             GameWorld.Pulser.submit(collapsePulse)
             return@on true
         }
+
         on(SPIKED_PIT, IntType.SCENERY, "jump") { player, node ->
             val pit = node as Scenery
             val src = player.getLocation()
-            val dir = pitJumpSpots(pit.getLocation())!![src]
+            val dir = Pitfall.pitJumpSpots(pit.getLocation())!![src]
             if (dir != null) {
                 val dst = src.transform(dir, 3)
                 ForceMovement.run(player, src, dst, ForceMovement.WALK_ANIMATION, Animation(1603), dir, 16)
@@ -275,7 +135,7 @@ class PitfallListeners : InteractionListener {
                         //pitfall_npc.walkingQueue.addPath(npcdst.x, npcdst.y)
                         val npcdst = dst.transform(dir, if (dir == Direction.SOUTH || dir == Direction.WEST) 1 else 0)
                         teleport(pitfall_npc, npcdst)
-                        pitfall_npc.animate(Animation(5232, Priority.HIGH))
+                        pitfall_npc.animate(Animation(5232, Animator.Priority.HIGH))
                         playAudio(player, Sounds.HUNTING_BIGCAT_JUMP_2619, 0, 1, pit.location, 10)
                         pitfall_npc.attack(player)
                         pitfall_npc.setAttribute("last_pit_loc", pit.location)
@@ -284,6 +144,7 @@ class PitfallListeners : InteractionListener {
             }
             return@on true
         }
+
         on(SPIKED_PIT, IntType.SCENERY, "dismantle") { player, node ->
             val pit = node as Scenery
             playAudio(player, Sounds.HUNTING_TAKEBRANCHES_2649)
@@ -292,24 +153,28 @@ class PitfallListeners : InteractionListener {
             setPitState(player, pit.location, 0)
             return@on true
         }
+
         on(LARUPIA_PIT, IntType.SCENERY, "dismantle") { player, node ->
             lootCorpse(player, node as Scenery, 180.0, Items.LARUPIA_FUR_10095, Items.TATTY_LARUPIA_FUR_10093)
             sendMessage(player, "You've caught a spined larupia!")
             return@on true
         }
+
         on(GRAAHK_PIT, IntType.SCENERY, "dismantle") { player, node ->
             lootCorpse(player, node as Scenery, 240.0, Items.GRAAHK_FUR_10099, Items.TATTY_GRAAHK_FUR_10097)
             sendMessage(player, "You've caught a horned graahk!")
             return@on true
         }
+
         on(KYATT_PIT, IntType.SCENERY, "dismantle") { player, node ->
             lootCorpse(player, node as Scenery, 300.0, Items.KYATT_FUR_10103, Items.TATTY_KYATT_FUR_10101)
             sendMessage(player, "You've caught a sabretoothed kyatt!")
             return@on true
         }
-        on(BEAST_IDS, IntType.NPC, "tease") { player, node ->
+
+        on(Pitfall.BEAST_IDS, IntType.NPC, "tease") { player, node ->
             val entity = node as Entity
-            val hunterReq = HUNTER_REQS[entity.name]!!
+            val hunterReq = Pitfall.HUNTER_REQS[entity.name]!!
             if (player.skills.getLevel(Skills.HUNTER) < hunterReq) {
                 player.sendMessage("You need a hunter level of ${hunterReq} to hunt ${entity.name.lowercase()}s.")
                 return@on true
@@ -328,11 +193,11 @@ class PitfallListeners : InteractionListener {
     /**
      * Loot corpse.
      *
-     * @param player the player.
-     * @param pit the pit.
-     * @param xp the xp.
-     * @param goodFur the good fur.
-     * @param badFur the bad fur.
+     * @param player    the player.
+     * @param pit       the pit.
+     * @param xp        the xp.
+     * @param goodFur   the good fur.
+     * @param badFur    the bad fur.
      */
     fun lootCorpse(player: Player, pit: Scenery, xp: Double, goodFur: Int, badFur: Int) {
         if (player.inventory.freeSlots() < 2) {
@@ -355,41 +220,12 @@ class PitfallListeners : InteractionListener {
     /**
      * Set pit state.
      *
-     * @param player the player.
-     * @param loc the location.
-     * @param state the state.
+     * @param player    the player.
+     * @param loc       the location.
+     * @param state     the state.
      */
     fun setPitState(player: Player, loc: Location, state: Int) {
-        val pit = pitVarps[loc]!!
+        val pit = Pitfall.pitVarps[loc]!!
         setVarbit(player, pit.varbitId, state)
-    }
-}
-
-/**
- * Pitfall NPC.
- */
-@Initializable
-class PitfallNPC : AbstractNPC {
-    constructor() : super(NPCs.HORNED_GRAAHK_5105, null, true) {}
-    private constructor(id: Int, location: Location) : super(id, location) {}
-
-    override fun construct(id: Int, location: Location, vararg objects: Any?): AbstractNPC {
-        return PitfallNPC(id, location)
-    }
-
-    init {
-        walkRadius = 22
-    }
-
-    override fun getIds(): IntArray {
-        return BEAST_IDS
-    }
-
-    override fun isAttackable(entity: Entity, style: CombatStyle, message: Boolean): Boolean {
-        return false
-    }
-
-    override fun isIgnoreAttackRestrictions(victim: Entity): Boolean {
-        return victim is Player
     }
 }

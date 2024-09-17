@@ -116,7 +116,6 @@ class HunterPlugin : OptionHandler() {
 
     /**
      * Handles the usage of an item on a trap.
-     * @author Vexia
      */
     class HuntingItemUseWithHandler : UseWithHandler(*ids) {
 
@@ -168,7 +167,6 @@ class HunterPlugin : OptionHandler() {
 
     /**
      * Handles a hunter item plugin.
-     * @author Vexia
      */
     class HunterItemPlugin : OptionHandler() {
 
@@ -199,24 +197,16 @@ class HunterPlugin : OptionHandler() {
 
         /**
          * A release type.
-         * @author Vexia
          */
         enum class ReleaseType(vararg val ids: Int) {
-            /**
-             * Traps.
-             */
             TRAPS(10033, 10034, 10092, 10146, 10147, 10148, 10149),
-
-            /**
-             * Butterfly.
-             */
             BUTTERFLY(10020, 10018, 10016, 10014) {
                 override fun release(player: Player, item: Item) {
                     val node = BNetTypes.forItem(item)
                     if (player.inventory.remove(item)) {
                         player.animate(Animation.create(5213))
                         player.inventory.add(Item(10012))
-                        player.graphics(node.graphics[1])
+                        player.graphics(node!!.graphics[1])
                     }
                 }
             };
@@ -224,6 +214,7 @@ class HunterPlugin : OptionHandler() {
 
             /**
              * Releases an item.
+             *
              * @param player the player.
              * @param item the item.
              */
@@ -237,9 +228,11 @@ class HunterPlugin : OptionHandler() {
             companion object {
                 /**
                  * Handles a release type.
+                 *
                  * @param id the id.
                  * @return the type.
                  */
+                @JvmStatic
                 fun forId(id: Int): ReleaseType? {
                     for (type in values()) {
                         for (i in type.ids) {

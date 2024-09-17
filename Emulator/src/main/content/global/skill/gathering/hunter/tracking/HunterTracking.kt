@@ -18,7 +18,7 @@ import core.tools.Log
 import core.tools.RandomFunction
 
 /**
- * Hunter tracking.
+ * Handles the hunter tracking options.
  */
 abstract class HunterTracking : OptionHandler() {
     var KEBBIT_ANIM = Animation(0)
@@ -36,13 +36,13 @@ abstract class HunterTracking : OptionHandler() {
 
 
     /**
-     * Get initial trail
+     * Get initial trail.
      *
-     * @param obj The scenery object used to define the trail.
-     * @return A TrailDefinition object representing the initial trail, or null if not applicable.
+     * @param objects the object used to define the trail.
+     * @return A [TrailDefinition], or `null` if not applicable.
      */
-    fun getInitialTrail(obj: Scenery): TrailDefinition? {
-        return initialMap[obj.id]?.random()
+    fun getInitialTrail(objects: Scenery): TrailDefinition? {
+        return initialMap[objects.id]?.random()
     }
 
 

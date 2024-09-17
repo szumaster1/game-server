@@ -16,13 +16,6 @@ import core.game.world.map.RegionManager.getObject
 
 /**
  * Handles the trap creating pulse.
- * @author Vexia
- *
- * @param trap Represents the type of trap being created.
- * @constructor Represents a new instance of TrapCreatePulse.
- *
- * @param player The player who is creating the trap.
- * @param node The node where the trap will be placed.
  */
 class TrapCreatePulse(player: Player, node: Node, val trap: Traps) : SkillPulse<Node?>(player, node) {
 
@@ -124,6 +117,7 @@ class TrapCreatePulse(player: Player, node: Node, val trap: Traps) : SkillPulse<
     }
     /**
      * If we're setting it up from the ground.
+     *
      * @return {@code True} if so.
      */
     val isGroundSetup: Boolean

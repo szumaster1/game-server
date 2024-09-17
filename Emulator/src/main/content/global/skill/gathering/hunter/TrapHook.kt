@@ -5,16 +5,16 @@ import core.game.world.map.Location
 import core.tools.RandomFunction
 
 /**
- * Trap hook
+ * Represents the trap hook data.
  *
- * @param wrapper The wrapper of the hook.
- * @param locations The locations for the trap to trigger.
- * @constructor Trap hook Represents a new instance of TrapHook with the specified wrapper and locations.
+ * @param wrapper       the wrapper of the hook.
+ * @param locations     the locations for the trap to trigger.
  */
 class TrapHook(val wrapper: TrapWrapper, val locations: Array<Location>) {
 
     /**
      * Gets a location by chance for the npc to go to.
+     *
      * @return the location.
      */
     val chanceLocation: Location?
@@ -30,6 +30,7 @@ class TrapHook(val wrapper: TrapWrapper, val locations: Array<Location>) {
 
     /**
      * Checks if the trap is hooked.
+     *
      * @param location the location.
      * @return {@code True} if hooked.
      */

@@ -1,5 +1,6 @@
 package content.global.skill.gathering.hunter
 
+import core.api.sendMessage
 import core.game.node.Node
 import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
@@ -12,11 +13,22 @@ import core.game.world.update.flag.context.Animation
  * Handles the net trap.
  * @author Vexia
  */
-class NetTrapSetting : TrapSetting(intArrayOf(19652, 19663, 19671, 19679, 28564), arrayOf(Item(303), Item(954)), NetTrap.ids, intArrayOf(10142, 10143, 10144, 10145), "set-trap", 29, -1, Animation(5215), Animation.create(5207), true) {
+class NetTrapSetting : TrapSetting(
+    intArrayOf(19652, 19663, 19671, 19679, 28564),
+    arrayOf(Item(303), Item(954)),
+    NetTrap.ids,
+    intArrayOf(10142, 10143, 10144, 10145),
+    "set-trap",
+    29,
+    -1,
+    Animation(5215),
+    Animation.create(5207),
+    true
+) {
 
     override fun hasItems(player: Player): Boolean {
         if (!super.hasItems(player)) {
-            player.sendMessage("You need a net and a rope to set a net trap.")
+            sendMessage(player, "You need a net and a rope to set a net trap.")
             return false
         }
         return true
@@ -120,18 +132,6 @@ class NetTrapSetting : TrapSetting(intArrayOf(19652, 19663, 19671, 19679, 28564)
         return arrayOf(rotation, increment, x)
     }
 
-    /**
-     * Net trap
-     *
-     * @param original
-     * @param bent
-     * @param failing
-     * @param failed
-     * @param catching
-     * @param caught
-     * @param net
-     * @constructor Net trap
-     */
     enum class NetTrap(
         val original: Int,
         @JvmField val bent: Int,
@@ -141,94 +141,33 @@ class NetTrapSetting : TrapSetting(intArrayOf(19652, 19663, 19671, 19679, 28564)
         @JvmField val caught: Int,
         @JvmField val net: Int
     ) {
-        /**
-         * Green
-         *
-         * @constructor Green
-         *//*
+        /*
          * Green net trap.
          */
-        GREEN(
-            original = 19679,
-            bent = 19678,
-            failing = 19676,
-            failed = 19677,
-            catching = 19674,
-            caught = 19675,
-            net = 19651
-        ),
+        GREEN(original = 19679, bent = 19678, failing = 19676, failed = 19677, catching = 19674, caught = 19675, net = 19651),
 
-        /**
-         * Squirel
-         *
-         * @constructor Squirel
-         *//*
+        /*
          * Squirel net trap.
          */
-        SQUIREL(
-            original = 28564,
-            bent = 28563,
-            failing = 28752,
-            failed = 28753,
-            catching = 28750,
-            caught = 28751,
-            net = 28566
-        ),
+        SQUIREL(original = 28564, bent = 28563, failing = 28752, failed = 28753, catching = 28750, caught = 28751, net = 28566),
 
-        /**
-         * Orange
-         *
-         * @constructor Orange
-         *//*
+        /*
          * Orange net trap.
          */
-        ORANGE(
-            original = 19652,
-            bent = 19650,
-            failing = 19657,
-            failed = 19656,
-            catching = 19655,
-            caught = 19654,
-            net = 19665
-        ),
+        ORANGE(original = 19652, bent = 19650, failing = 19657, failed = 19656, catching = 19655, caught = 19654, net = 19665),
 
-        /**
-         * Red
-         *
-         * @constructor Red
-         *//*
+        /*
          * Red net trap.
          */
-        RED(
-            original = 19663,
-            bent = 19662,
-            failing = 19660,
-            failed = 19661,
-            catching = 19658,
-            caught = 19659,
-            net = 19673
-        ),
+        RED(original = 19663, bent = 19662, failing = 19660, failed = 19661, catching = 19658, caught = 19659, net = 19673),
 
-        /**
-         * Black
-         *
-         * @constructor Black
-         *//*
+        /*
          * Black net trap.
          */
-        BLACK(
-            original = 19671,
-            bent = 19670,
-            failing = 19668,
-            failed = 19669,
-            catching = 19666,
-            caught = 19667,
-            net = 19681
-        );
-
+        BLACK(original = 19671, bent = 19670, failing = 19668, failed = 19669, catching = 19666, caught = 19667, net = 19681);
 
         companion object {
-
+            @JvmStatic
             fun forId(id: Int): NetTrap? {
                 for (trap in values()) {
                     if (trap.original == id) {
@@ -237,7 +176,6 @@ class NetTrapSetting : TrapSetting(intArrayOf(19652, 19663, 19671, 19679, 28564)
                 }
                 return null
             }
-
 
             val ids: IntArray
                 get() {

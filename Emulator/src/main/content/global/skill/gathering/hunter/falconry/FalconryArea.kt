@@ -12,7 +12,7 @@ import core.game.world.map.zone.ZoneBorders
 import core.game.world.map.zone.ZoneRestriction
 
 /**
- * Falconry area.
+ * Represents the falconry area.
  */
 class FalconryArea : MapArea {
 

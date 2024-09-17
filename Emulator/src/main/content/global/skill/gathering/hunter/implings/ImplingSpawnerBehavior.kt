@@ -8,7 +8,7 @@ import core.tools.Log
 import core.tools.secondsToTicks
 
 /**
- * Impling spawner behavior.
+ * Handles impling spawner behavior.
  */
 class ImplingSpawnerBehavior : NPCBehavior(*ImplingSpawner.getIds()) {
     override fun onCreation(self: NPC) {

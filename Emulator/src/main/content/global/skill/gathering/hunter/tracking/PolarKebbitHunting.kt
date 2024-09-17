@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.plugin.Plugin
 
 /**
- * Polar kebbit hunting.
+ * Handles the polar kebbit hunting options.
  */
 @Initializable
 class PolarKebbitHunting : HunterTracking() {

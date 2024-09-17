@@ -25,11 +25,7 @@ import core.tools.RandomFunction
 import core.tools.prependArticle
 
 /**
- * Mining pulse
- *
- * @param player Represents the player involved in the mining process.
- * @param node Represents the mining node being interacted with.
- * @constructor Represents a MiningPulse instance with the specified player and node.
+ * Represents the mining pulse.
  */
 class MiningPulse(private val player: Player, private val node: Node) : Pulse(1, player, node) {
     private var resource: MiningNode? = null
@@ -50,12 +46,6 @@ class MiningPulse(private val player: Player, private val node: Node) : Pulse(1,
         Location(2737, 9683, 0),
     )
 
-    /**
-     * Message
-     *
-     * @param player
-     * @param type
-     */
     fun message(player: Player, type: Int) {
         if (type == 0)
             return sendMessage(player, "You swing your pickaxe at the rock.")
@@ -109,11 +99,6 @@ class MiningPulse(private val player: Player, private val node: Node) : Pulse(1,
         }
     }
 
-    /**
-     * Check requirements
-     *
-     * @return
-     */
     fun checkRequirements(): Boolean {
         if (getDynLevel(player, Skills.MINING) < resource!!.level) {
             sendMessage(player, "You need a mining level of ${resource!!.level} to mine this rock.")
@@ -153,10 +138,6 @@ class MiningPulse(private val player: Player, private val node: Node) : Pulse(1,
         return true
     }
 
-    /**
-     * Animate
-     *
-     */
     fun animate() {
         animate(
             player,
@@ -166,11 +147,6 @@ class MiningPulse(private val player: Player, private val node: Node) : Pulse(1,
         )
     }
 
-    /**
-     * Reward
-     *
-     * @return Boolean indicating success or failure of reward processing
-     */
     fun reward(): Boolean {
         if (!checkReward()) {
             return false
@@ -180,9 +156,10 @@ class MiningPulse(private val player: Player, private val node: Node) : Pulse(1,
             return false
         }
 
-        /**
+        /*
          * Reward logic.
          */
+
         var reward = resource!!.reward
         var rewardAmount: Int
         if (reward > 0) {
@@ -191,15 +168,17 @@ class MiningPulse(private val player: Player, private val node: Node) : Pulse(1,
 
             player.dispatch(ResourceProducedEvent(reward, rewardAmount, node))
 
-            /**
+            /*
              * Reward mining experience.
              */
+
             val experience = resource!!.experience * rewardAmount
             rewardXP(player, Skills.MINING, experience)
 
-            /**
+            /*
              * If player is wearing Bracelet of Clay, soften.
              */
+
             if (reward == Items.CLAY_434) {
                 val bracelet = getItemFromEquipment(player, EquipmentSlot.HANDS)
                 if (bracelet != null && bracelet.id == Items.BRACELET_OF_CLAY_11074) {
@@ -218,9 +197,10 @@ class MiningPulse(private val player: Player, private val node: Node) : Pulse(1,
             }
             val rewardName = getItemName(reward).lowercase()
 
-            /**
+            /*
              * Send the message for the resource reward.
              */
+
             if (isMiningGems) {
                 sendMessage(player, "You get ${prependArticle(rewardName)}.")
             } else if (isMiningGranite) {
@@ -231,17 +211,19 @@ class MiningPulse(private val player: Player, private val node: Node) : Pulse(1,
                 sendMessage(player, "You manage to get some ${rewardName.lowercase()}.")
             }
 
-            /**
+            /*
              * Give the mining reward, increment 'rocks mined' attribute.
              */
+
             if (addItem(player, reward, rewardAmount)) {
                 var rocksMined = getAttribute(player, "$STATS_BASE:$STATS_ROCKS", 0)
                 setAttribute(player, "/save:$STATS_BASE:$STATS_ROCKS", ++rocksMined)
             }
 
-            /**
+            /*
              * Calculate bonus gem chance while mining.
              */
+
             if (!isMiningEssence) {
                 var chance = 282
                 var altered = false
@@ -268,9 +250,10 @@ class MiningPulse(private val player: Player, private val node: Node) : Pulse(1,
                 }
             }
 
-            /**
+            /*
              * Handing limestone.
              */
+
             if (resource!!.id == 4030 && !isMiningEssence && resource!!.respawnRate != 0) {
                 removeScenery(node as Scenery)
                 GameWorld.Pulser.submit(object : Pulse(resource!!.respawnDuration, player) {
@@ -283,9 +266,10 @@ class MiningPulse(private val player: Player, private val node: Node) : Pulse(1,
                 return false
             }
 
-            /**
+            /*
              * Transform ore to depleted version.
              */
+
             if (!isMiningEssence && resource!!.respawnRate != 0) {
                 SceneryBuilder.replace(
                     node as Scenery,
@@ -302,9 +286,10 @@ class MiningPulse(private val player: Player, private val node: Node) : Pulse(1,
     private fun calculateRewardAmount(reward: Int): Int {
         var amount = 1
 
-        /**
+        /*
          * If player is wearing Varrock armour from diary, roll chance at extra ore.
          */
+
         if (!isMiningEssence && player.achievementDiaryManager.getDiary(DiaryType.VARROCK)!!.level != -1) {
             when (reward) {
                 Items.CLAY_434, Items.COPPER_ORE_436, Items.TIN_ORE_438, Items.LIMESTONE_3211, Items.BLURITE_ORE_668, Items.IRON_ORE_440, Items.ELEMENTAL_ORE_2892, Items.SILVER_ORE_442, Items.COAL_453 -> if (player.achievementDiaryManager.armour >= 0 && RandomFunction.random(
@@ -330,9 +315,10 @@ class MiningPulse(private val player: Player, private val node: Node) : Pulse(1,
             }
         }
 
-        /**
+        /*
          * If player has mining boost from Shooting Star, roll chance at extra ore.
          */
+
         if (player.hasActiveState("shooting-star")) {
             if (RandomFunction.getRandom(5) == 3) {
                 sendMessage(player, "...you manage to mine a second ore thanks to the Star Sprite.")
@@ -342,10 +328,11 @@ class MiningPulse(private val player: Player, private val node: Node) : Pulse(1,
         return amount
     }
 
-    /**
+    /*
      * If the player is mining sandstone or granite, then get size of sandstone/granite
      * and xp reward for that size.
      */
+
     private fun calculateReward(reward: Int): Int {
         var reward = reward
         if (resource == MiningNode.SANDSTONE || resource == MiningNode.GRANITE) {

@@ -3,15 +3,9 @@ package content.global.skill.gathering.fishing
 import core.game.world.map.Location
 
 /**
- * Fish spots
- *
- * @param locations A variable-length argument that holds the locations of fish spots.
- * @constructor Fish spots Represents the enum with the provided locations.
+ * Represents the fish spots.
  */
 enum class FishSpots(vararg val locations: Location) {
-    /**
-     * Catherby.
-     */
     CATHERBY(
         Location(2844, 3429, 0),
         Location(2839, 3431, 0),
@@ -29,10 +23,6 @@ enum class FishSpots(vararg val locations: Location) {
         Location(2859, 3426, 0),
         Location(2860, 3426, 0)
     ),
-
-    /**
-     * Entrana.
-     */
     ENTRANA(
         Location(2842, 3359, 0),
         Location(2843, 3359, 0),
@@ -42,10 +32,6 @@ enum class FishSpots(vararg val locations: Location) {
         Location(2849, 3361, 0),
         Location(2850, 3361, 0)
     ),
-
-    /**
-     * Entrana Platform.
-     */
     ENTRANA_PLATFORM(
         Location(2879, 3334, 0),
         Location(2879, 3335, 0),
@@ -58,10 +44,6 @@ enum class FishSpots(vararg val locations: Location) {
         Location(2876, 3331, 0),
         Location(2877, 3331, 0)
     ),
-
-    /**
-     * Seers.
-     */
     SEERS(
         Location(2714, 3533, 0),
         Location(2714, 3532, 0),
@@ -69,18 +51,10 @@ enum class FishSpots(vararg val locations: Location) {
         Location(2727, 3524, 0),
         Location(2728, 3524, 0)
     ),
-
-    /**
-     * Draynor.
-     */
     DRAYNOR(
         Location(3085, 3230, 0),
         Location(3086, 3227, 0)
     ),
-
-    /**
-     * Barbarian.
-     */
     BARBARIAN(
         Location(3110, 3432, 0),
         Location(3110, 3433, 0),
@@ -88,10 +62,6 @@ enum class FishSpots(vararg val locations: Location) {
         Location(3104, 3425, 0),
         Location(3104, 3424, 0)
     ),
-
-    /**
-     * Lumbridge.
-     */
     LUMBRIDGE(
         Location(3239, 3243, 0),
         Location(3239, 3241, 0),
@@ -100,10 +70,6 @@ enum class FishSpots(vararg val locations: Location) {
         Location(3238, 3252, 0),
         Location(3238, 3253, 0)
     ),
-
-    /**
-     * Lumbridge Swamp.
-     */
     LUMBRIDGE_SWAMP(
         Location(3242, 3143, 0),
         Location(3242, 3148, 0),
@@ -116,30 +82,18 @@ enum class FishSpots(vararg val locations: Location) {
         Location(3246, 3156, 0),
         Location(3239, 3241, 0)
     ),
-
-    /**
-     * Lumbridge Marsh.
-     */
     LUMBRIDGE_MARSH(
         Location(3169, 3266, 0),
         Location(3168, 3266, 0),
         Location(3174, 3274, 0),
         Location(3173, 3274, 0)
     ),
-
-    /**
-     * Alkharid.
-     */
     ALKHARID(
         Location(3267, 3148, 0),
         Location(3268, 3147, 0),
         Location(3276, 3140, 0),
         Location(3275, 3140, 0)
     ),
-
-    /**
-     * Fishing Guild.
-     */
     FISHING_GUILD(
         Location(2612, 3411, 0),
         Location(2602, 3423, 0),
@@ -178,10 +132,6 @@ enum class FishSpots(vararg val locations: Location) {
         Location(2603, 3426, 0),
         Location(2604, 3426, 0)
     ),
-
-    /**
-     * Gnome.
-     */
     GNOME(
         Location(2388, 3424, 0),
         Location(2390, 3422, 0),
@@ -190,10 +140,6 @@ enum class FishSpots(vararg val locations: Location) {
         Location(2382, 3414, 0),
         Location(2382, 3415, 0)
     ),
-
-    /**
-     * Castlewar.
-     */
     CASTLEWAR(
         Location(2465, 3156, 0),
         Location(2464, 3155, 0),
@@ -205,10 +151,6 @@ enum class FishSpots(vararg val locations: Location) {
         Location(2461, 3150, 0),
         Location(2461, 3151, 0)
     ),
-
-    /**
-     * Shilo.
-     */
     SHILO(
         Location(2460, 3144, 0),
         Location(2461, 3150, 0),
@@ -228,10 +170,6 @@ enum class FishSpots(vararg val locations: Location) {
         Location(2855, 2974, 0),
         Location(2852, 2973, 0)
     ),
-
-    /**
-     * Karamja.
-     */
     KARAMJA(
         Location(2923, 3178, 0),
         Location(2923, 3179, 0),
@@ -245,10 +183,6 @@ enum class FishSpots(vararg val locations: Location) {
         Location(2926, 3176, 0),
         Location(2921, 3178, 0)
     ),
-
-    /**
-     * Piscatoris.
-     */
     PISCATORIS(
         Location(2341, 3702, 0),
         Location(2342, 3702, 0),
@@ -260,17 +194,9 @@ enum class FishSpots(vararg val locations: Location) {
         Location(2349, 3702, 0),
         Location(2352, 3703, 0)
     ),
-
-    /**
-     * Tutorial Island.
-     */
     TUTORIAL_ISLAND(
         Location(3101, 3092, 0)
     ),
-
-    /**
-     * Wilderness Area.
-     */
     WILDERNESS_AREA(
         Location(3187, 3927, 0),
         Location(3185, 3926, 0),
@@ -283,35 +209,25 @@ enum class FishSpots(vararg val locations: Location) {
     );
 
     companion object {
-        // Initialize an ArrayList to hold Location objects
-        private val locs: ArrayList<Location> = ArrayList()
 
-        // Initialize a HashMap to associate Location objects with FishSpots
+        private val locs: ArrayList<Location> = ArrayList()
         private val locMap: HashMap<Location, FishSpots> = HashMap()
 
-        // Initialization block to populate locMap and locs
+
         init {
-            // Iterate through all values of the enum or class
             for (value in values()) {
-                // Iterate through each location in the current value
                 for (loc in value.locations) {
-                    // Map the location to the corresponding FishSpots value
                     locMap[loc] = value
-                    // Add the location to the locs ArrayList
                     locs.add(loc)
                 }
             }
         }
 
-        // Static method to retrieve FishSpots for a given Location
         @JvmStatic
         fun forLocation(loc: Location): FishSpots? {
-            // Check if the location exists in locMap
             return if (locMap[loc] == null) {
-                // Return TUTORIAL_ISLAND if the location is not found
                 TUTORIAL_ISLAND
             } else {
-                // Return the corresponding FishSpots for the found location
                 locMap[loc]
             }
         }

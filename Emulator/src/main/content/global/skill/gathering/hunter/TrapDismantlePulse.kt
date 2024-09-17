@@ -10,10 +10,6 @@ import core.game.node.scenery.Scenery
 
 /**
  * Handles the dismantling of a trap.
- * @author Vexia
- *
- * @param node The scenery object associated with the trap.
- * @param wrapper The wrapper object that contains trap-related data.
  */
 class TrapDismantlePulse(player: Player?, node: Scenery?, wrapper: TrapWrapper) : SkillPulse<Scenery?>(player, node) {
 

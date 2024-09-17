@@ -34,9 +34,10 @@ class MiningListeners : InteractionListener {
 
     override fun defineListeners() {
 
-        /**
+        /*
          * Mining interaction.
          */
+
         defineInteraction(
             IntType.SCENERY,
             MiningNode.values().map { it.id }.toIntArray(),
@@ -46,9 +47,10 @@ class MiningListeners : InteractionListener {
             handler = ::handleMining
         )
 
-        /**
+        /*
          * Prospect interaction.
          */
+
         on(IntType.SCENERY, "prospect") { player, node ->
             val rock = MiningNode.forId(node.asScenery().id)
 
@@ -94,9 +96,10 @@ class MiningListeners : InteractionListener {
             }
         }
 
-        /**
+        /*
          * Repair interaction.
          */
+
         onUseWith(IntType.ITEM, PICKAXE_HANDLE, *BROKEN_PICKAXES) { player, used, with ->
             val product = when (used.id) {
                 Items.BRONZE_PICK_HEAD_480 -> Items.BRONZE_PICKAXE_1265
@@ -162,9 +165,10 @@ class MiningListeners : InteractionListener {
         if (!checkReward(player, resource, tool))
             return delayScript(player, getDelay())
 
-        /**
+        /*
          * Reward logic.
          */
+
         var reward = resource!!.reward
         var rewardAmount: Int
         if (reward > 0) {
@@ -173,15 +177,17 @@ class MiningListeners : InteractionListener {
 
             player.dispatch(ResourceProducedEvent(reward, rewardAmount, node))
 
-            /**
+            /*
              * Reward mining experience.
              */
+
             val experience = resource.experience * rewardAmount
             rewardXP(player, Skills.MINING, experience)
 
-            /**
+            /*
              * If player is wearing Bracelet of Clay, soften.
              */
+
             if (reward == Items.CLAY_434) {
                 val bracelet = getItemFromEquipment(player, EquipmentSlot.HANDS)
                 if (bracelet != null && bracelet.id == Items.BRACELET_OF_CLAY_11074) {
@@ -206,9 +212,10 @@ class MiningListeners : InteractionListener {
             val rewardName = if (reward == 446) getItemName(444).lowercase()
             else getItemName(reward).lowercase()
 
-            /**
+            /*
              * Send the message for the resource reward.
              */
+
             if (isGems) {
                 sendMessage(player, "You get ${prependArticle(rewardName)}.")
             } else if (isGranite) {
@@ -219,17 +226,19 @@ class MiningListeners : InteractionListener {
                 sendMessage(player, "You manage to mine some ${rewardName.lowercase()}.")
             }
 
-            /**
+            /*
              * Give the mining reward, increment 'rocks mined' attribute.
              */
+
             if (addItem(player, reward, rewardAmount)) {
                 var rocksMined = getAttribute(player, "$STATS_BASE:$STATS_ROCKS", 0)
                 setAttribute(player, "/save:$STATS_BASE:$STATS_ROCKS", ++rocksMined)
             }
 
-            /**
+            /*
              * Calculate bonus gem chance while mining.
              */
+
             if (!isEssence) {
                 var chance = 282
                 var altered = false
@@ -256,9 +265,10 @@ class MiningListeners : InteractionListener {
                 }
             }
 
-            /**
-             * Handling limestone.
+            /*
+             * Handles limestone respawn.
              */
+
             if (resource.id == 4030 && !isEssence && resource.respawnRate != 0) {
                 removeScenery(node as Scenery)
                 GameWorld.Pulser.submit(object : Pulse(resource.respawnDuration, player) {
@@ -271,9 +281,10 @@ class MiningListeners : InteractionListener {
                 return false
             }
 
-            /**
+            /*
              * Transform ore to depleted version.
              */
+
             if (resource.id in 9030..9032) {
                 SceneryBuilder.replaceWithTempBeforeNew(
                     node.asScenery(),
@@ -298,9 +309,10 @@ class MiningListeners : InteractionListener {
     private fun calculateRewardAmount(player: Player, isMiningEssence: Boolean, reward: Int): Int {
         var amount = 1
 
-        /**
+        /*
          * If player is wearing Varrock armour from diary, roll chance at extra ore.
          */
+
         if (!isMiningEssence && player.achievementDiaryManager.getDiary(DiaryType.VARROCK)!!.level != -1) {
             when (reward) {
                 Items.CLAY_434, Items.COPPER_ORE_436, Items.TIN_ORE_438, Items.LIMESTONE_3211, Items.BLURITE_ORE_668, Items.IRON_ORE_440, Items.ELEMENTAL_ORE_2892, Items.SILVER_ORE_442, Items.COAL_453 -> if (player.achievementDiaryManager.armour >= 0 && RandomFunction.random(100) < 4) {
@@ -320,9 +332,10 @@ class MiningListeners : InteractionListener {
             }
         }
 
-        /**
+        /*
          * If player has mining boost from Shooting Star, roll chance at extra ore.
          */
+
         if (hasTimerActive<StarBonus>(player)) {
             if (RandomFunction.getRandom(5) == 3) {
                 sendMessage(player, "...you manage to mine a second ore thanks to the Star Sprite.")
@@ -332,10 +345,11 @@ class MiningListeners : InteractionListener {
         return amount
     }
 
-    /**
+    /*
      * If the player is mining sandstone or granite, then get
      * size of sandstone/granite and xp reward for that size.
      */
+
     private fun calculateReward(
         player: Player,
         resource: MiningNode,
@@ -367,36 +381,16 @@ class MiningListeners : InteractionListener {
         return hostRatio < clientRatio
     }
 
-    /**
-     * Get delay
-     *
-     * @return
-     */
     fun getDelay(): Int {
         return 1
     }
 
-    /**
-     * Anim
-     *
-     * @param player The player performing the animation
-     * @param resource The mining resource being interacted with
-     * @param tool The skilling tool used for the animation
-     */
     fun anim(player: Player, resource: MiningNode?, tool: SkillingTool) {
         val isEssence = resource!!.id in intArrayOf(2491, 16684)
         if (animationFinished(player))
             animate(player, if (!isEssence) tool.animation else tool.animation.id + 6128, true)
     }
 
-    /**
-     * Check requirements
-     *
-     * @param player The player whose requirements are being checked
-     * @param resource The mining resource being checked
-     * @param node The mining node associated with the resource
-     * @return True if requirements are met, otherwise false
-     */
     fun checkRequirements(player: Player, resource: MiningNode, node: Node): Boolean {
         if (getDynLevel(player, Skills.MINING) < resource.level) {
             sendMessage(player, "You need a mining level of ${resource.level} to mine this rock.")

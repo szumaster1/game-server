@@ -24,11 +24,16 @@ import core.tools.RandomFunction
 import core.tools.colorize
 
 /**
- * Fishing listener.
+ * Represents the fishing option listener.
  */
 class FishingListener : InteractionListener {
     override fun defineListeners() {
         val spotIds = FishingSpot.values().flatMap { it.ids.toList() }.toIntArray()
+
+        /*
+         * Handles the fishing options.
+         */
+
         defineInteraction(
             IntType.NPC,
             spotIds,

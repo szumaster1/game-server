@@ -582,10 +582,12 @@ enum class MiningNode(var id: Int, var emptyId: Int, var identifier: Byte) {
             }
         }
 
+        @JvmStatic
         fun forId(id: Int): MiningNode? {
             return NODE_MAP[id]
         }
 
+        @JvmStatic
         fun isEmpty(id: Int): Boolean {
             return EMPTY_MAP[id] != null
         }

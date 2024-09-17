@@ -23,13 +23,7 @@ import core.tools.RandomFunction
 import core.tools.colorize
 
 /**
- * Fishing pulse
- *
- * @param option Represents the fishing option selected by the player.
- * @constructor Represents a FishingPulse instance with the specified player, NPC, and fishing option.
- *
- * @param player The player who is engaged in fishing.
- * @param npc The non-player character associated with the fishing activity.
+ * Represents the fishing pulse.
  */
 class FishingPulse(player: Player?, npc: NPC, private val option: FishingOption?) : SkillPulse<NPC?>(player, npc) {
 
@@ -52,7 +46,11 @@ class FishingPulse(player: Player?, npc: NPC, private val option: FishingOption?
         player.debug(inInventory(player, option.tool).toString())
         if (!inInventory(player, option.tool) && !hasBarbTail()) {
             var msg = "You need a "
-            msg += if (getItemName(option.tool).contains("net", true)) "net to " else "${getItemName(option.tool).lowercase()} to "
+            msg += if (getItemName(option.tool).contains(
+                    "net",
+                    true
+                )
+            ) "net to " else "${getItemName(option.tool).lowercase()} to "
             msg += if (option.option in arrayOf("lure", "bait")) "${option.option} these fish." else "catch these fish."
             sendDialogue(player, msg)
             stop()
@@ -132,10 +130,18 @@ class FishingPulse(player: Player?, npc: NPC, private val option: FishingOption?
 
     private fun isBareHanded(p: Player): Boolean {
         if (option == FishingOption.HARPOON || option == FishingOption.SHARK_HARPOON) {
-            if (checkFish(p) > 0 && !(inInventory(player, option.tool) || inEquipment(player, option.tool) || hasBarbTail())) {
+            if (checkFish(p) > 0 && !(inInventory(player, option.tool) || inEquipment(
+                    player,
+                    option.tool
+                ) || hasBarbTail())
+            ) {
                 return true
             }
-            if (checkFish(p) > 2 && !(inInventory(player, option.tool) || inEquipment(player, option.tool) || hasBarbTail())) {
+            if (checkFish(p) > 2 && !(inInventory(player, option.tool) || inEquipment(
+                    player,
+                    option.tool
+                ) || hasBarbTail())
+            ) {
                 return true
             }
         }
@@ -176,9 +182,10 @@ class FishingPulse(player: Player?, npc: NPC, private val option: FishingOption?
         return 0
     }
 
-    /**
+    /*
      * Checks if they have the barb tail harpoon.
      */
+
     private fun hasBarbTail(): Boolean {
         val bh = FishingOption.BARB_HARPOON.tool
         if (option == FishingOption.HARPOON || option == FishingOption.SHARK_HARPOON) {
@@ -214,9 +221,10 @@ class FishingPulse(player: Player?, npc: NPC, private val option: FishingOption?
         }
     }
 
-    /**
+    /*
      * Method used to check if the catch was a success.
      */
+
     private fun success(): Boolean {
         if (delay == 1) {
             return false
@@ -237,13 +245,4 @@ class FishingPulse(player: Player?, npc: NPC, private val option: FishingOption?
         }
     }
 
-    /**
-     * Constructs a new `FishingPulse` `Object`.
-     *
-     * @param player the player.
-     * @param npc    the fishing spot NPC.
-     * @param option The fishing option.
-     */
-    init {
-    }
 }

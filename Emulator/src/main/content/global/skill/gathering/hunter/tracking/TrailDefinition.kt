@@ -3,15 +3,7 @@ package content.global.skill.gathering.hunter.tracking
 import core.game.world.map.Location
 
 /**
- * Trail definition
- *
- * @param varbit
- * @param type
- * @param inverted
- * @param startLocation
- * @param endLocation
- * @param triggerObjectLocation
- * @constructor Trail definition
+ * Represents the trial definition data.
  */
 class TrailDefinition(
     val varbit: Int,
@@ -27,23 +19,10 @@ class TrailDefinition(
 }
 
 /**
- * Trail type
- *
- * @constructor Trail type
+ * Represents the trial types.
  */
 enum class TrailType {
-    /**
-     * Linking.
-     */
     LINKING,
-
-    /**
-     * Initial.
-     */
     INITIAL,
-
-    /**
-     * Tunnel.
-     */
     TUNNEL
 }
