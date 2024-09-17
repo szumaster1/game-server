@@ -10,6 +10,7 @@ import java.util.Random;
 
 /**
  * Handles the impling node.
+ *
  * @author Vexia
  */
 public final class ImplingNode extends BNetNode {

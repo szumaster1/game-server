@@ -58,9 +58,9 @@ class WoodcuttingListener : InteractionListener {
     /**
      * Handle woodcutting
      *
-     * @param player The player who is performing the woodcutting action
-     * @param node The tree or wood source being cut down
-     * @param state The current state of the woodcutting process
+     * @param player    the player who is performing the woodcutting action
+     * @param node      the tree or wood source being cut down
+     * @param state     the current state of the woodcutting process
      * @return A result indicating the success or failure of the woodcutting action
      */
     private fun handleWoodcutting(player: Player, node: Node, state: Int): Boolean {
@@ -204,7 +204,7 @@ class WoodcuttingListener : InteractionListener {
     /**
      * Animate woodcutting
      *
-     * @param player The player who is performing the woodcutting action
+     * @param player    the player who is performing the woodcutting action
      */
     fun animateWoodcutting(player: Player) {
         if (!player.animator.isAnimating) {
@@ -221,12 +221,12 @@ class WoodcuttingListener : InteractionListener {
     }
 
     /**
-     * Check woodcutting requirements
+     * Check woodcutting requirements.
      *
-     * @param player The player attempting to cut wood
-     * @param resource The type of wood resource being cut
-     * @param node The specific node from which the wood is being cut
-     * @return True if the player meets the requirements, otherwise false
+     * @param player    the player.
+     * @param resource  the type of wood.
+     * @param node      the node.
+     * @return `true` if the player meets the requirements, otherwise `false`
      */
     fun checkWoodcuttingRequirements(player: Player, resource: WoodcuttingNode, node: Node): Boolean {
         var regionId = player.location.regionId
@@ -266,12 +266,7 @@ class WoodcuttingListener : InteractionListener {
         /*
          * Seers village medium reward - extra normal log while in seer's village.
          */
-        if (reward == 1511 && isDiaryComplete(
-                player,
-                DiaryType.SEERS_VILLAGE,
-                1
-            ) && player.viewport.region.id == 10806
-        ) {
+        if (reward == 1511 && isDiaryComplete(player, DiaryType.SEERS_VILLAGE, 1) && player.viewport.region.id == 10806) {
             amount = 2
         }
         return amount
@@ -302,11 +297,7 @@ class WoodcuttingListener : InteractionListener {
         /*
          * Seers village medium reward - extra 10% xp from maples while wearing headband.
          */
-        if (reward == 1517 && player.achievementDiaryManager.getDiary(DiaryType.SEERS_VILLAGE)!!
-                .isComplete(1) && player.equipment.get(EquipmentContainer.SLOT_HAT) != null && player.equipment.get(
-                EquipmentContainer.SLOT_HAT
-            ).id == 14631
-        ) {
+        if (reward == 1517 && player.achievementDiaryManager.getDiary(DiaryType.SEERS_VILLAGE)!!.isComplete(1) && player.equipment.get(EquipmentContainer.SLOT_HAT) != null && player.equipment.get(EquipmentContainer.SLOT_HAT).id == 14631) {
             experience *= 1.10
         }
         return experience * amount

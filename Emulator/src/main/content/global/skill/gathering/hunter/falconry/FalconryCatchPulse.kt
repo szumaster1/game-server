@@ -125,6 +125,7 @@ class FalconryCatchPulse(player: Player?, node: NPC, private val falconCatch: Fa
 
     /**
      * Gets the distance of the npc.
+     *
      * @return the distance.
      */
     val distance: Int
@@ -132,6 +133,7 @@ class FalconryCatchPulse(player: Player?, node: NPC, private val falconCatch: Fa
 
     /**
      * Checks if the catch was successful.
+     *
      * @return {@code True} if so.
      */
     fun success(): Boolean {

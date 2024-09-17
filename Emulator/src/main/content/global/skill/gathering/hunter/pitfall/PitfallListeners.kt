@@ -40,7 +40,13 @@ class PitfallListeners : InteractionListener {
     val KYATT_PIT = 19233
 
     override fun defineListeners() {
-        setDest(IntType.SCENERY, intArrayOf(PIT, SPIKED_PIT, LARUPIA_PIT, GRAAHK_PIT, KYATT_PIT), "trap", "jump", "dismantle") { player, node ->
+        setDest(
+            IntType.SCENERY,
+            intArrayOf(PIT, SPIKED_PIT, LARUPIA_PIT, GRAAHK_PIT, KYATT_PIT),
+            "trap",
+            "jump",
+            "dismantle"
+        ) { player, node ->
             val pit = node as Scenery
             val src = player.location
             var dst = pit.location
