@@ -8,7 +8,7 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 
 /**
- * Dig up patch dialogue.
+ * Represents the Dig up patch dialogue.
  */
 @Initializable
 class DigUpPatchDialogue(player: Player? = null) : Dialogue(player) {

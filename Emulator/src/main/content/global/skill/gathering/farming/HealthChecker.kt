@@ -14,7 +14,7 @@ import core.tools.Log
 import java.util.concurrent.TimeUnit
 
 /**
- * Health checker.
+ * Represents health checker option handler.
  */
 @Initializable
 class HealthChecker : OptionHandler() {

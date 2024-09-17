@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.plugin.Plugin
 
 /**
- * Compost bin option handler.
+ * Represents the compost bin option handler.
  */
 @Initializable
 class CompostBinOptionHandler : OptionHandler() {

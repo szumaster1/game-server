@@ -11,7 +11,7 @@ import core.game.node.entity.skill.Skills
 import core.game.world.map.zone.ZoneBorders
 
 /**
- * Farming patch zone.
+ * Represents the farming patch zone.
  */
 class FarmingPatchZone : MapArea, TickListener {
     private val playersInZone = hashMapOf<Player,Int>()

@@ -16,7 +16,7 @@ import core.plugin.Plugin
 import java.util.concurrent.TimeUnit
 
 /**
- * Fruit and berry picker.
+ * Represents the fruit and berry picker handler.
  */
 @Initializable
 class FruitAndBerryPicker : OptionHandler() {

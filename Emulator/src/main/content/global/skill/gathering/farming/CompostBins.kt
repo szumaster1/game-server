@@ -7,7 +7,7 @@ import core.game.node.entity.player.Player
 import core.game.node.scenery.Scenery
 
 /**
- * Compost bins.
+ * Represents the Compost bins data.
  */
 enum class CompostBins(val varbit: Int) {
     FALADOR_COMPOST(740),
@@ -20,10 +20,10 @@ enum class CompostBins(val varbit: Int) {
         val bins = values().map { it.varbit to it }.toMap()
 
         /**
-         * Returns the CompostBins enum for a given Scenery object.
+         * Returns the [CompostBins] for a given scenery object.
          *
-         * @param obj The Scenery object to find the CompostBins for.
-         * @return The corresponding CompostBins enum.
+         * @param obj the object.
+         * @return the [CompostBins].
          */
         @JvmStatic
         fun forObject(obj: Scenery): CompostBins?{
@@ -31,10 +31,10 @@ enum class CompostBins(val varbit: Int) {
         }
 
         /**
-         * Returns the CompostBins enum for a given object ID.
+         * Returns the [CompostBins] for a given object.
          *
-         * @param id The ID of the object to find the CompostBins for.
-         * @return The corresponding CompostBins enum.
+         * @param obj the object id.
+         * @return the [CompostBins].
          */
         @JvmStatic
         fun forObjectID(id: Int): CompostBins?{
@@ -44,10 +44,10 @@ enum class CompostBins(val varbit: Int) {
     }
 
     /**
-     * Get the CompostBin for a specific player.
+     * Get the [CompostBin] for player.
      *
-     * @param player The player for whom to get the CompostBin.
-     * @return The CompostBin associated with the player.
+     * @param player the player.
+     * @return the compost bin for the player.
      */
     fun getBinForPlayer(player: Player) : CompostBin {
         val bins = getOrStartTimer <Compost> (player)

@@ -14,9 +14,8 @@ import core.tools.START_DIALOGUE
 /**
  * Class representing a dialogue for farmer payment options.
  *
- * @param patch      The patch object associated with the payment.
- * @param quickPay   A boolean indicating if quick payment is selected.
- * @constructor Creates a FarmerPayOptionDialogue with the provided patch and quickPay status.
+ * @param patch      the patch object associated with the payment.
+ * @param quickPay   the payment.
  */
 class FarmerPayOptionDialogue(val patch: Patch, val quickPay: Boolean = false): DialogueFile() {
 

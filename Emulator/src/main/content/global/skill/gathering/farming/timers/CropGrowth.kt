@@ -11,7 +11,7 @@ import java.time.LocalTime
 import java.util.concurrent.TimeUnit
 
 /**
- * Crop growth.
+ * Represents the [CropGrowth] timer.
  */
 class CropGrowth : PersistTimer (500, "farming:crops", isSoft = true) {
     private val patchMap = HashMap<FarmingPatch, Patch>()

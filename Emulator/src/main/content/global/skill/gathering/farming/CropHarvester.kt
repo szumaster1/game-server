@@ -26,7 +26,7 @@ val livesBased = arrayOf(
 )
 
 /**
- * Crop harvester.
+ * Represents the crop harvest option handler.
  */
 @Initializable
 class CropHarvester : OptionHandler() {

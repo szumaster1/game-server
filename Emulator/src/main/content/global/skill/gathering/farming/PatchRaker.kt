@@ -8,7 +8,7 @@ import core.game.node.entity.skill.Skills
 import core.game.system.task.Pulse
 
 /**
- * Patch raker.
+ * Represents the patch raker.
  */
 object PatchRaker {
 

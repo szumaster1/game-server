@@ -10,7 +10,7 @@ import org.json.simple.JSONObject
 import java.util.concurrent.TimeUnit
 
 /**
- * Seedling growth.
+ * Represents the [SeedlingGrowth] timer.
  */
 class SeedlingGrowth : PersistTimer (1, "farming:seedling", isSoft = true) {
     val seedlings = ArrayList<Seedling>()

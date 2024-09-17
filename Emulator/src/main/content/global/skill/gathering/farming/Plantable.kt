@@ -4,21 +4,7 @@ import cfg.consts.Items
 import core.game.node.item.Item
 
 /**
- * Plantable.
- *
- * @param itemID           The unique identifier of the item.
- * @param displayName      The name displayed for the item.
- * @param value            The value of the item.
- * @param stages           The growth stages of the plant.
- * @param plantingXP       The experience gained from planting the item.
- * @param harvestXP        The experience gained from harvesting the item.
- * @param checkHealthXP    The experience gained from checking the health of the plant.
- * @param requiredLevel    The level required to plant the item.
- * @param applicablePatch  The type of patch where the item can be planted.
- * @param harvestItem      The item ID obtained from harvesting the plant
- * @param protectionItem   The item that protects the plant.
- * @param protectionFlower The protective flower for the plant.
- * @constructor Plantable.
+ * Represents the plantable data.
  */
 enum class Plantable(
     val itemID: Int,
@@ -39,16 +25,16 @@ enum class Plantable(
      * Marigold Seed.
      */
     MARIGOLD_SEED(
-        itemID = Items.MARIGOLD_SEED_5096, // Item ID for Marigold Seed
-        displayName = "marigold seed", // Display name for Marigold Seed
-        value = 8, // Value of Marigold Seed
-        stages = 4, // Number of growth stages for Marigold Seed
-        plantingXP = 8.5, // Planting experience gained from planting Marigold Seed
-        harvestXP = 47.0, // Harvest experience gained from harvesting Marigold Seed
-        checkHealthXP = 0.0, // Health check experience gained from checking Marigold Seed
-        requiredLevel = 2, // Required level to plant Marigold Seed
-        applicablePatch = PatchType.FLOWER_PATCH, // Marigold Seed can be planted in a flower patch
-        harvestItem = Items.MARIGOLDS_6010 // Item obtained from harvesting Marigold Seed
+        itemID = Items.MARIGOLD_SEED_5096,
+        displayName = "marigold seed",
+        value = 8,
+        stages = 4,
+        plantingXP = 8.5,
+        harvestXP = 47.0,
+        checkHealthXP = 0.0,
+        requiredLevel = 2,
+        applicablePatch = PatchType.FLOWER_PATCH,
+        harvestItem = Items.MARIGOLDS_6010
     ),
 
     /**
@@ -1051,44 +1037,20 @@ enum class Plantable(
     )
     ;
 
-    constructor(
-        itemID: Int,
-        displayName: String,
-        value: Int,
-        stages: Int,
-        plantingXP: Double,
-        harvestXP: Double,
-        checkHealthXP: Double,
-        requiredLevel: Int,
-        applicablePatch: PatchType,
-        harvestItem: Int,
-        protectionFlower: Plantable
-    ) : this(
-        itemID,
-        displayName,
-        value,
-        stages,
-        plantingXP,
-        harvestXP,
-        checkHealthXP,
-        requiredLevel,
-        applicablePatch,
-        harvestItem,
-        null,
-        protectionFlower
-    )
+    constructor(itemID: Int, displayName: String, value: Int, stages: Int, plantingXP: Double, harvestXP: Double, checkHealthXP: Double, requiredLevel: Int, applicablePatch: PatchType, harvestItem: Int, protectionFlower: Plantable) :
+            this(itemID, displayName, value, stages, plantingXP, harvestXP, checkHealthXP, requiredLevel, applicablePatch, harvestItem, null, protectionFlower)
 
     companion object {
         @JvmField
-        val plantables = values().map { it.itemID to it }.toMap() // Map of item IDs to corresponding Plantable objects
+        val plantables = values().map { it.itemID to it }.toMap()
 
         @JvmStatic
-        fun forItemID(id: Int): Plantable? { // Retrieve Plantable object based on item ID
+        fun forItemID(id: Int): Plantable? {
             return plantables[id]
         }
 
         @JvmStatic
-        fun forItem(item: Item): Plantable? { // Retrieve Plantable object based on Item object
+        fun forItem(item: Item): Plantable? {
             return forItemID(item.id)
         }
     }

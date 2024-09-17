@@ -11,7 +11,7 @@ import core.plugin.Plugin
 import core.tools.prependArticle
 
 /**
- * Inspection handler.
+ * Represents an inspection option handler.
  */
 @Initializable
 class InspectionHandler : OptionHandler() {

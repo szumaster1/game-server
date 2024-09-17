@@ -13,18 +13,6 @@ import kotlin.math.min
 
 /**
  * Patch class represents a farming patch.
- *
- * @param player             The player interacting with the patch.
- * @param patch              The specific farming patch.
- * @param plantable          The plantable item in the patch.
- * @param currentGrowthStage The current growth stage of the plant.
- * @param isDiseased         Indicates if the plant is diseased.
- * @param isDead             Indicates if the plant is dead.
- * @param isWatered          Indicates if the plant has been watered.
- * @param nextGrowth         The timestamp for the next growth stage.
- * @param harvestAmt         The amount of harvestable items.
- * @param isCheckHealth      Indicates if the plant's health should be checked.
- * @constructor Creates a Patch instance with initial values.
  */
 class Patch(val player: Player, val patch: FarmingPatch, var plantable: Plantable?, var currentGrowthStage: Int, var isDiseased: Boolean, var isDead: Boolean, var isWatered: Boolean, var nextGrowth: Long, var harvestAmt: Int, var isCheckHealth: Boolean) {
     constructor(player: Player, patch: FarmingPatch) : this(player,patch,null,0,false,false,false,0L,0,false)

@@ -14,20 +14,10 @@ import core.tools.prependArticle
  */
 class SeedlingListener : InteractionListener {
     override fun defineListeners() {
-        // Define listener for using tree seeds with plant pots
         onUseWith(IntType.ITEM, TREE_SEEDS, Items.PLANT_POT_5354, handler = ::addSeedToPot)
-        // Define listener for using tree seedlings with watering cans
         onUseWith(IntType.ITEM, TREE_SEEDLINGS, *WATERING_CANS, handler = ::waterSeedling)
     }
 
-    /**
-     * Add seed to pot.
-     *
-     * @param player The player performing the action.
-     * @param used   The item being used (tree seed).
-     * @param with   The item being used with (plant pot).
-     * @return True if the action was successful, false otherwise.
-     */
     fun addSeedToPot(player: Player, used: Node, with: Node) : Boolean {
         val seed = used.asItem() ?: return false
         val pot = with.asItem() ?: return false
@@ -46,14 +36,6 @@ class SeedlingListener : InteractionListener {
         return true
     }
 
-    /**
-     * Water seedling.
-     *
-     * @param player The player performing the action.
-     * @param used   The item being used (seedling).
-     * @param with   The item being used with (watering can).
-     * @return True if the action was successful, false otherwise.
-     */
     fun waterSeedling(player: Player, used: Node, with: Node) : Boolean {
         val seedling = used.asItem() ?: return false
         val can = with.asItem() ?: return false
@@ -79,8 +61,8 @@ class SeedlingListener : InteractionListener {
     /**
      * Get seedling.
      *
-     * @param id The ID of the seed.
-     * @return The ID of the corresponding seedling, or -1 if not found.
+     * @param id The id of the seed.
+     * @return The [Seedling], or `-1` if not found.
      */
     fun getSeedling(id: Int) : Int {
         return when (id) {
@@ -102,39 +84,7 @@ class SeedlingListener : InteractionListener {
         }
     }
 
-    val TREE_SEEDS = intArrayOf(
-        Items.ACORN_5312,
-        Items.WILLOW_SEED_5313,
-        Items.MAPLE_SEED_5314,
-        Items.YEW_SEED_5315,
-        Items.MAGIC_SEED_5316,
-        Items.APPLE_TREE_SEED_5283,
-        Items.BANANA_TREE_SEED_5284,
-        Items.ORANGE_TREE_SEED_5285,
-        Items.CURRY_TREE_SEED_5286,
-        Items.PINEAPPLE_SEED_5287,
-        Items.PAPAYA_TREE_SEED_5288,
-        Items.PALM_TREE_SEED_5289,
-        Items.CALQUAT_TREE_SEED_5290,
-        Items.SPIRIT_SEED_5317
-    )
-
-    val TREE_SEEDLINGS = intArrayOf(
-        Items.OAK_SEEDLING_5358,
-        Items.WILLOW_SEEDLING_5359,
-        Items.MAPLE_SEEDLING_5360,
-        Items.YEW_SEEDLING_5361,
-        Items.MAGIC_SEEDLING_5362,
-        Items.APPLE_SEEDLING_5480,
-        Items.BANANA_SEEDLING_5481,
-        Items.ORANGE_SEEDLING_5482,
-        Items.CURRY_SEEDLING_5483,
-        Items.PINEAPPLE_SEEDLING_5484,
-        Items.PAPAYA_SEEDLING_5485,
-        Items.PALM_SEEDLING_5486,
-        Items.CALQUAT_SEEDLING_5487,
-        Items.SPIRIT_SEEDLING_5363
-    )
-
+    val TREE_SEEDS = intArrayOf(Items.ACORN_5312, Items.WILLOW_SEED_5313, Items.MAPLE_SEED_5314, Items.YEW_SEED_5315, Items.MAGIC_SEED_5316, Items.APPLE_TREE_SEED_5283, Items.BANANA_TREE_SEED_5284, Items.ORANGE_TREE_SEED_5285, Items.CURRY_TREE_SEED_5286, Items.PINEAPPLE_SEED_5287, Items.PAPAYA_TREE_SEED_5288, Items.PALM_TREE_SEED_5289, Items.CALQUAT_TREE_SEED_5290, Items.SPIRIT_SEED_5317)
+    val TREE_SEEDLINGS = intArrayOf(Items.OAK_SEEDLING_5358, Items.WILLOW_SEEDLING_5359, Items.MAPLE_SEEDLING_5360, Items.YEW_SEEDLING_5361, Items.MAGIC_SEEDLING_5362, Items.APPLE_SEEDLING_5480, Items.BANANA_SEEDLING_5481, Items.ORANGE_SEEDLING_5482, Items.CURRY_SEEDLING_5483, Items.PINEAPPLE_SEEDLING_5484, Items.PAPAYA_SEEDLING_5485, Items.PALM_SEEDLING_5486, Items.CALQUAT_SEEDLING_5487, Items.SPIRIT_SEEDLING_5363)
     private val WATERING_CANS = intArrayOf(Items.WATERING_CAN8_5340,Items.WATERING_CAN7_5339,Items.WATERING_CAN6_5338,Items.WATERING_CAN5_5337,Items.WATERING_CAN4_5336,Items.WATERING_CAN3_5335,Items.WATERING_CAN2_5334,Items.WATERING_CAN1_5333)
 }

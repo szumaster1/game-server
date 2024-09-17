@@ -3,7 +3,7 @@ package content.global.skill.gathering.farming
 import cfg.consts.Items
 
 /**
- * Baskets and sacks.
+ * Represents the baskets and sacks data.
  */
 enum class BasketsAndSacks(val produceID: Int, val baseContainer: Int, val capacity: Int) {
     POTATO(

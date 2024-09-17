@@ -7,9 +7,9 @@ import core.game.node.Node
 import core.game.node.entity.player.Player
 
 /**
- * Farmer pay option handler.
+ * Represents the Farmer payment interaction listener.
  */
-class FarmerPayOptionHandler : InteractionListener {
+class FarmerPayListener : InteractionListener {
 
     override fun defineListeners() {
         on(IntType.NPC,"pay","pay (north)","pay (north-west)") { player, node ->

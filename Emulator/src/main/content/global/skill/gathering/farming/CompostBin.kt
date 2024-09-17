@@ -12,11 +12,10 @@ import org.json.simple.JSONObject
 import java.util.concurrent.TimeUnit
 
 /**
- * Compost bin.
+ * Represents the Compost bin data.
  *
- * @param player The player using the compost bin.
- * @param bin    The type of compost bin.
- * @constructor Creates a compost bin object.
+ * @param player    the player using the compost bin.
+ * @param bin       the type of compost bin.
  */
 class CompostBin(val player: Player, val bin: CompostBins) {
     private var items = ArrayList<Int>()

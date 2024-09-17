@@ -20,12 +20,6 @@ class SackBasketOptionHandler : OptionHandler() {
         val produce = arrayOf(Items.POTATO_1942,Items.ONION_1957,Items.CABBAGE_1965)
     }
 
-    /**
-     * New instance
-     *
-     * @param arg
-     * @return
-     */
     override fun newInstance(arg: Any?): Plugin<Any> {
         BasketsAndSacks.values().forEach { it.containers.forEach { id ->
             val def = ItemDefinition.forId(id)
@@ -40,14 +34,6 @@ class SackBasketOptionHandler : OptionHandler() {
         return this
     }
 
-    /**
-     * Handle
-     *
-     * @param player
-     * @param node
-     * @param option
-     * @return
-     */
     override fun handle(player: Player?, node: Node?, option: String?): Boolean {
         player ?: return false
         node ?: return false
@@ -60,12 +46,6 @@ class SackBasketOptionHandler : OptionHandler() {
         return true
     }
 
-    /**
-     * Try fill
-     *
-     * @param player
-     * @param item
-     */
     private fun tryFill(player: Player?, item: Item) {
         player ?: return
         val containerID = item.id
@@ -88,12 +68,6 @@ class SackBasketOptionHandler : OptionHandler() {
             player.inventory.add(Item(container.containers[specific + appropriateProduce.amount]))
     }
 
-    /**
-     * Try empty
-     *
-     * @param player
-     * @param item
-     */
     private fun tryEmpty(player: Player?, item: Item) {
         val container = BasketsAndSacks.forId(item.id)
         if(container == null) return
@@ -113,12 +87,6 @@ class SackBasketOptionHandler : OptionHandler() {
         }
     }
 
-    /**
-     * Try take one
-     *
-     * @param player
-     * @param item
-     */
     private fun tryTakeOne(player: Player?,item: Item) {
         val container = BasketsAndSacks.forId(item.id)
         if(container == null) return
@@ -144,13 +112,6 @@ class SackBasketOptionHandler : OptionHandler() {
         }
     }
 
-    /**
-     * Get appropriate produce
-     *
-     * @param player
-     * @param containerID
-     * @return
-     */
     private fun getAppropriateProduce(player: Player?, containerID: Int): Item? {
         player ?: return null
         val container = BasketsAndSacks.forId(containerID)

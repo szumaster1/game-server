@@ -8,7 +8,7 @@ import core.game.node.entity.player.Player
 import core.game.node.item.Item
 
 /**
- * Tool leprechaun interface.
+ * Represents the tool leprechaun interface.
  */
 class ToolLeprechaunInterface : InterfaceListener {
     private val FARMING_TOOLS = Components.FARMING_TOOLS_125
