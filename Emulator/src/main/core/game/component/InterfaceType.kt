@@ -5,18 +5,12 @@ import cfg.consts.Components
 /**
  * Represents an interface type.
  * @author Emperor
- *
- * @param fixedPaneId      The ID of the fixed pane.
- * @param resizablePaneId  The ID of the resizable pane.
- * @param fixedChildId     The ID of the fixed child.
- * @param resizableChildId The ID of the resizable child.
- * @constructor Represents InterfaceType with the provided IDs.
  */
 enum class InterfaceType(
-    @JvmField val fixedPaneId: Int,          // ID for the fixed pane
-    @JvmField val resizablePaneId: Int,      // ID for the resizable pane
-    @JvmField val fixedChildId: Int,         // ID for the fixed child
-    @JvmField val resizableChildId: Int      // ID for the resizable child
+    @JvmField val fixedPaneId: Int,
+    @JvmField val resizablePaneId: Int,
+    @JvmField val fixedChildId: Int,
+    @JvmField val resizableChildId: Int
 ) {
     /**
      * Default interface type.
