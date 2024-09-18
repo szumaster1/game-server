@@ -134,12 +134,12 @@ class SirKayDialogueFile : DialogueFile() {
             }
 
             46 -> {
-                if (!removeItem(player!!, Items.SEERS_HEADBAND_2_14659)) {
+                if (!removeItem(player!!, Items.SEERS_HEADBAND_1_14631)) {
                     npcl(FacialExpression.NEUTRAL, "I need your headband. Come back when you have it.")
                     stage = END_DIALOGUE
                 } else {
                     AchievementDiary.flagRewarded(player!!, DiaryType.SEERS_VILLAGE, diaryLevel)
-                    sendItemDialogue(player!!, Items.SEERS_HEADBAND_3_14660,"You hand Sir Kay your headband and he concentrates for a moment. Some mysterious knightly energy passes through his hands and he gives the headband back to you, along with an old lamp.")
+                    sendItemDialogue(player!!, Items.SEERS_HEADBAND_1_14631,"You hand Sir Kay your headband and he concentrates for a moment. Some mysterious knightly energy passes through his hands and he gives the headband back to you, along with an old lamp.")
                     stage++
                 }
             }

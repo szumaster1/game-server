@@ -22,7 +22,7 @@ class EnchantInterfaceListener : InterfaceListener {
         on(Components.STAFF_ENCHANT_332) { player, _, opcode, buttonID, slot, itemID ->
             val price = 40000
             val discountPrice = 27000
-            val headbandInEquipment = anyInEquipment(player, Items.SEERS_HEADBAND_1_14631,Items.SEERS_HEADBAND_2_14659,Items.SEERS_HEADBAND_3_14660)
+            val headbandInEquipment = inEquipment(player, Items.SEERS_HEADBAND_1_14631)
             val completeDiary = if (!headbandInEquipment) price else discountPrice
 
             sendMessage(player, "op: $opcode button: $buttonID slot: $slot item: $itemID")

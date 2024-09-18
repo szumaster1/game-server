@@ -94,7 +94,6 @@ class DiangoReclaimInterfacePlugin : ComponentPlugin() {
             Item(Items.SANTA_COSTUME_LEGS_14603),
             Item(Items.SANTA_COSTUME_BOOTS_14605),
             Item(Items.STAFF_OF_THE_RAVEN_DEFAULT_14654),
-            Item(Items.BUNNY_EARS_14658),
             Item(Items.ICE_AMULET_14596),
             Item(Items.RED_MARIONETTE_6867),
             Item(Items.GREEN_MARIONETTE_6866),

@@ -5,6 +5,7 @@ import org.rs.consts.Items
 import org.rs.consts.Scenery
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
+import core.game.node.entity.player.link.diary.DiaryType
 import core.game.node.item.Item
 
 /**
@@ -34,11 +35,16 @@ class CoalTruckListener : InteractionListener {
             val coalInTruck = getAttribute(player, ATTRIBUTE_COAL_TRUCK_INVENTORY, 0)
             sendDialogue(
                 player, "There is currently $coalInTruck coal in the truck. " + "The truck has space for " +
-                        when {
-                            inEquipment(player, Items.SEERS_HEADBAND_3_14660) -> 196 - coalInTruck
-                            inEquipment(player, Items.SEERS_HEADBAND_2_14659) -> 168 - coalInTruck
-                            inEquipment(player, Items.SEERS_HEADBAND_1_14631) -> 140 - coalInTruck
-                            else -> 120 - coalInTruck
+
+                        if(inEquipment(player, Items.SEERS_HEADBAND_1_14631)) {
+                            when {
+                                isDiaryComplete(player, DiaryType.SEERS_VILLAGE, 2) -> 196 - coalInTruck
+                                isDiaryComplete(player, DiaryType.SEERS_VILLAGE, 1) -> 168 - coalInTruck
+                                isDiaryComplete(player, DiaryType.SEERS_VILLAGE, 0) -> 140 - coalInTruck
+                                else -> 120 - coalInTruck
+                            }
+                        } else {
+                            120 - coalInTruck
                         }
                         + " more coal."
             )
@@ -46,32 +52,22 @@ class CoalTruckListener : InteractionListener {
         }
 
         onUseWith(IntType.SCENERY, Items.COAL_453, Scenery.COAL_TRUCK_2114) { player, _, _ ->
-            var coalInTruck = getAttribute(player, ATTRIBUTE_COAL_TRUCK_INVENTORY, 0)
+            val coalInTruck = getAttribute(player, ATTRIBUTE_COAL_TRUCK_INVENTORY, 0)
             var coalInInventory = amountInInventory(player, Items.COAL_453)
-            if (inEquipment(player, Items.SEERS_HEADBAND_3_14660)) {
-                if (coalInInventory + coalInTruck >= 196) {
-                    coalInInventory = 196 - coalInTruck
-                    sendMessage(player, message)
-                }
-            } else if (inEquipment(player, Items.SEERS_HEADBAND_2_14659)) {
-                if (coalInInventory + coalInTruck >= 168) {
-                    coalInInventory = 168 - coalInTruck
-                    sendMessage(player, message)
-                }
-            } else if (inEquipment(player, Items.SEERS_HEADBAND_1_14631)) {
-                if (coalInInventory + coalInTruck >= 140) {
-                    coalInInventory = 140 - coalInTruck
-                    sendMessage(player, message)
-                }
-            } else {
-                if (coalInInventory + coalInTruck >= 120) {
-                    coalInInventory = 120 - coalInTruck
-                    sendMessage(player, message)
-                }
+            val maxCoalCapacity = when {
+                inEquipment(player, Items.SEERS_HEADBAND_1_14631) && isDiaryComplete(player, DiaryType.SEERS_VILLAGE, 2) -> 196
+                inEquipment(player, Items.SEERS_HEADBAND_1_14631) && isDiaryComplete(player, DiaryType.SEERS_VILLAGE, 1) -> 168
+                inEquipment(player, Items.SEERS_HEADBAND_1_14631) && isDiaryComplete(player, DiaryType.SEERS_VILLAGE, 0) -> 140
+                else -> 120
             }
+
+            if (coalInInventory + coalInTruck >= maxCoalCapacity) {
+                coalInInventory = maxCoalCapacity - coalInTruck
+                sendMessage(player, message)
+            }
+
             if (removeItem(player, Item(Items.COAL_453, coalInInventory))) {
-                coalInTruck += coalInInventory
-                setAttribute(player, "/save:$ATTRIBUTE_COAL_TRUCK_INVENTORY", coalInTruck)
+                setAttribute(player, "/save:$ATTRIBUTE_COAL_TRUCK_INVENTORY", coalInTruck + coalInInventory)
             }
             return@onUseWith true
         }
