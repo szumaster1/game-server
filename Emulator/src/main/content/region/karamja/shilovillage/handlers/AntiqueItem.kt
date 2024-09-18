@@ -6,7 +6,7 @@ import core.game.node.item.Item
 /**
  * Represents the antique item.
  */
-enum class AntiqueItem(val item: Item, val price: Int, val message: String, val dialogue: String){
+enum class AntiqueItem(val item: Item, val price: Int, val message: String, val dialogue: String) {
     BONE_KEY(
         item = Item(Items.BONE_KEY_605, 1),
         price = 100,
@@ -17,7 +17,7 @@ enum class AntiqueItem(val item: Item, val price: Int, val message: String, val 
         item = Item(Items.STONE_PLAQUE_606, 1),
         price = 100,
         message = "I'll give you 100 coins for the Stone Plaque...",
-        dialogue = "That's a great stone-plaque."
+        dialogue = "That's a great stone plaque."
     ),
     TATTERED_SCROLL(
         item = Item(Items.TATTERED_SCROLL_607, 1),
@@ -57,12 +57,7 @@ enum class AntiqueItem(val item: Item, val price: Int, val message: String, val 
     );
 
     companion object {
-        val antiqueMap = HashMap<Int, AntiqueItem>()
-
-        init {
-            for (antiqueItem in values()) {
-                antiqueMap[antiqueItem.item.id] = antiqueItem
-            }
-        }
+        val antiqueMap: Map<Int, AntiqueItem> = values().associateBy { it.item.id }
     }
+
 }

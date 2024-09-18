@@ -98,27 +98,63 @@ enum class MysteriousRuin(
         tiara = Tiara.BLOOD
     );
 
+    /**
+     * Gets the talisman.
+     * @return The talisman.
+     */
+    fun getTalisman(): Talisman {
+        for (talisman in Talisman.values()) {
+            if (talisman.name == name) {
+                return talisman
+            }
+        }
+        return talisman
+    }
+
+    /**
+     * Gets the tiara.
+     * @return The tiara.
+     */
+    fun getTiara(): Tiara {
+        for (tiara in Tiara.values()) {
+            if (tiara.name == name) {
+                return tiara
+            }
+        }
+        return tiara
+    }
+
     companion object {
         /**
          * Method used to get the `MysteriousRuin` by the object.
-         *
-         * @param scenery the scenery object.
-         * @return the `MysteriousRuin` or `null`.
+         * @param object the object.
+         * @return the `MysteriousRuin` or `Null`.
          */
-        fun forObject(scenery: Scenery): MysteriousRuin? {
-            return values().find { ruin ->
-                ruin.objects.contains(scenery.id)
+        @JvmStatic
+        fun forObject(`object`: Scenery): MysteriousRuin? {
+            for (ruin in values()) {
+                for (i in ruin.objects) {
+                    if (i == `object`.id) {
+                        return ruin
+                    }
+                }
             }
+            return null
         }
 
         /**
-         * Method used to get the `MysteriousRuin` by talisman.
-         *
+         * Method used to get the `MysteriousRuin`
          * @param talisman the talisman.
-         * @return the `MysteriousRuin` or `null`.
+         * @return the `MysteriousRuin`.
          */
+        @JvmStatic
         fun forTalisman(talisman: Talisman): MysteriousRuin? {
-            return values().find { it.talisman == talisman }
+            for (ruin in values()) {
+                if (ruin.getTalisman() == talisman) {
+                    return ruin
+                }
+            }
+            return null
         }
     }
 }

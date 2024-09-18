@@ -1,7 +1,6 @@
 package content.region.karamja.quest.junglepotion.dialogue
 
-import content.region.karamja.quest.junglepotion.JunglePotion
-import content.region.karamja.quest.junglepotion.JunglePotion.JungleObjective
+import content.region.karamja.quest.junglepotion.handlers.JungleObjective
 import org.rs.consts.NPCs
 import core.api.finishQuest
 import core.api.sendDialogueLines
@@ -20,7 +19,7 @@ class TrufitusDialogue(player: Player? = null) : Dialogue(player) {
     private var quest: Quest? = null
 
     override fun open(vararg args: Any): Boolean {
-        quest = player.getQuestRepository().getQuest(JunglePotion.NAME)
+        quest = player.getQuestRepository().getQuest("Jungle Potion")
         when (quest!!.getStage(player)) {
             0 -> npc("Greetings Bwana! I am Trufitus Shakaya of the Tai", "Bwo Wannai village.")
             10, 20, 30, 40, 50 -> {
