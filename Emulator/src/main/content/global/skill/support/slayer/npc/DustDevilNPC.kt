@@ -11,7 +11,7 @@ import core.game.world.map.Location
 import core.plugin.Initializable
 
 /**
- * Dust devil NPC.
+ * Represents the Dust devil NPC.
  */
 @Initializable
 class DustDevilNPC : AbstractNPC {

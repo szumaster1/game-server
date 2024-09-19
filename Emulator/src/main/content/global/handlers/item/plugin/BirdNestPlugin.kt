@@ -1,6 +1,6 @@
 package content.global.handlers.item.plugin
 
-import content.data.droptable.BirdNestDropTable
+import content.data.tables.BirdNestDropTable
 import core.game.interaction.OptionHandler
 import core.game.node.Node
 import core.game.node.entity.player.Player

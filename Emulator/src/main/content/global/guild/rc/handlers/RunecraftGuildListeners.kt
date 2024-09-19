@@ -13,8 +13,7 @@ import core.game.node.item.Item
 import core.game.world.map.Location
 
 /**
- * Represents the Runecraft guild listeners.
- * @author Szumaster
+ * Represents the runecrafting guild listeners.
  */
 class RunecraftGuildListeners : InteractionListener {
 

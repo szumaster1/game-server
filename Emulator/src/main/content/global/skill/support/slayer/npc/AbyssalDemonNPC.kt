@@ -15,7 +15,7 @@ import core.plugin.Initializable
 import core.tools.RandomFunction
 
 /**
- * Abyssal demon NPC.
+ * Represents the Abyssal demon NPC.
  */
 @Initializable
 class AbyssalDemonNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id, location) {

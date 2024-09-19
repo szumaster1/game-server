@@ -15,7 +15,7 @@ import core.game.node.entity.player.Player
 import java.lang.Integer.max
 
 /**
- * Rock slug NPC.
+ * Represents the Rock slug NPC.
  */
 class RockSlugNPC : NPCBehavior(*Tasks.ROCK_SLUGS.npcs), InteractionListener {
 

@@ -493,10 +493,10 @@ enum class Pickpocket(val ids: IntArray, val requiredLevel: Int, val low: Double
     }
 
     /**
-     * Get success chance
+     * Get success chance.
      *
-     * @param player The player whose success chance is to be calculated
-     * @return The calculated success chance as a Double
+     * @param player the player whose success chance is to be calculated.
+     * @return the calculated success chance as a Double.
      */
     fun getSuccessChance(player: Player): Double {
         return RandomFunction.getSkillSuccessChance(low, high, player.skills.getLevel(Skills.THIEVING))

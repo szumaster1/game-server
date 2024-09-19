@@ -18,7 +18,7 @@ import core.plugin.Initializable
 import core.tools.RandomFunction
 
 /**
- * Mithril dragon NPC.
+ * Represents the Mithril dragon NPC.
  */
 @Initializable
 class MithrilDragonNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id, location) {

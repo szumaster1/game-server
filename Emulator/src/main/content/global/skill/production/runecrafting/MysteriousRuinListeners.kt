@@ -13,17 +13,17 @@ import core.game.node.entity.player.Player
 import core.game.node.item.Item
 import core.game.system.task.Pulse
 import core.game.world.update.flag.context.Animation
+import org.rs.consts.Animations
 
 /**
- * Mysterious ruin listeners.
+ * Mysterious ruin listeners (*altar entrance interactions*).
  */
 class MysteriousRuinListeners : InteractionListener {
 
-    private val animation = Animation(827)
+    private val animation = Animation(Animations.MULTI_USE_BEND_OVER_827)
     private val allowedUsed = arrayOf(1438, 1448, 1444, 1440, 1442, 5516, 1446, 1454, 1452, 1462, 1458, 1456, 1450, 1460).toIntArray()
     private val allowedWith = allRuins()
-    private val talismanStaff = Staff.values().map { it.item.id }.toIntArray()
-    private val nothingInteresting = "Nothing interesting happens."
+    private val talismanStaff = Staff.values().map { it.item }.toIntArray()
 
     override fun defineListeners() {
 
@@ -56,7 +56,7 @@ class MysteriousRuinListeners : InteractionListener {
     private fun allRuins(): IntArray {
         return MysteriousRuin
             .values()
-            .flatMap { ruins -> ruins.objects.asList() }
+            .flatMap { ruins -> ruins.`object`.asList() }
             .toIntArray()
     }
 
@@ -72,11 +72,11 @@ class MysteriousRuinListeners : InteractionListener {
 
         val talisman = Talisman.forItem(used.asItem())
         if (talisman != ruin.talisman && talisman != Talisman.ELEMENTAL) {
-            sendMessage(player, nothingInteresting)
+            sendMessage(player, "Nothing interesting happens.")
             return false
         }
         if (talisman == Talisman.ELEMENTAL && (ruin.talisman != Talisman.AIR && ruin.talisman != Talisman.WATER && ruin.talisman != Talisman.FIRE && ruin.talisman != Talisman.EARTH)) {
-            sendMessage(player, nothingInteresting)
+            sendMessage(player, "Nothing interesting happens.")
             return false
         }
 
@@ -112,7 +112,7 @@ class MysteriousRuinListeners : InteractionListener {
 
         val tiara = Tiara.forItem(player.equipment.get(SLOT_HAT))
         if (tiara != ruin.tiara) {
-            sendMessage(player, nothingInteresting)
+            sendMessage(player, "Nothing interesting happens.")
             return false
         }
 

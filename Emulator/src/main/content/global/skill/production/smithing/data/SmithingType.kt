@@ -250,11 +250,11 @@ enum class SmithingType(val bar: Int, val base: Int, val nameId: Int, val button
         /**
          * Gets the items based on the button.
          *
-         * @param player    the player interacting with the button.
-         * @param bar       the Bars object that contains smithing types.
-         * @param button    the button index that the player has pressed.
-         * @param item      the item to be counted in the player's inventory.
-         * @return The count of items based on the button pressed or -1 if conditions are not met.
+         * @param player the player interacting with the button.
+         * @param bar the Bars object that contains smithing types.
+         * @param button the button index that the player has pressed.
+         * @param item the item to be counted in the player's inventory.
+         * @return the count of items based on the button or `-1` if conditions are not met.
          */
         fun forButton(player: Player, bar: Bars?, button: Int, item: Int): Int {
             var count = 0

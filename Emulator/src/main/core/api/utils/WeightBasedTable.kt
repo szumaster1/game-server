@@ -1,7 +1,7 @@
 package core.api.utils
 
 import org.rs.consts.Items
-import content.data.droptable.*
+import content.data.tables.*
 import content.global.activity.ttrails.ClueLevel
 import content.global.handlers.item.equipment.gloves.FOGGlovesManager
 import core.api.inEquipment

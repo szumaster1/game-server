@@ -9,7 +9,7 @@ import core.game.world.map.Location
 import core.plugin.Initializable
 
 /**
- * Basilisk NPC.
+ * Represents the Basilisk NPC.
  */
 @Initializable
 class BasiliskNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id, location) {

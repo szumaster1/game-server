@@ -115,10 +115,10 @@ class SmeltingPulse : SkillPulse<Item?> {
     }
 
     /**
-     * Checks if the player has the Forging Ring equipped.
+     * Checks if the player has the **Forging Ring** equipped.
      *
-     * @param player The player whose equipment is being checked.
-     * @return True if the player has the Forging Ring equipped, otherwise false.
+     * @param player the player whose equipment is being checked.
+     * @return `true` if the player has the **Forging Ring** equipped, otherwise `false`.
      */
     fun hasForgingRing(player: Player): Boolean {
         return inEquipment(player, RING_OF_FORGING)
@@ -127,8 +127,8 @@ class SmeltingPulse : SkillPulse<Item?> {
     /**
      * Success of a forging.
      *
-     * @param player The player attempting to forge an item.
-     * @return Returns true if success, false otherwise.
+     * @param player the player attempting to forge an item.
+     * @return returns `true` if success, `false` otherwise.
      */
     fun success(player: Player): Boolean {
         if (bar == Bar.IRON && !superHeat) {

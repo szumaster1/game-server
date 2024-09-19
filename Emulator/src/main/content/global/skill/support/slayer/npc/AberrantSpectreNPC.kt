@@ -13,7 +13,7 @@ import core.game.world.map.Location
 import core.plugin.Initializable
 
 /**
- * Aberrant spectre NPC.
+ * Represents the Aberrant spectre NPC.
  */
 @Initializable
 class AberrantSpectreNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id, location) {

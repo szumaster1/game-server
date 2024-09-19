@@ -819,8 +819,8 @@ enum class Tasks {
     /**
      * Has quest requirements
      *
-     * @param player The player object that is being checked for quest requirements
-     * @return True if the quest requirements are met, otherwise false
+     * @param player the player.
+     * @return `true` if [hasRequirement], `false` otherwise.
      */
     fun hasQuestRequirements(player: Player?): Boolean {
         // Check if questReq is empty or if the player meets the specific quest requirement
@@ -828,9 +828,9 @@ enum class Tasks {
     }
 
     /**
-     * Get name
+     * Get name.
      *
-     * @return The name of the NPC associated with the first NPC ID in the list
+     * @return The name of the NPC associated with the first id in the list.
      */
     fun getName(): String {
         val npcId = npcs.firstOrNull() ?: 0

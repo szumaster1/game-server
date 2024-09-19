@@ -8,7 +8,7 @@ import core.game.world.map.Location
 import core.plugin.Initializable
 
 /**
- * Infernal mage NPC.
+ * Represents the Infernal mage NPC.
  */
 @Initializable
 class InfernalMageNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id, location) {

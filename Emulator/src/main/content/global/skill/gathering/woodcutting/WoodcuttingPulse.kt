@@ -2,8 +2,8 @@ package content.global.skill.gathering.woodcutting
 
 import content.data.skill.SkillingTool
 import content.data.skill.SkillingTool.Companion.getHatchet
-import content.data.droptable.BirdNestDropTable.Companion.drop
-import content.data.droptable.BirdNestDropTable.Companion.getRandomNest
+import content.data.tables.BirdNestDropTable.Companion.drop
+import content.data.tables.BirdNestDropTable.Companion.getRandomNest
 import content.global.skill.gathering.farming.FarmingPatch.Companion.forObject
 import content.global.skill.gathering.woodcutting.WoodcuttingNode.Companion.forId
 import content.global.skill.skillcape.SkillcapePerks

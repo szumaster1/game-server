@@ -4,8 +4,7 @@ import org.rs.consts.Items
 import content.global.skill.production.runecrafting.data.Talisman
 import content.global.skill.production.runecrafting.data.TalismanStaff
 import content.global.skill.production.runecrafting.data.Altar
-import core.api.rewardXP
-import core.api.sendMessage
+import core.api.*
 import core.game.node.entity.player.Player
 import core.game.node.entity.skill.SkillPulse
 import core.game.node.entity.skill.Skills
@@ -17,10 +16,8 @@ import kotlin.math.min
  */
 class EnchantTiaraPulse(player: Player?, val talisman: Talisman, val altar: Altar, val tiara: TalismanStaff, var amount: Int) : SkillPulse<Item>(player, null) {
 
-    private val plainTiara = Item(Items.TIARA_5525)
-
     override fun checkRequirements(): Boolean {
-        if (!player.inventory.containsItem(plainTiara)) {
+        if (!inInventory(player, Items.TIARA_5525)) {
             sendMessage(player, "You need a tiara.")
             return false
         }
@@ -29,7 +26,7 @@ class EnchantTiaraPulse(player: Player?, val talisman: Talisman, val altar: Alta
 
     override fun start() {
         super.start()
-        val tiaraAmt = player.inventory.getAmount(plainTiara)
+        val tiaraAmt = amountInInventory(player, Items.TIARA_5525)
         val talismanAmt: Int = player.inventory.getAmount(talisman.talisman)
         amount = min(min(tiaraAmt, talismanAmt), amount)
     }
@@ -38,8 +35,8 @@ class EnchantTiaraPulse(player: Player?, val talisman: Talisman, val altar: Alta
     }
 
     override fun reward(): Boolean {
-        if (player.inventory.remove(plainTiara) && player.inventory.remove(talisman.talisman)) {
-            player.inventory.add(tiara.staff.item)
+        if (removeItem(player, Items.TIARA_5525) && player.inventory.remove(talisman.talisman)) {
+            player.inventory.add(Item(tiara.staff.item))
             rewardXP(player, Skills.RUNECRAFTING, talisman.tiara!!.experience)
 
             return --amount == 0

@@ -8,7 +8,7 @@ import core.game.world.map.Location
 import core.plugin.Initializable
 
 /**
- * Cave bug NPC.
+ * Represents the Cave bug NPC.
  */
 @Initializable
 class CaveBugNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id, location) {

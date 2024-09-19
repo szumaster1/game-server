@@ -174,7 +174,7 @@ enum class Bars(val barType: BarType, val smithingType: SmithingType, val produc
         /**
          * Gets a bar by an item id.
          *
-         * @param item The item id.
+         * @param item the item id.
          * @return The bar or `null` if the object is not a bar.
          */
         fun forId(item: Int): Bars? {
@@ -193,7 +193,7 @@ enum class Bars(val barType: BarType, val smithingType: SmithingType, val produc
         /**
          * Gets the bars.
          *
-         * @param type The type of bar.
+         * @param type the type of bar.
          * @return An array of Bars objects of the specified type.
          */
         fun getBars(type: BarType): Array<Bars?> {

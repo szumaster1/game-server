@@ -1,4 +1,4 @@
-package content.data.droptable
+package content.data.tables
 
 import core.Configuration
 import core.api.StartupListener
@@ -20,18 +20,18 @@ import javax.xml.parsers.DocumentBuilderFactory
 import javax.xml.parsers.ParserConfigurationException
 
 /**
- * Handles the rare seed drop table.
- * @author Von Hresvelg
+ * Handles the rare drop table.
+ * @author Ceikry
  */
-class RareSeedDropTable: StartupListener {
+class RareDropTable : StartupListener {
 
     override fun startup() {
-        if (Configuration.RSDT_DATA_PATH != null && !File(Configuration.RSDT_DATA_PATH).exists()) {
-            log(this.javaClass, Log.ERR, "Can't locate RSDT file at " + Configuration.RSDT_DATA_PATH)
+        if (Configuration.RDT_DATA_PATH != null && !File(Configuration.RDT_DATA_PATH).exists()) {
+            log(this::class.java, Log.ERR, "Can't locate RDT file at " + Configuration.RDT_DATA_PATH)
             return
         }
-        parse(Configuration.RSDT_DATA_PATH)
-        log(this.javaClass, Log.FINE, "Initialized Rare Seed Drop Table from " + Configuration.RSDT_DATA_PATH)
+        parse(Configuration.RDT_DATA_PATH)
+        log(this::class.java, Log.FINE, "Initialized Rare Drop Table from " + Configuration.RDT_DATA_PATH)
     }
 
     companion object {

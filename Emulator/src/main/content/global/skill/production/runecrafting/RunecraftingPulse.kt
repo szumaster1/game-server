@@ -134,7 +134,7 @@ class RunecraftingPulse(player: Player?, node: Item?, val altar: Altar, private 
                 player.incrementAttribute("/save:$STATS_BASE:$STATS_RC", amount)
 
                 /*
-                 * Fist of guthix gloves.
+                 * Fist of Guthix gloves.
                  */
                 var xp = rune.experience * amount
                 if ((altar == Altar.AIR && inEquipment(player, Items.AIR_RUNECRAFTING_GLOVES_12863, 1))

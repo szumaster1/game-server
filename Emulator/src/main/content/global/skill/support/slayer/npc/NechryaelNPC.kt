@@ -16,7 +16,7 @@ import core.game.world.GameWorld
 import core.tools.RandomFunction
 
 /**
- * Nechryael NPC.
+ * Represents the Nechryael NPC.
  */
 class NechryaelNPC : NPCBehavior(*Tasks.NECHRYAELS.npcs) {
     private val ATTR_SPAWNS = "deathSpawns"
@@ -120,7 +120,7 @@ class NechryaelNPC : NPCBehavior(*Tasks.NECHRYAELS.npcs) {
 }
 
 /**
- * Deathspawn behavior
+ * Represents the Deathspawn behavior
  *
  * @constructor Deathspawn behavior
  */

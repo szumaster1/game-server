@@ -1,4 +1,4 @@
-package content.data.droptable
+package content.data.tables
 
 import core.Configuration
 import core.api.StartupListener
@@ -20,18 +20,18 @@ import javax.xml.parsers.DocumentBuilderFactory
 import javax.xml.parsers.ParserConfigurationException
 
 /**
- * Handles the uncommon seed drop table.
+ * Handles the herb drop table.
  * @author Von Hresvelg
  */
-class UncommonSeedDropTable: StartupListener {
+class HerbDropTable: StartupListener {
 
     override fun startup() {
-        if (Configuration.USDT_DATA_PATH != null && !File(Configuration.USDT_DATA_PATH).exists()) {
-            log(this.javaClass, Log.ERR, "Can't locate USDT file at " + Configuration.USDT_DATA_PATH)
+        if (Configuration.HDT_DATA_PATH != null && !File(Configuration.HDT_DATA_PATH).exists()) {
+            log(this.javaClass, Log.ERR, "Can't locate HDT file at " + Configuration.HDT_DATA_PATH)
             return
         }
-        parse(Configuration.USDT_DATA_PATH)
-        log(this.javaClass, Log.FINE, "Initialized Uncommon Seed Drop Table from " + Configuration.USDT_DATA_PATH)
+        parse(Configuration.HDT_DATA_PATH)
+        log(this.javaClass, Log.FINE, "Initialized Herb Drop Table from " + Configuration.HDT_DATA_PATH)
     }
 
     companion object {

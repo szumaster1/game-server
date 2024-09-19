@@ -1,6 +1,6 @@
 package content.region.asgarnia.falador.dialogue
 
-import content.data.droptable.BirdNestDropTable
+import content.data.tables.BirdNestDropTable
 import core.api.*
 import org.rs.consts.Items
 import org.rs.consts.NPCs

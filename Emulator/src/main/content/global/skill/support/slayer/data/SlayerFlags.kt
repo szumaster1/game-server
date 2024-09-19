@@ -12,9 +12,9 @@ class SlayerFlags {
     val removed: ArrayList<Tasks> = ArrayList(4)
 
     /**
-     * Get master
+     * Get the slayer master.
      *
-     * @return SlayerMaster - the current Slayer master based on taskFlags
+     * @return the [SlayerMaster] the current Slayer master based on taskFlags
      */
     fun getMaster(): SlayerMaster {
         val ordinal = taskFlags and 0xF
@@ -22,18 +22,18 @@ class SlayerFlags {
     }
 
     /**
-     * Set master
+     * Set slayer master.
      *
-     * @param master the SlayerMaster to set
+     * @param master the [SlayerMaster] to set.
      */
     fun setMaster(master: SlayerMaster) {
         taskFlags = (taskFlags - (taskFlags and 0xF)) or master.ordinal
     }
 
     /**
-     * Get task
+     * Get a task.
      *
-     * @return Tasks the current task based on taskFlags
+     * @return the [Tasks] the current task based on [taskFlags].
      */
     fun getTask(): Tasks {
         val ordinal = (taskFlags shr 4) and 0x7F
@@ -41,139 +41,134 @@ class SlayerFlags {
     }
 
     /**
-     * Set task
+     * Set a task.
      *
-     * @param tasks the Tasks to set
+     * @param tasks the Tasks to set.
      */
     fun setTask(tasks: Tasks) {
         taskFlags = (taskFlags - (getTask().ordinal shl 4)) or (tasks.ordinal shl 4)
     }
 
     /**
-     * Get task amount
+     * Get task amount.
      *
-     * @return the amount of the current task
+     * @return the amount of the current task.
      */
     fun getTaskAmount(): Int {
         return (taskFlags shr 11) and 0xFF
     }
 
     /**
-     * Set task amount
+     * Set task amount.
      *
-     * @param amount the amount of the task to set
+     * @param amount the amount of the task to set.
      */
     fun setTaskAmount(amount: Int) {
         taskFlags = (taskFlags - (getTaskAmount() shl 11)) or (amount shl 11)
     }
 
     /**
-     * Decrement task amount
+     * Decrement task amount.
      *
-     * @param amount the amount to decrement from the current task amount
+     * @param amount the amount to decrement from the current task amount.
      */
     fun decrementTaskAmount(amount: Int) {
         setTaskAmount(getTaskAmount() - amount)
     }
 
     /**
-     * Can earn points
+     * Can earn points.
      *
-     * @return Boolean - true if points can be earned, false otherwise
+     * @return `true` if points can be earned, `false` otherwise.
      */
     fun canEarnPoints(): Boolean {
         return (taskFlags shr 20) and 1 == 1
     }
 
     /**
-     * Flag can earn points
-     *
+     * Flag the earn points.
      */
     fun flagCanEarnPoints() {
         taskFlags = taskFlags or (1 shl 20)
     }
 
     /**
-     * Is broads unlocked
+     * Check if broads unlocked.
      *
-     * @return Boolean - true if broads are unlocked, false otherwise
+     * @return `true` if broads are unlocked, `false` otherwise
      */
     fun isBroadsUnlocked(): Boolean {
         return rewardFlags and 1 == 1
     }
 
     /**
-     * Unlock broads
-     *
+     * Unlock broads.
      */
     fun unlockBroads() {
         rewardFlags = rewardFlags or 1
     }
 
     /**
-     * Is ring unlocked
+     * Check if the ring is unlocked.
      *
-     * @return Boolean - true if the ring is unlocked, false otherwise
+     * @return `true` if the ring is unlocked, `false` otherwise
      */
     fun isRingUnlocked(): Boolean {
         return (rewardFlags shr 1) and 1 == 1
     }
 
     /**
-     * Unlock ring
-     *
+     * Unlock ring.
      */
     fun unlockRing() {
         rewardFlags = rewardFlags or (1 shl 1)
     }
 
     /**
-     * Is helm unlocked
+     * Check if helm is unlocked.
      *
-     * @return Boolean - true if the helm is unlocked, false otherwise
+     * @return `true` if the helm is unlocked, `false` otherwise
      */
     fun isHelmUnlocked(): Boolean {
         return (rewardFlags shr 2) and 1 == 1
     }
 
     /**
-     * Unlock helm
-     *
+     * Unlock helm.
      */
     fun unlockHelm() {
         rewardFlags = rewardFlags or (1 shl 2)
     }
 
     /**
-     * Set points
+     * Set points.
      *
-     * @param amount the amount of points to set
+     * @param amount the amount of points to set.
      */
     fun setPoints(amount: Int) {
         rewardFlags = (rewardFlags - (getPoints() shl 15)) or (amount shl 15)
     }
 
     /**
-     * Get points
+     * Get points.
      *
-     * @return Int - the current points
+     * @return the current points.
      */
     fun getPoints(): Int {
         return (rewardFlags shr 15) and 0xFFFF
     }
 
     /**
-     * Increment points
+     * Increment points.
      *
-     * @param amount the amount to increment the current points
+     * @param amount the amount to increment the current points.
      */
     fun incrementPoints(amount: Int) {
         setPoints(getPoints() + amount)
     }
 
     /**
-     * Clear task
-     *
+     * Clear task.
      */
     fun clearTask() {
         setTask(Tasks.values()[0])
@@ -181,17 +176,16 @@ class SlayerFlags {
     }
 
     /**
-     * Has task
+     * Has a task.
      *
-     * @return Boolean - true if there is a current task, false otherwise
+     * @return `true` if there is a current task, `false` otherwise.
      */
     fun hasTask(): Boolean {
         return getTaskAmount() != 0
     }
 
     /**
-     * Full clear
-     *
+     * Full clear.
      */
     fun fullClear() {
         taskFlags = 0

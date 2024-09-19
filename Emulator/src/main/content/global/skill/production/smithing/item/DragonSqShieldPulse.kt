@@ -9,7 +9,7 @@ import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 
 /**
- * Represents the creation of dragon square shield.
+ * Represents the creation of dragon sq shield.
  */
 class DragonSqShieldPulse(player: Player?, val item: Item) : SkillPulse<Item>(player, null) {
 

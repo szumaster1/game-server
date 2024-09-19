@@ -19,9 +19,9 @@ object SlayerUtils {
     /**
      * Generates a random task for the player based on their combat level and task requirements.
      *
-     * @param player The player for whom the task is being generated.
-     * @param master The SlayerMaster who assigns the task.
-     * @return A randomly selected task or null if no task can be assigned.
+     * @param player    the player for whom the task is being generated.
+     * @param master    the SlayerMaster who assigns the task.
+     * @return A randomly selected task or `null` if no task can be assigned.
      */
     fun generate(player: Player, master: SlayerMaster): Tasks? {
         val tasks: MutableList<SlayerMaster.Task?> = ArrayList(10)
@@ -44,9 +44,9 @@ object SlayerUtils {
     /**
      * Checks if a task can be assigned to the player based on their Slayer level and quest requirements.
      *
-     * @param player The player to check against.
-     * @param task The task to be checked.
-     * @return True if the task can be assigned, false otherwise.
+     * @param player    the player to check against.
+     * @param task      the task to be checked.
+     * @return `true` if the task can be assigned, false otherwise.
      */
     fun canBeAssigned(player: Player, task: Tasks): Boolean {
         return player.getSkills()
@@ -58,9 +58,9 @@ object SlayerUtils {
     /**
      * Assigns a task to the player and updates their task-related information.
      *
-     * @param player The player to whom the task is assigned.
-     * @param task The task to be assigned.
-     * @param master The SlayerMaster assigning the task.
+     * @param player    the player to whom the task is assigned.
+     * @param task      the task to be assigned.
+     * @param master    the [SlayerMaster] assigning the task.
      */
     fun assign(player: Player, task: Tasks, master: SlayerMaster) {
         SlayerManager.getInstance(player).master = master
@@ -78,9 +78,9 @@ object SlayerUtils {
     /**
      * Checks if the player has a broad weapon equipped.
      *
-     * @param player The player to check.
-     * @param state The current battle state of the player.
-     * @return True if a broad weapon is equipped, false otherwise.
+     * @param player    the player to check.
+     * @param state     the current battle state of the player.
+     * @return `true` if a broad weapon is equipped, `false` otherwise.
      */
     @JvmStatic
     fun hasBroadWeaponEquipped(player: Player, state: BattleState): Boolean {

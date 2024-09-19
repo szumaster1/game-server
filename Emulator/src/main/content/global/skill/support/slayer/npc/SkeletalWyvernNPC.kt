@@ -15,7 +15,7 @@ import core.game.world.update.flag.context.Animation
 import core.game.world.update.flag.context.Graphic
 
 /**
- * Skeletal wyvern NPC.
+ * Represents the Skeletal wyvern NPC.
  */
 class SkeletalWyvernNPC : NPCBehavior(*Tasks.SKELETAL_WYVERN.npcs) {
 

@@ -32,7 +32,7 @@ import core.tools.RandomFunction;
 import static core.api.ContentAPIKt.*;
 
 /**
- * Fishing explosive plugin.
+ * Represents the Fishing explosive plugin.
  */
 @Initializable
 public final class FishingExplosivePlugin extends OptionHandler {

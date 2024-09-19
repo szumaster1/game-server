@@ -25,16 +25,12 @@ class ThievingGuildListener : InteractionListener {
     override fun defineListeners() {
 
         /*
-         * Wallsafe interactions.
+         * Handles wall safe option interactions.
          */
 
         on(OBJECTS, IntType.SCENERY, "crack", "open", "disarm", "search") { player, node ->
             if (getUsedOption(player) == "open") {
-                sendNPCDialogue(
-                    player,
-                    NPCs.BRIAN_ORICHARD_2266,
-                    "And where do you think you're going? A little too eager I think. Come and talk to me before you go wandering around in there."
-                )
+                sendNPCDialogue(player, NPCs.BRIAN_ORICHARD_2266, "And where do you think you're going? A little too eager I think. Come and talk to me before you go wandering around in there.")
                 return@on true
             }
 
@@ -71,11 +67,7 @@ class ThievingGuildListener : InteractionListener {
                     } else if (trapped) {
                         animate(player, ANIMATIONS[2])
                         sendMessage(player, "You slip and trigger a trap!")
-                        impact(
-                            player,
-                            RandomFunction.random(2, 6),
-                            ImpactHandler.HitsplatType.NORMAL
-                        )
+                        impact(player, RandomFunction.random(2, 6), ImpactHandler.HitsplatType.NORMAL)
                         runTask(player, 1) {
                             resetAnimator(player)
                         }
@@ -123,13 +115,6 @@ class ThievingGuildListener : InteractionListener {
         player.inventory.add(item)
     }
 
-    /**
-     * Success function to determine if a player successfully performs a skill.
-     *
-     * @param player The player object representing the individual attempting the skill.
-     * @param skill An integer representing the skill level or identifier.
-     * @return Returns true if the skill is successfully performed, otherwise false.
-     */
     fun success(player: Player, skill: Int): Boolean {
         val level = player.getSkills().getLevel(skill).toDouble()
         val req = 50.0

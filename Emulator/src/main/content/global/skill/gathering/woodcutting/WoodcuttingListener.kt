@@ -1,7 +1,7 @@
 package content.global.skill.gathering.woodcutting
 
 import content.data.skill.SkillingTool
-import content.data.droptable.BirdNestDropTable
+import content.data.tables.BirdNestDropTable
 import content.global.skill.gathering.farming.FarmingPatch.Companion.forObject
 import content.global.skill.skillcape.SkillcapePerks
 import content.global.skill.skillcape.SkillcapePerks.Companion.isActive

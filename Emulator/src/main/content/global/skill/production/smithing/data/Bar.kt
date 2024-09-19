@@ -73,7 +73,7 @@ enum class Bar(val level: Int, val experience: Double, val product: Item, vararg
         /**
          * Gets a [Bar] based on the provided [product] id.
          *
-         * @param id    The product id
+         * @param id the product id.
          * @return The [Bar] with the given id, or `null` if not found.
          */
         @JvmStatic
@@ -84,7 +84,7 @@ enum class Bar(val level: Int, val experience: Double, val product: Item, vararg
         /**
          * Gets a [Bar] based on the provided [ores] id.
          *
-         * @param id    The ID of the ore to search for.
+         * @param id the ore id.
          * @return The bar the given ore id, or `null` if not found.
          */
         @JvmStatic

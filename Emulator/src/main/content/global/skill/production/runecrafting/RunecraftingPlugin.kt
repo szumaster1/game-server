@@ -29,12 +29,12 @@ import core.plugin.PluginManager.definePlugin
  * Handles the rc interactions.
  */
 @Initializable
-class Runecrafting : OptionHandler() {
+class RunecraftingPlugin : OptionHandler() {
 
     override fun newInstance(arg: Any?): Plugin<Any?> {
         addNodes()
         definePlugin(RunePouchPlugin())
-        definePlugin(CombinationRune())
+        definePlugin(CombinationRunes())
         SceneryDefinition.forId(2492).handlers["option:use"] = this
         NPCDefinition.forId(553).handlers["option:teleport"] = this
         NPCDefinition.forId(2328).handlers["option:teleport"] = this

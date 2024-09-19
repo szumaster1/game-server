@@ -9,7 +9,7 @@ import core.game.node.entity.npc.NPCBehavior
 import core.game.node.entity.player.Player
 
 /**
- * Turoth NPC.
+ * Represents the Turoth NPC.
  */
 class TurothNPC : NPCBehavior(*Tasks.TUROTHS.npcs) {
 

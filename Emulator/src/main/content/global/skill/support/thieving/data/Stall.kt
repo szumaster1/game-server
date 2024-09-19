@@ -7,7 +7,7 @@ import core.tools.RandomFunction
 import java.util.*
 
 /**
- * Representing a stall with various properties and states.
+ * Representing a stall.
  */
 enum class Stall(
     full: Array<Int>,

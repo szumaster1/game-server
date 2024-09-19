@@ -11,8 +11,7 @@ import core.game.interaction.InterfaceListener
 import core.game.world.GameWorld
 
 /**
- * Represents the Map table interface listener.
- * @author Szumaster
+ * Represents the map table interface listener.
  */
 class StudyInterfaceListener : InterfaceListener, InteractionListener {
 

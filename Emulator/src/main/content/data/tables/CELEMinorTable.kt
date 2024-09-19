@@ -1,4 +1,4 @@
-package content.data.droptable
+package content.data.tables
 
 import core.Configuration
 import core.api.StartupListener

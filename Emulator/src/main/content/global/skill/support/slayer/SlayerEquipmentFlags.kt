@@ -20,6 +20,7 @@ object SlayerEquipmentFlags {
 
     /**
      * Updates the equipment flags for the given player based on their equipped items.
+     *
      * @param player The player whose flags are to be updated.
      */
     @JvmStatic
@@ -48,9 +49,10 @@ object SlayerEquipmentFlags {
     }
 
     /**
-     * Checks if the player has a Nose Peg equipped.
-     * @param player The player to check.
-     * @return True if the player has a Nose Peg, otherwise false.
+     * Checks if the player has a **Nose Peg** equipped.
+     *
+     * @param player the player to check.
+     * @return `true` if the player has a **Nose Peg**, otherwise `false`.
      */
     @JvmStatic
     fun hasNosePeg(player: Player): Boolean {
@@ -58,9 +60,10 @@ object SlayerEquipmentFlags {
     }
 
     /**
-     * Checks if the player has Earmuffs equipped.
-     * @param player The player to check.
-     * @return True if the player has Earmuffs, otherwise false.
+     * Checks if the player has **Earmuffs** equipped.
+     *
+     * @param player the player to check.
+     * @return `true` if the player has **Earmuffs**, otherwise `false`.
      */
     @JvmStatic
     fun hasEarmuffs(player: Player): Boolean {
@@ -68,9 +71,9 @@ object SlayerEquipmentFlags {
     }
 
     /**
-     * Checks if the player has a Face Mask equipped.
-     * @param player The player to check.
-     * @return True if the player has a Face Mask, otherwise false.
+     * Checks if the player has a **Face Mask** equipped.
+     * @param player the player to check.
+     * @return `true` if the player has a **Face Mask**, otherwise `false`.
      */
     @JvmStatic
     fun hasFaceMask(player: Player): Boolean {
@@ -78,9 +81,10 @@ object SlayerEquipmentFlags {
     }
 
     /**
-     * Checks if the player has a Black Mask equipped.
-     * @param player The player to check.
-     * @return True if the player has a Black Mask, otherwise false.
+     * Checks if the player has a **Black Mask** equipped.
+     *
+     * @param player the player to check.
+     * @return `true` if the player has a **Black Mask**, otherwise `false`.
      */
     @JvmStatic
     fun hasBlackMask(player: Player): Boolean {
@@ -88,9 +92,10 @@ object SlayerEquipmentFlags {
     }
 
     /**
-     * Checks if the player has a Spiny Helmet equipped.
-     * @param player The player to check.
-     * @return True if the player has a Spiny Helmet, otherwise false.
+     * Checks if the player has a **Spiny Helmet** equipped.
+     *
+     * @param player the player to check.
+     * @return `true` if the player has a **Spiny Helmet**, otherwise `false`.
      */
     @JvmStatic
     fun hasSpinyHelmet(player: Player): Boolean {
@@ -98,9 +103,9 @@ object SlayerEquipmentFlags {
     }
 
     /**
-     * Checks if the player has a Witchwood Icon equipped.
-     * @param player The player to check.
-     * @return True if the player has a Witchwood Icon, otherwise false.
+     * Checks if the player has a **Witchwood Icon** equipped.
+     * @param player the player to check.
+     * @return `true` if the player has a **Witchwood Icon**, otherwise `false`.
      */
     @JvmStatic
     fun hasWitchwoodIcon(player: Player): Boolean {
@@ -108,9 +113,9 @@ object SlayerEquipmentFlags {
     }
 
     /**
-     * Checks if the player has a Mirror Shield equipped.
-     * @param player The player to check.
-     * @return True if the player has a Mirror Shield, otherwise false.
+     * Checks if the player has a **Mirror Shield** equipped.
+     * @param player the player to check.
+     * @return `true` if the player has a **Mirror Shield**, otherwise `false`.
      */
     @JvmStatic
     fun hasMirrorShield(player: Player): Boolean {
@@ -119,8 +124,9 @@ object SlayerEquipmentFlags {
 
     /**
      * Calculates the damage accuracy bonus for the player based on their equipment.
-     * @param player The player to calculate the bonus for.
-     * @return The damage accuracy bonus as a Double.
+     *
+     * @param player the player to calculate the bonus for.
+     * @return the damage accuracy bonus as a Double.
      */
     @JvmStatic
     fun getDamAccBonus(player: Player): Double {
@@ -135,9 +141,10 @@ object SlayerEquipmentFlags {
 
     /**
      * Checks if the player has a specific item equipped.
-     * @param player The player to check.
-     * @param id The item ID to check for.
-     * @return True if the player has the item, otherwise false.
+     *
+     * @param player the player to check.
+     * @param id the item id to check for.
+     * @return `true` if the player has the item, otherwise `false`.
      */
     private fun hasItem(player: Player, id: Int): Boolean {
         return (getItemFromEquipment(player, EquipmentSlot.HEAD)?.id ?: 0) == id
@@ -145,8 +152,9 @@ object SlayerEquipmentFlags {
 
     /**
      * Checks if the given item is a Slayer equipment item.
-     * @param item The item ID to check.
-     * @return True if the item is a Slayer equipment item, otherwise false.
+     *
+     * @param item the item id to check.
+     * @return `true` if the item is a Slayer equipment item, otherwise `false`.
      */
     fun isSlayerEq(item: Int): Boolean {
         return item in slayerItems

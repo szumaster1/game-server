@@ -49,7 +49,7 @@ enum class BarType(val bar: Int, val experience: Double, val barName: String) {
          * Gets the bar type for a given item id.
          *
          * @param itemId the item id.
-         * @return The [BarType] for the given [itemId], or `null` if no match is found.
+         * @return the [BarType] for the given [itemId], or `null` if no match is found.
          */
         fun getBarTypeForId(itemId: Int): BarType? {
             when (itemId) {

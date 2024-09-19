@@ -1,6 +1,6 @@
 package content.global.handlers.item
 
-import content.data.droptable.BirdNestDropTable
+import content.data.tables.BirdNestDropTable
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.Node

@@ -10,7 +10,6 @@ import core.plugin.Initializable
 
 /**
  * Represents the Wizard NPC.
- * @author Szumaster
  */
 @Initializable
 class WizardNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id, location) {

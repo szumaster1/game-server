@@ -229,9 +229,9 @@ class SmeltingInterfaceListener : InterfaceListener {
         companion object {
 
             /**
-             * Gets the product for the button.
+             * Gets the [bar] for the [button].
              *
-             * @param id the id.
+             * @param id the button id.
              * @return the [BarButton].
              */
             @JvmStatic

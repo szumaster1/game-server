@@ -15,6 +15,7 @@ import core.game.world.map.RegionManager.getLocalNpcs
 import core.game.world.update.flag.context.Animation
 import core.tools.RandomFunction
 import core.tools.StringUtils
+import org.rs.consts.Animations
 
 /**
  * Thieving stall pulse.
@@ -64,8 +65,8 @@ class ThievingStallPulse(player: Player?, node: Scenery?, private val stall: Sta
     override fun animate() {}
     override fun reward(): Boolean {
         if (ticks == 0) {
-            player.animate(ANIMATION)
-            player.locks.lockInteractions(2)
+            animate(player, ANIMATION)
+            lockInteractions(player, 2)
         }
         if (++ticks % 3 != 0) {
             return false
@@ -133,9 +134,6 @@ class ThievingStallPulse(player: Player?, node: Scenery?, private val stall: Sta
     }
 
     companion object {
-        /**
-         * Represents the stealing animation.
-         */
-        private val ANIMATION = Animation(832)
+        private const val ANIMATION = Animations.MULTI_USE_TAKE_832
     }
 }

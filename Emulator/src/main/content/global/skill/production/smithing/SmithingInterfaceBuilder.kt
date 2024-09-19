@@ -22,7 +22,6 @@ class SmithingInterfaceBuilder(item: Item) {
 
     /**
      * Build smithing interface.
-     *
      * @param player the player.
      */
     fun build(player: Player) {

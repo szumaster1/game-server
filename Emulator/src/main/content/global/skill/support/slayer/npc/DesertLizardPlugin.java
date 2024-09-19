@@ -14,7 +14,7 @@ import core.plugin.Initializable;
 import core.plugin.Plugin;
 
 /**
- * Desert lizard plugin.
+ * Represents the Desert lizard plugin.
  */
 @Initializable
 public final class DesertLizardPlugin implements Plugin<Object> {

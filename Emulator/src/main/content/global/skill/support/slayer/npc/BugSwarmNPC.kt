@@ -10,7 +10,7 @@ import core.game.world.map.Location
 import core.plugin.Initializable
 
 /**
- * Bug swarm NPC.
+ * Represents the Bug swarm NPC.
  */
 @Initializable
 class BugSwarmNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id, location) {

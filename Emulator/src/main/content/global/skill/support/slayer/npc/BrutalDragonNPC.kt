@@ -16,7 +16,7 @@ import core.game.world.update.flag.context.Graphic
 import core.plugin.Initializable
 
 /**
- * Brutal dragon NPC.
+ * Represents the Brutal dragon NPC.
  */
 @Initializable
 class BrutalDragonNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id, location) {

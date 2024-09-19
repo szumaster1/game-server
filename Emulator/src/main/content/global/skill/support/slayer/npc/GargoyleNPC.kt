@@ -15,7 +15,7 @@ import core.plugin.Initializable
 import core.plugin.Plugin
 
 /**
- * Gargoyle NPC.
+ * Represents the Gargoyle NPC.
  */
 @Initializable
 class GargoyleNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id, location) {

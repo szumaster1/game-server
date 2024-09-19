@@ -13,7 +13,7 @@ import core.game.node.entity.npc.NPCBehavior
 import core.game.world.update.flag.context.Animation
 
 /**
- * Waterfiend NPC.
+ * Represents the Waterfiend NPC.
  */
 class WaterfiendNPC : NPCBehavior(*Tasks.WATERFIENDS.npcs) {
 

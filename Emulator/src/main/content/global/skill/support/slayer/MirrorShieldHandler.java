@@ -36,7 +36,7 @@ public final class MirrorShieldHandler extends MeleeSwingHandler {
     /**
      * Check impact.
      *
-     * @param state the state
+     * @param state the state.
      */
     public void checkImpact(final BattleState state) {
         if (state.getAttacker() instanceof Player) {
