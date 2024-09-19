@@ -200,36 +200,22 @@ class LumbridgeListeners : InteractionListener {
         /*
          * Interaction with Dark hole (Lumbridge swamp).
          */
-
-        on(intArrayOf(Scenery.DARK_HOLE_5947, Scenery.CLIMBING_ROPE_5946), IntType.SCENERY, "climb-down", "climb") { player, node ->
-            when(getUsedOption(player)) {
-                "climb-down" -> {
-                    if (!player.getSavedData().globalData.hasTiedLumbridgeRope()) {
-                        sendDialogue(player, "There is a sheer drop below the hole. You will need a rope.")
-                        return@on true
-                    } else {
-                        if(node.id == Scenery.DARK_HOLE_5947) {
-                            ClimbActionHandler.climb(
-                                player,
-                                Animation(Animations.MULTI_USE_BEND_OVER_827),
-                                Location(3168, 9572, 0)
-                            )
-                        }
-                    }
-                }
-
-                else -> {
-                    if (node.id != Scenery.DARK_HOLE_5947) {
-                        ClimbActionHandler.climb(
-                            player,
-                            Animation(Animations.USE_LADDER_828),
-                            Location(3169, 3173, 0)
-                        )
-                    }
-                }
+        on(Scenery.DARK_HOLE_5947, IntType.SCENERY, "climb-down") { player, _ ->
+            if (!player.getSavedData().globalData.hasTiedLumbridgeRope()) {
+                sendDialogue(player, "There is a sheer drop below the hole. You will need a rope.")
+            } else {
+                val insideCave = Location.create(3168, 9572, 0)
+                ClimbActionHandler.climb(player, Animation(Animations.MULTI_USE_BEND_OVER_827), insideCave)
             }
+
             return@on true
         }
+        on(Scenery.CLIMBING_ROPE_5946, IntType.SCENERY, "climb") { player, _ ->
+            val outsideCave = Location.create(3169, 3173, 0)
+            player.properties.teleportLocation = outsideCave
+            return@on true
+        }
+
     }
 
 }

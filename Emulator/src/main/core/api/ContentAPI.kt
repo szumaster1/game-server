@@ -888,6 +888,17 @@ fun closeOverlay(player: Player) {
 }
 
 /**
+ * Closes any open interface for the player.
+ *
+ * @param player the player to close the interfaces for
+ */
+fun closeAllInterfaces(player: Player) {
+    player.interfaceManager.close()
+    player.interfaceManager.closeChatbox()
+    player.dialogueInterpreter.close()
+}
+
+/**
  * Runs the given Emote for the given Entity.
  *
  * @param entity the entity to run the emote on.
