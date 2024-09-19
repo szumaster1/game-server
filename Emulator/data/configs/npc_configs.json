@@ -12599,6 +12599,46 @@
     "attack_level": "52"
   },
   {
+    "examine": "A baby impling. Ahhh.",
+    "name": "Baby Impling",
+    "id": "1028"
+  },
+  {
+    "examine": "A young impling. It's not fair!",
+    "name": "Young Impling",
+    "id": "1029"
+  },
+  {
+    "examine": "An impling gourmet. Mmmm, tasty.",
+    "name": "Gourmet Impling",
+    "id": "1030"
+  },
+  {
+    "examine": "An earth impling. Rock on.",
+    "name": "Earth Impling",
+    "id": "1031"
+  },
+  {
+    "examine": "An impling who likes magic. Magic!",
+    "name": "Essence Impling",
+    "id": "1032"
+  },
+  {
+    "examine": "An impling with varied tastes.",
+    "name": "Eclectic Impling",
+    "id": "1033"
+  },
+  {
+    "examine": "A nature impling. Right on, maaan.",
+    "name": "Nature Impling",
+    "id": "1034"
+  },
+  {
+    "examine": "Ooh, shiny things!",
+    "name": "Magpie Impling",
+    "id": "1035"
+  },
+  {
     "examine": "He can look after my money.",
     "name": "Banker",
     "id": "1036"
@@ -57805,46 +57845,61 @@
     "attack_level": "1"
   },
   {
+    "examine": "A baby impling. Ahhh.",
     "name": "Baby Impling Puro",
     "id": "6055",
     "respawn_delay": "7"
   },
   {
+    "examine": "A young impling. It's not fair!",
     "name": "Young Impling Puro",
     "id": "6056",
     "respawn_delay": "7"
   },
   {
+    "examine": "An impling gourmet. Mmmm, tasty.",
     "name": "Gourmet Impling Puro",
     "id": "6057",
     "respawn_delay": "7"
   },
   {
+    "examine": "An earth impling. Rock on.",
     "name": "Earth Impling Puro",
     "id": "6058",
     "respawn_delay": "50"
   },
   {
+    "examine": "An impling who likes magic. Magic!",
     "name": "Essence Impling Puro",
     "id": "6059",
     "respawn_delay": "50"
   },
   {
+    "examine": "An impling with varied tastes.",
     "name": "Eclectic Impling Puro",
     "id": "6060",
     "respawn_delay": "7"
   },
   {
+    "examine": "A very stealthy impling.",
+    "name": "Ninja Impling Puro",
+    "id": "6063",
+    "respawn_delay": "9999"
+  },
+  {
+    "examine": "A nature impling. Right on, maaan.",
     "name": "Nature Impling Puro",
     "id": "6061",
     "respawn_delay": "9999"
   },
   {
+    "examine": "Ooh, shiny things!",
     "name": "Magpie Impling Puro",
     "id": "6062",
     "respawn_delay": "9999"
   },
   {
+    "examine": "A very stealthy impling.",
     "name": "Ninja Impling Puro",
     "id": "6063",
     "respawn_delay": "9999"
