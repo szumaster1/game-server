@@ -53,11 +53,10 @@ class CocktailFinisher : OptionHandler() {
     }
 
     /**
-     * Enum representing finished drinks.
+     * Represents finished drinks.
      *
-     * @param product The product code of the finished drink.
-     * @param requiredItems The array of items required to make the finished drink.
-     * @constructor Creates a new FinishedDrinks enum instance.
+     * @param product       the product code of the finished drink.
+     * @param requiredItems the array of items required to make the finished drink.
      */
     internal enum class FinishedDrinks(val product: Int, val requiredItems: Array<Item>) {
         FIN_CHOC_SAT(2074, arrayOf(Item(Items.CHOCOLATE_DUST_1975), Item(Items.POT_OF_CREAM_2130))),

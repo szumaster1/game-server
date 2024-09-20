@@ -6,9 +6,9 @@ import core.game.node.item.Item
 /**
  * Represents an experience lamp.
  *
- * @param item          the item ID of the lamp.
- * @param experience    the amount of experience gained from using the lamp.
- * @param levelRequired the minimum level required to use the lamp.
+ * @param [item]          the item ID of the lamp.
+ * @param [experience]    the amount of experience gained from using the lamp.
+ * @param [levelRequired] the minimum level required to use the lamp.
  */
 enum class Lamps(val item: Int, val experience: Int, val levelRequired: Int = 0) {
     GENIE_LAMP(

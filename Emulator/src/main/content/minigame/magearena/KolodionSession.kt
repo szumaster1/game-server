@@ -10,7 +10,6 @@ import core.game.world.map.Location
  * Represents a session for Kolodion.
  *
  * @param player the player associated with the session
- * @constructor Creates a new Kolodion session for the specified player.
  */
 class KolodionSession(val player: Player) {
 

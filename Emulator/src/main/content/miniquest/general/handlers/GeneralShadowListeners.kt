@@ -16,8 +16,9 @@ class GeneralShadowListeners : InteractionListener {
     override fun defineListeners() {
 
         /*
-         * Handle the enter to the cavern.
+         * Handle entrance between cave.
          */
+
         on(Scenery.CRACK_21800, IntType.SCENERY, "Enter") { player, node ->
             if (getAttribute(player, GSUtils.GS_SEVERED_LEG, false)) {
                 openDialogue(player, object : DialogueFile() {

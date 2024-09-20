@@ -71,20 +71,20 @@ class MageArenaMapZone : MapZone("mage arena", true, ZoneRestriction.RANDOM_EVEN
     }
 
     /**
-     * Get session
+     * Get session.
      *
-     * @param player The player for whom the session is being retrieved.
-     * @return The KolodionSession associated with the given player.
+     * @param player the player for whom the session is being retrieved.
+     * @return The [KolodionSession] associated with the given player.
      */
     fun getSession(player: Player?): KolodionSession {
         return KolodionSession.getSession(player!!)
     }
 
     /**
-     * Has session
+     * Has session.
      *
-     * @param player The player for whom we are checking the session.
-     * @return True if the player has an active session, otherwise false.
+     * @param [player] The player for whom we are checking the session.
+     * @return `true` if the player has an active session, otherwise `false`.
      */
     fun hasSession(player: Player?): Boolean {
         KolodionSession.getSession(player!!)

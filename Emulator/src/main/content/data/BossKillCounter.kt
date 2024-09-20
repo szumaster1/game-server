@@ -73,8 +73,8 @@ enum class BossKillCounter(val npc: IntArray, val bossName: String) {
         /**
          * Gets the counter for given npc.
          *
-         * @param npc the npc.
-         * @return the [BossKillCounter] or null if not found.
+         * @param [npc] the npc.
+         * @return the **kill count** or `null` if not found.
          */
         @JvmStatic
         fun forNPC(npc: Int): BossKillCounter? {

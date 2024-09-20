@@ -40,7 +40,7 @@ object RewardChest {
     /**
      * Rewards the player.
      *
-     * @param player The player.
+     * @param [player] The player.
      */
     @JvmStatic
     fun reward(player: Player) {

@@ -33,26 +33,26 @@ class MountedGlory : InteractionListener {
 
     override fun defineListeners() {
         on(MOUNTED_GLORY, IntType.SCENERY, "Edgeville") { player, `object` ->
-            mountedGloryAction(player, `object`, 0)
+            handleOptions(player, `object`, 0)
             return@on true
         }
 
         on(MOUNTED_GLORY, IntType.SCENERY, "Karamja") { player, `object` ->
-            mountedGloryAction(player, `object`, 1)
+            handleOptions(player, `object`, 1)
             return@on true
         }
 
         on(MOUNTED_GLORY, IntType.SCENERY, "Draynor Village") { player, `object` ->
-            mountedGloryAction(player, `object`, 2)
+            handleOptions(player, `object`, 2)
             return@on true
         }
 
         on(MOUNTED_GLORY, IntType.SCENERY, "Al Kharid") { player, `object` ->
-            mountedGloryAction(player, `object`, 3)
+            handleOptions(player, `object`, 3)
             return@on true
         }
     }
-    private fun mountedGloryAction(player : Player, `object` : Node, int : Int) {
+    private fun handleOptions(player : Player, `object` : Node, int : Int) {
         if (player.houseManager.isBuildingMode) {
             player.dialogueInterpreter.open("con:removedec", `object` as Scenery)
             return

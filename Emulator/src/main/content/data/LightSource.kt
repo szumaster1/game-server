@@ -8,11 +8,11 @@ import core.game.node.item.Item
 /**
  * Represents a light source.
  *
- * @param level         the required level.
- * @param raw           the raw item id.
- * @param product       the product item id.
- * @param open          the open boolean.
- * @param interfaceId   the interface id.
+ * @param [level]         the required level.
+ * @param [raw]           the raw item id.
+ * @param [product]       the product item id.
+ * @param [open]          the open boolean.
+ * @param [interfaceId]   the interface id.
  */
 enum class LightSource(val level: Int, val raw: Item, val product: Item, val open: Boolean, val interfaceId: Int) {
     CANDLE(

@@ -39,19 +39,19 @@ enum class EnchantedJewellery(val options: Array<String>, val locations: Array<L
     /**
      * Constructs a new `EnchantedJewelleryPlugin` `Object`.
      *
-     * @param options   the dialogue options.
-     * @param locations the teleport locations.
-     * @param ids       the ordered item ids.
+     * @param [options]   the dialogue options.
+     * @param [locations] the teleport locations.
+     * @param [ids]       the ordered item ids.
      */
     constructor(options: Array<String>, locations: Array<Location>, vararg ids: Int) : this(options, locations, false, *ids)
 
     /**
      * Method used when the player "Use"s the jewellery piece.
      *
-     * @param player     the player.
-     * @param item       the used jewellery item.
-     * @param buttonID   the button id.
-     * @param isEquipped If the player is operating.
+     * @param [player]     the player.
+     * @param [item]       the used jewellery item.
+     * @param [buttonID]   the button id.
+     * @param [isEquipped] If the player is operating.
      */
     fun use(player: Player, item: Item, buttonID: Int, isEquipped: Boolean) {
         if (buttonID > locations.size - 1) {
@@ -66,10 +66,10 @@ enum class EnchantedJewellery(val options: Array<String>, val locations: Array<L
     /**
      * Method used to actually teleport the player to the desired location.
      *
-     * @param player     the player.
-     * @param item       the used jewellery item.
-     * @param buttonID   the button id.
-     * @param isEquipped If the player is operating.
+     * @param [player]     the player.
+     * @param [item]       the used jewellery item.
+     * @param [buttonID]   the button id.
+     * @param [isEquipped] If the player is operating.
      */
     fun attemptTeleport(player: Player, item: Item, buttonID: Int, isEquipped: Boolean): Boolean {
         val itemIndex = getItemIndex(item)
@@ -169,7 +169,7 @@ enum class EnchantedJewellery(val options: Array<String>, val locations: Array<L
     /**
      * Get jewellery name.
      *
-     * @param item the item id.
+     * @param [item] the item id.
      * @return jewellery name.
      */
     fun getJewelleryName(item: Item): String {
@@ -179,7 +179,7 @@ enum class EnchantedJewellery(val options: Array<String>, val locations: Array<L
     /**
      * Get jewellery type.
      *
-     * @param item the jewellery item id.
+     * @param [item] the jewellery item id.
      * @return string.
      */
     fun getJewelleryType(item: Item): String {
@@ -198,9 +198,9 @@ enum class EnchantedJewellery(val options: Array<String>, val locations: Array<L
     }
 
     /**
-     * Is last item index.
+     * Check if is last item index.
      *
-     * @param index the index.
+     * @param [index] the index.
      * @return last item index.
      */
     fun isLastItemIndex(index: Int): Boolean = index == ids.size - 1
@@ -208,7 +208,7 @@ enum class EnchantedJewellery(val options: Array<String>, val locations: Array<L
     /**
      * Get item index.
      *
-     * @param item the item id.
+     * @param [item] the item id.
      * @return item index.
      */
     fun getItemIndex(item: Item): Int {

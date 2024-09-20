@@ -19,7 +19,7 @@ object MinecartTravel {
     /**
      * Go to keldagrim.
      *
-     * @param player the player.
+     * @param [player] the player.
      */
     @JvmStatic
     fun goToKeldagrim(player: Player) {
@@ -31,8 +31,8 @@ object MinecartTravel {
     /**
      * Leave keldagrim to.
      *
-     * @param player the player.
-     * @param dest the destination.
+     * @param [player] the player.
+     * @param [dest] the destination.
      */
     @JvmStatic
     fun leaveKeldagrimTo(player: Player, dest: Location) {
@@ -42,10 +42,10 @@ object MinecartTravel {
     }
 
     /**
-     * Travel from keldagrim pulse.
+     * get travel from keldagrim.
      *
-     * @param player the player.
-     * @param dest the destination.
+     * @param [player] the player.
+     * @param [dest] the destination.
      * @return travel.
      */
     class TravelFromKeldagrimPulse(val player: Player, val dest: Location) : Pulse() {
@@ -97,10 +97,10 @@ object MinecartTravel {
     }
 
     /**
-     * Travel to keldagrim pulse.
+     * Get the travel to keldagrim.
      *
-     * @param player the player.
-     * @return Travel to keldagrim.
+     * @param [player] the player.
+     * @return [TravelToKeldagrimPulse].
      */
     class TravelToKeldagrimPulse(val player: Player) : Pulse() {
         var counter = 0

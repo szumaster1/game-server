@@ -146,8 +146,8 @@ class RoguesCastleListeners : InteractionListener {
     /**
      * Open chest.
      *
-     * @param player the player.
-     * @param scenery the scenery id.
+     * @param [player] the player.
+     * @param [scenery] the scenery id.
      */
     fun openChest(player: Player, scenery: Scenery) {
         animate(player, CHEST_ANIM)
@@ -161,8 +161,8 @@ class RoguesCastleListeners : InteractionListener {
     /**
      * Add loot to a player's inventory.
      *
-     * @param player The player who will receive the loot
-     * @param item The item to be added to the player's inventory
+     * @param [player] The player who will receive the loot
+     * @param [item] The item to be added to the player's inventory
      */
     fun addLoot(player: Player, item: Item) {
         sendMessage(player, "You search the chest...")

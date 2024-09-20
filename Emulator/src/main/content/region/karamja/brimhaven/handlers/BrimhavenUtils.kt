@@ -23,8 +23,8 @@ object BrimhavenUtils {
     /**
      * Get vine destination.
      *
-     * @param player The player object.
-     * @param node The scenery object representing the vine.
+     * @param [player]    the player object.
+     * @param [node]      the scenery object representing the vine.
      * @return The destination location for the player.
      */
     fun getVineDestination(player: Player, node: Scenery): Location {
@@ -46,8 +46,8 @@ object BrimhavenUtils {
     /**
      * Handle stairs.
      *
-     * @param node The scenery object representing the stairs.
-     * @param player The player object.
+     * @param [node] the scenery object representing the stairs.
+     * @param [player] the player object.
      */
     fun handleStairs(node: Scenery, player: Player) {
         when (node.id) {
@@ -61,8 +61,8 @@ object BrimhavenUtils {
     /**
      * Handle stepping stones.
      *
-     * @param player The player object.
-     * @param node The scenery object representing the stepping stones.
+     * @param [player] the player object.
+     * @param [node] the scenery object representing the stepping stones.
      */
     fun handleSteppingStones(player: Player, node: Scenery) {
         if (player.skills.getLevel(Skills.AGILITY) < 12) {
@@ -106,8 +106,8 @@ object BrimhavenUtils {
     /**
      * Handle vines.
      *
-     * @param player The player object.
-     * @param node The scenery object representing the vines.
+     * @param [player] the player object.
+     * @param [node] the scenery object representing the vines.
      */
     fun handleVines(player: Player, node: Scenery) {
         val level: Int = 10 + (node.id - 5103) * 6

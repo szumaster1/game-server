@@ -40,8 +40,8 @@ class StakeContainer(private val player: Player, val session: DuelSession) :
     /**
      * Offer an item from the player's inventory for trade.
      *
-     * @param slot The inventory slot of the item to offer.
-     * @param amount The amount of the item to offer.
+     * @param [slot]    the inventory slot of the item to offer.
+     * @param [amount]  the amount of the item to offer.
      */
     fun offer(slot: Int, amount: Int) {
         val item = player.inventory[slot] ?: return
@@ -71,8 +71,8 @@ class StakeContainer(private val player: Player, val session: DuelSession) :
     /**
      * Withdraw an item from the player's inventory.
      *
-     * @param slot The inventory slot of the item to withdraw.
-     * @param amount The amount of the item to withdraw.
+     * @param slot      the inventory slot of the item to withdraw.
+     * @param amount    the amount of the item to withdraw.
      */
     fun withdraw(slot: Int, amount: Int) {
         val item = get(slot) ?: return
@@ -99,9 +99,6 @@ class StakeContainer(private val player: Player, val session: DuelSession) :
         }
     }
 
-    /**
-     * Release
-     */
     fun release() {
         if (released) {
             return
@@ -117,28 +114,12 @@ class StakeContainer(private val player: Player, val session: DuelSession) :
     }
 
     /**
-     * Stake listener
+     * Stake listener.
      */
     inner class StakeListener : ContainerListener {
         override fun update(c: Container?, event: ContainerEvent?) {
-            InterfaceContainer.generateItems(
-                player,
-                c!!.toArray(),
-                WITHDRAW_OPTIONS,
-                631,
-                103,
-                12,
-                3
-            )
-            InterfaceContainer.generateItems(
-                player,
-                session.getOppositeContainer(player)!!.toArray(),
-                WITHDRAW_OPTIONS,
-                631,
-                104,
-                12,
-                3
-            )
+            InterfaceContainer.generateItems(player, c!!.toArray(), WITHDRAW_OPTIONS, 631, 103, 12, 3)
+            InterfaceContainer.generateItems(player, session.getOppositeContainer(player)!!.toArray(), WITHDRAW_OPTIONS, 631, 104, 12, 3)
         }
 
         override fun refresh(c: Container?) {
@@ -150,22 +131,7 @@ class StakeContainer(private val player: Player, val session: DuelSession) :
     }
 
     companion object {
-        private val INVY_PARAMS = arrayOf<Any>(
-            "",
-            "",
-            "",
-            "Stake-X",
-            "Stake-All",
-            "Stake-10",
-            "Stake-5",
-            "Stake",
-            -1,
-            0,
-            7,
-            4,
-            93,
-            336 shl 16
-        )
+        private val INVY_PARAMS = arrayOf<Any>("", "", "", "Stake-X", "Stake-All", "Stake-10", "Stake-5", "Stake", -1, 0, 7, 4, 93, 336 shl 16)
         private val WITHDRAW_OPTIONS = arrayOf("Remove-X", "Remove-All", "Remove-10", "Remove-5", "Remove")
         val OVERLAY = Component(336)
 

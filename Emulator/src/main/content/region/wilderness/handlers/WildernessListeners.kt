@@ -44,8 +44,8 @@ class WildernessListeners : InteractionListener {
     /**
      * Handle ditch scenery.
      *
-     * @param player Represents the player interacting with the ditch.
-     * @param node Represents the specific node associated with the ditch.
+     * @param [player] the player.
+     * @param [node] the node.
      */
     fun handleDitch(player: Player, node: Node) {
         player.faceLocation(node.location)

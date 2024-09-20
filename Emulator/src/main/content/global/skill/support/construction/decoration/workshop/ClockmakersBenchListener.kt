@@ -17,7 +17,7 @@ import core.game.node.scenery.Scenery
  * Handles the interactions of the craft table in the workshop.
  * @author Hope
  */
-class CraftingTableListener : InteractionListener {
+class ClockmakersBenchListener : InteractionListener {
 
     private val sceneryIDs = intArrayOf(13709, 13710, 13711, 13712)
 
@@ -29,27 +29,16 @@ class CraftingTableListener : InteractionListener {
     }
 
     private enum class Craftable(val itemId: Int, val craftingLevel: Int, vararg var materials: Item) {
-        /**
-         * Toy horsey craftable.
-         */
         TOY_HORSEY(
             itemId = Items.TOY_HORSEY_2520,
             craftingLevel = 10,
             BuildingUtils.PLANK
         ),
-
-        /**
-         * The Clockwork.
-         */
         CLOCKWORK(
             itemId = Items.CLOCKWORK_8792,
             craftingLevel = 8,
             Item(Items.STEEL_BAR_2353)
         ),
-
-        /**
-         * The Toy soldier.
-         */
         TOY_SOLDIER(
             itemId = Items.TOY_SOLDIER_7759,
             craftingLevel = 13,
@@ -57,49 +46,30 @@ class CraftingTableListener : InteractionListener {
             Item(Items.CLOCKWORK_8792)
         ),
 
-        /**
-         * The Toy doll.
-         */
         TOY_DOLL(
             itemId = Items.TOY_DOLL_7763,
             craftingLevel = 18,
             BuildingUtils.PLANK,
             Item(Items.CLOCKWORK_8792)
         ),
-
-        /**
-         * The Toy mouse.
-         */
         TOY_MOUSE(
             itemId = Items.TOY_MOUSE_7767,
             craftingLevel = 33,
             BuildingUtils.PLANK,
             Item(Items.CLOCKWORK_8792)
         ),
-
-        /**
-         * The Toy cat.
-         */
         TOY_CAT(
             itemId = Items.CLOCKWORK_CAT_7771,
             craftingLevel = 85,
             BuildingUtils.PLANK,
             Item(Items.CLOCKWORK_8792)
         ),
-
-        /**
-         * The Watch.
-         */
         WATCH(
             itemId = Items.WATCH_2575,
             craftingLevel = 28,
             Item(Items.CLOCKWORK_8792),
             Item(Items.STEEL_BAR_2353)
         ),
-
-        /**
-         * The Sextant.
-         */
         SEXTANT(
             itemId = Items.SEXTANT_2574,
             craftingLevel = 23,
@@ -107,7 +77,10 @@ class CraftingTableListener : InteractionListener {
         );
     }
 
-    private inner class CraftingTableDialogue(player: Player? = null): Dialogue(player) {
+    /**
+     * Represents the clockmakers bench dialogue.
+     */
+    private inner class ClockmakersBenchDialogue(player: Player? = null): Dialogue(player) {
 
         var decoration: Decoration? = null
 
@@ -119,14 +92,7 @@ class CraftingTableListener : InteractionListener {
                     Decoration.CRAFTING_TABLE_1 -> options("Toy Horsey", "Nevermind")
                     Decoration.CRAFTING_TABLE_2 -> options("Toy Horsey", "Clockwork Mechanism")
                     Decoration.CRAFTING_TABLE_3 -> options("Toy Horsey", "Clockwork Mechanism", "Clockwork Devices")
-                    Decoration.CRAFTING_TABLE_4 -> options(
-                        "Toy Horsey",
-                        "Clockwork Mechanism",
-                        "Clockwork Devices",
-                        "Watch",
-                        "Sextant"
-                    )
-
+                    Decoration.CRAFTING_TABLE_4 -> options("Toy Horsey", "Clockwork Mechanism", "Clockwork Devices", "Watch", "Sextant")
                     else -> {}
                 }
             }
@@ -204,7 +170,7 @@ class CraftingTableListener : InteractionListener {
         }
 
         override fun newInstance(player: Player?): Dialogue {
-            return CraftingTableDialogue(player)
+            return ClockmakersBenchDialogue(player)
         }
 
         override fun getIds(): IntArray {

@@ -15,12 +15,13 @@ import core.game.node.scenery.Scenery
  * Handles interaction for creation of flatpacks in the workshop.
  */
 class FlatpackListener: InteractionListener {
-    val FLATPACK = Decoration.values().map { it.flatpackItemID }.toIntArray()
-    val HOTSPOT = BuildHotspot.values().map { it.objectId }.toIntArray()
+
+    private val flatpackIDs = Decoration.values().map { it.flatpackItemID }.toIntArray()
+    private val buildHotspot = BuildHotspot.values().map { it.objectId }.toIntArray()
 
     override fun defineListeners() {
-        for (hotspot in HOTSPOT) {
-            onUseWith(IntType.SCENERY, FLATPACK, hotspot) { player, used, with ->
+        for (hotspot in buildHotspot) {
+            onUseWith(IntType.SCENERY, flatpackIDs, hotspot) { player, used, with ->
                 return@onUseWith buildFlatpackOnHotspot(player, used.asItem(), with.asScenery())
             }
         }
@@ -28,9 +29,9 @@ class FlatpackListener: InteractionListener {
 
     private fun buildFlatpackOnHotspot(player: Player, used: Item, with: Scenery):Boolean {
         val hotspotUsed = player.houseManager.getHotspot(with)
-        val DecorationUsed = Decoration.forFlatpackItemId(used.id)
+        val decorationUsed = Decoration.forFlatpackItemId(used.id)
 
-        if(!hotspotUsed.hotspot.decorations.contains(DecorationUsed)) {
+        if(!hotspotUsed.hotspot.decorations.contains(decorationUsed)) {
             sendMessage(player, "You can't build that here.")
             return false
         }
@@ -38,7 +39,7 @@ class FlatpackListener: InteractionListener {
             sendMessage(player, "You need a hammer and a saw to build this.")
             return false
         }
-        buildDecoration(player, hotspotUsed, DecorationUsed, with.asScenery(),true)
+        buildDecoration(player, hotspotUsed, decorationUsed, with.asScenery(),true)
         return true
 
     }

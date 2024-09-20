@@ -15,8 +15,8 @@ enum class MeatState {
 /**
  * Represents the different types of meat.
  *
- * @param id The id for the meat type.
- * @param state The state of the meat (e.g., raw, cooked).
+ * @param [id] The id for the meat type.
+ * @param [state] The state of the meat (e.g., raw, cooked).
  */
 enum class Meat(val id: Int, val state: MeatState) {
     ENCHANTED_BEEF(

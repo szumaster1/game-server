@@ -33,7 +33,7 @@ enum class ChargedItem(val ids: IntArray) {
     /**
      * For charge.
      *
-     * @param charge The charge level.
+     * @param [charge] The charge level.
      * @return The item ID for the specified charge level.
      */
     fun forCharge(charge: Int): Int {
@@ -66,7 +66,7 @@ enum class ChargedItem(val ids: IntArray) {
         /**
          * Check if the given item id is a charged item.
          *
-         * @param id The item id to check.
+         * @param [id] The item id to check.
          * @return True if the item id is a charged item, false otherwise.
          */
         fun contains(id: Int): Boolean = idMap.containsKey(id)
@@ -74,15 +74,15 @@ enum class ChargedItem(val ids: IntArray) {
         /**.
          * Get the ChargedItem enum value for the given item id.
          *
-         * @param id The item id.
-         * @return The ChargedItem enum value for the given item id, or null if not found.
+         * @param [id] The item id.
+         * @return The [ChargedItem] enum value for the given item id, or null if not found.
          */
         fun forId(id: Int): ChargedItem? = idMap[id]
 
         /**
          * Get the charge level for the given item id.
          *
-         * @param id The item id.
+         * @param [id] The item id.
          * @return The charge level for the given item id, or null if not found.
          */
         fun getCharge(id: Int): Int? {

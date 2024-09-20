@@ -16,9 +16,9 @@ import java.util.*
 /**
  * Represents a Barrows puzzle.
  *
- * @param questionModels Array of question models
- * @param answerModels Variable number of answer models
- * @constructor Represents a Barrows puzzle with question and answer models
+ * @param questionModels Array of question models.
+ * @param answerModels Variable number of answer models.
+ * @constructor Represents a Barrows puzzle with question and answer models.
  */
 class BarrowsPuzzle private constructor(private val questionModels: IntArray, private vararg val answerModels: Int) :
     ComponentPlugin() {
@@ -50,7 +50,10 @@ class BarrowsPuzzle private constructor(private val questionModels: IntArray, pr
         when (button) {
             2, 3, 5 -> {
                 player.interfaceManager.close()
-                val correct = player.getAttribute("puzzle:answers", IntArray(3))[if (button == 5) 2 else button - 2] shr 16 and 0xFF == 1
+                val correct = player.getAttribute(
+                    "puzzle:answers",
+                    IntArray(3)
+                )[if (button == 5) 2 else button - 2] shr 16 and 0xFF == 1
                 if (!correct) {
                     sendMessage(player, "You got the puzzle wrong! You can hear the catacombs moving around you.")
                     BarrowsActivityPlugin.shuffleCatacombs(player)
@@ -94,7 +97,7 @@ class BarrowsPuzzle private constructor(private val questionModels: IntArray, pr
         /**
          * Opens a random barrows puzzle.
          *
-         * @param player The player.
+         * @param [player] The player.
          */
         fun open(player: Player) {
             var index = RandomFunction.random(4)
@@ -107,9 +110,8 @@ class BarrowsPuzzle private constructor(private val questionModels: IntArray, pr
         /**
          * Opens the barrows puzzle for the given index.
          *
-         * @param player The player.
-         * @param index The index (0 = shapes, 1 = lines, 2 = squares, 3 =
-         * triangle-on-circle).
+         * @param [player] The player.
+         * @param [index] The index (0 = shapes, 1 = lines, 2 = squares, 3 = triangle-on-circle).
          */
         fun open(player: Player, index: Int) {
             var puzzle = SHAPES
@@ -123,46 +125,27 @@ class BarrowsPuzzle private constructor(private val questionModels: IntArray, pr
             setAttribute(player, "puzzle:answers", puzzle.answerModels)
             player.interfaceManager.open(COMPONENT)
             for (i in puzzle.questionModels.indices) {
-                PacketRepository.send(DisplayModel::class.java, DisplayModelContext(
-                        player,
-                        DisplayModelContext.ModelType.MODEL,
-                        puzzle.questionModels[i],
-                        0,
-                        25,
-                        6 + i
-                    ))
+                PacketRepository.send(
+                    DisplayModel::class.java, DisplayModelContext(player, DisplayModelContext.ModelType.MODEL, puzzle.questionModels[i], 0, 25, 6 + i)
+                )
             }
             for (i in puzzle.answerModels.indices) {
                 PacketRepository.send(
                     DisplayModel::class.java,
-                    DisplayModelContext(
-                        player,
-                        DisplayModelContext.ModelType.MODEL,
-                        puzzle.answerModels[i] and 0xFFFF,
-                        0,
-                        25,
-                        2 + i
-                    )
+                    DisplayModelContext(player, DisplayModelContext.ModelType.MODEL, puzzle.answerModels[i] and 0xFFFF, 0, 25, 2 + i)
                 )
             }
             PacketRepository.send(
                 DisplayModel::class.java,
-                DisplayModelContext(
-                    player,
-                    DisplayModelContext.ModelType.MODEL,
-                    puzzle.answerModels[2] and 0xFFFF,
-                    0,
-                    25,
-                    5
-                )
+                DisplayModelContext(player, DisplayModelContext.ModelType.MODEL, puzzle.answerModels[2] and 0xFFFF, 0, 25, 5)
             )
         }
 
         /**
          * Gets the answer model id.
          *
-         * @param modelId The model id.
-         * @param correct If the answer is correct.
+         * @param [modelId] the model id.
+         * @param [correct] the answer is correct.
          * @return The model id hash.
          */
         private fun getAnswerModel(modelId: Int, correct: Boolean): Int {

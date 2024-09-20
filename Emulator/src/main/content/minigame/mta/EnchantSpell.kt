@@ -74,7 +74,9 @@ class EnchantSpell : MagicSpell {
             entity.inventory.add(enchanted)
         }
 
-        //MTA-Specific Code
+        /*
+         * MTA-Specific Code.
+         */
         if (entity.zoneMonitor.isInZone("Enchantment Chamber")) {
             entity.graphics(Graphic.create(237, 110))
             var pizazz = 0

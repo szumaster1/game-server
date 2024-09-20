@@ -23,14 +23,7 @@ private const val HALF_BAKED_CRUNCHY = 2201
 @Initializable
 class GnomeCrunchyInterface : ComponentPlugin() {
 
-    override fun handle(
-        player: Player?,
-        component: Component?,
-        opcode: Int,
-        button: Int,
-        slot: Int,
-        itemId: Int
-    ): Boolean {
+    override fun handle(player: Player?, component: Component?, opcode: Int, button: Int, slot: Int, itemId: Int): Boolean {
         player ?: return false
         when (button) {
             3 -> attemptMake(HalfMadeCrunchy.TOAD, player)
@@ -90,12 +83,11 @@ class GnomeCrunchyInterface : ComponentPlugin() {
     }
 
     /**
-     * Enum representing a half-made crunchy item.
+     * Represents a half-made crunchy item.
      *
-     * @param product The ID of the product.
-     * @param reqLevel The required level to make the item.
-     * @param requiredItems An array of items required to make the item.
-     * @constructor Creates a new HalfMadeCrunchy enum instance.
+     * @param product       the ID of the product.
+     * @param reqLevel      the required level to make the item.
+     * @param requiredItems the array of items required to make the item.
      */
     internal enum class HalfMadeCrunchy(val product: Int, val reqLevel: Int, val requiredItems: Array<Item>) {
         CHOCCHIP(

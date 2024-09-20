@@ -5,6 +5,7 @@ import org.rs.consts.NPCs
 import content.miniquest.general.handlers.GSUtils
 import core.api.location
 import core.api.removeAttribute
+import core.api.sendMessageWithDelay
 import core.api.unlock
 import core.game.activity.Cutscene
 import core.game.dialogue.FacialExpression
@@ -58,7 +59,7 @@ class CavernCutscene(player: Player) : Cutscene(player) {
 
             6 -> {
                 end()
-                player.sendMessage("An evil prescence in the cave prevents your prayers from being heard.", 10)
+                sendMessageWithDelay(player, "An evil prescence in the cave prevents your prayers from being heard.", 10)
                 removeAttribute(player, GSUtils.GS_SEVERED_LEG)
                 spawnGhostBouncer(player)
                 unlock(player)

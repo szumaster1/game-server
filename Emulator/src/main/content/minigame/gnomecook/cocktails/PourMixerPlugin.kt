@@ -75,90 +75,40 @@ class PourMixerPlugin : OptionHandler() {
     }
 
     /**
-     * Enum representing different poured drinks.
+     * Representing different poured drinks.
      *
-     * @param product The product code of the drink.
-     * @param requiredItems The array of items required to make the drink.
-     * @constructor Creates a new PouredDrink with the specified product code and required items.
+     * @param product       the product code of the drink.
+     * @param requiredItems the array of items required to make the drink.
      */
     internal enum class PouredDrink(val product: Int, val requiredItems: Array<Item>) {
-        /**
-         * Fruit Blast
-         *
-         * @constructor Fruit Blast
-         */
-        FRUIT_BLAST(9514, arrayOf(Item(Items.LEMON_SLICES_2106))),
-
-        /**
-         * Pine Punch
-         *
-         * @constructor Pine Punch
-         */
+        FRUIT_BLAST(
+            product = 9514,
+            requiredItems = arrayOf(Item(Items.LEMON_SLICES_2106))
+        ),
         PINE_PUNCH(
-            9512,
-            arrayOf(Item(Items.LIME_CHUNKS_2122), Item(Items.PINEAPPLE_CHUNKS_2116), Item(Items.ORANGE_SLICES_2112))
+            product = 9512,
+            requiredItems = arrayOf(Item(Items.LIME_CHUNKS_2122), Item(Items.PINEAPPLE_CHUNKS_2116), Item(Items.ORANGE_SLICES_2112))
         ),
-
-        /**
-         * Wiz Blizz
-         *
-         * @constructor Wiz Blizz
-         */
-        WIZ_BLIZZ(9508, arrayOf(Item(Items.PINEAPPLE_CHUNKS_2116), Item(Items.LIME_SLICES_2124))),
-
-        /**
-         * Short G G
-         *
-         * @constructor Short G G
-         */
-        SHORT_G_G(9510, arrayOf(Item(Items.LIME_SLICES_2124), Item(Items.EQUA_LEAVES_2128))),
-
-        /**
-         * Drunk Drag
-         *
-         * @constructor Drunk Drag
-         */
+        WIZ_BLIZZ(
+            product = 9508,
+            requiredItems = arrayOf(Item(Items.PINEAPPLE_CHUNKS_2116), Item(Items.LIME_SLICES_2124))
+        ),
+        SHORT_G_G(
+            product = 9510,
+            requiredItems = arrayOf(Item(Items.LIME_SLICES_2124), Item(Items.EQUA_LEAVES_2128))
+        ),
         DRUNK_DRAG(
-            9575,
-            arrayOf(
-                Item(Items.GIN_2019),
-                Item(Items.VODKA_2015),
-                Item(Items.DWELLBERRIES_2126),
-                Item(Items.PINEAPPLE_CHUNKS_2116),
-                Item(Items.POT_OF_CREAM_2130)
-            )
+            product = 9575,
+            requiredItems = arrayOf(Item(Items.GIN_2019), Item(Items.VODKA_2015), Item(Items.DWELLBERRIES_2126), Item(Items.PINEAPPLE_CHUNKS_2116), Item(Items.POT_OF_CREAM_2130))
         ),
 
-        /**
-         * Choc Sat
-         *
-         * @constructor Choc Sat
-         */
         CHOC_SAT(
-            9572,
-            arrayOf(
-                Item(Items.WHISKY_2017),
-                Item(Items.EQUA_LEAVES_2128),
-                Item(Items.BUCKET_OF_MILK_1927),
-                Item(Items.CHOCOLATE_DUST_1975),
-                Item(Items.POT_OF_CREAM_2130),
-                Item(Items.CHOCOLATE_BAR_1973)
-            )
+            product = 9572,
+            requiredItems = arrayOf(Item(Items.WHISKY_2017), Item(Items.EQUA_LEAVES_2128), Item(Items.BUCKET_OF_MILK_1927), Item(Items.CHOCOLATE_DUST_1975), Item(Items.POT_OF_CREAM_2130), Item(Items.CHOCOLATE_BAR_1973))
         ),
-
-        /**
-         * Blur Spec
-         *
-         * @constructor Blur Spec
-         */
         BLUR_SPEC(
-            9520,
-            arrayOf(
-                Item(Items.LEMON_CHUNKS_2104),
-                Item(Items.ORANGE_CHUNKS_2110),
-                Item(Items.EQUA_LEAVES_2128),
-                Item(Items.LIME_SLICES_2124)
-            )
+            product = 9520,
+            requiredItems = arrayOf(Item(Items.LEMON_CHUNKS_2104), Item(Items.ORANGE_CHUNKS_2110), Item(Items.EQUA_LEAVES_2128), Item(Items.LIME_SLICES_2124))
         ),
     }
 

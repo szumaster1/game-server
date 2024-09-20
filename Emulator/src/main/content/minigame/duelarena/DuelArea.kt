@@ -34,11 +34,10 @@ import java.util.*
 /**
  * Represents a Duel Area in the game.
  *
- * @param border The borders of the Duel Area.
- * @param isObstacles Indicates if there are obstacles in the Duel Area.
- * @param center The central location of the Duel Area.
- * @constructor Creates a Duel Area with optional parameters.
- * @param index The index of the Duel Area.
+ * @param [index]         the index of the Duel Area.
+ * @param [border]        the borders of the Duel Area.
+ * @param [isObstacles]   the indicates if there are obstacles in the Duel Area.
+ * @param [center]        the central location of the Duel Area.
  */
 class DuelArea
 @JvmOverloads constructor(
@@ -55,11 +54,6 @@ class DuelArea
     ZoneRestriction.FOLLOWERS
 ) {
 
-    /**
-     * Duel
-     *
-     * @param session
-     */
     fun duel(session: DuelSession) {
         val locations = getStartLocations(session)
         session.player!!.teleport(locations[0])
@@ -112,7 +106,11 @@ class DuelArea
             p.sendMessage("You can't drink in this fight.")
             return true
         }
-        if (option.name.equals("wield", ignoreCase = true) || option.name.equals("wear", ignoreCase = true) && target is Item) {
+        if (option.name.equals("wield", ignoreCase = true) || option.name.equals(
+                "wear",
+                ignoreCase = true
+            ) && target is Item
+        ) {
             if (session.isRestrictedEquipment(target.asItem())) {
                 p.sendMessage("You can't equip that during this duel.")
                 return true
@@ -144,7 +142,14 @@ class DuelArea
         return super.move(entity, from, to)
     }
 
-    override fun actionButton(player: Player, interfaceId: Int, buttonId: Int, slot: Int, itemId: Int, opcode: Int): Boolean {
+    override fun actionButton(
+        player: Player,
+        interfaceId: Int,
+        buttonId: Int,
+        slot: Int,
+        itemId: Int,
+        opcode: Int
+    ): Boolean {
         val session: DuelSession = getSession(player) ?: return true
         val inter = player.getExtension<WeaponInterface>(WeaponInterface::class.java)
         if (inter != null && interfaceId == inter.id) {
@@ -205,7 +210,11 @@ class DuelArea
                 p.sendMessage(StringUtils.formatDisplayName(style.name.lowercase(Locale.getDefault())) + " has been turned off for this duel.")
                 return false
             }
-            if (session.hasRule(DuelRule.FUN_WEAPONS) && (p.equipment[EquipmentContainer.SLOT_WEAPON] == null || !p.equipment[EquipmentContainer.SLOT_WEAPON].definition.getConfiguration("fun_weapon", false))) {
+            if (session.hasRule(DuelRule.FUN_WEAPONS) && (p.equipment[EquipmentContainer.SLOT_WEAPON] == null || !p.equipment[EquipmentContainer.SLOT_WEAPON].definition.getConfiguration(
+                    "fun_weapon",
+                    false
+                ))
+            ) {
                 p.sendMessages(
                     "This is a 'fun weapon' duel. You can only use flowers, basket of eggs, or a",
                     "rubber chicken."
@@ -303,12 +312,6 @@ class DuelArea
         p.interaction.set(DuelArenaActivity.CHALLENGE_OPTION)
     }
 
-    /**
-     * Get start locations
-     *
-     * @param session
-     * @return
-     */
     fun getStartLocations(session: DuelSession): Array<Location?> {
         var start: Location? = null
         val locations = arrayOfNulls<Location>(2)
@@ -367,23 +370,10 @@ class DuelArea
         return super.death(e, killer)
     }
 
-    /**
-     * Is valid location
-     *
-     * @param location
-     * @return
-     */
     fun isValidLocation(location: Location?): Boolean {
         return isTeleportPermitted(location!!) && getObject(location) == null
     }
 
-    /**
-     * Check attack
-     *
-     * @param player
-     * @param target
-     * @return
-     */
     fun checkAttack(player: Player, target: Player): Boolean {
         val session: DuelSession = getSession(player) ?: return false
         if (session.getOpposite(player) !== target) {
@@ -397,9 +387,6 @@ class DuelArea
         return true
     }
 
-    /**
-     * Forfeit trapdoor plugin.
-     */
     class ForfeitTrapdoorPlugin : OptionHandler() {
         @Throws(Throwable::class)
         override fun newInstance(arg: Any?): Plugin<Any> {

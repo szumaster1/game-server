@@ -53,10 +53,9 @@ class CocktailCooker : UseWithHandler(UNCOOKED_CHOC_SAT, UNCOOKED_DRUN_DRA) {
     }
 
     /**
-     * Enum representing different types of cooked drinks.
+     * Represents the different types of cooked drinks.
      *
-     * @param product The product code for each cooked drink.
-     * @constructor Represents CookedDrinks with a product code.
+     * @param product   the product code for each cooked drink.
      */
     internal enum class CookedDrinks(val product: Int) {
         COOKED_CHOC_SAT(9573),

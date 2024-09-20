@@ -21,7 +21,7 @@ enum class Dyes(val item: Item) {
          * Get a dye for given item.
          *
          * @param item the item.
-         * @return the [Dyes].
+         * @return the dye.
          */
         fun forItem(item: Item): Dyes? {
             for (d in values()) {

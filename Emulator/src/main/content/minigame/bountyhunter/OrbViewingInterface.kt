@@ -63,14 +63,7 @@ class OrbViewingInterface : ComponentPlugin() {
         return this
     }
 
-    override fun handle(
-        player: Player,
-        component: Component,
-        opcode: Int,
-        button: Int,
-        slot: Int,
-        itemId: Int
-    ): Boolean {
+    override fun handle(player: Player, component: Component, opcode: Int, button: Int, slot: Int, itemId: Int): Boolean {
         val locations = player.getAttribute<Array<Location>>("viewing-orb") ?: return false
         if (button != 5) {
             move(player, locations[15 - button])
@@ -83,7 +76,7 @@ class OrbViewingInterface : ComponentPlugin() {
     /**
      * Method used to move to a viewing location.
      *
-     * @param location the location.
+     * @param [location] the location.
      */
     private fun move(player: Player, location: Location) {
         lockInteractions(player, 100000000)
@@ -97,8 +90,8 @@ class OrbViewingInterface : ComponentPlugin() {
     /**
      * Views an orb.
      *
-     * @param player      the player.
-     * @param interfaceId the interface id.
+     * @param [player]      the player.
+     * @param [interfaceId] the interface id.
      */
     private fun viewOrb(player: Player, interfaceId: Int) {
         val component = Component(interfaceId).setCloseEvent(ViewCloseEvent())
@@ -181,8 +174,8 @@ class OrbViewingInterface : ComponentPlugin() {
         /**
          * Ends the viewing session.
          *
-         * @param player the player.
-         * @param close  if we should close the interface.
+         * @param [player] the player.
+         * @param [close] if we should close the interface.
          */
         private fun stopViewing(player: Player, close: Boolean) {
             if (close) {

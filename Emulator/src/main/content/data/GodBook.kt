@@ -8,11 +8,11 @@ import core.game.node.item.Item
 /**
  * Represents a god book data.
  *
- * @param bookName      the name of the book.
- * @param book          the book item.
- * @param damagedBook   the damaged book item.
- * @param blessItem     the array of items used to bless the book.
- * @param pages         the array of pages in the book.
+ * @param [bookName]      the name of the book.
+ * @param [book]          the book item.
+ * @param [damagedBook]   the damaged book item.
+ * @param [blessItem]     the array of items used to bless the book.
+ * @param [pages]         the array of pages in the book.
  */
 enum class GodBook(val bookName: String, val book: Item, val damagedBook: Item, val blessItem: Array<Item>, vararg pages: Item) {
     HOLY_BOOK(

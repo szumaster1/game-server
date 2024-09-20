@@ -9,8 +9,8 @@ import core.game.node.item.Item
  * Represents the skilling pets obtained randomly.
  * @author Empathy
  *
- * @param skill The skill id.
- * @param pet The pet item.
+ * @param [skill]   the skill id.
+ * @param [pet]     the pet item.
  */
 enum class SkillingPets(
     val pet: Item,

@@ -33,11 +33,6 @@ class GnomeBallSession : LogoutListener, MapArea {
         return arrayOf(colA1, colA2, colA3, colA4, colA5, colA6, rect1, colB1, colB2, rect2, colC1, colC2, rect3)
     }
 
-    /**
-     * Start
-     *
-     * @param list
-     */
     fun start(list: ArrayList<Player>) {
         for (player in list) {
             setAttribute(player, "gb-session", this)

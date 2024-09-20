@@ -16,11 +16,9 @@ import core.game.world.map.Location
 class CropCircleController : TickListener, InteractionListener {
 
     override fun tick() {
-        // Check if it's time to create a new crop circle
         if (getWorldTicks() < nextCircle) return
         deconstructOldCircle()
 
-        // Randomly select a location for the new crop circle
         val (name, loc) = possibleLocations.random()
         constructCircle(loc)
         sendNews("A crop circle has appeared near $name.")
@@ -29,7 +27,10 @@ class CropCircleController : TickListener, InteractionListener {
     }
 
     override fun defineListeners() {
-        // Handle player interaction with the center of the crop circle
+        /*
+         * Handle player interaction with the center of the crop circle.
+         */
+
         on(center, IntType.SCENERY, "enter") { player, _ ->
             if (hasImpBox(player)) {
                 sendDialogue(player, "Something prevents you from entering. You think the portal is offended by your imp box. They are not popular on imp and impling planes.")
@@ -41,7 +42,10 @@ class CropCircleController : TickListener, InteractionListener {
             return@on true
         }
 
-        // Handle player interaction with the exit of the crop circle
+        /*
+         * Handle player interaction with the exit of the crop circle.
+         */
+
         on(puroExit, IntType.SCENERY, "leave", "quick-leave") { player, _ ->
             var exit = getAttribute(player, exitLocation, Location.create(3158, 3300, 0))
             playAudio(player, fairyTeleport)
@@ -51,13 +55,17 @@ class CropCircleController : TickListener, InteractionListener {
     }
 
     private fun constructCircle(location: Location) {
-        // Add the center of the crop circle
+        /*
+         * Add the center of the crop circle.
+         */
         activeObjects.add(
             addScenery(
                 center, location, rotation = 0, type = 10
             )
         )
-        // Add the surrounding tiles of the crop circle
+        /*
+         * Add the surrounding tiles of the crop circle.
+         */
         for ((index, tile) in location.surroundingTiles.withIndex()) {
             activeObjects.add(
                 addScenery(
@@ -68,13 +76,17 @@ class CropCircleController : TickListener, InteractionListener {
     }
 
     private fun deconstructOldCircle() {
-        // Remove all the scenery objects from the previous crop circle
+        /*
+         * Remove all the scenery objects from the previous crop circle.
+         */
         for (scenery in activeObjects) removeScenery(scenery)
         activeObjects.clear()
     }
 
     private fun hasImpBox(player: Player): Boolean {
-        // Check if the player has an imp box in their inventory
+        /*
+         * Check if the player has an imp box in their inventory.
+         */
         return inInventory(player, 10025) || inInventory(player, 10027) || inInventory(player, 10028)
     }
 

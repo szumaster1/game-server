@@ -6,10 +6,10 @@ import core.game.node.item.Item
 /**
  * Represents the repair item type.
  *
- * @param item The broken item to be repaired.
- * @param product The repaired item.
- * @param cost The cost of repairing the item.
- * @return the [RepairItem].
+ * @param [item] The broken item to be repaired.
+ * @param [product] The repaired item.
+ * @param [cost] The cost of repairing the item.
+ * @return the repaired item.
  */
 enum class RepairItem(val item: Item, val product: Item, val cost: Int) {
     BRONZE_HATCHET(

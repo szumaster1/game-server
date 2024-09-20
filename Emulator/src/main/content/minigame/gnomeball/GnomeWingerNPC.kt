@@ -35,13 +35,6 @@ private class GnomeWingerNPC : NPCBehavior(NPCs.GNOME_WINGER_633) {
         if (pass) setAttribute(self, "gnomeball:pass-timer", (delay - 1))
         return true
     }
-
-    /**
-     * Pass
-     *
-     * @param player
-     * @param self
-     */
     fun pass(player: Player, self: NPC) {
         self.face(player)
         animate(self, Animations.BALLER_THROW_201)

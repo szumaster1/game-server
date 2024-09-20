@@ -19,17 +19,17 @@ import kotlin.math.min
 /**
  * Workbench listener.
  */
-class WorkbenchListener: InterfaceListener, InteractionListener {
+class WorkbenchListener : InterfaceListener, InteractionListener {
     override fun defineListeners() {
         on(intArrayOf(13704, 13705, 13706, 13707, 13708), IntType.SCENERY, "work-at") { player, obj ->
             player.interfaceManager.close()
             openInterface(player, 397)
-            when(obj.id){
-                13704 -> player.setAttribute("maxFlatpackLevel",20)
-                13705 -> player.setAttribute("maxFlatpackLevel",40)
-                13706 -> player.setAttribute("maxFlatpackLevel",60)
-                13707 -> player.setAttribute("maxFlatpackLevel",80)
-                13708 -> player.setAttribute("maxFlatpackLevel",99)
+            when (obj.id) {
+                13704 -> player.setAttribute("maxFlatpackLevel", 20)
+                13705 -> player.setAttribute("maxFlatpackLevel", 40)
+                13706 -> player.setAttribute("maxFlatpackLevel", 60)
+                13707 -> player.setAttribute("maxFlatpackLevel", 80)
+                13708 -> player.setAttribute("maxFlatpackLevel", 99)
             }
 
             return@on true
@@ -66,8 +66,6 @@ class WorkbenchListener: InterfaceListener, InteractionListener {
         }
     }
 
-    // This is mostly copied from the openBuildInterface function in BuildingUtils.java
-    // There are a few small changes that I didn't want to force into the original function
     private fun openBuildInterface(player: Player, hotspot: BuildHotspot) {
         val BUILD_INDEXES = intArrayOf(0, 2, 4, 6, 1, 3, 5)
         player.interfaceManager.open(Component(396))
@@ -95,7 +93,8 @@ class WorkbenchListener: InterfaceListener, InteractionListener {
                 396,
                 itemsStringOffset
             )
-            var hasRequirements = min(player.skills.getLevel(22),player.getAttribute("maxFlatpackLevel",0)) >= decoration.level
+            var hasRequirements =
+                min(player.skills.getLevel(22), player.getAttribute("maxFlatpackLevel", 0)) >= decoration.level
             for (j in 0..3) {
                 if (j >= decoration.items.size) {
                     if (j == decoration.items.size && decoration.nailAmount > 0) {

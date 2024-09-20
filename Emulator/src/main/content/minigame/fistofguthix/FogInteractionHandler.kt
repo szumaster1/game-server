@@ -26,10 +26,6 @@ class FogInteractionHandler : PluginInteraction(30204, 30203) {
 
     /**
      * Climb pulse for moving the player up a scenery object.
-     *
-     * @param player the player object.
-     * @param obj the scenery object to climb.
-     * @constructor Creates a ClimbPulse instance with the player and scenery object.
      */
     class ClimbPulse(val player: Player, val obj: Scenery) : MovementPulse(player, obj, DestinationFlag.OBJECT) {
         override fun pulse(): Boolean {

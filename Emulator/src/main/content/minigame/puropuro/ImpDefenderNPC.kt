@@ -48,9 +48,9 @@ class ImpDefenderNPC : NPCBehavior(NPCs.IMP_DEFENDER_6074) {
 
     private class TryReleasePulse(val self: NPC) : Pulse() {
         companion object {
-            const val catchPlayerLow = 35.0 //14% chance to avoid catch at level 1
-            const val catchPlayerHigh = 280.0 //100% chance to avoid catch at level 90 (level 82 with imp repellent)
-            const val impRepellentBonus = 20.0 //10% bonus if player has imp repellent
+            const val catchPlayerLow = 35.0 //      14% chance to avoid catch at level 1
+            const val catchPlayerHigh = 280.0 //    100% chance to avoid catch at level 90 (level 82 with imp repellent)
+            const val impRepellentBonus = 20.0 //   10% bonus if player has imp repellent
         }
 
         var counter = 0

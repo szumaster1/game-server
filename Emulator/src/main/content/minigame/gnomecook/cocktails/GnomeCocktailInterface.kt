@@ -92,13 +92,12 @@ class GnomeCocktailInterface : ComponentPlugin() {
     }
 
     /**
-     * Enum representing different types of Fruit Cocktails.
+     * Representing different types of fruit cocktails.
      *
-     * @param levelReq The level required to make the Fruit Cocktail.
-     * @param experience The experience gained by making the Fruit Cocktail.
-     * @param product The product ID of the Fruit Cocktail.
-     * @param requiredItems The array of items required to make the Fruit Cocktail.
-     * @constructor Creates a new Fruit Cocktail with the specified properties.
+     * @param levelReq      the level required to make the Fruit Cocktail.
+     * @param experience    the experience gained by making the Fruit Cocktail.
+     * @param product       the product ID of the Fruit Cocktail.
+     * @param requiredItems the array of items required to make the Fruit Cocktail.
      */
     internal enum class FruitCocktail(
         val levelReq: Int,
@@ -106,69 +105,42 @@ class GnomeCocktailInterface : ComponentPlugin() {
         val product: Int,
         val requiredItems: Array<Item>
     ) {
-        /**
-         * Fruit Blast.
-         */
         FRUIT_BLAST(
             levelReq = 6,
             experience = 50.0,
             product = 9568,
             requiredItems = arrayOf(Item(Items.PINEAPPLE_2114), Item(Items.LEMON_2102), Item(Items.ORANGE_2108))
         ),
-
-        /**
-         * Pineapple Punch.
-         */
         PINEAPPLE_PUNCH(
             levelReq = 8,
             experience = 70.0,
             product = 9569,
             requiredItems = arrayOf(Item(Items.PINEAPPLE_2114, 2), Item(Items.LEMON_2102), Item(Items.ORANGE_2108))
         ),
-
-        /**
-         * Wizard Blizzard.
-         */
         WIZARD_BLIZZARD(
             levelReq = 18,
             experience = 110.0,
             product = 9566,
             requiredItems = arrayOf(Item(Items.VODKA_2015, 2), Item(Items.GIN_2019), Item(Items.LIME_2120), Item(Items.LEMON_2102), Item(Items.ORANGE_2108))
         ),
-
-        /**
-         * Short Green Guy.
-         */
         SHORT_GREEN_GUY(
             levelReq = 20,
             experience = 120.0,
             product = 9567,
             requiredItems = arrayOf(Item(Items.VODKA_2015), Item(Items.LIME_2120, 3))
         ),
-
-        /**
-         * Drunk Dragon.
-         */
         DRUNK_DRAGON(
             levelReq = 32,
             experience = 160.0,
             product = 9574,
             requiredItems = arrayOf(Item(Items.VODKA_2015), Item(Items.GIN_2019), Item(Items.DWELLBERRIES_2126))
         ),
-
-        /**
-         * Choc Saturday.
-         */
         CHOC_SATURDAY(
             levelReq = 33,
             experience = 170.0,
             product = 9571,
             requiredItems = arrayOf(Item(Items.WHISKY_2017), Item(Items.CHOCOLATE_BAR_1973), Item(Items.EQUA_LEAVES_2128), Item(Items.BUCKET_OF_MILK_1927))
         ),
-
-        /**
-         * Blurberry Spec.
-         */
         BLURBERRY_SPEC(
             levelReq = 37,
             experience = 180.0,

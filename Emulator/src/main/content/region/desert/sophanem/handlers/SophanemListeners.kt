@@ -22,7 +22,7 @@ class SophanemListeners : InteractionListener {
 
     override fun defineListeners() {
         /*
-         * Handling the action when a player climbs up the ladder.
+         * Handles the ladder.
          */
 
         on(LADDER_UP, IntType.SCENERY, "climb-up") { player, _ ->
@@ -31,7 +31,7 @@ class SophanemListeners : InteractionListener {
         }
 
         /*
-         * Handling the action when player climbs down the ladder.
+         * Handles the ladder.
          */
 
         on(LADDER_DOWN, IntType.SCENERY, "climb-down") { player, _ ->
@@ -41,7 +41,7 @@ class SophanemListeners : InteractionListener {
         }
 
         /*
-         * Handling quest related location, available just for unlocking the music.
+         * Handling quest related location.
          */
 
         on(Scenery.DOOR_6614, IntType.SCENERY, "open") { player, _ ->

@@ -53,10 +53,10 @@ class TelekineticGrabSpell : MagicSpell(SpellBookManager.SpellBook.MODERN, 33, 4
     }
 
     /**
-     * Get grab pulse
+     * Get grab pulse.
      *
-     * @param entity The entity that is attempting to grab the item.
-     * @param ground The ground item that is being targeted for grabbing.
+     * @param [entity] the entity that is attempting to grab the item.
+     * @param [ground] the ground item that is being targeted for grabbing.
      * @return A Pulse object that represents the grabbing action.
      */
     fun getGrabPulse(entity: Entity, ground: GroundItem): Pulse {
@@ -102,9 +102,9 @@ class TelekineticGrabSpell : MagicSpell(SpellBookManager.SpellBook.MODERN, 33, 4
     /**
      * Can cast
      *
-     * @param entity The entity attempting to cast
-     * @param item The item to be cast
-     * @return True if the entity can cast the item, false otherwise
+     * @param [entity] The entity attempting to cast
+     * @param [item] The item to be cast
+     * @return `true` if the entity can cast the item, `false` otherwise
      */
     fun canCast(entity: Entity, item: GroundItem?): Boolean {
         // Check if the entity's interaction is locked
@@ -134,21 +134,21 @@ class TelekineticGrabSpell : MagicSpell(SpellBookManager.SpellBook.MODERN, 33, 4
     }
 
     /**
-     * Get projectile
+     * Get projectile.
      *
-     * @param entity The entity that will launch the projectile
-     * @param item The item associated with the projectile
-     * @return The created projectile
+     * @param [entity] The entity that will launch the projectile.
+     * @param [item] The item associated with the projectile.
+     * @return The created projectile.
      */
     fun getProjectile(entity: Entity, item: GroundItem): Projectile {
         return Projectile.create(entity.location, item.location, PROJECTILE_ID, START_HEIGHT, END_HEIGHT, START_DELAY, Projectile.getSpeed(entity, item.location), ANGLE, 11)
     }
 
     /**
-     * Get delay
+     * Get delay.
      *
-     * @param distance The distance to calculate the delay for
-     * @return The calculated delay based on distance
+     * @param [distance] The distance to calculate the delay for.
+     * @return The calculated delay based on distance.
      */
     fun getDelay(distance: Double): Int {
         return (2 + distance * 0.5).toInt()

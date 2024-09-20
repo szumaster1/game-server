@@ -92,13 +92,12 @@ class GnomeBattaInterface : ComponentPlugin() {
     }
 
     /**
-     * Enum representing a cooked product.
+     * Represents a cooked product.
      *
-     * @param product The ID of the cooked product.
-     * @param levelReq The level required to cook the product.
-     * @param experience The experience gained from cooking the product.
-     * @param requiredItems The array of items required to cook the product.
-     * @constructor Creates a new CookedProduct enum instance.
+     * @param product       the ID of the cooked product.
+     * @param levelReq      the level required to cook the product.
+     * @param experience    the experience gained from cooking the product.
+     * @param requiredItems the array of items required to cook the product.
      */
     internal enum class CookedProduct(
         val product: Int,

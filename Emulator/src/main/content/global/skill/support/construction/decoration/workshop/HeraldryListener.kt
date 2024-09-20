@@ -33,7 +33,7 @@ class HeraldryListener : InteractionListener {
         }
     }
 
-    /**
+    /*
      * Open the Heraldry dialogue.
      */
     private fun openHeraldryDialogue(player: Player, sceneryId: Int) {
@@ -48,7 +48,7 @@ class HeraldryListener : InteractionListener {
         })
     }
 
-    /**
+    /*
      * Handles initial interaction with scenery.
      */
     private fun handleInitialDialogue(sceneryId: Int, player: Player) {
@@ -70,7 +70,7 @@ class HeraldryListener : InteractionListener {
         }
     }
 
-    /**
+    /*
      * Handles the crafting options.
      */
     private fun handleCraftingOptions(buttonID: Int, player: Player, crestType: Int, sceneryId: Int) {
@@ -81,7 +81,7 @@ class HeraldryListener : InteractionListener {
         }
     }
 
-    /**
+    /*
      * Handles the helmet crafting based on crest type.
      */
     private fun handleHelmetCrafting(buttonID: Int, player: Player, crestType: Int) {
@@ -98,7 +98,7 @@ class HeraldryListener : InteractionListener {
         }
     }
 
-    /**
+    /*
      * Handles the shield crafting based on crest type.
      */
     private fun handleShieldCrafting(buttonID: Int, player: Player, crestType: Int) {
@@ -115,7 +115,7 @@ class HeraldryListener : InteractionListener {
         }
     }
 
-    /**
+    /*
      * Handles the banner crafting based on crest type.
      */
     private fun handleBannerCrafting(player: Player, crestType: Int) {
@@ -127,7 +127,7 @@ class HeraldryListener : InteractionListener {
         }
     }
 
-    /**
+    /*
      * Handles crafting the crest item based on crest type.
      */
     private fun craftItem(
@@ -171,7 +171,7 @@ class HeraldryListener : InteractionListener {
 
 
     companion object {
-        /**
+        /*
          * Map of crest type steel helmets.
          */
         private val steelHelmCrestMap = mapOf(
@@ -193,7 +193,7 @@ class HeraldryListener : InteractionListener {
             16 to Items.STEEL_HERALDIC_HELM_8712,
         )
 
-        /**
+        /*
          * Map of crest type runite helmets.
          */
         private val runiteHelmCrestMap = mapOf(
@@ -215,7 +215,7 @@ class HeraldryListener : InteractionListener {
             16 to Items.RUNE_HERALDIC_HELM_8494,
         )
 
-        /**
+        /*
          * Map of crest type steel shields.
          */
         private val steelShieldCrestMap = mapOf(
@@ -237,7 +237,7 @@ class HeraldryListener : InteractionListener {
             16 to Items.STEEL_KITESHIELD_8776,
         )
 
-        /**
+        /*
          * Map of crest type runite shields.
          */
         private val runiteShieldCrestMap = mapOf(
@@ -259,7 +259,7 @@ class HeraldryListener : InteractionListener {
             16 to Items.RUNE_KITESHIELD_8744,
         )
 
-        /**
+        /*
          * Map of banner crest items.
          */
         private val bannerCrestMap = mapOf(

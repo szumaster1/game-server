@@ -17,14 +17,7 @@ import core.plugin.Plugin
 @Initializable
 class GnomeBowlInterface : ComponentPlugin() {
 
-    override fun handle(
-        player: Player?,
-        component: Component?,
-        opcode: Int,
-        button: Int,
-        slot: Int,
-        itemId: Int
-    ): Boolean {
+    override fun handle(player: Player?, component: Component?, opcode: Int, button: Int, slot: Int, itemId: Int): Boolean {
         player ?: return false
         component ?: return false
 
@@ -68,12 +61,11 @@ class GnomeBowlInterface : ComponentPlugin() {
     }
 
     /**
-     * Enum representing prepared products.
+     * Represents the prepared products.
      *
-     * @param product The ID of the prepared product.
-     * @param levelReq The level requirement to prepare the product.
-     * @param requiredItems The array of items required to prepare the product.
-     * @constructor Creates a new PreparedProduct enum instance.
+     * @param product       the prepared product.
+     * @param levelReq      the level requirement.
+     * @param requiredItems the array of items required.
      */
     internal enum class PreparedProduct(val product: Int, val levelReq: Int, val requiredItems: Array<Item>) {
         HALF_MADE_CHOC_B(9558, 42, arrayOf(Item(Items.CHOCOLATE_BAR_1973, 4), Item(Items.EQUA_LEAVES_2128))),

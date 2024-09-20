@@ -24,37 +24,44 @@ class AgilityTicketInterfaceListener : InterfaceListener {
                     experience = 240.0
                     tickets = 1
                 }
+
                 22 -> { // 10 exp.
                     experience = 2480.0
                     tickets = 10
                 }
+
                 23 -> { // 25 exp.
                     experience = 6500.0
                     tickets = 25
                 }
+
                 24 -> { // 100 exp.
                     experience = 28000.0
                     tickets = 100
                 }
+
                 25 -> { // 1000 exp.
                     experience = 320000.0
                     tickets = 1000
                 }
+
                 8 -> {
                     reward = TOADFLAX
                     tickets = 3
                 }
+
                 9 -> {
                     reward = SNAPDRAGON
                     tickets = 10
                 }
+
                 10 -> {
                     reward = PIRATE_HOOK
                     tickets = 800
                 }
             }
             if (experience > 0.0 && !inInventory(player, ARENA_TICKET, tickets)) {
-                sendMessage(player,"This Agility experience costs $tickets tickets.")
+                sendMessage(player, "This Agility experience costs $tickets tickets.")
             }
             if (reward != null && !inInventory(player, ARENA_TICKET, tickets)) {
                 sendMessage(player, "${StringUtils.formatDisplayName(reward.name.replace("Clean", "").trim())} costs $tickets tickets.")
@@ -76,7 +83,13 @@ class AgilityTicketInterfaceListener : InterfaceListener {
             if (reward != null) {
                 if (player.inventory.remove(Item(ARENA_TICKET, tickets))) {
                     player.inventory.add(reward)
-                    sendMessage(player,"You have been granted a ${StringUtils.formatDisplayName(reward.name.replace("Clean", "").trim())}.")
+                    sendMessage(
+                        player, "You have been granted a ${
+                            StringUtils.formatDisplayName(
+                                reward.name.replace("Clean", "").trim()
+                            )
+                        }."
+                    )
                 }
             }
             return@on true

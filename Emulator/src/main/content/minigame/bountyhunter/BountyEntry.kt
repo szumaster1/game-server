@@ -23,7 +23,7 @@ class BountyEntry {
     /**
      * Updates the overlay.
      *
-     * @param player The player.
+     * @param player the player.
      */
     fun update(player: Player) {
         var name: String? = "No one"
@@ -37,8 +37,8 @@ class BountyEntry {
     /**
      * Updates the current penalty.
      *
-     * @param player The player.
-     * @param unlock If the components should be unlocked.
+     * @param player the player.
+     * @param unlock the components should be unlocked.
      */
     fun updatePenalty(player: Player, unlock: Boolean) {
         var penalty = player.getAttribute("pickup_penalty", 0)

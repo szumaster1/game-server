@@ -84,13 +84,13 @@ class BoneOfferPlugin : UseWithHandler(526, 2859, 528, 3183, 3179, 530, 532, 312
     /**
      * Worships the altar.
      *
-     * @param player the player.
-     * @param altar  the altar object.
-     * @param left   the left brazier.
-     * @param right  the right brazier.
-     * @param b      the bone used.
+     * @param [player] the player.
+     * @param [altar] the altar object.
+     * @param [left] the left brazier.
+     * @param [right] the right brazier.
+     * @param [bones] the bone used.
      */
-    private fun worship(player: Player, altar: Scenery, left: Scenery?, right: Scenery?, b: Bones) {
+    private fun worship(player: Player, altar: Scenery, left: Scenery?, right: Scenery?, bones: Bones) {
         if (player.ironmanManager.isIronman && !player.houseManager.isInHouse(player)) {
             sendMessage(player, "You cannot do this on someone else's altar.")
             return
@@ -104,18 +104,18 @@ class BoneOfferPlugin : UseWithHandler(526, 2859, 528, 3183, 3179, 530, 532, 312
             override fun pulse(): Boolean {
                 counter++
                 if (counter == 1 || counter % 5 == 0) {
-                    if (player.inventory.remove(Item(b.itemId))) {
+                    if (player.inventory.remove(Item(bones.itemId))) {
                         player.animate(ANIM)
                         playAudio(player, Sounds.POH_OFFER_BONES_958)
                         player.packetDispatch.sendPositionedGraphics(GFX, gfxLoc)
                         player.sendMessage(getMessage(isLit(left), isLit(right)))
                         player.skills.addExperience(
                             Skills.PRAYER,
-                            b.experience * getMod(altar, isLit(left), isLit(right))
+                            bones.experience * getMod(altar, isLit(left), isLit(right))
                         )
                     }
                 }
-                return !(player.location == start || !player.inventory.containsItem(Item(b.itemId)))
+                return !(player.location == start || !player.inventory.containsItem(Item(bones.itemId)))
             }
         })
     }
@@ -123,18 +123,18 @@ class BoneOfferPlugin : UseWithHandler(526, 2859, 528, 3183, 3179, 530, 532, 312
     /**
      * Checks if the burner is lit.
      *
-     * @param obj the object.
+     * @param [scenery] the object.
      */
-    private fun isLit(obj: Scenery?): Boolean {
-        return obj != null && obj.id != 15271 && SceneryDefinition.forId(obj.id).options != null && !SceneryDefinition.forId(
-            obj.id
+    private fun isLit(scenery: Scenery?): Boolean {
+        return scenery != null && scenery.id != 15271 && SceneryDefinition.forId(scenery.id).options != null && !SceneryDefinition.forId(
+            scenery.id
         ).hasAction("light")
     }
 
     /**
      * Gets the base modifier of the altar.
      *
-     * @param altar the altar object
+     * @param [altar] the altar object
      * @return the base bonus.
      */
     private fun getBase(altar: Scenery?): Double {
@@ -157,8 +157,8 @@ class BoneOfferPlugin : UseWithHandler(526, 2859, 528, 3183, 3179, 530, 532, 312
     /**
      * Gets the total experience modifier.
      *
-     * @param isLeft  if the left is lit.
-     * @param isRight if the right is lit.
+     * @param [isLeft] the left is lit.
+     * @param [isRight] the right is lit.
      * @return the mod.
      */
     private fun getMod(altar: Scenery, isLeft: Boolean, isRight: Boolean): Double {

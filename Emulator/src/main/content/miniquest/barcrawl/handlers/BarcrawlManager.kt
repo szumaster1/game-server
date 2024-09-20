@@ -89,7 +89,7 @@ class BarcrawlManager : LoginListener, PersistPlayer {
     /**
      * Completes a bar challenge.
      *
-     * @param index the index.
+     * @param [index] the index.
      */
     fun complete(index: Int) {
         bars[index] = true
@@ -97,7 +97,7 @@ class BarcrawlManager : LoginListener, PersistPlayer {
 
     /**
      * Checks if the barcrawl quest is completed.
-     * @return true if so.
+     * @return `true` if so.
      */
     val isFinished: Boolean
         get() {
@@ -122,8 +122,8 @@ class BarcrawlManager : LoginListener, PersistPlayer {
     /**
      * Checks if a bar is completed.
      *
-     * @param index the index.
-     * @return true if completed.
+     * @param [index] the index.
+     * @return `true` if completed.
      */
     fun isCompleted(index: Int): Boolean {
         return bars[index]
@@ -150,7 +150,7 @@ class BarcrawlManager : LoginListener, PersistPlayer {
     /**
      * Sets the started.
      *
-     * @param started The started to set.
+     * @param [started] The started to set.
      */
     fun setStarted(started: Boolean) {
         this.started = started
