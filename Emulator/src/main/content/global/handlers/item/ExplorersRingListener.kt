@@ -95,19 +95,14 @@ class ExplorersRingListener : InteractionListener {
         }
     }
 
-    /**
-     * Teleport
-     *
-     * @param player The player to be teleported.
-     */
     fun teleport(player: Player) {
         teleport(player, CABBAGE_PORT, TeleportType.CABBAGE)
     }
 
     /**
-     * Get ring level
+     * Get the level of **explorer's ring**.
      *
-     * @param id The ID of the ring to determine its level.
+     * @param id The item id of the ring to determine its level.
      * @return The level of the ring based on its ID, or -1 if the ID is not recognized.
      */
     fun getRingLevel(id: Int): Int {
@@ -120,12 +115,11 @@ class ExplorersRingListener : InteractionListener {
     }
 
     /**
-     * Get store file
+     * Get the daily archive from the server store.
      *
      * @return The JSON object representing the store file for the daily explorer ring.
      */
     fun getStoreFile(): JSONObject {
-        // Retrieves the archive for the daily explorer ring from the server store.
         return ServerStore.getArchive("daily-explorer-ring")
     }
 

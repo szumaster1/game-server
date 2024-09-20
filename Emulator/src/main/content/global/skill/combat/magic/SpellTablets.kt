@@ -49,7 +49,7 @@ class SpellTablets : InteractionListener {
     /**
      * Break the tablet.
      *
-     * @param player The player.
+     * @param player the player.
      */
     fun breakTablet(player: Player) {
         playAudio(player, Sounds.POH_TABLET_BREAK_979)

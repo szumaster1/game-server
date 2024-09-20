@@ -15,13 +15,13 @@ object SpellUtils {
     /**
      * Using staff.
      *
-     * @param p    The player.
-     * @param rune The rune ID.
-     * @return True if the player is using the specified staff, false otherwise.
+     * @param player    the player.
+     * @param rune      the rune ID.
+     * @return `true` if the player is using the staff, `false` otherwise.
      */
     @JvmStatic
-    fun usingStaff(p: Player, rune: Int): Boolean {
-        val weapon = p.equipment[3] ?: return false
+    fun usingStaff(player: Player, rune: Int): Boolean {
+        val weapon = player.equipment[3] ?: return false
         val staff = MagicStaff.forId(rune) ?: return false
         val staves = staff.staves
         for (id in staves) {
@@ -35,76 +35,76 @@ object SpellUtils {
     /**
      * Has rune.
      *
-     * @param p    The player.
-     * @param rune The rune item.
+     * @param player    the player.
+     * @param rune      the rune item.
      * @return True if the player has the specified rune, false otherwise.
      */
     @JvmStatic
-    fun hasRune(p: Player, rune: Item): Boolean {
-        val removeItems = p.getAttribute("spell:runes", ArrayList<Item>())
-        if (usingStaff(p, rune.id)) return true
-        if (p.inventory.containsItem(rune)) {
+    fun hasRune(player: Player, rune: Item): Boolean {
+        val removeItems = player.getAttribute("spell:runes", ArrayList<Item>())
+        if (usingStaff(player, rune.id)) return true
+        if (player.inventory.containsItem(rune)) {
             removeItems.add(rune)
-            p.setAttribute("spell:runes", removeItems)
+            player.setAttribute("spell:runes", removeItems)
         }
 
-        val baseAmt = p.inventory.getAmount(rune.id)
+        val baseAmt = player.inventory.getAmount(rune.id)
         var amtRemaining = rune.amount - baseAmt
         val possibleComboRunes = Runes.forId(rune.id)?.let { CombinationRune.eligibleFor(it) }
         if (possibleComboRunes != null) {
             for (r in possibleComboRunes) {
-                if (p.inventory.containsItem(Item(r.id)) && amtRemaining > 0) {
-                    val amt = p.inventory.getAmount(r.id)
+                if (player.inventory.containsItem(Item(r.id)) && amtRemaining > 0) {
+                    val amt = player.inventory.getAmount(r.id)
                     if (amtRemaining <= amt) {
                         removeItems.add(Item(r.id, amtRemaining))
                         amtRemaining = 0
                         break
                     }
-                    removeItems.add(Item(r.id, p.inventory.getAmount(r.id)))
-                    amtRemaining -= p.inventory.getAmount(r.id)
+                    removeItems.add(Item(r.id, player.inventory.getAmount(r.id)))
+                    amtRemaining -= player.inventory.getAmount(r.id)
                 }
             }
         }
-        p.setAttribute("spell:runes", removeItems)
+        player.setAttribute("spell:runes", removeItems)
         return amtRemaining <= 0
     }
 
     /**
      * Has rune.
      *
-     * @param p        The player.
-     * @param item     The item.
-     * @param toRemove The list of items to remove.
-     * @param message  Whether to display a message.
-     * @return True if the player has the specified rune, false otherwise.
+     * @param player    the player.
+     * @param item      the item.
+     * @param toRemove  the list of items to remove.
+     * @param message   the message to display.
+     * @return `true` if the player has the rune, `false` otherwise.
      */
     @JvmStatic
-    fun hasRune(p: Player, item: Item, toRemove: MutableList<Item?>, message: Boolean): Boolean {
-        if (!usingStaff(p, item.id)) {
-            val hasBaseRune = p.inventory.contains(item.id, item.amount)
+    fun hasRune(player: Player, item: Item, toRemove: MutableList<Item?>, message: Boolean): Boolean {
+        if (!usingStaff(player, item.id)) {
+            val hasBaseRune = player.inventory.contains(item.id, item.amount)
             if (!hasBaseRune) {
-                val baseAmt = p.inventory.getAmount(item.id)
+                val baseAmt = player.inventory.getAmount(item.id)
                 if (baseAmt > 0) {
-                    toRemove.add(Item(item.id, p.inventory.getAmount(item.id)))
+                    toRemove.add(Item(item.id, player.inventory.getAmount(item.id)))
                 }
                 var amtRemaining = item.amount - baseAmt
                 val possibleComboRunes = CombinationRune.eligibleFor(Runes.forId(item.id)!!)
                 for (r in possibleComboRunes) {
-                    if (p.inventory.containsItem(Item(r.id)) && amtRemaining > 0) {
-                        val amt = p.inventory.getAmount(r.id)
+                    if (player.inventory.containsItem(Item(r.id)) && amtRemaining > 0) {
+                        val amt = player.inventory.getAmount(r.id)
                         if (amtRemaining < amt) {
                             toRemove.add(Item(r.id, amtRemaining))
                             amtRemaining = 0
                             continue
                         }
-                        amtRemaining -= p.inventory.getAmount(r.id)
-                        toRemove.add(Item(r.id, p.inventory.getAmount(r.id)))
+                        amtRemaining -= player.inventory.getAmount(r.id)
+                        toRemove.add(Item(r.id, player.inventory.getAmount(r.id)))
                     }
                 }
                 return if (amtRemaining <= 0) {
                     true
                 } else {
-                    p.packetDispatch.sendMessage("You don't have enough " + item.name + "s to cast this spell.")
+                    player.packetDispatch.sendMessage("You don't have enough " + item.name + "s to cast this spell.")
                     false
                 }
             }
@@ -115,19 +115,19 @@ object SpellUtils {
     }
 
     /**
-     * Attackable NPC.
+     * Attack NPC.
      *
-     * @param npc The NPC.
-     * @return True if the NPC is attackable, false otherwise.
+     * @param npc the NPC.
+     * @return `true` if the NPC is attackable, `false` otherwise.
      */
     fun attackableNPC(npc: NPC): Boolean {
         return npc.definition.hasAction("attack")
     }
 
     /**
-     * Get book from interface.
+     * Get a book from interface.
      *
-     * @param id The interface ID.
+     * @param id the interface id.
      * @return The book type (modern, ancient, lunar, none).
      */
     @JvmStatic

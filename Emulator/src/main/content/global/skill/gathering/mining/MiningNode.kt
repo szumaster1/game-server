@@ -8,401 +8,1981 @@ import core.game.world.repository.Repository.players
  * Represents the mining node.
  */
 enum class MiningNode(var id: Int, var emptyId: Int, var identifier: Byte) {
-    COPPER_ORE_0(2090, 450, 1.toByte()),
-    COPPER_ORE_1(2091, 452, 1.toByte()),
-    COPPER_ORE_2(4976, 4994, 1.toByte()),
-    COPPER_ORE_3(4977, 4995, 1.toByte()),
-    COPPER_ORE_4(4978, 4996, 1.toByte()),
-    COPPER_ORE_5(9710, 18954, 1.toByte()),
-    COPPER_ORE_6(9709, 32448, 1.toByte()),
-    COPPER_ORE_7(9708, 32447, 1.toByte()),
-    COPPER_ORE_8(11960, 11555, 1.toByte()),
-    COPPER_ORE_9(11961, 11556, 1.toByte()),
-    COPPER_ORE_10(11962, 11557, 1.toByte()),
-    COPPER_ORE_11(11937, 11553, 1.toByte()),
-    COPPER_ORE_12(11936, 11552, 1.toByte()),
-    COPPER_ORE_13(11938, 11554, 1.toByte()),
-    COPPER_ORE_14(12746, 450, 1.toByte()),
-    COPPER_ORE_15(14906, 14894, 1.toByte()),
-    COPPER_ORE_16(14907, 14895, 1.toByte()),
-    COPPER_ORE_17(20448, 20445, 1.toByte()),
-    COPPER_ORE_18(20451, 20445, 1.toByte()),
-    COPPER_ORE_19(20446, 20443, 1.toByte()),
-    COPPER_ORE_20(20447, 20444, 1.toByte()),
-    COPPER_ORE_21(20408, 20407, 1.toByte()),
-    COPPER_ORE_22(18993, 19005, 1.toByte()),
-    COPPER_ORE_23(18992, 19004, 1.toByte()),
-    COPPER_ORE_24(19007, 19016, 1.toByte()),
-    COPPER_ORE_25(19006, 19021, 1.toByte()),
-    COPPER_ORE_26(18991, 19003, 1.toByte()),
-    COPPER_ORE_27(19008, 19017, 1.toByte()),
-    COPPER_ORE_28(21285, 21297, 1.toByte()),
-    COPPER_ORE_29(21284, 21296, 1.toByte()),
-    COPPER_ORE_30(21286, 21298, 1.toByte()),
-    COPPER_ORE_31(29231, 29219, 1.toByte()),
-    COPPER_ORE_32(29230, 29218, 1.toByte()),
-    COPPER_ORE_33(29232, 29220, 1.toByte()),
-    COPPER_ORE_34(31082, 37650, 1.toByte()),
-    COPPER_ORE_35(31081, 37649, 1.toByte()),
-    COPPER_ORE_36(31080, 37639, 1.toByte()),
-    COPPER_ORE_37(37647, 37650, 1.toByte()),
-    COPPER_ORE_38(37646, 37649, 1.toByte()),
-    COPPER_ORE_39(37645, 37639, 1.toByte()),
-    COPPER_ORE_40(37637, 37639, 1.toByte()),
-    COPPER_ORE_41(37688, 21298, 1.toByte()),
-    COPPER_ORE_42(37686, 21296, 1.toByte()),
-    COPPER_ORE_43(37687, 21297, 1.toByte()),
-    COPPER_ORE_44(3042, 11552, 1.toByte()),
-    TIN_ORE_0(2094, 450, 2.toByte()),
-    TIN_ORE_1(2095, 452, 2.toByte()),
-    TIN_ORE_2(3043, 11552, 2.toByte()),
-    TIN_ORE_3(4979, 4994, 2.toByte()),
-    TIN_ORE_4(4980, 4995, 2.toByte()),
-    TIN_ORE_5(4981, 4996, 2.toByte()),
-    TIN_ORE_6(11957, 11555, 2.toByte()),
-    TIN_ORE_7(11958, 11556, 2.toByte()),
-    TIN_ORE_8(11959, 11557, 2.toByte()),
-    TIN_ORE_9(11934, 11553, 2.toByte()),
-    TIN_ORE_10(11935, 11554, 2.toByte()),
-    TIN_ORE_11(11933, 11552, 2.toByte()),
-    TIN_ORE_12(14902, 14894, 2.toByte()),
-    TIN_ORE_13(14903, 14895, 2.toByte()),
-    TIN_ORE_14(18995, 19004, 2.toByte()),
-    TIN_ORE_15(18994, 19003, 2.toByte()),
-    TIN_ORE_16(18996, 19005, 2.toByte()),
-    TIN_ORE_17(19025, 19016, 2.toByte()),
-    TIN_ORE_18(19024, 19021, 2.toByte()),
-    TIN_ORE_19(19026, 19017, 2.toByte()),
-    TIN_ORE_20(21293, 21296, 2.toByte()),
-    TIN_ORE_21(21295, 21298, 2.toByte()),
-    TIN_ORE_22(21294, 21297, 2.toByte()),
-    TIN_ORE_23(29227, 29218, 2.toByte()),
-    TIN_ORE_24(29229, 29220, 2.toByte()),
-    TIN_ORE_25(29228, 29219, 2.toByte()),
-    TIN_ORE_26(31079, 37650, 2.toByte()),
-    TIN_ORE_27(31078, 37649, 2.toByte()),
-    TIN_ORE_28(31077, 37639, 2.toByte()),
-    TIN_ORE_29(37644, 37650, 2.toByte()),
-    TIN_ORE_30(37643, 37649, 2.toByte()),
-    TIN_ORE_31(37642, 37639, 2.toByte()),
-    TIN_ORE_32(37638, 37639, 2.toByte()),
-    TIN_ORE_33(37685, 21298, 2.toByte()),
-    CLAY_0(2109, 452, 3.toByte()),
-    CLAY_1(2108, 450, 3.toByte()),
-    CLAY_2(9712, 32448, 3.toByte()),
-    CLAY_3(9713, 18954, 3.toByte()),
-    CLAY_4(9711, 32447, 3.toByte()),
-    CLAY_5(10949, 10945, 3.toByte()),
-    CLAY_6(11190, 21297, 3.toByte()),
-    CLAY_7(11191, 21298, 3.toByte()),
-    CLAY_8(11189, 21296, 3.toByte()),
-    CLAY_9(12942, 4995, 3.toByte()),
-    CLAY_10(12943, 4996, 3.toByte()),
-    CLAY_11(12941, 4994, 3.toByte()),
-    CLAY_12(14904, 14894, 3.toByte()),
-    CLAY_13(14905, 14895, 3.toByte()),
-    CLAY_14(15505, 11557, 3.toByte()),
-    CLAY_15(15504, 11556, 3.toByte()),
-    CLAY_16(15503, 11555, 3.toByte()),
-    CLAY_17(20449, 20443, 3.toByte()),
-    CLAY_18(20450, 20444, 3.toByte()),
-    CLAY_19(20409, 20407, 3.toByte()),
-    CLAY_20(32429, 33400, 3.toByte()),
-    CLAY_21(32430, 33401, 3.toByte()),
-    CLAY_22(32431, 33402, 3.toByte()),
-    CLAY_23(31062, 37639, 3.toByte()),
-    CLAY_24(31063, 37649, 3.toByte()),
-    CLAY_25(31064, 37650, 3.toByte()),
-    LIMESTONE_0(4027, 4028, 4.toByte()),
-    LIMESTONE_1(4028, 4029, 4.toByte()),
-    LIMESTONE_2(4029, 4030, 4.toByte()),
-    LIMESTONE_3(4030, 4027, 4.toByte()),
-    BLURITE_ORE_0(33220, 33222, 5.toByte()),
-    BLURITE_ORE_1(33221, 33223, 5.toByte()),
-    IRON_ORE_0(2092, 450, 6.toByte()),
-    IRON_ORE_1(2093, 452, 6.toByte()),
-    IRON_ORE_2(4982, 4994, 6.toByte()),
-    IRON_ORE_3(4983, 4995, 6.toByte()),
-    IRON_ORE_4(4984, 4996, 6.toByte()),
-    IRON_ORE_5(6943, 21296, 6.toByte()),
-    IRON_ORE_6(6944, 21297, 6.toByte()),
-    IRON_ORE_7(9718, 32448, 6.toByte()),
-    IRON_ORE_8(9719, 18954, 6.toByte()),
-    IRON_ORE_9(9717, 32447, 6.toByte()),
-    IRON_ORE_10(11956, 11557, 6.toByte()),
-    IRON_ORE_11(11954, 11555, 6.toByte()),
-    IRON_ORE_12(11955, 11556, 6.toByte()),
-    IRON_ORE_13(14914, 14895, 6.toByte()),
-    IRON_ORE_14(14913, 14894, 6.toByte()),
-    IRON_ORE_15(14858, 25373, 6.toByte()),
-    IRON_ORE_16(14857, 25372, 6.toByte()),
-    IRON_ORE_17(14856, 25371, 6.toByte()),
-    IRON_ORE_18(14900, 14894, 6.toByte()),
-    IRON_ORE_19(14901, 14895, 6.toByte()),
-    IRON_ORE_20(20423, 20444, 6.toByte()),
-    IRON_ORE_21(20422, 20443, 6.toByte()),
-    IRON_ORE_22(20425, 20407, 6.toByte()),
-    IRON_ORE_23(20424, 20445, 6.toByte()),
-    IRON_ORE_24(19002, 19005, 6.toByte()),
-    IRON_ORE_25(19001, 19004, 6.toByte()),
-    IRON_ORE_26(19000, 19003, 6.toByte()),
-    IRON_ORE_27(21281, 21296, 6.toByte()),
-    IRON_ORE_28(21283, 21298, 6.toByte()),
-    IRON_ORE_29(21282, 21297, 6.toByte()),
-    IRON_ORE_30(29221, 29218, 6.toByte()),
-    IRON_ORE_31(29223, 29220, 6.toByte()),
-    IRON_ORE_32(29222, 29219, 6.toByte()),
-    IRON_ORE_33(32441, 33400, 6.toByte()),
-    IRON_ORE_34(32443, 33402, 6.toByte()),
-    IRON_ORE_35(32442, 33401, 6.toByte()),
-    IRON_ORE_36(32452, 32448, 6.toByte()),
-    IRON_ORE_37(32451, 32447, 6.toByte()),
-    IRON_ORE_38(31073, 37650, 6.toByte()),
-    IRON_ORE_39(31072, 37649, 6.toByte()),
-    IRON_ORE_40(31071, 37639, 6.toByte()),
-    IRON_ORE_41(37307, 11552, 6.toByte()),
-    IRON_ORE_42(37309, 11554, 6.toByte()),
-    IRON_ORE_43(37308, 11553, 6.toByte()),
-    IRON_ORE_49(42034, 450, 6.toByte()),
-    SILVER_ORE_0(2101, 452, 7.toByte()),
-    SILVER_ORE_1(2100, 450, 7.toByte()),
-    SILVER_ORE_2(6945, 21296, 7.toByte()),
-    SILVER_ORE_3(6946, 21297, 7.toByte()),
-    SILVER_ORE_4(9716, 18954, 7.toByte()),
-    SILVER_ORE_5(9714, 32447, 7.toByte()),
-    SILVER_ORE_6(9715, 32448, 7.toByte()),
-    SILVER_ORE_7(11188, 21298, 7.toByte()),
-    SILVER_ORE_8(11186, 21296, 7.toByte()),
-    SILVER_ORE_9(11187, 21297, 7.toByte()),
-    SILVER_ORE_10(15581, 14834, 7.toByte()),
-    SILVER_ORE_11(15580, 14833, 7.toByte()),
-    SILVER_ORE_12(15579, 14832, 7.toByte()),
-    SILVER_ORE_13(16998, 14915, 7.toByte()),
-    SILVER_ORE_14(16999, 14916, 7.toByte()),
-    SILVER_ORE_15(17007, 14915, 7.toByte()),
-    SILVER_ORE_16(17000, 31061, 7.toByte()),
-    SILVER_ORE_17(17009, 31061, 7.toByte()),
-    SILVER_ORE_18(17008, 14916, 7.toByte()),
-    SILVER_ORE_19(17385, 32447, 7.toByte()),
-    SILVER_ORE_20(17387, 18954, 7.toByte()),
-    SILVER_ORE_21(17386, 32448, 7.toByte()),
-    SILVER_ORE_22(29225, 29219, 7.toByte()),
-    SILVER_ORE_23(29224, 29218, 7.toByte()),
-    SILVER_ORE_24(29226, 29220, 7.toByte()),
-    SILVER_ORE_25(32445, 33401, 7.toByte()),
-    SILVER_ORE_26(32444, 33400, 7.toByte()),
-    SILVER_ORE_27(32446, 33402, 7.toByte()),
-    SILVER_ORE_28(31075, 37649, 7.toByte()),
-    SILVER_ORE_29(31074, 37639, 7.toByte()),
-    SILVER_ORE_30(31076, 37650, 7.toByte()),
-    SILVER_ORE_31(37305, 11553, 7.toByte()),
-    SILVER_ORE_32(37304, 11552, 7.toByte()),
-    SILVER_ORE_33(37306, 11554, 7.toByte()),
-    SILVER_ORE_34(37670, 11552, 7.toByte()),
-    SILVER_ORE_35(11948, 11555, 7.toByte()),
-    SILVER_ORE_36(11949, 11556, 7.toByte()),
-    SILVER_ORE_37(11950, 11557, 7.toByte()),
-    SILVER_ORE_38(2311, 11552, 7.toByte()),
-    COAL_0(2097, 452, 8.toByte()),
-    COAL_1(2096, 450, 8.toByte()),
-    COAL_2(4985, 4994, 8.toByte()),
-    COAL_3(4986, 4995, 8.toByte()),
-    COAL_4(4987, 4996, 8.toByte()),
-    COAL_5(4676, 450, 8.toByte()),
-    COAL_6(10948, 10944, 8.toByte()),
-    COAL_7(11964, 11556, 8.toByte()),
-    COAL_8(11965, 11557, 8.toByte()),
-    COAL_9(11963, 11555, 8.toByte()),
-    COAL_10(11932, 11554, 8.toByte()),
-    COAL_11(11930, 11552, 8.toByte()),
-    COAL_12(11931, 11553, 8.toByte()),
-    COAL_13(15246, 15249, 8.toByte()),
-    COAL_14(15247, 15250, 8.toByte()),
-    COAL_15(15248, 15251, 8.toByte()),
-    COAL_16(14852, 25373, 8.toByte()),
-    COAL_17(14851, 25372, 8.toByte()),
-    COAL_18(14850, 25371, 8.toByte()),
-    COAL_19(20410, 20443, 8.toByte()),
-    COAL_20(20411, 20444, 8.toByte()),
-    COAL_21(20412, 20445, 8.toByte()),
-    COAL_22(20413, 20407, 8.toByte()),
-    COAL_23(18999, 19005, 8.toByte()),
-    COAL_24(18998, 19004, 8.toByte()),
-    COAL_25(18997, 19003, 8.toByte()),
-    COAL_26(21287, 21296, 8.toByte()),
-    COAL_27(21289, 21298, 8.toByte()),
-    COAL_28(21288, 21297, 8.toByte()),
-    COAL_29(23565, 21298, 8.toByte()),
-    COAL_30(23564, 21297, 8.toByte()),
-    COAL_31(23563, 21296, 8.toByte()),
-    COAL_32(29215, 29218, 8.toByte()),
-    COAL_33(29217, 29220, 8.toByte()),
-    COAL_34(29216, 29219, 8.toByte()),
-    COAL_35(32426, 33400, 8.toByte()),
-    COAL_36(32427, 33401, 8.toByte()),
-    COAL_37(32428, 33402, 8.toByte()),
-    COAL_38(32450, 32448, 8.toByte()),
-    COAL_39(32449, 32447, 8.toByte()),
-    COAL_40(31068, 37639, 8.toByte()),
-    COAL_41(31069, 37649, 8.toByte()),
-    COAL_42(31070, 37650, 8.toByte()),
-    COAL_43(31168, 14833, 8.toByte()),
-    COAL_44(31169, 14834, 8.toByte()),
-    COAL_45(31167, 14832, 8.toByte()),
-    COAL_46(37699, 21298, 8.toByte()),
-    COAL_47(37698, 21297, 8.toByte()),
-    COAL_48(37697, 21296, 8.toByte()),
-    COAL_49(42035, 452, 8.toByte()),
-    GOLD_ORE_0(2099, 452, 9.toByte()),
-    GOLD_ORE_1(2098, 450, 9.toByte()),
-    GOLD_ORE_2(2611, 21298, 9.toByte()),
-    GOLD_ORE_3(2610, 21297, 9.toByte()),
-    GOLD_ORE_4(2609, 21296, 9.toByte()),
-    GOLD_ORE_5(9722, 18954, 9.toByte()),
-    GOLD_ORE_6(9720, 32447, 9.toByte()),
-    GOLD_ORE_7(9721, 32448, 9.toByte()),
-    GOLD_ORE_8(11183, 21296, 9.toByte()),
-    GOLD_ORE_9(11184, 21297, 9.toByte()),
-    GOLD_ORE_10(11185, 21298, 9.toByte()),
-    GOLD_ORE_11(11952, 11556, 9.toByte()),
-    GOLD_ORE_12(11953, 11557, 9.toByte()),
-    GOLD_ORE_13(11951, 11555, 9.toByte()),
-    GOLD_ORE_14(15578, 14834, 9.toByte()),
-    GOLD_ORE_15(15577, 14833, 9.toByte()),
-    GOLD_ORE_16(15576, 14832, 9.toByte()),
-    GOLD_ORE_17(17002, 14916, 9.toByte()),
-    GOLD_ORE_18(17003, 31061, 9.toByte()),
-    GOLD_ORE_19(17001, 14915, 9.toByte()),
-    GOLD_ORE_20(21291, 21297, 9.toByte()),
-    GOLD_ORE_21(21290, 21296, 9.toByte()),
-    GOLD_ORE_22(21292, 21298, 9.toByte()),
-    GOLD_ORE_23(32433, 33401, 9.toByte()),
-    GOLD_ORE_24(32432, 33400, 9.toByte()),
-    GOLD_ORE_25(32434, 33402, 9.toByte()),
-    GOLD_ORE_26(31065, 37639, 9.toByte()),
-    GOLD_ORE_27(31066, 37649, 9.toByte()),
-    GOLD_ORE_28(31067, 37650, 9.toByte()),
-    GOLD_ORE_29(37311, 11553, 9.toByte()),
-    GOLD_ORE_30(37310, 11552, 9.toByte()),
-    GOLD_ORE_31(37312, 11554, 9.toByte()),
-    GOLD_ORE_32(37471, 15249, 9.toByte()),
-    GOLD_ORE_33(37473, 15251, 9.toByte()),
-    GOLD_ORE_34(37472, 15250, 9.toByte()),
-    GOLD_ORE_49(42033, 452, 9.toByte()),
-    MITHRIL_ORE_0(2103, 452, 10.toByte()),
-    MITHRIL_ORE_1(2102, 450, 10.toByte()),
-    MITHRIL_ORE_2(4988, 4994, 10.toByte()),
-    MITHRIL_ORE_3(4989, 4995, 10.toByte()),
-    MITHRIL_ORE_4(4990, 4996, 10.toByte()),
-    MITHRIL_ORE_5(11943, 11553, 10.toByte()),
-    MITHRIL_ORE_6(11942, 11552, 10.toByte()),
-    MITHRIL_ORE_7(11945, 11555, 10.toByte()),
-    MITHRIL_ORE_8(11944, 11554, 10.toByte()),
-    MITHRIL_ORE_9(11947, 11557, 10.toByte()),
-    MITHRIL_ORE_10(11946, 11556, 10.toByte()),
-    MITHRIL_ORE_11(14855, 25373, 10.toByte()),
-    MITHRIL_ORE_12(14854, 25372, 10.toByte()),
-    MITHRIL_ORE_13(14853, 25371, 10.toByte()),
-    MITHRIL_ORE_14(16687, 450, 10.toByte()),
-    MITHRIL_ORE_15(20421, 20407, 10.toByte()),
-    MITHRIL_ORE_16(20420, 20445, 10.toByte()),
-    MITHRIL_ORE_17(20419, 20444, 10.toByte()),
-    MITHRIL_ORE_18(20418, 20443, 10.toByte()),
-    MITHRIL_ORE_19(19012, 19021, 10.toByte()),
-    MITHRIL_ORE_20(19013, 19016, 10.toByte()),
-    MITHRIL_ORE_21(19014, 19017, 10.toByte()),
-    MITHRIL_ORE_22(21278, 21296, 10.toByte()),
-    MITHRIL_ORE_23(21279, 21297, 10.toByte()),
-    MITHRIL_ORE_24(21280, 21298, 10.toByte()),
-    MITHRIL_ORE_25(25369, 10586, 10.toByte()),
-    MITHRIL_ORE_26(25368, 10585, 10.toByte()),
-    MITHRIL_ORE_27(25370, 10587, 10.toByte()),
-    MITHRIL_ORE_28(29236, 29218, 10.toByte()),
-    MITHRIL_ORE_29(29237, 29219, 10.toByte()),
-    MITHRIL_ORE_30(29238, 29220, 10.toByte()),
-    MITHRIL_ORE_31(32439, 33401, 10.toByte()),
-    MITHRIL_ORE_32(32438, 33400, 10.toByte()),
-    MITHRIL_ORE_33(32440, 33402, 10.toByte()),
-    MITHRIL_ORE_34(31087, 37649, 10.toByte()),
-    MITHRIL_ORE_35(31086, 37639, 10.toByte()),
-    MITHRIL_ORE_36(31088, 37650, 10.toByte()),
-    MITHRIL_ORE_37(31170, 14832, 10.toByte()),
-    MITHRIL_ORE_38(31171, 14833, 10.toByte()),
-    MITHRIL_ORE_39(31172, 14834, 10.toByte()),
-    MITHRIL_ORE_40(37692, 21296, 10.toByte()),
-    MITHRIL_ORE_41(37693, 21297, 10.toByte()),
-    MITHRIL_ORE_42(37694, 21298, 10.toByte()),
-    MITHRIL_ORE_49(42036, 452, 10.toByte()),
-    ADAMANTITE_ORE_0(2105, 452, 11.toByte()),
-    ADAMANTITE_ORE_1(2104, 450, 11.toByte()),
-    ADAMANTITE_ORE_2(4991, 4994, 11.toByte()),
-    ADAMANTITE_ORE_3(4992, 4995, 11.toByte()),
-    ADAMANTITE_ORE_4(4993, 4996, 11.toByte()),
-    ADAMANTITE_ORE_5(11941, 11554, 11.toByte()),
-    ADAMANTITE_ORE_6(11940, 11553, 11.toByte()),
-    ADAMANTITE_ORE_7(11939, 11552, 11.toByte()),
-    ADAMANTITE_ORE_8(14864, 25373, 11.toByte()),
-    ADAMANTITE_ORE_9(14863, 25372, 11.toByte()),
-    ADAMANTITE_ORE_10(14862, 25371, 11.toByte()),
-    ADAMANTITE_ORE_11(20417, 20407, 11.toByte()),
-    ADAMANTITE_ORE_12(20416, 20445, 11.toByte()),
-    ADAMANTITE_ORE_13(20414, 20443, 11.toByte()),
-    ADAMANTITE_ORE_14(20415, 20444, 11.toByte()),
-    ADAMANTITE_ORE_15(19020, 19017, 11.toByte()),
-    ADAMANTITE_ORE_16(19018, 19021, 11.toByte()),
-    ADAMANTITE_ORE_17(19019, 19016, 11.toByte()),
-    ADAMANTITE_ORE_18(21275, 21296, 11.toByte()),
-    ADAMANTITE_ORE_19(21276, 21297, 11.toByte()),
-    ADAMANTITE_ORE_20(21277, 21298, 11.toByte()),
-    ADAMANTITE_ORE_21(29233, 29218, 11.toByte()),
-    ADAMANTITE_ORE_22(29234, 29219, 11.toByte()),
-    ADAMANTITE_ORE_23(29235, 29220, 11.toByte()),
-    ADAMANTITE_ORE_24(32435, 33400, 11.toByte()),
-    ADAMANTITE_ORE_25(32437, 33402, 11.toByte()),
-    ADAMANTITE_ORE_26(32436, 33401, 11.toByte()),
-    ADAMANTITE_ORE_27(31083, 37639, 11.toByte()),
-    ADAMANTITE_ORE_28(31085, 37650, 11.toByte()),
-    ADAMANTITE_ORE_29(31084, 37649, 11.toByte()),
-    ADAMANTITE_ORE_30(31173, 14832, 11.toByte()),
-    ADAMANTITE_ORE_31(31174, 14833, 11.toByte()),
-    ADAMANTITE_ORE_32(31175, 14834, 11.toByte()),
-    ADAMANTITE_ORE_33(37468, 15249, 11.toByte()),
-    ADAMANTITE_ORE_34(37469, 15250, 11.toByte()),
-    ADAMANTITE_ORE_35(37470, 15251, 11.toByte()),
-    ADAMANTITE_ORE_36(37689, 21296, 11.toByte()),
-    ADAMANTITE_ORE_37(37690, 21297, 11.toByte()),
-    ADAMANTITE_ORE_38(37691, 21298, 11.toByte()),
-    ADAMANTITE_ORE_39(42037, 452, 11.toByte()),
-    RUNITE_ORE_0(2107, 452, 12.toByte()),
-    RUNITE_ORE_1(2106, 450, 12.toByte()),
-    RUNITE_ORE_2(6669, 21296, 12.toByte()),
-    RUNITE_ORE_3(6671, 21298, 12.toByte()),
-    RUNITE_ORE_4(6670, 21297, 12.toByte()),
-    RUNITE_ORE_5(14861, 25373, 12.toByte()),
-    RUNITE_ORE_6(14860, 25372, 12.toByte()),
-    RUNITE_ORE_7(14859, 25371, 12.toByte()),
-    RUNITE_ORE_8(33079, 33401, 12.toByte()),
-    RUNITE_ORE_9(33078, 33400, 12.toByte()),
-    RUNITE_ORE_10(37208, 21296, 12.toByte()),
-    RUNITE_ORE_11(37465, 15249, 12.toByte()),
-    RUNITE_ORE_12(37466, 15250, 12.toByte()),
-    RUNITE_ORE_13(37467, 15251, 12.toByte()),
-    RUNITE_ORE_14(37695, 21297, 12.toByte()),
-    RUNITE_ORE_15(37696, 21298, 12.toByte()),
-    GEM_ROCK_0(23567, 21297, 13.toByte()),
-    GEM_ROCK_1(23566, 21296, 13.toByte()),
-    GEM_ROCK_2(23568, 21298, 13.toByte()),
-    GEM_ROCK_3(23560, 25371, 13.toByte()),
-    GEM_ROCK_4(23561, 25372, 13.toByte()),
-    GEM_ROCK_5(23562, 21298, 13.toByte()),
-    GEM_ROCK_6(9030, 9010, 13.toByte()),
-    GEM_ROCK_7(9031, 9015, 13.toByte()),
-    GEM_ROCK_8(9032, 9020, 13.toByte()),
-    RUNE_ESSENCE_0(2491, -1, 14.toByte()),
-    RUNE_ESSENCE_1(16684, -1, 14.toByte()),
-    SANDSTONE(10946, 10944, 15.toByte()),
-    GRANITE(10947, 10945, 16.toByte()),
-    RUBIUM(29746, 29747, 17.toByte());
+    COPPER_ORE_0(
+        id = 2090,
+        emptyId = 450,
+        identifier = 1.toByte()
+    ),
+    COPPER_ORE_1(
+        id = 2091,
+        emptyId = 452,
+        identifier = 1.toByte()
+    ),
+    COPPER_ORE_2(
+        id = 4976,
+        emptyId = 4994,
+        identifier = 1.toByte()
+    ),
+    COPPER_ORE_3(
+        id = 4977,
+        emptyId = 4995,
+        identifier = 1.toByte()
+    ),
+    COPPER_ORE_4(
+        id = 4978,
+        emptyId = 4996,
+        identifier = 1.toByte()
+    ),
+    COPPER_ORE_5(
+        id = 9710,
+        emptyId = 18954,
+        identifier = 1.toByte()
+    ),
+    COPPER_ORE_6(
+        id = 9709,
+        emptyId = 32448,
+        identifier = 1.toByte()
+    ),
+    COPPER_ORE_7(
+        id = 9708,
+        emptyId = 32447,
+        identifier = 1.toByte()
+    ),
+    COPPER_ORE_8(
+        id = 11960,
+        emptyId = 11555,
+        identifier = 1.toByte()
+    ),
+    COPPER_ORE_9(
+        id = 11961,
+        emptyId = 11556,
+        identifier = 1.toByte()
+    ),
+    COPPER_ORE_10(
+        id = 11962,
+        emptyId = 11557,
+        identifier = 1.toByte()
+    ),
+    COPPER_ORE_11(
+        id = 11937,
+        emptyId = 11553,
+        identifier = 1.toByte()
+    ),
+    COPPER_ORE_12(
+        id = 11936,
+        emptyId = 11552,
+        identifier = 1.toByte()
+    ),
+    COPPER_ORE_13(
+        id = 11938,
+        emptyId = 11554,
+        identifier = 1.toByte()
+    ),
+    COPPER_ORE_14(
+        id = 12746,
+        emptyId = 450,
+        identifier = 1.toByte()
+    ),
+    COPPER_ORE_15(
+        id = 14906,
+        emptyId = 14894,
+        identifier = 1.toByte()
+    ),
+    COPPER_ORE_16(
+        id = 14907,
+        emptyId = 14895,
+        identifier = 1.toByte()
+    ),
+    COPPER_ORE_17(
+        id = 20448,
+        emptyId = 20445,
+        identifier = 1.toByte()
+    ),
+    COPPER_ORE_18(
+        id = 20451,
+        emptyId = 20445,
+        identifier = 1.toByte()
+    ),
+    COPPER_ORE_19(
+        id = 20446,
+        emptyId = 20443,
+        identifier = 1.toByte()
+    ),
+    COPPER_ORE_20(
+        id = 20447,
+        emptyId = 20444,
+        identifier = 1.toByte()
+    ),
+    COPPER_ORE_21(
+        id = 20408,
+        emptyId = 20407,
+        identifier = 1.toByte()
+    ),
+    COPPER_ORE_22(
+        id = 18993,
+        emptyId = 19005,
+        identifier = 1.toByte()
+    ),
+    COPPER_ORE_23(
+        id = 18992,
+        emptyId = 19004,
+        identifier = 1.toByte()
+    ),
+    COPPER_ORE_24(
+        id = 19007,
+        emptyId = 19016,
+        identifier = 1.toByte()
+    ),
+    COPPER_ORE_25(
+        id = 19006,
+        emptyId = 19021,
+        identifier = 1.toByte()
+    ),
+    COPPER_ORE_26(
+        id = 18991,
+        emptyId = 19003,
+        identifier = 1.toByte()
+    ),
+    COPPER_ORE_27(
+        id = 19008,
+        emptyId = 19017,
+        identifier = 1.toByte()
+    ),
+    COPPER_ORE_28(
+        id = 21285,
+        emptyId = 21297,
+        identifier = 1.toByte()
+    ),
+    COPPER_ORE_29(
+        id = 21284,
+        emptyId = 21296,
+        identifier = 1.toByte()
+    ),
+    COPPER_ORE_30(
+        id = 21286,
+        emptyId = 21298,
+        identifier = 1.toByte()
+    ),
+    COPPER_ORE_31(
+        id = 29231,
+        emptyId = 29219,
+        identifier = 1.toByte()
+    ),
+    COPPER_ORE_32(
+        id = 29230,
+        emptyId = 29218,
+        identifier = 1.toByte()
+    ),
+    COPPER_ORE_33(
+        id = 29232,
+        emptyId = 29220,
+        identifier = 1.toByte()
+    ),
+    COPPER_ORE_34(
+        id = 31082,
+        emptyId = 37650,
+        identifier = 1.toByte()
+    ),
+    COPPER_ORE_35(
+        id = 31081,
+        emptyId = 37649,
+        identifier = 1.toByte()
+    ),
+    COPPER_ORE_36(
+        id = 31080,
+        emptyId = 37639,
+        identifier = 1.toByte()
+    ),
+    COPPER_ORE_37(
+        id = 37647,
+        emptyId = 37650,
+        identifier = 1.toByte()
+    ),
+    COPPER_ORE_38(
+        id = 37646,
+        emptyId = 37649,
+        identifier = 1.toByte()
+    ),
+    COPPER_ORE_39(
+        id = 37645,
+        emptyId = 37639,
+        identifier = 1.toByte()
+    ),
+    COPPER_ORE_40(
+        id = 37637,
+        emptyId = 37639,
+        identifier = 1.toByte()
+    ),
+    COPPER_ORE_41(
+        id = 37688,
+        emptyId = 21298,
+        identifier = 1.toByte()
+    ),
+    COPPER_ORE_42(
+        id = 37686,
+        emptyId = 21296,
+        identifier = 1.toByte()
+    ),
+    COPPER_ORE_43(
+        id = 37687,
+        emptyId = 21297,
+        identifier = 1.toByte()
+    ),
+    COPPER_ORE_44(
+        id = 3042,
+        emptyId = 11552,
+        identifier = 1.toByte()
+    ),
+    TIN_ORE_0(
+        id = 2094,
+        emptyId = 450,
+        identifier = 2.toByte()
+    ),
+    TIN_ORE_1(
+        id = 2095,
+        emptyId = 452,
+        identifier = 2.toByte()
+    ),
+    TIN_ORE_2(
+        id = 3043,
+        emptyId = 11552,
+        identifier = 2.toByte()
+    ),
+    TIN_ORE_3(
+        id = 4979,
+        emptyId = 4994,
+        identifier = 2.toByte()
+    ),
+    TIN_ORE_4(
+        id = 4980,
+        emptyId = 4995,
+        identifier = 2.toByte()
+    ),
+    TIN_ORE_5(
+        id = 4981,
+        emptyId = 4996,
+        identifier = 2.toByte()
+    ),
+    TIN_ORE_6(
+        id = 11957,
+        emptyId = 11555,
+        identifier = 2.toByte()
+    ),
+    TIN_ORE_7(
+        id = 11958,
+        emptyId = 11556,
+        identifier = 2.toByte()
+    ),
+    TIN_ORE_8(
+        id = 11959,
+        emptyId = 11557,
+        identifier = 2.toByte()
+    ),
+    TIN_ORE_9(
+        id = 11934,
+        emptyId = 11553,
+        identifier = 2.toByte()
+    ),
+    TIN_ORE_10(
+        id = 11935,
+        emptyId = 11554,
+        identifier = 2.toByte()
+    ),
+    TIN_ORE_11(
+        id = 11933,
+        emptyId = 11552,
+        identifier = 2.toByte()
+    ),
+    TIN_ORE_12(
+        id = 14902,
+        emptyId = 14894,
+        identifier = 2.toByte()
+    ),
+    TIN_ORE_13(
+        id = 14903,
+        emptyId = 14895,
+        identifier = 2.toByte()
+    ),
+    TIN_ORE_14(
+        id = 18995,
+        emptyId = 19004,
+        identifier = 2.toByte()
+    ),
+    TIN_ORE_15(
+        id = 18994,
+        emptyId = 19003,
+        identifier = 2.toByte()
+    ),
+    TIN_ORE_16(
+        id = 18996,
+        emptyId = 19005,
+        identifier = 2.toByte()
+    ),
+    TIN_ORE_17(
+        id = 19025,
+        emptyId = 19016,
+        identifier = 2.toByte()
+    ),
+    TIN_ORE_18(
+        id = 19024,
+        emptyId = 19021,
+        identifier = 2.toByte()
+    ),
+    TIN_ORE_19(
+        id = 19026,
+        emptyId = 19017,
+        identifier = 2.toByte()
+    ),
+    TIN_ORE_20(
+        id = 21293,
+        emptyId = 21296,
+        identifier = 2.toByte()
+    ),
+    TIN_ORE_21(
+        id = 21295,
+        emptyId = 21298,
+        identifier = 2.toByte()
+    ),
+    TIN_ORE_22(
+        id = 21294,
+        emptyId = 21297,
+        identifier = 2.toByte()
+    ),
+    TIN_ORE_23(
+        id = 29227,
+        emptyId = 29218,
+        identifier = 2.toByte()
+    ),
+    TIN_ORE_24(
+        id = 29229,
+        emptyId = 29220,
+        identifier = 2.toByte()
+    ),
+    TIN_ORE_25(
+        id = 29228,
+        emptyId = 29219,
+        identifier = 2.toByte()
+    ),
+    TIN_ORE_26(
+        id = 31079,
+        emptyId = 37650,
+        identifier = 2.toByte()
+    ),
+    TIN_ORE_27(
+        id = 31078,
+        emptyId = 37649,
+        identifier = 2.toByte()
+    ),
+    TIN_ORE_28(
+        id = 31077,
+        emptyId = 37639,
+        identifier = 2.toByte()
+    ),
+    TIN_ORE_29(
+        id = 37644,
+        emptyId = 37650,
+        identifier = 2.toByte()
+    ),
+    TIN_ORE_30(
+        id = 37643,
+        emptyId = 37649,
+        identifier = 2.toByte()
+    ),
+    TIN_ORE_31(
+        id = 37642,
+        emptyId = 37639,
+        identifier = 2.toByte()
+    ),
+    TIN_ORE_32(
+        id = 37638,
+        emptyId = 37639,
+        identifier = 2.toByte()
+    ),
+    TIN_ORE_33(
+        id = 37685,
+        emptyId = 21298,
+        identifier = 2.toByte()
+    ),
+    CLAY_0(
+        id = 2109,
+        emptyId = 452,
+        identifier = 3.toByte()
+    ),
+    CLAY_1(
+        id = 2108,
+        emptyId = 450,
+        identifier = 3.toByte()
+    ),
+    CLAY_2(
+        id = 9712,
+        emptyId = 32448,
+        identifier = 3.toByte()
+    ),
+    CLAY_3(
+        id = 9713,
+        emptyId = 18954,
+        identifier = 3.toByte()
+    ),
+    CLAY_4(
+        id = 9711,
+        emptyId = 32447,
+        identifier = 3.toByte()
+    ),
+    CLAY_5(
+        id = 10949,
+        emptyId = 10945,
+        identifier = 3.toByte()
+    ),
+    CLAY_6(
+        id = 11190,
+        emptyId = 21297,
+        identifier = 3.toByte()
+    ),
+    CLAY_7(
+        id = 11191,
+        emptyId = 21298,
+        identifier = 3.toByte()
+    ),
+    CLAY_8(
+        id = 11189,
+        emptyId = 21296,
+        identifier = 3.toByte()
+    ),
+    CLAY_9(
+        id = 12942,
+        emptyId = 4995,
+        identifier = 3.toByte()
+    ),
+    CLAY_10(
+        id = 12943,
+        emptyId = 4996,
+        identifier = 3.toByte()
+    ),
+    CLAY_11(
+        id = 12941,
+        emptyId = 4994,
+        identifier = 3.toByte()
+    ),
+    CLAY_12(
+        id = 14904,
+        emptyId = 14894,
+        identifier = 3.toByte()
+    ),
+    CLAY_13(
+        id = 14905,
+        emptyId = 14895,
+        identifier = 3.toByte()
+    ),
+    CLAY_14(
+        id = 15505,
+        emptyId = 11557,
+        identifier = 3.toByte()
+    ),
+    CLAY_15(
+        id = 15504,
+        emptyId = 11556,
+        identifier = 3.toByte()
+    ),
+    CLAY_16(
+        id = 15503,
+        emptyId = 11555,
+        identifier = 3.toByte()
+    ),
+    CLAY_17(
+        id = 20449,
+        emptyId = 20443,
+        identifier = 3.toByte()
+    ),
+    CLAY_18(
+        id = 20450,
+        emptyId = 20444,
+        identifier = 3.toByte()
+    ),
+    CLAY_19(
+        id = 20409,
+        emptyId = 20407,
+        identifier = 3.toByte()
+    ),
+    CLAY_20(
+        id = 32429,
+        emptyId = 33400,
+        identifier = 3.toByte()
+    ),
+    CLAY_21(
+        id = 32430,
+        emptyId = 33401,
+        identifier = 3.toByte()
+    ),
+    CLAY_22(
+        id = 32431,
+        emptyId = 33402,
+        identifier = 3.toByte()
+    ),
+    CLAY_23(
+        id = 31062,
+        emptyId = 37639,
+        identifier = 3.toByte()
+    ),
+    CLAY_24(
+        id = 31063,
+        emptyId = 37649,
+        identifier = 3.toByte()
+    ),
+    CLAY_25(
+        id = 31064,
+        emptyId = 37650,
+        identifier = 3.toByte()
+    ),
+    LIMESTONE_0(
+        id = 4027,
+        emptyId = 4028,
+        identifier = 4.toByte()
+    ),
+    LIMESTONE_1(
+        id = 4028,
+        emptyId = 4029,
+        identifier = 4.toByte()
+    ),
+    LIMESTONE_2(
+        id = 4029,
+        emptyId = 4030,
+        identifier = 4.toByte()
+    ),
+    LIMESTONE_3(
+        id = 4030,
+        emptyId = 4027,
+        identifier = 4.toByte()
+    ),
+    BLURITE_ORE_0(
+        id = 33220,
+        emptyId = 33222,
+        identifier = 5.toByte()
+    ),
+    BLURITE_ORE_1(
+        id = 33221,
+        emptyId = 33223,
+        identifier = 5.toByte()
+    ),
+    IRON_ORE_0(
+        id = 2092,
+        emptyId = 450,
+        identifier = 6.toByte()
+    ),
+    IRON_ORE_1(
+        id = 2093,
+        emptyId = 452,
+        identifier = 6.toByte()
+    ),
+    IRON_ORE_2(
+        id = 4982,
+        emptyId = 4994,
+        identifier = 6.toByte()
+    ),
+    IRON_ORE_3(
+        id = 4983,
+        emptyId = 4995,
+        identifier = 6.toByte()
+    ),
+    IRON_ORE_4(
+        id = 4984,
+        emptyId = 4996,
+        identifier = 6.toByte()
+    ),
+    IRON_ORE_5(
+        id = 6943,
+        emptyId = 21296,
+        identifier = 6.toByte()
+    ),
+    IRON_ORE_6(
+        id = 6944,
+        emptyId = 21297,
+        identifier = 6.toByte()
+    ),
+    IRON_ORE_7(
+        id = 9718,
+        emptyId = 32448,
+        identifier = 6.toByte()
+    ),
+    IRON_ORE_8(
+        id = 9719,
+        emptyId = 18954,
+        identifier = 6.toByte()
+    ),
+    IRON_ORE_9(
+        id = 9717,
+        emptyId = 32447,
+        identifier = 6.toByte()
+    ),
+    IRON_ORE_10(
+        id = 11956,
+        emptyId = 11557,
+        identifier = 6.toByte()
+    ),
+    IRON_ORE_11(
+        id = 11954,
+        emptyId = 11555,
+        identifier = 6.toByte()
+    ),
+    IRON_ORE_12(
+        id = 11955,
+        emptyId = 11556,
+        identifier = 6.toByte()
+    ),
+    IRON_ORE_13(
+        id = 14914,
+        emptyId = 14895,
+        identifier = 6.toByte()
+    ),
+    IRON_ORE_14(
+        id = 14913,
+        emptyId = 14894,
+        identifier = 6.toByte()
+    ),
+    IRON_ORE_15(
+        id = 14858,
+        emptyId = 25373,
+        identifier = 6.toByte()
+    ),
+    IRON_ORE_16(
+        id = 14857,
+        emptyId = 25372,
+        identifier = 6.toByte()
+    ),
+    IRON_ORE_17(
+        id = 14856,
+        emptyId = 25371,
+        identifier = 6.toByte()
+    ),
+    IRON_ORE_18(
+        id = 14900,
+        emptyId = 14894,
+        identifier = 6.toByte()
+    ),
+    IRON_ORE_19(
+        id = 14901,
+        emptyId = 14895,
+        identifier = 6.toByte()
+    ),
+    IRON_ORE_20(
+        id = 20423,
+        emptyId = 20444,
+        identifier = 6.toByte()
+    ),
+    IRON_ORE_21(
+        id = 20422,
+        emptyId = 20443,
+        identifier = 6.toByte()
+    ),
+    IRON_ORE_22(
+        id = 20425,
+        emptyId = 20407,
+        identifier = 6.toByte()
+    ),
+    IRON_ORE_23(
+        id = 20424,
+        emptyId = 20445,
+        identifier = 6.toByte()
+    ),
+    IRON_ORE_24(
+        id = 19002,
+        emptyId = 19005,
+        identifier = 6.toByte()
+    ),
+    IRON_ORE_25(
+        id = 19001,
+        emptyId = 19004,
+        identifier = 6.toByte()
+    ),
+    IRON_ORE_26(
+        id = 19000,
+        emptyId = 19003,
+        identifier = 6.toByte()
+    ),
+    IRON_ORE_27(
+        id = 21281,
+        emptyId = 21296,
+        identifier = 6.toByte()
+    ),
+    IRON_ORE_28(
+        id = 21283,
+        emptyId = 21298,
+        identifier = 6.toByte()
+    ),
+    IRON_ORE_29(
+        id = 21282,
+        emptyId = 21297,
+        identifier = 6.toByte()
+    ),
+    IRON_ORE_30(
+        id = 29221,
+        emptyId = 29218,
+        identifier = 6.toByte()
+    ),
+    IRON_ORE_31(
+        id = 29223,
+        emptyId = 29220,
+        identifier = 6.toByte()
+    ),
+    IRON_ORE_32(
+        id = 29222,
+        emptyId = 29219,
+        identifier = 6.toByte()
+    ),
+    IRON_ORE_33(
+        id = 32441,
+        emptyId = 33400,
+        identifier = 6.toByte()
+    ),
+    IRON_ORE_34(
+        id = 32443,
+        emptyId = 33402,
+        identifier = 6.toByte()
+    ),
+    IRON_ORE_35(
+        id = 32442,
+        emptyId = 33401,
+        identifier = 6.toByte()
+    ),
+    IRON_ORE_36(
+        id = 32452,
+        emptyId = 32448,
+        identifier = 6.toByte()
+    ),
+    IRON_ORE_37(
+        id = 32451,
+        emptyId = 32447,
+        identifier = 6.toByte()
+    ),
+    IRON_ORE_38(
+        id = 31073,
+        emptyId = 37650,
+        identifier = 6.toByte()
+    ),
+    IRON_ORE_39(
+        id = 31072,
+        emptyId = 37649,
+        identifier = 6.toByte()
+    ),
+    IRON_ORE_40(
+        id = 31071,
+        emptyId = 37639,
+        identifier = 6.toByte()
+    ),
+    IRON_ORE_41(
+        id = 37307,
+        emptyId = 11552,
+        identifier = 6.toByte()
+    ),
+    IRON_ORE_42(
+        id = 37309,
+        emptyId = 11554,
+        identifier = 6.toByte()
+    ),
+    IRON_ORE_43(
+        id = 37308,
+        emptyId = 11553,
+        identifier = 6.toByte()
+    ),
+    IRON_ORE_49(
+        id = 42034,
+        emptyId = 450,
+        identifier = 6.toByte()
+    ),
+    SILVER_ORE_0(
+        id = 2101,
+        emptyId = 452,
+        identifier = 7.toByte()
+    ),
+    SILVER_ORE_1(
+        id = 2100,
+        emptyId = 450,
+        identifier = 7.toByte()
+    ),
+    SILVER_ORE_2(
+        id = 6945,
+        emptyId = 21296,
+        identifier = 7.toByte()
+    ),
+    SILVER_ORE_3(
+        id = 6946,
+        emptyId = 21297,
+        identifier = 7.toByte()
+    ),
+    SILVER_ORE_4(
+        id = 9716,
+        emptyId = 18954,
+        identifier = 7.toByte()
+    ),
+    SILVER_ORE_5(
+        id = 9714,
+        emptyId = 32447,
+        identifier = 7.toByte()
+    ),
+    SILVER_ORE_6(
+        id = 9715,
+        emptyId = 32448,
+        identifier = 7.toByte()
+    ),
+    SILVER_ORE_7(
+        id = 11188,
+        emptyId = 21298,
+        identifier = 7.toByte()
+    ),
+    SILVER_ORE_8(
+        id = 11186,
+        emptyId = 21296,
+        identifier = 7.toByte()
+    ),
+    SILVER_ORE_9(
+        id = 11187,
+        emptyId = 21297,
+        identifier = 7.toByte()
+    ),
+    SILVER_ORE_10(
+        id = 15581,
+        emptyId = 14834,
+        identifier = 7.toByte()
+    ),
+    SILVER_ORE_11(
+        id = 15580,
+        emptyId = 14833,
+        identifier = 7.toByte()
+    ),
+    SILVER_ORE_12(
+        id = 15579,
+        emptyId = 14832,
+        identifier = 7.toByte()
+    ),
+    SILVER_ORE_13(
+        id = 16998,
+        emptyId = 14915,
+        identifier = 7.toByte()
+    ),
+    SILVER_ORE_14(
+        id = 16999,
+        emptyId = 14916,
+        identifier = 7.toByte()
+    ),
+    SILVER_ORE_15(
+        id = 17007,
+        emptyId = 14915,
+        identifier = 7.toByte()
+    ),
+    SILVER_ORE_16(
+        id = 17000,
+        emptyId = 31061,
+        identifier = 7.toByte()
+    ),
+    SILVER_ORE_17(
+        id = 17009,
+        emptyId = 31061,
+        identifier = 7.toByte()
+    ),
+    SILVER_ORE_18(
+        id = 17008,
+        emptyId = 14916,
+        identifier = 7.toByte()
+    ),
+    SILVER_ORE_19(
+        id = 17385,
+        emptyId = 32447,
+        identifier = 7.toByte()
+    ),
+    SILVER_ORE_20(
+        id = 17387,
+        emptyId = 18954,
+        identifier = 7.toByte()
+    ),
+    SILVER_ORE_21(
+        id = 17386,
+        emptyId = 32448,
+        identifier = 7.toByte()
+    ),
+    SILVER_ORE_22(
+        id = 29225,
+        emptyId = 29219,
+        identifier = 7.toByte()
+    ),
+    SILVER_ORE_23(
+        id = 29224,
+        emptyId = 29218,
+        identifier = 7.toByte()
+    ),
+    SILVER_ORE_24(
+        id = 29226,
+        emptyId = 29220,
+        identifier = 7.toByte()
+    ),
+    SILVER_ORE_25(
+        id = 32445,
+        emptyId = 33401,
+        identifier = 7.toByte()
+    ),
+    SILVER_ORE_26(
+        id = 32444,
+        emptyId = 33400,
+        identifier = 7.toByte()
+    ),
+    SILVER_ORE_27(
+        id = 32446,
+        emptyId = 33402,
+        identifier = 7.toByte()
+    ),
+    SILVER_ORE_28(
+        id = 31075,
+        emptyId = 37649,
+        identifier = 7.toByte()
+    ),
+    SILVER_ORE_29(
+        id = 31074,
+        emptyId = 37639,
+        identifier = 7.toByte()
+    ),
+    SILVER_ORE_30(
+        id = 31076,
+        emptyId = 37650,
+        identifier = 7.toByte()
+    ),
+    SILVER_ORE_31(
+        id = 37305,
+        emptyId = 11553,
+        identifier = 7.toByte()
+    ),
+    SILVER_ORE_32(
+        id = 37304,
+        emptyId = 11552,
+        identifier = 7.toByte()
+    ),
+    SILVER_ORE_33(
+        id = 37306,
+        emptyId = 11554,
+        identifier = 7.toByte()
+    ),
+    SILVER_ORE_34(
+        id = 37670,
+        emptyId = 11552,
+        identifier = 7.toByte()
+    ),
+    SILVER_ORE_35(
+        id = 11948,
+        emptyId = 11555,
+        identifier = 7.toByte()
+    ),
+    SILVER_ORE_36(
+        id = 11949,
+        emptyId = 11556,
+        identifier = 7.toByte()
+    ),
+    SILVER_ORE_37(
+        id = 11950,
+        emptyId = 11557,
+        identifier = 7.toByte()
+    ),
+    SILVER_ORE_38(
+        id = 2311,
+        emptyId = 11552,
+        identifier = 7.toByte()
+    ),
+    COAL_0(
+        id = 2097,
+        emptyId = 452,
+        identifier = 8.toByte()
+    ),
+    COAL_1(
+        id = 2096,
+        emptyId = 450,
+        identifier = 8.toByte()
+    ),
+    COAL_2(
+        id = 4985,
+        emptyId = 4994,
+        identifier = 8.toByte()
+    ),
+    COAL_3(
+        id = 4986,
+        emptyId = 4995,
+        identifier = 8.toByte()
+    ),
+    COAL_4(
+        id = 4987,
+        emptyId = 4996,
+        identifier = 8.toByte()
+    ),
+    COAL_5(
+        id = 4676,
+        emptyId = 450,
+        identifier = 8.toByte()
+    ),
+    COAL_6(
+        id = 10948,
+        emptyId = 10944,
+        identifier = 8.toByte()
+    ),
+    COAL_7(
+        id = 11964,
+        emptyId = 11556,
+        identifier = 8.toByte()
+    ),
+    COAL_8(
+        id = 11965,
+        emptyId = 11557,
+        identifier = 8.toByte()
+    ),
+    COAL_9(
+        id = 11963,
+        emptyId = 11555,
+        identifier = 8.toByte()
+    ),
+    COAL_10(
+        id = 11932,
+        emptyId = 11554,
+        identifier = 8.toByte()
+    ),
+    COAL_11(
+        id = 11930,
+        emptyId = 11552,
+        identifier = 8.toByte()
+    ),
+    COAL_12(
+        id = 11931,
+        emptyId = 11553,
+        identifier = 8.toByte()
+    ),
+    COAL_13(
+        id = 15246,
+        emptyId = 15249,
+        identifier = 8.toByte()
+    ),
+    COAL_14(
+        id = 15247,
+        emptyId = 15250,
+        identifier = 8.toByte()
+    ),
+    COAL_15(
+        id = 15248,
+        emptyId = 15251,
+        identifier = 8.toByte()
+    ),
+    COAL_16(
+        id = 14852,
+        emptyId = 25373,
+        identifier = 8.toByte()
+    ),
+    COAL_17(
+        id = 14851,
+        emptyId = 25372,
+        identifier = 8.toByte()
+    ),
+    COAL_18(
+        id = 14850,
+        emptyId = 25371,
+        identifier = 8.toByte()
+    ),
+    COAL_19(
+        id = 20410,
+        emptyId = 20443,
+        identifier = 8.toByte()
+    ),
+    COAL_20(
+        id = 20411,
+        emptyId = 20444,
+        identifier = 8.toByte()
+    ),
+    COAL_21(
+        id = 20412,
+        emptyId = 20445,
+        identifier = 8.toByte()
+    ),
+    COAL_22(
+        id = 20413,
+        emptyId = 20407,
+        identifier = 8.toByte()
+    ),
+    COAL_23(
+        id = 18999,
+        emptyId = 19005,
+        identifier = 8.toByte()
+    ),
+    COAL_24(
+        id = 18998,
+        emptyId = 19004,
+        identifier = 8.toByte()
+    ),
+    COAL_25(
+        id = 18997,
+        emptyId = 19003,
+        identifier = 8.toByte()
+    ),
+    COAL_26(
+        id = 21287,
+        emptyId = 21296,
+        identifier = 8.toByte()
+    ),
+    COAL_27(
+        id = 21289,
+        emptyId = 21298,
+        identifier = 8.toByte()
+    ),
+    COAL_28(
+        id = 21288,
+        emptyId = 21297,
+        identifier = 8.toByte()
+    ),
+    COAL_29(
+        id = 23565,
+        emptyId = 21298,
+        identifier = 8.toByte()
+    ),
+    COAL_30(
+        id = 23564,
+        emptyId = 21297,
+        identifier = 8.toByte()
+    ),
+    COAL_31(
+        id = 23563,
+        emptyId = 21296,
+        identifier = 8.toByte()
+    ),
+    COAL_32(
+        id = 29215,
+        emptyId = 29218,
+        identifier = 8.toByte()
+    ),
+    COAL_33(
+        id = 29217,
+        emptyId = 29220,
+        identifier = 8.toByte()
+    ),
+    COAL_34(
+        id = 29216,
+        emptyId = 29219,
+        identifier = 8.toByte()
+    ),
+    COAL_35(
+        id = 32426,
+        emptyId = 33400,
+        identifier = 8.toByte()
+    ),
+    COAL_36(
+        id = 32427,
+        emptyId = 33401,
+        identifier = 8.toByte()
+    ),
+    COAL_37(
+        id = 32428,
+        emptyId = 33402,
+        identifier = 8.toByte()
+    ),
+    COAL_38(
+        id = 32450,
+        emptyId = 32448,
+        identifier = 8.toByte()
+    ),
+    COAL_39(
+        id = 32449,
+        emptyId = 32447,
+        identifier = 8.toByte()
+    ),
+    COAL_40(
+        id = 31068,
+        emptyId = 37639,
+        identifier = 8.toByte()
+    ),
+    COAL_41(
+        id = 31069,
+        emptyId = 37649,
+        identifier = 8.toByte()
+    ),
+    COAL_42(
+        id = 31070,
+        emptyId = 37650,
+        identifier = 8.toByte()
+    ),
+    COAL_43(
+        id = 31168,
+        emptyId = 14833,
+        identifier = 8.toByte()
+    ),
+    COAL_44(
+        id = 31169,
+        emptyId = 14834,
+        identifier = 8.toByte()
+    ),
+    COAL_45(
+        id = 31167,
+        emptyId = 14832,
+        identifier = 8.toByte()
+    ),
+    COAL_46(
+        id = 37699,
+        emptyId = 21298,
+        identifier = 8.toByte()
+    ),
+    COAL_47(
+        id = 37698,
+        emptyId = 21297,
+        identifier = 8.toByte()
+    ),
+    COAL_48(
+        id = 37697,
+        emptyId = 21296,
+        identifier = 8.toByte()
+    ),
+    COAL_49(
+        id = 42035,
+        emptyId = 452,
+        identifier = 8.toByte()
+    ),
+    GOLD_ORE_0(
+        id = 2099,
+        emptyId = 452,
+        identifier = 9.toByte()
+    ),
+    GOLD_ORE_1(
+        id = 2098,
+        emptyId = 450,
+        identifier = 9.toByte()
+    ),
+    GOLD_ORE_2(
+        id = 2611,
+        emptyId = 21298,
+        identifier = 9.toByte()
+    ),
+    GOLD_ORE_3(
+        id = 2610,
+        emptyId = 21297,
+        identifier = 9.toByte()
+    ),
+    GOLD_ORE_4(
+        id = 2609,
+        emptyId = 21296,
+        identifier = 9.toByte()
+    ),
+    GOLD_ORE_5(
+        id = 9722,
+        emptyId = 18954,
+        identifier = 9.toByte()
+    ),
+    GOLD_ORE_6(
+        id = 9720,
+        emptyId = 32447,
+        identifier = 9.toByte()
+    ),
+    GOLD_ORE_7(
+        id = 9721,
+        emptyId = 32448,
+        identifier = 9.toByte()
+    ),
+    GOLD_ORE_8(
+        id = 11183,
+        emptyId = 21296,
+        identifier = 9.toByte()
+    ),
+    GOLD_ORE_9(
+        id = 11184,
+        emptyId = 21297,
+        identifier = 9.toByte()
+    ),
+    GOLD_ORE_10(
+        id = 11185,
+        emptyId = 21298,
+        identifier = 9.toByte()
+    ),
+    GOLD_ORE_11(
+        id = 11952,
+        emptyId = 11556,
+        identifier = 9.toByte()
+    ),
+    GOLD_ORE_12(
+        id = 11953,
+        emptyId = 11557,
+        identifier = 9.toByte()
+    ),
+    GOLD_ORE_13(
+        id = 11951,
+        emptyId = 11555,
+        identifier = 9.toByte()
+    ),
+    GOLD_ORE_14(
+        id = 15578,
+        emptyId = 14834,
+        identifier = 9.toByte()
+    ),
+    GOLD_ORE_15(
+        id = 15577,
+        emptyId = 14833,
+        identifier = 9.toByte()
+    ),
+    GOLD_ORE_16(
+        id = 15576,
+        emptyId = 14832,
+        identifier = 9.toByte()
+    ),
+    GOLD_ORE_17(
+        id = 17002,
+        emptyId = 14916,
+        identifier = 9.toByte()
+    ),
+    GOLD_ORE_18(
+        id = 17003,
+        emptyId = 31061,
+        identifier = 9.toByte()
+    ),
+    GOLD_ORE_19(
+        id = 17001,
+        emptyId = 14915,
+        identifier = 9.toByte()
+    ),
+    GOLD_ORE_20(
+        id = 21291,
+        emptyId = 21297,
+        identifier = 9.toByte()
+    ),
+    GOLD_ORE_21(
+        id = 21290,
+        emptyId = 21296,
+        identifier = 9.toByte()
+    ),
+    GOLD_ORE_22(
+        id = 21292,
+        emptyId = 21298,
+        identifier = 9.toByte()
+    ),
+    GOLD_ORE_23(
+        id = 32433,
+        emptyId = 33401,
+        identifier = 9.toByte()
+    ),
+    GOLD_ORE_24(
+        id = 32432,
+        emptyId = 33400,
+        identifier = 9.toByte()
+    ),
+    GOLD_ORE_25(
+        id = 32434,
+        emptyId = 33402,
+        identifier = 9.toByte()
+    ),
+    GOLD_ORE_26(
+        id = 31065,
+        emptyId = 37639,
+        identifier = 9.toByte()
+    ),
+    GOLD_ORE_27(
+        id = 31066,
+        emptyId = 37649,
+        identifier = 9.toByte()
+    ),
+    GOLD_ORE_28(
+        id = 31067,
+        emptyId = 37650,
+        identifier = 9.toByte()
+    ),
+    GOLD_ORE_29(
+        id = 37311,
+        emptyId = 11553,
+        identifier = 9.toByte()
+    ),
+    GOLD_ORE_30(
+        id = 37310,
+        emptyId = 11552,
+        identifier = 9.toByte()
+    ),
+    GOLD_ORE_31(
+        id = 37312,
+        emptyId = 11554,
+        identifier = 9.toByte()
+    ),
+    GOLD_ORE_32(
+        id = 37471,
+        emptyId = 15249,
+        identifier = 9.toByte()
+    ),
+    GOLD_ORE_33(
+        id = 37473,
+        emptyId = 15251,
+        identifier = 9.toByte()
+    ),
+    GOLD_ORE_34(
+        id = 37472,
+        emptyId = 15250,
+        identifier = 9.toByte()
+    ),
+    GOLD_ORE_49(
+        id = 42033,
+        emptyId = 452,
+        identifier = 9.toByte()
+    ),
+    MITHRIL_ORE_0(
+        id = 2103,
+        emptyId = 452,
+        identifier = 10.toByte()
+    ),
+    MITHRIL_ORE_1(
+        id = 2102,
+        emptyId = 450,
+        identifier = 10.toByte()
+    ),
+    MITHRIL_ORE_2(
+        id = 4988,
+        emptyId = 4994,
+        identifier = 10.toByte()
+    ),
+    MITHRIL_ORE_3(
+        id = 4989,
+        emptyId = 4995,
+        identifier = 10.toByte()
+    ),
+    MITHRIL_ORE_4(
+        id = 4990,
+        emptyId = 4996,
+        identifier = 10.toByte()
+    ),
+    MITHRIL_ORE_5(
+        id = 11943,
+        emptyId = 11553,
+        identifier = 10.toByte()
+    ),
+    MITHRIL_ORE_6(
+        id = 11942,
+        emptyId = 11552,
+        identifier = 10.toByte()
+    ),
+    MITHRIL_ORE_7(
+        id = 11945,
+        emptyId = 11555,
+        identifier = 10.toByte()
+    ),
+    MITHRIL_ORE_8(
+        id = 11944,
+        emptyId = 11554,
+        identifier = 10.toByte()
+    ),
+    MITHRIL_ORE_9(
+        id = 11947,
+        emptyId = 11557,
+        identifier = 10.toByte()
+    ),
+    MITHRIL_ORE_10(
+        id = 11946,
+        emptyId = 11556,
+        identifier = 10.toByte()
+    ),
+    MITHRIL_ORE_11(
+        id = 14855,
+        emptyId = 25373,
+        identifier = 10.toByte()
+    ),
+    MITHRIL_ORE_12(
+        id = 14854,
+        emptyId = 25372,
+        identifier = 10.toByte()
+    ),
+    MITHRIL_ORE_13(
+        id = 14853,
+        emptyId = 25371,
+        identifier = 10.toByte()
+    ),
+    MITHRIL_ORE_14(
+        id = 16687,
+        emptyId = 450,
+        identifier = 10.toByte()
+    ),
+    MITHRIL_ORE_15(
+        id = 20421,
+        emptyId = 20407,
+        identifier = 10.toByte()
+    ),
+    MITHRIL_ORE_16(
+        id = 20420,
+        emptyId = 20445,
+        identifier = 10.toByte()
+    ),
+    MITHRIL_ORE_17(
+        id = 20419,
+        emptyId = 20444,
+        identifier = 10.toByte()
+    ),
+    MITHRIL_ORE_18(
+        id = 20418,
+        emptyId = 20443,
+        identifier = 10.toByte()
+    ),
+    MITHRIL_ORE_19(
+        id = 19012,
+        emptyId = 19021,
+        identifier = 10.toByte()
+    ),
+    MITHRIL_ORE_20(
+        id = 19013,
+        emptyId = 19016,
+        identifier = 10.toByte()
+    ),
+    MITHRIL_ORE_21(
+        id = 19014,
+        emptyId = 19017,
+        identifier = 10.toByte()
+    ),
+    MITHRIL_ORE_22(
+        id = 21278,
+        emptyId = 21296,
+        identifier = 10.toByte()
+    ),
+    MITHRIL_ORE_23(
+        id = 21279,
+        emptyId = 21297,
+        identifier = 10.toByte()
+    ),
+    MITHRIL_ORE_24(
+        id = 21280,
+        emptyId = 21298,
+        identifier = 10.toByte()
+    ),
+    MITHRIL_ORE_25(
+        id = 25369,
+        emptyId = 10586,
+        identifier = 10.toByte()
+    ),
+    MITHRIL_ORE_26(
+        id = 25368,
+        emptyId = 10585,
+        identifier = 10.toByte()
+    ),
+    MITHRIL_ORE_27(
+        id = 25370,
+        emptyId = 10587,
+        identifier = 10.toByte()
+    ),
+    MITHRIL_ORE_28(
+        id = 29236,
+        emptyId = 29218,
+        identifier = 10.toByte()
+    ),
+    MITHRIL_ORE_29(
+        id = 29237,
+        emptyId = 29219,
+        identifier = 10.toByte()
+    ),
+    MITHRIL_ORE_30(
+        id = 29238,
+        emptyId = 29220,
+        identifier = 10.toByte()
+    ),
+    MITHRIL_ORE_31(
+        id = 32439,
+        emptyId = 33401,
+        identifier = 10.toByte()
+    ),
+    MITHRIL_ORE_32(
+        id = 32438,
+        emptyId = 33400,
+        identifier = 10.toByte()
+    ),
+    MITHRIL_ORE_33(
+        id = 32440,
+        emptyId = 33402,
+        identifier = 10.toByte()
+    ),
+    MITHRIL_ORE_34(
+        id = 31087,
+        emptyId = 37649,
+        identifier = 10.toByte()
+    ),
+    MITHRIL_ORE_35(
+        id = 31086,
+        emptyId = 37639,
+        identifier = 10.toByte()
+    ),
+    MITHRIL_ORE_36(
+        id = 31088,
+        emptyId = 37650,
+        identifier = 10.toByte()
+    ),
+    MITHRIL_ORE_37(
+        id = 31170,
+        emptyId = 14832,
+        identifier = 10.toByte()
+    ),
+    MITHRIL_ORE_38(
+        id = 31171,
+        emptyId = 14833,
+        identifier = 10.toByte()
+    ),
+    MITHRIL_ORE_39(
+        id = 31172,
+        emptyId = 14834,
+        identifier = 10.toByte()
+    ),
+    MITHRIL_ORE_40(
+        id = 37692,
+        emptyId = 21296,
+        identifier = 10.toByte()
+    ),
+    MITHRIL_ORE_41(
+        id = 37693,
+        emptyId = 21297,
+        identifier = 10.toByte()
+    ),
+    MITHRIL_ORE_42(
+        id = 37694,
+        emptyId = 21298,
+        identifier = 10.toByte()
+    ),
+    MITHRIL_ORE_49(
+        id = 42036,
+        emptyId = 452,
+        identifier = 10.toByte()
+    ),
+    ADAMANTITE_ORE_0(
+        id = 2105,
+        emptyId = 452,
+        identifier = 11.toByte()
+    ),
+    ADAMANTITE_ORE_1(
+        id = 2104,
+        emptyId = 450,
+        identifier = 11.toByte()
+    ),
+    ADAMANTITE_ORE_2(
+        id = 4991,
+        emptyId = 4994,
+        identifier = 11.toByte()
+    ),
+    ADAMANTITE_ORE_3(
+        id = 4992,
+        emptyId = 4995,
+        identifier = 11.toByte()
+    ),
+    ADAMANTITE_ORE_4(
+        id = 4993,
+        emptyId = 4996,
+        identifier = 11.toByte()
+    ),
+    ADAMANTITE_ORE_5(
+        id = 11941,
+        emptyId = 11554,
+        identifier = 11.toByte()
+    ),
+    ADAMANTITE_ORE_6(
+        id = 11940,
+        emptyId = 11553,
+        identifier = 11.toByte()
+    ),
+    ADAMANTITE_ORE_7(
+        id = 11939,
+        emptyId = 11552,
+        identifier = 11.toByte()
+    ),
+    ADAMANTITE_ORE_8(
+        id = 14864,
+        emptyId = 25373,
+        identifier = 11.toByte()
+    ),
+    ADAMANTITE_ORE_9(
+        id = 14863,
+        emptyId = 25372,
+        identifier = 11.toByte()
+    ),
+    ADAMANTITE_ORE_10(
+        id = 14862,
+        emptyId = 25371,
+        identifier = 11.toByte()
+    ),
+    ADAMANTITE_ORE_11(
+        id = 20417,
+        emptyId = 20407,
+        identifier = 11.toByte()
+    ),
+    ADAMANTITE_ORE_12(
+        id = 20416,
+        emptyId = 20445,
+        identifier = 11.toByte()
+    ),
+    ADAMANTITE_ORE_13(
+        id = 20414,
+        emptyId = 20443,
+        identifier = 11.toByte()
+    ),
+    ADAMANTITE_ORE_14(
+        id = 20415,
+        emptyId = 20444,
+        identifier = 11.toByte()
+    ),
+    ADAMANTITE_ORE_15(
+        id = 19020,
+        emptyId = 19017,
+        identifier = 11.toByte()
+    ),
+    ADAMANTITE_ORE_16(
+        id = 19018,
+        emptyId = 19021,
+        identifier = 11.toByte()
+    ),
+    ADAMANTITE_ORE_17(
+        id = 19019,
+        emptyId = 19016,
+        identifier = 11.toByte()
+    ),
+    ADAMANTITE_ORE_18(
+        id = 21275,
+        emptyId = 21296,
+        identifier = 11.toByte()
+    ),
+    ADAMANTITE_ORE_19(
+        id = 21276,
+        emptyId = 21297,
+        identifier = 11.toByte()
+    ),
+    ADAMANTITE_ORE_20(
+        id = 21277,
+        emptyId = 21298,
+        identifier = 11.toByte()
+    ),
+    ADAMANTITE_ORE_21(
+        id = 29233,
+        emptyId = 29218,
+        identifier = 11.toByte()
+    ),
+    ADAMANTITE_ORE_22(
+        id = 29234,
+        emptyId = 29219,
+        identifier = 11.toByte()
+    ),
+    ADAMANTITE_ORE_23(
+        id = 29235,
+        emptyId = 29220,
+        identifier = 11.toByte()
+    ),
+    ADAMANTITE_ORE_24(
+        id = 32435,
+        emptyId = 33400,
+        identifier = 11.toByte()
+    ),
+    ADAMANTITE_ORE_25(
+        id = 32437,
+        emptyId = 33402,
+        identifier = 11.toByte()
+    ),
+    ADAMANTITE_ORE_26(
+        id = 32436,
+        emptyId = 33401,
+        identifier = 11.toByte()
+    ),
+    ADAMANTITE_ORE_27(
+        id = 31083,
+        emptyId = 37639,
+        identifier = 11.toByte()
+    ),
+    ADAMANTITE_ORE_28(
+        id = 31085,
+        emptyId = 37650,
+        identifier = 11.toByte()
+    ),
+    ADAMANTITE_ORE_29(
+        id = 31084,
+        emptyId = 37649,
+        identifier = 11.toByte()
+    ),
+    ADAMANTITE_ORE_30(
+        id = 31173,
+        emptyId = 14832,
+        identifier = 11.toByte()
+    ),
+    ADAMANTITE_ORE_31(
+        id = 31174,
+        emptyId = 14833,
+        identifier = 11.toByte()
+    ),
+    ADAMANTITE_ORE_32(
+        id = 31175,
+        emptyId = 14834,
+        identifier = 11.toByte()
+    ),
+    ADAMANTITE_ORE_33(
+        id = 37468,
+        emptyId = 15249,
+        identifier = 11.toByte()
+    ),
+    ADAMANTITE_ORE_34(
+        id = 37469,
+        emptyId = 15250,
+        identifier = 11.toByte()
+    ),
+    ADAMANTITE_ORE_35(
+        id = 37470,
+        emptyId = 15251,
+        identifier = 11.toByte()
+    ),
+    ADAMANTITE_ORE_36(
+        id = 37689,
+        emptyId = 21296,
+        identifier = 11.toByte()
+    ),
+    ADAMANTITE_ORE_37(
+        id = 37690,
+        emptyId = 21297,
+        identifier = 11.toByte()
+    ),
+    ADAMANTITE_ORE_38(
+        id = 37691,
+        emptyId = 21298,
+        identifier = 11.toByte()
+    ),
+    ADAMANTITE_ORE_39(
+        id = 42037,
+        emptyId = 452,
+        identifier = 11.toByte()
+    ),
+    RUNITE_ORE_0(
+        id = 2107,
+        emptyId = 452,
+        identifier = 12.toByte()
+    ),
+    RUNITE_ORE_1(
+        id = 2106,
+        emptyId = 450,
+        identifier = 12.toByte()
+    ),
+    RUNITE_ORE_2(
+        id = 6669,
+        emptyId = 21296,
+        identifier = 12.toByte()
+    ),
+    RUNITE_ORE_3(
+        id = 6671,
+        emptyId = 21298,
+        identifier = 12.toByte()
+    ),
+    RUNITE_ORE_4(
+        id = 6670,
+        emptyId = 21297,
+        identifier = 12.toByte()
+    ),
+    RUNITE_ORE_5(
+        id = 14861,
+        emptyId = 25373,
+        identifier = 12.toByte()
+    ),
+    RUNITE_ORE_6(
+        id = 14860,
+        emptyId = 25372,
+        identifier = 12.toByte()
+    ),
+    RUNITE_ORE_7(
+        id = 14859,
+        emptyId = 25371,
+        identifier = 12.toByte()
+    ),
+    RUNITE_ORE_8(
+        id = 33079,
+        emptyId = 33401,
+        identifier = 12.toByte()
+    ),
+    RUNITE_ORE_9(
+        id = 33078,
+        emptyId = 33400,
+        identifier = 12.toByte()
+    ),
+    RUNITE_ORE_10(
+        id = 37208,
+        emptyId = 21296,
+        identifier = 12.toByte()
+    ),
+    RUNITE_ORE_11(
+        id = 37465,
+        emptyId = 15249,
+        identifier = 12.toByte()
+    ),
+    RUNITE_ORE_12(
+        id = 37466,
+        emptyId = 15250,
+        identifier = 12.toByte()
+    ),
+    RUNITE_ORE_13(
+        id = 37467,
+        emptyId = 15251,
+        identifier = 12.toByte()
+    ),
+    RUNITE_ORE_14(
+        id = 37695,
+        emptyId = 21297,
+        identifier = 12.toByte()
+    ),
+    RUNITE_ORE_15(
+        id = 37696,
+        emptyId = 21298,
+        identifier = 12.toByte()
+    ),
+    GEM_ROCK_0(
+        id = 23567,
+        emptyId = 21297,
+        identifier = 13.toByte()
+    ),
+    GEM_ROCK_1(
+        id = 23566,
+        emptyId = 21296,
+        identifier = 13.toByte()
+    ),
+    GEM_ROCK_2(
+        id = 23568,
+        emptyId = 21298,
+        identifier = 13.toByte()
+    ),
+    GEM_ROCK_3(
+        id = 23560,
+        emptyId = 25371,
+        identifier = 13.toByte()
+    ),
+    GEM_ROCK_4(
+        id = 23561,
+        emptyId = 25372,
+        identifier = 13.toByte()
+    ),
+    GEM_ROCK_5(
+        id = 23562,
+        emptyId = 21298,
+        identifier = 13.toByte()
+    ),
+    GEM_ROCK_6(
+        id = 9030,
+        emptyId = 9010,
+        identifier = 13.toByte()
+    ),
+    GEM_ROCK_7(
+        id = 9031,
+        emptyId = 9015,
+        identifier = 13.toByte()
+    ),
+    GEM_ROCK_8(
+        id = 9032,
+        emptyId = 9020,
+        identifier = 13.toByte()
+    ),
+    RUNE_ESSENCE_0(
+        id = 2491,
+        emptyId = -1,
+        identifier = 14.toByte()
+    ),
+    RUNE_ESSENCE_1(
+        id = 16684,
+        emptyId = -1,
+        identifier = 14.toByte()
+    ),
+    SANDSTONE(
+        id = 10946,
+        emptyId = 10944,
+        identifier = 15.toByte()
+    ),
+    GRANITE(
+        id = 10947,
+        emptyId = 10945,
+        identifier = 16.toByte()
+    ),
+    RUBIUM(
+        id = 29746,
+        emptyId = 29747,
+        identifier = 17.toByte()
+    );
 
     var respawnRate: Int = 0
     var reward: Int = 0

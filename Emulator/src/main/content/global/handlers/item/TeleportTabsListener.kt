@@ -123,7 +123,7 @@ enum class TeleTabs(val item: Int, val location: Location, val exp: Double) {
 }
 
 /**
- * Handles the teleport tablets option interaction.
+ * Handles the teleport tablet option interaction.
  */
 class TeleTabsListener : InteractionListener {
 

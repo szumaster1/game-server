@@ -48,11 +48,11 @@ class BuryBonesListener : InteractionListener {
     }
 
     /**
-     * Remove bones
+     * Remove bones.
      *
-     * @param player The player from whom the bones will be removed
-     * @param item The item representing the bones to be removed
-     * @return Returns true if the bones were successfully removed, false otherwise
+     * @param player    the player from whom the bones will be removed
+     * @param item      the item representing the bones to be removed
+     * @return `true` if the bones were successfully removed, `false` otherwise
      */
     private fun removeBones(player: Player, item: Item): Boolean {
         val removedBones = replaceSlot(player, item.slot, Item())

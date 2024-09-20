@@ -40,7 +40,7 @@ class SnowGlobePlugin : OptionHandler() {
     }
 
     /**
-     * Snow globe interface.
+     * Represents the snow globe interface.
      */
     inner class SnowGlobeInterface : ComponentPlugin() {
         override fun newInstance(arg: Any?): Plugin<Any?> {

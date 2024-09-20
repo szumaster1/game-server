@@ -25,7 +25,9 @@ class MimeNPC(override var loot: WeightBasedTable? = null) : RandomEventNPC(NPCs
                     lockInteractions(player, 10)
                     setAttribute(player, MimeUtils.TELEPORT_ATTRIBUTE, player.location)
                     registerLogoutListener(player, MimeUtils.LOGOUT_ATTRIBUTE) { p ->
-                        player.properties.teleportLocation = getAttribute(player, MimeUtils.TELEPORT_ATTRIBUTE, null)
+                        registerLogoutListener(player, MimeUtils.LOGOUT_ATTRIBUTE) { p ->
+                            p.location = getAttribute(p, MimeUtils.TELEPORT_ATTRIBUTE, p.location)
+                        }
                     }
                     removeTabs(player, 0, 1, 2, 3, 4, 5, 6, 7, 9, 10, 11, 12, 13, 14)
                     teleport(player, MimeUtils.MIME_EVENT_LOCATION, TeleportManager.TeleportType.NORMAL)
@@ -35,17 +37,8 @@ class MimeNPC(override var loot: WeightBasedTable? = null) : RandomEventNPC(NPCs
 
                 1 -> {
                     sendMessage(player, "You need to copy the mime's performance, then you'll be returned to where you were.")
-
-                    /*
-                        Face location bug
-                        https://www.youtube.com/watch?v=VGMfcLQbZGI&ab_channel=skillmatrix09
-                     */
-
-                    if(RandomFunction.random(0,1) == 1) {
-                        forceMove(player, MimeUtils.MIME_EVENT_LOCATION, MimeUtils.MIME_LOCATION, 0, 80)
-                    } else {
-                        forceMove(player, MimeUtils.MIME_EVENT_LOCATION, MimeUtils.MIME_LOCATION, 10, 60)
-                    }
+                    // https://www.youtube.com/watch?v=VGMfcLQbZGI&ab_channel=skillmatrix09
+                    forceMove(player, MimeUtils.MIME_EVENT_LOCATION, MimeUtils.MIME_LOCATION, 20, 80)
                     return@queueScript delayScript(player, 6)
                 }
 

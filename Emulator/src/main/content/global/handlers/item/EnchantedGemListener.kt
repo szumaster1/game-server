@@ -23,9 +23,9 @@ class EnchantedGemListener : InteractionListener {
     }
 }
 
-class EnchantedGemDialogue() : DialogueFile() {
+class EnchantedGemDialogue : DialogueFile() {
     var firstRun = true
-    override fun handle(interfaceId: Int, buttonId: Int) {
+    override fun handle(componentID: Int, buttonID: Int) {
         npc = getSlayerMaster(player!!)
         when(stage) {
             0 -> npcl(FacialExpression.FRIENDLY, "Hello there ${player!!.username}, what can I help you with?").also { stage++ }

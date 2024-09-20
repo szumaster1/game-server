@@ -9,10 +9,7 @@ import core.game.node.scenery.Scenery
 import core.tools.START_DIALOGUE
 
 /**
- * Cooking dialogue
- *
- * @param args Variable arguments of type Any, representing the dialogue inputs.
- * @constructor Initializes a CookingDialogue instance with the provided arguments.
+ * Represents the cooking dialogue.
  */
 class CookingDialogue(vararg val args: Any) : DialogueFile() {
 

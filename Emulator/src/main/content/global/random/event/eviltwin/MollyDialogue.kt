@@ -14,7 +14,7 @@ import core.tools.END_DIALOGUE
 class MollyDialogue(var type: Int) : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {
-        npc = NPC(EvilTwinUtils.mollyNPC!!.originalId)
+        npc = NPC(EvilTwinUtils.getMollyId(npc!!.id))
         when (type) {
             0 -> when (stage) {
                     0 -> npc(FacialExpression.HAPPY, "Well done! You managed to catch my sister!").also { stage++ }

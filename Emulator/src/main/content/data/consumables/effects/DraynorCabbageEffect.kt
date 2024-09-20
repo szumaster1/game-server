@@ -5,9 +5,6 @@ import core.game.consumable.ConsumableEffect
 import core.game.node.entity.player.Player
 import core.game.node.entity.skill.Skills
 
-/**
- * Draynor cabbage effect.
- */
 class DraynorCabbageEffect : ConsumableEffect() {
 
     override fun activate(player: Player) {

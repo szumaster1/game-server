@@ -3,7 +3,6 @@ package content.global.skill.combat.summoning.pet
 import org.rs.consts.Items
 import core.game.node.item.Item
 
-
 enum class IncubatorEgg(
     val egg: Item,
     val level: Int,

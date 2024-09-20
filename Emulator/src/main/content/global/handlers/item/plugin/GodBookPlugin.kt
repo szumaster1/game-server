@@ -48,12 +48,8 @@ class GodBookPlugin : OptionHandler() {
         return true
     }
 
-    /*
-     * A god book item.
-     */
-
     /**
-     * God book item.
+     * A god book item.
      */
     inner class GodBookItem : ItemPlugin() {
 
@@ -74,12 +70,8 @@ class GodBookPlugin : OptionHandler() {
 
     }
 
-    /*
-     * The page handler.
-     */
-
     /**
-     * Page handler.
+     * The page handler.
      */
     inner class PageHandler : UseWithHandler(3839, 3841, 3843) {
 

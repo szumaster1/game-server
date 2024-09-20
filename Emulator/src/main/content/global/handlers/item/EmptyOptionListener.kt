@@ -16,7 +16,11 @@ import core.game.node.item.Item
 class EmptyOptionListener : InteractionListener {
 
     override fun defineListeners() {
-        // A collection that allows you to empty containers such as vials, buckets, pots.
+        /*
+         * A collection that allows you to empty containers such as vials, buckets,
+         * pots.
+         */
+
         on(EmptyItem.emptyItemList.toIntArray(), IntType.ITEM, "empty", "empty bowl", "empty dish") { player, node ->
             if (node.name.contains("brew") || node.name.contains("potion") || node.name.lowercase().contains("poison") || node.name.lowercase().contains("serum") || node.name.contains("cure") || node.name.contains("mix") || node.name.contains("balm") ) {
                 replaceSlot(player, node.asItem().slot, Item(EmptyItem.getEmpty(Items.POTION_195)!!), node.asItem())
@@ -33,12 +37,12 @@ class EmptyOptionListener : InteractionListener {
     }
 
     /**
-     * Represents the empty item.
+     * Represents the empty item data.
      *
-     * @param fullId        the id for the full item.
-     * @param emptyId       the id for the empty item.
-     * @param emptyMessage  the message to display for the empty item.
-     * @param audioId       the id for the audio associated with the item (default is -1 if no audio).
+     * @param [fullId]        the id for the full item.
+     * @param [emptyId]       the id for the empty item.
+     * @param [emptyMessage]  the message to display for the empty item.
+     * @param [audioId]       the id for the audio associated with the item (default is -1 if no audio).
      */
     enum class EmptyItem(var fullId: Int, var emptyId: Int, var emptyMessage: String, var audioId: Int = -1) {
         POT_OF_FLOUR(Items.POT_OF_FLOUR_1933, Items.EMPTY_POT_1931, "You empty the contents of the pot onto the floor."),

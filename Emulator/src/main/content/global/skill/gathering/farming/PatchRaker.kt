@@ -17,8 +17,8 @@ object PatchRaker {
     /**
      * Rake.
      *
-     * @param player The player who is raking the patch.
-     * @param patch  The farming patch to be raked.
+     * @param player the player who is raking the patch.
+     * @param patch  the farming patch to be raked.
      */
     @JvmStatic
     fun rake(player: Player, patch: FarmingPatch) {

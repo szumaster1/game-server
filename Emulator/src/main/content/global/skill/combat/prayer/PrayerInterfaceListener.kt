@@ -48,7 +48,7 @@ class PrayerInterfaceListener : InterfaceListener {
      *
      * @param player    the player.
      * @param type      the prayer type.
-     * @return `true` - if the requirements have been met.
+     * @return `true` if the requirements have been met.
      */
     private fun additionalPrayers(player: Player, type: PrayerType): Boolean {
         val hasRequirements = getAttribute(player, KWUtils.KW_COMPLETE, false)

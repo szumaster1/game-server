@@ -18,7 +18,7 @@ import core.plugin.Initializable;
 import core.plugin.Plugin;
 
 /**
- * Pottery.kt plugin.
+ * Pottery plugin.
  */
 @Initializable
 public final class PotteryPlugin extends UseWithHandler {

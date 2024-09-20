@@ -58,8 +58,8 @@ object SummoningCreator {
     /**
      * Method used to open the creation screen.
      *
-     * @param player the player
-     * @param pouch  the pouch
+     * @param player the player.
+     * @param pouch  the pouch.
      */
     @JvmStatic
     fun open(player: Player, pouch: Boolean) {
@@ -69,8 +69,8 @@ object SummoningCreator {
     /**
      * Method used to configure a creation interface.
      *
-     * @param player the player
-     * @param pouch  the pouch
+     * @param player the player.
+     * @param pouch  the pouch.
      */
     @JvmStatic
     fun configure(player: Player, pouch: Boolean) {
@@ -101,8 +101,8 @@ object SummoningCreator {
     /**
      * Method used to list the items needed for a pouch.
      *
-     * @param player the player
-     * @param pouch  the pouch
+     * @param player the player.
+     * @param pouch  the pouch.
      */
     @JvmStatic
     fun list(player: Player, pouch: SummoningPouch) {
@@ -174,11 +174,11 @@ object SummoningCreator {
     /**
      * Represents a Summoning node type.
      *
-     * @param base       the base
-     * @param required   the required
-     * @param product    the product
-     * @param experience the experience
-     * @param level      the level
+     * @param base       the base.
+     * @param required   the required.
+     * @param product    the product.
+     * @param experience the experience.
+     * @param level      the level.
      */
     class SummoningNode(
         /**
@@ -224,9 +224,9 @@ object SummoningCreator {
             /**
              * Method used to parse a summoning node.
              *
-             * @param node the node
-             * @return the summoning node
-             * @throws IllegalArgumentException if the node is neither a SummoningPouch nor a SummoningScroll
+             * @param [node] the node.
+             * @return the summoning node.
+             * @throws [IllegalArgumentException] if the node is neither a [SummoningPouch] nor a [SummoningScroll].
              */
             fun parse(node: Any): SummoningNode {
                 return when (node) {

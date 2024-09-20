@@ -6,11 +6,7 @@ import core.game.node.entity.player.Player
 import core.game.node.entity.skill.Skills
 import core.tools.RandomFunction
 
-/**
- * Kebab effect.
- */
 class KebabEffect : ConsumableEffect() {
-
     override fun activate(player: Player) {
         val randomNumber = RandomFunction.nextInt(100)
         val effect: ConsumableEffect
@@ -26,11 +22,7 @@ class KebabEffect : ConsumableEffect() {
             effect.activate(player)
             sendMessage(player, "That was a good kebab. You feel a lot better.")
         } else if (randomNumber < 96) {
-            /*
-             * As the probability of lowering by 3 a non-combat skill or
-             * all melee skills is not specified, 50% is the percentage
-             * that was chosen.
-             */
+
             if (RandomFunction.nextInt(100) < 50) {
                 val affectedSkillSlot = RandomFunction.nextInt(Skills.NUM_SKILLS - 1)
                 effect = when (affectedSkillSlot) {

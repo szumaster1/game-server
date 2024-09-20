@@ -17,7 +17,7 @@ class SilverSickleListener : InteractionListener {
 
     override fun defineListeners() {
 
-        on(silverSickle, IntType.ITEM, "operate", "cast bloom"){ player, _ ->
+        on(silverSickle, IntType.ITEM, "operate", "cast bloom") { player, _ ->
             if (getQuestStage(player, "Nature Spirit") >= 75) {
                 animate(player, castBloomAnim)
                 castBloom(player)

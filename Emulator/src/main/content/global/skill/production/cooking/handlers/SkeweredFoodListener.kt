@@ -33,7 +33,7 @@ class SkeweredFoodListener : InteractionListener {
 }
 
 /**
- * Represents the skewered set.
+ * Represents the skewered food.
  */
 enum class SkeweredSet(val raw: Item, val product: Item) {
     CHOMPY(

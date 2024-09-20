@@ -51,14 +51,6 @@ class StaffOfTheRaven : InteractionListener {
         }
     }
 
-    /**
-     * Switch staff
-     *
-     * @param player The player whose staff is being switched.
-     * @param to The index of the new staff to be equipped.
-     * @param equipped Indicates whether the staff is currently equipped.
-     * @param original The original item that is being replaced.
-     */
     fun switchStaff(player: Player, to: Int?, equipped: Boolean, original: Item) {
         player.graphics(Graphic(Graphics.IMPLING_TP_WHITE_SMOKE_PUFF_1119))
         val item: Item? = if (to != null) Item(to) else to

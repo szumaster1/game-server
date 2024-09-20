@@ -2,9 +2,7 @@ package content.global.skill.combat.summoning.pet;
 
 /**
  * A class containing pet details for a certain pet.
- *
- * @author Emperor
- * @author Player Name
+ * @author Emperor, Player Name
  */
 public final class PetDetails {
 

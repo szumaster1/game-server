@@ -8,17 +8,16 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 
 /**
- * Nettle tea listener
- *
- * @constructor Nettle tea listener
+ * Nettle tea listener.
  */
 class NettleTeaListener : InteractionListener {
 
     override fun defineListeners() {
 
-        /**
+        /*
          * Added nettles to bowl of water to creating nettle-water.
          */
+
         onUseWith(IntType.ITEM, Items.NETTLES_4241, Items.BOWL_OF_WATER_1921) { player, used, with ->
             if (removeItem(player, used.asItem()) && removeItem(player, with.asItem())) {
                 addItemOrDrop(player, Items.NETTLE_WATER_4237, 1)
@@ -29,9 +28,10 @@ class NettleTeaListener : InteractionListener {
             return@onUseWith true
         }
 
-        /**
+        /*
          * Extract nettle tea from bowl to cup.
          */
+
         onUseWith(IntType.ITEM, Items.EMPTY_CUP_1980, Items.NETTLE_TEA_4239) { player, used, with ->
             if (removeItem(player, used.asItem()) && removeItem(player, with.asItem())) {
                 addItemOrDrop(player, Items.CUP_OF_TEA_4242, 1)
@@ -42,9 +42,10 @@ class NettleTeaListener : InteractionListener {
             return@onUseWith true
         }
 
-        /**
+        /*
          * Extract nettle milky tea from bowl to cup.
          */
+
         onUseWith(IntType.ITEM, Items.EMPTY_CUP_1980, Items.NETTLE_TEA_4240) { player, used, with ->
             if (removeItem(player, used.asItem()) && removeItem(player, with.asItem())) {
                 addItemOrDrop(player, Items.CUP_OF_TEA_4243, 1)
@@ -55,9 +56,10 @@ class NettleTeaListener : InteractionListener {
             return@onUseWith true
         }
 
-        /**
+        /*
          * Extract nettle tea from bowl to porcelain cup.
          */
+
         onUseWith(IntType.ITEM, Items.NETTLE_TEA_4239, Items.PORCELAIN_CUP_4244) { player, used, with ->
             if (removeItem(player, used.asItem()) && removeItem(player, with.asItem())) {
                 addItemOrDrop(player, Items.CUP_OF_TEA_4245, 1)
@@ -68,9 +70,10 @@ class NettleTeaListener : InteractionListener {
             return@onUseWith true
         }
 
-        /**
+        /*
          * Extract nettle milky tea from bowl to porcelain cup.
          */
+
         onUseWith(IntType.ITEM, Items.NETTLE_TEA_4240, Items.PORCELAIN_CUP_4244) { player, used, with ->
             if (removeItem(player, used.asItem()) && removeItem(player, with.asItem())) {
                 addItemOrDrop(player, Items.CUP_OF_TEA_4246, 1)
@@ -81,9 +84,10 @@ class NettleTeaListener : InteractionListener {
             return@onUseWith true
         }
 
-        /**
+        /*
          * Added milk to nettle tea (bowl).
          */
+
         onUseWith(IntType.ITEM, Items.BUCKET_OF_MILK_1927, Items.NETTLE_TEA_4239) { player, used, with ->
             if (removeItem(player, used.asItem()) && removeItem(player, with.asItem())) {
                 addItemOrDrop(player, Items.NETTLE_TEA_4240, 1)
@@ -94,9 +98,10 @@ class NettleTeaListener : InteractionListener {
             return@onUseWith true
         }
 
-        /**
+        /*
          * Added milk to nettle tea (porcelain cup).
          */
+
         onUseWith(IntType.ITEM, Items.BUCKET_OF_MILK_1927, Items.CUP_OF_TEA_4245) { player, used, with ->
             if (removeItem(player, used.asItem()) && removeItem(player, with.asItem())) {
                 addItemOrDrop(player, Items.CUP_OF_TEA_4246, 1)

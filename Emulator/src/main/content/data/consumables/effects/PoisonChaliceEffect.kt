@@ -9,13 +9,8 @@ import core.game.node.entity.player.Player
 import core.game.node.entity.skill.Skills
 import core.tools.RandomFunction
 
-/**
- * Poison chalice effect.
- */
 class PoisonChaliceEffect : ConsumableEffect() {
-
     override fun activate(player: Player) {
-
         when (RandomFunction.nextInt(7)) {
             1 -> {
                 val randomValueBoost = RandomFunction.random(1.0, 4.0)

@@ -37,7 +37,6 @@ import static core.api.ContentAPIKt.*;
 
 /**
  * Handles the summoning training room.
- *
  * @author Emperor, Vexia
  */
 @Initializable
@@ -70,10 +69,9 @@ public final class SummoningTrainingRoom extends OptionHandler {
     /**
      * Handle boolean.
      *
-     * @param player the player
-     * @param node   the node
-     * @param option the option
-     * @return the boolean
+     * @param player    the player
+     * @param node      the node
+     * @param option    the option
      */
     @Override
     public boolean handle(final Player player, Node node, String option) {
@@ -174,21 +172,12 @@ public final class SummoningTrainingRoom extends OptionHandler {
     }
 
     /**
-     * The Fluffy cutscene.
+     * The fluffy cutscene.
      */
     public static final class FluffyCutscene extends CutscenePlugin {
-        /**
-         * Instantiates a new Fluffy cutscene.
-         */
         public FluffyCutscene() {
             super("fluffy cutscene");
         }
-
-        /**
-         * Instantiates a new Fluffy cutscene.
-         *
-         * @param player the player
-         */
         public FluffyCutscene(final Player player) {
             this();
             this.player = player;
@@ -237,7 +226,7 @@ public final class SummoningTrainingRoom extends OptionHandler {
         }
 
         /**
-         * Fluffy dialogue.
+         * Represents the fluffy dialogue.
          */
         public static final class FluffyDialogue extends Dialogue {
             private static final Animation SCARED_ANIMATION = new Animation(2836);
@@ -248,19 +237,10 @@ public final class SummoningTrainingRoom extends OptionHandler {
             private Quest quest;
             private NPC fluffy;
             private NPC wolf;
-
-            /**
-             * Instantiates a new Fluffy dialogue.
-             */
             public FluffyDialogue() {
 
             }
 
-            /**
-             * Instantiates a new Fluffy dialogue.
-             *
-             * @param player the player
-             */
             public FluffyDialogue(final Player player) {
                 super(player);
             }

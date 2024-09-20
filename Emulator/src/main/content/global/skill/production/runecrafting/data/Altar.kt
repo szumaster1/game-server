@@ -117,9 +117,9 @@ enum class Altar(val scenery: Int, val portal: Int, val riftId: Int, val ruin: M
         private val altarByRiftId: Map<Int, Altar> = values().associateBy { it.riftId }
 
         /**
-         * Method used to get the `Altar` by the object.
+         * Method used to get the [Altar] by the object.
          *
-         * @param scenery the object.
+         * @param [scenery] the object.
          * @return the `Altar` or `Null`.
          */
         @JvmStatic
@@ -131,7 +131,7 @@ enum class Altar(val scenery: Int, val portal: Int, val riftId: Int, val ruin: M
     /**
      * Enters a rift.
      *
-     * @param player the player.
+     * @param [player] the player.
      */
     fun enterRift(player: Player) {
         when (this) {

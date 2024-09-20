@@ -11,7 +11,6 @@ import static core.api.ContentAPIKt.*;
 
 /**
  * Represents a pet.
- *
  * @author Emperor, Vexia, Player Name
  */
 public final class Pet extends Familiar {

@@ -53,12 +53,7 @@ class SpinningInterfaceListener : InterfaceListener {
             }
             submitIndividualPulse(
                 player,
-                SpinningPulse(
-                    player,
-                    Item(spin.need, 1),
-                    amt,
-                    spin
-                )
+                SpinningPulse(player, Item(spin.need, 1), amt, spin)
             )
             return@on true
         }

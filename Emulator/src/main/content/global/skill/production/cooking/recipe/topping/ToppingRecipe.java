@@ -13,7 +13,7 @@ import core.game.node.item.Item;
 public abstract class ToppingRecipe extends Recipe {
 
     /**
-     * The constant BOWL.
+     * The bowl item.
      */
     protected static final Item BOWL = new Item(Items.BOWL_1923);
 

@@ -13,7 +13,6 @@ class GenericPotion(
     val experience: Double,
     val product: Item?
 ) {
-
     companion object {
         /**
          * Get transform an [UnfinishedPotion] into a [GenericPotion].

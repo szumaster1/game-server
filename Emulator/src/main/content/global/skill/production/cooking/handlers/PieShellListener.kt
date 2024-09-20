@@ -18,7 +18,6 @@ class PieShellListener : InteractionListener {
                 addItem(player, Items.PIE_SHELL_2315)
                 sendMessage(player, "You put the pastry dough into the pie dish to make a pie shell.")
             }
-
             return@onUseWith true
         }
     }

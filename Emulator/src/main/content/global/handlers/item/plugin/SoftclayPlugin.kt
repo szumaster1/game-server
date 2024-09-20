@@ -11,7 +11,7 @@ import core.plugin.Initializable
 import core.plugin.Plugin
 
 /**
- * Softclay plugin.
+ * Handles creating soft clay.
  */
 @Initializable
 class SoftclayPlugin : UseWithHandler(Items.CLAY_434) {

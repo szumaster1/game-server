@@ -24,25 +24,20 @@ import core.tools.RandomFunction
 @Initializable
 class MorphingPlugin : Plugin<Any> {
 
-    // Define Easter egg NPC IDs as a range and convert to an array
     private val EASTER_EGG_IDS = (NPCs.EGG_3689..NPCs.EGG_3694).toIntArray()
 
-    // Create a component for unmorphing with a close event
     private val COMPONENT = Component(Components.UNMORPH_375).setCloseEvent { player, c ->
         unmorph(player)
         return@setCloseEvent true
     }
 
-    // Create a new instance of the plugin and set up item handlers
     override fun newInstance(arg: Any?): Plugin<Any> {
-        // Assign this plugin as the handler for specific items
         ItemDefinition.forId(Items.EASTER_RING_7927).handlers["equipment"] = this
         ItemDefinition.forId(Items.RING_OF_STONE_6583).handlers["equipment"] = this
         PluginManager.definePlugin(MorphInterfacePlugin())
         return this
     }
 
-    // Handle events triggered by the plugin
     override fun fireEvent(identifier: String, vararg args: Any): Any {
         val player = args[0] as Player
         val item = args[1] as Item
@@ -52,10 +47,9 @@ class MorphingPlugin : Plugin<Any> {
                 return false
             }
         }
-        return true // Return true if the event was not handled
+        return true
     }
 
-    // Function to morph the player into a different NPC
     private fun morph(player: Player, item: Item) {
         val morphId = if (item.id == Items.RING_OF_STONE_6583) NPCs.ROCKS_2626 else EASTER_EGG_IDS[RandomFunction.random(EASTER_EGG_IDS.size)]
         playAudio(player, Sounds.EASTER06_HUMAN_INTO_EGG_1520)
@@ -71,7 +65,6 @@ class MorphingPlugin : Plugin<Any> {
         player.walkingQueue.reset()
     }
 
-    // Function to unmorph the player back to their original form
     private fun unmorph(player: Player) {
         player.appearance.transformNPC(-1)
         player.unlock()
@@ -79,17 +72,15 @@ class MorphingPlugin : Plugin<Any> {
     }
 
     /**
-     * Morph interface plugin.
+     * Represents the morphing interface plugin.
      */
     inner class MorphInterfacePlugin : ComponentPlugin() {
 
-        // Create a new instance of the morph interface plugin
         override fun newInstance(arg: Any?): Plugin<Any> {
             ComponentDefinition.forId(Components.UNMORPH_375).plugin = this
             return this
         }
 
-        // Handle interactions with the morph interface
         override fun handle(player: Player, component: Component, opcode: Int, button: Int, slot: Int, itemId: Int): Boolean {
             player.interfaceManager.closeSingleTab()
             return true

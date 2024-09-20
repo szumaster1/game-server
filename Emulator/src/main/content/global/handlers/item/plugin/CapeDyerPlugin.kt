@@ -12,8 +12,16 @@ import core.game.node.item.Item
 import core.plugin.Initializable
 import core.plugin.Plugin
 
-private val CAPES = arrayOf(Items.BLACK_CAPE_1019, Items.RED_CAPE_1007, Items.BLUE_CAPE_1021, Items.YELLOW_CAPE_1023, Items.GREEN_CAPE_1027, Items.PURPLE_CAPE_1029, Items.ORANGE_CAPE_1031, Items.PINK_CAPE_6959)
-
+private val CAPES = arrayOf(
+    Items.BLACK_CAPE_1019,
+    Items.RED_CAPE_1007,
+    Items.BLUE_CAPE_1021,
+    Items.YELLOW_CAPE_1023,
+    Items.GREEN_CAPE_1027,
+    Items.PURPLE_CAPE_1029,
+    Items.ORANGE_CAPE_1031,
+    Items.PINK_CAPE_6959
+)
 private val DYES = Dyes.values().map { it.item.id }.toIntArray()
 
 /**
@@ -60,72 +68,40 @@ class CapeDyerPlugin : UseWithHandler(*CAPES.copyOfRange(0, CAPES.size - 1).toIn
     }
 
     /**
-     * Enum representing different types of capes with associated dye and product.
+     * Represents different types of capes with associated dye and product.
      *
-     * @param dye the dye color of the cape.
-     * @param product the product associated with the cape.
-     * @constructor Creates a Cape with the specified dye and product.
+     * @param [dye] the dye color.
+     * @param [product] the product.
      */
     internal enum class Cape(val dye: Dyes, val product: Item) {
-        /**
-         * Black.
-         */
         BLACK(
             dye = Dyes.BLACK,
             product = Item(Items.BLACK_CAPE_1019)
         ),
-
-        /**
-         * Red.
-         */
         RED(
             dye = Dyes.RED,
             product = Item(Items.RED_CAPE_1007)
         ),
-
-        /**
-         * Blue.
-         */
         BLUE(
             dye = Dyes.BLUE,
             product = Item(Items.BLUE_CAPE_1021)
         ),
-
-        /**
-         * Yellow.
-         */
         YELLOW(
             dye = Dyes.YELLOW,
             product = Item(Items.YELLOW_CAPE_1023)
         ),
-
-        /**
-         * Green.
-         */
         GREEN(
             dye = Dyes.GREEN,
             product = Item(Items.GREEN_CAPE_1027)
         ),
-
-        /**
-         * Purple.
-         */
         PURPLE(
             dye = Dyes.PURPLE,
             product = Item(Items.PURPLE_CAPE_1029)
         ),
-
-        /**
-         * Orange.
-         */
         ORANGE(
             dye = Dyes.ORANGE,
             product = Item(Items.ORANGE_CAPE_1031)
         ),
-
-        /**
-         * Pink.
-         */
         PINK(
             dye = Dyes.PINK,
             product = Item(Items.PINK_CAPE_6959)

@@ -21,7 +21,11 @@ class DemonicSigilListener : InteractionListener {
     private val chantingAnimEnd = Animation(Animations.DEMONIC_SIGIL_I_E_SHADOW_OF_THE_STORM_2880)
 
     override fun defineListeners() {
-        // Demonic sigil basic interaction.
+
+        /*
+         * Demonic sigil basic interaction.
+         */
+
         on(demonicSigilId, IntType.ITEM, "chant"){ player, _ ->
             lock(player, 10)
             animate(player, chantingAnimStart)

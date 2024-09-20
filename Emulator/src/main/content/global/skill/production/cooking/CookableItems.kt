@@ -1039,7 +1039,6 @@ enum class CookableItems(
         highRange = 0
     );
 
-
     companion object {
         val cookingMap: HashMap<Int, CookableItems> = HashMap()
         val intentionalBurnMap: HashMap<Int, CookableItems?> = HashMap()

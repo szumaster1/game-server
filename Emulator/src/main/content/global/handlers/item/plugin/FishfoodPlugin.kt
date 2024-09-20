@@ -30,11 +30,10 @@ class FishfoodPlugin : UseWithHandler(*FishFoodUses.usables) {
     /**
      * The enum Fish food uses.
      *
-     * @param used The amount of fish food used.
-     * @param with The ingredient used with the fish food.
-     * @param product The resulting product after using the fish food.
-     * @param msg Additional message related to the use of fish food.
-     * @constructor Represents a specific use of fish food.
+     * @param used      the used id.
+     * @param with      the ingredient id.
+     * @param product   the product id.
+     * @param msg       the message.
      */
     enum class FishFoodUses(
         private val used: Int,
@@ -42,42 +41,18 @@ class FishfoodPlugin : UseWithHandler(*FishFoodUses.usables) {
         private val product: Int,
         private val msg: String
     ) {
-        /**
-         * Poisoned.
-         */
         POISONED(POISON, FISH_FOOD, POISONED_FISH_FOOD, "You poison the fish food."),
-
-        /**
-         * Guambox.
-         */
         GUAMBOX(Items.GROUND_GUAM_6681, Items.AN_EMPTY_BOX_6675, Items.GUAM_IN_A_BOX_6677, "You put the ground Guam into the box."),
-
-        /**
-         * Seaweedbox.
-         */
         SEAWEEDBOX(Items.GROUND_SEAWEED_6683, Items.AN_EMPTY_BOX_6675, Items.SEAWEED_IN_A_BOX_6679, "You put the ground Seaweed into the box."),
-
-        /**
-         * Food 1.
-         */
         FOOD1(Items.GROUND_SEAWEED_6683, Items.GUAM_IN_A_BOX_6677, FISH_FOOD, "You put the ground Seaweed into the box and make Fish Food."),
-
-        /**
-         * Food 2.
-         */
         FOOD2(Items.GROUND_GUAM_6681, Items.SEAWEED_IN_A_BOX_6679, FISH_FOOD, "You put the ground Guam into the box and make Fish Food."),
-
-        /**
-         * Fishbowl.
-         */
         FISHBOWL(Items.FISHBOWL_6668, Items.SEAWEED_401, Items.FISHBOWL_6669, "You place the seaweed in the bowl.");
 
         companion object {
             val usables = values().map { it.used }.toIntArray()
 
             /**
-             * Product for item.
-             * This function retrieves the product associated with the given 'used' and 'with' values.
+             * Gets product for used item.
              */
             fun productFor(used: Int, with: Int): Item? {
                 for (value in values()) {
@@ -89,7 +64,7 @@ class FishfoodPlugin : UseWithHandler(*FishFoodUses.usables) {
             }
 
             /**
-             * Function to retrieve a message based on 'used' and 'with' values
+             * Get a message based on 'used' and 'with' values.
              */
             fun msgFor(used: Int, with: Int): String? {
                 for (value in values()) {

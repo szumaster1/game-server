@@ -8,7 +8,7 @@ import core.plugin.Initializable
 import core.plugin.Plugin
 
 /**
- * Water skin plugin.
+ * Handles interaction with water skin.
  */
 @Initializable
 class WaterSkinPlugin : UseWithHandler(Items.WATERSKIN3_1825, Items.WATERSKIN2_1827, Items.WATERSKIN1_1829, Items.WATERSKIN0_1831) {

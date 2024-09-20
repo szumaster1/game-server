@@ -35,7 +35,7 @@ class EctophialListener : InteractionListener {
     override fun defineListeners() {
 
         /*
-         * Handles ectophial interaction with scenery.
+         * Handles use ectophial on ectofuntus .
          */
 
         onUseWith(IntType.SCENERY, Items.ECTOPHIAL_4252, Scenery.ECTOFUNTUS_5282) { player, _, _ ->

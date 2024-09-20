@@ -27,7 +27,6 @@ class PlayerPeltablesListener : InteractionListener {
         private val PELTABLES = intArrayOf(Items.ROTTEN_TOMATO_2518, Items.SNOWBALL_11951)
     }
 
-
     override fun defineListeners() {
         onEquip(PELTABLES, ::setPlayerOps)
         onUnequip(PELTABLES, ::removePlayerOps)
@@ -72,13 +71,7 @@ class PlayerPeltablesListener : InteractionListener {
 
 
     /**
-     * Represents a Pelting Pulse.
-     *
-     * @param player        the player.
-     * @param other         the target.
-     * @param gfx           the graphic.
-     * @param hitDelay      the delay between hit.
-     * @param peltable      the peltable.
+     * Represents a pelting pulse.
      */
     class PeltingPulse(val player: Player, val other: Player, val gfx: IntArray, val hitDelay: Int, val peltable: Int) :
         Pulse() {

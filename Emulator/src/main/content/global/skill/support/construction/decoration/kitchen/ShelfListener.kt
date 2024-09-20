@@ -18,9 +18,11 @@ class ShelfListener : InteractionListener {
     private val SHELF_IDS = intArrayOf(13545, 13546, 13547, 13548, 13549, 13550, 13551)
 
     override fun defineListeners() {
+
         /*
          * Handle search option.
          */
+
         on(SHELF_IDS, IntType.SCENERY, "search") { player, node ->
             player.dialogueInterpreter.open(778341, node.id)
             return@on true
