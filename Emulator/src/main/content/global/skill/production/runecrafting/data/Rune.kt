@@ -53,7 +53,7 @@ enum class Rune(val rune: Item, val level: Int, val experience: Double, private 
         /**
          * Method used to get the [Rune] by the item.
          *
-         * @param item the item.
+         * @param [item] the item.
          * @return the [Rune] or `null`.
          */
         @JvmStatic
@@ -64,7 +64,7 @@ enum class Rune(val rune: Item, val level: Int, val experience: Double, private 
         /**
          * Method used to the [Rune] by the name.
          *
-         * @param name the name.
+         * @param [name] the name.
          * @return the [Rune] or `null`.
          */
         @JvmStatic

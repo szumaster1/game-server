@@ -1,7 +1,7 @@
 package core.game.interaction
 
 /**
- * Define an object named Clocks to hold constant values
+ * Define an object named Clocks to hold constant values.
  */
 object Clocks {
     // Constant representing the movement event

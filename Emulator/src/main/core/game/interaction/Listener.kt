@@ -11,8 +11,7 @@ interface Listener : StartupListener {
     }
 
     /**
-     * Define listeners
-     *
+     * Define listeners.
      */
     fun defineListeners()
 }

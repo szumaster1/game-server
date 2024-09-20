@@ -22,7 +22,7 @@ object FreakUtils {
     /**
      * Give freak task.
      *
-     * @param player The player to give the task to.
+     * @param [player] The player to give the task to.
      */
     fun giveFreakTask(player: Player) {
         // Randomly select a pheasant NPC to assign as the task
@@ -39,7 +39,7 @@ object FreakUtils {
     /**
      * Cleanup.
      *
-     * @param player The player to clean up.
+     * @param [player] The player to clean up.
      */
     fun cleanup(player: Player) {
         player.locks.unlockTeleport()
@@ -54,7 +54,7 @@ object FreakUtils {
     /**
      * Reward.
      *
-     * @param player The player to reward.
+     * @param [player] The player to reward.
      */
     fun reward(player: Player) {
         val hasHat = hasAnItem(player, Items.LEDERHOSEN_HAT_6182).container != null

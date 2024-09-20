@@ -65,8 +65,8 @@ enum class Tiara(val item: Item, val experience: Double) {
         /**
          * Method used to get the [Tiara] by the item.
          *
-         * @param item the item.
-         * @return the [Tiara] or `null`.
+         * @param [item] the item.
+         * @return the Tiara or `null`.
          */
         @JvmStatic
         fun forItem(item: Item): Tiara? {

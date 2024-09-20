@@ -69,8 +69,8 @@ enum class CombinationRune(
         /**
          * Method used to get the [Altar] by the scenery id.
          *
-         * @param altar the scenery id.
-         * @param item  the item to check.
+         * @param [altar] the scenery id.
+         * @param [item]  the item to check.
          * @return the [CombinationRune] or `null`.
          */
         @JvmStatic

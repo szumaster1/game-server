@@ -100,17 +100,17 @@ enum class Talisman(val talisman: Item, private val ruin: MysteriousRuin?) {
     /**
      * Gets the tiara.
      *
-     * @return the tiara.
+     * @return the [tiara].
      */
     val tiara: Tiara?
         get() = Tiara.values().find { it.name == name }
 
     companion object {
         /**
-         * Method used to get the [Talisman] by the item.
+         * Get the [Talisman] by the item.
          *
-         * @param item the item.
-         * @return the [Talisman] or `null`.
+         * @param [item] the item.
+         * @return the Talisman or `null`.
          */
         @JvmStatic
         fun forItem(item: Item): Talisman? {
@@ -118,9 +118,9 @@ enum class Talisman(val talisman: Item, private val ruin: MysteriousRuin?) {
         }
 
         /**
-         * Method used to get the [Talisman] by the name.
+         * Get the [Talisman] by the name.
          *
-         * @return the [Talisman] or `null`.
+         * @return the Talisman or `null`.
          */
         @JvmStatic
         fun forName(name: String): Talisman? {

@@ -19,8 +19,8 @@ import java.lang.Integer.max
 /**
  * Class representing a Script Processor that operates on an Entity.
  *
- * @param entity The Entity on which the Script Processor operates.
- * @constructor Creates a new Script Processor with the specified Entity.
+ * @param [entity] The Entity on which the Script Processor operates.
+ * @constructor Creates a new [ScriptProcessor] with the specified Entity.
  */
 class ScriptProcessor(val entity: Entity) {
     private var apScript: Script<*>? = null
@@ -66,7 +66,7 @@ class ScriptProcessor(val entity: Entity) {
     /**
      * Function to handle posting movement.
      *
-     * @param didMove a boolean flag indicating if movement occurred.
+     * @param [didMove] a boolean flag indicating if movement occurred.
      */
     fun postMovement(didMove: Boolean) {
         if (didMove)
@@ -171,7 +171,7 @@ class ScriptProcessor(val entity: Entity) {
     /**
      * Checks if the script is persisted in the database.
      *
-     * @param script the script to be checked.
+     * @param [script] the script to be checked.
      * @return true if the script is persisted, false otherwise.
      */
     fun isPersist(script: Script<*>): Boolean {
@@ -181,7 +181,7 @@ class ScriptProcessor(val entity: Entity) {
     /**
      * This function processes an interact script.
      *
-     * @param script The script to be processed.
+     * @param [script] The script to be processed.
      */
     fun processInteractScript(script: Script<*>) {
         if (interactTarget == null || !interactTarget!!.isActive) {
@@ -200,8 +200,8 @@ class ScriptProcessor(val entity: Entity) {
     /**
      * Executes a given script.
      *
-     * @param script The script to be executed.
-     * @return True if the script execution was successful, false otherwise.
+     * @param [script] The script to be executed.
+     * @return `true` if the script execution was successful, `false` otherwise.
      */
     fun executeScript(script: Script<*>): Boolean {
         currentScript = script
@@ -258,8 +258,8 @@ class ScriptProcessor(val entity: Entity) {
     /**
      * Checks if the given script is within the approach distance.
      *
-     * @param script the script to check.
-     * @return true if the script is within the approach distance, false otherwise.
+     * @param [script] the script to check.
+     * @return `true` if the script is within the approach distance, `false` otherwise.
      */
     fun inApproachDistance(script: Script<*>): Boolean {
         val distance = when (script) {
@@ -276,7 +276,7 @@ class ScriptProcessor(val entity: Entity) {
     /**
      * Checks if the object is within the operable distance.
      *
-     * @return true if the object is within operable distance, false otherwise.
+     * @return `true` if the object is within operable distance, `false` otherwise.
      */
     fun inOperableDistance(): Boolean {
         targetDestination?.let {
@@ -304,8 +304,8 @@ class ScriptProcessor(val entity: Entity) {
     /**
      * Set interaction script for a specific target node.
      *
-     * @param target The target node to set the interaction script for.
-     * @param script The script to be set for the interaction.
+     * @param [target] the target node to set the interaction script for.
+     * @param [script] the script to be set for the interaction.
      */
     fun setInteractionScript(target: Node, script: Script<*>?) {
         if (apScript != null && script != null && script.execution == apScript!!.execution) return

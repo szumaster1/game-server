@@ -1,7 +1,7 @@
 package content.global.random.event.eviltwin
 
 /**
- * Represents the twin colors.
+ * Represents the Evil twin colors.
  */
 enum class TwinColors {
     RED,

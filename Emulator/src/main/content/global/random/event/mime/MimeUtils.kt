@@ -45,60 +45,36 @@ object MimeUtils {
     /**
      * Reward.
      *
-     * @param player The player to reward.
+     * @param [player] the player to reward.
      */
     fun reward(player: Player) {
-        // Check if the player has the mime mask
         val hasMask = hasAnItem(player, Items.MIME_MASK_3057).container != null
-        // Check if the player has the mime top
         val hasTop = hasAnItem(player, Items.MIME_TOP_3058).container != null
-        // Check if the player has the mime legs
         val hasLegs = hasAnItem(player, Items.MIME_LEGS_3059).container != null
-        // Check if the player has the mime boots
         val hasBoots = hasAnItem(player, Items.MIME_BOOTS_3061).container != null
-        // Check if the player has the mime gloves
         val hasGloves = hasAnItem(player, Items.MIME_GLOVES_3060).container != null
-        // Check which items the player is missing
         when {
-            // If the player doesn't have the mime mask
             (!hasMask) -> {
-                // Send a dialogue message to the player
                 sendDialogue(player, "You can now use Lean on air emote!")
-                // Add the mime mask to the player's inventory
                 addItemOrDrop(player, Items.MIME_MASK_3057, 1)
-                // Unlock the Lean on air emote for the player
                 unlockEmote(player, 28)
             }
-            // If the player doesn't have the mime top
             (!hasTop) -> {
-                // Send a dialogue message to the player
                 sendDialogue(player, "You can now use Climb Rope emote!")
-                // Add the mime top to the player's inventory
                 addItemOrDrop(player, Items.MIME_TOP_3058, 1)
-                // Unlock the Climb Rope emote for the player
                 unlockEmote(player, 27)
             }
-            // If the player doesn't have the mime legs
             (!hasLegs) -> {
-                // Send a dialogue message to the player
                 sendDialogue(player, "You can now use Glass Wall emote!")
-                // Add the mime legs to the player's inventory
                 addItemOrDrop(player, Items.MIME_LEGS_3059, 1)
-                // Unlock the Glass Wall emote for the player
                 unlockEmote(player, 29)
             }
-            // If the player doesn't have the mime boots and gloves
             (!hasBoots) && (!hasGloves) -> {
-                // Send a dialogue message to the player
                 sendDialogue(player, "You can now use Glass Box emote!")
-                // Add the mime gloves to the player's inventory
                 addItemOrDrop(player, Items.MIME_GLOVES_3060, 1)
-                // Add the mime boots to the player's inventory
                 addItemOrDrop(player, Items.MIME_BOOTS_3061, 1)
-                // Unlock the Glass Box emote for the player
                 unlockEmote(player, 26)
             }
-            // If the player has all the required items
             else -> addItemOrDrop(player, Items.COINS_995, 500)
         }
     }
@@ -106,7 +82,7 @@ object MimeUtils {
     /**
      * Get emote.
      *
-     * @param player The player to get the emote for.
+     * @param [player] the player to get the emote for.
      */
     fun getEmote(player: Player) {
         val npc = findNPC(NPCs.MIME_1056)
@@ -148,7 +124,7 @@ object MimeUtils {
     /**
      * Get continue.
      *
-     * @param player The player to continue.
+     * @param [player] the player to continue.
      */
     fun getContinue(player: Player) {
         submitIndividualPulse(player, object : Pulse() {
