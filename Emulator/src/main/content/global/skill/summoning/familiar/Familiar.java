@@ -1,8 +1,8 @@
 package content.global.skill.summoning.familiar;
 
 import org.rs.consts.Sounds;
-import content.global.skill.combat.summoning.SummoningPouch;
-import content.global.skill.combat.summoning.SummoningScroll;
+import content.global.skill.summoning.SummoningPouch;
+import content.global.skill.summoning.SummoningScroll;
 import content.global.skill.summoning.pet.Pet;
 import core.cache.def.impl.NPCDefinition;
 import core.game.interaction.MovementPulse;

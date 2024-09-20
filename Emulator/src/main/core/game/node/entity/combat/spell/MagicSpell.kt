@@ -33,14 +33,14 @@ import java.util.function.Consumer
  * @param castRunes  the runes.
  */
 abstract class MagicSpell @JvmOverloads constructor(
-    val book: SpellBook = SpellBook.MODERN, // Default spell book is MODERN
-    val level: Int = 0, // Default level is set to 0
-    @JvmField val experience: Double = 0.0, // Experience points for casting the spell
-    @JvmField protected val animation: Animation? = null, // Optional animation for the spell
-    @JvmField protected val graphic: Graphic? = null, // Optional graphic representation of the spell
-    @JvmField val audio: Audio? = null, // Optional audio effect for the spell
-    val castRunes: Array<Item?>? = arrayOfNulls(0) // Array of runes required to cast the spell, default is an empty array
-) : Plugin<SpellType?> { // This class implements the Plugin interface for SpellType
+    val book: SpellBook = SpellBook.MODERN,
+    val level: Int = 0,
+    @JvmField val experience: Double = 0.0,
+    @JvmField protected val animation: Animation? = null,
+    @JvmField protected val graphic: Graphic? = null,
+    @JvmField val audio: Audio? = null,
+    val castRunes: Array<Item?>? = arrayOfNulls(0)
+) : Plugin<SpellType?> {
     @JvmField
     var spellId: Int = 0
 

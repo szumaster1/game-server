@@ -18,16 +18,11 @@ class AnimationCommandSet : CommandSet(Privilege.ADMIN) {
 
     override fun defineCommands() {
 
-        /**
+        /*
          * Force the player to play animation <Animation ID>
          */
 
-        define(
-            name = "anim",
-            privilege = Privilege.ADMIN,
-            usage = "::anim <lt>Animation ID<gt>",
-            description = "Plays the animation with the given ID."
-        ) { player, args ->
+        define(name = "anim", privilege = Privilege.ADMIN, usage = "::anim <lt>Animation ID<gt>", description = "Plays the animation with the given ID.") { player, args ->
             if (args.size < 2) {
                 reject(player, "Syntax error: ::anim <Animation ID>")
             }
@@ -35,16 +30,11 @@ class AnimationCommandSet : CommandSet(Privilege.ADMIN) {
             player.animate(animation)
         }
 
-        /**
+        /*
          * Force the player to loop animation <Animation ID>
          */
 
-        define(
-            name = "loopanim",
-            privilege = Privilege.ADMIN,
-            usage = "::loopanim <lt>Animation ID<gt> <lt>Times<gt>",
-            description = "Plays the animation with the given ID the given number of times"
-        ) { player, args ->
+        define(name = "loopanim", privilege = Privilege.ADMIN, usage = "::loopanim <lt>Animation ID<gt> <lt>Times<gt>", description = "Plays the animation with the given ID the given number of times") { player, args ->
             if (args.size < 2) {
                 reject(player, "Syntax error: ::loopanim <Animation ID> <Loop Amount>")
             }
@@ -63,16 +53,11 @@ class AnimationCommandSet : CommandSet(Privilege.ADMIN) {
             })
         }
 
-        /**
+        /*
          * Change the player's render animation to <Render Animation ID>
          */
 
-        define(
-            name = "ranim",
-            privilege = Privilege.ADMIN,
-            usage = "::ranim <lt>Render Anim ID<gt>",
-            description = "Sets the player's render (walk/idle) animation."
-        ) { player, args ->
+        define(name = "ranim", privilege = Privilege.ADMIN, usage = "::ranim <lt>Render Anim ID<gt>", description = "Sets the player's render (walk/idle) animation.") { player, args ->
             if (args.size < 2) {
                 reject(player, "Syntax error: ::ranim <Render Animation ID>")
             }
@@ -84,16 +69,11 @@ class AnimationCommandSet : CommandSet(Privilege.ADMIN) {
             }
         }
 
-        /**
+        /*
          * Reset the player's render animation to default
          */
 
-        define(
-            name = "resetanim",
-            privilege = Privilege.ADMIN,
-            usage = "::resetanim",
-            description = "Resets the player's render (walk/idle) animation to default."
-        ) { player, _ ->
+        define(name = "resetanim", privilege = Privilege.ADMIN, usage = "::resetanim", description = "Resets the player's render (walk/idle) animation to default.") { player, _ ->
             player.appearance.prepareBodyData(player)
             player.appearance.setDefaultAnimations()
             player.appearance.setAnimations()

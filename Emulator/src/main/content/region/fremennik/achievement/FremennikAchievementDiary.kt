@@ -1,7 +1,7 @@
 package content.region.fremennik.achievement
 
 import content.global.travel.FairyRing
-import content.global.skill.production.cooking.dairy.DairyChurnDialogue
+import content.global.skill.cooking.DairyChurnDialogue
 import content.minigame.barbassault.dialogue.CaptainCainDialogue
 import org.rs.consts.Components
 import org.rs.consts.Items

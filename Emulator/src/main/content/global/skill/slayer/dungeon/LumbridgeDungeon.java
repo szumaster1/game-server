@@ -1,6 +1,6 @@
 package content.global.skill.slayer.dungeon;
 
-import content.global.skill.support.slayer.SlayerEquipmentFlags;
+import content.global.skill.slayer.SlayerEquipmentFlags;
 import core.cache.def.impl.NPCDefinition;
 import core.game.interaction.Option;
 import core.game.node.Node;

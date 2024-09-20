@@ -1,6 +1,6 @@
 package content.global.skill.summoning.familiar.npc
 
-import content.global.skill.production.crafting.data.Gem
+import content.global.skill.crafting.Gem
 import core.api.visualize
 import core.game.node.entity.player.Player
 import core.game.node.entity.skill.SkillBonus

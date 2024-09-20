@@ -1,6 +1,6 @@
 package content.global.skill.summoning.familiar;
 
-import content.global.skill.combat.summoning.SummoningPouch;
+import content.global.skill.summoning.SummoningPouch;
 import core.game.component.CloseEvent;
 import core.game.component.Component;
 import core.game.container.Container;

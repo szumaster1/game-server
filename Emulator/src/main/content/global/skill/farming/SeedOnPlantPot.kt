@@ -1,6 +1,6 @@
 package content.global.skill.farming
 
-import content.global.skill.gather.farming.timers.SeedlingGrowth
+import content.global.skill.farming.timers.SeedlingGrowth
 import core.api.*
 import org.rs.consts.Items
 import core.game.interaction.IntType

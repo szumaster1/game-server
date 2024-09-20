@@ -11,12 +11,12 @@ import core.game.node.entity.player.link.request.trade.TradeModule
  * @param message The message to be displayed for the request.
  * @param requestMessage The formatted request message.
  * @param module The module associated with the request.
- * @constructor Request type
+ * @constructor [RequestType]
  */
 open class RequestType(
-    val message: String, // The message to be displayed for the request.
-    val requestMessage: String, // The formatted request message.
-    val module: RequestModule // The module associated with the request.
+    val message: String,
+    val requestMessage: String,
+    val module: RequestModule
 ) {
     /**
      * Checks if the request can be made.
@@ -26,7 +26,7 @@ open class RequestType(
      * @return True if the request can be made, otherwise false.
      */
     open fun canRequest(player: Player?, target: Player?): Boolean {
-        return true // Always returns true, indicating the request can be made.
+        return true
     }
 
     /**

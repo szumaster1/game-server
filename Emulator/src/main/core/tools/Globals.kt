@@ -1,6 +1,5 @@
 package core.tools;
 
-// Define color constants
 const val BLACK = "<col=000000>"
 const val RED = "<col=ff0000>"
 const val ORANGE = "<col=ff6600>"
@@ -17,10 +16,8 @@ const val DARK_GREEN = "<col=007d0c>"
 const val DARK_BLUE = "<col=08088A>"
 const val DARK_PURPLE = "<col=734a75>"
 
-// Define regex pattern for hex color codes
 private val pattern = Regex("%[0-9a-fA-F]{6}")
 
-// Define test data
 private val testData = arrayOf(
     "This is a string with no colors.",
     "This %R is a string with one color.",
@@ -31,8 +28,8 @@ private val testData = arrayOf(
 /**
  * Colorize font util function.
  *
- * @param line the string.
- * @return colored text.
+ * @param line the string to be colorized.
+ * @return colored text with appropriate color codes.
  */
 fun colorize(line: String): String {
     return line
@@ -55,20 +52,20 @@ fun colorize(line: String): String {
 }
 
 /**
- * Colorize.
+ * Colorize with hex color.
  *
- * @param line the string.
- * @param hexColor the string.
- * @return hex replace with color for string.
+ * @param line the string to be colorized.
+ * @param hexColor the hex color code to apply.
+ * @return string with hex color applied.
  */
 fun colorize(line: String, hexColor: String): String {
     return line.prepend("<col=$hexColor>").append("</col>")
 }
 
 /**
- * Append
+ * Append a string.
  *
- * @param line the string.
+ * @param line the string to append.
  * @return the concatenated string.
  */
 fun String.append(line: String): String {
@@ -76,9 +73,9 @@ fun String.append(line: String): String {
 }
 
 /**
- * Prepend
+ * Prepend a string.
  *
- * @param line the string.
+ * @param line the string to prepend.
  * @return the concatenated string.
  */
 fun String.prepend(line: String): String {
@@ -86,7 +83,7 @@ fun String.prepend(line: String): String {
 }
 
 /**
- * Shuffle.
+ * Shuffle the characters in the string.
  *
  * @return the shuffled string.
  */
@@ -102,9 +99,9 @@ fun String.shuffle(): String {
 }
 
 /**
- * Prepend article.
+ * Prepend article to a noun.
  *
- * @param noun the string.
+ * @param noun the string to prepend an article to.
  * @return the string with the appropriate article.
  */
 fun prependArticle(noun: String): String {

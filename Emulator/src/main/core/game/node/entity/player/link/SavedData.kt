@@ -6,27 +6,22 @@ import java.nio.ByteBuffer
 /**
  * Represents a managing class of saved data related to ingame interactions,
  * such as questing data, npc talking data, etc.
- * @author Vexia
- *
  * @param player The player associated with this saved data.
  * @constructor Represents the saved data with the specified player.
  */
 class SavedData(val player: Player) {
 
     @JvmField
-    // Global data associated with the player.
     val globalData: GlobalData = GlobalData()
 
     @JvmField
-    // Activity data related to the player's activities.
     val activityData: ActivityData = ActivityData()
 
     @JvmField
-    // Quest data pertaining to the player's quests.
     val questData: QuestData = QuestData()
 
     companion object {
-        /*
+        /**
          * Method used to save an activity variable that isn't valued at default.
          *
          * @param buffer The ByteBuffer to save the data into.

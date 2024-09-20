@@ -1,8 +1,8 @@
 package content.region.misthalin.lumbridge.achievement
 
 import content.region.kandarin.ardougne.dialogue.TownCrierDialogue
-import content.global.skill.combat.magic.TeleportMethod
-import content.global.skill.combat.magic.spellconsts.Modern
+import content.global.skill.magic.TeleportMethod
+import content.global.skill.magic.spellconsts.Modern
 import content.region.misthalin.draynor.dialogue.WiseOldManDialogue
 import content.region.misthalin.lumbridge.dialogue.DoomsayerDialogue
 import content.region.misthalin.varrock.quest.dragon.dialogue.DukeHoracioDragonSlayerDialogue

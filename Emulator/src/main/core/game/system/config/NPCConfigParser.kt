@@ -61,7 +61,7 @@ class NPCConfigParser {
     var reader: FileReader? = null
 
     /**
-     * Load.
+     * Load door configurations from file.
      */
     fun load() {
         var count = 0
@@ -134,6 +134,7 @@ class NPCConfigParser {
             }
             count++
         }
+
         log(this::class.java, Log.FINE, "Parsed $count NPC configurations.")
     }
 }

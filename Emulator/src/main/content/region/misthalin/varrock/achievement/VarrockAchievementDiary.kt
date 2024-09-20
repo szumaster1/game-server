@@ -1,6 +1,6 @@
 package content.region.misthalin.varrock.achievement
 
-import content.global.skill.combat.magic.TeleportMethod
+import content.global.skill.magic.TeleportMethod
 import content.global.skill.prayer.Bones
 import content.global.travel.canoe.CanoeListeners
 import content.global.travel.FairyRing

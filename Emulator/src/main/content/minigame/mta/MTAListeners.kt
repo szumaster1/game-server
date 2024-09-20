@@ -1,7 +1,7 @@
 package content.minigame.mta
 
 import content.global.skill.magic.SpellListener
-import content.global.skill.combat.magic.spellconsts.Modern
+import content.global.skill.magic.spellconsts.Modern
 import content.minigame.mta.impl.AlchemistZone
 import org.rs.consts.Animations
 import org.rs.consts.Items

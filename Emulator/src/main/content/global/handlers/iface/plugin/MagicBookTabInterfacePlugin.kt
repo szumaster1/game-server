@@ -1,8 +1,8 @@
 package content.global.handlers.iface.plugin
 
 import content.global.skill.magic.SpellListener
-import content.global.skill.combat.magic.SpellListeners
-import content.global.skill.combat.magic.SpellUtils
+import content.global.skill.magic.SpellListeners
+import content.global.skill.magic.SpellUtils
 import org.rs.consts.Components
 import core.api.getAttribute
 import core.game.component.Component

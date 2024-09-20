@@ -20,7 +20,7 @@ class QuestCommandSet : CommandSet(Privilege.ADMIN) {
          * Completes all implemented quests.
          */
 
-        define("allquest") { player, _ ->
+        define(name = "allquest") { player, _ ->
             for (quest in QuestRepository.getQuests().values) {
                 quest.finish(player)
             }
@@ -30,7 +30,7 @@ class QuestCommandSet : CommandSet(Privilege.ADMIN) {
          * Displays the currently implemented quests with debug information.
          */
 
-        define("quest") { player, args ->
+        define(name = "quest") { player, args ->
             if (args.size < 3) {
                 val lookupP = if (args.size == 1) {
                     player
@@ -50,7 +50,7 @@ class QuestCommandSet : CommandSet(Privilege.ADMIN) {
          * Sets stage of quest.
          */
 
-        define("setqueststage") { player, args ->
+        define(name = "setqueststage") { player, args ->
             if (args.size < 3) {
                 reject(player, "You must specify the index# of a quest, and a stage number!")
             }
@@ -74,7 +74,7 @@ class QuestCommandSet : CommandSet(Privilege.ADMIN) {
          * Displays the currently implemented quests.
          */
 
-        define("quests", Privilege.STANDARD) { player, _ ->
+        define(name = "quests", privilege = Privilege.STANDARD) { player, _ ->
             sendQuests(player)
         }
     }
@@ -93,10 +93,7 @@ class QuestCommandSet : CommandSet(Privilege.ADMIN) {
         sendString(player, "<col=ecf0f1>" + "Available Quests" + "</col>", 275, 2)
         for (q in QuestRepository.getQuests().toSortedMap().values) {
             // Add a space to beginning and end of string for the strikethrough
-            sendString(
-                player,
-                "<col=ecf0f1>" + (if (q.isCompleted(player)) "<str> " else "") + q.name + " ", 275, lineId++
-            )
+            sendString(player, "<col=ecf0f1>" + (if (q.isCompleted(player)) "<str> " else "") + q.name + " ", 275, lineId++)
         }
     }
 
@@ -120,14 +117,7 @@ class QuestCommandSet : CommandSet(Privilege.ADMIN) {
                 else -> "ff0000"
             }
             sendString(admin, "<col=ecf0f1>${q.name}</col>", 275, lineId++)
-            sendString(
-                admin,
-                "<col=ecf0f1>Index: </col><col=ff1f1f><shad=2>${q.index}</shad></col> | <col=ecf0f1>Stage:</col> <col=$statusColor><shad=2>${
-                    lookupUser.questRepository.getStage(q)
-                }</shad></col>",
-                275,
-                lineId++
-            )
+            sendString(admin, "<col=ecf0f1>Index: </col><col=ff1f1f><shad=2>${q.index}</shad></col> | <col=ecf0f1>Stage:</col> <col=$statusColor><shad=2>${lookupUser.questRepository.getStage(q)}</shad></col>", 275, lineId++)
             sendString(admin, "<str>          ", 275, lineId++)
         }
     }

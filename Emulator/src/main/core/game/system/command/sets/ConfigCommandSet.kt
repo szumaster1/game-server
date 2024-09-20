@@ -15,7 +15,7 @@ class ConfigCommandSet : CommandSet(Privilege.ADMIN) {
          * Sets a range of configs to a maximum value.
          */
 
-        define("sconfigrange") { player, args ->
+        define(name = "sconfigrange") { player, args ->
             if (args.size < 3) {
                 reject(player, "usage: sconfigrange idlo idhi")
             }
@@ -31,7 +31,7 @@ class ConfigCommandSet : CommandSet(Privilege.ADMIN) {
          * Sets a range of configs to 0.
          */
 
-        define("sconfigrange0") { player, args ->
+        define(name = "sconfigrange0") { player, args ->
             if (args.size < 3) {
                 reject(player, "usage: sconfigrange0 idlo idhi")
             }
@@ -47,12 +47,7 @@ class ConfigCommandSet : CommandSet(Privilege.ADMIN) {
          * Opens an interface component.
          */
 
-        define(
-            "iface",
-            Privilege.ADMIN,
-            "::iface <lt>Interface ID<gt>",
-            "Opens the interface with the given ID."
-        ) { player, args ->
+        define(name = "iface", privilege = Privilege.ADMIN, usage = "::iface <lt>Interface ID<gt>", description = "Opens the interface with the given ID.") { player, args ->
             if (args.size < 2) {
                 reject(player, "usage: iface id")
                 return@define

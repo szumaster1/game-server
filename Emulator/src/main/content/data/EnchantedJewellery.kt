@@ -1,7 +1,7 @@
 package content.data
 
-import content.global.skill.combat.magic.TeleportMethod
-import content.global.skill.support.slayer.SlayerManager.Companion.getInstance
+import content.global.skill.magic.TeleportMethod
+import content.global.skill.slayer.SlayerManager
 import core.Configuration
 import core.api.*
 import org.rs.consts.Items
@@ -137,7 +137,7 @@ enum class EnchantedJewellery(val options: Array<String>, val locations: Array<L
     }
 
     private fun slayerProgressDialogue(player: Player) {
-        val slayerManager = getInstance(player)
+        val slayerManager = SlayerManager.Companion.getInstance(player)
         if (!slayerManager.hasTask()) {
             sendNPCDialogue(player, slayerManager.master!!.npc, "You need something new to hunt. Come and " + "see me when you can and I'll give you a new task.", FacialExpression.HALF_GUILTY)
             return

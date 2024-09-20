@@ -1,6 +1,6 @@
 package content.global.skill.slayer.dungeon;
 
-import content.global.skill.support.slayer.SlayerEquipmentFlags;
+import content.global.skill.slayer.SlayerEquipmentFlags;
 import core.cache.def.impl.SceneryDefinition;
 import core.game.component.Component;
 import core.game.interaction.OptionHandler;

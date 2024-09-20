@@ -25,7 +25,7 @@ class RangedConfigLoader {
     var reader: FileReader? = null
 
     /**
-     * Load.
+     * Load door configurations from file.
      */
     fun load() {
         var count = 0
@@ -90,6 +90,7 @@ class RangedConfigLoader {
             RangeWeapon.getRangeWeapons().putIfAbsent(weapon.itemId, weapon)
             count++
         }
+
         log(this::class.java, Log.FINE, "Parsed $count ranged weapon configs...")
     }
 }

@@ -11,12 +11,7 @@ import core.game.system.command.Privilege
 class InterfaceCommandSet : Commands {
     override fun defineCommands() {
 
-        define(
-            name = "iftriggers",
-            privilege = Privilege.ADMIN,
-            usage = "::iftriggers <lt>id<gt>",
-            description = "Lists all known triggers for the given interface."
-        ) { player, args ->
+        define(name = "iftriggers", privilege = Privilege.ADMIN, usage = "::iftriggers <lt>id<gt>", description = "Lists all known triggers for the given interface.") { player, args ->
             val id = args.getOrNull(1)?.toIntOrNull() ?: -1
             if (id == -1) reject(player, "Must supply a valid interface ID!")
 
@@ -56,12 +51,7 @@ class InterfaceCommandSet : Commands {
             }
         }
 
-        define(
-            name = "listiftext",
-            privilege = Privilege.ADMIN,
-            usage = "::listiftext <lt>id<gt>",
-            description = "Prints all text values and their child index on an interface."
-        ) { player, args ->
+        define(name = "listiftext", privilege = Privilege.ADMIN, usage = "::listiftext <lt>id<gt>", description = "Prints all text values and their child index on an interface.") { player, args ->
             val id = args.getOrNull(1)?.toIntOrNull() ?: -1
             if (id == -1) reject(player, "Must supply a valid interface ID!")
 
@@ -74,12 +64,7 @@ class InterfaceCommandSet : Commands {
             }
         }
 
-        define(
-            name = "listifmodels",
-            privilege = Privilege.ADMIN,
-            usage = "::listifmodels <lt>id<gt>",
-            description = "Prints all default model values and their child index."
-        ) { player, args ->
+        define(name = "listifmodels", privilege = Privilege.ADMIN, usage = "::listifmodels <lt>id<gt>", description = "Prints all default model values and their child index.") { player, args ->
             val id = args.getOrNull(1)?.toIntOrNull() ?: -1
             if (id == -1) reject(player, "Must supply a valid interface ID!")
 

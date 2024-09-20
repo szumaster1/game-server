@@ -1,6 +1,6 @@
 package core.game.dialogue;
 
-import content.global.skill.support.slayer.SlayerManager;
+import content.global.skill.slayer.SlayerManager;
 import core.cache.def.impl.ItemDefinition;
 import core.game.interaction.OptionHandler;
 import core.game.node.Node;

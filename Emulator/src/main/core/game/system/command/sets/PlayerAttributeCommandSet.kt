@@ -14,8 +14,8 @@ import core.plugin.Initializable
 class PlayerAttributeCommandSet : CommandSet(Privilege.ADMIN) {
 
     /*
-        Author: Oven Bread (https://gitlab.com/ovenbreado)
-    */
+     * Author: Oven Bread (https://gitlab.com/ovenbreado)
+     */
 
     override fun defineCommands() {
 
@@ -23,7 +23,7 @@ class PlayerAttributeCommandSet : CommandSet(Privilege.ADMIN) {
          * Gets the value of an attribute on a player.
          */
 
-        define("getattribute") { player, args ->
+        define(name = "getattribute") { player, args ->
             if (args.size < 2) {
                 reject(player, "Usage ::getattribute [playername] attributename")
             }
@@ -46,10 +46,7 @@ class PlayerAttributeCommandSet : CommandSet(Privilege.ADMIN) {
                 return@define
             }
 
-            notify(
-                player,
-                "Attribute: " + attributeName + " Value: " + getAttribute(queryPlayer, attributeName, "").toString()
-            )
+            notify(player, "Attribute: " + attributeName + " Value: " + getAttribute(queryPlayer, attributeName, "").toString())
             return@define
         }
 
@@ -57,7 +54,7 @@ class PlayerAttributeCommandSet : CommandSet(Privilege.ADMIN) {
          * Sets the value of an attribute on a player.
          */
 
-        define("setattribute") { player, args ->
+        define(name = "setattribute") { player, args ->
             if (args.size < 2) {
                 reject(player, "Usage ::setattribute [playername] attributename value")
             }

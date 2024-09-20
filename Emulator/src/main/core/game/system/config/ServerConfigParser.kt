@@ -111,12 +111,7 @@ object ServerConfigParser {
         Configuration.DATABASE_PASS = data.getString("database.database_password")
         Configuration.DATABASE_ADDRESS = data.getString("database.database_address")
         Configuration.DATABASE_PORT = data.getString("database.database_port")
-        Configuration.DATABASE = Database(
-            Configuration.DATABASE_ADDRESS + ":" + Configuration.DATABASE_PORT,
-            Configuration.DATABASE_NAME,
-            Configuration.DATABASE_USER,
-            Configuration.DATABASE_PASS
-        )
+        Configuration.DATABASE = Database(Configuration.DATABASE_ADDRESS + ":" + Configuration.DATABASE_PORT, Configuration.DATABASE_NAME, Configuration.DATABASE_USER, Configuration.DATABASE_PASS)
         Configuration.CACHE_PATH = data.getPath("paths.cache_path")
         Configuration.CONFIG_PATH = data.getPath("paths.configs_path")
         Configuration.PLAYER_SAVE_PATH = data.getPath("paths.save_path")
@@ -205,10 +200,8 @@ object ServerConfigParser {
      */
     fun parsePath(pathString: String): String {
         var pathTokens: List<String>? = null
-        if (pathString.contains("/"))
-            pathTokens = pathString.split("/")
-        else if (pathString.contains("\\"))
-            pathTokens = pathString.split("\\")
+        if (pathString.contains("/")) pathTokens = pathString.split("/")
+        else if (pathString.contains("\\")) pathTokens = pathString.split("\\")
 
         pathTokens ?: return pathString //return the initial pathString if path does not contain file separators.
         var pathProduct = ""

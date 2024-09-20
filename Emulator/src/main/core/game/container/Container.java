@@ -712,8 +712,7 @@ public class Container {
     /**
      * Checks if the containers contains at least ONE item.
      *
-     * @param itemId
-     * @return
+     * @param itemId The item id.
      */
     public boolean containsAtLeastOneItem(int itemId) {
         for (Item item : items) {
@@ -727,7 +726,7 @@ public class Container {
     /**
      * Checks if the containers contains AT LEAST ONE item from a list of items.
      *
-     * @param itemIds
+     * @param itemIds the item ids.
      * @return true if at least one item from list of IDs is in the container
      */
     public boolean containsAtLeastOneItem(int[] itemIds) {
@@ -1007,7 +1006,7 @@ public class Container {
      * Shifts the elements in the <b>Container</b> to the appropriate position.
      */
     public void shift() {
-        final Item itemss[] = items;
+        final Item[] itemss = items;
         clear(false);
         for (Item item : itemss) {
             if (item == null) {

@@ -15,6 +15,7 @@ class XteaParser {
     companion object {
         val REGION_XTEA = HashMap<Int, IntArray>()
         val DEFAULT_REGION_KEYS = intArrayOf(14881828, -6662814, 58238456, 146761213)
+
         fun getRegionXTEA(regionId: Int): IntArray? {
             /*
              * Uses the xtea's from the sql to unlock regions.
@@ -33,9 +34,8 @@ class XteaParser {
     val parser = JSONParser()
     var reader: FileReader? = null
 
-
     /**
-     * Load.
+     * Load door configurations from file.
      */
     fun load() {
         var count = 0
@@ -49,6 +49,7 @@ class XteaParser {
             REGION_XTEA[id] = intArrayOf(keys[0], keys[1], keys[2], keys[3])
             count++
         }
+
         log(this::class.java, Log.FINE, "Parsed $count region keys.")
     }
 }

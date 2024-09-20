@@ -1,6 +1,6 @@
 package content.global.skill.farming
 
-import content.global.skill.combat.summoning.familiar.npc.GiantEntNPC
+import content.global.skill.summoning.familiar.npc.GiantEntNPC
 import core.api.*
 import org.rs.consts.Items
 import org.rs.consts.Sounds

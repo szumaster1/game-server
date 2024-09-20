@@ -1,8 +1,8 @@
 package content.global.skill.magic.modern
 
-import content.global.skill.combat.magic.SpellUtils.hasRune
-import content.global.skill.combat.magic.TeleportMethod
-import content.global.skill.combat.magic.spellconsts.Modern
+import content.global.skill.magic.SpellUtils.hasRune
+import content.global.skill.magic.TeleportMethod
+import content.global.skill.magic.spellconsts.Modern
 import content.global.skill.prayer.Bones
 import content.global.skill.smithing.smelting.Bar
 import content.global.skill.smithing.smelting.SmeltingPulse

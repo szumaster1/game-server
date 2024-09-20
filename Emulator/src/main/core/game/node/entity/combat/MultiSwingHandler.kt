@@ -48,11 +48,7 @@ open class MultiSwingHandler(meleeDistance: Boolean, vararg attacks: SwitchAttac
 
     override fun swing(entity: Entity?, victim: Entity?, state: BattleState?): Int {
         current = next
-        if (isMeleeDistance && current.style == CombatStyle.MELEE && CombatStyle.MELEE.swingHandler.canSwing(
-                entity!!,
-                victim!!
-            ) != InteractionType.STILL_INTERACT
-        ) {
+        if (isMeleeDistance && current.style == CombatStyle.MELEE && CombatStyle.MELEE.swingHandler.canSwing(entity!!, victim!!) != InteractionType.STILL_INTERACT) {
             for (attack in attacks) {
                 if (attack.style != CombatStyle.MELEE) {
                     current = attack
@@ -91,13 +87,7 @@ open class MultiSwingHandler(meleeDistance: Boolean, vararg attacks: SwitchAttac
         }
         entity.visualize(current.animation, current.startGraphic)
         if (current.projectile != null) {
-            current.projectile!!.transform(
-                entity,
-                victim,
-                entity is NPC,
-                46,
-                if (current.style == CombatStyle.MAGIC) 10 else 5
-            ).send()
+            current.projectile!!.transform(entity, victim, entity is NPC, 46, if (current.style == CombatStyle.MAGIC) 10 else 5).send()
         }
     }
 
@@ -160,25 +150,10 @@ open class MultiSwingHandler(meleeDistance: Boolean, vararg attacks: SwitchAttac
         return current.handler!!.getSetMultiplier(e, skillId)
     }
 
-    /**
-     * Can select
-     *
-     * @param attack
-     * @return
-     */
     fun canSelect(attack: SwitchAttack?): Boolean {
         return true
     }
 
-    /**
-     * Get next
-     *
-     * @param entity
-     * @param victim
-     * @param state
-     * @param index
-     * @return
-     */
     fun getNext(entity: Entity?, victim: Entity?, state: BattleState?, index: Int): SwitchAttack {
         var index = index
         var pick = attacks[index]
@@ -191,8 +166,7 @@ open class MultiSwingHandler(meleeDistance: Boolean, vararg attacks: SwitchAttac
 
     /**
      * Constructs a new `MultiSwingHandler` `Object`.
-     * @param meleeDistance If the entity has to be in melee distance to switch
-     * to melee.
+     * @param meleeDistance If the entity has to be in melee distance to switch to melee.
      * @param attacks The available attacks.
      */
     init {

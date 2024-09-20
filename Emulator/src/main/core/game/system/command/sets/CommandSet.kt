@@ -51,21 +51,7 @@ abstract class CommandSet(val defaultPrivilege: Privilege) : Plugin<Any?> {
      * @param name the name of the command. Example: ::example would be just "example"
      * @param privilege (optional) privilege override from the set default.
      */
-    fun define(
-        name: String,
-        privilege: Privilege = defaultPrivilege,
-        usage: String = "",
-        description: String = "",
-        handle: (Player, Array<String>) -> Unit
-    ) {
-        CommandMapping.register(
-            Command(
-                name = name,
-                privilege = privilege,
-                usage = usage,
-                description = description,
-                handle = handle
-            )
-        )
+    fun define(name: String, privilege: Privilege = defaultPrivilege, usage: String = "", description: String = "", handle: (Player, Array<String>) -> Unit) {
+        CommandMapping.register(Command(name = name, privilege = privilege, usage = usage, description = description, handle = handle))
     }
 }

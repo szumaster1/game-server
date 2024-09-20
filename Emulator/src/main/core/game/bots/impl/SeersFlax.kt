@@ -1,7 +1,7 @@
 package core.game.bots.impl
 
-import content.global.skill.production.crafting.data.Spinning
-import content.global.skill.production.crafting.item.SpinningPulse
+import content.global.skill.crafting.Spinning
+import content.global.skill.crafting.SpinningPulse
 import core.game.bots.Script
 import core.game.bots.SkillingBotAssembler
 import core.game.interaction.DestinationFlag
@@ -61,14 +61,7 @@ class SeersFlax : Script() {
             }
 
             State.SPINNING -> {
-                bot!!.pulseManager.run(
-                    SpinningPulse(
-                        bot!!,
-                        Item(Items.FLAX_1779),
-                        bot!!.inventory.getAmount(Items.FLAX_1779),
-                        Spinning.FLAX
-                    )
-                )
+                bot!!.pulseManager.run(SpinningPulse(bot!!, Item(Items.FLAX_1779), bot!!.inventory.getAmount(Items.FLAX_1779), Spinning.FLAX))
                 state = State.FIND_BANK
             }
 

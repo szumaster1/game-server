@@ -6,15 +6,11 @@ package core.game.node.entity.player.link.audio
  */
 class Audio
 @JvmOverloads
-constructor(
-    @JvmField val id: Int,
-    @JvmField val delay: Int = 0,
-    @JvmField val loops: Int = 1,
-    @JvmField val radius: Int = defaultAudioRadius
-) {
+constructor(@JvmField val id: Int, @JvmField val delay: Int = 0, @JvmField val loops: Int = 1, @JvmField val radius: Int = defaultAudioRadius) {
+
     companion object {
         /**
-         * ----Audio Radius Constants----
+         * Audio Radius Constants
          * Values which represent the tile distance/radius from which certain groups of audio can be heard from
          * Certain sounds can be heard from a further distance than others
          * This is a common place where audio distances can be adjusted if needed

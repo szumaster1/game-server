@@ -43,7 +43,7 @@ class LawCrafter : Script() {
 
         when (state) {
             State.INIT -> {
-                if (!bot!!.equipment.containsAtLeastOneItem(Items.LAW_TIARA_5545) || !ItemDefinition.canEnterEntrana(bot)) {
+                if (!bot!!.equipment.containsAtLeastOneItem(Items.LAW_TIARA_5545) || !ItemDefinition.canEnterEntrana(bot!!)) {
                     bot!!.sendMessage("Please equip a law tiara first.")
                     bot!!.sendMessage("AND REMOVE ALL WEAPONS AND ARMOR.")
                     state = State.INVALID
@@ -84,7 +84,7 @@ class LawCrafter : Script() {
                 var boatGuy = scriptAPI!!.getNearestNode(2729, false)
                 if (boatGuy != null) {
                     if (boatGuy.location.withinDistance(bot!!.location, 2)) {
-                        if (ItemDefinition.canEnterEntrana(bot)) {
+                        if (ItemDefinition.canEnterEntrana(bot!!)) {
                             endDialogue = false
                             Ship.PORT_SARIM_TO_ENTRANA.sail(bot!!)
                             state = State.CROSS_GANGPLANK

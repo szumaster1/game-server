@@ -56,9 +56,6 @@ public enum CommandSet {
     private final List<CommandPlugin> plugins = new ArrayList<>(20);
 
     private CommandSet() {
-        /*
-         * empty.
-         */
     }
 
     /**
@@ -76,7 +73,7 @@ public enum CommandSet {
      * @param player    the player.
      * @param name      the name.
      * @param arguments the arguments.
-     * @return <code>True</code> if the command was interpreted.
+     * @return `true` if the command was interpreted.
      */
     public boolean interpret(final Player player, final String name, final String... arguments) {
         if (player == null) {

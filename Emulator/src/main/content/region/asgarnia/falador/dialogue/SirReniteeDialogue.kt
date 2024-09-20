@@ -1,6 +1,6 @@
 package content.region.asgarnia.falador.dialogue
 
-import content.global.skill.support.construction.CrestType
+import content.global.skill.construction.CrestType
 import core.Configuration
 import core.Util
 import core.api.*

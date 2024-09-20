@@ -1,7 +1,7 @@
 package core.game.node.entity.npc;
 
 import content.global.skill.summoning.familiar.Familiar;
-import content.global.skill.combat.summoning.pet.Pets;
+import content.global.skill.summoning.pet.Pets;
 import core.cache.def.impl.NPCDefinition;
 import core.game.dialogue.Dialogue;
 import core.game.interaction.OptionHandler;

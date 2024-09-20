@@ -44,12 +44,7 @@ class DevelopmentCommandSet : CommandSet(Privilege.ADMIN) {
          * Provides a command that allows you to buy a house.
          */
 
-        define(
-            name = "buyhouse",
-            privilege = Privilege.ADMIN,
-            usage = "::buyhouse",
-            description = "Allows you to buy house."
-        ) { player, _ ->
+        define(name = "buyhouse", privilege = Privilege.ADMIN, usage = "::buyhouse", description = "Allows you to buy house.") { player, _ ->
             player.houseManager.createNewHouseAt(content.global.skill.construction.HouseLocation.RIMMINGTON)
             sendMessage(player, RED + "The house has been bought.")
         }
@@ -57,12 +52,8 @@ class DevelopmentCommandSet : CommandSet(Privilege.ADMIN) {
         /*
          * Provides a set of talisman items.
          */
-        define(
-            name = "talismans",
-            privilege = Privilege.ADMIN,
-            usage = "::talismans",
-            description = "Provides a set of talisman items"
-        ) { player, _ ->
+
+        define(name = "talismans", privilege = Privilege.ADMIN, usage = "::talismans", description = "Provides a set of talisman items") { player, _ ->
             for (item in talismanKitItems) {
                 player.inventory.add(Item(item))
             }
@@ -72,12 +63,7 @@ class DevelopmentCommandSet : CommandSet(Privilege.ADMIN) {
          * Provides a farming equipment.
          */
 
-        define(
-            name = "farmkit",
-            privilege = Privilege.ADMIN,
-            usage = "::farmkit",
-            description = "Provides a kit of various farming equipment."
-        ) { player, _ ->
+        define(name = "farmkit", privilege = Privilege.ADMIN, usage = "::farmkit", description = "Provides a kit of various farming equipment.") { player, _ ->
             for (item in farmKitItems) {
                 player.inventory.add(Item(item))
             }
@@ -87,12 +73,7 @@ class DevelopmentCommandSet : CommandSet(Privilege.ADMIN) {
          * Allows you to call arbitrary cs2 scripts during runtime.
          */
 
-        define(
-            name = "cs2",
-            privilege = Privilege.ADMIN,
-            usage = "::cs2 id args",
-            description = "Allows you to call arbitrary cs2 scripts during runtime"
-        ) { player, args ->
+        define(name = "cs2", privilege = Privilege.ADMIN, usage = "::cs2 id args", description = "Allows you to call arbitrary cs2 scripts during runtime") { player, args ->
             var scriptArgs = ArrayList<Any>()
             if (args.size == 2) {
                 runcs2(player, args[1].toIntOrNull() ?: return@define)
@@ -113,12 +94,7 @@ class DevelopmentCommandSet : CommandSet(Privilege.ADMIN) {
          * Clear all finished achievements diary.
          */
 
-        define(
-            name = "cleardiary",
-            privilege = Privilege.ADMIN,
-            usage = "::cleardiary",
-            description = "Clear all the achievements."
-        ) { player, _ ->
+        define(name = "cleardiary", privilege = Privilege.ADMIN, usage = "::cleardiary", description = "Clear all the achievements.") { player, _ ->
             for (type in DiaryType.values()) {
                 val diary = player.achievementDiaryManager.getDiary(type)
                 if (diary != null) {
@@ -136,12 +112,7 @@ class DevelopmentCommandSet : CommandSet(Privilege.ADMIN) {
          * Clear work-for task.
          */
 
-        define(
-            name = "clearjob",
-            privilege = Privilege.ADMIN,
-            usage = "::clearjob",
-            description = "Clear the actually job."
-        ) { player, _ ->
+        define(name = "clearjob", privilege = Privilege.ADMIN, usage = "::clearjob", description = "Clear the actually job.") { player, _ ->
             val playerJobManager = JobManager.getInstance(player)
             playerJobManager.job = null
             playerJobManager.jobAmount = -1
@@ -154,12 +125,7 @@ class DevelopmentCommandSet : CommandSet(Privilege.ADMIN) {
          * Prints current Region ID.
          */
 
-        define(
-            name = "region",
-            privilege = Privilege.STANDARD,
-            usage = "::region",
-            description = "Prints your current Region ID."
-        ) { player, _ ->
+        define(name = "region", privilege = Privilege.STANDARD, usage = "::region", description = "Prints your current Region ID.") { player, _ ->
             sendMessage(player, "Region ID: ${player.viewport.region.regionId}")
         }
 
@@ -167,12 +133,7 @@ class DevelopmentCommandSet : CommandSet(Privilege.ADMIN) {
          * Starts the Dragon slayer cutscene.
          */
 
-        define(
-            name = "dscut",
-            privilege = Privilege.ADMIN,
-            usage = "::dscut",
-            description = "Starts the Dragon slayer cutscene."
-        ) { player, _ ->
+        define(name = "dscut", privilege = Privilege.ADMIN, usage = "::dscut", description = "Starts the Dragon slayer cutscene.") { player, _ ->
             setQuestStage(player, "Dragon Slayer", 30)
             ActivityManager.start(player, "Dragon Slayer", false, player.location);
         }
@@ -181,12 +142,7 @@ class DevelopmentCommandSet : CommandSet(Privilege.ADMIN) {
          * Swaps your spellbook to the given book ID.
          */
 
-        define(
-            name = "spellbook",
-            privilege = Privilege.ADMIN,
-            usage = "::spellbook <lt>book ID<gt> (0 = MODERN, 1 = ANCIENTS, 2 = LUNARS)",
-            description = "Swaps your spellbook to the given book ID."
-        ) { player, args ->
+        define(name = "spellbook", privilege = Privilege.ADMIN, usage = "::spellbook <lt>book ID<gt> (0 = MODERN, 1 = ANCIENTS, 2 = LUNARS)", description = "Swaps your spellbook to the given book ID.") { player, args ->
             if (args.size < 2) {
                 reject(player, "Usage: ::spellbook [int]. 0 = MODERN, 1 = ANCIENTS, 2 = LUNARS")
             }
@@ -199,12 +155,7 @@ class DevelopmentCommandSet : CommandSet(Privilege.ADMIN) {
          * Kill character.
          */
 
-        define(
-            name = "killme",
-            privilege = Privilege.ADMIN,
-            usage = "::killme",
-            description = "Does exactly what it says on the tin."
-        ) { player, _ ->
+        define(name = "killme", privilege = Privilege.ADMIN, usage = "::killme", description = "Does exactly what it says on the tin.") { player, _ ->
             player.impactHandler.manualHit(player, player.skills.lifepoints, HitsplatType.NORMAL)
         }
 
@@ -226,12 +177,7 @@ class DevelopmentCommandSet : CommandSet(Privilege.ADMIN) {
          * Dumps all the cache structs to structs.txt
          */
 
-        define(
-            name = "dumpstructs",
-            privilege = Privilege.ADMIN,
-            usage = "::dumpstructs",
-            description = "Dumps all the cache structs to structs.txt"
-        ) { _, _ ->
+        define(name = "dumpstructs", privilege = Privilege.ADMIN, usage = "::dumpstructs", description = "Dumps all the cache structs to structs.txt") { _, _ ->
             val dump = File("structs.txt")
             val writer = BufferedWriter(FileWriter(dump))
             val index = Cache.getIndexes()[2]
@@ -253,12 +199,7 @@ class DevelopmentCommandSet : CommandSet(Privilege.ADMIN) {
          * Dumps all the cache data maps to datamaps.txt
          */
 
-        define(
-            name = "dumpdatamaps",
-            privilege = Privilege.ADMIN,
-            usage = "::dumpdatamaps",
-            description = "Dumps all the cache data maps to datamaps.txt"
-        ) { _, _ ->
+        define(name = "dumpdatamaps", privilege = Privilege.ADMIN, usage = "::dumpdatamaps", description = "Dumps all the cache data maps to datamaps.txt") { _, _ ->
             val index = Cache.getIndexes()[17]
             val containers = index.information.containersIndexes
 
@@ -285,12 +226,7 @@ class DevelopmentCommandSet : CommandSet(Privilege.ADMIN) {
          * Rolls the given NPC drop table AMOUNT times.
          */
 
-        define(
-            name = "rolldrops",
-            privilege = Privilege.ADMIN,
-            usage = "::rolldrops <lt>NPC ID<gt> <lt>AMOUNT<gt>",
-            description = "Rolls the given NPC drop table AMOUNT times."
-        ) { player: Player, args: Array<String> ->
+        define(name = "rolldrops", privilege = Privilege.ADMIN, usage = "::rolldrops <lt>NPC ID<gt> <lt>AMOUNT<gt>", description = "Rolls the given NPC drop table AMOUNT times.") { player: Player, args: Array<String> ->
             if (args.size < 2) {
                 reject(player, "Usage: ::rolldrops npcid amount")
             }
@@ -309,12 +245,7 @@ class DevelopmentCommandSet : CommandSet(Privilege.ADMIN) {
          * Lists all the varbits assigned to the given varp.
          */
 
-        define(
-            name = "varbits",
-            privilege = Privilege.ADMIN,
-            usage = "::varbits <lt>Varp ID<gt>",
-            description = "Lists all the varbits assigned to the given varp."
-        ) { player, args ->
+        define(name = "varbits", privilege = Privilege.ADMIN, usage = "::varbits <lt>Varp ID<gt>", description = "Lists all the varbits assigned to the given varp.") { player, args ->
             if (args.size < 2)
                 reject(player, "Usage: ::varbits varpIndex")
 
@@ -343,12 +274,7 @@ class DevelopmentCommandSet : CommandSet(Privilege.ADMIN) {
          * Provides a command to search the npc.
          */
 
-        define(
-            name = "npcsearch",
-            privilege = Privilege.STANDARD,
-            usage = "npcsearch name",
-            description = "Searches for NPCs that match the name either in main or children."
-        ) { player, strings ->
+        define(name = "npcsearch", privilege = Privilege.STANDARD, usage = "npcsearch name", description = "Searches for NPCs that match the name either in main or children.") { player, strings ->
             val name = strings.slice(1 until strings.size).joinToString(" ").lowercase()
             for (id in 0 until 9000) {
                 val def = NPCDefinition.forId(id)
@@ -384,12 +310,7 @@ class DevelopmentCommandSet : CommandSet(Privilege.ADMIN) {
          * Command to give the player 1000 of each Rune type.
          */
 
-        define(
-            name = "runekit",
-            privilege = Privilege.ADMIN,
-            usage = "",
-            description = "Gives 1k of each Rune type"
-        ) { player, _ ->
+        define(name = "runekit", privilege = Privilege.ADMIN, usage = "", description = "Gives 1k of each Rune type") { player, _ ->
             for (item in runeKitItems) {
                 addItem(player, item, 1000)
             }
@@ -399,12 +320,7 @@ class DevelopmentCommandSet : CommandSet(Privilege.ADMIN) {
          * Command to toggle the drawing of the chunk border.
          */
 
-        define(
-            name = "drawchunks",
-            privilege = Privilege.ADMIN,
-            usage = "",
-            description = "Draws the border of the chunk you're standing in"
-        ) { player, _ ->
+        define(name = "drawchunks", privilege = Privilege.ADMIN, usage = "", description = "Draws the border of the chunk you're standing in") { player, _ ->
             setAttribute(player, "chunkdraw", !getAttribute(player, "chunkdraw", false))
         }
 
@@ -412,12 +328,7 @@ class DevelopmentCommandSet : CommandSet(Privilege.ADMIN) {
          * Command to toggle the drawing of clipping flags.
          */
 
-        define(
-            name = "drawclipping",
-            privilege = Privilege.ADMIN,
-            usage = "",
-            description = "Draws the clipping flags of the region you're standing in"
-        ) { player, _ ->
+        define(name = "drawclipping", privilege = Privilege.ADMIN, usage = "", description = "Draws the clipping flags of the region you're standing in") { player, _ ->
             setAttribute(player, "clippingdraw", !getAttribute(player, "clippingdraw", false))
         }
 
@@ -425,12 +336,7 @@ class DevelopmentCommandSet : CommandSet(Privilege.ADMIN) {
          * Command to toggle the drawing of the region border.
          */
 
-        define(
-            name = "drawregions",
-            privilege = Privilege.ADMIN,
-            usage = "",
-            description = "Draws the border of the region you're standing in"
-        ) { player, _ ->
+        define(name = "drawregions", privilege = Privilege.ADMIN, usage = "", description = "Draws the border of the region you're standing in") { player, _ ->
             setAttribute(player, "regiondraw", !getAttribute(player, "regiondraw", false))
         }
 
@@ -438,12 +344,7 @@ class DevelopmentCommandSet : CommandSet(Privilege.ADMIN) {
          * Command to visualize the player's path.
          */
 
-        define(
-            name = "drawroute",
-            privilege = Privilege.ADMIN,
-            usage = "",
-            description = "Visualizes the path your player is taking"
-        ) { player, _ ->
+        define(name = "drawroute", privilege = Privilege.ADMIN, usage = "", description = "Visualizes the path your player is taking") { player, _ ->
             setAttribute(player, "routedraw", !getAttribute(player, "routedraw", false))
         }
 
@@ -451,12 +352,7 @@ class DevelopmentCommandSet : CommandSet(Privilege.ADMIN) {
          * Command to set the starting location for a movement feature.
          */
 
-        define(
-            name = "fmstart",
-            privilege = Privilege.ADMIN,
-            usage = "",
-            description = ""
-        ) { player, _ ->
+        define(name = "fmstart", privilege = Privilege.ADMIN, usage = "", description = "") { player, _ ->
             setAttribute(player, "fmstart", Location.create(player.location))
         }
 
@@ -464,12 +360,7 @@ class DevelopmentCommandSet : CommandSet(Privilege.ADMIN) {
          * Command to set the ending location for a movement feature.
          */
 
-        define(
-            name = "fmend",
-            privilege = Privilege.ADMIN,
-            usage = "",
-            description = ""
-        ) { player, _ ->
+        define(name = "fmend", privilege = Privilege.ADMIN, usage = "", description = "") { player, _ ->
             setAttribute(player, "fmend", Location.create(player.location))
         }
 
@@ -477,12 +368,7 @@ class DevelopmentCommandSet : CommandSet(Privilege.ADMIN) {
          * Command to set the speed for a movement feature.
          */
 
-        define(
-            name = "fmspeed",
-            privilege = Privilege.ADMIN,
-            usage = "",
-            description = ""
-        ) { player, args ->
+        define(name = "fmspeed", privilege = Privilege.ADMIN, usage = "", description = "") { player, args ->
             setAttribute(player, "fmspeed", args[1].toIntOrNull() ?: 10)
         }
 
@@ -490,12 +376,7 @@ class DevelopmentCommandSet : CommandSet(Privilege.ADMIN) {
          * Command to set the ending speed for a movement feature.
          */
 
-        define(
-            name = "fmspeedend",
-            privilege = Privilege.ADMIN,
-            usage = "",
-            description = ""
-        ) { player, args ->
+        define(name = "fmspeedend", privilege = Privilege.ADMIN, usage = "", description = "") { player, args ->
             setAttribute(player, "fmspeedend", args[1].toIntOrNull() ?: 10)
         }
 
@@ -503,12 +384,7 @@ class DevelopmentCommandSet : CommandSet(Privilege.ADMIN) {
          * Command to test the movement feature with specified parameters.
          */
 
-        define(
-            name = "testfm",
-            privilege = Privilege.ADMIN,
-            usage = "",
-            description = ""
-        ) { player, _ ->
+        define(name = "testfm", privilege = Privilege.ADMIN, usage = "", description = "") { player, _ ->
             val start = getAttribute(player, "fmstart", Location.create(player.location))
             val end = getAttribute(player, "fmend", Location.create(player.location))
             val speed = getAttribute(player, "fmspeed", 10)
@@ -521,12 +397,7 @@ class DevelopmentCommandSet : CommandSet(Privilege.ADMIN) {
          * Command to set the animation for the movement feature.
          */
 
-        define(
-            name = "fmanim",
-            privilege = Privilege.ADMIN,
-            usage = "",
-            description = ""
-        ) { player, args ->
+        define(name = "fmanim", privilege = Privilege.ADMIN, usage = "", description = "") { player, args ->
             setAttribute(player, "fmanim", args[1].toIntOrNull() ?: -1)
         }
 
@@ -534,12 +405,7 @@ class DevelopmentCommandSet : CommandSet(Privilege.ADMIN) {
          * Command to visualize the predicted intersection point with an NPC.
          */
 
-        define(
-            name = "drawintersect",
-            privilege = Privilege.ADMIN,
-            usage = "",
-            description = "Visualizes the predicted intersection point with an NPC"
-        ) { player, _ ->
+        define(name = "drawintersect", privilege = Privilege.ADMIN, usage = "", description = "Visualizes the predicted intersection point with an NPC") { player, _ ->
             setAttribute(player, "draw-intersect", !getAttribute(player, "draw-intersect", false))
         }
 
@@ -547,12 +413,7 @@ class DevelopmentCommandSet : CommandSet(Privilege.ADMIN) {
          * Command to visualize chathead animations from a specified ID.
          */
 
-        define(
-            name = "expression",
-            privilege = Privilege.ADMIN,
-            usage = "::expression id",
-            description = "Visualizes chathead animations from ID."
-        ) { player, args ->
+        define(name = "expression", privilege = Privilege.ADMIN, usage = "::expression id", description = "Visualizes chathead animations from ID.") { player, args ->
             if (args.size != 2)
                 reject(player, "Usage: ::expression id")
             val id = args[1].toIntOrNull() ?: 9804
@@ -563,12 +424,7 @@ class DevelopmentCommandSet : CommandSet(Privilege.ADMIN) {
          * Command to print out active timers for the player.
          */
 
-        define(
-            name = "timers",
-            privilege = Privilege.ADMIN,
-            usage = "::timers",
-            description = "Print out timers"
-        ) { player, _ ->
+        define(name = "timers", privilege = Privilege.ADMIN, usage = "::timers", description = "Print out timers") { player, _ ->
             player.sendMessage("Active timers:")
             for (timer in player.timers.activeTimers) {
                 player.sendMessage("  ${timer.identifier} ${timer.nextExecution}")
@@ -583,11 +439,7 @@ class DevelopmentCommandSet : CommandSet(Privilege.ADMIN) {
          * Command to open a specified overlay for the player.
          */
 
-        define(
-            name = "overlay",
-            privilege = Privilege.ADMIN,
-            usage = "::overlay <lt>Overlay ID<gt>"
-        ) { player, args ->
+        define(name = "overlay", privilege = Privilege.ADMIN, usage = "::overlay <lt>Overlay ID<gt>") { player, args ->
             val overlayInt = args[1].toInt()
             openOverlay(player, overlayInt)
         }
@@ -596,11 +448,7 @@ class DevelopmentCommandSet : CommandSet(Privilege.ADMIN) {
          * Command to open a specified interface for the player.
          */
 
-        define(
-            name = "interface",
-            privilege = Privilege.ADMIN,
-            usage = "::interface <lt>Interface ID<gt>"
-        ) { player, args ->
+        define(name = "interface", privilege = Privilege.ADMIN, usage = "::interface <lt>Interface ID<gt>") { player, args ->
             val interfaceInt = args[1].toInt()
             openInterface(player, interfaceInt)
         }
@@ -609,12 +457,7 @@ class DevelopmentCommandSet : CommandSet(Privilege.ADMIN) {
          * Command to set the Tai Bwo Wannai cleanup points.
          */
 
-        define(
-            name = "set_tbwfp",
-            privilege = Privilege.ADMIN,
-            usage = "::set_tbwfp <lt>Points<gt>",
-            description = "Changes your TBW cleanup points to the input number (1000=100%)."
-        ) { player: Player, args: Array<String> ->
+        define(name = "set_tbwfp", privilege = Privilege.ADMIN, usage = "::set_tbwfp <lt>Points<gt>", description = "Changes your TBW cleanup points to the input number (1000=100%).") { player: Player, args: Array<String> ->
             if (args.size != 2) {
                 reject(player, "Usage: ::set_tbwfp favourPercentage")
             }
@@ -628,12 +471,7 @@ class DevelopmentCommandSet : CommandSet(Privilege.ADMIN) {
          * Command to get the current Tai Bwo Wannai cleanup points.
          */
 
-        define(
-            name = "get_tbwfp",
-            privilege = Privilege.ADMIN,
-            usage = "::get_tbwfp",
-            description = "Prints your current TBW cleanup points."
-        ) { player: Player, _: Array<String> ->
+        define(name = "get_tbwfp", privilege = Privilege.ADMIN, usage = "::get_tbwfp", description = "Prints your current TBW cleanup points.") { player: Player, _: Array<String> ->
             sendMessage(
                 player,
                 "You have ${player.getAttribute("/save:tbwcleanup", 0).toDouble() / 10}% Tai Bwo Wannai Favour."
@@ -644,12 +482,7 @@ class DevelopmentCommandSet : CommandSet(Privilege.ADMIN) {
          * Command to change the chance of an event triggering when hacking a jungle plant.
          */
 
-        define(
-            name = "tbwceventodds",
-            privilege = Privilege.ADMIN,
-            usage = "::tbwceventodds <lt>Chance<gt>",
-            description = "Changes the chance of an event triggering when hacking a jungle plant.<br>Chance per tick is input_value / 1000. (Realistic is around 15"
-        ) { player: Player, args: Array<String> ->
+        define(name = "tbwceventodds", privilege = Privilege.ADMIN, usage = "::tbwceventodds <lt>Chance<gt>", description = "Changes the chance of an event triggering when hacking a jungle plant.<br>Chance per tick is input_value / 1000. (Realistic is around 15") { player: Player, args: Array<String> ->
             if (args.size != 2) {
                 reject(player, "Usage: ::tbwceventodds chance")
             }

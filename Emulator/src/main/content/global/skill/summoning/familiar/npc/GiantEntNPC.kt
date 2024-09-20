@@ -1,7 +1,7 @@
 package content.global.skill.summoning.familiar.npc
 
-import content.global.skill.gather.farming.FarmingPatch
-import content.global.skill.gather.farming.PatchType
+import content.global.skill.farming.FarmingPatch
+import content.global.skill.farming.PatchType
 import core.game.interaction.NodeUsageEvent
 import core.game.interaction.UseWithHandler
 import core.game.node.entity.combat.equipment.WeaponInterface

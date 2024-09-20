@@ -1,6 +1,6 @@
 package content.global.skill.summoning.familiar.npc
 
-import content.global.skill.gather.farming.FarmingPatch.Companion.forObject
+import content.global.skill.farming.FarmingPatch
 import core.game.node.entity.combat.equipment.WeaponInterface
 import core.game.node.entity.player.Player
 import core.game.node.scenery.Scenery
@@ -21,7 +21,7 @@ class HydraNPC @JvmOverloads constructor(owner: Player? = null, id: Int = NPCs.H
     override fun specialMove(special: content.global.skill.summoning.familiar.FamiliarSpecial): Boolean {
         val node = special.node
         if (node is Scenery) {
-            val farmingPatch = forObject(node)
+            val farmingPatch = FarmingPatch.forObject(node)
             if (farmingPatch != null) {
                 val patch = farmingPatch.getPatchFor(owner)
                 patch.regrowIfTreeStump()

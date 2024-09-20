@@ -21,7 +21,7 @@ class DropTableParser {
     var reader: FileReader? = null
 
     /**
-     * Load.
+     * Load door configurations from file.
      */
     fun load() {
         var count = 0
@@ -54,16 +54,11 @@ class DropTableParser {
                 )
             }
         }
+
         log(this::class.java, Log.FINE, "Parsed $count drop tables.")
     }
 
-    private fun parseTable(
-        data: JSONArray,
-        destTable: NPCDropTable,
-        isAlways: Boolean,
-        isTertiary: Boolean = false,
-        isCharms: Boolean = false
-    ) {
+    private fun parseTable(data: JSONArray, destTable: NPCDropTable, isAlways: Boolean, isTertiary: Boolean = false, isCharms: Boolean = false) {
         for (it in data) {
             val item = it as JSONObject
             val id = item["id"].toString().toInt()

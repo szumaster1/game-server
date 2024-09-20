@@ -1,6 +1,6 @@
 package content.global.skill.hunter.implings
 
-import content.global.skill.combat.magic.spellconsts.Modern
+import content.global.skill.magic.spellconsts.Modern
 import core.api.log
 import core.api.sendChat
 import core.api.sendGraphics

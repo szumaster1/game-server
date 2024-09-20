@@ -69,8 +69,7 @@ class BlastFurnaceOreContainerTests {
             ),
             Data ( //edge case - 18 silver and 10 runite with 58 coal produces 18 silver bars and 10 runite bars with 18 coal remaining
                 58, arrayOf(Pair(Items.SILVER_ORE_442, 18), Pair(Items.RUNITE_ORE_451, 10)),
-                arrayOf(Pair(Items.SILVER_ORE_442, 0), Pair(Items.RUNITE_ORE_451, 0)), 18, arrayOf(Pair(Bar.SILVER, 18), Pair(
-                    Bar.RUNITE, 10))
+                arrayOf(Pair(Items.SILVER_ORE_442, 0), Pair(Items.RUNITE_ORE_451, 0)), 18, arrayOf(Pair(Bar.SILVER, 18), Pair(Bar.RUNITE, 10))
             ),
             Data ( //edge case - only 20 coal but 10 runite (half of what's needed) produces 5 runite bars, with 5 runite ore and 0 coal remaining.
                 20, arrayOf(Pair(Items.RUNITE_ORE_451, 10)),

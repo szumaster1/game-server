@@ -1,6 +1,6 @@
 package content.minigame.puropuro.dialogue
 
-import content.global.skill.gather.hunter.bnet.BNetTypes
+import content.global.skill.hunter.bnet.BNetTypes
 import core.api.removeAttribute
 import core.api.setAttribute
 import core.api.setVarp

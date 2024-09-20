@@ -17,6 +17,7 @@ import java.io.FileReader
  * Music config loader.
  */
 class MusicConfigLoader {
+
     //1351 -> buttonID:songID
     //1345 -> buttonID:songName (capitalized)
     //1347 -> buttonID:songName (lowercase)
@@ -25,7 +26,7 @@ class MusicConfigLoader {
     var reader: FileReader? = null
 
     /**
-     * Load.
+     * Load door configurations from file.
      */
     fun load() {
         var count = 0
@@ -74,6 +75,7 @@ class MusicConfigLoader {
             }
             count++
         }
+
         log(this::class.java, Log.FINE, "Parsed $count music configs.")
     }
 }

@@ -3,7 +3,7 @@ package core.tools
 import kotlin.random.Random
 
 /**
- * A utility class for generating random numbers.
+ * A utility object for generating random numbers.
  */
 object RandomUtils {
 
@@ -31,8 +31,7 @@ object RandomUtils {
 
     /**
      * Generates a random double between 0.0 (inclusive) and 1.0 (exclusive).
-     * @param random The random number generator to use.
-     * @return A random double.
+     * @return A random double between 0.0 and 1.0.
      */
     fun randomDouble(random: Random): Double {
         return random.nextDouble()

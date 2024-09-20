@@ -1,6 +1,6 @@
 package content.global.skill.farming
 
-import content.global.skill.gather.farming.timers.CropGrowth
+import content.global.skill.farming.timers.CropGrowth
 import core.api.getOrStartTimer
 import core.cache.def.impl.SceneryDefinition
 import core.game.node.entity.player.Player

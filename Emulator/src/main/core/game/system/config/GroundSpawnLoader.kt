@@ -26,7 +26,7 @@ class GroundSpawnLoader {
     var reader: FileReader? = null
 
     /**
-     * Load.
+     * Load door configurations from file.
      */
     fun load() {
         var count = 0
@@ -55,6 +55,7 @@ class GroundSpawnLoader {
                 log(this::class.java, Log.ERR, "Error parsing config entry ${config.toString()}: $sw")
             }
         }
+
         log(this::class.java, Log.FINE, "Initialized $count ground items.")
     }
 
@@ -62,10 +63,9 @@ class GroundSpawnLoader {
      * Ground spawn.
      *
      * @param respawnRate The rate at which the ground item respawns.
-     * @constructor Creates a new GroundSpawn instance.
-     *
      * @param item The item to be spawned on the ground.
      * @param location The location where the item should be spawned.
+     * @constructor Creates a new GroundSpawn instance.
      */
     class GroundSpawn(var respawnRate: Int, item: Item?, location: Location?) : GroundItem(item, location) {
 
@@ -89,7 +89,7 @@ class GroundSpawnLoader {
         /**
          * Init.
          *
-         * @return The initialized GroundItem.
+         * @return The initialized [GroundItem].
          */
         fun init(): GroundItem {
             return GroundItemManager.create(this)

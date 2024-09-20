@@ -1,9 +1,9 @@
 package content.region.asgarnia.falador.dialogue
 
-import content.global.skill.gather.farming.FarmerPayOptionDialogue
-import content.global.skill.gather.farming.Farmers
-import content.global.skill.gather.farming.FarmingPatch
-import content.global.skill.gather.farming.PatchType
+import content.global.skill.farming.FarmerPayOptionDialogue
+import content.global.skill.farming.Farmers
+import content.global.skill.farming.FarmingPatch
+import content.global.skill.farming.PatchType
 import core.api.*
 import org.rs.consts.Items
 import core.game.dialogue.Dialogue

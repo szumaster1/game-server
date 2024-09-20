@@ -19,7 +19,7 @@ class NPCSpawner {
     var reader: FileReader? = null
 
     /**
-     * Load.
+     * Load door configurations from file.
      */
     fun load() {
         var count = 0
@@ -53,6 +53,7 @@ class NPCSpawner {
                 count++
             }
         }
+
         log(this::class.java, Log.FINE, "Spawned $count NPCs")
     }
 }

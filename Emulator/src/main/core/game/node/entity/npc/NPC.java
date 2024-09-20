@@ -1,7 +1,7 @@
 package core.game.node.entity.npc;
 
+import content.global.skill.slayer.Tasks;
 import content.global.skill.summoning.familiar.Familiar;
-import content.global.skill.support.slayer.data.Tasks;
 import core.api.utils.GlobalKillCounter;
 import core.api.utils.Vector;
 import core.cache.def.impl.NPCDefinition;

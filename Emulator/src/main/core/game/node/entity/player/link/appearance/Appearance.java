@@ -103,7 +103,7 @@ public final class Appearance {
             player.getProperties().setDeathAnimation(new Animation(9055, Priority.HIGH));
         } else {
             NPCDefinition def = NPCDefinition.forId(id);
-            player.setSize(def.getSize());
+            player.setSize(def.size);
             if (def.getCombatAnimation(0) != null) {
                 player.getProperties().setAttackAnimation(def.getCombatAnimation(0));
             }
@@ -150,15 +150,15 @@ public final class Appearance {
             }
         } else {
             NPCDefinition def = NPCDefinition.forId(npcId);
-            renderAnimationId = def.getRenderAnimationId();
-            setStandAnimation(def.getStandAnimation());
+            renderAnimationId = def.renderAnimationId;
+            setStandAnimation(def.standAnimation);
             int turn = def.getTurnAnimation();
             if (turn < 1) {
-                turn = def.getWalkAnimation();
+                turn = def.walkAnimation;
             }
             setStandTurnAnimation(turn);
-            setWalkAnimation(def.getWalkAnimation());
-            setRunAnimation(def.getWalkAnimation());
+            setWalkAnimation(def.walkAnimation);
+            setRunAnimation(def.walkAnimation);
             if (def.getTurn180Animation() > 0) {
                 setTurn180(def.getTurn180Animation());
             } else {

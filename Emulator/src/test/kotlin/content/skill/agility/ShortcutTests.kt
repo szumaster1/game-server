@@ -1,5 +1,6 @@
-package content.global.skill.support.agility.shortcuts
+package content.global.skill.agility.shortcuts
 
+import content.global.skill.agility.shortcuts.StileShortcut
 import core.game.world.map.Direction
 import core.game.world.map.Location
 import org.junit.jupiter.api.Assertions

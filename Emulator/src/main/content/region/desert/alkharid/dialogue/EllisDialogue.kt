@@ -1,6 +1,6 @@
 package content.region.desert.alkharid.dialogue
 
-import content.global.skill.production.crafting.data.Tanning
+import content.global.skill.crafting.Tanning
 import org.rs.consts.NPCs
 import core.api.inInventory
 import core.game.dialogue.Dialogue

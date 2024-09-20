@@ -4,7 +4,7 @@ import content.data.skill.SkillingTool
 import content.data.skill.SkillingTool.Companion.getHatchet
 import content.data.tables.BirdNestDropTable.Companion.drop
 import content.data.tables.BirdNestDropTable.Companion.getRandomNest
-import content.global.skill.gather.farming.FarmingPatch.Companion.forObject
+import content.global.skill.farming.FarmingPatch.Companion.forObject
 import content.global.skill.gather.woodcutting.WoodcuttingNode.Companion.forId
 import content.global.skill.skillcape.SkillcapePerks
 import content.global.skill.skillcape.SkillcapePerks.Companion.isActive

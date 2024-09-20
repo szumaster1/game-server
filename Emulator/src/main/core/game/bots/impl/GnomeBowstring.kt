@@ -1,8 +1,8 @@
 package core.game.bots.impl
 
 import org.rs.consts.Items
-import content.global.skill.production.crafting.data.Spinning
-import content.global.skill.production.crafting.item.SpinningPulse
+import content.global.skill.crafting.Spinning
+import content.global.skill.crafting.SpinningPulse
 import core.api.freeSlots
 import core.game.bots.*
 import core.game.interaction.DestinationFlag
@@ -90,11 +90,7 @@ class GnomeBowstring : Script() {
             }
 
             State.SPINNING -> {
-                bot!!.pulseManager.run(
-                    SpinningPulse(
-                        bot!!, Item(Items.FLAX_1779), bot!!.inventory.getAmount(Items.FLAX_1779), Spinning.FLAX
-                    )
-                )
+                bot!!.pulseManager.run(SpinningPulse(bot!!, Item(Items.FLAX_1779), bot!!.inventory.getAmount(Items.FLAX_1779), Spinning.FLAX))
                 sLadderSwitch = true
                 state = State.FIND_BANK
             }

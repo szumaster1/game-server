@@ -7,21 +7,8 @@ import core.game.world.GameWorld
 /**
  * Base class for Commands in the new system. Can pass a lambda as part of the constructor or after the constructor.
  * @author Ceikry
- *
- * @param name The name of the command.
- * @param privilege The privilege level required to execute the command.
- * @param usage The usage information of the command.
- * @param description The description of the command.
- * @param handle The function that handles the command execution.
- * @constructor Creates a new Command instance.
  */
-class Command(
-    val name: String,
-    val privilege: Privilege,
-    val usage: String = "UNDOCUMENTED",
-    val description: String = "UNDOCUMENTED",
-    val handle: (Player, Array<String>) -> Unit
-) {
+class Command(val name: String, val privilege: Privilege, val usage: String = "UNDOCUMENTED", val description: String = "UNDOCUMENTED", val handle: (Player, Array<String>) -> Unit) {
     /**
      * Attempts to handle the command.
      *

@@ -2,7 +2,7 @@ package core.game.global.action
 
 import org.rs.consts.Sounds
 import content.global.handlers.item.equipment.gloves.BrawlingGlovesManager
-import content.global.skill.support.slayer.SlayerEquipmentFlags
+import content.global.skill.slayer.SlayerEquipmentFlags
 import core.api.playAudio
 import core.api.sendMessage
 import core.game.container.impl.EquipmentContainer

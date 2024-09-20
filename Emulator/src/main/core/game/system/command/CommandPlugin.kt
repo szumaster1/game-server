@@ -10,7 +10,7 @@ import core.plugin.Plugin
  */
 abstract class CommandPlugin : Plugin<Any?> {
     /**
-     * Method used to wrap around a command sets pase method.
+     * Method used to wrap around a command sets method.
      * @param player the player.
      * @param name the name.
      * @param args the arguments.

@@ -1,7 +1,7 @@
 package content.region.kandarin.feldip.gutanoth.handlers
 
-import content.global.skill.combat.summoning.SummoningPouch
-import content.global.skill.combat.summoning.SummoningScroll
+import content.global.skill.summoning.SummoningPouch
+import content.global.skill.summoning.SummoningScroll
 import core.api.InputType
 import core.api.sendInputDialogue
 import core.api.sendMessage

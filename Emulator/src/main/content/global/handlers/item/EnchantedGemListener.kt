@@ -1,6 +1,6 @@
 package content.global.handlers.item
 
-import content.global.skill.support.slayer.data.Tasks
+import content.global.skill.slayer.Tasks
 import core.api.*
 import org.rs.consts.Items
 import core.game.dialogue.DialogueFile

@@ -1,7 +1,7 @@
 package content.region.kandarin.baxtorian.barbarian_training.smithing
 
 import org.rs.consts.Items
-import content.global.skill.production.crafting.data.Origami
+import content.global.skill.crafting.Origami
 
 /**
  * Represents the Barbarian weapons.

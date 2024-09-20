@@ -13,53 +13,26 @@ import core.game.node.item.Item
  * @constructor Initializes a weapon with the specified parameters.
  */
 class Weapon @JvmOverloads constructor(
-    val item: Item?, // The item representing the weapon, can be null.
-    val ammunitionSlot: Int = -1, // The index of the ammunition slot, -1 means no slot.
-    val ammunition: Item? = null, // The ammunition item, can be null if not applicable.
-    type: WeaponType? = WeaponType.DEFAULT // The type of weapon, defaults to DEFAULT.
+    val item: Item?,
+    val ammunitionSlot: Int = -1,
+    val ammunition: Item? = null,
+    type: WeaponType? = WeaponType.DEFAULT
 ) {
 
-    val id: Int = item?.id ?: -1 // The unique identifier for the weapon, -1 if item is null.
-    val name: String = if (item == null) "null" else item.name // The name of the weapon, "null" if item is null.
-    var type: WeaponType? = null // The type of weapon, initially set to null.
+    val id: Int = item?.id ?: -1
+    val name: String = if (item == null) "null" else item.name
+    var type: WeaponType? = null
 
     /**
-     * Enum representing the different types of weapons.
+     * Represents the different types of weapons.
      */
     enum class WeaponType {
-        /**
-         * Represents the default weapon type.
-         */
         DEFAULT,
-
-        /**
-         * Represents a crossbow weapon type.
-         */
         CROSSBOW,
-
-        /**
-         * Represents a double shot weapon type.
-         */
         DOUBLE_SHOT,
-
-        /**
-         * Represents a thrown weapon type.
-         */
         THROWN,
-
-        /**
-         * Represents a degrading weapon type.
-         */
         DEGRADING,
-
-        /**
-         * Represents a staff weapon type.
-         */
         STAFF,
-
-        /**
-         * Represents a chinchompa weapon type.
-         */
         CHINCHOMPA
     }
 

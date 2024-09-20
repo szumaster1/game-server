@@ -25,7 +25,7 @@ class SpawnCommandSet : CommandSet(Privilege.ADMIN) {
          * Spawns a npc with the given ID.
          */
 
-        define("npc") { player, args ->
+        define(name = "npc") { player, args ->
             if (args.size < 2) {
                 reject(player, "syntax error: id (optional) direction")
                 return@define
@@ -47,7 +47,7 @@ class SpawnCommandSet : CommandSet(Privilege.ADMIN) {
          * Spawns an item with the given ID.
          */
 
-        define("item") { player, args ->
+        define(name = "item") { player, args ->
             if (args.size < 2) {
                 reject(player, "You must specify an item ID")
                 return@define
@@ -71,33 +71,17 @@ class SpawnCommandSet : CommandSet(Privilege.ADMIN) {
          * Spawn object with given ID at the player's location.
          */
 
-        define("object") { player, args ->
+        define(name = "object") { player, args ->
             if (args.size < 2) {
                 reject(player, "syntax error: id (optional) type rotation or rotation")
                 return@define
             }
-            val `object` = if (args.size > 3) Scenery(
-                CommandPlugin.toInteger(args[1]), player.location, CommandPlugin.toInteger(
-                    args[2]
-                ), CommandPlugin.toInteger(
-                    args[3]
-                )
-            ) else if (args.size == 3) Scenery(
-                CommandPlugin.toInteger(
-                    args[1]
-                ), player.location, CommandPlugin.toInteger(
-                    args[2]
-                )
-            ) else Scenery(
-                CommandPlugin.toInteger(
-                    args[1]
-                ), player.location
-            )
+            val `object` = if (args.size > 3) Scenery(CommandPlugin.toInteger(args[1]), player.location, CommandPlugin.toInteger(args[2]), CommandPlugin.toInteger(args[3])) else if (args.size == 3) Scenery(CommandPlugin.toInteger(args[1]), player.location, CommandPlugin.toInteger(args[2])) else Scenery(CommandPlugin.toInteger(args[1]), player.location)
             SceneryBuilder.add(`object`)
             log(this::class.java, Log.FINE, "object = $`object`")
         }
 
-        define("objectgrid") { player, args ->
+        define(name = "objectgrid") { player, args ->
             if (args.size != 5) {
                 reject(player, "Usage: objectgrid beginId endId type rotation")
                 return@define

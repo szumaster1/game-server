@@ -1,7 +1,7 @@
 package content.global.skill.summoning.familiar
 
-import content.global.skill.combat.summoning.pet.IncubatorEgg
-import content.global.skill.combat.summoning.pet.IncubatorTimer
+import content.global.skill.summoning.pet.IncubatorEgg
+import content.global.skill.summoning.pet.IncubatorTimer
 import core.api.addItem
 import core.api.freeSlots
 import core.api.removeItem

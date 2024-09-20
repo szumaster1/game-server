@@ -1,6 +1,6 @@
 package content.region.misc.zanaris.handlers
 
-import content.global.skill.support.slayer.data.Tasks
+import content.global.skill.slayer.Tasks
 import core.api.*
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener

@@ -2,7 +2,7 @@ package content.global.handlers.item
 
 import org.rs.consts.Graphics
 import org.rs.consts.Items
-import content.global.skill.combat.magic.modern.ModernListeners
+import content.global.skill.magic.modern.ModernListeners
 import core.ServerStore
 import core.ServerStore.Companion.getInt
 import core.api.*

@@ -12,12 +12,10 @@ import core.tools.RandomFunction
 
 /**
  * Represents the types of armour sets.
- * @author Emperor
  *
  * @param endGraphic The graphic to display at the end of the effect.
- * @constructor Creates an ArmourSet with a specific graphic and item set.
- *
  * @param set The array of item sets associated with the armour.
+ * @constructor Creates an ArmourSet with a specific graphic and item set.
  */
 enum class ArmourSet(private val endGraphic: Graphic?, set: Array<IntArray>) {
 
@@ -25,7 +23,7 @@ enum class ArmourSet(private val endGraphic: Graphic?, set: Array<IntArray>) {
      * Ahrim the blighted barrows set.
      */
     AHRIM(
-        endGraphic = Graphic(401, 96), // Graphic for Ahrim's effect
+        endGraphic = Graphic(401, 96),
         set = arrayOf(
             intArrayOf(Items.AHRIMS_HOOD_4708, Items.AHRIMS_HOOD_100_4856, Items.AHRIMS_HOOD_75_4857, Items.AHRIMS_HOOD_50_4858, Items.AHRIMS_HOOD_25_4859),
             intArrayOf(Items.AHRIMS_STAFF_4710, Items.AHRIMS_STAFF_100_4862, Items.AHRIMS_STAFF_75_4863, Items.AHRIMS_STAFF_50_4864, Items.AHRIMS_STAFF_25_4865),
@@ -34,21 +32,18 @@ enum class ArmourSet(private val endGraphic: Graphic?, set: Array<IntArray>) {
         )
     ) {
         override fun effect(e: Entity, victim: Entity, state: BattleState): Boolean {
-            // Check if the random chance is less than 20
             if (RandomFunction.random(100) < 20) {
-                // Decrease the victim's strength level by 5
                 victim.getSkills().updateLevel(Skills.STRENGTH, -5, 0)
-                return true // Effect applied successfully
+                return true
             }
-            return false // No effect applied
+            return false
         }
 
         override fun isUsing(e: Entity?): Boolean {
-            // Check if the entity is an NPC with a specific ID
             if (e is NPC && e.id == 2025) {
-                return true // The NPC is using this set
+                return true
             }
-            return super.isUsing(e) // Default behavior
+            return super.isUsing(e)
         }
     },
 
@@ -56,7 +51,7 @@ enum class ArmourSet(private val endGraphic: Graphic?, set: Array<IntArray>) {
      * Dharok the wretched barrows set.
      */
     DHAROK(
-        endGraphic = null, // No graphic for Dharok's effect
+        endGraphic = null,
         set = arrayOf(
             intArrayOf(Items.DHAROKS_HELM_4716, Items.DHAROKS_HELM_100_4880, Items.DHAROKS_HELM_75_4881, Items.DHAROKS_HELM_50_4882, Items.DHAROKS_HELM_25_4883),
             intArrayOf(Items.DHAROKS_GREATAXE_4718, Items.DHAROKS_AXE_100_4886, Items.DHAROKS_AXE_75_4887, Items.DHAROKS_AXE_50_4888, Items.DHAROKS_AXE_25_4889),
@@ -65,11 +60,10 @@ enum class ArmourSet(private val endGraphic: Graphic?, set: Array<IntArray>) {
         )
     ) {
         override fun isUsing(e: Entity?): Boolean {
-            // Check if the entity is an NPC with a specific ID
             if (e is NPC && e.id == 2026) {
-                return true // The NPC is using this set
+                return true
             }
-            return super.isUsing(e) // Default behavior
+            return super.isUsing(e)
         }
     },
 
@@ -77,7 +71,7 @@ enum class ArmourSet(private val endGraphic: Graphic?, set: Array<IntArray>) {
      * Guthan the infested barrows set.
      */
     GUTHAN(
-        endGraphic = Graphic(398, 96), // Graphic for Guthan's effect
+        endGraphic = Graphic(398, 96),
         set = arrayOf(
             intArrayOf(Items.GUTHANS_HELM_4724, Items.GUTHANS_HELM_100_4904, Items.GUTHANS_HELM_75_4905, Items.GUTHANS_HELM_50_4906, Items.GUTHANS_HELM_25_4907),
             intArrayOf(Items.GUTHANS_WARSPEAR_4726, Items.GUTHANS_SPEAR_100_4910, Items.GUTHANS_SPEAR_75_4911, Items.GUTHANS_SPEAR_50_4912, Items.GUTHANS_SPEAR_25_4913),
@@ -86,21 +80,18 @@ enum class ArmourSet(private val endGraphic: Graphic?, set: Array<IntArray>) {
         )
     ) {
         override fun effect(e: Entity, victim: Entity, state: BattleState): Boolean {
-            // Check if the random chance is less than 25
             if (RandomFunction.random(100) < 25) {
-                // Heal the entity based on the estimated hit
                 e.getSkills().heal(state.estimatedHit)
-                return true // Effect applied successfully
+                return true
             }
-            return false // No effect applied
+            return false
         }
 
         override fun isUsing(e: Entity?): Boolean {
-            // Check if the entity is an NPC with a specific ID
             if (e is NPC && e.id == 2027) {
-                return true // The NPC is using this set
+                return true
             }
-            return super.isUsing(e) // Default behavior
+            return super.isUsing(e)
         }
     },
 
@@ -108,7 +99,7 @@ enum class ArmourSet(private val endGraphic: Graphic?, set: Array<IntArray>) {
      * Karil the tainted barrows set.
      */
     KARIL(
-        endGraphic = Graphic(400, 96), // Graphic for Karil's effect
+        endGraphic = Graphic(400, 96),
         set = arrayOf(
             intArrayOf(Items.KARILS_COIF_4732, Items.KARILS_COIF_100_4928, Items.KARILS_COIF_75_4929, Items.KARILS_COIF_50_4930, Items.KARILS_COIF_25_4931),
             intArrayOf(Items.KARILS_CROSSBOW_4734, Items.KARILS_X_BOW_100_4934, Items.KARILS_X_BOW_75_4935, Items.KARILS_X_BOW_50_4936, Items.KARILS_X_BOW_25_4937),
@@ -117,21 +108,18 @@ enum class ArmourSet(private val endGraphic: Graphic?, set: Array<IntArray>) {
         )
     ) {
         override fun effect(e: Entity, victim: Entity, state: BattleState): Boolean {
-            // Check if the estimated hit is greater than 9 and random chance is less than 20
             if (state.estimatedHit > 9 && RandomFunction.random(100) < 20) {
-                // Decrease the victim's agility level based on the estimated hit
                 victim.getSkills().updateLevel(Skills.AGILITY, -(state.estimatedHit / 10), 0)
-                return true // Effect applied successfully
+                return true
             }
-            return false // No effect applied
+            return false
         }
 
         override fun isUsing(e: Entity?): Boolean {
-            // Check if the entity is an NPC with a specific ID
             if (e is NPC && e.id == 2028) {
-                return true // The NPC is using this set
+                return true
             }
-            return super.isUsing(e) // Default behavior
+            return super.isUsing(e)
         }
     },
 
@@ -139,7 +127,7 @@ enum class ArmourSet(private val endGraphic: Graphic?, set: Array<IntArray>) {
      * Torag the corrupted barrows set.
      */
     TORAG(
-        endGraphic = Graphic(399, 96), // Graphic for Torag's effect
+        endGraphic = Graphic(399, 96),
         set = arrayOf(
             intArrayOf(Items.TORAGS_HELM_4745, Items.TORAGS_HELM_100_4952, Items.TORAGS_HELM_75_4953, Items.TORAGS_HELM_50_4954, Items.TORAGS_HELM_25_4955),
             intArrayOf(Items.TORAGS_HAMMERS_4747, Items.TORAGS_HAMMER_100_4958, Items.TORAGS_HAMMER_75_4959, Items.TORAGS_HAMMER_50_4960, Items.TORAGS_HAMMER_25_4961),
@@ -148,23 +136,20 @@ enum class ArmourSet(private val endGraphic: Graphic?, set: Array<IntArray>) {
         )
     ) {
         override fun effect(e: Entity, victim: Entity, state: BattleState): Boolean {
-            // Check if the estimated hit is greater than 0 and random chance is less than 20
             if (state.estimatedHit > 0 && RandomFunction.random(100) < 20) {
-                // Update the victim's run energy
                 if (victim is Player) {
                     victim.settings.updateRunEnergy(20.0)
                 }
-                return true // Effect applied successfully
+                return true
             }
-            return false // No effect applied
+            return false
         }
 
         override fun isUsing(e: Entity?): Boolean {
-            // Check if the entity is an NPC with a specific ID
             if (e is NPC && e.id == 2029) {
-                return true // The NPC is using this set
+                return true
             }
-            return super.isUsing(e) // Default behavior
+            return super.isUsing(e)
         }
     },
 
@@ -172,7 +157,7 @@ enum class ArmourSet(private val endGraphic: Graphic?, set: Array<IntArray>) {
      * Verac the defiled barrows set.
      */
     VERAC(
-        endGraphic = null, // No graphic for Verac's effect
+        endGraphic = null,
         set = arrayOf(
             intArrayOf(Items.VERACS_HELM_4753, Items.VERACS_HELM_100_4976, Items.VERACS_HELM_75_4977, Items.VERACS_HELM_50_4978, Items.VERACS_HELM_25_4979),
             intArrayOf(Items.VERACS_FLAIL_4755, Items.VERACS_FLAIL_100_4982, Items.VERACS_FLAIL_75_4983, Items.VERACS_FLAIL_50_4984, Items.VERACS_FLAIL_25_4985),
@@ -181,22 +166,20 @@ enum class ArmourSet(private val endGraphic: Graphic?, set: Array<IntArray>) {
         )
     ) {
         override fun isUsing(e: Entity?): Boolean {
-            // Check if the entity is an NPC with a specific ID
             if (e is NPC && e.id == 2030) {
-                return true // The NPC is using this set
+                return true
             }
-            return super.isUsing(e) // Default behavior
+            return super.isUsing(e)
         }
     };
 
 
-    private val sets = Array(4) { arrayOfNulls<Item>(5) } // Array to hold item sets
+    private val sets = Array(4) { arrayOfNulls<Item>(5) }
 
     init {
-        // Initialize the sets with Item objects
         for (i in set.indices) {
             for (k in sets[i].indices) {
-                sets[i][k] = Item(set[i][k]) // Create Item for each set
+                sets[i][k] = Item(set[i][k])
             }
         }
     }
@@ -208,9 +191,8 @@ enum class ArmourSet(private val endGraphic: Graphic?, set: Array<IntArray>) {
      * @param victim The entity receiving the effect.
      */
     fun visualize(e: Entity?, victim: Entity) {
-        // Check if there is an end graphic to display
         if (endGraphic != null) {
-            victim.graphics(endGraphic) // Apply the graphic to the victim
+            victim.graphics(endGraphic)
         }
     }
 
@@ -223,7 +205,7 @@ enum class ArmourSet(private val endGraphic: Graphic?, set: Array<IntArray>) {
      * @return True if the effect was applied, false otherwise.
      */
     open fun effect(e: Entity, victim: Entity, state: BattleState): Boolean {
-        return false // Default behavior, no effect applied
+        return false
     }
 
     /**
@@ -233,20 +215,18 @@ enum class ArmourSet(private val endGraphic: Graphic?, set: Array<IntArray>) {
      * @return True if the entity is wearing the full set, false otherwise.
      */
     open fun isUsing(e: Entity?): Boolean {
-        // Check if the entity is a Player
         if (e !is Player) {
-            return false // Not a player, cannot be using the set
+            return false
         }
-        var hits = 0 // Counter for matching items
-        // Check each set for matching items in the player's equipment
+        var hits = 0
         for (i in sets.indices) {
             for (item in sets[i]) {
                 if (e.equipment.containsAtLeastOneItem(item!!.id)) {
-                    hits++ // Increment counter if item is found
-                    break // Move to the next set
+                    hits++
+                    break
                 }
             }
         }
-        return hits == 4 // Return true if all four items are found
+        return hits == 4
     }
 }

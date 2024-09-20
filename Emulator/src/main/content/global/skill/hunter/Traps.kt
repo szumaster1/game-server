@@ -1,6 +1,6 @@
 package content.global.skill.hunter
 
-import content.global.skill.gather.hunter.NetTrapSetting.NetTrap
+import content.global.skill.hunter.NetTrapSetting.NetTrap
 import core.api.log
 import core.game.node.Node
 import core.game.node.entity.npc.NPC

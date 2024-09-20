@@ -2,7 +2,7 @@ package content.global.skill.summoning.familiar.npc
 
 import content.global.skill.firemaking.FireMakingPulse.getAsh
 import content.global.skill.firemaking.Log.Companion.forId
-import content.global.skill.production.crafting.data.Jewellery.open
+import content.global.skill.crafting.Jewellery.open
 import core.game.interaction.NodeUsageEvent
 import core.game.interaction.UseWithHandler
 import core.game.node.entity.combat.equipment.WeaponInterface

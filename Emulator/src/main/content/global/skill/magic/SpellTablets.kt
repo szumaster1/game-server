@@ -1,6 +1,6 @@
 package content.global.skill.magic
 
-import content.global.skill.combat.magic.spellconsts.Modern
+import content.global.skill.magic.spellconsts.Modern
 import org.rs.consts.Items
 import org.rs.consts.Sounds
 import core.api.playAudio

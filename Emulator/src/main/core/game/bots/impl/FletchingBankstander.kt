@@ -1,8 +1,8 @@
 package core.game.bots.impl
 
 import org.rs.consts.Items
-import content.global.skill.production.fletching.FletchingMap
-import content.global.skill.production.fletching.FletchingPulse
+import content.global.skill.fletching.FletchingMap
+import content.global.skill.fletching.FletchingPulse
 import core.game.bots.Script
 import core.game.bots.SkillingBotAssembler
 import core.game.node.entity.skill.Skills
@@ -21,11 +21,7 @@ class FletchingBankstander : Script() {
             State.FLETCHING -> {
                 bot!!.inventory.add(Item(Items.KNIFE_946))
                 bot!!.inventory.add(Item(Items.LOGS_1511, 27))
-                bot!!.pulseManager.run(
-                    FletchingPulse(
-                        bot!!, Item(Items.LOGS_1511), 27, FletchingMap.FletchingItems.ARROW_SHAFT
-                    )
-                )
+                bot!!.pulseManager.run(FletchingPulse(bot!!, Item(Items.LOGS_1511), 27, FletchingMap.FletchingItems.ARROW_SHAFT))
                 State.BANKING
             }
 

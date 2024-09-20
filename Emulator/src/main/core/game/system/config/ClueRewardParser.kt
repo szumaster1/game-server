@@ -30,9 +30,6 @@ class ClueRewardParser {
     val parser = JSONParser()
     var reader: FileReader? = null
 
-    /**
-     * Load.
-     */
     fun load() {
         reader = FileReader(Configuration.CONFIG_PATH + "clue_rewards.json")
 

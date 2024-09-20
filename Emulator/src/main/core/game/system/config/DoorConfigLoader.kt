@@ -16,10 +16,10 @@ class DoorConfigLoader {
         val DOORS = hashMapOf<Int, Door>()
 
         /**
-         * Get door by ID.
+         * Get door by id.
          *
-         * @param id The ID of the door.
-         * @return The door object with the specified ID, or null if not found.
+         * @param id The door id.
+         * @return The door object with the specified id, or `null` if not found.
          */
         fun forId(id: Int): Door? {
             return DOORS[id]
@@ -54,6 +54,7 @@ class DoorConfigLoader {
             DOORS[door.replaceId] = replacedDoor
             count++
         }
+
         log(this::class.java, Log.FINE, "Parsed $count door configs.")
     }
 
@@ -61,8 +62,8 @@ class DoorConfigLoader {
     /**
      * Door class.
      *
-     * @param id The ID of the door.
-     * @constructor Door.
+     * @param id The door id.
+     * @constructor [Door].
      */
     class Door(val id: Int) {
         var replaceId = 0

@@ -40,44 +40,24 @@ object LevelUp {
         if (!getAttribute(player, "tutorial:complete", false)) {
             return
         }
-
-        // Display fireworks graphic when a level is gained.
         Graphic.send(Graphic(Graphics.FIREWORKS_WHEN_A_LVL_IS_GAINED_199), player.location)
-
-        // Play a jingle based on the skill that was leveled up.
         playJingle(player, getSkillJingle(player, slot))
-
-        // Update milestones for combat and total level.
         handleMilestones(player, slot, amount)
-
-        // Display level up message in the interface.
         sendString(player, "<col=00008B>Congratulations, you've just advanced a " + Skills.SKILL_NAME[slot] + " level!", 740, 0)
         sendString(player, "Your " + Skills.SKILL_NAME[slot] + " level is now " + player.getSkills().getStaticLevel(slot) + ".", 740, 1)
-
-        // Send level up message to the player.
-        sendMessage(player, "You've just advanced a " + Skills.SKILL_NAME[slot] + " level! You have reached level " + player.getSkills()
-                .getStaticLevel(slot) + ".")
-
-        // Increment prayer points if prayer skill is leveled up.
+        sendMessage(player, "You've just advanced a " + Skills.SKILL_NAME[slot] + " level! You have reached level " + player.getSkills().getStaticLevel(slot) + ".")
         if (slot == Skills.PRAYER) {
             player.getSkills().incrementPrayerPoints(1.0)
         }
 
-        // Check if the skill level is 99 and the player is not artificial.
         if (getStatLevel(player, slot) == 99 && !player.isArtificial) {
-            // Send news message for achieving level 99 in a skill.
             sendNews(player.username + " has just achieved level 99 " + Skills.SKILL_NAME[slot] + "!")
-
-            // Trim skillcape and unlock emote for achieving level 99 in all skills.
             Skillcape.trim(player)
             unlockEmote(player, 39)
-
-            // Display random graphic.
             Graphic.send(Graphic(GRAPHIC.random(), 0, 50), player.location)
 
         }
 
-        // Send news message for achieving skill milestone.
         if (TOTAL_LEVEL_MILESTONES.contains(player.skills.getTotalLevel())) {
             Graphic.send(Graphic(GRAPHIC.random(), 0, 50), player.location)
             sendMessage(player,DARK_RED + "Well done! You've reached the total level ${player.skills.getTotalLevel()} milestone!")
@@ -85,16 +65,10 @@ object LevelUp {
 
         if (player.skills.getTotalLevel() == 2376) {
             Graphic.send(Graphic(GRAPHIC.random(), 0, 50), player.location)
-            // Send news message for achieving maximum total level.
             sendNews(player.username + " has just achieved level 99 in all skills!")
-            // Send congratulations message to the player.
             sendMessage(player, DARK_RED + "Congratulations! Well done! You've reached the maximum Total level possible!")
         }
-
-        // Set attribute to save level up state.
         setAttribute(player, "/save:levelup:$slot", true)
-
-        // Send flashing icons to the player.
         sendFlashingIcons(player, slot)
     }
 
@@ -110,7 +84,6 @@ object LevelUp {
     private fun handleMilestones(player: Player, slot: Int, amount: Int) {
         var value = ADVANCE_CONFIGS[slot]
 
-        // Check combat milestones.
         for (i in COMBAT_MILESTONES.indices) {
             if (player.properties.getCurrentCombatLevel() < COMBAT_MILESTONES[i]) {
                 if (i > player.getSkills().combatMilestone) {
@@ -120,14 +93,12 @@ object LevelUp {
                 break
             }
 
-            // Check if combat level is 126 on free worlds.
             if (i == 126 && !GameWorld.settings!!.isMembers) {
                 Graphic.send(Graphic(GRAPHIC.random(), 0, 50), player.location)
                 sendMessage(player, "Congratulations! Your Combat level is now 126 - the highest possible Combat level on free worlds!")
                 break
             }
 
-            // Check if combat level is 138.
             if (i == 138) {
                 Graphic.send(Graphic(GRAPHIC.random(), 0, 50), player.location)
                 sendMessage(player, "Congratulations! Your Combat level is now 138! You've achieved the highest Combat level possible!")
@@ -137,7 +108,6 @@ object LevelUp {
 
         val totalLevel = player.getSkills().getTotalLevel()
 
-        // Check skill milestones.
         for (i in SKILL_MILESTONES.indices) {
             if (totalLevel < SKILL_MILESTONES[i]) {
                 if (i > player.getSkills().skillMilestone) {
@@ -148,9 +118,8 @@ object LevelUp {
             }
         }
 
-        // Set combat level and total level milestones.
-        value = value or (player.getSkills().combatMilestone shl 23) //Combat level milestone index.
-        value = value or (player.getSkills().skillMilestone shl 27) //Total level milestone index.
+        value = value or (player.getSkills().combatMilestone shl 23)
+        value = value or (player.getSkills().skillMilestone shl 27)
         setVarp(player, 1230, value)
     }
 
@@ -165,20 +134,17 @@ object LevelUp {
     fun sendFlashingIcons(player: Player, slot: Int) {
         var value = 0
 
-        // Check if any skill has leveled up.
         for (i in Skills.SKILL_NAME.indices) {
             if (player.getAttribute("levelup:$i", false)) {
                 value = value or FLASH_ICONS[i]
             }
         }
 
-        // Check if a specific skill slot is provided.
         if (slot > -1) {
             value = value or SKILL_ICON[slot]
             openChatbox(player, Components.GAME_INTERFACE_740)
         }
 
-        // Set flashing icons varp.
         setVarp(player, Vars.VARP_IFACE_SKILL_FLASH_ICONS, value)
     }
 }

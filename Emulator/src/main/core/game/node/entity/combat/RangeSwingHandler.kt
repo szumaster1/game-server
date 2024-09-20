@@ -50,8 +50,7 @@ open class RangeSwingHandler(vararg flags: SwingHandlerFlag) : CombatSwingHandle
                 distance = 10
             }
         }
-        var goodRange =
-            victim.centerLocation.withinDistance(entity.centerLocation, getCombatDistance(entity, victim, distance))
+        var goodRange = victim.centerLocation.withinDistance(entity.centerLocation, getCombatDistance(entity, victim, distance))
         var type = InteractionType.STILL_INTERACT
         if (victim.walkingQueue.isMoving && !goodRange) {
             goodRange = victim.centerLocation.withinDistance(
@@ -97,12 +96,6 @@ open class RangeSwingHandler(vararg flags: SwingHandlerFlag) : CombatSwingHandle
         return 1 + ceil(entity.location.getDistance(victim.location) * 0.3).toInt()
     }
 
-    /**
-     * Configure range data
-     *
-     * @param entity
-     * @param state
-     */
     fun configureRangeData(entity: Entity?, state: BattleState?) {
         state!!.style = CombatStyle.RANGE
         val w: Weapon?

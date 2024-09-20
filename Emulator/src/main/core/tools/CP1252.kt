@@ -83,7 +83,6 @@ object CP1252 : Charset("Cp1252", null) {
 
     /**
      * Create a new encoder for the charset
-     *
      */
     override fun newEncoder() = object : CharsetEncoder(this, 1F, 1F, byteArrayOf(REPLACEMENT_BYTE)) {
         override fun encodeLoop(input: CharBuffer, output: ByteBuffer): CoderResult {
@@ -104,7 +103,9 @@ object CP1252 : Charset("Cp1252", null) {
         }
     }
 
-    // Create a new decoder for the charset.
+    /**
+     * Create a new decoder for the charset.
+     */
     override fun newDecoder() = object : CharsetDecoder(this, 1F, 1F) {
         init {
             replaceWith(REPLACEMENT_CHAR.toString())

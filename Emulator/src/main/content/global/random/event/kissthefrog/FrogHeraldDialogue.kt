@@ -63,9 +63,6 @@ class FrogHeraldDialogue(val isStarted: Boolean = false) : DialogueFile() {
                                 1 -> {
                                     end()
                                     setAttribute(player!!, FrogUtils.ATTRIBUTE_FROG_LOCATION, player!!.location)
-                                    registerLogoutListener(player!!, FrogUtils.ATTRIBUTE_FROG_LOGOUT) { p ->
-                                        p.location = getAttribute(p, FrogUtils.ATTRIBUTE_FROG_LOCATION, p.location)
-                                    }
                                     return@queueScript keepRunning(player!!)
                                 }
 

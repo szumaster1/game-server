@@ -281,33 +281,10 @@ object PlayerMonitor {
  * @constructor Represents a LogType with a specific token.
  */
 enum class LogType(val token: String) {
-    /**
-     * Dupe Alert
-     */
     DUPE_ALERT("dupe_warning"),
-
-    /**
-     * Duel Info
-     */
     DUEL_INFO("Duel"),
-
-    /**
-     * Pk
-     */
     PK("PK"),
-
-    /**
-     * Drop Trade
-     */
     DROP_TRADE("DropTrade"),
-
-    /**
-     * Command
-     */
     COMMAND("CommandUsed"),
-
-    /**
-     * Ip Log
-     */
     IP_LOG("login_ip")
 }

@@ -1,9 +1,9 @@
 package content.global.skill.summoning.familiar;
 
-import content.global.skill.combat.summoning.SummoningPouch;
+import content.global.skill.summoning.SummoningPouch;
 import content.global.skill.summoning.pet.Pet;
 import content.global.skill.summoning.pet.PetDetails;
-import content.global.skill.combat.summoning.pet.Pets;
+import content.global.skill.summoning.pet.Pets;
 import core.cache.def.impl.ItemDefinition;
 import core.game.component.Component;
 import core.game.container.Container;

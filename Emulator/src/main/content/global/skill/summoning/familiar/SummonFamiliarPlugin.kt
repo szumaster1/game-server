@@ -1,6 +1,6 @@
 package content.global.skill.summoning.familiar
 
-import content.global.skill.combat.summoning.familiar.npc.IbisNPC
+import content.global.skill.summoning.familiar.npc.IbisNPC
 import core.api.getAttribute
 import core.api.isQuestComplete
 import core.api.sendMessage

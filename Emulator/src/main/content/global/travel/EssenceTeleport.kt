@@ -1,6 +1,6 @@
 package content.global.travel
 
-import content.global.skill.combat.magic.TeleportMethod
+import content.global.skill.magic.TeleportMethod
 import core.api.*
 import org.rs.consts.Sounds
 import core.game.event.TeleportEvent

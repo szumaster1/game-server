@@ -1,6 +1,6 @@
 package content.global.skill.summoning.familiar.npc
 
-import content.global.skill.combat.summoning.SummoningScroll
+import content.global.skill.summoning.SummoningScroll
 import core.api.*
 import core.game.node.entity.combat.equipment.WeaponInterface
 import core.game.node.entity.player.Player

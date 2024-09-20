@@ -38,10 +38,6 @@ class CommandSystem {
 
     companion object {
         /**
-         * Gets the command system instance.
-         * @return the instance.
-         */
-        /**
          * Represents the singleton instance of this class.
          */
         val commandSystem = CommandSystem()

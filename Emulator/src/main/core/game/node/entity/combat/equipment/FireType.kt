@@ -27,7 +27,6 @@ enum class FireType(val animation: Animation, val projectileId: Int, val task: N
      */
     FIERY_BREATH(Animation(81, Priority.HIGH), 393, object : NodeTask(0) {
         override fun exec(node: Node, vararg n: Node): Boolean {
-            // Always returns true, indicating the task was executed successfully.
             return true
         }
     }),
@@ -37,16 +36,12 @@ enum class FireType(val animation: Animation, val projectileId: Int, val task: N
      */
     SHOCKING_BREATH(Animation(84, Priority.HIGH), 396, object : NodeTask(0) {
         override fun exec(node: Node, vararg n: Node): Boolean {
-            // Randomly determines if the shock effect occurs (30% chance).
             if (RandomFunction.random(10) < 3) {
-                // Updates the skill level of the entity, reducing it by 5.
                 (node as Entity).getSkills().updateLevel(RandomFunction.random(3), -5, 0)
-                // Sends a message to the player indicating they have been shocked.
                 if (node is Player) {
                     node.packetDispatch.sendMessage("You have been shocked.")
                 }
             }
-            // Always returns true, indicating the task was executed successfully.
             return true
         }
     }),
@@ -56,9 +51,7 @@ enum class FireType(val animation: Animation, val projectileId: Int, val task: N
      */
     TOXIC_BREATH(Animation(82, Priority.HIGH), 394, object : NodeTask(0) {
         override fun exec(node: Node, vararg n: Node): Boolean {
-            // Applies poison to the target entity with a specified damage value.
             applyPoison((node as Entity), (n[0] as Entity), 40)
-            // Always returns true, indicating the task was executed successfully.
             return true
         }
     }),
@@ -68,9 +61,7 @@ enum class FireType(val animation: Animation, val projectileId: Int, val task: N
      */
     ICY_BREATH(Animation(83, Priority.HIGH), 395, object : NodeTask(0) {
         override fun exec(node: Node, vararg n: Node): Boolean {
-            // Registers a timer for the frozen effect on the entity.
             registerTimer((node as Entity), spawnTimer("frozen", 7, true))
-            // Always returns true, indicating the task was executed successfully.
             return true
         }
     })

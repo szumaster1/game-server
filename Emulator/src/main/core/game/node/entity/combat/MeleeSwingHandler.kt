@@ -2,7 +2,8 @@ package core.game.node.entity.combat
 
 import org.rs.consts.Items
 import content.global.skill.skillcape.SkillcapePerks
-import content.global.skill.support.slayer.SlayerEquipmentFlags
+import content.global.skill.slayer.SlayerEquipmentFlags
+import content.global.skill.slayer.SlayerEquipmentFlags.getDamAccBonus
 import core.api.*
 import core.game.container.impl.EquipmentContainer
 import core.game.node.entity.Entity
@@ -161,7 +162,7 @@ open class MeleeSwingHandler(vararg flags: SwingHandlerFlag) : CombatSwingHandle
                     (entity.properties.combatPulse?.getVictim()?.id ?: 0)
                 ) == true
             ) {
-                effectiveAttackLevel *= SlayerEquipmentFlags.getDamAccBonus(entity) //Slayer Helm/ Black Mask/ Slayer cape
+                effectiveAttackLevel *= getDamAccBonus(entity) //Slayer Helm/ Black Mask/ Slayer cape
                 if (getSlayerTask(entity)?.dragon == true && inEquipment(entity, Items.DRAGON_SLAYER_GLOVES_12862))
                     effectiveAttackLevel *= 1.1
             }

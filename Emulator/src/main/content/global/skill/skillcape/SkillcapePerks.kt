@@ -75,10 +75,10 @@ enum class SkillcapePerks(val attribute: String, val effect: ((Player) -> Unit)?
         if (store.getBoolean(player.name)) {
             player.dialogueInterpreter.sendDialogue("Your cape is still on cooldown.")
         } else {
-            val possibleSeeds = content.global.skill.gather.farming.Plantable.values()
+            val possibleSeeds = content.global.skill.farming.Plantable.values()
             for (i in 0 until 10) {
                 var seed = possibleSeeds.random()
-                while (seed == content.global.skill.gather.farming.Plantable.SCARECROW || seed.applicablePatch == content.global.skill.gather.farming.PatchType.FRUIT_TREE_PATCH || seed.applicablePatch == content.global.skill.gather.farming.PatchType.TREE_PATCH || seed.applicablePatch == content.global.skill.gather.farming.PatchType.SPIRIT_TREE_PATCH) {
+                while (seed == content.global.skill.farming.Plantable.SCARECROW || seed.applicablePatch == content.global.skill.farming.PatchType.FRUIT_TREE_PATCH || seed.applicablePatch == content.global.skill.farming.PatchType.TREE_PATCH || seed.applicablePatch == content.global.skill.farming.PatchType.SPIRIT_TREE_PATCH) {
                     seed = possibleSeeds.random()
                 }
                 val reward = core.game.node.item.Item(seed.itemID)

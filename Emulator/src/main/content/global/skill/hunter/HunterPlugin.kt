@@ -1,9 +1,9 @@
 package content.global.skill.hunter
 
-import content.global.skill.gather.hunter.NetTrapSetting.NetTrap
-import content.global.skill.gather.hunter.Traps.Companion.forNode
-import content.global.skill.gather.hunter.bnet.BNetTypes
-import content.global.skill.gather.hunter.falconry.FalconryActivityPlugin
+import content.global.skill.hunter.NetTrapSetting.NetTrap
+import content.global.skill.hunter.Traps.Companion.forNode
+import content.global.skill.hunter.bnet.BNetTypes
+import content.global.skill.hunter.falconry.FalconryActivityPlugin
 import core.cache.def.Definition
 import core.cache.def.impl.ItemDefinition
 import core.cache.def.impl.NPCDefinition

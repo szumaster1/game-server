@@ -1,10 +1,11 @@
 package content.global.skill.magic.lunar
 
 
-import content.global.skill.combat.magic.spellconsts.Lunar
-import content.global.skill.gather.farming.CompostBins
-import content.global.skill.gather.farming.CompostType
-import content.global.skill.gather.farming.FarmingPatch
+import content.global.skill.cooking.CookableItems
+import content.global.skill.magic.spellconsts.Lunar
+import content.global.skill.farming.CompostBins
+import content.global.skill.farming.CompostType
+import content.global.skill.farming.FarmingPatch
 import core.api.*
 import core.game.component.Component
 import core.game.node.Node
@@ -282,7 +283,6 @@ class LunarListeners : content.global.skill.magic.SpellListener("lunar"), Comman
          */
     }
 
-    // Lunar spellbook-related debug commands
     override fun defineCommands() {
         define("poison", privilege = Privilege.ADMIN) { player, strings ->
             if (strings.size == 3) {
@@ -354,27 +354,12 @@ class LunarListeners : content.global.skill.magic.SpellListener("lunar"), Comman
      * @param log   The log item used to create the plank.
      * @param plank The plank item produced.
      * @param price The price of the plank.
-     * @constructor Creates a PlankType with the specified log, plank, and price.
+     * @constructor Creates a [PlankType] with the specified log, plank, and price.
      */
     enum class PlankType(val log: Item, val plank: Item, val price: Int) {
-        /**
-         * Wood.
-         */
         WOOD(Item(1511), Item(960), 70),
-
-        /**
-         * Oak.
-         */
         OAK(Item(1521), Item(8778), 175),
-
-        /**
-         * Teak.
-         */
         TEAK(Item(6333), Item(8780), 350),
-
-        /**
-         * Mahogany.
-         */
         MAHOGANY(Item(6332), Item(8782), 1050);
 
         companion object {
@@ -455,19 +440,17 @@ class LunarListeners : content.global.skill.magic.SpellListener("lunar"), Comman
         addXP(player, 66.0)
         setDelay(player, false)
 
-        player.interfaceManager.openSingleTab(Component(Components.DREAM_MONSTER_STAT_522))
-        player.packetDispatch.sendString("Monster name : " + npc.definition.name, Components.DREAM_MONSTER_STAT_522, 0)
-        player.packetDispatch.sendString(
-            "Combat Level : ${npc.definition.combatLevel}",
-            Components.DREAM_MONSTER_STAT_522,
-            1
-        )
-        player.packetDispatch.sendString(
+        openSingleTab(player, Components.DREAM_MONSTER_STAT_522)
+        sendString(player, "Monster name : " + npc.definition.name, Components.DREAM_MONSTER_STAT_522, 0)
+        sendString(player, "Combat Level : ${npc.definition.combatLevel}", Components.DREAM_MONSTER_STAT_522, 1)
+        sendString(
+            player,
             "Hitpoints : ${npc.definition.handlers.get(NPCConfigParser.LIFEPOINTS) ?: 0}",
             Components.DREAM_MONSTER_STAT_522,
             2
         )
-        player.packetDispatch.sendString(
+        sendString(
+            player,
             "Max hit : ${npc.getSwingHandler(false).calculateHit(npc, player, 1.0)}",
             Components.DREAM_MONSTER_STAT_522,
             3
@@ -477,7 +460,7 @@ class LunarListeners : content.global.skill.magic.SpellListener("lunar"), Comman
             "This creature is immune to poison."
         } else "This creature is not immune to poison."
 
-        player.packetDispatch.sendString(poisonStatus, Components.DREAM_MONSTER_STAT_522, 4)
+        sendString(player, poisonStatus, Components.DREAM_MONSTER_STAT_522, 4)
     }
 
     /**
@@ -490,7 +473,7 @@ class LunarListeners : content.global.skill.magic.SpellListener("lunar"), Comman
 
         for (item in player.inventory.toArray()) {
             if (item == null) continue
-            val pie = _root_ide_package_.content.global.skill.cooking.CookableItems.forId(item.id) ?: continue
+            val pie = CookableItems.forId(item.id) ?: continue
             if (!pie.name.lowercase().contains("pie")) continue
             if (player.skills.getLevel(Skills.COOKING) < pie.level) continue
             playerPies.add(item)
@@ -507,7 +490,7 @@ class LunarListeners : content.global.skill.magic.SpellListener("lunar"), Comman
                 if (playerPies.isEmpty()) return true
                 if (counter == 0) delay = Animation(4413).definition!!.getDurationTicks() + 1
                 val item = playerPies[0]
-                val pie = _root_ide_package_.content.global.skill.cooking.CookableItems.forId(item.id)
+                val pie = CookableItems.forId(item.id)
                 visualizeSpell(player, 4413, 746, 75, Sounds.LUNAR_BAKE_PIE_2879)
                 addXP(player, 60.0)
                 player.skills.addExperience(Skills.COOKING, pie!!.experience)
@@ -610,10 +593,7 @@ class LunarListeners : content.global.skill.magic.SpellListener("lunar"), Comman
     private fun superglassMake(player: Player) {
         val GLASS_WEEDS = hashSetOf(Items.SODA_ASH_1781, Items.SEAWEED_401, Items.SWAMP_WEED_10978)
         val inv = player.inventory.toArray()
-        var playerWeed: Int = amountInInventory(player, Items.SODA_ASH_1781) + amountInInventory(
-            player,
-            Items.SEAWEED_401
-        ) + amountInInventory(player, Items.SWAMP_WEED_10978)
+        var playerWeed: Int = amountInInventory(player, Items.SODA_ASH_1781) + amountInInventory(player, Items.SEAWEED_401) + amountInInventory(player, Items.SWAMP_WEED_10978)
         var playerSand: Int = amountInInventory(player, Items.BUCKET_OF_SAND_1783)
         var index = 0
 
@@ -680,11 +660,7 @@ class LunarListeners : content.global.skill.magic.SpellListener("lunar"), Comman
             sendMessage(player, "This patch has already been composted.")
             return
         }
-        requires(
-            player,
-            83,
-            arrayOf(Item(Items.ASTRAL_RUNE_9075, 3), Item(Items.NATURE_RUNE_561, 2), Item(Items.EARTH_RUNE_557, 15))
-        )
+        requires(player, 83, arrayOf(Item(Items.ASTRAL_RUNE_9075, 3), Item(Items.NATURE_RUNE_561, 2), Item(Items.EARTH_RUNE_557, 15)))
         removeRunes(player, true)
         animate(player, 4413)
         sendGraphics(724, target.location)
@@ -704,11 +680,7 @@ class LunarListeners : content.global.skill.magic.SpellListener("lunar"), Comman
             sendMessage(player, "You are not poisoned.")
             return
         }
-        requires(
-            player,
-            71,
-            arrayOf(Item(Items.ASTRAL_RUNE_9075, 2), Item(Items.LAW_RUNE_563, 1), Item(Items.COSMIC_RUNE_564, 2))
-        )
+        requires(player, 71, arrayOf(Item(Items.ASTRAL_RUNE_9075, 2), Item(Items.LAW_RUNE_563, 1), Item(Items.COSMIC_RUNE_564, 2)))
         removeRunes(player, true)
         visualizeSpell(player, 4411, 742, 90, Sounds.LUNAR_CURE_2884)
         curePoison(player)
@@ -724,11 +696,7 @@ class LunarListeners : content.global.skill.magic.SpellListener("lunar"), Comman
      * @param player the player to be cured
      */
     private fun cureGroup(player: Player) {
-        requires(
-            player,
-            74,
-            arrayOf(Item(Items.ASTRAL_RUNE_9075, 2), Item(Items.LAW_RUNE_563, 2), Item(Items.COSMIC_RUNE_564, 2))
-        )
+        requires(player, 74, arrayOf(Item(Items.ASTRAL_RUNE_9075, 2), Item(Items.LAW_RUNE_563, 2), Item(Items.COSMIC_RUNE_564, 2)))
         removeRunes(player, true)
         visualizeSpell(player, 4409, 744, 130, Sounds.LUNAR_CURE_GROUP_2882)
         curePoison(player)
@@ -770,11 +738,7 @@ class LunarListeners : content.global.skill.magic.SpellListener("lunar"), Comman
             sendMessage(player, "This player is not poisoned.")
             return
         }
-        requires(
-            player,
-            68,
-            arrayOf(Item(Items.ASTRAL_RUNE_9075, 1), Item(Items.LAW_RUNE_563), Item(Items.EARTH_RUNE_557, 10))
-        )
+        requires(player, 68, arrayOf(Item(Items.ASTRAL_RUNE_9075, 1), Item(Items.LAW_RUNE_563), Item(Items.EARTH_RUNE_557, 10)))
         player.face(p)
         visualizeSpell(player, 4411, 736, 130, Sounds.LUNAR_CURE_OTHER_2886)
         visualizeSpell(p, -1, 736, 130, Sounds.LUNAR_CURE_OTHER_INDIVIDUAL_2889)
@@ -875,7 +839,6 @@ class LunarListeners : content.global.skill.magic.SpellListener("lunar"), Comman
             return
         }
 
-
         removeRunes(player)
         delayEntity(player, Animation(6294).duration)
         visualizeSpell(player, 6294, 1061, 20, Sounds.LUNAR_HUMIDIFY_3614)
@@ -885,10 +848,10 @@ class LunarListeners : content.global.skill.magic.SpellListener("lunar"), Comman
         }
         addXP(player, 65.0)
         /*
-        queueScript(player) {
-        return@queueScript stopExecuting(player)
-        }
-        */
+         *  queueScript(player) {
+         *      return@queueScript stopExecuting(player)
+         *  }
+         */
     }
 
 }

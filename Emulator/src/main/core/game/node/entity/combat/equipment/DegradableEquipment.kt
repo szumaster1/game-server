@@ -33,20 +33,16 @@ abstract class DegradableEquipment(val slot: Int, vararg val itemIds: Int) : Plu
     abstract fun getDropItem(itemId: Int): Int
 
     override fun newInstance(arg: Any?): DegradableEquipment {
-        // Retrieve the equipment list for the specified slot
         var equipment = EQUIPMENT[slot]
-        // If no equipment list exists for the slot, create a new one
         if (equipment == null) {
-            EQUIPMENT[slot] = ArrayList(20) // Initialize a new list with a capacity of 20
-            equipment = EQUIPMENT[slot] // Assign the newly created list to equipment
+            EQUIPMENT[slot] = ArrayList(20)
+            equipment = EQUIPMENT[slot]
         }
-        // Add the current instance of DegradableEquipment to the equipment list
         equipment!!.add(this)
-        return this // Return the current instance
+        return this
     }
 
     override fun fireEvent(key: String, vararg args: Any): Any? {
-        // Placeholder for event handling, currently returns null
         return null
     }
 
@@ -62,14 +58,12 @@ abstract class DegradableEquipment(val slot: Int, vararg val itemIds: Int) : Plu
          * Handles equipment degrading.
          */
         fun degrade(player: Player?, entity: Entity?, attack: Boolean) {
-            // Functionality for degrading equipment will be implemented here
         }
 
         /*
          * Checks the degrading equipment on an equipment slot.
          */
         fun checkDegrade(player: Player?, entity: Entity?, slot: Int) {
-            // Functionality for checking equipment degradation will be implemented here
         }
 
         /*
@@ -77,24 +71,18 @@ abstract class DegradableEquipment(val slot: Int, vararg val itemIds: Int) : Plu
          */
         @JvmStatic
         fun getDropReplacement(itemId: Int): Int {
-            // Iterate through the equipment slots
             for (i in EQUIPMENT.indices) {
-                // Skip if the equipment list for the slot is null
                 if (EQUIPMENT[i] == null) {
                     continue
                 }
-                // Iterate through each degradable equipment in the slot
                 for (e in EQUIPMENT[i]!!) {
-                    // Check each item ID associated with the equipment
                     for (id in e.itemIds) {
-                        // If the item ID matches, return the drop item ID
                         if (id == itemId) {
                             return e.getDropItem(id)
                         }
                     }
                 }
             }
-            // If no match is found, return the original item ID
             return itemId
         }
     }

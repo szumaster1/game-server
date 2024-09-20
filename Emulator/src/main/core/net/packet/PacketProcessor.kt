@@ -1,8 +1,8 @@
 package core.net.packet
 
 import content.global.handlers.iface.ge.StockMarketInterfaceListener
-import content.global.skill.combat.magic.SpellListeners
-import content.global.skill.combat.magic.SpellUtils
+import content.global.skill.magic.SpellListeners
+import content.global.skill.magic.SpellUtils
 import core.Configuration
 import core.api.*
 import core.api.utils.Vector

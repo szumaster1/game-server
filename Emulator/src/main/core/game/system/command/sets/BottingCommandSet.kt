@@ -21,20 +21,15 @@ class BottingCommandSet : CommandSet(Privilege.STANDARD) {
             return
         }
 
-        define("scripts") { player, _ ->
+        define(name = "scripts") { player, _ ->
             if (GameWorld.settings?.enabled_botting != true) {
                 player.sendChat("I just tried to do something silly!")
                 return@define
             }
             if (!player.getAttribute("botting:warning_shown", false)) {
-                player.dialogueInterpreter.sendDialogue(
-                    colorize("%RWARNING: Running a bot script will permanently remove you"),
-                    colorize("%Rfrom the highscores.")
-                )
+                player.dialogueInterpreter.sendDialogue(colorize("%RWARNING: Running a bot script will permanently remove you"), colorize("%Rfrom the highscores."))
                 player.dialogueInterpreter.addAction { player, buttonId ->
-                    player.setAttribute(
-                        "/save:botting:warning_shown", true
-                    )
+                    player.setAttribute("/save:botting:warning_shown", true)
                 }
                 return@define
             }
@@ -54,7 +49,7 @@ class BottingCommandSet : CommandSet(Privilege.STANDARD) {
             player.interfaceManager.open(Component(Components.QUESTJOURNAL_SCROLL_275))
         }
 
-        define("script") { player, args ->
+        define(name = "script") { player, args ->
             if (GameWorld.settings?.enabled_botting != true) {
                 player.sendChat("I just tried to do something very silly!")
                 return@define
@@ -83,7 +78,7 @@ class BottingCommandSet : CommandSet(Privilege.STANDARD) {
 
         }
 
-        define("stopscript") { player, _ ->
+        define(name = "stopscript") { player, _ ->
             val pulse: GeneralBotCreator.BotScriptPulse? = player.getAttribute("botting:script", null)
             pulse?.stop()
             player.interfaceManager.closeOverlay()

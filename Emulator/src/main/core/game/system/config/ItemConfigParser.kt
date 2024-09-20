@@ -67,7 +67,7 @@ class ItemConfigParser {
     var reader: FileReader? = null
 
     /**
-     * Load.
+     * Load door configurations from file.
      */
     fun load() {
         var count = 0
@@ -155,6 +155,7 @@ class ItemConfigParser {
             }
             count++
         }
+
         log(this::class.java, Log.FINE, "Parsed $count item configs.")
     }
 }

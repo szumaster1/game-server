@@ -1,7 +1,7 @@
 package content.global.skill.farming.timers
 
-import content.global.skill.gather.farming.CompostBin
-import content.global.skill.gather.farming.CompostBins
+import content.global.skill.farming.CompostBin
+import content.global.skill.farming.CompostBins
 import core.game.node.entity.Entity
 import core.game.node.entity.player.Player
 import core.game.system.timer.PersistTimer

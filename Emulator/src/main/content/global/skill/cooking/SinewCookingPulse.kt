@@ -11,7 +11,7 @@ class SinewCookingPulse(player: Player?, scenery: Scenery?, initial: Int, produc
     StandardCookingPulse(player!!, scenery!!, initial, product, amount) {
 
     override fun checkRequirements(): Boolean {
-        properties = _root_ide_package_.content.global.skill.cooking.CookableItems.SINEW
+        properties = CookableItems.SINEW
         return super.checkRequirements()
     }
 

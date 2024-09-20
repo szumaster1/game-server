@@ -1,6 +1,6 @@
 package content.global.skill.farming.timers
 
-import content.global.skill.gather.farming.Seedling
+import content.global.skill.farming.Seedling
 import core.game.node.entity.Entity
 import core.game.node.entity.player.Player
 import core.game.node.item.Item

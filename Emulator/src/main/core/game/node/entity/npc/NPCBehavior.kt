@@ -38,6 +38,7 @@ open class NPCBehavior(vararg val ids: Int = intArrayOf()) : ContentInterface {
 
     /**
      * Called every tick, before the base NPC tick() method.
+     *
      * @param self the NPC instance this behavior belongs to
      * @return whether we should proceed with the base NPC tick() method - e.g. returning false means we do not proceed with a normal NPC tick.
      */
@@ -47,6 +48,7 @@ open class NPCBehavior(vararg val ids: Int = intArrayOf()) : ContentInterface {
 
     /**
      * Called before this NPC receives damage, and allows you to adjust the battlestate if needed.
+     *
      * @param self the NPC instance this behavior belongs to
      * @param attacker the entity attacking this NPC
      * @param state the current state of the combat between this NPC and the attacker.
@@ -55,6 +57,7 @@ open class NPCBehavior(vararg val ids: Int = intArrayOf()) : ContentInterface {
 
     /**
      * Called after this NPC receives damage, and allows you to adjust the battlestate if needed.
+     *
      * @param self the NPC instance this behavior belongs to
      * @param attacker the entity attacking this NPC
      * @param state the current state of the combat between this NPC and the attacker.
@@ -63,6 +66,7 @@ open class NPCBehavior(vararg val ids: Int = intArrayOf()) : ContentInterface {
 
     /**
      * Called after this NPC's basic attack has been calculated, but before it is finalized, so adjustments can be made.
+     *
      * @param self the NPC instance this behavior belongs to
      * @param victim the entity this NPC is attacking
      * @param state the state of combat between this NPC and the victim.
@@ -71,6 +75,7 @@ open class NPCBehavior(vararg val ids: Int = intArrayOf()) : ContentInterface {
 
     /**
      * Called when this NPC is being removed from the game world.
+     *
      * Note: This is not the same as death. Death does not remove an NPC, unless that NPC cannot respawn.
      * @param self the NPC instance this behavior belongs to
      */
@@ -78,6 +83,7 @@ open class NPCBehavior(vararg val ids: Int = intArrayOf()) : ContentInterface {
 
     /**
      * Called when this NPC is first created and spawned into the game world.
+     *
      * Note: This is not the same as respawning.
      * @param self the NPC instance this behavior belongs to
      */
@@ -85,12 +91,14 @@ open class NPCBehavior(vararg val ids: Int = intArrayOf()) : ContentInterface {
 
     /**
      * Called when this NPC respawns after being killed.
+     *
      * @param self the NPC instance this behavior belongs to
      */
     open fun onRespawn(self: NPC) {}
 
     /**
      * Called immediately when the NPC first begins to die (on the same tick that the death animation begins)
+     *
      * @param self the NPC instance this behavior belongs to
      * @param killer the entity which killed this NPC.
      */
@@ -98,6 +106,7 @@ open class NPCBehavior(vararg val ids: Int = intArrayOf()) : ContentInterface {
 
     /**
      * Called immediately after the death animation of this NPC has finished, on the same tick that drop tables are rolled.
+     *
      * @param self the NPC instance this behavior belongs to
      * @param killer the entity which killed this NPC.
      */
@@ -105,6 +114,7 @@ open class NPCBehavior(vararg val ids: Int = intArrayOf()) : ContentInterface {
 
     /**
      * Called after this NPC's drop table is rolled, but before the items are actually dropped, so the list can be manipulated.
+     *
      * @param self the NPC instance this behavior belongs to
      * @param killer the killer of the npc
      * @param drops the generated list of drops for this roll of the table
@@ -113,6 +123,7 @@ open class NPCBehavior(vararg val ids: Int = intArrayOf()) : ContentInterface {
 
     /**
      * Called by combat-related code to check if this NPC can be attacked by the `attacker` entity.
+     *
      * @param self the NPC instance this behavior belongs to
      * @param attacker the entity attempting to attack this NPC
      * @param style the combat style the attacker is attempting to use
@@ -127,6 +138,7 @@ open class NPCBehavior(vararg val ids: Int = intArrayOf()) : ContentInterface {
 
     /**
      * Called by combat-related code to check if this NPC should ignore multi-combat rules when attempting to attack the given victim.
+     *
      * @param self the NPC instance this behavior belongs to
      * @param victim the entity that is being considered for attack.
      * @return whether we should ignore the rules of multi-way combat for the given entity.
@@ -137,6 +149,7 @@ open class NPCBehavior(vararg val ids: Int = intArrayOf()) : ContentInterface {
 
     /**
      * Called by combat-related code to allow the combat handler to be overridden
+     *
      * @param self the NPC instance this behavior belongs to
      * @param original the default swing handler this NPC would have used
      * @return the SwingHandler instance to be used for this cycle of combat
@@ -161,6 +174,7 @@ open class NPCBehavior(vararg val ids: Int = intArrayOf()) : ContentInterface {
 
     /**
      * Modifies the combat experience gained from killing an entity
+     *
      * @param self the NPC instance this behavior belongs to
      * @param attacker entity attacking the npc
      * @return multiplier for final xp gain

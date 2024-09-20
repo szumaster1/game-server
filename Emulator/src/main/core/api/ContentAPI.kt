@@ -4,8 +4,8 @@ import com.moandjiezana.toml.Toml
 import content.data.consumables.*
 import content.data.skill.SkillingTool
 import content.global.handlers.iface.ge.StockMarketInterfaceListener
-import content.global.skill.support.slayer.SlayerManager
-import content.global.skill.support.slayer.data.Tasks
+import content.global.skill.slayer.SlayerManager
+import content.global.skill.slayer.Tasks
 import core.Configuration
 import core.api.utils.GlobalKillCounter
 import core.api.utils.Vector

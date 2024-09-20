@@ -30,7 +30,7 @@ class ShopParser {
     }
 
     /**
-     * Load.
+     * Load door configurations from file.
      */
     fun load() {
         var count = 0
@@ -40,6 +40,7 @@ class ShopParser {
 
             count++
         }
+
         log(this::class.java, Log.FINE, "Parsed $count shops.")
     }
 }
