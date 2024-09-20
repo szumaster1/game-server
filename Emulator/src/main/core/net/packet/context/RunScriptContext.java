@@ -57,9 +57,9 @@ public class RunScriptContext implements Context {
     }
 
     /**
-     * Get objects object [ ].
+     * Get objects object.
      *
-     * @return the object [ ]
+     * @return the object.
      */
     public Object[] getObjects() {
         return objects;

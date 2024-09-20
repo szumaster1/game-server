@@ -4,7 +4,6 @@ package core.integration.mysql;
  * Query.
  */
 public class Query {
-
     private String start;
     private StringBuilder content;
     private String end;

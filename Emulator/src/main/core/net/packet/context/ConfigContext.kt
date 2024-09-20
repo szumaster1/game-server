@@ -7,14 +7,14 @@ import core.net.packet.Context
  * The config packet context.
  */
 class ConfigContext(
-    private var player: Player, // Declares a private variable to store the player associated with the context.
-    @JvmField val id: Int, // Declares a constant field to store the ID of the context.
-    @JvmField val value: Int, // Declares a constant field to store the value of the context.
+    private var player: Player,
+    @JvmField val id: Int,
+    @JvmField val value: Int,
 ) : Context {
 
-    override fun getPlayer(): Player = player // Returns the player associated with the context.
+    override fun getPlayer(): Player = player
 
-    fun setPlayer(player: Player): Context { // Sets the player associated with the context.
+    fun setPlayer(player: Player): Context {
         this.player = player
         return this
     }

@@ -9,14 +9,14 @@ import java.awt.Point
  * repositioning packet.
  */
 class ChildPositionContext(
-    private val player: Player, // Player associated with the context
-    val interfaceId: Int, // ID of the interface
-    val childId: Int, // ID of the child element
-    positionX: Int, // X-coordinate of the child element
-    positionY: Int // Y-coordinate of the child element
+    private val player: Player,
+    val interfaceId: Int,
+    val childId: Int,
+    positionX: Int,
+    positionY: Int
 ) : Context {
 
-    val position: Point = Point(positionX, positionY) // Position of the child element
+    val position: Point = Point(positionX, positionY)
 
-    override fun getPlayer(): Player = player // Returns the player associated with the context
+    override fun getPlayer(): Player = player
 }

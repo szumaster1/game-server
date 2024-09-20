@@ -6,35 +6,35 @@ import core.cache.crypto.ISAACPair
 /**
  * Represents login information for a user.
  *
- * @param showAds            Flag indicating if ads are shown
- * @param windowMode         The window mode
- * @param screenWidth        The screen width
- * @param screenHeight       The screen height
- * @param displayMode        The display mode
- * @param adAffiliateId      The ad affiliate ID
- * @param settingsHash       The settings hash
- * @param currentPacketCount The current packet count
- * @param username           The username
- * @param password           The password
- * @param isaacPair          The ISAAC pair
- * @param opcode             The opcode
- * @param crcSums            The CRC sums
- * @constructor Represents login information with provided parameters
+ * @param showAds            Indicates if ads are shown (Unused)
+ * @param windowMode         the window mode
+ * @param screenWidth        the screen width
+ * @param screenHeight       the screen height
+ * @param displayMode        the display mode
+ * @param adAffiliateId      the ad affiliate ID
+ * @param settingsHash       the settings hash
+ * @param currentPacketCount the current packet count
+ * @param username           the username
+ * @param password           the password
+ * @param isaacPair          the ISAAC pair
+ * @param opcode             the opcode
+ * @param crcSums            the CRC sums
+ * @constructor Represents [LoginInfo] with provided parameters
  */
 class LoginInfo(
-    var showAds: Boolean, // Indicates if ads are shown (Unused)
-    var windowMode: Int, // Represents the window mode
-    var screenWidth: Int, // Represents the screen width
-    var screenHeight: Int, // Represents the screen height
-    var displayMode: Int, // Represents the display mode
-    var adAffiliateId: Int, // The ad affiliate ID (Unused)
-    var settingsHash: Int, // The settings hash
-    var currentPacketCount: Int, // The current packet count
-    var username: String, // The username
-    var password: String, // The password
-    var isaacPair: ISAACPair, // The ISAAC pair
-    var opcode: Int, // The opcode
-    var crcSums: IntArray // The CRC sums
+    var showAds: Boolean,
+    var windowMode: Int,
+    var screenWidth: Int,
+    var screenHeight: Int,
+    var displayMode: Int,
+    var adAffiliateId: Int,
+    var settingsHash: Int,
+    var currentPacketCount: Int,
+    var username: String,
+    var password: String,
+    var isaacPair: ISAACPair,
+    var opcode: Int,
+    var crcSums: IntArray
 ) {
     companion object {
 

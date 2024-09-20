@@ -4,7 +4,6 @@ package core.integration.mysql;
  * Database.
  */
 public class Database {
-
     private String host;
     private String name;
     private String username;

@@ -8,9 +8,9 @@ import core.net.packet.Context
  * Build scenery context.
  * @author Emperor
  *
- * @param player The player associated with the context
- * @param scenery The scenery object to be built
- * @constructor Represents the BuildSceneryContext with a player and scenery
+ * @param [player]  the player associated with the context
+ * @param [scenery] the scenery object to be built
+ * @constructor Represents the [BuildSceneryContext] with a player and scenery.
  */
 class BuildSceneryContext(
     private val player: Player,

@@ -100,8 +100,6 @@ class BankBoothListener : InteractionListener {
 
     private fun attemptToConvertItems(player: Player, used: Node, with: Node): Boolean {
         if (!hasOption(with, "use")) {
-            sendMessage(player, "You shouldn't be able to do that with object ${with.id}.")
-            sendMessage(player, "Please screenshot this and report to the developers.")
             return true
         }
 

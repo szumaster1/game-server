@@ -8,43 +8,38 @@ import core.plugin.Plugin
  */
 object XPGainPlugins {
 
-    // List to store XPGainPlugin instances
     @JvmStatic
     private val plugins = ArrayList<XPGainPlugin>()
 
-    // Add XPGainPlugin to the list of plugins
     @JvmStatic
     fun add(plugin: XPGainPlugin) {
         plugins.add(plugin)
     }
 
-    // Run XPGainPlugins for a player, skill, and amount
     @JvmStatic
     fun run(player: Player, skill: Int, amount: Double) {
-        if (player.isArtificial) return // Skip if player is artificial
+        if (player.isArtificial) return
         plugins.forEach {
-            it.run(player, skill, amount) // Execute XPGainPlugin for each plugin
+            it.run(player, skill, amount)
         }
     }
 }
 
 /**
- * XP gain plugin
- *
- * @constructor XP gain plugin
+ * Experience gain plugin.
  */
 abstract class XPGainPlugin : Plugin<Any> {
     override fun newInstance(arg: Any?): Plugin<Any> {
-        XPGainPlugins.add(this) // Add the XPGainPlugin instance to the plugins list
+        XPGainPlugins.add(this)
         return this
     }
 
     /**
      * Run method to be implemented by subclasses
      *
-     * @param player The player object
-     * @param skill  The skill affected
-     * @param amount The amount of XP gained
+     * @param [player] the player object
+     * @param [skill]  the skill affected
+     * @param [amount] the amount of XP gained
      */
     abstract fun run(player: Player, skill: Int, amount: Double)
 }

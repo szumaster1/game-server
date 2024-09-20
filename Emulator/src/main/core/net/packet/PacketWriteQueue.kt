@@ -9,9 +9,7 @@ import java.io.StringWriter
 import java.util.*
 
 /**
- * Packet write queue.
- *
- * @constructor Represents the PacketWriteQueue class.
+ * Represents the packet write queue.
  */
 class PacketWriteQueue {
     companion object {
@@ -20,8 +18,8 @@ class PacketWriteQueue {
         /**
          * Handles the outgoing packet.
          *
-         * @param packet The outgoing packet to handle.
-         * @param context The context in which the packet is being handled.
+         * @param [packet] The outgoing packet to handle.
+         * @param [context] The context in which the packet is being handled.
          */
         @JvmStatic
         fun <T> handle(packet: OutgoingPacket<T>, context: T) {
@@ -40,8 +38,8 @@ class PacketWriteQueue {
         /**
          * Pushes the outgoing packet to the write queue.
          *
-         * @param packet The outgoing packet to push.
-         * @param context The context in which the packet is being pushed.
+         * @param [packet] The outgoing packet to push.
+         * @param [context] The context in which the packet is being pushed.
          */
         @JvmStatic
         fun <T> push(packet: OutgoingPacket<T>, context: T) {
@@ -75,9 +73,9 @@ class PacketWriteQueue {
         /**
          * Writes the outgoing packet to the context.
          *
-         * @param out The outgoing packet to write.
-         * @param context The context in which the packet is being written.
-         * @throws IllegalStateException if the packet or context casting fails.
+         * @param [out] The outgoing packet to write.
+         * @param [context] The context in which the packet is being written.
+         * @throws [IllegalStateException] if the packet or context casting fails.
          */
         @Suppress("UNCHECKED_CAST")
         fun <T> write(out: OutgoingPacket<*>, context: T) {
@@ -92,11 +90,11 @@ class PacketWriteQueue {
 }
 
 /**
- * Queued packet
+ * Queued packet.
  *
- * @param T The type of the packet.
- * @param out The outgoing packet.
- * @param context The context in which the packet is being handled.
- * @constructor Represents the QueuedPacket class.
+ * @param [T] The type of the packet.
+ * @param [out] The outgoing packet.
+ * @param [context] The context in which the packet is being handled.
+ * @constructor Represents the [QueuedPacket] class.
  */
 class QueuedPacket<T>(val out: OutgoingPacket<T>, val context: T)

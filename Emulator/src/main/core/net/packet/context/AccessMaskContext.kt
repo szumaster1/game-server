@@ -20,8 +20,8 @@ class AccessMaskContext(
      * Transforms this access mask context into a new instance with the player
      * instance and id value changed.
      *
-     * @param player The player to set.
-     * @param id The id to set.
+     * @param [player] The player to set.
+     * @param [id] The id to set.
      * @return The access mask context.
      */
     fun transform(player: Player, id: Int): AccessMaskContext {
@@ -31,7 +31,7 @@ class AccessMaskContext(
     /**
      * Sets the player for the context.
      *
-     * @param player The player to set.
+     * @param [player] The player to set.
      * @return The updated context with the new player.
      */
     fun setPlayer(player: Player): Context {

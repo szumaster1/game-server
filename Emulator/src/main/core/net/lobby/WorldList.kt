@@ -130,7 +130,7 @@ object WorldList {
     /**
      * Adds a world to the world list.
      *
-     * @param def The world definitions.
+     * @param [def] The world definitions.
      */
     fun addWorld(def: WorldDefinition) {
         WORLD_LIST.add(def)
@@ -140,7 +140,7 @@ object WorldList {
     /**
      * Gets the packet to update the world list in the lobby.
      *
-     * @return The OutgoingPacket to write.
+     * @return The [OutgoingPacket] to write.
      */
     fun sendUpdate(session: IoSession, updateStamp: Int) {
         val buf = ByteBuffer.allocate(1024)
@@ -165,7 +165,7 @@ object WorldList {
     /**
      * Adds the world configuration on the packet.
      *
-     * @param buffer The current packet.
+     * @param [buffer] The current packet.
      */
     private fun putWorldListinfo(buffer: IoBuffer) {
         buffer.putSmart(WORLD_LIST.size)
@@ -186,7 +186,7 @@ object WorldList {
     /**
      * Adds the world status on the packet.
      *
-     * @param buffer The current packet.
+     * @param [buffer] The current packet.
      */
     private fun putPlayerInfo(buffer: IoBuffer) {
         for (w in WORLD_LIST) {
@@ -198,7 +198,7 @@ object WorldList {
     /**
      * Sets the countries for each world.
      *
-     * @param buffer The current packet.
+     * @param [buffer] The current packet.
      */
     private fun putCountryInfo(buffer: IoBuffer) {
         for (w in WORLD_LIST) {
@@ -210,7 +210,7 @@ object WorldList {
     /**
      * Gets the update stamp.
      *
-     * @return the updateStamp.
+     * @return the [updateStamp].
      */
     fun getUpdateStamp(): Int {
         return updateStamp

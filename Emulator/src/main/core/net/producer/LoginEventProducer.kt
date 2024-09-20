@@ -17,9 +17,9 @@ class LoginEventProducer : EventProducer {
     /**
      * Produce reader.
      *
-     * @param session The IoSession associated with the read event.
-     * @param buffer The ByteBuffer containing the data to be read.
-     * @return An instance of IoReadEvent representing the read operation.
+     * @param [session] The [IoSession] associated with the read event.
+     * @param [buffer] The [ByteBuffer] containing the data to be read.
+     * @return An instance of [IoReadEvent] representing the read operation.
      */
     override fun produceReader(session: IoSession, buffer: ByteBuffer): IoReadEvent {
         return LoginReadEvent(session, buffer)
@@ -28,9 +28,9 @@ class LoginEventProducer : EventProducer {
     /**
      * Produce writer.
      *
-     * @param session The IoSession associated with the write event.
+     * @param session The [IoSession] associated with the write event.
      * @param context The context data to be written.
-     * @return An instance of IoWriteEvent representing the write operation.
+     * @return An instance of [IoWriteEvent] representing the write operation.
      */
     override fun produceWriter(session: IoSession, context: Any): IoWriteEvent {
         return LoginWriteEvent(session, context)

@@ -8,10 +8,10 @@ import core.net.packet.Context
  * Context for building an item.
  * @author Emperor
  *
- * @param player The player who is building the item
- * @param item The item being built
- * @param oldAmount The previous amount of the item
- * @constructor Creates a context for building an item
+ * @param [player]        the player who is building the item.
+ * @param [item]          the item being built.
+ * @param [oldAmount]     the previous amount of the item.
+ * @constructor Creates a [BuildItemContext].
  */
 class BuildItemContext @JvmOverloads constructor(
     private val player: Player,

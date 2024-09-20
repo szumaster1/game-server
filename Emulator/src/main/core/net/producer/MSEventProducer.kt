@@ -17,9 +17,9 @@ class MSEventProducer : EventProducer {
     /**
      * Produce reader.
      *
-     * @param session The IoSession associated with the reader.
-     * @param buffer The ByteBuffer that contains the data to be read.
-     * @return An instance of IoReadEvent that represents the read operation.
+     * @param session The [IoSession] associated with the reader.
+     * @param buffer The [ByteBuffer] that contains the data to be read.
+     * @return An instance of [IoReadEvent] that represents the read operation.
      */
     override fun produceReader(session: IoSession, buffer: ByteBuffer): IoReadEvent {
         return MSReadEvent(session, buffer)

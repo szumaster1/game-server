@@ -9,8 +9,8 @@ import core.net.packet.Context
  * outgoing packet.
  */
 class ClearChunkContext(
-    private val player: Player, // Holds the reference to the player associated with the packet context.
-    @JvmField val chunk: RegionChunk // Represents the region chunk to be cleared.
+    private val player: Player,
+    @JvmField val chunk: RegionChunk
 ) : Context {
 
     override fun getPlayer(): Player = player

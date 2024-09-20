@@ -30,13 +30,12 @@ object AccountRegister {
     /**
      * Reads the incoming opcode of an account register.
      *
-     * @param session the session
-     * @param opcode  the opcode
-     * @param buffer  the buffer
+     * @param [session] the session.
+     * @param [opcode]  the opcode.
+     * @param [buffer]  the buffer.
      */
     @JvmStatic
     fun read(session: IoSession, opcode: Int, buffer: ByteBuffer) {
-        // Variables for storing registration data
         var day: Int
         var month: Int
         var year: Int
@@ -45,7 +44,6 @@ object AccountRegister {
 
         when (opcode) {
             147 -> { // details
-                // Read day, month, year, and country from the buffer
                 day = buffer.get().toInt()
                 month = buffer.get().toInt()
                 year = buffer.short.toInt()
@@ -53,20 +51,16 @@ object AccountRegister {
                 response(session, RegistryResponse.SUCCESS)
             }
             186 -> { // username
-                // Read the username from the buffer and perform necessary modifications
                 val username = ByteBufferUtils.getString(buffer).replace(" ", "_").lowercase().replace("|", "")
                 info.username = username
-                // Check if the username length is valid
                 if (username.length <= 0 || username.length > 12) {
                     response(session, RegistryResponse.INVALID_USERNAME)
                     return
                 }
-                // Check if the username is invalid
                 if (invalidUsername(username)) {
                     response(session, RegistryResponse.INVALID_USERNAME)
                     return
                 }
-                // Check if the account can be created with the provided username
                 if (!GameWorld.authenticator.canCreateAccountWith(info)) {
                     response(session, RegistryResponse.NOT_AVAILBLE_USER)
                     return
@@ -74,39 +68,33 @@ object AccountRegister {
                 response(session, RegistryResponse.SUCCESS)
             }
             36 -> { // register details
-                // Read the RSA-encrypted buffer and decrypt it
-                buffer.get() // Useless size being written that is already written in the RSA block
+                buffer.get()
                 val decryptedBuffer = Login.decryptRSABuffer(buffer, Configuration.EXPONENT, Configuration.MODULUS)
-                // Check if the decryption was successful
-                if (decryptedBuffer.get() != 10.toByte()) { // RSA header (aka did this decrypt properly)
+                if (decryptedBuffer.get() != 10.toByte()) {
                     log(AccountRegister::class.java, Log.ERR, "Decryption failed during registration :(")
                     response(session, RegistryResponse.CANNOT_CREATE)
                     return
                 }
                 decryptedBuffer.short
                 val revision = decryptedBuffer.short.toInt()
-                // Check if the revision matches the expected value
+
                 if (revision != Constants.REVISION) {
                     response(session, RegistryResponse.CANNOT_CREATE)
                     return
                 }
-                // Read the username and password from the buffer and perform necessary modifications
                 val name = ByteBufferUtils.getString(decryptedBuffer).replace(" ", "_").lowercase().replace("|", "")
                 decryptedBuffer.getInt()
                 val password = ByteBufferUtils.getString(decryptedBuffer)
                 info.username = name
                 info.password = password
-                // Check if the password length is valid
                 if (password.length < 5 || password.length > 20) {
                     response(session, RegistryResponse.INVALID_PASS_LENGTH)
                     return
                 }
-                // Check if the password is similar to the username
                 if (password == name) {
                     response(session, RegistryResponse.PASS_SIMILAR_TO_USER)
                     return
                 }
-                // Check if the username is invalid
                 if (invalidUsername(name)) {
                     response(session, RegistryResponse.INVALID_USERNAME)
                     return
@@ -119,12 +107,10 @@ object AccountRegister {
                 year = decryptedBuffer.short.toInt()
                 country = decryptedBuffer.short.toInt()
                 decryptedBuffer.getInt()
-                // Check if the account can be created with the provided information
                 if (!GameWorld.authenticator.canCreateAccountWith(info)) {
                     response(session, RegistryResponse.CANNOT_CREATE)
                     return
                 }
-                // Create the account and send a success response
                 GameWorld.authenticator.createAccountWith(info)
                 GameWorld.Pulser.submit(object : Pulse() {
                     override fun pulse(): Boolean {
@@ -142,8 +128,8 @@ object AccountRegister {
     /**
      * Send a response to the client.
      *
-     * @param session  the session
-     * @param response the response
+     * @param [session]  the session.
+     * @param [response] the response.
      */
     private fun response(session: IoSession, response: RegistryResponse) {
         val buf = ByteBuffer.allocate(100)
@@ -154,8 +140,8 @@ object AccountRegister {
     /**
      * Check if a username is invalid.
      *
-     * @param username the username
-     * @return true if the username is invalid, false otherwise
+     * @param [username] the username.
+     * @return `true` if the username is invalid, `false` otherwise.
      */
     fun invalidUsername(username: String): Boolean {
         val matcher: Matcher = PATTERN.matcher(username)

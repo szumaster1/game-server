@@ -9,10 +9,10 @@ import core.net.packet.Context
  * outgoing packets.
  */
 class ClanContext(
-    private val player: Player, // Define a private property to store the player associated with the context
-    @JvmField val clan: ClanRepository, // Define a public property to store the clan repository
-    val isLeave: Boolean // Define a property to indicate if the player is leaving the clan
+    private val player: Player,
+    @JvmField val clan: ClanRepository,
+    val isLeave: Boolean
 ) : Context {
 
-    override fun getPlayer(): Player = player // Return the player associated with the context
+    override fun getPlayer(): Player = player
 }

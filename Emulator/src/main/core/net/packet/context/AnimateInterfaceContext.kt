@@ -7,11 +7,11 @@ import core.net.packet.Context
  * The animate interface context.
  * @author Emperor
  *
- * @param player The player associated with the context
- * @param animationId The ID of the animation
- * @param interfaceId The ID of the interface
- * @param childId The ID of the child component
- * @constructor Creates an AnimateInterfaceContext with the specified parameters
+ * @param [player]          the player.
+ * @param [animationId]     the animation.
+ * @param [interfaceId]     the interface.
+ * @param [childId]         the child component.
+ * @constructor Creates an [AnimateInterfaceContext].
  */
 class AnimateInterfaceContext(
     private val player: Player,

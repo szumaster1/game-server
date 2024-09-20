@@ -49,7 +49,7 @@ object WorldCommunicator {
     /**
      * Registers a new world.
      *
-     * @param session The session.
+     * @param [session] The session.
      */
     fun register(session: IoSession) {
         this.session = session
@@ -77,7 +77,7 @@ object WorldCommunicator {
      * Checks if the Management server is locally hosted.
      *
      * @return {@code True} if so.
-     * @throws IOException When an I/O exception occurs.
+     * @throws [IOException] When an I/O exception occurs.
      */
     @Throws(IOException::class)
     private fun isLocallyHosted(): Boolean {
@@ -99,7 +99,7 @@ object WorldCommunicator {
     /**
      * Gets and removes the login attempt for the given username.
      *
-     * @param username The username.
+     * @param [username] The username.
      * @return The login attempt.
      */
     fun finishLoginAttempt(username: String): LoginParser? {
@@ -118,7 +118,7 @@ object WorldCommunicator {
     /**
      * Gets the id of the world the player is connected to.
      *
-     * @param playerName The player's name.
+     * @param [playerName] The player's name.
      * @return The world id, or -1 if the player wasn't connected.
      */
     fun getWorld(playerName: String): Int {
@@ -133,7 +133,7 @@ object WorldCommunicator {
     /**
      * Gets the world statistics for the given index.
      *
-     * @param id The world id.
+     * @param [id] The world id.
      * @return The world statistics.
      */
     fun getWorld(id: Int): WorldStatistics {
@@ -143,7 +143,7 @@ object WorldCommunicator {
     /**
      * Gets the session.
      *
-     * @return the session
+     * @return the [session].
      */
     fun getSession(): IoSession {
         return session
@@ -152,7 +152,7 @@ object WorldCommunicator {
     /**
      * Checks if this world is connected to the Management server.
      *
-     * @return {@code True} if so.
+     * @return `true` if so.
      */
     @JvmStatic
     fun isEnabled(): Boolean {
@@ -180,7 +180,7 @@ object WorldCommunicator {
     /**
      * Sets the state.
      *
-     * @param state the state to set.
+     * @param [state] the state to set.
      */
     fun setState(state: ManagementServerState) {
         if (WorldCommunicator.state != state) {
@@ -201,7 +201,7 @@ object WorldCommunicator {
     /**
      * Sets the reactor.
      *
-     * @param reactor the reactor to set.
+     * @param [reactor] the reactor to set.
      */
     fun setReactor(reactor: NioReactor) {
         WorldCommunicator.reactor = reactor

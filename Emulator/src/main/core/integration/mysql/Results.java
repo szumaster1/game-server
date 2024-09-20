@@ -9,7 +9,6 @@ import java.util.List;
  * Results.
  */
 public class Results {
-
     private ResultSet set;
 
     /**

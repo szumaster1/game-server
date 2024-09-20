@@ -8,38 +8,6 @@ import java.util.*
 
 /**
  * Game settings class to store various game settings.
- *
- * @param name The name of the game.
- * @param isBeta Flag indicating if the game is in beta mode.
- * @param isDevMode Flag indicating if the game is in developer mode.
- * @param isGui Flag indicating if the game has a graphical user interface.
- * @param worldId The ID of the game world.
- * @param countryIndex The index of the country.
- * @param activity The current activity in the game.
- * @param isMembers Flag indicating if the game is for members only.
- * @param isPvp Flag indicating if player versus player mode is enabled.
- * @param isQuickChat Flag indicating if quick chat feature is enabled.
- * @param isLootshare Flag indicating if loot sharing is enabled.
- * @param msAddress The address of the game's server.
- * @param default_xp_rate The default experience rate.
- * @param allow_slayer_reroll Flag indicating if slayer reroll is allowed.
- * @param enable_default_clan Flag indicating if default clan is enabled.
- * @param enable_bots Flag indicating if bots are enabled.
- * @param autostock_ge Flag indicating if automatic stocking at the Grand Exchange is enabled.
- * @param allow_token_purchase Flag indicating if token purchase is allowed.
- * @param skillcape_perks The perks of skill capes.
- * @param increased_door_time The time increase for doors.
- * @param enabled_botting Flag indicating if botting is enabled.
- * @param max_adv_bots The maximum number of advanced bots.
- * @param enable_doubling_money_scammers Flag indicating if doubling money scammers are enabled.
- * @param wild_pvp_enabled Flag indicating if wilderness player versus player is enabled.
- * @param jad_practice_enabled Flag indicating if Jad practice is enabled.
- * @param ge_announcement_limit The limit for Grand Exchange announcements.
- * @param smartpathfinder_bfs Flag indicating if smart pathfinding using BFS is enabled.
- * @param enable_castle_wars Flag indicating if Castle Wars is enabled.
- * @param message_model The model for messages.
- * @param message_string The message string.
- * @constructor Creates a new instance of GameSettings.
  */
 class GameSettings internal constructor(
     var name: String,

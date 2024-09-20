@@ -17,9 +17,9 @@ class RegistryEventProducer : EventProducer {
     /**
      * Produce reader.
      *
-     * @param session The IoSession associated with the read event.
-     * @param buffer The ByteBuffer containing the data to be read.
-     * @return An instance of IoReadEvent representing the read operation.
+     * @param session The [IoSession] associated with the read event.
+     * @param buffer The [ByteBuffer] containing the data to be read.
+     * @return An instance of [IoReadEvent] representing the read operation.
      */
     override fun produceReader(session: IoSession, buffer: ByteBuffer): IoReadEvent {
         return RegistryReadEvent(session, buffer)
