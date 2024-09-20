@@ -1,6 +1,6 @@
 package content.minigame.castlewars
 
-import content.global.skill.combat.summoning.familiar.BurdenBeast
+import content.global.skill.summoning.familiar.BurdenBeast
 import content.minigame.castlewars.areas.CastleWarsWaitingArea
 import core.api.*
 import org.rs.consts.Items
@@ -150,7 +150,7 @@ class CastleWarsListeners : InteractionListener {
             // Lock the player
             lock(player, 3)
             // Make the player "Jump" to the next stepping stone
-            content.global.skill.support.agility.AgilityHandler.forceWalk(
+            content.global.skill.agility.AgilityHandler.forceWalk(
                 player, -1, player.location, stone.location, Animation(741), 10, 0.0, null, 1
             )
             // Delay sound to line up with "jump" movement
@@ -189,7 +189,7 @@ class CastleWarsListeners : InteractionListener {
         // Your familiar can't hold any non-combat items
 
         // Check the player's familiar container for Coins or Noted items
-        val familiar: BurdenBeast = player.familiarManager.familiar as? BurdenBeast
+        val familiar: content.global.skill.summoning.familiar.BurdenBeast = player.familiarManager.familiar as? content.global.skill.summoning.familiar.BurdenBeast
             ?: return null
 
         if (hasNonCombatItems(familiar.container)) return "Your familiar can't take non-combat items into the arena."

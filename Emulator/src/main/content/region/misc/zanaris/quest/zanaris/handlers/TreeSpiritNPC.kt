@@ -1,6 +1,5 @@
 package content.region.misc.zanaris.quest.zanaris.handlers
 
-import org.rs.consts.NPCs
 import core.api.getQuestStage
 import core.api.sendDialogue
 import core.api.setQuestStage
@@ -9,6 +8,7 @@ import core.game.node.entity.npc.AbstractNPC
 import core.game.node.entity.player.Player
 import core.game.world.map.Location
 import core.plugin.Initializable
+import org.rs.consts.NPCs
 
 /**
  * Represents the Tree spirit NPC.

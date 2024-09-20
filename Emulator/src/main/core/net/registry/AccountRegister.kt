@@ -1,6 +1,7 @@
 package core.net.registry
 
 import core.Configuration
+import core.api.log
 import core.auth.UserAccountInfo
 import core.cache.misc.buffer.ByteBufferUtils
 import core.game.system.task.Pulse
@@ -9,12 +10,9 @@ import core.net.Constants
 import core.net.IoSession
 import core.net.packet.incoming.Login
 import core.tools.Log
-
 import java.nio.ByteBuffer
 import java.util.regex.Matcher
 import java.util.regex.Pattern
-
-import core.api.log
 
 /**
  * Handles the registry of new accounts.

@@ -1,6 +1,5 @@
 package core.api.utils
 
-import org.rs.consts.Items
 import content.data.tables.*
 import content.global.activity.ttrails.ClueLevel
 import content.global.handlers.item.equipment.gloves.FOGGlovesManager
@@ -10,6 +9,7 @@ import core.game.node.entity.Entity
 import core.game.node.entity.player.Player
 import core.game.node.item.Item
 import core.tools.RandomFunction
+import org.rs.consts.Items
 
 /**
  * Weight based table.

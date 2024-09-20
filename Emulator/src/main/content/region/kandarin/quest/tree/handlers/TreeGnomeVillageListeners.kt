@@ -1,6 +1,6 @@
 package content.region.kandarin.quest.tree.handlers
 
-import content.global.skill.support.agility.AgilityHandler
+import content.global.skill.agility.AgilityHandler
 import content.region.kandarin.quest.tree.TreeGnomeVillage.Companion.mazeEntrance
 import content.region.kandarin.quest.tree.TreeGnomeVillage.Companion.mazeVillage
 import content.region.kandarin.quest.tree.dialogue.BallistaDialogue
@@ -116,7 +116,7 @@ class TreeGnomeVillageListeners : InteractionListener {
                         "The wall has been reduced to rubble. It should be possible to climb over the remains"
                     ).also { stage++ }
 
-                    1 -> AgilityHandler.forceWalk(
+                    1 -> content.global.skill.agility.AgilityHandler.forceWalk(
                         player!!,
                         -1,
                         player!!.location,

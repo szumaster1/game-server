@@ -16,7 +16,7 @@ import core.game.world.update.flag.context.Animation
 import org.rs.consts.Items
 import org.rs.consts.NPCs
 import org.rs.consts.Scenery
-import content.global.skill.support.agility.AgilityHandler
+import content.global.skill.agility.AgilityHandler
 import content.region.kandarin.quest.ikov.TempleOfIkov
 
 class TempleOfIkovListeners : InteractionListener {
@@ -88,7 +88,7 @@ class TempleOfIkovListeners : InteractionListener {
                     setQuestStage(player, TempleOfIkov.questName, 3)
                 }
             } else {
-                AgilityHandler.fail(player, 2, Location.create(2682, 9855, 0), Animation(770), 20, "You slip and fall to the pit below.")
+                content.global.skill.agility.AgilityHandler.fail(player, 2, Location.create(2682, 9855, 0), Animation(770), 20, "You slip and fall to the pit below.")
             }
             return@on true
         }

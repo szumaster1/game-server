@@ -1,7 +1,7 @@
 package core.game.node.entity.combat
 
 import org.rs.consts.Sounds
-import content.global.skill.combat.summoning.familiar.Familiar
+import content.global.skill.summoning.familiar.Familiar
 import core.api.log
 import core.api.playGlobalAudio
 import core.game.component.Component
@@ -186,7 +186,7 @@ abstract class CombatSwingHandler(var type: CombatStyle?) {
         if (victim == null || style == null) {
             return false
         }
-        if (victim is Player && entity is Familiar && victim.prayer[PrayerType.PROTECT_FROM_SUMMONING]) {
+        if (victim is Player && entity is content.global.skill.summoning.familiar.Familiar && victim.prayer[PrayerType.PROTECT_FROM_SUMMONING]) {
             mod = 0.0
         }
         val attack = calculateAccuracy(entity) * accuracyMod * mod * getSetMultiplier(entity, Skills.ATTACK)
@@ -500,7 +500,7 @@ abstract class CombatSwingHandler(var type: CombatStyle?) {
         var attStyle: Int
 
         when (entity) {
-            is Familiar -> {
+            is content.global.skill.summoning.familiar.Familiar -> {
                 player = entity.owner; attStyle = entity.attackStyle
             }
 
@@ -598,7 +598,7 @@ abstract class CombatSwingHandler(var type: CombatStyle?) {
                 hit += (hit.toDouble() * 0.15).toInt()
             }
         }
-        if (attacker is Familiar && victim is Player) {
+        if (attacker is content.global.skill.summoning.familiar.Familiar && victim is Player) {
             if (victim.prayer[PrayerType.PROTECT_FROM_SUMMONING]) {
                 hit = 0
             }

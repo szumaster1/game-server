@@ -1,6 +1,6 @@
 package content.region.fremennik.rellekka.quest.viking.handlers
 
-import content.global.skill.gathering.woodcutting.WoodcuttingPulse
+import content.global.skill.gather.woodcutting.WoodcuttingPulse
 import content.global.travel.LyreTeleport
 import core.api.*
 import org.rs.consts.Items

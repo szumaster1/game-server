@@ -1,7 +1,6 @@
 package content.region.misc.tutorial.dialogue
 
 import content.region.misc.tutorial.handlers.TutorialStage
-import org.rs.consts.NPCs
 import core.api.getAttribute
 import core.api.setAttribute
 import core.game.dialogue.Dialogue
@@ -10,6 +9,7 @@ import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.game.world.GameWorld.settings
 import core.plugin.Initializable
+import org.rs.consts.NPCs
 
 /**
  * Represents the Finance Advisor dialogue.

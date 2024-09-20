@@ -1,8 +1,8 @@
 package core
 
 import TestUtils
-import content.global.skill.gathering.GatheringListener
-import content.global.skill.gathering.woodcutting.WoodcuttingListener
+import content.global.skill.gather.GatheringListener
+import content.global.skill.gather.woodcutting.WoodcuttingListener
 import core.api.log
 import core.cache.def.impl.NPCDefinition
 import core.game.interaction.*

@@ -1,6 +1,6 @@
 package content.region.desert.alkharid.shantay_pass.dialogue
 
-import content.global.skill.support.agility.AgilityHandler
+import content.global.skill.agility.AgilityHandler
 import org.rs.consts.Items
 import org.rs.consts.NPCs
 import core.api.sendDialogueLines
@@ -90,7 +90,7 @@ class ShantayGuardDialogue(player: Player? = null) : Dialogue(player) {
     companion object {
         private val PASS = Item(Items.SHANTAY_PASS_1854)
         fun handleShantayPass(player: Player) {
-            AgilityHandler.walk(player, 0, player.location, player.location.transform(0, if (player.location.y > 3116) -2 else 2, 0), null, 0.0, null)
+            content.global.skill.agility.AgilityHandler.walk(player, 0, player.location, player.location.transform(0, if (player.location.y > 3116) -2 else 2, 0), null, 0.0, null)
         }
     }
 }

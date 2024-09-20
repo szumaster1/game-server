@@ -1,7 +1,7 @@
 package core.game.ge
 
-import org.rs.consts.Items
 import core.cache.def.impl.ItemDefinition
+import org.rs.consts.Items
 
 /**
  * Bot prices.

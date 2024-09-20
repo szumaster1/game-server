@@ -36,6 +36,7 @@ class GraphicDefinition {
          * @param [gfxId] the gfx id.
          * @return [GraphicDefinition].
          */
+        @JvmStatic
         fun forId(gfxId: Int): GraphicDefinition {
             val def = graphicDefinitions[gfxId]
             if (def != null) {

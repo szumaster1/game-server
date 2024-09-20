@@ -13,10 +13,10 @@ import core.game.world.map.build.DynamicRegion
  * @constructor Represents a RegionSpecification with a region contract and chunk contracts.
  */
 class RegionSpecification(
-    val regionContract: RegionSpecContract = EmptyRegionContract(), // Default region contract is set to EmptyRegionContract
-    vararg val chunkContracts: ChunkSpecContract = arrayOf(EmptyChunkContract()) // Default chunk contracts are set to an array containing EmptyChunkContract
+    val regionContract: RegionSpecContract = EmptyRegionContract(),
+    vararg val chunkContracts: ChunkSpecContract = arrayOf(EmptyChunkContract())
 ) {
-    constructor(vararg chunkContracts: ChunkSpecContract) : this(EmptyRegionContract(), *chunkContracts) // Secondary constructor allowing only chunk contracts
+    constructor(vararg chunkContracts: ChunkSpecContract) : this(EmptyRegionContract(), *chunkContracts)
 
     /**
      * Build
@@ -24,10 +24,10 @@ class RegionSpecification(
      * @return A DynamicRegion instance created from the region contract and populated with chunks.
      */
     fun build(): DynamicRegion {
-        val dyn = regionContract.instantiateRegion() // Instantiate a new region using the region contract
-        Region.load(dyn) // Load the newly created region into the Region system
-        chunkContracts.forEach { it.populateChunks(dyn) } // Populate the chunks in the dynamic region using the chunk contracts
-        return dyn // Return the populated dynamic region
+        val dyn = regionContract.instantiateRegion()
+        Region.load(dyn)
+        chunkContracts.forEach { it.populateChunks(dyn) }
+        return dyn
     }
 }
 

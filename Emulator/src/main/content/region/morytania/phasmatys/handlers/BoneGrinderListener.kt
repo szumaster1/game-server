@@ -1,6 +1,6 @@
 package content.region.morytania.phasmatys.handlers
 
-import content.global.skill.combat.prayer.Bones
+import content.global.skill.prayer.Bones
 import core.api.*
 import org.rs.consts.Animations
 import org.rs.consts.Items

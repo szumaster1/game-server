@@ -1,6 +1,6 @@
 package content.region.morytania.handlers
 
-import content.global.skill.support.agility.AgilityHandler
+import content.global.skill.agility.AgilityHandler
 import core.api.*
 import org.rs.consts.*
 import core.game.global.action.ClimbActionHandler
@@ -109,22 +109,22 @@ class MorytaniaListeners : InteractionListener {
                 failAnim = Animation(771)
                 failLand = Location(3438, 3328)
             }
-            if (AgilityHandler.hasFailed(player, 1, 0.1)) {
+            if (content.global.skill.agility.AgilityHandler.hasFailed(player, 1, 0.1)) {
                 val end = if (fromGrotto) FAIL_LOCATION else start
-                AgilityHandler.forceWalk(player, -1, start, end, failAnim, 15, 0.0, null, 0).endAnimation = SWIMMING_ANIMATION
-                AgilityHandler.forceWalk(player, -1, FAIL_LOCATION, failLand, SWIMMING_ANIMATION, 15, 2.0, null, 3)
+                content.global.skill.agility.AgilityHandler.forceWalk(player, -1, start, end, failAnim, 15, 0.0, null, 0).endAnimation = SWIMMING_ANIMATION
+                content.global.skill.agility.AgilityHandler.forceWalk(player, -1, FAIL_LOCATION, failLand, SWIMMING_ANIMATION, 15, 2.0, null, 3)
                 submitIndividualPulse(player, object : Pulse(2) {
                     override fun pulse(): Boolean {
                         sendMessage(player, "You nearly drown in the disgusting swamp.")
                         visualize(player, failAnim, SPLASH_GFX)
                         teleport(player, FAIL_LOCATION)
-                        AgilityHandler.fail(player, 0, failLand, SWIMMING_ANIMATION, Random.nextInt(1, 7), "You nearly drown in the disgusting swamp.")
+                        content.global.skill.agility.AgilityHandler.fail(player, 0, failLand, SWIMMING_ANIMATION, Random.nextInt(1, 7), "You nearly drown in the disgusting swamp.")
                         return true
                     }
                 })
             } else {
                 val end = if (fromGrotto) start.transform(0, -3, 0) else start.transform(0, 3, 0)
-                AgilityHandler.forceWalk(player, -1, start, end, JUMP_ANIMATION, 15, 15.0, null, 0)
+                content.global.skill.agility.AgilityHandler.forceWalk(player, -1, start, end, JUMP_ANIMATION, 15, 15.0, null, 0)
             }
             return@on true
         }

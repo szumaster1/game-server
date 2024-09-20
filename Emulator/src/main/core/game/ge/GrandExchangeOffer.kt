@@ -61,21 +61,18 @@ class GrandExchangeOffer {
 
     fun addWithdrawItem(id: Int, amount: Int) {
         if (amount == 0) return
-        //loop checking if the item is already present first
         for (item in withdraw)
             if (item != null && item.id == id) {
                 item.amount += amount
                 return
             }
 
-        //if we make it to this point, the item was not present. Loop to find first null slot and stick item there.
         for ((index, item) in withdraw.withIndex())
             if (item == null) {
                 withdraw[index] = Item(id, amount)
                 return
             }
 
-        //send container update packet to player if they exist (are online)
         if (player != null)
             visualize(player)
     }
@@ -241,13 +238,10 @@ class GrandExchangeOffer {
     fun cacheValue(): Int {
         var value = 0
         if (sell) {
-            // count the cache value of the unsold items
             value += ItemDefinition.forId(itemID).value * amountLeft
         } else {
-            // count the number of coins that haven't yet been spent
             value += offeredValue * amountLeft
         }
-        // for both the buyer and seller, the already completed portion is present in withdraw
         for (item in withdraw) {
             if (item != null) {
                 value += item.definition.value * item.amount

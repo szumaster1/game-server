@@ -52,7 +52,7 @@ class RecruitmentDriveListeners : InteractionListener, MapArea {
     }
 
     companion object {
-        enum class Tasks(val npc: Int, val location: Location, val destination: Location, val portal: Int, val door: Int) {
+        private enum class Tasks(val npc: Int, val location: Location, val destination: Location, val portal: Int, val door: Int) {
             SIR_SPISHYUS(NPCs.SIR_SPISHYUS_2282, Location(2490, 4972), Location(2489, 4972), Scenery.PORTAL_7272, Scenery.DOOR_7274),
             LADY_TABLE(NPCs.LADY_TABLE_2283, Location(2460, 4979), Location(2459, 4979), Scenery.PORTAL_7288, Scenery.DOOR_7302),
             SIR_KUAM_FERENTSE(NPCs.SIR_KUAM_FERENTSE_2284, Location(2455, 4964), Location(2456, 4964), Scenery.PORTAL_7315, Scenery.DOOR_7317),

@@ -1,6 +1,6 @@
 package content.region.wilderness.handlers
 
-import content.global.skill.combat.summoning.familiar.Familiar
+import content.global.skill.summoning.familiar.Familiar
 import content.region.wilderness.handlers.npc.CorporealBeastNPC
 import core.api.*
 import core.game.node.entity.Entity
@@ -35,7 +35,7 @@ class CorpAreaController : MapArea, TickListener {
             if (entity.familiarManager.hasFamiliar()) {
                 entity.familiarManager.familiar.call()
             }
-        } else if (entity is Familiar) {
+        } else if (entity is content.global.skill.summoning.familiar.Familiar) {
             entity.setAttribute("corp-time-remaining", secondsToTicks(10))
         } else if (entity is NPC && entity.behavior is CorporealBeastNPC) {
             corpBeast = entity

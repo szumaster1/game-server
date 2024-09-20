@@ -1,8 +1,5 @@
 package content.region.misc.zanaris.quest.zanaris
 
-import org.rs.consts.Components
-import org.rs.consts.Items
-import org.rs.consts.Vars
 import core.api.hasLevelStat
 import core.api.sendItemZoomOnInterface
 import core.game.node.entity.player.Player
@@ -10,6 +7,9 @@ import core.game.node.entity.player.link.quest.Quest
 import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 import core.plugin.Initializable
+import org.rs.consts.Components
+import org.rs.consts.Items
+import org.rs.consts.Vars
 
 /**
  * Represents the Lost City quest.

@@ -1,6 +1,5 @@
 package content.region.misc.zanaris.quest.zanaris.dialogue
 
-import org.rs.consts.NPCs
 import core.api.getQuestStage
 import core.api.startQuest
 import core.game.dialogue.Dialogue
@@ -9,6 +8,7 @@ import core.game.dialogue.Topic
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
+import org.rs.consts.NPCs
 
 /**
  * Represents the Warrior dialogue.

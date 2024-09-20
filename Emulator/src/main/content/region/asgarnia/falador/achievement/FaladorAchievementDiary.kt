@@ -1,6 +1,6 @@
 package content.region.asgarnia.falador.achievement
 
-import content.global.skill.gathering.farming.FarmingPatch
+import content.global.skill.gather.farming.FarmingPatch
 import content.global.skill.production.crafting.data.LightSource
 import content.global.travel.FairyRing
 import core.api.*

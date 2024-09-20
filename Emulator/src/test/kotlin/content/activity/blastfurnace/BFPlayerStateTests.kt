@@ -1,12 +1,10 @@
 package content.activity.blastfurnace
 
 import TestUtils
-import content.global.skill.production.smithing.data.Bar
-import content.minigame.blastfurnace.BFPlayerState
+import content.global.skill.smithing.smelting.Bar
 import content.minigame.blastfurnace.BlastFurnace
 import core.api.addItem
 import core.api.amountInInventory
-import core.api.setVarbit
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 import org.rs.consts.Items

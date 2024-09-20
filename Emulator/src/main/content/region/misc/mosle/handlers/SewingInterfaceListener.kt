@@ -1,11 +1,11 @@
 package content.region.misc.mosle.handlers
 
 import core.api.*
-import org.rs.consts.Components
-import org.rs.consts.Items
 import core.game.interaction.InterfaceListener
 import core.game.node.entity.player.Player
 import core.game.node.item.Item
+import org.rs.consts.Components
+import org.rs.consts.Items
 
 /**
  * Represents the Sewing interface.

@@ -9,13 +9,20 @@ import core.game.node.entity.player.link.diary.DiaryType
 import core.game.world.map.zone.ZoneBorders
 
 /**
- * Diary event hook base.
+ * Base class for diary event hooks.
  *
- * @param diaryType diary type.
- * @constructor Diary event hook base.
+ * @property diaryType The type of diary associated with this event hook.
+ * @constructor Creates a [DiaryEventHookBase] with the specified [diaryType].
  */
 abstract class DiaryEventHookBase(private val diaryType: DiaryType) : MapArea, LoginListener {
     protected companion object {
+        /**
+         * Executes a handler function if the entity is an eligible player.
+         *
+         * @param entity The entity to check.
+         * @param event The event to pass to the handler.
+         * @param handler The function to execute if the entity is an eligible player.
+         */
         private fun <T> forEligibleEntityDo(entity: Entity, event: T, handler: (Player, T) -> Unit) {
             if (entity !is Player) return
             if (entity.isArtificial) return
@@ -25,12 +32,12 @@ abstract class DiaryEventHookBase(private val diaryType: DiaryType) : MapArea, L
     }
 
     /**
-     * Event handler.
+     * Handles specific events for the diary.
      *
-     * @param T Represents the type of event.
-     * @param owner   The owner of the event handler.
+     * @param [T] The type of event.
+     * @param owner The owning [DiaryEventHookBase] instance.
      * @param handler The function to handle the event.
-     * @constructor Represents the Event handler with the specified owner and handler.
+     * @constructor Creates an [EventHandler] with the specified owner and handler.
      */
     class EventHandler<T : core.game.event.Event>(
         private val owner: DiaryEventHookBase,
@@ -40,7 +47,11 @@ abstract class DiaryEventHookBase(private val diaryType: DiaryType) : MapArea, L
             forEligibleEntityDo(entity, event, handler)
         }
     }
-
+    /**
+     * The tasks associated with the area.
+     *
+     * @return An array of [AreaDiaryTask].
+     */
     open val areaTasks get() = arrayOf<AreaDiaryTask>()
 
     final override fun defineAreaBorders(): Array<ZoneBorders> =
@@ -89,52 +100,41 @@ abstract class DiaryEventHookBase(private val diaryType: DiaryType) : MapArea, L
     }
 
     /**
-     * Fulfill task requirement
+     * Completes a task requirement for a player.
      *
-     * @param player The player whose task requirement is being fulfilled
-     * @param level The level of the diary associated with the task
-     * @param task The specific task to be fulfilled
-     * @param attribute The attribute that indicates the task's status
+     * @param player The player whose task requirement is being fulfilled.
+     * @param level The diary level associated with the task.
+     * @param task The specific task to be fulfilled.
+     * @param attribute The attribute indicating the task's status.
      */
     protected fun fulfillTaskRequirement(player: Player, level: DiaryLevel, task: Int, attribute: String) {
-        // Check if the player already has the required attribute
         if (getAttribute(player, attribute, false)) return
-
-        // Update the player's achievement diary with the new task status
-        player.achievementDiaryManager.updateTask(
-            player, diaryType, findIndexFor(level), task, false
-        )
-
-        // Set the attribute to indicate that the task requirement has been fulfilled
+        player.achievementDiaryManager.updateTask(player, diaryType, findIndexFor(level), task, false)
         setAttribute(player, "/save:$attribute", true)
     }
 
     /**
-     * When task requirement fulfilled
+     * Executes an action when a task requirement is fulfilled.
      *
-     * @param player The player whose task requirement has been fulfilled
-     * @param attribute The attribute that indicates the task's status
-     * @param then The action to perform after the requirement is fulfilled
-     * @receiver
+     * @param player The player whose task requirement has been fulfilled.
+     * @param attribute The attribute indicating the task's status.
+     * @param then The action to perform after the requirement is fulfilled.
      */
     protected fun whenTaskRequirementFulfilled(player: Player, attribute: String, then: () -> Unit) {
-        // Check if the player has the required attribute
         if (getAttribute(player, attribute, false)) {
-            // Execute the provided action if the requirement is fulfilled
             then()
-            // Remove the attribute after the action has been executed
             removeAttribute(player, attribute)
         }
     }
 
     /**
-     * Progress incremental task
+     * Increments the progress of a task for a player.
      *
-     * @param player The player whose task progress is being updated
-     * @param level The level of the diary associated with the task
-     * @param task The specific task to be progressed
-     * @param attribute The attribute that tracks the task's progress
-     * @param maxProgress The maximum progress value for the task
+     * @param player The player whose task progress is being updated.
+     * @param level The diary level associated with the task.
+     * @param task The specific task to be progressed.
+     * @param attribute The attribute tracking the task's progress.
+     * @param maxProgress The maximum progress value for the task.
      */
     protected fun progressIncrementalTask(
         player: Player, level: DiaryLevel, task: Int, attribute: String, maxProgress: Int
@@ -158,22 +158,22 @@ abstract class DiaryEventHookBase(private val diaryType: DiaryType) : MapArea, L
     }
 
     /**
-     * Progress flagged task
+     * Progresses a flagged task for a player.
      *
-     * @param player The player whose task progress is being updated
-     * @param level The diary level associated with the task
-     * @param task The specific task identifier
-     * @param attribute The attribute that is being modified
-     * @param bit The bitmask used for task progress
-     * @param targetValue The value to which the task progress should be set
+     * @param player The player whose task progress is being updated.
+     * @param level The diary level associated with the task.
+     * @param task The specific task identifier.
+     * @param attribute The attribute being modified.
+     * @param bit The bitmask used for task progress.
+     * @param targetValue The target value for the task progress.
      */
     protected fun progressFlaggedTask(
-        player: Player, // The player whose task progress is being updated
-        level: DiaryLevel, // The diary level associated with the task
-        task: Int, // The specific task identifier
-        attribute: String, // The attribute that is being modified
-        bit: Int, // The bitmask used for task progress
-        targetValue: Int // The value to which the task progress should be set
+        player: Player,
+        level: DiaryLevel,
+        task: Int,
+        attribute: String,
+        bit: Int,
+        targetValue: Int
     ) {
         if (isTaskCompleted(player, level, task)) {
             return
@@ -199,11 +199,11 @@ abstract class DiaryEventHookBase(private val diaryType: DiaryType) : MapArea, L
     }
 
     /**
-     * Finish task
+     * Completes a task for a player.
      *
-     * @param player The player who is completing the task
-     * @param level The level of the diary associated with the task
-     * @param task The specific task number to be completed
+     * @param player The player completing the task.
+     * @param level The diary level associated with the task.
+     * @param task The specific task number to be completed.
      */
     protected fun finishTask(player: Player, level: DiaryLevel, task: Int) {
         player.achievementDiaryManager.finishTask(
@@ -211,6 +211,14 @@ abstract class DiaryEventHookBase(private val diaryType: DiaryType) : MapArea, L
         )
     }
 
+    /**
+     * Checks if a task is completed for a player.
+     *
+     * @param player The player to check.
+     * @param level The diary level associated with the task.
+     * @param task The specific task identifier.
+     * @return `true` if the task is completed, `false` otherwise.
+     */
     private fun isTaskCompleted(player: Player, level: DiaryLevel, task: Int): Boolean {
         return player.achievementDiaryManager.hasCompletedTask(
             diaryType, findIndexFor(level), task
@@ -229,16 +237,13 @@ abstract class DiaryEventHookBase(private val diaryType: DiaryType) : MapArea, L
     }
 
     /**
-     * On area visited
+     * Called when a player enters the area.
      *
-     * @param player The player who visited the area
+     * @param player The player entering the area.
      */
     protected open fun onAreaVisited(player: Player) {
-        // Iterate through all area tasks
         areaTasks.forEach {
-            // Check if the task conditions are satisfied for the player
             it.whenSatisfied(player) {
-                // Finish the task for the player, providing diary level and task ID
                 finishTask(
                     player, it.diaryLevel, it.taskId
                 )
@@ -247,235 +252,227 @@ abstract class DiaryEventHookBase(private val diaryType: DiaryType) : MapArea, L
     }
 
     /**
-     * On area left
+     * Called when a player leaves the area.
      *
-     * @param player The player who left the area
+     * @param player The player leaving the area.
      */
     protected open fun onAreaLeft(player: Player) {
-        // This function is currently empty and can be implemented later
     }
 
     /**
-     * On resource produced
+     * Handles the event where a player produces a resource.
      *
-     * @param player The player who produced the resource
-     * @param event The event related to resource production
+     * @param player The player producing the resource.
+     * @param event The resource production event.
      */
     protected open fun onResourceProduced(player: Player, event: ResourceProducedEvent) {
-        // This function is currently empty and can be implemented later
     }
 
     /**
-     * On npc killed
+     * Handles the event where a player kills an NPC.
      *
-     * @param player The player who killed the NPC
-     * @param event The event related to NPC killing
+     * @param player The player killing the NPC.
+     * @param event The NPC kill event.
      */
     protected open fun onNpcKilled(player: Player, event: NPCKillEvent) {
-        // This function is currently empty and can be implemented later
     }
 
     /**
-     * On teleported
+     * Handles the event where a player teleports.
      *
-     * @param player The player who was teleported
-     * @param event The event related to teleportation
+     * @param player The player teleporting.
+     * @param event The teleportation event.
      */
     protected open fun onTeleported(player: Player, event: TeleportEvent) {
-        // This function is currently empty and can be implemented later
     }
 
     /**
-     * On fire lit
+     * Handles the event where a player lights a fire.
      *
-     * @param player The player who lit the fire
-     * @param event The event related to fire lighting
+     * @param player The player lighting the fire.
+     * @param event The fire lighting event.
      */
     protected open fun onFireLit(player: Player, event: LitFireEvent) {
-        // This function is currently empty and can be implemented later
     }
 
     /**
-     * On light source lit
+     * Handles the event where a player lights a light source.
      *
-     * @param player The player who lit the light source
-     * @param event The event related to light source lighting
+     * @param player The player lighting the light source.
+     * @param event The light source lighting event.
      */
     protected open fun onLightSourceLit(player: Player, event: LitLightSourceEvent) {
-        // This function is currently empty and can be implemented later
     }
 
     /**
-     * On interacted
+     * Handles the event where a player interacts with an object.
      *
-     * @param player The player who interacted with an object
-     * @param event The event related to the interaction
+     * @param player The player interacting.
+     * @param event The interaction event.
      */
     protected open fun onInteracted(player: Player, event: InteractionEvent) {
         // This function is currently empty and can be implemented later
     }
 
     /**
-     * On button clicked
+     * Handles the event where a player clicks a button.
      *
-     * @param player The player who clicked the button
-     * @param event The event related to the button click
+     * @param player The player clicking the button.
+     * @param event The button click event.
      */
     protected open fun onButtonClicked(player: Player, event: ButtonClickEvent) {
-        // This function is currently empty and can be implemented later
     }
 
     /**
-     * On dialogue opened
+     * Handles the event where a player opens a dialogue.
      *
-     * @param player The player who opened the dialogue
-     * @param event The event related to the dialogue opening
+     * @param player The player opening the dialogue.
+     * @param event The dialogue open event.
      */
     protected open fun onDialogueOpened(player: Player, event: DialogueOpenEvent) {
-        // This function is currently empty and can be implemented later
     }
 
     /**
-     * On dialogue closed
+     * Handles the event where a player closes a dialogue.
      *
-     * @param player The player who closed the dialogue
-     * @param event The event triggered when the dialogue is closed
+     * @param player The player closing the dialogue.
+     * @param event The dialogue close event.
      */
     protected open fun onDialogueClosed(player: Player, event: DialogueCloseEvent) {}
 
     /**
-     * On dialogue option selected
+     * Handles the event where a player selects a dialogue option.
      *
-     * @param player The player who selected the dialogue option
-     * @param event The event triggered when a dialogue option is selected
+     * @param player The player selecting the option.
+     * @param event The dialogue option selection event.
      */
     protected open fun onDialogueOptionSelected(player: Player, event: DialogueOptionSelectionEvent) {}
 
     /**
-     * On used with
+     * Handles the event where a player uses an item with an object or another item.
      *
-     * @param player The player who used an item with another
-     * @param event The event triggered when an item is used with another
+     * @param player The player using the item.
+     * @param event The item use event.
      */
     protected open fun onUsedWith(player: Player, event: UseWithEvent) {}
 
     /**
-     * On picked up
+     * Handles the event where a player picks up an item.
      *
-     * @param player The player who picked up an item
-     * @param event The event triggered when an item is picked up
+     * @param player The player picking up the item.
+     * @param event The item pickup event.
      */
     protected open fun onPickedUp(player: Player, event: PickUpEvent) {}
 
     /**
-     * On interface opened
+     * Handles the event where a player opens an interface.
      *
-     * @param player The player who opened the interface
-     * @param event The event triggered when an interface is opened
+     * @param player The player opening the interface.
+     * @param event The interface open event.
      */
     protected open fun onInterfaceOpened(player: Player, event: InterfaceOpenEvent) {}
 
     /**
-     * On interface closed
+     * Handles the event where a player opens an interface.
      *
-     * @param player The player who closed the interface
-     * @param event The event triggered when an interface is closed
+     * @param player The player opening the interface.
+     * @param event The interface open event.
      */
     protected open fun onInterfaceClosed(player: Player, event: InterfaceCloseEvent) {}
 
     /**
-     * On attribute set
+     * Handles the event where an attribute is set for a player.
      *
-     * @param player The player to whom the attribute is set
-     * @param event The event triggered when an attribute is set
+     * @param player The player setting the attribute.
+     * @param event The attribute set event.
      */
     protected open fun onAttributeSet(player: Player, event: AttributeSetEvent) {}
 
     /**
-     * On attribute removed
+     * Handles the event where an attribute is removed for a player.
      *
-     * @param player The player from whom the attribute is removed
-     * @param event The event triggered when an attribute is removed
+     * @param player The player removing the attribute.
+     * @param event The attribute removal event.
      */
     protected open fun onAttributeRemoved(player: Player, event: AttributeRemoveEvent) {}
 
     /**
-     * On spell cast
+     * Handles the event where a player casts a spell.
      *
-     * @param player The player who cast the spell
-     * @param event The event triggered when a spell is cast
+     * @param player The player casting the spell.
+     * @param event The spell cast event.
      */
     protected open fun onSpellCast(player: Player, event: SpellCastEvent) {}
 
     /**
-     * On item alchemized
+     * Handles the event where a player alchemizes an item.
      *
-     * @param player The player who alchemized the item
-     * @param event The event triggered when an item is alchemized
+     * @param player The player alchemizing the item.
+     * @param event The item alchemy event.
      */
     protected open fun onItemAlchemized(player: Player, event: ItemAlchemizationEvent) {}
 
     /**
-     * On item equipped
+     * Handles the event where a player equips an item.
      *
-     * @param player The player who equipped the item
-     * @param event The event triggered when an item is equipped
+     * @param player The player equipping the item.
+     * @param event The item equip event.
      */
     protected open fun onItemEquipped(player: Player, event: ItemEquipEvent) {}
 
     /**
-     * On item unequipped
+     * Handles the event where a player unequips an item.
      *
-     * @param player The player who unequipped the item
-     * @param event The event triggered when an item is unequipped
+     * @param player The player unequipping the item.
+     * @param event The item unequip event.
      */
     protected open fun onItemUnequipped(player: Player, event: ItemUnequipEvent) {}
 
     /**
-     * On item purchased from shop
+     * Handles the event where a player purchases an item from a shop.
      *
-     * @param player The player who purchased the item from the shop
-     * @param event The event triggered when an item is purchased from the shop
+     * @param player The player purchasing the item.
+     * @param event The item purchase event.
      */
     protected open fun onItemPurchasedFromShop(player: Player, event: ItemShopPurchaseEvent) {}
 
     /**
-     * On item sold to shop
+     * Handles the event where a player sells an item to a shop.
      *
-     * @param player The player who sold the item to the shop
-     * @param event The event triggered when an item is sold to the shop
+     * @param player The player selling the item.
+     * @param event The item sale event.
      */
     protected open fun onItemSoldToShop(player: Player, event: ItemShopSellEvent) {}
 
     /**
-     * On job assigned
+     * Handles the event where a player is assigned a job.
      *
-     * @param player The player to whom the job is assigned
-     * @param event The event triggered when a job is assigned
+     * @param player The player being assigned the job.
+     * @param event The job assignment event.
      */
     protected open fun onJobAssigned(player: Player, event: JobAssignmentEvent) {}
 
     /**
-     * On fairy ring dialed
+     * Handles the event where a player dials a fairy ring.
      *
-     * @param player The player who dialed the fairy ring
-     * @param event The event triggered when a fairy ring is dialed
+     * @param player The player dialing the fairy ring.
+     * @param event The fairy ring dialing event.
      */
     protected open fun onFairyRingDialed(player: Player, event: FairyRingDialEvent) {}
 
     /**
-     * On summoning points recharged
+     * Handles the event where a player recharges their summoning points.
      *
-     * @param player The player whose summoning points are recharged
-     * @param event The event triggered when summoning points are recharged
+     * @param player The player recharging their summoning points.
+     * @param event The summoning points recharge event.
      */
     protected open fun onSummoningPointsRecharged(player: Player, event: SummoningPointsRechargeEvent) {}
 
     /**
-     * On prayer points recharged
+     * Handles the event where a player recharges their prayer points.
      *
-     * @param player The player whose prayer points are recharged
-     * @param event The event triggered when prayer points are recharged
+     * @param player The player recharging their prayer points.
+     * @param event The prayer points recharge event.
      */
     protected open fun onPrayerPointsRecharged(player: Player, event: PrayerPointsRechargeEvent) {}
 }

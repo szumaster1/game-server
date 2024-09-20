@@ -1,10 +1,10 @@
 package content.region.misc.tutorial.dialogue
 
-import org.rs.consts.NPCs
 import core.game.dialogue.Dialogue
 import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.tools.END_DIALOGUE
+import org.rs.consts.NPCs
 
 /**
  * Represents the Banker Tutor dialogue.

@@ -1,6 +1,6 @@
 package content.region.misthalin.varrock.digsite.quest.itexam
 
-import content.global.skill.support.thieving.ThievingPickpocketListener
+import content.global.skill.thieving.ThievingPickpocketListener
 import content.region.misthalin.varrock.digsite.quest.itexam.dialogue.PanningGuideCannotPanDialogueFile
 import core.api.*
 import core.api.utils.PlayerCamera

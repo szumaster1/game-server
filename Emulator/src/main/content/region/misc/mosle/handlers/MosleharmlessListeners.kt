@@ -1,16 +1,13 @@
 package content.region.misc.mosle.handlers
 
 import core.api.*
-import org.rs.consts.Components
-import org.rs.consts.Items
-import org.rs.consts.NPCs
-import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
-import core.game.node.entity.npc.NPC
 import core.game.world.map.Location
-import core.tools.START_DIALOGUE
+import org.rs.consts.Components
+import org.rs.consts.Items
+import org.rs.consts.NPCs
 
 /**
  * Mos Le Harmless listeners.

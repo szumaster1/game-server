@@ -168,6 +168,7 @@ class RenderAnimationDefinition {
          * @param animId The render animation id.
          * @return The render animation definitions.
          */
+        @JvmStatic
         fun forId(animId: Int): RenderAnimationDefinition? {
             if (animId == -1) {
                 return null

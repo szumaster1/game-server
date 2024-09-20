@@ -1,6 +1,5 @@
 package core.game.bots.impl
 
-import org.rs.consts.Items
 import core.game.bots.*
 import core.game.interaction.DestinationFlag
 import core.game.interaction.IntType
@@ -10,6 +9,7 @@ import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 import core.game.world.map.Location
 import core.tools.RandomFunction
+import org.rs.consts.Items
 import kotlin.random.Random
 
 /*

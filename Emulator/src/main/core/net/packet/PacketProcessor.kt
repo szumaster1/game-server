@@ -1,13 +1,10 @@
 package core.net.packet
 
 import content.global.handlers.iface.ge.StockMarketInterfaceListener
-import content.global.skill.combat.magic.SpellListener
 import content.global.skill.combat.magic.SpellListeners
 import content.global.skill.combat.magic.SpellUtils
-import content.global.skill.combat.summoning.familiar.FamiliarSpecial
 import core.Configuration
 import core.api.*
-import org.rs.consts.Components
 import core.api.utils.Vector
 import core.cache.def.impl.ItemDefinition
 import core.cache.def.impl.NPCDefinition
@@ -51,6 +48,7 @@ import core.net.packet.incoming.RunScript
 import core.net.packet.outgoing.ClearMinimapFlag
 import core.tools.Log
 import core.worker.ManagementEvents
+import org.rs.consts.Components
 import proto.management.ClanMessage
 import proto.management.JoinClanRequest
 import proto.management.LeaveClanRequest
@@ -373,7 +371,7 @@ object PacketProcessor {
             iface = pkt.iface
             target = GroundItemManager.get(pkt.itemId, Location.create(pkt.x, pkt.y, player.location.z), player) ?: return sendClearMinimap(player).also { sendMessage(player, "Too late!") }
             targetId = pkt.itemId
-            type = SpellListener.GROUND_ITEM
+            type = content.global.skill.magic.SpellListener.GROUND_ITEM
         }
         else if (pkt is Packet.ComponentPlayerAction) {
             player = pkt.player
@@ -381,7 +379,7 @@ object PacketProcessor {
             iface = pkt.iface
             target = Repository.players[pkt.otherIndex] ?: return sendClearMinimap(player)
             targetId = target.id
-            type = SpellListener.PLAYER
+            type = content.global.skill.magic.SpellListener.PLAYER
         }
         else if (pkt is Packet.ComponentSceneryAction) {
             player = pkt.player
@@ -389,7 +387,7 @@ object PacketProcessor {
             iface = pkt.iface
             target = RegionManager.getObject(player.location.z, pkt.x, pkt.y) ?: return sendClearMinimap(player)
             targetId = pkt.sceneryId
-            type = SpellListener.OBJECT
+            type = content.global.skill.magic.SpellListener.OBJECT
         }
         else if (pkt is Packet.ComponentNpcAction) {
             if (pkt.npcIndex !in 1 until Configuration.MAX_NPCS)
@@ -399,7 +397,7 @@ object PacketProcessor {
             iface = pkt.iface
             target = Repository.npcs[pkt.npcIndex] ?: return sendClearMinimap(player)
             targetId = target.id
-            type = SpellListener.NPC
+            type = content.global.skill.magic.SpellListener.NPC
         }
         else {
             if (pkt !is Packet.ComponentItemAction) return
@@ -408,7 +406,7 @@ object PacketProcessor {
             iface = pkt.iface
             target = player.inventory[pkt.slot] ?: return
             targetId = pkt.itemId
-            type = SpellListener.ITEM
+            type = content.global.skill.magic.SpellListener.ITEM
         }
 
         if (targetId != target.id)
@@ -422,7 +420,14 @@ object PacketProcessor {
             430,192,193 -> MagicSpell.castSpell(player, SpellBookManager.SpellBook.forInterface(iface)!!, child, target)
             662 -> {
                 if (player.familiarManager.hasFamiliar())
-                    player.familiarManager.familiar.executeSpecialMove(FamiliarSpecial(target, iface, child, target as? Item))
+                    player.familiarManager.familiar.executeSpecialMove(
+                        content.global.skill.summoning.familiar.FamiliarSpecial(
+                            target,
+                            iface,
+                            child,
+                            target as? Item
+                        )
+                    )
                 else
                     sendMessage(player,"You don't have a familiar.")
             }

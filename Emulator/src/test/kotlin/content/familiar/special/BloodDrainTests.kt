@@ -2,7 +2,7 @@ package content.familiar.special
 
 import TestUtils
 
-import content.global.skill.combat.summoning.familiar.FamiliarSpecial
+import content.global.skill.summoning.familiar.FamiliarSpecial
 import content.global.skill.combat.summoning.familiar.npc.BloatedLeechNPC
 import core.Configuration
 import core.api.*
@@ -27,7 +27,11 @@ class BloodDrainTests {
 
             val npc = BloatedLeechNPC(p, NPCs.BLOATED_LEECH_6843)
             npc.location = Configuration.HOME_LOCATION
-            Assertions.assertEquals(true, npc.executeSpecialMove(FamiliarSpecial(p)))
+            Assertions.assertEquals(true, npc.executeSpecialMove(
+                content.global.skill.summoning.familiar.FamiliarSpecial(
+                    p
+                )
+            ))
             Assertions.assertEquals(5.0, p.skills.prayerPoints)
         }
     }
@@ -41,7 +45,11 @@ class BloodDrainTests {
             val npcBaseline = npc.skills.lifepoints
             val ownerBaseline = p.skills.lifepoints
 
-            Assertions.assertEquals(true, npc.executeSpecialMove(FamiliarSpecial(p)))
+            Assertions.assertEquals(true, npc.executeSpecialMove(
+                content.global.skill.summoning.familiar.FamiliarSpecial(
+                    p
+                )
+            ))
             TestUtils.advanceTicks(1, false)
 
             Assertions.assertEquals(npcBaseline, npc.skills.lifepoints)
@@ -59,7 +67,11 @@ class BloodDrainTests {
 
             val ownerBaseline = p.skills.lifepoints
 
-            Assertions.assertEquals(true, npc.executeSpecialMove(FamiliarSpecial(p)))
+            Assertions.assertEquals(true, npc.executeSpecialMove(
+                content.global.skill.summoning.familiar.FamiliarSpecial(
+                    p
+                )
+            ))
             TestUtils.advanceTicks(1, false)
 
             Assertions.assertEquals(true, p.skills.lifepoints < ownerBaseline)
@@ -77,7 +89,11 @@ class BloodDrainTests {
             p.skills.setLevel(Skills.STRENGTH, 1)
             p.skills.setLevel(Skills.FARMING, 1)
 
-            Assertions.assertEquals(true,npc.executeSpecialMove(FamiliarSpecial(p)))
+            Assertions.assertEquals(true,npc.executeSpecialMove(
+                content.global.skill.summoning.familiar.FamiliarSpecial(
+                    p
+                )
+            ))
             Assertions.assertEquals(21, p.skills.getLevel(Skills.STRENGTH))
             Assertions.assertEquals(21, p.skills.getLevel(Skills.FARMING))
         }
@@ -94,7 +110,11 @@ class BloodDrainTests {
             p.skills.setLevel(Skills.STRENGTH, 98)
             p.skills.setLevel(Skills.FARMING, 98)
 
-            Assertions.assertEquals(true,npc.executeSpecialMove(FamiliarSpecial(p)))
+            Assertions.assertEquals(true,npc.executeSpecialMove(
+                content.global.skill.summoning.familiar.FamiliarSpecial(
+                    p
+                )
+            ))
             Assertions.assertEquals(99, p.skills.getLevel(Skills.STRENGTH))
             Assertions.assertEquals(99, p.skills.getLevel(Skills.FARMING))
         }
@@ -110,7 +130,11 @@ class BloodDrainTests {
             Assertions.assertNotNull(getOrStartTimer<Disease>(p, 40))
             Assertions.assertEquals(true, hasTimerActive<Poison>(p))
             Assertions.assertEquals(true, hasTimerActive<Disease>(p))
-            Assertions.assertEquals(true, npc.executeSpecialMove(FamiliarSpecial(p)))
+            Assertions.assertEquals(true, npc.executeSpecialMove(
+                content.global.skill.summoning.familiar.FamiliarSpecial(
+                    p
+                )
+            ))
             Assertions.assertEquals(false, hasTimerActive<Poison>(p))
             Assertions.assertEquals(false, hasTimerActive<Disease>(p))
         }

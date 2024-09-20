@@ -114,22 +114,24 @@ class IfaceDefinition {
         private val defCache = HashMap<Int, IfaceDefinition>()
 
         /**
-         * For id iface definition.
+         * For id interface definition.
          *
          * @param id the id
-         * @return the iface definition
+         * @return the interface definition
          */
+        @JvmStatic
         fun forId(id: Int): IfaceDefinition {
             return defCache[id] ?: loadAndParse(id).also { defCache[id] = it }
         }
 
         /**
-         * For id iface definition.
+         * For id interface definition.
          *
          * @param id    the id
          * @param child the child
-         * @return the iface definition
+         * @return the interface definition
          */
+        @JvmStatic
         fun forId(id: Int, child: Int): IfaceDefinition {
             return defCache[child + (id shl 16)] ?: forId(id).children!![child]
         }

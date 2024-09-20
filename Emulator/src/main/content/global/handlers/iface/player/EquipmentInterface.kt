@@ -1,6 +1,6 @@
 package content.global.handlers.iface.player
 
-import content.global.skill.combat.summoning.familiar.BurdenBeast
+import content.global.skill.summoning.familiar.BurdenBeast
 import core.api.log
 import core.cache.def.impl.ItemDefinition
 import core.game.component.Component
@@ -142,7 +142,7 @@ class EquipmentInterface : ComponentPlugin() {
                     // ARG 7: Player has summoning creature out Takes: 0 not out/1 Creature summoned
                     val hasBoB = if (p.familiarManager.hasFamiliar()) {
                         if (p.familiarManager.familiar.isBurdenBeast) {
-                            if ((p.familiarManager.familiar as BurdenBeast).container.isEmpty) 0 else 1
+                            if ((p.familiarManager.familiar as content.global.skill.summoning.familiar.BurdenBeast).container.isEmpty) 0 else 1
                         } else {
                             0
                         }

@@ -1,18 +1,16 @@
 package content.region.misc.tutorial.handlers
 
-import content.global.skill.gathering.fishing.FishingSpot
-import content.global.skill.gathering.mining.MiningNode
-import content.global.skill.gathering.woodcutting.WoodcuttingNode
+import content.global.skill.gather.fishing.FishingSpot
+import content.global.skill.gather.mining.MiningNode
+import content.global.skill.gather.woodcutting.WoodcuttingNode
 import org.rs.consts.Items
 import org.rs.consts.NPCs
 import org.rs.consts.Scenery
 import core.api.getAttribute
 import core.api.setAttribute
-import core.game.component.Component
 import core.game.event.*
 import core.game.node.entity.Entity
 import core.game.node.entity.player.Player
-import core.game.world.GameWorld
 
 /**
  * Tutorial button receiver.

@@ -1,6 +1,6 @@
 package content.global.handlers.`object`.plugin
 
-import content.global.skill.support.agility.AgilityHandler
+import content.global.skill.agility.AgilityHandler
 import core.cache.def.impl.SceneryDefinition
 import core.game.interaction.NodeUsageEvent
 import core.game.interaction.OptionHandler
@@ -45,7 +45,7 @@ class JangerBerryPlugin : OptionHandler() {
         }
         val end = if (node.id == 2325) Location(2505, 3087, 0) else Location(2511, 3096, 0)
         player.packetDispatch.sendSceneryAnimation(node.asScenery(), Animation.create(497), true)
-        AgilityHandler.forceWalk(player, 0, player.location, end, Animation.create(751), 50, 22.0, "You skillfully swing across.", 1)
+        content.global.skill.agility.AgilityHandler.forceWalk(player, 0, player.location, end, Animation.create(751), 50, 22.0, "You skillfully swing across.", 1)
         return true
     }
 

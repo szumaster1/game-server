@@ -1,6 +1,6 @@
 package core.game.node.entity.npc.drop;
 
-import content.global.skill.combat.prayer.Bones;
+import content.global.skill.prayer.Bones;
 import core.api.utils.NPCDropTable;
 import core.cache.def.impl.NPCDefinition;
 import core.game.bots.AIPlayer;

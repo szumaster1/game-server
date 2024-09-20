@@ -1,6 +1,5 @@
 package core.game.bots.impl
 
-import org.rs.consts.Items
 import core.api.amountInInventory
 import core.game.bots.*
 import core.game.interaction.DestinationFlag
@@ -11,6 +10,7 @@ import core.game.node.Node
 import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 import core.game.world.map.zone.ZoneBorders
+import org.rs.consts.Items
 
 /**
  * Coal miner.

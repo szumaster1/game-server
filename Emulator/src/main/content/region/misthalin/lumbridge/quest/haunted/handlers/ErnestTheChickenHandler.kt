@@ -1,7 +1,7 @@
 package content.region.misthalin.lumbridge.quest.haunted.handlers
 
 import org.rs.consts.Animations
-import content.global.skill.support.agility.AgilityHandler
+import content.global.skill.agility.AgilityHandler
 import core.api.sendMessage
 import core.api.setVarp
 import core.cache.def.impl.SceneryDefinition
@@ -112,7 +112,7 @@ class ErnestTheChickenHandler : OptionHandler() {
                         secondOpened.location = second.location.transform(p.getX().toInt(), p.getY().toInt(), 0)
                         SceneryBuilder.replace(second, secondOpened, 2)
                     }
-                    AgilityHandler.walk(player, 0, player.location, destination, null, 0.0, null)
+                    content.global.skill.agility.AgilityHandler.walk(player, 0, player.location, destination, null, 0.0, null)
                     return true
                 }
             })

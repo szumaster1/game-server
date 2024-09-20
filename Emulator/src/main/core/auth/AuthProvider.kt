@@ -10,7 +10,6 @@ import core.storage.AccountStorageProvider
  * @constructor Auth provider
  */
 abstract class AuthProvider<T : AccountStorageProvider> {
-    // Late-initialized variable to hold the storage provider instance
     lateinit var storageProvider: T
 
     /**
@@ -27,7 +26,6 @@ abstract class AuthProvider<T : AccountStorageProvider> {
      * @return True if an account can be created with the provided info, false otherwise.
      */
     fun canCreateAccountWith(info: UserAccountInfo): Boolean {
-        // Check if the username is already taken in the storage provider.
         return !storageProvider.checkUsernameTaken(info.username)
     }
 

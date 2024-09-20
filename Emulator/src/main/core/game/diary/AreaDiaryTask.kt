@@ -5,13 +5,14 @@ import core.game.node.entity.player.Player
 import core.game.world.map.zone.ZoneBorders
 
 /**
- * Represents a task related to an area in the diary.
+ * Represents a task within a specific area in a player's diary.
  *
- * @param zoneBorders The borders of the zone for the task.
- * @param diaryLevel The level of the diary.
- * @param taskId The ID of the task.
- * @param condition The condition that needs to be met for the task.
- * @constructor Creates an AreaDiaryTask with the specified parameters.
+ * @param zoneBorders The zone associated with this task.
+ * @param diaryLevel The level of the diary to which this task belongs.
+ * @param taskId The task.
+ * @param condition An optional condition that must be met for the task to be considered satisfied.
+ *                  If `null`, the task is considered satisfied if the player is within the specified zone.
+ * @constructor Creates an instance of [AreaDiaryTask] with the given parameters.
  */
 class AreaDiaryTask(
     val zoneBorders: ZoneBorders,
@@ -20,19 +21,18 @@ class AreaDiaryTask(
     private val condition: ((player: Player) -> Boolean)? = null
 ) {
     /**
-     * Executes a given action when the task is satisfied.
+     * Checks if the task's condition is met for the specified player, and if so, executes the provided action.
      *
-     * @param player The player to check the condition for.
-     * @param then The action to execute when the condition is met.
-     * @receiver The AreaDiaryTask instance.
+     * @param player The player to evaluate the condition for.
+     * @param then The action to execute if the condition is satisfied.
      */
     fun whenSatisfied(player: Player, then: () -> Unit) {
-        var result = inBorders(player, zoneBorders) // Checks if the player is within the specified zone borders.
+        var result = inBorders(player, zoneBorders)
 
         condition?.let {
-            result = it(player) // Evaluates the additional condition if provided.
+            result = it(player)
         }
 
-        if (result) then() // Executes the action if the conditions are met.
+        if (result) then()
     }
 }

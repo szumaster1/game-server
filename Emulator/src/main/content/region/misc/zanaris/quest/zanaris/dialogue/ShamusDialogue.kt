@@ -1,6 +1,5 @@
 package content.region.misc.zanaris.quest.zanaris.dialogue
 
-import org.rs.consts.NPCs
 import content.region.misc.zanaris.quest.zanaris.handlers.ShamusTreeListener
 import core.api.getQuestStage
 import core.api.setQuestStage
@@ -8,6 +7,7 @@ import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
+import org.rs.consts.NPCs
 
 /**
  * Represents the Shamus dialogue.

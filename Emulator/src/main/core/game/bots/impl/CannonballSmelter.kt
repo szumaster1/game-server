@@ -1,9 +1,9 @@
 package core.game.bots.impl
 
 import org.rs.consts.Items
-import content.global.skill.gathering.mining.MiningNode
-import content.global.skill.production.smithing.data.Bar
-import content.global.skill.production.smithing.item.SmeltingPulse
+import content.global.skill.gather.mining.MiningNode
+import content.global.skill.smithing.smelting.Bar
+import content.global.skill.smithing.smelting.SmeltingPulse
 import core.api.amountInBank
 import core.api.amountInInventory
 import core.game.bots.*

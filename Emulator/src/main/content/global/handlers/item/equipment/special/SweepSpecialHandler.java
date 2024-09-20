@@ -1,7 +1,7 @@
 package content.global.handlers.item.equipment.special;
 
 import org.rs.consts.Sounds;
-import content.global.skill.combat.summoning.familiar.Familiar;
+import content.global.skill.summoning.familiar.Familiar;
 import core.game.node.entity.Entity;
 import core.game.node.entity.combat.BattleState;
 import core.game.node.entity.combat.CombatStyle;

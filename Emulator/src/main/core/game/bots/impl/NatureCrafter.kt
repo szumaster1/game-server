@@ -1,6 +1,5 @@
 package core.game.bots.impl
 
-import org.rs.consts.Items
 import core.api.teleport
 import core.game.bots.*
 import core.game.node.entity.player.link.TeleportManager
@@ -8,6 +7,7 @@ import core.game.node.item.Item
 import core.game.node.scenery.Scenery
 import core.game.world.map.Location
 import core.game.world.map.zone.ZoneBorders
+import org.rs.consts.Items
 
 /**
  * Nature crafter.

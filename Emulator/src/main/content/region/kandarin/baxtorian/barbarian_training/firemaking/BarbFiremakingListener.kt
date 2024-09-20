@@ -1,7 +1,7 @@
 package content.region.kandarin.baxtorian.barbarian_training.firemaking
 
 import content.region.kandarin.baxtorian.barbarian_training.BarbarianTraining
-import content.global.skill.support.firemaking.FiremakingListener
+import content.global.skill.firemaking.FiremakingListener
 import org.rs.consts.Items
 import core.api.sendMessage
 import core.game.interaction.IntType

@@ -3,7 +3,7 @@ package content.region.desert.alkharid.shantay_pass.handlers
 import org.rs.consts.Components
 import org.rs.consts.Items
 import org.rs.consts.NPCs
-import content.global.skill.support.agility.AgilityHandler
+import content.global.skill.agility.AgilityHandler
 import core.api.*
 import core.cache.def.impl.NPCDefinition
 import core.cache.def.impl.SceneryDefinition
@@ -92,7 +92,7 @@ class ShantayPassPlugin : OptionHandler() {
     private fun handleGoThroughOption(player: Player, node: Node): Boolean {
         if (player.location.y < 3117) {
             player.packetDispatch.sendMessage("You go through the gate.")
-            AgilityHandler.walk(player, 0, player.location, player.location.transform(0, if (player.location.y > 3116) -2 else 2, 0), null, 0.0, null)
+            content.global.skill.agility.AgilityHandler.walk(player, 0, player.location, player.location.transform(0, if (player.location.y > 3116) -2 else 2, 0), null, 0.0, null)
             return true
         }
         player.interfaceManager.open(Component(Components.CWS_WARNING_10_565))
@@ -111,7 +111,7 @@ class ShantayPassPlugin : OptionHandler() {
             }
             sendMessage(player, "You hand your Shantay pass to the guard and pass through the gate.")
         }
-        AgilityHandler.walk(player, 0, player.location, player.location.transform(0, if (player.location.y > 3116) -2 else 2, 0), null, 0.0, null)
+        content.global.skill.agility.AgilityHandler.walk(player, 0, player.location, player.location.transform(0, if (player.location.y > 3116) -2 else 2, 0), null, 0.0, null)
         return true
     }
 

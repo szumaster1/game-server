@@ -2,7 +2,7 @@ package content.global.guild.rc.dialogue
 
 import org.rs.consts.Items
 import org.rs.consts.NPCs
-import content.global.skill.production.runecrafting.pouch.PouchManager.RCPouch
+import content.global.skill.runecrafting.PouchManager.RCPouch
 import core.api.*
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression

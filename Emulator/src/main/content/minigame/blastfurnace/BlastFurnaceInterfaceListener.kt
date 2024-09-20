@@ -1,6 +1,6 @@
 package content.minigame.blastfurnace
 
-import content.global.skill.production.smithing.data.Bar
+import content.global.skill.smithing.smelting.Bar
 import core.api.animateInterface
 import org.rs.consts.Components
 import core.api.submitIndividualPulse

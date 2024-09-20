@@ -1,14 +1,10 @@
-package content.global.skill.gathering.farming
+package content.global.skill.gather.farming
 
 import TestUtils
-import content.global.skill.gathering.farming.FarmingPatch
-import content.global.skill.gathering.farming.PatchRaker
-import content.global.skill.gathering.farming.PatchType
-import content.global.skill.gathering.farming.Plantable
-import content.global.skill.gathering.farming.timers.CropGrowth
-import core.cache.def.impl.SceneryDefinition
+import content.global.skill.gather.farming.FarmingPatch
+import content.global.skill.gather.farming.PatchRaker
+import content.global.skill.gather.farming.Plantable
 import core.game.node.entity.skill.Skills
-import core.game.system.timer.TimerRegistry
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 

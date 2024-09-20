@@ -1,6 +1,5 @@
 package content.region.misc.zanaris.handlers
 
-import org.rs.consts.*
 import content.region.misc.keldagrim.dialogue.MagicDoorDialogue
 import core.api.*
 import core.game.global.action.ClimbActionHandler
@@ -13,6 +12,10 @@ import core.game.node.entity.skill.Skills
 import core.game.system.task.Pulse
 import core.game.world.map.Location
 import core.game.world.update.flag.context.Animation
+import org.rs.consts.Animations
+import org.rs.consts.Items
+import org.rs.consts.NPCs
+import org.rs.consts.Scenery
 
 /**
  * Zanaris listeners.

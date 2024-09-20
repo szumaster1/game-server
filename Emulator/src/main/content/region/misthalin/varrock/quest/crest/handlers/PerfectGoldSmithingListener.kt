@@ -2,7 +2,7 @@ package content.region.misthalin.varrock.quest.crest.handlers
 
 import org.rs.consts.Animations
 import org.rs.consts.Items
-import content.global.skill.production.smithing.SmeltingInteractionListener
+import content.global.skill.smithing.smelting.SmeltingInteractionListener
 import core.api.*
 import core.game.interaction.*
 import core.game.node.entity.skill.Skills

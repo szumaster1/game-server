@@ -1,6 +1,6 @@
 package content.minigame.duelarena
 
-import content.global.skill.combat.summoning.familiar.Familiar
+import content.global.skill.summoning.familiar.Familiar
 import core.api.setAttribute
 import core.cache.def.impl.SceneryDefinition
 import core.game.container.Container
@@ -185,13 +185,13 @@ class DuelArea
         if (e.isPlayer && target is Player && !checkAttack(e.asPlayer(), target)) {
             return false
         }
-        if (e is Familiar && target is Player) {
+        if (e is content.global.skill.summoning.familiar.Familiar && target is Player) {
             val o = e.owner
             if (o != null && target.asPlayer() !== getSession(o)!!.getOpposite(o)) {
                 return false
             }
         }
-        if (e is Familiar && target is Familiar) {
+        if (e is content.global.skill.summoning.familiar.Familiar && target is content.global.skill.summoning.familiar.Familiar) {
             val f = e
             if (getSession(f.owner)!!.getOpposite(f.owner) !== target.owner) {
                 return false
@@ -221,7 +221,7 @@ class DuelArea
                 )
                 return false
             }
-            if (target is Familiar) {
+            if (target is content.global.skill.summoning.familiar.Familiar) {
                 val f = target
                 if (f.owner != null && getSession(p)!!.getOpposite(p) !== f.owner) {
                     p.sendMessage("You can't attack that familiar.")
@@ -246,7 +246,7 @@ class DuelArea
             e.properties.spawnLocation = RandomFunction.getRandomElement<Location>(RESPAWN_LOCATIONS)
             e.asPlayer().interaction.remove(DuelArenaActivity.CHALLENGE_OPTION)
             e.asPlayer().interaction.set(FIGHT_OPTION)
-        } else if (e is Familiar) {
+        } else if (e is content.global.skill.summoning.familiar.Familiar) {
             val f = e
             val o = f.owner
             if (o != null && !o.familiarManager.hasPet()) {
@@ -274,7 +274,7 @@ class DuelArea
             session.leave(p, if (logout) 1 else if (p.getAttribute("duel:forfeit", false)) 0 else 2)
             remove(session.getOpposite(p))
             leave(session.getOpposite(p))
-        } else if (entity is Familiar) {
+        } else if (entity is content.global.skill.summoning.familiar.Familiar) {
             val familiar = entity
             if (familiar.isCombatFamiliar) {
                 familiar.reTransform()
@@ -349,7 +349,7 @@ class DuelArea
 
     override fun startDeath(entity: Entity, killer: Entity): Boolean {
         if (entity is Player) {
-            val k = if (killer is Player) killer.asPlayer() else if (killer is Familiar) killer.owner else null
+            val k = if (killer is Player) killer.asPlayer() else if (killer is content.global.skill.summoning.familiar.Familiar) killer.owner else null
             if (k != null) {
                 k.impactHandler.disabledTicks = 10
                 k.getSkills().heal(100)
@@ -360,8 +360,8 @@ class DuelArea
     }
 
     override fun death(e: Entity, killer: Entity): Boolean {
-        if (e.isPlayer && (killer.isPlayer || killer is Familiar)) {
-            val k = if (killer is Familiar) killer.owner else killer.asPlayer()
+        if (e.isPlayer && (killer.isPlayer || killer is content.global.skill.summoning.familiar.Familiar)) {
+            val k = if (killer is content.global.skill.summoning.familiar.Familiar) killer.owner else killer.asPlayer()
             if (k != null) {
                 k.getSkills().heal(100)
                 PulseManager.cancelDeathTask(e)

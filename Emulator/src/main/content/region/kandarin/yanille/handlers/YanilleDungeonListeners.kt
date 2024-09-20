@@ -1,6 +1,6 @@
 package content.region.kandarin.yanille.handlers
 
-import content.global.skill.support.agility.AgilityHandler
+import content.global.skill.agility.AgilityHandler
 import core.api.*
 import org.rs.consts.Items
 import core.game.global.action.ClimbActionHandler
@@ -141,11 +141,11 @@ class YanilleDungeonListeners : InteractionListener, MapZone("Yanille agility", 
         }
         var end = scenery.location
         var xp = 0.0
-        if (AgilityHandler.hasFailed(player, 40, 0.01)) {
+        if (content.global.skill.agility.AgilityHandler.hasFailed(player, 40, 0.01)) {
             lock(player, 3)
             GameWorld.Pulser.submit(object : Pulse(2, player) {
                 override fun pulse(): Boolean {
-                    AgilityHandler.fail(
+                    content.global.skill.agility.AgilityHandler.fail(
                         player,
                         1,
                         Location(2572, 9570, 0),
@@ -163,7 +163,7 @@ class YanilleDungeonListeners : InteractionListener, MapZone("Yanille agility", 
             xp = 22.5
             end = scenery.location.transform(dir.stepX * 7, dir.stepY * 7, 0)
         }
-        AgilityHandler.walk(player, -1, player.location, end, Animation.create(157 - diff), xp, null)
+        content.global.skill.agility.AgilityHandler.walk(player, -1, player.location, end, Animation.create(157 - diff), xp, null)
     }
 
 }

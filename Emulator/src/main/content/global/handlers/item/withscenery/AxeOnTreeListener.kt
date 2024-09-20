@@ -1,7 +1,7 @@
 package content.global.handlers.item.withscenery
 
-import content.global.skill.gathering.woodcutting.WoodcuttingNode
-import content.global.skill.gathering.woodcutting.WoodcuttingPulse
+import content.global.skill.gather.woodcutting.WoodcuttingNode
+import content.global.skill.gather.woodcutting.WoodcuttingPulse
 import org.rs.consts.Items
 import core.api.submitIndividualPulse
 import core.game.interaction.IntType

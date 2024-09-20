@@ -1,7 +1,7 @@
 package core.game.node.entity.player.info.login
 
-import content.global.skill.combat.summoning.familiar.BurdenBeast
-import content.global.skill.combat.summoning.pet.Pet
+import content.global.skill.summoning.familiar.BurdenBeast
+import content.global.skill.summoning.pet.Pet
 import core.Configuration
 import core.api.PersistPlayer
 import core.api.log
@@ -299,14 +299,14 @@ class PlayerSaver(val player: Player) {
         }
         familiarManager["petDetails"] = petDetails
         if (player.familiarManager.hasPet()) {
-            familiarManager["currentPet"] = (player.familiarManager.familiar as Pet).getItemIdHash().toString()
+            familiarManager["currentPet"] = (player.familiarManager.familiar as content.global.skill.summoning.pet.Pet).getItemIdHash().toString()
         } else if (player.familiarManager.hasFamiliar()) {
             val familiar = JSONObject()
             familiar["originalId"] = player.familiarManager.familiar.originalId.toString()
             familiar["ticks"] = player.familiarManager.familiar.ticks.toString()
             familiar["specialPoints"] = player.familiarManager.familiar.specialPoints.toString()
-            if (player.familiarManager.familiar.isBurdenBeast && !(player.familiarManager.familiar as BurdenBeast).container.isEmpty) {
-                val familiarInventory = saveContainer((player.familiarManager.familiar as BurdenBeast).container)
+            if (player.familiarManager.familiar.isBurdenBeast && !(player.familiarManager.familiar as content.global.skill.summoning.familiar.BurdenBeast).container.isEmpty) {
+                val familiarInventory = saveContainer((player.familiarManager.familiar as content.global.skill.summoning.familiar.BurdenBeast).container)
                 familiar["inventory"] = familiarInventory
             }
             familiar["lifepoints"] = player.familiarManager.familiar.skills.lifepoints

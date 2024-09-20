@@ -3,9 +3,6 @@ package core.game.dialogue
 /**
  * Represents the facial expressions (the animations the entity does when talking).
  * @author Emperor, Empathy
- *
- * @param animationId Unique identifier for the animation associated with the facial expression.
- * @constructor Initializes a FacialExpression with a specific animation ID.
  */
 enum class FacialExpression(val animationId: Int) {
 

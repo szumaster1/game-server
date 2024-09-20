@@ -2,7 +2,7 @@ package content.global.guild.hero
 
 import content.data.EnchantedJewellery
 import content.data.EnchantedJewellery.Companion.idMap
-import content.global.skill.combat.summoning.familiar.Familiar
+import content.global.skill.summoning.familiar.Familiar
 import org.rs.consts.Items
 import core.api.hasRequirement
 import core.cache.def.impl.SceneryDefinition
@@ -79,7 +79,7 @@ class HeroesGuildPlugin : OptionHandler() {
                 return false
             }
             if (fam) {
-                val familiar = event.usedWith as Familiar
+                val familiar = event.usedWith as content.global.skill.summoning.familiar.Familiar
                 if (!player.familiarManager.isOwner(familiar)) {
                     return false
                 }

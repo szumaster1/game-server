@@ -2,7 +2,7 @@ package content.minigame.blastfurnace
 
 import org.rs.consts.Items
 import org.rs.consts.NPCs
-import content.global.skill.production.smithing.data.Bar
+import content.global.skill.smithing.smelting.Bar
 import core.api.*
 import core.game.node.entity.Entity
 import core.game.node.entity.player.Player

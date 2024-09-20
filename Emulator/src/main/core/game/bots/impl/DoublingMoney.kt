@@ -1,6 +1,5 @@
 package core.game.bots.impl
 
-import org.rs.consts.Items
 import core.Configuration
 import core.game.bots.AIRepository
 import core.game.bots.Script
@@ -21,6 +20,7 @@ import core.game.world.update.flag.context.ChatMessage
 import org.json.simple.JSONArray
 import org.json.simple.JSONObject
 import org.json.simple.parser.JSONParser
+import org.rs.consts.Items
 import java.io.File
 import java.io.FileReader
 import java.util.*

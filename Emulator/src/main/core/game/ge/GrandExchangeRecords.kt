@@ -1,6 +1,5 @@
 package core.game.ge
 
-import org.rs.consts.Components
 import core.api.LoginListener
 import core.api.PersistPlayer
 import core.api.playJingle
@@ -11,6 +10,7 @@ import core.game.node.entity.player.Player
 import core.tools.SystemLogger
 import org.json.simple.JSONArray
 import org.json.simple.JSONObject
+import org.rs.consts.Components
 import java.text.NumberFormat
 import java.util.*
 

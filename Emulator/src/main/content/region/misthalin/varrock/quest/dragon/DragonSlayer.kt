@@ -1,6 +1,6 @@
 package content.region.misthalin.varrock.quest.dragon
 
-import content.global.skill.support.agility.AgilityHandler
+import content.global.skill.agility.AgilityHandler
 import content.region.misthalin.varrock.quest.dragon.cutscene.DragonSlayerCutscene
 import content.region.misthalin.varrock.quest.dragon.dialogue.DSChestDialogue
 import content.region.misthalin.varrock.quest.dragon.dialogue.GuildmasterDSDialogue
@@ -435,7 +435,7 @@ class DragonSlayer : Quest("Dragon Slayer", 18, 17, 2, Vars.VARP_QUEST_DRAGON_SL
                 var counter = 0
                 override fun pulse(): Boolean {
                     when (counter++) {
-                        4 -> AgilityHandler.walk(player, 0, player.location, if (player.location.x == 3051) Location.create(3049, 9840, 0) else Location.create(3051, 9840, 0), null, 0.0, null)
+                        4 -> content.global.skill.agility.AgilityHandler.walk(player, 0, player.location, if (player.location.x == 3051) Location.create(3049, 9840, 0) else Location.create(3051, 9840, 0), null, 0.0, null)
                         5 -> player.packetDispatch.sendSceneryAnimation(`object`, Animation(6637))
                         6 -> {
                             player.packetDispatch.sendSceneryAnimation(`object`, Animation(6635))

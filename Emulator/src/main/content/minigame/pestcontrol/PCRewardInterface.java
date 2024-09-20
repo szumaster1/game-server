@@ -1,6 +1,6 @@
 package content.minigame.pestcontrol;
 
-import content.global.skill.production.herblore.data.Herb;
+import content.global.skill.herblore.Herb;
 import core.cache.def.impl.ItemDefinition;
 import core.game.component.Component;
 import core.game.component.ComponentDefinition;

@@ -1,6 +1,6 @@
 package content.miniquest.abyss.handlers
 
-import content.global.skill.production.runecrafting.pouch.RunePouch
+import content.global.skill.runecrafting.RunePouch
 import org.rs.consts.NPCs
 import core.game.node.entity.Entity
 import core.game.node.entity.npc.AbstractNPC

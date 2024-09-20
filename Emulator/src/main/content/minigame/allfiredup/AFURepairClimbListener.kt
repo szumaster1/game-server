@@ -1,6 +1,6 @@
 package content.minigame.allfiredup
 
-import content.global.skill.support.construction.NailType
+import content.global.skill.construction.NailType
 import org.rs.consts.Items
 import core.api.getVarbit
 import core.api.inInventory
@@ -95,7 +95,7 @@ class AFURepairClimbListener : InteractionListener {
         } else {
             if (inInventory(player, Items.HAMMER_2347) && player.inventory.containItems(*requiredItems.map { it.id }
                     .toIntArray())) {
-                val nails = NailType.get(player, 4)
+                val nails = content.global.skill.construction.NailType.get(player, 4)
                 if (nails == null && rco == RepairClimbObject.DEATH_PLATEAU) {
                     player.dialogueInterpreter.sendDialogue("You need 4 nails for this.")
                     return

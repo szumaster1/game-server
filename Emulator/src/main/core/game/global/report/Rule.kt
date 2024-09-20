@@ -4,10 +4,8 @@ import core.game.node.entity.player.Player
 
 /**
  * Represents a rule.
- * @author Vexia
- *
  * @param rule The rule ID.
- * @constructor Creates a Rule instance with the given rule ID.
+ * @constructor Creates a [Rule] instance with the given rule ID.
  */
 enum class Rule(val rule: Int) {
     /**
@@ -91,7 +89,7 @@ enum class Rule(val rule: Int) {
     /**
      * Checks if a player can request a report for this rule.
      *
-     * @param target The player to check.
+     * @param [target] The player to check.
      * @return True if the player can request a report, false otherwise.
      */
     fun canRequest(target: Player?): Boolean {
@@ -108,7 +106,7 @@ enum class Rule(val rule: Int) {
         /**
          * Retrieves the Rule instance for the given rule ID.
          *
-         * @param id The rule ID.
+         * @param [id] The rule ID.
          * @return The Rule instance, or null if not found.
          */
         @JvmStatic

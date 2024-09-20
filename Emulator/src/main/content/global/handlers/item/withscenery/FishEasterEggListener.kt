@@ -1,6 +1,6 @@
 package content.global.handlers.item.withscenery
 
-import content.global.skill.gathering.woodcutting.WoodcuttingNode
+import content.global.skill.gather.woodcutting.WoodcuttingNode
 import org.rs.consts.Items
 import core.api.sendMessage
 import core.game.interaction.IntType

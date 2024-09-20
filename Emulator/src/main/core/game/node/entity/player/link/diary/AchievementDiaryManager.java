@@ -1,6 +1,6 @@
 package core.game.node.entity.player.link.diary;
 
-import content.global.skill.production.smithing.data.Bar;
+import content.global.skill.smithing.smelting.Bar;
 import core.game.component.Component;
 import core.game.container.impl.EquipmentContainer;
 import core.game.node.entity.player.Player;

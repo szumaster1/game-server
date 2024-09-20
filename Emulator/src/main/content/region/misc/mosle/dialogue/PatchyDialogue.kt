@@ -1,8 +1,5 @@
 package content.region.misc.mosle.dialogue
 
-import org.rs.consts.Components
-import org.rs.consts.Items
-import org.rs.consts.NPCs
 import core.api.inInventory
 import core.api.openInterface
 import core.game.dialogue.Dialogue
@@ -11,6 +8,9 @@ import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
+import org.rs.consts.Components
+import org.rs.consts.Items
+import org.rs.consts.NPCs
 
 /**
  * Represents the Patchy dialogue.

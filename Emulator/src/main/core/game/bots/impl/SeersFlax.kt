@@ -1,6 +1,5 @@
 package core.game.bots.impl
 
-import org.rs.consts.Items
 import content.global.skill.production.crafting.data.Spinning
 import content.global.skill.production.crafting.item.SpinningPulse
 import core.game.bots.Script
@@ -11,6 +10,7 @@ import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 import core.game.world.map.Location
 import core.game.world.map.path.Pathfinder
+import org.rs.consts.Items
 
 /**
  * Seers flax.

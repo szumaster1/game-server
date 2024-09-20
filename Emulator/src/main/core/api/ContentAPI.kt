@@ -1,13 +1,9 @@
 package core.api
 
-import org.rs.consts.Items
-import org.rs.consts.NPCs
-import org.rs.consts.Sounds
 import com.moandjiezana.toml.Toml
 import content.data.consumables.*
 import content.data.skill.SkillingTool
 import content.global.handlers.iface.ge.StockMarketInterfaceListener
-import content.global.skill.combat.summoning.familiar.BurdenBeast
 import content.global.skill.support.slayer.SlayerManager
 import content.global.skill.support.slayer.data.Tasks
 import core.Configuration
@@ -82,6 +78,9 @@ import core.net.packet.outgoing.MinimapState
 import core.net.packet.outgoing.MusicPacket
 import core.net.packet.outgoing.RepositionChild
 import core.tools.*
+import org.rs.consts.Items
+import org.rs.consts.NPCs
+import org.rs.consts.Sounds
 import java.io.*
 import java.util.regex.*
 import kotlin.math.*
@@ -2564,12 +2563,12 @@ fun dumpBeastOfBurden(player: Player) {
         return
     }
 
-    if (famMan.familiar !is BurdenBeast) {
+    if (famMan.familiar !is content.global.skill.summoning.familiar.BurdenBeast) {
         sendMessage(player, "Your familiar is not a Beast of Burden.")
         return
     }
 
-    val beast: BurdenBeast = (famMan.familiar as BurdenBeast)
+    val beast: content.global.skill.summoning.familiar.BurdenBeast = (famMan.familiar as content.global.skill.summoning.familiar.BurdenBeast)
 
     if (beast.container.isEmpty) {
         sendMessage(player, "Your familiar's inventory is empty.")

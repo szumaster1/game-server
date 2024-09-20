@@ -14,8 +14,7 @@ object InteractionListeners {
     private val listeners = HashMap<String, (Player, Node) -> Boolean>(1000)
     private val useWithListeners = HashMap<String, (Player, Node, Node) -> Boolean>(1000)
     private val useAnyWithListeners = HashMap<String, (Player, Node, Node) -> Boolean>(10)
-    private val useWithWildcardListeners =
-        HashMap<Int, ArrayList<Pair<(Int, Int) -> Boolean, (Player, Node, Node) -> Boolean>>>(10)
+    private val useWithWildcardListeners = HashMap<Int, ArrayList<Pair<(Int, Int) -> Boolean, (Player, Node, Node) -> Boolean>>>(10)
     private val destinationOverrides = HashMap<String, (Entity, Node) -> Location>(100)
     private val equipListeners = HashMap<String, (Player, Node) -> Boolean>(10)
     private val interactions = HashMap<String, InteractionListener.InteractionMetadata>()
@@ -34,14 +33,10 @@ object InteractionListeners {
     @JvmStatic
     fun add(id: Int, type: Int, option: Array<out String>, method: (Player, Node) -> Boolean) {
         for (opt in option) {
-            // Construct a unique key for the listener using id, type, and option.
             val key = "$id:$type:${opt.lowercase()}"
-            // Validate if the key is already in use.
             if (!validate(key)) {
-                // Throw an exception if the key is already defined.
                 throw IllegalStateException("$opt for $id with type ${IntType.values()[type].name} already defined! Existing use: [${listeners[key]!!::class}]")
             }
-            // Register the method for the constructed key.
             listeners[key] = method
         }
     }
@@ -53,7 +48,6 @@ object InteractionListeners {
      * @return True if the key is not in use, otherwise false.
      */
     private fun validate(key: String): Boolean {
-        // Check if the key exists in either listeners or useWithListeners.
         return !listeners.containsKey(key) && !useWithListeners.containsKey(key)
     }
 
@@ -68,7 +62,6 @@ object InteractionListeners {
      */
     @JvmStatic
     fun add(ids: IntArray, type: Int, option: Array<out String>, method: (Player, Node) -> Boolean) {
-        // Iterate through each id and call the single id add method.
         for (id in ids) {
             add(id, type, option, method)
         }
@@ -84,14 +77,10 @@ object InteractionListeners {
      */
     @JvmStatic
     fun add(option: String, type: Int, method: (Player, Node) -> Boolean) {
-        // Construct a unique key for the catchall listener.
         val key = "$type:${option.lowercase()}"
-        // Validate if the key is already in use.
         if (!validate(key)) {
-            // Throw an exception if the key is already defined.
             throw IllegalStateException("Catchall listener for $option on type ${IntType.values()[type].name} already in use: ${listeners[key]!!::class}")
         }
-        // Register the method for the constructed key.
         listeners[key] = method
     }
 
@@ -105,7 +94,6 @@ object InteractionListeners {
      */
     @JvmStatic
     fun add(options: Array<out String>, type: Int, method: (Player, Node) -> Boolean) {
-        // Iterate through each option and call the single option add method.
         for (opt in options) {
             add(opt.lowercase(), type, method)
         }
@@ -122,15 +110,11 @@ object InteractionListeners {
      */
     @JvmStatic
     fun add(used: Int, with: Int, type: Int, method: (Player, Node, Node) -> Boolean) {
-        // Construct unique keys for the listener.
         val key = "$used:$with:$type"
         val altKey = "$with:$used:$type"
-        // Validate if either key is already in use.
         if (!validate(key) || !validate(altKey)) {
-            // Throw an exception if either key is already defined.
             throw IllegalStateException("Usewith using $used with $with for type ${IntType.values()[type]} already in use: [${(useWithListeners[key] ?: useWithListeners[altKey])!!::class}")
         }
-        // Register the method for the constructed key.
         useWithListeners[key] = method
     }
 
@@ -145,7 +129,6 @@ object InteractionListeners {
      */
     @JvmStatic
     fun add(type: Int, used: Int, with: IntArray, method: (Player, Node, Node) -> Boolean) {
-        // Iterate through each id in with and call the used-with add method.
         for (id in with) {
             add(used = used, with = id, type = type, method = method)
         }
@@ -165,12 +148,9 @@ object InteractionListeners {
         predicate: (used: Int, with: Int) -> Boolean,
         handler: (player: Player, used: Node, with: Node) -> Boolean
     ) {
-        // Check if the type already has wildcard listeners.
         if (!useWithWildcardListeners.containsKey(type)) {
-            // Initialize the list if it does not exist.
             useWithWildcardListeners.put(type, ArrayList())
         }
-        // Add the predicate and handler as a pair to the list of wildcard listeners.
         useWithWildcardListeners[type]!!.add(Pair(predicate, handler))
     }
 
@@ -183,7 +163,6 @@ object InteractionListeners {
      */
     @JvmStatic
     fun addEquip(id: Int, method: (Player, Node) -> Boolean) {
-        // Register the equip method for the constructed key.
         equipListeners["equip:$id"] = method
     }
 
@@ -196,7 +175,6 @@ object InteractionListeners {
      */
     @JvmStatic
     fun addUnequip(id: Int, method: (Player, Node) -> Boolean) {
-        // Register the unequip method for the constructed key.
         equipListeners["unequip:$id"] = method
     }
 
@@ -208,7 +186,6 @@ object InteractionListeners {
      */
     @JvmStatic
     fun getEquip(id: Int): ((Player, Node) -> Boolean)? {
-        // Retrieve the equip listener for the constructed key.
         return equipListeners["equip:$id"]
     }
 
@@ -220,7 +197,6 @@ object InteractionListeners {
      */
     @JvmStatic
     fun getUnequip(id: Int): ((Player, Node) -> Boolean)? {
-        // Retrieve the unequip listener for the constructed key.
         return equipListeners["unequip:$id"]
     }
 
@@ -234,15 +210,12 @@ object InteractionListeners {
      */
     @JvmStatic
     fun get(used: Int, with: Int, type: Int): ((Player, Node, Node) -> Boolean)? {
-        // Attempt to retrieve the method from useWithListeners or useAnyWithListeners.
         val method = useWithListeners["$used:$with:$type"] ?: useAnyWithListeners["$with:$type"]
         if (method != null) {
             return method
         }
-        // Check for wildcard listeners if no direct match is found.
         val handlers = useWithWildcardListeners[type] ?: return null
         for (pair in handlers) {
-            // If the predicate matches, return the associated handler.
             if (pair.first(used, with)) {
                 return pair.second
             }
@@ -260,7 +233,6 @@ object InteractionListeners {
      */
     @JvmStatic
     fun get(id: Int, type: Int, option: String): ((Player, Node) -> Boolean)? {
-        // Retrieve the listener for the constructed key.
         return listeners["$id:$type:${option.lowercase()}"]
     }
 
@@ -273,7 +245,6 @@ object InteractionListeners {
      */
     @JvmStatic
     fun get(option: String, type: Int): ((Player, Node) -> Boolean)? {
-        // Retrieve the listener for the constructed key.
         return listeners["$type:${option.lowercase()}"]
     }
 
@@ -287,7 +258,6 @@ object InteractionListeners {
      */
     @JvmStatic
     fun addDestOverride(type: Int, id: Int, method: (Entity, Node) -> Location) {
-        // Store the method in the destinationOverrides map using a composite key of type and id.
         destinationOverrides["$type:$id"] = method
     }
 
@@ -301,7 +271,6 @@ object InteractionListeners {
      */
     @JvmStatic
     fun addDestOverrides(type: Int, options: Array<out String>, method: (Entity, Node) -> Location) {
-        // Iterate through each option and store the method in the destinationOverrides map.
         for (opt in options) {
             destinationOverrides["$type:${opt.lowercase()}"] = method
         }
@@ -318,7 +287,6 @@ object InteractionListeners {
      */
     @JvmStatic
     fun addDestOverrides(type: Int, ids: IntArray, options: Array<out String>, method: (Entity, Node) -> Location) {
-        // Iterate through each id and option to store the method in the destinationOverrides map.
         for (id in ids) {
             for (opt in options) {
                 destinationOverrides["$type:$id:${opt.lowercase()}"] = method
@@ -336,7 +304,6 @@ object InteractionListeners {
      */
     @JvmStatic
     fun getOverride(type: Int, id: Int, option: String): ((Entity, Node) -> Location)? {
-        // Retrieve the method from the destinationOverrides map using a composite key.
         return destinationOverrides["$type:$id:${option.lowercase()}"]
     }
 
@@ -349,7 +316,6 @@ object InteractionListeners {
      */
     @JvmStatic
     fun getOverride(type: Int, id: Int): ((Entity, Node) -> Location)? {
-        // Retrieve the method from the destinationOverrides map using a composite key.
         return destinationOverrides["$type:$id"]
     }
 
@@ -362,7 +328,6 @@ object InteractionListeners {
      */
     @JvmStatic
     fun getOverride(type: Int, option: String): ((Entity, Node) -> Location)? {
-        // Retrieve the method from the destinationOverrides map using a composite key.
         return destinationOverrides["$type:$option"]
     }
 
@@ -377,9 +342,7 @@ object InteractionListeners {
      */
     @JvmStatic
     fun run(id: Int, player: Player, node: Node, isEquip: Boolean): Boolean {
-        // Dispatch an interaction event based on whether it is an equip or unequip action.
         player.dispatch(InteractionEvent(node, if (isEquip) "equip" else "unequip"))
-        // Invoke the appropriate listener based on the equip state.
         if (isEquip) {
             return equipListeners["equip:$id"]?.invoke(player, node) ?: true
         } else {
@@ -398,7 +361,6 @@ object InteractionListeners {
      */
     @JvmStatic
     fun run(used: Node, with: Node, type: IntType, player: Player): Boolean {
-        // Determine the destination flag based on the type of interaction.
         val flag = when (type) {
             IntType.NPC, IntType.PLAYER -> DestinationFlag.ENTITY
             IntType.SCENERY -> DestinationFlag.OBJECT
@@ -406,18 +368,15 @@ object InteractionListeners {
             else -> DestinationFlag.OBJECT
         }
 
-        // Check if the player's interaction is locked.
         if (player.locks.isInteractionLocked) return false
 
         var flipped = false
 
-        // Retrieve the appropriate method based on the type of interaction.
         val method = if (with is Player) get(-1, used.id, 4) ?: return false
         else get(used.id, with.id, type.ordinal) ?: if (type == IntType.ITEM)
             get(with.id, used.id, type.ordinal).also { flipped = true } ?: return false
         else return false
 
-        // Determine the destination override based on the flipped state.
         val destOverride = if (flipped) {
             getOverride(type.ordinal, used.id, "use") ?: getOverride(type.ordinal, with.id) ?: getOverride(
                 type.ordinal,
@@ -430,31 +389,24 @@ object InteractionListeners {
             )
         }
 
-        // Execute the action based on the type of interaction.
         if (type != IntType.ITEM && !isUseWithInstant(method)) {
-            // Check if the player's movement is locked.
             if (player.locks.isMovementLocked) return false
             player.pulseManager.run(object : MovementPulse(player, with, flag, destOverride) {
                 override fun pulse(): Boolean {
-                    // Check if the player can use the item with the node.
                     if (player.zoneMonitor.useWith(used.asItem(), with)) {
                         return true
                     }
                     player.faceLocation(with.location)
-                    // Dispatch the appropriate use event based on the flipped state.
                     if (flipped) player.dispatch(UseWithEvent(with.id, used.id))
                     else player.dispatch(UseWithEvent(used.id, with.id))
-                    // Invoke the method based on the flipped state.
                     if (flipped) method.invoke(player, with, used)
                     else method.invoke(player, used, with)
                     return true
                 }
             })
         } else {
-            // Dispatch the appropriate use event based on the flipped state.
             if (flipped) player.dispatch(UseWithEvent(with.id, used.id))
             else player.dispatch(UseWithEvent(used.id, with.id))
-            // Invoke the method based on the flipped state.
             if (flipped) return method.invoke(player, with, used)
             else return method.invoke(player, used, with)
         }
@@ -473,7 +425,6 @@ object InteractionListeners {
      */
     @JvmStatic
     fun run(id: Int, type: IntType, option: String, player: Player, node: Node): Boolean {
-        // Determine the destination flag based on the type of interaction.
         val flag = when (type) {
             IntType.PLAYER -> DestinationFlag.ENTITY
             IntType.GROUNDITEM -> DestinationFlag.ITEM
@@ -482,17 +433,13 @@ object InteractionListeners {
             else -> DestinationFlag.OBJECT
         }
 
-        // Check if the player's interaction is locked.
         if (player.locks.isInteractionLocked) return false
 
-        // Retrieve the appropriate method based on the id, type, and option.
         val method = get(id, type.ordinal, option) ?: get(option, type.ordinal)
 
-        // Set the player's interaction attribute and dispatch an interaction event.
         player.setAttribute("interact:option", option.lowercase())
         player.dispatch(InteractionEvent(node, option.lowercase()))
 
-        // If no method is found, retrieve the interaction from the interactions map.
         if (method == null) {
             val inter = interactions["${type.ordinal}:$id:${option.lowercase()}"]
                 ?: interactions["${type.ordinal}:${option.lowercase()}"] ?: return false
@@ -506,28 +453,22 @@ object InteractionListeners {
             return true
         }
 
-        // Determine the destination override based on the type, id, and option.
         val destOverride = getOverride(type.ordinal, id, option) ?: getOverride(type.ordinal, node.id) ?: getOverride(
             type.ordinal,
             option.lowercase()
         )
 
-        // Execute the action based on the type of interaction.
         if (type != IntType.ITEM && !isInstant(method)) {
-            // Check if the player's movement is locked.
             if (player.locks.isMovementLocked) return false
             player.pulseManager.run(object : MovementPulse(player, node, flag, destOverride) {
                 override fun pulse(): Boolean {
-                    // Check if the player can interact with the node.
                     if (player.zoneMonitor.interact(node, Option(option, 0))) return true
                     player.faceLocation(node.location)
-                    // Invoke the method for the interaction.
                     method.invoke(player, node)
                     return true
                 }
             })
         } else {
-            // Invoke the method for the interaction.
             method.invoke(player, node)
         }
         return true
@@ -543,7 +484,6 @@ object InteractionListeners {
      * @receiver This function is an instance method.
      */
     fun add(type: Int, used: IntArray, with: IntArray, handler: (Player, Node, Node) -> Boolean) {
-        // Iterate through each used and with node to store the handler in the useWithListeners map.
         for (u in used) {
             for (w in with) {
                 useWithListeners["$u:$w:$type"] = handler
@@ -560,7 +500,6 @@ object InteractionListeners {
      * @receiver This function is an instance method.
      */
     fun add(type: Int, with: IntArray, handler: (Player, Node, Node) -> Boolean) {
-        // Iterate through each with node to store the handler in the useAnyWithListeners map.
         for (w in with) {
             useAnyWithListeners["$w:$type"] = handler
         }
@@ -574,7 +513,6 @@ object InteractionListeners {
      * @return A boolean indicating if the handler is an instant action.
      */
     fun isInstant(handler: (Player, Node) -> Boolean): Boolean {
-        // Retrieve the class name of the handler and check if it is in the instantClasses list.
         val className = handler.javaClass.name.substringBefore("$")
         return instantClasses.contains(className)
     }
@@ -587,7 +525,6 @@ object InteractionListeners {
      * @return A boolean indicating if the handler is an instant action.
      */
     fun isUseWithInstant(handler: (player: Player, used: Node, with: Node) -> Boolean): Boolean {
-        // Retrieve the class name of the handler and check if it is in the instantClasses list.
         val className = handler.javaClass.name.substringBefore("$")
         return instantClasses.contains(className)
     }
@@ -606,7 +543,6 @@ object InteractionListeners {
         options: Array<out String>,
         metadata: InteractionListener.InteractionMetadata
     ) {
-        // Iterate through each id and option to store the metadata in the interactions map.
         for (id in ids)
             for (opt in options)
                 interactions["${type.ordinal}:$id:${opt.lowercase()}"] = metadata
@@ -626,7 +562,6 @@ object InteractionListeners {
         options: Array<out String>,
         metadata: InteractionListener.InteractionMetadata
     ) {
-        // Iterate through each option to store the metadata in the interactions map.
         for (opt in options)
             interactions["${type.ordinal}:$id:${opt.lowercase()}"] = metadata
     }
@@ -643,7 +578,6 @@ object InteractionListeners {
         type: IntType,
         metadata: InteractionListener.InteractionMetadata
     ) {
-        // Iterate through each option to store the metadata in the interactions map.
         for (opt in options)
             interactions["${type.ordinal}:$opt"] = metadata
     }
@@ -657,7 +591,6 @@ object InteractionListeners {
      * @param metadata The metadata associated with the interaction.
      */
     fun addMetadata(used: Int, with: IntArray, type: IntType, metadata: InteractionListener.UseWithMetadata) {
-        // Iterate through each with node to store the metadata in the useWithInteractions map.
         for (id in with)
             useWithInteractions["${type.ordinal}:$used:$with"] = metadata
     }

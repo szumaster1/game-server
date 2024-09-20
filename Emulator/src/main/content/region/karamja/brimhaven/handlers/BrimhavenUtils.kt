@@ -1,7 +1,7 @@
 package content.region.karamja.brimhaven.handlers
 
 import content.data.skill.SkillingTool
-import content.global.skill.support.agility.AgilityHandler
+import content.global.skill.agility.AgilityHandler
 import core.api.*
 import core.game.global.action.ClimbActionHandler
 import core.game.node.entity.player.Player
@@ -70,7 +70,7 @@ object BrimhavenUtils {
             return
         }
         player.lock(12)
-        val dir = AgilityHandler.forceWalk(player, -1, player.location, node.location, Animation.create(769), 10, 0.0, null).direction
+        val dir = content.global.skill.agility.AgilityHandler.forceWalk(player, -1, player.location, node.location, Animation.create(769), 10, 0.0, null).direction
         val loc = player.location
 
         registerLogoutListener(player, "steppingstone") { p ->
@@ -92,7 +92,7 @@ object BrimhavenUtils {
                 if (stage == 6) {
                     player.achievementDiaryManager.finishTask(player, DiaryType.KARAMJA, 1, 15)
                 }
-                AgilityHandler.forceWalk(player, -1, l, l.transform(direction), Animation.create(769), 10, 0.0, null)
+                content.global.skill.agility.AgilityHandler.forceWalk(player, -1, l, l.transform(direction), Animation.create(769), 10, 0.0, null)
                 return stage == 6
             }
 

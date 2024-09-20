@@ -1,6 +1,6 @@
 package content.region.misthalin.draynor.handlers;
 
-import content.global.skill.support.agility.AgilityHandler;
+import content.global.skill.agility.AgilityHandler;
 import core.cache.def.impl.SceneryDefinition;
 import core.game.dialogue.FacialExpression;
 import core.game.global.action.ClimbActionHandler;

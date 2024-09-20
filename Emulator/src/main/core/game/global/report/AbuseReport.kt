@@ -13,7 +13,7 @@ import core.game.system.command.CommandMapping.get
  * @param reporter The player reporting the abuse.
  * @param victim The player being reported.
  * @param rule The rule violated.
- * @constructor Represents an AbuseReport instance with reporter, victim, and rule.
+ * @constructor Represents an [AbuseReport] instance with reporter, victim, and rule.
  */
 class AbuseReport(val reporter: String, val victim: String, val rule: Rule) {
 

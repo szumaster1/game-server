@@ -1,0 +1,18 @@
+package content.global.skill.hunter
+
+import core.game.node.entity.npc.NPC
+import core.game.node.entity.skill.Skills
+import core.game.node.item.Item
+
+/**
+ * Handles the box trap node.
+ */
+open class BoxTrapNode(npcIds: IntArray, level: Int, experience: Double, rewards: Array<Item>, private val summoningLevel: Int) : content.global.skill.hunter.TrapNode(npcIds, level, experience, intArrayOf(19188, 19189), rewards) {
+
+    override fun canCatch(wrapper: content.global.skill.hunter.TrapWrapper, npc: NPC): Boolean {
+        if (wrapper.player.getSkills().getStaticLevel(Skills.SUMMONING) < summoningLevel) {
+            return false
+        }
+        return super.canCatch(wrapper, npc)
+    }
+}

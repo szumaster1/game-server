@@ -4,26 +4,6 @@ import java.sql.Timestamp
 
 /**
  * User account info
- *
- * @param username The username of the user
- * @param password The password of the user
- * @param uid Unique identifier for the user
- * @param rights User rights level
- * @param credits User credits balance
- * @param ip Current IP address of the user
- * @param lastUsedIp Last used IP address of the user
- * @param muteEndTime Timestamp for when the mute ends
- * @param banEndTime Timestamp for when the ban ends
- * @param contacts User's contacts information
- * @param blocked Blocked users information
- * @param clanName Name of the user's clan
- * @param currentClan Current clan the user is part of
- * @param clanReqs Clan requirements
- * @param timePlayed Total time played by the user
- * @param lastLogin Timestamp of the last login
- * @param online User's online status
- * @param joinDate Timestamp of when the user joined
- * @constructor User account info
  */
 class UserAccountInfo(
     var username: String,
@@ -76,17 +56,16 @@ class UserAccountInfo(
     lateinit var initialValues: Array<Any>
 
     /**
-     * Set initial reference values
-     *
+     * Set initial reference values.
      */
     fun setInitialReferenceValues() {
         initialValues = toArray()
     }
 
     /**
-     * Get changed fields
+     * Get changed fields.
      *
-     * @return A pair containing a list of changed field indices and the current values
+     * @return A pair containing a list of changed field indices and the current values.
      */
     fun getChangedFields(): Pair<ArrayList<Int>, Array<Any>> {
         val current = toArray()
@@ -100,9 +79,9 @@ class UserAccountInfo(
     }
 
     /**
-     * To array
+     * To array.
      *
-     * @return An array representation of the user account info
+     * @return An array representation of the user account info.
      */
     fun toArray(): Array<Any> {
         return arrayOf(
@@ -162,22 +141,22 @@ class UserAccountInfo(
     override fun hashCode(): Int {
         var result = username.hashCode()
         result = 31 * result + password.hashCode()
-        result = 31 * result + uid // Include UID
-        result = 31 * result + rights // Include rights
-        result = 31 * result + credits // Include credits
-        result = 31 * result + ip.hashCode() // Include current IP hash
-        result = 31 * result + lastUsedIp.hashCode() // Include last used IP hash
-        result = 31 * result + muteEndTime.hashCode() // Include mute end time hash
-        result = 31 * result + banEndTime.hashCode() // Include ban end time hash
-        result = 31 * result + contacts.hashCode() // Include contacts hash
-        result = 31 * result + blocked.hashCode() // Include blocked users hash
-        result = 31 * result + clanName.hashCode() // Include clan name hash
-        result = 31 * result + currentClan.hashCode() // Include current clan hash
-        result = 31 * result + clanReqs.hashCode() // Include clan requirements hash
-        result = 31 * result + timePlayed.hashCode() // Include time played hash
-        result = 31 * result + lastLogin.hashCode() // Include last login hash
-        result = 31 * result + online.hashCode() // Include online status hash
-        return result // Return final hash code
+        result = 31 * result + uid
+        result = 31 * result + rights
+        result = 31 * result + credits
+        result = 31 * result + ip.hashCode()
+        result = 31 * result + lastUsedIp.hashCode()
+        result = 31 * result + muteEndTime.hashCode()
+        result = 31 * result + banEndTime.hashCode()
+        result = 31 * result + contacts.hashCode()
+        result = 31 * result + blocked.hashCode()
+        result = 31 * result + clanName.hashCode()
+        result = 31 * result + currentClan.hashCode()
+        result = 31 * result + clanReqs.hashCode()
+        result = 31 * result + timePlayed.hashCode()
+        result = 31 * result + lastLogin.hashCode()
+        result = 31 * result + online.hashCode()
+        return result
     }
 
     fun isDefault() : Boolean {

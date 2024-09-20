@@ -1,6 +1,6 @@
 package content.region.karamja.quest.junglepotion.handlers;
 
-import content.global.skill.production.herblore.data.Herb;
+import content.global.skill.herblore.Herb;
 import core.game.node.entity.player.Player;
 import core.game.node.scenery.Scenery;
 import core.game.node.scenery.SceneryBuilder;

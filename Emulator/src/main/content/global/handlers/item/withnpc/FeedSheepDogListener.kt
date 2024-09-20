@@ -2,7 +2,7 @@ package content.global.handlers.item.withnpc
 
 import content.data.Meat
 import content.data.MeatState
-import content.global.skill.combat.prayer.Bones
+import content.global.skill.prayer.Bones
 import core.api.*
 import org.rs.consts.Animations
 import org.rs.consts.Items

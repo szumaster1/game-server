@@ -1,10 +1,9 @@
 package content.global.skill.skillcape
 
-import content.global.skill.production.runecrafting.data.Altar
+import content.global.skill.runecrafting.Altar
 import core.ServerStore
 import core.ServerStore.Companion.getBoolean
 import core.ServerStore.Companion.getInt
-import org.rs.consts.Items
 import core.api.getAttribute
 import core.api.hasRequirement
 import core.api.sendDialogue
@@ -19,6 +18,7 @@ import core.game.world.GameWorld
 import core.game.world.map.Location
 import core.game.world.map.zone.impl.DarkZone
 import core.plugin.Initializable
+import org.rs.consts.Items
 
 /**
  * Represents the skillcape perks.
@@ -75,10 +75,10 @@ enum class SkillcapePerks(val attribute: String, val effect: ((Player) -> Unit)?
         if (store.getBoolean(player.name)) {
             player.dialogueInterpreter.sendDialogue("Your cape is still on cooldown.")
         } else {
-            val possibleSeeds = content.global.skill.gathering.farming.Plantable.values()
+            val possibleSeeds = content.global.skill.gather.farming.Plantable.values()
             for (i in 0 until 10) {
                 var seed = possibleSeeds.random()
-                while (seed == content.global.skill.gathering.farming.Plantable.SCARECROW || seed.applicablePatch == content.global.skill.gathering.farming.PatchType.FRUIT_TREE_PATCH || seed.applicablePatch == content.global.skill.gathering.farming.PatchType.TREE_PATCH || seed.applicablePatch == content.global.skill.gathering.farming.PatchType.SPIRIT_TREE_PATCH) {
+                while (seed == content.global.skill.gather.farming.Plantable.SCARECROW || seed.applicablePatch == content.global.skill.gather.farming.PatchType.FRUIT_TREE_PATCH || seed.applicablePatch == content.global.skill.gather.farming.PatchType.TREE_PATCH || seed.applicablePatch == content.global.skill.gather.farming.PatchType.SPIRIT_TREE_PATCH) {
                     seed = possibleSeeds.random()
                 }
                 val reward = core.game.node.item.Item(seed.itemID)

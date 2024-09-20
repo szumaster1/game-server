@@ -1,6 +1,6 @@
 package core.game.world.map.zone;
 
-import content.global.skill.combat.summoning.familiar.Familiar;
+import content.global.skill.summoning.familiar.Familiar;
 import core.game.interaction.Option;
 import core.game.node.Node;
 import core.game.node.entity.Entity;

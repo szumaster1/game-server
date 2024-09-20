@@ -1,6 +1,6 @@
 package content.region.wilderness.handlers.revenants
 
-import content.global.skill.combat.summoning.familiar.Familiar
+import content.global.skill.summoning.familiar.Familiar
 import content.region.wilderness.handlers.revenants.RevenantController.Companion.registerRevenant
 import content.region.wilderness.handlers.revenants.RevenantController.Companion.unregisterRevenant
 import org.rs.consts.Sounds
@@ -164,7 +164,7 @@ class RevenantNPC @JvmOverloads constructor(id: Int = -1, location: Location? = 
                 return false
             }
         }
-        if (entity is Familiar) {
+        if (entity is content.global.skill.summoning.familiar.Familiar) {
             val owner = entity.owner ?: return false
             if (!hasAcceptableCombatLevel(owner)) {
                 return false

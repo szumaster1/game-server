@@ -3,7 +3,7 @@ package content.region.fremennik.waterbirth_island.warterbirth_dungeon.dialogue
 import core.api.*
 import org.rs.consts.Items
 import org.rs.consts.NPCs
-import content.region.fremennik.waterbirth_island.handlers.BardurExchangeListener
+import content.region.fremennik.waterbirth_island.BardurExchangeListener
 import core.game.dialogue.Dialogue
 import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression

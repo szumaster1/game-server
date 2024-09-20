@@ -30,24 +30,24 @@ class WeightedTable<T> : ArrayList<Pair<T?, Double>>() {
      * @return True if the element was removed successfully, false otherwise.
      */
     fun remove(element: T?): Boolean {
-        var index = -1 // Initialize index to -1 to indicate not found
-        for ((i, pair) in this.withIndex()) { // Iterate through the list with index
-            val (elem, _) = pair // Destructure the pair to get the element
-            if (element == elem) { // Check if the current element matches the target
-                index = i // Update index if found
-                break // Exit the loop once found
+        var index = -1
+        for ((i, pair) in this.withIndex()) {
+            val (elem, _) = pair
+            if (element == elem) {
+                index = i
+                break
             }
         }
-        if (index == -1) return false // Return false if the element was not found
+        if (index == -1) return false
 
-        this.removeAt(index) // Remove the element at the found index
-        return true // Return true indicating successful removal
+        this.removeAt(index)
+        return true
     }
 
     override fun removeAt(index: Int): Pair<T?, Double> {
-        val (_, weight) = this[index] // Destructure the pair to get the weight
-        totalWeight -= weight // Decrease total weight by the removed element's weight
-        return super.removeAt(index) // Call the superclass method to remove the element
+        val (_, weight) = this[index]
+        totalWeight -= weight
+        return super.removeAt(index)
     }
 
     /**
@@ -56,18 +56,18 @@ class WeightedTable<T> : ArrayList<Pair<T?, Double>>() {
      * @return A random element from the table, or null if the table is empty.
      */
     fun roll(): T? {
-        if (this.size == 1) return this[0].component1() // Return the only element if size is 1
-        else if (this.size == 0) return null // Return null if the table is empty
+        if (this.size == 1) return this[0].component1()
+        else if (this.size == 0) return null
 
-        var shuffled = this.shuffled() // Shuffle the elements for randomness
-        var randWeight = RandomFunction.random(0.0, totalWeight) // Generate a random weight
+        var shuffled = this.shuffled()
+        var randWeight = RandomFunction.random(0.0, totalWeight)
 
-        for ((element, weight) in shuffled) { // Iterate through the shuffled elements
-            randWeight -= weight // Decrease random weight by the current element's weight
-            if (randWeight <= 0) return element // Return the element if the weight threshold is met
+        for ((element, weight) in shuffled) {
+            randWeight -= weight
+            if (randWeight <= 0) return element
         }
 
-        return null // Return null if no element is selected
+        return null
     }
 
     companion object {
@@ -78,9 +78,9 @@ class WeightedTable<T> : ArrayList<Pair<T?, Double>>() {
          * @return A new weighted table.
          */
         fun <T> create(vararg elements: Pair<T?, Double>): WeightedTable<T> {
-            var table = WeightedTable<T>() // Instantiate a new WeightedTable
-            for ((element, weight) in elements) table.add(element, weight) // Add each element and weight to the table
-            return table // Return the populated weighted table
+            var table = WeightedTable<T>()
+            for ((element, weight) in elements) table.add(element, weight)
+            return table
         }
     }
 }

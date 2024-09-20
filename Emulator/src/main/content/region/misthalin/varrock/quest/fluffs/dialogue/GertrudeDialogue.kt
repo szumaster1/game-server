@@ -1,6 +1,6 @@
 package content.region.misthalin.varrock.quest.fluffs.dialogue
 
-import content.global.skill.combat.summoning.pet.Pet
+import content.global.skill.summoning.pet.Pet
 import core.api.*
 import org.rs.consts.Items
 import org.rs.consts.NPCs
@@ -126,7 +126,7 @@ class GertrudeDialogue(player: Player? = null) : Dialogue(player) {
                     Items.HELL_KITTEN_7583
                 )
                 if (player.familiarManager.hasFamiliar()) {
-                    val pet = player.familiarManager.familiar as Pet
+                    val pet = player.familiarManager.familiar as content.global.skill.summoning.pet.Pet
                     for (i in kittens) {
                         if (pet.itemId == i) {
                             has = true

@@ -1,6 +1,6 @@
 package content.region.kandarin.quest.waterfall.handlers
 
-import content.global.skill.support.agility.AgilityHandler
+import content.global.skill.agility.AgilityHandler
 import content.region.kandarin.quest.waterfall.WaterFall
 import core.api.*
 import core.cache.def.impl.ItemDefinition
@@ -179,7 +179,7 @@ class WaterfallPlugin : OptionHandler() {
                 }
                 player.packetDispatch.sendGraphic(68)
                 player.lock(6)
-                AgilityHandler.walk(player, -1, player.location, Location(2512, 3471, 0), Animation.create(164), 0.0, null)
+                content.global.skill.agility.AgilityHandler.walk(player, -1, player.location, Location(2512, 3471, 0), Animation.create(164), 0.0, null)
                 player.packetDispatch.sendMessage("It looks like a long distance, but you swim out into the water.")
                 player.packetDispatch.sendMessage("The current is too strong, you feel yourself being pulled under", 3)
                 player.pulseManager.run(object : Pulse(6, player) {
@@ -321,7 +321,7 @@ class WaterfallPlugin : OptionHandler() {
                 player.pulseManager.run(object : Pulse(2, player) {
                     override fun pulse(): Boolean {
                         player.faceLocation(Location(2512, 3468, 0))
-                        AgilityHandler.walk(player, -1, player.location, Location(2512, 3469, 0), Animation.create(273), 0.0, null)
+                        content.global.skill.agility.AgilityHandler.walk(player, -1, player.location, Location(2512, 3469, 0), Animation.create(273), 0.0, null)
                         player.pulseManager.run(object : Pulse(8, player) {
                             override fun pulse(): Boolean {
                                 player.teleport(Location(2513, 3468))

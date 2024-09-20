@@ -11,28 +11,27 @@ import core.net.packet.outgoing.RepositionChild
 import core.tools.StringUtils
 
 /**
- * Represents a skill dialogue handler class.
- * @author Vexia
+ * Handles the display and functionality of skill-related dialogues for a player.
  *
- * @param player The player associated with this skill dialogue handler
- * @param type The type of skill dialogue being handled
- * @param data Additional data related to the skill dialogue
+ * @param player The player associated with this skill dialogue handler.
+ * @param type The type of skill dialogue being handled.
+ * @param data Additional data related to the skill dialogue.
  */
 open class SkillDialogueHandler(val player: Player, val type: SkillDialogue?, vararg data: Any) {
     /**
-     * Represents the object data passed through.
+     * The data passed to the skill dialogue handler.
      */
     val data: Array<Any>
 
     /**
-     * Opens the skill dialogue for the player using the dialogue interpreter.
+     * Opens the skill dialogue for the player, initiating the dialogue interpreter.
      */
     fun open() {
         player.dialogueInterpreter.open(SKILL_DIALOGUE, this)
     }
 
     /**
-     * Displays the skill dialogue to the player.
+     * Displays the skill dialogue interface to the player.
      */
     fun display() {
         if (type == null) {
@@ -43,53 +42,50 @@ open class SkillDialogueHandler(val player: Player, val type: SkillDialogue?, va
     }
 
     /**
-     * Create
+     * Handles the creation process for the skill dialogue.
      *
-     * @param amount The amount to create
-     * @param index The index of the item
+     * @param amount The amount to create.
+     * @param index The index of the item.
      */
     open fun create(amount: Int, index: Int) {}
 
     /**
-     * Get all
+     * Retrieves the total amount of a specified item in the player's inventory.
      *
-     * @param index The index to retrieve items from
-     * @return The amount of items in the player's inventory
+     * @param index The index to retrieve items from.
+     * @return The amount of items in the player's inventory.
      */
     open fun getAll(index: Int): Int {
         return player.inventory.getAmount(data[0] as Item)
     }
 
     /**
-     * Get name
+     * Retrieves the formatted name of the specified item, removing specific keywords.
      *
-     * @param item The item whose name is to be retrieved
-     * @return The formatted name of the item
+     * @param item The item whose name is to be retrieved.
+     * @return The formatted name of the item.
      */
     protected open fun getName(item: Item): String {
         return StringUtils.formatDisplayName(item.name.replace("Unfired", ""))
     }
 
     /**
-     * Skill dialogue
+     * Represents the different types of skill dialogues, each with its own unique interface and behavior.
      *
-     * @param interfaceId The ID of the interface
-     * @param baseButton The base button associated with the dialogue
-     * @param length The length of the dialogue
-     * @constructor Skill dialogue
+     * @param interfaceId The ID of the interface.
+     * @param baseButton The base button associated with the dialogue.
+     * @param length The number of options available in the dialogue.
      */
     enum class SkillDialogue(val interfaceId: Int, private val baseButton: Int, private val length: Int) {
         /**
-         * One option.
+         * A dialogue with a single option.
          */
         ONE_OPTION(309, 5, 1) {
             override fun display(player: Player, handler: SkillDialogueHandler) {
                 val item = handler.data[0] as Item
                 setInterfaceSprite(player, 309, 7, 8, 12)
-
-                sendString(player, "<br><br><br><br>" + item.name, 309, 6)
+                sendString(player, "<br><br><br><br>${item.name}", 309, 6)
                 sendItemZoomOnInterface(player, 309, 2, item.id, 160)
-
                 setInterfaceSprite(player, 309, 0, 12, 15)
                 setInterfaceSprite(player, 309, 1, 431, 15)
                 setInterfaceSprite(player, 309, 2, 210, 32)
@@ -110,14 +106,13 @@ open class SkillDialogueHandler(val player: Player, val type: SkillDialogue?, va
         },
 
         /**
-         * Make set one option.
+         * A dialogue for creating one set of items.
          */
         MAKE_SET_ONE_OPTION(582, 4, 1) {
             override fun display(player: Player, handler: SkillDialogueHandler) {
                 val item = handler.data[0] as Item
-
                 sendItemZoomOnInterface(player, 582, 2, item.id, 160)
-                sendString(player, "<br><br><br><br>" + item.name, 582, 5)
+                sendString(player, "<br><br><br><br>${item.name}", 582, 5)
                 setInterfaceSprite(player, 582, 0, 12, 15)
                 setInterfaceSprite(player, 582, 1, 431, 15)
                 setInterfaceSprite(player, 582, 6, 6, 16)
@@ -143,7 +138,7 @@ open class SkillDialogueHandler(val player: Player, val type: SkillDialogue?, va
         },
 
         /**
-         * Two option.
+         * A dialogue with two options.
          */
         TWO_OPTION(303, 7, 2) {
             override fun display(player: Player, handler: SkillDialogueHandler) {
@@ -178,7 +173,7 @@ open class SkillDialogueHandler(val player: Player, val type: SkillDialogue?, va
         },
 
         /**
-         * Three option.
+         * A dialogue with three options.
          */
         THREE_OPTION(304, 8, 3) {
             override fun display(player: Player, handler: SkillDialogueHandler) {
@@ -213,7 +208,7 @@ open class SkillDialogueHandler(val player: Player, val type: SkillDialogue?, va
         },
 
         /**
-         * Four option.
+         * A dialogue with four options.
          */
         FOUR_OPTION(305, 9, 4) {
             override fun display(player: Player, handler: SkillDialogueHandler) {
@@ -298,19 +293,19 @@ open class SkillDialogueHandler(val player: Player, val type: SkillDialogue?, va
         };
 
         /**
-         * Display
+         * Displays the skill dialogue interface for the player using the provided handler.
          *
-         * @param player The player object that will interact with the skill dialogue.
+         * @param player The player for whom the interface is displayed.
          * @param handler The handler responsible for managing the skill dialogue.
          */
         open fun display(player: Player, handler: SkillDialogueHandler) {}
 
         /**
-         * Get amount
+         * Retrieves the number of items to be created based on the button pressed.
          *
          * @param handler The handler managing the skill dialogue.
-         * @param buttonId The ID of the button pressed by the player.
-         * @return The amount corresponding to the button pressed.
+         * @param buttonId The ID of the button pressed.
+         * @return The number of items to be created.
          */
         open fun getAmount(handler: SkillDialogueHandler, buttonId: Int): Int {
             for (k in 0..3) {
@@ -325,11 +320,11 @@ open class SkillDialogueHandler(val player: Player, val type: SkillDialogue?, va
         }
 
         /**
-         * Get index
+         * Retrieves the index of the item in the data array based on the button pressed.
          *
          * @param handler The handler managing the skill dialogue.
-         * @param buttonId The ID of the button pressed by the player.
-         * @return The index of the button pressed.
+         * @param buttonId The ID of the button pressed.
+         * @return The index of the item in the data array.
          */
         open fun getIndex(handler: SkillDialogueHandler?, buttonId: Int): Int {
             var index = 0

@@ -1,7 +1,7 @@
 package content.minigame.clanwars
 
-import content.global.skill.combat.summoning.familiar.Familiar
-import content.global.skill.combat.summoning.pet.Pet
+import content.global.skill.summoning.familiar.Familiar
+import content.global.skill.summoning.pet.Pet
 import core.api.setVarp
 import core.game.activity.ActivityPlugin
 import core.game.component.Component
@@ -199,7 +199,7 @@ class ClanWarsActivityPlugin : ActivityPlugin("Clan wars", true, false, true) {
             player.skullManager.isSkullCheckDisabled = true
             player.skullManager.isWilderness = true
             player.interfaceManager.openOverlay(Component(265))
-        } else if (e is Familiar && e !is Pet) {
+        } else if (e is content.global.skill.summoning.familiar.Familiar && e !is content.global.skill.summoning.pet.Pet) {
             val familiar = e
             if (familiar.isCombatFamiliar) {
                 familiar.transform(familiar.originalId + 1)
@@ -241,10 +241,10 @@ class ClanWarsActivityPlugin : ActivityPlugin("Clan wars", true, false, true) {
     override fun continueAttack(e: Entity, target: Node, style: CombatStyle, message: Boolean): Boolean {
         var e: Entity? = e
         var target: Node? = target
-        if (e is Familiar) {
+        if (e is content.global.skill.summoning.familiar.Familiar) {
             e = e.owner
         }
-        if (target is Familiar) {
+        if (target is content.global.skill.summoning.familiar.Familiar) {
             target = target.owner
         }
         if (e is Player && target is Player) {
@@ -313,7 +313,7 @@ class ClanWarsActivityPlugin : ActivityPlugin("Clan wars", true, false, true) {
             if (logout) {
                 e.setLocation(leaveLocation)
             }
-        } else if (e is Familiar && e !is Pet) {
+        } else if (e is content.global.skill.summoning.familiar.Familiar && e !is content.global.skill.summoning.pet.Pet) {
             val familiar = e
             if (familiar.isCombatFamiliar) {
                 familiar.reTransform()

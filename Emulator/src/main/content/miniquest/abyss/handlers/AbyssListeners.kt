@@ -5,7 +5,7 @@ import org.rs.consts.Items
 import org.rs.consts.NPCs
 import org.rs.consts.Vars
 import content.data.skill.SkillingTool
-import content.global.skill.production.runecrafting.data.Altar
+import content.global.skill.runecrafting.Altar
 import core.api.*
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener

@@ -1,7 +1,7 @@
 package core.game.node.entity.skill;
 
 import content.data.skill.SkillingTool;
-import content.global.skill.SkillingResource;
+import content.global.skill.gather.SkillingResource;
 import core.game.node.Node;
 import core.game.node.entity.impl.Animator.Priority;
 import core.game.node.entity.player.Player;

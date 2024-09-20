@@ -31,8 +31,8 @@ object DoorActionHandler {
     /**
      * Handles a door reward.
      *
-     * @param player  The player.
-     * @param scenery The object.
+     * @param [player]  The player.
+     * @param [scenery] The object.
      */
     @JvmStatic
     fun handleDoor(player: Player, scenery: Scenery) {
@@ -105,10 +105,9 @@ object DoorActionHandler {
     /**
      * Handles the opening and walking through a door.
      *
-     * @param entity      the entity walking through the door.
-     * @param object      the door object.
-     * @param endLocation the end location
-     * @return boolean
+     * @param [entity]      the entity walking through the door.
+     * @param [scenery]     the door scenery.
+     * @param [endLocation] the end location
      */
     @JvmStatic
     @JvmOverloads
@@ -195,8 +194,8 @@ object DoorActionHandler {
     /**
      * Gets the end location to walk to.
      *
-     * @param entity the entity.
-     * @param object the object.
+     * @param [entity] the entity.
+     * @param [object] the object.
      * @return the end location.
      */
     fun getEndLocation(entity: Entity, `object`: Scenery): Location {
@@ -206,9 +205,9 @@ object DoorActionHandler {
     /**
      * Gets end location.
      *
-     * @param entity     the entity
-     * @param object     the object
-     * @param isAutoWalk the is auto walk
+     * @param [entity]     the entity
+     * @param [object]     the object
+     * @param [isAutoWalk] the is auto walk
      * @return the end location
      */
     fun getEndLocation(entity: Entity, `object`: Scenery, isAutoWalk: Boolean?): Location {

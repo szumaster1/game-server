@@ -1,6 +1,6 @@
 package content.minigame.mta
 
-import content.global.skill.support.agility.AgilityHandler
+import content.global.skill.agility.AgilityHandler
 import content.minigame.mta.impl.TelekineticZone
 import org.rs.consts.Items
 import core.cache.def.impl.ItemDefinition
@@ -50,7 +50,7 @@ class MageTrainingArena : OptionHandler() {
                 if (!player.getSkills().hasLevel(Skills.MAGIC, 7)) {
                     player.dialogueInterpreter.sendDialogue("You need a Magic level of at least 7 to enter the guild.")
                 }
-                AgilityHandler.walk(player, -1, player.location, player.location.transform(Direction.getDirection(player.location, node.location), 2), Animation(1426), 0.0, null)
+                content.global.skill.agility.AgilityHandler.walk(player, -1, player.location, player.location.transform(Direction.getDirection(player.location, node.location), 2), Animation(1426), 0.0, null)
             }
 
             3103 -> if (!player.getSavedData().activityData.isStartedMta) {

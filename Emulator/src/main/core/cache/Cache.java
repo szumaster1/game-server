@@ -134,7 +134,7 @@ public final class Cache {
      *
      * @return The reference data byte array.
      */
-    public static final byte[] generateReferenceData() {
+    public static byte[] generateReferenceData() {
         ByteBuffer buffer = ByteBuffer.allocate(cacheFileManagers.length * 8);
         for (int index = 0; index < cacheFileManagers.length; index++) {
             if (cacheFileManagers[index] == null) {
@@ -153,7 +153,7 @@ public final class Cache {
      *
      * @return The cache file managers.
      */
-    public static final CacheFileManager[] getIndexes() {
+    public static CacheFileManager[] getIndexes() {
         return cacheFileManagers;
     }
 

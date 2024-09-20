@@ -1,6 +1,6 @@
 package content.global.handlers.iface.plugin
 
-import content.global.skill.combat.magic.SpellListener
+import content.global.skill.magic.SpellListener
 import content.global.skill.combat.magic.SpellListeners
 import content.global.skill.combat.magic.SpellUtils
 import org.rs.consts.Components
@@ -39,7 +39,7 @@ class MagicBookTabInterfacePlugin : ComponentPlugin() {
             else -> SpellBook.LUNAR
         }
 
-        SpellListeners.run(button, SpellListener.NONE, SpellUtils.getBookFromInterface(component.id), player, null)
+        SpellListeners.run(button, content.global.skill.magic.SpellListener.NONE, SpellUtils.getBookFromInterface(component.id), player, null)
         val result = MagicSpell.castSpell(player, spellBook, button, player)
 
         return result

@@ -1,6 +1,5 @@
 package content.region.misc.zanaris.dialogue
 
-import org.rs.consts.NPCs
 import core.api.isQuestComplete
 import core.api.openNpcShop
 import core.game.dialogue.Dialogue
@@ -9,6 +8,7 @@ import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
+import org.rs.consts.NPCs
 
 /**
  * Represents the Fairy Fixit dialogue.

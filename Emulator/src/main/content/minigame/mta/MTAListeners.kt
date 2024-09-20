@@ -1,6 +1,6 @@
 package content.minigame.mta
 
-import content.global.skill.combat.magic.SpellListener
+import content.global.skill.magic.SpellListener
 import content.global.skill.combat.magic.spellconsts.Modern
 import content.minigame.mta.impl.AlchemistZone
 import org.rs.consts.Animations
@@ -34,7 +34,7 @@ class MTAListeners : InteractionListener {
 /**
  * MTA spell listeners.
  */
-class MTASpellListeners : SpellListener("modern") {
+class MTASpellListeners : content.global.skill.magic.SpellListener("modern") {
     private val LOW_ALCH_ANIM = Animation(Animations.HUMAN_CAST_LOW_ALCHEMY_SPELL_712)
     private val LOW_ALCH_GFX = Graphic(112, 5)
     private val HIGH_ALCH_ANIM = Animation(Animations.HUMAN_CAST_HIGH_ALCHEMY_SPELL_713)

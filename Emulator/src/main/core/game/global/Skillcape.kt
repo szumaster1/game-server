@@ -45,9 +45,9 @@ object Skillcape {
     /**
      * Method used to purchase a cape of accomplishment.
      *
-     * @param player the player.
-     * @param skill the skill.
-     * @return {@code True} if purchased.
+     * @param [player] the player.
+     * @param [skill] the skill.
+     * @return `true` if purchased.
      */
     @JvmStatic
     fun purchase(player: Player, skill: Int): Boolean {
@@ -69,7 +69,7 @@ object Skillcape {
     /**
      * Method used to trim the players skillcapes.
      *
-     * @param player the player.
+     * @param [player] the player.
      */
     @JvmStatic
     fun trim(player: Player) {
@@ -92,9 +92,9 @@ object Skillcape {
     /**
      * Checks if the player has the appropriate level.
      *
-     * @param player the player.
-     * @param skill the skill.
-     * @return {@code True} if so.
+     * @param [player] the player.
+     * @param [skill] the skill.
+     * @return `true` if so.
      */
     @JvmStatic
     fun isMaster(player: Player, skill: Int): Boolean {
@@ -104,9 +104,9 @@ object Skillcape {
     /**
      * Gets the items to purchase.
      *
-     * @param player the player.
-     * @param skill the skill.
-     * @return {@code Items} to buy.
+     * @param [player] the player.
+     * @param [skill] the skill.
+     * @return **Items** to buy.
      */
     fun getItems(player: Player, skill: Int): Array<Item> {
         return arrayOf(
@@ -118,7 +118,7 @@ object Skillcape {
     /**
      * Gets the trimmed item.
      *
-     * @param skill the skill.
+     * @param [skill] the skill.
      * @return the trimmed cape.
      */
     private fun getTrimmed(skill: Int): Item {
@@ -128,8 +128,8 @@ object Skillcape {
     /**
      * Gets the cape index by the item.
      *
-     * @param item the item.
-     * @return the skill index, if not (-1).
+     * @param [item] the item.
+     * @return the skill index, if not `(-1)`.
      */
     private fun getCapeIndex(item: Item): Int {
         for (i in SKILLCAPES.indices) {

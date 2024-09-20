@@ -1,6 +1,5 @@
 package content.region.misc.zanaris.quest.zanaris
 
-import org.rs.consts.Items
 import core.api.*
 import core.game.global.action.DoorActionHandler
 import core.game.interaction.IntType
@@ -13,6 +12,7 @@ import core.game.system.task.Pulse
 import core.game.world.GameWorld
 import core.game.world.map.Location
 import core.plugin.Initializable
+import org.rs.consts.Items
 import org.rs.consts.Scenery as Sceneries
 
 /**

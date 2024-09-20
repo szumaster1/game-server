@@ -1,0 +1,59 @@
+package content.global.skill.summoning.familiar.npc
+
+import content.global.skill.summoning.familiar.BurdenBeast
+import content.global.skill.summoning.familiar.Familiar
+import content.global.skill.summoning.familiar.FamiliarSpecial
+import core.game.node.entity.combat.equipment.WeaponInterface
+import core.game.node.entity.impl.Projectile
+import core.game.node.entity.player.Player
+import core.game.system.task.Pulse
+import core.game.world.GameWorld.Pulser
+import core.game.world.map.RegionManager.getLocalEntitys
+import core.game.world.update.flag.context.Animation
+import core.game.world.update.flag.context.Graphic
+import core.plugin.Initializable
+
+/**
+ * Spirit kalphite familiar.
+ */
+@Initializable
+class SpiritKalphiteNPC @JvmOverloads constructor(owner: Player? = null, id: Int = 6994) :
+    content.global.skill.summoning.familiar.BurdenBeast(owner, id, 2200, 12063, 6, 6, WeaponInterface.STYLE_DEFENSIVE) {
+    override fun construct(owner: Player, id: Int): content.global.skill.summoning.familiar.Familiar {
+        return SpiritKalphiteNPC(owner, id)
+    }
+
+    override fun specialMove(special: content.global.skill.summoning.familiar.FamiliarSpecial): Boolean {
+        if (!isOwnerAttackable) {
+            return false
+        }
+        val entitys = getLocalEntitys(owner, 6)
+        visualize(Animation.create(8517), Graphic.create(1350))
+        Pulser.submit(object : Pulse(1, owner) {
+            override fun pulse(): Boolean {
+                var count = 0
+                for (entity in entitys) {
+                    if (count > 5) {
+                        return true
+                    }
+                    if (!canCombatSpecial(entity)) {
+                        continue
+                    }
+                    Projectile.magic(this@SpiritKalphiteNPC, entity, 1349, 40, 36, 50, 5).send()
+                    sendFamiliarHit(entity, 20)
+                    count++
+                }
+                return true
+            }
+        })
+        return false
+    }
+
+    public override fun getText(): String {
+        return "Hsssss!"
+    }
+
+    override fun getIds(): IntArray {
+        return intArrayOf(6994, 6995)
+    }
+}

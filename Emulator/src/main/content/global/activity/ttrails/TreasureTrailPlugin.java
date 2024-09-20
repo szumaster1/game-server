@@ -7,7 +7,7 @@ import content.global.activity.ttrails.clue.MapCluePlugin;
 import content.global.activity.ttrails.npc.SaradominWizardNPC;
 import content.global.activity.ttrails.npc.ZamorakWizardNPC;
 import content.global.activity.ttrails.scroll.CoordinateClueScroll;
-import content.global.skill.support.agility.AgilityHandler;
+import content.global.skill.agility.AgilityHandler;
 import core.cache.def.impl.ItemDefinition;
 import core.cache.def.impl.SceneryDefinition;
 import core.game.component.Component;

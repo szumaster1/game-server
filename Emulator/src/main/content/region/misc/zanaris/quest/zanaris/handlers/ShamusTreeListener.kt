@@ -1,7 +1,5 @@
 package content.region.misc.zanaris.quest.zanaris.handlers
 
-import org.rs.consts.NPCs
-import org.rs.consts.Scenery
 import content.data.skill.SkillingTool
 import core.api.sendMessage
 import core.api.sendNPCDialogue
@@ -14,6 +12,8 @@ import core.game.system.task.Pulse
 import core.game.world.GameWorld
 import core.game.world.map.Location
 import core.plugin.Initializable
+import org.rs.consts.NPCs
+import org.rs.consts.Scenery
 
 /**
  * Represents the Shamus Tree listener.

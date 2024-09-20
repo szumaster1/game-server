@@ -1,6 +1,6 @@
 package content.minigame.barrows
 
-import content.global.skill.combat.summoning.familiar.Familiar
+import content.global.skill.summoning.familiar.Familiar
 import content.minigame.barrows.RewardChest.reward
 import core.api.*
 import core.api.utils.PlayerCamera
@@ -117,7 +117,7 @@ class BarrowsActivityPlugin : ActivityPlugin("Barrows", false, false, false) {
         var player: Player? = null
         if (killer is Player) {
             player = killer
-        } else if (killer is Familiar) {
+        } else if (killer is content.global.skill.summoning.familiar.Familiar) {
             player = killer.owner
         }
         if (player != null && e is NPC) {
@@ -269,7 +269,7 @@ class BarrowsActivityPlugin : ActivityPlugin("Barrows", false, false, false) {
             var p: Player? = null
             if (e is Player) {
                 p = e
-            } else if (e is Familiar) {
+            } else if (e is content.global.skill.summoning.familiar.Familiar) {
                 p = e.owner
             }
             if (p != null && p !== target.player) {

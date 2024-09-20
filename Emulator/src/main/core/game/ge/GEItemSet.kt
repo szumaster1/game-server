@@ -82,23 +82,13 @@ enum class GEItemSet(
     CANNON(11967, 6, 8, 10, 12);
 
     companion object {
-        // A mutable map to hold item sets, where the key is an integer (item ID)
-        // and the value is a GEItemSet
         private val ITEM_SETS: MutableMap<Int, GEItemSet> = HashMap()
-
-        // An array to hold Item objects, initialized with nulls, with the size equal
-        // to the number of values
         private var itemArray = arrayOfNulls<Item>(values().size)
 
-        // Initialization block to populate the itemArray and ITEM_SETS map
         init {
-            // Loop through the indices of itemArray
             for (i in itemArray.indices) {
-                // Retrieve the GEItemSet corresponding to the current index
                 val set = values()[i]
-                // Create a new Item object based on the itemId; if itemId is -1, create a default Item
                 itemArray[i] = if (set.itemId == -1) Item() else Item(set.itemId)
-                // Add the GEItemSet to the ITEM_SETS map with itemId as the key
                 ITEM_SETS[set.itemId] = set
             }
         }
@@ -110,7 +100,6 @@ enum class GEItemSet(
          * @return The corresponding GEItemSet, or null if not found
          */
         fun forId(setId: Int): GEItemSet? {
-            // Return the GEItemSet associated with the provided setId from the ITEM_SETS map
             return ITEM_SETS[setId]
         }
 
@@ -120,7 +109,6 @@ enum class GEItemSet(
          * @return A copy of the itemArray containing Item objects
          */
         fun getItemArray(): Array<Item?> {
-            // Return a copy of the itemArray to prevent external modifications
             return itemArray.copyOf(itemArray.size)
         }
     }

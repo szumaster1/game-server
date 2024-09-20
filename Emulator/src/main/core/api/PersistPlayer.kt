@@ -13,14 +13,14 @@ interface PersistPlayer : ContentInterface {
     /**
      * NOTE: This should NOT reference nonstatic class-local variables.
      * You need to fetch a player's specific instance of the data and save from that.
-     * For reference, see [content.global.skill.support.slayer.SlayerManager]
+     * For reference, see [content.global.skill.slayer.SlayerManager]
      */
     fun savePlayer(player: Player, save: JSONObject)
 
     /**
      * NOTE: This should NOT reference nonstatic class-local variables.
      * You need to fetch a player's specific instance of the data and parse to that.
-     * For reference, see [content.global.skill.support.slayer.SlayerManager]
+     * For reference, see [content.global.skill.slayer.SlayerManager]
      */
     fun parsePlayer(player: Player, data: JSONObject)
 }

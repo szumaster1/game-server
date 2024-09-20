@@ -1,6 +1,5 @@
 package content.region.misc.zanaris.handlers
 
-import org.rs.consts.Items
 import content.global.skill.support.slayer.data.Tasks
 import core.api.*
 import core.game.interaction.IntType
@@ -13,6 +12,7 @@ import core.game.node.entity.npc.NPC
 import core.game.node.entity.npc.NPCBehavior
 import core.game.node.entity.player.Player
 import core.game.node.item.Item
+import org.rs.consts.Items
 
 /**
  * Represents the Zygomite NPC.

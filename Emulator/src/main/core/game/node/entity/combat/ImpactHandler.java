@@ -1,8 +1,8 @@
 package core.game.node.entity.combat;
 
 import org.rs.consts.Items;
-import content.global.skill.combat.summoning.familiar.Familiar;
-import content.global.skill.combat.summoning.pet.Pet;
+import content.global.skill.summoning.familiar.Familiar;
+import content.global.skill.summoning.pet.Pet;
 import content.data.EnchantedJewellery;
 import core.game.bots.AIPlayer;
 import core.game.container.impl.EquipmentContainer;

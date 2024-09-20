@@ -1,6 +1,5 @@
 package core.game.bots.impl
 
-import org.rs.consts.Items
 import core.game.bots.*
 import core.game.component.Component
 import core.game.interaction.DestinationFlag
@@ -11,6 +10,7 @@ import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 import core.game.world.map.zone.ZoneBorders
 import core.tools.colorize
+import org.rs.consts.Items
 
 /**
  * Draynor willows.

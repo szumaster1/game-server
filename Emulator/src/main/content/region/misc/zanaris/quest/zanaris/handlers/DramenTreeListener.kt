@@ -1,8 +1,7 @@
 package content.region.misc.zanaris.quest.zanaris.handlers
 
-import org.rs.consts.NPCs
 import content.data.skill.SkillingTool
-import content.global.skill.gathering.woodcutting.WoodcuttingPulse
+import content.global.skill.gather.woodcutting.WoodcuttingPulse
 import core.api.getQuestStage
 import core.api.sendMessage
 import core.api.setAttribute
@@ -10,6 +9,7 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.scenery.Scenery
 import core.game.world.map.Location
+import org.rs.consts.NPCs
 import org.rs.consts.Scenery as Sceneries
 
 /**

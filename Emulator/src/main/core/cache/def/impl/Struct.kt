@@ -14,7 +14,7 @@ class Struct(private val id: Int) {
      */
     companion object {
         private val definitions: MutableMap<Int, Struct> = HashMap()
-
+        @JvmStatic
         fun get(id: Int): Struct {
             val def = definitions[id]
             if (def != null) {

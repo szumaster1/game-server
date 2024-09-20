@@ -3,7 +3,7 @@ package core.game.world.map.zone.impl;
 import org.rs.consts.Items;
 import org.rs.consts.NPCs;
 import content.global.handlers.item.equipment.gloves.BrawlingGloves;
-import content.global.skill.combat.summoning.familiar.Familiar;
+import content.global.skill.summoning.familiar.Familiar;
 import core.game.component.Component;
 import core.game.interaction.Option;
 import core.game.node.Node;

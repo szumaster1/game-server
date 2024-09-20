@@ -1,8 +1,7 @@
 package content.region.fremennik.rellekka.handlers
 
-import content.global.skill.support.agility.AgilityHandler
-import content.region.fremennik.waterbirth_island.handlers.TravelDestination
-import content.region.fremennik.waterbirth_island.handlers.WaterbirthTravel
+import content.region.fremennik.waterbirth_island.TravelDestination
+import content.region.fremennik.waterbirth_island.WaterbirthTravel
 import org.rs.consts.NPCs
 import org.rs.consts.Scenery
 import core.api.lock
@@ -63,7 +62,7 @@ class RellekkaListeners : InteractionListener {
 
         on(ROCKSLIDE, IntType.SCENERY, "climb-over") { player, _ ->
             lock(player, 1)
-            AgilityHandler.forceWalk(player, -1, player.location, player.location.transform(0, if (player.location.y <= 3657) 3 else -3, 0), Animation.create(839), 20, 1.0, null, 0)
+            content.global.skill.agility.AgilityHandler.forceWalk(player, -1, player.location, player.location.transform(0, if (player.location.y <= 3657) 3 else -3, 0), Animation.create(839), 20, 1.0, null, 0)
             return@on true
         }
 

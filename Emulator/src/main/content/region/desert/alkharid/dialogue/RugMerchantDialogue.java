@@ -7,7 +7,7 @@ import core.cache.def.impl.NPCDefinition;
 import core.game.container.impl.EquipmentContainer;
 import core.game.dialogue.Dialogue;
 import core.plugin.Initializable;
-import content.global.skill.support.agility.AgilityHandler;
+import content.global.skill.agility.AgilityHandler;
 import core.game.interaction.OptionHandler;
 import core.game.node.Node;
 import core.game.node.entity.npc.NPC;

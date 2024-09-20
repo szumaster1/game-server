@@ -2,7 +2,7 @@ package core.game.system.command.sets
 
 import org.rs.consts.Items
 import content.global.activity.jobs.JobManager
-import content.global.skill.support.construction.HouseLocation
+import content.global.skill.construction.HouseLocation
 import content.minigame.tbwcleanup.changeSpawnChance
 import core.api.*
 import core.cache.Cache
@@ -50,7 +50,7 @@ class DevelopmentCommandSet : CommandSet(Privilege.ADMIN) {
             usage = "::buyhouse",
             description = "Allows you to buy house."
         ) { player, _ ->
-            player.houseManager.createNewHouseAt(HouseLocation.RIMMINGTON)
+            player.houseManager.createNewHouseAt(content.global.skill.construction.HouseLocation.RIMMINGTON)
             sendMessage(player, RED + "The house has been bought.")
         }
 

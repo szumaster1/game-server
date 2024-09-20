@@ -7,7 +7,6 @@ import java.sql.ResultSet
  * Price index.
  */
 object PriceIndex {
-
     fun canTrade(id: Int): Boolean {
         var canTrade = false
 
@@ -118,43 +117,34 @@ object PriceIndex {
 }
 /**
  * Price info
- *
- * @param itemId Unique identifier for the item
- * @param currentValue Current market value of the item
- * @param totalValue Total value of all trades for the item
- * @param uniqueTrades Number of unique trades for the item
- * @param lastUpdate Timestamp of the last update for the item's price
- * @constructor Price info
  */
 data class PriceInfo(
-    var itemId: Int, // Unique identifier for the item
-    var currentValue: Int, // Current market value of the item
-    var totalValue: Long, // Total value of all trades for the item
-    var uniqueTrades: Int, // Number of unique trades for the item
-    var lastUpdate: Long // Timestamp of the last update for the item's price
+    var itemId: Int,
+    var currentValue: Int,
+    var totalValue: Long,
+    var uniqueTrades: Int,
+    var lastUpdate: Long
 ) {
     /**
-     * Copy
-     *
-     * @return A new instance of PriceInfo with the same values
+     * A new instance of [PriceInfo] with the same values.
      */
     fun copy() : PriceInfo {
         return PriceInfo(itemId, currentValue, totalValue, uniqueTrades, lastUpdate) // Returns a new PriceInfo object with the same properties
     }
     companion object {
         /**
-         * Creates a PriceInfo instance from a ResultSet
+         * Creates a [PriceInfo] instance from a [ResultSet].
          *
-         * @param result ResultSet containing the data
-         * @return A new PriceInfo object populated with data from the ResultSet
+         * @param [result] the results set containing the data.
+         * @return A new [PriceInfo] data.
          */
         fun fromQuery(result: ResultSet) : PriceInfo {
             return PriceInfo(
-                result.getInt(1), // Retrieves the itemId from the ResultSet
-                result.getInt(2), // Retrieves the currentValue from the ResultSet
-                result.getLong(3), // Retrieves the totalValue from the ResultSet
-                result.getInt(4), // Retrieves the uniqueTrades from the ResultSet
-                result.getLong(5) // Retrieves the lastUpdate from the ResultSet
+                result.getInt(1),
+                result.getInt(2),
+                result.getLong(3),
+                result.getInt(4),
+                result.getLong(5)
             )
         }
     }

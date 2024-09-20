@@ -1,6 +1,5 @@
 package core.game.ge
 
-import org.rs.consts.Sounds
 import core.Configuration
 import core.api.*
 import core.cache.def.impl.ItemDefinition
@@ -14,6 +13,7 @@ import core.game.world.repository.Repository
 import core.tools.Log
 import core.tools.SystemLogger
 import core.tools.colorize
+import org.rs.consts.Sounds
 import java.lang.Integer.max
 import java.util.concurrent.LinkedBlockingDeque
 
@@ -58,11 +58,6 @@ class GrandExchange : StartupListener, Commands {
         isRunning = true
     }
 
-    /**
-     * Try exchange with bots
-     *
-     * @param offer
-     */
     private fun tryExchangeWithBots(offer: GrandExchangeOffer) {
         GEDB.run { conn ->
             val query = conn.prepareStatement(GET_MATCH_FROM_BOT_OFFERS)
@@ -75,12 +70,6 @@ class GrandExchange : StartupListener, Commands {
         }
     }
 
-    /**
-     * Select potential matches
-     *
-     * @param offer
-     * @return
-     */
     private fun selectPotentialMatches(offer: GrandExchangeOffer): List<GrandExchangeOffer> {
         val matches = ArrayList<GrandExchangeOffer>()
         GEDB.run { conn ->
@@ -95,10 +84,6 @@ class GrandExchange : StartupListener, Commands {
         return matches
     }
 
-    /**
-     * Define commands
-     *
-     */
     override fun defineCommands() {
         define("addbotoffer", Privilege.ADMIN) { player, strings ->
             val id = strings[1].toInt()
@@ -150,8 +135,8 @@ class GrandExchange : StartupListener, Commands {
         /**
          * Get recommended price
          *
-         * @param itemID The unique identifier for the item
-         * @param from_bot A flag indicating if the price is from a bot
+         * @param [itemID] The unique identifier for the item
+         * @param [from_bot] A flag indicating if the price is from a bot
          * @return The recommended price for the item
          */
         @JvmStatic
@@ -164,7 +149,7 @@ class GrandExchange : StartupListener, Commands {
         /**
          * Get item def price
          *
-         * @param itemID The unique identifier for the item
+         * @param [itemID] The unique identifier for the item
          * @return The default price of the item
          */
         private fun getItemDefPrice(itemID: Int): Int {
@@ -177,8 +162,8 @@ class GrandExchange : StartupListener, Commands {
         /**
          * Get offer stats
          *
-         * @param itemID The unique identifier for the item
-         * @param sale A flag indicating if the offer is a sale
+         * @param [itemID] The unique identifier for the item
+         * @param [sale] A flag indicating if the offer is a sale
          * @return A string containing the offer statistics
          */
         @JvmStatic
@@ -244,8 +229,8 @@ class GrandExchange : StartupListener, Commands {
         /**
          * Add bot offer
          *
-         * @param itemID The unique identifier for the item being offered by the bot.
-         * @param amount The quantity of the item being offered.
+         * @param [itemID] The unique identifier for the item being offered by the bot.
+         * @param [amount] The quantity of the item being offered.
          * @return Returns true if the offer was successfully added, false otherwise.
          */
         fun addBotOffer(itemID: Int, amount: Int): Boolean {
@@ -263,8 +248,8 @@ class GrandExchange : StartupListener, Commands {
         /**
          * Dispatch
          *
-         * @param player The player making the offer
-         * @param offer The Grand Exchange offer being dispatched
+         * @param [player] The player making the offer
+         * @param [offer] The Grand Exchange offer being dispatched
          * @return Returns true if the dispatch was successful, false otherwise
          */
         fun dispatch(player: Player, offer: GrandExchangeOffer): Boolean {
@@ -316,8 +301,8 @@ class GrandExchange : StartupListener, Commands {
         /**
          * Exchange
          *
-         * @param offer The first GrandExchangeOffer to be exchanged.
-         * @param other The second GrandExchangeOffer to be exchanged with the first.
+         * @param [offer] The first GrandExchangeOffer to be exchanged.
+         * @param [other] The second GrandExchangeOffer to be exchanged with the first.
          */
         fun exchange(offer: GrandExchangeOffer, other: GrandExchangeOffer) {
             if (offer.sell == other.sell) return //Don't exchange if they are both buy/sell offers
@@ -378,28 +363,18 @@ class GrandExchange : StartupListener, Commands {
          * @return A list of valid GrandExchangeOffer objects
          */
         fun getValidOffers(): List<GrandExchangeOffer> {
-            // Initialize an empty list to hold valid offers
             val offers = ArrayList<GrandExchangeOffer>()
 
-            // Execute a database operation within a connection context
             GEDB.run { conn ->
-                // Create a statement to execute SQL queries
                 val stmt = conn.createStatement()
 
-                // Execute a query to retrieve offers with specific states
-                val results =
-                    stmt.executeQuery("SELECT * FROM player_offers WHERE offer_state < 4 AND NOT offer_state = 2")
-                // Iterate through the results of the query
+                val results = stmt.executeQuery("SELECT * FROM player_offers WHERE offer_state < 4 AND NOT offer_state = 2")
                 while (results.next()) {
-                    // Create a GrandExchangeOffer object from the current row of results
                     val o = GrandExchangeOffer.fromQuery(results)
-                    // Add the created offer to the list of valid offers
                     offers.add(o)
                 }
-                // Close the statement to free resources
                 stmt.close()
             }
-            // Return the list of valid offers
             return offers
         }
 
@@ -412,22 +387,14 @@ class GrandExchange : StartupListener, Commands {
             val offers = ArrayList<GrandExchangeOffer>()
 
             GEDB.run { conn ->
-                // Create a statement to execute SQL queries
                 val stmt = conn.createStatement()
-
-                // Execute a query to retrieve bot offers with a positive amount
                 val results = stmt.executeQuery("SELECT item_id,amount FROM bot_offers WHERE amount > 0")
-                // Iterate through the results of the query
                 while (results.next()) {
-                    // Create a GrandExchangeOffer object from the current row of results
                     val o = GrandExchangeOffer.fromBotQuery(results)
-                    // Add the created offer to the list of bot offers
                     offers.add(o)
                 }
-                // Close the statement to free resources
                 stmt.close()
             }
-            // Return the list of bot offers
             return offers
         }
 
@@ -438,20 +405,13 @@ class GrandExchange : StartupListener, Commands {
          * @return The total amount of stock for the specified item ID
          */
         fun getBotstockForId(itemId: Int): Int {
-            // Initialize a variable to hold the total stock amount
             var total = 0
-            // Execute a database operation within a connection context
             GEDB.run { conn ->
-                // Prepare a statement to execute a parameterized SQL query
                 val stmt = conn.prepareStatement("SELECT sum(amount) FROM bot_offers WHERE amount > 0 AND item_id = ?")
-                // Set the item ID parameter in the query
                 stmt.setInt(1, itemId)
 
-                // Execute the query and retrieve results
                 val results = stmt.executeQuery()
-                // Iterate through the results of the query
                 while (results.next()) {
-                    // Accumulate the total amount from the results
                     total += results.getInt(1)
                 }
             }
@@ -461,12 +421,10 @@ class GrandExchange : StartupListener, Commands {
     }
 
     /**
-     * Startup
+     * Startup.
      */
     override fun startup() {
-        // Initialize the database connection
         GEDB.init()
-        // Call the boot method to perform additional startup tasks
         boot()
     }
 }

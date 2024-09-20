@@ -1,7 +1,5 @@
 package core.game.bots.impl
 
-import org.rs.consts.Items
-import org.rs.consts.NPCs
 import core.game.bots.Script
 import core.game.bots.SkillingBotAssembler
 import core.game.interaction.IntType
@@ -9,6 +7,8 @@ import core.game.interaction.InteractionListeners
 import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 import core.game.world.map.zone.ZoneBorders
+import org.rs.consts.Items
+import org.rs.consts.NPCs
 
 /**
  * Farmer thiever.

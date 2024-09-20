@@ -1,7 +1,7 @@
 package content.minigame.tbwcleanup
 
 import content.data.skill.SkillingTool
-import content.global.skill.gathering.woodcutting.WoodcuttingNode
+import content.global.skill.gather.woodcutting.WoodcuttingNode
 import core.api.*
 import org.rs.consts.Items
 import org.rs.consts.NPCs

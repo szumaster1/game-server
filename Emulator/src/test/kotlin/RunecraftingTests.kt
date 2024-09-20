@@ -1,5 +1,5 @@
-import content.global.skill.production.runecrafting.RunecraftingPulse
-import content.global.skill.production.runecrafting.data.Rune
+import content.global.skill.runecrafting.RunecraftingPulse
+import content.global.skill.runecrafting.Rune
 
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test

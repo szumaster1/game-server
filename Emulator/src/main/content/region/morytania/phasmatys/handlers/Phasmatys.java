@@ -1,6 +1,6 @@
 package content.region.morytania.phasmatys.handlers;
 
-import content.global.skill.combat.prayer.Bones;
+import content.global.skill.prayer.Bones;
 import org.rs.consts.NPCs;
 import org.rs.consts.Sounds;
 import core.game.global.action.ClimbActionHandler;

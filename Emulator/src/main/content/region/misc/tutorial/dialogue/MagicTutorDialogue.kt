@@ -1,8 +1,5 @@
 package content.region.misc.tutorial.dialogue
 
-import org.rs.consts.Components
-import org.rs.consts.Items
-import org.rs.consts.NPCs
 import content.region.misc.tutorial.handlers.*
 import core.Configuration
 import core.api.*
@@ -20,6 +17,9 @@ import core.game.world.map.Location
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 import core.worker.ManagementEvents
+import org.rs.consts.Components
+import org.rs.consts.Items
+import org.rs.consts.NPCs
 import proto.management.JoinClanRequest
 
 /**

@@ -22,8 +22,8 @@ object DigSpadeHandler {
     /**
      * Handles a digging reward.
      *
-     * @param player The player.
-     * @return {@code True} if the reward got handled.
+     * @param [player] The player.
+     * @return `true` if the reward got handled.
      */
     @JvmStatic
     fun dig(player: Player): Boolean {
@@ -50,9 +50,9 @@ object DigSpadeHandler {
     /**
      * Registers a new digging reward.
      *
-     * @param location The location to dig on.
-     * @param action The reward.
-     * @return {@code True} if the reward got registered.
+     * @param [location] The location to dig on.
+     * @param [action] The reward.
+     * @return `true` if the reward got registered.
      */
     @JvmStatic
     fun register(location: Location, action: DigAction): Boolean {

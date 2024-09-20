@@ -1,6 +1,6 @@
 package content.minigame.castlewars.areas
 
-import content.global.skill.combat.summoning.familiar.BurdenBeast
+import content.global.skill.summoning.familiar.BurdenBeast
 import content.minigame.castlewars.CastleWars
 import core.api.LogoutListener
 import core.api.MapArea
@@ -70,7 +70,7 @@ abstract class CastleWarsArea : MapArea, LogoutListener, InteractionListener {
 
         player.equipment.removeAll(cwarsItems)
         player.inventory.removeAll(cwarsItems)
-        (player.familiarManager.familiar as? BurdenBeast)?.container?.removeAll(cwarsItems)
+        (player.familiarManager.familiar as? content.global.skill.summoning.familiar.BurdenBeast)?.container?.removeAll(cwarsItems)
     }
 
     override fun defineListeners() {

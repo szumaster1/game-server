@@ -1,6 +1,6 @@
 package content.region.morytania.phasmatys.handlers
 
-import content.global.skill.support.agility.AgilityHandler
+import content.global.skill.agility.AgilityHandler
 import org.rs.consts.Items
 import core.api.isQuestComplete
 import core.api.removeItem
@@ -34,7 +34,7 @@ object EnergyBarrier {
             if (node.location == Location(3652, 3485, 0)) {
                 end = node.location.transform(if (player.location.x >= 3653) -1 else 1, 0, 0)
             }
-            AgilityHandler.walk(player, -1, player.location, end, null, 0.0, null)
+            content.global.skill.agility.AgilityHandler.walk(player, -1, player.location, end, null, 0.0, null)
         }
     }
 
@@ -64,7 +64,7 @@ object EnergyBarrier {
             if (player.location == Location(3651, 3484, 0)) {
                 end = node.location.transform(1, 1, 0)
             }
-            AgilityHandler.walk(player, -1, player.location, end, null, 0.0, null)
+            content.global.skill.agility.AgilityHandler.walk(player, -1, player.location, end, null, 0.0, null)
         }
     }
 
@@ -87,7 +87,7 @@ object EnergyBarrier {
             if (node.location == Location(3652, 3485, 0)) {
                 end = node.location.transform(if (player.location.x >= 3653) -1 else 1, 0, 0)
             }
-            AgilityHandler.walk(player, -1, player.location, end, null, 0.0, null)
+            content.global.skill.agility.AgilityHandler.walk(player, -1, player.location, end, null, 0.0, null)
         }
     }
 

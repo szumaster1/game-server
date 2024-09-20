@@ -10,7 +10,7 @@ interface DigAction {
     /**
      * Runs the digging reward.
      *
-     * @param player The player.
+     * @param [player] The player.
      */
     fun run(player: Player?)
 }

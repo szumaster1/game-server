@@ -1,4 +1,4 @@
-import content.global.skill.gathering.farming.timers.CropGrowth
+import content.global.skill.gather.farming.timers.CropGrowth
 import core.Configuration
 import org.rs.consts.Items
 import core.api.log
