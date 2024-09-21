@@ -1,18 +1,17 @@
-package content.global.skill.fletching
+package content.global.skill.fletching.items.arrow
 
-import org.rs.consts.Items
 import core.api.*
 import core.game.node.entity.player.Player
 import core.game.node.entity.skill.SkillPulse
 import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
+import org.rs.consts.Items
 
 /**
  * Represents the [BrutalArrowPulse] class to make [BrutalArrow.product].
  */
-class BrutalArrowPulse(player: Player?, node: Item?, arrow: BrutalArrow, sets: Int) : SkillPulse<Item?>(player, node) {
+class BrutalArrowPulse(player: Player?, node: Item?, private val arrow: BrutalArrow, sets: Int) : SkillPulse<Item?>(player, node) {
 
-    private val arrow: BrutalArrow = arrow
     private val base = Items.FLIGHTED_OGRE_ARROW_2865
     private var sets = 0
     private var ticks = 0
@@ -58,8 +57,8 @@ class BrutalArrowPulse(player: Player?, node: Item?, arrow: BrutalArrow, sets: I
             nail.amount = amount
             product.amount = amount
         }
-        if (player.inventory.remove(base, nail)) {
-            player.inventory.add(product)
+        if (removeItem(player, Item(base.id, nail.amount))) {
+            addItem(player, product.id)
             rewardXP(player, Skills.FLETCHING, arrow.experience * product.amount)
             sendMessage(player, if (product.amount == 1) "You attach the " + getItemName(arrow.base) + "to the flighted ogre arrow." else "You fletch " + product.amount + " " + getItemName(arrow.product) + " arrows.")
         }

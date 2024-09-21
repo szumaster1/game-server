@@ -1,6 +1,7 @@
 package content.global.skill.fletching
 
-import org.rs.consts.Items
+import content.global.skill.fletching.items.bow.BowString
+import content.global.skill.fletching.items.bow.StringPulse
 import core.api.*
 import core.game.dialogue.SkillDialogueHandler
 import core.game.interaction.IntType
@@ -9,6 +10,11 @@ import core.game.node.entity.player.Player
 import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 import core.game.system.task.Pulse
+import org.rs.consts.Items
+import content.global.skill.fletching.items.crossobw.Limb
+import content.global.skill.fletching.items.crossobw.LimbPulse
+import content.global.skill.fletching.items.arrow.*
+import content.global.skill.fletching.items.bolt.*
 import kotlin.math.min
 
 /**
@@ -16,48 +22,32 @@ import kotlin.math.min
  */
 class FletchingListeners : InteractionListener {
 
-    private val arrowShaftId = Items.ARROW_SHAFT_52
-    private val fletchedShaftId = Items.HEADLESS_ARROW_53
-    private val fligtedOgreArrowId = Items.FLIGHTED_OGRE_ARROW_2865
-    private val featherIds = arrayOf(Items.BLUE_FEATHER_10089, Items.FEATHER_314, Items.ORANGE_FEATHER_10091, Items.RED_FEATHER_10088, Items.STRIPY_FEATHER_10087, Items.YELLOW_FEATHER_10090).toIntArray()
-    private val stringIds = arrayOf(Items.BOW_STRING_1777, Items.CROSSBOW_STRING_9438).toIntArray()
-    private val kebbitSpikeIds = arrayOf(Items.KEBBIT_SPIKE_10105, Items.LONG_KEBBIT_SPIKE_10107).toIntArray()
-    private val gemIds = arrayOf(Items.OYSTER_PEARL_411, Items.OYSTER_PEARLS_413, Items.OPAL_1609, Items.JADE_1611, Items.RED_TOPAZ_1613, Items.SAPPHIRE_1607, Items.EMERALD_1605, Items.RUBY_1603, Items.DIAMOND_1601, Items.DRAGONSTONE_1615, Items.ONYX_6573).toIntArray()
-    private val limbIds = Limb.values().map(Limb::limb).toIntArray()
-    private val stockIds = Limb.values().map(Limb::stock).toIntArray()
-    private val nailIds = BrutalArrow.values().map(BrutalArrow::base).toIntArray()
-    private val unfinishedArrows = ArrowHead.values().map(ArrowHead::unfinished).toIntArray()
-    private val unstrungBows = BowString.values().map(BowString::unfinished).toIntArray()
-    private val boltBaseIds = GemBolt.values().map { it.base }.toIntArray()
-    private val boltTipIds = GemBolt.values().map { it.tip }.toIntArray()
-
     override fun defineListeners() {
 
         /*
-         * Stringing handler.
+         * Handles fletch the unstrung bow.
          */
-
-        onUseWith(IntType.ITEM, stringIds, *unstrungBows) { player, string, bow ->
+        onUseWith(IntType.ITEM, FletchingMap.stringIds, *FletchingMap.unstrungBows) { player, string, bow ->
             handleStringing(player, string.asItem(), bow.asItem())
             return@onUseWith true
         }
 
         /*
-         * Unfinished arrow handler.
+         * Handles fletch the headless arrows.
          */
 
-        onUseWith(IntType.ITEM, arrowShaftId, *featherIds) { player, shaft, feather ->
-            openSkillDialogue(player, fletchedShaftId) { amount ->
+        onUseWith(IntType.ITEM, FletchingMap.arrowShaftId, *FletchingMap.featherIds) { player, shaft, feather ->
+            openSkillDialogue(player, FletchingMap.fletchedShaftId) { amount ->
                 submitIndividualPulse(player, HeadlessArrowPulse(player, Item(shaft.id), Item(feather.id), amount))
             }
             return@onUseWith true
         }
 
         /*
-         * Arrows handler.
+         * Handles fletch the arrows.
          */
 
-        onUseWith(IntType.ITEM, fletchedShaftId, *unfinishedArrows) { player, shaft, unfinished ->
+        onUseWith(IntType.ITEM, FletchingMap.fletchedShaftId, *FletchingMap.unfinishedArrows) { player, shaft, unfinished ->
             val head = ArrowHead.productMap[unfinished.id] ?: return@onUseWith false
             openSkillDialogue(player, head.finished) { amount ->
                 submitIndividualPulse(player, ArrowHeadPulse(player, Item(shaft.id), head, amount))
@@ -66,7 +56,7 @@ class FletchingListeners : InteractionListener {
         }
 
         /*
-         * Handle the ogre arrows.
+         * Handles fletch the ogre arrows.
          */
 
         onUseWith(IntType.ITEM, Items.WOLFBONE_ARROWTIPS_2861, Items.FLIGHTED_OGRE_ARROW_2865) { player, used, with ->
@@ -96,7 +86,7 @@ class FletchingListeners : InteractionListener {
         }
 
         /*
-         * Handles the creation of grapples.
+         * Handles fletch the mithril grapple base.
          */
 
         onUseWith(IntType.ITEM, Items.MITHRIL_BOLTS_9142, Items.MITH_GRAPPLE_TIP_9416) { player, used, with ->
@@ -105,6 +95,10 @@ class FletchingListeners : InteractionListener {
             }
             return@onUseWith true
         }
+
+        /*
+         * Handles fletch the mithril grapple.
+         */
         onUseWith(IntType.ITEM, Items.ROPE_954, Items.MITH_GRAPPLE_9418) { player, used, with ->
             checkRequirements(player, 59, Items.MITH_GRAPPLE_9419) {
                 player.inventory.remove(Item(used.id), Item(with.id))
@@ -113,10 +107,10 @@ class FletchingListeners : InteractionListener {
         }
 
         /*
-         * Handles limb attachment to stocks.
+         * Handles fletch the unstrung crossbow.
          */
 
-        onUseWith(IntType.ITEM, limbIds, *stockIds) { player, limb, stock ->
+        onUseWith(IntType.ITEM, FletchingMap.limbIds, *FletchingMap.stockIds) { player, limb, stock ->
             val limbEnum = Limb.productMap[stock.id] ?: return@onUseWith false
             if (limbEnum.limb != limb.id) {
                 sendMessage(player, "That's not the right limb to attach to that stock.")
@@ -129,17 +123,22 @@ class FletchingListeners : InteractionListener {
         }
 
         /*
-         * Handles the creation of gem-tipped bolts.
+         * Handles fletch the bolt tips.
          */
 
-        onUseWith(IntType.ITEM, Items.CHISEL_1755, *gemIds) { player, used, with ->
+        onUseWith(IntType.ITEM, Items.CHISEL_1755, *FletchingMap.gemIds) { player, used, with ->
             val gem = GemBolt.productMap[with.id] ?: return@onUseWith true
             openSkillDialogue(player, gem.gem) { amount ->
                 submitIndividualPulse(player, GemBoltCutPulse(player, Item(used.id), gem, amount))
             }
             return@onUseWith true
         }
-        onUseWith(IntType.ITEM, boltBaseIds, *boltTipIds) { player, used, with ->
+
+        /*
+         * Handles fletch the gem bolts.
+         */
+
+        onUseWith(IntType.ITEM, FletchingMap.boltBaseIds, *FletchingMap.boltTipIds) { player, used, with ->
             val bolt = GemBolt.productMap[with.id] ?: return@onUseWith true
             if (used.id != bolt.base || with.id != bolt.tip) return@onUseWith true
             openSkillDialogue(player, bolt.product) { amount ->
@@ -149,10 +148,10 @@ class FletchingListeners : InteractionListener {
         }
 
         /*
-         * Handles the creation of kebbit bolts.
+         * Handles fletch the kebbit bolts.
          */
 
-        onUseWith(IntType.ITEM, Items.CHISEL_1755, *kebbitSpikeIds) { player, _, base ->
+        onUseWith(IntType.ITEM, Items.CHISEL_1755, *FletchingMap.kebbitSpikeIds) { player, _, base ->
             openSkillDialogue(player, base.id) { amount ->
                 submitIndividualPulse(
                     player,
@@ -163,16 +162,16 @@ class FletchingListeners : InteractionListener {
         }
 
         /*
-         * Handles the creation of flighted ogre arrows.
+         * Handles fletch the ogre arrows.
          */
 
-        onUseWith(IntType.ITEM, Items.OGRE_ARROW_SHAFT_2864, *featherIds) { player, used, with ->
+        onUseWith(IntType.ITEM, Items.OGRE_ARROW_SHAFT_2864, *FletchingMap.featherIds) { player, used, with ->
             val maxAmount = min(amountInInventory(player, used.id), amountInInventory(player, with.id))
             submitIndividualPulse(player, object : Pulse(3) {
                 override fun pulse(): Boolean {
                     val amountThisIter = min(6, maxAmount)
-                    if (removeItem(player, Item(Items.OGRE_ARROW_SHAFT_2864, amountThisIter)) && removeItem(player = player, item = Item(with.id, amountThisIter))) {
-                        player.inventory.add(Item(fligtedOgreArrowId, amountThisIter))
+                    if (removeItem(player, Item(Items.OGRE_ARROW_SHAFT_2864, amountThisIter)) && removeItem(player, Item(with.id, amountThisIter))) {
+                        player.inventory.add(Item(FletchingMap.fligtedOgreArrowId, amountThisIter))
                     }
                     return true
                 }
@@ -180,27 +179,25 @@ class FletchingListeners : InteractionListener {
             return@onUseWith true
         }
 
-
         /*
-         * Handles the creation of brutal arrows.
+         * Handles fletch the brutal arrows.
          */
 
-        onUseWith(IntType.ITEM, fletchedShaftId, *nailIds) { player, used, with ->
+        onUseWith(IntType.ITEM, FletchingMap.fletchedShaftId, *FletchingMap.nailIds) { player, used, with ->
             val brutalArrow = BrutalArrow.productMap[with.id] ?: return@onUseWith false
             openSkillDialogue(player, brutalArrow.product) { amount ->
                 submitIndividualPulse(
-                    player,
-                    BrutalArrowPulse(player, Item(used.id), brutalArrow, amount)
+                    entity = player,
+                    pulse = BrutalArrowPulse(player, Item(used.id), brutalArrow, amount)
                 )
             }
             return@onUseWith true
         }
     }
 
-    /*
-     * Handles stringing of bows.
+    /**
+     * Handles the string pulse.
      */
-
     private fun handleStringing(player: Player, string: Item, bow: Item): Boolean {
         val enum = BowString.productMap[bow.id] ?: return false
         if (enum.string != string.id) {
@@ -208,15 +205,17 @@ class FletchingListeners : InteractionListener {
             return true
         }
         openSkillDialogue(player, enum.product) { amount ->
-            submitIndividualPulse(player, StringPulse(player, Item(string.id), enum, amount))
+            submitIndividualPulse(
+                entity = player,
+                pulse = StringPulse(player, Item(string.id), enum, amount)
+            )
         }
         return true
     }
 
-    /*
-     * Opens a skill dialogue and runs the provided pulse creation logic.
+    /**
+     * Open skill dialogue and start pulse.
      */
-
     private fun openSkillDialogue(player: Player, productId: Int, createPulse: (Int) -> Unit) {
         val handler = object : SkillDialogueHandler(player, SkillDialogue.ONE_OPTION, Item(productId)) {
             override fun create(amount: Int, index: Int) {
@@ -230,10 +229,9 @@ class FletchingListeners : InteractionListener {
         handler.open()
     }
 
-    /*
-     * Checks the player's level and performs crafting if the level is sufficient.
+    /**
+     * Checks whether the player has the required experience level to start the training.
      */
-
     private fun checkRequirements(player: Player, requiredLevel: Int, productId: Int, craftAction: () -> Unit): Boolean {
         if (getStatLevel(player, Skills.FLETCHING) < requiredLevel) {
             sendMessage(player, "You need a fletching level of $requiredLevel to make this.")

@@ -1,4 +1,4 @@
-package content.global.skill.fletching
+package content.global.skill.fletching.items.dart
 
 import org.rs.consts.Items
 
@@ -50,8 +50,8 @@ enum class Dart(val unfinished: Int, val finished: Int, val level: Int, val expe
     );
 
     companion object {
-        @JvmStatic
         val productMap = Dart.values().associateBy { it.unfinished }
+
         @JvmStatic
         fun isDart(id: Int): Boolean = id in productMap
     }

@@ -1,14 +1,53 @@
 package content.global.skill.fletching
 
-import org.rs.consts.Items
+import content.global.skill.fletching.items.arrow.ArrowHead
+import content.global.skill.fletching.items.arrow.BrutalArrow
+import content.global.skill.fletching.items.bolt.GemBolt
+import content.global.skill.fletching.items.bow.BowString
+import content.global.skill.fletching.items.crossobw.Limb
 import core.game.node.item.Item
+import org.rs.consts.Items
 
 /**
- * Represents the fletching map.
+ * Represents the fletch data map.
  */
 object FletchingMap {
 
     private val logMap = HashMap<Int, Array<FletchingItems>>()
+
+    val arrowShaftId = Items.ARROW_SHAFT_52
+    val fletchedShaftId = Items.HEADLESS_ARROW_53
+    val fligtedOgreArrowId = Items.FLIGHTED_OGRE_ARROW_2865
+    val featherIds = arrayOf(
+        Items.BLUE_FEATHER_10089,
+        Items.FEATHER_314,
+        Items.ORANGE_FEATHER_10091,
+        Items.RED_FEATHER_10088,
+        Items.STRIPY_FEATHER_10087,
+        Items.YELLOW_FEATHER_10090
+    ).toIntArray()
+    val stringIds = arrayOf(Items.BOW_STRING_1777, Items.CROSSBOW_STRING_9438).toIntArray()
+    val kebbitSpikeIds = arrayOf(Items.KEBBIT_SPIKE_10105, Items.LONG_KEBBIT_SPIKE_10107).toIntArray()
+    val gemIds = arrayOf(
+        Items.OYSTER_PEARL_411,
+        Items.OYSTER_PEARLS_413,
+        Items.OPAL_1609,
+        Items.JADE_1611,
+        Items.RED_TOPAZ_1613,
+        Items.SAPPHIRE_1607,
+        Items.EMERALD_1605,
+        Items.RUBY_1603,
+        Items.DIAMOND_1601,
+        Items.DRAGONSTONE_1615,
+        Items.ONYX_6573
+    ).toIntArray()
+    val limbIds = Limb.values().map(Limb::limb).toIntArray()
+    val stockIds = Limb.values().map(Limb::stock).toIntArray()
+    val nailIds = BrutalArrow.values().map(BrutalArrow::base).toIntArray()
+    val unfinishedArrows = ArrowHead.values().map(ArrowHead::unfinished).toIntArray()
+    val unstrungBows = BowString.values().map(BowString::unfinished).toIntArray()
+    val boltBaseIds = GemBolt.values().map { it.base }.toIntArray()
+    val boltTipIds = GemBolt.values().map { it.tip }.toIntArray()
 
     init {
         Item.values().forEach { item ->

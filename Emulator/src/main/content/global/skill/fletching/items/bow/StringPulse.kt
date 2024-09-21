@@ -1,4 +1,4 @@
-package content.global.skill.fletching
+package content.global.skill.fletching.items.bow
 
 import core.api.*
 import core.game.node.entity.player.Player
@@ -18,10 +18,10 @@ open class StringPulse(player: Player, node: Item, private val bow: BowString, p
             sendDialogue(player, "You need a fletching level of ${bow.level} to string this bow.")
             return false
         }
-        if (!player.inventory.containsItem(Item(bow.unfinished))) {
+        if (!inInventory(player, bow.unfinished)) {
             return false
         }
-        if (!player.inventory.containsItem(Item(bow.string))) {
+        if (!inInventory(player, bow.string)) {
             sendDialogue(player, "You seem to have run out of bow strings.")
             return false
         }
@@ -41,11 +41,11 @@ open class StringPulse(player: Player, node: Item, private val bow: BowString, p
             rewardXP(player, Skills.FLETCHING, bow.experience)
             sendMessage(player, "You add a string to the bow.")
 
-            if (bow == BowString.MAGIC_SHORTBOW && (ZoneBorders(2721, 3489, 2724, 3493, 0).insideBorder(player) || ZoneBorders(2727, 3487, 2730, 3490, 0).insideBorder(player)) && getAttribute(player,"diary:seers:fletch-magic-short-bow", false)) {
+            if (bow == BowString.MAGIC_SHORTBOW && (ZoneBorders(2721, 3489, 2724, 3493, 0).insideBorder(player) || ZoneBorders(2727, 3487, 2730, 3490, 0).insideBorder(player)) && getAttribute(player, "diary:seers:fletch-magic-short-bow", false)) {
                 finishDiaryTask(player, DiaryType.SEERS_VILLAGE, 2, 2)
             }
         }
-        if (!player.inventory.containsItem(Item(bow.string)) || !player.inventory.containsItem(Item(bow.unfinished))) {
+        if (!inInventory(player, bow.string) || !inInventory(player, bow.unfinished)) {
             return true
         }
         amount--

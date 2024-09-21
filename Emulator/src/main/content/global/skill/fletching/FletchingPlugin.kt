@@ -1,6 +1,9 @@
 package content.global.skill.fletching
 
-import org.rs.consts.Items
+import content.global.skill.fletching.items.bolt.Bolt
+import content.global.skill.fletching.items.bolt.BoltPulse
+import content.global.skill.fletching.items.dart.Dart
+import content.global.skill.fletching.items.dart.DartPulse
 import core.api.amountInInventory
 import core.api.asItem
 import core.api.submitIndividualPulse
@@ -10,25 +13,34 @@ import core.game.interaction.UseWithHandler
 import core.game.node.item.Item
 import core.plugin.Initializable
 import core.plugin.Plugin
+import org.rs.consts.Items
 
 /**
  * Represents the plugin used to open the fletch dialogue.
  */
 @Initializable
 class FletchingPlugin : UseWithHandler(
-    Items.BRONZE_DART_TIP_819, Items.IRON_DART_TIP_820, Items.STEEL_DART_TIP_821,
-    Items.MITHRIL_DART_TIP_822, Items.ADAMANT_DART_TIP_823, Items.RUNE_DART_TIP_824,
-    Items.DRAGON_DART_TIP_11232, Items.BRONZE_BOLTS_UNF_9375, Items.BLURITE_BOLTS_UNF_9376,
-    Items.IRON_BOLTS_UNF_9377, Items.SILVER_BOLTS_UNF_9382, Items.STEEL_BOLTS_UNF_9378,
-    Items.MITHRIL_BOLTS_UNF_9379, Items.ADAMANT_BOLTS_UNF_9380, Items.RUNITE_BOLTS_UNF_9381,
+    Items.BRONZE_DART_TIP_819,
+    Items.IRON_DART_TIP_820,
+    Items.STEEL_DART_TIP_821,
+    Items.MITHRIL_DART_TIP_822,
+    Items.ADAMANT_DART_TIP_823,
+    Items.RUNE_DART_TIP_824,
+    Items.DRAGON_DART_TIP_11232,
+    Items.BRONZE_BOLTS_UNF_9375,
+    Items.BLURITE_BOLTS_UNF_9376,
+    Items.IRON_BOLTS_UNF_9377,
+    Items.SILVER_BOLTS_UNF_9382,
+    Items.STEEL_BOLTS_UNF_9378,
+    Items.MITHRIL_BOLTS_UNF_9379,
+    Items.ADAMANT_BOLTS_UNF_9380,
+    Items.RUNITE_BOLTS_UNF_9381,
     Items.BROAD_BOLTS_UNF_13279
 ) {
 
     override fun newInstance(arg: Any?): Plugin<Any> {
-        listOf(
-            Items.FEATHER_314, Items.STRIPY_FEATHER_10087, Items.RED_FEATHER_10088,
-            Items.BLUE_FEATHER_10089, Items.YELLOW_FEATHER_10090, Items.ORANGE_FEATHER_10091
-        ).forEach { addHandler(it, ITEM_TYPE, this) }
+        for (i in intArrayOf(Items.FEATHER_314, Items.STRIPY_FEATHER_10087, Items.RED_FEATHER_10088, Items.BLUE_FEATHER_10089, Items.YELLOW_FEATHER_10090, Items.ORANGE_FEATHER_10091))
+            addHandler(i, ITEM_TYPE, this)
         return this
     }
 

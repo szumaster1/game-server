@@ -1,4 +1,4 @@
-package content.global.skill.fletching
+package content.global.skill.fletching.items.arrow
 
 import org.rs.consts.Items
 
@@ -56,7 +56,6 @@ enum class ArrowHead(val unfinished: Int, val finished: Int, val level: Int, val
     );
 
     companion object {
-        @JvmStatic
         val productMap: Map<Int, ArrowHead> = values().associateBy { it.unfinished }
     }
 }

@@ -1,4 +1,4 @@
-package content.global.skill.fletching
+package content.global.skill.fletching.items.bolt
 
 import core.api.*
 import core.game.node.entity.player.Player
@@ -22,7 +22,7 @@ class KebbitBoltPulse(player: Player?, node: Item, private val bolts: KebbitBolt
             return false
         }
 
-        if(!inInventory(player, bolts.base)){
+        if (!inInventory(player, bolts.base)) {
             sendDialogue(player, "You don't have required items in your inventory.")
             return false
         }
@@ -39,8 +39,8 @@ class KebbitBoltPulse(player: Player?, node: Item, private val bolts: KebbitBolt
         }
         val base = Item(bolts.base, 1)
         val product = bolts.product
-        if (player.inventory.remove(base)) {
-            addItem(player, product,6)
+        if (removeItem(player, base)) {
+            addItem(player, product, 6)
             rewardXP(player, Skills.FLETCHING, bolts.experience)
         }
         amount--

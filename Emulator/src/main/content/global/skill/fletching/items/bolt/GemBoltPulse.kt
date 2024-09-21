@@ -1,4 +1,4 @@
-package content.global.skill.fletching
+package content.global.skill.fletching.items.bolt
 
 import core.api.*
 import core.game.node.entity.player.Player
@@ -7,7 +7,7 @@ import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 
 /**
- * Represents the attaching of a [GemBolt] to a [GemBolt.product].
+ * Represents the attaching of a [GemBolt.tip] to a [GemBolt.product].
  */
 class GemBoltPulse(player: Player?, node: Item?, bolt: GemBolt, sets: Int) : SkillPulse<Item?>(player, node) {
 
@@ -28,7 +28,7 @@ class GemBoltPulse(player: Player?, node: Item?, bolt: GemBolt, sets: Int) : Ski
             return false
         }
         if (!hasSpaceFor(player, Item(bolts.product))) {
-            sendDialogue(player,"You do not have enough inventory space.")
+            sendDialogue(player, "You do not have enough inventory space.")
             return false
         }
         return true
@@ -56,8 +56,8 @@ class GemBoltPulse(player: Player?, node: Item?, bolt: GemBolt, sets: Int) : Ski
             tip.amount = amount
             product.amount = amount
         }
-        if (player.inventory.remove(base, tip)) {
-            player.inventory.add(product)
+        if (removeItem(player, Item(base.id, tip.amount))) {
+            addItem(player, product.id)
             rewardXP(player, Skills.FLETCHING, bolts.experience * product.amount)
             sendMessage(player, if (product.amount == 1) "You attach the tip to the bolt." else "You fletch " + product.amount + " bolts.")
         }

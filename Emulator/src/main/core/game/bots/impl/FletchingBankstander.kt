@@ -21,7 +21,14 @@ class FletchingBankstander : Script() {
             State.FLETCHING -> {
                 bot!!.inventory.add(Item(Items.KNIFE_946))
                 bot!!.inventory.add(Item(Items.LOGS_1511, 27))
-                bot!!.pulseManager.run(FletchingPulse(bot!!, Item(Items.LOGS_1511), 27, FletchingMap.FletchingItems.ARROW_SHAFT))
+                bot!!.pulseManager.run(
+                    FletchingPulse(
+                        player = bot!!,
+                        node = Item(Items.LOGS_1511),
+                        amount = 27,
+                        fletch = FletchingMap.FletchingItems.ARROW_SHAFT
+                    )
+                )
                 State.BANKING
             }
 
@@ -42,24 +49,8 @@ class FletchingBankstander : Script() {
         return script
     }
 
-    /**
-     * State
-     *
-     * @constructor State
-     */
     enum class State {
-        /**
-         * Fletching
-         *
-         * @constructor Fletching
-         */
         FLETCHING,
-
-        /**
-         * Banking
-         *
-         * @constructor Banking
-         */
         BANKING
     }
 }

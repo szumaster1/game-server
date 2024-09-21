@@ -1,7 +1,7 @@
-package content.global.skill.fletching
+package content.global.skill.fletching.items.bolt
 
-import org.rs.consts.Items
 import core.game.node.item.Item
+import org.rs.consts.Items
 
 /**
  * Represents the Kebbit bolts.

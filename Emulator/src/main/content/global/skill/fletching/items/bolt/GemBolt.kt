@@ -1,4 +1,4 @@
-package content.global.skill.fletching
+package content.global.skill.fletching.items.bolt
 
 import org.rs.consts.Items
 
@@ -96,7 +96,6 @@ enum class GemBolt(val base: Int, val gem: Int, val tip: Int, val product: Int, 
     );
 
     companion object {
-        @JvmStatic
         val productMap: Map<Int, GemBolt> = values().associateBy { it.gem }
     }
 }

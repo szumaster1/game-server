@@ -1,6 +1,5 @@
 package content.global.skill.fletching;
 
-import org.rs.consts.Items;
 import core.game.dialogue.SkillDialogueHandler;
 import core.game.interaction.NodeUsageEvent;
 import core.game.interaction.UseWithHandler;
@@ -8,6 +7,7 @@ import core.game.node.entity.player.Player;
 import core.game.node.item.Item;
 import core.plugin.Initializable;
 import core.plugin.Plugin;
+import org.rs.consts.Items;
 
 /**
  * Handling fletch the logs.
@@ -29,9 +29,10 @@ public class FletchingLogs extends UseWithHandler {
     public boolean handle(final NodeUsageEvent event) {
         final Player player = event.getPlayer();
 
-		/*
-		 * Handle logs.
-		 */
+        /*
+         * Handles fletch the logs.
+         */
+
         if (FletchingMap.isLog(event.getUsedItem().getId()) && event.getUsedWith().getId() == 946) {
             final Item log = event.getUsedItem();
             Item[] items = FletchingMap.getItems(log.getId());

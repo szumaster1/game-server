@@ -1,16 +1,15 @@
-package content.global.skill.fletching
+package content.global.skill.fletching.items.crossobw
 
-import org.rs.consts.Items
 import core.api.*
 import core.game.node.entity.player.Player
 import core.game.node.entity.skill.SkillPulse
 import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
+import org.rs.consts.Items
 
 /**
- * Represents the [GrapplePulse] used to create a mith grapple.
+ * Represents the [GrapplePulse] used to create a mithril grapple.
  */
-@Suppress("unused")
 class GrapplePulse(player: Player?, node: Item?, private var amount: Int) : SkillPulse<Item?>(player, node) {
 
     override fun checkRequirements(): Boolean {
@@ -24,7 +23,7 @@ class GrapplePulse(player: Player?, node: Item?, private var amount: Int) : Skil
         }
 
         if (getStatLevel(player, Skills.FLETCHING) < 59) {
-            sendDialogue(player,"You need a fletching level of at least 59 in order to do this.")
+            sendDialogue(player, "You need a fletching level of at least 59 in order to do this.")
             return false
         }
         return true
@@ -38,7 +37,7 @@ class GrapplePulse(player: Player?, node: Item?, private var amount: Int) : Skil
             delay = 3
             return false
         }
-        if (player.inventory.remove(Item(Items.MITH_GRAPPLE_TIP_9416)) && player.inventory.remove(Item(Items.MITHRIL_BOLTS_9142))) {
+        if (player.inventory.remove(Item(Items.MITH_GRAPPLE_TIP_9416, Items.MITHRIL_BOLTS_9142))) {
             addItem(player, Items.MITH_GRAPPLE_9418)
             rewardXP(player, Skills.FLETCHING, 5.0)
         }

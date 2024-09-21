@@ -1,9 +1,9 @@
-package content.global.skill.fletching
+package content.global.skill.fletching.items.crossobw
 
 import org.rs.consts.Items
 
 /**
- * Represents the Limb.
+ * Represents the Limb data.
  */
 enum class Limb(val stock: Int, val limb: Int, val product: Int, val level: Int, val experience: Double, val animation: Int) {
     WOODEN_STOCK(
@@ -64,7 +64,6 @@ enum class Limb(val stock: Int, val limb: Int, val product: Int, val level: Int,
     );
 
     companion object {
-        @JvmStatic
         val productMap: Map<Int, Limb> = values().associateBy { it.stock }
     }
 }

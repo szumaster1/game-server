@@ -1,4 +1,4 @@
-package content.global.skill.fletching
+package content.global.skill.fletching.items.bolt
 
 import org.rs.consts.Items
 
@@ -62,7 +62,6 @@ enum class Bolt(val unfinished: Int, val finished: Int, val level: Int, val expe
     );
 
     companion object {
-        @JvmStatic
         val productMap = mutableMapOf<Int, Bolt>()
 
         init {
@@ -70,6 +69,7 @@ enum class Bolt(val unfinished: Int, val finished: Int, val level: Int, val expe
                 productMap[product.unfinished] = product
             }
         }
+
         @JvmStatic
         fun isBolt(id: Int): Boolean = productMap.containsKey(id)
     }

@@ -1,4 +1,4 @@
-package content.global.skill.fletching
+package content.global.skill.fletching.items.crossobw
 
 import core.api.*
 import core.game.node.entity.player.Player
@@ -9,7 +9,8 @@ import core.game.node.item.Item
 /**
  * Represents the skill pulse of attaching limbs.
  */
-class LimbPulse(player: Player?, node: Item, private val limb: Limb, private var amount: Int) : SkillPulse<Item?>(player, node) {
+class LimbPulse(player: Player?, node: Item, private val limb: Limb, private var amount: Int) :
+    SkillPulse<Item?>(player, node) {
 
     override fun checkRequirements(): Boolean {
         if (getStatLevel(player, Skills.FLETCHING) < limb.level) {
@@ -41,7 +42,7 @@ class LimbPulse(player: Player?, node: Item, private val limb: Limb, private var
             rewardXP(player, Skills.FLETCHING, limb.experience)
             sendMessage(player, "You attach the metal limbs to the stock.")
         }
-        if (!player.inventory.containsItem(Item(limb.limb))) {
+        if (!inInventory(player, limb.limb)) {
             return true
         }
         amount--

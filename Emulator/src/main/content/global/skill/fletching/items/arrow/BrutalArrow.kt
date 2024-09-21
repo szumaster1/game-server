@@ -1,4 +1,4 @@
-package content.global.skill.fletching
+package content.global.skill.fletching.items.arrow
 
 import org.rs.consts.Items
 
@@ -50,7 +50,6 @@ enum class BrutalArrow(val base: Int, val product: Int, val level: Int, val expe
     );
 
     companion object {
-        @JvmStatic
         val productMap: Map<Int, BrutalArrow> = values().associateBy { it.base }
     }
 }
