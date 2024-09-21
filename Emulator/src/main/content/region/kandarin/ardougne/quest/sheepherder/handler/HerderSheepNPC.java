@@ -1,4 +1,4 @@
-package content.region.kandarin.ardougne.quest.sheepherder.npc;
+package content.region.kandarin.ardougne.quest.sheepherder.handler;
 
 import core.game.interaction.MovementPulse;
 import core.game.node.entity.Entity;

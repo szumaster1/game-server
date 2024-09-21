@@ -1,4 +1,4 @@
-package content.region.misthalin.varrock.ge.cutscene;
+package content.region.misthalin.varrock.handlers.ge.cutscene;
 
 import core.game.activity.ActivityManager;
 import core.game.activity.ActivityPlugin;

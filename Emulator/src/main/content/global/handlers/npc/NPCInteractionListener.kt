@@ -52,7 +52,7 @@ class NPCInteractionListener : InteractionListener {
          * Interaction with dummy scenery.
          */
 
-        on(dummySceneryIds, IntType.SCENERY, "attack") { player, _ ->
+        on(dummySceneryIds, IntType.SCENERY, "attack", "hit") { player, _ ->
             lock(player, 3)
             animate(player, player.properties.attackAnimation)
             if (player.properties.currentCombatLevel < 8) {

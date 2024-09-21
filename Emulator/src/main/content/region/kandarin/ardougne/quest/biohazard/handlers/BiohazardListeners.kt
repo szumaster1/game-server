@@ -4,6 +4,7 @@ import org.rs.consts.*
 import content.region.kandarin.ardougne.quest.biohazard.dialogue.*
 import core.api.*
 import core.game.dialogue.DialogueFile
+import core.game.dialogue.FacialExpression
 import core.game.global.action.DoorActionHandler
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
@@ -417,7 +418,19 @@ class BiohazardListeners : InteractionListener {
 
         on(COMBAT_AREA, IntType.SCENERY, "open") { player, node ->
             if (isQuestComplete(player, "Biohazard")) {
-                DoorActionHandler.handleAutowalkDoor(player, node.asScenery())
+                sendNPCDialogueLines(
+                    player,
+                    NPCs.GUARD_344,
+                    FacialExpression.NEUTRAL,
+                    false,
+                    "The king has granted you access to ths training area.",
+                    "Make good use of it, soon all your strength will be",
+                    "needed."
+                )
+                addDialogueAction(player) { player, button ->
+                    if (button >= 1)
+                        DoorActionHandler.handleAutowalkDoor(player, node.asScenery())
+                }
             } else {
                 sendDialogueLines(player, "You need to complete Biohazard to get access to the Combat","Training Camp.")
             }

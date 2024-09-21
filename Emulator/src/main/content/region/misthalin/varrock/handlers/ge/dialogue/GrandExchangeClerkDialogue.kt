@@ -1,4 +1,4 @@
-package content.region.misthalin.varrock.ge.dialogue
+package content.region.misthalin.varrock.handlers.ge.dialogue
 
 import org.rs.consts.NPCs
 import content.global.handlers.iface.ge.ExchangeItemSetsListener

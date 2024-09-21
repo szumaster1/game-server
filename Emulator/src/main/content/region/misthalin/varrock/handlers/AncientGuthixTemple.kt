@@ -1,4 +1,4 @@
-package content.region.misthalin.varrock
+package content.region.misthalin.varrock.handlers
 
 import core.api.MapArea
 import core.game.world.map.zone.ZoneBorders

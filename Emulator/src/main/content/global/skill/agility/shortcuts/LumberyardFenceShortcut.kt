@@ -21,21 +21,11 @@ class LumberyardFenceShortcut : InteractionListener {
 
         on(BROKEN_FENCE, IntType.SCENERY, "squeeze-under") { player, node ->
             lock(player, 1)
-            content.global.skill.agility.AgilityHandler.forceWalk(
-                player,
-                0,
-                player.location,
-                player.location.transform(
-                    if (player.location.x < 3296) Direction.EAST else Direction.WEST, 1
-                ),
-                SQUEEZE_UNDER_ANIM,
-                15,
-                0.0,
-                ""
-            )
+            AgilityHandler.forceWalk(player, 0, player.location, player.location.transform(if (player.location.x < 3296) Direction.EAST else Direction.WEST, 1), SQUEEZE_UNDER_ANIM, 15, 0.0, null)
             return@on true
         }
     }
+
 }
 
 

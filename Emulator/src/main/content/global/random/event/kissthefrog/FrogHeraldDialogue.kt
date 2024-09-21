@@ -53,9 +53,7 @@ class FrogHeraldDialogue(val isStarted: Boolean = false) : DialogueFile() {
                         queueScript(player!!, 0, QueueStrength.SOFT) { stage: Int ->
                             when (stage) {
                                 0 -> {
-                                    visualize(player!!, 714,
-                                        Graphic(308, 85, 50)
-                                    )
+                                    visualize(player!!, 714, Graphic(308, 85, 50))
                                     playAudio(player!!, Sounds.TELEPORT_ALL_200)
                                     return@queueScript keepRunning(player!!)
                                 }

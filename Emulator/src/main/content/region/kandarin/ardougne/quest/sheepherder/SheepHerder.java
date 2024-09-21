@@ -1,6 +1,6 @@
 package content.region.kandarin.ardougne.quest.sheepherder;
 
-import content.region.kandarin.ardougne.quest.sheepherder.npc.HerderSheepNPC;
+import content.region.kandarin.ardougne.quest.sheepherder.handler.HerderSheepNPC;
 import org.rs.consts.Items;
 import org.rs.consts.Vars;
 import core.game.node.entity.player.Player;

@@ -1,4 +1,4 @@
-package content.region.misthalin.varrock.ge.handlers
+package content.region.misthalin.varrock.handlers.ge.handlers
 
 import content.global.handlers.iface.ge.ExchangeItemSetsListener
 import content.global.handlers.iface.ge.StockMarketInterfaceListener
