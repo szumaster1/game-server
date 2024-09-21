@@ -17,7 +17,7 @@ public final class FilesContainer extends Container {
     private Container[] files;
 
     /**
-     * Construct a new files container.
+     * Construct a new file container.
      */
     public FilesContainer() {
 
@@ -25,7 +25,7 @@ public final class FilesContainer extends Container {
 
     /**
      * Set the files.
-     * @param containers The files.
+     * @param containers the files.
      */
     public void setFiles(Container[] containers) {
         this.files = containers;
@@ -33,7 +33,7 @@ public final class FilesContainer extends Container {
 
     /**
      * Get the files.
-     * @return The files.
+     * @return the files.
      */
     public Container[] getFiles() {
         return files;
@@ -41,7 +41,7 @@ public final class FilesContainer extends Container {
 
     /**
      * Set the file indexes.
-     * @param containersIndexes The file indexes.
+     * @param containersIndexes the file indexes.
      */
     public void setFilesIndexes(int[] containersIndexes) {
         this.filesIndexes = containersIndexes;
@@ -49,7 +49,7 @@ public final class FilesContainer extends Container {
 
     /**
      * Get the file indexes.
-     * @return The file indexes.
+     * @return the file indexes.
      */
     public int[] getFilesIndexes() {
         return filesIndexes;

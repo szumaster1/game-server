@@ -23,8 +23,8 @@ class VarbitDefinition(val id: Int) {
     /**
      * Get the value of the variable bit for the given player.
      *
-     * @param [player] The player whose variable bit value is to be retrieved.
-     * @return The value of the variable bit.
+     * @param [player] the player whose variable bit value is to be retrieved.
+     * @return the value of the variable bit.
      * @throws [IllegalArgumentException] if the player is null.
      */
     fun getValue(player: Player?): Int {
@@ -33,15 +33,13 @@ class VarbitDefinition(val id: Int) {
 
     /**
      * Computes the mask based on the start and end bits.
-     * @return The computed mask as an integer.
+     * @return the computed mask as an integer.
      */
     val mask: Int
         get() = (startBit..endBit).fold(0) { acc, i -> acc or (1 shl (i - startBit)) }
 
     /**
-     * Returns a string representation of the [VarbitDefinition].
-     *
-     * @return A string describing the VarbitDefinition.
+     * @return A string with [VarbitDefinition] information.
      */
     override fun toString(): String {
         return "VarbitDefinition [id=$id, varpId=$varpId, startBit=$startBit, endBit=$endBit]"
@@ -60,37 +58,37 @@ class VarbitDefinition(val id: Int) {
         }
 
         /**
-         * Retrieves a [VarbitDefinition] for a scenery id.
+         * Get a varbit for a scenery id.
          *
-         * @param id The scenery id.
-         * @return The corresponding VarbitDefinition.
+         * @param id the scenery id.
+         * @return the corresponding VarbitDefinition.
          */
         @JvmStatic
         fun forSceneryID(id: Int): VarbitDefinition = forId(id)
 
         /**
-         * Get a [VarbitDefinition] for a npc id.
+         * Get a varbit for a npc id.
          *
-         * @param id The npc id.
-         * @return The corresponding VarbitDefinition.
+         * @param id the npc id.
+         * @return the corresponding [VarbitDefinition].
          */
         @JvmStatic
         fun forNPCID(id: Int): VarbitDefinition = forId(id)
 
         /**
-         * Get a [VarbitDefinition] for a given item.
+         * Get a varbit for a given item.
          *
-         * @param id The item id.
-         * @return The corresponding VarbitDefinition.
+         * @param id the item id.
+         * @return the corresponding [VarbitDefinition].
          */
         @JvmStatic
         fun forItemID(id: Int): VarbitDefinition = forId(id)
 
         /**
-         * Get a [VarbitDefinition] for a given id.
+         * Get a varbit for a given id.
          *
-         * @param id The varbit id.
-         * @return The corresponding VarbitDefinition.
+         * @param id the varbit id.
+         * @return the corresponding [VarbitDefinition].
          */
         @JvmStatic
         fun forId(id: Int): VarbitDefinition {
@@ -98,10 +96,10 @@ class VarbitDefinition(val id: Int) {
         }
 
         /**
-         * Creates a [VarbitDefinition] based on the provided id.
+         * Get a varbit definition based on the provided id.
          *
-         * @param id The varbit id.
-         * @return The created VarbitDefinition.
+         * @param id the varbit id.
+         * @return the created [VarbitDefinition].
          */
         private fun createVarbitDefinition(id: Int): VarbitDefinition {
             val def = VarbitDefinition(id)
@@ -124,10 +122,10 @@ class VarbitDefinition(val id: Int) {
         /**
          * Creates a new [VarbitDefinition] and adds it to the mapping.
          *
-         * @param varpId The variable parameter ID.
-         * @param varbitId The variable bit ID.
-         * @param startBit The starting bit position.
-         * @param endBit The end bit position.
+         * @param varpId the variable parameter ID.
+         * @param varbitId the variable bit ID.
+         * @param startBit the starting bit position.
+         * @param endBit the end bit position.
          */
         fun create(varpId: Int, varbitId: Int, startBit: Int, endBit: Int) {
             val def = VarbitDefinition(varpId, varbitId, startBit, endBit)
@@ -135,9 +133,9 @@ class VarbitDefinition(val id: Int) {
         }
 
         /**
-         * Retrieves the mapping of all [VarbitDefinition].
+         * Get the mapping of all varbit definitions.
          *
-         * @return A map of all VarbitDefinitions.
+         * @return a map of all [VarbitDefinition].
          */
         val mapping: Map<Int, VarbitDefinition>
             get() = MAPPING

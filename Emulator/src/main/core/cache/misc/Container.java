@@ -55,7 +55,7 @@ public class Container {
     /**
      * Get the version.
      *
-     * @return The version.
+     * @return the version.
      */
     public int getVersion() {
         return version;
@@ -64,7 +64,7 @@ public class Container {
     /**
      * Get the next version.
      *
-     * @return The next version.
+     * @return the next version.
      */
     public int getNextVersion() {
         return updated ? version : version + 1;
@@ -73,7 +73,7 @@ public class Container {
     /**
      * Set the CRC.
      *
-     * @param crc The cRC.
+     * @param crc the CRC.
      */
     public void setCrc(int crc) {
         this.crc = crc;
@@ -82,7 +82,7 @@ public class Container {
     /**
      * Get the CRC.
      *
-     * @return The CRC.
+     * @return the CRC.
      */
     public int getCrc() {
         return crc;
@@ -91,7 +91,7 @@ public class Container {
     /**
      * Set the name hash.
      *
-     * @param nameHash The name hash.
+     * @param nameHash the name hash.
      */
     public void setNameHash(int nameHash) {
         this.nameHash = nameHash;
@@ -100,7 +100,7 @@ public class Container {
     /**
      * Get the name hash.
      *
-     * @return The name hash.
+     * @return the name hash.
      */
     public int getNameHash() {
         return nameHash;

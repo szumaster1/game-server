@@ -44,8 +44,8 @@ public final class Cache {
     /**
      * Initialize the cache reader.
      *
-     * @param path The cache path.x
-     * @throws Throwable When an exception occurs.
+     * @param path the cache path.x
+     * @throws Throwable when an exception occurs.
      */
     public static void init(String path) throws Throwable {
         log(Cache.class, Log.FINE, "Initializing cache...");
@@ -84,11 +84,11 @@ public final class Cache {
     /**
      * Gets the archive buffer for the grab requests.
      *
-     * @param index           The index id.
-     * @param archive         The archive id.
-     * @param priority        The priority.
-     * @param encryptionValue The current encryption value.
-     * @return The byte buffer.
+     * @param index the index id.
+     * @param archive the archive id.
+     * @param priority the priority.
+     * @param encryptionValue the current encryption value.
+     * @return the byte buffer.
      */
     public static ByteBuffer getArchiveData(int index, int archive, boolean priority, int encryptionValue) {
         byte[] data = index == 255 ? referenceFile.getContainerData(archive) : cacheFileManagers[index].getCacheFile().getContainerData(archive);
@@ -132,7 +132,7 @@ public final class Cache {
     /**
      * Generate the reference data for the cache files.
      *
-     * @return The reference data byte array.
+     * @return the reference data byte array.
      */
     public static byte[] generateReferenceData() {
         ByteBuffer buffer = ByteBuffer.allocate(cacheFileManagers.length * 8);
@@ -151,7 +151,7 @@ public final class Cache {
     /**
      * Get the cache file managers.
      *
-     * @return The cache file managers.
+     * @return the cache file managers.
      */
     public static CacheFileManager[] getIndexes() {
         return cacheFileManagers;
@@ -160,7 +160,7 @@ public final class Cache {
     /**
      * Get the container cache file informer.
      *
-     * @return The container cache file informer.
+     * @return the container cache file informer.
      */
     public static final CacheFile getReferenceFile() {
         return referenceFile;

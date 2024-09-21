@@ -79,7 +79,7 @@ public class Definition<T extends Node> {
     /**
      * Gets a configuration of this item's definitions.
      *
-     * @param key The key.
+     * @param key the key.
      * @return The configuration value.
      */
     @SuppressWarnings("unchecked")
@@ -90,9 +90,8 @@ public class Definition<T extends Node> {
     /**
      * Gets a configuration from this item's definitions.
      *
-     * @param key  The key.
-     * @param fail The object to return if there was no value found for this
-     *             key.
+     * @param key  the key.
+     * @param fail the object to return if there was no value found for this key.
      * @return The value, or the fail object.
      */
     @SuppressWarnings("unchecked")
@@ -107,7 +106,7 @@ public class Definition<T extends Node> {
     /**
      * Gets the id.
      *
-     * @return The id.
+     * @return the id.
      */
     public int getId() {
         return id;
@@ -116,7 +115,7 @@ public class Definition<T extends Node> {
     /**
      * Sets the id.
      *
-     * @param id The id to set.
+     * @param id the id to set.
      */
     public void setId(int id) {
         this.id = id;
@@ -125,7 +124,7 @@ public class Definition<T extends Node> {
     /**
      * Gets the name.
      *
-     * @return The name.
+     * @return the name.
      */
     public String getName() {
         return name;
@@ -134,7 +133,7 @@ public class Definition<T extends Node> {
     /**
      * Sets the name.
      *
-     * @param name The name to set.
+     * @param name the name to set.
      */
     public void setName(String name) {
         this.name = name;
@@ -143,7 +142,7 @@ public class Definition<T extends Node> {
     /**
      * Gets the examine.
      *
-     * @return The examine.
+     * @return the examine.
      */
     public String getExamine() {
         if (examine == null) {
@@ -167,7 +166,7 @@ public class Definition<T extends Node> {
     /**
      * Sets the examine.
      *
-     * @param examine The examine to set.
+     * @param examine the examine to set.
      */
     public void setExamine(String examine) {
         this.examine = examine;
@@ -176,7 +175,7 @@ public class Definition<T extends Node> {
     /**
      * Gets the options.
      *
-     * @return The options.
+     * @return the options.
      */
     public String[] getOptions() {
         return options;
@@ -185,7 +184,7 @@ public class Definition<T extends Node> {
     /**
      * Sets the options.
      *
-     * @param options The options to set.
+     * @param options the options to set.
      */
     public void setOptions(String[] options) {
         this.options = options;
@@ -194,7 +193,7 @@ public class Definition<T extends Node> {
     /**
      * Gets the configurations.
      *
-     * @return The configurations.
+     * @return the configurations.
      */
     public Map<String, Object> getHandlers() {
         return handlers;

@@ -7,17 +7,20 @@ import core.tools.Log
 import core.tools.SystemLogger
 import java.nio.ByteBuffer
 
+/**
+ * Represents the struct.
+ */
 class Struct(private val id: Int) {
 
     companion object {
         private val definitions: MutableMap<Int, Struct> = HashMap()
 
         /**
-         * Retrieves a [Struct] instance by its ID. If it does not exist, it fetches the data,
+         * Get a struct by its id. If it does not exist, it fetches the data,
          * parses it, and stores it in the definitions map.
          *
-         * @param id The ID of the [Struct] to retrieve.
-         * @return The Struct instance associated with the given ID.
+         * @param id the id of the struct to retrieve.
+         * @return the struct with the given id.
          */
         @JvmStatic
         fun get(id: Int): Struct {
@@ -35,9 +38,9 @@ class Struct(private val id: Int) {
         /**
          * Parses the given byte array data into a Struct instance.
          *
-         * @param id The ID of the [Struct] being parsed.
-         * @param data The byte array containing the data to parse.
-         * @return The newly created [Struct] instance populated with data.
+         * @param id the file id.
+         * @param data the byte array containing the data to parse.
+         * @return the newly created struct populated with data.
          */
         fun parse(id: Int, data: ByteArray?): Struct {
             val def = Struct(id)
@@ -68,9 +71,8 @@ class Struct(private val id: Int) {
         }
 
         /**
-         * Returns the total count of Struct files available in the cache.
-         *
-         * @return The number of [Struct] files.
+         * Get the total count of struct files available in the cache.
+         * @return the amount of struct files.
          */
         fun getCount(): Int {
             return Cache.getIndexes()[2].getFilesSize(26)
@@ -82,8 +84,8 @@ class Struct(private val id: Int) {
     /**
      * Retrieves an integer value from the [dataStore] by its key.
      *
-     * @param key The key associated with the integer value.
-     * @return The integer value if found, otherwise -1.
+     * @param key the key associated with the integer value.
+     * @return the integer value if found, otherwise -1.
      */
     fun getInt(key: Int): Int {
         if (!dataStore.containsKey(key)) {
@@ -96,26 +98,24 @@ class Struct(private val id: Int) {
     /**
      * Retrieves a string value from the [dataStore] by its key.
      *
-     * @param key The key associated with the string value.
-     * @return The string value if found, otherwise null.
+     * @param key the key associated with the string value.
+     * @return the string value if found, otherwise null.
      */
     fun getString(key: Int): String? {
         return dataStore[key] as String?
     }
 
     /**
-     * Returns a string representation of the [Struct] instance.
-     *
-     * @return A string describing the [Struct].
+     * Return a string representation of the struct.
      */
     override fun toString(): String {
         return "Struct(id=$id, dataStore=$dataStore)"
     }
 
     /**
-     * Retrieves the ID of the [Struct] instance.
+     * Get the id of [Struct] instance.
      *
-     * @return The ID of the [Struct].
+     * @return the id of the [Struct].
      */
     fun getId(): Int {
         return id

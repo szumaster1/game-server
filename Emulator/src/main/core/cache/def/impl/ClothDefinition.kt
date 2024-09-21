@@ -54,8 +54,8 @@ class ClothDefinition {
         /**
          * Gets the definitions for the given cloth id.
          *
-         * @param clothId The clothing id.
-         * @return The definition.
+         * @param clothId the clothing id.
+         * @return the definition.
          */
         fun forId(clothId: Int): ClothDefinition {
             val def = ClothDefinition()
@@ -69,7 +69,7 @@ class ClothDefinition {
         /**
          * The main method.
          *
-         * @param args The arguments cast on runtime.
+         * @param args the arguments cast on runtime.
          */
         @JvmStatic
         fun main(vararg args: String) {
@@ -89,7 +89,7 @@ class ClothDefinition {
     /**
      * Loads the definitions.
      *
-     * @param buffer The buffer.
+     * @param buffer the buffer.
      */
     fun load(buffer: ByteBuffer) {
         var opcode: Int
@@ -102,8 +102,8 @@ class ClothDefinition {
     /**
      * Parses an opcode.
      *
-     * @param opcode The opcode.
-     * @param buffer The buffer to read the data from.
+     * @param opcode the opcode.
+     * @param buffer the buffer to read the data from.
      */
     private fun parse(opcode: Int, buffer: ByteBuffer) {
         when (opcode) {
@@ -162,7 +162,7 @@ class ClothDefinition {
     /**
      * Gets the unknownBool.
      *
-     * @return The unknownBool.
+     * @return the unknownBool.
      */
     fun isUnknownBool(): Boolean {
         return unknownBool

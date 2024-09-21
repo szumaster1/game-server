@@ -1,7 +1,7 @@
 package core.cache.def.impl
 
 /**
- * Component type.
+ * The component type.
  */
 enum class ComponentType {
     SCROLLABLE,

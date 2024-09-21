@@ -30,7 +30,7 @@ public final class StoreFile {
     /**
      * Puts the data on the buffer.
      *
-     * @param buffer The buffer.
+     * @param buffer the buffer.
      */
     public void put(ByteBuffer buffer) {
         byte[] data = new byte[buffer.remaining()];
@@ -41,7 +41,7 @@ public final class StoreFile {
     /**
      * Creates a byte buffer containing the file data.
      *
-     * @return The buffer.
+     * @return the buffer.
      */
     public ByteBuffer data() {
         return ByteBuffer.wrap(data);
@@ -50,7 +50,7 @@ public final class StoreFile {
     /**
      * Sets the data.
      *
-     * @param data The data.
+     * @param data the data.
      */
     public void setData(byte[] data) {
         this.data = data;
@@ -59,7 +59,7 @@ public final class StoreFile {
     /**
      * Gets the dynamic.
      *
-     * @return The dynamic.
+     * @return the dynamic.
      */
     public boolean isDynamic() {
         return dynamic;
@@ -68,7 +68,7 @@ public final class StoreFile {
     /**
      * Sets the dynamic.
      *
-     * @param dynamic The dynamic to set.
+     * @param dynamic the dynamic to set.
      */
     public void setDynamic(boolean dynamic) {
         this.dynamic = dynamic;

@@ -41,11 +41,11 @@ public final class CacheFile {
     /**
      * Construct a new cache file.
      *
-     * @param indexFileId      The index file id.
-     * @param indexFile        The index file.
-     * @param dataFile         The data file.
-     * @param maxContainerSize The maximum container size.
-     * @param cacheFileBuffer  The cache file buffer.
+     * @param indexFileId the index file id.
+     * @param indexFile the index file.
+     * @param dataFile the data file.
+     * @param maxContainerSize the maximum container size.
+     * @param cacheFileBuffer the cache file buffer.
      */
     public CacheFile(int indexFileId, RandomAccessFile indexFile, RandomAccessFile dataFile, int maxContainerSize, byte[] cacheFileBuffer) {
         this.cacheFileBuffer = cacheFileBuffer;
@@ -58,8 +58,8 @@ public final class CacheFile {
     /**
      * Get the unpacked container data.
      *
-     * @param containerId The container id.
-     * @param xteaKeys    The container keys.
+     * @param containerId the container id.
+     * @param xteaKeys the container keys.
      * @return The unpacked container data.
      */
     public final byte[] getContainerUnpackedData(int containerId, int[] xteaKeys) {
@@ -76,8 +76,8 @@ public final class CacheFile {
     /**
      * Get the container data for the specified container id.
      *
-     * @param containerId The container id.
-     * @return The container data.
+     * @param containerId the container id.
+     * @return the container data.
      */
     public final byte[] getContainerData(int containerId) {
         synchronized (dataFile) {
@@ -144,8 +144,8 @@ public final class CacheFile {
     /**
      * Get the unpacked container data.
      *
-     * @param containerId The container id.
-     * @return The unpacked container data.
+     * @param containerId the container id.
+     * @return the unpacked container data.
      */
     public final byte[] getContainerUnpackedData(int containerId) {
         return getContainerUnpackedData(containerId, null);

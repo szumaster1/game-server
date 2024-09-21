@@ -54,10 +54,9 @@ public final class ContainersInformation {
     private final byte[] data;
 
     /**
-     * Construct a new containers information.
+     * Construct a new container information.
      *
-     * @param informationContainerPackedData The information container data
-     *                                       packed.
+     * @param informationContainerPackedData the information container data packed.
      */
     public ContainersInformation(byte[] informationContainerPackedData) {
         this.data = Arrays.copyOf(informationContainerPackedData, informationContainerPackedData.length);
@@ -72,8 +71,8 @@ public final class ContainersInformation {
     /**
      * Unpacks a container.
      *
-     * @param packedData The packed container data.
-     * @return The unpacked data.
+     * @param packedData the packed container data.
+     * @return the unpacked data.
      */
     public static final byte[] unpackCacheContainer(byte[] packedData) {
         ByteBuffer buffer = ByteBuffer.wrap(packedData);
@@ -105,7 +104,7 @@ public final class ContainersInformation {
     /**
      * Get the container indexes.
      *
-     * @return The container indexes.
+     * @return the container indexes.
      */
     public int[] getContainersIndexes() {
         return containersIndexes;
@@ -114,7 +113,7 @@ public final class ContainersInformation {
     /**
      * Get the containers.
      *
-     * @return The containers.
+     * @return the containers.
      */
     public FilesContainer[] getContainers() {
         return containers;
@@ -123,7 +122,7 @@ public final class ContainersInformation {
     /**
      * Get the information container.
      *
-     * @return The information container.
+     * @return the information container.
      */
     public Container getInformationContainer() {
         return informationContainer;
@@ -132,16 +131,16 @@ public final class ContainersInformation {
     /**
      * Get the revision.
      *
-     * @return The revision.
+     * @return the revision.
      */
     public int getRevision() {
         return revision;
     }
 
     /**
-     * Decode the containers information.
+     * Decode the container information.
      *
-     * @param data The data.
+     * @param data the data.
      */
     public void decodeContainersInformation(byte[] data) {
         ByteBuffer buffer = ByteBuffer.wrap(data);
@@ -219,7 +218,7 @@ public final class ContainersInformation {
     /**
      * If is whirpool.
      *
-     * @return If is whirpool {@code true}.
+     * @return if is whirpool {@code true}.
      */
     public boolean isWhirpool() {
         return whirpool;
@@ -228,7 +227,7 @@ public final class ContainersInformation {
     /**
      * Gets the data.
      *
-     * @return The data.
+     * @return the data.
      */
     public byte[] getData() {
         return data;

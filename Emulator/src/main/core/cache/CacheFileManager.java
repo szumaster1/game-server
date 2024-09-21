@@ -17,7 +17,7 @@ public final class CacheFileManager {
     private CacheFile cacheFile;
 
     /**
-     * The containers information.
+     * The container information.
      */
     private ContainersInformation information;
 
@@ -34,8 +34,8 @@ public final class CacheFileManager {
     /**
      * Construct a new cache file manager.
      *
-     * @param cacheFile        The cache file.
-     * @param discardFilesData To discard a files data.
+     * @param cacheFile        the cache file.
+     * @param discardFilesData to discard a files data.
      */
     public CacheFileManager(CacheFile cacheFile, boolean discardFilesData) {
         this.cacheFile = cacheFile;
@@ -51,7 +51,7 @@ public final class CacheFileManager {
     /**
      * Get the cache file.
      *
-     * @return The cache file.
+     * @return the cache file.
      */
     public CacheFile getCacheFile() {
         return cacheFile;
@@ -60,7 +60,7 @@ public final class CacheFileManager {
     /**
      * Get the containers size.
      *
-     * @return The containers size.
+     * @return the containers size.
      */
     public int getContainersSize() {
         return information.getContainers().length;
@@ -69,8 +69,8 @@ public final class CacheFileManager {
     /**
      * Get the files size.
      *
-     * @param containerId The container id.
-     * @return The files size.
+     * @param containerId the container id.
+     * @return the files size.
      */
     public int getFilesSize(int containerId) {
         if (!validContainer(containerId)) {
@@ -89,8 +89,8 @@ public final class CacheFileManager {
     /**
      * Check if a file is valid.
      *
-     * @param containerId The container id.
-     * @param fileId      The file id.
+     * @param containerId the container id.
+     * @param fileId      the file id.
      * @return If the file is valid {@code true}.
      */
     public boolean validFile(int containerId, int fileId) {
@@ -107,7 +107,7 @@ public final class CacheFileManager {
     /**
      * If a container is valid.
      *
-     * @param containerId The container id.
+     * @param containerId the container id.
      * @return If the container is valid {@code true}.
      */
     public boolean validContainer(int containerId) {
@@ -120,7 +120,7 @@ public final class CacheFileManager {
     /**
      * Get the file ids.
      *
-     * @param containerId The container id.
+     * @param containerId the container id.
      * @return The file ids.
      */
     public int[] getFileIds(int containerId) {
@@ -133,8 +133,8 @@ public final class CacheFileManager {
     /**
      * Get the archive id.
      *
-     * @param name The archive name.
-     * @return The archive id.
+     * @param name the archive name.
+     * @return the archive id.
      */
     public int getArchiveId(String name) {
         if (name == null) {
@@ -152,9 +152,9 @@ public final class CacheFileManager {
     /**
      * Get the file data.
      *
-     * @param containerId The container id.
-     * @param fileId      The file id.
-     * @return The get file data.
+     * @param containerId the container id.
+     * @param fileId      the file id.
+     * @return the get file data.
      */
     public byte[] getFileData(int containerId, int fileId) {
         return getFileData(containerId, fileId, null);
@@ -163,8 +163,8 @@ public final class CacheFileManager {
     /**
      * Load the file data.
      *
-     * @param archiveId The container id.
-     * @param keys      The container keys.
+     * @param archiveId the container id.
+     * @param keys      the container keys.
      * @return If the file data is loaded {@code true}.
      */
     public boolean loadFilesData(int archiveId, int[] keys) {
@@ -221,9 +221,9 @@ public final class CacheFileManager {
     /**
      * Get the file data.
      *
-     * @param containerId The container id.
-     * @param fileId      The file id.
-     * @param xteaKeys    The container keys.
+     * @param containerId the container id.
+     * @param fileId the file id.
+     * @param xteaKeys the container keys.
      * @return The file data.
      */
     public byte[] getFileData(int containerId, int fileId, int[] xteaKeys) {
@@ -247,9 +247,9 @@ public final class CacheFileManager {
     }
 
     /**
-     * Get the containers information.
+     * Get the container information.
      *
-     * @return The containers information.
+     * @return the container information.
      */
     public ContainersInformation getInformation() {
         return information;

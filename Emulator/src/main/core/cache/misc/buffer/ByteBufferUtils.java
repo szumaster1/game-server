@@ -14,8 +14,8 @@ public final class ByteBufferUtils {
     /**
      * Gets a string from the byte buffer.
      *
-     * @param buffer The byte buffer.
-     * @return The string.
+     * @param buffer the byte buffer.
+     * @return the string.
      */
     public static String getString(ByteBuffer buffer) {
         StringBuilder sb = new StringBuilder();
@@ -29,33 +29,33 @@ public final class ByteBufferUtils {
     /**
      * Puts a string on the byte buffer.
      *
-     * @param s      The string to put.
-     * @param buffer The byte buffer.
+     * @param string the string to put.
+     * @param buffer the byte buffer.
      */
-    public static void putString(String s, ByteBuffer buffer) {
-        buffer.put(s.getBytes(StandardCharsets.UTF_8)).put((byte) 0);
+    public static void putString(String string, ByteBuffer buffer) {
+        buffer.put(string.getBytes(StandardCharsets.UTF_8)).put((byte) 0);
     }
 
     /**
      * Gets a string from the byte buffer.
      *
-     * @param s      The string.
-     * @param buffer The byte buffer.
-     * @return The string.
+     * @param string the string.
+     * @param buffer the byte buffer.
+     * @return the string.
      */
-    public static ByteBuffer putGJ2String(String s, ByteBuffer buffer) {
+    public static ByteBuffer putGJ2String(String string, ByteBuffer buffer) {
         byte[] packed = new byte[256];
-        int length = packGJString2(0, packed, s);
+        int length = packGJString2(0, packed, string);
         return buffer.put((byte) 0).put(packed, 0, length).put((byte) 0);
     }
 
     /**
      * Decodes the XTEA encryption.
      *
-     * @param keys   The keys.
-     * @param start  The start index.
-     * @param end    The end index.
-     * @param buffer The byte buffer.
+     * @param keys the keys.
+     * @param start the start index.
+     * @param end the end index.
+     * @param buffer the byte buffer.
      */
     public static void decodeXTEA(int[] keys, int start, int end, ByteBuffer buffer) {
         int l = buffer.position();
@@ -81,10 +81,10 @@ public final class ByteBufferUtils {
     /**
      * Converts a String to an Integer?
      *
-     * @param position The position.
-     * @param buffer   The buffer used.
-     * @param string   The String to convert.
-     * @return The Integer.
+     * @param position the position.
+     * @param buffer the buffer used.
+     * @param string the String to convert.
+     * @return the integer.
      */
     public static int packGJString2(int position, byte[] buffer, String string) {
         int length = string.length();
@@ -109,8 +109,8 @@ public final class ByteBufferUtils {
     /**
      * Gets a tri-byte from the buffer.
      *
-     * @param buffer The buffer.
-     * @return The value.
+     * @param buffer the buffer.
+     * @return the value.
      */
     public static int getMedium(ByteBuffer buffer) {
         return ((buffer.get() & 0xFF) << 16) + ((buffer.get() & 0xFF) << 8) + (buffer.get() & 0xFF);
@@ -119,8 +119,8 @@ public final class ByteBufferUtils {
     /**
      * Gets a smart from the buffer.
      *
-     * @param buffer The buffer.
-     * @return The value.
+     * @param buffer the buffer.
+     * @return the value.
      */
     public static int getSmart(ByteBuffer buffer) {
         int peek = buffer.get() & 0xFF;
@@ -133,8 +133,8 @@ public final class ByteBufferUtils {
     /**
      * Gets a smart from the buffer.
      *
-     * @param buffer The buffer.
-     * @return The value.
+     * @param buffer the buffer.
+     * @return the value.
      */
     public static int getBigSmart(ByteBuffer buffer) {
         int value = 0;
@@ -150,14 +150,14 @@ public final class ByteBufferUtils {
     /**
      * Writes an object on the buffer.
      *
-     * @param buffer The buffer to write on.
-     * @param o      The object.
+     * @param buffer the buffer to write on.
+     * @param obj the object.
      */
-    public static void putObject(ByteBuffer buffer, Object o) {
+    public static void putObject(ByteBuffer buffer, Object obj) {
         ByteBuffer b;
         try (ObjectOutputStream out = new ObjectOutputStream(new
             BufferOutputStream(b = ByteBuffer.allocate(99999)))) {
-            out.writeObject(o);
+            out.writeObject(obj);
             b.flip();
         } catch (Throwable e) {
             e.printStackTrace();
@@ -173,8 +173,8 @@ public final class ByteBufferUtils {
     /**
      * Gets an object from the byte buffer.
      *
-     * @param buffer The buffer.
-     * @return The object.
+     * @param buffer the buffer.
+     * @return the object.
      */
     public static Object getObject(ByteBuffer buffer) {
         int length = buffer.getInt();

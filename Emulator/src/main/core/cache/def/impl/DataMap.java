@@ -12,6 +12,9 @@ import java.util.Map;
 
 import static core.api.ContentAPIKt.log;
 
+/**
+ * The data map.
+ */
 public class DataMap {
 
     /**

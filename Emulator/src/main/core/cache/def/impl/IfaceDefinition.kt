@@ -127,7 +127,7 @@ class IfaceDefinition {
         /**
          * For id interface definition.
          *
-         * @param id    the id
+         * @param id the id
          * @param child the child
          * @return the interface definition
          */

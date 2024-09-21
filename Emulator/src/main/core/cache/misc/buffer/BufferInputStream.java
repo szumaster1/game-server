@@ -18,7 +18,7 @@ public final class BufferInputStream extends InputStream {
     /**
      * The buffer input stream.
      *
-     * @param buffer The buffer.
+     * @param buffer the buffer.
      */
     public BufferInputStream(ByteBuffer buffer) throws IOException {
         this.buffer = buffer;
@@ -32,7 +32,7 @@ public final class BufferInputStream extends InputStream {
     /**
      * Gets the buffer.
      *
-     * @return The buffer.
+     * @return the buffer.
      */
     public ByteBuffer getBuffer() {
         return buffer;

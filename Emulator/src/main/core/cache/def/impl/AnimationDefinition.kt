@@ -105,7 +105,7 @@ class AnimationDefinition {
     /**
      * Gets the duration of this animation in milliseconds.
      *
-     * @return The duration.
+     * @return the duration.
      */
     fun getDuration(): Int {
         if (durations == null) {
@@ -138,7 +138,7 @@ class AnimationDefinition {
     /**
      * Gets the duration of this animation in (600ms) ticks.
      *
-     * @return The duration in ticks.
+     * @return the duration in ticks.
      */
     fun getDurationTicks(): Int {
         val ticks = getDuration() / 600
