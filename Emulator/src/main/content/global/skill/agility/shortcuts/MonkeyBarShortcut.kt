@@ -19,7 +19,7 @@ import core.tools.RandomFunction
  * Represents the Monkey bar shortcut.
  */
 @Initializable
-class MonkeyBarShortcut : content.global.skill.agility.AgilityShortcut {
+class MonkeyBarShortcut : AgilityShortcut {
 
     constructor() : super(intArrayOf(29375), 1, 14.0, "swing across")
     constructor(ids: IntArray?, level: Int, experience: Double, option: String?) : super(ids, level, experience, option)
@@ -63,22 +63,22 @@ class MonkeyBarShortcut : content.global.skill.agility.AgilityShortcut {
             var count: Int = 0
             override fun pulse(): Boolean {
                 if (++count == 1) {
-                    if (scenery.id == 2321 && (content.global.skill.agility.AgilityHandler.hasFailed(player, 57, 0.01).also { failed = it })) {
+                    if (scenery.id == 2321 && (AgilityHandler.hasFailed(player, 57, 0.01).also { failed = it })) {
                         delay = 1
                         player.animate(Animation.create(743))
                         return false
                     }
                     delay = 4
-                    content.global.skill.agility.AgilityHandler.walk(player, -1, player.location.transform(dir), player.location.transform(dir.stepX * 4, dir.stepY * 4, 0), Animation.create(662), 0.0, null)
+                    AgilityHandler.walk(player, -1, player.location.transform(dir), player.location.transform(dir.stepX * 4, dir.stepY * 4, 0), Animation.create(662), 0.0, null)
                 } else if (count == 2) {
                     if (failed) {
                         player.appearance.setAnimations()
                         player.appearance.sync()
-                        content.global.skill.agility.AgilityHandler.fail(player, 2, Location(2599, 9564, 0), Animation.create(768), RandomFunction.random(1, 3), null)
+                        AgilityHandler.fail(player, 2, Location(2599, 9564, 0), Animation.create(768), RandomFunction.random(1, 3), null)
                         player.logoutListeners.remove("monkey-bar")
                         return true
                     }
-                    content.global.skill.agility.AgilityHandler.forceWalk(player, -1, player.location, player.location.transform(dir), Animation.create(743), 10, experience, null)
+                    AgilityHandler.forceWalk(player, -1, player.location, player.location.transform(dir), Animation.create(743), 10, experience, null)
                     player.logoutListeners.remove("monkey-bar")
                     return true
                 }

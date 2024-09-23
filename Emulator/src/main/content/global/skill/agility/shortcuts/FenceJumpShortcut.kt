@@ -17,7 +17,7 @@ import core.plugin.Initializable
  * Represents the Fence jump shortcut.
  */
 @Initializable
-class FenceJumpShortcut : content.global.skill.agility.AgilityShortcut(intArrayOf(9300), 13, 0.0, "jump-over") {
+class FenceJumpShortcut : AgilityShortcut(intArrayOf(9300), 13, 0.0, "jump-over") {
 
     private val runningAnim = Animation(Animations.RUNNING_OSRS_STYLE_1995)
     private val jumpAnim = Animation(Animations.JUMP_OBSTACLE_WEREWOLF_AGILITY_1603)

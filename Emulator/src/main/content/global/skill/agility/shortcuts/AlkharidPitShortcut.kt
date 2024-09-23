@@ -14,7 +14,7 @@ import core.plugin.Initializable
  * Represents the Al Kharid Pit shortcut.
  */
 @Initializable
-class AlkharidPitShortcut : content.global.skill.agility.AgilityShortcut(intArrayOf(9331, 9332), 38, 0.0, "climb") {
+class AlkharidPitShortcut : AgilityShortcut(intArrayOf(9331, 9332), 38, 0.0, "climb") {
 
     companion object {
         private val ANIMATION = Animation(1148)

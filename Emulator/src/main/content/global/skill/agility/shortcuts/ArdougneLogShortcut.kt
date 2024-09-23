@@ -44,11 +44,11 @@ class ArdougneLogShortcut : InteractionListener {
 
             player.logoutListeners["balance-log"] = { p: Player -> p.location = start }
 
-            if (content.global.skill.agility.AgilityHandler.hasFailed(player, 33, 0.1)) {
+            if (AgilityHandler.hasFailed(player, 33, 0.1)) {
                 handleFailure(player, start, failLand, failAnim, fromWest)
             } else {
                 val end = start.transform(if (fromWest) 4 else -4, 0, 0)
-                content.global.skill.agility.AgilityHandler.forceWalk(player, -1, start, end, logBalanceAnimation, 10, 0.0, null, 0).endAnimation = Animation.RESET
+                AgilityHandler.forceWalk(player, -1, start, end, logBalanceAnimation, 10, 0.0, null, 0).endAnimation = Animation.RESET
                 player.logoutListeners.remove("balance-log")
             }
             return@on true
@@ -63,8 +63,8 @@ class ArdougneLogShortcut : InteractionListener {
     }
 
     private fun handleFailure(player: Player, start: Location, failLand: Location, failAnim: Animation, fromWest: Boolean) {
-        content.global.skill.agility.AgilityHandler.forceWalk(player, -1, start, failLocation, failAnim, 10, 0.0, null, 0)
-        content.global.skill.agility.AgilityHandler.forceWalk(player, -1, failLocation, failLand, swimmingLoopAnimation, 15, 0.0, null, 1).endAnimation = Animation.RESET
+        AgilityHandler.forceWalk(player, -1, start, failLocation, failAnim, 10, 0.0, null, 0)
+        AgilityHandler.forceWalk(player, -1, failLocation, failLand, swimmingLoopAnimation, 15, 0.0, null, 1).endAnimation = Animation.RESET
 
         submitIndividualPulse(player, object : Pulse(2) {
             private var counter = 0
@@ -79,7 +79,7 @@ class ArdougneLogShortcut : InteractionListener {
                     }
 
                     1 -> {
-                        content.global.skill.agility.AgilityHandler.fail(player, if (fromWest) 4 else 0, failLand, swimmingAnimation, Random.nextInt(1, 7), null)
+                        AgilityHandler.fail(player, if (fromWest) 4 else 0, failLand, swimmingAnimation, Random.nextInt(1, 7), null)
                         player.logoutListeners.remove("balance-log")
                         true
                     }

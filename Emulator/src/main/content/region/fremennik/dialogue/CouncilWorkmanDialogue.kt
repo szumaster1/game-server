@@ -1,6 +1,6 @@
 package content.region.fremennik.dialogue
 
-import content.region.misthalin.varrock.achievement.dialogue.CouncilWorkmanDiaryDialogue
+import content.region.misthalin.varrock.diary.dialogue.CouncilWorkmanDiaryDialogue
 import org.rs.consts.NPCs
 import content.region.fremennik.rellekka.quest.viking.dialogue.CouncilWorkerDialogue
 import core.api.getQuestStage

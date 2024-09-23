@@ -13,9 +13,6 @@ import core.plugin.Initializable
 
 /**
  * Handles the Outlaw NPC.
- *
- * Related to [What Lies Below][content.region.misthalin.varrock.quest.surok.WhatLiesBelow] quest.
- * @author Vexia
  */
 @Initializable
 class OutlawNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id, location) {

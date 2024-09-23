@@ -1,6 +1,6 @@
 package core.net.packet
 
-import content.global.handlers.iface.ge.StockMarketInterfaceListener
+import content.global.handlers.iface.ge.StockMarket
 import content.global.skill.magic.SpellListeners
 import content.global.skill.magic.SpellUtils
 import core.Configuration
@@ -190,7 +190,7 @@ object PacketProcessor {
                 offer.amount = 1
                 offer.offeredValue = getRecommendedPrice(pkt.itemId, false)
                 offer.index = index
-                StockMarketInterfaceListener.updateVarbits(pkt.player, offer, index, false)
+                StockMarket.updateVarbits(pkt.player, offer, index, false)
                 pkt.player.setAttribute("ge-temp", offer)
                 pkt.player.packetDispatch.sendString(getOfferStats(pkt.itemId, false), 105, 142)
                 pkt.player.interfaceManager.closeChatbox()

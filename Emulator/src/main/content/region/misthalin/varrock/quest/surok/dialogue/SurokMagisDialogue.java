@@ -12,8 +12,6 @@ import core.plugin.Initializable;
 
 /**
  * Represents the Surok Magis dialogue.
- * <p>Related to {@link content.region.misthalin.quest.member.whatliesbelow.WhatLiesBelow} quest.
- * @author Vexia, Nuggles
  */
 @Initializable
 public class SurokMagisDialogue extends Dialogue {

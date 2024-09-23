@@ -32,7 +32,7 @@ class MiscellaniaShortcut : InteractionListener {
                 queueScript(player, 1, QueueStrength.NORMAL) { stage: Int ->
                     when (stage) {
                         0 -> {
-                            content.global.skill.agility.AgilityHandler.forceWalk(
+                            AgilityHandler.forceWalk(
                                 player,
                                 -1,
                                 Location(2572, 3862, 0),
@@ -46,7 +46,7 @@ class MiscellaniaShortcut : InteractionListener {
                         }
 
                         1 -> {
-                            content.global.skill.agility.AgilityHandler.forceWalk(
+                            AgilityHandler.forceWalk(
                                 player,
                                 -1,
                                 Location(2573, 3862, 0),
@@ -66,7 +66,7 @@ class MiscellaniaShortcut : InteractionListener {
                 queueScript(player, 1, QueueStrength.NORMAL) { stage: Int ->
                     when (stage) {
                         0 -> {
-                            content.global.skill.agility.AgilityHandler.forceWalk(
+                            AgilityHandler.forceWalk(
                                 player,
                                 -1,
                                 Location(2576, 3862, 0),
@@ -80,7 +80,7 @@ class MiscellaniaShortcut : InteractionListener {
                         }
 
                         1 -> {
-                            content.global.skill.agility.AgilityHandler.forceWalk(
+                            AgilityHandler.forceWalk(
                                 player,
                                 -1,
                                 location(2573, 3862, 0),

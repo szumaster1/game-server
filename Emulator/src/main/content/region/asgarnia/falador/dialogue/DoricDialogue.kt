@@ -1,7 +1,7 @@
 package content.region.asgarnia.falador.dialogue
 
 import content.region.asgarnia.goblinvillage.quest.dorics.cutscene.DoricCutscene
-import content.region.asgarnia.goblinvillage.quest.dorics.dialogue.DoricDialogueFile
+import content.region.asgarnia.goblinvillage.quest.dorics.dialogue.DoricDialogue
 import core.api.*
 import org.rs.consts.NPCs
 import core.game.dialogue.Dialogue
@@ -29,7 +29,7 @@ class DoricDialogue(player: Player? = null) : Dialogue(player) {
                 npcl(FacialExpression.OLD_NORMAL, "Hello traveller, what brings you to my humble smithy?").also { stage = 0 }
             }
             in 1..99 -> {
-                openDialogue(player, DoricDialogueFile(30), npc)
+                openDialogue(player, DoricDialogue(30), npc)
             }
             else -> {
                 npcl(FacialExpression.OLD_HAPPY, "Hello traveller, how is your metalworking coming along?").also { stage = 60 }
@@ -48,9 +48,11 @@ class DoricDialogue(player: Player? = null) : Dialogue(player) {
                 Topic(FacialExpression.ASKING, "What do you make here?", 50)
             )
 
-            10 -> openDialogue(player, DoricDialogueFile(10), npc)
+            10 -> openDialogue(player,
+                DoricDialogue(10), npc)
 
-            20 -> openDialogue(player, DoricDialogueFile(20), npc)
+            20 -> openDialogue(player,
+                DoricDialogue(20), npc)
 
             30 -> {
                 if (getAttribute(player, "pre-dq:doric-angy-count", 0) == 10) {

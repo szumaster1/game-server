@@ -1,6 +1,6 @@
 package content.minigame.barbassault.dialogue
 
-import content.global.random.event.drilldemon.DrillDemonUtils
+import content.global.ame.drilldemon.DrillDemonUtils
 import org.rs.consts.NPCs
 import org.rs.consts.Sounds
 import core.api.playAudio

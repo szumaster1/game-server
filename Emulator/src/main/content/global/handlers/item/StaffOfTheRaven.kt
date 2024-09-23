@@ -1,7 +1,5 @@
 package content.global.handlers.item
 
-import org.rs.consts.Graphics
-import org.rs.consts.Items
 import core.api.getUsedOption
 import core.api.sendDialogueOptions
 import core.api.setTitle
@@ -10,9 +8,11 @@ import core.game.interaction.InteractionListener
 import core.game.node.entity.player.Player
 import core.game.node.item.Item
 import core.game.world.update.flag.context.Graphic
+import org.rs.consts.Graphics
+import org.rs.consts.Items
 
 /**
- * Handles the staff of the raven option interaction.
+ * Handles the staff of the raven option.
  */
 class StaffOfTheRaven : InteractionListener {
 

@@ -1,8 +1,8 @@
 package content.global.skill.summoning.familiar.npc
 
+import content.global.skill.crafting.Jewellery.open
 import content.global.skill.firemaking.FireMakingPulse.getAsh
 import content.global.skill.firemaking.Log.Companion.forId
-import content.global.skill.crafting.Jewellery.open
 import core.game.interaction.NodeUsageEvent
 import core.game.interaction.UseWithHandler
 import core.game.node.entity.combat.equipment.WeaponInterface
@@ -27,7 +27,8 @@ import core.plugin.PluginManager.definePlugin
  * Pyre lord familiar.
  */
 @Initializable
-class PyreLordNPC @JvmOverloads constructor(owner: Player? = null, id: Int = 7377) : content.global.skill.summoning.familiar.Familiar(owner, id, 3200, 12816, 6, WeaponInterface.STYLE_AGGRESSIVE) {
+class PyreLordNPC @JvmOverloads constructor(owner: Player? = null, id: Int = 7377) :
+    content.global.skill.summoning.familiar.Familiar(owner, id, 3200, 12816, 6, WeaponInterface.STYLE_AGGRESSIVE) {
 
     init {
         boosts.add(SkillBonus(Skills.FIREMAKING, 3.0))
@@ -63,7 +64,25 @@ class PyreLordNPC @JvmOverloads constructor(owner: Player? = null, id: Int = 737
      *
      * @constructor Pyre lord firemake
      */
-    inner class PyreLordFiremake : UseWithHandler(1511, 2862, 1521, 1519, 6333, 10810, 1517, 6332, 12581, 1515, 1513, 13567, 10329, 10328, 7406, 7405, 7404) {
+    inner class PyreLordFiremake : UseWithHandler(
+        1511,
+        2862,
+        1521,
+        1519,
+        6333,
+        10810,
+        1517,
+        6332,
+        12581,
+        1515,
+        1513,
+        13567,
+        10329,
+        10328,
+        7406,
+        7405,
+        7404
+    ) {
 
         override fun newInstance(arg: Any?): Plugin<Any> {
             for (id in ids) {

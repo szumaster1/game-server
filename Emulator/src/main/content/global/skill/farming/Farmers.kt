@@ -7,7 +7,7 @@ enum class Farmers(val id: Int, val patches: Array<FarmingPatch>) {
     LYRA(2326, arrayOf(FarmingPatch.PORT_PHAS_ALLOTMENT_NW, FarmingPatch.PORT_PHAS_ALLOTMENT_SE)),
     ELSTAN(2323, arrayOf(FarmingPatch.S_FALADOR_ALLOTMENT_NW, FarmingPatch.S_FALADOR_ALLOTMENT_SE)),
     HESKEL(2340, arrayOf(FarmingPatch.N_FALADOR_TREE)),
-    ALAIN(2339, arrayOf(FarmingPatch.TAVERLY_TREE)),
+    ALAIN(2339, arrayOf(FarmingPatch.TAVERLEY_TREE)),
     DANTAERA(2324, arrayOf(FarmingPatch.CATHERBY_ALLOTMENT_N, FarmingPatch.CATHERBY_ALLOTMENT_S)),
     ELLENA(2331, arrayOf(FarmingPatch.CATHERBY_FRUIT_TREE)),
     GARTH(2330, arrayOf(FarmingPatch.BRIMHAVEN_FRUIT_TREE)),

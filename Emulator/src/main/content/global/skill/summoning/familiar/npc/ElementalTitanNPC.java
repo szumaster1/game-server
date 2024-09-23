@@ -32,8 +32,8 @@ public abstract class ElementalTitanNPC extends Familiar {
         int currentDefenceLevel = owner.getSkills().getLevel(Skills.DEFENCE);
         int maximumDefenceLevel = owner.getSkills().getStaticLevel(Skills.DEFENCE);
         owner.getSkills().updateLevel(Skills.DEFENCE,
-                (int) ((1.0 + scrollDefenceBoostPercent) * currentDefenceLevel),
-                (int) ((1.0 + scrollDefenceBoostPercent) * maximumDefenceLevel));
+            (int) ((1.0 + scrollDefenceBoostPercent) * currentDefenceLevel),
+            (int) ((1.0 + scrollDefenceBoostPercent) * maximumDefenceLevel));
         int currentHp = owner.getSkills().getLifepoints();
         int maxHp = owner.getSkills().getMaximumLifepoints() + scrollHealAmount;
         int healAmount = Math.min(maxHp - currentHp, scrollHealAmount);

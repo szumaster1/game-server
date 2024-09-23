@@ -66,7 +66,7 @@ class EstateAgentDialogue(player: Player? = null) : Dialogue(player) {
                     end()
                     npc("You don't have enough money to buy a house,", "come back when you can afford one.")
                 } else {
-                    player.houseManager.createNewHouseAt(content.global.skill.construction.HouseLocation.RIMMINGTON)
+                    player.houseManager.createNewHouseAt(HouseLocation.RIMMINGTON)
                     npc("Thank you. Go through the Rimmington house portal", "and you will find your house ready for you to start", "building in it.")
                     stage = END_DIALOGUE
                 }
@@ -85,12 +85,12 @@ class EstateAgentDialogue(player: Player? = null) : Dialogue(player) {
                 2 -> player("To Yanille please!").also { stage = 20 }
                 3 -> options("Rimmington (5,000)", "Taverley (5,000)", "Pollnivneach (7,500)", "Rellekka (10,000)", "More...").also { stage = 12 }
             }
-            15 -> configureMove(content.global.skill.construction.HouseLocation.RIMMINGTON)
-            16 -> configureMove(content.global.skill.construction.HouseLocation.TAVERLY)
-            17 -> configureMove(content.global.skill.construction.HouseLocation.POLLNIVNEACH)
-            18 -> configureMove(content.global.skill.construction.HouseLocation.RELLEKKA)
-            19 -> configureMove(content.global.skill.construction.HouseLocation.BRIMHAVEN)
-            20 -> configureMove(content.global.skill.construction.HouseLocation.YANILLE)
+            15 -> configureMove(HouseLocation.RIMMINGTON)
+            16 -> configureMove(HouseLocation.TAVERLY)
+            17 -> configureMove(HouseLocation.POLLNIVNEACH)
+            18 -> configureMove(HouseLocation.RELLEKKA)
+            19 -> configureMove(HouseLocation.BRIMHAVEN)
+            20 -> configureMove(HouseLocation.YANILLE)
             30 -> npc("Certainly. My magic can rebuild the house in a", "completely new style! What style would you like?").also { stage++ }
             31 -> options("Basic wood (5,000)", "Basic stone (5,000)", "Whitewashed stone (7,500)", "Fremennik-style wood (10,000)", "More...").also { stage++ }
             32 -> when (buttonId) {
@@ -105,12 +105,12 @@ class EstateAgentDialogue(player: Player? = null) : Dialogue(player) {
                 2 -> player("Fancy stone please!").also { stage = 40 }
                 3 -> options("Basic wood (5,000)", "Basic stone (5,000)", "Whitewashed stone (7,500)", "Fremennik-style wood (10,000)", "More...").also { stage = 32 }
             }
-            35 -> redecorate(content.global.skill.construction.HousingStyle.BASIC_WOOD)
-            36 -> redecorate(content.global.skill.construction.HousingStyle.BASIC_STONE)
-            37 -> redecorate(content.global.skill.construction.HousingStyle.WHITEWASHED_STONE)
-            38 -> redecorate(content.global.skill.construction.HousingStyle.FREMENNIK_STYLE_WOOD)
-            39 -> redecorate(content.global.skill.construction.HousingStyle.TROPICAL_WOOD)
-            40 -> redecorate(content.global.skill.construction.HousingStyle.FANCY_STONE)
+            35 -> redecorate(HousingStyle.BASIC_WOOD)
+            36 -> redecorate(HousingStyle.BASIC_STONE)
+            37 -> redecorate(HousingStyle.WHITEWASHED_STONE)
+            38 -> redecorate(HousingStyle.FREMENNIK_STYLE_WOOD)
+            39 -> redecorate(HousingStyle.TROPICAL_WOOD)
+            40 -> redecorate(HousingStyle.FANCY_STONE)
             50 -> {
                 if (player.hasItem(CONSTRUCTION_GUIDE_8463)) {
                     npc("You've already got one!")
@@ -143,7 +143,7 @@ class EstateAgentDialogue(player: Player? = null) : Dialogue(player) {
         return true
     }
 
-    private fun configureMove(location: content.global.skill.construction.HouseLocation) {
+    private fun configureMove(location: HouseLocation) {
         when {
             // Player does not have required construction level.
             !location.hasLevel(player) -> {
@@ -178,7 +178,7 @@ class EstateAgentDialogue(player: Player? = null) : Dialogue(player) {
     }
 
 
-    private fun redecorate(style: content.global.skill.construction.HousingStyle) {
+    private fun redecorate(style: HousingStyle) {
         when {
             // Player does not have required construction level.
             !style.hasLevel(player) -> {

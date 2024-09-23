@@ -27,14 +27,14 @@ public class FruitBatNPC extends Forager {
 
     // The random fruit to forage.
     private static final Item[] FRUIT_FORAGE = new Item[]{
-            new Item(Items.PAPAYA_FRUIT_5972),
-            new Item(Items.ORANGE_2108),
-            new Item(Items.PINEAPPLE_2114),
-            new Item(Items.LEMON_2102),
-            new Item(Items.LIME_2120),
-            new Item(Items.STRAWBERRY_5504),
-            new Item(Items.WATERMELON_5982),
-            new Item(Items.COCONUT_5974)
+        new Item(Items.PAPAYA_FRUIT_5972),
+        new Item(Items.ORANGE_2108),
+        new Item(Items.PINEAPPLE_2114),
+        new Item(Items.LEMON_2102),
+        new Item(Items.LIME_2120),
+        new Item(Items.STRAWBERRY_5504),
+        new Item(Items.WATERMELON_5982),
+        new Item(Items.COCONUT_5974)
     };
 
     /*
@@ -45,12 +45,12 @@ public class FruitBatNPC extends Forager {
      */
 
     private static final WeightedChanceItem[] FRUIT_FALL = new WeightedChanceItem[]{
-            new WeightedChanceItem(Items.ORANGE_2108, 1, 4),
-            new WeightedChanceItem(Items.PINEAPPLE_2114, 1, 3),
-            new WeightedChanceItem(Items.LEMON_2102, 1, 2),
-            new WeightedChanceItem(Items.LIME_2120, 1, 2),
-            new WeightedChanceItem(Items.BANANA_1963, 1, 2),
-            new WeightedChanceItem(0, 1, 4)
+        new WeightedChanceItem(Items.ORANGE_2108, 1, 4),
+        new WeightedChanceItem(Items.PINEAPPLE_2114, 1, 3),
+        new WeightedChanceItem(Items.LEMON_2102, 1, 2),
+        new WeightedChanceItem(Items.LIME_2120, 1, 2),
+        new WeightedChanceItem(Items.BANANA_1963, 1, 2),
+        new WeightedChanceItem(0, 1, 4)
     };
 
     /**
@@ -124,16 +124,16 @@ public class FruitBatNPC extends Forager {
 
                     Pair coord = coords.remove(0);
                     GroundItemManager.create(new Item(Items.PAPAYA_FRUIT_5972),
-                            owner.getLocation().transform(coord.p1, coord.p2, 0),
-                            owner);
+                        owner.getLocation().transform(coord.p1, coord.p2, 0),
+                        owner);
 
                     for (int i = 0; i < otherFruitAmount; i++) {
                         Item item = RandomFunction.rollWeightedChanceTable(FRUIT_FALL);
                         if (item.getId() != 0) {
                             coord = coords.remove(0);
                             GroundItemManager.create(item,
-                                    owner.getLocation().transform(coord.p1, coord.p2, 0),
-                                    owner);
+                                owner.getLocation().transform(coord.p1, coord.p2, 0),
+                                owner);
                         }
                     }
                 }

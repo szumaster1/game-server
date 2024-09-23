@@ -1,6 +1,6 @@
 package content.region.desert.quest.golem.book
 
-import content.global.handlers.iface.BookInterfaceListener
+import content.global.handlers.iface.BookInterface
 import content.global.handlers.iface.BookLine
 import content.global.handlers.iface.Page
 import content.global.handlers.iface.PageSet
@@ -279,7 +279,7 @@ class VarmensNotes : InteractionListener {
         )
 
         private fun display(player: Player, pageNum: Int, buttonID: Int): Boolean {
-            BookInterfaceListener.pageSetup(player, BookInterfaceListener.FANCY_BOOK_3_49, TITLE, CONTENTS)
+            BookInterface.pageSetup(player, BookInterface.FANCY_BOOK_3_49, TITLE, CONTENTS)
             return true
         }
     }
@@ -287,7 +287,7 @@ class VarmensNotes : InteractionListener {
     override fun defineListeners() {
         on(Items.VARMENS_NOTES_4616, IntType.ITEM, "read") { player, _ ->
             setAttribute(player, "/save:the-golem:varmen-notes-read", true)
-            BookInterfaceListener.openBook(player, BookInterfaceListener.FANCY_BOOK_3_49, Companion::display)
+            BookInterface.openBook(player, BookInterface.FANCY_BOOK_3_49, Companion::display)
             return@on true
         }
     }

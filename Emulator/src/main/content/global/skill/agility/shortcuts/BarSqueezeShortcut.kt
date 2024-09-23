@@ -16,7 +16,7 @@ import core.plugin.Plugin
  * Represents the Bar squeeze shortcut.
  */
 @Initializable
-class BarSqueezeShortcut : content.global.skill.agility.AgilityShortcut {
+class BarSqueezeShortcut : AgilityShortcut {
 
     constructor() : super(intArrayOf(9334, 9337), 66, 1.0, "squeeze-through")
 
@@ -36,7 +36,7 @@ class BarSqueezeShortcut : content.global.skill.agility.AgilityShortcut {
             obj.id == 2186 && player.location.y >= 3161 -> Direction.SOUTH to player.location
             else -> logicalDirection to player.location
         }
-        content.global.skill.agility.AgilityHandler.forceWalk(player, -1, start, player.location.transform(dir, 1), Animation.create(2240), 10, 0.0, null)
+        AgilityHandler.forceWalk(player, -1, start, player.location.transform(dir, 1), Animation.create(2240), 10, 0.0, null)
     }
 
     override fun checkRequirements(player: Player): Boolean {

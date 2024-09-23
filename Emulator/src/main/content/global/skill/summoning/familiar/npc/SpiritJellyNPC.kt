@@ -13,7 +13,8 @@ import org.rs.consts.NPCs
  * Spirit jelly familiar.
  */
 @Initializable
-class SpiritJellyNPC @JvmOverloads constructor(owner: Player? = null, id: Int = NPCs.SPIRIT_JELLY_6992) : content.global.skill.summoning.familiar.Familiar(owner, id, 4300, 12027, 6, WeaponInterface.STYLE_AGGRESSIVE) {
+class SpiritJellyNPC @JvmOverloads constructor(owner: Player? = null, id: Int = NPCs.SPIRIT_JELLY_6992) :
+    content.global.skill.summoning.familiar.Familiar(owner, id, 4300, 12027, 6, WeaponInterface.STYLE_AGGRESSIVE) {
 
     override fun construct(owner: Player, id: Int): content.global.skill.summoning.familiar.Familiar {
         return SpiritJellyNPC(owner, id)

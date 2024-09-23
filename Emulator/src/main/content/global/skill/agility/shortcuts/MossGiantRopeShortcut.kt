@@ -38,7 +38,7 @@ class MossGiantRopeShortcut : InteractionListener {
             ropeDelay = GameWorld.ticks + animationDuration(Animation.create(497))
             val end = if (node.id == Scenery.ROPESWING_2322) Location(2704, 3209, 0) else Location(2709, 3205, 0)
             animateScenery(player, node.asScenery(), 497, true)
-            content.global.skill.agility.AgilityHandler.forceWalk(player, 0, player.location, end, Animation(751), 50, 22.0, "You skillfully swing across.", 1)
+            AgilityHandler.forceWalk(player, 0, player.location, end, Animation(751), 50, 22.0, "You skillfully swing across.", 1)
             finishDiaryTask(player, DiaryType.KARAMJA, 0, 1)
             return@on true
         }

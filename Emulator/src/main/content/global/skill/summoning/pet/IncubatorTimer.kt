@@ -82,14 +82,14 @@ class IncubatorTimer : PersistTimer(500, "incubation") {
     }
 
     companion object {
-        val TAVERLY_REGION = Regions.TAVERLY_11573
-        val TAVERLY_VARBIT = 4277
+        val TAVERLEY_REGION = Regions.TAVERLY_11573
+        val TAVERLEY_VARBIT = 4277
         val YANILLE_REGION = Regions.YANILLE_10288
         val YANILLE_VARBIT = 4221
 
         fun varbitForRegion(region: Int): Int {
             return when (region) {
-                TAVERLY_REGION -> TAVERLY_VARBIT
+                TAVERLEY_REGION -> TAVERLEY_VARBIT
                 YANILLE_REGION -> YANILLE_VARBIT
                 else -> -1
             }

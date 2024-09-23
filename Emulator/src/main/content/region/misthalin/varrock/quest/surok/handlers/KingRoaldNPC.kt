@@ -8,9 +8,6 @@ import core.plugin.Initializable
 
 /**
  * Handles the King Roald NPC.
- *
- * Related to [What Lies Below][content.region.misthalin.quest.member.whatliesbelow.WhatLiesBelow] quest.
- * @author Vexia
  */
 @Initializable
 class KingRoaldNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id, location) {

@@ -17,7 +17,7 @@ import core.plugin.Initializable
  * Represents the Rock climb shortcut.
  */
 @Initializable
-class RockClimbShortcut : content.global.skill.agility.AgilityShortcut(intArrayOf(9335, 9336, 2231, 26327, 26328, 26324, 26323, 19849, 9296, 9297), 1, 0.0, "climb") {
+class RockClimbShortcut : AgilityShortcut(intArrayOf(9335, 9336, 2231, 26327, 26328, 26324, 26323, 19849, 9296, 9297), 1, 0.0, "climb") {
 
     override fun run(player: Player, `object`: Scenery, option: String, failed: Boolean) {
         val scalingAnim = Animation(Animations.CLIMBING_DOWN_WALL_740)

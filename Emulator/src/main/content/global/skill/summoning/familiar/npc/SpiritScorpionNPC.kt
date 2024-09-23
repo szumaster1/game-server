@@ -3,7 +3,6 @@ package content.global.skill.summoning.familiar.npc
 import content.global.skill.summoning.familiar.Familiar
 import content.global.skill.summoning.familiar.FamiliarSpecial
 import core.api.applyPoison
-import org.rs.consts.NPCs
 import core.game.node.entity.combat.BattleState
 import core.game.node.entity.combat.CombatStyle
 import core.game.node.entity.combat.equipment.WeaponInterface
@@ -13,15 +12,16 @@ import core.game.node.item.Item
 import core.game.world.update.flag.context.Animation
 import core.game.world.update.flag.context.Graphic
 import core.plugin.Initializable
+import org.rs.consts.NPCs
 
 /**
  * Spirit scorpion familiar.
  */
 @Initializable
 class SpiritScorpionNPC @JvmOverloads constructor(owner: Player? = null, id: Int = NPCs.SPIRIT_SCORPION_6837) :
-    content.global.skill.summoning.familiar.Familiar(owner, id, 1700, 12055, 6, WeaponInterface.STYLE_CONTROLLED) {
+    Familiar(owner, id, 1700, 12055, 6, WeaponInterface.STYLE_CONTROLLED) {
 
-    override fun construct(owner: Player, id: Int): content.global.skill.summoning.familiar.Familiar {
+    override fun construct(owner: Player, id: Int): Familiar {
         return SpiritScorpionNPC(owner, id)
     }
 
@@ -36,7 +36,7 @@ class SpiritScorpionNPC @JvmOverloads constructor(owner: Player? = null, id: Int
         }
     }
 
-    override fun specialMove(special: content.global.skill.summoning.familiar.FamiliarSpecial): Boolean {
+    override fun specialMove(special: FamiliarSpecial): Boolean {
         if (isCharged) {
             return false
         }

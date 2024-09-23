@@ -12,9 +12,9 @@ import core.game.system.task.Pulse
 import core.game.world.GameWorld.Pulser
 import core.game.world.update.flag.context.Animation
 import core.game.world.update.flag.context.Graphic
-import core.plugin.PluginManager.definePlugin
 import core.plugin.Initializable
 import core.plugin.Plugin
+import core.plugin.PluginManager.definePlugin
 
 /**
  * Cockatrice familiar NPC.
@@ -45,7 +45,11 @@ class CockatriceFamiliarNPC : Plugin<Any> {
      * @param skill
      * @return
      */
-    fun petrifyingGaze(familiar: content.global.skill.summoning.familiar.Familiar, special: content.global.skill.summoning.familiar.FamiliarSpecial, skill: Int): Boolean {
+    fun petrifyingGaze(
+        familiar: Familiar,
+        special: FamiliarSpecial,
+        skill: Int
+    ): Boolean {
         val target = special.target
         if (!familiar.canCombatSpecial(target)) {
             return false
@@ -67,12 +71,20 @@ class CockatriceFamiliarNPC : Plugin<Any> {
      * Spirit cockatrice.
      */
     inner class SpiritCockatrice @JvmOverloads constructor(owner: Player? = null, id: Int = 6875) :
-        content.global.skill.summoning.familiar.Forager(owner, id, 3600, 12095, 3, WeaponInterface.STYLE_CAST, COCKATRICE_EGG) {
-        override fun construct(owner: Player, id: Int): content.global.skill.summoning.familiar.Familiar {
+        Forager(
+            owner,
+            id,
+            3600,
+            12095,
+            3,
+            WeaponInterface.STYLE_CAST,
+            COCKATRICE_EGG
+        ) {
+        override fun construct(owner: Player, id: Int): Familiar {
             return SpiritCockatrice(owner, id)
         }
 
-        override fun specialMove(special: content.global.skill.summoning.familiar.FamiliarSpecial): Boolean {
+        override fun specialMove(special: FamiliarSpecial): Boolean {
             return petrifyingGaze(this, special, Skills.DEFENCE)
         }
 
@@ -85,12 +97,20 @@ class CockatriceFamiliarNPC : Plugin<Any> {
      * Spirit guthatrice.
      */
     inner class SpiritGuthatrice @JvmOverloads constructor(owner: Player? = null, id: Int = 6877) :
-        content.global.skill.summoning.familiar.Forager(owner, id, 3600, 12097, 3, WeaponInterface.STYLE_CAST, COCKATRICE_EGG) {
-        override fun construct(owner: Player, id: Int): content.global.skill.summoning.familiar.Familiar {
+        Forager(
+            owner,
+            id,
+            3600,
+            12097,
+            3,
+            WeaponInterface.STYLE_CAST,
+            COCKATRICE_EGG
+        ) {
+        override fun construct(owner: Player, id: Int): Familiar {
             return SpiritGuthatrice(owner, id)
         }
 
-        override fun specialMove(special: content.global.skill.summoning.familiar.FamiliarSpecial): Boolean {
+        override fun specialMove(special: FamiliarSpecial): Boolean {
             return petrifyingGaze(this, special, Skills.ATTACK)
         }
 
@@ -103,12 +123,20 @@ class CockatriceFamiliarNPC : Plugin<Any> {
      * Spirit zamatrice.
      */
     inner class SpiritZamatrice @JvmOverloads constructor(owner: Player? = null, id: Int = 6881) :
-        content.global.skill.summoning.familiar.Forager(owner, id, 3600, 12101, 3, WeaponInterface.STYLE_CAST, COCKATRICE_EGG) {
-        override fun construct(owner: Player, id: Int): content.global.skill.summoning.familiar.Familiar {
+        Forager(
+            owner,
+            id,
+            3600,
+            12101,
+            3,
+            WeaponInterface.STYLE_CAST,
+            COCKATRICE_EGG
+        ) {
+        override fun construct(owner: Player, id: Int): Familiar {
             return SpiritZamatrice(owner, id)
         }
 
-        override fun specialMove(special: content.global.skill.summoning.familiar.FamiliarSpecial): Boolean {
+        override fun specialMove(special: FamiliarSpecial): Boolean {
             return petrifyingGaze(this, special, Skills.STRENGTH)
         }
 
@@ -121,12 +149,20 @@ class CockatriceFamiliarNPC : Plugin<Any> {
      * Spirit pengatrice.
      */
     inner class SpiritPengatrice @JvmOverloads constructor(owner: Player? = null, id: Int = 6883) :
-        content.global.skill.summoning.familiar.Forager(owner, id, 3600, 12103, 3, WeaponInterface.STYLE_CAST, COCKATRICE_EGG) {
-        override fun construct(owner: Player, id: Int): content.global.skill.summoning.familiar.Familiar {
+        Forager(
+            owner,
+            id,
+            3600,
+            12103,
+            3,
+            WeaponInterface.STYLE_CAST,
+            COCKATRICE_EGG
+        ) {
+        override fun construct(owner: Player, id: Int): Familiar {
             return SpiritPengatrice(owner, id)
         }
 
-        override fun specialMove(special: content.global.skill.summoning.familiar.FamiliarSpecial): Boolean {
+        override fun specialMove(special: FamiliarSpecial): Boolean {
             return petrifyingGaze(this, special, Skills.MAGIC)
         }
 
@@ -139,12 +175,20 @@ class CockatriceFamiliarNPC : Plugin<Any> {
      * Spirit coraxatrice.
      */
     inner class SpiritCoraxatrice @JvmOverloads constructor(owner: Player? = null, id: Int = 6885) :
-        content.global.skill.summoning.familiar.Forager(owner, id, 3600, 12105, 3, WeaponInterface.STYLE_CAST, COCKATRICE_EGG) {
-        override fun construct(owner: Player, id: Int): content.global.skill.summoning.familiar.Familiar {
+        Forager(
+            owner,
+            id,
+            3600,
+            12105,
+            3,
+            WeaponInterface.STYLE_CAST,
+            COCKATRICE_EGG
+        ) {
+        override fun construct(owner: Player, id: Int): Familiar {
             return SpiritCoraxatrice(owner, id)
         }
 
-        override fun specialMove(special: content.global.skill.summoning.familiar.FamiliarSpecial): Boolean {
+        override fun specialMove(special: FamiliarSpecial): Boolean {
             return petrifyingGaze(this, special, Skills.SUMMONING)
         }
 
@@ -157,12 +201,20 @@ class CockatriceFamiliarNPC : Plugin<Any> {
      * Spirit vulatrice.
      */
     inner class SpiritVulatrice @JvmOverloads constructor(owner: Player? = null, id: Int = 6887) :
-        content.global.skill.summoning.familiar.Forager(owner, id, 3600, 12107, 3, WeaponInterface.STYLE_CAST, COCKATRICE_EGG) {
-        override fun construct(owner: Player, id: Int): content.global.skill.summoning.familiar.Familiar {
+        Forager(
+            owner,
+            id,
+            3600,
+            12107,
+            3,
+            WeaponInterface.STYLE_CAST,
+            COCKATRICE_EGG
+        ) {
+        override fun construct(owner: Player, id: Int): Familiar {
             return SpiritVulatrice(owner, id)
         }
 
-        override fun specialMove(special: content.global.skill.summoning.familiar.FamiliarSpecial): Boolean {
+        override fun specialMove(special: FamiliarSpecial): Boolean {
             return petrifyingGaze(this, special, Skills.RANGE)
         }
 
@@ -175,12 +227,20 @@ class CockatriceFamiliarNPC : Plugin<Any> {
      * Spirit saratrice.
      */
     inner class SpiritSaratrice @JvmOverloads constructor(owner: Player? = null, id: Int = 6879) :
-        content.global.skill.summoning.familiar.Forager(owner, id, 3600, 12099, 3, WeaponInterface.STYLE_CAST, COCKATRICE_EGG) {
-        override fun construct(owner: Player, id: Int): content.global.skill.summoning.familiar.Familiar {
+        Forager(
+            owner,
+            id,
+            3600,
+            12099,
+            3,
+            WeaponInterface.STYLE_CAST,
+            COCKATRICE_EGG
+        ) {
+        override fun construct(owner: Player, id: Int): Familiar {
             return SpiritSaratrice(owner, id)
         }
 
-        override fun specialMove(special: content.global.skill.summoning.familiar.FamiliarSpecial): Boolean {
+        override fun specialMove(special: FamiliarSpecial): Boolean {
             return petrifyingGaze(this, special, Skills.PRAYER)
         }
 

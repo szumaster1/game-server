@@ -49,7 +49,17 @@ class RopeSwingShortcut : UseWithHandler() {
             player.faceLocation(END_LOCATION)
             playAudio(player, Sounds.SWING_ACROSS_2494, 1)
             player.packetDispatch.sendSceneryAnimation(scenery, Animation.create(497), true)
-            content.global.skill.agility.AgilityHandler.forceWalk(player, 0, player.location, END_LOCATION, Animation.create(751), 50, 22.0, "You skillfully swing across.", 1)
+            AgilityHandler.forceWalk(
+                player,
+                0,
+                player.location,
+                END_LOCATION,
+                Animation.create(751),
+                50,
+                22.0,
+                "You skillfully swing across.",
+                1
+            )
             return true
         }
         return false

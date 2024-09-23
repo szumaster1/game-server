@@ -3,7 +3,7 @@ package content.region.misthalin.draynor.dialogue
 import org.rs.consts.Items
 import org.rs.consts.NPCs
 import content.region.desert.quest.rescue.dialogue.NedDialogueFile
-import content.region.misthalin.lumbridge.achievement.dialogue.NedDiaryDialogue
+import content.region.misthalin.lumbridge.diary.dialogue.NedDiaryDialogue
 import content.region.misthalin.varrock.quest.dragon.dialogue.NedDSDialogue
 import core.api.*
 import core.game.dialogue.Dialogue

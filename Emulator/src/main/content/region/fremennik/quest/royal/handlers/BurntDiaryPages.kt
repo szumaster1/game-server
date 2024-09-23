@@ -1,6 +1,6 @@
 package content.region.fremennik.quest.royal.handlers
 
-import content.global.handlers.iface.BookInterfaceListener
+import content.global.handlers.iface.BookInterface
 import content.global.handlers.iface.BookLine
 import content.global.handlers.iface.Page
 import content.global.handlers.iface.PageSet
@@ -464,32 +464,32 @@ class BurntDiaryPages : InteractionListener {
     }
 
     private fun pageOne(player: Player, pageNum: Int, buttonID: Int): Boolean {
-        BookInterfaceListener.pageSetup(player, BookInterfaceListener.FANCY_BOOK_3_49, TITLE, PAGE_ONE)
+        BookInterface.pageSetup(player, BookInterface.FANCY_BOOK_3_49, TITLE, PAGE_ONE)
         return true
     }
 
     private fun pageTwo(player: Player, pageNum: Int, buttonID: Int): Boolean {
-        BookInterfaceListener.pageSetup(player, BookInterfaceListener.FANCY_BOOK_3_49, TITLE, PAGE_TWO)
+        BookInterface.pageSetup(player, BookInterface.FANCY_BOOK_3_49, TITLE, PAGE_TWO)
         return true
     }
 
     private fun pageThree(player: Player, pageNum: Int, buttonID: Int): Boolean {
-        BookInterfaceListener.pageSetup(player, BookInterfaceListener.FANCY_BOOK_3_49, TITLE, PAGE_THREE)
+        BookInterface.pageSetup(player, BookInterface.FANCY_BOOK_3_49, TITLE, PAGE_THREE)
         return true
     }
 
     private fun pageFour(player: Player, pageNum: Int, buttonID: Int): Boolean {
-        BookInterfaceListener.pageSetup(player, BookInterfaceListener.FANCY_BOOK_3_49, TITLE, PAGE_FOUR)
+        BookInterface.pageSetup(player, BookInterface.FANCY_BOOK_3_49, TITLE, PAGE_FOUR)
         return true
     }
 
     override fun defineListeners() {
         on(DIARY_PAGES, IntType.ITEM, "read"){ player, node ->
             when(node.id){
-                7961 -> BookInterfaceListener.openBook(player, BookInterfaceListener.FANCY_BOOK_3_49, ::pageOne)
-                7962 -> BookInterfaceListener.openBook(player, BookInterfaceListener.FANCY_BOOK_3_49, ::pageTwo)
-                7963 -> BookInterfaceListener.openBook(player, BookInterfaceListener.FANCY_BOOK_3_49, ::pageThree)
-                else -> BookInterfaceListener.openBook(player, BookInterfaceListener.FANCY_BOOK_3_49, ::pageFour)
+                7961 -> BookInterface.openBook(player, BookInterface.FANCY_BOOK_3_49, ::pageOne)
+                7962 -> BookInterface.openBook(player, BookInterface.FANCY_BOOK_3_49, ::pageTwo)
+                7963 -> BookInterface.openBook(player, BookInterface.FANCY_BOOK_3_49, ::pageThree)
+                else -> BookInterface.openBook(player, BookInterface.FANCY_BOOK_3_49, ::pageFour)
             }
             return@on true
         }

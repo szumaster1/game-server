@@ -1,11 +1,10 @@
 package content.global.skill.summoning.familiar.npc;
 
+import content.global.skill.farming.CompostBin;
+import content.global.skill.farming.CompostBins;
 import content.global.skill.summoning.familiar.Familiar;
 import content.global.skill.summoning.familiar.FamiliarSpecial;
 import content.global.skill.summoning.familiar.Forager;
-import content.global.skill.farming.CompostBin;
-import content.global.skill.farming.CompostBins;
-import org.rs.consts.Items;
 import core.game.interaction.NodeUsageEvent;
 import core.game.interaction.UseWithHandler;
 import core.game.node.entity.combat.ImpactHandler.HitsplatType;
@@ -15,10 +14,11 @@ import core.game.node.item.Item;
 import core.game.node.scenery.Scenery;
 import core.game.world.update.flag.context.Animation;
 import core.game.world.update.flag.context.Graphic;
-import core.plugin.PluginManager;
 import core.plugin.Initializable;
 import core.plugin.Plugin;
+import core.plugin.PluginManager;
 import core.tools.RandomFunction;
+import org.rs.consts.Items;
 
 /**
  * Compost mound npc.

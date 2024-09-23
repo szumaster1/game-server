@@ -13,9 +13,6 @@ import core.tools.END_DIALOGUE
 
 /**
  * Represents the Anna jones dialogue.
- *
- * Related to [What Lies Below][content.region.misthalin.quest.member.whatliesbelow.WhatLiesBelow] quest.
- * @author Vexia
  */
 @Initializable
 class AnnaJonesDialogue(player: Player? = null) : Dialogue(player) {

@@ -83,7 +83,7 @@ class RagAndBoneManListeners : InteractionListener {
         }
 
         /*
-         * Scenery: Lighting pot boiler and cooking the bone in vinegar to yield bone.
+         * Scenery: Lighting pot-boiler and cooking the bone in vinegar to yield bone.
          */
 
         onUseWith(IntType.SCENERY, Items.TINDERBOX_590, Scenery.POT_BOILER_14007) { player, _, _ ->
@@ -104,7 +104,7 @@ class RagAndBoneManListeners : InteractionListener {
         }
 
         /*
-         * Taking bone and pot from boiled pot boiler.
+         * Taking bone and pot from boiled pot-boiler.
          */
 
         on(Scenery.POT_BOILER_14009, SCENERY, "remove-bone") { player, _ ->

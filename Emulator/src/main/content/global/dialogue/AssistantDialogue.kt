@@ -1,6 +1,6 @@
 package content.global.dialogue
 
-import content.global.travel.balloon.BalloonListeners
+import content.global.travel.Balloon
 import org.rs.consts.Components
 import org.rs.consts.NPCs
 import core.api.isQuestComplete
@@ -63,7 +63,7 @@ class AssistantDialogue(player: Player? = null) : Dialogue(player) {
             7 -> {
                 end()
                 openInterface(player, Components.ZEP_BALLOON_MAP_469)
-                BalloonListeners.adjustInterface(player!!, npc)
+                Balloon.adjustInterface(player!!, npc)
             }
             8 -> playerl(FacialExpression.FRIENDLY, "Why?").also { stage++ }
             9 -> npcl(faceExpression, "They said I was too full of hot air.").also { stage = 4 }

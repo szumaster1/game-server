@@ -1,6 +1,6 @@
 package core.game.worldevents.holiday
 
-import content.global.random.RandomEventNPC
+import content.global.ame.RandomEventNPC
 import core.Configuration
 import core.api.*
 import core.game.node.entity.Entity

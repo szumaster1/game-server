@@ -50,7 +50,6 @@ class BankZone : MapZone("bank", true) {
     }
 
     companion object {
-
         val instance = BankZone()
         @JvmField
         var BANK_ZONE_0 = ZoneBorders(3179, 3432, 3194, 3446)

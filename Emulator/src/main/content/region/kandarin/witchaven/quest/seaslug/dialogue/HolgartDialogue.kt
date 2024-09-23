@@ -1,6 +1,6 @@
 package content.region.kandarin.witchaven.quest.seaslug.dialogue
 
-import content.region.kandarin.witchaven.fishingplatform.handlers.FishingPlatform
+import content.region.kandarin.witchaven.fplatform.FishingPlatform
 import org.rs.consts.NPCs
 import core.api.getQuestStage
 import core.api.isQuestComplete

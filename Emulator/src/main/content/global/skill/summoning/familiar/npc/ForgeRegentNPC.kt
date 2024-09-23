@@ -2,6 +2,8 @@ package content.global.skill.summoning.familiar.npc
 
 import content.global.skill.firemaking.FireMakingPulse.getAsh
 import content.global.skill.firemaking.Log.Companion.forId
+import content.global.skill.summoning.familiar.Familiar
+import content.global.skill.summoning.familiar.FamiliarSpecial
 import core.game.container.impl.EquipmentContainer
 import core.game.interaction.NodeUsageEvent
 import core.game.interaction.UseWithHandler
@@ -28,13 +30,14 @@ import core.tools.RandomFunction
  * Forge regent familiar.
  */
 @Initializable
-class ForgeRegentNPC @JvmOverloads constructor(owner: Player? = null, id: Int = 7335) : content.global.skill.summoning.familiar.Familiar(owner, id, 4500, 12782, 6, WeaponInterface.STYLE_RANGE_ACCURATE) {
+class ForgeRegentNPC @JvmOverloads constructor(owner: Player? = null, id: Int = 7335) :
+    Familiar(owner, id, 4500, 12782, 6, WeaponInterface.STYLE_RANGE_ACCURATE) {
 
     init {
         boosts.add(SkillBonus(Skills.FIREMAKING, 4.0))
     }
 
-    override fun construct(owner: Player, id: Int): content.global.skill.summoning.familiar.Familiar {
+    override fun construct(owner: Player, id: Int): Familiar {
         return ForgeRegentNPC(owner, id)
     }
 
@@ -42,7 +45,7 @@ class ForgeRegentNPC @JvmOverloads constructor(owner: Player? = null, id: Int = 
         definePlugin(ForgeRegentFiremake())
     }
 
-    override fun specialMove(special: content.global.skill.summoning.familiar.FamiliarSpecial): Boolean {
+    override fun specialMove(special: FamiliarSpecial): Boolean {
         if (special.target !is Player) {
             owner.sendMessage("You can't use this special on an npc.")
             return false
@@ -86,7 +89,25 @@ class ForgeRegentNPC @JvmOverloads constructor(owner: Player? = null, id: Int = 
      *
      * @constructor Forge regent firemake
      */
-    inner class ForgeRegentFiremake : UseWithHandler(1511, 2862, 1521, 1519, 6333, 10810, 1517, 6332, 12581, 1515, 1513, 13567, 10329, 10328, 7406, 7405, 7404) {
+    inner class ForgeRegentFiremake : UseWithHandler(
+        1511,
+        2862,
+        1521,
+        1519,
+        6333,
+        10810,
+        1517,
+        6332,
+        12581,
+        1515,
+        1513,
+        13567,
+        10329,
+        10328,
+        7406,
+        7405,
+        7404
+    ) {
 
         override fun newInstance(arg: Any?): Plugin<Any> {
             for (id in ids) {
@@ -98,7 +119,7 @@ class ForgeRegentNPC @JvmOverloads constructor(owner: Player? = null, id: Int = 
         override fun handle(event: NodeUsageEvent): Boolean {
             val player = event.player
             val log = forId(event.usedItem.id)
-            val familiar = event.usedWith as content.global.skill.summoning.familiar.Familiar
+            val familiar = event.usedWith as Familiar
             val ticks = FIREMAKE_ANIMATION.definition!!.getDurationTicks()
             if (!player.familiarManager.isOwner(familiar)) {
                 return true

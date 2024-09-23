@@ -2,9 +2,9 @@ package core.game.node.entity.player;
 
 import org.rs.consts.Items;
 import org.rs.consts.Sounds;
-import content.global.handlers.item.equipment.EquipmentDegrader;
-import content.global.handlers.item.equipment.special.ChinchompaSwingHandler;
-import content.global.handlers.item.equipment.special.SalamanderSwingHandler;
+import content.global.skill.combat.equipment.EquipmentDegrader;
+import content.global.skill.combat.special.ChinchompaSwingHandler;
+import content.global.skill.combat.special.SalamanderSwingHandler;
 import content.global.skill.summoning.familiar.FamiliarManager;
 import content.global.skill.runecrafting.PouchManager;
 import content.global.skill.construction.HouseManager;

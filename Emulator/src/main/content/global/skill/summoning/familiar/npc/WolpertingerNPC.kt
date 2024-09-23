@@ -14,7 +14,8 @@ import org.rs.consts.NPCs
  * Wolpertinger familiar.
  */
 @Initializable
-class WolpertingerNPC @JvmOverloads constructor(owner: Player? = null, id: Int = NPCs.WOLPERTINGER_6869) : content.global.skill.summoning.familiar.Familiar(owner, id, 6200, 12089, 1, WeaponInterface.STYLE_CAST) {
+class WolpertingerNPC @JvmOverloads constructor(owner: Player? = null, id: Int = NPCs.WOLPERTINGER_6869) :
+    content.global.skill.summoning.familiar.Familiar(owner, id, 6200, 12089, 1, WeaponInterface.STYLE_CAST) {
 
     init {
         boosts.add(SkillBonus(Skills.HUNTER, 5.0))

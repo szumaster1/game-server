@@ -2,9 +2,6 @@ package content.global.travel
 
 import core.ServerStore.Companion.getArchive
 import core.api.*
-import org.rs.consts.Animations
-import org.rs.consts.Graphics
-import org.rs.consts.Items
 import core.game.node.entity.impl.Animator
 import core.game.node.entity.player.Player
 import core.game.system.task.Pulse
@@ -13,6 +10,9 @@ import core.game.world.map.Location
 import core.game.world.update.flag.context.Animation
 import core.game.world.update.flag.context.Graphic
 import org.json.simple.JSONObject
+import org.rs.consts.Animations
+import org.rs.consts.Graphics
+import org.rs.consts.Items
 
 /**
  * Representing the Lyre teleport.

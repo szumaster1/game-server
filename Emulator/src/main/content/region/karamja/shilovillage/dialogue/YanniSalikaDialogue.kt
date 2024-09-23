@@ -2,7 +2,7 @@ package content.region.karamja.shilovillage.dialogue
 
 import core.api.anyInInventory
 import org.rs.consts.NPCs
-import content.region.karamja.shilovillage.handlers.ShilovillageListeners
+import content.region.karamja.shilovillage.handlers.Shilovillage
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC
@@ -50,7 +50,7 @@ class YanniSalikaDialogue(player: Player? = null): Dialogue(player) {
             9 -> npc(FacialExpression.FRIENDLY, "Sure thing. Have a nice day Bwana.").also { stage = END_DIALOGUE }
             10 -> npc("Great Bwana!").also { stage++ }
             11 -> {
-                if (!anyInInventory(player, *ShilovillageListeners.ANTIQUE_ITEMS)) {
+                if (!anyInInventory(player, *Shilovillage.ANTIQUE_ITEMS)) {
                     end()
                     npcl(FacialExpression.FRIENDLY, "Sorry Bwana, you have nothing I am interested in.")
                 } else {

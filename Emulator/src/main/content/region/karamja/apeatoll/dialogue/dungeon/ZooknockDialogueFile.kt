@@ -1,6 +1,6 @@
 package content.region.karamja.apeatoll.dialogue.dungeon
 
-import content.global.handlers.item.withnpc.ZooknockListener
+import content.global.handlers.item.withnpc.Zooknock
 import core.api.*
 import org.rs.consts.Components
 import org.rs.consts.Graphics
@@ -29,7 +29,7 @@ class ZooknockAfterBattleDialogueFile: DialogueFile(){
  */
 class ZooknockDialogueFile(val it: Int) : DialogueFile() {
 
-    var i = ZooknockListener()
+    var i = Zooknock()
     var n = NPC(i.zooknock)
     var itemUsed = it
 

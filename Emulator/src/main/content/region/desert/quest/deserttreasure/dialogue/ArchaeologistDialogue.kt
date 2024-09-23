@@ -1,6 +1,6 @@
 package content.region.desert.quest.deserttreasure.dialogue
 
-import content.global.handlers.iface.BookInterfaceListener
+import content.global.handlers.iface.BookInterface
 import content.region.desert.quest.deserttreasure.DesertTreasure
 import content.region.desert.quest.deserttreasure.book.TranslationBook
 import core.api.*
@@ -185,9 +185,9 @@ class ArchaeologistDialogueFile : DialogueBuilderFile() {
             .options().let { optionBuilder ->
                 optionBuilder.option("Read book")
                     .endWith { _, player ->
-                        BookInterfaceListener.openBook(
+                        BookInterface.openBook(
                             player,
-                            BookInterfaceListener.FANCY_BOOK_3_49,
+                            BookInterface.FANCY_BOOK_3_49,
                             TranslationBook.Companion::display
                         )
                     }

@@ -50,7 +50,7 @@ enum class FarmingPatch(val varbit: Int, val type: PatchType) {
      */
 
     N_FALADOR_TREE(701, PatchType.TREE_PATCH),
-    TAVERLY_TREE(700, PatchType.TREE_PATCH),
+    TAVERLEY_TREE(700, PatchType.TREE_PATCH),
     GNOME_STRONGHOLD_TREE(2953, PatchType.TREE_PATCH),
     LUMBRIDGE_TREE(703, PatchType.TREE_PATCH),
     VARROCK_TREE(702, PatchType.TREE_PATCH),

@@ -1,11 +1,11 @@
 package content.global.travel.charter
 
 import core.api.*
-import org.rs.consts.Components
 import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.diary.DiaryType
 import core.game.system.task.Pulse
 import core.tools.StringUtils
+import org.rs.consts.Components
 
 /**
  * Represents a pulse used to travel a player to a location.

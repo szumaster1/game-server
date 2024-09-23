@@ -1,7 +1,7 @@
 package content.region.karamja.apeatoll.quest.mm.dialogue
 
-import content.global.travel.glider.Glider
-import content.global.travel.glider.GliderListeners
+import content.global.travel.glider.GliderPulse
+import content.global.travel.glider.Gliders
 import core.api.getQuestStage
 import core.api.submitWorldPulse
 import core.game.component.Component
@@ -31,7 +31,7 @@ class WaydarDialogue: DialogueFile(){
             5 -> npcl("As you wish").also { stage++ }
             6 -> {
                 player!!.interfaceManager.open(Component(138))
-                submitWorldPulse(GliderListeners.GliderPulse(1, player!!, Glider.forId(14)!!))
+                submitWorldPulse(GliderPulse(1, player!!, Gliders.forId(14)!!))
                 stage = END_DIALOGUE
             }
         }

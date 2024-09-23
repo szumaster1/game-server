@@ -3,7 +3,7 @@ package content.global.activity.champion.handlers.npc
 import core.api.*
 import org.rs.consts.Items
 import org.rs.consts.NPCs
-import content.global.activity.champion.handlers.ChampionChallengeListener
+import content.global.activity.champion.handlers.ChampionChallenge
 import core.game.node.entity.Entity
 import core.game.node.entity.combat.BattleState
 import core.game.node.entity.combat.CombatStyle
@@ -98,7 +98,7 @@ class GiantChampionNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id
             rewardXP(killer, Skills.SLAYER, 280.0)
             removeAttribute("championsarena:start")
             clearHintIcon(killer)
-            ChampionChallengeListener.isFinalBattle(killer)
+            ChampionChallenge.isFinalBattle(killer)
         }
         clear()
         super.finalizeDeath(killer)

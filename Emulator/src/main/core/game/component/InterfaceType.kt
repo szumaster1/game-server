@@ -13,47 +13,47 @@ enum class InterfaceType(
     @JvmField val resizableChildId: Int
 ) {
     /**
-     * Default interface type.
+     * Default interface.
      */
     DEFAULT(Components.TOPLEVEL_548, Components.TOPLEVEL_FULLSCREEN_746, 11, 6),
 
     /**
-     * Overlay interface type.
+     * Walkable interface.
      */
     OVERLAY(Components.TOPLEVEL_548, Components.TOPLEVEL_FULLSCREEN_746, 4, 5),
 
     /**
-     * Tab interface type.
+     * A tab interface.
      */
     TAB(Components.TOPLEVEL_548, Components.TOPLEVEL_FULLSCREEN_746, 83, 93),
 
     /**
-     * Single Tab interface type.
+     * The only tab to be shown (when this type is opened).
      */
     SINGLE_TAB(Components.TOPLEVEL_548, Components.TOPLEVEL_FULLSCREEN_746, 80, 76),
 
     /**
-     * Dialogue interface type.
+     * Chatbox dialogue interface.
      */
     DIALOGUE(Components.CHATTOP_752, Components.CHATTOP_752, 12, 12),
 
     /**
-     * Window Pane interface type.
+     * A window pane.
      */
     WINDOW_PANE(Components.TOPLEVEL_548, Components.TOPLEVEL_FULLSCREEN_746, 0, 0),
 
     /**
-     * Cs Chatbox interface type.
+     * Client script chatbox interface.
      */
     CS_CHATBOX(Components.CHATTOP_752, Components.CHATTOP_752, 6, 6),
 
     /**
-     * Chatbox interface type.
+     * Chatbox interface.
      */
     CHATBOX(Components.CHATTOP_752, Components.CHATTOP_752, 8, 8),
 
     /**
-     * Overlay B interface type.
+     * Wilderness overlay.
      */
     OVERLAY_B(Components.TOPLEVEL_548, Components.TOPLEVEL_FULLSCREEN_746, 11, 3)
 }

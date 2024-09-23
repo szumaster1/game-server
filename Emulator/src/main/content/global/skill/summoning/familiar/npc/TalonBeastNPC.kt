@@ -9,7 +9,8 @@ import org.rs.consts.NPCs
  * Talon beast familiar.
  */
 @Initializable
-class TalonBeastNPC(owner: Player? = null, id: Int = 7347) : content.global.skill.summoning.familiar.Familiar(owner, id, 4900, 12794, 6, WeaponInterface.STYLE_AGGRESSIVE) {
+class TalonBeastNPC(owner: Player? = null, id: Int = 7347) :
+    content.global.skill.summoning.familiar.Familiar(owner, id, 4900, 12794, 6, WeaponInterface.STYLE_AGGRESSIVE) {
 
     override fun construct(owner: Player, id: Int): content.global.skill.summoning.familiar.Familiar {
         return TalonBeastNPC(owner, id)

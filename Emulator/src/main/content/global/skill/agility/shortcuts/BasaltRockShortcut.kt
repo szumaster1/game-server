@@ -18,7 +18,7 @@ import core.plugin.Plugin
  * Represents the Basalt rock shortcut.
  */
 @Initializable
-class BasaltRockShortcut : content.global.skill.agility.AgilityShortcut {
+class BasaltRockShortcut : AgilityShortcut {
 
     private val locations = mapOf(
         4550 to Location.create(2522, 3597, 0),
@@ -54,7 +54,7 @@ class BasaltRockShortcut : content.global.skill.agility.AgilityShortcut {
                 val destination = locations[obj.id]
                 if (destination != null && player.location != destination) {
                     lock(player, 3)
-                    content.global.skill.agility.AgilityHandler.forceWalk(player, -1, destination, player.location, Animation.create(769), 20, 0.0, null, 1)
+                    AgilityHandler.forceWalk(player, -1, destination, player.location, Animation.create(769), 20, 0.0, null, 1)
                 } else {
                     sendMessage(player, "I can't reach.")
                 }

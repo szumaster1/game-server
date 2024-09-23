@@ -1,6 +1,6 @@
 package content.region.kandarin.quest.grandtree.dialogue
 
-import content.global.travel.glider.Glider
+import content.global.travel.glider.Gliders
 import org.rs.consts.Components
 import org.rs.consts.NPCs
 import core.api.getQuestStage
@@ -67,7 +67,7 @@ class CaptainErrdoDialogue(player: Player? = null) : Dialogue(player) {
                     1 -> npcl(FacialExpression.OLD_DEFAULT, "If you wish.").also {
                         stage = END_DIALOGUE
                         openInterface(player, Components.GLIDERMAP_138)
-                        Glider.sendConfig(npc, player)
+                        Gliders.sendConfig(npc, player)
 
                     }
                 }

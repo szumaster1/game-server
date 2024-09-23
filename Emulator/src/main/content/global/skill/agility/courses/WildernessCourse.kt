@@ -1,5 +1,7 @@
 package content.global.skill.agility.courses
 
+import content.global.skill.agility.AgilityCourse
+import content.global.skill.agility.AgilityHandler
 import core.api.*
 import core.cache.def.impl.SceneryDefinition
 import core.game.global.action.DoorActionHandler
@@ -19,8 +21,7 @@ import core.plugin.Initializable
  * Wilderness course.
  */
 @Initializable
-class WildernessCourse
-@JvmOverloads constructor(player: Player? = null) : content.global.skill.agility.AgilityCourse(player, 5, 499.0) {
+class WildernessCourse @JvmOverloads constructor(player: Player? = null) : AgilityCourse(player, 5, 499.0) {
     override fun handle(player: Player, node: Node, option: String): Boolean {
         getCourse(player)
         val `object` = node as Scenery
@@ -54,23 +55,19 @@ class WildernessCourse
     private fun handleEntranceObstacle(player: Player, `object`: Scenery) {
         GameWorld.Pulser.submit(object : Pulse(1, player) {
             var counter = 0
-            val fail = content.global.skill.agility.AgilityHandler.hasFailed(player, 1, 0.3)
+            val fail = AgilityHandler.hasFailed(player, 1, 0.3)
             override fun pulse(): Boolean {
                 when (++counter) {
                     2 -> {
-                        val end = if (fail) Location.create(2998, 3924, 0) else if (`object`.id < 2309) Location.create(
-                            2998,
-                            3917,
-                            0
-                        ) else Location.create(2998, 3930, 0)
+                        val end = if (fail) Location.create(2998, 3924, 0) else if (`object`.id < 2309) Location.create(2998, 3917, 0) else Location.create(2998, 3930, 0)
                         val start = if (`object`.id < 2309) player.location else Location.create(2998, 3917, 0)
                         sendMessage(player, "You go through the gate and try to edge over the ridge...")
-                        content.global.skill.agility.AgilityHandler.walk(player, -1, start, end, Animation.create(155), if (fail) 0.0 else 15.00, if (fail) "You lose your footing and fail into the wolf pit." else "You skillfully balance across the ridge...")
+                        AgilityHandler.walk(player, -1, start, end, Animation.create(155), if (fail) 0.0 else 15.00, if (fail) "You lose your footing and fail into the wolf pit." else "You skillfully balance across the ridge...")
                     }
 
                     9 -> {
                         if (fail) {
-                            content.global.skill.agility.AgilityHandler.fail(player, 0, player.location.transform(if (`object`.id < 2309) -2 else 2, 0, 0), Animation.create(if (`object`.id < 2309) 771 else 771), getHitAmount(player), null)
+                            AgilityHandler.fail(player, 0, player.location.transform(if (`object`.id < 2309) -2 else 2, 0, 0), Animation.create(if (`object`.id < 2309) 771 else 771), getHitAmount(player), null)
                         }
                         return fail
                     }
@@ -103,20 +100,20 @@ class WildernessCourse
                 val x = 3004
                 when (counter++) {
                     0 -> {
-                        content.global.skill.agility.AgilityHandler.forceWalk(player, -1, Location.create(x, 3937, 0), Location.create(x, 3940, 0), Animation.create(10580), 15, 0.0, null, 1) //10
+                        AgilityHandler.forceWalk(player, -1, Location.create(x, 3937, 0), Location.create(x, 3940, 0), Animation.create(10580), 15, 0.0, null, 1) //10
                         player.teleporter.send(Location.create(3004, 3947, 0), TeleportManager.TeleportType.INSTANT, TeleportManager.WILDY_TELEPORT)
-                        content.global.skill.agility.AgilityHandler.forceWalk(player, 0, Location.create(x, 3948, 0), Location.create(x, 3950, 0), Animation.create(10579), 20, 12.5, null, 5) //20
+                        AgilityHandler.forceWalk(player, 0, Location.create(x, 3948, 0), Location.create(x, 3950, 0), Animation.create(10579), 20, 12.5, null, 5) //20
                         return true
                     }
 
                     2 -> {
                         player.teleporter.send(Location.create(3004, 3947, 0), TeleportManager.TeleportType.INSTANT, TeleportManager.WILDY_TELEPORT)
-                        content.global.skill.agility.AgilityHandler.forceWalk(player, 0, Location.create(x, 3948, 0), Location.create(x, 3950, 0), Animation.create(10579), 20, 12.5, null, 5)
+                        AgilityHandler.forceWalk(player, 0, Location.create(x, 3948, 0), Location.create(x, 3950, 0), Animation.create(10579), 20, 12.5, null, 5)
                         return true
                     }
 
                     3 -> {
-                        content.global.skill.agility.AgilityHandler.forceWalk(player, 0, Location.create(x, 3948, 0), Location.create(x, 3950, 0), Animation.create(10579), 20, 12.5, null, 5)
+                        AgilityHandler.forceWalk(player, 0, Location.create(x, 3948, 0), Location.create(x, 3950, 0), Animation.create(10579), 20, 12.5, null, 5)
                         return true
                     }
                 }
@@ -130,22 +127,22 @@ class WildernessCourse
             sendMessage(player, "You cannot do that from here.")
             return
         }
-        if (content.global.skill.agility.courses.WildernessCourse.Companion.ropeDelay > GameWorld.ticks) {
+        if (ropeDelay > GameWorld.ticks) {
             sendMessage(player, "The rope is being used.")
             return
         }
-        if (content.global.skill.agility.AgilityHandler.hasFailed(player, 1, 0.1)) {
-            content.global.skill.agility.AgilityHandler.fail(player, 0, Location.create(3005, 10357, 0), null, getHitAmount(player), "You slip and fall to the pit below.")
+        if (AgilityHandler.hasFailed(player, 1, 0.1)) {
+            AgilityHandler.fail(player, 0, Location.create(3005, 10357, 0), null, getHitAmount(player), "You slip and fall to the pit below.")
             return
         }
-        content.global.skill.agility.courses.WildernessCourse.Companion.ropeDelay = GameWorld.ticks + 2
+        ropeDelay = GameWorld.ticks + 2
         player.packetDispatch.sendSceneryAnimation(`object`, Animation.create(497), true)
-        content.global.skill.agility.AgilityHandler.forceWalk(player, 1, player.location, Location.create(3005, 3958, 0), Animation.create(751), 50, 20.0, "You skillfully swing across.", 1)
+        AgilityHandler.forceWalk(player, 1, player.location, Location.create(3005, 3958, 0), Animation.create(751), 50, 20.0, "You skillfully swing across.", 1)
     }
 
     private fun handleSteppingStones(player: Player, `object`: Scenery) {
         lock(player, 50)
-        val fail = content.global.skill.agility.AgilityHandler.hasFailed(player, 1, 0.3)
+        val fail = AgilityHandler.hasFailed(player, 1, 0.3)
         val origLoc = player.location
         registerLogoutListener(player, "steppingstone") { p ->
             player.location = origLoc

@@ -18,7 +18,15 @@ import org.rs.consts.NPCs
  */
 @Initializable
 class AbyssalTitanNPC(owner: Player? = null, id: Int = NPCs.ABYSSAL_TITAN_7349) :
-    content.global.skill.summoning.familiar.BurdenBeast(owner, id, 3200, Items.ABYSSAL_TITAN_POUCH_12796, 6, 7, WeaponInterface.STYLE_ACCURATE) {
+    content.global.skill.summoning.familiar.BurdenBeast(
+        owner,
+        id,
+        3200,
+        Items.ABYSSAL_TITAN_POUCH_12796,
+        6,
+        7,
+        WeaponInterface.STYLE_ACCURATE
+    ) {
     override fun construct(owner: Player, id: Int): content.global.skill.summoning.familiar.Familiar {
         return AbyssalTitanNPC(owner, id)
     }

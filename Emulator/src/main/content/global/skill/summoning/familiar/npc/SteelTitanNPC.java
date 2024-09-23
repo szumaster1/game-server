@@ -21,8 +21,8 @@ import core.tools.RandomFunction;
 @Initializable
 public final class SteelTitanNPC extends Familiar {
 
-    private boolean specialMove;
     private static final SwitchAttack[] ATTACKS = {new SwitchAttack(CombatStyle.RANGE.getSwingHandler(), Animation.create(8190), null, null, Projectile.create(null, null, 1445, 60, 36, 41, 46)), new SwitchAttack(CombatStyle.MAGIC.getSwingHandler(), Animation.create(8190), null, null, Projectile.create(null, null, 1445, 60, 36, 41, 46)), new SwitchAttack(CombatStyle.MELEE.getSwingHandler(), Animation.create(8183))};
+    private boolean specialMove;
 
     /**
      * Instantiates a new Steel titan npc.

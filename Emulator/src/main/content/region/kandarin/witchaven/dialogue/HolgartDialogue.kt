@@ -1,6 +1,6 @@
 package content.region.kandarin.witchaven.dialogue
 
-import content.region.kandarin.witchaven.fishingplatform.handlers.FishingPlatform
+import content.region.kandarin.witchaven.fplatform.FishingPlatform
 import content.region.kandarin.witchaven.quest.seaslug.dialogue.HolgartDialogueFile
 import org.rs.consts.NPCs
 import core.api.isQuestComplete

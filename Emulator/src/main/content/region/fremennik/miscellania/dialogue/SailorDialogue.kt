@@ -1,7 +1,7 @@
 package content.region.fremennik.miscellania.dialogue
 
-import content.region.fremennik.waterbirth_island.TravelDestination
-import content.region.fremennik.waterbirth_island.WaterbirthTravel.sail
+import content.region.fremennik.waterbirth.TravelDestination
+import content.region.fremennik.waterbirth.WaterbirthTravel.sail
 import org.rs.consts.NPCs
 import core.api.inBorders
 import core.game.dialogue.Dialogue

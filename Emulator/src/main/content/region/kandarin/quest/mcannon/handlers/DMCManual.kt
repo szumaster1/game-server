@@ -1,6 +1,6 @@
 package content.region.kandarin.quest.mcannon.handlers
 
-import content.global.handlers.iface.BookInterfaceListener
+import content.global.handlers.iface.BookInterface
 import content.global.handlers.iface.BookLine
 import content.global.handlers.iface.Page
 import content.global.handlers.iface.PageSet
@@ -81,8 +81,8 @@ class DMCManual : InteractionListener {
     }
 
     private fun display(player: Player, pageNum: Int, buttonID: Int): Boolean {
-        BookInterfaceListener.pageSetup(
-            player, BookInterfaceListener.FANCY_BOOK_3_49,
+        BookInterface.pageSetup(
+            player, BookInterface.FANCY_BOOK_3_49,
             TITLE,
             CONTENTS
         )
@@ -92,7 +92,7 @@ class DMCManual : InteractionListener {
 
     override fun defineListeners() {
         on(Items.INSTRUCTION_MANUAL_5, IntType.ITEM, "read") { player, _ ->
-            BookInterfaceListener.openBook(player, BookInterfaceListener.FANCY_BOOK_3_49, ::display)
+            BookInterface.openBook(player, BookInterface.FANCY_BOOK_3_49, ::display)
             return@on true
         }
     }

@@ -2,7 +2,6 @@ package content.global.travel
 
 import content.global.skill.magic.TeleportMethod
 import core.api.*
-import org.rs.consts.Sounds
 import core.game.event.TeleportEvent
 import core.game.node.Node
 import core.game.node.entity.impl.Projectile
@@ -16,6 +15,7 @@ import core.game.world.map.Location
 import core.game.world.update.flag.context.Animation
 import core.game.world.update.flag.context.Graphic
 import core.tools.RandomFunction
+import org.rs.consts.Sounds
 
 /**
  * Represents a utility class for rune essence teleporting.

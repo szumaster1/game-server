@@ -28,16 +28,7 @@ class LowFenceShortcut : InteractionListener {
             }
 
             queueScript(player, 1, QueueStrength.SOFT) {
-                content.global.skill.agility.AgilityHandler.forceWalk(
-                    player,
-                    -1,
-                    player.location,
-                    player.location.transform(if (player.location.x == 3473) Direction.EAST else Direction.WEST, 1),
-                    Animation(Animations.JUMP_OVER_OBSTACLE_6132),
-                    10,
-                    0.0,
-                    null
-                )
+                AgilityHandler.forceWalk(player, -1, player.location, player.location.transform(if (player.location.x == 3473) Direction.EAST else Direction.WEST, 1), Animation(Animations.JUMP_OVER_OBSTACLE_6132), 10, 0.0, null)
                 return@queueScript stopExecuting(player)
             }
 

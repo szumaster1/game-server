@@ -93,14 +93,16 @@ enum class EnchantedJewellery(val options: Array<String>, val locations: Array<L
                     3 -> {
                         teleport(player, location)
                         resetAnimator(player)
+                        val jewellery = nextJewellery.name.replace("[^\\d-]|-(?=\\D)".toRegex(), "").toInt()
+
                         if (isLastItemIndex(itemIndex)) {
                             if (isCrumble) crumbleJewellery(player, item, isEquipped)
+                            sendMessage(player, "You use your amulet's last charge.")
                         } else {
                             replaceJewellery(player, item, nextJewellery, isEquipped)
+                            sendMessage(player, "Your " + getJewelleryType(item) + " has " + Util.convert(jewellery) + " uses left.")
                         }
                         unlock(player)
-                        val jewellery = nextJewellery.name.replace("[^\\d-]|-(?=\\D)".toRegex(), "").toInt()
-                        sendMessage(player, "Your " + getJewelleryType(item) + " has " + Util.convert(jewellery) + " uses left.")
                         player.dispatch(TeleportEvent(TeleportManager.TeleportType.NORMAL, TeleportMethod.JEWELRY, item, location))
                         return true
                     }

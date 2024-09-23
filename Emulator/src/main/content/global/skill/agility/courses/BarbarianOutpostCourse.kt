@@ -1,6 +1,6 @@
 package content.global.skill.agility.courses
 
-import content.miniquest.barcrawl.handlers.BarcrawlManager
+import content.region.kandarin.barcrawl.handlers.BarcrawlManager
 import core.api.*
 import core.cache.def.impl.ItemDefinition
 import core.cache.def.impl.NPCDefinition
@@ -26,11 +26,10 @@ import org.rs.consts.Sounds
  * Barbarian outpost course.
  */
 @Initializable
-class BarbarianOutpostCourse
-@JvmOverloads constructor(player: Player? = null) : content.global.skill.agility.AgilityCourse(player, 6, 46.2) {
+class BarbarianOutpostCourse @JvmOverloads constructor(player: Player? = null) : content.global.skill.agility.AgilityCourse(player, 6, 46.2) {
 
     override fun createInstance(player: Player): content.global.skill.agility.AgilityCourse {
-        return content.global.skill.agility.courses.BarbarianOutpostCourse(player)
+        return BarbarianOutpostCourse(player)
     }
 
     override fun handle(player: Player, node: Node, option: String): Boolean {
@@ -82,7 +81,7 @@ class BarbarianOutpostCourse
             sendMessage(player, "You cannot do that from here.")
             return
         }
-        if (content.global.skill.agility.courses.BarbarianOutpostCourse.Companion.ropeDelay > GameWorld.ticks) {
+        if (ropeDelay > GameWorld.ticks) {
             sendMessage(player, "The rope is being used.")
             return
         }
@@ -90,7 +89,7 @@ class BarbarianOutpostCourse
             content.global.skill.agility.AgilityHandler.fail(player, 0, Location.create(2549, 9951, 0), null, getHitAmount(player), "You slip and fall to the pit below.")
             return
         }
-        content.global.skill.agility.courses.BarbarianOutpostCourse.Companion.ropeDelay = GameWorld.ticks + 2
+        ropeDelay = GameWorld.ticks + 2
         content.global.skill.agility.AgilityHandler.forceWalk(player, 0, player.location, Location.create(2551, 3549, 0), Animation.create(751), 50, 22.0, "You skillfully swing across.", 1)
         playAudio(player, Sounds.SWING_ACROSS_2494, 1)
         animateScenery(player, `object`, 497, true)
@@ -157,7 +156,7 @@ class BarbarianOutpostCourse
         NPCDefinition.forId(385).handlers["option:pick-up"] = this
         NPCDefinition.forId(386).handlers["option:pick-up"] = this
         NPCDefinition.forId(387).handlers["option:pick-up"] = this
-        PluginManager.definePlugin(content.global.skill.agility.courses.BarbarianOutpostCourse.BarbarianGuardDialogue())
+        PluginManager.definePlugin(BarbarianGuardDialogue())
     }
 
     override fun getDestination(node: Node, n: Node): Location? {
@@ -176,7 +175,7 @@ class BarbarianOutpostCourse
     class BarbarianGuardDialogue(player: Player? = null) : Dialogue(player) {
 
         override fun newInstance(player: Player): Dialogue {
-            return content.global.skill.agility.courses.BarbarianOutpostCourse.BarbarianGuardDialogue(player)
+            return BarbarianGuardDialogue(player)
         }
 
         override fun open(vararg args: Any): Boolean {

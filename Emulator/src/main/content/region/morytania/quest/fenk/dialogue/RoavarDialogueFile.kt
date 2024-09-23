@@ -20,18 +20,23 @@ class RoavarDialogueFile(private val dialogueNum: Int = 0) : DialogueFile() {
     override fun handle(componentID: Int, buttonID: Int) {
         when (stage) {
             START_DIALOGUE -> {
-                if (dialogueNum == 1) {
-                    npcl("If you've got the money, I've got a real treat for you.")
-                    stage = 1
-                } else if (dialogueNum == 2) {
-                    npcl("You're interested in our speciality, I see. Would you like to buy some?")
-                    stage = 2
-                } else if (dialogueNum == 3) {
-                    npcl("You can leave that alone, my friend. I've already sold you one of your own - eat that. I can't afford to give away freebies in this business!")
-                    stage = END_DIALOGUE
-                } else {
-                    npcl("Hey! Don't touch that.")
-                    stage = END_DIALOGUE
+                when (dialogueNum) {
+                    1 -> {
+                        npcl("If you've got the money, I've got a real treat for you.")
+                        stage = 1
+                    }
+                    2 -> {
+                        npcl("You're interested in our speciality, I see. Would you like to buy some?")
+                        stage = 2
+                    }
+                    3 -> {
+                        npcl("You can leave that alone, my friend. I've already sold you one of your own - eat that. I can't afford to give away freebies in this business!")
+                        stage = END_DIALOGUE
+                    }
+                    else -> {
+                        npcl("Hey! Don't touch that.")
+                        stage = END_DIALOGUE
+                    }
                 }
             }
 

@@ -11,10 +11,7 @@ import core.game.system.task.Pulse
 import core.game.world.map.Location
 
 /**
- * Represents a Complete Spell Pulse.
- *
- * @param player the player for whom the spell is completed.
- * @constructor Creates a CompleteSpellPulse with the specified player.
+ * Represents a complete spell pulse.
  */
 class CompleteSpellPulse(val player: Player) : Pulse(2) {
     var counter = 0

@@ -44,7 +44,10 @@ class VoidFamiliarNPC : Plugin<Any> {
      * @param special An optional special ability associated with the familiar.
      * @return Returns true if the call to arms was successful, false otherwise.
      */
-    fun callToArms(familiar: content.global.skill.summoning.familiar.Familiar, special: content.global.skill.summoning.familiar.FamiliarSpecial?): Boolean {
+    fun callToArms(
+        familiar: content.global.skill.summoning.familiar.Familiar,
+        special: content.global.skill.summoning.familiar.FamiliarSpecial?
+    ): Boolean {
         val owner = familiar.owner
         owner.lock()
         Pulser.submit(object : Pulse(1, owner) {
@@ -70,7 +73,15 @@ class VoidFamiliarNPC : Plugin<Any> {
      * Void ravager NPC.
      */
     inner class VoidRavagerNPC @JvmOverloads constructor(owner: Player? = null, id: Int = 7370) :
-        content.global.skill.summoning.familiar.Forager(owner, id, 2700, 12818, 3, WeaponInterface.STYLE_AGGRESSIVE, *ITEMS) {
+        content.global.skill.summoning.familiar.Forager(
+            owner,
+            id,
+            2700,
+            12818,
+            3,
+            WeaponInterface.STYLE_AGGRESSIVE,
+            *ITEMS
+        ) {
 
         init {
             boosts.add(SkillBonus(Skills.MINING, 1.0))

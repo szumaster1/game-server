@@ -1,4 +1,4 @@
-import content.global.handlers.iface.ge.StockMarketInterfaceListener
+import content.global.handlers.iface.ge.StockMarket
 import core.game.ge.OfferState
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -138,10 +138,10 @@ import java.io.File
     @Test fun offerWithCombinedNotedAndUnnotedAmountShouldSuceed() {
         TestUtils.getMockPlayer("combinedNotendAndUnnotedExcTest").use { p ->
             val offer = generateUnsentOffer(4151, 1000, 1500, true, p.name, OfferState.PENDING)
-            val mkt = StockMarketInterfaceListener()
+            val mkt = StockMarket()
             p.inventory.add(Item(Items.ABYSSAL_WHIP_4151, 10))
             p.inventory.add(Item(Items.ABYSSAL_WHIP_4152, 990))
-            Assertions.assertEquals(StockMarketInterfaceListener.OfferConfirmResult.Success, mkt.confirmOffer(p, offer, 0))
+            Assertions.assertEquals(StockMarket.OfferConfirmResult.Success, mkt.confirmOffer(p, offer, 0))
             Assertions.assertEquals(0, p.inventory.getAmount(4151))
             Assertions.assertEquals(0, p.inventory.getAmount(4152))
         }
@@ -150,9 +150,9 @@ import java.io.File
     @Test fun offerWithOnlyNotedAmountShouldSucceed() {
         TestUtils.getMockPlayer("onlyNotedOfferSucceed").use { p ->
             val offer = generateUnsentOffer(4151, 1000, 1500, true, p.name, OfferState.PENDING)
-            val mkt = StockMarketInterfaceListener()
+            val mkt = StockMarket()
             p.inventory.add(Item(Items.ABYSSAL_WHIP_4152, 1000))
-            Assertions.assertEquals(StockMarketInterfaceListener.OfferConfirmResult.Success, mkt.confirmOffer(p, offer, 0))
+            Assertions.assertEquals(StockMarket.OfferConfirmResult.Success, mkt.confirmOffer(p, offer, 0))
             Assertions.assertEquals(0, p.inventory.getAmount(4151))
             Assertions.assertEquals(0, p.inventory.getAmount(4152))
         }
@@ -161,9 +161,9 @@ import java.io.File
     @Test fun offerWithMoreUnnotedItemsThanOfferAmountShouldSucceed() {
         TestUtils.getMockPlayer("onlyUnnotedOfferWithExtraItemsSucceed").use { p ->
             val offer = generateUnsentOffer(4151, 10, 1500, true, p.name, OfferState.PENDING)
-            val mkt = StockMarketInterfaceListener()
+            val mkt = StockMarket()
             p.inventory.add(Item(Items.ABYSSAL_WHIP_4151, 20))
-            Assertions.assertEquals(StockMarketInterfaceListener.OfferConfirmResult.Success, mkt.confirmOffer(p, offer, 0))
+            Assertions.assertEquals(StockMarket.OfferConfirmResult.Success, mkt.confirmOffer(p, offer, 0))
             Assertions.assertEquals(10, p.inventory.getAmount(4151))
             Assertions.assertEquals(0, p.inventory.getAmount(4152))
         }
@@ -172,9 +172,9 @@ import java.io.File
     @Test fun offerWithOnlyUnnotedAmountShouldSucceed() {
         TestUtils.getMockPlayer("onlyUnnotedOfferSucceed").use { p ->
             val offer = generateUnsentOffer(4151, 10, 1500, true, p.name, OfferState.PENDING)
-            val mkt = StockMarketInterfaceListener()
+            val mkt = StockMarket()
             p.inventory.add(Item(Items.ABYSSAL_WHIP_4151, 10))
-            Assertions.assertEquals(StockMarketInterfaceListener.OfferConfirmResult.Success, mkt.confirmOffer(p, offer, 0))
+            Assertions.assertEquals(StockMarket.OfferConfirmResult.Success, mkt.confirmOffer(p, offer, 0))
             Assertions.assertEquals(0, p.inventory.getAmount(4151))
             Assertions.assertEquals(0, p.inventory.getAmount(4152))
         }
@@ -183,10 +183,10 @@ import java.io.File
     @Test fun offerWithNotEnoughNotedItemsShouldFail() {
         TestUtils.getMockPlayer("combinedNotedAndUnnotedFailure").use { p ->
             val offer = generateUnsentOffer(4151, 1000, 1500, true, p.name, OfferState.PENDING)
-            val mkt = StockMarketInterfaceListener()
+            val mkt = StockMarket()
             p.inventory.add(Item(Items.ABYSSAL_WHIP_4151, 10))
             p.inventory.add(Item(Items.ABYSSAL_WHIP_4152, 15))
-            Assertions.assertEquals(StockMarketInterfaceListener.OfferConfirmResult.NotEnoughItemsOrCoins, mkt.confirmOffer(p, offer, 0))
+            Assertions.assertEquals(StockMarket.OfferConfirmResult.NotEnoughItemsOrCoins, mkt.confirmOffer(p, offer, 0))
             Assertions.assertEquals(10, p.inventory.getAmount(4151))
             Assertions.assertEquals(15, p.inventory.getAmount(4152))
         }
@@ -195,10 +195,10 @@ import java.io.File
     @Test fun offerWithNotEnoughUnnotedItemsShouldFail() {
         TestUtils.getMockPlayer("combinedNotedAndUnnotedFailure2").use { p ->
             val offer = generateUnsentOffer(4151, 1000, 1500, true, p.name, OfferState.PENDING)
-            val mkt = StockMarketInterfaceListener()
+            val mkt = StockMarket()
             p.inventory.add(Item(Items.ABYSSAL_WHIP_4151, 10))
             p.inventory.add(Item(Items.ABYSSAL_WHIP_4152, 900))
-            Assertions.assertEquals(StockMarketInterfaceListener.OfferConfirmResult.NotEnoughItemsOrCoins, mkt.confirmOffer(p, offer, 0))
+            Assertions.assertEquals(StockMarket.OfferConfirmResult.NotEnoughItemsOrCoins, mkt.confirmOffer(p, offer, 0))
             Assertions.assertEquals(10, p.inventory.getAmount(4151))
             Assertions.assertEquals(900, p.inventory.getAmount(4152))
         }

@@ -18,12 +18,12 @@ import core.plugin.Initializable
  */
 @Initializable
 class SpiritKalphiteNPC @JvmOverloads constructor(owner: Player? = null, id: Int = 6994) :
-    content.global.skill.summoning.familiar.BurdenBeast(owner, id, 2200, 12063, 6, 6, WeaponInterface.STYLE_DEFENSIVE) {
-    override fun construct(owner: Player, id: Int): content.global.skill.summoning.familiar.Familiar {
+    BurdenBeast(owner, id, 2200, 12063, 6, 6, WeaponInterface.STYLE_DEFENSIVE) {
+    override fun construct(owner: Player, id: Int): Familiar {
         return SpiritKalphiteNPC(owner, id)
     }
 
-    override fun specialMove(special: content.global.skill.summoning.familiar.FamiliarSpecial): Boolean {
+    override fun specialMove(special: FamiliarSpecial): Boolean {
         if (!isOwnerAttackable) {
             return false
         }

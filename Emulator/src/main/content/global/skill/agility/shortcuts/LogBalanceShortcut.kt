@@ -14,7 +14,7 @@ import core.plugin.Plugin
  * Represents the Log balance shortcut.
  */
 @Initializable
-class LogBalanceShortcut : content.global.skill.agility.AgilityShortcut {
+class LogBalanceShortcut : AgilityShortcut {
     private var start: Location
     private var end: Location
 
@@ -42,7 +42,7 @@ class LogBalanceShortcut : content.global.skill.agility.AgilityShortcut {
             distanceToStart > distanceToEnd -> start
             else -> end
         }
-        content.global.skill.agility.AgilityHandler.walk(player, -1, player.location, destination, Animation.create(155), experience, null)
+        AgilityHandler.walk(player, -1, player.location, destination, Animation.create(155), experience, null)
     }
 
     override fun getDestination(node: Node, n: Node): Location {

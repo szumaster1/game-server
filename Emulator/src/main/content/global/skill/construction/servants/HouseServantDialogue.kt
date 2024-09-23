@@ -1,6 +1,6 @@
 package content.global.skill.construction.servants
 
-import content.global.handlers.iface.plugin.Plank
+import content.global.handlers.iface.Plank
 import core.api.freeSlots
 import core.api.getStatLevel
 import core.game.dialogue.Dialogue
@@ -51,7 +51,7 @@ class HouseServantDialogue(player: Player? = null) : Dialogue(player) {
             return true
         }
         if (!manager.hasServant()) {
-            val type = content.global.skill.construction.servants.ServantType.forId(npc.id)
+            val type = ServantType.forId(npc.id)
             if (getStatLevel(player, Skills.CONSTRUCTION) >= type.level) {
                 interpreter.sendDialogues(npc, expression, fontColor + "You're not aristocracy, but I suppose you'd do. Do you", fontColor + "want a good cook for " + type.cost + fontColor + " coins?")
                 stage = 0
@@ -95,7 +95,7 @@ class HouseServantDialogue(player: Player? = null) : Dialogue(player) {
     override fun handle(interfaceId: Int, buttonId: Int): Boolean {
         val manager = player.houseManager
         val servant = manager.servant
-        var type = content.global.skill.construction.servants.ServantType.forId(npc.id)
+        var type = ServantType.forId(npc.id)
         val expression = if (npc.id != 4243) FacialExpression.HALF_GUILTY else FacialExpression.OLD_DEFAULT
         val fontColor = if (npc.id != 4243) BLACK else BLUE
         when (stage) {
@@ -139,7 +139,7 @@ class HouseServantDialogue(player: Player? = null) : Dialogue(player) {
 
             3 -> {
                 if (type != null && player.inventory.getAmount(995) >= type.cost && player.inventory.remove(Item(995, type.cost))) {
-                    manager.servant = content.global.skill.construction.servants.Servant(type)
+                    manager.servant = Servant(type)
                     interpreter.sendDialogue("The servant heads to your house.")
                     stage = 100
                 } else {
@@ -201,7 +201,7 @@ class HouseServantDialogue(player: Player? = null) : Dialogue(player) {
                 }
 
                 3 -> {
-                    if (type == content.global.skill.construction.servants.ServantType.MAID || type == content.global.skill.construction.servants.ServantType.RICK) {
+                    if (type == ServantType.MAID || type == ServantType.RICK) {
                         interpreter.sendDialogues(servant, expression, fontColor + "I am unable to travel to the sawmill for you.")
                         stage = 100
                         return true
@@ -436,7 +436,7 @@ class HouseServantDialogue(player: Player? = null) : Dialogue(player) {
         if (item == null || !requirements(player, item, true)) {
             return
         }
-        if (type == content.global.skill.construction.servants.ServantType.MAID || type == content.global.skill.construction.servants.ServantType.RICK) {
+        if (type == ServantType.MAID || type == ServantType.RICK) {
             interpreter.sendDialogues(servant, expression, fontColor + "I am unable to take planks to the sawmill.")
             return
         }

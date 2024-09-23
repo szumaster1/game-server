@@ -3,7 +3,7 @@ package content.region.kandarin.baxtorian.dialogue
 import core.api.*
 import org.rs.consts.Items
 import org.rs.consts.NPCs
-import content.region.kandarin.baxtorian.barbarian_training.BarbarianTraining
+import content.region.kandarin.baxtorian.barbariantraining.BarbarianTraining
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC

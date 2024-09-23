@@ -17,7 +17,16 @@ import org.rs.consts.NPCs
  * Pack yak familiar.
  */
 @Initializable
-class PackYakNPC @JvmOverloads constructor(owner: Player? = null, id: Int = NPCs.PACK_YAK_6873) : content.global.skill.summoning.familiar.BurdenBeast(owner, id, 5800, 12093, 12, 30, WeaponInterface.STYLE_AGGRESSIVE) {
+class PackYakNPC @JvmOverloads constructor(owner: Player? = null, id: Int = NPCs.PACK_YAK_6873) :
+    content.global.skill.summoning.familiar.BurdenBeast(
+        owner,
+        id,
+        5800,
+        12093,
+        12,
+        30,
+        WeaponInterface.STYLE_AGGRESSIVE
+    ) {
 
     override fun construct(owner: Player, id: Int): content.global.skill.summoning.familiar.Familiar {
         return PackYakNPC(owner, id)
@@ -45,9 +54,17 @@ class PackYakNPC @JvmOverloads constructor(owner: Player? = null, id: Int = NPCs
                 // Add worked, but remove failed. This should never happen (it by definition constitutes an item duplication).
                 val recovered = removeItem(player, item, Container.BANK)
                 if (recovered) {
-                    log(player, LogType.DUPE_ALERT, "Successfully recovered from potential dupe attempt involving the winter storage scroll")
+                    log(
+                        player,
+                        LogType.DUPE_ALERT,
+                        "Successfully recovered from potential dupe attempt involving the winter storage scroll"
+                    )
                 } else {
-                    log(player, LogType.DUPE_ALERT, "Failed to recover from potentially successful dupe attempt involving the winter storage scroll")
+                    log(
+                        player,
+                        LogType.DUPE_ALERT,
+                        "Failed to recover from potentially successful dupe attempt involving the winter storage scroll"
+                    )
                 }
             }
         }

@@ -32,8 +32,6 @@ class CyregPaddlehornDialogue(player: Player? = null) : Dialogue(player) {
         return true
     }
 
-    //1 -> playerl(FacialExpression.FRIENDLY, "").also { stage++ }
-//1 -> npcl(FacialExpression.FRIENDLY, "").also { stage++ }
     override fun handle(componentID: Int, buttonID: Int): Boolean {
         when (getQuestStage(player!!, "In Search of the Myreque")) {
             1 -> when (stage) {

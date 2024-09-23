@@ -11,9 +11,6 @@ import core.plugin.Plugin
 
 /**
  * Handles the empty folder.
- *
- * Related to [What Lies Below][content.region.misthalin.quest.member.whatliesbelow.WhatLiesBelow] quest.
- * @author Vexia
  */
 @Initializable
 class FolderHandler : UseWithHandler(WhatLiesBelowListeners.EMPTY_FOLDER, WhatLiesBelowListeners.USED_FOLDER) {

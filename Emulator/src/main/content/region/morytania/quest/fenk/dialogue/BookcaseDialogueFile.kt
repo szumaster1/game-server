@@ -1,7 +1,7 @@
 package content.region.morytania.quest.fenk.dialogue
 
 import org.rs.consts.Items
-import content.global.handlers.iface.BookInterfaceListener
+import content.global.handlers.iface.BookInterface
 import content.global.handlers.iface.BookLine
 import content.global.handlers.iface.Page
 import content.global.handlers.iface.PageSet
@@ -103,7 +103,7 @@ class ChimneySweepingOnABudgetBook {
         )
 
         fun display(player: Player, pageNum: Int, buttonID: Int): Boolean {
-            BookInterfaceListener.pageSetup(player, BookInterfaceListener.FANCY_BOOK_3_49, TITLE, CONTENTS)
+            BookInterface.pageSetup(player, BookInterface.FANCY_BOOK_3_49, TITLE, CONTENTS)
             return true
         }
     }

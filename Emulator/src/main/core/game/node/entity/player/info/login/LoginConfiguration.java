@@ -1,6 +1,6 @@
 package core.game.node.entity.player.info.login;
 
-import content.miniquest.knights.handlers.KWUtils;
+import content.region.kandarin.catherby.miniquest.knightswave.handlers.KWUtils;
 import core.Configuration;
 import core.game.component.Component;
 import core.game.interaction.InteractionListeners;
@@ -28,34 +28,19 @@ import java.util.stream.IntStream;
 import static core.api.ContentAPIKt.*;
 import static core.tools.GlobalsKt.colorize;
 
-/**
- * Login configuration.
- */
 public final class LoginConfiguration {
-
     private static final List<Plugin<Object>> LOGIN_PLUGINS = new ArrayList<>(20);
-
     private static final Component LOBBY_PANE = new Component(549);
-
     private static final Component LOBBY_INTERFACE = new Component(378);
-
     private static final int[] MESSAGE_MODEL = {15, 16, 17, 18, 19, 20, 21, 22, 23, 405, 447, 622, 623, 679, 715, 800};
     private static int messModel;
 
-    /**
-     * Instantiates a new Login configuration.
-     */
     public LoginConfiguration() {
         /*
          * empty.
          */
     }
 
-    /**
-     * Configure lobby.
-     *
-     * @param player the player
-     */
     public static void configureLobby(Player player) {
         player.updateSceneGraph(true);
         if (!player.isArtificial() && player.getAttribute("tutorial:complete", false) && player.getAttribute("login_type", LoginType.NORMAL_LOGIN) != LoginType.RECONNECT_TYPE) {
@@ -65,11 +50,6 @@ public final class LoginConfiguration {
         }
     }
 
-    /**
-     * Send lobby screen.
-     *
-     * @param player the player
-     */
     public static void sendLobbyScreen(Player player) {
         messModel = autoSelect();
         for (Player p : Repository.getLobbyPlayers()) {
@@ -106,11 +86,6 @@ public final class LoginConfiguration {
         player.getDetails().setLastLogin(System.currentTimeMillis());
     }
 
-    /**
-     * Configure game world.
-     *
-     * @param player the player
-     */
     public static void configureGameWorld(final Player player) {
         sendGameConfiguration(player);
         Repository.getLobbyPlayers().remove(player);
@@ -127,9 +102,9 @@ public final class LoginConfiguration {
         }
 
         for (Item item : player.getEquipment().toArray()) {
-            //Run equip hooks for all items equipped on login.
-            //We should have already been doing this.
-            //Frankly, I don't even want to imagine the number of bugs us *not* doing this has caused.
+            /*
+             * Run equip hooks for all items equipped on login.
+             */
             if (item == null) continue;
             player.getEquipment().remove(item);
             if (!InteractionListeners.run(item.getId(), player, item, true) || !player.getEquipment().add(item, true, false)) {
@@ -164,11 +139,6 @@ public final class LoginConfiguration {
          */
     }
 
-    /**
-     * Send game configuration.
-     *
-     * @param player the player
-     */
     public static void sendGameConfiguration(final Player player) {
         player.getInterfaceManager().openWindowsPane(new Component(player.getInterfaceManager().isResizable() ? 746 : 548));
         player.getInterfaceManager().openChatbox(137);
@@ -185,11 +155,6 @@ public final class LoginConfiguration {
         player.getAppearance().sync();
     }
 
-    /**
-     * Welcome.
-     *
-     * @param player the player
-     */
     public static final void welcome(final Player player) {
         if (player.isArtificial()) {
             return;
@@ -201,11 +166,6 @@ public final class LoginConfiguration {
         }
     }
 
-    /**
-     * Config.
-     *
-     * @param player the player
-     */
     public static final void config(final Player player) {
         if (!player.isArtificial())
             log(LoginConfiguration.class, Log.INFO, "configuring player " + player.getUsername());
@@ -228,12 +188,6 @@ public final class LoginConfiguration {
             log(LoginConfiguration.class, Log.INFO, "finished configuring player " + player.getUsername());
     }
 
-    /**
-     * Gets message child.
-     *
-     * @param interfaceId the interface id
-     * @return the message child
-     */
     public static int getMessageChild(int interfaceId) {
         if (interfaceId == 622) {
             return 8;
@@ -258,12 +212,6 @@ public final class LoginConfiguration {
         return contains ? GameWorld.getSettings().getMessage_model() : MESSAGE_MODEL[new Random().nextInt(MESSAGE_MODEL.length)];
     }
 
-    /**
-     * Gets last login.
-     *
-     * @param player the player
-     * @return the last login
-     */
     public static String getLastLogin(Player player) {
         String lastIp = player.getDetails().accountInfo.getLastUsedIp();
         if (lastIp.equals("")) {
@@ -286,12 +234,6 @@ public final class LoginConfiguration {
         return string;
     }
 
-
-    /**
-     * Gets login plugins.
-     *
-     * @return the login plugins
-     */
     public static List<Plugin<Object>> getLoginPlugins() {
         return LOGIN_PLUGINS;
     }

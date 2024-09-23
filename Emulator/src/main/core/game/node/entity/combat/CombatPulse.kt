@@ -1,8 +1,8 @@
 package core.game.node.entity.combat
 
 
-import content.global.handlers.item.equipment.special.SalamanderSwingHandler
-import content.global.random.RandomEventNPC
+import content.global.skill.combat.special.SalamanderSwingHandler
+import content.global.ame.RandomEventNPC
 import core.game.container.impl.EquipmentContainer
 import core.game.interaction.MovementPulse
 import core.game.node.Node
@@ -18,7 +18,6 @@ import core.game.world.GameWorld
 import core.game.world.update.flag.context.Animation
 import core.tools.RandomFunction
 import core.api.*
-import core.game.interaction.DestinationFlag
 import core.game.system.timer.impl.*
 
 /**

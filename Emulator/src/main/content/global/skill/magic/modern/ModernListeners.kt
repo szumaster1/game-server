@@ -252,12 +252,12 @@ class ModernListeners : content.global.skill.magic.SpellListener("modern") {
     /**
      * Function to perform the superheat action.
      *
-     * @param player The player performing the action.
-     * @param item   The item to be superheated.
+     * @param player the player performing the action.
+     * @param item   the item to be superheated.
      */
     private fun superheat(player: Player, item: Item) {
         if (!item.name.contains("ore") && !item.name.equals("coal", true)) {
-            player.sendMessage("You can only cast this spell on ore.")
+            sendMessage(player, "You can only cast this spell on ore.")
             return
         }
 
@@ -282,26 +282,17 @@ class ModernListeners : content.global.skill.magic.SpellListener("modern") {
 
         var bar = returnBar(player, item) ?: return
 
-        if (bar == Bar.IRON && player.inventory.getAmount(Items.COAL_453) >= 2 && player.skills.getLevel(Skills.SMITHING) >= Bar.STEEL.level && player.inventory.contains(Items.IRON_ORE_441, 1)) bar = Bar.STEEL
-
         if (getStatLevel(player, Skills.SMITHING) < bar.level) {
             sendMessage(player, "You need a smithing level of ${bar.level} to superheat that ore.")
             return
         }
 
-        for (items in bar.ores) {
-            if (!player.inventory.contains(items.id, items.amount)) {
-                sendMessage(player, "You do not have the required ores to make this bar.")
-                return
-            }
-        }
-
-        player.lock(3)
+        lock(player, 3)
         removeRunes(player)
         addXP(player, 53.0)
         playAudio(player, Sounds.SUPERHEAT_ALL_190)
         showMagicTab(player)
-        player.pulseManager.run(SmeltingPulse(player, item, bar, 1, true))
+        submitIndividualPulse(player, SmeltingPulse(player, item, bar, 1, true))
         setDelay(player, false)
     }
 
@@ -333,15 +324,31 @@ class ModernListeners : content.global.skill.magic.SpellListener("modern") {
             player.pulseManager.clear()
         }
 
-        val staves = intArrayOf(Items.STAFF_OF_FIRE_1387, Items.FIRE_BATTLESTAFF_1393, Items.MYSTIC_FIRE_STAFF_1401, Items.LAVA_BATTLESTAFF_3053, Items.MYSTIC_LAVA_STAFF_3054, Items.STEAM_BATTLESTAFF_11736, Items.MYSTIC_STEAM_STAFF_11738)
+        val staves = intArrayOf(
+            Items.STAFF_OF_FIRE_1387,
+            Items.FIRE_BATTLESTAFF_1393,
+            Items.MYSTIC_FIRE_STAFF_1401,
+            Items.LAVA_BATTLESTAFF_3053,
+            Items.MYSTIC_LAVA_STAFF_3054,
+            Items.STEAM_BATTLESTAFF_11736,
+            Items.MYSTIC_STEAM_STAFF_11738
+        )
 
         if (explorersRing) {
             visualize(entity = player, anim = LOW_ALCH_ANIM, gfx = EXPLORERS_RING_GFX)
         } else {
             if (anyInEquipment(player, *staves)) {
-                visualize(entity = player, anim = if (high) HIGH_ALCH_STAFF_ANIM else LOW_ALCH_STAFF_ANIM, gfx = if (high) HIGH_ALCH_STAFF_GFX else LOW_ALCH_STAFF_GFX)
+                visualize(
+                    entity = player,
+                    anim = if (high) HIGH_ALCH_STAFF_ANIM else LOW_ALCH_STAFF_ANIM,
+                    gfx = if (high) HIGH_ALCH_STAFF_GFX else LOW_ALCH_STAFF_GFX
+                )
             } else {
-                visualize(entity = player, anim = if (high) HIGH_ALCH_ANIM else LOW_ALCH_ANIM, gfx = if (high) HIGH_ALCH_GFX else LOW_ALCH_GFX)
+                visualize(
+                    entity = player,
+                    anim = if (high) HIGH_ALCH_ANIM else LOW_ALCH_ANIM,
+                    gfx = if (high) HIGH_ALCH_GFX else LOW_ALCH_GFX
+                )
             }
         }
         playAudio(player, if (high) Sounds.HIGH_ALCHEMY_97 else Sounds.LOW_ALCHEMY_98)
@@ -486,17 +493,17 @@ class ModernListeners : content.global.skill.magic.SpellListener("modern") {
         private val STUN_END = Graphic(107, 96)
         private val LOW_ANIMATION = Animation(716, Animator.Priority.HIGH)
         private val HIGH_ANIMATION = Animation(729, Animator.Priority.HIGH)
-        private val LOW_ALCH_ANIM = Animation(9623)
-        private val LOW_ALCH_STAFF_ANIM = Animation(9625)
-        private val HIGH_ALCH_ANIM = Animation(9631)
-        private val HIGH_ALCH_STAFF_ANIM = Animation(9633)
+        private val LOW_ALCH_ANIM = Animation(9623, Animator.Priority.HIGH)
+        private val LOW_ALCH_STAFF_ANIM = Animation(9625, Animator.Priority.HIGH)
+        private val HIGH_ALCH_ANIM = Animation(9631, Animator.Priority.HIGH)
+        private val HIGH_ALCH_STAFF_ANIM = Animation(9633, Animator.Priority.HIGH)
         private val LOW_ALCH_GFX = Graphic(763)
         private val HIGH_ALCH_GFX = Graphic(1691)
         private val LOW_ALCH_STAFF_GFX = Graphic(1692)
         private val HIGH_ALCH_STAFF_GFX = Graphic(1693)
         private val EXPLORERS_RING_GFX = Graphic(1698)
         private val BONE_CONVERT_GFX = Graphic(141, 96)
-        private val BONE_CONVERT_ANIM = Animation(722)
-        private val CHARGE_ORB_ANIM = Animation(726)
+        private val BONE_CONVERT_ANIM = Animation(722, Animator.Priority.HIGH)
+        private val CHARGE_ORB_ANIM = Animation(726, Animator.Priority.HIGH)
     }
 }

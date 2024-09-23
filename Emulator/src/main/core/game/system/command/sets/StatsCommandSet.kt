@@ -4,7 +4,7 @@ import org.rs.consts.Items
 import org.rs.consts.NPCs
 import content.data.BossKillCounter
 import content.global.activity.ttrails.TreasureTrailManager
-import content.global.handlers.iface.BookInterfaceListener
+import content.global.handlers.iface.BookInterface
 import content.global.handlers.iface.Page
 import content.global.handlers.iface.PageSet
 import content.global.skill.slayer.SlayerManager
@@ -54,7 +54,7 @@ class StatsCommandSet : CommandSet(Privilege.STANDARD) {
             }
             val globalData = queryPlayer.globalData
 
-            BookInterfaceListener.pageSetup(player, BookInterfaceListener.FANCY_BOOK_26,queryPlayer.username + "'s Stats", FAKE_CONTENT)
+            BookInterface.pageSetup(player, BookInterface.FANCY_BOOK_26,queryPlayer.username + "'s Stats", FAKE_CONTENT)
 
             for(i in (68..97)) {
                 when(pageNum) {
@@ -167,7 +167,7 @@ class StatsCommandSet : CommandSet(Privilege.STANDARD) {
             return true
         }
         fun sendLine(player: Player, line: String, child: Int) {
-            player.packetDispatch.sendString(line ,BookInterfaceListener.FANCY_BOOK_26, child)
+            player.packetDispatch.sendString(line ,BookInterface.FANCY_BOOK_26, child)
         }
 
     }
@@ -196,7 +196,7 @@ class StatsCommandSet : CommandSet(Privilege.STANDARD) {
             }
 
             setAttribute(player, "stats-command-query-player", queryPlayer)
-            BookInterfaceListener.openBook(player, BookInterfaceListener.FANCY_BOOK_26, ::display)
+            BookInterface.openBook(player, BookInterface.FANCY_BOOK_26, ::display)
             return@define
         }
     }

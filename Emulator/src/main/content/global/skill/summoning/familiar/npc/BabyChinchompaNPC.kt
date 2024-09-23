@@ -46,7 +46,12 @@ class BabyChinchompaNPC : Metamorphosis(*CHINCHOMPA_IDS) {
 
         override fun open(vararg args: Any): Boolean {
             npc = args[0] as NPC
-            sendNPCDialogue(player, npc.id, if (npc.id != 8658) "Squeak! Squeak!" else "Squeaka! Squeaka!", FacialExpression.OLD_NORMAL)
+            sendNPCDialogue(
+                player,
+                npc.id,
+                if (npc.id != 8658) "Squeak! Squeak!" else "Squeaka! Squeaka!",
+                FacialExpression.OLD_NORMAL
+            )
             stage = 0
             return true
         }

@@ -1,8 +1,8 @@
 package content.global.skill.firemaking
 
 import content.data.skill.SkillingTool
-import content.region.kandarin.baxtorian.barbarian_training.BarbarianTraining
-import content.region.kandarin.baxtorian.barbarian_training.firemaking.BarbFiremakingPulse
+import content.region.kandarin.baxtorian.barbariantraining.BarbarianTraining
+import content.region.kandarin.baxtorian.barbariantraining.firemaking.BarbFiremakingPulse
 import core.api.inInventory
 import core.api.sendMessage
 import core.cache.def.impl.ItemDefinition

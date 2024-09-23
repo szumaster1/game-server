@@ -16,7 +16,8 @@ import core.tools.RandomFunction
  * Macaw familiar.
  */
 @Initializable
-class MacawNPC @JvmOverloads constructor(owner: Player? = null, id: Int = 6851) : content.global.skill.summoning.familiar.Forager(owner, id, 3100, 12071, 12, *HERBS) {
+class MacawNPC @JvmOverloads constructor(owner: Player? = null, id: Int = 6851) :
+    content.global.skill.summoning.familiar.Forager(owner, id, 3100, 12071, 12, *HERBS) {
 
     private var specialDelay = 0
 
@@ -51,6 +52,22 @@ class MacawNPC @JvmOverloads constructor(owner: Player? = null, id: Int = 6851) 
     }
 
     companion object {
-        private val HERBS = arrayOf(Item(249), Item(251), Item(253), Item(255), Item(257), Item(2998), Item(12172), Item(259), Item(261), Item(263), Item(3000), Item(265), Item(2481), Item(267), Item(269))
+        private val HERBS = arrayOf(
+            Item(249),
+            Item(251),
+            Item(253),
+            Item(255),
+            Item(257),
+            Item(2998),
+            Item(12172),
+            Item(259),
+            Item(261),
+            Item(263),
+            Item(3000),
+            Item(265),
+            Item(2481),
+            Item(267),
+            Item(269)
+        )
     }
 }

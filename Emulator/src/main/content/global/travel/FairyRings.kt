@@ -1,8 +1,5 @@
 package content.global.travel
 
-import org.rs.consts.Components
-import org.rs.consts.Items
-import org.rs.consts.Scenery
 import core.api.*
 import core.game.component.Component
 import core.game.event.FairyRingDialEvent
@@ -16,6 +13,9 @@ import core.game.world.GameWorld
 import core.game.world.map.Location
 import core.game.world.map.RegionManager
 import core.tools.RandomFunction
+import org.rs.consts.Components
+import org.rs.consts.Items
+import org.rs.consts.Scenery
 
 /**
  * Represents the fairy ring transportation.

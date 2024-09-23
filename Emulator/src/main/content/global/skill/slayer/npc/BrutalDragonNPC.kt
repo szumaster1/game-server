@@ -1,6 +1,6 @@
 package content.global.skill.slayer.npc
 
-import content.global.handlers.item.equipment.special.DragonfireSwingHandler
+import content.global.skill.combat.special.DragonfireSwingHandler
 import core.game.node.entity.Entity
 import core.game.node.entity.combat.CombatStyle
 import core.game.node.entity.combat.CombatSwingHandler

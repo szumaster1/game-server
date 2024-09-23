@@ -15,12 +15,13 @@ import core.tools.RandomFunction
  * Abyssal parasite familiar.
  */
 @Initializable
-class AbyssalParasiteNPC @JvmOverloads constructor(owner: Player? = null, id: Int = 6818) : content.global.skill.summoning.familiar.BurdenBeast(owner, id, 3000, 12035, 1, 7) {
+class AbyssalParasiteNPC @JvmOverloads constructor(owner: Player? = null, id: Int = 6818) :
+    BurdenBeast(owner, id, 3000, 12035, 1, 7) {
 
     @Suppress("unused")
     private val specialMove = false
 
-    override fun construct(owner: Player, id: Int): content.global.skill.summoning.familiar.Familiar {
+    override fun construct(owner: Player, id: Int): Familiar {
         return AbyssalParasiteNPC(owner, id)
     }
 
@@ -32,7 +33,7 @@ class AbyssalParasiteNPC @JvmOverloads constructor(owner: Player? = null, id: In
         return super.isAllowed(owner, item)
     }
 
-    override fun specialMove(special: content.global.skill.summoning.familiar.FamiliarSpecial): Boolean {
+    override fun specialMove(special: FamiliarSpecial): Boolean {
         val target = special.target
         if (!canCombatSpecial(target)) {
             return false

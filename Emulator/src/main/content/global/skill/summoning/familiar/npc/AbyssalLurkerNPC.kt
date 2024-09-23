@@ -12,7 +12,8 @@ import core.plugin.Initializable
  * Abyssal lurker familiar.
  */
 @Initializable
-class AbyssalLurkerNPC @JvmOverloads constructor(owner: Player? = null, id: Int = 6820) : content.global.skill.summoning.familiar.BurdenBeast(owner, id, 4100, 12037, 3, 7, WeaponInterface.STYLE_CAST) {
+class AbyssalLurkerNPC @JvmOverloads constructor(owner: Player? = null, id: Int = 6820) :
+    content.global.skill.summoning.familiar.BurdenBeast(owner, id, 4100, 12037, 3, 7, WeaponInterface.STYLE_CAST) {
 
     override fun construct(owner: Player, id: Int): content.global.skill.summoning.familiar.Familiar {
         return AbyssalLurkerNPC(owner, id)

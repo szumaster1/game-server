@@ -41,7 +41,7 @@ class LunarIsleMineShortcut : InteractionListener {
         queueScript(player, 2, QueueStrength.NORMAL) { stage: Int ->
             when (stage) {
                 0 -> {
-                    content.global.skill.agility.AgilityHandler.forceWalk(
+                    AgilityHandler.forceWalk(
                         player, -1,
                         if (player.location.x != 2335) Location(2341, 10356, 2) else Location(
                             2335,

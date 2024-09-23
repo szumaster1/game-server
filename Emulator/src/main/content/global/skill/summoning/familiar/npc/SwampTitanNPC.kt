@@ -9,7 +9,8 @@ import org.rs.consts.NPCs
  * Swamp titan familiar.
  */
 @Initializable
-class SwampTitanNPC(owner: Player? = null, id: Int = NPCs.SWAMP_TITAN_7329) : content.global.skill.summoning.familiar.Familiar(owner, id, 5600, 12776, 6, WeaponInterface.STYLE_ACCURATE) {
+class SwampTitanNPC(owner: Player? = null, id: Int = NPCs.SWAMP_TITAN_7329) :
+    content.global.skill.summoning.familiar.Familiar(owner, id, 5600, 12776, 6, WeaponInterface.STYLE_ACCURATE) {
 
     override fun construct(owner: Player, id: Int): content.global.skill.summoning.familiar.Familiar {
         return SwampTitanNPC(owner, id)

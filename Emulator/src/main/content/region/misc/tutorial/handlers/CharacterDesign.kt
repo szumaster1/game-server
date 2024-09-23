@@ -55,6 +55,7 @@ object CharacterDesign {
     private val FEET_COLORS = intArrayOf(0, 1, 2, 3, 4, 5)
     private val SKIN_COLORS = intArrayOf(7, 6, 5, 4, 3, 2, 1, 0)
 
+    @JvmStatic
     fun open(player: Player) {
         player.unlock()
         removeAttribute(player, "char-design:accepted")
@@ -72,6 +73,7 @@ object CharacterDesign {
         setVarp(player, 1262, if (player.appearance.isMale) 1 else -1)
     }
 
+    @JvmStatic
     fun reopen(player: Player) {
         removeAttribute(player, "char-design:accepted")
         player.packetDispatch.sendPlayerOnInterface(771, 79)
@@ -84,6 +86,7 @@ object CharacterDesign {
         setVarp(player, 1262, if (player.appearance.isMale) 1 else -1)
     }
 
+    @JvmStatic
     fun handleButtons(player: Player, buttonId: Int): Boolean {
         when (buttonId) {
             37, 40 -> player.settings.toggleMouseButton()

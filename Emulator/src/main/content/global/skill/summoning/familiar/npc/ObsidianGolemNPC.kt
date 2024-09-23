@@ -13,17 +13,18 @@ import core.plugin.Initializable
  * Obsidian golem familiar.
  */
 @Initializable
-class ObsidianGolemNPC @JvmOverloads constructor(owner: Player? = null, id: Int = 7345) : content.global.skill.summoning.familiar.Familiar(owner, id, 5500, 12792, 12, WeaponInterface.STYLE_AGGRESSIVE) {
+class ObsidianGolemNPC @JvmOverloads constructor(owner: Player? = null, id: Int = 7345) :
+    Familiar(owner, id, 5500, 12792, 12, WeaponInterface.STYLE_AGGRESSIVE) {
 
     init {
         boosts.add(SkillBonus(Skills.MINING, 7.0))
     }
 
-    override fun construct(owner: Player, id: Int): content.global.skill.summoning.familiar.Familiar {
+    override fun construct(owner: Player, id: Int): Familiar {
         return ObsidianGolemNPC(owner, id)
     }
 
-    override fun specialMove(special: content.global.skill.summoning.familiar.FamiliarSpecial): Boolean {
+    override fun specialMove(special: FamiliarSpecial): Boolean {
         graphics(Graphic.create(1465))
         owner.getSkills().updateLevel(Skills.STRENGTH, 9)
         return true

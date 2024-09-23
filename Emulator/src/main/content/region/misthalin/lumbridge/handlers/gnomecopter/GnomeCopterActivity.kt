@@ -25,7 +25,7 @@ import core.plugin.Initializable
  * Gnome copter activity.
  */
 @Initializable
-class GnomeCopterActivity : ActivityPlugin("Gnome copters", false, false, true) {
+class GnomecopterActivity : ActivityPlugin("Gnome copters", false, false, true) {
     private val usedLandingPads = BooleanArray(4)
 
     override fun newInstance(p: Player?): ActivityPlugin {
@@ -40,7 +40,7 @@ class GnomeCopterActivity : ActivityPlugin("Gnome copters", false, false, true) 
                 return true
             }
             if (`object`.id == 30036) {
-                GnomeCopterSign.ENTRANCE.read((e as Player))
+                GnomecopterSign.ENTRANCE.read((e as Player))
                 return true
             }
         } else if (target is Item && e.getAttribute("gc:flying", false)) {

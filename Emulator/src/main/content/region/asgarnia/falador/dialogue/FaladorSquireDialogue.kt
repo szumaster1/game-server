@@ -3,7 +3,7 @@ package content.region.asgarnia.falador.dialogue
 import core.api.*
 import org.rs.consts.Items
 import org.rs.consts.NPCs
-import content.region.asgarnia.falador.achievement.dialogue.FaladorSquireDiaryDialogue
+import content.region.asgarnia.falador.diary.dialogue.FaladorSquireDiaryDialogue
 import core.game.dialogue.Dialogue
 import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player

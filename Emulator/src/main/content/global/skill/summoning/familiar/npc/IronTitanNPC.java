@@ -19,8 +19,8 @@ import core.tools.RandomFunction;
  */
 @Initializable
 public class IronTitanNPC extends Familiar {
-    private boolean specialMove;
     private static final SwitchAttack[] ATTACKS = {new SwitchAttack(CombatStyle.MELEE.getSwingHandler(), Animation.create(8183))};
+    private boolean specialMove;
 
     /**
      * Instantiates a new Iron titan npc.

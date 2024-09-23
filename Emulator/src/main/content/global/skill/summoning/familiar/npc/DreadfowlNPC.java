@@ -22,7 +22,6 @@ import core.tools.RandomFunction;
  */
 @Initializable
 public final class DreadfowlNPC extends Familiar {
-    private boolean specialMove;
     private static final CombatSwingHandler COMBAT_HANDLER = new MeleeSwingHandler() {
 
         @Override
@@ -46,6 +45,7 @@ public final class DreadfowlNPC extends Familiar {
         }
 
     };
+    private boolean specialMove;
 
     /**
      * Instantiates a new Dreadfowl npc.

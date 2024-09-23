@@ -3,23 +3,24 @@ package content.global.skill.summoning.familiar.npc
 import content.data.consumables.Consumables.Companion.getConsumableById
 import content.global.skill.summoning.familiar.Familiar
 import content.global.skill.summoning.familiar.FamiliarSpecial
-import org.rs.consts.NPCs
 import core.game.node.entity.combat.equipment.WeaponInterface
 import core.game.node.entity.player.Player
 import core.game.world.update.flag.context.Graphic
 import core.plugin.Initializable
+import org.rs.consts.NPCs
 
 /**
  * Ravenous locust familiar.
  */
 @Initializable
-class RavenousLocustNPC @JvmOverloads constructor(owner: Player? = null, id: Int = NPCs.RAVENOUS_LOCUST_7372) : content.global.skill.summoning.familiar.Familiar(owner, id, 2400, 12820, 12, WeaponInterface.STYLE_ACCURATE) {
+class RavenousLocustNPC @JvmOverloads constructor(owner: Player? = null, id: Int = NPCs.RAVENOUS_LOCUST_7372) :
+    Familiar(owner, id, 2400, 12820, 12, WeaponInterface.STYLE_ACCURATE) {
 
-    override fun construct(owner: Player, id: Int): content.global.skill.summoning.familiar.Familiar {
+    override fun construct(owner: Player, id: Int): Familiar {
         return RavenousLocustNPC(owner, id)
     }
 
-    override fun specialMove(special: content.global.skill.summoning.familiar.FamiliarSpecial): Boolean {
+    override fun specialMove(special: FamiliarSpecial): Boolean {
         val target = special.target
         if (!canCombatSpecial(target)) {
             return false

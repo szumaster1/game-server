@@ -20,7 +20,7 @@ import core.plugin.Plugin
  * Represents the Tunnel shortcut.
  */
 @Initializable
-class TunnelShortcut : content.global.skill.agility.AgilityShortcut {
+class TunnelShortcut : AgilityShortcut {
 
     private val CLIMB_DOWN = Animation.create(Animations.CRAWL_UNDER_WALL_A_2589)
     private val CRAWL_THROUGH = Animation.create(Animations.CRAWL_UNDER_WALL_B_2590)
@@ -62,15 +62,18 @@ class TunnelShortcut : content.global.skill.agility.AgilityShortcut {
                         player.locks.lockMovement(6)
                         false
                     }
+
                     2 -> {
                         player.animate(CRAWL_THROUGH)
                         player.properties.teleportLocation = start.transform(direction, 2 + offset)
                         false
                     }
+
                     3 -> {
                         ForceMovement.run(player, player.location, start.transform(direction, 4 + offset), CLIMB_UP, 19)
                         false
                     }
+
                     4 -> {
                         player.animate(ForceMovement.WALK_ANIMATION)
                         if ((obj.id == 9309 || obj.id == 9310) && !player.achievementDiaryManager.getDiary(DiaryType.FALADOR)!!.isComplete(1, 1)) {
@@ -78,6 +81,7 @@ class TunnelShortcut : content.global.skill.agility.AgilityShortcut {
                         }
                         true
                     }
+
                     else -> false
                 }
             }

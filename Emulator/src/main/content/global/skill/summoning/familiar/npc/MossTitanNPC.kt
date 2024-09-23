@@ -9,7 +9,15 @@ import org.rs.consts.NPCs
  * Moss titan familiar.
  */
 @Initializable
-class MossTitanNPC(owner: Player? = null, id: Int = NPCs.MOSS_TITAN_7357) : content.global.skill.summoning.familiar.npc.ElementalTitanNPC(owner, id, 5800, 12804, 20, WeaponInterface.STYLE_AGGRESSIVE) {
+class MossTitanNPC(owner: Player? = null, id: Int = NPCs.MOSS_TITAN_7357) :
+    ElementalTitanNPC(
+        owner,
+        id,
+        5800,
+        12804,
+        20,
+        WeaponInterface.STYLE_AGGRESSIVE
+    ) {
 
     override fun construct(owner: Player, id: Int): content.global.skill.summoning.familiar.Familiar {
         return MossTitanNPC(owner, id)

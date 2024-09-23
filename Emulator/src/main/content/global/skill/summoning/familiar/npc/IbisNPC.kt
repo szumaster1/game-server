@@ -22,7 +22,15 @@ import org.rs.consts.NPCs
  */
 @Initializable
 class IbisNPC @JvmOverloads constructor(owner: Player? = null, id: Int = NPCs.IBIS_6991) :
-    content.global.skill.summoning.familiar.Forager(owner, id, 3800, 12531, 12, Item(Items.TUNA_361), Item(Items.SWORDFISH_373)) {
+    content.global.skill.summoning.familiar.Forager(
+        owner,
+        id,
+        3800,
+        12531,
+        12,
+        Item(Items.TUNA_361),
+        Item(Items.SWORDFISH_373)
+    ) {
 
     init {
         boosts.add(SkillBonus(Skills.FISHING, 3.0))

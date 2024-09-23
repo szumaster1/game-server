@@ -2,7 +2,6 @@ package content.global.skill.summoning.familiar.npc
 
 import content.global.skill.summoning.familiar.Familiar
 import content.global.skill.summoning.familiar.FamiliarSpecial
-import org.rs.consts.NPCs
 import core.game.node.entity.combat.equipment.WeaponInterface
 import core.game.node.entity.player.Player
 import core.game.node.entity.skill.SkillBonus
@@ -10,22 +9,24 @@ import core.game.node.entity.skill.Skills
 import core.game.world.update.flag.context.Animation
 import core.game.world.update.flag.context.Graphic
 import core.plugin.Initializable
+import org.rs.consts.NPCs
 
 /**
  * Spirit larupia familiar.
  */
 @Initializable
-class SpiritLarupiaNPC(owner: Player? = null, id: Int = NPCs.SPIRIT_LARUPIA_7337) : content.global.skill.summoning.familiar.Familiar(owner, id, 4900, 12784, 6, WeaponInterface.STYLE_CONTROLLED) {
+class SpiritLarupiaNPC(owner: Player? = null, id: Int = NPCs.SPIRIT_LARUPIA_7337) :
+    Familiar(owner, id, 4900, 12784, 6, WeaponInterface.STYLE_CONTROLLED) {
 
     init {
         boosts.add(SkillBonus(Skills.HUNTER, 5.0))
     }
 
-    override fun construct(owner: Player, id: Int): content.global.skill.summoning.familiar.Familiar {
+    override fun construct(owner: Player, id: Int): Familiar {
         return SpiritLarupiaNPC(owner, id)
     }
 
-    override fun specialMove(special: content.global.skill.summoning.familiar.FamiliarSpecial): Boolean {
+    override fun specialMove(special: FamiliarSpecial): Boolean {
         val target = special.target
         if (!canCombatSpecial(target)) {
             return false

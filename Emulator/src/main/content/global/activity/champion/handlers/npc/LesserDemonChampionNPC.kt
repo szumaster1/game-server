@@ -3,7 +3,7 @@ package content.global.activity.champion.handlers.npc
 import core.api.*
 import org.rs.consts.Items
 import org.rs.consts.NPCs
-import content.global.activity.champion.handlers.ChampionChallengeListener
+import content.global.activity.champion.handlers.ChampionChallenge
 import core.game.container.impl.EquipmentContainer
 import core.game.global.action.EquipHandler
 import core.game.node.entity.Entity
@@ -98,7 +98,7 @@ class LesserDemonChampionNPC(id: Int = 0, location: Location? = null) : Abstract
             rewardXP(killer, Skills.SLAYER, 592.0)
             removeAttribute("championsarena:start")
             clearHintIcon(killer)
-            ChampionChallengeListener.isFinalBattle(killer)
+            ChampionChallenge.isFinalBattle(killer)
         }
         clear()
         super.finalizeDeath(killer)

@@ -1,6 +1,6 @@
 package content.region.kandarin.quest.pog.book
 
-import content.global.handlers.iface.BookInterfaceListener
+import content.global.handlers.iface.BookInterface
 import content.global.handlers.iface.BookLine
 import content.global.handlers.iface.Page
 import content.global.handlers.iface.PageSet
@@ -124,14 +124,14 @@ class YewnocksNotes : InteractionListener {
         )
 
         private fun display(player: Player, pageNum: Int, buttonID: Int): Boolean {
-            BookInterfaceListener.pageSetup(player, BookInterfaceListener.FANCY_BOOK_26, TITLE, CONTENTS)
+            BookInterface.pageSetup(player, BookInterface.FANCY_BOOK_26, TITLE, CONTENTS)
             return true
         }
     }
 
     override fun defineListeners() {
         on(Items.YEWNOCKS_NOTES_11750, IntType.ITEM, "read") { player, _ ->
-            BookInterfaceListener.openBook(player, BookInterfaceListener.FANCY_BOOK_26, ::display)
+            BookInterface.openBook(player, BookInterface.FANCY_BOOK_26, ::display)
             return@on true
         }
     }

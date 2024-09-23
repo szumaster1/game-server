@@ -33,7 +33,7 @@ class BarrowsShortcut : InteractionListener {
     private fun handleShortcut(player: Player) {
         queueScript(player, 1, QueueStrength.SOFT) {
             val direction = if (player.location.y < 3264) Direction.NORTH else Direction.SOUTH
-            content.global.skill.agility.AgilityHandler.forceWalk(player, -1, player.location, player.location.transform(direction, 1), Animation(Animations.WALKING_OVER_STILE_OBSTACLE_10980), 10, 0.0, null)
+            AgilityHandler.forceWalk(player, -1, player.location, player.location.transform(direction, 1), Animation(Animations.WALKING_OVER_STILE_OBSTACLE_10980), 10, 0.0, null)
             return@queueScript stopExecuting(player)
         }
     }

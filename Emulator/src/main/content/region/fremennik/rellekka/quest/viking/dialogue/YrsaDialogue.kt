@@ -4,7 +4,7 @@ import core.api.*
 import org.rs.consts.Components
 import org.rs.consts.Items
 import org.rs.consts.NPCs
-import content.region.fremennik.achievement.dialogue.YrsaDiaryDialogue
+import content.region.fremennik.diary.dialogue.YrsaDiaryDialogue
 import core.game.container.impl.EquipmentContainer
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression
@@ -16,10 +16,6 @@ import core.tools.END_DIALOGUE
 
 /**
  * Represents the Yrsa dialogue.
- *
- * Related to [Fremennik Trials quest][content.region.fremennik.rellekka.quest.viking.FremennikTrials]
- *
- * Associated with [Shoe Store interface][content.global.handlers.iface.plugin.ShoeStoreInterfacePlugin]
  */
 @Initializable
 class YrsaDialogue(player: Player? = null): Dialogue(player) {

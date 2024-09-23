@@ -16,7 +16,7 @@ import core.game.world.update.flag.context.Animation
 /**
  * Handles a deadfall trap.
  */
-class DeadfallSetting : content.global.skill.hunter.TrapSetting(intArrayOf(28935, 19205), arrayOf(Item(946)), intArrayOf(28937, 19206), intArrayOf(10138, 6006, 12574, 341, 2132), "set-trap", 23, -1, Animation(5208), Animation(9726), true) {
+class DeadfallSetting : TrapSetting(intArrayOf(28935, 19205), arrayOf(Item(946)), intArrayOf(28937, 19206), intArrayOf(10138, 6006, 12574, 341, 2132), "set-trap", 23, -1, Animation(5208), Animation(9726), true) {
 
     override fun hasItems(player: Player): Boolean {
         if (!super.hasItems(player)) {

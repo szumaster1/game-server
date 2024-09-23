@@ -13,7 +13,8 @@ import org.rs.consts.NPCs
  * Albino rat familiar.
  */
 @Initializable
-class AlbinoRatNPC(owner: Player? = null, id: Int = 6847) : content.global.skill.summoning.familiar.Forager(owner, id, 2200, 12067, 6, WeaponInterface.STYLE_ACCURATE, CHEESE) {
+class AlbinoRatNPC(owner: Player? = null, id: Int = 6847) :
+    content.global.skill.summoning.familiar.Forager(owner, id, 2200, 12067, 6, WeaponInterface.STYLE_ACCURATE, CHEESE) {
 
     override fun construct(owner: Player, id: Int): content.global.skill.summoning.familiar.Familiar {
         return AlbinoRatNPC(owner, id)

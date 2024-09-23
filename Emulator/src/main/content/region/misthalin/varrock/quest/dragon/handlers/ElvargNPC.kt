@@ -1,6 +1,6 @@
 package content.region.misthalin.varrock.quest.dragon.handlers
 
-import content.global.handlers.item.equipment.special.DragonfireSwingHandler
+import content.global.skill.combat.special.DragonfireSwingHandler
 import content.region.misthalin.varrock.quest.dragon.DragonSlayer
 import core.api.calculateDragonfireMaxHit
 import core.game.node.entity.Entity

@@ -1,6 +1,6 @@
 package content.global.skill.runecrafting
 
-import content.global.handlers.item.equipment.gloves.FOGGlovesManager.Companion.updateCharges
+import content.global.skill.combat.equipment.gloves.FOGGlovesManager.Companion.updateCharges
 import core.Configuration
 import core.Util
 import core.api.*
@@ -58,9 +58,7 @@ class RunecraftingPulse(player: Player?, node: Item?, val altar: Altar, private 
             sendMessage(player, "You need pure essence to craft this rune.")
             return false
         }
-        if (!altar.isOurania && rune.isNormal && !player.inventory.containsItem(PURE_ESSENCE) && !player.inventory.containsItem(
-                RUNE_ESSENCE
-            )) {
+        if (!altar.isOurania && rune.isNormal && !player.inventory.containsItem(PURE_ESSENCE) && !player.inventory.containsItem(RUNE_ESSENCE)) {
             sendMessage(player, "You need rune essence or pure essence in order to craft this rune.")
             return false
         }
@@ -103,10 +101,10 @@ class RunecraftingPulse(player: Player?, node: Item?, val altar: Altar, private 
 
     override fun message(type: Int) {
         when (type) {
-            1 -> if (altar != Altar.OURANIA) {
-                sendMessage(player, "You bind the temple's power into " + (if (combination) combo!!.rune.name.lowercase() else rune.rune.name.lowercase() + "s."))
-            } else {
+            1 -> if (altar == Altar.OURANIA) {
                 sendMessage(player, "You bind the temple's power into runes.")
+            } else {
+                sendMessage(player, "You bind the temple's power into " + (if (combination) combo!!.rune.name.lowercase() else rune.rune.name.lowercase() + "s."))
             }
         }
     }
@@ -143,10 +141,6 @@ class RunecraftingPulse(player: Player?, node: Item?, val altar: Altar, private 
                 }
                 rewardXP(player, Skills.RUNECRAFTING, xp)
 
-                /**
-                 * Handles the achievements.
-                 */
-
                 /*
                  * Craft some nature runes.
                  */
@@ -170,7 +164,7 @@ class RunecraftingPulse(player: Player?, node: Item?, val altar: Altar, private 
 
             }
         } else {
-            if (player.inventory.remove(item)) {
+            if (removeItem(player, item)) {
                 player.incrementAttribute("/save:$STATS_BASE:$STATS_RC", amount)
                 for (i in 0 until amount) {
                     var rune: Rune? = null

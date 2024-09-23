@@ -1,6 +1,5 @@
 package content.global.travel
 
-import org.rs.consts.Sounds
 import core.api.playAudio
 import core.cache.def.impl.SceneryDefinition
 import core.game.interaction.OptionHandler
@@ -19,6 +18,7 @@ import core.game.world.update.flag.context.Graphic
 import core.plugin.Initializable
 import core.plugin.Plugin
 import core.tools.RandomFunction
+import org.rs.consts.Sounds
 
 /**
  * Represents the wilderness obelisk option handler.

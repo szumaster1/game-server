@@ -13,7 +13,16 @@ import org.rs.consts.NPCs
  * War tortoise familiar.
  */
 @Initializable
-class WarTortoiseNPC(owner: Player? = null, id: Int = NPCs.WAR_TORTOISE_6815) : content.global.skill.summoning.familiar.BurdenBeast(owner, id, 4300, 12031, 20, 18, WeaponInterface.STYLE_DEFENSIVE) {
+class WarTortoiseNPC(owner: Player? = null, id: Int = NPCs.WAR_TORTOISE_6815) :
+    content.global.skill.summoning.familiar.BurdenBeast(
+        owner,
+        id,
+        4300,
+        12031,
+        20,
+        18,
+        WeaponInterface.STYLE_DEFENSIVE
+    ) {
 
     override fun construct(owner: Player, id: Int): content.global.skill.summoning.familiar.Familiar {
         return WarTortoiseNPC(owner, id)

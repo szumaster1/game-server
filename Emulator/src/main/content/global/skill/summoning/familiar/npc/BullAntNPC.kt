@@ -12,7 +12,15 @@ import core.plugin.Initializable
  */
 @Initializable
 class BullAntNPC @JvmOverloads constructor(owner: Player? = null, id: Int = 6867) :
-    content.global.skill.summoning.familiar.BurdenBeast(owner, id, 3000, 12087, 12, 9, WeaponInterface.STYLE_CONTROLLED) {
+    content.global.skill.summoning.familiar.BurdenBeast(
+        owner,
+        id,
+        3000,
+        12087,
+        12,
+        9,
+        WeaponInterface.STYLE_CONTROLLED
+    ) {
     override fun construct(owner: Player, id: Int): content.global.skill.summoning.familiar.Familiar {
         return BullAntNPC(owner, id)
     }

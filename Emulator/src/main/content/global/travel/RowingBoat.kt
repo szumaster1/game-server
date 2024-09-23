@@ -1,14 +1,14 @@
 package content.global.travel
 
 import core.api.*
-import org.rs.consts.Components
-import org.rs.consts.NPCs
 import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.TeleportManager
 import core.game.system.task.Pulse
 import core.game.world.GameWorld
 import core.game.world.map.Location
+import org.rs.consts.Components
+import org.rs.consts.NPCs
 
 /**
  * Represents the rowing boat.

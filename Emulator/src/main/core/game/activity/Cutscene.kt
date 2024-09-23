@@ -117,8 +117,7 @@ abstract class Cutscene(val player: Player) {
      * @param npcId      The ID of the NPC to send a dialogue for
      * @param expression The FacialExpression the NPC should use
      * @param message    The message to send
-     * @param onContinue (optional) a method that runs when the dialogue is "continued."
-     *                   Increments the cutscene stage by default.
+     * @param onContinue (optional) a method that runs when the dialogue is "continued." Increments the cutscene stage by default.
      */
     fun dialogueUpdate(
         npcId: Int,
@@ -139,8 +138,7 @@ abstract class Cutscene(val player: Player) {
      * @param npcId      The ID of the NPC to send a dialogue for
      * @param expression The FacialExpression the NPC should use
      * @param message    The message to send
-     * @param onContinue (optional) a method that runs when the dialogue is "continued."
-     *                   Increments the cutscene stage by default.
+     * @param onContinue (optional) a method that runs when the dialogue is "continued." Increments the cutscene stage by default.
      */
     fun dialogueLinesUpdate(
         npcId: Int,
@@ -166,8 +164,7 @@ abstract class Cutscene(val player: Player) {
      * by default when continued.
      *
      * @param message    The message to send
-     * @param onContinue (optional) a method that runs when the dialogue is "continued."
-     *                   Increments the cutscene stage by default.
+     * @param onContinue (optional) a method that runs when the dialogue is "continued." Increments the cutscene stage by default.
      */
     fun dialogueUpdate(message: String, onContinue: () -> Unit = { incrementStage() }) {
         logCutscene("Sending standard dialogue update.")
@@ -181,8 +178,7 @@ abstract class Cutscene(val player: Player) {
      *
      * @param expression The FacialExpression to use
      * @param message    The message to send
-     * @param onContinue (optional) a method that runs when the dialogue is "continued."
-     *                   Increments the cutscene stage by default.
+     * @param onContinue (optional) a method that runs when the dialogue is "continued." Increments the cutscene stage by default.
      */
     fun playerDialogueUpdate(
         expression: FacialExpression,
@@ -198,8 +194,7 @@ abstract class Cutscene(val player: Player) {
      * Updates the stage after a set number of ticks.
      *
      * @param ticks    The number of ticks to wait
-     * @param newStage (optional) the new stage to update to.
-     *                 If not passed, stage is incremented instead.
+     * @param newStage (optional) the new stage to update to. If not passed, stage is incremented instead.
      */
     fun timedUpdate(ticks: Int, newStage: Int = -1) {
         logCutscene("Executing timed updated for $ticks ticks.")

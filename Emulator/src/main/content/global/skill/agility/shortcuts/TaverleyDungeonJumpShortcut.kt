@@ -26,13 +26,7 @@ class TaverleyDungeonJumpShortcut : InteractionListener {
                 return@on true
             }
             lock(player, 6)
-            content.global.skill.agility.AgilityHandler.forceWalk(
-                    player, -1,
-                    if (player.location.x >= 2880) Location.create(2881, 9813, 0) else Location.create(2877, 9813, 0),
-                    if (player.location.x >= 2880) Location.create(2877, 9813, 0) else Location.create(2881, 9813, 0),
-                    Animation(1995),
-                    13, 0.0, null, 0
-            )
+            AgilityHandler.forceWalk(player, -1, if (player.location.x >= 2880) Location.create(2881, 9813, 0) else Location.create(2877, 9813, 0), if (player.location.x >= 2880) Location.create(2877, 9813, 0) else Location.create(2881, 9813, 0), Animation(1995), 13, 0.0, null, 0)
             submitIndividualPulse(player, object : Pulse(1, player) {
                 var counter = 0
                 override fun pulse(): Boolean {
@@ -41,11 +35,11 @@ class TaverleyDungeonJumpShortcut : InteractionListener {
                         1 -> {
                             playAudio(player, Sounds.JUMP_2461)
                             player.animator.forceAnimation(Animation(Animations.JUMP_OBSTACLE_WEREWOLF_AGILITY_1603))
-                            if (content.global.skill.agility.AgilityHandler.hasFailed(player, 80, 0.1)) {
+                            if (AgilityHandler.hasFailed(player, 80, 0.1)) {
                                 playAudio(player, Sounds.FLOOR_SPIKES_1383)
                                 playAudio(player, Sounds.JUMP_BLADES_2464)
                                 animateScenery(node.asScenery(), 1111)
-                                content.global.skill.agility.AgilityHandler.fail(player, 0, if (player.location.x >= 2880) Location.create(2877, 9813, 0) else Location.create(2881, 9813, 0), Animation(1603), Random.nextInt(1, 7), null)
+                                AgilityHandler.fail(player, 0, if (player.location.x >= 2880) Location.create(2877, 9813, 0) else Location.create(2881, 9813, 0), Animation(1603), Random.nextInt(1, 7), null)
                                 sendMessage(player, "You trigger the trap as you jump over it.")
                                 return true
                             }

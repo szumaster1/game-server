@@ -35,7 +35,7 @@ public abstract class BurdenBeast extends Familiar {
      */
     public BurdenBeast(Player owner, int id, int ticks, int pouchId, int specialCost, int containerSize, int attackStyle) {
         super(owner, id, ticks, pouchId, specialCost, attackStyle);
-        this.container = new Container(containerSize).register(new BurdenContainerListener(owner));
+        this.container = new Container(containerSize).register(new BurdenContainer(owner));
     }
 
     /**

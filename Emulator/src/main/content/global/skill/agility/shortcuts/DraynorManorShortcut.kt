@@ -34,16 +34,7 @@ class DraynorManorShortcut : InteractionListener {
     private fun handleShortcut(player: Player) {
         queueScript(player, 1, QueueStrength.SOFT) {
             val direction = if (player.location.x >= 3086) Direction.WEST else Direction.EAST
-            content.global.skill.agility.AgilityHandler.forceWalk(
-                player,
-                -1,
-                player.location,
-                player.location.transform(direction, 1),
-                Animation(Animations.SIDE_STEP_TO_CRAWL_THROUGH_MCGRUBOR_S_WOODS_FENCE_3844),
-                5,
-                0.0,
-                "You squeeze through the loose railing."
-            )
+            AgilityHandler.forceWalk(player, -1, player.location, player.location.transform(direction, 1), Animation(Animations.SIDE_STEP_TO_CRAWL_THROUGH_MCGRUBOR_S_WOODS_FENCE_3844), 5, 0.0, "You squeeze through the loose railing.")
             return@queueScript stopExecuting(player)
         }
     }

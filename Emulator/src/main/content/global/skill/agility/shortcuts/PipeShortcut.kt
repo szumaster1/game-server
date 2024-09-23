@@ -19,7 +19,7 @@ import core.plugin.Plugin
  * Represents the Pipe shortcut.
  */
 @Initializable
-class PipeShortcut : content.global.skill.agility.AgilityShortcut {
+class PipeShortcut : AgilityShortcut {
 
     constructor() : super(intArrayOf(), 0, 0.0, "")
     constructor(ids: IntArray?, level: Int, experience: Double, vararg options: String?) : super(
@@ -42,7 +42,7 @@ class PipeShortcut : content.global.skill.agility.AgilityShortcut {
                 when (obj.id) {
                     2290, 9293 -> {
                         player.lock(7)
-                        content.global.skill.agility.AgilityHandler.forceWalk(player, -1, player.location, pipeDestination(player, obj, 6), Animation.create(10580), 10, 0.0, null)
+                        AgilityHandler.forceWalk(player, -1, player.location, pipeDestination(player, obj, 6), Animation.create(10580), 10, 0.0, null)
                         player.animate(Animation(Animations.CRAWLING_844), 3)
                         player.animate(Animation(Animations.CLIMB_OUT_OF_OBSTACLE_10579), 5)
                         playAudio(player, Sounds.SQUEEZE_OUT_2490, 5)
@@ -51,7 +51,7 @@ class PipeShortcut : content.global.skill.agility.AgilityShortcut {
 
                     5099, 5100 -> {
                         player.lock(5)
-                        content.global.skill.agility.AgilityHandler.forceWalk(player, -1, player.location, pipeDestination(player, obj, 7), Animation.create(10580), 10, 0.0, null)
+                        AgilityHandler.forceWalk(player, -1, player.location, pipeDestination(player, obj, 7), Animation.create(10580), 10, 0.0, null)
                         player.animate(Animation(Animations.CRAWLING_844), 4)
                         player.animate(Animation(Animations.CLIMB_OUT_OF_OBSTACLE_10579), 6)
                         playAudio(player, Sounds.SQUEEZE_OUT_2490, 6)
@@ -65,7 +65,7 @@ class PipeShortcut : content.global.skill.agility.AgilityShortcut {
                             return true
                         }
                         lock(player, 3)
-                        content.global.skill.agility.AgilityHandler.forceWalk(player, -1, player.location, pipeDestination(player, obj, 3), Animation.create(10580), 15, 0.0, null)
+                        AgilityHandler.forceWalk(player, -1, player.location, pipeDestination(player, obj, 3), Animation.create(10580), 15, 0.0, null)
                         return true
                     }
 
@@ -75,7 +75,7 @@ class PipeShortcut : content.global.skill.agility.AgilityShortcut {
                             return true
                         }
                         lock(player, 7)
-                        content.global.skill.agility.AgilityHandler.forceWalk(player, -1, player.location, pipeDestination(player, obj, 6), Animation.create(10580), 10, 0.0, null)
+                        AgilityHandler.forceWalk(player, -1, player.location, pipeDestination(player, obj, 6), Animation.create(10580), 10, 0.0, null)
                         player.animate(Animation(Animations.CRAWLING_844), 3)
                         player.animate(Animation(Animations.CLIMB_OUT_OF_OBSTACLE_10579), 5)
                         playAudio(player, Sounds.SQUEEZE_OUT_2490, 5)
@@ -86,6 +86,7 @@ class PipeShortcut : content.global.skill.agility.AgilityShortcut {
             }
         })
     }
+
     companion object {
         private const val YANILLE_DUNGEON = 2290
         private const val BRIMHAVEN_DRAGONS = 5099

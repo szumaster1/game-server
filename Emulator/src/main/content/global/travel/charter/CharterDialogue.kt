@@ -1,6 +1,5 @@
 package content.global.travel.charter
 
-import org.rs.consts.NPCs
 import core.api.openNpcShop
 import core.api.sendDialogueOptions
 import core.game.dialogue.Dialogue
@@ -10,6 +9,7 @@ import core.game.node.entity.player.Player
 import core.game.node.item.Item
 import core.plugin.Initializable
 import core.tools.StringUtils
+import org.rs.consts.NPCs
 
 /**
  * Represents the Trader crew member dialogue.

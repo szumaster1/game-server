@@ -3,7 +3,7 @@ package core.api
 import com.moandjiezana.toml.Toml
 import content.data.consumables.*
 import content.data.skill.SkillingTool
-import content.global.handlers.iface.ge.StockMarketInterfaceListener
+import content.global.handlers.iface.ge.StockMarket
 import content.global.skill.slayer.SlayerManager
 import content.global.skill.slayer.Tasks
 import core.Configuration
@@ -2825,7 +2825,7 @@ fun restrictForIronman(player: Player, restriction: IronmanMode, action: () -> U
  */
 fun openGrandExchange(player: Player) {
     restrictForIronman(player, IronmanMode.ULTIMATE) {
-        StockMarketInterfaceListener.openFor(player)
+        StockMarket.openFor(player)
     }
 }
 

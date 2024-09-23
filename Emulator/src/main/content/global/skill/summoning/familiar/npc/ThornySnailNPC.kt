@@ -19,7 +19,8 @@ import kotlin.math.floor
  * Thorny snail familiar.
  */
 @Initializable
-class ThornySnailNPC(owner: Player? = null, id: Int = NPCs.THORNY_SNAIL_6806) : content.global.skill.summoning.familiar.BurdenBeast(owner, id, 1600, 12019, 3, 3) {
+class ThornySnailNPC(owner: Player? = null, id: Int = NPCs.THORNY_SNAIL_6806) :
+    content.global.skill.summoning.familiar.BurdenBeast(owner, id, 1600, 12019, 3, 3) {
 
     override fun construct(owner: Player, id: Int): content.global.skill.summoning.familiar.Familiar {
         return ThornySnailNPC(owner, id)

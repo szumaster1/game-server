@@ -1,6 +1,6 @@
 package content.region.misthalin.varrock.quest.phoenixgang.book
 
-import content.global.handlers.iface.BookInterfaceListener
+import content.global.handlers.iface.BookInterface
 import content.global.handlers.iface.BookLine
 import content.global.handlers.iface.Page
 import content.global.handlers.iface.PageSet
@@ -82,8 +82,8 @@ class ShieldofArravBook : InteractionListener {
         )
 
         private fun display(player: Player, pageNum: Int, buttonID: Int): Boolean {
-            BookInterfaceListener.pageSetup(player, BookInterfaceListener.FANCY_BOOK_3_49, TITLE, CONTENTS)
-            if (BookInterfaceListener.isLastPage(pageNum, CONTENTS.size)) {
+            BookInterface.pageSetup(player, BookInterface.FANCY_BOOK_3_49, TITLE, CONTENTS)
+            if (BookInterface.isLastPage(pageNum, CONTENTS.size)) {
                 if (player.questRepository.getQuest("Shield of Arrav").getStage(player) == 10) {
                     player.questRepository.getQuest("Shield of Arrav").setStage(player, 20)
                 }
@@ -94,7 +94,7 @@ class ShieldofArravBook : InteractionListener {
 
     override fun defineListeners() {
         on(Items.BOOK_757, IntType.ITEM, "read") { player, _ ->
-            BookInterfaceListener.openBook(player, BookInterfaceListener.FANCY_BOOK_3_49, Companion::display)
+            BookInterface.openBook(player, BookInterface.FANCY_BOOK_3_49, Companion::display)
             return@on true
         }
     }

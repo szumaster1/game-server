@@ -1,6 +1,6 @@
 package content.region.asgarnia.taverley.quest.ball.handlers
 
-import content.global.handlers.iface.BookInterfaceListener
+import content.global.handlers.iface.BookInterface
 import content.global.handlers.iface.BookLine
 import content.global.handlers.iface.Page
 import content.global.handlers.iface.PageSet
@@ -119,8 +119,8 @@ class WitchesDiaryBook : InteractionListener {
         )
 
         private fun display(player: Player, pageNum: Int, buttonID: Int): Boolean {
-            BookInterfaceListener.pageSetup(player, BookInterfaceListener.FANCY_BOOK_3_49, TITLE, CONTENTS)
-            if (BookInterfaceListener.isLastPage(pageNum, CONTENTS.size)) {
+            BookInterface.pageSetup(player, BookInterface.FANCY_BOOK_3_49, TITLE, CONTENTS)
+            if (BookInterface.isLastPage(pageNum, CONTENTS.size)) {
                 setAttribute(player, "/save:readWitchsBook", true)
             }
             return true
@@ -129,7 +129,7 @@ class WitchesDiaryBook : InteractionListener {
 
     override fun defineListeners() {
         on(Items.DIARY_2408, IntType.ITEM, "read") { player, _ ->
-            BookInterfaceListener.openBook(player, BookInterfaceListener.FANCY_BOOK_3_49, Companion::display)
+            BookInterface.openBook(player, BookInterface.FANCY_BOOK_3_49, Companion::display)
             return@on true
         }
     }

@@ -3,7 +3,7 @@ package content.global.skill.construction
 /**
  * Room template.
  */
-class RoomTemplate(properties: content.global.skill.construction.RoomProperties) {
+class RoomTemplate(properties: RoomProperties) {
     var hotspots: MutableList<Hotspot> = ArrayList<Hotspot>()
 
     init {

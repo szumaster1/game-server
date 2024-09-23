@@ -14,7 +14,8 @@ import org.rs.consts.NPCs
  * Vampire bat familiar.
  */
 @Initializable
-class VampireBatNPC @JvmOverloads constructor(owner: Player? = null, id: Int = NPCs.VAMPIRE_BAT_6835) : content.global.skill.summoning.familiar.Familiar(owner, id, 3300, 12053, 4, WeaponInterface.STYLE_CONTROLLED) {
+class VampireBatNPC @JvmOverloads constructor(owner: Player? = null, id: Int = NPCs.VAMPIRE_BAT_6835) :
+    content.global.skill.summoning.familiar.Familiar(owner, id, 3300, 12053, 4, WeaponInterface.STYLE_CONTROLLED) {
 
     override fun construct(owner: Player, id: Int): content.global.skill.summoning.familiar.Familiar {
         return VampireBatNPC(owner, id)

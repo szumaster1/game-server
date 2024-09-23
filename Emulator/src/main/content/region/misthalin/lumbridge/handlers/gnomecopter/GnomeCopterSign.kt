@@ -9,7 +9,7 @@ import core.game.node.entity.player.Player
  * @param button the button (string).
  * @param info the info (string).
  */
-enum class GnomeCopterSign(private val button: String, vararg info: String) {
+enum class GnomecopterSign(private val button: String, vararg info: String) {
 
     /*
      * Entrance text content.

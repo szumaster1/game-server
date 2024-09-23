@@ -1,6 +1,6 @@
 package content.region.karamja.quest.totem.book
 
-import content.global.handlers.iface.BookInterfaceListener
+import content.global.handlers.iface.BookInterface
 import content.global.handlers.iface.BookLine
 import content.global.handlers.iface.Page
 import content.global.handlers.iface.PageSet
@@ -107,14 +107,14 @@ class ArdougneGuideBook : InteractionListener {
         )
 
         private fun display(player: Player, pageNum: Int, buttonID: Int): Boolean {
-            BookInterfaceListener.pageSetup(player, BookInterfaceListener.FANCY_BOOK_3_49, TITLE, CONTENTS)
+            BookInterface.pageSetup(player, BookInterface.FANCY_BOOK_3_49, TITLE, CONTENTS)
             return true
         }
     }
 
     override fun defineListeners() {
         on(Items.GUIDE_BOOK_1856, IntType.ITEM, "read") { player, _ ->
-            BookInterfaceListener.openBook(player, BookInterfaceListener.FANCY_BOOK_3_49, Companion::display)
+            BookInterface.openBook(player, BookInterface.FANCY_BOOK_3_49, Companion::display)
             return@on true
         }
     }

@@ -10,6 +10,7 @@ import org.rs.consts.Items
 
 /**
  * Handles the rune pouches.
+ * @author Ceikry, Player Name
  */
 class RunePouchPlugin : OptionHandler() {
     @Throws(Throwable::class)
@@ -26,7 +27,7 @@ class RunePouchPlugin : OptionHandler() {
     override fun handle(player: Player, node: Node, option: String): Boolean {
         val rEssAmt = player.inventory.getAmount(Items.RUNE_ESSENCE_1436)
         val pEssAmt = player.inventory.getAmount(Items.PURE_ESSENCE_7936)
-        var preferenceFlag = 0 //0 -> rune ess, 1 -> pure ess
+        var preferenceFlag = 0
         if(rEssAmt - pEssAmt == 0 && option == "fill") return true
         if(rEssAmt > pEssAmt) preferenceFlag = 0 else preferenceFlag = 1
 

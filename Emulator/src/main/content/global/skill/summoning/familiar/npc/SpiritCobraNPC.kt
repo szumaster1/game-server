@@ -12,7 +12,8 @@ import org.rs.consts.NPCs
  * Spirit cobra familiar.
  */
 @Initializable
-class SpiritCobraNPC @JvmOverloads constructor(owner: Player? = null, id: Int = NPCs.SPIRIT_COBRA_6802) : content.global.skill.summoning.familiar.Familiar(owner, id, 5600, 12015, 3, WeaponInterface.STYLE_ACCURATE) {
+class SpiritCobraNPC @JvmOverloads constructor(owner: Player? = null, id: Int = NPCs.SPIRIT_COBRA_6802) :
+    content.global.skill.summoning.familiar.Familiar(owner, id, 5600, 12015, 3, WeaponInterface.STYLE_ACCURATE) {
 
     override fun construct(owner: Player, id: Int): content.global.skill.summoning.familiar.Familiar {
         return SpiritCobraNPC(owner, id)

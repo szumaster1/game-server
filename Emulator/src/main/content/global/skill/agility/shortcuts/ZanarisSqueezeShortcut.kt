@@ -62,10 +62,10 @@ class ZanarisSqueezeShortcut : InteractionListener {
 
         playAudio(player, Sounds.SQUEEZE_THROUGH_ROCKS_1310, 1, 2)
 
-        if (content.global.skill.agility.AgilityHandler.hasFailed(player, 10, 0.00300)) {
+        if (AgilityHandler.hasFailed(player, 10, 0.00300)) {
             handleFailure(player, direction, scenery.rotation, end)
         } else {
-            content.global.skill.agility.AgilityHandler.walk(player, -1, player.location, end, Animation.create(157 - calculateRotation(scenery.rotation, direction)), 0.0, null)
+            AgilityHandler.walk(player, -1, player.location, end, Animation.create(157 - calculateRotation(scenery.rotation, direction)), 0.0, null)
         }
     }
 
@@ -73,12 +73,14 @@ class ZanarisSqueezeShortcut : InteractionListener {
         val forceChat = arrayOf("Arrgghhhh!", "Owww...", "Ahhh...")
         var repeat = 3
         var rand = RandomUtils.random(4)
-        content.global.skill.agility.AgilityHandler.walk(player, -1, player.location, end, Animation.create(157 - calculateRotation(sceneryRotation, direction)), 0.0, null)
+        AgilityHandler.walk(player, -1, player.location, end, Animation.create(157 - calculateRotation(sceneryRotation, direction)), 0.0, null)
         lock(player, 4)
         GameWorld.Pulser.submit(object : Pulse(repeat, player) {
             override fun pulse(): Boolean {
-                runTask(player, repeat-3, repeat) { sendChat(player, forceChat[--repeat]); player.impactHandler.manualHit(player, rand, ImpactHandler.HitsplatType.NORMAL) }
-                content.global.skill.agility.AgilityHandler.fail(player, 1, end, Animation.create(761 - calculateRotation(sceneryRotation, direction)), -1, null)
+                runTask(player, repeat - 3, repeat) {
+                    sendChat(player, forceChat[--repeat]); player.impactHandler.manualHit(player, rand, ImpactHandler.HitsplatType.NORMAL)
+                }
+                AgilityHandler.fail(player, 1, end, Animation.create(761 - calculateRotation(sceneryRotation, direction)), -1, null)
                 return true
             }
         })

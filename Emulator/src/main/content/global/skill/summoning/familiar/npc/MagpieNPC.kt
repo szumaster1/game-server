@@ -14,7 +14,8 @@ import org.rs.consts.NPCs
  * Magpie NPC.
  */
 @Initializable
-class MagpieNPC @JvmOverloads constructor(owner: Player? = null, id: Int = NPCs.MAGPIE_6824) : content.global.skill.summoning.familiar.Forager(owner, id, 3400, 12041, 3, *ITEMS) {
+class MagpieNPC @JvmOverloads constructor(owner: Player? = null, id: Int = NPCs.MAGPIE_6824) :
+    content.global.skill.summoning.familiar.Forager(owner, id, 3400, 12041, 3, *ITEMS) {
 
     init {
         boosts.add(SkillBonus(Skills.THIEVING, 3.0))

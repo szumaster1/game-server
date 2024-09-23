@@ -1,7 +1,7 @@
 package content
 
 import TestUtils
-import content.global.handlers.item.equipment.special.ChinchompaSwingHandler
+import content.global.skill.combat.special.ChinchompaSwingHandler
 import core.game.node.entity.combat.MagicSwingHandler
 import core.game.node.entity.combat.MeleeSwingHandler
 import core.game.node.entity.combat.RangeSwingHandler

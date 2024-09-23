@@ -1,6 +1,6 @@
 package content.region.misthalin.varrock.digsite.quest.itexam
 
-import content.global.skill.thieving.ThievingPickpocketListener
+import content.global.skill.thieving.ThievingPickpocket
 import content.region.misthalin.varrock.digsite.quest.itexam.dialogue.PanningGuideCannotPanDialogueFile
 import core.api.*
 import core.api.utils.PlayerCamera
@@ -182,10 +182,10 @@ class TheDigSiteListeners : InteractionListener {
             }
             sendMessage(player, "You attempt to pick the workman's pocket...")
             if (getQuestStage(player, "The Dig Site") == 3) {
-                player.animator.animate(ThievingPickpocketListener.PICKPOCKET_ANIM)
-                val rollOutcome = ThievingPickpocketListener.pickpocketRoll(player, 84.0, 240.0, workmanPickpocketingTable)
+                player.animator.animate(ThievingPickpocket.PICKPOCKET_ANIM)
+                val rollOutcome = ThievingPickpocket.pickpocketRoll(player, 84.0, 240.0, workmanPickpocketingTable)
                 if (rollOutcome != null) {
-                    queueScript(player, ThievingPickpocketListener.PICKPOCKET_ANIM.duration, QueueStrength.NORMAL) { stage: Int ->
+                    queueScript(player, ThievingPickpocket.PICKPOCKET_ANIM.duration, QueueStrength.NORMAL) { stage: Int ->
                         when (stage) {
                             0 -> {
                                 if (rollOutcome.size > 0) {
@@ -205,7 +205,7 @@ class TheDigSiteListeners : InteractionListener {
                     }
                 } else {
                     node.asNpc().face(player)
-                    node.asNpc().animator.animate(ThievingPickpocketListener.NPC_ANIM)
+                    node.asNpc().animator.animate(ThievingPickpocket.NPC_ANIM)
                     sendMessage(player, "You fail to pick the workman's pocket.")
                     sendChat(node.asNpc(), "What do you think you're doing???")
                     sendMessage(player, "You have been stunned.") // -1 HP
@@ -216,11 +216,11 @@ class TheDigSiteListeners : InteractionListener {
                 }
             } else {
                 // When not during quest
-                player.animator.animate(ThievingPickpocketListener.PICKPOCKET_ANIM)
+                player.animator.animate(ThievingPickpocket.PICKPOCKET_ANIM)
                 val rollOutcome =
-                    ThievingPickpocketListener.pickpocketRoll(player, 84.0, 240.0, workmanPostQuestPickpocketingTable)
+                    ThievingPickpocket.pickpocketRoll(player, 84.0, 240.0, workmanPostQuestPickpocketingTable)
                 if (rollOutcome != null) {
-                    queueScript(player, ThievingPickpocketListener.PICKPOCKET_ANIM.duration, QueueStrength.NORMAL) { stage: Int ->
+                    queueScript(player, ThievingPickpocket.PICKPOCKET_ANIM.duration, QueueStrength.NORMAL) { stage: Int ->
                         when (stage) {
                             0 -> {
                                 if (rollOutcome.size > 0) {
@@ -240,7 +240,7 @@ class TheDigSiteListeners : InteractionListener {
                     }
                 } else {
                     node.asNpc().face(player)
-                    node.asNpc().animator.animate(ThievingPickpocketListener.NPC_ANIM)
+                    node.asNpc().animator.animate(ThievingPickpocket.NPC_ANIM)
                     sendMessage(player, "You fail to pick the workman's pocket.")
                     sendChat(player, "What do you think you're doing???")
                     sendMessage(player, "You have been stunned.") // -1 HP

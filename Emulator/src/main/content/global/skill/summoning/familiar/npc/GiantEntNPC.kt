@@ -18,7 +18,15 @@ import org.rs.consts.NPCs
  */
 @Initializable
 class GiantEntNPC @JvmOverloads constructor(owner: Player? = null, id: Int = 6800) :
-    content.global.skill.summoning.familiar.Forager(owner, id, 4900, 12013, 6, WeaponInterface.STYLE_CONTROLLED, *ITEMS) {
+    content.global.skill.summoning.familiar.Forager(
+        owner,
+        id,
+        4900,
+        12013,
+        6,
+        WeaponInterface.STYLE_CONTROLLED,
+        *ITEMS
+    ) {
 
     override fun construct(owner: Player, id: Int): content.global.skill.summoning.familiar.Familiar {
         return GiantEntNPC(owner, id)

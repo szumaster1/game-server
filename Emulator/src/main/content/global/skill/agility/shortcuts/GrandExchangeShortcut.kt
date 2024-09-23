@@ -88,11 +88,13 @@ class GrandExchangeShortcut : InteractionListener {
                         visualize(player, CRAWL_THROUGH, -1)
                         false
                     }
+
                     3 -> {
                         ForceMovement.run(player, path[1], path[2], CLIMB_UP)
                         unlock(player)
                         true
                     }
+
                     else -> false
                 }
             }

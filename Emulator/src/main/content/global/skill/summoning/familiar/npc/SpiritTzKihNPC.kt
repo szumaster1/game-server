@@ -13,7 +13,8 @@ import org.rs.consts.NPCs
  * Spirit tzkih familiar.
  */
 @Initializable
-class SpiritTzKihNPC @JvmOverloads constructor(owner: Player? = null, id: Int = NPCs.SPIRIT_TZ_KIH_7361) : content.global.skill.summoning.familiar.Familiar(owner, id, 1800, 12808, 6, WeaponInterface.STYLE_CAST) {
+class SpiritTzKihNPC @JvmOverloads constructor(owner: Player? = null, id: Int = NPCs.SPIRIT_TZ_KIH_7361) :
+    content.global.skill.summoning.familiar.Familiar(owner, id, 1800, 12808, 6, WeaponInterface.STYLE_CAST) {
 
     override fun construct(owner: Player, id: Int): content.global.skill.summoning.familiar.Familiar {
         return SpiritTzKihNPC(owner, id)

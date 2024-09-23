@@ -16,7 +16,8 @@ import org.rs.consts.NPCs
  * Granite crab familiar.
  */
 @Initializable
-class GraniteCrabNPC(owner: Player? = null, id: Int = NPCs.GRANITE_CRAB_6796) : content.global.skill.summoning.familiar.Forager(owner, id, 1800, 12009, 12, WeaponInterface.STYLE_DEFENSIVE) {
+class GraniteCrabNPC(owner: Player? = null, id: Int = NPCs.GRANITE_CRAB_6796) :
+    content.global.skill.summoning.familiar.Forager(owner, id, 1800, 12009, 12, WeaponInterface.STYLE_DEFENSIVE) {
 
     init {
         boosts.add(SkillBonus(Skills.FISHING, 1.0))

@@ -1,6 +1,6 @@
 package content.region.misthalin.varrock.quest.surok.dialogue;
 
-import content.region.misthalin.varrock.achievement.dialogue.RatBurgissDiaryDialogue;
+import content.region.misthalin.varrock.diary.dialogue.RatBurgissDiaryDialogue;
 import content.region.misthalin.varrock.quest.surok.WhatLiesBelow;
 import core.game.dialogue.Dialogue;
 import core.game.node.entity.npc.NPC;
@@ -12,8 +12,6 @@ import core.plugin.Initializable;
 
 /**
  * Represents the Rat Burgiss dialogue.
- * <p>Related to {@link WhatLiesBelow} quest.
- * @author Vexia
  */
 @Initializable
 public class RatBurgissDialogue extends Dialogue {

@@ -1,8 +1,6 @@
 package content.global.skill.summoning.familiar.npc
 
 import content.global.skill.gather.fishing.Fish.Companion.forItem
-import org.rs.consts.Items
-import org.rs.consts.NPCs
 import core.game.node.entity.impl.Projectile
 import core.game.node.entity.player.Player
 import core.game.node.entity.skill.SkillBonus
@@ -12,6 +10,8 @@ import core.game.world.update.flag.context.Animation
 import core.game.world.update.flag.context.Graphic
 import core.plugin.Initializable
 import core.tools.RandomFunction
+import org.rs.consts.Items
+import org.rs.consts.NPCs
 
 /**
  * Granite lobster familiar.

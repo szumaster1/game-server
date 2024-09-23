@@ -437,6 +437,14 @@ enum class SpecialLadders(private val ladderLoc: Location, private val destLoc: 
     VARROCK_SEWERS_UP(
         ladderLoc = Location(3237, 9858, 0),
         destLoc = Location.create(3238, 3458, 0)
+    ),
+    VARROCK_FUR_SHOP_DOWN(
+        ladderLoc = Location.create(3283, 3398, 1),
+        destLoc = Location.create(3283, 3397, 0)
+    ),
+    VARROCK_FUR_SHOP_UP(
+        ladderLoc = Location.create(3283, 3398, 0),
+        destLoc = Location.create(3283, 3399, 1)
     )
     ;
 

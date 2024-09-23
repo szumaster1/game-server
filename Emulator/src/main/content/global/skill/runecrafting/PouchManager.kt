@@ -12,6 +12,7 @@ import org.rs.consts.Items
 /**
  * A class for managing rune pouches.
  * @param player the player this manager instance belongs to.
+ * @author Player Name
  */
 class PouchManager(val player: Player) {
     val pouches = mapOf(
@@ -26,6 +27,7 @@ class PouchManager(val player: Player) {
      * @param itemId the item ID of the pouch we are adding to
      * @param amount the amount of essence to add
      * @param essence the ID of the essence item we are trying to add
+     * @author Player Name
      */
     fun addToPouch(itemId: Int, amount: Int, essence: Int) {
         val pouchId = if (isDecayedPouch(itemId)) itemId - 1 else itemId
@@ -44,8 +46,8 @@ class PouchManager(val player: Player) {
         if (amount > pouch.container.freeSlots()) {
             amt = pouch.container.freeSlots()
         }
-        if (amt == 0) {
-            sendMessage(player, "This pouch is already full.")
+        if (amt == pouch.container.freeSlots()) {
+            sendMessage(player, "Your pouch is full.") //https://www.youtube.com/watch?v=wbYtRwODKTo
         }
         if (pouch.container.contains(otherEssence, 1)) {
             sendMessage(player, "You can only store one type of essence in each pouch.")
@@ -61,12 +63,15 @@ class PouchManager(val player: Player) {
                 Items.MEDIUM_POUCH_5510 -> 1
                 Items.LARGE_POUCH_5512 -> 2
                 Items.GIANT_POUCH_5514 -> 3
-                else -> 0
+                else /*small pouch*/ -> 0
             }
             if (pouch.currentCap <= 0) {
+                // The pouch will disappear: https://runescape.wiki/w/Runecrafting_pouches?oldid=708494, https://oldschool.runescape.wiki/w/Essence_pouch
+                // "Degraded pouches will continue to degrade and lose essence capacity until they disappear or are repaired." implies that this is the end result of a gradual decay process
                 if (removeItem(player, itemId)) {
                     disappeared = true
                     sendMessage(player, "Your pouch has degraded completely.")
+                    // Reset the pouch for when the player obtains a new one
                     pouch.currentCap = pouch.capacity
                     pouch.charges = pouch.maxCharges
                     pouch.remakeContainer()
@@ -76,8 +81,9 @@ class PouchManager(val player: Player) {
                     val slot = player.inventory.getSlot(Item(itemId))
                     replaceSlot(player, slot, Item(itemId + 1))
                 }
-                sendMessage(player, "Your pouch has decayed through use.")
-                pouch.charges = 9 * pouch.currentCap
+                sendMessage(player, "Your pouch has decayed through use.") //https://www.youtube.com/watch?v=FUcPYrgPUlQ
+                pouch.charges =
+                    9 * pouch.currentCap //implied by multiple contemporaneous sources, quantified only by https://oldschool.runescape.wiki/w/Large_pouch
                 pouch.remakeContainer()
                 if (amt > pouch.currentCap) {
                     amt = pouch.currentCap
@@ -93,6 +99,7 @@ class PouchManager(val player: Player) {
     /**
      * Method to withdraw rune essence from a pouch.
      * @param itemId the item ID of the pouch to withdraw from
+     * @author Player Name
      */
     fun withdrawFromPouch(itemId: Int) {
         val pouchId = if (isDecayedPouch(itemId)) itemId - 1 else itemId
@@ -100,8 +107,14 @@ class PouchManager(val player: Player) {
         pouch ?: return
         val playerFree = freeSlots(player)
         var amount = pouch.currentCap - pouch.container.freeSlots()
-        if (amount > playerFree) amount = playerFree
-        if (amount == 0) return
+        if (amount > playerFree) {
+            amount = playerFree
+        } else {
+            sendMessage(player, "Your pouch has no essence left in it.") //https://www.youtube.com/watch?v=wbYtRwODKTo
+            if (amount == 0) {
+                return
+            }
+        }
         val essence = Item(pouch.container.get(0).id, amount)
         pouch.container.remove(essence)
         pouch.container.shift()
@@ -172,7 +185,7 @@ class PouchManager(val player: Player) {
     /**
      * Method for sending the player a message about how much space is left in a pouch
      * @param itemId the item ID of the pouch to check
-
+     * @author Player Name
      */
     fun checkAmount(itemId: Int) {
         val pouchId = if (isDecayedPouch(itemId)) itemId - 1 else itemId

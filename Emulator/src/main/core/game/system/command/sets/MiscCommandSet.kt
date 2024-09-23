@@ -1,7 +1,7 @@
 package core.game.system.command.sets
 
 import org.rs.consts.Components
-import content.global.handlers.iface.BookInterfaceListener
+import content.global.handlers.iface.BookInterface
 import content.global.handlers.iface.BookLine
 import content.global.handlers.iface.Page
 import content.global.handlers.iface.PageSet
@@ -877,7 +877,7 @@ class MiscCommandSet : CommandSet(Privilege.ADMIN) {
             sendMessage(player, "No results.")
             return
         }
-        val lineIds = BookInterfaceListener.FANCY_BOOK_26_LINE_IDS
+        val lineIds = BookInterface.FANCY_BOOK_26_LINE_IDS
         val contents = ArrayList<PageSet>()
         val leftChunks = leftLines.chunked(15)
         val rightChunks = rightLines.chunked(15)
@@ -898,9 +898,9 @@ class MiscCommandSet : CommandSet(Privilege.ADMIN) {
 
         closeInterface(player)
         fun display(player: Player, pageNum: Int, buttonID: Int): Boolean {
-            BookInterfaceListener.pageSetup(player, BookInterfaceListener.FANCY_BOOK_26, title, contents.toTypedArray())
+            BookInterface.pageSetup(player, BookInterface.FANCY_BOOK_26, title, contents.toTypedArray())
             return true
         }
-        BookInterfaceListener.openBook(player, BookInterfaceListener.FANCY_BOOK_26, ::display)
+        BookInterface.openBook(player, BookInterface.FANCY_BOOK_26, ::display)
     }
 }

@@ -17,7 +17,16 @@ import kotlin.math.floor
  * Evil turnip familiar.
  */
 @Initializable
-class EvilTurnipNPC(owner: Player? = null, id: Int = NPCs.EVIL_TURNIP_6833) : content.global.skill.summoning.familiar.Forager(owner, id, 3000, 12051, 6, WeaponInterface.STYLE_RANGE_ACCURATE, EVIL_TURNIP) {
+class EvilTurnipNPC(owner: Player? = null, id: Int = NPCs.EVIL_TURNIP_6833) :
+    content.global.skill.summoning.familiar.Forager(
+        owner,
+        id,
+        3000,
+        12051,
+        6,
+        WeaponInterface.STYLE_RANGE_ACCURATE,
+        EVIL_TURNIP
+    ) {
 
     override fun construct(owner: Player, id: Int): content.global.skill.summoning.familiar.Familiar {
         return EvilTurnipNPC(owner, id)

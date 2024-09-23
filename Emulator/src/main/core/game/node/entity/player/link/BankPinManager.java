@@ -1,7 +1,7 @@
 package core.game.node.entity.player.link;
 
 import org.rs.consts.Sounds;
-import content.global.handlers.iface.ge.StockMarketInterfaceListener;
+import content.global.handlers.iface.ge.StockMarket;
 import core.game.component.CloseEvent;
 import core.game.component.Component;
 import core.game.ge.GrandExchangeRecords;
@@ -210,7 +210,7 @@ public class BankPinManager {
         } else if (buttonId == 3) {
             GrandExchangeRecords.getInstance(player).openCollectionBox();
         } else if (buttonId == 4) {
-            StockMarketInterfaceListener.openFor(player);
+            StockMarket.openFor(player);
         }
     }
 

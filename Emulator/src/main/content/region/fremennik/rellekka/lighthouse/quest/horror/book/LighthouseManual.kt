@@ -1,6 +1,6 @@
 package content.region.fremennik.rellekka.lighthouse.quest.horror.book
 
-import content.global.handlers.iface.BookInterfaceListener
+import content.global.handlers.iface.BookInterface
 import content.global.handlers.iface.BookLine
 import content.global.handlers.iface.Page
 import content.global.handlers.iface.PageSet
@@ -240,27 +240,27 @@ class LighthouseManual : InteractionListener {
     }
 
     private fun display(player: Player, pageNum: Int, buttonID: Int): Boolean {
-        BookInterfaceListener.pageSetup(
-            player, BookInterfaceListener.FANCY_BOOK_3_49,
+        BookInterface.pageSetup(
+            player, BookInterface.FANCY_BOOK_3_49,
             TITLE,
             CONTENTS
         )
         player.packetDispatch.sendString(
             "",
-            BookInterfaceListener.FANCY_BOOK_3_49,
-            BookInterfaceListener.FANCY_BOOK_3_49_LINE_IDS[1]
+            BookInterface.FANCY_BOOK_3_49,
+            BookInterface.FANCY_BOOK_3_49_LINE_IDS[1]
         )
         player.packetDispatch.sendString(
             "",
-            BookInterfaceListener.FANCY_BOOK_3_49,
-            BookInterfaceListener.FANCY_BOOK_3_49_LINE_IDS[2]
+            BookInterface.FANCY_BOOK_3_49,
+            BookInterface.FANCY_BOOK_3_49_LINE_IDS[2]
         )
         return true
     }
 
     override fun defineListeners() {
         on(Items.MANUAL_3847, IntType.ITEM, "read") { player, _ ->
-            BookInterfaceListener.openBook(player, BookInterfaceListener.FANCY_BOOK_3_49, ::display)
+            BookInterface.openBook(player, BookInterface.FANCY_BOOK_3_49, ::display)
             return@on true
         }
     }

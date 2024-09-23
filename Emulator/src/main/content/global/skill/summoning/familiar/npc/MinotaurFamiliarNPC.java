@@ -11,9 +11,9 @@ import core.game.system.task.Pulse;
 import core.game.world.GameWorld;
 import core.game.world.update.flag.context.Animation;
 import core.game.world.update.flag.context.Graphic;
-import core.plugin.PluginManager;
 import core.plugin.Initializable;
 import core.plugin.Plugin;
+import core.plugin.PluginManager;
 import core.tools.RandomFunction;
 
 import static core.api.ContentAPIKt.stun;
