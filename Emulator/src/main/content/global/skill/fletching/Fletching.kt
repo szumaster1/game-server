@@ -27,6 +27,7 @@ class Fletching : InteractionListener {
         /*
          * Handles fletch the unstrung bow.
          */
+
         onUseWith(IntType.ITEM, FletchingMap.stringIds, *FletchingMap.unstrungBows) { player, string, bow ->
             handleStringing(player, string.asItem(), bow.asItem())
             return@onUseWith true
@@ -48,7 +49,7 @@ class Fletching : InteractionListener {
          */
 
         onUseWith(IntType.ITEM, FletchingMap.fletchedShaftId, *FletchingMap.unfinishedArrows) { player, shaft, unfinished ->
-            val head = ArrowHead.productMap[unfinished.id] ?: return@onUseWith false
+            val head = ArrowHead.product[unfinished.id] ?: return@onUseWith false
             openSkillDialogue(player, head.finished) { amount ->
                 submitIndividualPulse(player, ArrowHeadPulse(player, Item(shaft.id), head, amount))
             }
@@ -111,7 +112,7 @@ class Fletching : InteractionListener {
          */
 
         onUseWith(IntType.ITEM, FletchingMap.limbIds, *FletchingMap.stockIds) { player, limb, stock ->
-            val limbEnum = Limb.productMap[stock.id] ?: return@onUseWith false
+            val limbEnum = Limb.product[stock.id] ?: return@onUseWith false
             if (limbEnum.limb != limb.id) {
                 sendMessage(player, "That's not the right limb to attach to that stock.")
                 return@onUseWith true
@@ -127,7 +128,7 @@ class Fletching : InteractionListener {
          */
 
         onUseWith(IntType.ITEM, Items.CHISEL_1755, *FletchingMap.gemIds) { player, used, with ->
-            val gem = GemBolt.productMap[with.id] ?: return@onUseWith true
+            val gem = GemBolt.product[with.id] ?: return@onUseWith true
             openSkillDialogue(player, gem.gem) { amount ->
                 submitIndividualPulse(player, GemBoltCutPulse(player, Item(used.id), gem, amount))
             }
@@ -139,7 +140,7 @@ class Fletching : InteractionListener {
          */
 
         onUseWith(IntType.ITEM, FletchingMap.boltBaseIds, *FletchingMap.boltTipIds) { player, used, with ->
-            val bolt = GemBolt.productMap[with.id] ?: return@onUseWith true
+            val bolt = GemBolt.product[with.id] ?: return@onUseWith true
             if (used.id != bolt.base || with.id != bolt.tip) return@onUseWith true
             openSkillDialogue(player, bolt.product) { amount ->
                 submitIndividualPulse(player, GemBoltPulse(player, Item(used.id), bolt, amount))
@@ -184,7 +185,7 @@ class Fletching : InteractionListener {
          */
 
         onUseWith(IntType.ITEM, FletchingMap.fletchedShaftId, *FletchingMap.nailIds) { player, used, with ->
-            val brutalArrow = BrutalArrow.productMap[with.id] ?: return@onUseWith false
+            val brutalArrow = BrutalArrow.product[with.id] ?: return@onUseWith false
             openSkillDialogue(player, brutalArrow.product) { amount ->
                 submitIndividualPulse(
                     entity = player,
@@ -199,7 +200,7 @@ class Fletching : InteractionListener {
      * Handles the string pulse.
      */
     private fun handleStringing(player: Player, string: Item, bow: Item): Boolean {
-        val enum = BowString.productMap[bow.id] ?: return false
+        val enum = BowString.product[bow.id] ?: return false
         if (enum.string != string.id) {
             sendMessage(player, "That's not the right kind of string for this.")
             return true

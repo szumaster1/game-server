@@ -2,9 +2,7 @@ package content.global.skill.smithing
 
 import content.global.skill.skillcape.SkillcapePerks
 import content.global.skill.smithing.smelting.Bar
-import content.global.skill.smithing.smelting.CannonballPulse
 import core.api.*
-import core.game.dialogue.SkillDialogueHandler
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.entity.skill.Skills

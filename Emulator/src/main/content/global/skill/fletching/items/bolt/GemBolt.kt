@@ -96,6 +96,7 @@ enum class GemBolt(val base: Int, val gem: Int, val tip: Int, val product: Int, 
     );
 
     companion object {
-        val productMap: Map<Int, GemBolt> = values().associateBy { it.gem }
+        val values = enumValues<GemBolt>()
+        val product = GemBolt.values().associateBy { it.gem }
     }
 }

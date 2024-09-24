@@ -56,6 +56,7 @@ enum class ArrowHead(val unfinished: Int, val finished: Int, val level: Int, val
     );
 
     companion object {
-        val productMap: Map<Int, ArrowHead> = values().associateBy { it.unfinished }
+        val values = enumValues<ArrowHead>()
+        val product = values().associateBy { it.unfinished }
     }
 }

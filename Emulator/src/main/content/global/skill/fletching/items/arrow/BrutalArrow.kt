@@ -50,6 +50,7 @@ enum class BrutalArrow(val base: Int, val product: Int, val level: Int, val expe
     );
 
     companion object {
-        val productMap: Map<Int, BrutalArrow> = values().associateBy { it.base }
+        val values = enumValues<BrutalArrow>()
+        val product = BrutalArrow.values().associateBy { it.base }
     }
 }

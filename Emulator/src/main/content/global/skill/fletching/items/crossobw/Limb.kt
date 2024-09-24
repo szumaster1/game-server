@@ -64,6 +64,7 @@ enum class Limb(val stock: Int, val limb: Int, val product: Int, val level: Int,
     );
 
     companion object {
-        val productMap: Map<Int, Limb> = values().associateBy { it.stock }
+        val values = enumValues<Limb>()
+        val product = Limb.values().associateBy { it.stock }
     }
 }

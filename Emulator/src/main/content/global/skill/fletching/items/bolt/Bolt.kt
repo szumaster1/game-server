@@ -62,15 +62,8 @@ enum class Bolt(val unfinished: Int, val finished: Int, val level: Int, val expe
     );
 
     companion object {
-        val productMap = mutableMapOf<Int, Bolt>()
-
-        init {
-            values().forEach { product ->
-                productMap[product.unfinished] = product
-            }
-        }
-
-        @JvmStatic
-        fun isBolt(id: Int): Boolean = productMap.containsKey(id)
+        val values = enumValues<Bolt>()
+        val product = Bolt.values().associateBy { it.unfinished }
+        fun isBolt(id: Int): Boolean = product.containsKey(id)
     }
 }

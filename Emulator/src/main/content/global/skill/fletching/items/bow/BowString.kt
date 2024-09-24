@@ -174,6 +174,7 @@ enum class BowString(private val indicator: Byte, val unfinished: Int, val produ
     }
 
     companion object {
-        val productMap: Map<Int, BowString> = values().associateBy { it.unfinished }
+        val values = enumValues<BowString>()
+        val product = BowString.values().associateBy { it.unfinished }
     }
 }
