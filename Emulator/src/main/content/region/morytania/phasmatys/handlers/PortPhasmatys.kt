@@ -10,7 +10,7 @@ import core.game.world.map.zone.ZoneBorders
 /**
  * Represents the Phasmatys map area.
  */
-class PhasmatysArea : MapArea {
+class PortPhasmatysArea : MapArea {
 
     override fun defineAreaBorders(): Array<ZoneBorders> {
         return arrayOf(ZoneBorders.forRegion(14646), ZoneBorders.forRegion(14747))

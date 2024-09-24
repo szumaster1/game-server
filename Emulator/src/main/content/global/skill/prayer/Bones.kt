@@ -5,11 +5,7 @@ import org.rs.consts.Items
 /**
  * Represents the type of bones.
  */
-enum class Bones(
-    val itemId: Int,
-    val experience: Double,
-    val bonemealId: Int?
-) {
+enum class Bones(val itemId: Int, val experience: Double, val bonemealId: Int? = null) {
     BONES(
         itemId = Items.BONES_2530,
         experience = 4.5,
@@ -107,55 +103,36 @@ enum class Bones(
     ),
     BURNT_RAW_PASTY_JOGRE_BONES(
         itemId = Items.PASTY_JOGRE_BONES_3128,
-        experience = 17.0,
-        bonemealId = null
+        experience = 17.0
     ),
     BURNT_COOKED_PASTY_JOGRE_BONES(
         itemId = Items.PASTY_JOGRE_BONES_3129,
-        experience = 17.0,
-        bonemealId = null
+        experience = 17.0
     ),
     MARINATED_JOGRE_BONES(
         itemId = Items.MARINATED_J_BONES_3130,
-        experience = 18.0,
-        bonemealId = null
+        experience = 18.0
     ),
     RAW_PASTY_JOGRE_BONES(
         itemId = Items.PASTY_JOGRE_BONES_3131,
-        experience = 17.0,
-        bonemealId = null
+        experience = 17.0
     ),
     COOKED_PASTY_JOGRE_BONES(
         itemId = Items.PASTY_JOGRE_BONES_3132,
-        experience = 17.0,
-        bonemealId = null
+        experience = 17.0
     ),
     MARINATED_JOGRE_BONES_BAD(
         itemId = Items.MARINATED_J_BONES_3133,
-        experience = 18.0,
-        bonemealId = null
+        experience = 18.0
     );
 
     companion object {
-        private val bones = HashMap<Int, Bones>()
+        val values = enumValues<Bones>()
+        val bone = values.associateBy { it.itemId }
 
         @JvmStatic
         fun forBoneMeal(itemId: Int): Bones? {
-            return values().find { it.bonemealId == itemId }
-        }
-
-        val array: IntArray
-            @JvmStatic get() = bones.keys.toIntArray()
-
-        @JvmStatic
-        fun forId(itemId: Int): Bones? {
-            return bones[itemId]
-        }
-
-        init {
-            for (bone in values()) {
-                bones[bone.itemId] = bone
-            }
+            return values.find { it.bonemealId == itemId }
         }
     }
 }

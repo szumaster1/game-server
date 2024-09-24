@@ -20,7 +20,7 @@ import core.tools.END_DIALOGUE
 /**
  * Represents the Phasmatys listeners.
  */
-class Phasmatys : InteractionListener {
+class PhasmatysListeners : InteractionListener {
 
     companion object {
         private val BOTH_BEDSHEET = intArrayOf(Items.BEDSHEET_4284, Items.BEDSHEET_4285)
@@ -65,7 +65,10 @@ class Phasmatys : InteractionListener {
          */
 
         on(CAPTAIN, IntType.SCENERY, "talk-to") { player, _ ->
-            sendDialogue(player, "The pirate captain ignores you and continues to stare lifelessly at nothing, as he has clearly been dead for some time.")
+            sendDialogue(
+                player,
+                "The pirate captain ignores you and continues to stare lifelessly at nothing, as he has clearly been dead for some time."
+            )
             return@on true
         }
 
@@ -162,12 +165,15 @@ class Phasmatys : InteractionListener {
                                 2 -> player("I'm not paying you Ectotockens just to go through a gate.").also { stage = 4 }
                                 3 -> player("Where can I get Ectotokens?").also { stage = 5 }
                             }
+
                             3 -> {
                                 end()
                                 passGate(player, node.asScenery())
                             }
+
                             4 -> npc("Sorry - it's Town Policy.").also { stage = END_DIALOGUE }
                             5 -> npc("You need to go to the Temple and earn some.", "Talk to the disciples - they will tell you how.").also { stage = END_DIALOGUE }
+
                             6 -> when (buttonID) {
                                 1 -> player("I don't have that many Ectotokens.").also { stage = 4 }
                                 2 -> player("Where can I get Ectotokens?").also { stage = 5 }
@@ -191,8 +197,8 @@ class Phasmatys : InteractionListener {
         onUseWith(IntType.SCENERY, EMPTY_BUCKET, *ECTO) { player, used, _ ->
             animate(player, Animation.create(4471))
             playAudio(player, Sounds.FILL_ECTOPLASM_1132)
-            sendMessage(player,"You fill the bucket with ectoplasm.")
-            player.pulseManager.run(object : Pulse(3, player) {
+            sendMessage(player, "You fill the bucket with ectoplasm.")
+            submitIndividualPulse(player, object : Pulse(3, player) {
                 override fun pulse(): Boolean {
                     if (removeItem(player, used.asItem())) {
                         addItem(player, Items.BUCKET_OF_SLIME_4286)
