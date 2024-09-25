@@ -53,7 +53,7 @@ class FletchingPlugin : UseWithHandler(
     }
 
     private fun handleDart(event: NodeUsageEvent): Boolean {
-        val dart = Dart.productMap[event.usedItem.id] ?: return false
+        val dart = Dart.product[event.usedItem.id] ?: return false
         val handler = createSkillDialogueHandler(event, dart.finished.asItem()) { amount ->
             submitIndividualPulse(event.player, DartPulse(event.player, event.usedItem, dart, amount))
         }
@@ -63,8 +63,8 @@ class FletchingPlugin : UseWithHandler(
 
     private fun handleBolt(event: NodeUsageEvent): Boolean {
         val bolt = when {
-            Bolt.isBolt(event.usedItem.id) -> Bolt.productMap[event.usedItem.id]
-            else -> Bolt.productMap[event.usedWith.id]
+            Bolt.isBolt(event.usedItem.id) -> Bolt.product[event.usedItem.id]
+            else -> Bolt.product[event.usedWith.id]
         } ?: return false
 
         val featherId = if (Bolt.isBolt(event.usedItem.id)) event.usedWith.id else event.usedItem.id

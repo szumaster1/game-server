@@ -1,6 +1,6 @@
 package content.region.fremennik.neitiznot.handlers
 
-import content.global.skill.crafting.YakArmourCraftingHandler
+import content.global.skill.crafting.items.armour.yakhide.YakArmourCraftingListener
 import org.rs.consts.Regions
 import content.region.fremennik.neitiznot.dialogue.MawnisBurowgarDialogue
 import content.region.fremennik.neitiznot.dialogue.ThakkradYakDialogue
@@ -25,8 +25,8 @@ class NeitiznotZone : MapZone("Neitiznot zone", true), Plugin<Any?> {
         definePlugins(
             MawnisBurowgarDialogue(),
             ThakkradYakDialogue(),
-            YakArmourCraftingHandler(),
-            YakArmourCraftingHandler()
+            YakArmourCraftingListener(),
+            YakArmourCraftingListener()
         )
         return this
     }

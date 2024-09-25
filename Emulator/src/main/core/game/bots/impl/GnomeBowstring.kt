@@ -1,8 +1,8 @@
 package core.game.bots.impl
 
 import org.rs.consts.Items
-import content.global.skill.crafting.Spinning
-import content.global.skill.crafting.SpinningPulse
+import content.global.skill.crafting.spinning.Spinning
+import content.global.skill.crafting.spinning.SpinningPulse
 import core.api.freeSlots
 import core.game.bots.*
 import core.game.interaction.DestinationFlag

@@ -58,7 +58,7 @@ class BrutalArrowPulse(player: Player?, node: Item?, private val arrow: BrutalAr
             product.amount = amount
         }
         if (removeItem(player, Item(base.id, nail.amount))) {
-            addItem(player, product.id)
+            addItem(player, product.id, product.amount)
             rewardXP(player, Skills.FLETCHING, arrow.experience * product.amount)
             sendMessage(player, if (product.amount == 1) "You attach the " + getItemName(arrow.base) + "to the flighted ogre arrow." else "You fletch " + product.amount + " " + getItemName(arrow.product) + " arrows.")
         }

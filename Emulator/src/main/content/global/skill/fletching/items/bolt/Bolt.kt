@@ -63,7 +63,7 @@ enum class Bolt(val unfinished: Int, val finished: Int, val level: Int, val expe
 
     companion object {
         val values = enumValues<Bolt>()
-        val product = Bolt.values().associateBy { it.unfinished }
+        val product = values.associateBy { it.unfinished }
         fun isBolt(id: Int): Boolean = product.containsKey(id)
     }
 }

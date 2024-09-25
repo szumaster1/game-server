@@ -70,7 +70,7 @@ class FletchingPulse(player: Player?, node: Item?, amount: Int, fletch: Fletchin
             if (fletch == FletchingMap.FletchingItems.OGRE_COMPOSITE_BOW) {
                 item.id = Items.UNSTRUNG_COMP_BOW_4825
             }
-            addItem(player, item.id)
+            addItem(player, item.id, item.amount)
             rewardXP(player, Skills.FLETCHING, fletch.experience)
             val message = message
             sendMessage(player, message)
@@ -89,7 +89,7 @@ class FletchingPulse(player: Player?, node: Item?, amount: Int, fletch: Fletchin
         get() = when (fletch) {
             FletchingMap.FletchingItems.ARROW_SHAFT -> "You carefully cut the wood into 15 arrow shafts."
             FletchingMap.FletchingItems.OGRE_COMPOSITE_BOW -> "You carefully cut the wood into composite ogre bow."
-            else -> ("You carefully cut the wood into " + if (StringUtils.isPlusN(getItemName(fletch.id))) "an" else "a" + " " + getItemName(fletch.id).replace("(u)", "").trim()) + "."
+            else -> ("You carefully cut the wood into " + if (StringUtils.isPlusN(getItemName(fletch.id).lowercase())) "an" else "a" + " " + getItemName(fletch.id).lowercase().replace("(u)", "").trim()) + "."
         }
 
     companion object {

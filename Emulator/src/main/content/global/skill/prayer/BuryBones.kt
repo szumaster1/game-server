@@ -12,19 +12,17 @@ import core.game.node.item.Item
 import org.rs.consts.Animations
 import org.rs.consts.Sounds
 
-/**
- * Bury bones listener.
- */
 class BuryBones : InteractionListener {
 
+    private val bones = Bones.values().map { it.itemId }.toIntArray()
+
     override fun defineListeners() {
-
         /*
-         * Handles the bury options for bones in Bones.kt
+         * Handles the bury option.
          */
+        on(bones, IntType.ITEM, "bury") { player, node ->
+            val boneType = Bones.values().find { it.itemId == node.id } ?: return@on true
 
-        on(Bones.array, IntType.ITEM, "bury") { player, node ->
-            val bones = Bones.forId(node.id) ?: return@on true
             if (!clockReady(player, Clocks.SKILLING)) return@on true
             if (!inInventory(player, node.id)) return@on true
 
@@ -38,24 +36,25 @@ class BuryBones : InteractionListener {
             queueScript(player, 1, QueueStrength.STRONG) {
                 if (removeBones(player, node.asItem())) {
                     sendMessage(player, "You bury the bones.")
-                    rewardXP(player, Skills.PRAYER, bones.experience)
-                    player.dispatch(BoneBuryEvent(bones.itemId))
+                    rewardXP(player, Skills.PRAYER, boneType.experience)
+                    player.dispatch(BoneBuryEvent(boneType.itemId))
                 }
                 return@queueScript stopExecuting(player)
             }
+
             return@on true
         }
     }
 
     /**
-     * Remove bones.
+     * Removes bones from the player inventory.
      *
-     * @param player    the player from whom the bones will be removed
-     * @param item      the item representing the bones to be removed
-     * @return `true` if the bones were successfully removed, `false` otherwise
+     * @param player The player who is burying the bones.
+     * @param item The item being buried (bones).
+     * @return true if the operation was successful.
      */
     private fun removeBones(player: Player, item: Item): Boolean {
-        val removedBones = replaceSlot(player, item.slot, Item())
-        return removedBones == item && removedBones.slot == item.slot
+        val removedItem = replaceSlot(player, item.slot, Item())
+        return removedItem == item && removedItem.slot == item.slot
     }
 }

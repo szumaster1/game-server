@@ -3,7 +3,7 @@ package core.game.shops
 import org.rs.consts.Components
 import org.rs.consts.Items
 import org.rs.consts.NPCs
-import content.global.skill.crafting.Tanning
+import content.global.skill.crafting.items.leather.Tanning
 import core.Configuration
 import core.api.*
 import core.game.dialogue.FacialExpression

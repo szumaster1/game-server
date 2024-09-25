@@ -6,19 +6,15 @@ import content.global.skill.prayer.Bones
 import core.api.*
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
-import core.game.world.update.flag.context.Animation
 import org.rs.consts.Animations
 import org.rs.consts.Items
 import org.rs.consts.NPCs
 
-/**
- * Handles feed the sheep dog.
- */
 class FeedSheepDog : InteractionListener {
 
     companion object {
         private const val SHEEP_DOG_NPC = NPCs.SHEEPDOG_2311
-        private val FEED_ANIMATION = Animation(Animations.HUMAN_BURYING_BONES_827)
+        private val FEED_ANIMATION = Animations.HUMAN_BURYING_BONES_827
         private val CONSUMABLE_BONES = Bones.array.filter { it != Items.BURNT_BONES_528 }.toHashSet()
         private val CONSUMABLE_MEATS = Meat.values().filter { it.state == MeatState.INEDIBLE_RAW || it.state == MeatState.EDIBLE_COOKED }.map { it.id }.toHashSet()
     }
@@ -43,7 +39,6 @@ class FeedSheepDog : InteractionListener {
 
             animate(player, FEED_ANIMATION)
             sendChat(with.asNpc(), "Woof woof!")
-
             return@onUseAnyWith true
         }
     }

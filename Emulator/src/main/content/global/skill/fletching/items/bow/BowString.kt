@@ -175,6 +175,6 @@ enum class BowString(private val indicator: Byte, val unfinished: Int, val produ
 
     companion object {
         val values = enumValues<BowString>()
-        val product = BowString.values().associateBy { it.unfinished }
+        val product = values.associateBy { it.unfinished }
     }
 }

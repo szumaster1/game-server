@@ -65,7 +65,7 @@ class BoltPulse(player: Player?, node: Item?, private val bolt: Bolt, private va
             val product = Item(bolt.finished)
             product.amount = feather.amount
             rewardXP(player, Skills.FLETCHING, product.amount * bolt.experience)
-            addItem(player, product.id)
+            addItem(player, product.id, product.amount)
         }
 
         feather.amount = 1

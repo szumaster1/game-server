@@ -10,6 +10,7 @@ import core.game.interaction.QueueStrength
 import core.game.node.Node
 import core.game.node.entity.combat.graves.GraveController
 import core.game.node.entity.player.Player
+import core.game.node.entity.player.info.Rights
 import core.game.node.entity.player.info.login.PlayerParser
 import core.game.node.item.GroundItemManager
 import core.game.node.item.Item
@@ -46,6 +47,10 @@ class DropListener : InteractionListener {
                     sendMessage(player, "You cannot drop items on top of graves!")
                     return false
                 }
+                if (player.houseManager.isInHouse(player) && player.houseManager.isBuildingMode && player.rights != Rights.ADMINISTRATOR) {
+                    sendMessage(player, "You cannot drop items while in building mode.")
+                    return false
+                }
                 if (getAttribute(player, "equipLock:${node.id}", 0) > getWorldTicks()) return false
 
                 queueScript(player, strength = QueueStrength.SOFT) {
@@ -59,10 +64,7 @@ class DropListener : InteractionListener {
                     PlayerParser.save(player)
                     return@queueScript stopExecuting(player)
                 }
-            } else if (option == "destroy" || option == "dissolve" || item.definition.handlers.getOrDefault(
-                    ItemConfigParser.DESTROY, false
-                ) as Boolean
-            ) {
+            } else if (option == "destroy" || option == "dissolve" || item.definition.handlers.getOrDefault(ItemConfigParser.DESTROY, false) as Boolean) {
                 player.dialogueInterpreter.sendDestroyItem(item.id, item.name)
                 addDialogueAction(player) { player, button ->
                     if (button == 3) {

@@ -62,7 +62,6 @@ class GlobalData {
     private var joinedMonastery: Boolean = false
     private var disableDeathScreen: Boolean = false
     private var disableNews: Boolean = false
-    private var enableBoneCrusher: Boolean = false
     private var enableCoinMachine: Boolean = false
     private var enableCharmCollector: Boolean = false
     private var macroDisabled: Boolean = false
@@ -1077,24 +1076,6 @@ class GlobalData {
      */
     fun setLowAlchemyDelay(lowAlchemyDelay: Long) {
         this.lowAlchemyDelay = lowAlchemyDelay
-    }
-
-    /**
-     * Is enable bone crusher
-     *
-     * @return True if the bone crusher is enabled, otherwise false.
-     */
-    fun isEnableBoneCrusher(): Boolean {
-        return enableBoneCrusher
-    }
-
-    /**
-     * Set enable bone crusher
-     *
-     * @param enableBoneCrusher The new status for enabling the bone crusher.
-     */
-    fun setEnableBoneCrusher(enableBoneCrusher: Boolean) {
-        this.enableBoneCrusher = enableBoneCrusher
     }
 
     /**

@@ -1,7 +1,7 @@
 package content.region.asgarnia.falador.diary
 
 import content.global.skill.farming.FarmingPatch
-import content.global.skill.crafting.LightSource
+import content.global.skill.crafting.glassblowing.lamps.LightSource
 import content.global.travel.FairyRing
 import core.api.*
 import org.rs.consts.Items
