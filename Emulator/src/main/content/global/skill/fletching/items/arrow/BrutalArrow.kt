@@ -51,6 +51,6 @@ enum class BrutalArrow(val base: Int, val product: Int, val level: Int, val expe
 
     companion object {
         val values = enumValues<BrutalArrow>()
-        val product = BrutalArrow.values().associateBy { it.base }
+        val product = values.associateBy { it.base }
     }
 }

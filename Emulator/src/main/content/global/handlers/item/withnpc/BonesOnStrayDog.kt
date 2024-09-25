@@ -1,6 +1,7 @@
 package content.global.handlers.item.withnpc
 
 import content.global.skill.prayer.Bones
+import core.api.getItemName
 import core.api.removeItem
 import core.api.sendChat
 import core.api.sendMessage
@@ -11,9 +12,6 @@ import core.game.node.item.Item
 import org.rs.consts.Items
 import org.rs.consts.NPCs
 
-/**
- * Handles the bones on stray dogs.
- */
 class BonesOnStrayDog : InteractionListener {
 
     override fun defineListeners() {
@@ -24,7 +22,7 @@ class BonesOnStrayDog : InteractionListener {
             used as Item; with as NPC
             var woof = "Woof"
             if (removeItem(player, used)) {
-                sendMessage(player, "You feed the ${with.definition.name.lowercase()} your ${used.definition.name.lowercase()}.")
+                sendMessage(player, "You feed the ${with.name.lowercase()} your ${getItemName(used.id).lowercase()}.")
                 when (used.id) {
                     Items.BURNT_BONES_528 -> {
                         sendMessage(player, "The dog looks at you, disappointed, but takes the bones anyway.")

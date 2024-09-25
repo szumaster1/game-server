@@ -34,7 +34,7 @@ class GemBoltCutPulse(player: Player?, node: Item?, private val gem: GemBolt, pr
         }
         val reward = if (gem.gem == Items.OYSTER_PEARLS_413) Item(gem.tip, 24) else Item(gem.tip, 12)
         if (removeItem(player, gem.gem)) {
-            addItem(player, reward.id)
+            addItem(player, reward.id, reward.amount)
             rewardXP(player, Skills.FLETCHING, gem.experience)
         }
         amount--

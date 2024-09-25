@@ -98,9 +98,7 @@ public final class NPCDropTables {
         if (item == null || item.getId() == 0 || l == null || item.getName().equals("null") || player == null) {
             return;
         }
-        if (handleBoneCrusher(player, item)) {
-            return;
-        }
+
         if (item.hasItemPlugin() && player != null) {
             if (!item.getPlugin().createDrop(item, player, npc, l)) {
                 return;
@@ -197,25 +195,6 @@ public final class NPCDropTables {
                 }
             }
         }
-    }
-
-    /**
-     * Handles the bone crusher perk.
-     *
-     * @param player The player
-     * @param item   The item
-     * @return true if successfully added experience.
-     */
-    private boolean handleBoneCrusher(Player player, Item item) {
-        Bones bone = Bones.forId(item.getId());
-        if (bone == null) {
-            return false;
-        }
-        if (!player.getGlobalData().isEnableBoneCrusher()) {
-            return false;
-        }
-        player.getSkills().addExperience(Skills.PRAYER, item.getAmount() * bone.getExperience());
-        return true;
     }
 
     /**

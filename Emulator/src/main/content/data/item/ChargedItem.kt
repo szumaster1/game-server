@@ -1,8 +1,8 @@
 package content.data.item
 
-import org.rs.consts.Items
 import core.api.toIntArray
 import core.cache.def.impl.ItemDefinition
+import org.rs.consts.Items
 
 /**
  * Represents a distinct charged item, i.e. items with (#).
@@ -14,7 +14,7 @@ enum class ChargedItem(val ids: IntArray) {
     RING_OF_DUELLING(ids = (Items.RING_OF_DUELLING8_2552..Items.RING_OF_DUELLING1_2566 step 2).toIntArray()),
     GAMES_NECKLACE(ids = (Items.GAMES_NECKLACE8_3853..Items.GAMES_NECKLACE1_3867 step 2).toIntArray()),
     BROODOO_SHIELDA(ids = (Items.BROODOO_SHIELD_10_6215..Items.BROODOO_SHIELD_6235 step 2).toIntArray()),
-    BROODOO_SHIELDB((Items.BROODOO_SHIELD_10_6237..Items.BROODOO_SHIELD_6257 step 2).toIntArray()),
+    BROODOO_SHIELDB(ids = (Items.BROODOO_SHIELD_10_6237..Items.BROODOO_SHIELD_6257 step 2).toIntArray()),
     BROODOO_SHIELDC(ids = (Items.BROODOO_SHIELD_10_6259..Items.BROODOO_SHIELD_6279 step 2).toIntArray()),
     ROD_OF_IVANDIS(ids = (Items.ROD_OF_IVANDIS10_7639..Items.ROD_OF_IVANDIS1_7648).toIntArray()),
     BLACK_MASK(ids = (Items.BLACK_MASK_10_8901..Items.BLACK_MASK_8921 step 2).toIntArray()),

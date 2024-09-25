@@ -51,7 +51,7 @@ enum class Dart(val unfinished: Int, val finished: Int, val level: Int, val expe
 
     companion object {
         val values = enumValues<Dart>()
-        val product = Dart.values().associateBy { it.unfinished }
+        val product = values.associateBy { it.unfinished }
         fun isDart(id: Int): Boolean = id in product
     }
 }

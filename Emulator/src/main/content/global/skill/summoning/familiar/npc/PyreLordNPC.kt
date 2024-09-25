@@ -1,6 +1,6 @@
 package content.global.skill.summoning.familiar.npc
 
-import content.global.skill.crafting.Jewellery.open
+import content.global.skill.crafting.casting.gold.Jewellery.open
 import content.global.skill.firemaking.FireMakingPulse.getAsh
 import content.global.skill.firemaking.Log.Companion.forId
 import core.game.interaction.NodeUsageEvent

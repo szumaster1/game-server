@@ -1,17 +1,17 @@
 package content.global.skill.fletching.items.arrow
 
+import content.global.skill.slayer.SlayerManager
 import core.api.*
 import core.game.node.entity.player.Player
 import core.game.node.entity.skill.SkillPulse
 import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
-import org.rs.consts.Items
-import content.global.skill.slayer.SlayerManager
 
 /**
- * Represents the [ArrowHeadPulse] class to make the [arrows].
+ * Represents the arrow head pulse to complete the headless arrow.
  */
-class ArrowHeadPulse(player: Player?, node: Item?, arrow: ArrowHead, private var sets: Int) : SkillPulse<Item?>(player, node) {
+class ArrowHeadPulse(player: Player?, node: Item?, arrow: ArrowHead, private var sets: Int) :
+    SkillPulse<Item?>(player, node) {
 
     private val arrows: ArrowHead = arrow
 
@@ -41,35 +41,35 @@ class ArrowHeadPulse(player: Player?, node: Item?, arrow: ArrowHead, private var
             super.setDelay(3)
         }
         val tip = Item(arrows.unfinished)
-        val tipAmount = amountInInventory(player, arrows.unfinished)
-        val shaftAmount = amountInInventory(player, Items.HEADLESS_ARROW_53)
+        val tipAmount: Int = player.inventory.getAmount(arrows.unfinished)
+        val shaftAmount = player.inventory.getAmount(HEADLESS_ARROW)
         if (tipAmount >= 15 && shaftAmount >= 15) {
-            Item(Items.HEADLESS_ARROW_53).amount = 15
+            HEADLESS_ARROW.amount = 15
             tip.amount = 15
             sendMessage(player, "You attach ${getItemName(arrows.unfinished).lowercase()} to 15 arrow shafts.")
         } else {
             val amount = if (tipAmount > shaftAmount) shaftAmount else tipAmount
-            Item(Items.HEADLESS_ARROW_53).amount = amount
+            HEADLESS_ARROW.amount = amount
             tip.amount = amount
             sendMessage(
                 player,
-                if (amount == 1) "You attach an " + "${getItemName(arrows.unfinished).lowercase()} to an arrow shaft." else "You attach ${
+                if (amount == 1) "You attach an ${getItemName(arrows.unfinished).lowercase()} to an arrow shaft." else "You attach ${
                     getItemName(arrows.unfinished).lowercase()
                 } to $amount arrow shafts."
             )
         }
-        if (removeItem(player, Item(Items.HEADLESS_ARROW_53, tip.id))) {
+        if (player.inventory.remove(HEADLESS_ARROW, tip)) {
             rewardXP(player, Skills.FLETCHING, arrows.experience * tip.amount)
             val product = Item(arrows.finished)
             product.amount = tip.amount
-            addItem(player, product.id)
+            addItem(player, product.id, product.amount)
         }
-        Item(Items.HEADLESS_ARROW_53).amount = 1
+        HEADLESS_ARROW.amount = 1
         tip.amount = 1
-        if (!inInventory(player, Items.HEADLESS_ARROW_53)) {
+        if (!player.inventory.containsItem(HEADLESS_ARROW)) {
             return true
         }
-        if (!inInventory(player, tip.id)) {
+        if (!player.inventory.containsItem(tip)) {
             return true
         }
         sets--
@@ -79,4 +79,7 @@ class ArrowHeadPulse(player: Player?, node: Item?, arrow: ArrowHead, private var
     override fun message(type: Int) {
     }
 
+    companion object {
+        private val HEADLESS_ARROW = Item(53)
+    }
 }

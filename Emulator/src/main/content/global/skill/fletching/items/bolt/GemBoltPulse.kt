@@ -57,7 +57,7 @@ class GemBoltPulse(player: Player?, node: Item?, bolt: GemBolt, sets: Int) : Ski
             product.amount = amount
         }
         if (removeItem(player, Item(base.id, tip.amount))) {
-            addItem(player, product.id)
+            addItem(player, product.id, product.amount)
             rewardXP(player, Skills.FLETCHING, bolts.experience * product.amount)
             sendMessage(player, if (product.amount == 1) "You attach the tip to the bolt." else "You fletch " + product.amount + " bolts.")
         }

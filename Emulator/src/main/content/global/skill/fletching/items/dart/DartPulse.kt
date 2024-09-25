@@ -8,7 +8,7 @@ import core.game.node.item.Item
 import org.rs.consts.Items
 
 /**
- * Represents the [DartPulse] class to make [dart].
+ * Represents the [DartPulse] class to make [dart]
  */
 class DartPulse(player: Player?, node: Item?, private val dart: Dart, private var sets: Int) : SkillPulse<Item?>(player, node) {
 
@@ -56,7 +56,7 @@ class DartPulse(player: Player?, node: Item?, private val dart: Dart, private va
             val product = Item(dart.finished)
             product.amount = feather.amount
             rewardXP(player, Skills.FLETCHING, dart.experience * product.amount)
-            addItem(player, product.id)
+            addItem(player, product.id, product.amount)
         }
         feather.amount = 1
         if (!inInventory(player, feather.id)) {

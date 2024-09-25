@@ -8,78 +8,44 @@ import content.global.skill.fletching.items.crossobw.Limb
 import core.game.node.item.Item
 import org.rs.consts.Items
 
-/**
- * Represents the fletch data map.
- */
 object FletchingMap {
 
-    private val logMap = HashMap<Int, Array<FletchingItems>>()
+    val logMap: Map<Int, Array<FletchingItems>> = Item.values().associate { it.id to it.items }
 
-    val arrowShaftId = Items.ARROW_SHAFT_52
-    val fletchedShaftId = Items.HEADLESS_ARROW_53
-    val fligtedOgreArrowId = Items.FLIGHTED_OGRE_ARROW_2865
-    val featherIds = arrayOf(
-        Items.BLUE_FEATHER_10089,
-        Items.FEATHER_314,
-        Items.ORANGE_FEATHER_10091,
-        Items.RED_FEATHER_10088,
-        Items.STRIPY_FEATHER_10087,
-        Items.YELLOW_FEATHER_10090
-    ).toIntArray()
-    val stringIds = arrayOf(Items.BOW_STRING_1777, Items.CROSSBOW_STRING_9438).toIntArray()
-    val kebbitSpikeIds = arrayOf(Items.KEBBIT_SPIKE_10105, Items.LONG_KEBBIT_SPIKE_10107).toIntArray()
-    val gemIds = arrayOf(
-        Items.OYSTER_PEARL_411,
-        Items.OYSTER_PEARLS_413,
-        Items.OPAL_1609,
-        Items.JADE_1611,
-        Items.RED_TOPAZ_1613,
-        Items.SAPPHIRE_1607,
-        Items.EMERALD_1605,
-        Items.RUBY_1603,
-        Items.DIAMOND_1601,
-        Items.DRAGONSTONE_1615,
-        Items.ONYX_6573
-    ).toIntArray()
+    const val arrowShaftId = Items.ARROW_SHAFT_52
+    const val fletchedShaftId = Items.HEADLESS_ARROW_53
+    const val fligtedOgreArrowId = Items.FLIGHTED_OGRE_ARROW_2865
+
+    val featherIds = intArrayOf(Items.BLUE_FEATHER_10089, Items.FEATHER_314, Items.ORANGE_FEATHER_10091, Items.RED_FEATHER_10088, Items.STRIPY_FEATHER_10087, Items.YELLOW_FEATHER_10090)
+    val stringIds = intArrayOf(Items.BOW_STRING_1777, Items.CROSSBOW_STRING_9438)
+    val kebbitSpikeIds = intArrayOf(Items.KEBBIT_SPIKE_10105, Items.LONG_KEBBIT_SPIKE_10107)
+    val gemIds = intArrayOf(Items.OYSTER_PEARL_411, Items.OYSTER_PEARLS_413, Items.OPAL_1609, Items.JADE_1611, Items.RED_TOPAZ_1613, Items.SAPPHIRE_1607, Items.EMERALD_1605, Items.RUBY_1603, Items.DIAMOND_1601, Items.DRAGONSTONE_1615, Items.ONYX_6573)
+
     val limbIds = Limb.values().map(Limb::limb).toIntArray()
     val stockIds = Limb.values().map(Limb::stock).toIntArray()
     val nailIds = BrutalArrow.values().map(BrutalArrow::base).toIntArray()
     val unfinishedArrows = ArrowHead.values().map(ArrowHead::unfinished).toIntArray()
     val unstrungBows = BowString.values().map(BowString::unfinished).toIntArray()
-    val boltBaseIds = GemBolt.values().map { it.base }.toIntArray()
-    val boltTipIds = GemBolt.values().map { it.tip }.toIntArray()
-
-    init {
-        Item.values().forEach { item ->
-            logMap[item.id] = item.items
-        }
-    }
+    val boltBaseIds = GemBolt.values().map(GemBolt::base).toIntArray()
+    val boltTipIds = GemBolt.values().map(GemBolt::tip).toIntArray()
 
     @JvmStatic
-    fun getEntries(id: Int): Array<FletchingItems>? {
-        return logMap[id]
-    }
+    fun getEntries(id: Int): Array<FletchingItems>? = logMap[id]
 
     @JvmStatic
-    fun isLog(id: Int): Boolean {
-        return logMap.containsKey(id)
-    }
+    fun isLog(id: Int): Boolean = logMap.containsKey(id)
 
     @JvmStatic
     fun getItems(id: Int): Array<core.game.node.item.Item>? {
-        val entries = getEntries(id)
-        if (entries != null) {
-            return entries.map { Item(it.id) }.toTypedArray()
-        }
-        return null
+        return getEntries(id)?.map { Item(it.id) }?.toTypedArray()
     }
 
-    private enum class Item(val id: Int, vararg val fletchingItems: FletchingItems) {
+    private enum class Item(val id: Int, vararg fletchingItems: FletchingItems) {
         STANDARD(Items.LOGS_1511, FletchingItems.ARROW_SHAFT, FletchingItems.SHORT_BOW, FletchingItems.LONG_BOW, FletchingItems.WOODEN_STOCK),
         ACHEY(Items.ACHEY_TREE_LOGS_2862, FletchingItems.OGRE_ARROW_SHAFT, FletchingItems.OGRE_COMPOSITE_BOW),
         OAK(Items.OAK_LOGS_1521, FletchingItems.OAK_SHORTBOW, FletchingItems.OAK_LONGBOW, FletchingItems.OAK_STOCK),
         WILLOW(Items.WILLOW_LOGS_1519, FletchingItems.WILLOW_SHORTBOW, FletchingItems.WILLOW_LONGBOW, FletchingItems.WILLOW_STOCK),
-        MAPLE(Items.MAPLE_LOGS_1517, FletchingItems.MAPLE_SHORTOW, FletchingItems.MAPLE_LONGBOW, FletchingItems.MAPLE_STOCK),
+        MAPLE(Items.MAPLE_LOGS_1517, FletchingItems.MAPLE_SHORTBOW, FletchingItems.MAPLE_LONGBOW, FletchingItems.MAPLE_STOCK),
         YEW(Items.YEW_LOGS_1515, FletchingItems.YEW_SHORTBOW, FletchingItems.YEW_LONGBOW, FletchingItems.YEW_STOCK),
         MAGIC(Items.MAGIC_LOGS_1513, FletchingItems.MAGIC_SHORTBOW, FletchingItems.MAGIC_LONGBOW),
         TEAK(Items.TEAK_LOGS_6333, FletchingItems.TEAK_STOCK),
@@ -101,7 +67,7 @@ object FletchingMap {
         WILLOW_SHORTBOW(Items.WILLOW_SHORTBOW_U_60, 33.3, 35, 1),
         WILLOW_LONGBOW(Items.WILLOW_LONGBOW_U_58, 41.5, 40, 1),
         WILLOW_STOCK(Items.WILLOW_STOCK_9444, 22.0, 39, 1),
-        MAPLE_SHORTOW(Items.MAPLE_SHORTBOW_U_64, 50.0, 50, 1),
+        MAPLE_SHORTBOW(Items.MAPLE_SHORTBOW_U_64, 50.0, 50, 1),
         MAPLE_LONGBOW(Items.MAPLE_LONGBOW_U_62, 58.3, 55, 1),
         MAPLE_STOCK(Items.MAPLE_STOCK_9448, 32.0, 54, 1),
         YEW_SHORTBOW(Items.YEW_SHORTBOW_U_68, 67.5, 65, 1),

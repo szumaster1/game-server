@@ -1,7 +1,7 @@
 package core.game.bots.impl
 
-import content.global.skill.crafting.Spinning
-import content.global.skill.crafting.SpinningPulse
+import content.global.skill.crafting.spinning.Spinning
+import content.global.skill.crafting.spinning.SpinningPulse
 import core.game.bots.Script
 import core.game.bots.SkillingBotAssembler
 import core.game.interaction.DestinationFlag

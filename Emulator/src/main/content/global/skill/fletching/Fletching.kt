@@ -1,7 +1,11 @@
 package content.global.skill.fletching
 
+import content.global.skill.fletching.items.arrow.*
+import content.global.skill.fletching.items.bolt.*
 import content.global.skill.fletching.items.bow.BowString
 import content.global.skill.fletching.items.bow.StringPulse
+import content.global.skill.fletching.items.crossobw.Limb
+import content.global.skill.fletching.items.crossobw.LimbPulse
 import core.api.*
 import core.game.dialogue.SkillDialogueHandler
 import core.game.interaction.IntType
@@ -11,10 +15,6 @@ import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 import core.game.system.task.Pulse
 import org.rs.consts.Items
-import content.global.skill.fletching.items.crossobw.Limb
-import content.global.skill.fletching.items.crossobw.LimbPulse
-import content.global.skill.fletching.items.arrow.*
-import content.global.skill.fletching.items.bolt.*
 import kotlin.math.min
 
 /**
@@ -29,7 +29,17 @@ class Fletching : InteractionListener {
          */
 
         onUseWith(IntType.ITEM, FletchingMap.stringIds, *FletchingMap.unstrungBows) { player, string, bow ->
-            handleStringing(player, string.asItem(), bow.asItem())
+            val enum = BowString.product[bow.id] ?: return@onUseWith false
+            if (enum.string != string.id) {
+                sendMessage(player, "That's not the right kind of string for this.")
+                return@onUseWith true
+            }
+            openSkillDialogue(player, enum.product) { amount ->
+                submitIndividualPulse(
+                    entity = player,
+                    pulse = StringPulse(player, Item(string.id), enum, amount)
+                )
+            }
             return@onUseWith true
         }
 
@@ -39,7 +49,10 @@ class Fletching : InteractionListener {
 
         onUseWith(IntType.ITEM, FletchingMap.arrowShaftId, *FletchingMap.featherIds) { player, shaft, feather ->
             openSkillDialogue(player, FletchingMap.fletchedShaftId) { amount ->
-                submitIndividualPulse(player, HeadlessArrowPulse(player, Item(shaft.id), Item(feather.id), amount))
+                submitIndividualPulse(
+                    entity = player,
+                    pulse = HeadlessArrowPulse(player, Item(shaft.id), Item(feather.id), amount)
+                )
             }
             return@onUseWith true
         }
@@ -51,7 +64,10 @@ class Fletching : InteractionListener {
         onUseWith(IntType.ITEM, FletchingMap.fletchedShaftId, *FletchingMap.unfinishedArrows) { player, shaft, unfinished ->
             val head = ArrowHead.product[unfinished.id] ?: return@onUseWith false
             openSkillDialogue(player, head.finished) { amount ->
-                submitIndividualPulse(player, ArrowHeadPulse(player, Item(shaft.id), head, amount))
+                submitIndividualPulse(
+                    entity = player,
+                    pulse = ArrowHeadPulse(player, Item(shaft.id), head, amount)
+                )
             }
             return@onUseWith true
         }
@@ -90,19 +106,29 @@ class Fletching : InteractionListener {
          * Handles fletch the mithril grapple base.
          */
 
-        onUseWith(IntType.ITEM, Items.MITHRIL_BOLTS_9142, Items.MITH_GRAPPLE_TIP_9416) { player, used, with ->
-            checkRequirements(player, 59, Items.MITH_GRAPPLE_9418) {
-                player.inventory.remove(Item(used.id), Item(with.id))
+        onUseWith(IntType.ITEM, Items.MITHRIL_BOLTS_9142, Items.MITH_GRAPPLE_TIP_9416) { player, used, tip ->
+            if (getStatLevel(player, Skills.FLETCHING) < 59) {
+                sendMessage(player, "You need a fletching level of 59 to make this.")
+                return@onUseWith true
+            }
+            if (removeItem(player, used.asItem()) && removeItem(player, tip.asItem())) {
+                addItem(player, Items.MITH_GRAPPLE_9418)
             }
             return@onUseWith true
         }
 
+
         /*
          * Handles fletch the mithril grapple.
          */
-        onUseWith(IntType.ITEM, Items.ROPE_954, Items.MITH_GRAPPLE_9418) { player, used, with ->
-            checkRequirements(player, 59, Items.MITH_GRAPPLE_9419) {
-                player.inventory.remove(Item(used.id), Item(with.id))
+
+        onUseWith(IntType.ITEM, Items.ROPE_954, Items.MITH_GRAPPLE_9418) { player, rope, grapple ->
+            if (getStatLevel(player, Skills.FLETCHING) < 59) {
+                sendMessage(player, "You need a fletching level of 59 to make this.")
+                return@onUseWith true
+            }
+            if (player.inventory.remove(rope.asItem(), grapple.asItem())) {
+                addItem(player, Items.MITH_GRAPPLE_9419)
             }
             return@onUseWith true
         }
@@ -118,7 +144,10 @@ class Fletching : InteractionListener {
                 return@onUseWith true
             }
             openSkillDialogue(player, limbEnum.product) { amount ->
-                submitIndividualPulse(player, LimbPulse(player, Item(stock.id), limbEnum, amount))
+                submitIndividualPulse(
+                    entity = player,
+                    pulse = LimbPulse(player, Item(stock.id), limbEnum, amount)
+                )
             }
             return@onUseWith true
         }
@@ -130,7 +159,10 @@ class Fletching : InteractionListener {
         onUseWith(IntType.ITEM, Items.CHISEL_1755, *FletchingMap.gemIds) { player, used, with ->
             val gem = GemBolt.product[with.id] ?: return@onUseWith true
             openSkillDialogue(player, gem.gem) { amount ->
-                submitIndividualPulse(player, GemBoltCutPulse(player, Item(used.id), gem, amount))
+                submitIndividualPulse(
+                    entity = player,
+                    pulse = GemBoltCutPulse(player, Item(used.id), gem, amount)
+                )
             }
             return@onUseWith true
         }
@@ -143,7 +175,10 @@ class Fletching : InteractionListener {
             val bolt = GemBolt.product[with.id] ?: return@onUseWith true
             if (used.id != bolt.base || with.id != bolt.tip) return@onUseWith true
             openSkillDialogue(player, bolt.product) { amount ->
-                submitIndividualPulse(player, GemBoltPulse(player, Item(used.id), bolt, amount))
+                submitIndividualPulse(
+                    entity = player,
+                    pulse = GemBoltPulse(player, Item(used.id), bolt, amount)
+                )
             }
             return@onUseWith true
         }
@@ -155,8 +190,8 @@ class Fletching : InteractionListener {
         onUseWith(IntType.ITEM, Items.CHISEL_1755, *FletchingMap.kebbitSpikeIds) { player, _, base ->
             openSkillDialogue(player, base.id) { amount ->
                 submitIndividualPulse(
-                    player,
-                    KebbitBoltPulse(player, Item(base.id), KebbitBolt.forId(base.asItem())!!, amount)
+                    entity = player,
+                    pulse = KebbitBoltPulse(player, Item(base.id), KebbitBolt.forId(base.asItem())!!, amount)
                 )
             }
             return@onUseWith true
@@ -196,27 +231,6 @@ class Fletching : InteractionListener {
         }
     }
 
-    /**
-     * Handles the string pulse.
-     */
-    private fun handleStringing(player: Player, string: Item, bow: Item): Boolean {
-        val enum = BowString.product[bow.id] ?: return false
-        if (enum.string != string.id) {
-            sendMessage(player, "That's not the right kind of string for this.")
-            return true
-        }
-        openSkillDialogue(player, enum.product) { amount ->
-            submitIndividualPulse(
-                entity = player,
-                pulse = StringPulse(player, Item(string.id), enum, amount)
-            )
-        }
-        return true
-    }
-
-    /**
-     * Open skill dialogue and start pulse.
-     */
     private fun openSkillDialogue(player: Player, productId: Int, createPulse: (Int) -> Unit) {
         val handler = object : SkillDialogueHandler(player, SkillDialogue.ONE_OPTION, Item(productId)) {
             override fun create(amount: Int, index: Int) {
@@ -228,19 +242,6 @@ class Fletching : InteractionListener {
             }
         }
         handler.open()
-    }
-
-    /**
-     * Checks whether the player has the required experience level to start the training.
-     */
-    private fun checkRequirements(player: Player, requiredLevel: Int, productId: Int, craftAction: () -> Unit): Boolean {
-        if (getStatLevel(player, Skills.FLETCHING) < requiredLevel) {
-            sendMessage(player, "You need a fletching level of $requiredLevel to make this.")
-            return true
-        }
-        craftAction()
-        addItem(player, productId)
-        return true
     }
 
 }
