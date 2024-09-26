@@ -1,7 +1,7 @@
 package content.data
 
-import org.rs.consts.Items
 import core.game.node.item.Item
+import org.rs.consts.Items
 
 /**
  * Represents an experience lamp.

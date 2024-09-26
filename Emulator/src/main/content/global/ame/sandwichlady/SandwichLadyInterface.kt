@@ -1,10 +1,10 @@
 package content.global.ame.sandwichlady
 
-import org.rs.consts.Items
 import core.api.setAttribute
 import core.game.interaction.InterfaceListener
 import core.game.node.item.Item
 import core.game.system.timer.impl.AntiMacro
+import org.rs.consts.Items
 
 /**
  * Sandwich lady interface.

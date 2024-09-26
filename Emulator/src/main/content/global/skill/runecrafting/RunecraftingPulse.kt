@@ -1,6 +1,10 @@
 package content.global.skill.runecrafting
 
 import content.global.skill.combat.equipment.gloves.FOGGlovesManager.Companion.updateCharges
+import content.global.skill.runecrafting.altars.Altar
+import content.global.skill.runecrafting.items.Talisman
+import content.global.skill.runecrafting.runes.CombinationRune
+import content.global.skill.runecrafting.runes.Rune
 import core.Configuration
 import core.Util
 import core.api.*

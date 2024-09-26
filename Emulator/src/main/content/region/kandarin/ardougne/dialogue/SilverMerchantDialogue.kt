@@ -1,7 +1,7 @@
 package content.region.kandarin.ardougne.dialogue
 
 import content.global.activity.enchkey.EnchantedKey
-import content.region.kandarin.quest.makinghistory.handlers.MHUtils
+import content.region.kandarin.quest.makinghistory.handlers.MakingHistoryUtils
 import content.region.kandarin.quest.makinghistory.dialogue.SilverMerchantDialogueFile
 import core.api.*
 import org.rs.consts.Items
@@ -36,7 +36,7 @@ class SilverMerchantDialogue(player: Player? = null) : Dialogue(player) {
         val hasKey = hasAnItem(player, Items.ENCHANTED_KEY_6754).container != null
         val hasJournal = hasAnItem(player, Items.JOURNAL_6755).container == player.inventory
         when (stage) {
-            0 -> if (getVarbit(player, MHUtils.PROGRESS) >= 1) {
+            0 -> if (getVarbit(player, MakingHistoryUtils.PROGRESS) >= 1) {
                 options("Yes please.", "No, thank you.", "Ask about the outpost.").also { stage = 2 }
             } else if (isQuestComplete(player, "Making History")) {
                 npc("Hello, I hope Jorral was pleased with that Journal.").also { stage = 4 }
@@ -61,11 +61,11 @@ class SilverMerchantDialogue(player: Player? = null) : Dialogue(player) {
                     end()
                     if (getQuestStage(player, "Making History") < 2) {
                         openDialogue(player, SilverMerchantDialogueFile(0))
-                    } else if (getVarbit(player, MHUtils.ERIN_PROGRESS) == 1 || !hasKey) {
+                    } else if (getVarbit(player, MakingHistoryUtils.ERIN_PROGRESS) == 1 || !hasKey) {
                         openDialogue(player, SilverMerchantDialogueFile(13))
                     } else if (inInventory(player, Items.CHEST_6759)) {
                         openDialogue(player, SilverMerchantDialogueFile(19))
-                    } else if (getVarbit(player, MHUtils.ERIN_PROGRESS) in 1..3 && !hasJournal) {
+                    } else if (getVarbit(player, MakingHistoryUtils.ERIN_PROGRESS) in 1..3 && !hasJournal) {
                         player("I found a chest, but I lost it and any contents", "it had.").also { stage++ }
                     } else if (inInventory(player, Items.JOURNAL_6755)) {
                         openDialogue(player, SilverMerchantDialogueFile(21))

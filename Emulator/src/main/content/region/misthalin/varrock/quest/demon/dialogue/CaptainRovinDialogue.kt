@@ -1,7 +1,7 @@
 package content.region.misthalin.varrock.quest.demon.dialogue
 
 import org.rs.consts.NPCs
-import content.region.misthalin.varrock.quest.demon.handlers.DSUtils
+import content.region.misthalin.varrock.quest.demon.handlers.DemonSlayerUtils
 import core.api.freeSlots
 import core.api.inBank
 import core.api.inInventory
@@ -93,7 +93,7 @@ class CaptainRovinDialogue(player: Player? = null) : Dialogue(player) {
             32 -> end()
 
             600 -> {
-                if (inInventory(player, DSUtils.SECOND_KEY.id) || inBank(player, DSUtils.SECOND_KEY.id)) {
+                if (inInventory(player, DemonSlayerUtils.SECOND_KEY.id) || inBank(player, DemonSlayerUtils.SECOND_KEY.id)) {
                     npc("Yes, you said before, haven't you killed it yet?")
                     stage = 620
                 } else {
@@ -183,8 +183,8 @@ class CaptainRovinDialogue(player: Player? = null) : Dialogue(player) {
                     npc("Talk to me again when you have free inventory space.")
                     return
                 }
-                if (player.inventory.add(DSUtils.SECOND_KEY)) {
-                    interpreter.sendItemMessage(DSUtils.SECOND_KEY, "Captain Rovin hands you a key.")
+                if (player.inventory.add(DemonSlayerUtils.SECOND_KEY)) {
+                    interpreter.sendItemMessage(DemonSlayerUtils.SECOND_KEY, "Captain Rovin hands you a key.")
                     return
                 }
             }

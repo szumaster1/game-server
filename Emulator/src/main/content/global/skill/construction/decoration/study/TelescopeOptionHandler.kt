@@ -36,7 +36,8 @@ class TelescopeOptionHandler : OptionHandler() {
         val star = ShootingStarPlugin.getStar()
         val delay: Int = 25000 + (25000 / 3)
         val timeLeft = delay - star.ticks
-        val fakeTime = TimeUnit.MILLISECONDS.toMinutes(timeLeft * 600L) + if (RandomFunction.random(0, 100) % 2 == 0) 2 else -2
+        val fakeTime =
+            TimeUnit.MILLISECONDS.toMinutes(timeLeft * 600L) + if (RandomFunction.random(0, 100) % 2 == 0) 2 else -2
         val obj = node?.asScenery() as Scenery
         lock(player!!, 10000)
         animate(player, ANIMATION)
@@ -45,7 +46,10 @@ class TelescopeOptionHandler : OptionHandler() {
             Pulser.submit(object : Pulse(2, player) {
                 override fun pulse(): Boolean {
                     if (obj.isActive) {
-                        sendDialogue(player, "You see a shooting star! The star looks like it will land in about $fakeTime minutes!")
+                        sendDialogue(
+                            player,
+                            "You see a shooting star! The star looks like it will land in about $fakeTime minutes!"
+                        )
                         return true
                     }
                     return true

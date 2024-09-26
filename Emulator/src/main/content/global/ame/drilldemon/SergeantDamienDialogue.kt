@@ -1,13 +1,13 @@
 package content.global.ame.drilldemon
 
 import core.api.*
-import org.rs.consts.Components
-import org.rs.consts.NPCs
 import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC
 import core.tools.DARK_RED
 import core.tools.END_DIALOGUE
+import org.rs.consts.Components
+import org.rs.consts.NPCs
 
 /**
  * Represents the Sergeant Damien dialogue.

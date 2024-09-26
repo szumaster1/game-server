@@ -8,7 +8,7 @@ import org.rs.consts.Components
 /**
  * Handles the music interface tab buttons.
  */
-class MusicTabInterface : InterfaceListener{
+class MusicTabInterface : InterfaceListener {
 
     override fun defineInterfaceListeners() {
         on(Components.MUSIC_V3_187) { player, _, opcode, buttonID, slot, _ ->
@@ -39,4 +39,5 @@ class MusicTabInterface : InterfaceListener{
             return@on true
         }
     }
+
 }

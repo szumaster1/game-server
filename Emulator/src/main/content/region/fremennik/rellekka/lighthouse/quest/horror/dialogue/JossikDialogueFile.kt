@@ -1,8 +1,8 @@
 package content.region.fremennik.rellekka.lighthouse.quest.horror.dialogue
 
 import org.rs.consts.NPCs
-import content.region.fremennik.rellekka.lighthouse.quest.horror.cutscene.FirstDagannothCutscene
-import content.region.fremennik.rellekka.lighthouse.quest.horror.cutscene.SecondDagannothCutscene
+import content.region.fremennik.rellekka.lighthouse.quest.horror.cutscene.DagannothCutscene
+import content.region.fremennik.rellekka.lighthouse.quest.horror.cutscene.DagannothBossCutscene
 import core.api.getQuestStage
 import core.api.sendMessage
 import core.game.dialogue.DialogueFile
@@ -30,7 +30,7 @@ class JossikDialogueFile : DialogueFile() {
                 8 -> npc(FacialExpression.SCARED, "NO! No, you can't leave me now!", "Look! They're coming again! Do something!").also { stage++ }
                 9 -> {
                     end()
-                    FirstDagannothCutscene(player!!).start()
+                    DagannothCutscene(player!!).start()
                 }
             }
             in 56..59 -> when (stage) {
@@ -47,7 +47,7 @@ class JossikDialogueFile : DialogueFile() {
                 3 -> npc(FacialExpression.SCARED, "That was one of its babies...").also { stage++ }
                 4 -> {
                     end()
-                    SecondDagannothCutscene(player!!).start()
+                    DagannothBossCutscene(player!!).start()
                 }
             }
             in 61..69 -> when (stage) {

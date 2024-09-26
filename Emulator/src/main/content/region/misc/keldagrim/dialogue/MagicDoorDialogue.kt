@@ -1,7 +1,6 @@
 package content.region.misc.keldagrim.dialogue
 
 import content.global.skill.crafting.casting.Gem
-import org.rs.consts.NPCs
 import core.api.removeItem
 import core.api.sendMessage
 import core.game.dialogue.Dialogue
@@ -12,6 +11,7 @@ import core.game.node.entity.player.Player
 import core.game.node.scenery.Scenery
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
+import org.rs.consts.NPCs
 
 /**
  * Represents the Magic door dialogue.

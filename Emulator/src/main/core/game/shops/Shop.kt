@@ -26,11 +26,6 @@ import kotlin.math.roundToInt
 
 /**
  * Data class representing a shop item.
- *
- * @param itemId      The unique identifier of the item.
- * @param amount      The quantity of the item available in the shop.
- * @param restockRate The rate at which the item is restocked.
- * @constructor Creates a new ShopItem.
  */
 data class ShopItem(var itemId: Int, var amount: Int, val restockRate: Int = 100)
 

@@ -129,7 +129,7 @@ class MagicTutorDialogue(player: Player? = null) : Dialogue(player) {
                 }
 
                 2 -> npc("An Ironman account is a style of playing where players", "are completely self-sufficient.").also { stage++ }
-                3 -> npc("A standard Ironman does not receieve items or", "assistance from other players. They cannot trade, stake,", "receieve Player killing loot, scavenge dropped items, nor player", "certain minigames.").also { stage++ }
+                3 -> npc("A standard Ironman does not receive items or", "assistance from other players. They cannot trade, stake,", "receive Player killing loot, scavenge dropped items, nor player", "certain minigames.").also { stage++ }
                 4 -> npc("In addition to the standard Ironman rules. An", "Ultimate Ironman cannot use banks, nor retain any", "items on death in dangerous areas.").also { stage = 0 }
 
                 10 -> {

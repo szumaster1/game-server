@@ -4,7 +4,7 @@ import core.api.*
 import org.rs.consts.Items
 import org.rs.consts.NPCs
 import content.data.GameAttributes
-import content.global.activity.champion.handlers.ChampionChallenge
+import content.global.activity.champion.handlers.ChallengeListener
 import core.game.node.entity.Entity
 import core.game.node.entity.npc.AbstractNPC
 import core.game.node.entity.player.Player
@@ -107,7 +107,7 @@ class EarthWarriorChampionNPC(id: Int = 0, location: Location? = null) : Abstrac
             rewardXP(killer, Skills.SLAYER, 432.0)
             removeAttributes(killer, "championsarena:start", GameAttributes.PRAYER_LOCK)
             clearHintIcon(killer)
-            ChampionChallenge.isFinalBattle(killer)
+            ChallengeListener.isFinalBattle(killer)
         }
         clear()
         super.finalizeDeath(killer)

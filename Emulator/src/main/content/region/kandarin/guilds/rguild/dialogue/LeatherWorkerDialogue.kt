@@ -1,6 +1,6 @@
 package content.region.kandarin.guilds.rguild.dialogue
 
-import content.global.skill.crafting.items.leather.Tanning
+import content.global.skill.crafting.Tanning
 import org.rs.consts.NPCs
 import core.game.dialogue.Dialogue
 import core.game.node.entity.player.Player

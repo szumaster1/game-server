@@ -1,7 +1,6 @@
 package content.region.karamja.brimhaven.handlers
 
-import content.data.skill.SkillingTool
-import content.global.skill.agility.AgilityHandler
+import content.global.skill.gather.SkillingTool
 import core.api.*
 import core.game.global.action.ClimbActionHandler
 import core.game.node.entity.player.Player
@@ -15,9 +14,6 @@ import core.game.world.map.Direction
 import core.game.world.map.Location
 import core.game.world.update.flag.context.Animation
 
-/**
- * Brimhaven utils.
- */
 object BrimhavenUtils {
 
     /**

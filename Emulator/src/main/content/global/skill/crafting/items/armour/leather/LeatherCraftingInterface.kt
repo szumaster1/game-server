@@ -1,5 +1,6 @@
 package content.global.skill.crafting.items.armour.leather
 
+import content.global.skill.crafting.Leather
 import core.api.amountInInventory
 import core.api.sendInputDialogue
 import core.api.submitIndividualPulse

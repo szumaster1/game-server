@@ -10,9 +10,6 @@ import core.game.global.action.DoorActionHandler
 import core.game.node.entity.player.Player
 import core.game.world.map.Direction
 
-/**
- * Jail after fight cutscene.
- */
 class PrisonCutscene(player: Player) : Cutscene(player) {
     override fun setup() {
         setExit(location(2600, 3142, 0))

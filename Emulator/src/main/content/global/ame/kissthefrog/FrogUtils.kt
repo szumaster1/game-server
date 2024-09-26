@@ -1,10 +1,6 @@
 package content.global.ame.kissthefrog
 
 import core.api.*
-import org.rs.consts.Animations
-import org.rs.consts.Components
-import org.rs.consts.Items
-import org.rs.consts.NPCs
 import core.game.dialogue.FacialExpression
 import core.game.node.Node
 import core.game.node.entity.npc.NPC
@@ -12,6 +8,10 @@ import core.game.node.entity.player.Player
 import core.game.system.task.Pulse
 import core.game.world.update.flag.context.Animation
 import core.game.world.update.flag.context.Graphic
+import org.rs.consts.Animations
+import org.rs.consts.Components
+import org.rs.consts.Items
+import org.rs.consts.NPCs
 
 /**
  * Frog utils.

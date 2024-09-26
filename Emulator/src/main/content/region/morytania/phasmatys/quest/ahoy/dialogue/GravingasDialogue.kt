@@ -1,6 +1,6 @@
 package content.region.morytania.phasmatys.quest.ahoy.dialogue
 
-import content.region.morytania.phasmatys.quest.ahoy.handlers.GAUtils
+import content.region.morytania.phasmatys.quest.ahoy.handlers.GhostsAhoyUtils
 import core.api.*
 import org.rs.consts.Items
 import org.rs.consts.NPCs
@@ -29,32 +29,32 @@ class GravingasDialogue : DialogueFile() {
                 4 -> npc("Excellent, excellent!! Here - take this petition form, and", "try and get 10 signatures from the townsfolk.").also {
                     end()
                     addItemOrDrop(player!!, Items.PETITION_FORM_4283, 1)
-                    setAttribute(player!!, GAUtils.petitionstart, true)
+                    setAttribute(player!!, GhostsAhoyUtils.petitionstart, true)
                     setQuestStage(player!!, "Ghost Ahoy", 10)
                 }
             }
 
             in 2..10 -> when (stage) {
-                0 -> if (!inInventory(player!!, Items.PETITION_FORM_4283) && getAttribute(player!!, GAUtils.petitionstart, false)) {
+                0 -> if (!inInventory(player!!, Items.PETITION_FORM_4283) && getAttribute(player!!, GhostsAhoyUtils.petitionstart, false)) {
                     npc("Blown away in the sea breeze, hey?", "Oh well, can't be helped. Here's another one, but", "you'll have to start from scratch again.").also {
                         addItemOrDrop(player!!, Items.PETITION_FORM_4283, 1)
-                        setAttribute(player!!, GAUtils.petitionsigns, 0)
+                        setAttribute(player!!, GhostsAhoyUtils.petitionsigns, 0)
                         stage = END_DIALOGUE
                     }
                 }
-                else if (getAttribute(player!!, GAUtils.petitionsigns, 0) == 0) {
+                else if (getAttribute(player!!, GhostsAhoyUtils.petitionsigns, 0) == 0) {
                     npc("Come on - you haven't even started yet! You need 10", "more signatures.").also {
                         stage = END_DIALOGUE
                     }
                 }
-                else if (getAttribute(player!!, GAUtils.petitionsigns, 0) in 4..9) {
-                    npc("Not doing too badly I see! You need ${getAttribute(player!!, GAUtils.petitionsigns, score.toString())} more signature's.").also {
+                else if (getAttribute(player!!, GhostsAhoyUtils.petitionsigns, 0) in 4..9) {
+                    npc("Not doing too badly I see! You need ${getAttribute(player!!, GhostsAhoyUtils.petitionsigns, score.toString())} more signature's.").also {
                         stage++
                     }
                 }
-                else if (getAttribute(player!!, GAUtils.petitionsigns, 0) == 10) {
+                else if (getAttribute(player!!, GhostsAhoyUtils.petitionsigns, 0) == 10) {
                     npc("You've got them all! Now go and present it to", "Necrovarus!!").also {
-                        removeAttribute(player!!, GAUtils.petitionsigns)
+                        removeAttribute(player!!, GhostsAhoyUtils.petitionsigns)
                         stage = END_DIALOGUE
                     }
                 }
@@ -67,7 +67,7 @@ class GravingasDialogue : DialogueFile() {
                 4 -> npc("Excellent, excellent!! Here - take this petition form, and", "try and get 10 signatures from the townsfolk.").also {
                     end()
                     addItemOrDrop(player!!, Items.PETITION_FORM_4283, 1)
-                    setAttribute(player!!, GAUtils.petitionstart, true)
+                    setAttribute(player!!, GhostsAhoyUtils.petitionstart, true)
                 }
             }
         }

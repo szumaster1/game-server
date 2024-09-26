@@ -1,9 +1,9 @@
 package content.global.ame
 
 import content.global.ame.surpriseexam.SurpriseExamNPC
-import org.rs.consts.Sounds
 import core.api.playGlobalAudio
 import core.api.poofClear
+import core.api.utils.WeightBasedTable
 import core.game.interaction.MovementPulse
 import core.game.node.entity.impl.PulseType
 import core.game.node.entity.npc.NPC
@@ -12,10 +12,10 @@ import core.game.node.item.Item
 import core.game.world.map.Location
 import core.game.world.map.RegionManager
 import core.game.world.map.path.Pathfinder
-import core.api.utils.WeightBasedTable
 import core.game.world.update.flag.context.Graphic
 import core.tools.secondsToTicks
 import core.tools.ticksToCycles
+import org.rs.consts.Sounds
 import kotlin.random.Random
 import kotlin.reflect.full.createInstance
 

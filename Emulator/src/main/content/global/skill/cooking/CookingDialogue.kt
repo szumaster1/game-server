@@ -24,15 +24,15 @@ class CookingDialogue(vararg val args: Any) : DialogueFile() {
                 when (args.size) {
                     2 -> {
                         initial = args[0] as Int
-                        if (CookableItems.intentionalBurn(initial)) {
+                        if (Cookable.intentionalBurn(initial)) {
                             /*
                              * checks intentional burning.
                              */
                             product =
-                                CookableItems.getIntentionalBurn(initial).id
+                                Cookable.getIntentionalBurn(initial).id
                         } else {
                             product =
-                                CookableItems.forId(initial)!!.cooked
+                                Cookable.forId(initial)!!.cooked
                         }
                         scenery = args[1] as Scenery
                     }
@@ -79,7 +79,7 @@ class CookingDialogue(vararg val args: Any) : DialogueFile() {
                     }
 
                     2 -> {
-                        product = CookableItems.forId(initial)!!.cooked
+                        product = Cookable.forId(initial)!!.cooked
                         display()
                     }
                 }
@@ -98,7 +98,7 @@ class CookingDialogue(vararg val args: Any) : DialogueFile() {
                             player!!,
                             scenery,
                             initial,
-                            CookableItems.forId(initial)!!.cooked,
+                            Cookable.forId(initial)!!.cooked,
                             1
                         )
                     }
@@ -117,10 +117,6 @@ class CookingDialogue(vararg val args: Any) : DialogueFile() {
         return -1
     }
 
-    /**
-     * Display
-     *
-     */
     fun display() {
         sendItemZoomOnInterface(player!!, Components.SKILL_COOKMANY_307, 2, initial, 160)
         sendString(player!!, "<br><br><br><br>${getItemName(initial)}", Components.SKILL_COOKMANY_307, 6)

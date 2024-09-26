@@ -4,7 +4,7 @@ import core.api.*
 import org.rs.consts.Components
 import org.rs.consts.Items
 import org.rs.consts.Vars
-import content.region.morytania.phasmatys.quest.ahoy.handlers.GAUtils
+import content.region.morytania.phasmatys.quest.ahoy.handlers.GhostsAhoyUtils
 import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.quest.Quest
 import core.game.node.entity.skill.Skills
@@ -110,16 +110,16 @@ class GhostsAhoy : Quest("Ghosts Ahoy", 68, 67, 2, Vars.VARBIT_QUEST_GHOST_AHOY_
         rewardXP(player, Skills.PRAYER, 2400.0)
         setVarbit(player, Vars.VARBIT_QUEST_GHOST_AHOY_PROGRESS, 8, true)
         removeAttributes(player,
-            GAUtils.shipFlag,
-            GAUtils.shipBottom,
-            GAUtils.shipSkull,
-            GAUtils.rightShip,
-            GAUtils.colorMatching,
-            GAUtils.windSpeed,
-            GAUtils.lastMapScrap,
-            GAUtils.petitionsigns,
-            GAUtils.petitionstart,
-            GAUtils.petitioncomplete
+            GhostsAhoyUtils.shipFlag,
+            GhostsAhoyUtils.shipBottom,
+            GhostsAhoyUtils.shipSkull,
+            GhostsAhoyUtils.rightShip,
+            GhostsAhoyUtils.colorMatching,
+            GhostsAhoyUtils.windSpeed,
+            GhostsAhoyUtils.lastMapScrap,
+            GhostsAhoyUtils.petitionsigns,
+            GhostsAhoyUtils.petitionstart,
+            GhostsAhoyUtils.petitioncomplete
         )
     }
 

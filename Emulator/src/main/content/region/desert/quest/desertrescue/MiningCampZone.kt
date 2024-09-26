@@ -1,6 +1,5 @@
 package content.region.desert.quest.desertrescue
 
-import content.region.desert.quest.desertrescue.TouristTrap
 import core.game.interaction.Option
 import core.game.node.Node
 import core.game.node.entity.Entity

@@ -9,14 +9,11 @@ import core.game.node.item.Item
 import core.plugin.Initializable
 import core.plugin.Plugin
 
-/**
- * Handles the empty folder.
- */
 @Initializable
-class FolderHandler : UseWithHandler(WhatLiesBelowListeners.EMPTY_FOLDER, WhatLiesBelowListeners.USED_FOLDER) {
+class FolderHandler : UseWithHandler(WhatLiesBelowListener.EMPTY_FOLDER, WhatLiesBelowListener.USED_FOLDER) {
     @Throws(Throwable::class)
     override fun newInstance(arg: Any?): Plugin<Any> {
-        addHandler(WhatLiesBelowListeners.RATS_PAPER, ITEM_TYPE, this)
+        addHandler(WhatLiesBelowListener.RATS_PAPER, ITEM_TYPE, this)
         return this
     }
 
@@ -27,7 +24,7 @@ class FolderHandler : UseWithHandler(WhatLiesBelowListeners.EMPTY_FOLDER, WhatLi
 
         if (removeItem(player, paper)) {
             if (folder.id == 11003) {
-                player.inventory.replace(Item(WhatLiesBelowListeners.USED_FOLDER), folder.slot)
+                player.inventory.replace(Item(WhatLiesBelowListener.USED_FOLDER), folder.slot)
                 folder = player.inventory[folder.slot]
             }
             folder.charge += 1
@@ -35,7 +32,7 @@ class FolderHandler : UseWithHandler(WhatLiesBelowListeners.EMPTY_FOLDER, WhatLi
 
             sendMessage(player, "You add the page to the folder that Rat gave to you.")
             if (remainingPages <= 0) {
-                player.inventory.replace(Item(WhatLiesBelowListeners.FULL_FOLDER), folder.slot)
+                player.inventory.replace(Item(WhatLiesBelowListener.FULL_FOLDER), folder.slot)
                 sendMessage(player, "You add the last page to Rat's folder. You should take this back to Rat as soon as possible.")
                 sendDialogueLines(player, "You have added all the pages to the folder that Rat gave to you.", "You should take this folder back to Rat.")
             } else {

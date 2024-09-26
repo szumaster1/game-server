@@ -4,7 +4,7 @@ import org.rs.consts.Items;
 import org.rs.consts.Sounds;
 import content.global.skill.combat.equipment.gloves.BrawlingGloves;
 import content.global.skill.combat.equipment.gloves.BrawlingGlovesManager;
-import content.global.skill.skillcape.SkillcapePerks;
+import content.global.skill.skillcape.SkillcapePerksEffect;
 import core.game.event.DynamicSkillLevelChangeEvent;
 import core.game.event.XPGainEvent;
 import core.game.node.entity.Entity;
@@ -700,7 +700,7 @@ public final class Skills {
      * @return The maximum amount.
      */
     public int getMaximumLifepoints() {
-        if (this.entity instanceof Player && SkillcapePerks.isActive(SkillcapePerks.DAMAGE_SPONG, this.getEntity().asPlayer())) {
+        if (this.entity instanceof Player && SkillcapePerksEffect.isActive(SkillcapePerksEffect.DAMAGE_SPONG, this.getEntity().asPlayer())) {
             lifepointsIncrease = 11;
         } else {
             lifepointsIncrease = 0;

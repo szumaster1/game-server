@@ -1,6 +1,6 @@
 package content.region.asgarnia.falador.quest.rd.dialogue
 
-import content.region.asgarnia.falador.quest.rd.handlers.RDUtils
+import content.region.asgarnia.falador.quest.rd.handlers.RecruitmentDriveUtils
 import content.region.asgarnia.falador.quest.rd.RecruitmentDrive
 import core.api.getAttribute
 import core.game.dialogue.DialogueBuilder
@@ -32,7 +32,7 @@ class SirKuamFerentseDialogueFile(private val dialogueNum: Int = 0) : DialogueBu
                     "A true warrior uses his wits as much as his brawn.",
                     "Fight smarter, not harder.")
                 .endWith { _, player ->
-                    RDUtils.spawnBoss(player)
+                    RecruitmentDriveUtils.spawnBoss(player)
                 }
         }
     }

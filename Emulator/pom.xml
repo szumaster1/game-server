@@ -318,18 +318,18 @@
         </repository>
         <repository>
             <id>gitlab-maven</id>
-            <url>https://gitlab.com/api/v4/projects/93687324/packages/maven</url>
+            <url>https://gitlab.com/api/v4/projects/61889144/packages/maven</url>
         </repository>
     </repositories>
     <distributionManagement>
         <repository>
             <id>gitlab-maven</id>
-            <url>https://gitlab.com/api/v4/projects/93687324/packages/maven</url>
+            <url>https://gitlab.com/api/v4/projects/61889144/packages/maven</url>
         </repository>
 
         <snapshotRepository>
             <id>gitlab-maven</id>
-            <url>https://gitlab.com/api/v4/projects/93687324/packages/maven</url>
+            <url>https://gitlab.com/api/v4/projects/61889144/packages/maven</url>
         </snapshotRepository>
     </distributionManagement>
 </project>

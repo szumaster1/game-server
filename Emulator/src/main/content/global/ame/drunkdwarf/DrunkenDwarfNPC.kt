@@ -1,8 +1,6 @@
 package content.global.ame.drunkdwarf
 
 import content.global.ame.RandomEventNPC
-import org.rs.consts.NPCs
-import org.rs.consts.Sounds
 import core.api.getWorldTicks
 import core.api.openDialogue
 import core.api.playGlobalAudio
@@ -11,6 +9,8 @@ import core.api.utils.WeightBasedTable
 import core.game.node.entity.npc.NPC
 import core.game.world.update.flag.context.Animation
 import core.tools.RandomFunction
+import org.rs.consts.NPCs
+import org.rs.consts.Sounds
 
 /**
  * Drunken dwarf NPC.

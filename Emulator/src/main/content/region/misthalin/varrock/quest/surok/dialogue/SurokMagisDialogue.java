@@ -1,7 +1,7 @@
 package content.region.misthalin.varrock.quest.surok.dialogue;
 
 import content.region.misthalin.varrock.quest.surok.WhatLiesBelow;
-import content.region.misthalin.varrock.quest.surok.cutscene.WhatLiesBelowCutscene;
+import content.region.misthalin.varrock.quest.surok.handlers.WhatLiesBelowCutscene;
 import core.game.activity.ActivityManager;
 import core.game.dialogue.Dialogue;
 import core.game.node.entity.npc.NPC;

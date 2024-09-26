@@ -1,6 +1,6 @@
 package content.region.kandarin.quest.makinghistory.dialogue
 
-import content.region.kandarin.quest.makinghistory.handlers.MHUtils
+import content.region.kandarin.quest.makinghistory.handlers.MakingHistoryUtils
 import org.rs.consts.NPCs
 import core.api.getQuestStage
 import core.api.getVarbit
@@ -28,12 +28,12 @@ class BlaninDialogue(player: Player? = null) : Dialogue(player) {
             return true
         }
 
-        if (getVarbit(player, MHUtils.DRON_PROGRESS) == 2) {
+        if (getVarbit(player, MakingHistoryUtils.DRON_PROGRESS) == 2) {
             playerl(FacialExpression.FRIENDLY, "Excuse me.")
             stage = 13
             return true
         }
-        if (getVarbit(player, MHUtils.DRON_PROGRESS) == 4) {
+        if (getVarbit(player, MakingHistoryUtils.DRON_PROGRESS) == 4) {
             playerl(FacialExpression.FRIENDLY, "That's one less thing to worry about.")
             stage = 20
             return true
@@ -57,7 +57,7 @@ class BlaninDialogue(player: Player? = null) : Dialogue(player) {
             11 -> npcl(FacialExpression.FRIENDLY, "I know this sounds strange but Dron won't talk to anyone unless they know him well - he's a secretive guy.").also { stage++ }
             12 -> {
                 end()
-                setVarbit(player, MHUtils.DRON_PROGRESS, 3, true)
+                setVarbit(player, MakingHistoryUtils.DRON_PROGRESS, 3, true)
             }
             13 -> npcl(FacialExpression.FRIENDLY, "Making progress?").also { stage++ }
             14 -> playerl(FacialExpression.FRIENDLY, "Not the best. Can you give me those hints again for speaking with Dron?").also { stage++ }

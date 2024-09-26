@@ -1,6 +1,5 @@
 package content.region.karamja.brimhaven.dialogue
 
-import content.region.asgarnia.burthope.quest.hero.HeroesQuest
 import core.api.*
 import org.rs.consts.Items
 import org.rs.consts.NPCs
@@ -10,6 +9,7 @@ import core.game.dialogue.DialogueBuilderFile
 import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
+import org.rs.consts.QuestName
 
 /**
  * Represents the Trobert dialogue.
@@ -39,13 +39,13 @@ class TrobertDialogue(player: Player? = null) : Dialogue(player) {
 class TrobertDialogueFile : DialogueBuilderFile() {
     override fun create(b: DialogueBuilder) {
         // Technically this won't happen since you have to get past Grubor.
-        b.onQuestStages(HeroesQuest.questName, 0, 1)
+        b.onQuestStages(QuestName.HEROES_QUEST, 0, 1)
             .npcl("Welcome to our Brimhaven headquarters. I'm Trobert and I'm in charge here.")
             .playerl("Pleased to meet you.")
             .npcl("Likewise.")
             .end()
 
-        b.onQuestStages(HeroesQuest.questName, 2)
+        b.onQuestStages(QuestName.HEROES_QUEST, 2)
             .npcl("Welcome to our Brimhaven headquarters. I'm Trobert and I'm in charge here.")
             .options()
             .let { optionBuilder ->
@@ -68,8 +68,8 @@ class TrobertDialogueFile : DialogueBuilderFile() {
                     .npcl("Good good. Well, here's the ID papers, take them and introduce yourself to the guards at Scarface Pete's mansion, we'll have that treasure in no time.")
                     .endWith { _, player ->
                         addItemOrDrop(player, Items.ID_PAPERS_1584)
-                        if (getQuestStage(player, HeroesQuest.questName) == 2) {
-                            setQuestStage(player, HeroesQuest.questName, 3)
+                        if (getQuestStage(player, QuestName.HEROES_QUEST) == 2) {
+                            setQuestStage(player, QuestName.HEROES_QUEST, 3)
                         }
                     }
 
@@ -78,7 +78,7 @@ class TrobertDialogueFile : DialogueBuilderFile() {
                     .end()
             }
 
-        b.onQuestStages(HeroesQuest.questName, 3, 4, 5)
+        b.onQuestStages(QuestName.HEROES_QUEST, 3, 4, 5)
             .branch { player ->
                 return@branch if (inInventory(player, Items.ID_PAPERS_1584)) {
                     1
@@ -98,7 +98,7 @@ class TrobertDialogueFile : DialogueBuilderFile() {
                     }
             }
 
-        b.onQuestStages(HeroesQuest.questName, 6, 100)
+        b.onQuestStages(QuestName.HEROES_QUEST, 6, 100)
             .npcl("How's it going?")
             .playerl("Fine, thanks.")
             .end()

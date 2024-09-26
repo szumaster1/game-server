@@ -1,20 +1,20 @@
 package core.game.node.entity.combat;
 
-import org.rs.consts.Items;
+import content.data.EnchantedJewellery;
+import core.game.container.impl.EquipmentContainer;
+import core.game.node.entity.skill.Skills;
 import content.global.skill.summoning.familiar.Familiar;
 import content.global.skill.summoning.pet.Pet;
-import content.data.EnchantedJewellery;
-import core.game.bots.AIPlayer;
-import core.game.container.impl.EquipmentContainer;
 import core.game.node.entity.Entity;
 import core.game.node.entity.player.Player;
 import core.game.node.entity.player.link.prayer.PrayerType;
-import core.game.node.entity.skill.Skills;
 import core.game.node.item.Item;
 import core.game.system.task.Pulse;
+import core.game.bots.AIPlayer;
 import core.game.world.GameWorld;
 import core.game.world.map.zone.ZoneType;
 import core.game.world.repository.Repository;
+import org.rs.consts.Items;
 
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -241,7 +241,7 @@ public final class ImpactHandler {
             int current = player.getSavedData().globalData.getRecoilDamage();
             if (damage >= current) {
                 damage = current;
-                player.getPacketDispatch().sendMessage("Your ring of Recoil has shattered.");
+                player.getPacketDispatch().sendMessage("Your Ring of Recoil has shattered.");
                 player.getEquipment().replace(null, EquipmentContainer.SLOT_RING);
                 player.getSavedData().globalData.setRecoilDamage(40);
             } else {

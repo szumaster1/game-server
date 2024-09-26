@@ -7,18 +7,7 @@ package content.global.activity.jobs
  * new entries are only appended to the end of this enum, and the ordering of existing entries is not changed.
  */
 enum class JobType {
-    /**
-     * Production.
-     */
     PRODUCTION,
-
-    /**
-     * Combat.
-     */
     COMBAT,
-
-    /**
-     * Bone Burying.
-     */
     BONE_BURYING
 }

@@ -9,11 +9,6 @@ import core.game.interaction.InteractionListener
 
 /**
  * Handles the bookcase in Lighthouse.
- *
- * Related books
- * 1. [Lighthouse Manual][content.region.fremennik.rellekka.lighthouse.quest.horror.book.LighthouseManual]
- * 2. [Ancient Diary][content.region.fremennik.rellekka.lighthouse.quest.horror.book.AncientDiary]
- * 3. [Jossik Journal][content.region.fremennik.rellekka.lighthouse.quest.horror.book.JossikJournal]
  */
 class LighthouseBookcaseListener : DialogueFile(), InteractionListener {
 

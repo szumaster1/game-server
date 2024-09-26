@@ -1,6 +1,6 @@
 package content.region.morytania.phasmatys.quest.ahoy.dialogue
 
-import content.region.morytania.phasmatys.quest.ahoy.handlers.GAUtils
+import content.region.morytania.phasmatys.quest.ahoy.handlers.GhostsAhoyUtils
 import core.api.*
 import org.rs.consts.Items
 import org.rs.consts.NPCs
@@ -33,7 +33,7 @@ class AkharanuDialogueFile : DialogueFile() {
                 }
                 10 -> {
                     end()
-                    setAttribute(player!!, GAUtils.getSignedBow, false)
+                    setAttribute(player!!, GhostsAhoyUtils.getSignedBow, false)
                 }
             }
 

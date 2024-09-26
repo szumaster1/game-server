@@ -8,6 +8,7 @@ import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
+import org.rs.consts.QuestName
 
 /**
  * Represents the Sigmund dialogue.
@@ -20,7 +21,7 @@ class SigmundDialogue(player: Player? = null) : Dialogue(player) {
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
         npc(FacialExpression.HALF_GUILTY, "Can I help you?")
-        if (getQuestStage(player, "Lost Tribe") in 1..99) {
+        if (getQuestStage(player, QuestName.THE_LOST_TRIBE) in 1..99) {
             npc("Have you found out what it was?")
             stage = 34
             return true
@@ -61,11 +62,11 @@ class SigmundDialogue(player: Player? = null) : Dialogue(player) {
 
             23 -> end()
             10 -> {
-                if (player.getQuestRepository().hasStarted("Lost Tribe") && !player.getQuestRepository().isComplete("Lost Tribe")) {
+                if (player.getQuestRepository().hasStarted(QuestName.THE_LOST_TRIBE) && !player.getQuestRepository().isComplete(QuestName.THE_LOST_TRIBE)) {
                     npc("No, not right now.")
                     stage = 12
                 }
-                if (player.getQuestRepository().isComplete("Goblin Diplomacy") && player.getQuestRepository().isComplete("Rune Mysteries") && !player.getQuestRepository().hasStarted("Lost Tribe")) {
+                if (player.getQuestRepository().isComplete(QuestName.GOBLIN_DIPLOMACY) && player.getQuestRepository().isComplete(QuestName.RUNE_MYSTERIES) && !player.getQuestRepository().hasStarted(QuestName.THE_LOST_TRIBE)) {
                     npc("There was recently some damage to the castle cellar.", "Part of the wall has collapsed.")
                     stage = 30
                 }

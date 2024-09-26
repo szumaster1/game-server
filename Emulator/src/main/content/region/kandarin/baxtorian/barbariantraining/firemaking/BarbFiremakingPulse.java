@@ -1,8 +1,8 @@
 package content.region.kandarin.baxtorian.barbariantraining.firemaking;
 
-import content.data.skill.SkillingTool;
+import content.global.skill.gather.SkillingTool;
 import content.region.kandarin.baxtorian.barbariantraining.BarbarianTraining;
-import content.global.skill.firemaking.Log;
+import content.global.skill.firemaking.logs.Log;
 import core.api.Container;
 import org.rs.consts.Items;
 import core.game.event.LitFireEvent;

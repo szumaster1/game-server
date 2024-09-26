@@ -2,7 +2,7 @@ package content.region.misthalin.varrock.quest.surok
 
 import org.rs.consts.Components
 import org.rs.consts.Items
-import content.region.misthalin.varrock.quest.surok.handlers.WhatLiesBelowListeners
+import content.region.misthalin.varrock.quest.surok.handlers.WhatLiesBelowListener
 import core.api.*
 import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.quest.Quest
@@ -41,7 +41,7 @@ class WhatLiesBelow : Quest("What Lies Below", 136, 135, 1) {
      */
     override fun start(player: Player) {
         super.start(player)
-        addItem(player, WhatLiesBelowListeners.EMPTY_FOLDER)
+        addItem(player, WhatLiesBelowListener.EMPTY_FOLDER)
     }
 
     /**
@@ -53,7 +53,7 @@ class WhatLiesBelow : Quest("What Lies Below", 136, 135, 1) {
         sendString(player, "2,000 Defence XP", 277, 9 + 2)
         sendString(player, "Beacon ring", 277, 10 + 2)
         sendString(player, "Knowledge of Chaos Tunnel", 277, 11 + 2)
-        sendItemZoomOnInterface(player, Components.QUEST_COMPLETE_SCROLL_277, 5, WhatLiesBelowListeners.BEACON_RING, 235)
+        sendItemZoomOnInterface(player, Components.QUEST_COMPLETE_SCROLL_277, 5, WhatLiesBelowListener.BEACON_RING, 235)
         rewardXP(player, Skills.RUNECRAFTING, 8000.0)
         rewardXP(player, Skills.DEFENCE, 2000.0)
         updateQuestTab(player)

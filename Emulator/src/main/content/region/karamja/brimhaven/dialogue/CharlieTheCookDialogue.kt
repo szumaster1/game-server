@@ -13,6 +13,7 @@ import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
+import org.rs.consts.QuestName
 
 /**
  * Represents the Charlie the Cook dialogue.
@@ -76,11 +77,11 @@ class CharlieTheCookDialogueFile : DialogueBuilderFile() {
             .let { optionBuilder ->
                 val continuePath = b.placeholder()
 
-                optionBuilder.optionIf("I'm looking for a gherkin..."){ player -> return@optionIf getQuestStage(player, HeroesQuest.questName) >= 3 && HeroesQuest.isPhoenix(player) }
+                optionBuilder.optionIf("I'm looking for a gherkin..."){ player -> return@optionIf getQuestStage(player, QuestName.HEROES_QUEST) >= 3 && HeroesQuest.isPhoenix(player) }
                     .playerl("I'm looking for a gherkin...")
                     .goto(continuePath)
 
-                optionBuilder.optionIf("I'm a fellow member of the Phoenix Gang."){ player -> return@optionIf getQuestStage(player, HeroesQuest.questName) >= 3 && HeroesQuest.isPhoenix(player) }
+                optionBuilder.optionIf("I'm a fellow member of the Phoenix Gang."){ player -> return@optionIf getQuestStage(player, QuestName.HEROES_QUEST) >= 3 && HeroesQuest.isPhoenix(player) }
                     .playerl("I'm a fellow member of the Phoenix Gang.")
                     .goto(continuePath)
 
@@ -104,8 +105,8 @@ class CharlieTheCookDialogueFile : DialogueBuilderFile() {
                     .playerl("Mind if I check it out for myself?")
                     .npcl("Not at all! The more minds we have working on the problem, the quicker we get that loot!")
                     .endWith { _, player ->
-                        if (getQuestStage(player, HeroesQuest.questName) == 3) {
-                            setQuestStage(player, HeroesQuest.questName, 4)
+                        if (getQuestStage(player, QuestName.HEROES_QUEST) == 3) {
+                            setQuestStage(player, QuestName.HEROES_QUEST, 4)
                         }
                     }
 
@@ -117,8 +118,8 @@ class CharlieTheCookDialogueFile : DialogueBuilderFile() {
                     .playerl("Mind if I check it out for myself?")
                     .npcl("Not at all! The more minds we have working on the problem, the quicker we get that loot!")
                     .endWith { _, player ->
-                        if (getQuestStage(player, HeroesQuest.questName) == 3) {
-                            setQuestStage(player, HeroesQuest.questName, 4)
+                        if (getQuestStage(player, QuestName.HEROES_QUEST) == 3) {
+                            setQuestStage(player, QuestName.HEROES_QUEST, 4)
                         }
                     }
             }

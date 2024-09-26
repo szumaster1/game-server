@@ -17,13 +17,13 @@ import core.game.world.update.flag.context.Animation
 import core.tools.RandomFunction
 import kotlin.math.ceil
 
-/**
- * Troll stronghold listener.
- */
 class TrollStrongholdListener : InteractionListener {
 
     override fun defineListeners() {
-        // Entrance to arena with Dad in it.
+        /*
+         * Entrance to arena with Dad in it.
+         */
+
         on(intArrayOf(Scenery.ARENA_ENTRANCE_3782, Scenery.ARENA_ENTRANCE_3783), IntType.SCENERY, "open") { player, node ->
             // Only get the dialogue once.
             if (getQuestStage(player, "Troll Stronghold") == 1) {
@@ -39,7 +39,10 @@ class TrollStrongholdListener : InteractionListener {
             return@on true
         }
 
-        // Not allowed to exit arena into the troll stronghold until Dad is defeated.
+        /*
+         * Not allowed to exit arena into the troll stronghold until Dad is defeated.
+         */
+
         on(intArrayOf(Scenery.ARENA_EXIT_3785, Scenery.ARENA_EXIT_3786), IntType.SCENERY, "open") { player, node ->
             if (getQuestStage(player, "Troll Stronghold") < 5) {
                 openDialogue(player, DadDialogueFile(1), findNPC(NPCs.DAD_1125)!!)
@@ -49,7 +52,10 @@ class TrollStrongholdListener : InteractionListener {
             return@on true
         }
 
-        // Key to unlock the prison door
+        /*
+         * Key to unlock the prison door.
+         */
+
         on(Scenery.PRISON_DOOR_3780, IntType.SCENERY, "unlock") { player, node ->
             if (getQuestStage(player, "Troll Stronghold") >= 8) {
                 DoorActionHandler.handleAutowalkDoor(player, node.asScenery())
@@ -69,7 +75,10 @@ class TrollStrongholdListener : InteractionListener {
             return@on true
         }
 
-        // Pickpocket Twig
+        /*
+         * Pickpocket Twig.
+         */
+
         on(NPCs.TWIG_1128, IntType.NPC, "pickpocket") { player, node ->
             val npc = node.asNpc()
             player.lock()
@@ -110,7 +119,10 @@ class TrollStrongholdListener : InteractionListener {
             return@on true
         }
 
-        // Pickpocket Berry
+        /*
+         * Pickpocket Berry.
+         */
+
         on(NPCs.BERRY_1129, IntType.NPC, "pickpocket") { player, node ->
             val npc = node.asNpc()
             player.lock()
@@ -151,7 +163,10 @@ class TrollStrongholdListener : InteractionListener {
             return@on true
         }
 
-        // Key to unlock Mad Eadgar's cell
+        /*
+         * Key to unlock Mad Eadgar's cell.
+         */
+
         fun unlockMadEadgarCellDoor(player: Player, node: Node) {
             if (inInventory(player, Items.CELL_KEY_1_3136)) {
                 sendMessage(player, "You unlock the cell door.")
@@ -232,7 +247,10 @@ class TrollStrongholdListener : InteractionListener {
         }
 
 
-        // Key to unlock Godric's cell
+        /*
+         * Key to unlock Godric's cell.
+         */
+
         fun unlockGodricCellDoor(player: Player, node: Node) {
             if (inInventory(player, Items.CELL_KEY_2_3137)) {
                 sendMessage(player, "You unlock the cell door.")
@@ -312,13 +330,17 @@ class TrollStrongholdListener : InteractionListener {
             return@on true
         }
 
-        // Exit
+        /*
+         * Exit.
+         */
         on(Scenery.EXIT_3761, IntType.SCENERY, "open") { player, _ ->
             player.properties.teleportLocation = Location.create(2827, 3646, 0)
             return@on true
         }
 
-        // Reentry Secret Door
+        /*
+         * Reentry Secret Door.
+         */
         on(Scenery.SECRET_DOOR_3762, IntType.SCENERY, "open") { player, _ ->
             if (getQuestStage(player, "Troll Stronghold") >= 8) {
                 player.properties.teleportLocation = Location.create(2824, 10050, 0)
@@ -329,13 +351,6 @@ class TrollStrongholdListener : InteractionListener {
         }
     }
 
-    /**
-     * Success
-     *
-     * @param player
-     * @param skill
-     * @return
-     */
     fun success(player: Player, skill: Int): Boolean {
         val level = player.getSkills().getLevel(skill).toDouble()
         val req = 30.0

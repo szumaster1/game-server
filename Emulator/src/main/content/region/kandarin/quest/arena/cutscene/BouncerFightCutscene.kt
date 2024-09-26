@@ -1,14 +1,11 @@
 package content.region.kandarin.quest.arena.cutscene
 
-import content.region.kandarin.quest.arena.handlers.BouncerNPC
+import content.region.kandarin.quest.arena.handlers.npc.BouncerNPC
 import core.game.activity.Cutscene
 import core.game.global.action.DoorActionHandler
 import core.game.node.entity.player.Player
 import core.game.world.map.Direction
 
-/**
- * Bouncer fight cutscene.
- */
 class BouncerFightCutscene(player: Player) : Cutscene(player) {
 
     override fun setup() {

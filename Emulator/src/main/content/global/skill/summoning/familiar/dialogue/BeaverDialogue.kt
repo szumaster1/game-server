@@ -1,6 +1,6 @@
 package content.global.skill.summoning.familiar.dialogue
 
-import content.global.skill.firemaking.Log
+import content.global.skill.firemaking.logs.Log
 import core.api.anyInInventory
 import org.rs.consts.NPCs
 import core.game.dialogue.Dialogue

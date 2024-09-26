@@ -2,190 +2,217 @@ package content.region.misthalin.varrock.silvarea.quest.rag.handlers
 
 import org.rs.consts.Items
 
-/**
- * Represents the Bone boiler.
- *
- * @param bone The ID of the bone item.
- * @param boneInVinegar The ID of the bone in vinegar item.
- * @param polishedBone The ID of the polished bone item.
- * @param boneDescription The description of the bone.
- * @constructor Creates a BoneBoiler enum instance.
- */
 enum class BoneBoiler(val bone: Int, val boneInVinegar: Int, val polishedBone: Int, val boneDescription: String) {
-    /**
-     * Goblin Skull.
-     */
-    GOBLIN_SKULL(Items.GOBLIN_SKULL_7812, Items.BONE_IN_VINEGAR_7813, Items.GOBLIN_SKULL_7814, "goblin bone"),
-
-    /**
-     * Bear Ribs.
-     */
-    BEAR_RIBS(Items.BEAR_RIBS_7815, Items.BONE_IN_VINEGAR_7816, Items.BEAR_RIBS_7817, "bear bone"),
-
-    /**
-     * Ram Skull.
-     */
-    RAM_SKULL(Items.RAM_SKULL_7818, Items.BONE_IN_VINEGAR_7819, Items.RAM_SKULL_7820, "ram bone"),
-
-    /**
-     * Unicorn Bone.
-     */
-    UNICORN_BONE(Items.UNICORN_BONE_7821, Items.BONE_IN_VINEGAR_7822, Items.UNICORN_BONE_7823, "unicorn bone"),
-
-    /**
-     * Giant Rat Bone.
-     */
-    GIANT_RAT_BONE(Items.GIANT_RAT_BONE_7824, Items.BONE_IN_VINEGAR_7825, Items.GIANT_RAT_BONE_7826, "giant rat bone"),
-
-    /**
-     * Giant Bat Wing.
-     */
-    GIANT_BAT_WING(Items.GIANT_BAT_WING_7827, Items.BONE_IN_VINEGAR_7828, Items.GIANT_BAT_WING_7829, "giant bat bone"),
-
-    /**
-     * Wolf Bone.
-     */
-    WOLF_BONE(Items.WOLF_BONE_7830, Items.BONE_IN_VINEGAR_7831, Items.WOLF_BONE_7832, "wolf bone"),
-
-    /**
-     * Bat Wing.
-     */
-    BAT_WING(Items.BAT_WING_7833, Items.BONE_IN_VINEGAR_7834, Items.BAT_WING_7835, "bat bone"),
-
-    /**
-     * Rat Bone.
-     */
-    RAT_BONE(Items.RAT_BONE_7836, Items.BONE_IN_VINEGAR_7837, Items.RAT_BONE_7838, "rat bone"),
-
-    /**
-     * Baby Dragon Bone.
-     */
-    BABY_DRAGON_BONE(Items.BABY_DRAGON_BONE_7839, Items.BONE_IN_VINEGAR_7840, Items.BABY_DRAGON_BONE_7841, "baby blue dragon bone"),
-
-    /**
-     * Ogre Ribs.
-     */
-    OGRE_RIBS(Items.OGRE_RIBS_7842, Items.BONE_IN_VINEGAR_7843, Items.OGRE_RIBS_7844, "ogre bone"),
-
-    /**
-     * Jogre Bone.
-     */
-    JOGRE_BONE(Items.JOGRE_BONE_7845, Items.BONE_IN_VINEGAR_7846, Items.JOGRE_BONE_7847, "jogre bone"),
-
-    /**
-     * Zogre Bone.
-     */
-    ZOGRE_BONE(Items.ZOGRE_BONE_7848, Items.BONE_IN_VINEGAR_7849, Items.ZOGRE_BONE_7850, "zogre bone"),
-
-    /**
-     * Mogre Bone.
-     */
-    MOGRE_BONE(Items.MOGRE_BONE_7851, Items.BONE_IN_VINEGAR_7852, Items.MOGRE_BONE_7853, "mogre bone"),
-
-    /**
-     * Monkey Paw.
-     */
-    MONKEY_PAW(Items.MONKEY_PAW_7854, Items.BONE_IN_VINEGAR_7855, Items.MONKEY_PAW_7856, "monkey bone"),
-
-    /**
-     * Dagannoth Ribs.
-     */
-    DAGANNOTH_RIBS(Items.DAGANNOTH_RIBS_7857, Items.BONE_IN_VINEGAR_7858, Items.DAGANNOTH_RIBS_7859, "Dagannoth bone"),
-
-    /**
-     * Snake Spine.
-     */
-    SNAKE_SPINE(Items.SNAKE_SPINE_7860, Items.BONE_IN_VINEGAR_7861, Items.SNAKE_SPINE_7862, "snake bone"),
-
-    /**
-     * Zombie Bone.
-     */
-    ZOMBIE_BONE(Items.ZOMBIE_BONE_7863, Items.BONE_IN_VINEGAR_7864, Items.ZOMBIE_BONE_7865, "zombie bone"),
-
-    /**
-     * Werewolf Bone.
-     */
-    WEREWOLF_BONE(Items.WEREWOLF_BONE_7866, Items.BONE_IN_VINEGAR_7867, Items.WEREWOLF_BONE_7868, "werewolf bone"),
-
-    /**
-     * Moss Giant Bone.
-     */
-    MOSS_GIANT_BONE(Items.MOSS_GIANT_BONE_7869, Items.BONE_IN_VINEGAR_7870, Items.MOSS_GIANT_BONE_7871, "moss giant bone"),
-
-    /**
-     * Fire Giant Bone.
-     */
-    FIRE_GIANT_BONE(Items.FIRE_GIANT_BONE_7872, Items.BONE_IN_VINEGAR_7873, Items.FIRE_GIANT_BONE_7874, "fire giant bone"),
-
-    /**
-     * Ice Giant Ribs.
-     */
-    ICE_GIANT_RIBS(Items.ICE_GIANT_RIBS_7875, Items.BONE_IN_VINEGAR_7876, Items.ICE_GIANT_RIBS_7877, "ice giant bone"),
-
-    /**
-     * Terrorbird Wing.
-     */
-    TERRORBIRD_WING(Items.TERRORBIRD_WING_7878, Items.BONE_IN_VINEGAR_7879, Items.TERRORBIRD_WING_7880, "terrorbird bone"),
-
-    /**
-     * Ghoul Bone.
-     */
-    GHOUL_BONE(Items.GHOUL_BONE_7881, Items.BONE_IN_VINEGAR_7882, Items.GHOUL_BONE_7883, "ghoul bone"),
-
-    /**
-     * Troll Bone.
-     */
-    TROLL_BONE(Items.TROLL_BONE_7884, Items.BONE_IN_VINEGAR_7885, Items.TROLL_BONE_7886, "troll bone"),
-
-    /**
-     * Seagull Wing.
-     */
-    SEAGULL_WING(Items.SEAGULL_WING_7887, Items.BONE_IN_VINEGAR_7888, Items.SEAGULL_WING_7889, "seagull bone"),
-
-    /**
-     * Undead Cow Ribs.
-     */
-    UNDEAD_COW_RIBS(Items.UNDEAD_COW_RIBS_7890, Items.BONE_IN_VINEGAR_7891, Items.UNDEAD_COW_RIBS_7892, "undead cow bone"),
-
-    /**
-     * Experiment Bone.
-     */
-    EXPERIMENT_BONE(Items.EXPERIMENT_BONE_7893, Items.BONE_IN_VINEGAR_7894, Items.EXPERIMENT_BONE_7895, "experiment bone"),
-
-    /**
-     * Rabbit Bone.
-     */
-    RABBIT_BONE(Items.RABBIT_BONE_7896, Items.BONE_IN_VINEGAR_7897, Items.RABBIT_BONE_7898, "rabbit bone"),
-
-    /**
-     * Basilisk Bone.
-     */
-    BASILISK_BONE(Items.BASILISK_BONE_7899, Items.BONE_IN_VINEGAR_7900, Items.BASILISK_BONE_7901, "basilisk bone"),
-
-    /**
-     * Desert Lizard Bone.
-     */
-    DESERT_LIZARD_BONE(Items.DESERT_LIZARD_BONE_7902, Items.BONE_IN_VINEGAR_7903, Items.DESERT_LIZARD_BONE_7904, "desert lizard bone"),
-
-    /**
-     * Cave Goblin Skull.
-     */
-    CAVE_GOBLIN_SKULL(Items.CAVE_GOBLIN_SKULL_7905, Items.BONE_IN_VINEGAR_7906, Items.CAVE_GOBLIN_SKULL_7907, "cave goblin bone"),
-
-    /**
-     * Big Frog Leg.
-     */
-    BIG_FROG_LEG(Items.BIG_FROG_LEG_7908, Items.BONE_IN_VINEGAR_7909, Items.BIG_FROG_LEG_7910, "big frog bone"),
-
-    /**
-     * Vulture Wing.
-     */
-    VULTURE_WING(Items.VULTURE_WING_7911, Items.BONE_IN_VINEGAR_7912, Items.VULTURE_WING_7913, "vulture bone"),
-
-    /**
-     * Jackal Bone.
-     */
-    JACKAL_BONE(Items.JACKAL_BONE_7914, Items.BONE_IN_VINEGAR_7915, Items.JACKAL_BONE_7916, "jackal bone");
+    GOBLIN_SKULL(
+        bone = Items.GOBLIN_SKULL_7812,
+        boneInVinegar = Items.BONE_IN_VINEGAR_7813,
+        polishedBone = Items.GOBLIN_SKULL_7814,
+        boneDescription = "goblin bone"
+    ),
+    BEAR_RIBS(
+        bone = Items.BEAR_RIBS_7815,
+        boneInVinegar = Items.BONE_IN_VINEGAR_7816,
+        polishedBone = Items.BEAR_RIBS_7817,
+        boneDescription = "bear bone"
+    ),
+    RAM_SKULL(
+        bone = Items.RAM_SKULL_7818,
+        boneInVinegar = Items.BONE_IN_VINEGAR_7819,
+        polishedBone = Items.RAM_SKULL_7820,
+        boneDescription = "ram bone"
+    ),
+    UNICORN_BONE(
+        bone = Items.UNICORN_BONE_7821,
+        boneInVinegar = Items.BONE_IN_VINEGAR_7822,
+        polishedBone = Items.UNICORN_BONE_7823,
+        boneDescription = "unicorn bone"
+    ),
+    GIANT_RAT_BONE(
+        bone = Items.GIANT_RAT_BONE_7824,
+        boneInVinegar = Items.BONE_IN_VINEGAR_7825,
+        polishedBone = Items.GIANT_RAT_BONE_7826,
+        boneDescription = "giant rat bone"
+    ),
+    GIANT_BAT_WING(
+        bone = Items.GIANT_BAT_WING_7827,
+        boneInVinegar = Items.BONE_IN_VINEGAR_7828,
+        polishedBone = Items.GIANT_BAT_WING_7829,
+        boneDescription = "giant bat bone"
+    ),
+    WOLF_BONE(
+        bone = Items.WOLF_BONE_7830,
+        boneInVinegar = Items.BONE_IN_VINEGAR_7831,
+        polishedBone = Items.WOLF_BONE_7832,
+        boneDescription = "wolf bone"
+    ),
+    BAT_WING(
+        bone = Items.BAT_WING_7833,
+        boneInVinegar = Items.BONE_IN_VINEGAR_7834,
+        polishedBone = Items.BAT_WING_7835,
+        boneDescription = "bat bone"
+    ),
+    RAT_BONE(
+        bone = Items.RAT_BONE_7836,
+        boneInVinegar = Items.BONE_IN_VINEGAR_7837,
+        polishedBone = Items.RAT_BONE_7838,
+        boneDescription = "rat bone"
+    ),
+    BABY_DRAGON_BONE(
+        bone = Items.BABY_DRAGON_BONE_7839,
+        boneInVinegar = Items.BONE_IN_VINEGAR_7840,
+        polishedBone = Items.BABY_DRAGON_BONE_7841,
+        boneDescription = "baby blue dragon bone"
+    ),
+    OGRE_RIBS(
+        bone = Items.OGRE_RIBS_7842,
+        boneInVinegar = Items.BONE_IN_VINEGAR_7843,
+        polishedBone = Items.OGRE_RIBS_7844,
+        boneDescription = "ogre bone"
+    ),
+    JOGRE_BONE(
+        bone = Items.JOGRE_BONE_7845,
+        boneInVinegar = Items.BONE_IN_VINEGAR_7846,
+        polishedBone = Items.JOGRE_BONE_7847,
+        boneDescription = "jogre bone"
+    ),
+    ZOGRE_BONE(
+        bone = Items.ZOGRE_BONE_7848,
+        boneInVinegar = Items.BONE_IN_VINEGAR_7849,
+        polishedBone = Items.ZOGRE_BONE_7850,
+        boneDescription = "zogre bone"
+    ),
+    MOGRE_BONE(
+        bone = Items.MOGRE_BONE_7851,
+        boneInVinegar = Items.BONE_IN_VINEGAR_7852,
+        polishedBone = Items.MOGRE_BONE_7853,
+        boneDescription = "mogre bone"
+    ),
+    MONKEY_PAW(
+        bone = Items.MONKEY_PAW_7854,
+        boneInVinegar = Items.BONE_IN_VINEGAR_7855,
+        polishedBone = Items.MONKEY_PAW_7856,
+        boneDescription = "monkey bone"
+    ),
+    DAGANNOTH_RIBS(
+        bone = Items.DAGANNOTH_RIBS_7857,
+        boneInVinegar = Items.BONE_IN_VINEGAR_7858,
+        polishedBone = Items.DAGANNOTH_RIBS_7859,
+        boneDescription = "Dagannoth bone"
+    ),
+    SNAKE_SPINE(
+        bone = Items.SNAKE_SPINE_7860,
+        boneInVinegar = Items.BONE_IN_VINEGAR_7861,
+        polishedBone = Items.SNAKE_SPINE_7862,
+        boneDescription = "snake bone"
+    ),
+    ZOMBIE_BONE(
+        bone = Items.ZOMBIE_BONE_7863,
+        boneInVinegar = Items.BONE_IN_VINEGAR_7864,
+        polishedBone = Items.ZOMBIE_BONE_7865,
+        boneDescription = "zombie bone"
+    ),
+    WEREWOLF_BONE(
+        bone = Items.WEREWOLF_BONE_7866,
+        boneInVinegar = Items.BONE_IN_VINEGAR_7867,
+        polishedBone = Items.WEREWOLF_BONE_7868,
+        boneDescription = "werewolf bone"
+    ),
+    MOSS_GIANT_BONE(
+        bone = Items.MOSS_GIANT_BONE_7869,
+        boneInVinegar = Items.BONE_IN_VINEGAR_7870,
+        polishedBone = Items.MOSS_GIANT_BONE_7871,
+        boneDescription = "moss giant bone"
+    ),
+    FIRE_GIANT_BONE(
+        bone = Items.FIRE_GIANT_BONE_7872,
+        boneInVinegar = Items.BONE_IN_VINEGAR_7873,
+        polishedBone = Items.FIRE_GIANT_BONE_7874,
+        boneDescription = "fire giant bone"
+    ),
+    ICE_GIANT_RIBS(
+        bone = Items.ICE_GIANT_RIBS_7875,
+        boneInVinegar = Items.BONE_IN_VINEGAR_7876,
+        polishedBone = Items.ICE_GIANT_RIBS_7877,
+        boneDescription = "ice giant bone"
+    ),
+    TERRORBIRD_WING(
+        bone = Items.TERRORBIRD_WING_7878,
+        boneInVinegar = Items.BONE_IN_VINEGAR_7879,
+        polishedBone = Items.TERRORBIRD_WING_7880,
+        boneDescription = "terrorbird bone"
+    ),
+    GHOUL_BONE(
+        bone = Items.GHOUL_BONE_7881,
+        boneInVinegar = Items.BONE_IN_VINEGAR_7882,
+        polishedBone = Items.GHOUL_BONE_7883,
+        boneDescription = "ghoul bone"
+    ),
+    TROLL_BONE(
+        bone = Items.TROLL_BONE_7884,
+        boneInVinegar = Items.BONE_IN_VINEGAR_7885,
+        polishedBone = Items.TROLL_BONE_7886,
+        boneDescription = "troll bone"
+    ),
+    SEAGULL_WING(
+        bone = Items.SEAGULL_WING_7887,
+        boneInVinegar = Items.BONE_IN_VINEGAR_7888,
+        polishedBone = Items.SEAGULL_WING_7889,
+        boneDescription = "seagull bone"
+    ),
+    UNDEAD_COW_RIBS(
+        bone = Items.UNDEAD_COW_RIBS_7890,
+        boneInVinegar = Items.BONE_IN_VINEGAR_7891,
+        polishedBone = Items.UNDEAD_COW_RIBS_7892,
+        boneDescription = "undead cow bone"
+    ),
+    EXPERIMENT_BONE(
+        bone = Items.EXPERIMENT_BONE_7893,
+        boneInVinegar = Items.BONE_IN_VINEGAR_7894,
+        polishedBone = Items.EXPERIMENT_BONE_7895,
+        boneDescription = "experiment bone"
+    ),
+    RABBIT_BONE(
+        bone = Items.RABBIT_BONE_7896,
+        boneInVinegar = Items.BONE_IN_VINEGAR_7897,
+        polishedBone = Items.RABBIT_BONE_7898,
+        boneDescription = "rabbit bone"
+    ),
+    BASILISK_BONE(
+        bone = Items.BASILISK_BONE_7899,
+        boneInVinegar = Items.BONE_IN_VINEGAR_7900,
+        polishedBone = Items.BASILISK_BONE_7901,
+        boneDescription = "basilisk bone"
+    ),
+    DESERT_LIZARD_BONE(
+        bone = Items.DESERT_LIZARD_BONE_7902,
+        boneInVinegar = Items.BONE_IN_VINEGAR_7903,
+        polishedBone = Items.DESERT_LIZARD_BONE_7904,
+        boneDescription = "desert lizard bone"
+    ),
+    CAVE_GOBLIN_SKULL(
+        bone = Items.CAVE_GOBLIN_SKULL_7905,
+        boneInVinegar = Items.BONE_IN_VINEGAR_7906,
+        polishedBone = Items.CAVE_GOBLIN_SKULL_7907,
+        boneDescription = "cave goblin bone"
+    ),
+    BIG_FROG_LEG(
+        bone = Items.BIG_FROG_LEG_7908,
+        boneInVinegar = Items.BONE_IN_VINEGAR_7909,
+        polishedBone = Items.BIG_FROG_LEG_7910,
+        boneDescription = "big frog bone"
+    ),
+    VULTURE_WING(
+        bone = Items.VULTURE_WING_7911,
+        boneInVinegar = Items.BONE_IN_VINEGAR_7912,
+        polishedBone = Items.VULTURE_WING_7913,
+        boneDescription = "vulture bone"
+    ),
+    JACKAL_BONE(
+        bone = Items.JACKAL_BONE_7914,
+        boneInVinegar = Items.BONE_IN_VINEGAR_7915,
+        polishedBone = Items.JACKAL_BONE_7916,
+        boneDescription = "jackal bone"
+    );
 
     companion object {
         @JvmField
@@ -201,10 +228,10 @@ enum class BoneBoiler(val bone: Int, val boneInVinegar: Int, val polishedBone: I
         val boneInVinegarMap = values().associateBy { it.boneInVinegar }
 
         /**
-         * Returns the BoneBoiler instance for the given bone ID.
+         * Gets the [BoneBoiler] for the given [bone] id.
          *
-         * @param id The ID of the bone.
-         * @return The BoneBoiler instance or null if not found.
+         * @param id the bone id.
+         * @return The Bone boiler instance or null if not found.
          */
         @JvmStatic
         fun forBone(id: Int): BoneBoiler? {
@@ -212,10 +239,10 @@ enum class BoneBoiler(val bone: Int, val boneInVinegar: Int, val polishedBone: I
         }
 
         /**
-         * Returns the BoneBoiler instance for the given bone in vinegar ID.
+         * Get the [BoneBoiler] instance for the given [boneInVinegar] id.
          *
-         * @param id The ID of the bone in vinegar.
-         * @return The BoneBoiler instance or null if not found.
+         * @param id The bone in vinegar id.
+         * @return The Bone boiler instance or null if not found.
          */
         @JvmStatic
         fun forBoneInVinegar(id: Int): BoneBoiler? {

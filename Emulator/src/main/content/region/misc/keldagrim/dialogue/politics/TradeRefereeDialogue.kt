@@ -1,10 +1,10 @@
 package content.region.misc.keldagrim.dialogue.politics
 
-import org.rs.consts.NPCs
 import core.game.dialogue.Dialogue
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
+import org.rs.consts.NPCs
 
 /**
  * Represents the Trade referee dialogue.

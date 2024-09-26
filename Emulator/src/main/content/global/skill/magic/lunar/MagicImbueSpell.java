@@ -1,6 +1,5 @@
 package content.global.skill.magic.lunar;
 
-import org.rs.consts.Sounds;
 import core.game.node.Node;
 import core.game.node.entity.Entity;
 import core.game.node.entity.combat.spell.MagicSpell;
@@ -14,6 +13,7 @@ import core.game.world.update.flag.context.Animation;
 import core.game.world.update.flag.context.Graphic;
 import core.plugin.Initializable;
 import core.plugin.Plugin;
+import org.rs.consts.Sounds;
 
 import static core.api.ContentAPIKt.playAudio;
 import static core.api.ContentAPIKt.setAttribute;

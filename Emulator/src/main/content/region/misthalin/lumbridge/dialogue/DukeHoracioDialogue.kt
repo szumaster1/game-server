@@ -1,7 +1,7 @@
 package content.region.misthalin.lumbridge.dialogue
 
 import org.rs.consts.NPCs
-import content.region.misthalin.lumbridge.quest.lost_tribe.dialogue.DukeHoracioLostTribeDialogue
+import content.region.misthalin.lumbridge.quest.losttribe.dialogue.DukeHoracioLostTribeDialogue
 import content.region.misthalin.varrock.quest.dragon.DragonSlayer
 import content.region.misthalin.varrock.quest.dragon.dialogue.DukeHoracioDragonSlayerDialogue
 import content.region.misthalin.lumbridge.quest.runemysteries.dialogue.DukeHoracioRuneMysteriesDialogue

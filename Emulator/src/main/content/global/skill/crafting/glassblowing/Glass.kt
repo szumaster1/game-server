@@ -5,13 +5,7 @@ import org.rs.consts.Items
 /**
  * Represents the glass items.
  */
-enum class Glass(
-    val buttonId: Int,
-    val productId: Int,
-    val amount: Int = 1,
-    val requiredLevel: Int,
-    val experience: Double
-) {
+enum class Glass(val buttonId: Int, val productId: Int, val amount: Int = 1, val requiredLevel: Int, val experience: Double) {
     EMPTY_VIAL(
         buttonId = 38,
         productId = Items.VIAL_229,

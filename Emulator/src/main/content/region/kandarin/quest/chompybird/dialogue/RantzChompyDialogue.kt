@@ -1,7 +1,7 @@
 package content.region.kandarin.quest.chompybird.dialogue
 
-import content.region.kandarin.quest.chompybird.handlers.ChompyBirdHunting
-import content.region.kandarin.quest.chompybird.handlers.ChompyDialoguesHandler
+import content.region.kandarin.quest.chompybird.handlers.ChompyBird
+import content.region.kandarin.quest.chompybird.handlers.ChompyDialogue
 import core.api.*
 import org.rs.consts.Items
 import org.rs.consts.NPCs
@@ -33,7 +33,7 @@ class RantzChompyDialogue(player: Player? = null) : Dialogue(player) {
             return true
         }
         when (chompyStage) {
-            in 0 until 100 -> loadFile(ChompyDialoguesHandler(chompyBird))
+            in 0 until 100 -> loadFile(ChompyDialogue(chompyBird))
         }
         player.dialogueInterpreter.handle(0, 0)
         return true
@@ -60,7 +60,7 @@ class RantzChompyDialogue(player: Player? = null) : Dialogue(player) {
                     return true
                 }
 
-                val hats = ChompyBirdHunting.getApplicableHats(player)
+                val hats = ChompyBird.getApplicableHats(player)
                 if (hats.isEmpty()) {
                     npcl(FacialExpression.OLD_NORMAL, "Sorry, creature, no hatsies for you. Come back when kill more chompy.")
                 } else {

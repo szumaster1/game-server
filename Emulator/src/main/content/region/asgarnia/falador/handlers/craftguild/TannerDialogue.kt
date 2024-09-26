@@ -1,6 +1,6 @@
 package content.region.asgarnia.falador.handlers.craftguild
 
-import content.global.skill.crafting.items.leather.Tanning
+import content.global.skill.crafting.Tanning
 import org.rs.consts.NPCs
 import core.api.inInventory
 import core.game.dialogue.Dialogue

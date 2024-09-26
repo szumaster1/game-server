@@ -2,14 +2,14 @@ package content.global.ame.freakyforest
 
 import content.global.ame.RandomEventNPC
 import core.api.*
-import org.rs.consts.NPCs
-import org.rs.consts.Sounds
 import core.api.utils.WeightBasedTable
 import core.game.interaction.QueueStrength
 import core.game.node.entity.npc.NPC
 import core.game.system.timer.impl.AntiMacro
 import core.game.world.map.Location
 import core.game.world.update.flag.context.Graphic
+import org.rs.consts.NPCs
+import org.rs.consts.Sounds
 
 /**
  * Freaky forester NPC.

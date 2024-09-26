@@ -2,8 +2,8 @@ package content.region.kandarin.baxtorian.handlers
 
 import org.rs.consts.Items
 import org.rs.consts.NPCs
-import content.data.skill.SkillingTool
-import content.global.skill.firemaking.Log
+import content.global.skill.gather.SkillingTool
+import content.global.skill.firemaking.logs.Log
 import core.api.sendNews
 import core.cache.def.impl.SceneryDefinition
 import core.game.interaction.OptionHandler

@@ -35,9 +35,6 @@ import core.plugin.PluginManager.definePlugin
 import core.plugin.Initializable
 import core.plugin.Plugin
 
-/**
- * Represents the Trollheim plugin.
- */
 @Initializable
 class TrollheimPlugin : OptionHandler() {
 

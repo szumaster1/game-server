@@ -1,7 +1,7 @@
 package content.region.kandarin.quest.zogre.handlers
 
 import org.rs.consts.*
-import content.global.skill.thieving.ThievingPickpocket
+import content.global.skill.thieving.pickpocketing.PickpocketListener
 import content.region.kandarin.quest.zogre.handlers.BrentleVahnNPC.Companion.spawnHumanZombie
 import content.region.kandarin.quest.zogre.handlers.SlashBashNPC.Companion.spawnZogreBoss
 import core.api.*
@@ -157,7 +157,7 @@ class GuTanothCrypt : InteractionListener {
             animate(player, Animations.HUMAN_MULTI_USE_832)
             sendMessage(player, "You attempt to pick the lock on the coffin.")
             submitIndividualPulse(player, object : Pulse(2) {
-                var table = ThievingPickpocket.pickpocketRoll(player, 84.0, 240.0, OgreCoffin.OGRE_COFFIN.table)
+                var table = PickpocketListener.pickpocketRoll(player, 84.0, 240.0, OgreCoffin.OGRE_COFFIN.table)
 
                 val disease = RandomFunction.random(100) <= 4
                 val fingernumb = RandomFunction.roll(1)

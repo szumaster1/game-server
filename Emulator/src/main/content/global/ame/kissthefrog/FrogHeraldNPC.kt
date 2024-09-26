@@ -1,10 +1,10 @@
 package content.global.ame.kissthefrog
 
 import content.global.ame.RandomEventNPC
-import org.rs.consts.NPCs
 import core.api.utils.WeightBasedTable
 import core.game.node.entity.npc.NPC
 import core.tools.RandomFunction
+import org.rs.consts.NPCs
 
 /**
  * Frog herald NPC.

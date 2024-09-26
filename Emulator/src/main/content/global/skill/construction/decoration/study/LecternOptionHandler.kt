@@ -1,6 +1,6 @@
 package content.global.skill.construction.decoration.study
 
-import content.global.handlers.item.TeleTabs
+import content.global.handlers.item.TeleportTablet
 import core.api.*
 import core.cache.def.impl.SceneryDefinition
 import core.game.component.Component
@@ -25,111 +25,305 @@ import org.rs.consts.Items
  */
 @Initializable
 class LecternOptionHandler : OptionHandler() {
-    private enum class TeleTabButton(val buttonId: Int, val level: Int, val xp: Double, val tabItem: Item, private val requiredDecorations: Array<content.global.skill.construction.Decoration>, vararg requiredItems: Item) {
+    private enum class TeleTabButton(
+        val buttonId: Int,
+        val level: Int,
+        val xp: Double,
+        val tabItem: Item,
+        private val requiredDecorations: Array<content.global.skill.construction.Decoration>,
+        vararg requiredItems: Item
+    ) {
         /**
          * Ardougne
          *
          * @constructor Ardougne
          */
-        ARDOUGNE(2, 51, 61.0, Item(TeleTabs.ADDOUGNE_TELEPORT.item), arrayOf(content.global.skill.construction.Decoration.TEAK_EAGLE_LECTERN, content.global.skill.construction.Decoration.MAHOGANY_EAGLE_LECTERN), SOFT_CLAY, Item(Items.LAW_RUNE_563, 2), Item(Items.WATER_RUNE_555, 2)),
+        ARDOUGNE(
+            2,
+            51,
+            61.0,
+            Item(TeleportTablet.ADDOUGNE_TELEPORT.item),
+            arrayOf(
+                content.global.skill.construction.Decoration.TEAK_EAGLE_LECTERN,
+                content.global.skill.construction.Decoration.MAHOGANY_EAGLE_LECTERN
+            ),
+            SOFT_CLAY,
+            Item(Items.LAW_RUNE_563, 2),
+            Item(Items.WATER_RUNE_555, 2)
+        ),
 
         /**
          * Bones To Banannas
          *
          * @constructor Bones To Banannas
          */
-        BONES_TO_BANANNAS(3, 15, 25.0, Item(Items.BONES_TO_BANANAS_8014), arrayOf(content.global.skill.construction.Decoration.DEMON_LECTERN, content.global.skill.construction.Decoration.TEAK_DEMON_LECTERN, content.global.skill.construction.Decoration.MAHOGANY_DEMON_LECTERN), SOFT_CLAY, Item(Items.NATURE_RUNE_561, 1), Item(Items.EARTH_RUNE_557, 2), Item(Items.WATER_RUNE_555, 2)),
+        BONES_TO_BANANNAS(
+            3,
+            15,
+            25.0,
+            Item(Items.BONES_TO_BANANAS_8014),
+            arrayOf(
+                content.global.skill.construction.Decoration.DEMON_LECTERN,
+                content.global.skill.construction.Decoration.TEAK_DEMON_LECTERN,
+                content.global.skill.construction.Decoration.MAHOGANY_DEMON_LECTERN
+            ),
+            SOFT_CLAY,
+            Item(Items.NATURE_RUNE_561, 1),
+            Item(Items.EARTH_RUNE_557, 2),
+            Item(Items.WATER_RUNE_555, 2)
+        ),
 
         /**
          * Bones To Peaches
          *
          * @constructor Bones To Peaches
          */
-        BONES_TO_PEACHES(4, 60, 35.5, Item(Items.BONES_TO_PEACHES_8015), arrayOf(content.global.skill.construction.Decoration.MAHOGANY_DEMON_LECTERN), SOFT_CLAY, Item(Items.NATURE_RUNE_561, 2), Item(Items.EARTH_RUNE_557, 4), Item(Items.WATER_RUNE_555, 4)),
+        BONES_TO_PEACHES(
+            4,
+            60,
+            35.5,
+            Item(Items.BONES_TO_PEACHES_8015),
+            arrayOf(content.global.skill.construction.Decoration.MAHOGANY_DEMON_LECTERN),
+            SOFT_CLAY,
+            Item(Items.NATURE_RUNE_561, 2),
+            Item(Items.EARTH_RUNE_557, 4),
+            Item(Items.WATER_RUNE_555, 4)
+        ),
 
         /**
          * Camelot
          *
          * @constructor Camelot
          */
-        CAMELOT(5, 45, 55.5, Item(TeleTabs.CAMELOT_TELEPORT.item), arrayOf(content.global.skill.construction.Decoration.TEAK_EAGLE_LECTERN, content.global.skill.construction.Decoration.MAHOGANY_EAGLE_LECTERN), SOFT_CLAY, Item(Items.LAW_RUNE_563), Item(Items.AIR_RUNE_556, 5)),
+        CAMELOT(
+            5,
+            45,
+            55.5,
+            Item(TeleportTablet.CAMELOT_TELEPORT.item),
+            arrayOf(
+                content.global.skill.construction.Decoration.TEAK_EAGLE_LECTERN,
+                content.global.skill.construction.Decoration.MAHOGANY_EAGLE_LECTERN
+            ),
+            SOFT_CLAY,
+            Item(Items.LAW_RUNE_563),
+            Item(Items.AIR_RUNE_556, 5)
+        ),
 
         /**
          * Enchant Diamond
          *
          * @constructor Enchant Diamond
          */
-        ENCHANT_DIAMOND(6, 57, 67.0, Item(Items.ENCHANT_DIAMOND_8019), arrayOf(content.global.skill.construction.Decoration.TEAK_DEMON_LECTERN, content.global.skill.construction.Decoration.MAHOGANY_DEMON_LECTERN), SOFT_CLAY, Item(Items.COSMIC_RUNE_564), Item(Items.EARTH_RUNE_557, 10)),
+        ENCHANT_DIAMOND(
+            6,
+            57,
+            67.0,
+            Item(Items.ENCHANT_DIAMOND_8019),
+            arrayOf(
+                content.global.skill.construction.Decoration.TEAK_DEMON_LECTERN,
+                content.global.skill.construction.Decoration.MAHOGANY_DEMON_LECTERN
+            ),
+            SOFT_CLAY,
+            Item(Items.COSMIC_RUNE_564),
+            Item(Items.EARTH_RUNE_557, 10)
+        ),
 
         /**
          * Enchant Dragonstone
          *
          * @constructor Enchant Dragonstone
          */
-        ENCHANT_DRAGONSTONE(7, 68, 78.0, Item(Items.ENCHANT_DRAGONSTN_8020), arrayOf(content.global.skill.construction.Decoration.MAHOGANY_DEMON_LECTERN), SOFT_CLAY, Item(Items.COSMIC_RUNE_564), Item(Items.EARTH_RUNE_557, 15), Item(Items.WATER_RUNE_555, 15)),
+        ENCHANT_DRAGONSTONE(
+            7,
+            68,
+            78.0,
+            Item(Items.ENCHANT_DRAGONSTN_8020),
+            arrayOf(content.global.skill.construction.Decoration.MAHOGANY_DEMON_LECTERN),
+            SOFT_CLAY,
+            Item(Items.COSMIC_RUNE_564),
+            Item(Items.EARTH_RUNE_557, 15),
+            Item(Items.WATER_RUNE_555, 15)
+        ),
 
         /**
          * Enchant Emerald
          *
          * @constructor Enchant Emerald
          */
-        ENCHANT_EMERALD(8, 27, 37.0, Item(Items.ENCHANT_EMERALD_8017), arrayOf(content.global.skill.construction.Decoration.DEMON_LECTERN, content.global.skill.construction.Decoration.TEAK_DEMON_LECTERN, content.global.skill.construction.Decoration.MAHOGANY_DEMON_LECTERN), SOFT_CLAY, Item(Items.COSMIC_RUNE_564), Item(Items.AIR_RUNE_556, 3)),
+        ENCHANT_EMERALD(
+            8,
+            27,
+            37.0,
+            Item(Items.ENCHANT_EMERALD_8017),
+            arrayOf(
+                content.global.skill.construction.Decoration.DEMON_LECTERN,
+                content.global.skill.construction.Decoration.TEAK_DEMON_LECTERN,
+                content.global.skill.construction.Decoration.MAHOGANY_DEMON_LECTERN
+            ),
+            SOFT_CLAY,
+            Item(Items.COSMIC_RUNE_564),
+            Item(Items.AIR_RUNE_556, 3)
+        ),
 
         /**
          * Enchant Onyx
          *
          * @constructor Enchant Onyx
          */
-        ENCHANT_ONYX(9, 87, 97.0, Item(Items.ENCHANT_ONYX_8021), arrayOf(content.global.skill.construction.Decoration.MAHOGANY_DEMON_LECTERN), SOFT_CLAY, Item(Items.COSMIC_RUNE_564), Item(Items.EARTH_RUNE_557, 20), Item(Items.FIRE_RUNE_554, 20)),
+        ENCHANT_ONYX(
+            9,
+            87,
+            97.0,
+            Item(Items.ENCHANT_ONYX_8021),
+            arrayOf(content.global.skill.construction.Decoration.MAHOGANY_DEMON_LECTERN),
+            SOFT_CLAY,
+            Item(Items.COSMIC_RUNE_564),
+            Item(Items.EARTH_RUNE_557, 20),
+            Item(Items.FIRE_RUNE_554, 20)
+        ),
 
         /**
          * Enchant Ruby
          *
          * @constructor Enchant Ruby
          */
-        ENCHANT_RUBY(10, 49, 59.0, Item(Items.ENCHANT_RUBY_8018), arrayOf(content.global.skill.construction.Decoration.TEAK_DEMON_LECTERN, content.global.skill.construction.Decoration.MAHOGANY_DEMON_LECTERN), SOFT_CLAY, Item(Items.COSMIC_RUNE_564), Item(Items.FIRE_RUNE_554, 5)),
+        ENCHANT_RUBY(
+            10,
+            49,
+            59.0,
+            Item(Items.ENCHANT_RUBY_8018),
+            arrayOf(
+                content.global.skill.construction.Decoration.TEAK_DEMON_LECTERN,
+                content.global.skill.construction.Decoration.MAHOGANY_DEMON_LECTERN
+            ),
+            SOFT_CLAY,
+            Item(Items.COSMIC_RUNE_564),
+            Item(Items.FIRE_RUNE_554, 5)
+        ),
 
         /**
          * Enchant Sapphire
          *
          * @constructor Enchant Sapphire
          */
-        ENCHANT_SAPPHIRE(11, 7, 17.5, Item(Items.ENCHANT_SAPPHIRE_8016), arrayOf(content.global.skill.construction.Decoration.OAK_LECTERN, content.global.skill.construction.Decoration.EAGLE_LECTERN, content.global.skill.construction.Decoration.TEAK_EAGLE_LECTERN, content.global.skill.construction.Decoration.MAHOGANY_EAGLE_LECTERN, content.global.skill.construction.Decoration.DEMON_LECTERN, content.global.skill.construction.Decoration.TEAK_DEMON_LECTERN, content.global.skill.construction.Decoration.MAHOGANY_DEMON_LECTERN), SOFT_CLAY, Item(Items.COSMIC_RUNE_564), Item(Items.WATER_RUNE_555)),
+        ENCHANT_SAPPHIRE(
+            11,
+            7,
+            17.5,
+            Item(Items.ENCHANT_SAPPHIRE_8016),
+            arrayOf(
+                content.global.skill.construction.Decoration.OAK_LECTERN,
+                content.global.skill.construction.Decoration.EAGLE_LECTERN,
+                content.global.skill.construction.Decoration.TEAK_EAGLE_LECTERN,
+                content.global.skill.construction.Decoration.MAHOGANY_EAGLE_LECTERN,
+                content.global.skill.construction.Decoration.DEMON_LECTERN,
+                content.global.skill.construction.Decoration.TEAK_DEMON_LECTERN,
+                content.global.skill.construction.Decoration.MAHOGANY_DEMON_LECTERN
+            ),
+            SOFT_CLAY,
+            Item(Items.COSMIC_RUNE_564),
+            Item(Items.WATER_RUNE_555)
+        ),
 
         /**
          * Falador
          *
          * @constructor Falador
          */
-        FALADOR(12, 37, 48.0, Item(TeleTabs.FALADOR_TELEPORT.item), arrayOf(content.global.skill.construction.Decoration.EAGLE_LECTERN, content.global.skill.construction.Decoration.TEAK_EAGLE_LECTERN, content.global.skill.construction.Decoration.MAHOGANY_EAGLE_LECTERN), SOFT_CLAY, Item(Items.LAW_RUNE_563), Item(Items.WATER_RUNE_555), Item(Items.AIR_RUNE_556, 3)),
+        FALADOR(
+            12,
+            37,
+            48.0,
+            Item(TeleportTablet.FALADOR_TELEPORT.item),
+            arrayOf(
+                content.global.skill.construction.Decoration.EAGLE_LECTERN,
+                content.global.skill.construction.Decoration.TEAK_EAGLE_LECTERN,
+                content.global.skill.construction.Decoration.MAHOGANY_EAGLE_LECTERN
+            ),
+            SOFT_CLAY,
+            Item(Items.LAW_RUNE_563),
+            Item(Items.WATER_RUNE_555),
+            Item(Items.AIR_RUNE_556, 3)
+        ),
 
         /**
          * Lumbridge
          *
          * @constructor Lumbridge
          */
-        LUMBRIDGE(13, 31, 41.0, Item(TeleTabs.LUMBRIDGE_TELEPORT.item), arrayOf(content.global.skill.construction.Decoration.EAGLE_LECTERN, content.global.skill.construction.Decoration.TEAK_EAGLE_LECTERN, content.global.skill.construction.Decoration.MAHOGANY_EAGLE_LECTERN), SOFT_CLAY, Item(Items.LAW_RUNE_563), Item(Items.EARTH_RUNE_557), Item(Items.AIR_RUNE_556, 3)),
+        LUMBRIDGE(
+            13,
+            31,
+            41.0,
+            Item(TeleportTablet.LUMBRIDGE_TELEPORT.item),
+            arrayOf(
+                content.global.skill.construction.Decoration.EAGLE_LECTERN,
+                content.global.skill.construction.Decoration.TEAK_EAGLE_LECTERN,
+                content.global.skill.construction.Decoration.MAHOGANY_EAGLE_LECTERN
+            ),
+            SOFT_CLAY,
+            Item(Items.LAW_RUNE_563),
+            Item(Items.EARTH_RUNE_557),
+            Item(Items.AIR_RUNE_556, 3)
+        ),
 
         /**
          * House
          *
          * @constructor House
          */
-        HOUSE(14, 40, 30.0, Item(Items.TELEPORT_TO_HOUSE_8013), arrayOf(content.global.skill.construction.Decoration.MAHOGANY_EAGLE_LECTERN), SOFT_CLAY, Item(Items.LAW_RUNE_563), Item(Items.EARTH_RUNE_557), Item(Items.AIR_RUNE_556)),
+        HOUSE(
+            14,
+            40,
+            30.0,
+            Item(Items.TELEPORT_TO_HOUSE_8013),
+            arrayOf(content.global.skill.construction.Decoration.MAHOGANY_EAGLE_LECTERN),
+            SOFT_CLAY,
+            Item(Items.LAW_RUNE_563),
+            Item(Items.EARTH_RUNE_557),
+            Item(Items.AIR_RUNE_556)
+        ),
 
         /**
          * Varrock
          *
          * @constructor Varrock
          */
-        VARROCK(15, 25, 35.0, Item(TeleTabs.VARROCK_TELEPORT.item), arrayOf(content.global.skill.construction.Decoration.OAK_LECTERN, content.global.skill.construction.Decoration.EAGLE_LECTERN, content.global.skill.construction.Decoration.TEAK_EAGLE_LECTERN, content.global.skill.construction.Decoration.MAHOGANY_EAGLE_LECTERN, content.global.skill.construction.Decoration.DEMON_LECTERN, content.global.skill.construction.Decoration.TEAK_DEMON_LECTERN, content.global.skill.construction.Decoration.MAHOGANY_DEMON_LECTERN), SOFT_CLAY, Item(Items.LAW_RUNE_563), Item(Items.FIRE_RUNE_554), Item(Items.AIR_RUNE_556, 3)),
+        VARROCK(
+            15,
+            25,
+            35.0,
+            Item(TeleportTablet.VARROCK_TELEPORT.item),
+            arrayOf(
+                content.global.skill.construction.Decoration.OAK_LECTERN,
+                content.global.skill.construction.Decoration.EAGLE_LECTERN,
+                content.global.skill.construction.Decoration.TEAK_EAGLE_LECTERN,
+                content.global.skill.construction.Decoration.MAHOGANY_EAGLE_LECTERN,
+                content.global.skill.construction.Decoration.DEMON_LECTERN,
+                content.global.skill.construction.Decoration.TEAK_DEMON_LECTERN,
+                content.global.skill.construction.Decoration.MAHOGANY_DEMON_LECTERN
+            ),
+            SOFT_CLAY,
+            Item(Items.LAW_RUNE_563),
+            Item(Items.FIRE_RUNE_554),
+            Item(Items.AIR_RUNE_556, 3)
+        ),
 
         /**
          * Watchtower
          *
          * @constructor Watchtower
          */
-        WATCHTOWER(16, 58, 68.0, Item(TeleTabs.WATCH_TOWER_TELEPORT.item), arrayOf(content.global.skill.construction.Decoration.MAHOGANY_EAGLE_LECTERN), SOFT_CLAY, Item(Items.LAW_RUNE_563, 2), Item(Items.EARTH_RUNE_557, 2));
+        WATCHTOWER(
+            16,
+            58,
+            68.0,
+            Item(TeleportTablet.WATCH_TOWER_TELEPORT.item),
+            arrayOf(content.global.skill.construction.Decoration.MAHOGANY_EAGLE_LECTERN),
+            SOFT_CLAY,
+            Item(Items.LAW_RUNE_563, 2),
+            Item(Items.EARTH_RUNE_557, 2)
+        );
 
         val requiredItems: ArrayList<Item> = arrayListOf(*requiredItems)
 
@@ -271,7 +465,14 @@ class LecternOptionHandler : OptionHandler() {
                                         // Should never drop, since soft clay was successfully removed
                                         addItemOrDrop(player, ttb.tabItem.id)
                                         player.skills.addExperience(Skills.MAGIC, ttb.xp, true)
-                                        if (ttb == TeleTabButton.VARROCK && (player.getAttribute("ttb:objectid", 0) == content.global.skill.construction.Decoration.MAHOGANY_EAGLE_LECTERN.objectId || player.getAttribute("ttb:objectid", 0) == content.global.skill.construction.Decoration.MAHOGANY_DEMON_LECTERN.objectId)) {
+                                        if (ttb == TeleTabButton.VARROCK && (player.getAttribute(
+                                                "ttb:objectid",
+                                                0
+                                            ) == content.global.skill.construction.Decoration.MAHOGANY_EAGLE_LECTERN.objectId || player.getAttribute(
+                                                "ttb:objectid",
+                                                0
+                                            ) == content.global.skill.construction.Decoration.MAHOGANY_DEMON_LECTERN.objectId)
+                                        ) {
                                             player.achievementDiaryManager.finishTask(player, DiaryType.VARROCK, 2, 8)
                                         }
                                     } else {

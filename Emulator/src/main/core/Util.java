@@ -19,8 +19,7 @@ import java.util.function.Function;
 import java.util.function.Predicate;
 
 /**
- * Util class contains utility methods for
- * string manipulation and date/time operations.
+ * Util class contains utility methods for string manipulation and date/time operations.
  */
 public class Util {
     /**

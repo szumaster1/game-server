@@ -1,12 +1,12 @@
 package content.global.ame.certer
 
 import core.api.sendString
-import org.rs.consts.Items
 import core.api.setAttribute
 import core.game.interaction.InterfaceListener
 import core.game.node.entity.player.Player
 import core.game.node.item.Item
 import core.game.system.timer.impl.AntiMacro
+import org.rs.consts.Items
 
 /**
  * Certer event interface.

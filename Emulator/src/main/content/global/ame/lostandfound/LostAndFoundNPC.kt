@@ -1,6 +1,5 @@
 package content.global.ame.lostandfound
 
-import org.rs.consts.Components
 import content.global.ame.RandomEventNPC
 import core.api.*
 import core.api.utils.WeightBasedTable
@@ -10,6 +9,7 @@ import core.game.node.entity.player.link.TeleportManager
 import core.game.node.item.Item
 import core.game.system.timer.impl.AntiMacro
 import core.game.world.map.zone.ZoneBorders
+import org.rs.consts.Components
 
 /**
  * Lost and found NPC.

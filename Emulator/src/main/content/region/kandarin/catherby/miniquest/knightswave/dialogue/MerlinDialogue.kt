@@ -1,7 +1,7 @@
 package content.region.kandarin.catherby.miniquest.knightswave.dialogue
 
 import org.rs.consts.NPCs
-import content.region.kandarin.catherby.miniquest.knightswave.handlers.KWUtils
+import content.region.kandarin.catherby.miniquest.knightswave.handlers.KnightWavesUtils
 import core.api.*
 import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression
@@ -16,7 +16,7 @@ class MerlinDialogue : DialogueFile() {
     override fun handle(componentID: Int, buttonID: Int) {
         npc = NPC(NPCs.MERLIN_213)
         when (stage) {
-            0 -> if (!getAttribute(player!!, KWUtils.KW_COMPLETE, false)) {
+            0 -> if (!getAttribute(player!!, KnightWavesUtils.KW_COMPLETE, false)) {
                 npc(FacialExpression.HAPPY, "Well done, young adventurer. You truly are a worthy", "knight.").also { stage++ }
             } else {
                 sendMessage(player!!, "Nothing interesting happens.")
@@ -29,7 +29,7 @@ class MerlinDialogue : DialogueFile() {
                     rewardXP(player!!, Skills.ATTACK, 20.000)
                     rewardXP(player!!, Skills.STRENGTH, 20.000)
                     rewardXP(player!!, Skills.DEFENCE, 20.000)
-                    setAttribute(player!!, KWUtils.KW_COMPLETE, true)
+                    setAttribute(player!!, KnightWavesUtils.KW_COMPLETE, true)
                 }
             }
         }

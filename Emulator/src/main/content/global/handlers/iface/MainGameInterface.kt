@@ -12,11 +12,6 @@ import core.game.world.GameWorld.settings
 import org.rs.consts.Components
 
 class MainGameInterface : InterfaceListener {
-    val TOPLEVEL = Components.TOPLEVEL_548
-    val TOPLEVEL_FS = Components.TOPLEVEL_FULLSCREEN_746
-    val RUN_BUTTON = Components.TOPSTAT_RUN_750
-    val FILTER_BUTTONS = Components.FILTERBUTTONS_751
-    val REPORT_ABUSE = Components.SNAPSHOT_MAIN_553
 
     override fun defineInterfaceListeners() {
         on(FILTER_BUTTONS){player, _, _, buttonID, _, _ ->
@@ -38,7 +33,6 @@ class MainGameInterface : InterfaceListener {
             }
             return@on true
         }
-
 
         on(TOPLEVEL){player, _, _, buttonID, _, _ ->
             when (buttonID) {
@@ -92,4 +86,13 @@ class MainGameInterface : InterfaceListener {
         player.packetDispatch.sendScriptConfigs(622, posHash, "", 0)
         player.packetDispatch.sendScriptConfigs(674, posHash, "", 0)
     }
+
+    companion object {
+         const val TOPLEVEL = Components.TOPLEVEL_548
+         const val TOPLEVEL_FS = Components.TOPLEVEL_FULLSCREEN_746
+         const val RUN_BUTTON = Components.TOPSTAT_RUN_750
+         const val FILTER_BUTTONS = Components.FILTERBUTTONS_751
+         const val REPORT_ABUSE = Components.SNAPSHOT_MAIN_553
+    }
+
 }

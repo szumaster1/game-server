@@ -1,9 +1,6 @@
 package content.global.ame.prisonpete
 
 import core.api.*
-import org.rs.consts.Items
-import org.rs.consts.NPCs
-import org.rs.consts.Sounds
 import core.game.interaction.QueueStrength
 import core.game.node.entity.player.Player
 import core.game.system.timer.impl.AntiMacro
@@ -11,6 +8,9 @@ import core.game.world.GameWorld
 import core.game.world.map.Location
 import core.game.world.map.zone.ZoneBorders
 import core.game.world.update.flag.context.Graphic
+import org.rs.consts.Items
+import org.rs.consts.NPCs
+import org.rs.consts.Sounds
 
 /**
  * Prison utils.

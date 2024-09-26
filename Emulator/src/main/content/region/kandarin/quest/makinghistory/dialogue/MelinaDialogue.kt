@@ -1,6 +1,6 @@
 package content.region.kandarin.quest.makinghistory.dialogue
 
-import content.region.kandarin.quest.makinghistory.handlers.MHUtils
+import content.region.kandarin.quest.makinghistory.handlers.MakingHistoryUtils
 import core.api.*
 import org.rs.consts.Items
 import org.rs.consts.NPCs
@@ -24,7 +24,7 @@ class MelinaDialogue(player: Player? = null) : Dialogue(player) {
             return true
         }
         if (getQuestStage(player, "Making History") >= 1 && inInventory(player, Items.SAPPHIRE_AMULET_1694) && getVarbit(player,
-                MHUtils.DROALAK_PROGRESS
+                MakingHistoryUtils.DROALAK_PROGRESS
             ) == 2) {
             playerl(FacialExpression.FRIENDLY, "If you don't mind me asking, are you Melina?")
             stage = 4
@@ -57,7 +57,7 @@ class MelinaDialogue(player: Player? = null) : Dialogue(player) {
             14 -> {
                 end()
                 if(removeItem(player, Items.SAPPHIRE_AMULET_1694)) {
-                    setVarbit(player, MHUtils.DROALAK_PROGRESS, 4, true)
+                    setVarbit(player, MakingHistoryUtils.DROALAK_PROGRESS, 4, true)
                     transformNpc(NPC(NPCs.MELINA_2935), NPCs.MELINA_2934, 10)
                 }
 

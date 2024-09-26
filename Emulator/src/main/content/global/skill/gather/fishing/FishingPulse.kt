@@ -1,6 +1,6 @@
 package content.global.skill.gather.fishing
 
-import content.global.skill.skillcape.SkillcapePerks
+import content.global.skill.skillcape.SkillcapePerksEffect
 import core.api.*
 import org.rs.consts.Animations
 import org.rs.consts.Items
@@ -111,7 +111,7 @@ class FishingPulse(player: Player?, npc: NPC, private val option: FishingOption?
             if (player.inventory.hasSpaceFor(Item(fish!!.id)) && option!!.removeBait(player)) {
                 player.dispatch(ResourceProducedEvent(fish!!.id, 1, node!!))
                 val item = fish!!
-                if (SkillcapePerks.isActive(SkillcapePerks.GREAT_AIM, player) && RandomFunction.random(100) <= 5) {
+                if (SkillcapePerksEffect.isActive(SkillcapePerksEffect.GREAT_AIM, player) && RandomFunction.random(100) <= 5) {
                     addItem(player, item.id)
                     sendMessage(player, colorize("%RYour expert aim catches you a second fish."))
                 }

@@ -8,9 +8,6 @@ import core.game.node.entity.skill.Skills
 import org.rs.consts.Items
 import kotlin.math.min
 
-/**
- * Battlestaff listener.
- */
 class BattlestaffListener : InteractionListener {
 
     private val battlestaff = Items.BATTLESTAFF_1391
@@ -21,7 +18,7 @@ class BattlestaffListener : InteractionListener {
             val product = Battlestaff.forId(used.id) ?: return@onUseWith true
 
             if (!hasLevelDyn(player, Skills.CRAFTING, product.requiredLevel)) {
-                sendMessage(player, "You need a Crafting level of ${product.requiredLevel} to make this.")
+                sendMessage(player, "You need a crafting level of ${product.requiredLevel} to make this.")
                 return@onUseWith true
             }
 

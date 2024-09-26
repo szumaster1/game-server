@@ -53,10 +53,13 @@ class BurnerListener : InteractionListener {
         return when {
             !anyInInventory(player, Items.TINDERBOX_590, Items.CLEAN_MARRENTILL_251) ->
                 "You'll need a tinderbox and a clean marrentill herb in order to light the burner."
+
             inInventory(player, Items.TINDERBOX_590) && !inInventory(player, Items.CLEAN_MARRENTILL_251) ->
                 "You'll need a clean marrentill herb in order to light the burner."
+
             inInventory(player, Items.CLEAN_MARRENTILL_251) && !inInventory(player, Items.TINDERBOX_590) ->
                 "You'll need a tinderbox in order to light the burner."
+
             else -> null
         }
     }

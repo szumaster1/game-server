@@ -1,9 +1,9 @@
 package content.region.karamja.brimhaven.dialogue
 
-import content.region.asgarnia.burthope.quest.hero.HeroesQuest
 import core.api.*
 import org.rs.consts.Items
 import org.rs.consts.NPCs
+import org.rs.consts.QuestName
 import core.game.dialogue.Dialogue
 import core.game.dialogue.DialogueBuilder
 import core.game.dialogue.DialogueBuilderFile
@@ -56,7 +56,7 @@ class GarvDialogue(player: Player? = null) : Dialogue(player) {
 class GarvDialogueFile : DialogueBuilderFile() {
     override fun create(b: DialogueBuilder) {
         // Technically this won't happen since you have to get past Grubor.
-        b.onQuestStages(HeroesQuest.questName, 0, 1, 2)
+        b.onQuestStages(QuestName.HEROES_QUEST, 0, 1, 2)
             .npcl("Hello. What do you want?")
             .options()
             .let { optionBuilder ->
@@ -68,7 +68,7 @@ class GarvDialogueFile : DialogueBuilderFile() {
                     .end()
             }
 
-        b.onQuestStages(HeroesQuest.questName, 3, 4, 5, 6, 100)
+        b.onQuestStages(QuestName.HEROES_QUEST, 3, 4, 5, 6, 100)
             // .npcl("Oi! Where do you think you're going pal?") - When you click on the door instead of Garv.
             .npcl("Hello. What do you want?")
             .playerl("Hi. I'm Hartigen. I've come to work here.")
@@ -95,8 +95,8 @@ class GarvDialogueFile : DialogueBuilderFile() {
                         branch2.onValue(1)
                             .npcl("You'd better come in then, Grip will want to talk to you.")
                             .endWith { _, player ->
-                                if (getQuestStage(player, HeroesQuest.questName) == 3) {
-                                    setQuestStage(player, HeroesQuest.questName, 4)
+                                if (getQuestStage(player, QuestName.HEROES_QUEST) == 3) {
+                                    setQuestStage(player, QuestName.HEROES_QUEST, 4)
                                 }
                             }
                         branch2.onValue(0)

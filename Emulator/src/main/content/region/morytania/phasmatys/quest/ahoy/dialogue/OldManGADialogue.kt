@@ -1,6 +1,6 @@
 package content.region.morytania.phasmatys.quest.ahoy.dialogue
 
-import content.region.morytania.phasmatys.quest.ahoy.handlers.GAUtils
+import content.region.morytania.phasmatys.quest.ahoy.handlers.GhostsAhoyUtils
 import core.api.*
 import org.rs.consts.Items
 import org.rs.consts.NPCs
@@ -49,7 +49,7 @@ class OldManGADialogue : DialogueFile() {
                     if (inInventory(player!!, Items.MODEL_SHIP_4253)) {
                         // If the model ship hasn't been repaired
                         npc("No - I made a toy boat a long while ago, but", "that one had a flag.").also { stage = END_DIALOGUE }
-                    } else if (inInventory(player!!, Items.MODEL_SHIP_4254) && getAttribute(player!!, GAUtils.rightShip, false)) {
+                    } else if (inInventory(player!!, Items.MODEL_SHIP_4254) && getAttribute(player!!, GhostsAhoyUtils.rightShip, false)) {
                         // If the model ship has been repaired and has the right colours
                         npc("My word - so it is!!! I never thought I would see it again!!", "Where did you get it from?").also { stage++ }
                     } else if (inInventory(player!!, Items.MODEL_SHIP_4254)) {

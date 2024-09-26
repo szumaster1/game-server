@@ -49,7 +49,7 @@ class GiantLobsterNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id,
     override fun finalizeDeath(killer: Entity?) {
         if (killer is Player) {
             clearHintIcon(killer)
-            setAttribute(killer, GAUtils.lastMapScrap, true)
+            setAttribute(killer, GhostsAhoyUtils.lastMapScrap, true)
         }
         clear()
         super.finalizeDeath(killer)

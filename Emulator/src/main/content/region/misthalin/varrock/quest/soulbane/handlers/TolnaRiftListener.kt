@@ -13,9 +13,6 @@ import org.rs.consts.Scenery
 import core.game.global.action.ClimbActionHandler
 import core.game.world.update.flag.context.Animation
 
-/**
- * Represents the Tolna Rift listener.
- */
 class TolnaRiftListener : InteractionListener {
 
     private val SCENERY_RIFT = intArrayOf(13967,13969,3971,13972,13973,13974,13975,13976,13977,13978,13979,13980,13968,13981,13982,13983,13985,13986,13987,13988,13989,13990,13991,13992,13993)
@@ -39,8 +36,8 @@ class TolnaRiftListener : InteractionListener {
             if (!removeItem(player, Item(Items.ROPE_954, 1), Container.INVENTORY)){
                 sendMessage(player, "Nothing interesting happens.")
             } else {
-                setVarbit(player, ASBUtils.VARBIT_TOLNA_RIFT_ROPE, 1, true)
-                setAttribute(player, "/save:${ASBUtils.ATTRIBUTE_TOLNA_RIFT_ACCESS}", true)
+                setVarbit(player, ASoulsBaneUtils.VARBIT_TOLNA_RIFT_ROPE, 1, true)
+                setAttribute(player, "/save:${ASoulsBaneUtils.ATTRIBUTE_TOLNA_RIFT_ACCESS}", true)
             }
             return@onUseWith true
         }
@@ -50,7 +47,7 @@ class TolnaRiftListener : InteractionListener {
          */
 
         on(Scenery.RIFT_13970, SCENERY, "enter") { player, node ->
-            if (getAttribute(player, ASBUtils.ATTRIBUTE_TOLNA_RIFT_ACCESS, false)) {
+            if (getAttribute(player, ASoulsBaneUtils.ATTRIBUTE_TOLNA_RIFT_ACCESS, false)) {
                 lock(player, 6)
                 face(player, node.asScenery())
                 PlayerCamera(player).reset()
@@ -60,7 +57,7 @@ class TolnaRiftListener : InteractionListener {
                         when (counter++) {
                             0 -> {
                                 PlayerCamera(player).rotateTo(3309, 3455, 400, 200)
-                                animate(player, ASBUtils.ANIMATION_TOLNA_RIFT_CRAWL)
+                                animate(player, ASoulsBaneUtils.ANIMATION_TOLNA_RIFT_CRAWL)
                             }
                             5 -> teleport(player, location(3297, 9824, 0))
                             6 -> {

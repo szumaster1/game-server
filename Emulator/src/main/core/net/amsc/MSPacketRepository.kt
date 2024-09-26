@@ -37,6 +37,7 @@ object MSPacketRepository {
      * @param [player]   the player.
      * @param [clanName] the clan name.
      */
+    @JvmStatic
     fun sendClanRename(player: Player, clanName: String) {
         val buffer = IoBuffer(7, PacketHeader.BYTE)
         buffer.putString(player.name)
@@ -51,6 +52,7 @@ object MSPacketRepository {
      * @param [type]   the setting type.
      * @param [rank]   the rank to set.
      */
+    @JvmStatic
     fun setClanSetting(player: Player, type: Int, rank: ClanRank?) {
         if (!WorldCommunicator.isEnabled()) {
             return;
@@ -68,6 +70,7 @@ object MSPacketRepository {
      * @param [username] The player's username.
      * @param [name]     The name.
      */
+    @JvmStatic
     fun sendClanKick(username: String, name: String) {
         val buffer = IoBuffer(9, PacketHeader.BYTE);
         buffer.putString(username)
@@ -83,6 +86,7 @@ object MSPacketRepository {
      * @param [privateSetting] The private chat setting.
      * @param [tradeSetting]   The trade setting.
      */
+    @JvmStatic
     fun sendChatSetting(player: Player, publicSetting: Int, privateSetting: Int, tradeSetting: Int) {
         val buffer = IoBuffer(13, PacketHeader.BYTE);
         buffer.putString(player.name)

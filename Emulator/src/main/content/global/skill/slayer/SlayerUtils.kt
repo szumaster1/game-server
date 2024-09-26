@@ -1,5 +1,6 @@
 package content.global.skill.slayer
 
+import content.global.skill.slayer.masters.SlayerMaster
 import core.api.setVarp
 import core.game.node.entity.combat.BattleState
 import core.game.node.entity.player.Player

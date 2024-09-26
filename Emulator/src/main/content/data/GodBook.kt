@@ -1,9 +1,9 @@
 package content.data
 
-import org.rs.consts.Items
 import core.api.hasRequirement
 import core.game.node.entity.player.Player
 import core.game.node.item.Item
+import org.rs.consts.Items
 
 /**
  * Represents a god book data.

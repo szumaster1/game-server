@@ -10,9 +10,6 @@ import core.game.world.map.Location
 import org.rs.consts.Components
 import org.rs.consts.NPCs
 
-/**
- * Represents the rowing boat.
- */
 object RowingBoat {
 
     /*

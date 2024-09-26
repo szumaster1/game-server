@@ -1,6 +1,7 @@
 package content.global.skill.crafting.items.armour.leather;
 
 import content.global.skill.crafting.items.armour.dragon.DragonCraftingPulse;
+import content.global.skill.crafting.Leather;
 import core.api.InputType;
 import core.cache.def.impl.ItemDefinition;
 import core.game.component.Component;

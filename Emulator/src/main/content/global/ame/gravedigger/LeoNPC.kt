@@ -1,7 +1,6 @@
 package content.global.ame.gravedigger
 
 import content.global.ame.RandomEventNPC
-import org.rs.consts.NPCs
 import core.api.registerLogoutListener
 import core.api.utils.WeightBasedTable
 import core.game.node.entity.npc.NPC
@@ -11,6 +10,7 @@ import core.net.packet.PacketRepository
 import core.net.packet.context.MinimapStateContext
 import core.net.packet.outgoing.MinimapState
 import core.tools.RandomFunction
+import org.rs.consts.NPCs
 
 /**
  * Leo NPC.

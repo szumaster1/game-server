@@ -4,6 +4,7 @@ import core.api.*
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.entity.skill.Skills
+import org.rs.consts.Animations
 import org.rs.consts.Items
 
 class CrabHelmetCraftingListener : InteractionListener {
@@ -11,10 +12,11 @@ class CrabHelmetCraftingListener : InteractionListener {
     override fun defineListeners() {
         onUseWith(IntType.ITEM, Items.CHISEL_1755, Items.FRESH_CRAB_CLAW_7536) { player, _, with ->
             if (getStatLevel(player, Skills.CRAFTING) < 15) {
-                sendDialogue(player, "You need a Crafting level of at least 15 in order to do this.")
+                sendDialogue(player, "You need a crafting level of at least 15 in order to do this.")
                 return@onUseWith false
             }
             // Recipe for Disaster quest.
+            animate(player, Animations.CRAFT_SOMETHING_1309)
             if (removeItem(player, with.asItem())) {
                 addItem(player, Items.CRAB_CLAW_7537)
                 rewardXP(player, Skills.CRAFTING, 32.5)

@@ -1,13 +1,13 @@
 package content.global.skill.gather.woodcutting
 
-import content.data.skill.SkillingTool
-import content.data.skill.SkillingTool.Companion.getHatchet
+import content.global.skill.gather.SkillingTool
+import content.global.skill.gather.SkillingTool.Companion.getHatchet
 import content.data.tables.BirdNestDropTable.Companion.drop
 import content.data.tables.BirdNestDropTable.Companion.getRandomNest
 import content.global.skill.farming.FarmingPatch.Companion.forObject
 import content.global.skill.gather.woodcutting.WoodcuttingNode.Companion.forId
-import content.global.skill.skillcape.SkillcapePerks
-import content.global.skill.skillcape.SkillcapePerks.Companion.isActive
+import content.global.skill.skillcape.SkillcapePerksEffect
+import content.global.skill.skillcape.SkillcapePerksEffect.Companion.isActive
 import core.api.*
 import org.rs.consts.NPCs
 import org.rs.consts.Sounds
@@ -187,7 +187,7 @@ class WoodcuttingPulse(private val player: Player, private val node: Scenery) : 
 
             val chance = 282
             if (RandomFunction.random(chance) == chance / 2) {
-                if (isActive(SkillcapePerks.NEST_HUNTER, player)) {
+                if (isActive(SkillcapePerksEffect.NEST_HUNTER, player)) {
                     if (!player.inventory.add(getRandomNest(false)!!.nest)) {
                         drop(player)
                     }

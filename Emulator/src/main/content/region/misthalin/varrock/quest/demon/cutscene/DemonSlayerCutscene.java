@@ -1,6 +1,6 @@
 package content.region.misthalin.varrock.quest.demon.cutscene;
 
-import content.region.misthalin.varrock.quest.demon.handlers.DSUtils;
+import content.region.misthalin.varrock.quest.demon.handlers.DemonSlayerUtils;
 import core.game.activity.ActivityManager;
 import core.game.activity.ActivityPlugin;
 import core.game.activity.CutscenePlugin;
@@ -116,7 +116,7 @@ public final class DemonSlayerCutscene extends CutscenePlugin {
         final Player player = ((Player) entity);
         final Quest quest = player.getQuestRepository().getQuest("Demon Slayer");
         boolean in = player.getAttribute("demon-slayer:cutscene", false);
-        if (quest.getStage(player) == 30 && !in && (player.getEquipment().containsItem(DSUtils.SILVERLIGHT) || player.getInventory().containsItem(DSUtils.SILVERLIGHT))) {
+        if (quest.getStage(player) == 30 && !in && (player.getEquipment().containsItem(DemonSlayerUtils.SILVERLIGHT) || player.getInventory().containsItem(DemonSlayerUtils.SILVERLIGHT))) {
             ActivityManager.start(player, "Demon Slayer Cutscene", false);
             setAttribute(player, "demon-slayer:cutscene", true);
             return super.enter(entity);
@@ -351,7 +351,7 @@ public final class DemonSlayerCutscene extends CutscenePlugin {
                             player.sendChat(text);
                             player(text);
                             if (counter == 4) {
-                                if (incantation.toString().equals(DSUtils.getIncantation(player).trim())) {
+                                if (incantation.toString().equals(DemonSlayerUtils.getIncantation(player).trim())) {
                                     stage = 4;
                                 } else {
                                     stage = 2;

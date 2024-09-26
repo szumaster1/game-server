@@ -1,7 +1,7 @@
 package content.region.misthalin.quest.anma.dialogue
 
 import content.region.misthalin.quest.anma.AnimalMagnetism
-import content.region.misthalin.quest.anma.cutscene.AnmaCutscene
+import content.region.misthalin.quest.anma.handlers.AnimalMagnetismCutscene
 import org.rs.consts.Items
 import org.rs.consts.NPCs
 import core.game.dialogue.Dialogue
@@ -359,7 +359,7 @@ class AliceHusbandDialogue(player: Player? = null) : Dialogue(player) {
 
                     4 -> {
                         end()
-                        AnmaCutscene(player).start()
+                        AnimalMagnetismCutscene(player).start()
                     }
                 }
             }

@@ -1,6 +1,6 @@
 package content.region.misthalin.varrock.miniquest.abyss.handlers
 
-import content.global.skill.runecrafting.RunePouch
+import content.global.skill.runecrafting.items.RunePouch
 import org.rs.consts.NPCs
 import core.game.node.entity.Entity
 import core.game.node.entity.npc.AbstractNPC

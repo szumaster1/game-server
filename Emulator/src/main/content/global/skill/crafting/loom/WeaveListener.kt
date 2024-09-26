@@ -9,11 +9,11 @@ class WeaveListener : InteractionListener {
 
     override fun defineListeners() {
         on(IntType.SCENERY, "weave") { player, node ->
-            object : SkillDialogueHandler(player, SkillDialogue.THREE_OPTION, WeavingItem.SACK.product, WeavingItem.BASKET.product, WeavingItem.CLOTH.product) {
+            object : SkillDialogueHandler(player, SkillDialogue.THREE_OPTION, Weaving.SACK.product, Weaving.BASKET.product, Weaving.CLOTH.product) {
                 override fun create(amount: Int, index: Int) {
                     submitIndividualPulse(
                         entity = player,
-                        pulse = WeaveCraftingPulse(player, node.asScenery(), WeavingItem.values()[index], amount)
+                        pulse = WeaveCraftingPulse(player, node.asScenery(), Weaving.values()[index], amount)
                     )
                 }
             }.open()

@@ -1,12 +1,12 @@
 package content.global.ame.evilbob
 
-import org.rs.consts.Components
 import core.api.queueScript
 import core.api.stopExecuting
 import core.api.teleport
 import core.game.interaction.InterfaceListener
 import core.game.interaction.QueueStrength
 import core.game.world.map.Location
+import org.rs.consts.Components
 
 /**
  * Evil bob interface.

@@ -2,7 +2,6 @@ package content.global.ame.strangeplant
 
 import content.global.ame.RandomEventNPC
 import core.api.*
-import org.rs.consts.NPCs
 import core.api.utils.WeightBasedTable
 import core.game.interaction.QueueStrength
 import core.game.node.entity.npc.NPC
@@ -10,6 +9,7 @@ import core.game.system.timer.impl.AntiMacro
 import core.game.world.update.flag.context.Animation
 import core.tools.minutesToTicks
 import core.tools.secondsToTicks
+import org.rs.consts.NPCs
 
 /**
  * Strange plant NPC.

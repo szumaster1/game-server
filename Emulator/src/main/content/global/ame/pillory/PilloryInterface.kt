@@ -1,11 +1,11 @@
 package content.global.ame.pillory
 
-import org.rs.consts.Components
 import core.api.getAttribute
 import core.api.runTask
 import core.api.setAttribute
 import core.api.setComponentVisibility
 import core.game.interaction.InterfaceListener
+import org.rs.consts.Components
 
 /**
  * Pillory interface.

@@ -1,5 +1,7 @@
 package content.global.skill.slayer
 
+import content.global.skill.slayer.masters.SlayerMaster
+
 /**
  * Slayer flags.
  */

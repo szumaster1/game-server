@@ -2,13 +2,13 @@ package content.global.ame.mime
 
 import content.global.ame.RandomEventNPC
 import core.api.*
-import org.rs.consts.NPCs
 import core.api.utils.WeightBasedTable
 import core.game.interaction.QueueStrength
 import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.link.TeleportManager
 import core.game.system.timer.impl.AntiMacro
 import core.tools.RandomFunction
+import org.rs.consts.NPCs
 
 /**
  * Mime NPC.

@@ -1,7 +1,7 @@
 package content.global.ame.prisonpete
 
-import org.rs.consts.Components
 import core.game.interaction.InterfaceListener
+import org.rs.consts.Components
 
 /**
  * Prison pete interface.

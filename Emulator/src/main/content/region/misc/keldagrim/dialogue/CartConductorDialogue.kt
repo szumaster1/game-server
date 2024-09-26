@@ -1,6 +1,5 @@
 package content.region.misc.keldagrim.dialogue
 
-import org.rs.consts.Items
 import content.region.misc.keldagrim.handlers.MinecartTravel
 import core.api.removeItem
 import core.api.sendDialogue
@@ -12,6 +11,7 @@ import core.game.node.entity.player.Player
 import core.game.node.item.Item
 import core.game.world.map.Location
 import core.plugin.Initializable
+import org.rs.consts.Items
 
 private const val ICE_MOUNTAIN_CONDUCTOR = 2180
 private const val WHITE_WOLF_CONDUCTOR = 2181

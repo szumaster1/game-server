@@ -58,7 +58,7 @@ class BardurDialogue(player: Player? = null): Dialogue(player) {
             14 -> npcl(FacialExpression.FRIENDLY, "Ah, you did not come prepared $${getAttribute(player, "fremennikname", "name")}?").also { stage++ }
             15 -> npcl(FacialExpression.FRIENDLY, "I have nothing to spare, but my equipment grows weaker under the onslaught of the dagger-mouth spawns!").also { stage++ }
             16 -> npcl(FacialExpression.FRIENDLY, "I will trade you a finely cooked shark if you have a replacement for my helm, my shield or my blade...").also { stage++ }
-            17 -> if(!anyInInventory(player, *BardurExchange.FREMENNIK_EQUIPMENT)) {
+            17 -> if(!anyInInventory(player, *BardurExchangeListener.exchangeItemIDs)) {
                 playerl(FacialExpression.SAD, "Sorry, I don't have anything you'd be after...").also { stage = END_DIALOGUE }
             } else {
                 npcl(FacialExpression.FRIENDLY, "Give me any equipment you wish to trade, and I will pay you a shark for it.").also { stage = END_DIALOGUE }

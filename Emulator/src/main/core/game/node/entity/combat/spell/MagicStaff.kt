@@ -4,10 +4,6 @@ import org.rs.consts.Items
 
 /**
  * Represents a magic staff.
- *
- * @param runeId The ID of the rune associated with the magic staff.
- * @param staves Vararg parameter representing different staff IDs.
- * @constructor [MagicStaff]
  */
 enum class MagicStaff(val runeId: Int, vararg val staves: Int) {
     FIRE_RUNE(Items.FIRE_RUNE_554, Items.STAFF_OF_FIRE_1387, Items.FIRE_BATTLESTAFF_1393, Items.MYSTIC_FIRE_STAFF_1401, Items.LAVA_BATTLESTAFF_3053, Items.MYSTIC_LAVA_STAFF_3054, Items.LAVA_BATTLESTAFF_3055, Items.MYSTIC_LAVA_STAFF_3056, Items.STEAM_BATTLESTAFF_11736, Items.MYSTIC_STEAM_STAFF_11738),

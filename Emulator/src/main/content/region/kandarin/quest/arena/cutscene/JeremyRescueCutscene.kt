@@ -1,7 +1,7 @@
 package content.region.kandarin.quest.arena.cutscene
 
-import content.region.kandarin.quest.arena.handlers.FightArenaListeners.Companion.Jeremy
-import content.region.kandarin.quest.arena.handlers.OgreNPC.Companion.spawnOgre
+import content.region.kandarin.quest.arena.handlers.FightArenaListener.Companion.Jeremy
+import content.region.kandarin.quest.arena.handlers.npc.OgreNPC.Companion.spawnOgre
 import core.api.*
 import org.rs.consts.Animations
 import org.rs.consts.NPCs
@@ -11,9 +11,6 @@ import core.game.global.action.DoorActionHandler
 import core.game.node.entity.player.Player
 import core.game.world.map.Direction
 
-/**
- * Jeremy rescue cutscene.
- */
 class JeremyRescueCutscene(player: Player) : Cutscene(player) {
     override fun setup() {
         setExit(location(2603, 3155, 0))

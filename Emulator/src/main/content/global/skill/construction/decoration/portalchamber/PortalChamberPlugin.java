@@ -2,7 +2,7 @@ package content.global.skill.construction.decoration.portalchamber;
 
 import content.global.skill.construction.Decoration;
 import content.global.skill.construction.Hotspot;
-import content.global.skill.runecrafting.Rune;
+import content.global.skill.runecrafting.runes.Rune;
 import core.cache.def.impl.SceneryDefinition;
 import core.game.dialogue.Dialogue;
 import core.game.dialogue.DialogueInterpreter;
@@ -27,7 +27,7 @@ import static core.tools.GlobalsKt.DARK_RED;
 @Initializable
 public class PortalChamberPlugin extends OptionHandler {
 
-    private static enum Locations {
+    private enum Locations {
 
         /**
          * The Varrock.
@@ -57,8 +57,8 @@ public class PortalChamberPlugin extends OptionHandler {
          * The Kharyrll.
          */
         KHARYRLL(Location.create(3493, 3474, 0), new Item(Rune.BLOOD.getRune().getId(), 100), new Item(Rune.LAW.getRune().getId(), 200));
-        private Location location;
-        private Item[] runes;
+        private final Location location;
+        private final Item[] runes;
 
         Locations(Location location, Item... runes) {
             this.location = location;
@@ -175,9 +175,9 @@ public class PortalChamberPlugin extends OptionHandler {
         @Override
         public boolean open(Object... args) {
             sendDialogue(
-                    "To direct a portal you need enough runes for " + DARK_RED + "100</col> castings of that",
-                    "teleport spell.",
-                    "(Combination runes and staffs cannot be used.)"
+                "To direct a portal you need enough runes for " + DARK_RED + "100</col> castings of that",
+                "teleport spell.",
+                "(Combination runes and staffs cannot be used.)"
             );
             stage = 0;
             return true;

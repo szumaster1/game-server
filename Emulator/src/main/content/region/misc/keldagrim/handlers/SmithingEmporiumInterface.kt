@@ -1,10 +1,10 @@
 package content.region.misc.keldagrim.handlers
 
-import org.rs.consts.Components
 import core.api.*
 import core.game.interaction.InterfaceListener
 import core.game.node.entity.player.Player
 import core.game.node.item.Item
+import org.rs.consts.Components
 
 private const val BRACELET_INTERFACE_CHILD_ID = 69
 private val COINS = Item(995, 500)
@@ -24,9 +24,7 @@ private val WRISTGUARD_MODELS = mapOf(
     134 to 27700,
     135 to 27709
 )
-/**
- * Smithing Emporium interface.
- */
+
 class SmithingEmporiumInterface : InterfaceListener {
 
     override fun defineInterfaceListeners() {

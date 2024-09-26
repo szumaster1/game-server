@@ -13,9 +13,6 @@ import kotlin.Unit;
 
 import static core.api.ContentAPIKt.sendItemSelect;
 
-/**
- * Bogrog plugin.
- */
 @Initializable
 public final class BogrogPlugin extends OptionHandler {
 

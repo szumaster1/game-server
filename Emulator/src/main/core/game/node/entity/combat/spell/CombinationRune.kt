@@ -2,13 +2,6 @@ package core.game.node.entity.combat.spell
 
 import org.rs.consts.Items
 
-/**
- * Combination rune
- *
- * @param id Unique identifier for the combination rune
- * @param types Types of runes that can be combined to create this rune
- * @constructor Combination rune
- */
 enum class CombinationRune(var id: Int, vararg var types: Runes) {
     LAVA_RUNE(Items.LAVA_RUNE_4699, Runes.FIRE_RUNE, Runes.EARTH_RUNE),
     STEAM_RUNE(Items.STEAM_RUNE_4694, Runes.FIRE_RUNE, Runes.WATER_RUNE),
@@ -22,10 +15,10 @@ enum class CombinationRune(var id: Int, vararg var types: Runes) {
     companion object {
 
         /**
-         * Function to determine which combination runes are eligible for a given rune type
+         * Function to determine which combination runes are eligible for a given rune type.
          *
-         * @param rune The rune type to check eligibility against
-         * @return A list of combination runes that can be created with the specified rune
+         * @param rune The rune type to check eligibility against.
+         * @return A list of combination runes that can be created with the specified rune.
          */
         @JvmStatic
         fun eligibleFor(rune: Runes): List<CombinationRune> {

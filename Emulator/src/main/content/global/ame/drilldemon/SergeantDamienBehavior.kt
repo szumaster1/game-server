@@ -1,10 +1,10 @@
 package content.global.ame.drilldemon
 
-import org.rs.consts.NPCs
 import core.api.inBorders
 import core.game.node.entity.npc.NPC
 import core.game.node.entity.npc.NPCBehavior
 import core.game.world.map.Location
+import org.rs.consts.NPCs
 
 /**
  * Sergeant damien behavior.

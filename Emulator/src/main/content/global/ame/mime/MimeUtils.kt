@@ -2,15 +2,15 @@ package content.global.ame.mime
 
 import core.api.*
 import core.game.interaction.QueueStrength
-import org.rs.consts.Components
-import org.rs.consts.Items
-import org.rs.consts.NPCs
 import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.emote.Emotes
 import core.game.node.scenery.Scenery
 import core.game.system.task.Pulse
 import core.game.world.map.Location
 import core.tools.RandomFunction
+import org.rs.consts.Components
+import org.rs.consts.Items
+import org.rs.consts.NPCs
 
 /**
  * Mime utils.

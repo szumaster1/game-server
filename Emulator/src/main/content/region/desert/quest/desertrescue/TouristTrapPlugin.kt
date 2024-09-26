@@ -35,8 +35,8 @@ import core.game.world.map.RegionManager.getNpc
 import core.game.world.map.RegionManager.getObject
 import core.game.world.map.build.DynamicRegion
 import core.game.world.update.flag.context.Animation
-import core.plugin.PluginManager.definePlugin
 import core.plugin.Plugin
+import core.plugin.PluginManager.definePlugin
 import core.tools.RandomFunction
 
 /**

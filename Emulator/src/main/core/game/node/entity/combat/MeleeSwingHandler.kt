@@ -1,7 +1,7 @@
 package core.game.node.entity.combat
 
 import org.rs.consts.Items
-import content.global.skill.skillcape.SkillcapePerks
+import content.global.skill.skillcape.SkillcapePerksEffect
 import content.global.skill.slayer.SlayerEquipmentFlags
 import content.global.skill.slayer.SlayerEquipmentFlags.getDamAccBonus
 import core.api.*
@@ -21,8 +21,6 @@ import kotlin.math.floor
 /**
  * Handles a melee combat swing.
  * @author Emperor, Ceikry
- *
- * @param flags Vararg parameter to accept multiple SwingHandlerFlag instances.
  */
 open class MeleeSwingHandler(vararg flags: SwingHandlerFlag) : CombatSwingHandler(CombatStyle.MELEE, *flags) {
 
@@ -137,8 +135,8 @@ open class MeleeSwingHandler(vararg flags: SwingHandlerFlag) : CombatSwingHandle
         if (entity.properties.attackStyle.style == WeaponInterface.STYLE_ACCURATE) effectiveAttackLevel += 3
         else if (entity.properties.attackStyle.style == WeaponInterface.STYLE_CONTROLLED) effectiveAttackLevel += 1
         effectiveAttackLevel += 8
-        if (entity is Player && SkillcapePerks.isActive(
-                SkillcapePerks.PRECISION_STRIKES,
+        if (entity is Player && SkillcapePerksEffect.isActive(
+                SkillcapePerksEffect.PRECISION_STRIKES,
                 entity
             )
         ) { //Attack skillcape perk
@@ -188,7 +186,7 @@ open class MeleeSwingHandler(vararg flags: SwingHandlerFlag) : CombatSwingHandle
         /*
             Strength skillcape perk.
          */
-        if (entity is Player && SkillcapePerks.isActive(SkillcapePerks.FINE_ATTUNEMENT, entity) && getItemFromEquipment(
+        if (entity is Player && SkillcapePerksEffect.isActive(SkillcapePerksEffect.FINE_ATTUNEMENT, entity) && getItemFromEquipment(
                 entity,
                 EquipmentSlot.WEAPON
             )?.definition?.getRequirement(Skills.STRENGTH) != 0

@@ -1,6 +1,6 @@
 package content.region.kandarin.quest.hazeelcult.dialogue
 
-import content.region.kandarin.quest.hazeelcult.handlers.HazeelCultListeners
+import content.region.kandarin.quest.hazeelcult.handlers.HazeelCultListener
 import org.rs.consts.NPCs
 import core.api.getAttribute
 import core.api.getQuestStage
@@ -28,7 +28,7 @@ class ClausTheChefDialogue(player: Player? = null) : Dialogue(player) {
 
             (questStage == 3) -> when (stage) {
                 0 -> {
-                    if (getAttribute(player, HazeelCultListeners.MAHJARRAT, true)) {
+                    if (getAttribute(player, HazeelCultListener.MAHJARRAT, true)) {
                         npcl(FacialExpression.FRIENDLY, "Hello there. Caught any of those weird cultists yet?").also { stage++ }
                     } else {
                         sendMessage(player, "They aren't interested in talking to you.").also { stage = END_DIALOGUE }
@@ -41,7 +41,7 @@ class ClausTheChefDialogue(player: Player? = null) : Dialogue(player) {
 
             (questStage == 100) -> when (stage) {
                 0 -> {
-                    if (getAttribute(player, HazeelCultListeners.MAHJARRAT, true) && !getAttribute(player, HazeelCultListeners.CARNILLEAN, true)) {
+                    if (getAttribute(player, HazeelCultListener.MAHJARRAT, true) && !getAttribute(player, HazeelCultListener.CARNILLEAN, true)) {
                         playerl(FacialExpression.FRIENDLY, "Hey.").also { stage = 1 }
                     } else {
                         playerl(FacialExpression.FRIENDLY, "Hiya.").also { stage = 4 }

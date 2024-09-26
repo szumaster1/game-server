@@ -14,11 +14,6 @@ import core.tools.RandomFunction
 /**
  * The fire types.
  * @author Emperor
- *
- * @param animation The animation associated with the fire type.
- * @param projectileId The ID of the projectile used for the fire type.
- * @param task The task that defines the behavior of the fire type.
- * @constructor Fire type
  */
 enum class FireType(val animation: Animation, val projectileId: Int, val task: NodeTask) {
 

@@ -2,7 +2,7 @@ package content.region.morytania.phasmatys.quest.ahoy.dialogue
 
 import org.rs.consts.Items
 import org.rs.consts.NPCs
-import content.region.morytania.phasmatys.quest.ahoy.handlers.GAUtils
+import content.region.morytania.phasmatys.quest.ahoy.handlers.GhostsAhoyUtils
 import core.api.*
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression
@@ -58,7 +58,7 @@ class GhostCaptainDialogue(player: Player? = null) : Dialogue(player) {
                 if (!removeItem(player, Item(Items.ECTO_TOKEN_4278, 25), Container.INVENTORY)) {
                     player.debug("An attempt to remove an item failed. This should not happen.")
                 } else {
-                    GAUtils.travelToDragontoothIsland(player)
+                    GhostsAhoyUtils.travelToDragontoothIsland(player)
                 }
             }
 
@@ -74,7 +74,7 @@ class GhostCaptainDialogue(player: Player? = null) : Dialogue(player) {
              */
             9 -> {
                 end()
-                GAUtils.travelToPortPhasmatys(player)
+                GhostsAhoyUtils.travelToPortPhasmatys(player)
             }
 
             10 -> npc("Beautiful, isn't it?").also { stage++ }

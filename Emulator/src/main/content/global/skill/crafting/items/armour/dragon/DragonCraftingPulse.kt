@@ -1,6 +1,6 @@
 package content.global.skill.crafting.items.armour.dragon
 
-import content.global.skill.crafting.items.armour.leather.Leather
+import content.global.skill.crafting.Leather
 import core.api.*
 import core.cache.def.impl.ItemDefinition
 import core.game.node.entity.player.Player

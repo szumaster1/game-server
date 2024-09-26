@@ -1,6 +1,6 @@
 package content.region.kandarin.quest.hazeelcult.handlers
 
-import content.region.kandarin.quest.hazeelcult.handlers.HazeelCultListeners.Companion.ALOMONE
+import content.region.kandarin.quest.hazeelcult.handlers.HazeelCultListener.Companion.ALOMONE
 import org.rs.consts.Items
 import org.rs.consts.NPCs
 import core.api.isQuestInProgress

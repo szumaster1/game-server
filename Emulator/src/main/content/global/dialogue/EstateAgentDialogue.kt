@@ -182,7 +182,7 @@ class EstateAgentDialogue(player: Player? = null) : Dialogue(player) {
         when {
             // Player does not have required construction level.
             !style.hasLevel(player) -> {
-                npc("You need a Construction level of " + style.level + " to buy this style.")
+                npc("You need a construction level of " + style.levelRequirement + " to buy this style.")
                 stage = 31
                 return
             }

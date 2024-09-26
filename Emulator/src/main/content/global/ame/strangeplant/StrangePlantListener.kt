@@ -1,14 +1,14 @@
 package content.global.ame.strangeplant
 
 import core.api.addItemOrDrop
-import org.rs.consts.Items
-import org.rs.consts.NPCs
 import core.api.getAttribute
 import core.api.sendMessage
 import core.api.setAttribute
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.system.timer.impl.AntiMacro
+import org.rs.consts.Items
+import org.rs.consts.NPCs
 
 /**
  * Strange plant listener.

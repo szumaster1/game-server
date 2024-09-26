@@ -29,7 +29,7 @@ class ArdougneShopkeeperDialogue(player: Player? = null) : Dialogue(player) {
                     end()
                     openNpcShop(player, npc.id)
                 }
-                2 -> npc(FacialExpression.HAPPY, "I'm glad you ask! You can buy as many of the items", "stocked as you wish. You can also sell most items to the", "shop.").also { stage = END_DIALOGUE }
+                2 -> npc(FacialExpression.HAPPY, "I'm glad you ask! You can buy as many of the items", "stocked as you wish. You can also sell most items to the", "shop.").also { stage = 0 }
                 3 -> npc(FacialExpression.HALF_GUILTY, "Hmph. Well, perhaps next time you'll need something", "from me?").also { stage = END_DIALOGUE }
             }
         }

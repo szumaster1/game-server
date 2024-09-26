@@ -1,12 +1,12 @@
 package content.global.ame.eviltwin
 
 import content.global.ame.RandomEventNPC
-import core.api.*
+import core.api.openDialogue
 import core.api.utils.WeightBasedTable
 import core.game.node.entity.npc.NPC
 import core.game.system.timer.impl.AntiMacro
 
-private val MOLLY: Int = 3892 + (0 and 0xFF) + (((0 shr 16) and 0xFF) * TwinColors.values().size)
+private val MOLLY: Int = 3892 + (0 and 0xFF) + (((0 shr 16) and 0xFF) * EvilTwinColors.values().size)
 
 /**
  * Represents the Molly NPC.

@@ -1,10 +1,10 @@
 package content.global.ame.rivertroll
 
 import content.global.ame.RandomEventNPC
-import org.rs.consts.NPCs
 import core.api.utils.WeightBasedTable
 import core.game.node.entity.Entity
 import core.game.node.entity.npc.NPC
+import org.rs.consts.NPCs
 import java.lang.Integer.max
 
 /**

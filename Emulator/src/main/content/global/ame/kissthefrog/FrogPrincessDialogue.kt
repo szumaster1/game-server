@@ -1,6 +1,5 @@
 package content.global.ame.kissthefrog
 
-import org.rs.consts.NPCs
 import core.api.lock
 import core.api.queueScript
 import core.api.stopExecuting
@@ -9,6 +8,7 @@ import core.game.dialogue.FacialExpression
 import core.game.interaction.QueueStrength
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
+import org.rs.consts.NPCs
 
 /**
  * Represents the Frog princess dialogue.

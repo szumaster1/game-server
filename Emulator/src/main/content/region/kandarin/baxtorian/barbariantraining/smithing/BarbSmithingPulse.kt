@@ -8,18 +8,7 @@ import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 import kotlin.math.min
 
-/**
- * Barbarian smithing pulse
- *
- * @param weapon Represents the type of weapon being crafted.
- * @param amount Indicates the quantity of weapons to be crafted.
- * @param button Refers to the specific button pressed by the player.
- * @constructor Represents a new instance of BarbarianSmithingPulse.
- *
- * @param player The player who is performing the smithing action.
- */
-class BarbSmithingPulse(player: Player?, val weapon: BarbarianWeapon, var amount: Int, var button: Int) :
-    SkillPulse<Item>(player, null) {
+class BarbSmithingPulse(player: Player?, val weapon: BarbarianWeapon, var amount: Int, var button: Int) : SkillPulse<Item>(player, null) {
 
     override fun checkRequirements(): Boolean {
         if (!inInventory(player, weapon.requiredWood)) {

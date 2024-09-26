@@ -1,16 +1,16 @@
 package content.global.ame.drilldemon
 
 import core.api.*
-import org.rs.consts.Animations
-import org.rs.consts.Components
-import org.rs.consts.Items
-import org.rs.consts.NPCs
 import core.game.interaction.QueueStrength
 import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.TeleportManager
 import core.game.world.map.Location
 import core.game.world.map.zone.ZoneBorders
 import core.game.world.update.flag.context.Animation
+import org.rs.consts.Animations
+import org.rs.consts.Components
+import org.rs.consts.Items
+import org.rs.consts.NPCs
 
 /**
  * Drill demon utils.

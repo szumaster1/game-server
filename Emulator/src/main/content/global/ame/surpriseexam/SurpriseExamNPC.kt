@@ -3,13 +3,13 @@ package content.global.ame.surpriseexam
 import content.global.ame.RandomEventNPC
 import core.Configuration
 import core.api.*
-import org.rs.consts.NPCs
 import core.api.utils.WeightBasedTable
 import core.game.interaction.QueueStrength
 import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.link.TeleportManager
 import core.game.system.timer.impl.AntiMacro
 import core.game.world.map.Location
+import org.rs.consts.NPCs
 
 /**
  * Surprise exam NPC.

@@ -17,13 +17,13 @@ import org.rs.consts.NPCs
 @Initializable
 class CharterDialogue(player: Player? = null) : Dialogue(player) {
 
-    private var destination: CharterShip.Destination? = null
+    private var destination: CharterShipUtils.Destination? = null
     private var cost = 0
 
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
         if (args.size > 1) {
-            destination = (args[1] as CharterShip.Destination)
+            destination = (args[1] as CharterShipUtils.Destination)
             cost = args[2] as Int
             core.api.sendDialogue(player, "To sail to " + StringUtils.formatDisplayName(destination!!.name) + " from here will cost you " + cost + " gold. Are you sure you want to pay that?")
             stage = 3000
@@ -62,7 +62,7 @@ class CharterDialogue(player: Player? = null) : Dialogue(player) {
             2000 -> npc(FacialExpression.HAPPY, "Certainly sir, where would you like to go?").also { stage++ }
             2001 -> {
                 end()
-                CharterShip.open(player)
+                CharterShipUtils.open(player)
             }
 
             3000 -> options("Ok", "Choose again", "No").also { stage = 30001 }
@@ -86,7 +86,7 @@ class CharterDialogue(player: Player? = null) : Dialogue(player) {
 
                 2 -> {
                     end()
-                    CharterShip.open(player)
+                    CharterShipUtils.open(player)
                 }
                 3 -> end()
             }

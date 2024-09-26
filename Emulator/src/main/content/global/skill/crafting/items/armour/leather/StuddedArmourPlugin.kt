@@ -87,7 +87,7 @@ class StuddedArmourPlugin : UseWithHandler(Items.STEEL_STUDS_2370) {
 
         override fun checkRequirements(): Boolean {
             if (getStatLevel(player, Skills.CRAFTING) < armour!!.level) {
-                sendMessage(player, "You need a Crafting level of at least " + armour.level + " to do this.")
+                sendMessage(player, "You need a crafting level of at least " + armour.level + " to do this.")
                 return false
             }
             if (!inInventory(player, STEEL_STUDS.id)) {

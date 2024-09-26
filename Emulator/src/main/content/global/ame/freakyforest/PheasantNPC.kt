@@ -1,7 +1,5 @@
 package content.global.ame.freakyforest
 
-import org.rs.consts.Items
-import org.rs.consts.NPCs
 import core.api.getAttribute
 import core.api.setAttribute
 import core.game.node.entity.Entity
@@ -9,6 +7,8 @@ import core.game.node.entity.combat.BattleState
 import core.game.node.entity.npc.NPC
 import core.game.node.entity.npc.NPCBehavior
 import core.game.node.item.Item
+import org.rs.consts.Items
+import org.rs.consts.NPCs
 
 /**
  * Pheasant NPC.

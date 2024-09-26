@@ -14,9 +14,6 @@ import org.rs.consts.Animations
 import org.rs.consts.Graphics
 import org.rs.consts.Items
 
-/**
- * Representing the Lyre teleport.
- */
 class LyreTeleport(val player: Player) : Pulse() {
 
     companion object {

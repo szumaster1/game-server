@@ -14,6 +14,7 @@ import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
+import org.rs.consts.QuestName
 
 /**
  * Represents the Grubor dialogue.
@@ -61,7 +62,7 @@ class GruborDialogueFile : DialogueBuilderFile() {
     override fun create(b: DialogueBuilder) {
 
         b.onPredicate { player ->
-            getQuestStage(player, HeroesQuest.questName) >= 2 &&
+            getQuestStage(player, QuestName.HEROES_QUEST) >= 2 &&
                     getAttribute(player, HeroesQuest.attributeGruborLetsYouIn, false) &&
                     HeroesQuest.isBlackArm(player)
         }
@@ -70,7 +71,7 @@ class GruborDialogueFile : DialogueBuilderFile() {
             .end()
 
         b.onPredicate { player ->
-            getQuestStage(player, HeroesQuest.questName) >= 2 &&
+            getQuestStage(player, QuestName.HEROES_QUEST) >= 2 &&
                     !getAttribute(player, HeroesQuest.attributeGruborLetsYouIn, false) &&
                     HeroesQuest.isBlackArm(player)
         }

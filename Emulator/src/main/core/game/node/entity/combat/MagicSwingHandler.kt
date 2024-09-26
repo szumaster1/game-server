@@ -13,9 +13,6 @@ import kotlin.math.floor
 /**
  * Handles the magic combat swings.
  * @author Emperor, Ceikry
- *
- * @param flags
- * Vararg parameter that allows passing multiple SwingHandlerFlag instances.
  */
 open class MagicSwingHandler(vararg flags: SwingHandlerFlag) : CombatSwingHandler(CombatStyle.MAGIC, *flags) {
 

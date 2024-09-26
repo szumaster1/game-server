@@ -1,6 +1,6 @@
 package content.global.skill.hunter
 
-import content.global.skill.firemaking.Log
+import content.global.skill.firemaking.logs.Log
 import core.api.inInventory
 import core.api.sendMessage
 import core.game.node.Node

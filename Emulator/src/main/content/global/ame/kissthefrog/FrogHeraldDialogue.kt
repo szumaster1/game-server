@@ -1,8 +1,6 @@
 package content.global.ame.kissthefrog
 
 import core.api.*
-import org.rs.consts.NPCs
-import org.rs.consts.Sounds
 import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression
 import core.game.interaction.QueueStrength
@@ -12,6 +10,8 @@ import core.game.world.map.Location
 import core.game.world.update.flag.context.Graphic
 import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
+import org.rs.consts.NPCs
+import org.rs.consts.Sounds
 
 /**
  * Represents the Frog Herald dialogue.

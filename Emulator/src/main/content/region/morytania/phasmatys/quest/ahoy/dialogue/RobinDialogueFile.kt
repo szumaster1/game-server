@@ -1,6 +1,6 @@
 package content.region.morytania.phasmatys.quest.ahoy.dialogue
 
-import content.region.morytania.phasmatys.quest.ahoy.handlers.GAUtils
+import content.region.morytania.phasmatys.quest.ahoy.handlers.GhostsAhoyUtils
 import core.api.*
 import org.rs.consts.Components
 import org.rs.consts.Items
@@ -43,7 +43,7 @@ class RobinDialogueFile : DialogueFile() {
 
             11 -> when (stage) {
                 0 -> {
-                    if (getAttribute(player!!, GAUtils.getSignedBow, false)) {
+                    if (getAttribute(player!!, GhostsAhoyUtils.getSignedBow, false)) {
                         player("I've had enough of you not paying up -  you owe me", "100 gold coins. I'm going to tell the ghosts what you 're", "doing.").also { stage++ }
                     } else {
                         end()

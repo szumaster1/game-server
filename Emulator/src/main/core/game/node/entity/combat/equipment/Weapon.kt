@@ -5,12 +5,6 @@ import core.game.node.item.Item
 /**
  * Represents the type of weapon used.
  * @author Emperor
- *
- * @param item The item associated with the weapon.
- * @param ammunitionSlot The slot for ammunition, default is -1 indicating no slot.
- * @param ammunition The ammunition item, default is null indicating no ammunition.
- * @param type The type of weapon, default is WeaponType.DEFAULT.
- * @constructor Initializes a weapon with the specified parameters.
  */
 class Weapon @JvmOverloads constructor(
     val item: Item?,

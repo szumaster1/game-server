@@ -3,10 +3,8 @@ package content.data
 import content.global.skill.magic.TeleportMethod
 import content.global.skill.slayer.SlayerManager
 import core.Configuration
-import core.api.*
-import org.rs.consts.Items
-import org.rs.consts.Sounds
 import core.Util
+import core.api.*
 import core.game.dialogue.FacialExpression
 import core.game.event.TeleportEvent
 import core.game.node.entity.player.Player
@@ -17,6 +15,8 @@ import core.game.world.GameWorld.Pulser
 import core.game.world.map.Location
 import core.game.world.update.flag.context.Animation
 import core.game.world.update.flag.context.Graphic
+import org.rs.consts.Items
+import org.rs.consts.Sounds
 
 /**
  * Represents enchanted jewelry.

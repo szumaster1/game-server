@@ -1,8 +1,6 @@
 package content.global.ame.eviltwin
 
 import core.api.*
-import org.rs.consts.Items
-import org.rs.consts.Regions
 import core.api.utils.PlayerCamera
 import core.game.interaction.QueueStrength
 import core.game.node.entity.Entity
@@ -21,6 +19,8 @@ import core.net.packet.context.CameraContext.CameraType
 import core.net.packet.outgoing.CameraViewPacket
 import core.tools.RandomFunction
 import org.rs.consts.Components
+import org.rs.consts.Items
+import org.rs.consts.Regions
 
 /**
  * Evil twin utils.
@@ -67,7 +67,7 @@ object EvilTwinUtils {
         region.add(player)
         region.setMusicId(612)
         currentCrane = Scenery(14976, region.baseLocation.transform(14, 12, 0), 10, 0)
-        val color: TwinColors = RandomFunction.getRandomElement(TwinColors.values())
+        val color: EvilTwinColors = RandomFunction.getRandomElement(EvilTwinColors.values())
         val model = RandomFunction.random(5)
         val hash = color.ordinal or (model shl 16)
         val npcId = getMollyId(hash)
@@ -218,8 +218,8 @@ object EvilTwinUtils {
      */
     fun isEvilTwin(npc: NPC, hash: Int): Boolean {
         val npcId = npc.id - 3852
-        val type: Int = npcId / TwinColors.values().size
-        val color: Int = npcId - (type * TwinColors.values().size)
+        val type: Int = npcId / EvilTwinColors.values().size
+        val color: Int = npcId - (type * EvilTwinColors.values().size)
         return hash == (color or (type shl 16))
     }
 
@@ -250,7 +250,7 @@ object EvilTwinUtils {
         val npcId = 3852 + (hash and 0xFF)
         for (i in 0..4) {
             val location = region.baseLocation.transform(11 + RandomFunction.random(8), 6 + RandomFunction.random(6), 0)
-            val suspect = NPC.create(npcId + (i * TwinColors.values().size), location)
+            val suspect = NPC.create(npcId + (i * EvilTwinColors.values().size), location)
             suspect.isWalks = true
             suspect.walkRadius = 6
             suspect.init()
@@ -264,7 +264,7 @@ object EvilTwinUtils {
      * @return The [MollyNPC] id.
      */
     fun getMollyId(hash: Int): Int {
-        return 3892 + (hash and 0xFF) + (((hash shr 16) and 0xFF) * TwinColors.values().size)
+        return 3892 + (hash and 0xFF) + (((hash shr 16) and 0xFF) * EvilTwinColors.values().size)
     }
 
 }

@@ -1,7 +1,7 @@
 package content.region.kandarin.observatory.quest.itgronigen.dialogue
 
-import content.region.kandarin.observatory.quest.itgronigen.handlers.ObservatoryListeners
-import content.region.kandarin.observatory.quest.itgronigen.handlers.ObservatoryListeners.Companion.FAIL_ATTRIBUTE
+import content.region.kandarin.observatory.quest.itgronigen.handlers.ObservatoryListener
+import content.region.kandarin.observatory.quest.itgronigen.handlers.ObservatoryListener.Companion.FAIL_ATTRIBUTE
 import core.api.*
 import org.rs.consts.Animations
 import org.rs.consts.Items
@@ -256,10 +256,10 @@ class ProfessorConstellationsDialogue() : DialogueFile() {
                 Topic("Scorpio", 4, true),
                 Topic("~ next ~", 5, true),
             )
-            1 -> player("Aquarius!").also { setAttribute(player!!, ObservatoryListeners.CONSTELLATION_ATTRIBUTE, 1); stage = 16 }
-            2 -> player("Capricorn!").also { setAttribute(player!!, ObservatoryListeners.CONSTELLATION_ATTRIBUTE, 2); stage = 16 }
-            3 -> player("Sagittarius!").also { setAttribute(player!!, ObservatoryListeners.CONSTELLATION_ATTRIBUTE, 3); stage = 16 }
-            4 -> player("Scorpio!").also { setAttribute(player!!, ObservatoryListeners.CONSTELLATION_ATTRIBUTE, 4); stage = 16 }
+            1 -> player("Aquarius!").also { setAttribute(player!!, ObservatoryListener.CONSTELLATION_ATTRIBUTE, 1); stage = 16 }
+            2 -> player("Capricorn!").also { setAttribute(player!!, ObservatoryListener.CONSTELLATION_ATTRIBUTE, 2); stage = 16 }
+            3 -> player("Sagittarius!").also { setAttribute(player!!, ObservatoryListener.CONSTELLATION_ATTRIBUTE, 3); stage = 16 }
+            4 -> player("Scorpio!").also { setAttribute(player!!, ObservatoryListener.CONSTELLATION_ATTRIBUTE, 4); stage = 16 }
             5 -> showTopics(
                 Topic("~ previous ~", 0, true),
                 Topic("Libra", 6, true),
@@ -267,9 +267,9 @@ class ProfessorConstellationsDialogue() : DialogueFile() {
                 Topic("Leo", 8, true),
                 Topic("~ next ~", 9, true),
             )
-            6 -> player("Libra!").also { setAttribute(player!!, ObservatoryListeners.CONSTELLATION_ATTRIBUTE, 6); stage = 16 }
-            7 -> player("Virgo!").also { setAttribute(player!!, ObservatoryListeners.CONSTELLATION_ATTRIBUTE, 7); stage = 16 }
-            8 -> player("Leo!").also { setAttribute(player!!, ObservatoryListeners.CONSTELLATION_ATTRIBUTE, 8); stage = 16 }
+            6 -> player("Libra!").also { setAttribute(player!!, ObservatoryListener.CONSTELLATION_ATTRIBUTE, 6); stage = 16 }
+            7 -> player("Virgo!").also { setAttribute(player!!, ObservatoryListener.CONSTELLATION_ATTRIBUTE, 7); stage = 16 }
+            8 -> player("Leo!").also { setAttribute(player!!, ObservatoryListener.CONSTELLATION_ATTRIBUTE, 8); stage = 16 }
             9 -> showTopics(
                 Topic("~ previous ~", 5, true),
                 Topic("Cancer", 10, true),
@@ -277,16 +277,16 @@ class ProfessorConstellationsDialogue() : DialogueFile() {
                 Topic("Taurus", 12, true),
                 Topic("~ next ~", 13, true),
             )
-            10 -> player("Cancer!").also { setAttribute(player!!, ObservatoryListeners.CONSTELLATION_ATTRIBUTE, 10); stage = 16 }
-            11 -> player("Gemini!").also { setAttribute(player!!, ObservatoryListeners.CONSTELLATION_ATTRIBUTE, 11); stage = 16 }
-            12 -> player("Taurus!").also { setAttribute(player!!, ObservatoryListeners.CONSTELLATION_ATTRIBUTE, 12); stage = 16 }
+            10 -> player("Cancer!").also { setAttribute(player!!, ObservatoryListener.CONSTELLATION_ATTRIBUTE, 10); stage = 16 }
+            11 -> player("Gemini!").also { setAttribute(player!!, ObservatoryListener.CONSTELLATION_ATTRIBUTE, 11); stage = 16 }
+            12 -> player("Taurus!").also { setAttribute(player!!, ObservatoryListener.CONSTELLATION_ATTRIBUTE, 12); stage = 16 }
             13 -> showTopics(
                 Topic("~ previous ~", 9, true),
                 Topic("Aries", 14, true),
                 Topic("Pisces", 15, true),
             )
-            14 -> player("Aries!").also { setAttribute(player!!, ObservatoryListeners.CONSTELLATION_ATTRIBUTE, 14); stage = 16 }
-            15 -> player("Pisces!").also { setAttribute(player!!, ObservatoryListeners.CONSTELLATION_ATTRIBUTE, 15); stage = 16 }
+            14 -> player("Aries!").also { setAttribute(player!!, ObservatoryListener.CONSTELLATION_ATTRIBUTE, 14); stage = 16 }
+            15 -> player("Pisces!").also { setAttribute(player!!, ObservatoryListener.CONSTELLATION_ATTRIBUTE, 15); stage = 16 }
 
             16 -> npc("That's exactly it!").also { stage++ }
             17 -> {
@@ -294,7 +294,7 @@ class ProfessorConstellationsDialogue() : DialogueFile() {
                 player("Yes! Woo hoo!").also { stage++ }
             }
             18 -> {
-                when(getAttribute(player!!, ObservatoryListeners.CONSTELLATION_ATTRIBUTE, -1)){
+                when(getAttribute(player!!, ObservatoryListener.CONSTELLATION_ATTRIBUTE, -1)){
                     1 -> npcl(FacialExpression.HALF_GUILTY, "That's Aquarius, the water-bearer.").also { stage = 19 }
                     2 -> npcl(FacialExpression.HALF_GUILTY, "That's Capricorn, the goat.").also { stage = 20 }
                     3 -> npcl(FacialExpression.HALF_GUILTY, "That's Sagittarius, the centaur.").also { stage = 21 }
@@ -323,7 +323,7 @@ class ProfessorConstellationsDialogue() : DialogueFile() {
             30 -> npcl("What's more suitable as a reward than some tuna?").also { stage = 100 }
             100 -> {
                 end()
-                removeAttribute(player!!, ObservatoryListeners.CONSTELLATION_ATTRIBUTE)
+                removeAttribute(player!!, ObservatoryListener.CONSTELLATION_ATTRIBUTE)
                 finishQuest(player!!, "Observatory Quest")
             }
         }

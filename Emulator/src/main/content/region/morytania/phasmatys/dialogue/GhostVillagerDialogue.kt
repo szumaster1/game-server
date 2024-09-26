@@ -3,7 +3,7 @@ package content.region.morytania.phasmatys.dialogue
 import org.rs.consts.Items
 import org.rs.consts.NPCs
 import content.region.morytania.phasmatys.quest.ahoy.dialogue.GhostVillagerDialogueFile
-import content.region.morytania.phasmatys.quest.ahoy.handlers.GAUtils
+import content.region.morytania.phasmatys.quest.ahoy.handlers.GhostsAhoyUtils
 import core.api.getAttribute
 import core.api.inEquipment
 import core.api.openDialogue
@@ -28,7 +28,7 @@ class GhostVillagerDialogue(player: Player? = null) : Dialogue(player) {
         when (stage) {
             START_DIALOGUE -> if (!inEquipment(player, Items.GHOSTSPEAK_AMULET_552)) {
                 npc("Woooo wooo wooooo woooo").also { stage = 1 }
-            } else if (getAttribute(player!!, GAUtils.petitionstart, false)) {
+            } else if (getAttribute(player!!, GhostsAhoyUtils.petitionstart, false)) {
                 end()
                 openDialogue(player, GhostVillagerDialogueFile())
             } else if (inEquipment(player!!, Items.BEDSHEET_4284)) {

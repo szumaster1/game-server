@@ -1,6 +1,6 @@
 package content.region.kandarin.quest.makinghistory.dialogue
 
-import content.region.kandarin.quest.makinghistory.handlers.MHUtils
+import content.region.kandarin.quest.makinghistory.handlers.MakingHistoryUtils
 import core.api.*
 import org.rs.consts.Items
 import org.rs.consts.NPCs
@@ -27,35 +27,35 @@ class DroalakDialogue(player: Player? = null) : Dialogue(player) {
             stage = 24
             return true
         }
-        if (getVarbit(player, MHUtils.DROALAK_PROGRESS) == 0 || getQuestStage(player, "Making History") >= 1) {
+        if (getVarbit(player, MakingHistoryUtils.DROALAK_PROGRESS) == 0 || getQuestStage(player, "Making History") >= 1) {
             playerl(FacialExpression.FRIENDLY, "Hello. Are you Droalak?")
             stage = 1
             return true
-        } else if (!inInventory(player, Items.SAPPHIRE_AMULET_1694) && getVarbit(player, MHUtils.DROALAK_PROGRESS) == 2) {
+        } else if (!inInventory(player, Items.SAPPHIRE_AMULET_1694) && getVarbit(player, MakingHistoryUtils.DROALAK_PROGRESS) == 2) {
             playerl(FacialExpression.FRIENDLY, "What do you want me to do again?")
             stage = 17
             return true
-        } else if (inInventory(player, Items.SAPPHIRE_AMULET_1694) && getVarbit(player, MHUtils.DROALAK_PROGRESS) == 2) {
+        } else if (inInventory(player, Items.SAPPHIRE_AMULET_1694) && getVarbit(player, MakingHistoryUtils.DROALAK_PROGRESS) == 2) {
             playerl(FacialExpression.FRIENDLY, "I have a sapphire amulet!")
             stage = 16
             return true
         }
-        if (getVarbit(player, MHUtils.DROALAK_PROGRESS) == 4) {
+        if (getVarbit(player, MakingHistoryUtils.DROALAK_PROGRESS) == 4) {
             playerl(FacialExpression.FRIENDLY, "I've given her the amulet. She was very pleased and said she just wanted to know you still cared.")
             stage = 19
             return true
         }
-        if(getVarbit(player, MHUtils.DROALAK_PROGRESS) == 5 && !hasAnItem(player, Items.SCROLL_6758).exists()) {
+        if(getVarbit(player, MakingHistoryUtils.DROALAK_PROGRESS) == 5 && !hasAnItem(player, Items.SCROLL_6758).exists()) {
             playerl(FacialExpression.FRIENDLY, "Thanks for the scroll, but I seem to have lost it.")
             stage = 25
             return true
         }
-        if(getVarbit(player, MHUtils.DROALAK_PROGRESS) == 5 && hasAnItem(player, Items.SCROLL_6758).exists()) {
+        if(getVarbit(player, MakingHistoryUtils.DROALAK_PROGRESS) == 5 && hasAnItem(player, Items.SCROLL_6758).exists()) {
             npcl(FacialExpression.FRIENDLY, "Take that scroll to Jorral in the outpost.")
             stage = END_DIALOGUE
             return true
         }
-        if(getVarbit(player, MHUtils.DROALAK_PROGRESS) == 6) {
+        if(getVarbit(player, MakingHistoryUtils.DROALAK_PROGRESS) == 6) {
             playerl(FacialExpression.FRIENDLY, "I have delivered the scroll; you can rest in peace now.")
             stage = 27
             return true
@@ -82,7 +82,7 @@ class DroalakDialogue(player: Player? = null) : Dialogue(player) {
             14 -> playerl(FacialExpression.FRIENDLY, "No problem.").also { stage++ }
             15 -> {
                 end()
-                setVarbit(player, MHUtils.DROALAK_PROGRESS, 2, true)
+                setVarbit(player, MakingHistoryUtils.DROALAK_PROGRESS, 2, true)
             }
             16 -> npcl(FacialExpression.FRIENDLY, "Good work. Just give it to Melina, who's wandering somewhere nearby.").also { stage = END_DIALOGUE }
 
@@ -95,8 +95,8 @@ class DroalakDialogue(player: Player? = null) : Dialogue(player) {
             23 -> {
                 end()
                 addItemOrDrop(player, Items.SCROLL_6758)
-                setVarbit(player, MHUtils.DROALAK_PROGRESS, 5, true)
-                setAttribute(player, "/save:${MHUtils.ATTRIBUTE_DROALAK_PROGRESS}", true)
+                setVarbit(player, MakingHistoryUtils.DROALAK_PROGRESS, 5, true)
+                setAttribute(player, MakingHistoryUtils.ATTRIBUTE_DROALAK_PROGRESS, true)
             }
             24 -> playerl(FacialExpression.FRIENDLY, "Your loss!").also { stage = END_DIALOGUE }
             25 -> npcl(FacialExpression.FRIENDLY, "It's a good job I stuck around then, isn't it! Have another copy.").also { stage++ }

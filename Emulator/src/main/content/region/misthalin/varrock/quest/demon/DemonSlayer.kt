@@ -8,7 +8,7 @@ import content.region.misthalin.varrock.quest.demon.dialogue.CaptainRovinDialogu
 import content.region.misthalin.varrock.quest.demon.dialogue.GypsyArisDialogue
 import content.region.misthalin.varrock.quest.demon.dialogue.SirPyrsinDialogue
 import content.region.misthalin.varrock.quest.demon.dialogue.TraibornDialogue
-import content.region.misthalin.varrock.quest.demon.handlers.DSUtils
+import content.region.misthalin.varrock.quest.demon.handlers.DemonSlayerUtils
 import content.region.misthalin.varrock.quest.demon.handlers.DemonSlayerDrainPlugin
 import content.region.misthalin.varrock.quest.demon.handlers.DemonSlayerPlugin
 import core.api.inInventory
@@ -56,13 +56,13 @@ class DemonSlayer : Quest("Demon Slayer", 16, 15, 3, Vars.VARP_QUEST_DEMON_SLAYE
                 line(player, "destroyed Varrock over 150 years ago.", line++, true)
                 line(player, "To defeat the !!demon?? I need the magical sword !!Silverlight??.", line++, true)
                 line(player, "!!Sir Prysin?? needs !!3 keys?? before he can give me !!Silverlight??.", line++, true)
-                if (inInventory(player, DSUtils.FIRST_KEY.id) && inInventory(player, DSUtils.SECOND_KEY.id) && inInventory(player, DSUtils.THIRD_KEY.id)) {
+                if (inInventory(player, DemonSlayerUtils.FIRST_KEY.id) && inInventory(player, DemonSlayerUtils.SECOND_KEY.id) && inInventory(player, DemonSlayerUtils.THIRD_KEY.id)) {
                     line(player, "Now I have !!all 3 keys?? I should go and speak to !!Sir Prysin??", line++, true)
                     line(player, "and collect the magical sword !!Silverlight?? from him.", line++, true)
                 } else {
-                    line(player, if (player.hasItem(DSUtils.FIRST_KEY)) "I have the 1st Key with me." else "The !!1st Key?? was dropped down the palace kitchen drains.", line++, true)
-                    line(player, if (player.hasItem(DSUtils.SECOND_KEY)) "I have the 2nd Key with me." else "The !!2nd Key?? is with Captain Rovin in Varrock Palace.", line++, true)
-                    line(player, if (player.hasItem(DSUtils.THIRD_KEY)) "I Have the 3rd key with me." else "The !!3rd Key?? is with the Wizard Traiborn at the Wizards' Tower.", line++, true)
+                    line(player, if (player.hasItem(DemonSlayerUtils.FIRST_KEY)) "I have the 1st Key with me." else "The !!1st Key?? was dropped down the palace kitchen drains.", line++, true)
+                    line(player, if (player.hasItem(DemonSlayerUtils.SECOND_KEY)) "I have the 2nd Key with me." else "The !!2nd Key?? is with Captain Rovin in Varrock Palace.", line++, true)
+                    line(player, if (player.hasItem(DemonSlayerUtils.THIRD_KEY)) "I Have the 3rd key with me." else "The !!3rd Key?? is with the Wizard Traiborn at the Wizards' Tower.", line++, true)
                     if (player.getAttribute("demon-slayer:traiborn", false)) {
                         line(player, "The !!3rd Key?? is with Wizard Traiborn at the Wizards' Tower.", line++, true)
                         line(player, "!!Traiborn?? needs !!25?? more !!bones??.", line++, true)
@@ -97,7 +97,7 @@ class DemonSlayer : Quest("Demon Slayer", 16, 15, 3, Vars.VARP_QUEST_DEMON_SLAYE
         var line = 10
         drawReward(player, "3 Quests Points", line++)
         drawReward(player, "Silverlight", line)
-        sendItemZoomOnInterface(player, Components.QUEST_COMPLETE_SCROLL_277, 5, DSUtils.SILVERLIGHT.id, 230)
+        sendItemZoomOnInterface(player, Components.QUEST_COMPLETE_SCROLL_277, 5, DemonSlayerUtils.SILVERLIGHT.id, 230)
         removeAttributes(player, "demon-slayer:traiborn", "demon-slayer:incantation", "demon-slayer:poured", "demon-slayer:received")
         updateQuestTab(player)
     }

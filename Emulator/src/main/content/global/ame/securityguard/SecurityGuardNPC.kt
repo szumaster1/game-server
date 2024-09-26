@@ -2,11 +2,11 @@ package content.global.ame.securityguard
 
 import content.global.ame.RandomEventNPC
 import core.api.*
-import org.rs.consts.NPCs
 import core.api.utils.WeightBasedTable
 import core.game.node.entity.Entity
 import core.game.node.entity.npc.NPC
 import core.game.system.timer.impl.AntiMacro
+import org.rs.consts.NPCs
 
 /**
  * Security guard NPC.

@@ -17,6 +17,7 @@ import core.game.world.GameWorld.Pulser
 import core.game.world.map.Location
 import core.game.world.map.path.Pathfinder
 import core.tools.BLACK
+import core.tools.DARK_BLUE
 import org.rs.consts.NPCs
 import java.util.*
 
@@ -32,7 +33,7 @@ class HouseServantDialogue(player: Player? = null) : Dialogue(player) {
         npc = args[0] as NPC
         val manager = player.houseManager
         val expression = if (npc.id != 4243) FacialExpression.HALF_GUILTY else FacialExpression.OLD_DEFAULT
-        val fontColor = if (npc.id != 4243) BLACK else BLUE
+        val fontColor = if (npc.id != 4243) BLACK else DARK_BLUE
         val inHouse = manager.isInHouse(player)
         /*
          * Parse options from our "use-with" handler.
@@ -52,8 +53,8 @@ class HouseServantDialogue(player: Player? = null) : Dialogue(player) {
         }
         if (!manager.hasServant()) {
             val type = ServantType.forId(npc.id)
-            if (getStatLevel(player, Skills.CONSTRUCTION) >= type.level) {
-                interpreter.sendDialogues(npc, expression, fontColor + "You're not aristocracy, but I suppose you'd do. Do you", fontColor + "want a good cook for " + type.cost + fontColor + " coins?")
+            if (getStatLevel(player, Skills.CONSTRUCTION) >= type!!.level) {
+                interpreter.sendDialogues(npc, expression, fontColor + "You're not aristocracy, but I suppose you'd do. Do you", fontColor + "want a good cook for " + type!!.cost + fontColor + " coins?")
                 stage = 0
                 return true
             }
@@ -97,7 +98,7 @@ class HouseServantDialogue(player: Player? = null) : Dialogue(player) {
         val servant = manager.servant
         var type = ServantType.forId(npc.id)
         val expression = if (npc.id != 4243) FacialExpression.HALF_GUILTY else FacialExpression.OLD_DEFAULT
-        val fontColor = if (npc.id != 4243) BLACK else BLUE
+        val fontColor = if (npc.id != 4243) BLACK else DARK_BLUE
         when (stage) {
             0 -> {
                 options("What can you do?", "Tell me about your previous jobs.", "You're hired!")
@@ -242,10 +243,10 @@ class HouseServantDialogue(player: Player? = null) : Dialogue(player) {
                         return true
                     }
                     if (type.food.size > 1) {
-                        options(type.food[0].name, type.food[1].name, "Nevermind.")
+                        options(type.food[0]!!.name, type.food[1]!!.name, "Nevermind.")
                         stage = 58
                     } else {
-                        options(type.food[0].name, "Nevermind.")
+                        options(type.food[0]!!.name, "Nevermind.")
                         stage = 59
                     }
                 }
@@ -404,7 +405,7 @@ class HouseServantDialogue(player: Player? = null) : Dialogue(player) {
         val manager = player!!.houseManager
         val servant = manager.servant
         val expression = if (npc.id != 4243) FacialExpression.HALF_GUILTY else FacialExpression.OLD_DEFAULT
-        val fontColor = if (npc.id != 4243) BLACK else BLUE
+        val fontColor = if (npc.id != 4243) BLACK else DARK_BLUE
         if (!sawmill && freeSlots(player) < 1) {
             interpreter.sendDialogues(servant, expression, fontColor + "You don't have any space in your inventory.")
             stage = 100
@@ -480,7 +481,7 @@ class HouseServantDialogue(player: Player? = null) : Dialogue(player) {
         val servant = manager.servant
         val type = manager.servant.type
         val expression = if (npc.id != 4243) FacialExpression.HALF_GUILTY else FacialExpression.OLD_DEFAULT
-        val fontColor = if (npc.id != 4243) BLACK else BLUE
+        val fontColor = if (npc.id != 4243) BLACK else DARK_BLUE
         if (item == null || !requirements(player, item, false)) {
             return
         }

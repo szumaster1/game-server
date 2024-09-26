@@ -1,6 +1,6 @@
 package content.global.handlers.npc
 
-import content.global.handlers.`object`.BankBooth
+import content.global.handlers.`object`.BankBoothListener
 import core.api.*
 import org.rs.consts.NPCs
 import org.rs.consts.Regions
@@ -74,7 +74,7 @@ class BankerNPC : AbstractNPC, InteractionListener {
             val boothLocation = location.transform(side)
             val sceneryObject = getScenery(boothLocation)
 
-            if (sceneryObject != null && sceneryObject.id in BankBooth.BANK_BOOTHS) {
+            if (sceneryObject != null && sceneryObject.id in BankBoothListener.BANK_BOOTHS) {
                 return Pair(side, boothLocation.transform(side, 1))
             }
         }

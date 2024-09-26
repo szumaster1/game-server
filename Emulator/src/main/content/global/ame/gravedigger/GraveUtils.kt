@@ -1,12 +1,12 @@
 package content.global.ame.gravedigger
 
-import org.rs.consts.Items
-import org.rs.consts.NPCs
-import org.rs.consts.Scenery
 import core.api.*
 import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.emote.Emotes
 import core.game.world.update.flag.context.Animation
+import org.rs.consts.Items
+import org.rs.consts.NPCs
+import org.rs.consts.Scenery
 
 /**
  * Grave utilities for managing gravedigger events.

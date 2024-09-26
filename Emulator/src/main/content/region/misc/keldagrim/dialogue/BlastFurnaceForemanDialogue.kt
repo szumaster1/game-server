@@ -1,8 +1,6 @@
 package content.region.misc.keldagrim.dialogue
 
 import core.api.addItemOrDrop
-import org.rs.consts.Items
-import org.rs.consts.NPCs
 import core.api.removeItem
 import core.api.sendChat
 import core.api.sendItemDialogue
@@ -16,6 +14,8 @@ import core.game.system.task.Pulse
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 import core.tools.RandomFunction
+import org.rs.consts.Items
+import org.rs.consts.NPCs
 
 /**
  * Represents the Blast furnace foreman dialogue.

@@ -2,13 +2,13 @@ package content.global.ame.evilbob
 
 import content.global.ame.evilbob.EvilBobUtils.giveEventFishingSpot
 import core.api.*
-import org.rs.consts.Items
-import org.rs.consts.NPCs
 import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC
 import core.game.node.entity.skill.Skills
 import core.tools.END_DIALOGUE
+import org.rs.consts.Items
+import org.rs.consts.NPCs
 
 /**
  * Represents the Evil Bob dialogue.

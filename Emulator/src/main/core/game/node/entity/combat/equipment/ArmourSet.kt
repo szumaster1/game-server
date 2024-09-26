@@ -12,10 +12,6 @@ import core.tools.RandomFunction
 
 /**
  * Represents the types of armour sets.
- *
- * @param endGraphic The graphic to display at the end of the effect.
- * @param set The array of item sets associated with the armour.
- * @constructor Creates an ArmourSet with a specific graphic and item set.
  */
 enum class ArmourSet(private val endGraphic: Graphic?, set: Array<IntArray>) {
 

@@ -1,0 +1,38 @@
+package content.global.skill.runecrafting.items
+
+import content.global.skill.runecrafting.altars.Altar
+import core.api.submitIndividualPulse
+import core.game.dialogue.SkillDialogueHandler
+import core.game.dialogue.SkillDialogueHandler.SkillDialogue.ONE_OPTION
+import core.game.node.entity.player.Player
+
+/**
+ * Represents the Enchanting tiara dialogue.
+ */
+class EnchantTiaraDialogue(player: Player, val talisman: Talisman, val tiara: TalismanStaff, val altar: Altar) :
+    SkillDialogueHandler(player, ONE_OPTION, tiara.item) {
+
+    override fun create(amount: Int, index: Int) {
+        submitIndividualPulse(player, EnchantTiaraPulse(player, talisman, altar, tiara, amount))
+    }
+
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (javaClass != other?.javaClass) return false
+
+        other as EnchantTiaraDialogue
+
+        if (talisman != other.talisman) return false
+        if (tiara != other.tiara) return false
+        if (altar != other.altar) return false
+
+        return true
+    }
+
+    override fun hashCode(): Int {
+        var result = talisman.hashCode()
+        result = 31 * result + tiara.hashCode()
+        result = 31 * result + altar.hashCode()
+        return result
+    }
+}
