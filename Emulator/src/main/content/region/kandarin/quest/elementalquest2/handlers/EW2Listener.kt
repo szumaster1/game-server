@@ -15,9 +15,6 @@ import core.game.node.scenery.SceneryBuilder
 import core.game.system.task.Pulse
 import core.game.world.map.Location
 
-/**
- * Elemental Workshop II listener.
- */
 class EW2Listener : InteractionListener {
 
     init {

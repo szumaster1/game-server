@@ -59,7 +59,7 @@ class SilverCraftingListener: InterfaceListener, InteractionListener {
             }
 
             if (!hasLevelDyn(player, Skills.CRAFTING, product.level)) {
-                sendMessage(player, "You need a Crafting level of ${product.level} to make this.")
+                sendMessage(player, "You need a crafting level of ${product.level} to make this.")
                 return@on true
             }
 

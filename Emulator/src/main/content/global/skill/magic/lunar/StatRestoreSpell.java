@@ -1,7 +1,6 @@
 package content.global.skill.magic.lunar;
 
 import content.data.consumables.Consumables;
-import org.rs.consts.Sounds;
 import core.game.bots.AIPlayer;
 import core.game.consumable.Potion;
 import core.game.node.Node;
@@ -17,6 +16,7 @@ import core.game.world.update.flag.context.Animation;
 import core.game.world.update.flag.context.Graphic;
 import core.plugin.Initializable;
 import core.plugin.Plugin;
+import org.rs.consts.Sounds;
 
 import java.util.List;
 

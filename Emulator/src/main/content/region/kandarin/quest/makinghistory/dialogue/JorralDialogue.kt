@@ -1,7 +1,7 @@
 package content.region.kandarin.quest.makinghistory.dialogue
 
-import content.region.kandarin.quest.makinghistory.handlers.MHUtils
-import content.region.kandarin.quest.makinghistory.handlers.MHUtils.checkRequirements
+import content.region.kandarin.quest.makinghistory.handlers.MakingHistoryUtils
+import content.region.kandarin.quest.makinghistory.handlers.MakingHistoryUtils.checkRequirements
 import content.region.kandarin.quest.makinghistory.cutscene.OutpostHistoryCutscene
 import core.api.*
 import org.rs.consts.Components
@@ -36,16 +36,16 @@ class JorralDialogue(player: Player? = null) : Dialogue(player) {
             stage = 1
             return true
         }
-        if (getVarbit(player, MHUtils.PROGRESS) == 2) {
+        if (getVarbit(player, MakingHistoryUtils.PROGRESS) == 2) {
             player("Hi there.")
             stage = 40
             return true
         }
-        if (getVarbit(player, MHUtils.PROGRESS) == 3) {
+        if (getVarbit(player, MakingHistoryUtils.PROGRESS) == 3) {
             player("Hi there.")
             stage = 73
             return true
-        } else if (getVarbit(player, MHUtils.DRON_PROGRESS) == 4) {
+        } else if (getVarbit(player, MakingHistoryUtils.DRON_PROGRESS) == 4) {
             player("Hi there.")
             stage = 63
             return true
@@ -138,16 +138,16 @@ class JorralDialogue(player: Player? = null) : Dialogue(player) {
                 2 -> player("What do I need to do now?").also { stage = 24 }
                 3 -> player("Got to go, bye!").also { stage = END_DIALOGUE }
             }
-            43 -> if(getAttribute(player, MHUtils.ATTRIBUTE_ERIN_PROGRESS, false) || getVarbit(player,
-                    MHUtils.ERIN_PROGRESS
+            43 -> if(getAttribute(player, MakingHistoryUtils.ATTRIBUTE_ERIN_PROGRESS, false) || getVarbit(player,
+                    MakingHistoryUtils.ERIN_PROGRESS
                 ) == 4){
                 npcl(FacialExpression.FRIENDLY, "From the two pieces of evidence, we know that the outpost was lived in by followers of Zamorak,").also { stage = 100 }
-            } else if(getAttribute(player, MHUtils.ATTRIBUTE_DROALAK_PROGRESS, false) || getVarbit(player,
-                    MHUtils.DROALAK_PROGRESS
+            } else if(getAttribute(player, MakingHistoryUtils.ATTRIBUTE_DROALAK_PROGRESS, false) || getVarbit(player,
+                    MakingHistoryUtils.DROALAK_PROGRESS
                 ) >= 4){
                 npcl(FacialExpression.FRIENDLY, "From the journal you received detailing the experiences of a follower of Zamorak,").also { stage = 200 }
-            } else if(getAttribute(player, MHUtils.ATTRIBUTE_DRON_PROGRESS, false) || getVarbit(player,
-                    MHUtils.DRON_PROGRESS
+            } else if(getAttribute(player, MakingHistoryUtils.ATTRIBUTE_DRON_PROGRESS, false) || getVarbit(player,
+                    MakingHistoryUtils.DRON_PROGRESS
                 ) == 4){
                 npcl(FacialExpression.FRIENDLY, "One of the survivors became King, which must be the current King Lathas' Great Grandfather and the other started the market place.").also { stage = 300 }
             } else {
@@ -168,8 +168,8 @@ class JorralDialogue(player: Player? = null) : Dialogue(player) {
             55 -> npcl(FacialExpression.FRIENDLY, "He talks of all the nasty things they did to the people of Ardougne, which I don't care to mention! It looks like they were stopped by someone. But it doesn't say who.").also { stage++ }
             56 -> playerl(FacialExpression.FRIENDLY, "Interesting.").also {
                 removeItem(player, Items.JOURNAL_6755)
-                MHUtils.checkProgress(player!!)
-                stage = if(getVarbit(player, MHUtils.PROGRESS) == 3) 72 else END_DIALOGUE
+                MakingHistoryUtils.checkProgress(player!!)
+                stage = if(getVarbit(player, MakingHistoryUtils.PROGRESS) == 3) 72 else END_DIALOGUE
                 stage = END_DIALOGUE
             }
 
@@ -179,8 +179,8 @@ class JorralDialogue(player: Player? = null) : Dialogue(player) {
             60 -> sendDoubleItemDialogue(player!!, -1, Items.SCROLL_6758, "Jorral skims over the contents of the scroll.").also { stage++ }
             61 -> npcl(FacialExpression.FRIENDLY, "Very interesting. So there was a great battle at the outpost. Then one of the survivors became king, and the other started the market place. Good work.").also {
                 removeItem(player, Items.SCROLL_6758)
-                MHUtils.checkProgress(player!!)
-                stage = if(getVarbit(player, MHUtils.PROGRESS) == 3) 72 else END_DIALOGUE
+                MakingHistoryUtils.checkProgress(player!!)
+                stage = if(getVarbit(player, MakingHistoryUtils.PROGRESS) == 3) 72 else END_DIALOGUE
             }
 
             62 -> player("Hi there.").also { stage++ }
@@ -199,8 +199,8 @@ class JorralDialogue(player: Player? = null) : Dialogue(player) {
             69 -> npcl(FacialExpression.FRIENDLY, "From the two pieces of evidence, we know that the outpost was occupied by followers of Zamorak who caused havoc to the nearby city of Ardougne.").also { stage++ }
             70 -> npcl(FacialExpression.FRIENDLY, "Ardougne called in some Saradomin followers to deal with the problem. The two sides were led by ex-friends who settled their differences and decided to worship Guthix.").also { stage++ }
             71 -> npcl(FacialExpression.FRIENDLY, "But who survived and what happened to them?").also {
-                MHUtils.checkProgress(player!!)
-                stage = if(getVarbit(player, MHUtils.PROGRESS) == 3) 72 else END_DIALOGUE
+                MakingHistoryUtils.checkProgress(player!!)
+                stage = if(getVarbit(player, MakingHistoryUtils.PROGRESS) == 3) 72 else END_DIALOGUE
             }
 
             72 -> npcl(FacialExpression.FRIENDLY, "It all makes sense now, I never realised there was quite so much history to this place, it was more than I could have hoped.").also { stage++ }
@@ -219,7 +219,7 @@ class JorralDialogue(player: Player? = null) : Dialogue(player) {
                 end()
                 sendItemDialogue(player!!, Items.LETTER_6756, "Player receives Letter.")
                 addItemOrDrop(player!!, Items.LETTER_6756)
-                setVarbit(player!!, MHUtils.PROGRESS, 3, true)
+                setVarbit(player!!, MakingHistoryUtils.PROGRESS, 3, true)
             }
 
             85 -> playerl(FacialExpression.FRIENDLY, "Don't suppose you could give me the letter again?").also { stage++ }

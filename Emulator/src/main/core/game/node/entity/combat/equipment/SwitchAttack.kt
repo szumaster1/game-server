@@ -11,12 +11,6 @@ import core.game.world.update.flag.context.Graphic
 /**
  * Represents a possible attack the entity can switch to.
  * @author Emperor
- *
- * @param handler The combat swing handler associated with the attack.
- * @param animation The animation to be played during the attack.
- * @param startGraphic The graphic to be displayed at the start of the attack (optional).
- * @param endGraphic The graphic to be displayed at the end of the attack (optional).
- * @param projectile The projectile associated with the attack (optional).
  */
 open class SwitchAttack @JvmOverloads constructor(
     handler: CombatSwingHandler?,

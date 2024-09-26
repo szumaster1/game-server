@@ -1,11 +1,11 @@
 package content.global.skill.magic.lunar
 
 
-import content.global.skill.cooking.CookableItems
-import content.global.skill.magic.spellconsts.Lunar
+import content.global.skill.cooking.Cookable
 import content.global.skill.farming.CompostBins
 import content.global.skill.farming.CompostType
 import content.global.skill.farming.FarmingPatch
+import content.global.skill.magic.spellconsts.Lunar
 import core.api.*
 import core.game.component.Component
 import core.game.node.Node
@@ -473,7 +473,7 @@ class LunarListeners : content.global.skill.magic.SpellListener("lunar"), Comman
 
         for (item in player.inventory.toArray()) {
             if (item == null) continue
-            val pie = CookableItems.forId(item.id) ?: continue
+            val pie = Cookable.forId(item.id) ?: continue
             if (!pie.name.lowercase().contains("pie")) continue
             if (player.skills.getLevel(Skills.COOKING) < pie.level) continue
             playerPies.add(item)
@@ -490,7 +490,7 @@ class LunarListeners : content.global.skill.magic.SpellListener("lunar"), Comman
                 if (playerPies.isEmpty()) return true
                 if (counter == 0) delay = Animation(4413).definition!!.getDurationTicks() + 1
                 val item = playerPies[0]
-                val pie = CookableItems.forId(item.id)
+                val pie = Cookable.forId(item.id)
                 visualizeSpell(player, 4413, 746, 75, Sounds.LUNAR_BAKE_PIE_2879)
                 addXP(player, 60.0)
                 player.skills.addExperience(Skills.COOKING, pie!!.experience)

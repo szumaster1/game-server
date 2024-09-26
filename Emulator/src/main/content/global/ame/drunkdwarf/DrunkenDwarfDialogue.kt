@@ -1,10 +1,10 @@
 package content.global.ame.drunkdwarf
 
 import core.api.addItemOrDrop
-import org.rs.consts.Items
 import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression
 import core.game.system.timer.impl.AntiMacro
+import org.rs.consts.Items
 
 /**
  * Represents the Drunken Dwarf dialogue.

@@ -3,7 +3,7 @@ package content.region.kandarin.ardougne.plaguecity.quest.elena.dialogue
 import core.api.*
 import org.rs.consts.Items
 import org.rs.consts.NPCs
-import content.region.kandarin.ardougne.plaguecity.quest.elena.handlers.PlagueCityListeners
+import content.region.kandarin.ardougne.plaguecity.quest.elena.handlers.PlagueCityListener
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC
@@ -55,7 +55,7 @@ class AlrenaDialogue(player: Player? = null) : Dialogue(player) {
                     end()
                     addItem(player!!, Items.GAS_MASK_1506)
                     setQuestStage(player!!, "Plague City", 2)
-                    setAttribute(player!!, PlagueCityListeners.BUCKET_USES_ATTRIBUTE, 0)
+                    setAttribute(player!!, PlagueCityListener.BUCKET_USES_ATTRIBUTE, 0)
                     sendNPCDialogue(player!!, NPCs.ALRENA_710, "I'll make a spare mask. I'll hide it in the wardrobe in case the mourners come in.")
                 }
                 8 -> playerl(FacialExpression.NEUTRAL, "Ok, I'll go and get some.").also { stage = END_DIALOGUE }
@@ -68,7 +68,7 @@ class AlrenaDialogue(player: Player? = null) : Dialogue(player) {
 
             3 -> when (stage) {
                 START_DIALOGUE -> {
-                    if (getAttribute(player, PlagueCityListeners.BUCKET_USES_ATTRIBUTE, 0) == 1) {
+                    if (getAttribute(player, PlagueCityListener.BUCKET_USES_ATTRIBUTE, 0) == 1) {
                         npcl(FacialExpression.FRIENDLY, "Hello darling, how's that tunnel coming along?").also { stage = 5 }
                     } else {
                         npcl(FacialExpression.FRIENDLY, "How's the tunnel going?").also { stage = 2 }

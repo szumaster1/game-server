@@ -1,6 +1,6 @@
 package content.region.morytania.phasmatys.quest.ahoy.dialogue
 
-import content.region.morytania.phasmatys.quest.ahoy.handlers.GAUtils
+import content.region.morytania.phasmatys.quest.ahoy.handlers.GhostsAhoyUtils
 import core.api.*
 import org.rs.consts.Items
 import org.rs.consts.NPCs
@@ -43,7 +43,7 @@ class NecrovarusDialogueFile : DialogueFile() {
             }
 
             in 5..10 -> when (stage) {
-                0 -> if (getAttribute(player!!, GAUtils.petitioncomplete, false)) {
+                0 -> if (getAttribute(player!!, GhostsAhoyUtils.petitioncomplete, false)) {
                     player("Necrovarus, I am preseting you with a petition form", "that has been signed by 10 citizens of Port Phasmatys.").also { stage++ }
                 } else {
                     npc(FacialExpression.ANGRY, "Get out of my sight!! Or I promise you that you will", "regret your insolence for the rest of eternity!!!").also { stage = END_DIALOGUE }

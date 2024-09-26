@@ -3,13 +3,13 @@ package content.region.desert.quest.rescue;
 import content.region.desert.quest.rescue.handlers.LadyKeliNPC;
 import content.region.desert.quest.rescue.handlers.PrinceAliRescuePlugin;
 import content.region.desert.quest.rescue.handlers.WigDyePlugin;
-import org.rs.consts.Vars;
 import core.game.node.entity.player.Player;
 import core.game.node.entity.player.link.quest.Quest;
 import core.game.node.item.GroundItemManager;
 import core.game.node.item.Item;
-import core.plugin.PluginManager;
 import core.plugin.Initializable;
+import core.plugin.PluginManager;
+import org.rs.consts.Vars;
 
 import static core.api.ContentAPIKt.removeAttribute;
 

@@ -1,11 +1,11 @@
 package content.global.ame.freakyforest
 
-import org.rs.consts.Items
-import org.rs.consts.NPCs
 import core.api.*
 import core.game.node.entity.player.Player
 import core.game.world.map.zone.ZoneBorders
 import core.tools.RandomFunction
+import org.rs.consts.Items
+import org.rs.consts.NPCs
 
 /**
  * Freak utils.

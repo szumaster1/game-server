@@ -1,6 +1,5 @@
 package content.region.desert.quest.desertrescue
 
-import org.rs.consts.NPCs
 import core.cache.def.impl.NPCDefinition
 import core.game.interaction.OptionHandler
 import core.game.node.Node
@@ -11,9 +10,10 @@ import core.game.node.entity.player.Player
 import core.game.node.item.GroundItemManager
 import core.game.node.item.Item
 import core.game.world.map.Location
-import core.plugin.PluginManager.definePlugin
 import core.plugin.Plugin
+import core.plugin.PluginManager.definePlugin
 import core.tools.RandomFunction
+import org.rs.consts.NPCs
 
 /**
  * Rowdy slave NPC.

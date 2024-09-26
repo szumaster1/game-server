@@ -1,5 +1,6 @@
 package content.global.skill.crafting.items.armour.leather
 
+import content.global.skill.crafting.Leather
 import core.api.*
 import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.diary.DiaryType

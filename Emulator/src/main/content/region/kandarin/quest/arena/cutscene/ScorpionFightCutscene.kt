@@ -1,6 +1,6 @@
 package content.region.kandarin.quest.arena.cutscene
 
-import content.region.kandarin.quest.arena.handlers.ScorpionNPC.Companion.spawnScorpion
+import content.region.kandarin.quest.arena.handlers.npc.ScorpionNPC.Companion.spawnScorpion
 import core.api.animate
 import core.api.location
 import core.api.sendChat
@@ -9,9 +9,6 @@ import core.game.global.action.DoorActionHandler
 import core.game.node.entity.player.Player
 import core.game.world.map.Direction
 
-/**
- * Scorpion fight cutscene.
- */
 class ScorpionFightCutscene(player: Player) : Cutscene(player) {
     override fun setup() {
         setExit(location(2603, 3155, 0))

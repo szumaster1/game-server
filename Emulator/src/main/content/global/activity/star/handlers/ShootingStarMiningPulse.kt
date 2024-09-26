@@ -1,6 +1,6 @@
 package content.global.activity.star.handlers
 
-import content.data.skill.SkillingTool
+import content.global.skill.gather.SkillingTool
 import core.api.*
 import org.rs.consts.Items
 import core.game.node.entity.player.Player

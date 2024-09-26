@@ -1,7 +1,7 @@
 package content.region.asgarnia.falador.quest.rd.dialogue
 
 import org.rs.consts.NPCs
-import content.region.asgarnia.falador.quest.rd.handlers.MissCheeversRoomListeners
+import content.region.asgarnia.falador.quest.rd.handlers.MissCheeversRoomListener
 import core.api.getAttribute
 import core.api.location
 import core.api.removeAttribute
@@ -73,7 +73,7 @@ class MissCheeversDialogueFile(private val state: Int = 0) : DialogueFile() {
     }
 
     private fun clearAttributes() {
-        with(MissCheeversRoomListeners) {
+        with(MissCheeversRoomListener) {
             removeAttribute(player!!, book)
             removeAttribute(player!!, magnet)
             removeAttribute(player!!, knife)
@@ -82,8 +82,8 @@ class MissCheeversDialogueFile(private val state: Int = 0) : DialogueFile() {
             removeAttribute(player!!, chisel)
             removeAttribute(player!!, wire)
             removeAttribute(player!!, vials)
-            MissCheeversRoomListeners.Companion.Vials.vialMap.forEach { removeAttribute(player!!, it.value.attribute) }
-            MissCheeversRoomListeners.Companion.DoorVials.doorVialsRequiredMap.forEach { removeAttribute(player!!, it.value.attribute) }
+            MissCheeversRoomListener.Companion.Vials.vialMap.forEach { removeAttribute(player!!, it.value.attribute) }
+            MissCheeversRoomListener.Companion.DoorVials.doorVialsRequiredMap.forEach { removeAttribute(player!!, it.value.attribute) }
         }
     }
 }

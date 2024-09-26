@@ -51,12 +51,12 @@ class OutlawNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id, locat
             val player = killer.asPlayer()
             val quest = player.getQuestRepository().getQuest("What Lies Below")
             if (quest.getStage(player) == 10) {
-                val amount = amountInInventory(player, WhatLiesBelowListeners.RATS_PAPER) + amountInBank(
+                val amount = amountInInventory(player, WhatLiesBelowListener.RATS_PAPER) + amountInBank(
                     player,
-                    WhatLiesBelowListeners.RATS_PAPER
+                    WhatLiesBelowListener.RATS_PAPER
                 )
                 if (amount < 5) {
-                    GroundItemManager.create(Item(WhatLiesBelowListeners.RATS_PAPER), getLocation())
+                    GroundItemManager.create(Item(WhatLiesBelowListener.RATS_PAPER), getLocation())
                 }
             }
         }

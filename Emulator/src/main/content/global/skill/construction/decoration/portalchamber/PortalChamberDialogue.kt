@@ -43,7 +43,10 @@ class PortalChamberDialogue(player: Player? = null) : Dialogue(player) {
      * @param portal
      */
     fun directPortal(portal: String) {
-        content.global.skill.construction.decoration.portalchamber.PortalChamberPlugin.direct(player, portal.uppercase())
+        PortalChamberPlugin.direct(
+            player,
+            portal.uppercase()
+        )
         end()
     }
 

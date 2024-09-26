@@ -2,71 +2,42 @@ package content.global.handlers.iface
 
 import core.api.*
 import core.game.component.Component
-import core.game.component.ComponentDefinition
-import core.game.component.ComponentPlugin
+import core.game.interaction.InterfaceListener
 import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.diary.DiaryType
 import core.game.node.entity.skill.Skills
-import core.plugin.Initializable
-import core.plugin.Plugin
 import core.tools.colorize
 import org.rs.consts.Components
+import org.rs.consts.QuestName
 import kotlin.math.max
 import kotlin.math.min
 
-/**
- * Handles the quest tab interface buttons.
- */
-@Initializable
-class QuestTabInterface : ComponentPlugin() {
-    @Throws(Throwable::class)
-    override fun newInstance(arg: Any?): Plugin<Any> {
-        ComponentDefinition.put(274, this) // Quests
-        ComponentDefinition.put(259, this) // Achievement diary
-        return this
-    }
+class QuestTabInterface : InterfaceListener {
 
-    override fun handle(p: Player, component: Component, opcode: Int, button: Int, slot: Int, itemId: Int): Boolean {
-        p.pulseManager.clear()
-        when (component.id) {
-            274 ->
-//				if (!GameWorld.isEconomyWorld()) {
-//					p.getSavedData().getSpawnData().handleButton(p, button);
-//				}
-                when (button) {
-                    3 -> {
-                        p.achievementDiaryManager.openTab()
-                        return true
-                    }
-
-                    10 -> {}
-                    else -> {
-//						if (GameWorld.isEconomyWorld()) {
-                        val quest = p.getQuestRepository().forButtonId(button)
-                        if (quest != null) {
-                            p.interfaceManager.open(Component(275))
-                            quest.drawJournal(p, quest.getStage(p))
-                            return true
-                        } else showRequirementsInterface(p, button)
-//						}
-                        return false
-                    }
-                }
-
-            259 -> when (button) {
-                8 -> {
-                    p.interfaceManager.openTab(2, Component(274))
-                    return true
-                }
-
-                else -> {
-                    val diary = p.achievementDiaryManager.getDiary(DiaryType.forChild(button))
-                    diary?.open(p)
-                    return true
+    override fun defineInterfaceListeners() {
+        on(Components.QUESTJOURNAL_V2_274) { player, _, _, buttonID, _, _ ->
+            if (buttonID == 3) {
+                player.achievementDiaryManager.openTab()
+            } else {
+                val quest = player.questRepository.forButtonId(buttonID)
+                if (quest != null) {
+                    openInterface(player, Components.QUESTJOURNAL_SCROLL_275)
+                    quest.drawJournal(player, quest.getStage(player))
+                } else {
+                    showRequirementsInterface(player, buttonID)
                 }
             }
+            return@on true
         }
-        return true
+
+        on(Components.AREA_TASK_259) { player, _, _, buttonID, _, _ ->
+            if (buttonID == 8) {
+                player.interfaceManager.openTab(2, Component(Components.QUESTJOURNAL_V2_274))
+            } else {
+                player.achievementDiaryManager.getDiary(DiaryType.forChild(buttonID))?.open(player)
+            }
+            return@on true
+        }
     }
 
     companion object {
@@ -132,162 +103,163 @@ class QuestTabInterface : ComponentPlugin() {
 
         fun getNameForButton(button: Int): String {
             val name = when (button) {
-                10 -> "Myths of the White Lands"
-                11 -> "Myths of the White Lands"
-                12 -> "Free Quests"
-                13 -> "Black Knights' Fortress"
-                14 -> "Cook's Assistant"
-                15 -> "Demon Slayer"
-                16 -> "Doric's Quest"
-                17 -> "Dragon Slayer"
-                18 -> "Ernest the Chicken"
-                19 -> "Goblin Diplomacy"
-                20 -> "Imp Catcher"
-                21 -> "The Knight's Sword"
-                22 -> "Pirate's Treasure"
-                23 -> "Prince Ali Rescue"
-                24 -> "The Restless Ghost"
-                25 -> "Romeo & Juliet"
-                26 -> "Rune Mysteries"
-                27 -> "Sheep Shearer"
-                28 -> "Shield of Arrav"
-                29 -> "Vampire Slayer"
-                30 -> "Witch's Potion"
-                31 -> "Members' Quests"
-                32 -> "Animal Magnetism"
-                33 -> "Between a Rock..."
-                34 -> "Big Chompy Bird Hunting"
-                35 -> "Biohazard"
-                36 -> "Cabin Fever"
-                37 -> "Clock Tower"
-                38 -> "Contact!"
-                39 -> "Zogre Flesh Eaters"
-                40 -> "Creature of Fenkenstrain"
-                41 -> "Darkness of Hallowvale"
-                42 -> "Death to the Dorgeshuun"
-                43 -> "Death Plateau"
-                44 -> "Desert Treasure"
-                45 -> "Devious Minds"
-                46 -> "The Dig Site"
-                47 -> "Druidic Ritual"
-                48 -> "Dwarf Cannon"
-                49 -> "Eadgar's Ruse"
-                50 -> "Eagles' Peak"
-                51 -> "Elemental Workshop I"
-                52 -> "Elemental Workshop II"
-                53 -> "Enakhra's Lament"
-                54 -> "Enlightened Journey"
-                55 -> "The Eyes of Glouphrie"
-                56 -> "Fairytale I - Growing Pains"
-                57 -> "Fairytale II - Cure a Queen"
-                58 -> "Family Crest"
-                59 -> "The Feud"
-                60 -> "Fight Arena"
-                61 -> "Fishing Contest"
-                62 -> "Forgettable Tale..."
-                63 -> "The Fremennik Trials"
-                64 -> "Waterfall Quest"
-                65 -> "Garden of Tranquillity"
-                66 -> "Gertrude's Cat"
-                67 -> "Ghosts Ahoy"
-                68 -> "The Giant Dwarf"
-                69 -> "The Golem"
-                70 -> "The Grand Tree"
-                71 -> "The Hand in the Sand"
-                72 -> "Haunted Mine"
-                73 -> "Hazeel Cult"
-                74 -> "Heroes' Quest"
-                75 -> "Holy Grail"
-                76 -> "Horror from the Deep"
-                77 -> "Icthlarin's Little Helper"
-                78 -> "In Aid of the Myreque"
-                79 -> "In Search of the Myreque"
-                80 -> "Jungle Potion"
-                81 -> "Legend's Quest"
-                82 -> "Lost City"
-                83 -> "The Lost Tribe"
-                84 -> "Lunar Diplomacy"
-                85 -> "Making History"
-                86 -> "Merlin's Crystal"
-                87 -> "Monkey Madness"
-                88 -> "Monk's Friend"
-                89 -> "Mountain Daughter"
-                90 -> "Mourning's End Part I"
-                91 -> "Mourning's End Part II"
-                92 -> "Murder Mystery"
-                93 -> "My Arm's Big Adventure"
-                94 -> "Nature Spirit"
-                95 -> "Observatory Quest"
-                96 -> "One Small Favour"
-                97 -> "Plague City"
-                98 -> "Priest in Peril"
-                99 -> "Rag and Bone Man"
-                100 -> "Ratcatchers"
-                101 -> "Recipe for Disaster"
-                102 -> "Recruitment Drive"
-                103 -> "Regicide"
-                104 -> "Roving Elves"
-                105 -> "Royal Trouble"
-                106 -> "Rum Deal"
-                107 -> "Scorpion Catcher"
-                108 -> "Sea Slug"
-                109 -> "The Slug Menace"
-                110 -> "Shades of Mort'ton"
-                111 -> "Shadow of the Storm"
-                112 -> "Sheep Herder"
-                113 -> "Shilo Village"
-                114 -> "A Soul's Bane"
-                115 -> "Spirits of the Elid"
-                116 -> "Swan Song"
-                117 -> "Tai Bwo Wannai Trio"
-                118 -> "A Tail of Two Cats"
-                119 -> "Tears of Guthix"
-                120 -> "Temple of Ikov"
-                121 -> "Throne of Miscellania"
-                122 -> "The Tourist Trap"
-                123 -> "Witch's House"
-                124 -> "Tree Gnome Village"
-                125 -> "Tribal Totem"
-                126 -> "Troll Romance"
-                127 -> "Troll Stronghold"
-                128 -> "Underground Pass"
-                129 -> "Wanted!"
-                130 -> "Watchtower"
-                131 -> "Cold War"
-                132 -> "The Fremennik Isles"
-                133 -> "Tower of Life"
-                134 -> "The Great Brain Robbery"
-                135 -> "What Lies Below"
-                136 -> "Olaf's Quest"
-                137 -> "Another Slice of H.A.M"
-                138 -> "Dream Mentor"
-                139 -> "Grim Tales"
-                140 -> "King's Ransom"
-                141 -> "The Path of Glouphrie"
-                142 -> "Back to my Roots"
-                143 -> "Land of the Goblins"
-                144 -> "Dealing with Scabaras"
-                145 -> "Wolf Whistle"
-                146 -> "As a First Resort..."
-                147 -> "Catapult Construction"
-                148 -> "Kennith's Concerns"
-                149 -> "Legacy of Seergaze"
-                150 -> "Perils of Ice Mountain"
-                151 -> "TokTz-Ket-Dill"
-                152 -> "Smoking Kills"
-                153 -> "Rocking Out"
-                154 -> "Spirit of Summer"
-                155 -> "Meeting History"
-                156 -> "All Fired Up"
-                157 -> "Summer's End"
-                158 -> "Defender of Varrock"
-                159 -> "Swept Away"
-                160 -> "While Guthix Sleeps"
-                161 -> "In Pyre Need"
-                162 -> "Myths of the White Lands"
+                10 -> QuestName.MYTHS_OF_THE_WHITE_LANDS
+                11 -> QuestName.MYTHS_OF_THE_WHITE_LANDS
+                //"Free Quests"
+                13 -> QuestName.BLACK_KNIGHTS_FORTRESS
+                14 -> QuestName.COOKS_ASSISTANT
+                15 -> QuestName.DEMON_SLAYER
+                16 -> QuestName.DORICS_QUEST
+                17 -> QuestName.DRAGON_SLAYER
+                18 -> QuestName.ERNEST_THE_CHICKEN
+                19 -> QuestName.GOBLIN_DIPLOMACY
+                20 -> QuestName.IMP_CATCHER
+                21 -> QuestName.THE_KNIGHTS_SWORD
+                22 -> QuestName.PIRATES_TREASURE
+                23 -> QuestName.PRINCE_ALI_RESCUE
+                24 -> QuestName.THE_RESTLESS_GHOST
+                25 -> QuestName.ROMEO_JULIET
+                26 -> QuestName.RUNE_MYSTERIES
+                27 -> QuestName.SHEEP_SHEARER
+                28 -> QuestName.SHIELD_OF_ARRAV
+                29 -> QuestName.VAMPIRE_SLAYER
+                30 -> QuestName.WITCHS_POTION
+                //"Members' Quests"
+                32 -> QuestName.ANIMAL_MAGNETISM
+                33 -> QuestName.BETWEEN_A_ROCK
+                34 -> QuestName.BIG_CHOMPY_BIRD_HUNTING
+                35 -> QuestName.BIOHAZARD
+                36 -> QuestName.CABIN_FEVER
+                37 -> QuestName.CLOCK_TOWER
+                38 -> QuestName.CONTACT
+                39 -> QuestName.ZOGRE_FLESH_EATERS
+                40 -> QuestName.CREATURE_OF_FENKENSTRAIN
+                41 -> QuestName.DARKNESS_OF_HALLOWVALE
+                42 -> QuestName.DEATH_TO_THE_DORGESHUUN
+                43 -> QuestName.DEATH_PLATEAU
+                44 -> QuestName.DESERT_TREASURE
+                45 -> QuestName.DEVIOUS_MINDS
+                46 -> QuestName.THE_DIG_SITE
+                47 -> QuestName.DRUIDIC_RITUAL
+                48 -> QuestName.DWARF_CANNON
+                49 -> QuestName.EADGARS_RUSE
+                50 -> QuestName.EAGLES_PEAK
+                51 -> QuestName.ELEMENTAL_WORKSHOP_I
+                52 -> QuestName.ELEMENTAL_WORKSHOP_II
+                53 -> QuestName.ENAKHRAS_LAMENT
+                54 -> QuestName.ENLIGHTENED_JOURNEY
+                55 -> QuestName.THE_EYES_OF_GLOUPHRIE
+                56 -> QuestName.FAIRYTALE_I_GROWING_PAINS
+                57 -> QuestName.FAIRYTALE_II_CURE_A_QUEEN
+                58 -> QuestName.FAMILY_CREST
+                59 -> QuestName.THE_FEUD
+                60 -> QuestName.FIGHT_ARENA
+                61 -> QuestName.FISHING_CONTEST
+                62 -> QuestName.FORGETTABLE_TALE
+                63 -> QuestName.THE_FREMENNIK_TRIALS
+                64 -> QuestName.WATERFALL_QUEST
+                65 -> QuestName.GARDEN_OF_TRANQUILLITY
+                66 -> QuestName.GERTRUDES_CAT
+                67 -> QuestName.GHOSTS_AHOY
+                68 -> QuestName.THE_GIANT_DWARF
+                69 -> QuestName.THE_GOLEM
+                70 -> QuestName.THE_GRAND_TREE
+                71 -> QuestName.THE_HAND_IN_THE_SAND
+                72 -> QuestName.HAUNTED_MINE
+                73 -> QuestName.HAZEEL_CULT
+                74 -> QuestName.HEROES_QUEST
+                75 -> QuestName.HOLY_GRAIL
+                76 -> QuestName.HORROR_FROM_THE_DEEP
+                77 -> QuestName.ICTHLARINS_LITTLE_HELPER
+                78 -> QuestName.IN_AID_OF_THE_MYREQUE
+                79 -> QuestName.IN_SEARCH_OF_THE_MYREQUE
+                80 -> QuestName.JUNGLE_POTION
+                81 -> QuestName.LEGENDS_QUEST
+                82 -> QuestName.LOST_CITY
+                83 -> QuestName.THE_LOST_TRIBE
+                84 -> QuestName.LUNAR_DIPLOMACY
+                85 -> QuestName.MAKING_HISTORY
+                86 -> QuestName.MERLINS_CRYSTAL
+                87 -> QuestName.MONKEY_MADNESS
+                88 -> QuestName.MONKS_FRIEND
+                89 -> QuestName.MOUNTAIN_DAUGHTER
+                90 -> QuestName.MOURNINGS_END_PART_I
+                91 -> QuestName.MOURNINGS_END_PART_II
+                92 -> QuestName.MURDER_MYSTERY
+                93 -> QuestName.MY_ARMS_BIG_ADVENTURE
+                94 -> QuestName.NATURE_SPIRIT
+                95 -> QuestName.OBSERVATORY_QUEST
+                96 -> QuestName.ONE_SMALL_FAVOUR
+                97 -> QuestName.PLAGUE_CITY
+                98 -> QuestName.PRIEST_IN_PERIL
+                99 -> QuestName.RAG_AND_BONE_MAN
+                100 -> QuestName.RATCATCHERS
+                101 -> QuestName.RECIPE_FOR_DISASTER
+                102 -> QuestName.RECRUITMENT_DRIVE
+                103 -> QuestName.REGICIDE
+                104 -> QuestName.ROVING_ELVES
+                105 -> QuestName.ROYAL_TROUBLE
+                106 -> QuestName.RUM_DEAL
+                107 -> QuestName.SCORPION_CATCHER
+                108 -> QuestName.SEA_SLUG
+                109 -> QuestName.THE_SLUG_MENACE
+                110 -> QuestName.SHADES_OF_MORTTON
+                111 -> QuestName.SHADOW_OF_THE_STORM
+                112 -> QuestName.SHEEP_HERDER
+                113 -> QuestName.SHILO_VILLAGE
+                114 -> QuestName.A_SOULS_BANE
+                115 -> QuestName.SPIRITS_OF_THE_ELID
+                116 -> QuestName.SWAN_SONG
+                117 -> QuestName.TAI_BWO_WANNAI_TRIO
+                118 -> QuestName.A_TAIL_OF_TWO_CATS
+                119 -> QuestName.TEARS_OF_GUTHIX
+                120 -> QuestName.TEMPLE_OF_IKOV
+                121 -> QuestName.THRONE_OF_MISCELLANIA
+                122 -> QuestName.THE_TOURIST_TRAP
+                123 -> QuestName.WITCHS_HOUSE
+                124 -> QuestName.TREE_GNOME_VILLAGE
+                125 -> QuestName.TRIBAL_TOTEM
+                126 -> QuestName.TROLL_ROMANCE
+                127 -> QuestName.TROLL_STRONGHOLD
+                128 -> QuestName.UNDERGROUND_PASS
+                129 -> QuestName.WANTED
+                130 -> QuestName.WATCHTOWER
+                131 -> QuestName.COLD_WAR
+                132 -> QuestName.THE_FREMENNIK_ISLES
+                133 -> QuestName.TOWER_OF_LIFE
+                134 -> QuestName.THE_GREAT_BRAIN_ROBBERY
+                135 -> QuestName.WHAT_LIES_BELOW
+                136 -> QuestName.OLAFS_QUEST
+                137 -> QuestName.ANOTHER_SLICE_OF_HAM
+                138 -> QuestName.DREAM_MENTOR
+                139 -> QuestName.GRIM_TALES
+                140 -> QuestName.KINGS_RANSOM
+                141 -> QuestName.THE_PATH_OF_GLOUPHRIE
+                142 -> QuestName.BACK_TO_MY_ROOTS
+                143 -> QuestName.LAND_OF_THE_GOBLINS
+                144 -> QuestName.DEALING_WITH_SCABARAS
+                145 -> QuestName.WOLF_WHISTLE
+                146 -> QuestName.AS_A_FIRST_RESORT
+                147 -> QuestName.CATAPULT_CONSTRUCTION
+                148 -> QuestName.KENNITHS_CONCERNS
+                149 -> QuestName.LEGACY_OF_SEERGAZE
+                150 -> QuestName.PERILS_OF_ICE_MOUNTAIN
+                151 -> QuestName.TOKTZ_KET_DILL
+                152 -> QuestName.SMOKING_KILLS
+                153 -> QuestName.ROCKING_OUT
+                154 -> QuestName.SPIRIT_OF_SUMMER
+                155 -> QuestName.MEETING_HISTORY
+                156 -> QuestName.ALL_FIRED_UP
+                157 -> QuestName.SUMMERS_END
+                158 -> QuestName.DEFENDER_OF_VARROCK
+                159 -> QuestName.SWEPT_AWAY
+                160 -> QuestName.WHILE_GUTHIX_SLEEPS
+                161 -> QuestName.IN_PYRE_NEED
+                162 -> QuestName.MYTHS_OF_THE_WHITE_LANDS
                 else -> ""
             }
             return name
         }
     }
+
 }

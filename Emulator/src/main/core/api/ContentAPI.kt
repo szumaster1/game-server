@@ -2,7 +2,7 @@ package core.api
 
 import com.moandjiezana.toml.Toml
 import content.data.consumables.*
-import content.data.skill.SkillingTool
+import content.global.skill.gather.SkillingTool
 import content.global.handlers.iface.ge.StockMarket
 import content.global.skill.slayer.SlayerManager
 import content.global.skill.slayer.Tasks

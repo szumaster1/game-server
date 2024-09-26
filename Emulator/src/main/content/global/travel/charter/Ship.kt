@@ -4,15 +4,7 @@ import core.api.submitIndividualPulse
 import core.game.node.entity.player.Player
 import core.game.world.map.Location
 
-/**
- * Represents a ship to travel data.
- */
-enum class Ship(
-    @JvmField val location: Location,
-    val config: Int,
-    val delay: Int,
-    val destination: String
-) {
+enum class Ship(@JvmField val location: Location, val config: Int, val delay: Int, val destination: String) {
     PORT_SARIM_TO_ENTRANA(
         location = Location.create(2834, 3331, 1),
         config = 1,
@@ -113,7 +105,7 @@ enum class Ship(
     /**
      * Sail interaction.
      *
-     * @param player        the player who is initiating the sail action.
+     * @param player the player who is initiating the sail action.
      */
     fun sail(player: Player) {
         submitIndividualPulse(player, ShipPulse(player, this))
@@ -123,8 +115,8 @@ enum class Ship(
         /**
          * Sail with a specific ship.
          *
-         * @param player    the player who is initiating the sail action.
-         * @param ship      the ship that the player is sailing.
+         * @param player the player who is initiating the sail action.
+         * @param ship the ship that the player is sailing.
          */
         fun sail(player: Player, ship: Ship) {
             submitIndividualPulse(player, ShipPulse(player, ship))

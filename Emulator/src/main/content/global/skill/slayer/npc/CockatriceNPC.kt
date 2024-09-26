@@ -1,6 +1,6 @@
 package content.global.skill.slayer.npc
 
-import content.global.skill.slayer.MirrorShieldHandler
+import content.global.skill.slayer.equipment.MirrorShieldHandler
 import core.game.node.entity.combat.BattleState
 import core.game.node.entity.combat.CombatSwingHandler
 import core.game.node.entity.npc.AbstractNPC

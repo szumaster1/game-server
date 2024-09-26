@@ -1,7 +1,7 @@
 package content.global.skill.gather.mining
 
-import content.data.skill.SkillingTool
-import content.global.skill.skillcape.SkillcapePerks
+import content.global.skill.gather.SkillingTool
+import content.global.skill.skillcape.SkillcapePerksEffect
 import core.api.*
 import org.rs.consts.Items
 import core.cache.def.impl.ItemDefinition
@@ -351,7 +351,7 @@ class MiningPulse(private val player: Player, private val node: Node) : Pulse(1,
         val level = 1 + getDynLevel(player, Skills.MINING) + getFamiliarBoost(player, Skills.MINING)
         val hostRatio = Math.random() * (100.0 * resource!!.rate)
         var toolRatio = SkillingTool.getPickaxe(player)!!.ratio
-        if (SkillcapePerks.isActive(SkillcapePerks.PRECISION_MINER, player)) {
+        if (SkillcapePerksEffect.isActive(SkillcapePerksEffect.PRECISION_MINER, player)) {
             toolRatio += 0.075
         }
         val clientRatio = Math.random() * ((level - resource!!.level) * (1.0 + toolRatio))

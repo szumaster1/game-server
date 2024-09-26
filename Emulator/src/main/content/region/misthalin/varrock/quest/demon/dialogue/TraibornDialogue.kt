@@ -1,7 +1,7 @@
 package content.region.misthalin.varrock.quest.demon.dialogue
 
 import org.rs.consts.NPCs
-import content.region.misthalin.varrock.quest.demon.handlers.DSUtils
+import content.region.misthalin.varrock.quest.demon.handlers.DemonSlayerUtils
 import core.api.removeAttribute
 import core.api.setAttribute
 import core.game.dialogue.Dialogue
@@ -48,8 +48,8 @@ class TraibornDialogue(player: Player? = null) : Dialogue(player) {
         when (quest!!.getStage(player)) {
             20 -> when (stage) {
                 0 -> stage =
-                    if (player.inventory.containsItem(DSUtils.THIRD_KEY) && player.bank.containsItem(
-                            DSUtils.THIRD_KEY)) {
+                    if (player.inventory.containsItem(DemonSlayerUtils.THIRD_KEY) && player.bank.containsItem(
+                            DemonSlayerUtils.THIRD_KEY)) {
                         options("What's a thingummywut?", "Teach me to be a mighty powerful wizard.")
                         1
                     } else {
@@ -178,8 +178,8 @@ class TraibornDialogue(player: Player? = null) : Dialogue(player) {
                     }
                     if (player.inventory.remove(BONES[0]) || player.inventory.remove(BONES[1])) {
                         removeAttribute(player, "demon-slayer:traiborn")
-                        player.inventory.add(DSUtils.THIRD_KEY)
-                        interpreter.sendItemMessage(DSUtils.THIRD_KEY.id, "Traiborn hands you a key.")
+                        player.inventory.add(DemonSlayerUtils.THIRD_KEY)
+                        interpreter.sendItemMessage(DemonSlayerUtils.THIRD_KEY.id, "Traiborn hands you a key.")
                         stage = 387
                     }
                     Pulser.submit(object : Pulse(1) {

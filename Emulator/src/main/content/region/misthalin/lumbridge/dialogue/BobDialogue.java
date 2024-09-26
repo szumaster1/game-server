@@ -1,6 +1,6 @@
 package content.region.misthalin.lumbridge.dialogue;
 
-import content.data.item.RepairItem;
+import content.data.items.RepairItem;
 import content.global.skill.combat.equipment.BarrowsEquipmentRegister;
 import core.game.dialogue.Dialogue;
 import core.game.dialogue.FacialExpression;

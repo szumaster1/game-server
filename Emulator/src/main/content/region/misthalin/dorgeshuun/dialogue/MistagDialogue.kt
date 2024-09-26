@@ -1,10 +1,10 @@
 package content.region.misthalin.dorgeshuun.dialogue
 
 import content.region.misthalin.dorgeshuun.dorgeshkaan.quest.dttd.dialogue.MistagDialogueFile
-import content.region.misthalin.lumbridge.quest.lost_tribe.dialogue.MistagLostTribeDialogue
+import content.region.misthalin.lumbridge.quest.losttribe.dialogue.MistagLostTribeDialogue
 import org.rs.consts.Items
 import org.rs.consts.NPCs
-import content.region.misthalin.lumbridge.quest.lost_tribe.handlers.GoblinFollower
+import content.region.misthalin.lumbridge.quest.losttribe.handlers.GoblinFollower
 import core.api.getAttribute
 import core.api.getQuestStage
 import core.api.inInventory

@@ -3,8 +3,8 @@ package content.region.kandarin.ardougne.plaguecity.quest.elena.dialogue
 import core.api.*
 import org.rs.consts.Items
 import org.rs.consts.NPCs
-import content.region.kandarin.ardougne.plaguecity.quest.elena.handlers.PlagueCityListeners
-import content.region.kandarin.ardougne.plaguecity.quest.elena.cutscene.UndergroundCutscene
+import content.region.kandarin.ardougne.plaguecity.quest.elena.handlers.PlagueCityListener
+import content.region.kandarin.ardougne.plaguecity.quest.elena.handlers.UndergroundCutscene
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC
@@ -33,7 +33,7 @@ class EdmondDialogue(player: Player? = null) : Dialogue(player) {
     }
 
     override fun handle(componentID: Int, buttonID: Int): Boolean {
-        val bucketUses = getAttribute(player, PlagueCityListeners.BUCKET_USES_ATTRIBUTE, value)
+        val bucketUses = getAttribute(player, PlagueCityListener.BUCKET_USES_ATTRIBUTE, value)
         var hasAnScroll = hasAnItem(player, Items.A_MAGIC_SCROLL_1505).container != null
         when (getQuestStage(player!!, "Plague City")) {
             0 -> when (stage) {
@@ -91,7 +91,7 @@ class EdmondDialogue(player: Player? = null) : Dialogue(player) {
             }
 
             3 -> when (stage) {
-                1 -> if (getVarbit(player, PlagueCityListeners.MUD_PATCH_VARBIT) == 1) {
+                1 -> if (getVarbit(player, PlagueCityListener.MUD_PATCH_VARBIT) == 1) {
                     playerl(FacialExpression.NEUTRAL, "I've soaked the soil with water.").also { stage = 3 }
                 } else {
                     npcl(FacialExpression.FRIENDLY, "How's it going?").also { stage = 2 }

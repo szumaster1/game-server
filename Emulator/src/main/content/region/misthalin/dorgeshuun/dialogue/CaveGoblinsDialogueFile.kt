@@ -2,7 +2,7 @@ package content.region.misthalin.dorgeshuun.dialogue
 
 import org.rs.consts.Items
 import org.rs.consts.NPCs
-import content.data.LightSource
+import content.global.skill.firemaking.LightSource
 import core.api.addItemOrDrop
 import core.api.anyInInventory
 import core.api.isQuestComplete

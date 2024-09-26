@@ -1,7 +1,6 @@
 package content.global.ame.strangeplant
 
 import core.api.applyPoison
-import org.rs.consts.NPCs
 import core.game.node.entity.Entity
 import core.game.node.entity.combat.BattleState
 import core.game.node.entity.combat.CombatStyle
@@ -10,6 +9,7 @@ import core.game.node.entity.npc.NPCBehavior
 import core.game.node.entity.player.Player
 import core.game.system.timer.impl.AntiMacro
 import core.tools.RandomFunction
+import org.rs.consts.NPCs
 
 /**
  * Strange plant behavior.

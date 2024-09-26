@@ -1,8 +1,6 @@
 package content.region.desert.quest.desertrescue;
 
 import content.region.desert.quest.desertrescue.dialogue.*;
-import org.rs.consts.Items;
-import org.rs.consts.Vars;
 import core.game.component.Component;
 import core.game.container.impl.EquipmentContainer;
 import core.game.node.entity.player.Player;
@@ -13,8 +11,10 @@ import core.game.system.task.Pulse;
 import core.game.world.GameWorld;
 import core.game.world.map.Location;
 import core.game.world.map.zone.ZoneBorders;
-import core.plugin.PluginManager;
 import core.plugin.Initializable;
+import core.plugin.PluginManager;
+import org.rs.consts.Items;
+import org.rs.consts.Vars;
 
 import static core.api.ContentAPIKt.setVarp;
 

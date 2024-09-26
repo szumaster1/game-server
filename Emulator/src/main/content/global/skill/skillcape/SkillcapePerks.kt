@@ -1,324 +1,36 @@
 package content.global.skill.skillcape
 
-import content.global.skill.runecrafting.Altar
-import core.ServerStore
-import core.ServerStore.Companion.getBoolean
-import core.ServerStore.Companion.getInt
-import core.api.getAttribute
-import core.api.hasRequirement
-import core.api.sendDialogue
-import core.api.sendItemDialogue
-import core.cache.def.impl.ItemDefinition
-import core.game.component.Component
-import core.game.dialogue.Dialogue
-import core.game.node.entity.player.Player
-import core.game.node.entity.player.link.SpellBookManager
-import core.game.node.entity.player.link.TeleportManager
-import core.game.world.GameWorld
-import core.game.world.map.Location
-import core.game.world.map.zone.impl.DarkZone
-import core.plugin.Initializable
 import org.rs.consts.Items
 
 /**
- * Represents the skillcape perks.
+ * Handles the skillcape perks.
+ * @author Empathy
  */
-enum class SkillcapePerks(val attribute: String, val effect: ((Player) -> Unit)? = null) {
-    BAREFISTED_SMITHING("cape_perks:barefisted-smithing"),
-
-    DIVINE_FAVOR("cape_perks:divine-favor"),
-
-    CONSTANT_GLOW("cape_perks:eternal-glow"),
-
-    PRECISION_MINER("cape_perks:precision-miner"),
-
-    GREAT_AIM("cape_perks:great-aim"),
-
-    NEST_HUNTER("cape_perks:nest-hunter"),
-
-    PRECISION_STRIKES("cape_perks:precision-strikes"),
-
-    FINE_ATTUNEMENT("cape_perks:fine-attunement"),
-
-    GRAND_BULLWARK("cape_perks:grand-bullwark"),
-
-    ACCURATE_MARKSMAN("cape_perks:accurate-marksman"),
-
-    DAMAGE_SPONG("cape_perks:damage-sponge"),
-
-    MARATHON_RUNNER("cape_perks:marathon-runner"),
-
-    LIBRARIAN_MAGUS("cape_perks:librarian-magus", { player ->
-        val store = ServerStore.getArchive("daily-librarian-magus")
-        val used = store.getInt(player.name, 0)
-        if (used >= 3) {
-            player.dialogueInterpreter.sendDialogue("Your cape is still on cooldown.")
-        } else {
-            player.dialogueInterpreter.open(509871234)
-            store[player.name] = used + 1
-        }
-    }),
-
-    ABYSS_WARPING("cape_perks:abyss_warp", { player ->
-        val store = ServerStore.getArchive("daily-abyss-warp")
-        val used = store.getInt(player.name, 0)
-        if (used >= 3) {
-            player.dialogueInterpreter.sendDialogue("Your cape is still on cooldown.")
-        } else {
-            player.dialogueInterpreter.open(509871233)
-            store[player.name] = used + 1
-        }
-    }),
-
-    SEED_ATTRACTION("cape_perks:seed_attract", { player ->
-        val store = ServerStore.getArchive("daily-seed-attract")
-        if (store.getBoolean(player.name)) {
-            player.dialogueInterpreter.sendDialogue("Your cape is still on cooldown.")
-        } else {
-            val possibleSeeds = content.global.skill.farming.Plantable.values()
-            for (i in 0 until 10) {
-                var seed = possibleSeeds.random()
-                while (seed == content.global.skill.farming.Plantable.SCARECROW || seed.applicablePatch == content.global.skill.farming.PatchType.FRUIT_TREE_PATCH || seed.applicablePatch == content.global.skill.farming.PatchType.TREE_PATCH || seed.applicablePatch == content.global.skill.farming.PatchType.SPIRIT_TREE_PATCH) {
-                    seed = possibleSeeds.random()
-                }
-                val reward = core.game.node.item.Item(seed.itemID)
-                if (!player.inventory.add(reward)) {
-                    core.game.node.item.GroundItemManager.create(reward, player)
-                }
-            }
-            player.dialogueInterpreter.sendDialogue("You pluck off the seeds that were stuck to your cape.")
-            store[player.name] = true
-        }
-    }),
-
-    TRICKS_OF_THE_TRADE("cape_perks:tott", { player ->
-        val hasHelmetBonus = getAttribute(player, "cape_perks:tott:helmet-stored", false)
-        if (hasHelmetBonus) {
-            sendDialogue(player, "Your cape's pockets are lined with all the utilities you need for slayer.")
-        } else {
-            sendDialogue(
-                player, "Your cape is lined with empty pockets shaped like various utilities needed for slayer."
-            )
-        }
-    }),
-
-    HASTY_COOKING("cape_perks:hasty-cooking"),
-
-    SMOOTH_HANDS("cape_perks:smooth-hands"),
-
-    PET_MASTERY("cape_perks:pet-mastery"),
-
-    BREWMASTER(
-        "cape_perks:brewmaster"
-    ),
-
-    NONE("cape_perks:none");
-
-    companion object {
-        /**
-         * Checks if the perk is active.
-         *
-         * @param player    the player.
-         * @param perk      the perk we check.
-         */
-        @JvmStatic
-        fun isActive(perk: SkillcapePerks, player: Player): Boolean {
-            return player.getAttribute(perk.attribute, false)
-        }
-
-        /**
-         * Gets the perk for the skillcape.
-         */
-        fun forSkillcape(skillcape: Skillcape): SkillcapePerks {
-            return when (skillcape) {
-                Skillcape.ATTACK ->         PRECISION_STRIKES
-                Skillcape.STRENGTH ->       FINE_ATTUNEMENT
-                Skillcape.DEFENCE ->        GRAND_BULLWARK
-                Skillcape.RANGING ->        ACCURATE_MARKSMAN
-                Skillcape.PRAYER ->         DIVINE_FAVOR
-                Skillcape.MAGIC ->          LIBRARIAN_MAGUS
-                Skillcape.RUNECRAFTING ->   ABYSS_WARPING
-                Skillcape.HITPOINTS ->      DAMAGE_SPONG
-                Skillcape.AGILITY ->        MARATHON_RUNNER
-                Skillcape.HERBLORE ->       BREWMASTER
-                Skillcape.THIEVING ->       SMOOTH_HANDS
-                Skillcape.CRAFTING ->       NONE
-                Skillcape.FLETCHING ->      NONE
-                Skillcape.SLAYER ->         TRICKS_OF_THE_TRADE
-                Skillcape.CONSTRUCTION ->   NONE
-                Skillcape.MINING ->         PRECISION_MINER
-                Skillcape.SMITHING ->       BAREFISTED_SMITHING
-                Skillcape.FISHING ->        GREAT_AIM
-                Skillcape.COOKING ->        HASTY_COOKING
-                Skillcape.FIREMAKING ->     CONSTANT_GLOW
-                Skillcape.WOODCUTTING ->    NEST_HUNTER
-                Skillcape.FARMING ->        SEED_ATTRACTION
-                Skillcape.HUNTING ->        NONE
-                Skillcape.SUMMONING ->      PET_MASTERY
-                else -> NONE
-            }
-        }
-    }
-
-    fun activate(player: Player) {
-
-        if (GameWorld.settings?.skillcape_perks != true) {
-            return
-        }
-
-        if (!isActive(this, player)) {
-            player.setAttribute("/save:$attribute", true)
-        }
-        player.debug("Activated ${this.name}")
-        if (this == CONSTANT_GLOW) DarkZone.checkDarkArea(player)
-    }
-
-    fun operate(player: Player) {
-        if (GameWorld.settings?.skillcape_perks != true) {
-            player.sendMessage("This item can not be operated.")
-            return
-        }
-        effect?.invoke(player)
-    }
-
-    fun deactivate(player: Player) {
-        player.removeAttribute(attribute)
-        if (this == CONSTANT_GLOW) DarkZone.checkDarkArea(player)
-    }
-
-    @Initializable
-    class MagicCapeDialogue(player: Player? = null) : Dialogue(player) {
-
-        override fun newInstance(player: Player?): Dialogue {
-            return MagicCapeDialogue(player)
-        }
-
-        override fun open(vararg args: Any?): Boolean {
-            when (player.spellBookManager.spellBook) {
-                SpellBookManager.SpellBook.ANCIENT.interfaceId -> options("Modern", "Lunar")
-                SpellBookManager.SpellBook.MODERN.interfaceId -> options("Ancient", "Lunar")
-                SpellBookManager.SpellBook.LUNAR.interfaceId -> options("Modern", "Ancient")
-            }
-            return true
-        }
-
-        override fun handle(interfaceId: Int, buttonId: Int): Boolean {
-            val spellbook = when (player.spellBookManager.spellBook) {
-                SpellBookManager.SpellBook.ANCIENT.interfaceId -> {
-                    when (buttonId) {
-                        1 -> SpellBookManager.SpellBook.MODERN
-                        2 -> SpellBookManager.SpellBook.LUNAR
-                        else -> null
-                    }
-                }
-
-                SpellBookManager.SpellBook.MODERN.interfaceId -> {
-                    when (buttonId) {
-                        1 -> SpellBookManager.SpellBook.ANCIENT
-                        2 -> SpellBookManager.SpellBook.LUNAR
-                        else -> null
-                    }
-                }
-
-                SpellBookManager.SpellBook.LUNAR.interfaceId -> {
-                    when (buttonId) {
-                        1 -> SpellBookManager.SpellBook.MODERN
-                        2 -> SpellBookManager.SpellBook.ANCIENT
-                        else -> null
-                    }
-                }
-
-                else -> null
-            }
-
-            end()
-            if (spellbook != null) {
-                if (spellbook == SpellBookManager.SpellBook.ANCIENT) {
-                    if (!hasRequirement(player, "Desert Treasure")) return true
-                } else if (spellbook == SpellBookManager.SpellBook.LUNAR) {
-                    if (!hasRequirement(player, "Lunar Diplomacy")) return true
-                }
-                player.spellBookManager.setSpellBook(spellbook)
-                player.interfaceManager.openTab(Component(spellbook.interfaceId))
-                player.incrementAttribute("/save:cape_perks:librarian-magus-charges", -1)
-            }
-            return true
-        }
-
-        override fun getIds(): IntArray {
-            return intArrayOf(509871234)
-        }
-
-    }
-
-    @Initializable
-    class RCCapeDialogue(player: Player? = null) : Dialogue(player) {
-
-        override fun newInstance(player: Player?): Dialogue {
-            return RCCapeDialogue(player)
-        }
-
-        override fun open(vararg args: Any?): Boolean {
-            options("Air", "Mind", "Water", "Earth", "More...")
-            stage = 0
-            return true
-        }
-
-        override fun handle(interfaceId: Int, buttonId: Int): Boolean {
-            when (stage) {
-                0 -> when (buttonId) {
-                    1 -> sendAltar(player, Altar.AIR)
-                    2 -> sendAltar(player, Altar.MIND)
-                    3 -> sendAltar(player, Altar.WATER)
-                    4 -> sendAltar(player, Altar.EARTH)
-                    5 -> options("Fire", "Body", "Cosmic", "Chaos", "More...").also { stage++ }
-                }
-
-                1 -> when (buttonId) {
-                    1 -> sendAltar(player, Altar.FIRE)
-                    2 -> sendAltar(player, Altar.BODY)
-                    3 -> sendAltar(player, Altar.COSMIC)
-                    4 -> sendAltar(player, Altar.CHAOS)
-                    5 -> options("Astral", "Nature", "Law", "Death", "More...").also { stage++ }
-                }
-
-                2 -> when (buttonId) {
-                    1 -> sendAltar(player, Altar.ASTRAL)
-                    2 -> sendAltar(player, Altar.NATURE)
-                    3 -> sendAltar(player, Altar.LAW)
-                    4 -> sendAltar(player, Altar.DEATH)
-                    5 -> options("Blood", "Never mind.").also { stage++ }
-                }
-
-                3 -> when (buttonId) {
-                    1 -> sendAltar(player, Altar.BLOOD)
-                    2 -> end()
-                }
-            }
-            return true
-        }
-
-        fun sendAltar(player: Player, altar: Altar) {
-            end()
-            if (altar == Altar.DEATH && !hasRequirement(player, "Mourning's End Part II")) return
-            if (altar == Altar.ASTRAL && !hasRequirement(player, "Lunar Diplomacy")) return
-            if (altar == Altar.BLOOD && !hasRequirement(player, "Legacy of Seergaze")) return
-            if (altar == Altar.LAW && !ItemDefinition.canEnterEntrana(player)) {
-                sendItemDialogue(
-                    player, Items.SARADOMIN_SYMBOL_8055, "No weapons or armour are permitted on holy Entrana."
-                )
-                return
-            }
-
-            var endLoc = if (altar == Altar.ASTRAL) Location.create(2151, 3864, 0) else altar.ruin!!.end
-
-            player.teleporter.send(endLoc, TeleportManager.TeleportType.TELE_OTHER)
-            player.incrementAttribute("/save:cape_perks:abyssal_warp", -1)
-        }
-
-        override fun getIds(): IntArray {
-            return intArrayOf(509871233)
-        }
-
-    }
+enum class SkillcapePerks(
+    vararg val skillcapeIds: Int
+) {
+    ATTACK(Items.ATTACK_CAPE_9747, Items.ATTACK_CAPET_9748),
+    STRENGTH(Items.STRENGTH_CAPE_9750, Items.STRENGTH_CAPET_9751),
+    DEFENCE(Items.DEFENCE_CAPE_9753, Items.DEFENCE_CAPET_9754),
+    RANGING(Items.RANGING_CAPE_9756, Items.RANGING_CAPET_9757),
+    PRAYER(Items.PRAYER_CAPE_9759, Items.PRAYER_CAPET_9760),
+    MAGIC(Items.MAGIC_CAPE_9762, Items.MAGIC_CAPET_9763),
+    RUNECRAFTING(Items.RUNECRAFT_CAPE_9765, Items.RUNECRAFT_CAPET_9766),
+    HITPOINTS(Items.HITPOINTS_CAPE_9768, Items.HITPOINTS_CAPET_9769),
+    AGILITY(Items.AGILITY_CAPE_9771, Items.AGILITY_CAPET_9772),
+    HERBLORE(Items.HERBLORE_CAPE_9774, Items.HERBLORE_CAPET_9775),
+    THIEVEING(Items.THIEVING_CAPE_9777, Items.THIEVING_CAPET_9778),
+    CRAFTING(Items.CRAFTING_CAPE_9780, Items.CRAFTING_CAPET_9781),
+    FLETCHING(Items.FLETCHING_CAPE_9783, Items.FLETCHING_CAPET_9784),
+    SLAYER(Items.SLAYER_CAPE_9786, Items.SLAYER_CAPET_9787),
+    CONSTRUCTION(Items.CONSTRUCT_CAPE_9789, Items.CONSTRUCT_CAPET_9790),
+    MINING(Items.MINING_CAPE_9792, Items.MINING_CAPET_9793),
+    SMITHING(Items.SMITHING_CAPE_9795, Items.SMITHING_CAPET_9796),
+    FISHING(Items.FISHING_CAPE_9798, Items.FISHING_CAPET_9799),
+    COOKING(Items.COOKING_CAPE_9801, Items.COOKING_CAPET_9802),
+    FIREMAKING(Items.FIREMAKING_CAPE_9804, Items.FIREMAKING_CAPET_9805),
+    WOODCUTTING(Items.WOODCUTTING_CAPE_9807, Items.WOODCUT_CAPET_9808),
+    FARMING(Items.FARMING_CAPE_9810, Items.FARMING_CAPET_9811),
+    HUNTING(Items.HUNTER_CAPE_9948, Items.HUNTER_CAPET_9949),
+    SUMMONING(Items.SUMMONING_CAPE_12169, Items.SUMMONING_CAPET_12170)
 }

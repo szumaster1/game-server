@@ -1,13 +1,10 @@
 package content.region.misthalin.wizardstower.handlers.rcguild
 
 import org.rs.consts.Items
-import content.global.skill.runecrafting.Talisman
+import content.global.skill.runecrafting.items.Talisman
 import core.api.*
 import core.game.node.entity.player.Player
 
-/**
- * Utility object for Runecrafting Guild functionalities.
- */
 object RCGUtils {
 
     /*

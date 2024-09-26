@@ -1,6 +1,6 @@
 package content.region.misthalin.varrock.miniquest.abyss.dialogue
 
-import content.global.skill.runecrafting.PouchManager.RCPouch
+import content.global.skill.runecrafting.items.PouchManager.RCPouch
 import org.rs.consts.Items
 import org.rs.consts.NPCs
 import core.game.dialogue.Dialogue

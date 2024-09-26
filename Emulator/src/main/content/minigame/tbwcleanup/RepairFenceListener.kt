@@ -1,6 +1,6 @@
 package content.minigame.tbwcleanup
 
-import content.data.skill.SkillingTool
+import content.global.skill.gather.SkillingTool
 import core.api.*
 import org.rs.consts.Items
 import org.rs.consts.Sounds

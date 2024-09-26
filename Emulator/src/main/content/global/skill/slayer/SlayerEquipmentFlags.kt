@@ -1,6 +1,6 @@
 package content.global.skill.slayer
 
-import content.global.skill.skillcape.SkillcapePerks
+import content.global.skill.skillcape.SkillcapePerksEffect
 import core.api.EquipmentSlot
 import core.api.getAttribute
 import core.api.getItemFromEquipment
@@ -24,7 +24,7 @@ object SlayerEquipmentFlags {
     fun updateFlags(player: Player) {
         var flags = 0
 
-        if (SkillcapePerks.isActive(SkillcapePerks.TRICKS_OF_THE_TRADE, player) &&
+        if (SkillcapePerksEffect.isActive(SkillcapePerksEffect.TRICKS_OF_THE_TRADE, player) &&
             getAttribute(player, "cape_perks:tott:helmet-stored", false)) {
             flags = 0x3F
         }

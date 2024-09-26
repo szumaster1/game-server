@@ -1,12 +1,12 @@
 package content.global.ame.quizmaster
 
 import content.global.ame.RandomEventNPC
-import org.rs.consts.NPCs
 import core.api.lockInteractions
 import core.api.runTask
 import core.api.utils.WeightBasedTable
 import core.game.node.entity.npc.NPC
 import core.game.system.timer.impl.AntiMacro
+import org.rs.consts.NPCs
 
 /**
  * Quiz master NPC.

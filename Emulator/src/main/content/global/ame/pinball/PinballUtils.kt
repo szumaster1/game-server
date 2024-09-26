@@ -1,13 +1,13 @@
 package content.global.ame.pinball
 
 import core.api.*
-import org.rs.consts.NPCs
-import org.rs.consts.Sounds
 import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.game.node.scenery.Scenery
 import core.game.system.timer.impl.AntiMacro
 import core.game.world.map.Location
+import org.rs.consts.NPCs
+import org.rs.consts.Sounds
 
 /**
  * Pinball utils.

@@ -2,7 +2,7 @@ import content.data.consumables.Consumables
 import core.api.IfaceSettingsBuilder
 import core.api.splitLines
 import content.global.skill.slayer.SlayerManager
-import content.global.skill.slayer.SlayerMaster
+import content.global.skill.slayer.masters.SlayerMaster
 import content.global.skill.slayer.Tasks
 import org.rs.consts.Items
 import core.game.node.item.Item

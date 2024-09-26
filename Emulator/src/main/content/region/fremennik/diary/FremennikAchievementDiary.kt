@@ -1,7 +1,7 @@
 package content.region.fremennik.diary
 
 import content.global.travel.FairyRing
-import content.global.skill.cooking.DairyChurnDialogue
+import content.global.skill.cooking.type.dairy.DairyChurnDialogue
 import content.minigame.barbassault.dialogue.CaptainCainDialogue
 import org.rs.consts.Components
 import org.rs.consts.Items

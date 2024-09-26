@@ -9,9 +9,6 @@ import core.game.dialogue.FacialExpression
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 
-/**
- * Sheep herder gate listener.
- */
 class SheepHerderGateListener : InteractionListener {
 
     override fun defineListeners() {

@@ -2,7 +2,7 @@ package content.region.kandarin.quest.arena.dialogue
 
 import content.region.kandarin.quest.arena.cutscene.BouncerFightCutscene
 import content.region.kandarin.quest.arena.cutscene.PrisonCutscene
-import content.region.kandarin.quest.arena.handlers.FightArenaListeners.Companion.General
+import content.region.kandarin.quest.arena.handlers.FightArenaListener.Companion.General
 import core.api.*
 import org.rs.consts.Items
 import org.rs.consts.NPCs

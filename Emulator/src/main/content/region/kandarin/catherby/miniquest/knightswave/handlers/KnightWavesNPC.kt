@@ -41,7 +41,7 @@ class KnightWavesNPC : AbstractNPC {
         super.handleTickActions()
         player?.let {
             if (!it.isActive || !getLocalPlayers(this).contains(it)) {
-                it.removeAttribute(KWUtils.KW_SPAWN)
+                it.removeAttribute(KnightWavesUtils.KW_SPAWN)
                 clear()
             } else if (!properties.combatPulse.isAttacking) {
                 properties.combatPulse.attack(it)
@@ -124,7 +124,7 @@ class KnightWavesNPC : AbstractNPC {
             npc.lock()
             npc.pulseManager.clear()
             npc.walkingQueue.reset()
-            player?.setAttribute(KWUtils.KW_TIER, this.id)
+            player?.setAttribute(KnightWavesUtils.KW_TIER, this.id)
             Pulser.submit(object : Pulse(3, npc, player) {
                 private var counter = 0
 

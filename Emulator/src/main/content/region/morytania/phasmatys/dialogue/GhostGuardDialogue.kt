@@ -2,7 +2,7 @@ package content.region.morytania.phasmatys.dialogue
 
 import org.rs.consts.Items
 import org.rs.consts.NPCs
-import content.region.morytania.phasmatys.handlers.EnergyBarrier
+import content.region.morytania.phasmatys.handlers.EnergyBarrierUtils
 import core.api.*
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression
@@ -54,7 +54,7 @@ class GhostGuardDialogue(player: Player? = null) : Dialogue(player) {
             }
             3 -> {
                 end()
-                EnergyBarrier.passGateByTalk(player, npc)
+                EnergyBarrierUtils.passGateByTalk(player, npc)
             }
             4 -> npc("Sorry - it's Town Policy.").also { stage = END_DIALOGUE }
             5 -> npc("You need to go to the Temple and earn some.", "Talk to the disciples - they will tell you how.").also { stage = END_DIALOGUE }

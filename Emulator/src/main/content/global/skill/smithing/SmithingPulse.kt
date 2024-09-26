@@ -1,7 +1,7 @@
 package content.global.skill.smithing
 
-import content.global.skill.skillcape.SkillcapePerks
-import content.global.skill.skillcape.SkillcapePerks.Companion.isActive
+import content.global.skill.skillcape.SkillcapePerksEffect
+import content.global.skill.skillcape.SkillcapePerksEffect.Companion.isActive
 import core.api.*
 import core.cache.def.impl.ItemDefinition
 import core.game.event.ResourceProducedEvent
@@ -32,7 +32,7 @@ class SmithingPulse(player: Player?, item: Item?, private val bars: Bars, privat
             sendDialogue(player, "You don't have enough " + getItemName(bars.barType.bar).lowercase() + "s to make a " + bars.smithingType.name.replace("TYPE_", "").replace("_", " ").lowercase() + ".")
             return false
         }
-        if (!inInventory(player, Items.HAMMER_2347, 1) && !isActive(SkillcapePerks.BAREFISTED_SMITHING, player)) {
+        if (!inInventory(player, Items.HAMMER_2347, 1) && !isActive(SkillcapePerksEffect.BAREFISTED_SMITHING, player)) {
             sendDialogue(player, "You need a hammer to work the metal with.")
             return false
         }

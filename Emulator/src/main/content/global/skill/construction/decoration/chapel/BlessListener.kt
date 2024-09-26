@@ -33,6 +33,12 @@ class BlessListener : InteractionListener {
 
     companion object {
         val ingredientIDs = intArrayOf(Items.SPIRIT_SHIELD_13734, Items.HOLY_ELIXIR_13754)
-        val sceneryIDs = intArrayOf(Scenery.ALTAR_13185, Scenery.ALTAR_13188, Scenery.ALTAR_13191, Scenery.ALTAR_13194, Scenery.ALTAR_13197)
+        val sceneryIDs = intArrayOf(
+            Scenery.ALTAR_13185,
+            Scenery.ALTAR_13188,
+            Scenery.ALTAR_13191,
+            Scenery.ALTAR_13194,
+            Scenery.ALTAR_13197
+        )
     }
 }

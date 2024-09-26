@@ -1,13 +1,13 @@
 package content.global.ame.surpriseexam
 
 import core.api.closeInterface
-import org.rs.consts.Components
-import org.rs.consts.NPCs
 import core.api.getAttribute
 import core.api.openDialogue
 import core.api.sendMessage
 import core.game.interaction.InterfaceListener
 import core.game.node.entity.npc.NPC
+import org.rs.consts.Components
+import org.rs.consts.NPCs
 
 /**
  * Surprise exam interface.

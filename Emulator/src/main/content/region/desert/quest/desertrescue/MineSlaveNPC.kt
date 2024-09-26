@@ -1,10 +1,10 @@
 package content.region.desert.quest.desertrescue
 
-import org.rs.consts.NPCs
 import core.game.node.entity.npc.AbstractNPC
 import core.game.world.GameWorld.ticks
 import core.game.world.map.Location
 import core.tools.RandomFunction
+import org.rs.consts.NPCs
 
 /**
  * Mine slave NPC.

@@ -1,8 +1,6 @@
 package content.data.tables
 
 import core.api.*
-import org.rs.consts.Items
-import org.rs.consts.Sounds
 import core.game.node.entity.npc.drop.NPCDropTables
 import core.game.node.entity.player.Player
 import core.game.node.item.ChanceItem
@@ -10,6 +8,8 @@ import core.game.node.item.GroundItemManager
 import core.game.node.item.Item
 import core.tools.RandomFunction
 import core.tools.StringUtils
+import org.rs.consts.Items
+import org.rs.consts.Sounds
 
 /**
  * Represents a birds nest.

@@ -2,6 +2,7 @@ package content.region.asgarnia.taverley.quest.ball.handlers
 
 import org.rs.consts.Items
 import content.minigame.mta.TelekineticGrabSpell
+import content.region.asgarnia.taverley.quest.ball.handlers.npc.WitchExperimentNPC
 import core.api.setAttribute
 import core.game.interaction.MovementPulse
 import core.game.interaction.Option

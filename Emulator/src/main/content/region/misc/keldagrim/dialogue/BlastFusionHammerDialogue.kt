@@ -1,12 +1,12 @@
 package content.region.misc.keldagrim.dialogue
 
-import org.rs.consts.Items
-import org.rs.consts.NPCs
 import core.api.*
 import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC
 import core.tools.END_DIALOGUE
+import org.rs.consts.Items
+import org.rs.consts.NPCs
 
 /**
  * Represents the Blast fusion hammer dialogue.

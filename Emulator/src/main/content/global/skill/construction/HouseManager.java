@@ -262,7 +262,7 @@ public final class HouseManager {
             public boolean pulse() {
                 spawnServant();
                 if (servant.isGreet()) {
-                    player.getDialogueInterpreter().sendDialogues(servant.getType().getId(), servant.getType().getId() == 4243 ? FacialExpression.OLD_DEFAULT : FacialExpression.HALF_GUILTY, DARK_BLUE + "Welcome.");
+                    player.getDialogueInterpreter().sendDialogues(servant.getType().getNpcId(), servant.getType().getNpcId() == 4243 ? FacialExpression.OLD_DEFAULT : FacialExpression.HALF_GUILTY, DARK_BLUE + "Welcome.");
                 }
                 return true;
             }

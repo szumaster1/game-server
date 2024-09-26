@@ -1,9 +1,9 @@
 package content.global.ame.mime
 
 import core.api.*
-import org.rs.consts.Components
 import core.game.interaction.InterfaceListener
 import core.game.node.entity.player.link.emote.Emotes
+import org.rs.consts.Components
 
 /**
  * Mime interface.

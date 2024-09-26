@@ -1,13 +1,13 @@
 package content.global.ame.lostpirate
 
 import content.global.ame.RandomEventNPC
-import org.rs.consts.NPCs
 import core.api.getWorldTicks
 import core.api.openDialogue
 import core.api.utils.WeightBasedTable
 import core.game.node.entity.Entity
 import core.game.node.entity.npc.NPC
 import core.game.system.timer.impl.AntiMacro
+import org.rs.consts.NPCs
 
 /**
  * Capn hand NPC.

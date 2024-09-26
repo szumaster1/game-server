@@ -1,6 +1,5 @@
 package content.region.misc.tutorial.dialogue
 
-import org.rs.consts.NPCs
 import content.region.misc.tutorial.handlers.TutorialStage
 import core.api.sendDialogueOptions
 import core.api.setAttribute
@@ -11,6 +10,7 @@ import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC
 import core.game.world.map.Location
 import core.tools.END_DIALOGUE
+import org.rs.consts.NPCs
 
 /**
  * Represents the Skippy dialogue on tutorial island.

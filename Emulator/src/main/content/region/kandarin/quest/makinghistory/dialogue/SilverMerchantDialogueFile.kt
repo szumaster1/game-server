@@ -1,6 +1,6 @@
 package content.region.kandarin.quest.makinghistory.dialogue
 
-import content.region.kandarin.quest.makinghistory.handlers.MHUtils
+import content.region.kandarin.quest.makinghistory.handlers.MakingHistoryUtils
 import core.api.*
 import org.rs.consts.Items
 import org.rs.consts.NPCs
@@ -31,7 +31,7 @@ class SilverMerchantDialogueFile(override var stage: Int) : DialogueFile() {
             12 -> {
                 end()
                 addItemOrDrop(player!!, Items.ENCHANTED_KEY_6754, 1)
-                setVarbit(player!!, MHUtils.ERIN_PROGRESS, 1, true)
+                setVarbit(player!!, MakingHistoryUtils.ERIN_PROGRESS, 1, true)
                 setQuestStage(player!!, "Making History", 2)
             }
 

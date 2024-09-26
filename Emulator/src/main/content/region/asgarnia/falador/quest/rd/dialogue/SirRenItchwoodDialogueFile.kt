@@ -1,7 +1,7 @@
 package content.region.asgarnia.falador.quest.rd.dialogue
 
 import content.region.asgarnia.falador.quest.rd.RecruitmentDrive
-import content.region.asgarnia.falador.quest.rd.handlers.RecruitmentDriveListeners
+import content.region.asgarnia.falador.quest.rd.handlers.RecruitmentDriveListener
 import core.api.getAttribute
 import core.api.lock
 import core.api.removeAttribute
@@ -162,7 +162,7 @@ class SirRenItchwoodDialogueFile(private val dialogueNum: Int = 0) : DialogueBui
                 removeAttribute(player, ATTRIBUTE_CLUE)
                 setAttribute(player, RecruitmentDrive.stagePass, false)
                 setAttribute(player, RecruitmentDrive.stageFail, false)
-                RecruitmentDriveListeners.FailTestCutscene(player).start()
+                RecruitmentDriveListener.FailTestCutscene(player).start()
             }
 
     }

@@ -2,13 +2,13 @@ package content.region.misc.tutorial.dialogue
 
 import content.region.misc.tutorial.handlers.TutorialStage
 import core.api.*
-import org.rs.consts.Items
-import org.rs.consts.NPCs
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
+import org.rs.consts.Items
+import org.rs.consts.NPCs
 
 /**
  * Represents the Combat Instructor dialogue.

@@ -1,6 +1,5 @@
 package content.region.asgarnia.portsarim.dialogue
 
-import content.region.asgarnia.burthope.quest.hero.HeroesQuest
 import core.api.*
 import org.rs.consts.Items
 import org.rs.consts.NPCs
@@ -12,6 +11,7 @@ import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
+import org.rs.consts.QuestName
 
 /**
  * Represents the Gerrant dialogue.
@@ -67,7 +67,7 @@ class GerrantDialogueFile : DialogueBuilderFile() {
                 optionBuilder.option_playerl("Sorry, I'm not interested.")
                     .end()
 
-                optionBuilder.optionIf("I want to find out how to catch a lava eel.") { player -> return@optionIf getQuestStage(player, HeroesQuest.questName) >= 1 }
+                optionBuilder.optionIf("I want to find out how to catch a lava eel.") { player -> return@optionIf getQuestStage(player, QuestName.HEROES_QUEST) >= 1 }
                     .playerl("I want to find out how to catch a lava eel.")
                     .npcl("Lava eels, eh? That's a tricky one, that is. You'll need a lava-proof fishing rod. The method for making this would be to take an ordinary fishing rod, and then cover it with fire-proof blamish oil.")
                     .branch { player ->

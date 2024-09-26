@@ -1,9 +1,6 @@
 package content.region.misc.tutorial.handlers
 
 import core.api.*
-import org.rs.consts.Components
-import org.rs.consts.Items
-import org.rs.consts.NPCs
 import core.game.component.Component
 import core.game.node.Node
 import core.game.node.entity.combat.equipment.WeaponInterface
@@ -18,10 +15,10 @@ import core.net.packet.PacketRepository
 import core.net.packet.context.MinimapStateContext
 import core.net.packet.outgoing.MinimapState
 import core.tools.BLUE
+import org.rs.consts.Components
+import org.rs.consts.Items
+import org.rs.consts.NPCs
 
-/**
- * Tutorial stage.
- */
 object TutorialStage {
 
     fun load(player: Player, stage: Int, login: Boolean = false) {

@@ -1,6 +1,6 @@
 package content.region.kandarin.seersvillage.quest.elemental_workshop.handlers
 
-import content.data.skill.SkillingTool
+import content.global.skill.gather.SkillingTool
 import org.rs.consts.NPCs
 import core.api.getTool
 import core.api.sendDialogue

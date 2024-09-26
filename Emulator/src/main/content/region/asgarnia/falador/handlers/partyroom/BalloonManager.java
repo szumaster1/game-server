@@ -23,16 +23,10 @@ import java.util.List;
 
 import static core.api.ContentAPIKt.setVarp;
 
-/**
- * Represents the The Balloon manager handler.
- */
 public final class BalloonManager extends OptionHandler {
     private static final List<Scenery> balloons = new ArrayList<>(20);
     private int countdown;
 
-    /**
-     * Instantiates a new Balloon manager.
-     */
     public BalloonManager() {
     }
 
@@ -72,7 +66,7 @@ public final class BalloonManager extends OptionHandler {
             @Override
             public boolean pulse() {
                 int realCount = --countdown - GameWorld.getTicks();
-                for (ChestViewer viewer : PartyRoomOptions.getViewers().values()) {
+                for (ChestViewer viewer : PartyRoomOptionHandler.getViewers().values()) {
                     setVarp(viewer.getPlayer(), 1135, realCount);
                 }
                 if (--realCount - GameWorld.getTicks() <= 0) {
@@ -88,9 +82,9 @@ public final class BalloonManager extends OptionHandler {
     private void drop() {
         countdown = 0;
         balloons.clear();
-        PartyRoomOptions.partyChest.addAll(PartyRoomOptions.chestQueue);
-        PartyRoomOptions.chestQueue.clear();
-        PartyRoomOptions.update();
+        PartyRoomOptionHandler.partyChest.addAll(PartyRoomOptionHandler.chestQueue);
+        PartyRoomOptionHandler.chestQueue.clear();
+        PartyRoomOptionHandler.update();
         GameWorld.getPulser().submit(new Pulse(1) {
             int waves;
 
@@ -158,7 +152,7 @@ public final class BalloonManager extends OptionHandler {
      * @return the wealth
      */
     public int getWealth() {
-        return PartyRoomOptions.chestQueue.getWealth() + PartyRoomOptions.partyChest.getWealth();
+        return PartyRoomOptionHandler.chestQueue.getWealth() + PartyRoomOptionHandler.partyChest.getWealth();
     }
 
     /**
@@ -245,8 +239,8 @@ public final class BalloonManager extends OptionHandler {
                                 GroundItem ground = getGround(object.getLocation(), player);
                                 if (ground != null) {
                                     GroundItemManager.create(ground);
-                                    PartyRoomOptions.partyChest.shift();
-                                    PartyRoomOptions.update();
+                                    PartyRoomOptionHandler.partyChest.shift();
+                                    PartyRoomOptionHandler.update();
                                 }
                             }
                             return true;
@@ -257,18 +251,18 @@ public final class BalloonManager extends OptionHandler {
         }
 
         private GroundItem getGround(Location location, Player player) {
-            final Item item = PartyRoomOptions.partyChest.toArray()[RandomFunction.random(PartyRoomOptions.partyChest.itemCount())];
+            final Item item = PartyRoomOptionHandler.partyChest.toArray()[RandomFunction.random(PartyRoomOptionHandler.partyChest.itemCount())];
             if (item == null) {
                 return null;
             }
-            if (PartyRoomOptions.partyChest.remove(item)) {
+            if (PartyRoomOptionHandler.partyChest.remove(item)) {
                 final Item dropItem;
                 int newamt;
                 if (item.getAmount() > 1) {
                     newamt = RandomFunction.random(1, item.getAmount());
                     if (item.getAmount() - newamt > 0) {
                         Item newItem = new Item(item.getId(), item.getAmount() - newamt);
-                        PartyRoomOptions.partyChest.add(newItem);
+                        PartyRoomOptionHandler.partyChest.add(newItem);
                     }
                     dropItem = new Item(item.getId(), newamt);
                 } else {

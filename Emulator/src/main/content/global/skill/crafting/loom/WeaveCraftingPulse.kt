@@ -9,16 +9,16 @@ import core.game.world.map.Location
 import core.tools.StringUtils
 import org.rs.consts.Animations
 
-class WeaveCraftingPulse(player: Player?, node: core.game.node.scenery.Scenery?, private val type: WeavingItem, private var amount: Int) : SkillPulse<core.game.node.scenery.Scenery?>(player, node) {
+class WeaveCraftingPulse(player: Player?, node: core.game.node.scenery.Scenery?, private val type: Weaving, private var amount: Int) : SkillPulse<core.game.node.scenery.Scenery?>(player, node) {
 
     private var ticks = 0
     override fun checkRequirements(): Boolean {
         if (getStatLevel(player, Skills.CRAFTING) < type.level) {
-            sendMessage(player, "You need a Crafting level of at least " + type.level + " in order to do this.")
+            sendMessage(player, "You need a crafting level of at least " + type.level + " in order to do this.")
             return false
         }
         if (!inInventory(player, type.required.id)) {
-            sendMessage(player, "You need " + type.required.amount + " " + type.required.name.lowercase().replace("ball", "balls") + (if (type == WeavingItem.SACK) "s" else if (type == WeavingItem.CLOTH) "" else "es") + " to weave " + (if (StringUtils.isPlusN(type.product.name.lowercase())) "an" else "a") + " " + type.product.name.lowercase() + ".")
+            sendMessage(player, "You need " + type.required.amount + " " + type.required.name.lowercase().replace("ball", "balls") + (if (type == Weaving.SACK) "s" else if (type == Weaving.CLOTH) "" else "es") + " to weave " + (if (StringUtils.isPlusN(type.product.name.lowercase())) "an" else "a") + " " + type.product.name.lowercase() + ".")
             return false
         }
         return true
@@ -39,10 +39,10 @@ class WeaveCraftingPulse(player: Player?, node: core.game.node.scenery.Scenery?,
             rewardXP(player, Skills.CRAFTING, type.experience)
             sendMessage(player, "You weave the "
                         + type.required.name.lowercase().replace("ball", "balls")
-                        + (if (type == WeavingItem.SACK) "s" else if (type == WeavingItem.CLOTH) "" else "es")
+                        + (if (type == Weaving.SACK) "s" else if (type == Weaving.CLOTH) "" else "es")
                         + " into " + (if (StringUtils.isPlusN(type.product.name.lowercase())) "an" else "a")
                         + " " + type.product.name.lowercase() + ".")
-            if (type == WeavingItem.BASKET && node?.id == 8717 && withinDistance(player, Location(3039, 3287, 0)) && !hasDiaryTaskComplete(player, DiaryType.FALADOR, 1, 0)) {
+            if (type == Weaving.BASKET && node?.id == 8717 && withinDistance(player, Location(3039, 3287, 0)) && !hasDiaryTaskComplete(player, DiaryType.FALADOR, 1, 0)) {
                 finishDiaryTask(player, DiaryType.FALADOR, 1, 0)
             }
         }

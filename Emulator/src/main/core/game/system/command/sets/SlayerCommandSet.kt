@@ -2,7 +2,7 @@ package core.game.system.command.sets
 
 import content.global.skill.slayer.SlayerManager
 import content.global.skill.slayer.SlayerUtils
-import content.global.skill.slayer.SlayerMaster
+import content.global.skill.slayer.masters.SlayerMaster
 import content.global.skill.slayer.Tasks
 import core.api.setVarp
 import core.game.node.entity.npc.NPC

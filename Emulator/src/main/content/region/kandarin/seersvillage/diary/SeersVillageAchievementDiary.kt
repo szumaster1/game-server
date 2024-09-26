@@ -16,7 +16,7 @@ import core.game.world.map.zone.ZoneBorders
 import org.rs.consts.Items
 import org.rs.consts.NPCs
 import org.rs.consts.Scenery
-import content.global.handlers.item.withnpc.PoisonChalice
+import content.global.handlers.item.withnpc.PoisonChaliceListener
 import core.api.hasLevelDyn
 import core.api.isQuestComplete
 import core.game.node.entity.player.link.SpellBookManager
@@ -269,7 +269,7 @@ class SeersVillageAchievementDiary : DiaryEventHookBase(DiaryType.SEERS_VILLAGE)
 
     override fun onDialogueOptionSelected(player: Player, event: DialogueOptionSelectionEvent) {
         when (event.dialogue) {
-            is PoisonChalice.PoisonChaliceOnKingArthurDialogue -> {
+            is PoisonChaliceListener.PoisonChaliceOnKingArthurDialogue -> {
                 if (event.currentStage == 4) {
                     finishTask(
                         player,

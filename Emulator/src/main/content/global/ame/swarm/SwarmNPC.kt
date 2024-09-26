@@ -1,13 +1,13 @@
 package content.global.ame.swarm
 
 import content.global.ame.RandomEventNPC
-import org.rs.consts.NPCs
-import org.rs.consts.Sounds
 import core.api.playGlobalAudio
 import core.api.utils.WeightBasedTable
 import core.api.withinDistance
 import core.game.node.entity.npc.NPC
 import core.tools.minutesToTicks
+import org.rs.consts.NPCs
+import org.rs.consts.Sounds
 
 /**
  * Swarm NPC.

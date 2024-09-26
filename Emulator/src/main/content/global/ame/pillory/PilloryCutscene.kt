@@ -1,13 +1,13 @@
 package content.global.ame.pillory
 
-import org.rs.consts.Components
-import org.rs.consts.NPCs
 import core.api.location
 import core.api.openInterface
 import core.api.sendChat
 import core.api.teleport
 import core.game.activity.Cutscene
 import core.game.node.entity.player.Player
+import org.rs.consts.Components
+import org.rs.consts.NPCs
 
 /**
  * Pillory cutscene.

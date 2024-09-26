@@ -254,7 +254,7 @@ class GuildmasterDSDialogue(player: Player? = null) : Dialogue(player) {
 
                 112 -> {
                     npc(
-                        "Then, of course, you'll need to find a captain willy to",
+                        "Then, of course, you'll need to find a captain willing to",
                         "sail to Crandor, and I'm not sure where you'd find one",
                         "of them!"
                     )

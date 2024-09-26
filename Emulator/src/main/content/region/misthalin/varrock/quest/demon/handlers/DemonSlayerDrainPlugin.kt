@@ -34,10 +34,10 @@ class DemonSlayerDrainPlugin: UseWithHandler(1929) {
             if (player.getAttribute("demon-slayer:just-poured", false)) {
                 return true
             }
-            if (!player.hasItem(DSUtils.FIRST_KEY)) {
+            if (!player.hasItem(DemonSlayerUtils.FIRST_KEY)) {
                 player.getSavedData().questData.demonSlayer[0] = false
             }
-            if (quest.getStage(player) == 20 && !player.hasItem(DSUtils.FIRST_KEY) && !player.getSavedData().questData.demonSlayer[0]) {
+            if (quest.getStage(player) == 20 && !player.hasItem(DemonSlayerUtils.FIRST_KEY) && !player.getSavedData().questData.demonSlayer[0]) {
                 player.dialogueInterpreter.sendDialogues(player, null, "OK, I think I've washed the key down into the sewer.", "I'd better go down and get it!")
                 player.getSavedData().questData.demonSlayer[0] = true // poured
                 setVarp(player, 222, 2660610, true)

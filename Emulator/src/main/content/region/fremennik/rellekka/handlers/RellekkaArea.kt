@@ -14,9 +14,6 @@ import core.plugin.Initializable
 import core.plugin.Plugin
 import java.util.*
 
-/**
- * Represents the Rellekka zone.
- */
 @Initializable
 class RellekkaArea : MapZone("rellekka", true), Plugin<Any> {
 

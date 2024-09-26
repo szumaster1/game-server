@@ -34,7 +34,7 @@ class MerlinNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id, locat
     override fun handleTickActions() {
         super.handleTickActions()
         if (cleanTime++ > 300)
-            removeAttributes(player!!, KWUtils.KW_TIER, KWUtils.KW_BEGIN)
+            removeAttributes(player!!, KnightWavesUtils.KW_TIER, KnightWavesUtils.KW_BEGIN)
             poofClear(this)
     }
 

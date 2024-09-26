@@ -9,9 +9,6 @@ import core.game.world.map.zone.MapZone
 import core.game.world.map.zone.ZoneBorders
 import core.plugin.Initializable
 
-/**
- * Player safety zone.
- */
 @Initializable
 class PlayerSafetyArea : MapZone("player-safety", true) {
 

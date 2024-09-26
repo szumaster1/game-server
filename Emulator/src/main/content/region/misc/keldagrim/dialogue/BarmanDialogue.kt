@@ -2,8 +2,6 @@ package content.region.misc.keldagrim.dialogue
 
 import core.api.addItemOrDrop
 import core.api.amountInInventory
-import org.rs.consts.Items
-import org.rs.consts.NPCs
 import core.api.removeItem
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression
@@ -11,6 +9,8 @@ import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.game.node.item.Item
 import core.plugin.Initializable
+import org.rs.consts.Items
+import org.rs.consts.NPCs
 
 /**
  * Represents the Barman dialogue.

@@ -1,7 +1,7 @@
 package content.region.misthalin.varrock.quest.surok.handlers
 
 import org.rs.consts.Sounds
-import content.global.skill.runecrafting.Altar
+import content.global.skill.runecrafting.altars.Altar
 import core.api.*
 import core.game.interaction.NodeUsageEvent
 import core.game.interaction.UseWithHandler
@@ -15,7 +15,7 @@ import core.plugin.Plugin
  * @author Vexia
  */
 @Initializable
-class MetalWandHandler : UseWithHandler(WhatLiesBelowListeners.WAND) {
+class MetalWandHandler : UseWithHandler(WhatLiesBelowListener.WAND) {
     @Throws(Throwable::class)
     override fun newInstance(arg: Any?): Plugin<Any> {
         addHandler(Altar.CHAOS.scenery, OBJECT_TYPE, this)
@@ -24,19 +24,19 @@ class MetalWandHandler : UseWithHandler(WhatLiesBelowListeners.WAND) {
 
     override fun handle(event: NodeUsageEvent): Boolean {
         val player = event.player
-        if (!inInventory(player, WhatLiesBelowListeners.CHAOS_RUNES, 15)) {
+        if (!inInventory(player, WhatLiesBelowListener.CHAOS_RUNES, 15)) {
             player.sendMessage("You need 15 chaos runes.")
             return true
         }
 
-        val chaosItem = if (inInventory(player, WhatLiesBelowListeners.CHAOS_TALISMAN)
-        ) WhatLiesBelowListeners.CHAOS_TALISMAN else WhatLiesBelowListeners.CHAOS_TIARA
+        val chaosItem = if (inInventory(player, WhatLiesBelowListener.CHAOS_TALISMAN)
+        ) WhatLiesBelowListener.CHAOS_TALISMAN else WhatLiesBelowListener.CHAOS_TIARA
         if (getStatLevel(player, Skills.RUNECRAFTING) >= 35) {
-            if (chaosItem != null && removeItem(player, Item(WhatLiesBelowListeners.CHAOS_RUNES, 15))) {
+            if (chaosItem != null && removeItem(player, Item(WhatLiesBelowListener.CHAOS_RUNES, 15))) {
                 lock(player, 5)
                 playAudio(player, Sounds.SUROK_BINDWAND_3524)
-                removeItem(player, WhatLiesBelowListeners.WAND)
-                addItem(player, WhatLiesBelowListeners.INFUSED_WAND)
+                removeItem(player, WhatLiesBelowListener.WAND)
+                addItem(player, WhatLiesBelowListener.INFUSED_WAND)
                 animate(player, 6104)
                 sendDialogueLines(
                     player,

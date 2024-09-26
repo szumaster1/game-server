@@ -1,11 +1,11 @@
 package content.global.ame.evilbob
 
 import core.api.closeInterface
-import org.rs.consts.Components
 import core.api.openInterface
 import core.api.setAttribute
 import core.game.activity.Cutscene
 import core.game.node.entity.player.Player
+import org.rs.consts.Components
 
 /**
  * Servant cutscene.

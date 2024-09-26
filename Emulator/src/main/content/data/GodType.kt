@@ -1,10 +1,6 @@
 package content.data
 
 import core.api.*
-import org.rs.consts.Animations
-import org.rs.consts.Graphics
-import org.rs.consts.Items
-import org.rs.consts.NPCs
 import core.game.dialogue.DialogueAction
 import core.game.node.entity.player.Player
 import core.game.node.item.GroundItemManager
@@ -14,6 +10,10 @@ import core.game.system.task.Pulse
 import core.game.world.GameWorld
 import core.game.world.update.flag.context.Graphic
 import core.tools.StringUtils
+import org.rs.consts.Animations
+import org.rs.consts.Graphics
+import org.rs.consts.Items
+import org.rs.consts.NPCs
 import org.rs.consts.Scenery as Sceneries
 
 /**

@@ -1,7 +1,6 @@
 package content.region.misthalin.varrock.quest.dragon
 
-import content.global.skill.agility.AgilityHandler
-import content.region.misthalin.varrock.quest.dragon.cutscene.DragonSlayerCutscene
+import content.region.misthalin.varrock.quest.dragon.handlers.DragonSlayerCutscene
 import content.region.misthalin.varrock.quest.dragon.dialogue.DSChestDialogue
 import content.region.misthalin.varrock.quest.dragon.dialogue.GuildmasterDSDialogue
 import content.region.misthalin.varrock.quest.dragon.dialogue.OziachDSDialogue
@@ -13,6 +12,7 @@ import org.rs.consts.Sounds
 import org.rs.consts.Vars
 import content.region.misthalin.lumbridge.dialogue.DukeHoracioDialogue
 import content.region.misthalin.varrock.quest.dragon.handlers.*
+import content.region.misthalin.varrock.quest.dragon.handlers.npc.*
 import core.game.component.Component
 import core.game.event.EventHook
 import core.game.event.PickUpEvent

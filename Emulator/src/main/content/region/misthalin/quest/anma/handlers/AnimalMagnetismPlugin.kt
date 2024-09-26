@@ -1,6 +1,6 @@
 package content.region.misthalin.quest.anma.handlers
 
-import content.data.skill.SkillingTool.Companion.getHatchet
+import content.global.skill.gather.SkillingTool.Companion.getHatchet
 import core.api.*
 import org.rs.consts.*
 import content.region.misthalin.quest.anma.AnimalMagnetism

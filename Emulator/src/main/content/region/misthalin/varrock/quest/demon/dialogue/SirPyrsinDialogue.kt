@@ -1,7 +1,7 @@
 package content.region.misthalin.varrock.quest.demon.dialogue
 
 import org.rs.consts.NPCs
-import content.region.misthalin.varrock.quest.demon.handlers.DSUtils
+import content.region.misthalin.varrock.quest.demon.handlers.DemonSlayerUtils
 import core.api.*
 import core.game.dialogue.Dialogue
 import core.game.node.entity.npc.NPC
@@ -55,7 +55,7 @@ class SirPyrsinDialogue(player: Player? = null) : Dialogue(player) {
     override fun handle(interfaceId: Int, buttonId: Int): Boolean {
         when (quest!!.getStage(player)) {
             30 -> when (stage) {
-                0 -> if (!inInventory(player, DSUtils.SILVERLIGHT.id) && !inBank(player, DSUtils.SILVERLIGHT.id) && !inEquipment(player, DSUtils.SILVERLIGHT.id)) {
+                0 -> if (!inInventory(player, DemonSlayerUtils.SILVERLIGHT.id) && !inBank(player, DemonSlayerUtils.SILVERLIGHT.id) && !inEquipment(player, DemonSlayerUtils.SILVERLIGHT.id)) {
                     player("Not yet. And I, um, lost Silverlight.")
                     stage = 1
                 } else {
@@ -63,7 +63,7 @@ class SirPyrsinDialogue(player: Player? = null) : Dialogue(player) {
                     stage = 3
                 }
 
-                1 -> if (player.inventory.add(DSUtils.SILVERLIGHT)) {
+                1 -> if (player.inventory.add(DemonSlayerUtils.SILVERLIGHT)) {
                     npc(id, "Yes, I know, someone returned it to me. Take better", "care of it this time.")
                     stage = 2
                 }
@@ -80,7 +80,7 @@ class SirPyrsinDialogue(player: Player? = null) : Dialogue(player) {
 
             20 -> when (stage) {
                 0 -> {
-                    if (inInventory(player, DSUtils.FIRST_KEY.id) && inInventory(player, DSUtils.SECOND_KEY.id) && inInventory(player, DSUtils.THIRD_KEY.id)) {
+                    if (inInventory(player, DemonSlayerUtils.FIRST_KEY.id) && inInventory(player, DemonSlayerUtils.SECOND_KEY.id) && inInventory(player, DemonSlayerUtils.THIRD_KEY.id)) {
                         player("I've got all three keys!")
                         stage = 300
                     } else {
@@ -169,12 +169,12 @@ class SirPyrsinDialogue(player: Player? = null) : Dialogue(player) {
                                 12 -> {
                                     npc.transform(883)
                                     if (player.inventory.remove(
-                                            DSUtils.FIRST_KEY,
-                                            DSUtils.SECOND_KEY,
-                                            DSUtils.THIRD_KEY
+                                            DemonSlayerUtils.FIRST_KEY,
+                                            DemonSlayerUtils.SECOND_KEY,
+                                            DemonSlayerUtils.THIRD_KEY
                                         )
                                     ) {
-                                        if (player.inventory.add(DSUtils.SILVERLIGHT)) {
+                                        if (player.inventory.add(DemonSlayerUtils.SILVERLIGHT)) {
                                             npc.animate(Animation(4608))
                                             player.animate(Animation(4604))
                                             quest!!.setStage(player, 30)
@@ -185,7 +185,7 @@ class SirPyrsinDialogue(player: Player? = null) : Dialogue(player) {
                                 13 -> {
                                     npc.walkingQueue.reset()
                                     npc.unlock()
-                                    interpreter.sendItemMessage(DSUtils.SILVERLIGHT.id, "Sir Prysin hands you a very shiny sword.")
+                                    interpreter.sendItemMessage(DemonSlayerUtils.SILVERLIGHT.id, "Sir Prysin hands you a very shiny sword.")
                                     stage = 302
                                     player.unlock()
                                     return true

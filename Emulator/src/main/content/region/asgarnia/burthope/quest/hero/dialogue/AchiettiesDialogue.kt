@@ -2,15 +2,16 @@ package content.region.asgarnia.burthope.quest.hero.dialogue
 
 import content.region.asgarnia.burthope.quest.hero.HeroesQuest
 import core.api.*
-import org.rs.consts.Items
-import org.rs.consts.NPCs
+import core.game.dialogue.Dialogue
 import core.game.dialogue.DialogueBuilder
 import core.game.dialogue.DialogueBuilderFile
-import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
+import org.rs.consts.Items
+import org.rs.consts.NPCs
+import org.rs.consts.QuestName
 
 /**
  * Represents the Achietties dialogue.
@@ -44,9 +45,9 @@ class AchiettiesDialogueFile : DialogueBuilderFile() {
 
     override fun create(b: DialogueBuilder) {
 
-        b.onQuestStages(HeroesQuest.questName, 0, 1)
+        b.onQuestStages(QuestName.HEROES_QUEST, 0, 1)
             .branch { player ->
-                return@branch getQuestStage(player, HeroesQuest.questName)
+                return@branch getQuestStage(player, QuestName.HEROES_QUEST)
             }.let { branch ->
                 branch.onValue(0)
                     .npcl(FacialExpression.FRIENDLY, "Greetings. Welcome to the Heroes' Guild.")
@@ -71,8 +72,8 @@ class AchiettiesDialogueFile : DialogueBuilderFile() {
                                 return@let branch
                             }.onValue(1)
                             .betweenStage { df, player, _, _ ->
-                                if (getQuestStage(player, HeroesQuest.questName) == 0) {
-                                    setQuestStage(player, HeroesQuest.questName, 1)
+                                if (getQuestStage(player, QuestName.HEROES_QUEST) == 0) {
+                                    setQuestStage(player, QuestName.HEROES_QUEST, 1)
                                 }
                             }
                             .npcl("Well you seem to meet our initial requirements, so you may now begin the tasks to earn membership in the Heroes' Guild.")
@@ -120,7 +121,7 @@ class AchiettiesDialogueFile : DialogueBuilderFile() {
                     }
             }
 
-        b.onQuestStages(HeroesQuest.questName, 2, 3, 4)
+        b.onQuestStages(QuestName.HEROES_QUEST, 2, 3, 4)
             .npcl("Greetings. Welcome to the Heroes' Guild.")
             .npcl("How goes thy quest adventurer?")
             .playerl("It's tough. I've not done it yet.")
@@ -142,7 +143,7 @@ class AchiettiesDialogueFile : DialogueBuilderFile() {
                     .end()
             }
 
-        b.onQuestStages(HeroesQuest.questName, 6)
+        b.onQuestStages(QuestName.HEROES_QUEST, 6)
             .npcl("Greetings. Welcome to the Heroes' Guild.")
             .npcl("How goes thy quest adventurer?")
             .branch { player ->
@@ -183,8 +184,8 @@ class AchiettiesDialogueFile : DialogueBuilderFile() {
                             removeItem(player, Items.FIRE_FEATHER_1583)
                             removeItem(player, Items.LAVA_EEL_2149)
                             removeItem(player, Items.THIEVES_ARMBAND_1579)
-                            if (getQuestStage(player, HeroesQuest.questName) == 6) {
-                                finishQuest(player, HeroesQuest.questName)
+                            if (getQuestStage(player, QuestName.HEROES_QUEST) == 6) {
+                                finishQuest(player, QuestName.HEROES_QUEST)
                             }
                         }
                     }

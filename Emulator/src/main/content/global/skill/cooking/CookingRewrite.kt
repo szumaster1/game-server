@@ -1,5 +1,7 @@
 package content.global.skill.cooking
 
+import content.global.skill.cooking.type.pie.PieCookingPulse
+import content.global.skill.cooking.type.pizza.PizzaCookingPulse
 import core.api.amountInInventory
 import org.rs.consts.Items
 import core.api.sendMessage
@@ -15,7 +17,7 @@ class CookingRewrite : InteractionListener {
     val RAW_FOODS: IntArray
 
     init {
-        val list = CookableItems.values().map { it.raw }.toMutableList()
+        val list = Cookable.values().map { it.raw }.toMutableList()
         list.add(Items.COOKED_MEAT_2142)
         list.add(Items.RAW_BEEF_2132)
         list.add(Items.RAW_BEAR_MEAT_2136)
@@ -45,10 +47,10 @@ class CookingRewrite : InteractionListener {
                 player.dialogueInterpreter.open(CookingDialogue(item.id, obj))
             } else {
                 val product =
-                    if (CookableItems.intentionalBurn(item.id)) {
-                        CookableItems.getIntentionalBurn(item.id).id
+                    if (Cookable.intentionalBurn(item.id)) {
+                        Cookable.getIntentionalBurn(item.id).id
                     } else {
-                        CookableItems.forId(item.id)!!.cooked
+                        Cookable.forId(item.id)!!.cooked
                     }
                 cook(player, obj, item.id, product, 1)
             }
@@ -80,7 +82,7 @@ class CookingRewrite : InteractionListener {
             val cookingPulse = when {
                 foodName.contains("pizza") -> PizzaCookingPulse(player, scenery!!, initial, product, amount)
                 foodName.contains("pie") -> PieCookingPulse(player, scenery!!, initial, product, amount)
-                CookableItems.intentionalBurn(initial) -> IntentionalBurnPulse(
+                Cookable.intentionalBurn(initial) -> IntentionalBurnPulse(
                     player,
                     scenery!!,
                     initial,

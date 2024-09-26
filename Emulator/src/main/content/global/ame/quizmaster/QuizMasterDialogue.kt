@@ -1,7 +1,5 @@
 package content.global.ame.quizmaster
 
-import org.rs.consts.Components
-import org.rs.consts.NPCs
 import core.api.log
 import core.api.openInterface
 import core.game.dialogue.Dialogue
@@ -14,6 +12,8 @@ import core.net.packet.context.DisplayModelContext
 import core.net.packet.outgoing.DisplayModel
 import core.tools.Log
 import core.tools.RandomFunction
+import org.rs.consts.Components
+import org.rs.consts.NPCs
 
 /**
  * Represents the Quiz master dialogue.
@@ -21,11 +21,11 @@ import core.tools.RandomFunction
 //@Initializable
 class QuizMasterDialogue(player: Player? = null) : Dialogue(player) {
 
-    private var randomEvent: QuizMaster? = null
+    private var randomEvent: QuizMasterListener? = null
     private var wrongAnswer = 0
 
     override fun open(vararg args: Any): Boolean {
-        randomEvent = args[0] as QuizMaster
+        randomEvent = args[0] as QuizMasterListener
         if (!randomEvent!!.isStartedQuiz) {
             randomEvent!!.isStartedQuiz = true
         } else {

@@ -1,6 +1,6 @@
 package core.game.node.entity.combat
 
-import content.global.skill.skillcape.SkillcapePerks
+import content.global.skill.skillcape.SkillcapePerksEffect
 import core.api.applyPoison
 import core.api.log
 import core.game.container.impl.EquipmentContainer
@@ -27,8 +27,6 @@ import kotlin.math.floor
 /**
  * Handles the range combat swings.
  * @author Emperor, Ceikry
- *
- * @param flags A set of flags that configure the behavior of the range swing.
  */
 open class RangeSwingHandler(vararg flags: SwingHandlerFlag) : CombatSwingHandler(CombatStyle.RANGE, *flags) {
     override fun canSwing(entity: Entity, victim: Entity): InteractionType? {
@@ -185,7 +183,7 @@ open class RangeSwingHandler(vararg flags: SwingHandlerFlag) : CombatSwingHandle
         if (entity.properties.attackStyle.style == WeaponInterface.STYLE_RANGE_ACCURATE) effectiveRangedLevel += 3
         effectiveRangedLevel += 8
         effectiveRangedLevel *= getSetMultiplier(entity, Skills.RANGE)
-        if (entity is Player && SkillcapePerks.isActive(SkillcapePerks.ACCURATE_MARKSMAN, entity)) effectiveRangedLevel *= 1.1
+        if (entity is Player && SkillcapePerksEffect.isActive(SkillcapePerksEffect.ACCURATE_MARKSMAN, entity)) effectiveRangedLevel *= 1.1
 
         effectiveRangedLevel = floor(effectiveRangedLevel)
         if (!flags.contains(SwingHandlerFlag.IGNORE_STAT_BOOSTS_ACCURACY))

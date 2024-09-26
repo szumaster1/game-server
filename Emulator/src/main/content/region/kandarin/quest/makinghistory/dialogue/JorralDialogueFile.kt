@@ -1,6 +1,6 @@
 package content.region.kandarin.quest.makinghistory.dialogue
 
-import content.region.kandarin.quest.makinghistory.handlers.MHUtils
+import content.region.kandarin.quest.makinghistory.handlers.MakingHistoryUtils
 import org.rs.consts.NPCs
 import core.api.setQuestStage
 import core.api.setVarbit
@@ -26,7 +26,7 @@ class JorralDialogueFile : DialogueFile() {
             }
             3 -> npcl(FacialExpression.HAPPY, "Oh, thank you so much, you really are my saviour!").also {
                 setQuestStage(player!!, "Making History", 1)
-                setVarbit(player!!, MHUtils.PROGRESS, 1, true)
+                setVarbit(player!!, MakingHistoryUtils.PROGRESS, 1, true)
                 updateQuestTab(player!!)
                 stage = END_DIALOGUE
             }

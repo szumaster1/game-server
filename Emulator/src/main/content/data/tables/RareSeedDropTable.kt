@@ -2,7 +2,6 @@ package content.data.tables
 
 import core.Configuration
 import core.api.StartupListener
-import org.rs.consts.Items
 import core.api.log
 import core.api.shouldRemoveNothings
 import core.api.utils.WeightBasedTable
@@ -12,6 +11,7 @@ import core.game.node.entity.player.Player
 import core.game.node.item.Item
 import core.tools.Log
 import core.tools.RandomFunction
+import org.rs.consts.Items
 import org.w3c.dom.Element
 import org.w3c.dom.Node
 import java.io.File

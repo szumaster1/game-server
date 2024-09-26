@@ -8,9 +8,6 @@ import core.tools.RandomFunction
 /**
  * Handles combat swings with switching combat styles.
  * @author Emperor, Ceikry
- *
- * @param meleeDistance Indicates if the melee distance is applicable.
- * @param attacks A variable number of SwitchAttack instances to be handled.
  */
 open class MultiSwingHandler(meleeDistance: Boolean, vararg attacks: SwitchAttack) :
     CombatSwingHandler(CombatStyle.RANGE) {

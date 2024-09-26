@@ -1,8 +1,8 @@
 package content.region.kandarin.quest.hazeelcult.dialogue
 
-import content.region.kandarin.quest.hazeelcult.handlers.HazeelCultListeners.Companion.CARNILLEAN
-import content.region.kandarin.quest.hazeelcult.handlers.HazeelCultListeners.Companion.MAHJARRAT
-import content.region.kandarin.quest.hazeelcult.handlers.HazeelCultListeners.Companion.SEWER_LEFT
+import content.region.kandarin.quest.hazeelcult.handlers.HazeelCultListener.Companion.CARNILLEAN
+import content.region.kandarin.quest.hazeelcult.handlers.HazeelCultListener.Companion.MAHJARRAT
+import content.region.kandarin.quest.hazeelcult.handlers.HazeelCultListener.Companion.SEWER_LEFT
 import core.api.*
 import org.rs.consts.Items
 import org.rs.consts.NPCs

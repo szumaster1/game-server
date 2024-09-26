@@ -1,6 +1,6 @@
 package core.game.node.entity.player.info.login;
 
-import content.region.kandarin.catherby.miniquest.knightswave.handlers.KWUtils;
+import content.region.kandarin.catherby.miniquest.knightswave.handlers.KnightWavesUtils;
 import core.Configuration;
 import core.game.component.Component;
 import core.game.interaction.InteractionListeners;
@@ -126,7 +126,7 @@ public final class LoginConfiguration {
         /*
          * Sound effect for quest prayers.
          */
-        if(getAttribute(player, KWUtils.KW_COMPLETE, false)) {
+        if(getAttribute(player, KnightWavesUtils.KW_COMPLETE, false)) {
             setVarbit(player, 3909, 8, false);
         } else {
             setVarbit(player, 3909, 0, false);

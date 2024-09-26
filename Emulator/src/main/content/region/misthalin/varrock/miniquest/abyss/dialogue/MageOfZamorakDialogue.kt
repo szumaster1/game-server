@@ -78,7 +78,7 @@ class MageOfZamorakDialogue(player: Player? = null) : Dialogue(player) {
                     28 -> npc("Tell me, this is important:", "You know of the ancient temples?", "You have been to a place where this 'rune essence'", "material is freely available?").also { stage++ }
                     29 -> npc("How did you get to such place?").also { stage = 200 }
                     200 -> player("Well, I helped deliver some research notes to Sedridor", "at the Wizards Tower, and he teleported me to a huge", "mine he said was hidden off to the North somewhere", "where I could mine essence.").also { stage++ }
-                    201 -> npc("And there is an ubundant supply of this 'essence' there", "you say?").also { stage++ }
+                    201 -> npc("And there is an abundant supply of this 'essence' there", "you say?").also { stage++ }
                     202 -> player("Yes, but I thought you said that you knew how to make", "runes?", "All this stuff is fairly basic knowledge I thought.").also { stage++ }
                     203 -> npc("No.", "No, not at all.").also { stage++ }
                     204 -> npc("We occasionally manage to plunder small samples of this", "'essence' and we have recently discovered these temples", "you speak of, but I have never ever heard of these talismans", "before, and I was certainly not aware that this 'essence'").also { stage++ }
@@ -114,7 +114,7 @@ class MageOfZamorakDialogue(player: Player? = null) : Dialogue(player) {
                 2 -> when (stage) {
                     0 -> {
                         if (!player.hasItem(ORBS[0]) && !player.inventory.containsItem(ORBS[1])) {
-                            player("Uh...", "No...", "I kinda lost that orb thingy that you have me.").also { stage++ }
+                            player("Uh...", "No...", "I kinda lost that orb thingy that you gave me.").also { stage++ }
                         }
                         if (!player.inventory.containsItem(ORBS[1])) {
                             player("No...", "Actually, I had something I wanted to ask you...").also { stage = 3 }
@@ -126,13 +126,13 @@ class MageOfZamorakDialogue(player: Player? = null) : Dialogue(player) {
                     1 -> {
                         end()
                         player.inventory.add(ORBS[0], player)
-                        npc("What?", "Incompetent fool. Take this.", "And do not make me refret allying myself with you.")
+                        npc("What?", "Incompetent fool. Take this.", "And do not make me regret allying myself with you.")
                     }
-                    3 -> npc("I assume the task to be self-explainatory.", "What is it you wish to know?").also { stage++ }
+                    3 -> npc("I assume the task to be self-explanatory.", "What is it you wish to know?").also { stage++ }
                     4 -> player("Please excuse me, I have a very bad short term", "memory.", "What exactly am I supposed to be doing again?").also { stage++ }
-                    5 -> npc("All I wish for you to do is to teleport to this 'rune", "essence' location from three different locations wile", "carrying the scrying orb I gave you.", "It will collect the data as you teleport.").also { stage = END_DIALOGUE }
+                    5 -> npc("All I wish for you to do is to teleport to this 'rune", "essence' location from three different locations while", "carrying the scrying orb I gave you.", "It will collect the data as you teleport.").also { stage = END_DIALOGUE }
                     224 -> npc("Bring it with you and teleport to the rune essence", "location, and it will absorb the mechanics of the spell and", "allow us to reverse-engineer the magic behind it.").also { stage++ }
-                    225 -> npc("The important part is that you must teleport to the", "essence location from three entirely seperate locations.").also { stage++ }
+                    225 -> npc("The important part is that you must teleport to the", "essence location from three entirely separate locations.").also { stage++ }
                     226 -> npc("More than three may be helpful to us, but we need a", "minimum of three in order to triangulate the position of", "this essence mine.").also { stage++ }
                     227 -> npc("Is that all clear, stranger?").also { stage++ }
                     228 -> player("Yeah, I think so.").also { stage++ }

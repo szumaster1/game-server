@@ -15,6 +15,7 @@ import core.game.node.item.GroundItemManager
 import core.game.node.item.Item
 import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
+import org.rs.consts.QuestName
 
 /**
  * Represents the Grip NPC.
@@ -38,8 +39,8 @@ class GripNPC : NPCBehavior(NPCs.GRIP_792) {
 
     override fun onDeathFinished(self: NPC, killer: Entity) {
         if (killer is Player) {
-            if (getQuestStage(killer, HeroesQuest.questName) == 4) {
-                setQuestStage(killer, HeroesQuest.questName, 5)
+            if (getQuestStage(killer, QuestName.HEROES_QUEST) == 4) {
+                setQuestStage(killer, QuestName.HEROES_QUEST, 5)
                 val gi = GroundItemManager.create(
                     GroundItem(Item(Items.GRIPS_KEY_RING_1588), self.location, killer)
                 )

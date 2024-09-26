@@ -1,6 +1,5 @@
 package content.global.ame.surpriseexam
 
-import org.rs.consts.NPCs
 import core.api.getAttribute
 import core.api.openDialogue
 import core.api.openInterface
@@ -8,6 +7,7 @@ import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC
 import core.tools.END_DIALOGUE
+import org.rs.consts.NPCs
 
 /**
  * Represents the Mordaut dialogue.

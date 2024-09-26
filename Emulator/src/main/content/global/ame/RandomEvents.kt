@@ -23,10 +23,10 @@ import content.global.ame.surpriseexam.SurpriseExamNPC
 import content.global.ame.swarm.SwarmNPC
 import content.global.ame.treespirit.TreeSpiritNPC
 import content.global.ame.zombie.ZombieNPC
-import org.rs.consts.Items
 import core.api.utils.WeightBasedTable
 import core.api.utils.WeightedItem
 import core.game.node.entity.skill.Skills
+import org.rs.consts.Items
 
 /**
  * Random events.

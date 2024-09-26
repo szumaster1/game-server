@@ -1,8 +1,8 @@
 package content.data
 
-import org.rs.consts.NPCs
 import core.game.node.entity.player.Player
 import core.tools.StringUtils
+import org.rs.consts.NPCs
 
 /**
  * Keeps track of the amount of bosses the player has slain.

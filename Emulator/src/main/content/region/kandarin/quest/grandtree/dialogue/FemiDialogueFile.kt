@@ -1,6 +1,6 @@
 package content.region.kandarin.quest.grandtree.dialogue
 
-import content.region.kandarin.quest.grandtree.handlers.GTUtils
+import content.region.kandarin.quest.grandtree.handlers.TheGrandTreeUtils
 import core.api.*
 import org.rs.consts.Items
 import org.rs.consts.NPCs
@@ -22,7 +22,7 @@ class FemiDialogueFile : DialogueFile() {
             1 -> npc(FacialExpression.OLD_DEFAULT, "I don't believe all this rubbish about an invasion. If", "mankind wanted to, they could have invaded before", "now.").also { stage++ }
 
             2 -> player("I really need to see King Narnode. Could you help", "sneak me in?").also { stage++ }
-            3 -> if (getAttribute(player!!, GTUtils.FEMI_HELP_TRUE, false)) {
+            3 -> if (getAttribute(player!!, TheGrandTreeUtils.FEMI_HELP_TRUE, false)) {
                 npc(FacialExpression.OLD_DEFAULT, "Well, as you helped me I suppose I could. We'll have to", "be careful. If I get caught I'll be in the cage!").also { stage++ }
             } else {
                 npc(FacialExpression.OLD_DEFAULT, "Why should I help you, you wouldn't help me!").also { stage = 10 }
@@ -48,7 +48,7 @@ class FemiDialogueFile : DialogueFile() {
             16 -> npc(FacialExpression.OLD_DEFAULT, "Alright, jump in the back of the cart.", "It's a food delivery, we should be fine.").also { stage++ }
             17 -> {
                 end()
-                GTUtils.sneakIn(player!!)
+                TheGrandTreeUtils.sneakIn(player!!)
             }
         }
     }

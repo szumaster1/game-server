@@ -20,7 +20,7 @@ import core.game.node.item.Item;
 public abstract class Recipe {
 
     /**
-     * The constant RECIPES.
+     * The recipes.
      */
     public static final Recipe[] RECIPES = new Recipe[]{
         new RedberryPie(), new MeatPie(), new ApplePie(), new MudPie(), new GardenPie(), new FishPie(), new AdmiralPie(), new WildPie(), new SummerPie(),
@@ -46,16 +46,16 @@ public abstract class Recipe {
     public abstract Item getProduct();
 
     /**
-     * Get ingredients item [ ].
+     * Get ingredients item.
      *
-     * @return the item [ ]
+     * @return the item.
      */
     public abstract Item[] getIngredients();
 
     /**
-     * Get parts item [ ].
+     * Get parts item.
      *
-     * @return the item [ ]
+     * @return the item.
      */
     public abstract Item[] getParts();
 

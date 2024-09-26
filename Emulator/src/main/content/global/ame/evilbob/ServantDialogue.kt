@@ -1,6 +1,5 @@
 package content.global.ame.evilbob
 
-import org.rs.consts.NPCs
 import core.api.getAttribute
 import core.api.setAttribute
 import core.game.dialogue.DialogueFile
@@ -8,6 +7,7 @@ import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC
 import core.game.world.GameWorld
 import core.tools.END_DIALOGUE
+import org.rs.consts.NPCs
 
 /**
  * Represents the Servant dialogue.

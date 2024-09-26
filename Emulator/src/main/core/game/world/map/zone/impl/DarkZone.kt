@@ -1,9 +1,9 @@
 package core.game.world.map.zone.impl
 
-import content.data.LightSource.Companion.forProductId
-import content.data.LightSource.Companion.getActiveLightSource
-import content.global.skill.skillcape.SkillcapePerks
-import content.global.skill.skillcape.SkillcapePerks.Companion.isActive
+import content.global.skill.firemaking.LightSource.Companion.forProductId
+import content.global.skill.firemaking.LightSource.Companion.getActiveLightSource
+import content.global.skill.skillcape.SkillcapePerksEffect
+import content.global.skill.skillcape.SkillcapePerksEffect.Companion.isActive
 import core.api.*
 import core.api.Event.UsedWith
 import core.game.component.Component
@@ -67,7 +67,7 @@ class DarkZone : MapZone("Dark zone", true), EventHook<UseWithEvent> {
     override fun enter(e: Entity): Boolean {
         if (e is Player) {
             val source = getActiveLightSource(e)
-            if (isActive(SkillcapePerks.CONSTANT_GLOW, e)) {
+            if (isActive(SkillcapePerksEffect.CONSTANT_GLOW, e)) {
                 return true
             }
             if (source == null) {
@@ -95,7 +95,7 @@ class DarkZone : MapZone("Dark zone", true), EventHook<UseWithEvent> {
      */
     fun updateOverlay(player: Player) {
         val source = getActiveLightSource(player)
-        if (isActive(SkillcapePerks.CONSTANT_GLOW, player)) {
+        if (isActive(SkillcapePerksEffect.CONSTANT_GLOW, player)) {
             queueScript(player, 1, QueueStrength.SOFT, false) {
                 if (player.interfaceManager.overlay.id == DARKNESS_OVERLAY.id) player.interfaceManager.closeOverlay()
                 return@queueScript stopExecuting(player)

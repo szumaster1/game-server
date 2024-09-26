@@ -1,8 +1,6 @@
 package content.region.misc.keldagrim.dialogue
 
 import core.api.addItemOrDrop
-import org.rs.consts.Items
-import org.rs.consts.NPCs
 import core.api.inInventory
 import core.api.removeItem
 import core.game.dialogue.Dialogue
@@ -11,6 +9,8 @@ import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
+import org.rs.consts.Items
+import org.rs.consts.NPCs
 
 /**
  * Represents the Gauss dialogue.

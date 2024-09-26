@@ -13,12 +13,7 @@ import core.game.node.item.Item
 import core.game.world.map.Location
 import core.tools.END_DIALOGUE
 
-/**
- * Making history listener.
- */
 class MakingHistoryListener : InteractionListener {
-
-    companion object;
 
     private fun outpostScroll(player: Player) {
         val outpostScroll =
@@ -52,10 +47,10 @@ class MakingHistoryListener : InteractionListener {
         }
 
         onDig(Location(2440, 3145, 0)) { player ->
-            if (inInventory(player, Items.ENCHANTED_KEY_6754) && getVarbit(player, MHUtils.ERIN_PROGRESS) >= 1) {
+            if (inInventory(player, Items.ENCHANTED_KEY_6754) && getVarbit(player, MakingHistoryUtils.ERIN_PROGRESS) >= 1) {
                 sendDialogue(player, "You use the spade and find a chest. Wonder what's inside?")
                 addItemOrDrop(player, Items.CHEST_6759)
-                setVarbit(player, MHUtils.ERIN_PROGRESS, 2, true)
+                setVarbit(player, MakingHistoryUtils.ERIN_PROGRESS, 2, true)
             }
             return@onDig
         }
@@ -64,8 +59,8 @@ class MakingHistoryListener : InteractionListener {
             if (removeItem(player, Item(Items.CHEST_6759))) {
                 sendDialogueLines(player, "You look in the chest and find a journal, and then you throw away","the chest.")
                 addItemOrDrop(player, Items.JOURNAL_6755)
-                setVarbit(player, MHUtils.ERIN_PROGRESS, 4, true)
-                setAttribute(player, "/save:${MHUtils.ATTRIBUTE_ERIN_PROGRESS}", true)
+                setVarbit(player, MakingHistoryUtils.ERIN_PROGRESS, 4, true)
+                setAttribute(player, MakingHistoryUtils.ATTRIBUTE_ERIN_PROGRESS, true)
             }
             return@onUseWith true
         }

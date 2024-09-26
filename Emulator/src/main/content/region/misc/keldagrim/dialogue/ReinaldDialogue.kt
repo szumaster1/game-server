@@ -1,12 +1,12 @@
 package content.region.misc.keldagrim.dialogue
 
-import org.rs.consts.Components
-import org.rs.consts.NPCs
 import core.api.openInterface
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
+import org.rs.consts.Components
+import org.rs.consts.NPCs
 
 /**
  * Represents the Reinald dialogue.

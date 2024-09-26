@@ -1,11 +1,10 @@
 package content.region.kandarin.baxtorian.barbariantraining.smithing
 
 import org.rs.consts.Items
-import content.global.skill.crafting.Origami
+import content.global.skill.firemaking.Origami
 
 /**
  * Represents the Barbarian weapons.
- * @author szumaster
  */
 enum class BarbarianWeapon(
     val requiredWood: Int,
@@ -16,10 +15,7 @@ enum class BarbarianWeapon(
     var requiredLevel: Int,
     val experience: Double
 ) {
-    /**
-     * Bronze Spear.
-     */
-    BRONZE_SPEAR(
+    BRONZE(
         requiredWood = Items.LOGS_1511,
         requiredBar = Items.BRONZE_BAR_2349,
         spearId = Items.BRONZE_SPEAR_1237,
@@ -28,11 +24,7 @@ enum class BarbarianWeapon(
         requiredLevel = 5,
         experience = 25.00
     ),
-
-    /**
-     * Iron Spear.
-     */
-    IRON_SPEAR(
+    IRON(
         requiredWood = Items.OAK_LOGS_1521,
         requiredBar = Items.IRON_BAR_2351,
         spearId = Items.IRON_SPEAR_1239,
@@ -41,11 +33,7 @@ enum class BarbarianWeapon(
         requiredLevel = 20,
         experience = 50.00
     ),
-
-    /**
-     * Steel Spear.
-     */
-    STEEL_SPEAR(
+    STEEL(
         requiredWood = Items.WILLOW_LOGS_1519,
         requiredBar = Items.STEEL_BAR_2353,
         spearId = Items.STEEL_SPEAR_1241,
@@ -54,11 +42,7 @@ enum class BarbarianWeapon(
         requiredLevel = 35,
         experience = 75.00
     ),
-
-    /**
-     * Mithril Spear.
-     */
-    MITHRIL_SPEAR(
+    MITHRIL(
         requiredWood = Items.MAPLE_LOGS_1517,
         requiredBar = Items.MITHRIL_BAR_2359,
         spearId = Items.MITHRIL_SPEAR_1243,
@@ -67,11 +51,7 @@ enum class BarbarianWeapon(
         requiredLevel = 55,
         experience = 100.00
     ),
-
-    /**
-     * Adamant Spear.
-     */
-    ADAMANT_SPEAR(
+    ADAMANT(
         requiredWood = Items.YEW_LOGS_1515,
         requiredBar = Items.ADAMANTITE_BAR_2361,
         spearId = Items.ADAMANT_SPEAR_1245,
@@ -80,11 +60,7 @@ enum class BarbarianWeapon(
         requiredLevel = 75,
         experience = 125.00
     ),
-
-    /**
-     * Rune Spear.
-     */
-    RUNE_SPEAR(
+    RUNE(
         requiredWood = Items.MAGIC_LOGS_1513,
         requiredBar = Items.RUNITE_BAR_2363,
         spearId = Items.RUNE_SPEAR_1247,

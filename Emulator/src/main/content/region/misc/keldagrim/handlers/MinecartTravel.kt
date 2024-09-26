@@ -1,26 +1,16 @@
 package content.region.misc.keldagrim.handlers
 
-import org.rs.consts.Components
-import org.rs.consts.NPCs
 import core.api.*
-import core.game.component.Component
 import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.game.system.task.Pulse
-import core.game.world.GameWorld
 import core.game.world.map.Direction
 import core.game.world.map.Location
+import org.rs.consts.Components
+import org.rs.consts.NPCs
 
-/**
- * Minecart travel.
- */
 object MinecartTravel {
 
-    /**
-     * Go to keldagrim.
-     *
-     * @param [player] the player.
-     */
     @JvmStatic
     fun goToKeldagrim(player: Player) {
         if (!hasRequirement(player, "The Giant Dwarf"))
@@ -28,12 +18,6 @@ object MinecartTravel {
         submitWorldPulse(TravelToKeldagrimPulse(player))
     }
 
-    /**
-     * Leave keldagrim to.
-     *
-     * @param [player] the player.
-     * @param [dest] the destination.
-     */
     @JvmStatic
     fun leaveKeldagrimTo(player: Player, dest: Location) {
         if (!hasRequirement(player, "The Giant Dwarf"))
@@ -41,13 +25,6 @@ object MinecartTravel {
         submitWorldPulse(TravelFromKeldagrimPulse(player, dest))
     }
 
-    /**
-     * get travel from keldagrim.
-     *
-     * @param [player] the player.
-     * @param [dest] the destination.
-     * @return travel.
-     */
     class TravelFromKeldagrimPulse(val player: Player, val dest: Location) : Pulse() {
         var counter = 0
         override fun pulse(): Boolean {
@@ -96,12 +73,6 @@ object MinecartTravel {
         }
     }
 
-    /**
-     * Get the travel to keldagrim.
-     *
-     * @param [player] the player.
-     * @return [TravelToKeldagrimPulse].
-     */
     class TravelToKeldagrimPulse(val player: Player) : Pulse() {
         var counter = 0
         var cartNPC = NPC(NPCs.MINE_CART_1544)

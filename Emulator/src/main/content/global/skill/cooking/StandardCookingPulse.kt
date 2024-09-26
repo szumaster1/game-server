@@ -1,7 +1,7 @@
 package content.global.skill.cooking
 
-import content.global.skill.skillcape.SkillcapePerks
-import content.global.skill.skillcape.SkillcapePerks.Companion.isActive
+import content.global.skill.skillcape.SkillcapePerksEffect
+import content.global.skill.skillcape.SkillcapePerksEffect.Companion.isActive
 import core.api.*
 import org.rs.consts.Animations
 import org.rs.consts.Items
@@ -20,21 +20,15 @@ import core.tools.RandomFunction
 /**
  * Represents the standard cooking pulse
  */
-open class StandardCookingPulse(
-    open val player: Player,
-    open val scenery: Scenery,
-    open val initial: Int,
-    open val product: Int,
-    open var amount: Int
-) : Pulse() {
+open class StandardCookingPulse(open val player: Player, open val scenery: Scenery, open val initial: Int, open val product: Int, open var amount: Int) : Pulse() {
 
     private var experience = 0.0
     private var burned = false
 
-    var properties: CookableItems? = null
+    var properties: Cookable? = null
 
     override fun start() {
-        properties = CookableItems.forId(initial)
+        properties = Cookable.forId(initial)
         if (checkRequirements()) {
             super.start()
             cook(player, scenery, properties != null && burned, initial, product)
@@ -82,7 +76,7 @@ open class StandardCookingPulse(
     open fun reward(): Boolean {
         if (delay == 1) {
             var delay = if (scenery.name.lowercase().contains("range")) 5 else 4
-            if (isActive(SkillcapePerks.HASTY_COOKING, player)) {
+            if (isActive(SkillcapePerksEffect.HASTY_COOKING, player)) {
                 delay -= 1
             }
             setDelay(delay)
@@ -100,24 +94,24 @@ open class StandardCookingPulse(
     open fun isBurned(player: Player, scenery: Scenery, food: Int): Boolean {
         val hasGauntlets = player.equipment.containsItem(Item(Items.COOKING_GAUNTLETS_775))
         var effectiveCookingLevel = player.getSkills().getLevel(Skills.COOKING)
-        if (isActive(SkillcapePerks.HASTY_COOKING, player)) {
+        if (isActive(SkillcapePerksEffect.HASTY_COOKING, player)) {
             effectiveCookingLevel -= 5
         }
 
-        val item = CookableItems.forId(food)
+        val item = Cookable.forId(food)
         val low: Int
         val high: Int
 
-        if (hasGauntlets && CookableItems.gauntletValues.containsKey(
+        if (hasGauntlets && Cookable.gauntletValues.containsKey(
                 food
             )
         ) {
-            val successValues = CookableItems.gauntletValues[food]
+            val successValues = Cookable.gauntletValues[food]
             low = successValues!![0]
             high = successValues[1]
         } else if (scenery.id == LUMBRIDGE_RANGE) {
             val successValues =
-                CookableItems.lumbridgeRangeValues.getOrDefault(
+                Cookable.lumbridgeRangeValues.getOrDefault(
                     food,
                     intArrayOf(item!!.lowRange, item.highRange)
                 )
@@ -162,13 +156,13 @@ open class StandardCookingPulse(
             } else {
                 player.dispatch(
                     ResourceProducedEvent(
-                        CookableItems.getBurnt(initial).id,
+                        Cookable.getBurnt(initial).id,
                         1,
                         sceneryId!!,
                         initialItem.id
                     )
                 )
-                player.inventory.add(CookableItems.getBurnt(initial))
+                player.inventory.add(Cookable.getBurnt(initial))
             }
             getMessage(initialItem, productItem, burned)?.let { sendMessage(player, it) }
             playAudio(player, Sounds.FRY_2577)
@@ -187,7 +181,7 @@ open class StandardCookingPulse(
         if (food.id == Items.RAW_SWAMP_PASTE_1940) {
             return "You warm the paste over the fire. It thickens into a sticky goo."
         }
-        if (CookableItems.intentionalBurn(food.id)) {
+        if (Cookable.intentionalBurn(food.id)) {
             return "You deliberately burn the perfectly good piece of meat."
         }
 

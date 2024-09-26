@@ -1,11 +1,11 @@
 package content.global.ame.freakyforest
 
 import core.api.*
-import org.rs.consts.Items
-import org.rs.consts.NPCs
 import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression
 import core.tools.END_DIALOGUE
+import org.rs.consts.Items
+import org.rs.consts.NPCs
 
 /**
  * Represents the Freaky Forester dialogue.

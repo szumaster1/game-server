@@ -6,10 +6,6 @@ import core.game.interaction.InterfaceListener
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
 
-/**
- * Represents the player safety Test interface listener.
- */
-@Initializable
 class PlayerSafetyInterface : InterfaceListener {
 
     companion object {

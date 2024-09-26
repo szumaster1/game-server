@@ -12,7 +12,7 @@ import core.plugin.Initializable
 @Initializable
 class KingRoaldNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id, location) {
 
-    private var cutscene: content.region.misthalin.varrock.quest.surok.cutscene.WhatLiesBelowCutscene? = null
+    private var cutscene: WhatLiesBelowCutscene? = null
 
     /**
      * Constructs a new [KingRoaldNPC][AbstractNPC].
@@ -58,7 +58,7 @@ class KingRoaldNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id, lo
      *
      * @param cutscene the cutscene.
      */
-    fun setCutscene(cutscene: content.region.misthalin.varrock.quest.surok.cutscene.WhatLiesBelowCutscene?) {
+    fun setCutscene(cutscene: WhatLiesBelowCutscene?) {
         this.cutscene = cutscene
     }
 

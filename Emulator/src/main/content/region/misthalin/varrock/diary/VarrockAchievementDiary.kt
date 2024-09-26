@@ -2,7 +2,7 @@ package content.region.misthalin.varrock.diary
 
 import content.global.skill.magic.TeleportMethod
 import content.global.skill.prayer.Bones
-import content.global.travel.Canoe
+import content.global.travel.CanoeListener
 import content.global.travel.FairyRing
 import content.region.misthalin.varrock.museum.dialogue.CuratorHaigHalenDialogue
 import content.region.misthalin.varrock.museum.dialogue.OrlandoSmithDialogue
@@ -360,7 +360,7 @@ class VarrockAchievementDiary : DiaryEventHookBase(DiaryType.VARROCK) {
         player.viewport.region?.let {
             when (it.id) {
                 12342 -> {
-                    if (event.iface == Canoe.CANOE_SHAPING_INTERFACE && event.buttonId == Canoe.CANOE_SHAPING_BUTTONS[Canoe.Companion.Canoes.WAKA.ordinal]) {
+                    if (event.iface == CanoeListener.CANOE_SHAPING_INTERFACE && event.buttonId == CanoeListener.CANOE_SHAPING_BUTTONS[CanoeListener.Companion.Canoes.WAKA.ordinal]) {
                         finishTask(
                             player,
                             DiaryLevel.HARD,

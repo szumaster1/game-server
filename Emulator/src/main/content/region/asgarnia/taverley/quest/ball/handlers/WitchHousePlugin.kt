@@ -1,5 +1,6 @@
 package content.region.asgarnia.taverley.quest.ball.handlers
 
+import content.region.asgarnia.taverley.quest.ball.handlers.npc.MouseNPC
 import core.api.*
 import org.rs.consts.Items
 import org.rs.consts.NPCs

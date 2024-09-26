@@ -5,7 +5,7 @@ import org.rs.consts.Components
 import org.rs.consts.Items
 import org.rs.consts.Vars
 import content.global.activity.enchkey.EnchantedKey
-import content.region.kandarin.quest.makinghistory.handlers.MHUtils
+import content.region.kandarin.quest.makinghistory.handlers.MakingHistoryUtils
 import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.quest.Quest
 import core.game.node.entity.skill.Skills
@@ -40,7 +40,7 @@ class MakingHistory : Quest("Making History", 86, 85, 3, Vars.VARBIT_QUEST_MAKIN
             line++
         }
 
-        if (getVarbit(player, MHUtils.PROGRESS) >= 3) {
+        if (getVarbit(player, MakingHistoryUtils.PROGRESS) >= 3) {
             line(player, "I have gathered the parts of history. I have been given a letter.", line++)
             line++
         }
@@ -75,7 +75,7 @@ class MakingHistory : Quest("Making History", 86, 85, 3, Vars.VARBIT_QUEST_MAKIN
         rewardXP(player, Skills.PRAYER, 1000.0)
         addItemOrDrop(player, Items.COINS_995, 750)
         setVarbit(player, 1390, 1, true)
-        removeAttributes(player, MHUtils.ATTRIBUTE_ERIN_PROGRESS, MHUtils.ATTRIBUTE_DROALAK_PROGRESS, MHUtils.ATTRIBUTE_DRON_PROGRESS)
+        removeAttributes(player, MakingHistoryUtils.ATTRIBUTE_ERIN_PROGRESS, MakingHistoryUtils.ATTRIBUTE_DROALAK_PROGRESS, MakingHistoryUtils.ATTRIBUTE_DRON_PROGRESS)
     }
 
     override fun newInstance(`object`: Any?): Quest {

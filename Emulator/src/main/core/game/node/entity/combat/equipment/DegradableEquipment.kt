@@ -8,10 +8,6 @@ import core.plugin.Plugin
 /**
  * Handles equipment degrading.
  * @author Emperor
- *
- * @param slot The equipment slot where the item is equipped.
- * @param itemIds The IDs of the items that can be degraded.
- * @constructor Degradable equipment
  */
 abstract class DegradableEquipment(val slot: Int, vararg val itemIds: Int) : Plugin<Any?> {
 

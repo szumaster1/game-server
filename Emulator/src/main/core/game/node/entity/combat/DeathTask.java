@@ -1,8 +1,8 @@
 package core.game.node.entity.combat;
 
+import core.game.event.SelfDeathEvent;
 import core.game.container.Container;
 import core.game.container.ContainerType;
-import core.game.event.SelfDeathEvent;
 import core.game.node.Node;
 import core.game.node.entity.Entity;
 import core.game.node.entity.impl.Animator;
@@ -95,6 +95,7 @@ public final class DeathTask extends NodeTask {
 
     /**
      * Gets the player's death containers.
+     *
      * @param player The player.
      * @return The containers, index 0 = kept items, index 1 = lost items.
      */
@@ -146,6 +147,7 @@ public final class DeathTask extends NodeTask {
 
     /**
      * Starts the death task for an entity.
+     *
      * @param entity The entity.
      * @param killer The entity's killer.
      */
@@ -162,6 +164,7 @@ public final class DeathTask extends NodeTask {
 
     /**
      * Checks if the entity is dead.
+     *
      * @param e The entity.
      * @return {@code True} if so.
      */
@@ -172,6 +175,7 @@ public final class DeathTask extends NodeTask {
 
     /**
      * Gets the singleton.
+     *
      * @return The singleton.
      */
     public static DeathTask getSingleton() {

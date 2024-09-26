@@ -1,6 +1,6 @@
 package content.region.kandarin.portkhazard.dialogue
 
-import content.region.kandarin.portkhazard.TindelMerchant
+import content.region.kandarin.portkhazard.TindelMerchantListener
 import org.rs.consts.NPCs
 import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression
@@ -35,7 +35,7 @@ class TindelMerchantDialogue : DialogueFile() {
             6 -> npcl(FacialExpression.FRIENDLY, "right to purchase it immediately for adding to my own personal collection. I'll give you fair price for it.").also { stage = 1 }
             7 -> npcl(FacialExpression.FRIENDLY, "If I can reclaim the sword with my own specialist skills, I'll return it to you in peak condition. If it's an antique, I'll just give you what I think it's worth and I generally pay quite well. However, if").also { stage++ }
             8 -> npcl(FacialExpression.FRIENDLY, "it's just a piece of junk, I'll simply give you the bad news and get rid of the item for you.").also { stage = 1 }
-            9 -> end().also { TindelMerchant.exchangeRustyWeapon(player!!) }
+            9 -> end().also { TindelMerchantListener.exchangeRustyWeapon(player!!) }
         }
     }
 }

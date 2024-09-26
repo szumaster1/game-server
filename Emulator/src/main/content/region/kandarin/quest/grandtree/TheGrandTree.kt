@@ -3,7 +3,7 @@ package content.region.kandarin.quest.grandtree
 import org.rs.consts.Components
 import org.rs.consts.Items
 import org.rs.consts.Vars
-import content.region.kandarin.quest.grandtree.handlers.GTUtils
+import content.region.kandarin.quest.grandtree.handlers.TheGrandTreeUtils
 import core.api.hasLevelStat
 import core.api.removeAttributes
 import core.api.rewardXP
@@ -103,7 +103,7 @@ class TheGrandTree : Quest("The Grand Tree", 71, 70, 5, Vars.VARP_QUEST_THE_GRAN
         rewardXP(player, Skills.AGILITY, 7900.0)
         rewardXP(player, Skills.ATTACK, 18400.0)
         rewardXP(player, Skills.MAGIC, 2150.0)
-        removeAttributes(player, GTUtils.DRACONIA_ROCK, GTUtils.FEMI_HELP_TRUE, GTUtils.FEMI_TALK, GTUtils.TWIG_0, GTUtils.TWIG_1, GTUtils.TWIG_2, GTUtils.TWIG_3)
+        removeAttributes(player, TheGrandTreeUtils.DRACONIA_ROCK, TheGrandTreeUtils.FEMI_HELP_TRUE, TheGrandTreeUtils.FEMI_TALK, TheGrandTreeUtils.TWIG_0, TheGrandTreeUtils.TWIG_1, TheGrandTreeUtils.TWIG_2, TheGrandTreeUtils.TWIG_3)
     }
 
     override fun newInstance(`object`: Any?): Quest {

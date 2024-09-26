@@ -1,6 +1,6 @@
 package content.global.skill.crafting.items.armour.yakhide
 
-import content.global.skill.crafting.items.armour.leather.Leather
+import content.global.skill.crafting.Leather
 import core.api.*
 import core.game.node.entity.player.Player
 import core.game.node.entity.skill.SkillPulse
@@ -15,7 +15,7 @@ class YakArmourCraftingPulse(player: Player?, node: Item?, private val index: In
     override fun checkRequirements(): Boolean {
         val level = if (index == 1) 46 else 43
         if (getStatLevel(player, Skills.CRAFTING) < level) {
-            sendDialogue(player, "You need a Crafting level of at least $level in order to do this.")
+            sendDialogue(player, "You need a crafting level of at least $level in order to do this.")
             return false
         }
         if (!inInventory(player, Leather.NEEDLE, 1)) {

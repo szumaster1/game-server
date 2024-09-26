@@ -1,12 +1,12 @@
 package content.global.ame.prisonpete
 
 import content.global.ame.RandomEventNPC
-import org.rs.consts.NPCs
 import core.api.lock
 import core.api.lockInteractions
 import core.api.sendMessage
 import core.api.utils.WeightBasedTable
 import core.game.node.entity.npc.NPC
+import org.rs.consts.NPCs
 
 /**
  * Prison pete NPC.

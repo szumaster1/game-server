@@ -1,16 +1,13 @@
 package content.region.desert.quest.agrith.handlers
 
 import core.api.addItem
-import org.rs.consts.Items
 import core.api.hasRequirement
 import core.api.inInventory
 import core.api.removeItem
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
+import org.rs.consts.Items
 
-/**
- * Darklight listener.
- */
 class DarklightListener : InteractionListener {
 
     override fun defineListeners() {

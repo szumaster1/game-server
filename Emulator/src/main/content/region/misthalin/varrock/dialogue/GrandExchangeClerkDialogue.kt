@@ -1,6 +1,6 @@
 package content.region.misthalin.varrock.dialogue
 
-import content.global.handlers.iface.GameInterface
+import content.global.handlers.iface.ge.ExchangeItemSets
 import org.rs.consts.NPCs
 import content.global.handlers.iface.ge.StockMarket
 import core.game.dialogue.Dialogue
@@ -52,7 +52,7 @@ class GrandExchangeClerkDialogue(player: Player? = null) : Dialogue(player) {
             40 -> npc(FacialExpression.HALF_GUILTY, "It would be my pleasure, sir.").also { stage++ }
             41 -> {
                 end()
-                GameInterface.openFor(player!!)
+                ExchangeItemSets.openFor(player!!)
             }
             50 -> npc(FacialExpression.HALF_GUILTY, "If you say so, sir.").also { stage = END_DIALOGUE }
         }

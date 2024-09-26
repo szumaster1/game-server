@@ -1,6 +1,6 @@
 package content.region.asgarnia.falador.quest.rd.dialogue
 
-import content.region.asgarnia.falador.quest.rd.handlers.RecruitmentDriveListeners
+import content.region.asgarnia.falador.quest.rd.handlers.RecruitmentDriveListener
 import core.api.finishQuest
 import core.api.getQuestStage
 import core.api.setQuestStage
@@ -95,8 +95,8 @@ class SirTiffyCashienDialogueFile : DialogueBuilderFile() {
                 if (getQuestStage(player, "Recruitment Drive") == 1) {
                     setQuestStage(player, "Recruitment Drive", 2)
                 }
-                RecruitmentDriveListeners.shuffleTask(player)
-                RecruitmentDriveListeners.StartTestCutscene(player).start()
+                RecruitmentDriveListener.shuffleTask(player)
+                RecruitmentDriveListener.StartTestCutscene(player).start()
             }
 
         b.onQuestStages("Recruitment Drive", 2)
@@ -118,8 +118,8 @@ class SirTiffyCashienDialogueFile : DialogueBuilderFile() {
                     .onValue(1)
                     .npc(FacialExpression.FRIENDLY, "Jolly good show!", "Now the training grounds location is a secret, so...")
                     .endWith { _, player ->
-                        RecruitmentDriveListeners.shuffleTask(player)
-                        RecruitmentDriveListeners.StartTestCutscene(player).start()
+                        RecruitmentDriveListener.shuffleTask(player)
+                        RecruitmentDriveListener.StartTestCutscene(player).start()
                     }
                 optionBuilder
                     .option("No, I've changed my mind.")

@@ -1,8 +1,6 @@
 package content.global.ame.gravedigger
 
 import core.api.*
-import org.rs.consts.Components
-import org.rs.consts.NPCs
 import core.game.component.Component
 import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression
@@ -15,6 +13,8 @@ import core.net.packet.PacketRepository
 import core.net.packet.context.MinimapStateContext
 import core.net.packet.outgoing.MinimapState
 import core.tools.END_DIALOGUE
+import org.rs.consts.Components
+import org.rs.consts.NPCs
 
 /**
  * Represents the Leo dialogue.

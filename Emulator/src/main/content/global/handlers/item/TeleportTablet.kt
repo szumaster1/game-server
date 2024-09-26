@@ -12,7 +12,7 @@ import org.rs.consts.Items
 /**
  * Represents the teleport tablets data.
  */
-enum class TeleTabs(val item: Int, val location: Location, val exp: Double) {
+enum class TeleportTablet(val item: Int, val location: Location, val exp: Double) {
     ADDOUGNE_TELEPORT(
         item = Items.ARDOUGNE_TELEPORT_8011,
         location = Location.create(2662, 3307, 0),
@@ -116,7 +116,7 @@ enum class TeleTabs(val item: Int, val location: Location, val exp: Double) {
 
     companion object {
         val idMap = values().map { it.item to it }.toMap()
-        fun forId(id: Int): TeleTabs? {
+        fun forId(id: Int): TeleportTablet? {
             return idMap[id]
         }
     }
@@ -125,10 +125,10 @@ enum class TeleTabs(val item: Int, val location: Location, val exp: Double) {
 class TeleportTabletOption : InteractionListener {
 
     override fun defineListeners() {
-        val tabIDs = TeleTabs.values().map { it.item }.toIntArray()
+        val tabIDs = TeleportTablet.values().map { it.item }.toIntArray()
         on(tabIDs, IntType.ITEM, "break") { player, node ->
             val tab = node.id
-            val tabEnum = TeleTabs.forId(tab)
+            val tabEnum = TeleportTablet.forId(tab)
             if (tabEnum != null && inInventory(player, tab)) {
                 if (!isQuestComplete(player, "Rune Mysteries")) {
                     sendMessage(player, "You need complete the Rune Mysteries quest in order to use this.")

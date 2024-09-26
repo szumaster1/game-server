@@ -45,6 +45,7 @@ abstract class CombatSwingHandler(var type: CombatStyle?) {
 
     /**
      * Starts the combat swing.
+     *
      * @param entity The attacking entity.
      * @param victim The victim.
      * @param state The battle state instance.
@@ -54,6 +55,7 @@ abstract class CombatSwingHandler(var type: CombatStyle?) {
 
     /**
      * Handles the impact of the combat swing (victim getting hit).
+     *
      * @param entity The attacking entity.
      * @param victim The victim.
      * @param state The battle state instance.
@@ -62,6 +64,7 @@ abstract class CombatSwingHandler(var type: CombatStyle?) {
 
     /**
      * Visualizes the impact itself (end animation, end GFX, ...)
+     *
      * @param entity The attacking entity.
      * @param victim The victim.
      * @param state The battle state instance.
@@ -70,6 +73,7 @@ abstract class CombatSwingHandler(var type: CombatStyle?) {
 
     /**
      * Calculates the maximum accuracy of the entity.
+     *
      * @param entity The entity.
      * @return The maximum accuracy value.
      */
@@ -77,6 +81,7 @@ abstract class CombatSwingHandler(var type: CombatStyle?) {
 
     /**
      * Calculates the maximum strength of the entity.
+     *
      * @param entity The entity.
      * @param victim The victim.
      * @param modifier The modifier.
@@ -86,6 +91,7 @@ abstract class CombatSwingHandler(var type: CombatStyle?) {
 
     /**
      * Calculates the maximum defence of the entity.
+     *
      * @param victim The entity.
      * @param attacker The entity to defend against.
      * @return The maximum defence value.
@@ -94,6 +100,7 @@ abstract class CombatSwingHandler(var type: CombatStyle?) {
 
     /**
      * Gets the void set multiplier.
+     *
      * @param e The entity.
      * @param skillId The skill id.
      * @return The multiplier.
@@ -102,6 +109,7 @@ abstract class CombatSwingHandler(var type: CombatStyle?) {
 
     /**
      * Visualizes the combat swing (start animation, GFX, projectile, ...)
+     *
      * @param entity The attacking entity.
      * @param victim The victim.
      * @param state The battle state instance.
@@ -112,6 +120,7 @@ abstract class CombatSwingHandler(var type: CombatStyle?) {
 
     /**
      * Method called when the impact method got called.
+     *
      * @param entity The attacking entity.
      * @param victim The victim.
      * @param state The battle state.
@@ -138,6 +147,7 @@ abstract class CombatSwingHandler(var type: CombatStyle?) {
 
     /**
      * Gets the currently worn armour set, if any.
+     *
      * @param e The entity.
      * @return The armour set worn.
      */
@@ -147,6 +157,7 @@ abstract class CombatSwingHandler(var type: CombatStyle?) {
 
     /**
      * Checks if the hit will be accurate.
+     *
      * @param entity The entity.
      * @param victim The victim.
      * @return `True` if the hit is accurate.
@@ -157,6 +168,7 @@ abstract class CombatSwingHandler(var type: CombatStyle?) {
 
     /**
      * Checks if the hit will be accurate.
+     *
      * @param entity The entity.
      * @param victim The victim.
      * @param style The combat style used.
@@ -168,6 +180,7 @@ abstract class CombatSwingHandler(var type: CombatStyle?) {
 
     /**
      * Checks if the hit will be accurate.
+     *
      * @param entity The entity.
      * @param victim The victim.
      * @param style The combat style (null to ignore prayers).
@@ -212,6 +225,7 @@ abstract class CombatSwingHandler(var type: CombatStyle?) {
 
     /**
      * Checks if the entity can execute a combat swing at the victim.
+     *
      * @param entity The entity.
      * @param victim The victim.
      * @return `True` if so.
@@ -222,6 +236,7 @@ abstract class CombatSwingHandler(var type: CombatStyle?) {
 
     /**
      * Checks if the victim can be attacked by the entity.
+     *
      * @param entity The attacking entity.
      * @param victim The entity being attacked.
      * @return `True` if so.
@@ -330,6 +345,7 @@ abstract class CombatSwingHandler(var type: CombatStyle?) {
 
     /**
      * Gets the dragonfire message.
+     *
      * @param protection The protection value.
      * @param fireName The fire breath name.
      * @return The message to send.
@@ -352,6 +368,7 @@ abstract class CombatSwingHandler(var type: CombatStyle?) {
 
     /**
      * Visualizes the audio.
+     *
      * @param entity the entity.
      * @param victim the victim.
      * @param state the state.
@@ -385,6 +402,7 @@ abstract class CombatSwingHandler(var type: CombatStyle?) {
 
     /**
      * Gets the combat distance.
+     *
      * @param e The entity.
      * @param v The victim.
      * @param rawDistance The distance.
@@ -401,8 +419,10 @@ abstract class CombatSwingHandler(var type: CombatStyle?) {
     }
 
     /**
-     * Formats the hit for the victim. (called as
-     * victim.getSwingHandler(false).formatHit(victim, hit))
+     * Formats the hit for the victim.
+     *
+     * `(called as victim.getSwingHandler(false).formatHit(victim, hit))`
+     *
      * @param victim The entity receiving the hit.
      * @param rawHit The hit to format.
      * @return The formatted hit.
@@ -420,6 +440,7 @@ abstract class CombatSwingHandler(var type: CombatStyle?) {
 
     /**
      * Adjusts the battle state object for this combat swing.
+     *
      * @param entity The attacking entity.
      * @param victim The victim.
      * @param state The battle state.
@@ -488,6 +509,7 @@ abstract class CombatSwingHandler(var type: CombatStyle?) {
 
     /**
      * Adds the experience for the current combat swing.
+     *
      * @param entity The attacking entity.
      * @param victim The victim.
      * @param state The battle state.
@@ -557,6 +579,7 @@ abstract class CombatSwingHandler(var type: CombatStyle?) {
 
     /**
      * Gets the formated hit.
+     *
      * @param attacker The attacking entity.
      * @param victim The victim.
      * @param state The battle state.
@@ -598,7 +621,7 @@ abstract class CombatSwingHandler(var type: CombatStyle?) {
                 hit += (hit.toDouble() * 0.15).toInt()
             }
         }
-        if (attacker is content.global.skill.summoning.familiar.Familiar && victim is Player) {
+        if (attacker is Familiar && victim is Player) {
             if (victim.prayer[PrayerType.PROTECT_FROM_SUMMONING]) {
                 hit = 0
             }
@@ -608,6 +631,7 @@ abstract class CombatSwingHandler(var type: CombatStyle?) {
 
     /**
      * Gets the default animation of the entity.
+     *
      * @param e The entity.
      * @param style The combat style.
      * @return The attack animation.
@@ -622,16 +646,21 @@ abstract class CombatSwingHandler(var type: CombatStyle?) {
 
     /**
      * Registers a special attack handler.
+     *
      * @param itemId The item id.
      * @param handler The combat swing handler.
-     * @return `True` if succesful.
+     * @return `True` if successful.
      */
     fun register(itemId: Int, handler: CombatSwingHandler): Boolean {
         if (specialHandlers == null) {
             specialHandlers = HashMap()
         }
         if (specialHandlers!!.containsKey(itemId)) {
-            log(this::class.java, Log.ERR, "Already contained special attack handler for item " + itemId + " - [old=" + specialHandlers!![itemId]!!::class.java.simpleName + ", new=" + handler.javaClass.simpleName + "].")
+            log(
+                this::class.java,
+                Log.ERR,
+                "Already contained special attack handler for item " + itemId + " - [old=" + specialHandlers!![itemId]!!::class.java.simpleName + ", new=" + handler.javaClass.simpleName + "]."
+            )
             return false
         }
         return specialHandlers!!.put(itemId, handler) == null
@@ -639,9 +668,9 @@ abstract class CombatSwingHandler(var type: CombatStyle?) {
 
     /**
      * Gets the special attack handler for the given item id.
+     *
      * @param itemId The item id.
-     * @return The special attack handler, or `null` if this item has no
-     * special attack handler.
+     * @return The special attack handler, or `null` if this item has no special attack handler.
      */
     fun getSpecial(itemId: Int): CombatSwingHandler? {
         if (specialHandlers == null) {
@@ -658,12 +687,11 @@ abstract class CombatSwingHandler(var type: CombatStyle?) {
         var EXPERIENCE_MOD = 4.0
 
         /**
-         * Checks if a projectile can be fired from the node location to the victim
-         * location.
+         * Checks if a projectile can be fired from the node location to the victim location.
+         *
          * @param entity The node.
          * @param victim The victim.
-         * @param checkClose If we are checking for a melee attack rather than a
-         * projectile.
+         * @param checkClose If we are checking for a melee attack rather than a projectile.
          * @return `True` if so.
          */
         @JvmStatic

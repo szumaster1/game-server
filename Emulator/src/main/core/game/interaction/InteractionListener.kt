@@ -1,6 +1,6 @@
 package core.game.interaction
 
-import content.global.handlers.item.SpadeDig
+import content.global.handlers.item.SpadeDigUtils
 import core.api.ContentInterface
 import core.game.node.Node
 import core.game.node.entity.Entity
@@ -226,7 +226,7 @@ interface InteractionListener : ContentInterface {
      * @param method The function to handle the digging action.
      */
     fun onDig(location: Location, method: (player: Player) -> Unit) {
-        SpadeDig.registerListener(location, method)
+        SpadeDigUtils.registerListener(location, method)
     }
 
     /**

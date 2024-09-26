@@ -18,11 +18,6 @@ import kotlin.math.ceil
 /**
  * Represents a bolt effect.
  * @author Vexia, Aero
- *
- * @param itemId The ID of the bolt item.
- * @param graphic The graphic effect associated with the bolt.
- * @param sound The sound effect associated with the bolt.
- * @constructor Bolt effect
  */
 enum class BoltEffect(val itemId: Int, private val graphic: Graphic, private val sound: Audio) {
 

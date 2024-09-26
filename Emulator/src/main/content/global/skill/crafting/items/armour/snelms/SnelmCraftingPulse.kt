@@ -20,7 +20,7 @@ class SnelmCraftingPulse(player: Player?, node: Item?, item: IntArray) : SkillPu
 
     override fun checkRequirements(): Boolean {
         if (getStatLevel(player, Skills.CRAFTING) < 15) {
-            sendDialogue(player, "You need a Crafting level of at least 15 in order to do this.")
+            sendDialogue(player, "You need a crafting level of at least 15 in order to do this.")
             return false
         }
         return true

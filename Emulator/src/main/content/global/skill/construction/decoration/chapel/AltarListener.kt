@@ -85,7 +85,9 @@ class AltarListener : InteractionListener {
      * @param obj       the object.
      */
     private fun isLit(obj: Scenery?): Boolean {
-        return obj != null && obj.id != 15271 && SceneryDefinition.forId(obj.id).options != null && !SceneryDefinition.forId(obj.id).hasAction("light")
+        return obj != null && obj.id != 15271 && SceneryDefinition.forId(obj.id).options != null && !SceneryDefinition.forId(
+            obj.id
+        ).hasAction("light")
     }
 
     /**

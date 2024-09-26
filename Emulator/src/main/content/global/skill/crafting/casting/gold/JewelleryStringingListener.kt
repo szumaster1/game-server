@@ -16,7 +16,7 @@ class JewelleryStringingListener : InteractionListener {
             val data = Jewellery.JewelleryItem.forProduct(if (used.id == Items.ONYX_AMULET_6579) Items.ONYX_AMULET_6579 else used.asItem().id)
                 ?: return@onUseWith false
             if (getStatLevel(player, Skills.CRAFTING) < data.level) {
-                sendMessage(player, "You need a Crafting level of at least " + data.level + " to do that.")
+                sendMessage(player, "You need a crafting level of at least " + data.level + " to do that.")
                 return@onUseWith false
             }
             if (removeItem(player, used.asItem()) && removeItem(player, with.asItem())) {

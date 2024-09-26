@@ -1,11 +1,11 @@
 package content.global.ame.quizmaster
 
-import org.rs.consts.Items
 import core.api.getAttribute
 import core.api.removeAttributes
 import core.game.node.entity.player.Player
 import core.game.node.item.Item
 import core.game.world.map.Location
+import org.rs.consts.Items
 
 /**
  * Quiz utils.

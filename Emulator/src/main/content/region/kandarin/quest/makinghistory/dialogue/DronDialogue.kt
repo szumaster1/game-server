@@ -1,6 +1,6 @@
 package content.region.kandarin.quest.makinghistory.dialogue
 
-import content.region.kandarin.quest.makinghistory.handlers.MHUtils
+import content.region.kandarin.quest.makinghistory.handlers.MakingHistoryUtils
 import core.api.*
 import org.rs.consts.NPCs
 import core.game.dialogue.Dialogue
@@ -16,11 +16,11 @@ import core.tools.END_DIALOGUE
 class DronDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any): Boolean {
-        if (getQuestStage(player, "Making History") >= 1 || getVarbit(player, MHUtils.DRON_PROGRESS) == 3) {
+        if (getQuestStage(player, "Making History") >= 1 || getVarbit(player, MakingHistoryUtils.DRON_PROGRESS) == 3) {
             playerl(FacialExpression.FRIENDLY, "I need to talk to you.")
             stage = 1
             return true
-        } else if (getQuestStage(player, "Making History") >= 1 && getVarbit(player, MHUtils.DRON_PROGRESS) == 4) {
+        } else if (getQuestStage(player, "Making History") >= 1 && getVarbit(player, MakingHistoryUtils.DRON_PROGRESS) == 4) {
             npcl(FacialExpression.FRIENDLY, "You have your answers, now go away!")
             stage = END_DIALOGUE
             return true
@@ -156,8 +156,8 @@ class DronDialogue(player: Player? = null) : Dialogue(player) {
             67 -> npcl(FacialExpression.FRIENDLY, "BE GONE!").also { stage++ }
             68 -> {
                 end()
-                setVarbit(player, MHUtils.DRON_PROGRESS, 4, true)
-                setAttribute(player, "/save:${MHUtils.ATTRIBUTE_DRON_PROGRESS}", true)
+                setVarbit(player, MakingHistoryUtils.DRON_PROGRESS, 4, true)
+                setAttribute(player, MakingHistoryUtils.ATTRIBUTE_DRON_PROGRESS, true)
             }
             69 -> npcl(FacialExpression.FRIENDLY, "Look, I don't have time for weaklings, if you want conversation, talk to my brother Blanin!").also { stage = END_DIALOGUE }
         }

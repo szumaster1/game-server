@@ -386,7 +386,7 @@ public enum DiaryType {
             {new Item(14572), new Item(14575)},
             {new Item(14573), new Item(14576)}
         },
-        "To start marking off tasks in your journal, speak to<br><br>to Council Workman on the bridge between the Seers'<br><br>Village and Rellekka, Yrsa in Rellekka or Advisor Ghrim<br><br>on the Miscellania.", // todo
+        "To start marking off tasks in your journal, speak to<br><br>Council Workman on the bridge between the Seers' Village<br><br>and Rellekka, Yrsa in Rellekka or Advisor Ghrim on the<br><br>Miscellania.",
         // Council Workman, Yrsa, Advisor Ghrim
         new int[]{1287, 1301, 1375}
     ),

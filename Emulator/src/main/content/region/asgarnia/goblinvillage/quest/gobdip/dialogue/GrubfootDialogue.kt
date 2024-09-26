@@ -8,6 +8,7 @@ import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.quest.Quest
 import core.tools.END_DIALOGUE
+import org.rs.consts.QuestName
 
 /**
  * Represents the Grubfoot dialogue.
@@ -18,7 +19,7 @@ class GrubfootDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
-        quest = player.getQuestRepository().getQuest("Goblin Diplomacy")
+        quest = player.getQuestRepository().getQuest(QuestName.GOBLIN_DIPLOMACY)
         when (quest!!.getStage(player)) {
             100 -> npc(FacialExpression.OLD_NORMAL, "Me lonely.").also { stage = 0 }
             30 -> npc(FacialExpression.OLD_NORMAL, "Me not like this blue colour.").also { stage = 0 }

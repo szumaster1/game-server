@@ -1,11 +1,11 @@
 package content.global.skill.magic.modern
 
+import core.game.node.item.Item
+import core.game.world.update.flag.context.Graphic
 import org.rs.consts.Graphics
 import org.rs.consts.Items
 import org.rs.consts.Scenery
 import org.rs.consts.Sounds
-import core.game.node.item.Item
-import core.game.world.update.flag.context.Graphic
 
 /**
  * Charge orb data.

@@ -1,6 +1,7 @@
 package content.global.skill.slayer
 
 import content.global.skill.combat.equipment.gloves.FOGGlovesManager
+import content.global.skill.slayer.masters.SlayerMaster
 import core.api.*
 import core.cache.def.impl.NPCDefinition
 import core.game.event.EventHook

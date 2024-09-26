@@ -65,11 +65,11 @@ public final class ChestViewer {
             switch (type) {
                 case 0:
                     player.getPacketDispatch().sendRunScript(150, "IviiiIsssssssss", BEING_DROPPED);
-                    PacketRepository.send(ContainerPacket.class, new ContainerContext(player, -1, -2, 92, PartyRoomOptions.chestQueue.toArray(), 10, false));
+                    PacketRepository.send(ContainerPacket.class, new ContainerContext(player, -1, -2, 92, PartyRoomOptionHandler.chestQueue.toArray(), 10, false));
                     break;
                 case 1:
                     player.getPacketDispatch().sendRunScript(150, "IviiiIsssssssss", READY_TO_DROP);
-                    PacketRepository.send(ContainerPacket.class, new ContainerContext(player, -1, -2, 91, PartyRoomOptions.chestQueue.toArray(), 10, false));
+                    PacketRepository.send(ContainerPacket.class, new ContainerContext(player, -1, -2, 91, PartyRoomOptionHandler.chestQueue.toArray(), 10, false));
                     break;
                 case 2:
                     player.getPacketDispatch().sendRunScript(150, "IviiiIsssssssss", ACCEPT);
@@ -83,15 +83,15 @@ public final class ChestViewer {
      * Accept.
      */
     public void accept() {
-        if (PartyRoomOptions.chestQueue.itemCount() + getContainer().itemCount() > 215) {
+        if (PartyRoomOptionHandler.chestQueue.itemCount() + getContainer().itemCount() > 215) {
             player.sendMessage("The chest is full.");
             return;
         }
-        PartyRoomOptions.chestQueue.addAll(getContainer());
+        PartyRoomOptionHandler.chestQueue.addAll(getContainer());
         getContainer().clear();
         PacketRepository.send(ContainerPacket.class, new ContainerContext(player, -1, -2, 90, new Item[]{}, 10, false));
-        PartyRoomOptions.update(0, null);
-        PartyRoomOptions.update(1, null);
+        PartyRoomOptionHandler.update(0, null);
+        PartyRoomOptionHandler.update(1, null);
     }
 
     /**
@@ -127,7 +127,7 @@ public final class ChestViewer {
                 container.clear();
                 player.removeExtension(ChestViewer.class);
                 player.getInterfaceManager().closeSingleTab();
-                PartyRoomOptions.getViewers().remove(player.getName());
+                PartyRoomOptionHandler.getViewers().remove(player.getName());
             }
             return true;
         }
@@ -201,8 +201,8 @@ public final class ChestViewer {
             if (super.add(item) && player.getInventory().remove(item)) {
                 listener.update(this, null);
                 player.getInventory().update();
-                PartyRoomOptions.update(0, null);
-                PartyRoomOptions.update(1, null);
+                PartyRoomOptionHandler.update(0, null);
+                PartyRoomOptionHandler.update(1, null);
             }
         }
 
@@ -249,8 +249,8 @@ public final class ChestViewer {
                 player.getInventory().add(add);
                 PacketRepository.send(ContainerPacket.class, new ContainerContext(player, -1, -2, 94, player.getInventory(), false));
             }
-            PartyRoomOptions.update(0, null);
-            PartyRoomOptions.update(1, null);
+            PartyRoomOptionHandler.update(0, null);
+            PartyRoomOptionHandler.update(1, null);
         }
 
 

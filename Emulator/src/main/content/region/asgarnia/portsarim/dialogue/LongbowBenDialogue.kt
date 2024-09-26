@@ -10,6 +10,7 @@ import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
+import org.rs.consts.QuestName
 
 /**
  * Represents the Longbow Ben dialogue.
@@ -73,13 +74,13 @@ class LongbowBenDialogue(player: Player? = null) : Dialogue(player) {
             7 -> npc(FacialExpression.HALF_GUILTY, "Arrr, ye see, he made one mistake! Before he sailed", "away, he gave me a bow and one arrow so that I wouldn't have", "to die slowly.").also { stage++ }
             8 -> npc(FacialExpression.NEUTRAL, "So I shot him and took my ship back.").also { stage++ }
             9 -> player(FacialExpression.HALF_GUILTY, "Right...").also { stage = 0 }
-            10 -> if (isQuestComplete(player, "Pirate's Treasure") && !isQuestComplete(player, "Goblin Diplomacy")) {
+            10 -> if (isQuestComplete(player, "Pirate's Treasure") && !isQuestComplete(player, QuestName.GOBLIN_DIPLOMACY)) {
                 npcl(FacialExpression.NEUTRAL, "Nay, I've got nothing for ye to do.").also { stage = 12 }
             } else {
                 npcl(FacialExpression.HALF_GUILTY, "Nay, but the barkeep hears most of the news around here.").also { stage++ }
             }
             11 -> when {
-                isQuestComplete(player, "Pirate's Treasure") && !isQuestComplete(player, "Goblin Diplomacy") -> npcl(FacialExpression.NEUTRAL, "Perhaps ye should be asking him for a quest.").also { stage = 13 }
+                isQuestComplete(player, "Pirate's Treasure") && !isQuestComplete(player, QuestName.GOBLIN_DIPLOMACY) -> npcl(FacialExpression.NEUTRAL, "Perhaps ye should be asking him for a quest.").also { stage = 13 }
                 else -> npcl(FacialExpression.HALF_GUILTY, "Or Redbeard Frank, he's often spoken of buried treasure. Perhaps ye should be asking them for quests.").also { stage = 13 }
             }
             12 -> npcl(FacialExpression.THINKING, "But I hear there's an old landlubber in Draynor Village who's always a-looking for a lively ${if (player.isMale) "lad" else "lass"} to do him a favour.").also { stage++ }

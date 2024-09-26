@@ -2,12 +2,12 @@ package content.global.ame.drilldemon
 
 import content.global.ame.RandomEventNPC
 import core.api.*
-import org.rs.consts.NPCs
 import core.api.utils.WeightBasedTable
 import core.game.interaction.QueueStrength
 import core.game.node.entity.npc.NPC
 import core.game.system.timer.impl.AntiMacro
 import core.tools.RED
+import org.rs.consts.NPCs
 
 /**
  * Sergeant damien NPC.

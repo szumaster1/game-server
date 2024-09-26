@@ -4,8 +4,7 @@ import org.json.simple.JSONArray
 import org.json.simple.JSONObject
 
 /**
- * Manages the collection of a player's varps.
- * Also handles saving and loading of saved varps.
+ * Manages the collection of a player's varps, also handles saving and loading of saved varps.
  * @author Ceikry
  */
 class VarpManager(val player: Player) {

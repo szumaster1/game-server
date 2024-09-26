@@ -1,8 +1,8 @@
 package content.region.asgarnia.falador.quest.rd.dialogue
 
-import content.region.asgarnia.falador.quest.rd.handlers.RDUtils
+import content.region.asgarnia.falador.quest.rd.handlers.RecruitmentDriveUtils
 import content.region.asgarnia.falador.quest.rd.RecruitmentDrive
-import content.region.asgarnia.falador.quest.rd.handlers.RecruitmentDriveListeners
+import content.region.asgarnia.falador.quest.rd.handlers.RecruitmentDriveListener
 import core.api.getAttribute
 import core.api.removeAttribute
 import core.api.setAttribute
@@ -31,16 +31,16 @@ class SirSpishyusDialogueFile(private val dialogueNum: Int = 0) : DialogueBuilde
                 removeAttribute(player, SirTinleyDialogueFile.patience)
                 setAttribute(player, RecruitmentDrive.stagePass, false)
                 setAttribute(player, RecruitmentDrive.stageFail, false)
-                RecruitmentDriveListeners.FailTestCutscene(player).start()
+                RecruitmentDriveListener.FailTestCutscene(player).start()
             }
         b.onPredicate { _ -> true }
             .betweenStage { _, player, _, _ ->
-                setVarbit(player, RDUtils.VARBIT_FOX_EAST, 0)
-                setVarbit(player, RDUtils.VARBIT_FOX_WEST, 0)
-                setVarbit(player, RDUtils.VARBIT_CHICKEN_EAST, 0)
-                setVarbit(player, RDUtils.VARBIT_CHICKEN_WEST, 0)
-                setVarbit(player, RDUtils.VARBIT_GRAIN_EAST, 0)
-                setVarbit(player, RDUtils.VARBIT_GRAIN_WEST, 0)
+                setVarbit(player, RecruitmentDriveUtils.VARBIT_FOX_EAST, 0)
+                setVarbit(player, RecruitmentDriveUtils.VARBIT_FOX_WEST, 0)
+                setVarbit(player, RecruitmentDriveUtils.VARBIT_CHICKEN_EAST, 0)
+                setVarbit(player, RecruitmentDriveUtils.VARBIT_CHICKEN_WEST, 0)
+                setVarbit(player, RecruitmentDriveUtils.VARBIT_GRAIN_EAST, 0)
+                setVarbit(player, RecruitmentDriveUtils.VARBIT_GRAIN_WEST, 0)
             }
             .npcl(FacialExpression.FRIENDLY, "Ah, welcome @name.")
             .playerl(FacialExpression.FRIENDLY, "Hello there." + " What am I supposed to be doing in this room?")

@@ -6,6 +6,7 @@ import org.rs.consts.Items
 import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression
 import core.tools.END_DIALOGUE
+import org.rs.consts.QuestName
 
 /**
  * Represents the Combination scroll dialogue.
@@ -13,7 +14,7 @@ import core.tools.END_DIALOGUE
 class CombinationScrollDialogue : DialogueFile() {
     var a = 0
     override fun handle(componentID: Int, buttonID: Int) {
-        when (getQuestStage(player!!, "Death Plateau")) {
+        when (getQuestStage(player!!, QuestName.DEATH_PLATEAU)) {
             in 15..16 -> {
                 when (stage) {
                     0 -> player(FacialExpression.NEUTRAL, "The IOU says that Harold owes me some money.").also { stage++ }
@@ -22,7 +23,7 @@ class CombinationScrollDialogue : DialogueFile() {
                     3 -> {
                         if (removeItem(player!!, Items.IOU_3103)) {
                             addItemOrDrop(player!!, Items.COMBINATION_3102)
-                            setQuestStage(player!!, "Death Plateau", 16)
+                            setQuestStage(player!!, QuestName.DEATH_PLATEAU, 16)
                             sendItemDialogue(player!!, Items.COMBINATION_3102, "You have found the combination!").also { stage++ }
                             sendMessage(player!!, "You have found the combination!")
                         }

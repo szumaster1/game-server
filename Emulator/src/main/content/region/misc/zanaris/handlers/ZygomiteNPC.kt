@@ -1,7 +1,8 @@
 package content.region.misc.zanaris.handlers
 
 import content.global.skill.slayer.Tasks
-import core.api.*
+import core.api.replaceSlot
+import core.api.sendMessage
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.Node

@@ -29,9 +29,6 @@ import kotlin.math.abs
  * Female feet ids: Script - 1137 [80: 1 ]
  */
 
-/**
- * Character design.
- */
 object CharacterDesign {
     private val MALE_HEAD_IDS = intArrayOf(0, 1, 2, 3, 4, 5, 6, 7, 8, 91, 92, 93, 94, 95, 96, 97, 261, 262, 263, 264, 265, 266, 267, 268)
     private val FEMALE_HEAD_IDS = intArrayOf(45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 135, 136, 137, 138, 139, 140, 141, 142, 143, 144, 145, 146, 269, 270, 271, 272, 273, 274, 275, 276, 277, 278, 279, 280)

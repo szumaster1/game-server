@@ -1,6 +1,6 @@
 package content.region.kandarin.quest.hazeelcult.dialogue
 
-import content.region.kandarin.quest.hazeelcult.handlers.HazeelCultListeners
+import content.region.kandarin.quest.hazeelcult.handlers.HazeelCultListener
 import org.rs.consts.NPCs
 import core.api.getAttribute
 import core.api.getQuestStage
@@ -22,7 +22,7 @@ class AlomoneDialogue(player: Player? = null) : Dialogue(player) {
         npc = args[0] as NPC
         if (getQuestStage(player, "Hazeel Cult") >= 2) {
             npcl(FacialExpression.FRIENDLY, "How did YOU get in here?").also { stage++ }
-        } else if (getAttribute(player, HazeelCultListeners.MAHJARRAT, true) && !getAttribute(player, HazeelCultListeners.CARNILLEAN, true)
+        } else if (getAttribute(player, HazeelCultListener.MAHJARRAT, true) && !getAttribute(player, HazeelCultListener.CARNILLEAN, true)
         ) {
             playerl(FacialExpression.FRIENDLY, "Hello, Alomone.").also { stage = 1 }
         } else {

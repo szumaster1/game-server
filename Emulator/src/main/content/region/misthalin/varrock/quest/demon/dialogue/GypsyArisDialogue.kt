@@ -2,7 +2,7 @@ package content.region.misthalin.varrock.quest.demon.dialogue
 
 import org.rs.consts.Animations
 import org.rs.consts.NPCs
-import content.region.misthalin.varrock.quest.demon.handlers.DSUtils
+import content.region.misthalin.varrock.quest.demon.handlers.DemonSlayerUtils
 import core.api.sendNPCDialogue
 import core.game.activity.ActivityManager
 import core.game.activity.CutscenePlugin
@@ -125,7 +125,7 @@ class GypsyArisDialogue(player: Player? = null) : Dialogue(player) {
                 }
 
                 10 -> {
-                    npc(DSUtils.getIncantation(player) + ".")
+                    npc(DemonSlayerUtils.getIncantation(player) + ".")
                     stage = 11
                 }
 
@@ -180,7 +180,7 @@ class GypsyArisDialogue(player: Player? = null) : Dialogue(player) {
                 }
 
                 10 -> {
-                    npc(DSUtils.getIncantation(player) + ".")
+                    npc(DemonSlayerUtils.getIncantation(player) + ".")
                     stage = 11
                 }
 
@@ -251,7 +251,7 @@ class GypsyArisDialogue(player: Player? = null) : Dialogue(player) {
                 }
 
                 12 -> {
-                    npc(DSUtils.getIncantation(player) + ".", "Have you got that?")
+                    npc(DemonSlayerUtils.getIncantation(player) + ".", "Have you got that?")
                     stage = 13
                 }
 
@@ -739,7 +739,7 @@ class GypsyArisDialogue(player: Player? = null) : Dialogue(player) {
                 }
 
                 202 -> {
-                    sendNPCDialogue(player, wally!!.id, DSUtils.generateIncantation(player) + "!")
+                    sendNPCDialogue(player, wally!!.id, DemonSlayerUtils.generateIncantation(player) + "!")
                     stage = 203
                 }
 

@@ -1,7 +1,5 @@
 package content.region.desert.quest.rescue.dialogue
 
-import org.rs.consts.Items
-import org.rs.consts.NPCs
 import core.api.sendChat
 import core.api.sendDialogue
 import core.api.sendDialogueLines
@@ -16,6 +14,8 @@ import core.game.world.GameWorld.settings
 import core.game.world.map.RegionManager.getLocalNpcs
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
+import org.rs.consts.Items
+import org.rs.consts.NPCs
 
 /**
  * Represents the Lady keli dialogue.

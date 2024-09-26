@@ -1,6 +1,6 @@
 package content.region.kandarin.gnomestronghold.dialogue
 
-import content.region.kandarin.quest.grandtree.handlers.GTUtils
+import content.region.kandarin.quest.grandtree.handlers.TheGrandTreeUtils
 import core.api.*
 import org.rs.consts.NPCs
 import core.game.dialogue.Dialogue
@@ -48,8 +48,8 @@ class FemiDialogue(player: Player? = null) : Dialogue(player) {
             5 -> npc(FacialExpression.OLD_DEFAULT, "Thanks traveller!").also { stage++ }
             6 -> {
                 end()
-                GTUtils.sneakIn(player)
-                setAttribute(player, GTUtils.FEMI_HELP_TRUE, true)
+                TheGrandTreeUtils.sneakIn(player)
+                setAttribute(player, TheGrandTreeUtils.FEMI_HELP_TRUE, true)
             }
             7 -> options("Can I help?", "I'd better get going!").also { stage++ }
             8 -> when (buttonId) {

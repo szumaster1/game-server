@@ -1,8 +1,6 @@
 package content.global.ame.surpriseexam
 
 import core.api.clearLogoutListener
-import org.rs.consts.Components
-import org.rs.consts.Items
 import core.api.removeAttributes
 import core.api.setAttribute
 import core.game.node.entity.impl.PulseType
@@ -10,6 +8,8 @@ import core.game.node.entity.player.Player
 import core.game.node.item.GroundItemManager
 import core.game.node.item.Item
 import core.game.system.task.Pulse
+import org.rs.consts.Components
+import org.rs.consts.Items
 
 /**
  * Surprise exam utils.

@@ -1,8 +1,6 @@
 package content.global.ame.evilchicken
 
 import content.global.ame.RandomEventNPC
-import org.rs.consts.Items
-import org.rs.consts.NPCs
 import core.api.getWorldTicks
 import core.api.utils.WeightBasedTable
 import core.game.node.entity.Entity
@@ -10,6 +8,8 @@ import core.game.node.entity.npc.NPC
 import core.game.node.item.GroundItemManager
 import core.game.node.item.Item
 import core.tools.RandomFunction
+import org.rs.consts.Items
+import org.rs.consts.NPCs
 import java.lang.Integer.max
 
 val ids = 2463..2468

@@ -31,58 +31,45 @@ class BookInterface : InterfaceListener {
             closeInterface(player)
             setAttribute(player, CURRENT_PAGE_ATTRIBUTE, 0)
             setAttribute(player, CALLBACK_ATTRIBUTE, displayCallback)
-            if (bookComponent == FANCY_BOOK_26) {
-                openInterface(player, FANCY_BOOK_26)
-            } else if (bookComponent == FANCY_BOOK_2_27) {
-                openInterface(player, FANCY_BOOK_2_27)
-            } else if (bookComponent == FANCY_BOOK_3_49) {
-                openInterface(player, FANCY_BOOK_3_49)
+
+            when (bookComponent) {
+                FANCY_BOOK_26 -> openInterface(player, FANCY_BOOK_26)
+                FANCY_BOOK_2_27 -> openInterface(player, FANCY_BOOK_2_27)
+                FANCY_BOOK_3_49 -> openInterface(player, FANCY_BOOK_3_49)
             }
+
             displayCallback.invoke(player, 0, 0)
         }
 
         fun pageSetup(player: Player, bookComponent: Int, title: String, contents: Array<PageSet>, hasPagination: Boolean = true) {
             val currentPage = getAttribute(player, CURRENT_PAGE_ATTRIBUTE, 0)
-            if (bookComponent == FANCY_BOOK_26) {
-                clearBookLines(player, FANCY_BOOK_26, FANCY_BOOK_26_LINE_IDS)
-                clearButtons(player, FANCY_BOOK_26, FANCY_BOOK_26_BUTTON_IDS)
-                setTitle(player, FANCY_BOOK_26, FANCY_BOOK_26_LINE_IDS, title)
-                if (hasPagination) {
-                    setPagination(player, FANCY_BOOK_26, FANCY_BOOK_26_LINE_IDS, FANCY_BOOK_26_BUTTON_IDS, currentPage, contents.size, contents[currentPage].pages.size == 1)
-                }
-                setPageContent(player, FANCY_BOOK_26, FANCY_BOOK_26_LINE_IDS, FANCY_BOOK_26_BUTTON_IDS, currentPage, contents)
-            } else if (bookComponent == FANCY_BOOK_2_27) {
-                clearBookLines(player, FANCY_BOOK_2_27, FANCY_BOOK_2_27_LINE_IDS)
-                clearButtons(player, FANCY_BOOK_2_27, FANCY_BOOK_2_27_BUTTON_IDS)
-                setTitle(player, FANCY_BOOK_2_27, FANCY_BOOK_2_27_LINE_IDS, title)
-                if (hasPagination) {
-                    setPagination(player, FANCY_BOOK_2_27, FANCY_BOOK_2_27_LINE_IDS, FANCY_BOOK_2_27_BUTTON_IDS, currentPage, contents.size, contents[currentPage].pages.size == 1)
-                }
-                setPageContent(
-                    player, FANCY_BOOK_2_27, FANCY_BOOK_2_27_LINE_IDS, FANCY_BOOK_2_27_BUTTON_IDS, currentPage, contents
-                )
-            } else if (bookComponent == FANCY_BOOK_3_49) {
-                clearBookLines(player, FANCY_BOOK_3_49, FANCY_BOOK_3_49_LINE_IDS)
-                clearButtons(player, FANCY_BOOK_3_49, FANCY_BOOK_3_49_BUTTON_IDS)
-                setTitle(player, FANCY_BOOK_3_49, FANCY_BOOK_3_49_LINE_IDS, title)
-                if (hasPagination) {
-                    setPagination(player, FANCY_BOOK_3_49, FANCY_BOOK_3_49_LINE_IDS, FANCY_BOOK_3_49_BUTTON_IDS, currentPage, contents.size, contents[currentPage].pages.size == 1)
-                }
-                setPageContent(player, FANCY_BOOK_3_49, FANCY_BOOK_3_49_LINE_IDS, FANCY_BOOK_3_49_BUTTON_IDS, currentPage, contents)
+
+            when (bookComponent) {
+                FANCY_BOOK_26 -> setupFancyBook(player, FANCY_BOOK_26, FANCY_BOOK_26_LINE_IDS, FANCY_BOOK_26_BUTTON_IDS, title, currentPage, contents, hasPagination)
+                FANCY_BOOK_2_27 -> setupFancyBook(player, FANCY_BOOK_2_27, FANCY_BOOK_2_27_LINE_IDS, FANCY_BOOK_2_27_BUTTON_IDS, title, currentPage, contents, hasPagination)
+                FANCY_BOOK_3_49 -> setupFancyBook(player, FANCY_BOOK_3_49, FANCY_BOOK_3_49_LINE_IDS, FANCY_BOOK_3_49_BUTTON_IDS, title, currentPage, contents, hasPagination)
             }
+        }
+
+        private fun setupFancyBook(player: Player, bookComponent: Int, lineIds: Array<Int>, buttonIds: Array<Int>, title: String, currentPage: Int, contents: Array<PageSet>, hasPagination: Boolean) {
+            clearBookLines(player, bookComponent, lineIds)
+            clearButtons(player, bookComponent, buttonIds)
+            setTitle(player, bookComponent, lineIds, title)
+
+            if (hasPagination) {
+                setPagination(player, bookComponent, lineIds, buttonIds, currentPage, contents.size, contents[currentPage].pages.size == 1)
+            }
+
+            setPageContent(player, bookComponent, lineIds, buttonIds, currentPage, contents)
         }
 
         fun clearBookLines(player: Player, componentId: Int, bookLineIds: Array<Int>) {
             openInterface(player, componentId)
-            for (i in bookLineIds) {
-                player.packetDispatch.sendString("", componentId, i)
-            }
+            bookLineIds.forEach { player.packetDispatch.sendString("", componentId, it) }
         }
 
         fun clearButtons(player: Player, componentId: Int, bookButtonIds: Array<Int>) {
-            for (i in bookButtonIds) {
-                player.packetDispatch.sendInterfaceConfig(componentId, i, true)
-            }
+            bookButtonIds.forEach { player.packetDispatch.sendInterfaceConfig(componentId, it, true) }
         }
 
         fun setTitle(player: Player, componentId: Int, bookLineIds: Array<Int>, title: String) {
@@ -94,22 +81,21 @@ class BookInterface : InterfaceListener {
             player.packetDispatch.sendInterfaceConfig(componentId, bookButtonIds[1], currentPage >= totalPages - 1)
             player.packetDispatch.sendString("" + (currentPage * 2 + 1), componentId, bookLineIds[1])
             player.packetDispatch.sendString("" + (currentPage * 2 + 2), componentId, bookLineIds[2])
-            if (hasRightPage) {
 
-                if (componentId == FANCY_BOOK_26) {
-                    player.packetDispatch.sendString("", componentId, FANCY_BOOK_26_LINE_IDS[2])
-                } else if (componentId == FANCY_BOOK_2_27) {
-                    player.packetDispatch.sendString("", componentId, FANCY_BOOK_2_27_LINE_IDS[2])
-                } else if (componentId == FANCY_BOOK_3_49) {
-                    player.packetDispatch.sendString("", componentId, FANCY_BOOK_3_49_LINE_IDS[2])
+            if (hasRightPage) {
+                val lineId = when (componentId) {
+                    FANCY_BOOK_26 -> FANCY_BOOK_26_LINE_IDS[2]
+                    FANCY_BOOK_2_27 -> FANCY_BOOK_2_27_LINE_IDS[2]
+                    FANCY_BOOK_3_49 -> FANCY_BOOK_3_49_LINE_IDS[2]
+                    else -> null
                 }
+                lineId?.let { player.packetDispatch.sendString("", componentId, it) }
             }
         }
 
         fun setPageContent(player: Player, componentId: Int, bookLineIds: Array<Int>, bookButtonIds: Array<Int>, currentPage: Int, contents: Array<PageSet>) {
             for (page in contents[currentPage].pages) {
                 for (line in page.lines) {
-
                     if (bookLineIds.contains(line.child)) {
                         player.packetDispatch.sendString(line.message, componentId, line.child)
                     }

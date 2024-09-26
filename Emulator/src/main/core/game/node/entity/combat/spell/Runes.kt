@@ -5,8 +5,6 @@ import core.game.node.item.Item
 
 /**
  * Represents the constants of runes.
- * @param id Unique identifier for the rune
- * @constructor Runes Enum representing different types of runes
  */
 enum class Runes(val id: Int) {
     AIR_RUNE(Items.AIR_RUNE_556),

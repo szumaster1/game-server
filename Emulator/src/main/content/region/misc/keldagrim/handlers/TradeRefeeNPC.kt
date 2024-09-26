@@ -1,10 +1,10 @@
 package content.region.misc.keldagrim.handlers
 
-import org.rs.consts.NPCs
 import core.api.sendChat
 import core.game.node.entity.npc.NPC
 import core.game.node.entity.npc.NPCBehavior
 import core.tools.RandomFunction
+import org.rs.consts.NPCs
 
 /**
  * Represents the Trade Refee NPC.

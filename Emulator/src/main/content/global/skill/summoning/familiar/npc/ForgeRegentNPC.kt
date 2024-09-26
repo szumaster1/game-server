@@ -1,7 +1,7 @@
 package content.global.skill.summoning.familiar.npc
 
 import content.global.skill.firemaking.FireMakingPulse.getAsh
-import content.global.skill.firemaking.Log.Companion.forId
+import content.global.skill.firemaking.logs.Log.Companion.forId
 import content.global.skill.summoning.familiar.Familiar
 import content.global.skill.summoning.familiar.FamiliarSpecial
 import core.game.container.impl.EquipmentContainer

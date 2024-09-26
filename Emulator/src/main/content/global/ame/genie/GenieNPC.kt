@@ -1,14 +1,14 @@
 package content.global.ame.genie
 
 import content.global.ame.RandomEventNPC
-import org.rs.consts.Items
-import org.rs.consts.NPCs
-import org.rs.consts.Sounds
 import core.api.playAudio
 import core.api.setAttribute
 import core.api.utils.WeightBasedTable
 import core.game.node.entity.npc.NPC
 import core.tools.RandomFunction
+import org.rs.consts.Items
+import org.rs.consts.NPCs
+import org.rs.consts.Sounds
 
 /**
  * Genie NPC.

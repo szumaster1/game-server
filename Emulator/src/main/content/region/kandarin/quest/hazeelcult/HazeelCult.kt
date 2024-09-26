@@ -3,7 +3,7 @@ package content.region.kandarin.quest.hazeelcult
 import core.api.addItemOrDrop
 import org.rs.consts.Items
 import org.rs.consts.Vars
-import content.region.kandarin.quest.hazeelcult.handlers.HazeelCultListeners
+import content.region.kandarin.quest.hazeelcult.handlers.HazeelCultListener
 import core.api.getAttribute
 import core.api.rewardXP
 import core.game.node.entity.player.Player
@@ -18,8 +18,8 @@ import core.plugin.Initializable
 class HazeelCult : Quest("Hazeel Cult", 74, 73, 1, Vars.VARP_QUEST_HAZEEL_CULT_PROGRESS, 0, 1, 9) {
 
     override fun drawJournal(player: Player, stage: Int) {
-        var attributeMahjarrat = getAttribute(player!!, HazeelCultListeners.MAHJARRAT, true)
-        var attributeCarnillean = getAttribute(player, HazeelCultListeners.CARNILLEAN, true)
+        var attributeMahjarrat = getAttribute(player!!, HazeelCultListener.MAHJARRAT, true)
+        var attributeCarnillean = getAttribute(player, HazeelCultListener.CARNILLEAN, true)
 
         super.drawJournal(player, stage)
         var line = 11

@@ -8,9 +8,6 @@ import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 import core.tools.StringUtils
 
-/**
- * Represents the Agility ticket interface.
- */
 class AgilityTicketInterface : InterfaceListener {
 
     override fun defineInterfaceListeners() {

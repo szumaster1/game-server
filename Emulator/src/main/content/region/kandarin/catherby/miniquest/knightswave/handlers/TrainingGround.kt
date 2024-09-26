@@ -24,7 +24,7 @@ class TrainingGround : ActivityPlugin("knight wave", true, false, true), MapArea
     override fun areaLeave(entity: Entity, logout: Boolean) {
         super.areaLeave(entity, logout)
         if (entity is Player) {
-            removeAttributes(entity, GameAttributes.PRAYER_LOCK, KWUtils.KW_SPAWN, KWUtils.KW_TIER, KWUtils.KW_BEGIN)
+            removeAttributes(entity, GameAttributes.PRAYER_LOCK, KnightWavesUtils.KW_SPAWN, KnightWavesUtils.KW_TIER, KnightWavesUtils.KW_BEGIN)
             findLocalNPC(entity, KnightWavesNPC().id)?.let { poofClear(it) }
             clearLogoutListener(entity, "Knight's training")
         }

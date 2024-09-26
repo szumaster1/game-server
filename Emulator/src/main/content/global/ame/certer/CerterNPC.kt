@@ -2,13 +2,13 @@ package content.global.ame.certer
 
 import content.global.ame.RandomEventNPC
 import core.api.animate
-import org.rs.consts.NPCs
-import org.rs.consts.Sounds
 import core.api.playAudio
 import core.api.utils.WeightBasedTable
 import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.link.emote.Emotes
 import core.tools.RandomFunction
+import org.rs.consts.NPCs
+import org.rs.consts.Sounds
 
 /**
  * Certer NPC.

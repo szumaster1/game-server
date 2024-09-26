@@ -1,7 +1,5 @@
 package content.region.misc.keldagrim.dialogue.ferryman
 
-import org.rs.consts.Items
-import org.rs.consts.NPCs
 import core.api.inInventory
 import core.api.removeItem
 import core.api.teleport
@@ -14,6 +12,8 @@ import core.game.world.map.Location
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
+import org.rs.consts.Items
+import org.rs.consts.NPCs
 
 /**
  * Represents the Dwarven ferryman back dialogue.

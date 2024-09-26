@@ -11,9 +11,6 @@ import core.game.world.map.Location;
 import core.plugin.Initializable;
 import core.plugin.Plugin;
 
-/**
- * Arena door handler.
- */
 @Initializable
 public final class ArenaDoorHandler extends OptionHandler {
 
