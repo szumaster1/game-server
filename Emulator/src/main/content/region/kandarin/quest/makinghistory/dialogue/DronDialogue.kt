@@ -8,6 +8,7 @@ import core.game.dialogue.FacialExpression
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
+import org.rs.consts.QuestName
 
 /**
  * Represents the Dron dialogue.
@@ -16,11 +17,11 @@ import core.tools.END_DIALOGUE
 class DronDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any): Boolean {
-        if (getQuestStage(player, "Making History") >= 1 || getVarbit(player, MakingHistoryUtils.DRON_PROGRESS) == 3) {
+        if (getQuestStage(player, QuestName.MAKING_HISTORY) >= 1 || getVarbit(player, MakingHistoryUtils.DRON_PROGRESS) == 3) {
             playerl(FacialExpression.FRIENDLY, "I need to talk to you.")
             stage = 1
             return true
-        } else if (getQuestStage(player, "Making History") >= 1 && getVarbit(player, MakingHistoryUtils.DRON_PROGRESS) == 4) {
+        } else if (getQuestStage(player, QuestName.MAKING_HISTORY) >= 1 && getVarbit(player, MakingHistoryUtils.DRON_PROGRESS) == 4) {
             npcl(FacialExpression.FRIENDLY, "You have your answers, now go away!")
             stage = END_DIALOGUE
             return true

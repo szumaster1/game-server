@@ -19,6 +19,7 @@ import core.game.world.map.Location
 import core.game.world.map.zone.impl.DarkZone
 import core.plugin.Initializable
 import org.rs.consts.Items
+import org.rs.consts.QuestName
 
 /**
  * Represents the skillcape perks.
@@ -234,9 +235,9 @@ enum class SkillcapePerksEffect(val attribute: String, val effect: ((Player) -> 
             end()
             if (spellbook != null) {
                 if (spellbook == SpellBookManager.SpellBook.ANCIENT) {
-                    if (!hasRequirement(player, "Desert Treasure")) return true
+                    if (!hasRequirement(player, QuestName.DESERT_TREASURE)) return true
                 } else if (spellbook == SpellBookManager.SpellBook.LUNAR) {
-                    if (!hasRequirement(player, "Lunar Diplomacy")) return true
+                    if (!hasRequirement(player, QuestName.LUNAR_DIPLOMACY)) return true
                 }
                 player.spellBookManager.setSpellBook(spellbook)
                 player.interfaceManager.openTab(Component(spellbook.interfaceId))

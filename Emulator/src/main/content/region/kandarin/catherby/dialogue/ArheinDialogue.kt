@@ -14,6 +14,7 @@ import core.game.node.item.Item
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 import core.tools.StringUtils
+import org.rs.consts.QuestName
 
 /**
  * Represents the Arhein dialogue.
@@ -99,7 +100,7 @@ class ArheinDialogue(player: Player? = null) : Dialogue(player) {
             101 -> showTopics(
                 Topic("Where do you deliver to?", 120),
                 Topic("Are you rich then?", 110),
-                IfTopic("Do you deliver to the fort just down the coast?", 500, getQuestStage(player!!, "Merlin's Crystal") == 30)
+                IfTopic("Do you deliver to the fort just down the coast?", 500, getQuestStage(player!!, QuestName.MERLINS_CRYSTAL) == 30)
             )
 
             110 -> npcl(FacialExpression.NEUTRAL, "Business is going reasonably well... I wouldn't say I was the richest of merchants ever, but I'm doing fairly well all things considered.").also { stage = END_DIALOGUE }

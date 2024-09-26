@@ -11,6 +11,7 @@ import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
+import org.rs.consts.QuestName
 
 /**
  * Represents the Kilron dialogue.
@@ -29,9 +30,9 @@ class KilronDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any?): Boolean {
         npc = args[0] as NPC
-        if (isQuestComplete(player, "Plague City") && isQuestComplete(player, "Biohazard")) {
+        if (isQuestComplete(player, QuestName.PLAGUE_CITY) && isQuestComplete(player, QuestName.BIOHAZARD)) {
             npcl(FacialExpression.FRIENDLY, "Looks like you won't be needing the rope ladder any more, adventurer. I heard it was you who started the revolution and freed West Ardougne!").also { stage = END_DIALOGUE }
-        } else if (isQuestInProgress(player, "Biohazard", 1, 99)) {
+        } else if (isQuestInProgress(player, QuestName.BIOHAZARD, 1, 99)) {
             end().also { openDialogue(player, KilronDialogueFile()) }
         } else {
             npc("Hello.").also { stage = END_DIALOGUE }

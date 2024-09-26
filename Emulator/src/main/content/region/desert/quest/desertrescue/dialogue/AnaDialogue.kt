@@ -1,6 +1,7 @@
 package content.region.desert.quest.desertrescue.dialogue
 
 import content.region.desert.quest.desertrescue.TouristTrap
+import core.api.sendDialogueLines
 import core.api.sendNPCDialogue
 import core.api.sendNPCDialogueLines
 import core.game.dialogue.Dialogue
@@ -15,6 +16,7 @@ import core.game.world.GameWorld.Pulser
 import core.game.world.map.Location
 import core.game.world.map.RegionManager.getNpc
 import core.plugin.Plugin
+import org.rs.consts.QuestName
 
 /**
  * Represents the Ana dialogue.
@@ -28,9 +30,9 @@ class AnaDialogue(player: Player? = null) : Dialogue(player) {
     }
 
     override fun open(vararg args: Any): Boolean {
-        quest = player.getQuestRepository().getQuest(TouristTrap.NAME)
+        quest = player.getQuestRepository().getQuest(QuestName.THE_TOURIST_TRAP)
         if ((quest!!.getStage(player) == 71 || quest!!.getStage(player) == 72) && args.size > 1) {
-            player.dialogueInterpreter.sendDialogue(
+            sendDialogueLines(player,
                 "You see a barrel coming to the surface. Before too long you haul it",
                 "onto the side. The barrel seems quite heavy and you hear a muffled",
                 "sound coming from inside."
@@ -283,7 +285,7 @@ class AnaDialogue(player: Player? = null) : Dialogue(player) {
 
         override fun handle(event: NodeUsageEvent): Boolean {
             val player = event.player
-            val quest = player.getQuestRepository().getQuest(TouristTrap.NAME)
+            val quest = player.getQuestRepository().getQuest(QuestName.THE_TOURIST_TRAP)
             when (quest.getStage(player)) {
                 61 -> player.dialogueInterpreter.open(822, event.usedWith, true)
                 else -> return false
@@ -306,7 +308,7 @@ class AnaDialogue(player: Player? = null) : Dialogue(player) {
         }
 
         override fun isHidden(player: Player): Boolean {
-            val quest = player.getQuestRepository().getQuest(TouristTrap.NAME)
+            val quest = player.getQuestRepository().getQuest(QuestName.THE_TOURIST_TRAP)
             return if (quest.getStage(player) > 61) {
                 true
             } else player.inventory.containsItem(TouristTrap.ANNA_BARREL) || player.bank.containsItem(

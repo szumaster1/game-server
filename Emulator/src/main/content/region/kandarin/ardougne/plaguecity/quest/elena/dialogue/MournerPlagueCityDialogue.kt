@@ -8,6 +8,7 @@ import core.game.global.action.DoorActionHandler
 import core.game.node.entity.npc.NPC
 import core.game.world.map.RegionManager.getObject
 import core.tools.END_DIALOGUE
+import org.rs.consts.QuestName
 
 /**
  * Represents the Mourner plague city dialogue.
@@ -16,7 +17,7 @@ class MournerPlagueCityDialogue : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {
         npc = NPC(NPCs.MOURNER_3216)
-        when (getQuestStage(player!!, "Plague City")) {
+        when (getQuestStage(player!!, QuestName.PLAGUE_CITY)) {
 
             in 0..5 -> when (stage) {
                 1 -> npcl(FacialExpression.NEUTRAL, "What are you up to with old man Edmond?").also { stage++ }
@@ -89,7 +90,7 @@ class MournerPlagueCityDialogue : DialogueFile() {
                             runTask(player!!, 1) {
                                 DoorActionHandler.handleAutowalkDoor(player!!, getObject(location(2540, 3273, 0))!!.asScenery())
                                 runTask(player!!, 1) {
-                                    setQuestStage(player!!, "Plague City", 17)
+                                    setQuestStage(player!!, QuestName.PLAGUE_CITY, 17)
                                     sendDialogueLines(player!!, "You wait until the mourner's back is turned and sneak into the", "building.")
                                 }
                             }

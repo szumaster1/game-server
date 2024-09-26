@@ -10,14 +10,14 @@ import core.api.sendItemOnInterface
 import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.quest.Quest
 import core.game.node.entity.skill.Skills
-import core.game.node.item.Item
 import core.plugin.Initializable
+import org.rs.consts.QuestName
 
 /**
  * Represents the Imp catcher quest.
  */
 @Initializable
-class ImpCatcher : Quest("Imp Catcher", 21, 20, 1, Vars.VARP_QUEST_IMP_CATCHER_PROGRESS, 0, 1, 2) {
+class ImpCatcher : Quest(QuestName.IMP_CATCHER, 21, 20, 1, Vars.VARP_QUEST_IMP_CATCHER_PROGRESS, 0, 1, 2) {
 
     /*
      * Quest description:

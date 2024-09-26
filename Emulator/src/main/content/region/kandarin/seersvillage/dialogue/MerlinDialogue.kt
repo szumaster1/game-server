@@ -1,6 +1,5 @@
 package content.region.kandarin.seersvillage.dialogue
 
-import content.region.kandarin.quest.grail.dialogue.MerlinHolyGrailQuestDialogueFile
 import content.region.kandarin.quest.merlin.dialogue.MerlinDialogueFile
 import org.rs.consts.NPCs
 import core.api.isQuestComplete
@@ -8,6 +7,7 @@ import core.api.openDialogue
 import core.game.dialogue.Dialogue
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
+import org.rs.consts.QuestName
 
 /**
  * Represents the Merlin dialogue.
@@ -16,10 +16,10 @@ import core.plugin.Initializable
 class MerlinDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun handle(interfaceId: Int, buttonId: Int): Boolean {
-        if (!isQuestComplete(player, "Merlin's Crystal")) {
+        if (!isQuestComplete(player, QuestName.MERLINS_CRYSTAL)) {
             openDialogue(player, MerlinDialogueFile(false), NPCs.MERLIN_249)
         } else {
-            openDialogue(player, MerlinHolyGrailQuestDialogueFile(), NPCs.MERLIN_249)
+            openDialogue(player, content.region.kandarin.quest.grail.dialogue.MerlinHGDialogue(), NPCs.MERLIN_249)
         }
         return true
     }

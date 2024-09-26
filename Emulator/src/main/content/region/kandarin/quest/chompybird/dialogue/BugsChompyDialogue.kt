@@ -13,6 +13,7 @@ import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.quest.Quest
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
+import org.rs.consts.QuestName
 
 /**
  * Represents the Bugs chompy dialogue.
@@ -23,7 +24,7 @@ class BugsChompyDialogue(player: Player? = null) : Dialogue(player) {
     override fun open(vararg args: Any?): Boolean {
         npc = args[0] as NPC
 
-        val chompyBird = player.questRepository.getQuest("Big Chompy Bird Hunting")
+        val chompyBird = player.questRepository.getQuest(QuestName.BIG_CHOMPY_BIRD_HUNTING)
         val chompyStage = chompyBird.getStage(player)
 
         when (chompyStage) {

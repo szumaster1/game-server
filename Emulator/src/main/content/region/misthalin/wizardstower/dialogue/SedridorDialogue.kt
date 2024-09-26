@@ -13,6 +13,7 @@ import core.game.node.item.Item
 import core.game.system.task.Pulse
 import core.game.world.update.flag.context.Graphic
 import core.plugin.Initializable
+import org.rs.consts.QuestName
 
 /**
  * Represents the Sedridor dialogue.
@@ -27,7 +28,7 @@ class SedridorDialogue(player: Player? = null) : Dialogue(player) {
     }
 
     override fun handle(interfaceId: Int, buttonId: Int): Boolean {
-        val quest = getQuestStage(player, "Rune Mysteries")
+        val quest = getQuestStage(player, QuestName.RUNE_MYSTERIES)
         when (stage) {
             0 -> {
                 if (quest == 100) {
@@ -351,7 +352,7 @@ class SedridorDialogue(player: Player? = null) : Dialogue(player) {
                     if (!player.inventory.add(Item(TALISMAN))) {
                         GroundItemManager.create(GroundItem(Item(TALISMAN), player.location, player))
                     }
-                    finishQuest(player, "Rune Mysteries")
+                    finishQuest(player, QuestName.RUNE_MYSTERIES)
                     player.getQuestRepository().syncronizeTab(player)
                 }
                 end()
@@ -503,7 +504,7 @@ class SedridorDialogue(player: Player? = null) : Dialogue(player) {
             }
 
             51 -> if (removeItem(player, Item(TALISMAN))) {
-                setQuestStage(player, "Rune Mysteries", 20)
+                setQuestStage(player, QuestName.RUNE_MYSTERIES, 20)
                 npc("Wow! This is... incredible!")
                 stage = 52
             }
@@ -619,7 +620,7 @@ class SedridorDialogue(player: Player? = null) : Dialogue(player) {
             }
 
             74 -> {
-                setQuestStage(player, "Rune Mysteries", 30)
+                setQuestStage(player, QuestName.RUNE_MYSTERIES, 30)
                 npc("Best of luck with your quest, " + player.username + ".")
                 if (!player.inventory.add(Item(PACKAGE))) {
                     GroundItemManager.create(GroundItem(Item(PACKAGE), player.location, player))

@@ -12,6 +12,7 @@ import core.game.system.task.Pulse
 import core.game.world.GameWorld.Pulser
 import core.game.world.map.Location
 import core.tools.END_DIALOGUE
+import org.rs.consts.QuestName
 
 /**
  * Represents the Elkoy dialogue.
@@ -48,7 +49,7 @@ class ElkoyDialogue : DialogueFile() {
     }
 
     override fun handle(componentID: Int, buttonID: Int) {
-        val questStage = getQuestStage(player!!, "Tree Gnome Village")
+        val questStage = getQuestStage(player!!, QuestName.TREE_GNOME_VILLAGE)
         val locY = player!!.location.y
         val followLocation = if (locY > 3161) "village" else "exit"
         when {

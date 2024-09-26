@@ -1,8 +1,6 @@
 package content.region.kandarin.quest.grandtree.dialogue
 
 import core.api.addItemOrDrop
-import org.rs.consts.Items
-import org.rs.consts.NPCs
 import core.api.getQuestStage
 import core.api.sendItemDialogue
 import core.game.dialogue.Dialogue
@@ -11,6 +9,9 @@ import core.game.node.entity.player.Player
 import core.game.node.item.Item
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
+import org.rs.consts.Items
+import org.rs.consts.NPCs
+import org.rs.consts.QuestName
 
 /**
  * Represents the Anita dialogue.
@@ -19,7 +20,7 @@ import core.tools.END_DIALOGUE
 class AnitaDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun handle(interfaceId: Int, buttonId: Int): Boolean {
-        when (getQuestStage(player!!, "The Grand Tree")) {
+        when (getQuestStage(player!!, QuestName.THE_GRAND_TREE)) {
             0 -> core.api.sendDialogue(player!!, "Anita seems too busy to talk.").also { stage = END_DIALOGUE }
             60 -> {
                 if (player!!.hasItem(Item(Items.GLOUGHS_KEY_788)) && stage < 12) {

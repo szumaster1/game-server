@@ -8,12 +8,13 @@ import core.game.node.entity.player.link.quest.Quest
 import core.game.node.entity.skill.Skills
 import core.game.world.map.Location
 import core.plugin.Initializable
+import org.rs.consts.QuestName
 
 /**
  * Tree gnome village quest.
  */
 @Initializable
-class TreeGnomeVillage : Quest("Tree Gnome Village", 125, 124, 2, Vars.VARP_QUEST_TREE_GNOME_VILLAGE_PROGRESS, 0, 1, 9) {
+class TreeGnomeVillage : Quest(QuestName.TREE_GNOME_VILLAGE, 125, 124, 2, Vars.VARP_QUEST_TREE_GNOME_VILLAGE_PROGRESS, 0, 1, 9) {
 
     companion object {
         val mazeVillage = Location(2515, 3159, 0)

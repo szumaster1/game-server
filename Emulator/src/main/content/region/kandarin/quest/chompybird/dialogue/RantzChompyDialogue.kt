@@ -15,6 +15,7 @@ import core.game.node.item.Item
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 import core.tools.RandomFunction
+import org.rs.consts.QuestName
 
 /**
  * Represents the Rantz chompy dialogue.
@@ -24,7 +25,7 @@ class RantzChompyDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any?): Boolean {
         npc = args[0] as NPC
-        val chompyBird = player.questRepository.getQuest("Big Chompy Bird Hunting")
+        val chompyBird = player.questRepository.getQuest(QuestName.BIG_CHOMPY_BIRD_HUNTING)
         val chompyStage = chompyBird.getStage(player)
         val hasOgreBow = inInventory(player, Items.OGRE_BOW_2883) || inEquipment(player, Items.OGRE_BOW_2883) || inBank(player, Items.OGRE_BOW_2883)
         if (stage in 60 until 100 && !hasOgreBow) {

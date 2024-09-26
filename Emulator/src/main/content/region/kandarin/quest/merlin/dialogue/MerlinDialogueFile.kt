@@ -11,6 +11,7 @@ import core.game.node.scenery.Scenery
 import core.game.node.scenery.SceneryBuilder
 import core.game.world.map.Location
 import core.tools.END_DIALOGUE
+import org.rs.consts.QuestName
 
 /**
  * Represents the Merlin dialogue file.
@@ -23,7 +24,7 @@ class MerlinDialogueFile(val forced: Boolean) : DialogueFile() {
         when (stage) {
             0 -> {
                 if (forced) {
-                    setQuestStage(player!!, "Merlin's Crystal", 60)
+                    setQuestStage(player!!, QuestName.MERLINS_CRYSTAL, 60)
                     removeCrystal()
                     spawnMerlin()
                     npcl(FacialExpression.HAPPY, "Thank you! Thank you! Thank you!")

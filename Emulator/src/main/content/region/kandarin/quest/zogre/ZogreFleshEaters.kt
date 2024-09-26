@@ -9,12 +9,13 @@ import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.quest.Quest
 import core.game.node.entity.skill.Skills
 import core.plugin.Initializable
+import org.rs.consts.QuestName
 
 /**
  * Zogre flesh eaters quest.
  */
 @Initializable
-class ZogreFleshEaters : Quest("Zogre Flesh Eaters", 40, 39, 1, Vars.VARBIT_QUEST_ZORGE_FLESH_EATERS_PROGRESS, 0, 1, 13) {
+class ZogreFleshEaters : Quest(QuestName.ZOGRE_FLESH_EATERS, 40, 39, 1, Vars.VARBIT_QUEST_ZORGE_FLESH_EATERS_PROGRESS, 0, 1, 13) {
 
     override fun drawJournal(player: Player, stage: Int) {
         super.drawJournal(player, stage)
@@ -26,8 +27,8 @@ class ZogreFleshEaters : Quest("Zogre Flesh Eaters", 40, 39, 1, Vars.VARBIT_QUES
             line(player, "ceremonial dance place called !!Jiggig??.", line++)
             line++
             line(player, "To start this !!quest?? I should complete these quests:-", line++)
-            line(player, if (isQuestComplete(player, "Jungle Potion")) "---Jungle Potion./--" else "!!Jungle Potion.??", line++)
-            line(player, if (isQuestComplete(player, "Big Chompy Bird Hunting")) "---Big Chompy Bird Hunting./--" else "!!Big Chompy Bird Hunting.??", line++)
+            line(player, if (isQuestComplete(player, QuestName.JUNGLE_POTION)) "---${QuestName.JUNGLE_POTION}./--" else "!!${QuestName.JUNGLE_POTION}.??", line++)
+            line(player, if (isQuestComplete(player, QuestName.BIG_CHOMPY_BIRD_HUNTING)) "---${QuestName.BIG_CHOMPY_BIRD_HUNTING}./--" else "!!${QuestName.BIG_CHOMPY_BIRD_HUNTING}.??", line++)
             line(player, "It would help if I had the following skill levels:-", line++, true)
             line(player, if (getStatLevel(player, Skills.RANGE) >= 30) "---Ranged level : 30/--" else "!!Ranged level : 30??", line++)
             line(player, if (getStatLevel(player, Skills.FLETCHING) >= 30) "---Fletching level : 30/--" else "!!Fletching level : 30??", line++)

@@ -12,6 +12,7 @@ import core.tools.RandomFunction
 import core.tools.StringUtils
 import org.rs.consts.Animations
 import org.rs.consts.Items
+import org.rs.consts.QuestName
 import org.rs.consts.Vars
 
 /**
@@ -36,7 +37,7 @@ class FletchingPulse(player: Player?, node: Item?, amount: Int, fletch: Fletchin
             amount = amountInInventory(player, node!!.id)
         }
         if (fletch == FletchingMap.FletchingItems.OGRE_ARROW_SHAFT) {
-            if (!isQuestComplete(player, "Big Chompy Bird Hunting")) {
+            if (!isQuestComplete(player, QuestName.BIG_CHOMPY_BIRD_HUNTING)) {
                 sendMessage(player, "You must have started Big Chompy Bird Hunting to make those.")
                 return false
             }

@@ -15,6 +15,7 @@ import core.game.world.map.RegionManager
 import core.game.world.map.zone.ZoneBorders
 import core.plugin.Initializable
 import core.tools.RandomFunction
+import org.rs.consts.QuestName
 
 /**
  * Bloated toad NPC.
@@ -126,7 +127,7 @@ class BloatedToadListeners : InteractionListener, StartupListener, Commands {
 
     override fun defineListeners() {
         on(Items.BLOATED_TOAD_2875, IntType.ITEM, "drop") { player, used ->
-            val quest = player.questRepository.getQuest("Big Chompy Bird Hunting")
+            val quest = player.questRepository.getQuest(QuestName.BIG_CHOMPY_BIRD_HUNTING)
             val inExtraBorder = extraBorders.filter { it.insideBorder(player) }.count() > 0
 
             if (!borders.insideBorder(player) && !inExtraBorder) {
@@ -140,12 +141,7 @@ class BloatedToadListeners : InteractionListener, StartupListener, Commands {
             }
 
             if (quest.getStage(player) in 30..40) {
-                if (player.location == Location.create(2635, 2966, 0) || player.location == Location.create(
-                        2636,
-                        2966,
-                        0
-                    )
-                ) {
+                if (player.location == Location.create(2635, 2966, 0) || player.location == Location.create(2636, 2966, 0)) {
                     quest.setStage(player, 40)
                 } else {
                     sendPlayerDialogue(player, "I should probably put this where Rantz told me.")

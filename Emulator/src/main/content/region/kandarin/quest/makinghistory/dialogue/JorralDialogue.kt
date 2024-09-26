@@ -12,6 +12,7 @@ import core.game.dialogue.FacialExpression
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
+import org.rs.consts.QuestName
 
 /**
  * Represents the Jorral dialogue.
@@ -27,11 +28,11 @@ class JorralDialogue(player: Player? = null) : Dialogue(player) {
      */
 
     override fun open(vararg args: Any): Boolean {
-        if (!checkRequirements(player) && getQuestStage(player, "Making History") == 0) {
+        if (!checkRequirements(player) && getQuestStage(player, QuestName.MAKING_HISTORY) == 0) {
             sendDialogue(player, "Jorral seems too busy to talk.")
             sendMessage(player, "you do not meet the requirements to start this quest.")
             return false
-        } else if (checkRequirements(player) && getQuestStage(player, "Making History") == 0) {
+        } else if (checkRequirements(player) && getQuestStage(player, QuestName.MAKING_HISTORY) == 0) {
             player("Hi there.")
             stage = 1
             return true
@@ -63,7 +64,7 @@ class JorralDialogue(player: Player? = null) : Dialogue(player) {
             stage = 58
             return true
         }
-        if(inInventory(player, Items.LETTER_6756) && getQuestStage(player, "Making History") >= 1){
+        if(inInventory(player, Items.LETTER_6756) && getQuestStage(player, QuestName.MAKING_HISTORY) >= 1){
             npcl(FacialExpression.HALF_ASKING,"Have you taken that letter to King Lathas in Ardougne yet?")
             stage = 400
             return true
@@ -75,7 +76,7 @@ class JorralDialogue(player: Player? = null) : Dialogue(player) {
             playerl(FacialExpression.FRIENDLY, "I've been to see the king and he gave me this letter.")
             stage = 88
             return true
-        } else if (isQuestComplete(player, "Making History")) {
+        } else if (isQuestComplete(player, QuestName.MAKING_HISTORY)) {
             options("How's the outpost?", "Anything else I can help you with?")
             stage = 94
             return true
@@ -237,7 +238,7 @@ class JorralDialogue(player: Player? = null) : Dialogue(player) {
             92 -> npcl(FacialExpression.FRIENDLY, "I can now continue with my plans for this place. Thank you.").also { stage++ }
             93 -> {
                 end()
-                finishQuest(player!!, "Making History")
+                finishQuest(player!!, QuestName.MAKING_HISTORY)
             }
 
             94 -> when(buttonID){

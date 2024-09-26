@@ -1,6 +1,6 @@
 package content.region.kandarin.seersvillage.diary
 
-import content.region.kandarin.quest.grail.dialogue.GalahadHolyGrailDialogueFile
+import content.region.kandarin.quest.grail.dialogue.GalahadHGDialogue
 import content.region.kandarin.seersvillage.quest.scorpcatcher.dialogue.ThormacDialogueFile
 import content.global.travel.FairyRing
 import core.api.inBorders
@@ -289,7 +289,7 @@ class SeersVillageAchievementDiary : DiaryEventHookBase(DiaryType.SEERS_VILLAGE)
                 }
             }
 
-            is GalahadHolyGrailDialogueFile -> {
+            is GalahadHGDialogue -> {
                 if (event.currentStage == 3) {
                     finishTask(
                         player,

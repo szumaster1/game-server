@@ -9,6 +9,7 @@ import core.game.node.item.Item
 import core.tools.RandomFunction
 import org.rs.consts.Items
 import org.rs.consts.NPCs
+import org.rs.consts.QuestName
 
 /**
  * Represents the Unicorn NPC.
@@ -22,7 +23,7 @@ class UnicornNPC : NPCBehavior(*unicornIds) {
     override fun onDropTableRolled(self: NPC, killer: Entity, drops: ArrayList<Item>) {
         super.onDropTableRolled(self, killer, drops)
         // Drops the Unicorn Bone during Rag and Bone Man quest
-        if (killer is Player && isQuestInProgress(killer, "Rag and Bone Man", 1, 99)) {
+        if (killer is Player && isQuestInProgress(killer, QuestName.RAG_AND_BONE_MAN, 1, 99)) {
             if (RandomFunction.roll(4)) {
                 drops.add(Item(Items.UNICORN_BONE_7821))
             }

@@ -12,6 +12,7 @@ import core.game.world.map.zone.MapZone
 import core.game.world.map.zone.ZoneBorders
 import core.game.world.map.zone.ZoneBuilder
 import core.plugin.Plugin
+import org.rs.consts.QuestName
 
 /**
  * Mining camp zone.
@@ -62,7 +63,7 @@ class MiningCampZone: MapZone("mining camp", true), Plugin<Any> {
     }
 
     fun checkAnna(p: Player): Boolean {
-        val quest = p.getQuestRepository().getQuest(TouristTrap.NAME)
+        val quest = p.getQuestRepository().getQuest(QuestName.THE_TOURIST_TRAP)
         if (p.getAttribute("ana-delay", 0) > ticks) {
             return false
         }

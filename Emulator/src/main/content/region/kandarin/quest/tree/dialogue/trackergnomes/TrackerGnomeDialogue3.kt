@@ -10,6 +10,7 @@ import core.game.dialogue.FacialExpression
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
+import org.rs.consts.QuestName
 
 /**
  * Represents the Tracker gnome dialogue3.
@@ -25,7 +26,7 @@ class TrackerGnomeDialogue3(player: Player? = null) : Dialogue(player) {
         )
 
     override fun handle(componentID: Int, buttonID: Int): Boolean {
-        val questStage = getQuestStage(player!!, "Tree Gnome Village")
+        val questStage = getQuestStage(player!!, QuestName.TREE_GNOME_VILLAGE)
         when {
             questStage == 100 -> when(stage){
                 0 -> sendDialogue(player, "Tracker Gnome seems too busy to talk.").also { stage = END_DIALOGUE }

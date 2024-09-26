@@ -19,6 +19,7 @@ import core.game.world.map.Direction
 import core.game.world.map.Location
 import core.game.world.map.zone.ZoneBorders
 import core.tools.secondsToTicks
+import org.rs.consts.QuestName
 
 /**
  * Holy Grail listeners.
@@ -28,42 +29,42 @@ class HolyGrailListener : InteractionListener {
     override fun defineListeners() {
 
         on(NPCs.BLACK_KNIGHT_TITAN_221, IntType.NPC, "Talk-to") { player, _ ->
-            openDialogue(player, BlackKnightTitanDialogueFile(false), NPCs.BLACK_KNIGHT_TITAN_221)
+            openDialogue(player, BKTitanHGDialogue(false), NPCs.BLACK_KNIGHT_TITAN_221)
             return@on true
         }
 
         on(NPCs.FISHERMAN_219, IntType.NPC, "Talk-to") { player, _ ->
-            openDialogue(player, FishermanHolyGrailDialogueFile(), NPCs.FISHERMAN_219)
+            openDialogue(player, FishermanHGDialogue(), NPCs.FISHERMAN_219)
             return@on true
         }
 
         on(NPCs.PEASANT_214, IntType.NPC, "Talk-to") { player, _ ->
-            openDialogue(player, DiseasedPeasantHolyGrailDialogueFile(), NPCs.PEASANT_214)
+            openDialogue(player, DiseasedPeasantDialogue(), NPCs.PEASANT_214)
             return@on true
         }
 
         on(NPCs.PEASANT_215, IntType.NPC, "Talk-to") { player, _ ->
-            openDialogue(player, HealthyPeasantHolyGrailDialogueFile(), NPCs.PEASANT_215)
+            openDialogue(player, HealthyPeasantDialogue(), NPCs.PEASANT_215)
             return@on true
         }
 
         on(NPCs.GRAIL_MAIDEN_210, IntType.NPC, "Talk-to") { player, _ ->
-            openDialogue(player, MaidenHolyGrailDialogueFile(false), NPCs.GRAIL_MAIDEN_210)
+            openDialogue(player, MaidenHGDialogue(false), NPCs.GRAIL_MAIDEN_210)
             return@on true
         }
 
         on(NPCs.THE_FISHER_KING_220, IntType.NPC, "Talk-to") { player, _ ->
-            openDialogue(player, FisherKingHolyGrailDialogueFile(), NPCs.THE_FISHER_KING_220)
+            openDialogue(player, FisherKingHGDialogue(), NPCs.THE_FISHER_KING_220)
             return@on true
         }
 
         on(Items.GRAIL_BELL_17, IntType.ITEM, "FairyRing") { player, _ ->
-            openDialogue(player, MaidenHolyGrailDialogueFile(true), NPCs.GRAIL_MAIDEN_210)
+            openDialogue(player, MaidenHGDialogue(true), NPCs.GRAIL_MAIDEN_210)
             return@on true
         }
 
         on(Items.MAGIC_GOLD_FEATHER_18, IntType.ITEM, "Blow-on") { player, _ ->
-            if (getQuestStage(player, HolyGrail.HOLY_GRAIL) != 40) {
+            if (getQuestStage(player, QuestName.HOLY_GRAIL) != 40) {
                 sendMessage(player, "Nothing interesting happens.")
                 return@on true
             }
@@ -99,7 +100,7 @@ class HolyGrailListener : InteractionListener {
             var destLoc = Location.create(2806, 4715, 0)
 
             if (zoneCanTeleport.insideBorder(player)) {
-                if (getQuestStage(player, HolyGrail.HOLY_GRAIL) >= 50) {
+                if (getQuestStage(player, QuestName.HOLY_GRAIL) >= 50) {
                     destLoc = Location.create(2678, 4715, 0)
                 }
             } else if (zoneIsDiseased.insideBorder(player) || zoneIsHealthy.insideBorder(player)) {
@@ -121,7 +122,7 @@ class HolyGrailListener : InteractionListener {
                 return@on true
             }
 
-            if (getQuestStage(player, HolyGrail.HOLY_GRAIL) <= 40) {
+            if (getQuestStage(player, QuestName.HOLY_GRAIL) <= 40) {
                 sendDialogueLines(player, "You feel that the Grail shouldn't be moved.", "You must complete some task here before you are worthy.")
             } else {
                 addItem(player, Items.HOLY_GRAIL_19, 1)
@@ -130,17 +131,17 @@ class HolyGrailListener : InteractionListener {
         }
 
         on(NPCs.SIR_PERCIVAL_211, IntType.NPC, "Talk-to") { player, _ ->
-            openDialogue(player, SirPercivalHolyGrailDialogueFile("Talk-to"))
+            openDialogue(player, SirPercivalHGDialogue("Talk-to"))
             return@on true
         }
 
         on(org.rs.consts.Scenery.SACKS_23, IntType.SCENERY, "Prod") { player, _ ->
-            openDialogue(player, SirPercivalHolyGrailDialogueFile("Prod"))
+            openDialogue(player, SirPercivalHGDialogue("Prod"))
             return@on true
         }
 
         on(org.rs.consts.Scenery.SACKS_23, IntType.SCENERY, "Open") { player, _ ->
-            openDialogue(player, SirPercivalHolyGrailDialogueFile("Open"))
+            openDialogue(player, SirPercivalHGDialogue("Open"))
             return@on true
         }
 
@@ -162,7 +163,7 @@ class HolyGrailListener : InteractionListener {
                 return@on false
             }
 
-            if (getQuestStage(player, HolyGrail.HOLY_GRAIL) == 0) {
+            if (getQuestStage(player, QuestName.HOLY_GRAIL) == 0) {
                 sendMessage(player, "The door won't open.")
                 return@on false
             }
@@ -186,7 +187,7 @@ class HolyGrailListener : InteractionListener {
             val moveToY = if (player.location.y <= 3361) 3362 else 3361
             DoorActionHandler.handleAutowalkDoor(player, door as Scenery, Location.create(3106, moveToY, 2))
 
-            if (getQuestStage(player, HolyGrail.HOLY_GRAIL) == 30 && player.hasItem(Item(Items.HOLY_TABLE_NAPKIN_15, 1))) {
+            if (getQuestStage(player, QuestName.HOLY_GRAIL) == 30 && player.hasItem(Item(Items.HOLY_TABLE_NAPKIN_15, 1))) {
                 // For some reason 2 whistles always spawn: https://youtu.be/qD36sjWAGZA?si=P6xG-tSw9XbdWOpX&t=233
                 GroundItemManager.create(
                     GroundItem(

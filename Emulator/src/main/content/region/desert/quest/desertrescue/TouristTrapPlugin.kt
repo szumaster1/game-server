@@ -38,6 +38,7 @@ import core.game.world.update.flag.context.Animation
 import core.plugin.Plugin
 import core.plugin.PluginManager.definePlugin
 import core.tools.RandomFunction
+import org.rs.consts.QuestName
 
 /**
  * Tourist trap plugin.
@@ -125,7 +126,7 @@ class TouristTrapPlugin : OptionHandler() {
     }
 
     override fun handle(player: Player, node: Node, option: String): Boolean {
-        val quest = player.getQuestRepository().getQuest(TouristTrap.NAME)
+        val quest = player.getQuestRepository().getQuest(QuestName.THE_TOURIST_TRAP)
         val id = node.id
         when (option) {
             "read" -> player.dialogueInterpreter.sendDialogue(
@@ -361,7 +362,7 @@ class TouristTrapPlugin : OptionHandler() {
                         )
 
                     } else if (hasItem(player, TouristTrap.WROUGHT_IRON_KEY) && player.getQuestRepository()
-                            .isComplete(TouristTrap.NAME)
+                            .isComplete(QuestName.THE_TOURIST_TRAP)
                     ) {
                         player.inventory.add(TouristTrap.WROUGHT_IRON_KEY, player)
                         player.dialogueInterpreter.sendItemMessage(
@@ -651,7 +652,7 @@ class TouristTrapPlugin : OptionHandler() {
                 516 -> {
                     player.inventory.remove(TouristTrap.ANNA_BARREL)
                     player.bank.remove(TouristTrap.ANNA_BARREL)
-                    player.getQuestRepository().getQuest(TouristTrap.NAME).setStage(player, 71)
+                    player.getQuestRepository().getQuest(QuestName.THE_TOURIST_TRAP).setStage(player, 71)
                     end()
                 }
 
@@ -719,7 +720,7 @@ class TouristTrapPlugin : OptionHandler() {
 
         override fun handle(event: NodeUsageEvent): Boolean {
             val player = event.player
-            val quest = player.getQuestRepository().getQuest(TouristTrap.NAME)
+            val quest = player.getQuestRepository().getQuest(QuestName.THE_TOURIST_TRAP)
             if (event.usedWith.id == 18958) { // cart
                 if (quest.getStage(player) == 72) {
                     player.lock(4)
@@ -813,7 +814,7 @@ class TouristTrapPlugin : OptionHandler() {
                             }
 
                             33 -> {
-                                player.getQuestRepository().getQuest(TouristTrap.NAME).setStage(player, 70)
+                                player.getQuestRepository().getQuest(QuestName.THE_TOURIST_TRAP).setStage(player, 70)
                                 player.inventory.remove(TouristTrap.ANNA_BARREL)
                                 removeAttribute(player, "ana-delay")
                                 this@AnnaCartCutscene.stop(true)
@@ -909,7 +910,7 @@ class TouristTrapPlugin : OptionHandler() {
                                 6 -> {
                                     player.unlock()
                                     player.interfaceManager.closeOverlay()
-                                    player.getQuestRepository().getQuest(TouristTrap.NAME).setStage(player, 95)
+                                    player.getQuestRepository().getQuest(QuestName.THE_TOURIST_TRAP).setStage(player, 95)
                                     player.interfaceManager.close()
                                     player.properties.teleportLocation = Location.create(3258, 3029, 0)
                                     player.inventory.add(TouristTrap.ANNA_BARREL)
@@ -1236,7 +1237,7 @@ class TouristTrapPlugin : OptionHandler() {
 
         override fun open(vararg args: Any): Boolean {
             barrel = args[0] as Scenery
-            quest = player.getQuestRepository().getQuest(TouristTrap.NAME)
+            quest = player.getQuestRepository().getQuest(QuestName.THE_TOURIST_TRAP)
             if ((quest!!.getStage(player) == 70 || quest!!.getStage(player) == 72) && !player.hasItem(TouristTrap.ANNA_BARREL)) {
                 interpreter.sendDialogue("You search the barrels and find Ana.")
                 stage = 400
@@ -1326,7 +1327,7 @@ class TouristTrapPlugin : OptionHandler() {
 
         override fun handle(event: NodeUsageEvent): Boolean {
             val player = event.player
-            val quest = player.getQuestRepository().getQuest(TouristTrap.NAME)
+            val quest = player.getQuestRepository().getQuest(QuestName.THE_TOURIST_TRAP)
             if (quest.getStage(player) == 54 && player.inventory.containsItem(TouristTrap.TECHNICAL_PLANS)) {
                 player.dialogueInterpreter.open("bedabin-anvil")
                 return true
@@ -1352,7 +1353,7 @@ class TouristTrapPlugin : OptionHandler() {
 
             override fun handle(event: NodeUsageEvent): Boolean {
                 val player = event.player
-                val quest = player.getQuestRepository().getQuest(TouristTrap.NAME)
+                val quest = player.getQuestRepository().getQuest(QuestName.THE_TOURIST_TRAP)
                 if (event.usedWith.location != Location.create(3292, 9423, 0)) {
                     return false
                 }

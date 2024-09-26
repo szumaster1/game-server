@@ -12,6 +12,7 @@ import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.diary.DiaryType
 import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
+import org.rs.consts.QuestName
 
 /**
  * Represents the Curator Haig Halen dialogue.
@@ -20,10 +21,10 @@ class CuratorHaigHalenDialogue (player: Player? = null) : Dialogue(player) {
     override fun handle(interfaceId: Int, buttonId: Int): Boolean {
         when (stage) {
             START_DIALOGUE -> npcl(FacialExpression.NEUTRAL, "Welcome to Varrock Museum!").also {
-                if (player.getQuestRepository().points >= 50 && !player.achievementDiaryManager.hasCompletedTask(DiaryType.VARROCK, 0, 12)) {
-                    player.achievementDiaryManager.finishTask(player, DiaryType.VARROCK, 0, 12)
+                if (getQuestPoints(player) >= 50 && !hasDiaryTaskComplete(player, DiaryType.VARROCK, 0, 12)) {
+                    finishDiaryTask(player, DiaryType.VARROCK, 0, 12)
                 }
-                if (getQuestStage(player, "The Dig Site") == 1 && inInventory(player, Items.UNSTAMPED_LETTER_682) ) {
+                if (getQuestStage(player, QuestName.THE_DIG_SITE) == 1 && inInventory(player, Items.UNSTAMPED_LETTER_682) ) {
                     stage = 11 // Couldn't do a dialogueFile for digsite as it needs to resume the topic after.
                 }
                 stage++
@@ -31,11 +32,11 @@ class CuratorHaigHalenDialogue (player: Player? = null) : Dialogue(player) {
             1 -> showTopics(
                 Topic(FacialExpression.FRIENDLY, "Have you any interesting news?", 2),
                 Topic(FacialExpression.FRIENDLY, "Do you know where I could find any treasure?", 8),
-                IfTopic<Any?>(FacialExpression.FRIENDLY, "I've lost the letter of recommendation.", 18,  getQuestStage(player, "The Dig Site") == 2 && !inInventory(player, Items.SEALED_LETTER_683)),
-                IfTopic<Any?>("I have the Shield of Arrav", CuratorHaigHalenDialogueFile(),
-                    getQuestStage(player, "Shield of Arrav") == 70, false),
+                IfTopic<Any?>(FacialExpression.FRIENDLY, "I've lost the letter of recommendation.", 18,  getQuestStage(player, QuestName.THE_DIG_SITE) == 2 && !inInventory(player, Items.SEALED_LETTER_683)),
+                IfTopic<Any?>("I have the ${QuestName.SHIELD_OF_ARRAV}", CuratorHaigHalenDialogueFile(),
+                    getQuestStage(player, QuestName.SHIELD_OF_ARRAV) == 70, false),
                 IfTopic<Any?>("I'm looking for a statuette recovered from the city of Uzer.", CuratorHaigHalenGolemDialogue(),
-                    getQuestStage(player, "The Golem") == 3, false)
+                    getQuestStage(player, QuestName.THE_GOLEM) == 3, false)
             )
             2 -> npcl(FacialExpression.FRIENDLY, "Yes, we found a rather interesting island to the north of Morytania. We believe that it may be of archaeological significance.").also { stage++ }
             3 -> playerl(FacialExpression.FRIENDLY, "Oh? That sounds interesting.").also { stage++ }
@@ -66,8 +67,8 @@ class CuratorHaigHalenDialogue (player: Player? = null) : Dialogue(player) {
                 stage++
             }
             16 -> playerl(FacialExpression.FRIENDLY, "Ok, I will. Thanks, see you later.").also {
-                if(getQuestStage(player, "The Dig Site") == 1) {
-                    setQuestStage(player, "The Dig Site", 2)
+                if(getQuestStage(player, QuestName.THE_DIG_SITE) == 1) {
+                    setQuestStage(player, QuestName.THE_DIG_SITE, 2)
                 }
                 stage = 1
             }

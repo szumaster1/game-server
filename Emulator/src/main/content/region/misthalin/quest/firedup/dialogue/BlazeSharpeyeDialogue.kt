@@ -6,6 +6,7 @@ import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
+import org.rs.consts.QuestName
 
 /**
  * Represents the Blaze Sharpeye dialogue.
@@ -15,7 +16,7 @@ class BlazeSharpeyeDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any?): Boolean {
         npc = (args[0] as NPC).getShownNPC(player)
-        val qstage = player?.questRepository?.getStage("All Fired Up") ?: -1
+        val qstage = player?.questRepository?.getStage(QuestName.ALL_FIRED_UP) ?: -1
         when (qstage) {
             0 -> player.dialogueInterpreter.sendDialogue("He seems uninterested in talking.").also { stage = 1000 }
             10 -> player("So, what's going on?").also { stage = 100 }

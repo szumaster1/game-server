@@ -1,7 +1,7 @@
 package content.region.kandarin.ardougne.handlers
 
 import content.global.travel.charter.Ship
-import content.region.kandarin.quest.grail.dialogue.GalahadHolyGrailDialogueFile
+import content.region.kandarin.quest.grail.dialogue.GalahadHGDialogue
 import core.api.*
 import org.rs.consts.Items
 import org.rs.consts.NPCs
@@ -14,6 +14,7 @@ import core.game.node.entity.npc.NPC
 import core.game.node.item.Item
 import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
+import org.rs.consts.QuestName
 
 class ArdougneListener : InteractionListener {
 
@@ -26,7 +27,7 @@ class ArdougneListener : InteractionListener {
              * and Galahad will congratulate the player. The same exchange could happen before
              * the achievements, as a player-chosen interaction option.
              */
-            openDialogue(player, GalahadHolyGrailDialogueFile())
+            openDialogue(player, GalahadHGDialogue())
             return@on true
         }
 
@@ -59,7 +60,7 @@ class ArdougneListener : InteractionListener {
          */
 
         onUseWith(IntType.NPC, Items.FERRET_10092, NPCs.CHARLIE_5138) { player, _, _ ->
-            if (!hasRequirement(player, "Eagles' Peak")) return@onUseWith true
+            if (!hasRequirement(player, QuestName.EAGLES_PEAK)) return@onUseWith true
             openDialogue(player, object : DialogueFile() {
                 override fun handle(componentID: Int, buttonID: Int) {
                     npc = NPC(NPCs.CHARLIE_5138)

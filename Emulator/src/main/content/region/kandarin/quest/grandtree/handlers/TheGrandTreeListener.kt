@@ -2,13 +2,9 @@ package content.region.kandarin.quest.grandtree.handlers
 
 import content.global.handlers.iface.ScrollInterface
 import content.region.kandarin.quest.grandtree.dialogue.KingNarnodeUnderGroundDialogue
-import content.region.kandarin.quest.grandtree.dialogue.ShipyardWorkerDialogueFile
-import core.api.*
-import org.rs.consts.Components
-import org.rs.consts.Items
-import org.rs.consts.NPCs
-import org.rs.consts.Sounds
+import content.region.kandarin.quest.grandtree.dialogue.ShipyardWorkerGTDialogue
 import content.region.karamja.apeatoll.quest.mm.dialogue.KingNarnodeMonkeyMadnessDialogue
+import core.api.*
 import core.game.global.action.DoorActionHandler
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
@@ -20,6 +16,7 @@ import core.game.node.scenery.Scenery
 import core.game.node.scenery.SceneryBuilder
 import core.game.world.map.Location
 import core.game.world.update.flag.context.Animation
+import org.rs.consts.*
 
 class TheGrandTreeListener : InteractionListener {
 
@@ -47,7 +44,7 @@ class TheGrandTreeListener : InteractionListener {
         on(NPCs.KING_NARNODE_SHAREEN_670, IntType.NPC, "talk-to") { player, npc ->
             val aboveground = 9782
             when {
-                getQuestStage(player, "The Grand Tree") == 100 -> openDialogue(player, KingNarnodeMonkeyMadnessDialogue(), npc)
+                getQuestStage(player, QuestName.THE_GRAND_TREE) == 100 -> openDialogue(player, KingNarnodeMonkeyMadnessDialogue(), npc)
                 player.location.regionId == aboveground -> openDialogue(player, KingNarnodeUnderGroundDialogue(), npc)
                 player.location.regionId != aboveground -> openDialogue(player, KingNarnodeUnderGroundDialogue(), npc)
             }
@@ -71,7 +68,7 @@ class TheGrandTreeListener : InteractionListener {
 
         on(2444, IntType.SCENERY, "open") { player, node ->
             var loc = Location(2487, 3464, 2)
-            if (node.location == loc && !isQuestComplete(player, "The Grand Tree")) {
+            if (node.location == loc && !isQuestComplete(player, QuestName.THE_GRAND_TREE)) {
                 if (getAttribute(player, TheGrandTreeUtils.TWIG_0, false) &&
                     getAttribute(player, TheGrandTreeUtils.TWIG_1, false) &&
                     getAttribute(player, TheGrandTreeUtils.TWIG_2, false) &&
@@ -87,7 +84,7 @@ class TheGrandTreeListener : InteractionListener {
         }
 
         on(2446, IntType.SCENERY, "open") { player, node ->
-            if (node.location == Location(2463, 3497, 0) && isQuestComplete(player, "The Grand Tree")) {
+            if (node.location == Location(2463, 3497, 0) && isQuestComplete(player, QuestName.THE_GRAND_TREE)) {
                 player.animator.animate(Animation(828))
                 // Go to tunnels
                 teleport(player, Location(2464, 9897, 0))
@@ -110,8 +107,8 @@ class TheGrandTreeListener : InteractionListener {
                 animate(player, 538)
                 sendItemDialogue(player, Items.INVASION_PLANS_794, "You found a scroll!")
                 addItemOrDrop(player, Items.INVASION_PLANS_794)
-                if (getQuestStage(player, "The Grand Tree") < 60)
-                    setQuestStage(player, "The Grand Tree", 60)
+                if (getQuestStage(player, QuestName.THE_GRAND_TREE) < 60)
+                    setQuestStage(player, QuestName.THE_GRAND_TREE, 60)
             } else {
                 sendDialogue(player, "The chest is locked.")
             }
@@ -163,7 +160,7 @@ class TheGrandTreeListener : InteractionListener {
             return@on true
         }
         on(2435, IntType.SCENERY, "search") { player, _ ->
-            if (getQuestStage(player, "The Grand Tree") >= 47 && !inInventory(
+            if (getQuestStage(player, QuestName.THE_GRAND_TREE) >= 47 && !inInventory(
                     player,
                     Items.GLOUGHS_JOURNAL_785
                 )
@@ -180,7 +177,7 @@ class TheGrandTreeListener : InteractionListener {
 
         // Roots for Daconia rock
         on(32319, IntType.SCENERY, "search") { player, node ->
-            if (getQuestStage(player, "The Grand Tree") < 99 || player.hasItem(Item(Items.DACONIA_ROCK_793))) {
+            if (getQuestStage(player, QuestName.THE_GRAND_TREE) < 99 || player.hasItem(Item(Items.DACONIA_ROCK_793))) {
                 return@on true
             }
             // RNG for which root the rock is under
@@ -192,13 +189,13 @@ class TheGrandTreeListener : InteractionListener {
         }
 
         on(TheGrandTreeUtils.KARAMJA_GATE, IntType.SCENERY, "open") { player, _ ->
-            if (getQuestStage(player, "The Grand Tree") == 55) {
+            if (getQuestStage(player, QuestName.THE_GRAND_TREE) == 55) {
                 if (player.location.x < 2945) {
                     findLocalNPC(player, NPCs.SHIPYARD_WORKER_675)?.let {
                         face(it, player, 1)
                         face(player, it, 1)
                     }
-                    openDialogue(player, ShipyardWorkerDialogueFile(), NPC(NPCs.SHIPYARD_WORKER_675))
+                    openDialogue(player, ShipyardWorkerGTDialogue(), NPC(NPCs.SHIPYARD_WORKER_675))
                 } else {
                     DoorActionHandler.autowalkFence(player, Scenery(2438, Location(2945, 3041, 0)), 2432, 2439)
                 }
@@ -210,7 +207,7 @@ class TheGrandTreeListener : InteractionListener {
         }
 
         on(2451, IntType.SCENERY, "push") { player, roots ->
-            if (hasRequirement(player, "The Grand Tree")) {
+            if (hasRequirement(player, QuestName.THE_GRAND_TREE)) {
                 val outsideMine =
                     player.location == Location.create(2467, 9903, 0) || player.location == Location.create(
                         2468,

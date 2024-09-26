@@ -1,6 +1,6 @@
 package content.region.kandarin.quest.grail.handlers
 
-import content.region.kandarin.quest.grail.dialogue.BlackKnightTitanDialogueFile
+import content.region.kandarin.quest.grail.dialogue.BKTitanHGDialogue
 import org.rs.consts.Items
 import org.rs.consts.NPCs
 import content.region.kandarin.quest.grail.HolyGrail
@@ -41,7 +41,7 @@ class BlackKnightTitanArea : MapZone("BlackKnightTitanZone",true), Plugin<Any?> 
         }
 
         setAttribute(killer!!.asPlayer(), HolyGrail.attribute_failed_titan, true)
-        openDialogue(killer.asPlayer(), BlackKnightTitanDialogueFile(true), NPCs.BLACK_KNIGHT_TITAN_221)
+        openDialogue(killer.asPlayer(), BKTitanHGDialogue(true), NPCs.BLACK_KNIGHT_TITAN_221)
         return false
     }
 

@@ -23,6 +23,7 @@ import core.game.world.map.Direction
 import core.game.world.map.Location
 import core.game.world.map.RegionManager
 import core.game.world.update.flag.context.Animation
+import org.rs.consts.QuestName
 
 /**
  * Tree gnome village listeners.
@@ -109,23 +110,10 @@ class TreeGnomeVillageListeners : InteractionListener {
             if (inBorders(player!!, 2507, 3254, 2512, 3259)) {
                 return sendMessage(player!!, "I can't get over the wall from this side.")
             }
-            if (getQuestStage(player!!, "Tree Gnome Village") > 30) {
+            if (getQuestStage(player!!, QuestName.TREE_GNOME_VILLAGE) > 30) {
                 when (stage) {
-                    0 -> sendDialogue(
-                        player!!,
-                        "The wall has been reduced to rubble. It should be possible to climb over the remains"
-                    ).also { stage++ }
-
-                    1 -> content.global.skill.agility.AgilityHandler.forceWalk(
-                        player!!,
-                        -1,
-                        player!!.location,
-                        player!!.location.transform(Direction.NORTH, 2),
-                        climbAnimation,
-                        15,
-                        0.0,
-                        null
-                    ).also {
+                    0 -> sendDialogue(player!!, "The wall has been reduced to rubble. It should be possible to climb over the remains").also { stage++ }
+                    1 -> AgilityHandler.forceWalk(player!!, -1, player!!.location, player!!.location.transform(Direction.NORTH, 2), climbAnimation, 15, 0.0, null).also {
                         end()
                         val lowerGuard: NPC = RegionManager.getNpc(player!!.location, NPCs.KHAZARD_COMMANDER_478, 10) ?: return
                         lock(player!!, 4)

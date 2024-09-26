@@ -8,6 +8,7 @@ import core.game.node.entity.player.link.TeleportManager
 import core.game.node.item.Item
 import core.game.world.map.Location
 import org.rs.consts.Items
+import org.rs.consts.QuestName
 
 /**
  * Represents the teleport tablets data.
@@ -130,17 +131,17 @@ class TeleportTabletOption : InteractionListener {
             val tab = node.id
             val tabEnum = TeleportTablet.forId(tab)
             if (tabEnum != null && inInventory(player, tab)) {
-                if (!isQuestComplete(player, "Rune Mysteries")) {
+                if (!isQuestComplete(player, QuestName.RUNE_MYSTERIES)) {
                     sendMessage(player, "You need complete the Rune Mysteries quest in order to use this.")
                     return@on true
                 }
                 val tabloc = tabEnum.location
 
                 if (inInventory(player, tab)) {
-                    if (tab == Items.ARDOUGNE_TELEPORT_8011 && !isQuestComplete(player, "Plague City")) return@on true
+                    if (tab == Items.ARDOUGNE_TELEPORT_8011 && !isQuestComplete(player, QuestName.PLAGUE_CITY)) return@on true
                     if (tab == Items.ASTRAL_ALTAR_TELEPORT_13611 && !hasRequirement(player, QuestReq(QuestRequirements.LUNAR_DIPLOMACY)))
                         return@on true
-                    if (tab == Items.COSMIC_ALTAR_TELEPORT_13605 && !isQuestComplete(player, "Lost City"))
+                    if (tab == Items.COSMIC_ALTAR_TELEPORT_13605 && !isQuestComplete(player, QuestName.LOST_CITY))
                         return@on true
                     if (tab == Items.DEATH_ALTAR_TELEPORT_13609 && !hasRequirement(player, QuestReq(QuestRequirements.MEP_2)))
                         return@on true

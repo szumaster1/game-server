@@ -168,7 +168,7 @@ public final class GDiplomacyCutscene extends CutscenePlugin {
             dialIndex = RandomFunction.random(DIALOGUES.length);
             other = Repository.findNPC(npc.getId() == 4494 ? 4493 : 4494);
             quest = player.getQuestRepository().getQuest(QuestName.GOBLIN_DIPLOMACY);
-            if (player.getQuestRepository().getQuest("Lost Tribe").getStage(player) == 43) {
+            if (player.getQuestRepository().getQuest(QuestName.THE_LOST_TRIBE).getStage(player) == 43) {
                 player("Have you heard of the Dorgeshuun?");
                 stage = 5000;
                 return true;
@@ -353,7 +353,7 @@ public final class GDiplomacyCutscene extends CutscenePlugin {
                         player.getEmoteManager().unlock(Emotes.GOBLIN_BOW);
                         player.getEmoteManager().unlock(Emotes.GOBLIN_SALUTE);
                         setVarbit(player, 532, 7, true);
-                        player.getQuestRepository().getQuest("Lost Tribe").setStage(player, 44);
+                        player.getQuestRepository().getQuest(QuestName.THE_LOST_TRIBE).setStage(player, 44);
                         stage++;
                         break;
                     case 5055:

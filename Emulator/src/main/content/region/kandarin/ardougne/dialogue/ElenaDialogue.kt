@@ -10,6 +10,7 @@ import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
+import org.rs.consts.QuestName
 
 /**
  * Represents the Elena dialogue.
@@ -27,7 +28,7 @@ class ElenaDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any?): Boolean {
         npc = args[0] as NPC
-        if (isQuestComplete(player, "Plague City") && isQuestInProgress(player, "Biohazard", 0, 100)) {
+        if (isQuestComplete(player, QuestName.PLAGUE_CITY) && isQuestInProgress(player, QuestName.BIOHAZARD, 0, 100)) {
             end().also { openDialogue(player, ElenaDialogueFile()) }
         } else {
             npc("Hello.").also { stage = END_DIALOGUE }

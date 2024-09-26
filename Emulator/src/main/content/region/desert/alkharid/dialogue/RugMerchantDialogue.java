@@ -1,6 +1,7 @@
 package content.region.desert.alkharid.dialogue;
 
 import org.rs.consts.Items;
+import org.rs.consts.QuestName;
 import org.rs.consts.Sounds;
 import core.api.Container;
 import core.cache.def.impl.NPCDefinition;
@@ -158,11 +159,11 @@ public final class RugMerchantDialogue extends Dialogue {
                 }
                 end();
                 destination = options.length == 1 ? options[0] : options[buttonId - 1];
-                if (destination == RugDestination.UZER && !hasRequirement(player, "The Golem"))
+                if (destination == RugDestination.UZER && !hasRequirement(player, QuestName.THE_GOLEM))
                     break;
-                else if (destination == RugDestination.BEDABIN_CAMP && !hasRequirement(player, "The Tourist Trap"))
+                else if (destination == RugDestination.BEDABIN_CAMP && !hasRequirement(player, QuestName.THE_TOURIST_TRAP))
                     break;
-                else if (destination == RugDestination.SOPHANEM && !hasRequirement(player, "Icthlarin's Little Helper"))
+                else if (destination == RugDestination.SOPHANEM && !hasRequirement(player, QuestName.ICTHLARINS_LITTLE_HELPER))
                     break;
                 if (player.getEquipment().get(EquipmentContainer.SLOT_WEAPON) != null) {
                     player.sendMessage(colorize("%RYou must unequip all your weapons before you can fly on a carpet."));

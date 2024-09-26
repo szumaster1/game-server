@@ -4,12 +4,12 @@ import org.rs.consts.NPCs
 import core.api.getQuestStage
 import core.api.openDialogue
 import core.game.dialogue.Dialogue
-import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
+import org.rs.consts.QuestName
 
 /**
  * Represents the Mourner dialogue near Edmond house.
@@ -19,7 +19,7 @@ class MournerArdougneDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any?): Boolean {
         npc = args[0] as NPC
-        if (getQuestStage(player, "Plague City") > 1) {
+        if (getQuestStage(player, QuestName.PLAGUE_CITY) > 1) {
             openDialogue(player, MournerPlagueCityDialogue(), npc.asNpc())
         } else {
             playerl(FacialExpression.FRIENDLY, "Hello.").also { stage = 1 }

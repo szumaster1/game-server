@@ -9,6 +9,7 @@ import core.game.node.item.Item
 import core.tools.RandomFunction
 import org.rs.consts.Items
 import org.rs.consts.NPCs
+import org.rs.consts.QuestName
 
 /**
  * Represents the Bat NPC.
@@ -22,7 +23,7 @@ class BatNPC : NPCBehavior(*BAT_NPC) {
     override fun onDropTableRolled(self: NPC, killer: Entity, drops: ArrayList<Item>) {
         super.onDropTableRolled(self, killer, drops)
         // Drops the Bat Wing during Rag and Bone Man quest
-        if (killer is Player && isQuestInProgress(killer, "Rag and Bone Man", 1, 99)) {
+        if (killer is Player && isQuestInProgress(killer, QuestName.RAG_AND_BONE_MAN, 1, 99)) {
             if(RandomFunction.roll(4)) {
                 drops.add(Item(Items.BAT_WING_7833))
             }

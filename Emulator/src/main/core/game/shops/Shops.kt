@@ -20,6 +20,7 @@ import core.tools.secondsToTicks
 import org.json.simple.JSONArray
 import org.json.simple.JSONObject
 import org.json.simple.parser.JSONParser
+import org.rs.consts.QuestName
 import java.io.FileReader
 
 /**
@@ -154,7 +155,7 @@ class Shops : StartupListener, TickListener, InteractionListener, InterfaceListe
         }
 
         on(NPCs.FUR_TRADER_1316, IntType.NPC, "trade") { player, node ->
-            if (!isQuestComplete(player, "Fremennik Trials")) {
+            if (!isQuestComplete(player, QuestName.THE_FREMENNIK_TRIALS)) {
                 sendNPCDialogue(player, NPCs.FUR_TRADER_1316, "I don't sell to outerlanders.", FacialExpression.ANNOYED).also { END_DIALOGUE }
             } else {
                 shopsByNpc[node.id]?.openFor(player)
@@ -163,7 +164,7 @@ class Shops : StartupListener, TickListener, InteractionListener, InterfaceListe
         }
 
         on(NPCs.CANDLE_MAKER_562, IntType.NPC, "trade") { player, node ->
-            if (getQuestStage(player, "Merlin's Crystal") > 60) {
+            if (getQuestStage(player, QuestName.MERLINS_CRYSTAL) > 60) {
                 openId(player, 56)
             } else {
                 shopsByNpc[node.id]?.openFor(player)

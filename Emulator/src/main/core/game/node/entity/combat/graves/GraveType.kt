@@ -1,6 +1,7 @@
 package core.game.node.entity.combat.graves
 
 import org.rs.consts.NPCs
+import org.rs.consts.QuestName
 
 /**
  * Grave type.
@@ -82,7 +83,7 @@ enum class GraveType(val npcId: Int, val cost: Int, val durationMinutes: Int, va
         cost = 50000,
         durationMinutes = 4,
         isMembers = true,
-        requiredQuest = "Land of the Goblins",
+        requiredQuest = QuestName.LAND_OF_THE_GOBLINS,
         text = "@name,<br>a vicious warrior dedicated to Bandos,<br>perished in this place."
     ),
     ARMA_SYMBOL(
@@ -90,7 +91,7 @@ enum class GraveType(val npcId: Int, val cost: Int, val durationMinutes: Int, va
         cost = 50000,
         durationMinutes = 4,
         isMembers = true,
-        requiredQuest = "Temple of Ikov",
+        requiredQuest = QuestName.TEMPLE_OF_IKOV,
         text = "@name,<br>a follower of the Law of Armadyl,<br>perished in this place."
     ),
     ZARO_SYMBOL(
@@ -98,7 +99,7 @@ enum class GraveType(val npcId: Int, val cost: Int, val durationMinutes: Int, va
         cost = 50000,
         durationMinutes = 4,
         isMembers = true,
-        requiredQuest = "Desert Treasure",
+        requiredQuest = QuestName.DESERT_TREASURE,
         text = "@name,<br>servant of the Unknown Power,<br>perished in this place."
     ),
     ANGEL_DEATH(

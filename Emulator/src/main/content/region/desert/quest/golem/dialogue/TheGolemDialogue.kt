@@ -10,6 +10,7 @@ import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import org.rs.consts.NPCs
+import org.rs.consts.QuestName
 
 /**
  * Represents the Clay golem dialogue.
@@ -37,28 +38,28 @@ class ClayGolemDialogue(player: Player? = null) : Dialogue(player) {
  */
 class ClayGolemDialogueFile : DialogueBuilderFile() {
     override fun create(b: DialogueBuilder) {
-        val opt1 = b.onQuestStages("The Golem", 0)
+        val opt1 = b.onQuestStages(QuestName.THE_GOLEM, 0)
             .npc(FacialExpression.OLD_BOWS_HEAD_SAD, "Damage... severe...", "task... incomplete...")
             .options()
         opt1
             .optionIf("Shall I try to repair you?") { player ->
-                return@optionIf player.questRepository.getQuest("The Golem").hasRequirements(player)
+                return@optionIf player.questRepository.getQuest(QuestName.THE_GOLEM).hasRequirements(player)
             }
             .playerl("Shall I try to repair you?")
             .npcl(FacialExpression.OLD_BOWS_HEAD_SAD, "Repairs... needed...")
             .endWith { _, player ->
-                if (player.questRepository.getStage("The Golem") < 1) {
-                    setQuestStage(player, "The Golem", 1)
+                if (player.questRepository.getStage(QuestName.THE_GOLEM) < 1) {
+                    setQuestStage(player, QuestName.THE_GOLEM, 1)
                 }
             }
         opt1
             .option("I'm not going to find a conversation here!")
             .playerl("I'm not going to find a conversation here!")
             .end()
-        b.onQuestStages("The Golem", 1)
+        b.onQuestStages(QuestName.THE_GOLEM, 1)
             .npcl(FacialExpression.OLD_BOWS_HEAD_SAD, "Repairs... needed...")
             .end()
-        b.onQuestStages("The Golem", 2)
+        b.onQuestStages(QuestName.THE_GOLEM, 2)
             .npcl(FacialExpression.OLD_BOWS_HEAD_SAD, "Damage repaired...")
             .npcl(FacialExpression.OLD_BOWS_HEAD_SAD, "Thank you. My body and mind are fully healed.")
             .npcl(FacialExpression.OLD_BOWS_HEAD_SAD, "Now I must complete my task by defeating the great enemy.")
@@ -75,14 +76,14 @@ class ClayGolemDialogueFile : DialogueBuilderFile() {
                 FacialExpression.OLD_BOWS_HEAD_SAD,
                 "The demon is still wounded. You must open the portal so that I can strike the final blow and complete my task."
             )
-            .endWith { _, player -> setQuestStage(player, "The Golem", 3) }
-        b.onQuestStages("The Golem", 3)
+            .endWith { _, player -> setQuestStage(player, QuestName.THE_GOLEM, 3) }
+        b.onQuestStages(QuestName.THE_GOLEM, 3)
             .npcl(
                 FacialExpression.OLD_BOWS_HEAD_SAD,
                 "The demon is still wounded. You must open the portal so that I can strike the final blow and complete my task."
             )
             .end()
-        b.onQuestStages("The Golem", 4)
+        b.onQuestStages(QuestName.THE_GOLEM, 4)
             .npcl(
                 FacialExpression.OLD_BOWS_HEAD_SAD,
                 "My task is incomplete. You must open the portal so I can defeat the great demon."
@@ -91,12 +92,12 @@ class ClayGolemDialogueFile : DialogueBuilderFile() {
             .npcl(FacialExpression.OLD_BOWS_HEAD_SAD, "The demon must be defeated...")
             .playerl("No, you don't understand. I saw the demon's skeleton. It must have died of its wounds.")
             .npcl(FacialExpression.OLD_BOWS_HEAD_SAD, "Demon must be defeated! Task incomplete.")
-            .endWith { _, player -> setQuestStage(player, "The Golem", 5) }
-        b.onQuestStages("The Golem", 5)
+            .endWith { _, player -> setQuestStage(player, QuestName.THE_GOLEM, 5) }
+        b.onQuestStages(QuestName.THE_GOLEM, 5)
             .npcl(FacialExpression.OLD_BOWS_HEAD_SAD, "Task incomplete.")
             .playerl("Oh, how am I going to convince you?")
-            .endWith { _, player -> setQuestStage(player, "The Golem", 6) }
-        b.onQuestStages("The Golem", 6, 7)
+            .endWith { _, player -> setQuestStage(player, QuestName.THE_GOLEM, 6) }
+        b.onQuestStages(QuestName.THE_GOLEM, 6, 7)
             .npcl(
                 FacialExpression.OLD_BOWS_HEAD_SAD,
                 "My task is incomplete. You must open the portal so I can defeat the great demon."
@@ -105,8 +106,8 @@ class ClayGolemDialogueFile : DialogueBuilderFile() {
             .npcl(FacialExpression.OLD_BOWS_HEAD_SAD, "Task incomplete.")
             .playerl("Oh, how am I going to convince you?")
             .endWith { _, player ->
-                if (player.questRepository.getStage("The Golem") < 7) {
-                    setQuestStage(player, "The Golem", 7)
+                if (player.questRepository.getStage(QuestName.THE_GOLEM) < 7) {
+                    setQuestStage(player, QuestName.THE_GOLEM, 7)
                 }
             }
     }
@@ -117,11 +118,11 @@ class ClayGolemDialogueFile : DialogueBuilderFile() {
  */
 class ClayGolemProgramDialogueFile : DialogueBuilderFile() {
     override fun create(b: DialogueBuilder) {
-        b.onQuestStages("The Golem", 8)
+        b.onQuestStages(QuestName.THE_GOLEM, 8)
             .npc(FacialExpression.OLD_BOWS_HEAD_SAD, "New instructions...", "Updating program...")
             .npcl(FacialExpression.OLD_BOWS_HEAD_SAD, "Task complete!")
             .npcl(FacialExpression.OLD_BOWS_HEAD_SAD, "Thank you. Now my mind is at rest.")
-            .endWith { _, player -> finishQuest(player, "The Golem") }
+            .endWith { _, player -> finishQuest(player, QuestName.THE_GOLEM) }
     }
 }
 
@@ -130,11 +131,8 @@ class ClayGolemProgramDialogueFile : DialogueBuilderFile() {
  */
 class CuratorHaigHalenGolemDialogue : DialogueBuilderFile() {
     override fun create(b: DialogueBuilder) {
-        val opt1 = b.onQuestStages("The Golem", 3)
-            .npcl(
-                FacialExpression.OLD_BOWS_HEAD_SAD,
-                "Ah yes, a very impressive artefact. The people of that city were excellent sculptors."
-            )
+        val opt1 = b.onQuestStages(QuestName.THE_GOLEM, 3)
+            .npcl(FacialExpression.OLD_BOWS_HEAD_SAD, "Ah yes, a very impressive artefact. The people of that city were excellent sculptors.")
             .npcl(FacialExpression.OLD_BOWS_HEAD_SAD, "It's in the display case upstairs.")
             .playerl("No, I need to take it away with me.")
             .npcl(FacialExpression.OLD_BOWS_HEAD_SAD, "What do you want it for?")

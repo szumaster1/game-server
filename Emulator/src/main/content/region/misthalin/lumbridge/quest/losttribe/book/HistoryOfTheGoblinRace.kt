@@ -11,6 +11,7 @@ import core.game.component.ComponentPlugin
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.plugin.Plugin
+import org.rs.consts.QuestName
 
 /**
  * History of the goblin race.
@@ -27,11 +28,11 @@ class HistoryOfTheGoblinRace : ComponentPlugin() {
         player ?: return
         super.open(player, component)
         player.packetDispatch.sendInterfaceConfig(183, 17, true)
-        val qstage = player.questRepository.getQuest("Lost Tribe").getStage(player)
+        val qstage = player.questRepository.getQuest(QuestName.THE_LOST_TRIBE).getStage(player)
         component?.setCloseEvent { player, _ ->
             if (qstage == 42 || qstage == 41) {
                 sendPlayerDialogue(player, "Hey... The symbol of the 'Dorgeshuun' tribe looks just, like the symbol on the brooch I found.")
-                setQuestStage(player!!, "Lost Tribe", 43)
+                setQuestStage(player!!, QuestName.THE_LOST_TRIBE, 43)
             }
             removeAttribute(player, "hgr-index")
             true

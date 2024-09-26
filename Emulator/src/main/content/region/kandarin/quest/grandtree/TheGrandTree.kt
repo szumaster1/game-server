@@ -1,8 +1,5 @@
 package content.region.kandarin.quest.grandtree
 
-import org.rs.consts.Components
-import org.rs.consts.Items
-import org.rs.consts.Vars
 import content.region.kandarin.quest.grandtree.handlers.TheGrandTreeUtils
 import core.api.hasLevelStat
 import core.api.removeAttributes
@@ -13,12 +10,16 @@ import core.game.node.entity.player.link.quest.Quest
 import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 import core.plugin.Initializable
+import org.rs.consts.Components
+import org.rs.consts.Items
+import org.rs.consts.QuestName
+import org.rs.consts.Vars
 
 /**
  * The grand tree quest.
  */
 @Initializable
-class TheGrandTree : Quest("The Grand Tree", 71, 70, 5, Vars.VARP_QUEST_THE_GRAND_TREE_PROGRESS, 0, 1, 160) {
+class TheGrandTree : Quest(QuestName.THE_GRAND_TREE, 71, 70, 5, Vars.VARP_QUEST_THE_GRAND_TREE_PROGRESS, 0, 1, 160) {
 
     override fun drawJournal(player: Player, stage: Int) {
         super.drawJournal(player, stage)

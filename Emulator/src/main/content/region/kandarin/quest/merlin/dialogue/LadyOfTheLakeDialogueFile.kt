@@ -10,6 +10,7 @@ import core.game.dialogue.IfTopic
 import core.game.dialogue.Topic
 import core.game.node.entity.npc.NPC
 import core.tools.END_DIALOGUE
+import org.rs.consts.QuestName
 
 /**
  * Represents the Lady of the lake dialogue file.
@@ -18,7 +19,7 @@ class LadyOfTheLakeDialogueFile : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {
         npc = NPC(NPCs.THE_LADY_OF_THE_LAKE_250)
-        var canSeekSword = getQuestStage(player!!, "Merlin's Crystal") >= 40
+        var canSeekSword = getQuestStage(player!!, QuestName.MERLINS_CRYSTAL) >= 40
         when (stage) {
             0 -> npcl(FacialExpression.NEUTRAL, "Good day to you sir.").also { stage++ }
             1 -> showTopics(

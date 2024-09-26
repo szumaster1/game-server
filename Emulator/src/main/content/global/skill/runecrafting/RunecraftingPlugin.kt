@@ -25,6 +25,7 @@ import core.plugin.Initializable
 import core.plugin.Plugin
 import core.plugin.PluginManager.definePlugin
 import org.rs.consts.Components
+import org.rs.consts.QuestName
 
 /**
  * Handles the rc interactions.
@@ -48,7 +49,7 @@ class RunecraftingPlugin : OptionHandler() {
     }
 
     override fun handle(player: Player, node: Node, option: String): Boolean {
-        if (!isQuestComplete(player, "Rune Mysteries") && player.details.rights !== Rights.ADMINISTRATOR) {
+        if (!isQuestComplete(player, QuestName.RUNE_MYSTERIES) && player.details.rights !== Rights.ADMINISTRATOR) {
             sendMessage(player, "You need to finish the Rune Mysteries Quest in order to do this.")
             return true
         }

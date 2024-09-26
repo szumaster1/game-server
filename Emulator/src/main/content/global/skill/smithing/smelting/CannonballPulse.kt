@@ -8,6 +8,7 @@ import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 import org.rs.consts.Animations
 import org.rs.consts.Items
+import org.rs.consts.QuestName
 import org.rs.consts.Sounds
 
 /**
@@ -18,8 +19,8 @@ class CannonballPulse(player: Player?, val item: Item?, private var amount: Int)
 
     private var tick = 0
     override fun checkRequirements(): Boolean {
-        if (!isQuestComplete(player, DwarfCannon.NAME)) {
-            sendDialogue(player, "You need to complete the ${DwarfCannon.NAME} quest in order to do this.")
+        if (!isQuestComplete(player, QuestName.DWARF_CANNON)) {
+            sendDialogue(player, "You need to complete the ${QuestName.DWARF_CANNON} quest in order to do this.")
             return false
         }
         if (getDynLevel(player, Skills.SMITHING) < 35) {

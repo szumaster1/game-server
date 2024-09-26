@@ -5,6 +5,7 @@ import core.game.dialogue.Dialogue
 import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.quest.Quest
+import org.rs.consts.QuestName
 
 /**
  * Represents the Captain siad dialogue.
@@ -15,7 +16,7 @@ class CaptainSiadDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
-        quest = player.getQuestRepository().getQuest(TouristTrap.NAME)
+        quest = player.getQuestRepository().getQuest(QuestName.THE_TOURIST_TRAP)
         when (quest!!.getStage(player)) {
             else -> {
                 player.packetDispatch.sendMessage("The captain looks up from his work as you address him.")

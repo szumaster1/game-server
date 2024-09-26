@@ -3,6 +3,7 @@ package content.region.kandarin.quest.tree.dialogue
 import core.api.getQuestStage
 import core.game.dialogue.DialogueFile
 import core.tools.END_DIALOGUE
+import org.rs.consts.QuestName
 
 /**
  * Represents the Khazard warlord dialogue.
@@ -10,7 +11,7 @@ import core.tools.END_DIALOGUE
 class KhazardWarlordDialogue : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {
-        val questStage = getQuestStage(player!!, "Tree Gnome Village")
+        val questStage = getQuestStage(player!!, QuestName.TREE_GNOME_VILLAGE)
         if (questStage == 31) {
             when (stage) {
                 0 -> playerl("Hello there.").also { stage++ }

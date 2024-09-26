@@ -7,12 +7,13 @@ import core.api.getAttribute
 import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.quest.Quest
 import core.plugin.Initializable
+import org.rs.consts.QuestName
 
 /**
- * Clock tower.
+ * The clock tower quest.
  */
 @Initializable
-class ClockTower : Quest("Clock Tower", 38, 37, 1, Vars.VARP_QUEST_CLOCK_TOWER_PROGRESS, 0, 1, 8) {
+class ClockTower : Quest(QuestName.CLOCK_TOWER, 38, 37, 1, Vars.VARP_QUEST_CLOCK_TOWER_PROGRESS, 0, 1, 8) {
     companion object {
         const val BLUE_COG_ATTR = "/save:quest:clocktower-bluecogplaced"
         const val BLACK_COG_ATTR = "/save:quest:clocktower-blackcogplaced"
@@ -58,7 +59,7 @@ class ClockTower : Quest("Clock Tower", 38, 37, 1, Vars.VARP_QUEST_CLOCK_TOWER_P
     override fun finish(player: Player) {
         var ln = 10
         super.finish(player)
-        player.packetDispatch.sendString("You have completed the Clock Tower Quest!", 277, 4)
+        player.packetDispatch.sendString("You have completed the ${QuestName.CLOCK_TOWER} Quest!", 277, 4)
         player.packetDispatch.sendItemZoomOnInterface(Items.COINS_995, 240, 277, 5)
         drawReward(player, "1 Quest Point", ln++)
         drawReward(player, "500 coins", ln)

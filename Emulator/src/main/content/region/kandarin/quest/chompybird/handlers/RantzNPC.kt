@@ -8,6 +8,7 @@ import core.game.node.entity.npc.AbstractNPC
 import core.game.node.entity.player.Player
 import core.game.world.map.Location
 import core.plugin.Initializable
+import org.rs.consts.QuestName
 
 /**
  * Rantz NPC.
@@ -30,7 +31,7 @@ class RantzNPC : AbstractNPC {
         val chompy = findLocalNPC(this, NPCs.CHOMPY_BIRD_1550) as? ChompyBirdNPC ?: return
 
         val owner = getAttribute<Player?>(chompy, "owner", null) ?: return
-        val quest = owner.questRepository.getQuest("Big Chompy Bird Hunting")
+        val quest = owner.questRepository.getQuest(QuestName.BIG_CHOMPY_BIRD_HUNTING)
 
         if (quest.getStage(owner) !in 40..50 || chompy.getAttribute("attacked", false)) return
 

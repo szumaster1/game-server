@@ -7,6 +7,7 @@ import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC
 import core.tools.END_DIALOGUE
+import org.rs.consts.QuestName
 
 /**
  * Represents the Mourner other dialogue.
@@ -15,7 +16,7 @@ class MournerOtherDialogue : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {
         npc = NPC(NPCs.MOURNER_717)
-        when (getQuestStage(player!!, "Plague City")) {
+        when (getQuestStage(player!!, QuestName.PLAGUE_CITY)) {
             in 0..8 -> when (stage) {
                 0 -> playerl(FacialExpression.FRIENDLY, "Hello there.").also { stage++ }
                 1 -> npcl(FacialExpression.NEUTRAL, "Do you have a problem traveller?").also { stage++ }

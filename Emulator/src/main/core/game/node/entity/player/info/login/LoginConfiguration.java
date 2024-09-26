@@ -17,6 +17,7 @@ import core.net.packet.context.InterfaceContext;
 import core.net.packet.outgoing.Interface;
 import core.plugin.Plugin;
 import core.tools.Log;
+import org.rs.consts.QuestName;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -114,10 +115,10 @@ public final class LoginConfiguration {
         }
 
         SpellBookManager.SpellBook currentSpellBook = SpellBookManager.SpellBook.forInterface(player.getSpellBookManager().getSpellBook());
-        if (currentSpellBook == SpellBookManager.SpellBook.ANCIENT && !hasRequirement(player, "Desert Treasure")) {
+        if (currentSpellBook == SpellBookManager.SpellBook.ANCIENT && !hasRequirement(player, QuestName.DESERT_TREASURE)) {
             player.sendMessage(colorize("%RAs you can no longer use Ancient Magic, you have been set back to Modern."));
             player.getSpellBookManager().setSpellBook(SpellBookManager.SpellBook.MODERN);
-        } else if (currentSpellBook == SpellBookManager.SpellBook.LUNAR && !hasRequirement(player, "Lunar Diplomacy")) {
+        } else if (currentSpellBook == SpellBookManager.SpellBook.LUNAR && !hasRequirement(player, QuestName.LUNAR_DIPLOMACY)) {
             player.sendMessage(colorize("%RAs you can no longer use Lunar Magic, you have been set back to Modern."));
             player.getSpellBookManager().setSpellBook(SpellBookManager.SpellBook.MODERN);
         }

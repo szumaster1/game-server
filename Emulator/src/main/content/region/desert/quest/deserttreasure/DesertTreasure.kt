@@ -6,16 +6,17 @@ import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.quest.Quest
 import core.game.node.entity.skill.Skills
 import core.plugin.Initializable
+import org.rs.consts.QuestName
 
 /**
  * Represents the Desert Treasure Quest
  * @author Ovenbreado
  */
 @Initializable
-class DesertTreasure : Quest("Desert Treasure", 45, 44, 3, 440, 0, 1, 15) {
+class DesertTreasure : Quest(QuestName.DESERT_TREASURE, 45, 44, 3, 440, 0, 1, 15) {
 
     companion object {
-        const val questName = "Desert Treasure"
+        const val questName = QuestName.DESERT_TREASURE
 
         /**
          * This is an important varbit as it is literally controlling the
@@ -96,12 +97,12 @@ class DesertTreasure : Quest("Desert Treasure", 45, 44, 3, 440, 0, 1, 15) {
                 hasLevelStat(player, Skills.FIREMAKING, 50),
                 hasLevelStat(player, Skills.MAGIC, 50),
                 hasLevelStat(player, Skills.THIEVING, 53),
-                isQuestComplete(player, "The Dig Site"),
-                isQuestComplete(player, "The Tourist Trap"),
-                isQuestComplete(player, "Temple of Ikov"),
-                isQuestComplete(player, "Priest in Peril"),
-                isQuestComplete(player, "Waterfall"),
-                isQuestComplete(player, "Troll Stronghold"),
+                isQuestComplete(player, QuestName.THE_DIG_SITE),
+                isQuestComplete(player, QuestName.THE_TOURIST_TRAP),
+                isQuestComplete(player, QuestName.TEMPLE_OF_IKOV),
+                isQuestComplete(player, QuestName.PRIEST_IN_PERIL),
+                isQuestComplete(player, QuestName.WATERFALL_QUEST),
+                isQuestComplete(player, QuestName.TROLL_STRONGHOLD),
             ).all { it }
         }
     }
@@ -127,12 +128,12 @@ class DesertTreasure : Quest("Desert Treasure", 45, 44, 3, 440, 0, 1, 15) {
                 "I must have completed the following quests:",
                 line++
             ) // After - I have completed all of the required quests:
-            line(player, "The Digsite Quest", line++, isQuestComplete(player, "The Dig Site"))
-            line(player, "The Tourist Trap", line++, isQuestComplete(player, "The Tourist Trap"))
-            line(player, "The Temple of Ikov", line++, isQuestComplete(player, "Temple of Ikov"))
-            line(player, "Priest In Peril", line++, isQuestComplete(player, "Priest in Peril"))
-            line(player, "Waterfall Quest", line++, isQuestComplete(player, "Waterfall"))
-            line(player, "Troll Stronghold", line++, isQuestComplete(player, "Troll Stronghold"))
+            line(player, QuestName.THE_DIG_SITE, line++, isQuestComplete(player,QuestName.THE_DIG_SITE))
+            line(player, QuestName.THE_TOURIST_TRAP, line++, isQuestComplete(player, QuestName.THE_TOURIST_TRAP))
+            line(player, QuestName.TEMPLE_OF_IKOV, line++, isQuestComplete(player, QuestName.TEMPLE_OF_IKOV))
+            line(player, QuestName.PRIEST_IN_PERIL, line++, isQuestComplete(player, QuestName.PRIEST_IN_PERIL))
+            line(player, QuestName.WATERFALL_QUEST, line++, isQuestComplete(player, QuestName.WATERFALL_QUEST))
+            line(player, QuestName.TROLL_STRONGHOLD, line++, isQuestComplete(player, QuestName.TROLL_STRONGHOLD))
         } else {
 
             if (stage >= 2) {

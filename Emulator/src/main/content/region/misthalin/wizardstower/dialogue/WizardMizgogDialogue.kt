@@ -9,6 +9,7 @@ import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
+import org.rs.consts.QuestName
 
 /**
  * Represents the Wizard Mizgog dialogue.
@@ -18,7 +19,7 @@ class WizardMizgogDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
-        if (!isQuestComplete(player, "Imp Catcher")) {
+        if (!isQuestComplete(player, QuestName.IMP_CATCHER)) {
             openDialogue(player, WizardMizgogDialogueFile(), npc)
         } else {
             options("Got any more quests?", "Do you know any interesting spells you could teach me?")

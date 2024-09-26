@@ -9,6 +9,7 @@ import core.game.system.task.Pulse
 import core.game.world.GameWorld.Pulser
 import core.game.world.map.Location
 import core.tools.RandomFunction
+import org.rs.consts.QuestName
 
 /**
  * Represents the Male slave dialogue.
@@ -19,7 +20,7 @@ class MaleSlaveDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
-        quest = player.getQuestRepository().getQuest(TouristTrap.NAME)
+        quest = player.getQuestRepository().getQuest(QuestName.THE_TOURIST_TRAP)
         when (npc.getShownNPC(player).id) {
             4985, 825 -> when (quest!!.getStage(player)) {
                 40 -> npc("Do you want to trade clothes now?")

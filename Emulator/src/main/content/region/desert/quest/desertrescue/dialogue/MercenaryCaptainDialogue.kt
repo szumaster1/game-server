@@ -8,6 +8,7 @@ import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.quest.Quest
 import core.game.world.map.Location
+import org.rs.consts.QuestName
 
 /**
  * Represents the Mercenary captain dialogue.
@@ -18,7 +19,7 @@ class MercenaryCaptainDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
-        quest = player.getQuestRepository().getQuest(TouristTrap.NAME)
+        quest = player.getQuestRepository().getQuest(QuestName.THE_TOURIST_TRAP)
         when (quest!!.getStage(player)) {
             11 -> interpreter.sendDialogue("You approach the Mercenary Captain.")
             else -> npc("What are you doing here?")
@@ -158,7 +159,7 @@ class MercenaryCaptainDialogue(player: Player? = null) : Dialogue(player) {
             super.finalizeDeath(killer)
             if (killer is Player) {
                 val player = killer
-                val quest = player.getQuestRepository().getQuest(TouristTrap.NAME)
+                val quest = player.getQuestRepository().getQuest(QuestName.THE_TOURIST_TRAP)
                 when (quest.getStage(player)) {
                     0, 10 -> {}
                     else -> {

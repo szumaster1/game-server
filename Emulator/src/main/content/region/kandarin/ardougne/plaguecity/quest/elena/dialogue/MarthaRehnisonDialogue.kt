@@ -8,6 +8,7 @@ import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
+import org.rs.consts.QuestName
 
 /**
  * Represents the Martha rehnison dialogue.
@@ -17,7 +18,7 @@ class MarthaRehnisonDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any?): Boolean {
         npc = args[0] as NPC
-        if (getQuestStage(player, "Plague City") == 9) {
+        if (getQuestStage(player, QuestName.PLAGUE_CITY) == 9) {
             playerl(FacialExpression.NEUTRAL, "Hi, I hear a woman called Elena is staying here.").also { stage++ }
         } else {
             npcl(FacialExpression.FRIENDLY, "Any luck finding Elena yet?").also { stage++ }
@@ -26,7 +27,7 @@ class MarthaRehnisonDialogue(player: Player? = null) : Dialogue(player) {
     }
 
     override fun handle(componentID: Int, buttonID: Int): Boolean {
-        when (getQuestStage(player!!, "Plague City")) {
+        when (getQuestStage(player!!, QuestName.PLAGUE_CITY)) {
 
             9 -> when (stage) {
                 1 -> npcl(FacialExpression.FRIENDLY, "Yes she was staying here, but slightly over a week ago she was getting ready to go back.").also { stage++ }

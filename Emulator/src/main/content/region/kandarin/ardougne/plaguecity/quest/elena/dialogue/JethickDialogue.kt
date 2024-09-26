@@ -9,6 +9,7 @@ import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
+import org.rs.consts.QuestName
 
 /**
  * Represents the Jethick dialogue.
@@ -18,16 +19,16 @@ class JethickDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any?): Boolean {
         npc = args[0] as NPC
-        if (getQuestStage(player, "Plague City") in 0..11) {
+        if (getQuestStage(player, QuestName.PLAGUE_CITY) in 0..11) {
             npcl(FacialExpression.FRIENDLY, "Hello I don't recognise you. We don't get many newcomers around here.").also { stage++ }
-        } else if (getQuestStage(player, "Plague City") >= 12) {
+        } else if (getQuestStage(player, QuestName.PLAGUE_CITY) >= 12) {
             npcl(FacialExpression.FRIENDLY, "Hello. We don't get many newcomers around here.").also { stage = END_DIALOGUE }
         }
         return true
     }
 
     override fun handle(componentID: Int, buttonID: Int): Boolean {
-        when (getQuestStage(player!!, "Plague City")) {
+        when (getQuestStage(player!!, QuestName.PLAGUE_CITY)) {
             in 0..1 -> when (stage) {
                 1 -> npcl(FacialExpression.FRIENDLY, "Well King Tyras has wandered off into the west kingdom. He doesn't care about the mess he's left here. The city warder Bravek is in charge at the moment... He's not much better.").also { stage = END_DIALOGUE }
             }

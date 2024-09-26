@@ -4,11 +4,13 @@ import content.global.handlers.iface.BookInterface
 import content.global.handlers.iface.BookLine
 import content.global.handlers.iface.Page
 import content.global.handlers.iface.PageSet
-import content.region.kandarin.quest.waterfall.WaterFall
+import core.api.getQuestStage
+import core.api.setQuestStage
 import org.rs.consts.Items
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.entity.player.Player
+import org.rs.consts.QuestName
 
 /**
  * Represents the Baxtorian book.
@@ -141,14 +143,9 @@ class BaxtorianBook : InteractionListener {
         )
 
         private fun display(player: Player, pageNum: Int, buttonID: Int): Boolean {
-            BookInterface.pageSetup(
-                player,
-                BookInterface.FANCY_BOOK_3_49,
-                TITLE,
-                CONTENTS
-            )
-            if (player.questRepository.getQuest(WaterFall.NAME).getStage(player) == 20) {
-                player.questRepository.getQuest(WaterFall.NAME).setStage(player, 30)
+            BookInterface.pageSetup(player, BookInterface.FANCY_BOOK_3_49, TITLE, CONTENTS)
+            if (getQuestStage(player, QuestName.WATERFALL_QUEST) == 20) {
+                setQuestStage(player, QuestName.WATERFALL_QUEST, 30)
             }
             return true
         }
@@ -156,11 +153,7 @@ class BaxtorianBook : InteractionListener {
 
     override fun defineListeners() {
         on(Items.BOOK_ON_BAXTORIAN_292, IntType.ITEM, "read") { player, _ ->
-            BookInterface.openBook(
-                player,
-                BookInterface.FANCY_BOOK_3_49,
-                Companion::display
-            )
+            BookInterface.openBook(player, BookInterface.FANCY_BOOK_3_49, Companion::display)
             return@on true
         }
     }

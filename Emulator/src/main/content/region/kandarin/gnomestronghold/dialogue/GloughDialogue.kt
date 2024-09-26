@@ -1,6 +1,6 @@
 package content.region.kandarin.gnomestronghold.dialogue
 
-import content.region.kandarin.quest.grandtree.dialogue.GloughDialogueFile
+import content.region.kandarin.quest.grandtree.dialogue.GloughGTDialogue
 import org.rs.consts.NPCs
 import core.api.getQuestStage
 import core.api.openDialogue
@@ -20,7 +20,7 @@ class GloughDialogue(player: Player? = null) : Dialogue(player) {
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
         if (getQuestStage(player, "The Grand Tree") >= 40) {
-            openDialogue(player, GloughDialogueFile())
+            openDialogue(player, GloughGTDialogue())
         } else {
             playerl(FacialExpression.FRIENDLY, "Hello there!")
         }

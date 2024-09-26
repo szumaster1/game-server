@@ -5,6 +5,7 @@ import core.game.dialogue.Dialogue
 import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.quest.Quest
 import core.game.node.item.Item
+import org.rs.consts.QuestName
 
 /**
  * Represents the Minecart driver dialogue.
@@ -14,7 +15,7 @@ class MinecartDriverDialogue(player: Player? = null) : Dialogue(player) {
     private var quest: Quest? = null
 
     override fun open(vararg args: Any): Boolean {
-        quest = player.getQuestRepository().getQuest(TouristTrap.NAME)
+        quest = player.getQuestRepository().getQuest(QuestName.THE_TOURIST_TRAP)
         when (quest!!.getStage(player)) {
             90 -> npc("Quickly, get in the back of the cart.")
             80 -> interpreter.sendDialogue(

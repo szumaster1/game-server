@@ -12,6 +12,7 @@ import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.quest.Quest
 import core.game.node.entity.skill.Skills
 import core.plugin.Initializable
+import org.rs.consts.QuestName
 
 /**
  * Biohazard quest.
@@ -31,8 +32,8 @@ class Biohazard : Quest("Biohazard", 36, 35, 3, Vars.VARP_QUEST_BIOHAZARD_PROGRE
             line(player, "!!Ardougne??.", line++)
             line++
             line(player, "Requirements:", line++)
-            line(player, "!!I need to complete Plague City before I can attempt this??", line++, isQuestComplete(player, "Plague City"))
-            line(player, "!!Quest??.", line++, isQuestComplete(player, "Plague City"))
+            line(player, "!!I need to complete ${QuestName.PLAGUE_CITY} before I can attempt this??", line++, isQuestComplete(player, QuestName.PLAGUE_CITY))
+            line(player, "!!Quest??.", line++, isQuestComplete(player, QuestName.PLAGUE_CITY))
         } else {
             if (stage > 0) {
                 line(player, "I've spoken to Elena in East Ardougne. She told me that", line++, true)

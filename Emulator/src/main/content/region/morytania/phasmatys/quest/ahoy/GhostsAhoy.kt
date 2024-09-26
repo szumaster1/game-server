@@ -9,6 +9,7 @@ import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.quest.Quest
 import core.game.node.entity.skill.Skills
 import core.plugin.Initializable
+import org.rs.consts.QuestName
 
 /**
  * Ghosts Ahoy quest.
@@ -41,7 +42,7 @@ class GhostsAhoy : Quest("Ghosts Ahoy", 68, 67, 2, Vars.VARBIT_QUEST_GHOST_AHOY_
             } else {
                 line(player, "!!Priest in Peril??", line++, false)
             }
-            if (isQuestComplete(player, "The Restless Ghost")) {
+            if (isQuestComplete(player, QuestName.THE_RESTLESS_GHOST)) {
                 line(player, "<str><col=000000>The Restless Ghost", line++, false)
             } else {
                 line(player, "!!The Restless Ghost??", line++, false)

@@ -10,6 +10,7 @@ import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
+import org.rs.consts.QuestName
 
 /**
  * Represents the Melina dialogue.
@@ -23,14 +24,14 @@ class MelinaDialogue(player: Player? = null) : Dialogue(player) {
             stage = 0
             return true
         }
-        if (getQuestStage(player, "Making History") >= 1 && inInventory(player, Items.SAPPHIRE_AMULET_1694) && getVarbit(player,
+        if (getQuestStage(player, QuestName.MAKING_HISTORY) >= 1 && inInventory(player, Items.SAPPHIRE_AMULET_1694) && getVarbit(player,
                 MakingHistoryUtils.DROALAK_PROGRESS
             ) == 2) {
             playerl(FacialExpression.FRIENDLY, "If you don't mind me asking, are you Melina?")
             stage = 4
             return true
         }
-        if (getQuestStage(player, "Making History") >= 1) {
+        if (getQuestStage(player, QuestName.MAKING_HISTORY) >= 1) {
             playerl(FacialExpression.FRIENDLY, "Hi.")
             stage = 1
             return true

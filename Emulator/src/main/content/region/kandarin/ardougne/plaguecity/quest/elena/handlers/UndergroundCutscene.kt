@@ -6,6 +6,7 @@ import core.game.dialogue.FacialExpression
 import core.game.node.entity.player.Player
 import core.game.world.map.Direction
 import core.game.world.map.Location
+import org.rs.consts.QuestName
 
 class UndergroundCutscene(player: Player) : Cutscene(player) {
     override fun setup() {
@@ -101,7 +102,7 @@ class UndergroundCutscene(player: Player) : Cutscene(player) {
 
             14 -> {
                 end {
-                    setQuestStage(player, "Plague City", 7)
+                    setQuestStage(player, QuestName.PLAGUE_CITY, 7)
                 }
             }
         }

@@ -7,6 +7,7 @@ import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.quest.Quest
 import core.game.node.entity.skill.Skills
 import core.plugin.Initializable
+import org.rs.consts.QuestName
 
 /**
  * Creature of fenkenstrain quest.
@@ -40,8 +41,8 @@ class CreatureOfFenkenstrain : Quest("Creature of Fenkenstrain", 41, 40, 2, Vars
             line(player, "Level 20 Crafting", line++, hasLevelStat(player, Skills.CRAFTING, 20))
             line(player, "Level 25 Thieving", line++, hasLevelStat(player, Skills.THIEVING, 25))
             line(player, "I also need to have completed the following quests:", line++, false)
-            line(player, "Priest in Peril", line++, isQuestComplete(player, "Priest in Peril"))
-            line(player, "Restless Ghost", line++, isQuestComplete(player, "The Restless Ghost"))
+            line(player, "Priest in Peril", line++, isQuestComplete(player, QuestName.PRIEST_IN_PERIL))
+            line(player, "Restless Ghost", line++, isQuestComplete(player, QuestName.THE_RESTLESS_GHOST))
         } else {
             line(player, "I read the signpost in Canifis, which tells of a butler", line++, true)
             line(player, "position that is available at the castle to the northeast.", line++, true)
@@ -118,7 +119,7 @@ class CreatureOfFenkenstrain : Quest("Creature of Fenkenstrain", 41, 40, 2, Vars
             hasLevelStat(player, Skills.CRAFTING, 20),
             hasLevelStat(player, Skills.THIEVING, 25),
             isQuestComplete(player, "Priest in Peril"),
-            isQuestComplete(player, "The Restless Ghost"),
+            isQuestComplete(player, QuestName.THE_RESTLESS_GHOST),
         ).all { it }
     }
 

@@ -82,10 +82,10 @@ class HeroesQuest : Quest(QuestName.HEROES_QUEST, 75, 74, 1, Vars.VARP_QUEST_HER
             } else {
                 line(player, "I can start this quest by speaking to !!Achietties?? at the", line++)
                 line(player, "!!Heroes' Guild?? located !!North?? of !!Taverly?? after completing", line++)
-                line(player, "!!The Shield of Arrav??", line++, isQuestComplete(player, "Shield of Arrav"))
-                line(player, "!!The Lost City??", line++, isQuestComplete(player, "Lost City"))
-                line(player, "!!Merlin's Crystal??", line++, isQuestComplete(player, "Merlin's Crystal"))
-                line(player, "!!The Dragon Slayer??", line++, isQuestComplete(player, "Dragon Slayer"))
+                line(player, "!!The ${QuestName.SHIELD_OF_ARRAV}??", line++, isQuestComplete(player, QuestName.SHIELD_OF_ARRAV))
+                line(player, "!!The ${QuestName.LOST_CITY}??", line++, isQuestComplete(player, QuestName.LOST_CITY))
+                line(player, "!!${QuestName.MERLINS_CRYSTAL}??", line++, isQuestComplete(player, QuestName.MERLINS_CRYSTAL))
+                line(player, "!!The ${QuestName.DRAGON_SLAYER}??", line++, isQuestComplete(player, QuestName.DRAGON_SLAYER))
                 line(player, "!!and gaining 55 Quest Points??", line++, getQuestPoints(player) >= 55)
             }
             line(player, "To complete this quest I need:", line++, false)

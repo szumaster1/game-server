@@ -6,6 +6,7 @@ import core.api.isQuestComplete
 import core.game.node.entity.player.Player
 import core.game.node.entity.skill.Skills
 import org.rs.consts.Items
+import org.rs.consts.QuestName
 
 private val CREST_SYMBOLS = mapOf(
     "ARRAV"      to "the Shield of Arrav symbol",
@@ -31,17 +32,17 @@ private val CREST_SYMBOLS = mapOf(
  */
 enum class CrestType(val cost: Int = 5000) : CrestRequirement {
     ARRAV {
-        override fun eligible(player: Player): Boolean = isQuestComplete(player, "Shield of Arrav")
+        override fun eligible(player: Player): Boolean = isQuestComplete(player, QuestName.SHIELD_OF_ARRAV)
     },
     ASGARNIA,
     DORGESHUUN {
-        override fun eligible(player: Player): Boolean = isQuestComplete(player, "The Lost Tribe")
+        override fun eligible(player: Player): Boolean = isQuestComplete(player, QuestName.THE_LOST_TRIBE)
     },
     DRAGON {
-        override fun eligible(player: Player): Boolean = isQuestComplete(player, "Dragon Slayer")
+        override fun eligible(player: Player): Boolean = isQuestComplete(player, QuestName.DRAGON_SLAYER)
     },
     FAIRY {
-        override fun eligible(player: Player): Boolean = isQuestComplete(player, "Lost City")
+        override fun eligible(player: Player): Boolean = isQuestComplete(player, QuestName.LOST_CITY)
     },
     GUTHIX {
         override fun eligible(player: Player): Boolean = hasLevelStat(player, Skills.PRAYER, 70)

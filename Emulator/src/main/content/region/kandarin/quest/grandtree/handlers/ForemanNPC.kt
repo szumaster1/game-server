@@ -1,9 +1,7 @@
 package content.region.kandarin.quest.grandtree.handlers
 
-import content.region.kandarin.quest.grandtree.dialogue.ForemanDialogueFile
+import content.region.kandarin.quest.grandtree.dialogue.ForemanGTDialogue
 import core.api.*
-import org.rs.consts.Items
-import org.rs.consts.NPCs
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.entity.Entity
@@ -11,6 +9,9 @@ import core.game.node.entity.npc.AbstractNPC
 import core.game.node.entity.player.Player
 import core.game.world.map.Location
 import core.plugin.Initializable
+import org.rs.consts.Items
+import org.rs.consts.NPCs
+import org.rs.consts.QuestName
 
 /**
  * Foreman NPC.
@@ -28,8 +29,8 @@ class ForemanNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id, loca
 
     override fun defineListeners() {
         on(this.ids, IntType.NPC, "talk-to") { player, npc ->
-            if(!isQuestComplete(player, "The Grand Tree")) {
-                openDialogue(player, ForemanDialogueFile(), npc)
+            if(!isQuestComplete(player, QuestName.THE_GRAND_TREE)) {
+                openDialogue(player, ForemanGTDialogue(), npc)
             } else {
                 sendDialogue(player, "The foreman is too busy to talk.")
             }
@@ -38,7 +39,7 @@ class ForemanNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id, loca
     }
 
     override fun finalizeDeath(killer: Entity?) {
-        if (getQuestStage(killer as Player, "The Grand Tree") == 55) {
+        if (getQuestStage(killer as Player, QuestName.THE_GRAND_TREE) == 55) {
             sendMessage(killer, "The foreman drops a piece of paper as he dies.")
             produceGroundItem(killer, Items.LUMBER_ORDER_787, 1, this.location)
         }

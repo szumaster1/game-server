@@ -9,6 +9,7 @@ import core.game.dialogue.FacialExpression
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
+import org.rs.consts.QuestName
 
 /**
  * Represents the Tree Gnome Scout dialogue.
@@ -38,18 +39,18 @@ class TreeGnomeScoutDialogue(player: Player? = null) : Dialogue(player) {
             5 -> player(FacialExpression.ANGRY, "Oi! I am one of the filth, I mean, humans! Besides, we", "were here first.").also { stage++ }
             6 -> npc(FacialExpression.EXTREMELY_SHOCKED, "Haa, haa, haa. Oh, you naive mortals. There were many", "here before you. The last time the General went north, ", "all this land belonged to the elves. Do not think so", "highly of your race.").also { stage++ }
             7 -> player("Discovered anything interesting on your travels?").also { stage++ }
-            8 -> if (isQuestComplete(player, "Biohazard") || isQuestComplete(player, "Plague City")) {
+            8 -> if (isQuestComplete(player, QuestName.BIOHAZARD) || isQuestComplete(player, QuestName.PLAGUE_CITY)) {
                 npc("As I passed through Ardougne, I overheard some news.", "The plague in the west grows worse. King Lathas's", "popularity continues to increase, while the people are", "becoming more and more hostile to Tyras. I suspect").also { stage++ }
             } else {
                 player("That is all that I have heard.").also { stage = 12 }
             }
             9 -> npc("there is more to be learned, but my mission is to", "observe gnomes, not humans.").also { stage++ }
-            10 -> if (isQuestComplete(player, "Hazeel Cult")) {
+            10 -> if (isQuestComplete(player, QuestName.HAZEEL_CULT)) {
                 npcl(FacialExpression.FRIENDLY, "I have heard that the cultists, who think they are so well hidden in the sewers, have succeeded in their ritual.").also { stage++ }
             } else {
                 npcl(FacialExpression.FRIENDLY, "I have heard that the cultists, who think they are so well hidden in the sewers, have failed in their ritual.").also { stage++ }
             }
-            11 -> if (isQuestComplete(player, "The Grand Tree")) {
+            11 -> if (isQuestComplete(player, QuestName.THE_GRAND_TREE)) {
                 npc("I head to the land of the gnomes; rumours say it is peaceful right now.").also { stage++ }
             } else {
                 player("That is all that I have heard.").also { stage = 13 }

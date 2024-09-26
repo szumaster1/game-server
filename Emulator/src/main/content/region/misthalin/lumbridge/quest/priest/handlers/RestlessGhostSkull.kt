@@ -9,6 +9,7 @@ import core.game.node.item.Item
 import core.game.node.scenery.Scenery
 import core.plugin.Initializable
 import core.plugin.Plugin
+import org.rs.consts.QuestName
 
 /**
  * Represents the Restless ghost skull.
@@ -32,7 +33,7 @@ class RestlessGhostSkull : UseWithHandler(Items.SKULL_964) {
         if (removeItem(event.player, Item(Items.SKULL_964, 1))) {
             playAudio(event.player, Sounds.RG_PLACE_SKULL_1744)
             sendMessage(event.player, "You put the skull in the coffin.")
-            finishQuest(event.player, "The Restless Ghost")
+            finishQuest(event.player, QuestName.THE_RESTLESS_GHOST)
         }
         return true
     }

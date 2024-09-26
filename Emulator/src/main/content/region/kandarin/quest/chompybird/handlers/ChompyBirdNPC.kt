@@ -26,6 +26,7 @@ import core.tools.RandomFunction
  */
 @Initializable
 class ChompyBirdNPC : AbstractNPC, InteractionListener {
+
     constructor() : super(NPCs.CHOMPY_BIRD_1550, null, true)
     private constructor(id: Int, location: Location) : super(id, location)
 

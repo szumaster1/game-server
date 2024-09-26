@@ -6,6 +6,7 @@ import core.game.dialogue.Dialogue
 import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
+import org.rs.consts.QuestName
 
 /**
  * Represents the Father Aereck dialogue.
@@ -15,7 +16,7 @@ class FatherAereckDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
-        val questStage = getQuestStage(player, "The Restless Ghost")
+        val questStage = getQuestStage(player, QuestName.THE_RESTLESS_GHOST)
         if (questStage == 10) {
             npc("Have you got rid of the ghost yet?")
             stage = 520
@@ -46,7 +47,7 @@ class FatherAereckDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun handle(interfaceId: Int, buttonId: Int): Boolean {
         when (stage) {
-            0 -> if (isQuestComplete(player, "The Restless Ghost")) {
+            0 -> if (isQuestComplete(player, QuestName.THE_RESTLESS_GHOST)) {
                 setTitle(player, 3)
                 sendDialogueOptions(player, "What would you like to say?", "Can you change my gravestone now?", "Who's Saradomin?", "Nice place you've got here.")
                 stage = 1
@@ -107,7 +108,7 @@ class FatherAereckDialogue(player: Player? = null) : Dialogue(player) {
 
             509 -> end()
             510 -> {
-                player.getQuestRepository().getQuest("The Restless Ghost").start(player)
+                player.getQuestRepository().getQuest(QuestName.THE_RESTLESS_GHOST).start(player)
                 player.getQuestRepository().syncronizeTab(player)
                 npc(
                     "Thank you. The problem is, there is a ghost in the",

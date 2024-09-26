@@ -8,6 +8,7 @@ import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
+import org.rs.consts.QuestName
 
 /**
  * Represents the Lachtopher dialogue.
@@ -18,7 +19,7 @@ class LachtopherDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
-        if (getQuestStage(player, "Lost Tribe") == 10) {
+        if (getQuestStage(player, QuestName.THE_LOST_TRIBE) == 10) {
             player("Do you know what happened in the cellar?").also { stage = 11 }
         } else {
             player("Hello there.").also { stage = 0 }

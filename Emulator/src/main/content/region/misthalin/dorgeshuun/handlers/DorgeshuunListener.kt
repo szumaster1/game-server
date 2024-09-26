@@ -13,6 +13,7 @@ import core.game.interaction.InteractionListener
 import core.game.node.entity.npc.NPC
 import core.game.world.map.Location
 import core.tools.RandomFunction
+import org.rs.consts.QuestName
 
 class DorgeshuunListener : InteractionListener {
 
@@ -54,7 +55,7 @@ class DorgeshuunListener : InteractionListener {
         onUseWith(IntType.NPC, Items.BROOCH_5008, NPCs.MISTAG_2084) { player, used, _ ->
             val randomHelm: Int = RandomFunction.getRandomElement(arrayOf(Items.MINING_HELMET_5013, Items.MINING_HELMET_5014))
 
-            if (isQuestComplete(player, "Lost Tribe") && !removeItem(player, used.asItem(), Container.INVENTORY)) {
+            if (isQuestComplete(player, QuestName.THE_LOST_TRIBE) && !removeItem(player, used.asItem(), Container.INVENTORY)) {
                 sendMessage(player, "Nothing interesting happens.")
                 return@onUseWith true
             } else {
@@ -83,7 +84,7 @@ class DorgeshuunListener : InteractionListener {
         on(BONE_DOORS, IntType.SCENERY, "open") { player, node ->
             when (node.id) {
                 32952, 32953 -> {
-                    if (!isQuestComplete(player, "Lost Tribe")) sendNPCDialogue(player, NPCs.CAVE_GOBLIN_GUARD_2073, "Surface-dweller! You may not pass through that door!", FacialExpression.OLD_NORMAL).also { player.faceLocation(Location(3318, 9604, 0)) }
+                    if (!isQuestComplete(player, QuestName.THE_LOST_TRIBE)) sendNPCDialogue(player, NPCs.CAVE_GOBLIN_GUARD_2073, "Surface-dweller! You may not pass through that door!", FacialExpression.OLD_NORMAL).also { player.faceLocation(Location(3318, 9604, 0)) }
                     else teleport(player, location(if (node.id == Scenery.BONE_DOOR_32952) 2747 else 2748, 5374, 0))
                 }
                 22945 -> teleport(player, location(3318, 9602, 0))

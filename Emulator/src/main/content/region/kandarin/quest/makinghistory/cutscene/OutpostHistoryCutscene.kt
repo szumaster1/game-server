@@ -1,6 +1,6 @@
 package content.region.kandarin.quest.makinghistory.cutscene
 
-import content.region.kandarin.quest.makinghistory.dialogue.JorralDialogueFile
+import content.region.kandarin.quest.makinghistory.dialogue.JorralMHDialogue
 import org.rs.consts.NPCs
 import core.api.face
 import core.api.openDialogue
@@ -97,7 +97,7 @@ class OutpostHistoryCutscene(player: Player) : Cutscene(player) {
             12 -> {
                 end().also {
                     runTask(player, 18) {
-                        openDialogue(player, JorralDialogueFile())
+                        openDialogue(player, JorralMHDialogue())
                     }
                 }
             }

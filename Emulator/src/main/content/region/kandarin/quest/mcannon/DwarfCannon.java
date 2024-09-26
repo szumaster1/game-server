@@ -11,6 +11,7 @@ import core.game.node.entity.skill.Skills;
 import core.game.node.item.Item;
 import core.plugin.PluginManager;
 import core.plugin.Initializable;
+import org.rs.consts.QuestName;
 
 import static core.api.ContentAPIKt.*;
 
@@ -19,11 +20,6 @@ import static core.api.ContentAPIKt.*;
  */
 @Initializable
 public class DwarfCannon extends Quest {
-
-    /**
-     * The constant NAME.
-     */
-    public static final String NAME = "Dwarf Cannon";
 
     /**
      * The constant DWARF_REMAINS.
@@ -53,7 +49,7 @@ public class DwarfCannon extends Quest {
      * Instantiates a new Dwarf cannon.
      */
     public DwarfCannon() {
-        super(NAME, 49, 48, 1);
+        super(QuestName.DWARF_CANNON, 49, 48, 1);
     }
 
     @Override

@@ -9,6 +9,7 @@ import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
+import org.rs.consts.QuestName
 
 /**
  * Represents the Brimstail dialogue.
@@ -24,7 +25,7 @@ class BrimstailDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun handle(interfaceId: Int, buttonId: Int): Boolean {
         when (stage) {
-            0 -> if (isQuestComplete(player, "Rune Mysteries")) {
+            0 -> if (isQuestComplete(player, QuestName.RUNE_MYSTERIES)) {
                 options("Hello, just wanted a chat.", "Nothing for now, thanks!", "I need to mine some rune essence.").also { stage++ }
             } else {
                 options("Hello, just wanted a chat.", "Nothing for now, thanks!").also { stage++ }

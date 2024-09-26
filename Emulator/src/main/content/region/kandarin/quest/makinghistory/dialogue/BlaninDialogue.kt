@@ -10,6 +10,7 @@ import core.game.dialogue.FacialExpression
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
+import org.rs.consts.QuestName
 
 /**
  * Represents the Blanin dialogue.
@@ -18,11 +19,11 @@ import core.tools.END_DIALOGUE
 class BlaninDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any): Boolean {
-        if (getQuestStage(player, "Making History") < 1) {
+        if (getQuestStage(player, QuestName.MAKING_HISTORY) < 1) {
             playerl(FacialExpression.FRIENDLY, "Excuse me.")
             stage = 0
             return true
-        } else if (getQuestStage(player, "Making History") >= 1) {
+        } else if (getQuestStage(player, QuestName.MAKING_HISTORY) >= 1) {
             playerl(FacialExpression.FRIENDLY, "Hello there. Are you the brother of Dron?")
             stage = 1
             return true

@@ -8,6 +8,7 @@ import core.game.node.entity.npc.AbstractNPC
 import core.game.node.entity.player.Player
 import core.game.world.GameWorld.ticks
 import core.game.world.map.Location
+import org.rs.consts.QuestName
 
 /**
  * Restless ghost NPC.
@@ -52,7 +53,7 @@ class RestlessGhostNPC : AbstractNPC {
         if (this.respawnTick > ticks) {
             return true
         }
-        return isQuestComplete(player, "The Restless Ghost") || (pl != null && player !== pl)
+        return isQuestComplete(player, QuestName.THE_RESTLESS_GHOST) || (pl != null && player !== pl)
     }
 
     override fun getIds(): IntArray {
