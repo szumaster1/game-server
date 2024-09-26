@@ -9,6 +9,7 @@ import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
+import org.rs.consts.QuestName
 
 /**
  * Represents the Monastery Monk dialogue.
@@ -18,7 +19,7 @@ class MonasteryMonkDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
-        if (getQuestStage(player!!, "Monk's Friend") > 1) {
+        if (getQuestStage(player!!, QuestName.MONKS_FRIEND) > 1) {
             end()
             openDialogue(player, MonasteryMonkDialogueFile())
         } else {

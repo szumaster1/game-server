@@ -11,12 +11,13 @@ import core.game.node.entity.player.link.quest.Quest
 import core.game.node.entity.skill.Skills
 import core.game.world.GameWorld
 import core.plugin.Initializable
+import org.rs.consts.QuestName
 
 /**
  * Making history quest.
  */
 @Initializable
-class MakingHistory : Quest("Making History", 86, 85, 3, Vars.VARBIT_QUEST_MAKING_HISTORY_PROGRESS, 0, 1, 4) {
+class MakingHistory : Quest(QuestName.MAKING_HISTORY, 86, 85, 3, Vars.VARBIT_QUEST_MAKING_HISTORY_PROGRESS, 0, 1, 4) {
 
     override fun drawJournal(player: Player, stage: Int) {
         super.drawJournal(player, stage)

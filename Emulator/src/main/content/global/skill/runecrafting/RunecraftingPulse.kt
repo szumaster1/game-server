@@ -21,10 +21,8 @@ import core.game.world.GameWorld.ticks
 import core.game.world.update.flag.context.Animation
 import core.game.world.update.flag.context.Graphic
 import core.tools.RandomFunction
-import org.rs.consts.Animations
-import org.rs.consts.Graphics
-import org.rs.consts.Items
-import org.rs.consts.Sounds
+import org.rs.consts.*
+import java.util.*
 import kotlin.math.max
 
 /**
@@ -42,36 +40,36 @@ class RunecraftingPulse(player: Player?, node: Item?, val altar: Altar, private 
 
     override fun checkRequirements(): Boolean {
         if (altar == Altar.ASTRAL) {
-            if (!hasRequirement(player, "Lunar Diplomacy")) return false
+            if (!hasRequirement(player, QuestName.LUNAR_DIPLOMACY)) return false
         }
         if (altar == Altar.DEATH) {
-            if (!hasRequirement(player, "Mourning's End Part II")) return false
+            if (!hasRequirement(player, QuestName.MOURNINGS_END_PART_II)) return false
         }
         if (altar == Altar.BLOOD) {
-            if (!hasRequirement(player, "Legacy of Seergaze")) return false
+            if (!hasRequirement(player, QuestName.LEGACY_OF_SEERGAZE)) return false
         }
         if (!altar.isOurania && getStatLevel(player, Skills.RUNECRAFTING) < rune.level) {
-            sendMessage(player, "You need a Runecrafting level of at least " + rune.level + " to craft this rune.")
+            sendMessage(player, "You need a runecrafting level of at least " + rune.level + " to craft this rune.")
             return false
         }
-        if (combination && !player.inventory.containsItem(PURE_ESSENCE)) {
+        if (combination && !inInventory(player, PURE_ESSENCE)) {
             sendMessage(player, "You need pure essence to craft this rune.")
             return false
         }
-        if (!altar.isOurania && !rune.isNormal && !player.inventory.containsItem(PURE_ESSENCE)) {
+        if (!altar.isOurania && !rune.isNormal && !inInventory(player, PURE_ESSENCE)) {
             sendMessage(player, "You need pure essence to craft this rune.")
             return false
         }
-        if (!altar.isOurania && rune.isNormal && !player.inventory.containsItem(PURE_ESSENCE) && !player.inventory.containsItem(RUNE_ESSENCE)) {
+        if (!altar.isOurania && rune.isNormal && !inInventory(player, PURE_ESSENCE) && !inInventory(player, RUNE_ESSENCE)) {
             sendMessage(player, "You need rune essence or pure essence in order to craft this rune.")
             return false
         }
-        if (altar.isOurania && !player.inventory.containsItem(PURE_ESSENCE)) {
+        if (altar.isOurania && !inInventory(player, PURE_ESSENCE)) {
             sendMessage(player, "You need pure essence to craft this rune.")
             return false
         }
         if (combination && getStatLevel(player, Skills.RUNECRAFTING) < combo!!.level) {
-            sendMessage(player, "You need a Runecrafting level of at least " + combo.level + " to combine this rune.")
+            sendMessage(player, "You need a runecrafting level of at least " + combo.level + " to combine this rune.")
             return false
         }
         if (node != null) {
@@ -85,7 +83,7 @@ class RunecraftingPulse(player: Player?, node: Item?, val altar: Altar, private 
                 talisman = t
             }
         }
-        player.lock(4)
+        lock(player, 4)
         return true
     }
 
@@ -129,10 +127,10 @@ class RunecraftingPulse(player: Player?, node: Item?, val altar: Altar, private 
             }
             val i = Item(rune.rune.id, total)
 
-            if (player.inventory.remove(item) && player.inventory.hasSpaceFor(i)) {
-                player.inventory.add(i)
+            if (removeItem(player, item) && hasSpaceFor(player, i)) {
+                addItem(player, i.id, total)
                 player.incrementAttribute("/save:$STATS_BASE:$STATS_RC", amount)
-
+                sendMessage(player, "You bind the temple's power into " + (if (combination) combo!!.rune.name.lowercase(Locale.getDefault()) else rune.rune.name.lowercase(Locale.getDefault())) + "s.")
                 /*
                  * Fist of Guthix gloves.
                  */
@@ -169,6 +167,7 @@ class RunecraftingPulse(player: Player?, node: Item?, val altar: Altar, private 
             }
         } else {
             if (removeItem(player, item)) {
+                sendMessage(player, "You bind the temple's power into runes.")
                 player.incrementAttribute("/save:$STATS_BASE:$STATS_RC", amount)
                 for (i in 0 until amount) {
                     var rune: Rune? = null
@@ -197,9 +196,9 @@ class RunecraftingPulse(player: Player?, node: Item?, val altar: Altar, private 
         val remove = if (node!!.name.contains("talisman")) node!! else if (talisman != null) talisman!!.talisman else Talisman.forName(
             Rune.forItem(node!!)!!.name)!!.talisman
         val imbued = hasSpellImbue()
-        if (if (!imbued) player.inventory.remove(remove) else imbued) {
+        if (if (!imbued) removeItem(player, remove) else imbued) {
             var amount = 0
-            val essenceAmt = player.inventory.getAmount(PURE_ESSENCE)
+            val essenceAmt = amountInInventory(player, PURE_ESSENCE)
             val rune = if (node!!.name.contains("rune")) Rune.forItem(node!!)!!.talisman else Rune.forName(Talisman.forItem(node!!)!!.name)!!.rune
             val runeAmt = player.inventory.getAmount(rune)
             amount = if (essenceAmt > runeAmt) {
@@ -207,7 +206,7 @@ class RunecraftingPulse(player: Player?, node: Item?, val altar: Altar, private 
             } else {
                 essenceAmt
             }
-            if (player.inventory.remove(Item(PURE_ESSENCE.id, amount)) && player.inventory.remove(Item(rune.id, amount))) {
+            if (removeItem(player, Item(PURE_ESSENCE, amount)) && removeItem(player, Item(rune.id, amount))) {
                 for (i in 0 until amount) {
                     if (RandomFunction.random(1, 3) == 1 || hasBindingNecklace()) {
                         addItem(player, combo!!.rune.id, 1)
@@ -219,7 +218,7 @@ class RunecraftingPulse(player: Player?, node: Item?, val altar: Altar, private 
                     chargeItem -= 1
                     sendMessage(player, "You have " + Util.convert(chargeItem - 1) + " charges left before your Binding necklace disintegrates.")
                     if (1000 - player.equipment[EquipmentContainer.SLOT_AMULET].charge > 14) {
-                        player.equipment.remove(BINDING_NECKLACE, true)
+                        removeItem(player, BINDING_NECKLACE, Container.EQUIPMENT)
                         sendMessage(player,"Your binding necklace crumbles into dust.")
                     }
                 }
@@ -254,14 +253,14 @@ class RunecraftingPulse(player: Player?, node: Item?, val altar: Altar, private 
     private val essence: Item
         get() {
             if (altar.isOurania && inInventory(player, Items.PURE_ESSENCE_7936)) {
-                return PURE_ESSENCE
+                return Item(PURE_ESSENCE)
             }
             return if (!rune.isNormal && inInventory(player, Items.PURE_ESSENCE_7936)) {
-                PURE_ESSENCE
+                Item(PURE_ESSENCE)
             } else if (rune.isNormal && inInventory(player, Items.PURE_ESSENCE_7936)) {
-                PURE_ESSENCE
+                Item(PURE_ESSENCE)
             } else {
-                RUNE_ESSENCE
+                Item(RUNE_ESSENCE)
             }
         }
 
@@ -273,7 +272,7 @@ class RunecraftingPulse(player: Player?, node: Item?, val altar: Altar, private 
             if (altar.isOurania) {
                 return 1
             }
-            val rcLevel = player.getSkills().getLevel(Skills.RUNECRAFTING)
+            val rcLevel = getStatLevel(player, Skills.RUNECRAFTING)
             val runecraftingFormulaRevision = Configuration.RUNECRAFTING_FORMULA_REVISION
             val lumbridgeDiary = player.achievementDiaryManager.getDiary(DiaryType.LUMBRIDGE)!!.isComplete(1)
             return getMultiplier(rcLevel, rune, runecraftingFormulaRevision, lumbridgeDiary)
@@ -283,13 +282,13 @@ class RunecraftingPulse(player: Player?, node: Item?, val altar: Altar, private 
      * Method used to check if the player has a binding necklace.
      */
     fun hasBindingNecklace(): Boolean {
-        return player.equipment.containsItem(BINDING_NECKLACE)
+        return inEquipment(player, BINDING_NECKLACE)
     }
 
     companion object {
-        private val RUNE_ESSENCE = Item(Items.RUNE_ESSENCE_1436)
-        private val PURE_ESSENCE = Item(Items.PURE_ESSENCE_7936)
-        private val BINDING_NECKLACE = Item(Items.BINDING_NECKLACE_5521)
+        private const val RUNE_ESSENCE = Items.RUNE_ESSENCE_1436
+        private const val PURE_ESSENCE = Items.PURE_ESSENCE_7936
+        private const val BINDING_NECKLACE = Items.BINDING_NECKLACE_5521
         private val ANIMATION = Animation(Animations.OLD_RUNECRAFTING_791, Priority.HIGH)
         private val GRAPHIC = Graphic(Graphics.RUNECRAFTING_GRAPHIC_186, 100)
 

@@ -10,12 +10,13 @@ import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.quest.Quest
 import core.game.node.entity.skill.Skills
 import core.plugin.Initializable
+import org.rs.consts.QuestName
 
 /**
  * Observatory.
  */
 @Initializable
-class Observatory : Quest("Observatory Quest", 96, 95, 2, Vars.VARP_QUEST_OBSERVATORY_QUEST_PROGRESS, 0, 1, 7) {
+class Observatory : Quest(QuestName.OBSERVATORY_QUEST, 96, 95, 2, Vars.VARP_QUEST_OBSERVATORY_QUEST_PROGRESS, 0, 1, 7) {
 
     override fun drawJournal(player: Player, stage: Int) {
         super.drawJournal(player, stage)

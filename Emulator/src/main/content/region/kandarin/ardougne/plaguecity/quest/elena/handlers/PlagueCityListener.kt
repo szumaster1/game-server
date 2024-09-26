@@ -40,7 +40,7 @@ class PlagueCityListener : InteractionListener {
         }
 
         on(NPCs.MOURNER_717, IntType.NPC, "talk-to") { player, _ ->
-            if (getQuestStage(player, "Plague City") >= 17) {
+            if (getQuestStage(player, QuestName.PLAGUE_CITY) >= 17) {
                 openDialogue(player, MournerOtherDialogue())
             } else {
                 sendMessage(player, "He's busy.")
@@ -80,7 +80,7 @@ class PlagueCityListener : InteractionListener {
         }
 
         on(Scenery.MANHOLE_2543, IntType.SCENERY, "open") { player, node ->
-            if (isQuestInProgress(player, "Biohazard", 1, 99)) {
+            if (isQuestInProgress(player, QuestName.BIOHAZARD, 1, 99)) {
                 sendMessage(player, "The trapdoor is bolted on the other side.")
                 return@on true
             }
@@ -102,7 +102,7 @@ class PlagueCityListener : InteractionListener {
         }
 
         on(Scenery.MANHOLE_2544, IntType.SCENERY, "climb-down") { player, _ ->
-            if (isQuestInProgress(player, "Biohazard", 1, 100)) {
+            if (isQuestInProgress(player, QuestName.BIOHAZARD, 1, 100)) {
                 sendMessage(player, "The trapdoor is bolted on the other side.")
             } else {
                 animate(player, 827)
@@ -116,7 +116,7 @@ class PlagueCityListener : InteractionListener {
         }
 
         on(Scenery.DOOR_2528, IntType.SCENERY, "open") { player, node ->
-            if (getQuestStage(player,"Plague City") >= 13) {
+            if (getQuestStage(player, QuestName.PLAGUE_CITY) >= 13) {
                 DoorActionHandler.handleAutowalkDoor(player, node.asScenery())
             } else {
                 sendNPCDialogue(player, NPCs.BRAVEK_711, "Go away, I'm busy! I'm... Umm... In a meeting!")
@@ -148,14 +148,11 @@ class PlagueCityListener : InteractionListener {
         }
 
         on(Scenery.DOOR_35991, IntType.SCENERY, "open") { player, node ->
-            if (getQuestStage(player, "Plague City") == 11) {
-                openDialogue(player, HeadMournerDialogue())
-            } else if (getQuestStage(player, "Plague City") == 16) {
-                openDialogue(player, MournerPlagueCityDialogue())
-            } else if (getQuestStage(player, "Plague City") > 16) {
-                DoorActionHandler.handleAutowalkDoor(player, node.asScenery())
-            } else {
-                openDialogue(player, MournerPlagueCityDialogue())
+            when {
+                getQuestStage(player, QuestName.PLAGUE_CITY) == 11 -> openDialogue(player, HeadMournerDialogue())
+                getQuestStage(player, QuestName.PLAGUE_CITY) == 16 -> openDialogue(player, MournerPlagueCityDialogue())
+                getQuestStage(player, QuestName.PLAGUE_CITY) > 16 -> DoorActionHandler.handleAutowalkDoor(player, node.asScenery())
+                else -> openDialogue(player, MournerPlagueCityDialogue())
             }
             return@on true
         }
@@ -165,7 +162,7 @@ class PlagueCityListener : InteractionListener {
                 sendItemDialogue(player, Items.GAS_MASK_1506, "You find a protective mask but you don't have enough room to take it.")
             } else if (inEquipmentOrInventory(player, Items.GAS_MASK_1506)) {
                 sendMessage(player, "You search the wardrobe but you find nothing.")
-            } else if (getQuestStage(player, "Plague City") >= 2) {
+            } else if (getQuestStage(player, QuestName.PLAGUE_CITY) >= 2) {
                 sendItemDialogue(player, Items.GAS_MASK_1506, "You find a protective mask.")
                 addItem(player, Items.GAS_MASK_1506)
             }
@@ -202,7 +199,7 @@ class PlagueCityListener : InteractionListener {
             animate(player, 827)
             queueScript(player, 1, QueueStrength.SOFT){
                 teleport(player, Location(2518, 9759))
-                setQuestStage(player, "Plague City", 4)
+                setQuestStage(player, QuestName.PLAGUE_CITY, 4)
                 sendDialogueLines(player, "You fall through...", "...you land in the sewer.", "Edmond follows you down the hole.")
                 return@queueScript stopExecuting(player)
             }
@@ -210,11 +207,11 @@ class PlagueCityListener : InteractionListener {
         }
 
         on(Scenery.GRILL_11423, IntType.SCENERY, "open") { player, _ ->
-            if (getQuestStage(player,"Plague City") == 4) {
+            if (getQuestStage(player,QuestName.PLAGUE_CITY) == 4) {
                 sendDialogue(player, "The grill is too secure. You can't pull it off alone.")
                 animate(player, 3192)
                 playAudio(player, Sounds.PLAGUE_PULL_GRILL_1730)
-                setQuestStage(player, "Plague City", 5)
+                setQuestStage(player, QuestName.PLAGUE_CITY, 5)
             } else {
                 sendDialogue(player, "There is a grill blocking your way.")
             }
@@ -222,7 +219,7 @@ class PlagueCityListener : InteractionListener {
         }
 
         on(Scenery.PIPE_2542, IntType.SCENERY, "climb-up") { player, _ ->
-            if (getQuestStage(player, "Plague City") >= 7 && inEquipment(player, Items.GAS_MASK_1506)) {
+            if (getQuestStage(player, QuestName.PLAGUE_CITY) >= 7 && inEquipment(player, Items.GAS_MASK_1506)) {
                 forceMove(player, player.location, Location(2514, 9737, 0), 0, 30, Direction.SOUTH, 10580)
                 runTask(player, 3) {
                     teleport(player, Location(2529, 3304, 0))
@@ -267,7 +264,7 @@ class PlagueCityListener : InteractionListener {
                                 setVarbit(player, TIED_ROPE_VARBIT, 5, true)
                             }
                             3 -> {
-                                setQuestStage(player, "Plague City", 6)
+                                setQuestStage(player, QuestName.PLAGUE_CITY, 6)
                                 sendItemDialogue(player, Items.ROPE_954, "You tie the end of the rope to the sewer pipe's grill.")
                             }
                         }
@@ -279,7 +276,7 @@ class PlagueCityListener : InteractionListener {
         }
 
         on(Scenery.DOOR_2537, IntType.SCENERY, "open") { player, node ->
-            if (getQuestStage(player, "Plague City") >= 9) {
+            if (getQuestStage(player, QuestName.PLAGUE_CITY) >= 9) {
                 DoorActionHandler.handleAutowalkDoor(player, node.asScenery())
             } else {
                 openDialogue(player, object : DialogueFile() {
@@ -301,7 +298,7 @@ class PlagueCityListener : InteractionListener {
                             3 -> {
                                 end()
                                 npcl(FacialExpression.NEUTRAL, "Thanks, I've been missing that.")
-                                setQuestStage(player, "Plague City", 9)
+                                setQuestStage(player, QuestName.PLAGUE_CITY, 9)
                             }
                         }
                     }
@@ -333,7 +330,7 @@ class PlagueCityListener : InteractionListener {
         }
 
         onUseWith(IntType.SCENERY, Items.A_SMALL_KEY_1507, Scenery.DOOR_2526) { player, _, _ ->
-            if (getQuestStage(player, "Plague City") >= 16) {
+            if (getQuestStage(player, QuestName.PLAGUE_CITY) >= 16) {
                 DoorActionHandler.handleAutowalkDoor(player, getScenery(Location(2539, 9672, 0))!!.asScenery())
                 sendMessage(player, "You unlock the door.")
             } else {
@@ -343,7 +340,7 @@ class PlagueCityListener : InteractionListener {
         }
 
         on(Scenery.DOOR_2526, IntType.SCENERY, "open") { player, node ->
-            if (isQuestComplete(player, "Plague City") || player.location.x > 2539) {
+            if (isQuestComplete(player, QuestName.PLAGUE_CITY) || player.location.x > 2539) {
                 DoorActionHandler.handleAutowalkDoor(player, node.asScenery())
             } else {
                 sendMessage(player, "The door is locked.")

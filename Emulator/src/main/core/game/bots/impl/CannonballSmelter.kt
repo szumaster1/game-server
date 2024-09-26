@@ -15,6 +15,7 @@ import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 import core.game.world.map.Location
 import core.game.world.map.zone.ZoneBorders
+import org.rs.consts.QuestName
 
 /**
  * Cannonball smelter.
@@ -239,13 +240,6 @@ class CannonballSmelter : Script() {
         }
     }
 
-    /**
-     * Banking pulse
-     *
-     * @param script
-     * @param bank
-     * @constructor Banking pulse
-     */
     open class BankingPulse(val script: Script, val bank: Node) :
         MovementPulse(script.bot!!, bank, DestinationFlag.OBJECT) {
         override fun pulse(): Boolean {
@@ -260,94 +254,18 @@ class CannonballSmelter : Script() {
         return script
     }
 
-    /**
-     * State
-     *
-     * @constructor State
-     */
     enum class State {
-        /**
-         * Mining
-         *
-         * @constructor Mining
-         */
         MINING,
-
-        /**
-         * To Mine
-         *
-         * @constructor To Mine
-         */
         TO_MINE,
-
-        /**
-         * To Bank
-         *
-         * @constructor To Bank
-         */
         TO_BANK,
-
-        /**
-         * To Furnace
-         *
-         * @constructor To Furnace
-         */
         TO_FURNACE,
-
-        /**
-         * Smelting Cballs
-         *
-         * @constructor Smelting Cballs
-         */
         SMELTING_CBALLS,
-
-        /**
-         * Banking
-         *
-         * @constructor Banking
-         */
         BANKING,
-
-        /**
-         * To Ge
-         *
-         * @constructor To Ge
-         */
         TO_GE,
-
-        /**
-         * Selling
-         *
-         * @constructor Selling
-         */
         SELLING,
-
-        /**
-         * Go Back
-         *
-         * @constructor Go Back
-         */
         GO_BACK,
-
-        /**
-         * To Ironmine
-         *
-         * @constructor To Ironmine
-         */
         TO_IRONMINE,
-
-        /**
-         * Mining Iron
-         *
-         * @constructor Mining Iron
-         */
         MINING_IRON,
-
-        /**
-         * Init
-         *
-         * @constructor Init
-         */
         INIT
     }
 
@@ -364,6 +282,6 @@ class CannonballSmelter : Script() {
         skills[Skills.HITPOINTS] == 99
         skills[Skills.DEFENCE] == 99
         skills[Skills.SMITHING] == 35
-        quests.add("Dwarf Cannon")
+        quests.add(QuestName.DWARF_CANNON)
     }
 }

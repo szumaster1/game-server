@@ -19,7 +19,7 @@ class BetweenARock : Quest("Between a Rock...", 34, 33, 2, Vars.VARBIT_QUEST_BET
             line(player, "!!mountain camp??, underneath the !!troll mountains??. To start", line++, false)
             line(player, "this quest I need to have completed:", line++, false)
             line(player, "!!Fishing Contest??", line++, isQuestComplete(player, "Fishing Contest"))
-            line(player, "!!Dwarf Cannon??", line++, isQuestComplete(player, "Dwarf Cannon"))
+            line(player, "!!Dwarf Cannon??", line++, isQuestComplete(player, QuestName.DWARF_CANNON))
             line++
             line(player, "I must also have:", line++, false)
             line(

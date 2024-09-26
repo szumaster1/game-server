@@ -8,6 +8,7 @@ import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
+import org.rs.consts.QuestName
 
 /**
  * Wizard distentor dialogue.
@@ -32,7 +33,7 @@ class WizardDistentorDialogue(player: Player? = null) : Dialogue(player) {
             0 -> player("Hello there.").also { stage++ }
             1 -> npc("What can I do for you?").also { stage++ }
             2 -> {
-                if (!isQuestComplete(player, "Rune Mysteries")) {
+                if (!isQuestComplete(player, QuestName.RUNE_MYSTERIES)) {
                     player("Nothing thanks, I'm just looking around.").also { stage = 4 }
                 } else {
                     options("Nothing thanks, I'm just looking around.", "Can you teleport me to Rune Essence?").also { stage++ }

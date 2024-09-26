@@ -1,9 +1,5 @@
 package content.region.misthalin.wizardstower.handlers.rcguild.handlers
 
-import org.rs.consts.Animations
-import org.rs.consts.Components
-import org.rs.consts.Graphics
-import org.rs.consts.NPCs
 import core.api.*
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
@@ -11,6 +7,7 @@ import core.game.interaction.QueueStrength
 import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 import core.game.world.map.Location
+import org.rs.consts.*
 
 class RunecraftGuildListener : InteractionListener {
 
@@ -79,7 +76,7 @@ class RunecraftGuildListener : InteractionListener {
                     sendDialogue(player, "You need a Runecrafting level of 50 to enter the Runecrafting guild.")
                 }
 
-                !isQuestComplete(player, "Rune Mysteries") -> {
+                !isQuestComplete(player, QuestName.RUNE_MYSTERIES) -> {
                     sendDialogue(player, "You need to complete Rune Mysteries to enter the Runecrafting guild.")
                 }
 

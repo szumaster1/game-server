@@ -9,6 +9,7 @@ import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
+import org.rs.consts.QuestName
 
 /**
  * Represents the Milli rehnison dialogue.
@@ -18,7 +19,7 @@ class MilliRehnisonDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any?): Boolean {
         npc = args[0] as NPC
-        if (getQuestStage(player, "Plague City") == 9) {
+        if (getQuestStage(player, QuestName.PLAGUE_CITY) == 9) {
             playerl(FacialExpression.FRIENDLY, "Hello. Your parents say you saw what happened to Elena...").also { stage++ }
         } else {
             npcl(FacialExpression.CHILD_NORMAL, "Any luck finding Elena yet?").also { stage++ }
@@ -27,7 +28,7 @@ class MilliRehnisonDialogue(player: Player? = null) : Dialogue(player) {
     }
 
     override fun handle(componentID: Int, buttonID: Int): Boolean {
-        when (getQuestStage(player!!, "Plague City")) {
+        when (getQuestStage(player!!, QuestName.PLAGUE_CITY)) {
 
             9 -> when(stage) {
                 1 -> npcl(FacialExpression.CHILD_NORMAL, "*sniff* Yes I was near the south east corner when I saw Elena walking by. I was about to run to greet her when some men jumped out. They shoved a sack over her head and dragged her into a building.").also { stage++ }
@@ -35,7 +36,7 @@ class MilliRehnisonDialogue(player: Player? = null) : Dialogue(player) {
                 3 -> npcl(FacialExpression.CHILD_NORMAL, "It was the boarded up building with no windows in the south east corner of West Ardougne.").also { stage++ }
                 4 -> {
                     end()
-                    setQuestStage(player!!, "Plague City", 11)
+                    setQuestStage(player!!, QuestName.PLAGUE_CITY, 11)
                     stage = END_DIALOGUE
                 }
             }

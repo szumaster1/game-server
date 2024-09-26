@@ -16,6 +16,7 @@ import core.game.node.item.Item
 import core.game.world.map.Location
 import core.game.world.update.flag.context.Graphic
 import core.tools.END_DIALOGUE
+import org.rs.consts.QuestName
 
 /**
  * Represents the Thrantax dialogue file.
@@ -98,7 +99,7 @@ class ThrantaxDialogueFile : DialogueFile() {
             13 -> npc(FacialExpression.OLD_HAPPY, "and I can once more rest. Begone! And leave me once", "more in peace.").also { stage++ }
 
             14 -> {
-                setQuestStage(player!!, "Merlin's Crystal", 50)
+                setQuestStage(player!!, QuestName.MERLINS_CRYSTAL, 50)
                 disappear(player!!)
                 end()
                 stage = END_DIALOGUE

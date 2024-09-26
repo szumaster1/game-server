@@ -7,6 +7,7 @@ import core.game.dialogue.FacialExpression
 import core.game.dialogue.Topic
 import core.game.node.entity.npc.NPC
 import core.tools.END_DIALOGUE
+import org.rs.consts.QuestName
 
 /**
  * Represents the King Arthur dialogue file.
@@ -17,7 +18,7 @@ class KingArthurDialogueFile : DialogueFile() {
     val STAGE_STARTED_QUEST = 30
 
     override fun handle(componentID: Int, buttonID: Int) {
-        val quest = player!!.getQuestRepository().getQuest("Merlin's Crystal")
+        val quest = player!!.getQuestRepository().getQuest(QuestName.MERLINS_CRYSTAL)
         npc = NPC(NPCs.KING_ARTHUR_251)
 
         when (stage) {
@@ -38,7 +39,7 @@ class KingArthurDialogueFile : DialogueFile() {
 
             // option 1
             2 -> {
-                if (getQuestStage(player!!, "Merlin's Crystal") > 0) {
+                if (getQuestStage(player!!, QuestName.MERLINS_CRYSTAL) > 0) {
                     npcl(FacialExpression.NEUTRAL, "Well then you must complete your quest to rescue Merlin. Talk to my knights if you need any help.").also { stage = END_DIALOGUE }
                 } else {
                     npcl(FacialExpression.NEUTRAL, "Well, in that case I think you need to go on a quest to prove yourself worthy.")
@@ -78,7 +79,7 @@ class KingArthurDialogueFile : DialogueFile() {
             }
             21 -> {
                 end()
-                finishQuest(player!!, "Merlin's Crystal")
+                finishQuest(player!!, QuestName.MERLINS_CRYSTAL)
             }
 
         }

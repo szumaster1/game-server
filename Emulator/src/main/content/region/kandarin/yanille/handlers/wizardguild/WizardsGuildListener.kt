@@ -11,7 +11,7 @@ import core.game.node.entity.npc.NPC
 import core.game.node.entity.skill.Skills
 import core.game.node.scenery.Scenery
 import core.game.world.map.Location
-import core.plugin.Initializable
+import org.rs.consts.QuestName
 
 class WizardsGuildListener : InteractionListener {
 
@@ -50,7 +50,7 @@ class WizardsGuildListener : InteractionListener {
          */
 
         on(npcIDs, IntType.NPC, "teleport") { player, node ->
-            if (!isQuestComplete(player, "Rune Mysteries")) {
+            if (!isQuestComplete(player, QuestName.RUNE_MYSTERIES)) {
                 sendMessage(player, "You need to have completed the Rune Mysteries Quest to use this feature.")
                 return@on false
             }

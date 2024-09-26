@@ -1,10 +1,7 @@
 package content.region.kandarin.ardougne.quest.drunkmonk.dialogue
 
+import core.api.*
 import org.rs.consts.Items
-import core.api.getQuestStage
-import core.api.sendDialogue
-import core.api.sendItemDialogue
-import core.api.setQuestStage
 import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC
@@ -15,6 +12,7 @@ import core.game.world.map.Location
 import core.game.world.map.RegionManager
 import core.game.world.update.flag.context.Animation
 import core.tools.END_DIALOGUE
+import org.rs.consts.QuestName
 
 /**
  * Represents the Brother Omad dialogue file.
@@ -22,8 +20,7 @@ import core.tools.END_DIALOGUE
 class BrotherOmadDialogueFile : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {
-        val questName = "Monk's Friend"
-        val questStage = getQuestStage(player!!, questName)
+        val questStage = getQuestStage(player!!, QuestName.MONKS_FRIEND)
         when (questStage) {
             0 -> {
                 when (stage) {
@@ -46,9 +43,12 @@ class BrotherOmadDialogueFile : DialogueFile() {
                     10 -> npcl(FacialExpression.HALF_WORRIED, "Please do. We won't be able to help you as we are peaceful men but we would be grateful for your help!").also { stage++ }
 
                     11 -> playerl(FacialExpression.HALF_ASKING, "Where are they?").also { stage++ }
-                    12 -> npcl(FacialExpression.SAD, "They hide in a secret cave in the forest. It's hidden under a ring of stones. Please, bring back the blanket!").also { stage = END_DIALOGUE }
-                        .also { player!!.questRepository.getQuest("Monk's Friend").start(player) }
-                        .also { player!!.questRepository.syncronizeTab(player) }
+                    12 -> npcl(FacialExpression.SAD, "They hide in a secret cave in the forest. It's hidden under a ring of stones. Please, bring back the blanket!").also {
+                        player!!.questRepository.getQuest(QuestName.MONKS_FRIEND).start(player)
+                        updateQuestTab(player!!)
+                        stage = END_DIALOGUE
+                    }
+
                 }
             }
 
@@ -71,7 +71,8 @@ class BrotherOmadDialogueFile : DialogueFile() {
                     31 -> npcl(FacialExpression.HAPPY, "Really, that's excellent, well done! Maybe now I will be able to get some rest.").also { stage++ }
                     32 -> npcl(FacialExpression.SAD, "*yawn*..I'm off to bed! Farewell brave traveller!").also {
                         player!!.inventory.remove(Item(Items.CHILDS_BLANKET_90))
-                        setQuestStage(player!!, questName, 20); stage = END_DIALOGUE
+                        setQuestStage(player!!, QuestName.MONKS_FRIEND, 20)
+                        stage = END_DIALOGUE
                     }
                 }
             }
@@ -102,7 +103,10 @@ class BrotherOmadDialogueFile : DialogueFile() {
                     996 -> npcl(FacialExpression.NEUTRAL, "Okay traveller, take care.").also { stage = END_DIALOGUE }
                     997 -> npcl(FacialExpression.NEUTRAL, "Of course, but we need the wine first.").also { stage = END_DIALOGUE }
                     42 -> npcl(FacialExpression.FRIENDLY, "Oh, he won't be far. Probably out in the forest.").also { stage++ }
-                    43 -> playerl(FacialExpression.FRIENDLY, "Ok, I'll go and find him.").also { stage = END_DIALOGUE }.also { setQuestStage(player!!, questName, 30) }
+                    43 -> playerl(FacialExpression.FRIENDLY, "Ok, I'll go and find him.").also {
+                        setQuestStage(player!!, QuestName.MONKS_FRIEND, 30)
+                        stage = END_DIALOGUE
+                    }
                 }
             }
 
@@ -156,7 +160,9 @@ class BrotherOmadDialogueFile : DialogueFile() {
         val brotherOmad: NPC? = RegionManager.getNpc(Location(2604, 3209, 0), 279, 6)
         val monk: NPC? = RegionManager.getNpc(Location(2609, 3207, 0), 281, 6)
 
-        // Spawn balloons when PartyRoomOption code is fixed.
+        /*
+         * Spawn balloons when PartyRoomOption code is fixed.
+         */
 
         Pulser.submit(object : Pulse(1) {
             var count = 0
@@ -199,7 +205,7 @@ class BrotherOmadDialogueFile : DialogueFile() {
                     }
 
                     25 -> if (questComplete) {
-                        player!!.questRepository.getQuest("Monk's Friend").finish(player)
+                        finishQuest(player!!, QuestName.MONKS_FRIEND)
                     }
                 }
                 count++

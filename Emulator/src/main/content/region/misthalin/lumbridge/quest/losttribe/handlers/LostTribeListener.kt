@@ -22,14 +22,14 @@ class LostTribeListener : InteractionListener {
          */
 
         on(CHEST, IntType.SCENERY, "open") { player, _ ->
-            if (getQuestStage(player, "Lost Tribe") == 47 && inInventory(player, Items.KEY_423, 1)) {
+            if (getQuestStage(player, QuestName.THE_LOST_TRIBE) == 47 && inInventory(player, Items.KEY_423, 1)) {
                 removeItem(player, Item(Items.KEY_423))
                 for (item in arrayOf(Items.HAM_ROBE_4300, Items.HAM_SHIRT_4298, Items.HAM_HOOD_4302).map { Item(it) }) {
                     if (!player.inventory.add(item)) {
                         GroundItemManager.create(item, player)
                     }
                 }
-                setQuestStage(player, "Lost Tribe", 48)
+                setQuestStage(player, QuestName.THE_LOST_TRIBE, 48)
             } else {
                 sendMessage(player, "This chest requires a key.")
             }
@@ -48,16 +48,11 @@ class LostTribeListener : InteractionListener {
                     when (counter++) {
                         0 -> player.animator.animate(Animation(Animations.PICK_POCKET_881))
                         3 -> {
-                            if (getQuestStage(player, "Lost Tribe") == 47 && !inInventory(player, Items.KEY_423)) {
+                            if (getQuestStage(player, QuestName.THE_LOST_TRIBE) == 47 && !inInventory(player, Items.KEY_423)) {
                                 addItemOrDrop(player, Items.KEY_423)
                                 sendItemDialogue(player, Items.KEY_423, "You find a small key on Sigmund.")
                             } else {
-                                sendNPCDialogue(
-                                    player,
-                                    SIGMUND,
-                                    "What do you think you're doing?!",
-                                    FacialExpression.ANGRY
-                                )
+                                sendNPCDialogue(player, SIGMUND, "What do you think you're doing?!", FacialExpression.ANGRY)
                             }
                             player.unlock()
                             return true
@@ -93,7 +88,7 @@ class LostTribeListener : InteractionListener {
 
         on(BOOKCASE, IntType.SCENERY, "search") { player, _ ->
             val hasAnBook = hasAnItem(player, Items.GOBLIN_SYMBOL_BOOK_5009).container != null
-            if (!hasAnBook && getQuestStage(player, "Lost Tribe") >= 41) {
+            if (!hasAnBook && getQuestStage(player, QuestName.THE_LOST_TRIBE) >= 41) {
                 sendDialogue(player, "'A History of the Goblin Race.' This must be it.")
                 addItemOrDrop(player, Items.GOBLIN_SYMBOL_BOOK_5009)
             }
@@ -105,10 +100,10 @@ class LostTribeListener : InteractionListener {
          */
 
         on(CRATE, IntType.SCENERY, "search") { player, _ ->
-            if (!inInventory(player, Items.SILVERWARE_5011) && getQuestStage(player, "Lost Tribe") == 48) {
+            if (!inInventory(player, Items.SILVERWARE_5011) && getQuestStage(player, QuestName.THE_LOST_TRIBE) == 48) {
                 sendItemDialogue(player, Items.SILVERWARE_5011, "You find the missing silverware!")
                 addItemOrDrop(player, Items.SILVERWARE_5011)
-                setQuestStage(player, "Lost Tribe", 49)
+                setQuestStage(player, QuestName.THE_LOST_TRIBE, 49)
             } else {
                 sendMessage(player, "You find nothing.")
             }
@@ -133,7 +128,7 @@ class LostTribeListener : InteractionListener {
          */
 
         onUseWith(IntType.SCENERY, pickaxeIDs, *rubbleIDs) { player, used, _ ->
-            if(getQuestStage(player, "Lost Tribe") < 30) {
+            if(getQuestStage(player, QuestName.THE_LOST_TRIBE) < 30) {
                 sendItemDialogue(player, used.id, "I should probably figure out what happened, before vandalizing the castle more.")
                 return@onUseWith false
             }

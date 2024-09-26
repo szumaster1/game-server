@@ -9,6 +9,7 @@ import core.game.node.entity.player.link.quest.Quest
 import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 import core.plugin.Initializable
+import org.rs.consts.QuestName
 
 /**
  * Represents the What lies below quest.
@@ -92,7 +93,7 @@ class WhatLiesBelow : Quest("What Lies Below", 136, 135, 1) {
         requirements[0] = getStatLevel(player, Skills.RUNECRAFTING) >= 35
         requirements[1] = false
         requirements[3] = getStatLevel(player, Skills.MINING) >= 42
-        requirements[2] = isQuestComplete(player, "Rune Mysteries")
+        requirements[2] = isQuestComplete(player, QuestName.RUNE_MYSTERIES)
         return requirements[0] && requirements[2] && requirements[3]
     }
 

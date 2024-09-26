@@ -9,13 +9,14 @@ import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 import core.game.world.map.Location
 import core.plugin.Initializable
+import org.rs.consts.QuestName
 
 /**
  * Represents the Holy grail quest.
  * @author lostmyphat
  */
 @Initializable
-class HolyGrail : Quest("Holy Grail", 76, 75, 1, 5, 0, 1, 10) {
+class HolyGrail : Quest(QuestName.HOLY_GRAIL, 76, 75, 1, 5, 0, 1, 10) {
 
     override fun newInstance(`object`: Any?): Quest {
         return this
@@ -26,7 +27,6 @@ class HolyGrail : Quest("Holy Grail", 76, 75, 1, 5, 0, 1, 10) {
         val MERLIN_DOOR_LOCATION_CLOSED = Location.create(2764, 3503, 1)
         val MERLIN_DOOR_LOCATION_OPEN = Location.create(2765, 3503, 1)
         val DOOR_MAGIC_WHISTLE_LOCATION = Location.create(3106, 3361, 2)
-        val HOLY_GRAIL = "Holy Grail"
 
         val attribute_failed_titan = "/save:failed_to_kill_titan"
 

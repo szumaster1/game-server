@@ -1,8 +1,6 @@
 package content.region.kandarin.quest.grandtree.dialogue
 
 import content.global.travel.glider.Gliders
-import org.rs.consts.Components
-import org.rs.consts.NPCs
 import core.api.getQuestStage
 import core.api.openInterface
 import core.api.teleport
@@ -12,6 +10,9 @@ import core.game.node.entity.player.Player
 import core.game.world.map.Location
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
+import org.rs.consts.Components
+import org.rs.consts.NPCs
+import org.rs.consts.QuestName
 
 /**
  * Represents the Captain Errdo dialogue.
@@ -20,7 +21,7 @@ import core.tools.END_DIALOGUE
 class CaptainErrdoDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun handle(interfaceId: Int, buttonId: Int): Boolean {
-        when (getQuestStage(player!!, "The Grand Tree")) {
+        when (getQuestStage(player!!, QuestName.THE_GRAND_TREE)) {
             55 -> {
                 if (player!!.location.regionId == 11567) {
                     when (stage) {

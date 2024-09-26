@@ -6,6 +6,7 @@ import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC
 import core.tools.END_DIALOGUE
+import org.rs.consts.QuestName
 
 /**
  * Represents the Sir Lucan dialogue file.
@@ -19,13 +20,13 @@ class SirLucanDialogueFile : DialogueFile() {
             0 -> {
                 npcl(FacialExpression.NEUTRAL, "Hello there adventurer.").also {
 
-                    if (getQuestStage(player!!, "Merlin's Crystal") == 0) {
+                    if (getQuestStage(player!!, QuestName.MERLINS_CRYSTAL) == 0) {
                         stage = 1
-                    } else if (getQuestStage(player!!, "Merlin's Crystal") == 10) {
+                    } else if (getQuestStage(player!!, QuestName.MERLINS_CRYSTAL) == 10) {
                         stage = 10
-                    } else if (getQuestStage(player!!, "Merlin's Crystal") == 20 || getQuestStage(player!!, "Merlin's Crystal") == 30) {
+                    } else if (getQuestStage(player!!, QuestName.MERLINS_CRYSTAL) == 20 || getQuestStage(player!!, QuestName.MERLINS_CRYSTAL) == 30) {
                         stage = 20
-                    } else if (getQuestStage(player!!, "Merlin's Crystal") >= 40) {
+                    } else if (getQuestStage(player!!, QuestName.MERLINS_CRYSTAL) >= 40) {
                         stage = 40
                     }
                 }

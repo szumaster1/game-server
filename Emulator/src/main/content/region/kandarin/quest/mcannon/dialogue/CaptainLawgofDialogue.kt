@@ -7,6 +7,8 @@ import core.game.dialogue.FacialExpression
 import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.quest.Quest
 import core.game.node.item.Item
+import org.rs.consts.NPCs
+import org.rs.consts.QuestName
 
 /**
  * Represents the Captain lawgof dialogue.
@@ -17,15 +19,10 @@ class CaptainLawgofDialogue(player: Player? = null) : Dialogue(player) {
 
 
     override fun open(vararg args: Any): Boolean {
-        quest = player.getQuestRepository().getQuest(DwarfCannon.NAME)
+        quest = player.getQuestRepository().getQuest(QuestName.DWARF_CANNON)
         when (quest!!.getStage(player)) {
             80 -> player("Hi.")
-            50 -> npc(
-                "How are you doing in there, trooper? We've been",
-                "trying our best with that thing, but I just haven't got",
-                "the patience."
-            )
-
+            50 -> npc("How are you doing in there, trooper? We've been", "trying our best with that thing, but I just haven't got", "the patience.")
             40 -> player("Hello, has Lollk returned yet?")
             else -> player("Hello.")
         }
@@ -36,12 +33,7 @@ class CaptainLawgofDialogue(player: Player? = null) : Dialogue(player) {
         when (quest!!.getStage(player)) {
             0 -> when (stage) {
                 0 -> {
-                    npc(
-                        FacialExpression.OLD_NORMAL,
-                        "Guthix be praised, the cavalry has arrived! Hero, how",
-                        "would you like to be made an honorary member of the",
-                        "Black Guard?"
-                    )
+                    npc(FacialExpression.OLD_NORMAL, "Guthix be praised, the cavalry has arrived! Hero, how", "would you like to be made an honorary member of the", "Black Guard?")
                     stage++
                 }
 
@@ -51,24 +43,12 @@ class CaptainLawgofDialogue(player: Player? = null) : Dialogue(player) {
                 }
 
                 2 -> {
-                    npc(
-                        FacialExpression.OLD_NORMAL,
-                        "Hawhaw! 'What's that' " + (if (player.appearance.isMale) "he" else "she") + " asks, what a sense of",
-                        "humour! The Black Guard is the finest regiment in the",
-                        "dwarven army. Only the best of the best are allowed to",
-                        "join it and then they receive months of rigorous"
-                    )
+                    npc(FacialExpression.OLD_NORMAL, "Hawhaw! 'What's that' " + (if (player.appearance.isMale) "he" else "she") + " asks, what a sense of", "humour! The Black Guard is the finest regiment in the", "dwarven army. Only the best of the best are allowed to", "join it and then they receive months of rigorous")
                     stage++
                 }
 
                 3 -> {
-                    npc(
-                        FacialExpression.OLD_NORMAL,
-                        "training. However, we are currently in need of a hero,",
-                        "so for a limited time only I'm offering you, a human, a",
-                        "chance to join this prestigious regiment. What do you",
-                        "say?"
-                    )
+                    npc(FacialExpression.OLD_NORMAL, "training. However, we are currently in need of a hero,", "so for a limited time only I'm offering you, a human, a", "chance to join this prestigious regiment. What do you", "say?")
                     stage++
                 }
 
@@ -79,13 +59,7 @@ class CaptainLawgofDialogue(player: Player? = null) : Dialogue(player) {
 
                 5 -> {
                     quest!!.start(player)
-                    npc(
-                        FacialExpression.OLD_NORMAL,
-                        "That's the spirit! Now trooper, we have no time to waste",
-                        "- the goblins are attacking from the forests to the",
-                        "South. There are so many of them, they are",
-                        "overwhelming my men and breaking through our"
-                    )
+                    npc(FacialExpression.OLD_NORMAL, "That's the spirit! Now trooper, we have no time to waste", "- the goblins are attacking from the forests to the", "South. There are so many of them, they are", "overwhelming my men and breaking through our")
                     stage = 100
                 }
             }
@@ -93,11 +67,7 @@ class CaptainLawgofDialogue(player: Player? = null) : Dialogue(player) {
             10 -> when (stage) {
                 0 -> {
                     if (DwarfCannon.allRailsFixed(player)) {
-                        npc(
-                            FacialExpression.OLD_NORMAL,
-                            "Well done, trooper! The goblins seems to have stopped",
-                            "getting in. I think you've done the job!"
-                        )
+                        npc(FacialExpression.OLD_NORMAL, "Well done, trooper! The goblins seems to have stopped", "getting in. I think you've done the job!")
                         stage = 105
                     }
                     npc(FacialExpression.OLD_NORMAL, "Hello, trooper, how are you doing with those railings?")
@@ -110,11 +80,7 @@ class CaptainLawgofDialogue(player: Player? = null) : Dialogue(player) {
                 }
 
                 2 -> {
-                    npc(
-                        FacialExpression.OLD_NORMAL,
-                        "The goblins are still getting in, so there must still be",
-                        "some broken railings."
-                    )
+                    npc(FacialExpression.OLD_NORMAL, "The goblins are still getting in, so there must still be", "some broken railings.")
                     stage++
                 }
 
@@ -140,12 +106,7 @@ class CaptainLawgofDialogue(player: Player? = null) : Dialogue(player) {
                 }
 
                 100 -> {
-                    npc(
-                        FacialExpression.OLD_NORMAL,
-                        "perimeter defences; could you please try to fix the",
-                        "stockade by replacing the broken rails with these new",
-                        "ones?"
-                    )
+                    npc(FacialExpression.OLD_NORMAL, "perimeter defences; could you please try to fix the", "stockade by replacing the broken rails with these new", "ones?")
                     stage++
                 }
 
@@ -181,13 +142,7 @@ class CaptainLawgofDialogue(player: Player? = null) : Dialogue(player) {
                 }
 
                 107 -> {
-                    npc(
-                        FacialExpression.OLD_NORMAL,
-                        "Besides, I have another commission for you. Just",
-                        "before the goblins over-ran us we lost contact with our",
-                        "watch tower to the South, that's why the goblins",
-                        "managed to catch us unawares. I'd like you to perform."
-                    )
+                    npc(FacialExpression.OLD_NORMAL, "Besides, I have another commission for you. Just", "before the goblins over-ran us we lost contact with our", "watch tower to the South, that's why the goblins", "managed to catch us unawares. I'd like you to perform.")
                     stage++
                 }
 
@@ -211,13 +166,7 @@ class CaptainLawgofDialogue(player: Player? = null) : Dialogue(player) {
                 }
 
                 111 -> {
-                    npc(
-                        FacialExpression.OLD_NORMAL,
-                        "Excellent! I have two men there, the dwarf-in-charge is",
-                        "called Gilob, find him and tell him that I'll send him a",
-                        "relief guard just as soon as we mop up these remaining",
-                        "goblins."
-                    )
+                    npc(FacialExpression.OLD_NORMAL, "Excellent! I have two men there, the dwarf-in-charge is", "called Gilob, find him and tell him that I'll send him a", "relief guard just as soon as we mop up these remaining", "goblins.")
                     stage++
                 }
 
@@ -250,30 +199,17 @@ class CaptainLawgofDialogue(player: Player? = null) : Dialogue(player) {
 
                 3 -> end()
                 4 -> {
-                    player(
-                        "I have some terrible news for you Captain, the goblins",
-                        "over ran the tower, your guards fought well but were",
-                        "overwhelmed."
-                    )
+                    player("I have some terrible news for you Captain, the goblins", "over ran the tower, your guards fought well but were", "overwhelmed.")
                     stage++
                 }
 
                 5 -> {
-                    interpreter.sendItemMessage(
-                        DwarfCannon.DWARF_REMAINS,
-                        "You give the Dwarf Captain his subordinate's remains..."
-                    )
+                    interpreter.sendItemMessage(DwarfCannon.DWARF_REMAINS, "You give the Dwarf Captain his subordinate's remains...")
                     stage++
                 }
 
                 6 -> {
-                    npc(
-                        FacialExpression.OLD_NORMAL,
-                        "I can't believe it, Gilob was the finest lieutenant I had!",
-                        "We'll give him a fitting funeral, but what of his",
-                        "command? His son, Lollk, was with him. Did you find",
-                        "his body too?"
-                    )
+                    npc(FacialExpression.OLD_NORMAL, "I can't believe it, Gilob was the finest lieutenant I had!", "We'll give him a fitting funeral, but what of his", "command? His son, Lollk, was with him. Did you find", "his body too?")
                     stage++
                 }
 
@@ -283,13 +219,7 @@ class CaptainLawgofDialogue(player: Player? = null) : Dialogue(player) {
                 }
 
                 8 -> {
-                    npc(
-                        FacialExpression.OLD_NORMAL,
-                        "The goblins must have taken him. Please traveller, seek",
-                        "out the goblin's hideout and return the lad to us. They",
-                        "always attack from the South-west, so they must be",
-                        "based down there."
-                    )
+                    npc(FacialExpression.OLD_NORMAL, "The goblins must have taken him. Please traveller, seek", "out the goblin's hideout and return the lad to us. They", "always attack from the South-west, so they must be", "based down there.")
                     stage++
                 }
 
@@ -322,11 +252,7 @@ class CaptainLawgofDialogue(player: Player? = null) : Dialogue(player) {
 
             40 -> when (stage) {
                 0 -> {
-                    npc(
-                        FacialExpression.OLD_NORMAL,
-                        "He has, and I thank you from the bottom of my heart",
-                        "- without you he'd be a goblin barbecue!"
-                    )
+                    npc(FacialExpression.OLD_NORMAL, "He has, and I thank you from the bottom of my heart", "- without you he'd be a goblin barbecue!")
                     stage++
                 }
 
@@ -341,12 +267,7 @@ class CaptainLawgofDialogue(player: Player? = null) : Dialogue(player) {
                 }
 
                 3 -> {
-                    npc(
-                        "When the goblins attacked us some of them managed to",
-                        "slip past my guards and sabotage our cannon. I don't",
-                        "have anybody who understands how it works, could you,",
-                        "have a look at it and see if you could get it working for"
-                    )
+                    npc("When the goblins attacked us some of them managed to", "slip past my guards and sabotage our cannon. I don't", "have anybody who understands how it works, could you,", "have a look at it and see if you could get it working for")
                     stage++
                 }
 
@@ -389,12 +310,7 @@ class CaptainLawgofDialogue(player: Player? = null) : Dialogue(player) {
                         player("I'm afraid I lost the toolkit...")
                         stage = 3
                     }
-                    npc(
-                        FacialExpression.OLD_NORMAL,
-                        "Good stuff, let me know if you have any luck. If we",
-                        "manage to get that thing working, those goblins will be",
-                        "no trouble at all."
-                    )
+                    npc(FacialExpression.OLD_NORMAL, "Good stuff, let me know if you have any luck. If we", "manage to get that thing working, those goblins will be", "no trouble at all.")
                     stage++
                 }
 
@@ -433,11 +349,7 @@ class CaptainLawgofDialogue(player: Player? = null) : Dialogue(player) {
                 }
 
                 3 -> {
-                    npc(
-                        FacialExpression.OLD_NORMAL,
-                        "Well I don't believe it, it seems to be working perfectly!",
-                        "I seem to have underestimated you, trooper!"
-                    )
+                    npc(FacialExpression.OLD_NORMAL, "Well I don't believe it, it seems to be working perfectly!", "I seem to have underestimated you, trooper!")
                     stage++
                 }
 
@@ -447,20 +359,12 @@ class CaptainLawgofDialogue(player: Player? = null) : Dialogue(player) {
                 }
 
                 5 -> {
-                    npc(
-                        FacialExpression.OLD_NORMAL,
-                        "Not bad at all, your effort is appreciated, my friend.",
-                        "Now, if I could figure what the thing uses as ammo..."
-                    )
+                    npc(FacialExpression.OLD_NORMAL, "Not bad at all, your effort is appreciated, my friend.", "Now, if I could figure what the thing uses as ammo...")
                     stage++
                 }
 
                 6 -> {
-                    npc(
-                        FacialExpression.OLD_NORMAL,
-                        "The Black Guard forgot to send instructions. I know I",
-                        "said that was the last favour, but..."
-                    )
+                    npc(FacialExpression.OLD_NORMAL, "The Black Guard forgot to send instructions. I know I", "said that was the last favour, but...")
                     stage++
                 }
 
@@ -470,11 +374,7 @@ class CaptainLawgofDialogue(player: Player? = null) : Dialogue(player) {
                 }
 
                 8 -> {
-                    npc(
-                        FacialExpression.OLD_NORMAL,
-                        "I can't leave this post, could you go to the Black Guard",
-                        "base and find out what this thing actually shoots?"
-                    )
+                    npc(FacialExpression.OLD_NORMAL, "I can't leave this post, could you go to the Black Guard", "base and find out what this thing actually shoots?")
                     stage++
                 }
 
@@ -484,22 +384,12 @@ class CaptainLawgofDialogue(player: Player? = null) : Dialogue(player) {
                 }
 
                 10 -> {
-                    npc(
-                        FacialExpression.OLD_NORMAL,
-                        "That's great, we were lucky you came along when you",
-                        "did. The base is located just South of the Ice Mountain."
-                    )
+                    npc(FacialExpression.OLD_NORMAL, "That's great, we were lucky you came along when you", "did. The base is located just South of the Ice Mountain.")
                     stage++
                 }
 
                 11 -> {
-                    npc(
-                        FacialExpression.OLD_NORMAL,
-                        "You'll need to speak to Nulodion, the Dwarf Cannon",
-                        "engineer. He's the Weapons Development Chief for the",
-                        "Black Guard, so if anyone knows how to fire this thing,",
-                        "it'll be him."
-                    )
+                    npc(FacialExpression.OLD_NORMAL, "You'll need to speak to Nulodion, the Dwarf Cannon", "engineer. He's the Weapons Development Chief for the", "Black Guard, so if anyone knows how to fire this thing,", "it'll be him.")
                     stage++
                 }
 
@@ -548,12 +438,7 @@ class CaptainLawgofDialogue(player: Player? = null) : Dialogue(player) {
 
                 5 -> end()
                 6 -> {
-                    npc(
-                        FacialExpression.OLD_NORMAL,
-                        "Aah, of course, we make the ammo! This is great, now",
-                        "we will be able to defend ourselves. I don't know how to",
-                        "thank you..."
-                    )
+                    npc(FacialExpression.OLD_NORMAL, "Aah, of course, we make the ammo! This is great, now", "we will be able to defend ourselves. I don't know how to", "thank you...")
                     stage++
                 }
 
@@ -568,21 +453,12 @@ class CaptainLawgofDialogue(player: Player? = null) : Dialogue(player) {
                 }
 
                 9 -> {
-                    npc(
-                        FacialExpression.OLD_NORMAL,
-                        "I'll tell you what, I'll write to the Cannon",
-                        "Engineer requesting him to sell you one. He controls",
-                        "production of the cannons."
-                    )
+                    npc(FacialExpression.OLD_NORMAL, "I'll tell you what, I'll write to the Cannon", "Engineer requesting him to sell you one. He controls", "production of the cannons.")
                     stage++
                 }
 
                 10 -> {
-                    npc(
-                        FacialExpression.OLD_NORMAL,
-                        "He won't be able to give you one, but for the right",
-                        "price, I'm sure he'll sell one to you."
-                    )
+                    npc(FacialExpression.OLD_NORMAL, "He won't be able to give you one, but for the right", "price, I'm sure he'll sell one to you.")
                     stage++
                 }
 
@@ -609,11 +485,7 @@ class CaptainLawgofDialogue(player: Player? = null) : Dialogue(player) {
                 }
 
                 2 -> {
-                    npc(
-                        FacialExpression.OLD_NORMAL,
-                        "I'm great now, those goblins can't get close with this",
-                        "cannon blasting at them!"
-                    )
+                    npc(FacialExpression.OLD_NORMAL, "I'm great now, those goblins can't get close with this", "cannon blasting at them!")
                     stage++
                 }
 
@@ -624,6 +496,6 @@ class CaptainLawgofDialogue(player: Player? = null) : Dialogue(player) {
     }
 
     override fun getIds(): IntArray {
-        return intArrayOf(208)
+        return intArrayOf(NPCs.CAPTAIN_LAWGOF_208)
     }
 }

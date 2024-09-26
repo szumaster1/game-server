@@ -5,6 +5,7 @@ import core.game.dialogue.Dialogue
 import core.game.dialogue.DialogueInterpreter
 import core.game.dialogue.FacialExpression
 import core.game.node.entity.player.Player
+import org.rs.consts.QuestName
 
 /**
  * Represents the Hudon dialogue.
@@ -16,7 +17,7 @@ class HudonDialogue(player: Player? = null) : Dialogue(player) {
     }
 
     override fun handle(interfaceId: Int, buttonId: Int): Boolean {
-        val quest = player.getQuestRepository().getQuest(WaterFall.NAME)
+        val quest = player.getQuestRepository().getQuest(QuestName.WATERFALL_QUEST)
         when (stage) {
             100 -> end()
             101 -> {
@@ -123,7 +124,7 @@ class HudonDialogue(player: Player? = null) : Dialogue(player) {
     }
 
     override fun open(vararg args: Any): Boolean {
-        val quest = player.getQuestRepository().getQuest(WaterFall.NAME)
+        val quest = player.getQuestRepository().getQuest(QuestName.WATERFALL_QUEST)
         stage = if (quest.getStage(player) >= 20) {
             player(FacialExpression.HALF_GUILTY, "So you're still here.")
             20

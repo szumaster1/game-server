@@ -10,6 +10,7 @@ import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
+import org.rs.consts.QuestName
 
 /**
  * Represents the Remsai dialogue.
@@ -21,11 +22,11 @@ class RemsaiDialogue(player: Player? = null) : Dialogue(player) {
         npc = args[0] as NPC
         if (inInventory(player!!, Items.ORBS_OF_PROTECTION_588) || getQuestStage(
                 player,
-                "Tree Gnome Village"
+                QuestName.TREE_GNOME_VILLAGE
             ) > 40
         ) {
             playerl(FacialExpression.FRIENDLY, "I've returned.").also { stage++ }
-        } else if (getQuestStage(player, "Tree Gnome Village") == 40) {
+        } else if (getQuestStage(player, QuestName.TREE_GNOME_VILLAGE) == 40) {
             playerl(FacialExpression.ASKING, "Are you ok?").also { stage++ }
         } else {
             playerl(FacialExpression.FRIENDLY, "Hello Remsai.").also { stage++ }
@@ -34,7 +35,7 @@ class RemsaiDialogue(player: Player? = null) : Dialogue(player) {
     }
 
     override fun handle(componentID: Int, buttonID: Int): Boolean {
-        val questStage = getQuestStage(player!!, "Tree Gnome Village")
+        val questStage = getQuestStage(player!!, QuestName.TREE_GNOME_VILLAGE)
         when {
             inInventory(player!!, Items.ORBS_OF_PROTECTION_588) -> {
                 when (stage) {

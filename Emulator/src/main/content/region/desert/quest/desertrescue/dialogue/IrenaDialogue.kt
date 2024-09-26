@@ -9,6 +9,7 @@ import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.quest.Quest
 import core.game.node.entity.skill.Skills
+import org.rs.consts.QuestName
 
 /**
  * Represents the Irena dialogue.
@@ -19,7 +20,7 @@ class IrenaDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
-        quest = player.getQuestRepository().getQuest(TouristTrap.NAME)
+        quest = player.getQuestRepository().getQuest(QuestName.THE_TOURIST_TRAP)
         if (quest!!.getStage(player) == 95 && player.inventory.containsItem(TouristTrap.ANNA_BARREL)) {
             npc(FacialExpression.HAPPY, "Hey, great you've found Ana!")
             stage = 900

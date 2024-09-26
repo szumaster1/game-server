@@ -8,6 +8,7 @@ import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
+import org.rs.consts.QuestName
 
 /**
  * Represents the Desert Scout dialogue.
@@ -44,9 +45,9 @@ class DesertScoutDialogue(player: Player? = null) : Dialogue(player) {
             12 -> player("So what have you discovered on your travels though", "the desert?").also { stage++ }
             13 -> npc("The fighting in the desert has come to a stop. However, ", "there is still much distrust between Menaphos and Al", "Kharid. It seems like it would be possible to reignite the", "war if needed.").also { stage++ }
 
-            14 -> if (isQuestComplete(player, "Desert Treasure")) {
+            14 -> if (isQuestComplete(player, QuestName.DESERT_TREASURE)) {
                 npc("I have heard whisperings in the bandit camp that the", "prisoner of Jaldraocht is now free.").also { stage++ }
-            } else if (isQuestComplete(player, "Enakhra's Lament") && !isQuestComplete(player, "Desert Treasure")) {
+            } else if (isQuestComplete(player, QuestName.ENAKHRAS_LAMENT) && !isQuestComplete(player, QuestName.DESERT_TREASURE)) {
                 npc("I followed one called Lazim. He let slip that he had", "discovered the buried temple. Now the two others who", "were there are on the move. The General may find there are new players at", "the ritual this time.").also { stage++ }
             } else {
                 player("The Desert seems to be a hotbed of information.", "Do you want me to relay any of this to the", "General?").also { stage++ }

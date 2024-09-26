@@ -1,5 +1,6 @@
 package content.global.skill.magic.modern
 
+import content.global.skill.magic.SpellListener
 import content.global.skill.magic.SpellUtils.hasRune
 import content.global.skill.magic.TeleportMethod
 import content.global.skill.magic.spellconsts.Modern
@@ -7,12 +8,9 @@ import content.global.skill.prayer.Bones
 import content.global.skill.smithing.smelting.Bar
 import content.global.skill.smithing.smelting.SmeltingPulse
 import content.minigame.mta.impl.GraveyardZone
+import content.region.misthalin.varrock.diary.VarrockAchievementDiary
 import core.Configuration
 import core.api.*
-import org.rs.consts.Components
-import org.rs.consts.Items
-import org.rs.consts.Scenery
-import org.rs.consts.Sounds
 import core.game.event.ItemAlchemizationEvent
 import core.game.event.ResourceProducedEvent
 import core.game.event.TeleportEvent
@@ -30,13 +28,19 @@ import core.game.system.task.Pulse
 import core.game.world.map.Location
 import core.game.world.update.flag.context.Animation
 import core.game.world.update.flag.context.Graphic
+import org.rs.consts.*
 
 /**
  * Modern listeners.
  */
-class ModernListeners : content.global.skill.magic.SpellListener("modern") {
+class ModernListeners : SpellListener("modern") {
 
     override fun defineListeners() {
+
+        /*
+         * Home teleport.
+         */
+
         onCast(Modern.HOME_TELEPORT, NONE) { player, _ ->
             if (!getAttribute(player, "tutorial:complete", false)) {
                 return@onCast
@@ -46,16 +50,28 @@ class ModernListeners : content.global.skill.magic.SpellListener("modern") {
             setDelay(player, true)
         }
 
+        /*
+         * Varrock teleport.
+         */
+
         onCast(Modern.VARROCK_TELEPORT, NONE) { player, _ ->
             requires(
                 player = player,
                 magicLevel = 25,
                 runes = arrayOf(Item(Items.FIRE_RUNE_554), Item(Items.AIR_RUNE_556, 3), Item(Items.LAW_RUNE_563))
             )
-            val alternateTeleport = getAttribute(player, "diaries:varrock:alttele", false)
+            val alternateTeleport = getAttribute(player, VarrockAchievementDiary.ATTRIBUTE_VARROCK_ALT_TELE, false)
             val dest = if (alternateTeleport) Location.create(3165, 3472, 0) else Location.create(3213, 3424, 0)
-            sendTeleport(player, 35.0, dest)
+            sendTeleport(
+                player = player,
+                xp = 35.0,
+                location = dest
+            )
         }
+
+        /*
+         * Lumbridge teleport.
+         */
 
         onCast(Modern.LUMBRIDGE_TELEPORT, NONE) { player, _ ->
             requires(
@@ -63,8 +79,16 @@ class ModernListeners : content.global.skill.magic.SpellListener("modern") {
                 magicLevel = 31,
                 runes = arrayOf(Item(Items.EARTH_RUNE_557), Item(Items.AIR_RUNE_556, 3), Item(Items.LAW_RUNE_563))
             )
-            sendTeleport(player = player, xp = 41.0, location = Location.create(3221, 3219, 0))
+            sendTeleport(
+                player = player,
+                xp = 41.0,
+                location = Location.create(3221, 3219, 0)
+            )
         }
+
+        /*
+         * Falador teleport.
+         */
 
         onCast(Modern.FALADOR_TELEPORT, NONE) { player, _ ->
             requires(
@@ -72,8 +96,16 @@ class ModernListeners : content.global.skill.magic.SpellListener("modern") {
                 magicLevel = 37,
                 runes = arrayOf(Item(Items.WATER_RUNE_555), Item(Items.AIR_RUNE_556, 3), Item(Items.LAW_RUNE_563))
             )
-            sendTeleport(player = player, xp = 47.0, location = Location.create(2965, 3378, 0))
+            sendTeleport(
+                player = player,
+                xp = 47.0,
+                location = Location.create(2965, 3378, 0)
+            )
         }
+
+        /*
+         * Camelot teleport.
+         */
 
         onCast(Modern.CAMELOT_TELEPORT, NONE) { player, _ ->
             requires(
@@ -81,56 +113,89 @@ class ModernListeners : content.global.skill.magic.SpellListener("modern") {
                 magicLevel = 45,
                 runes = arrayOf(Item(Items.AIR_RUNE_556, 5), Item(Items.LAW_RUNE_563))
             )
-            sendTeleport(player = player, xp = 55.5, location = Location.create(2758, 3478, 0))
+            sendTeleport(
+                player = player,
+                xp = 55.5,
+                location = Location.create(2758, 3478, 0)
+            )
             finishDiaryTask(player, DiaryType.SEERS_VILLAGE, 1, 5)
         }
 
+        /*
+         * Ardougne teleport.
+         */
+
         onCast(Modern.ARDOUGNE_TELEPORT, NONE) { player, _ ->
-            if (!hasRequirement(player, "Plague City"))
+            if (!hasRequirement(player, QuestName.PLAGUE_CITY))
                 return@onCast
             requires(
                 player = player,
                 magicLevel = 51,
                 runes = arrayOf(Item(Items.WATER_RUNE_555, 2), Item(Items.LAW_RUNE_563, 2))
             )
-            sendTeleport(player = player, xp = 61.0, location = Location.create(2662, 3307, 0))
+            sendTeleport(
+                player = player,
+                xp = 61.0,
+                location = Location.create(2662, 3307, 0)
+            )
         }
 
+        /*
+         * Watchtower teleport.
+         */
+
         onCast(Modern.WATCHTOWER_TELEPORT, NONE) { player, _ ->
-            if (!hasRequirement(player, "Watchtower"))
+            if (!hasRequirement(player, QuestName.WATCHTOWER))
                 return@onCast
             requires(
                 player = player,
                 magicLevel = 58,
                 runes = arrayOf(Item(Items.EARTH_RUNE_557, 2), Item(Items.LAW_RUNE_563, 2))
             )
-            sendTeleport(player = player, xp = 68.0, location = Location.create(2549, 3112, 0))
+            sendTeleport(
+                player = player,
+                xp = 68.0,
+                location = Location.create(2549, 3112, 0)
+            )
         }
 
+        /*
+         * Trollheim teleport.
+         */
+
         onCast(Modern.TROLLHEIM_TELEPORT, NONE) { player, _ ->
-            if (!hasRequirement(player, "Eadgar's Ruse"))
+            if (!hasRequirement(player, QuestName.EADGARS_RUSE))
                 return@onCast
             requires(
                 player = player,
                 magicLevel = 61,
                 runes = arrayOf(Item(Items.FIRE_RUNE_554, 2), Item(Items.LAW_RUNE_563, 2))
             )
-            sendTeleport(player = player, xp = 68.0, location = Location.create(2891, 3678, 0))
+            sendTeleport(
+                player = player,
+                xp = 68.0,
+                location = Location.create(2891, 3678, 0)
+            )
         }
 
+        /*
+         * Ape Atoll teleport.
+         */
+
         onCast(Modern.APE_ATOLL_TELEPORT, NONE) { player, _ ->
-            if (!hasRequirement(player, "Monkey Madness"))
+            if (!hasRequirement(player, QuestName.MONKEY_MADNESS))
                 return@onCast
             requires(
-                player = player, magicLevel = 64, runes = arrayOf(
-                    Item(Items.FIRE_RUNE_554, 2),
-                    Item(Items.WATER_RUNE_555, 2),
-                    Item(Items.LAW_RUNE_563, 2),
-                    Item(Items.BANANA_1963)
-                )
+                player = player,
+                magicLevel = 64,
+                runes = arrayOf(Item(Items.FIRE_RUNE_554, 2), Item(Items.WATER_RUNE_555, 2), Item(Items.LAW_RUNE_563, 2), Item(Items.BANANA_1963))
             )
-            sendTeleport(player = player, xp = 74.0, location = Location.create(2754, 2784, 0))
+            sendTeleport(player, 74.0, Location.create(2754, 2784, 0))
         }
+
+        /*
+         * Teleport to house.
+         */
 
         onCast(Modern.TELEPORT_TO_HOUSE, NONE) { player, _ ->
             requires(
@@ -140,6 +205,10 @@ class ModernListeners : content.global.skill.magic.SpellListener("modern") {
             )
             attemptHouseTeleport(player)
         }
+
+        /*
+         * Low Alchemy.
+         */
 
         onCast(Modern.LOW_ALCHEMY, ITEM) { player, node ->
             val item = node?.asItem() ?: return@onCast
@@ -151,6 +220,10 @@ class ModernListeners : content.global.skill.magic.SpellListener("modern") {
             alchemize(player, item, high = false)
         }
 
+        /*
+         * High alchemy.
+         */
+
         onCast(Modern.HIGH_ALCHEMY, ITEM) { player, node ->
             val item = node?.asItem() ?: return@onCast
             requires(
@@ -160,6 +233,10 @@ class ModernListeners : content.global.skill.magic.SpellListener("modern") {
             )
             alchemize(player, item, high = true)
         }
+
+        /*
+         * Superheat.
+         */
 
         onCast(Modern.SUPERHEAT, ITEM) { player, node ->
             val item = node?.asItem() ?: return@onCast
@@ -171,16 +248,25 @@ class ModernListeners : content.global.skill.magic.SpellListener("modern") {
             superheat(player, item)
         }
 
+        /*
+         * Bones to bananas.
+         */
+
         onCast(Modern.BONES_TO_BANANAS, NONE) { player, _ ->
             requires(
-                player = player, magicLevel = 15, runes = arrayOf(
-                    Item(Items.EARTH_RUNE_557, 2),
-                    Item(Items.WATER_RUNE_555, 2),
-                    Item(Items.NATURE_RUNE_561, 1)
-                )
+                player = player,
+                magicLevel = 15,
+                runes = arrayOf(Item(Items.EARTH_RUNE_557, 2), Item(Items.WATER_RUNE_555, 2), Item(Items.NATURE_RUNE_561, 1))
             )
-            boneConvert(player, true)
+            boneConvert(
+                player = player,
+                bananas = true
+            )
         }
+
+        /*
+         * Bones to peach.
+         */
 
         onCast(Modern.BONES_TO_PEACHES, NONE) { player, _ ->
             requires(
@@ -190,13 +276,59 @@ class ModernListeners : content.global.skill.magic.SpellListener("modern") {
                     Item(Items.NATURE_RUNE_561, 2)
                 )
             )
-            boneConvert(player, false)
+            boneConvert(
+                player = player,
+                bananas = false
+            )
         }
 
-        onCast(Modern.CHARGE_WATER_ORB, OBJECT, Scenery.OBELISK_OF_WATER_2151, 3, method = ::chargeOrb)
-        onCast(Modern.CHARGE_EARTH_ORB, OBJECT, Scenery.OBELISK_OF_EARTH_29415, 3, method = ::chargeOrb)
-        onCast(Modern.CHARGE_FIRE_ORB, OBJECT, Scenery.OBELISK_OF_FIRE_2153, 3, method = ::chargeOrb)
-        onCast(Modern.CHARGE_AIR_ORB, OBJECT, Scenery.OBELISK_OF_AIR_2152, 3, method = ::chargeOrb)
+        /*
+         * Charge water orb.
+         */
+
+        onCast(
+            Modern.CHARGE_WATER_ORB,
+            OBJECT,
+            Scenery.OBELISK_OF_WATER_2151,
+            3,
+            method = ::chargeOrb
+        )
+
+        /*
+         * Charge earth orb.
+         */
+
+        onCast(
+            Modern.CHARGE_EARTH_ORB,
+            OBJECT,
+            Scenery.OBELISK_OF_EARTH_29415,
+            3,
+            method = ::chargeOrb
+        )
+
+        /*
+         * Charge fire orb.
+         */
+
+        onCast(
+            Modern.CHARGE_FIRE_ORB,
+            OBJECT,
+            Scenery.OBELISK_OF_FIRE_2153,
+            3,
+            method = ::chargeOrb
+        )
+
+        /*
+         * Charge air orb.
+         */
+
+        onCast(
+            Modern.CHARGE_AIR_ORB,
+            OBJECT,
+            Scenery.OBELISK_OF_AIR_2152,
+            3,
+            method = ::chargeOrb
+        )
     }
 
     /**

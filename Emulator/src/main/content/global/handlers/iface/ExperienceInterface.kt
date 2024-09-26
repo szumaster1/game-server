@@ -10,6 +10,7 @@ import core.plugin.Initializable
 import core.plugin.Plugin
 import core.tools.Log
 import org.rs.consts.Components
+import org.rs.consts.QuestName
 import org.rs.consts.Sounds
 
 /**
@@ -79,15 +80,15 @@ class ExperienceInterface : ComponentPlugin() {
     }
 
     private fun checkHerblore(player: Player): Boolean {
-        return (isQuestComplete(player, "Druidic Ritual"))
+        return (isQuestComplete(player, QuestName.DRUIDIC_RITUAL))
     }
 
     private fun checkSummoning(player: Player): Boolean {
-        return isQuestComplete(player, "Wolf Whistle")
+        return isQuestComplete(player, QuestName.WOLF_WHISTLE)
     }
 
     private fun checkRunecrafting(player: Player): Boolean {
-        return isQuestComplete(player, "Rune Mysteries")
+        return isQuestComplete(player, QuestName.RUNE_MYSTERIES)
     }
 
     companion object {

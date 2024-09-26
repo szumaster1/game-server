@@ -8,6 +8,7 @@ import core.game.node.entity.player.link.quest.Quest
 import core.game.node.scenery.SceneryBuilder
 import core.game.world.map.Location
 import core.game.world.map.RegionManager.getObject
+import org.rs.consts.QuestName
 
 /**
  * Represents the Bedabin nomad dialogue.
@@ -18,7 +19,7 @@ class BedabinNomadDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
-        quest = player.getQuestRepository().getQuest(TouristTrap.NAME)
+        quest = player.getQuestRepository().getQuest(QuestName.THE_TOURIST_TRAP)
         when (npc.id) {
             834 -> when (quest!!.getStage(player)) {
                 54 -> if (player.inventory.containsItem(TouristTrap.TECHNICAL_PLANS)) {

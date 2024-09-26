@@ -18,8 +18,8 @@ import kotlin.random.Random
  * Big chompy bird hunting quest.
  */
 @Initializable
-class BigChompyBirdHunting : Quest("Big Chompy Bird Hunting", 35, 34, 2, Vars.VARP_QUEST_CHOMPY_PROGRESS, 0, 1, 65),
-    InteractionListener {
+class BigChompyBirdHunting : Quest(QuestName.BIG_CHOMPY_BIRD_HUNTING, 35, 34, 2, Vars.VARP_QUEST_CHOMPY_PROGRESS, 0, 1, 65), InteractionListener {
+
     companion object {
         val FEATHERS = intArrayOf(Items.FEATHER_314, Items.STRIPY_FEATHER_10087, Items.RED_FEATHER_10088, Items.BLUE_FEATHER_10089, Items.YELLOW_FEATHER_10090, Items.ORANGE_FEATHER_10091)
         val CAVE_ENTRANCE = Location.create(2646, 9378, 0)
@@ -129,19 +129,19 @@ class BigChompyBirdHunting : Quest("Big Chompy Bird Hunting", 35, 34, 2, Vars.VA
 
         val filledBellows = intArrayOf(Items.OGRE_BELLOWS_3_2872, Items.OGRE_BELLOWS_2_2873, Items.OGRE_BELLOWS_1_2874)
 
-        on(3379, IntType.SCENERY, "enter") { player, _ ->
+        on(Scenery.CAVE_ENTRANCE_3379, IntType.SCENERY, "enter") { player, _ ->
             teleport(player, CAVE_ENTRANCE)
             sendMessage(player, "You walk through the cave entrance into a dimly lit cave.")
             return@on true
         }
 
-        on(intArrayOf(32068, 32069), IntType.SCENERY, "pass-through") { player, _ ->
+        on(intArrayOf(Scenery.TUNNEL_32068, Scenery.TUNNEL_32069), IntType.SCENERY, "pass-through") { player, _ ->
             teleport(player, CAVE_EXIT)
             sendMessage(player, "You walk back out of the darkness of the cave into daylight.")
             return@on true
         }
 
-        on(3377, IntType.SCENERY, "unlock") { player, node ->
+        on(Scenery.LOCKED_OGRE_CHEST_3377, IntType.SCENERY, "unlock") { player, node ->
             if (freeSlots(player) == 0) {
                 sendMessage(player, "You don't have enough space to do that.")
                 return@on true
@@ -169,7 +169,7 @@ class BigChompyBirdHunting : Quest("Big Chompy Bird Hunting", 35, 34, 2, Vars.VA
             return@on true
         }
 
-        onUseWith(IntType.SCENERY, Items.RAW_CHOMPY_2876, 3375) { player, used, _ ->
+        onUseWith(IntType.SCENERY, Items.RAW_CHOMPY_2876, Scenery.OGRE_SPIT_ROAST_3375) { player, used, _ ->
             val rantzIngredient = getAttribute(
                 player,
                 ATTR_ING_RANTZ, -1
@@ -214,7 +214,7 @@ class BigChompyBirdHunting : Quest("Big Chompy Bird Hunting", 35, 34, 2, Vars.VA
             return@onUseWith true
         }
 
-        onUseWith(IntType.SCENERY, Items.OGRE_BELLOWS_2871, 684) { player, used, _ ->
+        onUseWith(IntType.SCENERY, Items.OGRE_BELLOWS_2871, Scenery.SWAMP_BUBBLES_684) { player, used, _ ->
             if (removeItem(player, used.asItem())) {
                 lock(player, 2)
                 visualize(player, Animations.HUMAN_USING_BELLOWS_1026,
@@ -236,9 +236,7 @@ class BigChompyBirdHunting : Quest("Big Chompy Bird Hunting", 35, 34, 2, Vars.VA
 
             sendChat(player, "Come here toady!")
             sendMessage(player, "You manage to catch the toad and inflate it with swamp gas.")
-            visualize(player, Animations.HUMAN_USING_BELLOWS_1026,
-                Graphic(Graphics.USING_BELLOWS, 80)
-            )
+            visualize(player, Animations.HUMAN_USING_BELLOWS_1026, Graphic(Graphics.USING_BELLOWS, 80))
             animate(with.asNpc(), Animations.TOAD_INFLATION_1019)
             runTask(player, 2) {
                 if (removeItem(player, used.asItem())) {
@@ -248,8 +246,7 @@ class BigChompyBirdHunting : Quest("Big Chompy Bird Hunting", 35, 34, 2, Vars.VA
                         addItem(player, filledBellows.getNext(used.id))
                     }
                     addItem(player, Items.BLOATED_TOAD_2875)
-                    with.asNpc().respawnTick =
-                        GameWorld.ticks + with.asNpc().definition.getConfiguration(NPCConfigParser.RESPAWN_DELAY, 34)
+                    with.asNpc().respawnTick = GameWorld.ticks + with.asNpc().definition.getConfiguration(NPCConfigParser.RESPAWN_DELAY, 34)
                 }
             }
             return@onUseWith true

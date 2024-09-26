@@ -8,12 +8,13 @@ import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.quest.Quest
 import core.game.node.entity.skill.Skills
 import core.plugin.Initializable
+import org.rs.consts.QuestName
 
 /**
  * Represents the Restless ghost quest.
  */
 @Initializable
-class RestlessGhost : Quest("The Restless Ghost", 25, 24, 1, Vars.VARP_QUEST_RESTLESS_GHOST_PROGRESS, 0, 4, 5) {
+class RestlessGhost : Quest(QuestName.THE_RESTLESS_GHOST, 25, 24, 1, Vars.VARP_QUEST_RESTLESS_GHOST_PROGRESS, 0, 4, 5) {
 
     override fun drawJournal(player: Player, stage: Int) {
         super.drawJournal(player, stage)
@@ -84,7 +85,7 @@ class RestlessGhost : Quest("The Restless Ghost", 25, 24, 1, Vars.VARP_QUEST_RES
         super.finish(player)
         drawReward(player, "1 Quest Point", 10)
         drawReward(player, "1125 Prayer XP", 11)
-        sendString(player, "You have completed The Restless Ghost Quest!", Components.QUEST_COMPLETE_SCROLL_277, 4)
+        sendString(player, "You have completed ${QuestName.THE_RESTLESS_GHOST}!", Components.QUEST_COMPLETE_SCROLL_277, 4)
         sendItemZoomOnInterface(player, Components.QUEST_COMPLETE_SCROLL_277, 5, Items.SKULL_964, 240)
         rewardXP(player, Skills.PRAYER, 1125.0)
         closeChatBox(player)

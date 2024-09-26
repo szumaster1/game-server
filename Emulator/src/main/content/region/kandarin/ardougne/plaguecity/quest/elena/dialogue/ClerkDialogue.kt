@@ -10,6 +10,7 @@ import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
+import org.rs.consts.QuestName
 
 /**
  * Represents the Clerk dialogue.
@@ -24,7 +25,7 @@ class ClerkDialogue(player: Player? = null) : Dialogue(player) {
     }
 
     override fun handle(componentID: Int, buttonID: Int): Boolean {
-        when (getQuestStage(player!!, "Plague City")) {
+        when (getQuestStage(player!!, QuestName.PLAGUE_CITY)) {
 
             11 -> when (stage) {
                 0 -> options("Who is through that door?", "I'm just looking thanks.").also { stage++ }
@@ -68,7 +69,7 @@ class ClerkDialogue(player: Player? = null) : Dialogue(player) {
                 12 -> npcl(FacialExpression.HALF_GUILTY, "Mr Bravek, there's a man here who really needs to speak to you.").also { stage++ }
                 13 -> {
                     end()
-                    setQuestStage(player!!, "Plague City", 13)
+                    setQuestStage(player!!, QuestName.PLAGUE_CITY, 13)
                     sendNPCDialogue(player!!, NPCs.BRAVEK_711, "I suppose they can come in then. If they keep it short.").also { stage++ }
                 }
                 14 -> npcl(FacialExpression.HALF_GUILTY, "Oh I don't know, an hour or so maybe.").also { stage = END_DIALOGUE }

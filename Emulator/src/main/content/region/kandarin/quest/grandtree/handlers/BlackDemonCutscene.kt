@@ -1,7 +1,6 @@
 package content.region.kandarin.quest.grandtree.handlers
 
 import content.region.kandarin.quest.grandtree.handlers.BlackDemonNPC.Companion.spawnBlackDemon
-import org.rs.consts.NPCs
 import core.api.face
 import core.api.sendChat
 import core.api.sendMessage
@@ -11,6 +10,7 @@ import core.game.node.entity.player.Player
 import core.game.world.GameWorld.settings
 import core.game.world.map.Direction
 import core.game.world.map.Location
+import org.rs.consts.NPCs
 
 /**
  * Black demon cutscene.

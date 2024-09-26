@@ -1,10 +1,6 @@
 package content.region.misthalin.lumbridge.quest.imp.dialogue
 
-import org.rs.consts.Animations
-import org.rs.consts.Graphics
 import core.api.*
-import org.rs.consts.NPCs
-import org.rs.consts.Sounds
 import core.api.utils.PlayerCamera
 import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression
@@ -13,6 +9,7 @@ import core.game.system.task.Pulse
 import core.game.world.map.Location
 import core.game.world.update.flag.context.Animation
 import core.tools.END_DIALOGUE
+import org.rs.consts.*
 
 /**
  * Represents the Wizard mizgog dialogue file.
@@ -20,7 +17,7 @@ import core.tools.END_DIALOGUE
 class WizardMizgogDialogueFile : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {
-        when (getQuestStage(player!!, "Imp Catcher")) {
+        when (getQuestStage(player!!, QuestName.IMP_CATCHER)) {
             0 -> when (stage) {
                 0 -> player("Give me a quest!").also { stage++ }
                 1 -> npc("Give me a quest what?").also { stage++ }
@@ -50,7 +47,7 @@ class WizardMizgogDialogueFile : DialogueFile() {
                 17 -> npc("That's great, thank you.").also { stage++ }
                 18 -> {
                     end()
-                    setQuestStage(player!!, "Imp Catcher", 10)
+                    setQuestStage(player!!, QuestName.IMP_CATCHER, 10)
                 }
 
                 20 -> npc("Or else what? You'll attack me?").also { stage++ }
@@ -111,7 +108,7 @@ class WizardMizgogDialogueFile : DialogueFile() {
                                         unlock(player!!)
                                         PlayerCamera(player).reset()
                                         sendMessage(player!!, "The Wizard hands you an amulet.")
-                                        finishQuest(player!!, "Imp Catcher")
+                                        finishQuest(player!!, QuestName.IMP_CATCHER)
                                     }
                                 }
                                 return false

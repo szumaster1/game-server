@@ -9,6 +9,7 @@ import core.game.dialogue.Topic
 import core.game.node.entity.player.Player
 import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
+import org.rs.consts.QuestName
 
 /**
  * Represents the Odd old man dialogue file.
@@ -21,7 +22,7 @@ class OddOldManDialogueFile : DialogueFile() {
      */
 
     override fun handle(componentID: Int, buttonID: Int) {
-        when (getQuestStage(player!!, "Rag and Bone Man")) {
+        when (getQuestStage(player!!, QuestName.RAG_AND_BONE_MAN)) {
             0 -> {
                 when (stage) {
                     START_DIALOGUE -> npcl(FacialExpression.FRIENDLY, "Can I help you with something?").also { stage++ }
@@ -91,7 +92,7 @@ class OddOldManDialogueFile : DialogueFile() {
                     57 -> npcl(FacialExpression.FRIENDLY, "It takes a while for the vinegar to evaporate, but the bone will be nice and clean in the end.").also { stage++ }
                     58 -> playerl(FacialExpression.FRIENDLY, "All right, I'll be back later.").also { stage++ }
                     59 -> npcl(FacialExpression.FRIENDLY, "Bye!").also {
-                        setQuestStage(player!!, "Rag and Bone Man", 1)
+                        setQuestStage(player!!, QuestName.RAG_AND_BONE_MAN, 1)
                         stage = END_DIALOGUE
                     }
                     60 -> npcl(FacialExpression.FRIENDLY, "Oh...I see.").also { stage++ }
@@ -137,7 +138,7 @@ class OddOldManDialogueFile : DialogueFile() {
                     8 -> npcl(FacialExpression.FRIENDLY, "I'm always on the lookout for fresh bones, so if you see some bring them right over.").also { stage++ }
                     9 -> playerl(FacialExpression.FRIENDLY, "No problem, I'll be sure to bring anything you might like over if I find something.").also { stage++ }
                     10 -> playerl(FacialExpression.FRIENDLY, "I can't wait to see the displays once they are finished.").also { stage++ }
-                    11 -> finishQuest(player!!, "Rag and Bone Man").also {
+                    11 -> finishQuest(player!!, QuestName.RAG_AND_BONE_MAN).also {
                         end()
                     }
                     20 -> playerl(FacialExpression.FRIENDLY, "Not at the moment. Can you just give me a run down on which bones I have left to get?").also { stage++ }

@@ -8,6 +8,7 @@ import core.game.dialogue.FacialExpression
 import core.game.dialogue.Topic
 import core.game.node.entity.npc.NPC
 import core.tools.END_DIALOGUE
+import org.rs.consts.QuestName
 
 /**
  * Represents the Sir Lancelot dialogue file.
@@ -19,7 +20,7 @@ class SirLancelotDialogueFile : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {
         npc = NPC(NPCs.SIR_LANCELOT_239)
-        val merlinsCrystalQuest = player!!.questRepository.getQuest("Merlin's Crystal")
+        val merlinsCrystalQuest = player!!.questRepository.getQuest(QuestName.MERLINS_CRYSTAL)
 
         when (stage) {
             0 -> npcl(FacialExpression.NEUTRAL, "Greetings! I am Sir Lancelot, the greatest Knight in the land! What do you want?").also {
@@ -58,8 +59,8 @@ class SirLancelotDialogueFile : DialogueFile() {
             23 -> npcl(FacialExpression.NEUTRAL, "There are two ways in that I know of, the large heavy front doors, and the sea entrance, only penetrable by boat.").also { stage++ }
             24 -> {
                 npcl(FacialExpression.NEUTRAL, "They take all their deliveries by boat.").also {
-                    if (getQuestStage(player!!, "Merlin's Crystal") == 20) {
-                        setQuestStage(player!!, "Merlin's Crystal",30)
+                    if (getQuestStage(player!!, QuestName.MERLINS_CRYSTAL) == 20) {
+                        setQuestStage(player!!, QuestName.MERLINS_CRYSTAL,30)
                     }
                     stage = END_DIALOGUE
                 }

@@ -6,6 +6,7 @@ import core.game.node.entity.skill.SkillPulse
 import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 import org.rs.consts.Items
+import org.rs.consts.QuestName
 
 /**
  * Represents the [DartPulse] class to make [dart]
@@ -17,7 +18,7 @@ class DartPulse(player: Player?, node: Item?, private val dart: Dart, private va
             sendDialogue(player, "You need a fletching level of " + dart.level + " to do this.")
             return false
         }
-        if (!isQuestComplete(player, "The Tourist Trap")) {
+        if (!isQuestComplete(player, QuestName.THE_TOURIST_TRAP)) {
             sendDialogue(player, "You need to have completed Tourist Trap to fletch darts.")
             return false
         }

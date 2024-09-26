@@ -9,6 +9,7 @@ import core.game.dialogue.FacialExpression
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
+import org.rs.consts.QuestName
 
 /**
  * Represents the Bravek dialogue.
@@ -17,7 +18,7 @@ import core.tools.END_DIALOGUE
 class BravekDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun handle(componentID: Int, buttonID: Int): Boolean {
-        when (getQuestStage(player!!, "Plague City")) {
+        when (getQuestStage(player!!, QuestName.PLAGUE_CITY)) {
             13 -> when (stage) {
                 0 -> npcl(FacialExpression.NEUTRAL, "My head hurts! I'll speak to you another day...").also { stage++ }
                 1 -> options("This is really important though!", "Ok, goodbye.").also { stage++ }
@@ -47,7 +48,7 @@ class BravekDialogue(player: Player? = null) : Dialogue(player) {
                         end()
                         sendItemDialogue(player!!, Items.A_SCRUFFY_NOTE_1508, "Bravek hands you a tatty piece of paper.").also { stage++ }
                         addItem(player!!, Items.A_SCRUFFY_NOTE_1508)
-                        setQuestStage(player!!, "Plague City", 14)
+                        setQuestStage(player!!, QuestName.PLAGUE_CITY, 14)
                     }
                 }
             }
@@ -101,7 +102,7 @@ class BravekDialogue(player: Player? = null) : Dialogue(player) {
                         end()
                         sendItemDialogue(player!!, Items.WARRANT_1503, "Bravek hands you a warrant.")
                         addItem(player!!, Items.WARRANT_1503)
-                        setQuestStage(player!!, "Plague City", 16)
+                        setQuestStage(player!!, QuestName.PLAGUE_CITY, 16)
                     }
                 }
             }

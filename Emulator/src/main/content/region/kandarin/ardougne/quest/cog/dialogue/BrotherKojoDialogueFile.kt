@@ -10,6 +10,7 @@ import core.game.dialogue.FacialExpression
 import core.game.dialogue.Topic
 import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
+import org.rs.consts.QuestName
 
 /**
  * Represents the Brother kojo dialogue file.
@@ -27,7 +28,7 @@ class BrotherKojoDialogueFile : DialogueFile() {
             }
             return
         }
-        when (getQuestStage(player!!, "Clock Tower")) {
+        when (getQuestStage(player!!, QuestName.CLOCK_TOWER)) {
             0 -> {
                 when (stage) {
                     START_DIALOGUE -> player(FacialExpression.FRIENDLY, "Hello monk.").also { stage++ }
@@ -47,7 +48,7 @@ class BrotherKojoDialogueFile : DialogueFile() {
                     32 -> player(FacialExpression.FRIENDLY, "Well, I'll do my best.").also { stage++ }
                     33 -> npcl(FacialExpression.HAPPY, "Thank you again! And remember to be careful, the cellar is full of strange beasts!").also {
                         stage = END_DIALOGUE
-                        setQuestStage(player!!, "Clock Tower", 1)
+                        setQuestStage(player!!, QuestName.CLOCK_TOWER, 1)
                     }
                 }
             }
@@ -98,7 +99,7 @@ class BrotherKojoDialogueFile : DialogueFile() {
                     2 -> npcl(FacialExpression.FRIENDLY, "The townsfolk will all be able to know the correct time now! Thank you so much for all of your help! And as promised, here is your reward!").also { stage++ }
                     3 -> {
                         end()
-                        finishQuest(player!!, "Clock Tower")
+                        finishQuest(player!!, QuestName.CLOCK_TOWER)
                     }
                 }
             }

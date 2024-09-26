@@ -11,6 +11,7 @@ import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.link.diary.AchievementDiary
 import core.game.node.entity.player.link.diary.DiaryType
 import core.tools.END_DIALOGUE
+import org.rs.consts.QuestName
 
 /**
  * Represents the Sir Kay dialogue file.
@@ -59,16 +60,16 @@ class SirKayDialogueFile : DialogueFile() {
 
             }
             3 -> {
-                if (getQuestStage(player!!, "Merlin's Crystal") == 0) {
+                if (getQuestStage(player!!, QuestName.MERLINS_CRYSTAL) == 0) {
                     playerl(FacialExpression.NEUTRAL, "Morning. Know where an adventurer has to go to find a quest around here?")
                     stage = STAGE_NOT_STARTED_MERLIN
-                } else if (getQuestStage(player!!, "Merlin's Crystal") == 10) {
+                } else if (getQuestStage(player!!, QuestName.MERLINS_CRYSTAL) == 10) {
                     playerl(FacialExpression.NEUTRAL, "Any ideas on getting Merlin out of that crystal?")
                     stage = STAGE_GET_MERLIN_OUT
-                } else if (getQuestStage(player!!, "Merlin's Crystal") == 20 || getQuestStage(player!!, "Merlin's Crystal") == 30) {
+                } else if (getQuestStage(player!!, QuestName.MERLINS_CRYSTAL) == 20 || getQuestStage(player!!, QuestName.MERLINS_CRYSTAL) == 30) {
                     playerl(FacialExpression.NEUTRAL, "Any ideas on getting into Mordred's fort?")
                     stage = STAGE_MORDRED
-                } else if (getQuestStage(player!!, "Merlin's Crystal") >= 40) {
+                } else if (getQuestStage(player!!, QuestName.MERLINS_CRYSTAL) >= 40) {
                     playerl(FacialExpression.NEUTRAL, "Any ideas on finding Excalibur?")
                     stage = STAGE_UNFORTUNATELY_NOT
                 }

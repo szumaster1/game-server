@@ -8,12 +8,13 @@ import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.quest.Quest
 import core.game.node.entity.skill.Skills
 import core.plugin.Initializable
+import org.rs.consts.QuestName
 
 /**
  * Monks friend quest.
  */
 @Initializable
-class MonksFriend : Quest("Monk's Friend", 89, 88, 1, Vars.VARP_QUEST_MONKS_FRIEND_PROGRESS, 0, 1, 80) {
+class MonksFriend : Quest(QuestName.MONKS_FRIEND, 89, 88, 1, Vars.VARP_QUEST_MONKS_FRIEND_PROGRESS, 0, 1, 80) {
 
     override fun drawJournal(player: Player, stage: Int) {
         super.drawJournal(player, stage)

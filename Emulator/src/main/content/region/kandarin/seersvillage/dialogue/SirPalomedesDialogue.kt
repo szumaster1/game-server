@@ -1,6 +1,5 @@
 package content.region.kandarin.seersvillage.dialogue
 
-import content.region.kandarin.quest.grail.dialogue.SirPalomedesHolyGrailQuestDialogueFile
 import content.region.kandarin.quest.merlin.dialogue.SirPalomedesDialogueFile
 import org.rs.consts.NPCs
 import core.api.isQuestComplete
@@ -8,6 +7,7 @@ import core.api.openDialogue
 import core.game.dialogue.Dialogue
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
+import org.rs.consts.QuestName
 
 /**
  * Represents the Sir palomedes dialogue.
@@ -16,10 +16,10 @@ import core.plugin.Initializable
 class SirPalomedesDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun handle(interfaceId: Int, buttonId: Int): Boolean {
-        if (!isQuestComplete(player, "Merlin's Crystal")) {
+        if (!isQuestComplete(player, QuestName.MERLINS_CRYSTAL)) {
             openDialogue(player, SirPalomedesDialogueFile(), NPCs.SIR_PALOMEDES_3787)
         } else {
-            openDialogue(player, SirPalomedesHolyGrailQuestDialogueFile(), NPCs.SIR_PALOMEDES_3787)
+            openDialogue(player, content.region.kandarin.quest.grail.dialogue.SirPalomedesHGDialogue(), NPCs.SIR_PALOMEDES_3787)
         }
         return true
     }

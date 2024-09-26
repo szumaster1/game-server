@@ -1,6 +1,5 @@
 package content.region.kandarin.quest.grandtree.handlers
 
-import org.rs.consts.NPCs
 import core.api.location
 import core.api.setQuestStage
 import core.game.node.entity.Entity
@@ -11,6 +10,8 @@ import core.game.world.GameWorld
 import core.game.world.map.Direction
 import core.game.world.map.Location
 import core.plugin.Initializable
+import org.rs.consts.NPCs
+import org.rs.consts.QuestName
 
 /**
  * Black demon NPC.
@@ -51,7 +52,7 @@ class BlackDemonNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id, l
     override fun finalizeDeath(killer: Entity?) {
         // In the event that this npcID is used somewhere else...
         if (killer!!.asPlayer().location.regionId == 9882) {
-            setQuestStage(killer.asPlayer(), "The Grand Tree", 98)
+            setQuestStage(killer.asPlayer(), QuestName.THE_GRAND_TREE, 98)
             this.isRespawn = false
         }
         clear()

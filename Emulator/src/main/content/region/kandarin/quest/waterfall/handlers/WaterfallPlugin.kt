@@ -25,6 +25,7 @@ import core.game.world.map.Location
 import core.game.world.update.flag.context.Animation
 import core.plugin.PluginManager.definePlugin
 import core.plugin.Plugin
+import org.rs.consts.QuestName
 
 /**
  * Waterfall plugin.
@@ -58,7 +59,7 @@ class WaterfallPlugin : OptionHandler() {
 
     override fun handle(player: Player, node: Node, option: String): Boolean {
         val id = node.id
-        val quest = player.getQuestRepository().getQuest(WaterFall.NAME)
+        val quest = player.getQuestRepository().getQuest(QuestName.WATERFALL_QUEST)
         if (quest == null) {
             player.sendMessage("Error! Waterfall quest cannot be found.")
             return true
@@ -305,7 +306,7 @@ class WaterfallPlugin : OptionHandler() {
         override fun handle(event: NodeUsageEvent): Boolean {
             val player = event.player
             val useditem = event.usedItem
-            val quest = player.getQuestRepository().getQuest(WaterFall.NAME)
+            val quest = player.getQuestRepository().getQuest(QuestName.WATERFALL_QUEST)
             val scenery = event.usedWith as Scenery
 
             if (useditem.id == ROPE.id && scenery.id == 1996 || scenery.id == 1997) {

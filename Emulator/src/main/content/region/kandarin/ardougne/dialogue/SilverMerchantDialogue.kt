@@ -2,7 +2,7 @@ package content.region.kandarin.ardougne.dialogue
 
 import content.global.activity.enchkey.EnchantedKey
 import content.region.kandarin.quest.makinghistory.handlers.MakingHistoryUtils
-import content.region.kandarin.quest.makinghistory.dialogue.SilverMerchantDialogueFile
+import content.region.kandarin.quest.makinghistory.dialogue.SilverMerchantMHDialogue
 import core.api.*
 import org.rs.consts.Items
 import org.rs.consts.NPCs
@@ -60,15 +60,15 @@ class SilverMerchantDialogue(player: Player? = null) : Dialogue(player) {
                 3 -> {
                     end()
                     if (getQuestStage(player, "Making History") < 2) {
-                        openDialogue(player, SilverMerchantDialogueFile(0))
+                        openDialogue(player, SilverMerchantMHDialogue(0))
                     } else if (getVarbit(player, MakingHistoryUtils.ERIN_PROGRESS) == 1 || !hasKey) {
-                        openDialogue(player, SilverMerchantDialogueFile(13))
+                        openDialogue(player, SilverMerchantMHDialogue(13))
                     } else if (inInventory(player, Items.CHEST_6759)) {
-                        openDialogue(player, SilverMerchantDialogueFile(19))
+                        openDialogue(player, SilverMerchantMHDialogue(19))
                     } else if (getVarbit(player, MakingHistoryUtils.ERIN_PROGRESS) in 1..3 && !hasJournal) {
                         player("I found a chest, but I lost it and any contents", "it had.").also { stage++ }
                     } else if (inInventory(player, Items.JOURNAL_6755)) {
-                        openDialogue(player, SilverMerchantDialogueFile(21))
+                        openDialogue(player, SilverMerchantMHDialogue(21))
                     } else {
                         npc("Hello, I hope Jorral was pleased with that Journal.").also { stage = 4 }
                     }

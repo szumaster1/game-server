@@ -12,6 +12,7 @@ import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC
 import core.tools.END_DIALOGUE
 import core.tools.RandomFunction
+import org.rs.consts.QuestName
 
 /**
  * Represents the Cave goblins dialogue file.
@@ -22,7 +23,7 @@ class CaveGoblinsDialogueFile : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {
         npc = NPC(NPCs.CAVE_GOBLIN_MINER_2069)
-        if (isQuestComplete(player!!, "Lost Tribe")) {
+        if (isQuestComplete(player!!, QuestName.THE_LOST_TRIBE)) {
             when (randomConversation) {
                 0 -> when (stage) {
                     0 -> npcl(FacialExpression.OLD_NORMAL, "What are you doing down here without a lamp?").also { stage++ }

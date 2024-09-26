@@ -8,6 +8,7 @@ import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.game.node.item.Item
 import core.plugin.Initializable
+import org.rs.consts.QuestName
 
 /**
  * Represents the Father Uhrney dialogue.
@@ -24,13 +25,13 @@ class FatherUhrneyDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun handle(interfaceId: Int, buttonId: Int): Boolean {
         when (stage) {
-            0 -> if (getQuestStage(player, "The Restless Ghost") == 0) {
+            0 -> if (getQuestStage(player, QuestName.THE_RESTLESS_GHOST) == 0) {
                 options("Well, that's friendly.", "I've come to repossess your house.")
                 stage = 1
-            } else if (getQuestStage(player, "The Restless Ghost") == 10) {
+            } else if (getQuestStage(player, QuestName.THE_RESTLESS_GHOST) == 10) {
                 options("Well, that's friendly.", "I've come to repossess your house.", "Father Aereck sent me to talk to you.")
                 stage = 500
-            } else if (player.gameAttributes.attributes.containsKey("restless-ghost:urhney") || isQuestComplete(player, "The Restless Ghost")) {
+            } else if (player.gameAttributes.attributes.containsKey("restless-ghost:urhney") || isQuestComplete(player, QuestName.THE_RESTLESS_GHOST)) {
                 options("Well, that's friendly.", "I've come to repossess your house.", "I've lost the Amulet of Ghostspeak.")
                 stage = 514
             }
@@ -94,7 +95,7 @@ class FatherUhrneyDialogue(player: Player? = null) : Dialogue(player) {
                 }
                 interpreter.sendItemMessage(552, "Father Urhney hands you an amulet.")
                 player.inventory.add(Item(552, 1))
-                player.getQuestRepository().getQuest("The Restless Ghost").setStage(player, 20)
+                player.getQuestRepository().getQuest(QuestName.THE_RESTLESS_GHOST).setStage(player, 20)
                 player.gameAttributes.setAttribute("/save:restless-ghost:urhney", true)
                 stage = 509
             }

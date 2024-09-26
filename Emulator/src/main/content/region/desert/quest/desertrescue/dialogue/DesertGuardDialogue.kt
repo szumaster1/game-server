@@ -1,6 +1,7 @@
 package content.region.desert.quest.desertrescue.dialogue
 
 import content.region.desert.quest.desertrescue.TouristTrap
+import core.api.sendMessage
 import core.game.dialogue.Dialogue
 import core.game.node.entity.npc.AbstractNPC
 import core.game.node.entity.npc.NPC
@@ -13,6 +14,8 @@ import core.game.world.map.Location
 import core.game.world.map.RegionManager.getLocalPlayers
 import core.tools.END_DIALOGUE
 import core.tools.RandomFunction
+import org.rs.consts.NPCs
+import org.rs.consts.QuestName
 
 /**
  * Represents the Desert guard dialogue.
@@ -27,7 +30,7 @@ class DesertGuardDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
-        quest = player.getQuestRepository().getQuest(TouristTrap.NAME)
+        quest = player.getQuestRepository().getQuest(QuestName.THE_TOURIST_TRAP)
         when (npc.id) {
             5001 -> when (quest!!.getStage(player)) {
                 40 -> npc("Yeah, what do you want?")
@@ -44,11 +47,7 @@ class DesertGuardDialogue(player: Player? = null) : Dialogue(player) {
                         end()
                         return true
                     }
-                    npc(
-                        "That pineapple was just delicious, many thanks. I don't",
-                        "suppose you could get me another? <col=08088A>-- The guard looks at",
-                        "<col=08088A>you pleadingly."
-                    )
+                    npc("That pineapple was just delicious, many thanks. I don't", "suppose you could get me another? <col=08088A>-- The guard looks at", "<col=08088A>you pleadingly.")
                 }
 
                 else -> npc("What are you looking at?")
@@ -66,20 +65,13 @@ class DesertGuardDialogue(player: Player? = null) : Dialogue(player) {
             5001 -> when (quest!!.getStage(player)) {
                 51, 52, 53, 54 -> when (stage) {
                     0 -> {
-                        interpreter.sendItemMessage(
-                            TouristTrap.TENTI_PINEAPPLE,
-                            "You show the Tenti pineapple to the guard."
-                        )
+                        interpreter.sendItemMessage(TouristTrap.TENTI_PINEAPPLE, "You show the Tenti pineapple to the guard.")
                         stage++
                     }
 
                     1 -> if (player.inventory.remove(TouristTrap.TENTI_PINEAPPLE)) {
                         quest!!.setStage(player, 60)
-                        npc(
-                            "Great! Just what I've been looking for! Mmmmmmm...",
-                            "Delicious! This is so nice! Mmmmm, *SLURP*",
-                            "Yummmm... Oh yes, this is great."
-                        )
+                        npc("Great! Just what I've been looking for! Mmmmmmm...", "Delicious! This is so nice! Mmmmm, *SLURP*", "Yummmm... Oh yes, this is great.")
                         stage = 10
                     }
 
@@ -104,20 +96,13 @@ class DesertGuardDialogue(player: Player? = null) : Dialogue(player) {
 
                 50 -> when (stage) {
                     0 -> {
-                        interpreter.sendItemMessage(
-                            TouristTrap.TENTI_PINEAPPLE,
-                            "You show the Tenti pineapple to the guard."
-                        )
+                        interpreter.sendItemMessage(TouristTrap.TENTI_PINEAPPLE, "You show the Tenti pineapple to the guard.")
                         stage++
                     }
 
                     1 -> if (player.inventory.remove(TouristTrap.TENTI_PINEAPPLE)) {
                         quest!!.setStage(player, 60)
-                        npc(
-                            "Great! Just what I've been looking for! Mmmmmmm...",
-                            "Delicious!! This is so nice! Mmmmm, *SLURP*",
-                            "Yummmm... Oh yes, this is great."
-                        )
+                        npc("Great! Just what I've been looking for! Mmmmmmm...", "Delicious!! This is so nice! Mmmmm, *SLURP*", "Yummmm... Oh yes, this is great.")
                         stage = 10
                     }
 
@@ -136,12 +121,7 @@ class DesertGuardDialogue(player: Player? = null) : Dialogue(player) {
                     }
 
                     1 -> {
-                        npc(
-                            "Oh, you want to work in another area of the mine eh?",
-                            "<col=08088A>-- The guard seems pleased with his rhetorical question.--",
-                            "Well, I can understand that! A change is as good as a",
-                            "rest they say."
-                        )
+                        npc("Oh, you want to work in another area of the mine eh?", "<col=08088A>-- The guard seems pleased with his rhetorical question.--", "Well, I can understand that! A change is as good as a", "rest they say.")
                         stage++
                     }
 
@@ -151,20 +131,12 @@ class DesertGuardDialogue(player: Player? = null) : Dialogue(player) {
                     }
 
                     3 -> {
-                        npc(
-                            "Of course I'm right. And what goes around comes",
-                            "around as they say. And it's been absolutely ages since",
-                            "I've had anything different to eat."
-                        )
+                        npc("Of course I'm right. And what goes around comes", "around as they say. And it's been absolutely ages since", "I've had anything different to eat.")
                         stage++
                     }
 
                     4 -> {
-                        npc(
-                            "What I wouldn't give for some whole, fresh, ripe and",
-                            "juicy pineapple for a change. And those Tenti's have the",
-                            "best pineapple in this entire area."
-                        )
+                        npc("What I wouldn't give for some whole, fresh, ripe and", "juicy pineapple for a change. And those Tenti's have the", "best pineapple in this entire area.")
                         stage++
                     }
 
@@ -204,11 +176,7 @@ class DesertGuardDialogue(player: Player? = null) : Dialogue(player) {
 
                 100, 60 -> when (stage) {
                     0 -> {
-                        player(
-                            "You must be joking! The last one I got you cost me",
-                            "double shifts working copper ore! You should be",
-                            "grateful you got one at all."
-                        )
+                        player("You must be joking! The last one I got you cost me", "double shifts working copper ore! You should be", "grateful you got one at all.")
                         stage++
                     }
 
@@ -276,13 +244,7 @@ class DesertGuardDialogue(player: Player? = null) : Dialogue(player) {
         private fun warn() {
             val players = getLocalPlayers(this)
             for (player in players) {
-                if (player.getAttribute(
-                        "guard-warning",
-                        0
-                    ) > ticks || !player.zoneMonitor.isInZone("mining camp") || player.inCombat() || !player.location.withinDistance(
-                        getLocation(), 8
-                    )
-                ) {
+                if (player.getAttribute("guard-warning", 0) > ticks || !player.zoneMonitor.isInZone("mining camp") || player.inCombat() || !player.location.withinDistance(getLocation(), 8)) {
                     continue
                 }
                 if (TouristTrap.inJail(player)) {
@@ -299,19 +261,19 @@ class DesertGuardDialogue(player: Player? = null) : Dialogue(player) {
                                     face(player)
                                     if (!TouristTrap.hasSlaveClothes(player)) {
                                         sendChat("Hey, they're interesting clothes!")
-                                        player.packetDispatch.sendMessage("Guard: You're no slave.")
+                                        sendMessage(player, "Guard: You're no slave.")
                                     } else {
                                         sendChat("Hey - you with the armour!")
-                                        player.packetDispatch.sendMessage("Guard: Hey - You with the armour!")
+                                        sendMessage(player, "Guard: Hey - You with the armour!")
                                     }
                                 }
 
                                 5 -> if (!TouristTrap.hasSlaveClothes(player)) {
                                     sendChat("You're no slave.")
-                                    player.packetDispatch.sendMessage("Guard: What are you doing in here?")
+                                    sendMessage(player, "Guard: What are you doing in here?")
                                 } else {
                                     sendChat("You're not allowed in here!")
-                                    player.packetDispatch.sendMessage("Guard: You're not allowed in here!")
+                                    sendMessage(player, "Guard: You're not allowed in here!")
                                 }
 
                                 8 -> {
@@ -332,7 +294,7 @@ class DesertGuardDialogue(player: Player? = null) : Dialogue(player) {
         }
 
         override fun getIds(): IntArray {
-            return intArrayOf(4993, 4994, 4995, 4996, 4997, 4998, 4999, 5000, 5001, 5002)
+            return intArrayOf(NPCs.GUARD_4993, NPCs.GUARD_4994, NPCs.GUARD_4995, NPCs.GUARD_4996, NPCs.GUARD_4997, NPCs.GUARD_4998, NPCs.GUARD_4999, NPCs.GUARD_5000, NPCs.GUARD_5001, NPCs.GUARD_5002)
         }
     }
 }

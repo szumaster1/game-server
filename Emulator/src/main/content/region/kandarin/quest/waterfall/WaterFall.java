@@ -2,6 +2,7 @@ package content.region.kandarin.quest.waterfall;
 
 import content.region.kandarin.quest.waterfall.dialogue.*;
 import content.region.kandarin.quest.waterfall.handlers.WaterfallPlugin;
+import org.rs.consts.QuestName;
 import org.rs.consts.Vars;
 import core.game.node.entity.player.Player;
 import core.game.node.entity.player.link.quest.Quest;
@@ -16,16 +17,8 @@ import core.plugin.Initializable;
 @Initializable
 public class WaterFall extends Quest {
 
-    /**
-     * The constant NAME.
-     */
-    public static final String NAME = "Waterfall";
-
-    /**
-     * Instantiates a new Water fall.
-     */
     public WaterFall() {
-        super("Waterfall", 65, 64, 1, Vars.VARP_QUEST_WATERFALL_PROGRESS, 0, 1, 10);
+        super(QuestName.WATERFALL_QUEST, 65, 64, 1, Vars.VARP_QUEST_WATERFALL_PROGRESS, 0, 1, 10);
     }
 
     @Override
@@ -85,7 +78,7 @@ public class WaterFall extends Quest {
 
     @Override
     public Quest newInstance(Object object) {
-        PluginManager.definePlugins(new AlmeraDialogue(), new GolrieDialogue(), new HadleyDialogue(), new HudonDialogue(), new WaterfallPlugin(), new WaterfallTreeDialogue());
+        PluginManager.definePlugins(new GolrieDialogue(), new HadleyDialogue(), new HudonDialogue(), new WaterfallPlugin(), new WaterfallTreeDialogue());
         return this;
     }
 

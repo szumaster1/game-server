@@ -8,6 +8,8 @@ import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.quest.Quest
 import core.game.node.item.Item
+import org.rs.consts.NPCs
+import org.rs.consts.QuestName
 
 /**
  * Represents the Nulodion dialogue.
@@ -18,7 +20,7 @@ class NulodionDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
-        quest = player.getQuestRepository().getQuest(DwarfCannon.NAME)
+        quest = player.getQuestRepository().getQuest(QuestName.DWARF_CANNON)
         when (quest!!.getStage(player)) {
             70 -> player("Hello there.")
             else -> player("Hello again.")
@@ -50,12 +52,7 @@ class NulodionDialogue(player: Player? = null) : Dialogue(player) {
                 }
 
                 4 -> {
-                    npc(
-                        FacialExpression.OLD_NORMAL,
-                        "Don't be silly - the ammo's made by using a mould.",
-                        "Here, take these to him. The instructions explain",
-                        "everything."
-                    )
+                    npc(FacialExpression.OLD_NORMAL, "Don't be silly - the ammo's made by using a mould.", "Here, take these to him. The instructions explain", "everything.")
                     stage++
                 }
 
@@ -65,11 +62,7 @@ class NulodionDialogue(player: Player? = null) : Dialogue(player) {
                 }
 
                 6 -> {
-                    npc(
-                        FacialExpression.OLD_NORMAL,
-                        "Thank you, adventurer. The Dwarf Black Guard will",
-                        "remember this."
-                    )
+                    npc(FacialExpression.OLD_NORMAL, "Thank you, adventurer. The Dwarf Black Guard will", "remember this.")
                     stage++
                 }
 
@@ -150,12 +143,7 @@ class NulodionDialogue(player: Player? = null) : Dialogue(player) {
                 }
 
                 3 -> {
-                    options(
-                        "I was hoping you might sell a cannon?",
-                        "Well, take care of yourself then.",
-                        "I want to know more about the cannon.",
-                        "I've lost my cannon."
-                    )
+                    options("I was hoping you might sell a cannon?", "Well, take care of yourself then.", "I want to know more about the cannon.", "I've lost my cannon.")
                     stage++
                 }
 
@@ -187,12 +175,7 @@ class NulodionDialogue(player: Player? = null) : Dialogue(player) {
                 }
 
                 11 -> {
-                    npc(
-                        FacialExpression.OLD_NORMAL,
-                        "I shouldn't really, but as you helped us so much, well, I",
-                        "could sort something out. I'll warn you though, they",
-                        "don't come cheap!"
-                    )
+                    npc(FacialExpression.OLD_NORMAL, "I shouldn't really, but as you helped us so much, well, I", "could sort something out. I'll warn you though, they", "don't come cheap!")
                     stage++
                 }
 
@@ -202,11 +185,7 @@ class NulodionDialogue(player: Player? = null) : Dialogue(player) {
                 }
 
                 13 -> {
-                    npc(
-                        FacialExpression.OLD_NORMAL,
-                        "For the full setup, 750,000 coins. Or I can sell you",
-                        "the separate parts... but it'll cost extra!"
-                    )
+                    npc(FacialExpression.OLD_NORMAL, "For the full setup, 750,000 coins. Or I can sell you", "the separate parts... but it'll cost extra!")
                     stage++
                 }
 
@@ -254,12 +233,7 @@ class NulodionDialogue(player: Player? = null) : Dialogue(player) {
 
                 21 -> end()
                 30 -> {
-                    npc(
-                        FacialExpression.OLD_NORMAL,
-                        "There's only so much I can tell you, adventurer.",
-                        "We've been working on this little beauty for some time",
-                        "now."
-                    )
+                    npc(FacialExpression.OLD_NORMAL, "There's only so much I can tell you, adventurer.", "We've been working on this little beauty for some time", "now.")
                     stage++
                 }
 
@@ -269,13 +243,7 @@ class NulodionDialogue(player: Player? = null) : Dialogue(player) {
                 }
 
                 32 -> {
-                    npc(
-                        FacialExpression.OLD_NORMAL,
-                        "In short bursts it's very effective, the most destructive",
-                        "weapon to date. The cannon automatically targets",
-                        "monsters close by. You just have to make the ammo",
-                        "and let rip."
-                    )
+                    npc(FacialExpression.OLD_NORMAL, "In short bursts it's very effective, the most destructive", "weapon to date. The cannon automatically targets", "monsters close by. You just have to make the ammo", "and let rip.")
                     stage++
                 }
 
@@ -290,12 +258,7 @@ class NulodionDialogue(player: Player? = null) : Dialogue(player) {
                         npc(FacialExpression.OLD_NORMAL, "There you go, take better care next time.")
                         stage = 43
                     }
-                    npc(
-                        FacialExpression.OLD_NORMAL,
-                        "Oh dear, I'm only allowed to replace cannons that were",
-                        "stolen in reward. I'm sorry, but you'll have to buy a",
-                        "new set."
-                    )
+                    npc(FacialExpression.OLD_NORMAL, "Oh dear, I'm only allowed to replace cannons that were", "stolen in reward. I'm sorry, but you'll have to buy a", "new set.")
                     stage++
                 }
 
@@ -323,11 +286,7 @@ class NulodionDialogue(player: Player? = null) : Dialogue(player) {
                             player.inventory.add(i, player)
                         }
                     }
-                    npc(
-                        FacialExpression.OLD_NORMAL,
-                        "There you go adventurer, I hope you enjoy this",
-                        "fine work of craftsmanship."
-                    )
+                    npc(FacialExpression.OLD_NORMAL, "There you go adventurer, I hope you enjoy this", "fine work of craftsmanship.")
                     stage = 113
                 }
 
@@ -363,7 +322,7 @@ class NulodionDialogue(player: Player? = null) : Dialogue(player) {
     }
 
     override fun getIds(): IntArray {
-        return intArrayOf(209)
+        return intArrayOf(NPCs.NULODION_209)
     }
 
     companion object {

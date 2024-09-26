@@ -7,6 +7,7 @@ import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
+import org.rs.consts.QuestName
 
 /**
  * Represents the Restless Ghost dialogue.
@@ -28,15 +29,15 @@ class RestlessGhostDialogue(player: Player? = null) : Dialogue(player) {
                     npc(FacialExpression.HALF_GUILTY, "Wooo wooo wooooo!")
                     stage = 1
                 } else {
-                    if (getQuestStage(player, "The Restless Ghost") == 20) {
+                    if (getQuestStage(player, QuestName.THE_RESTLESS_GHOST) == 20) {
                         npc(FacialExpression.HALF_GUILTY, "Not very good actually.")
                         stage = 500
                     }
-                    if (getQuestStage(player, "The Restless Ghost") == 30) {
+                    if (getQuestStage(player, QuestName.THE_RESTLESS_GHOST) == 30) {
                         npc(FacialExpression.HALF_GUILTY, "How are you doing finding my skull?")
                         stage = 520
                     }
-                    if (getQuestStage(player, "The Restless Ghost") == 40) {
+                    if (getQuestStage(player, QuestName.THE_RESTLESS_GHOST) == 40) {
                         npc(FacialExpression.HALF_GUILTY, "How are you doing finding my skull?")
                         stage = 550
                     }
@@ -103,7 +104,7 @@ class RestlessGhostDialogue(player: Player? = null) : Dialogue(player) {
 
             511 -> {
                 player(FacialExpression.HALF_GUILTY, "Ok. I will try and get the skull back for you, then you", "can rest in peace.")
-                player.getQuestRepository().getQuest("The Restless Ghost").setStage(player, 30)
+                player.getQuestRepository().getQuest(QuestName.THE_RESTLESS_GHOST).setStage(player, 30)
                 stage = 512
             }
 

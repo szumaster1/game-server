@@ -38,9 +38,6 @@ public final class DMCHandler implements LogoutListener {
     private DMCRevolution direction = DMCRevolution.NORTH;
     private CannonTimer timer;
 
-    /**
-     * Instantiates a new Dmc handler.
-     */
     public DMCHandler() {
         this.player = null;
     }

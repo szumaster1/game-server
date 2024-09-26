@@ -10,12 +10,13 @@ import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.quest.Quest
 import core.game.node.entity.skill.Skills
 import core.plugin.Initializable
+import org.rs.consts.QuestName
 
 /**
  * Hazeel cult quest.
  */
 @Initializable
-class HazeelCult : Quest("Hazeel Cult", 74, 73, 1, Vars.VARP_QUEST_HAZEEL_CULT_PROGRESS, 0, 1, 9) {
+class HazeelCult : Quest(QuestName.HAZEEL_CULT, 74, 73, 1, Vars.VARP_QUEST_HAZEEL_CULT_PROGRESS, 0, 1, 9) {
 
     override fun drawJournal(player: Player, stage: Int) {
         var attributeMahjarrat = getAttribute(player!!, HazeelCultListener.MAHJARRAT, true)

@@ -11,6 +11,7 @@ import core.game.node.entity.npc.AbstractNPC
 import core.game.node.entity.player.Player
 import core.game.world.map.Location
 import core.plugin.Initializable
+import org.rs.consts.QuestName
 
 /**
  * Khazard warlord NPC.
@@ -30,7 +31,7 @@ class KhazardWarlordNPC(id: Int = 0, location: Location? = null) : AbstractNPC(i
     }
 
     override fun finalizeDeath(killer: Entity?) {
-        if (getQuestStage(killer as Player, "Tree Gnome Village") == 40) {
+        if (getQuestStage(killer as Player, QuestName.TREE_GNOME_VILLAGE) == 40) {
             sendDialogue(killer, "As the warlord falls to the ground, a ghostly vapour floats upwards from his battle-worn armour. You search his satchel and find the orbs of protection.")
             addItemOrDrop(killer, Items.ORBS_OF_PROTECTION_588)
         }

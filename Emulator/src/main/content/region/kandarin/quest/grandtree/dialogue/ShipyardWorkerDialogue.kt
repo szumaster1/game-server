@@ -1,6 +1,5 @@
 package content.region.kandarin.quest.grandtree.dialogue
 
-import org.rs.consts.NPCs
 import core.api.getQuestStage
 import core.api.openDialogue
 import core.game.dialogue.Dialogue
@@ -9,6 +8,8 @@ import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
+import org.rs.consts.NPCs
+import org.rs.consts.QuestName
 
 /**
  * Represents the Shipyard worker dialogue.
@@ -18,8 +19,8 @@ class ShipyardWorkerDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun handle(componentID: Int, buttonID: Int): Boolean {
         when (stage) {
-            0 -> if (getQuestStage(player, "The Grand Tree") == 55) {
-                openDialogue(player, ShipyardWorkerDialogueFile(), NPC(NPCs.SHIPYARD_WORKER_675))
+            0 -> if (getQuestStage(player, QuestName.THE_GRAND_TREE) == 55) {
+                openDialogue(player, ShipyardWorkerGTDialogue(), NPC(NPCs.SHIPYARD_WORKER_675))
             } else {
                 playerl(FacialExpression.FRIENDLY, "Hello.").also { stage++ }
             }

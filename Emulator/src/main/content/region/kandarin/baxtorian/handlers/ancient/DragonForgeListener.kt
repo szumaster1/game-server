@@ -17,23 +17,6 @@ import core.game.world.update.flag.context.Graphic
 
 class DragonForgeListener : InteractionListener {
 
-    companion object {
-        private const val DRAGON_ANVIL = Scenery.ANVIL_40200
-        private val FUSION_HAMMER = Item(Items.BLAST_FUSION_HAMMER_14478, 1)
-        private val RUINED_PIECES = intArrayOf(Items.RUINED_DRAGON_ARMOUR_LUMP_14472, Items.RUINED_DRAGON_ARMOUR_SLICE_14474, Items.RUINED_DRAGON_ARMOUR_SHARD_14476)
-        private val DRAGON_PLATEBODY = Item(Items.DRAGON_PLATEBODY_14479, 1)
-        private val REQUIRED_SHIELD = intArrayOf(Items.ANTI_DRAGON_SHIELD_1540, Items.DRAGONFIRE_SHIELD_11283, Items.DRAGONFIRE_SHIELD_11285)
-        private val SMITHING_ANIMATION = Animation(Animations.HIT_WITH_BLAST_FUSION_HAMMER_10758, Animator.Priority.HIGH)
-        private val MITHRIL_DOOR = intArrayOf(25341, 40208)
-        private val MITHRIL_DRAGON_NPC = intArrayOf(5363, 8424)
-        private val STRANGE_KEYS = intArrayOf(Items.STRANGE_KEY_LOOP_14469, Items.STRANGE_KEY_TEETH_14470)
-        private val DRAGONKIN_KEY = Item(Items.DRAGONKIN_KEY_14471, 1)
-        private val DRAGON_BREATH_ANIMATION = Animation(Animations.DRAGON_BREATH_81, Animator.Priority.HIGH)
-        private val DRAGON_BREATH_GFX = Graphic(Graphics.DRAGON_FIRE_BREATH_DARKER_COLOR_953)
-        private val DRAGON_BREATH_ABSORB_GFX = Graphic(Graphics.DRAGONFIRE_SHIELD_READY_TO_SHOOT_PROJECTILE_1165)
-        private val DRAGON_SHIELD_ABSORB_ANIM = Animation(Animations.DEFEND_10663)
-    }
-
     override fun defineListeners() {
 
         /*
@@ -157,5 +140,22 @@ class DragonForgeListener : InteractionListener {
             }
             return@onUseWith true
         }
+    }
+
+    companion object {
+        private const val DRAGON_ANVIL = Scenery.ANVIL_40200
+        private val FUSION_HAMMER = Item(Items.BLAST_FUSION_HAMMER_14478, 1)
+        private val RUINED_PIECES = intArrayOf(Items.RUINED_DRAGON_ARMOUR_LUMP_14472, Items.RUINED_DRAGON_ARMOUR_SLICE_14474, Items.RUINED_DRAGON_ARMOUR_SHARD_14476)
+        private val DRAGON_PLATEBODY = Item(Items.DRAGON_PLATEBODY_14479, 1)
+        private val REQUIRED_SHIELD = intArrayOf(Items.ANTI_DRAGON_SHIELD_1540, Items.DRAGONFIRE_SHIELD_11283, Items.DRAGONFIRE_SHIELD_11285)
+        private val SMITHING_ANIMATION = Animation(Animations.HIT_WITH_BLAST_FUSION_HAMMER_10758, Animator.Priority.HIGH)
+        private val MITHRIL_DOOR = intArrayOf(25341, 40208)
+        private val MITHRIL_DRAGON_NPC = intArrayOf(5363, 8424)
+        private val STRANGE_KEYS = intArrayOf(Items.STRANGE_KEY_LOOP_14469, Items.STRANGE_KEY_TEETH_14470)
+        private val DRAGONKIN_KEY = Item(Items.DRAGONKIN_KEY_14471, 1)
+        private val DRAGON_BREATH_ANIMATION = Animation(Animations.DRAGON_BREATH_81, Animator.Priority.HIGH)
+        private val DRAGON_BREATH_GFX = Graphic(Graphics.DRAGON_FIRE_BREATH_DARKER_COLOR_953)
+        private val DRAGON_BREATH_ABSORB_GFX = Graphic(Graphics.DRAGONFIRE_SHIELD_READY_TO_SHOOT_PROJECTILE_1165)
+        private val DRAGON_SHIELD_ABSORB_ANIM = Animation(Animations.DEFEND_10663)
     }
 }

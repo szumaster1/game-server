@@ -88,7 +88,7 @@ class SigmundDialogue(player: Player? = null) : Dialogue(player) {
             31 -> {
                 npc("You should ask other people around the town if they", "saw anything.")
                 stage = END_DIALOGUE
-                player.getQuestRepository().getQuest("Lost Tribe").start(player)
+                player.getQuestRepository().getQuest(QuestName.THE_LOST_TRIBE).start(player)
                 setAttribute(player, "/save:tlt-witness", TLTNPCS[0])
             }
 

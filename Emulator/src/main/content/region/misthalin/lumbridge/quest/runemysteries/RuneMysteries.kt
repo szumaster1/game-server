@@ -7,12 +7,13 @@ import core.api.sendItemZoomOnInterface
 import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.quest.Quest
 import core.plugin.Initializable
+import org.rs.consts.QuestName
 
 /**
  * Represents the Rune mysteries.
  */
 @Initializable
-class RuneMysteries: Quest("Rune Mysteries", 27, 26, 1, Vars.VARP_QUEST_RUNE_MYSTERIES_PROGRESS, 0, 1, 6) {
+class RuneMysteries: Quest(QuestName.RUNE_MYSTERIES, 27, 26, 1, Vars.VARP_QUEST_RUNE_MYSTERIES_PROGRESS, 0, 1, 6) {
 
 
     override fun drawJournal(player: Player, stage: Int) {

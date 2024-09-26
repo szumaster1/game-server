@@ -8,12 +8,13 @@ import core.api.*
 import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.quest.Quest
 import core.plugin.Initializable
+import org.rs.consts.QuestName
 
 /**
  * Merlin crystal quest.
  */
 @Initializable
-class MerlinCrystal : Quest("Merlin's Crystal", 87, 86, 6, Vars.VARP_QUEST_MERLIN_CRYSTAL_PROGRESS, 0, 1, 7) {
+class MerlinCrystal : Quest(QuestName.MERLINS_CRYSTAL, 87, 86, 6, Vars.VARP_QUEST_MERLIN_CRYSTAL_PROGRESS, 0, 1, 7) {
 
     override fun drawJournal(player: Player, stage: Int) {
         super.drawJournal(player, stage)

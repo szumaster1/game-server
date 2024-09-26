@@ -12,6 +12,7 @@ import core.game.node.entity.player.link.emote.Emotes
 import core.game.world.map.Direction
 import core.game.world.map.Location
 import core.tools.DARK_RED
+import org.rs.consts.QuestName
 
 /**
  * Represents the Lost tribe cutscene.
@@ -39,13 +40,7 @@ class LostTribeCutscene(player: Player) : Cutscene(player) {
 
             1 -> {
                 teleport(player, 7, 17)
-                Component.setUnclosable(
-                    player,
-                    player.dialogueInterpreter.sendPlainMessage(
-                        true,
-                        "$DARK_RED- The Signing of the Lumbridge-Dorgeshuun Treaty -"
-                    )
-                )
+                Component.setUnclosable(player, player.dialogueInterpreter.sendPlainMessage(true, "$DARK_RED- The Signing of the Lumbridge-Dorgeshuun Treaty -"))
                 timedUpdate(2)
             }
 
@@ -76,10 +71,7 @@ class LostTribeCutscene(player: Player) : Cutscene(player) {
 
             6 -> {
                 player.faceLocation(getNPC(DUKE)!!.location)
-                playerDialogueUpdate(
-                    FacialExpression.FRIENDLY,
-                    "Your grace, I present Ur-tag, headman of the Dorgeshuun."
-                )
+                playerDialogueUpdate(FacialExpression.FRIENDLY, "Your grace, I present Ur-tag, headman of the Dorgeshuun.")
                 Emotes.BOW.play(player)
             }
 
@@ -91,34 +83,18 @@ class LostTribeCutscene(player: Player) : Cutscene(player) {
             8 -> {
                 animate(getNPC(DUKE)!!, Emotes.BOW.animation)
                 animate(getNPC(URTAG)!!, URTAG_BOW_ANIM)
-                dialogueUpdate(
-                    DUKE,
-                    FacialExpression.FRIENDLY,
-                    "Welcome, Ur-tag. I am sorry that your race came under suspicion."
-                )
+                dialogueUpdate(DUKE, FacialExpression.FRIENDLY, "Welcome, Ur-tag. I am sorry that your race came under suspicion.")
             }
 
             9 -> {
-                dialogueUpdate(
-                    DUKE,
-                    FacialExpression.ANGRY,
-                    "I assure you that the warmongering element has been dealt with."
-                )
+                dialogueUpdate(DUKE, FacialExpression.ANGRY, "I assure you that the warmongering element has been dealt with.")
                 moveCamera(9, 22)
                 rotateCamera(6, 22)
             }
 
-            10 -> dialogueUpdate(
-                URTAG,
-                FacialExpression.OLD_NORMAL,
-                "I apologize for the damage to your cellar. I will send workers to repair the hole."
-            )
+            10 -> dialogueUpdate(URTAG, FacialExpression.OLD_NORMAL, "I apologize for the damage to your cellar. I will send workers to repair the hole.")
 
-            11 -> dialogueUpdate(
-                DUKE,
-                FacialExpression.FRIENDLY,
-                "No, let it stay. It can be a route of commerce between our lands."
-            )
+            11 -> dialogueUpdate(DUKE, FacialExpression.FRIENDLY, "No, let it stay. It can be a route of commerce between our lands.")
 
             12 -> {
                 val duke = getNPC(DUKE)!!
@@ -126,29 +102,17 @@ class LostTribeCutscene(player: Player) : Cutscene(player) {
                 face(player, duke.location)
                 rotateCamera(6, 22, 300, 3)
                 moveCamera(11, 22, 325, 3)
-                dialogueUpdate(
-                    DUKE,
-                    FacialExpression.FRIENDLY,
-                    "${player.username}, Lumbridge is in your debt. Please accept this ring as a token of my thanks."
-                )
+                dialogueUpdate(DUKE, FacialExpression.FRIENDLY, "${player.username}, Lumbridge is in your debt. Please accept this ring as a token of my thanks.")
             }
 
             13 -> dialogueUpdate(DUKE, FacialExpression.FRIENDLY, "It is enchanted to save you in your hour of need.")
             14 -> {
                 move(getNPC(URTAG)!!, 7, 23)
-                dialogueUpdate(
-                    URTAG,
-                    FacialExpression.OLD_NORMAL,
-                    "I too thank you. Accept the freedom of the Dorgeshuun mines."
-                )
+                dialogueUpdate(URTAG, FacialExpression.OLD_NORMAL, "I too thank you. Accept the freedom of the Dorgeshuun mines.")
             }
 
             15 -> {
-                dialogueUpdate(
-                    URTAG,
-                    FacialExpression.OLD_NORMAL,
-                    "These are strange times. I never dreamed that I would see the surface, still less that I would be on friendly terms with its people."
-                )
+                dialogueUpdate(URTAG, FacialExpression.OLD_NORMAL, "These are strange times. I never dreamed that I would see the surface, still less that I would be on friendly terms with its people.")
                 moveCamera(16, 21, 300, 3)
                 rotateCamera(6, 22, 300, 2)
             }
@@ -166,7 +130,7 @@ class LostTribeCutscene(player: Player) : Cutscene(player) {
 
             19 -> {
                 end {
-                    finishQuest(player, "Lost Tribe")
+                    finishQuest(player, QuestName.THE_LOST_TRIBE)
                 }
             }
         }

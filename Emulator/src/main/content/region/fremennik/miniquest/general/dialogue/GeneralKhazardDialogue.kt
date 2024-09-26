@@ -9,6 +9,7 @@ import core.game.dialogue.FacialExpression
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
+import org.rs.consts.QuestName
 
 /**
  * Represents the General Khazard dialogue.
@@ -35,7 +36,7 @@ class GeneralKhazardDialogue(player: Player? = null) : Dialogue(player) {
         if (getAttribute(player, GeneralShadowUtils.GS_COMPLETE, false)) player("Your dog attacked me. AGAIN!").also {
             stage = 100
         }
-        if (!hasRequirement(player, "Desert Treasure")) return true
+        if (!hasRequirement(player, QuestName.DESERT_TREASURE)) return true
         if (hasWeapon != null || hasShield != null || !inEquipment(player, Items.GHOSTSPEAK_AMULET_552)) {
             npc(FacialExpression.OLD_DISTRESSED2, "You can see into the Shadow Realm and yet you are", "not of it. Oh well, you will be of no use.").also { stage = END_DIALOGUE }
         } else if (inInventory(player, Items.SIN_SEERS_NOTE_10856)) {

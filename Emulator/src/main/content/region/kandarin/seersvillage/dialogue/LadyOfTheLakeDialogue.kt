@@ -8,6 +8,7 @@ import core.api.openDialogue
 import core.game.dialogue.Dialogue
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
+import org.rs.consts.QuestName
 
 /**
  * Represents the Lady of the lake dialogue.
@@ -16,7 +17,7 @@ import core.plugin.Initializable
 class LadyOfTheLakeDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun handle(interfaceId: Int, buttonId: Int): Boolean {
-        if (!isQuestComplete(player, "Merlin's Crystal")) {
+        if (!isQuestComplete(player, QuestName.MERLINS_CRYSTAL)) {
             openDialogue(player, LadyOfTheLakeDialogueFile(), NPCs.THE_LADY_OF_THE_LAKE_250)
         } else {
             openDialogue(player, TheLadyOfTheLakeDialogueFile(), NPCs.THE_LADY_OF_THE_LAKE_250)

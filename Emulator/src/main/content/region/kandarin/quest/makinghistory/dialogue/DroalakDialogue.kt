@@ -10,6 +10,7 @@ import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
+import org.rs.consts.QuestName
 
 /**
  * Represents the Droalak dialogue.
@@ -22,12 +23,12 @@ class DroalakDialogue(player: Player? = null) : Dialogue(player) {
             npcl(FacialExpression.FRIENDLY, "wooo wooo")
             stage = 31
             return true
-        } else if (inEquipment(player, Items.GHOSTSPEAK_AMULET_552) && getQuestStage(player, "Making History") < 1) {
+        } else if (inEquipment(player, Items.GHOSTSPEAK_AMULET_552) && getQuestStage(player, QuestName.MAKING_HISTORY) < 1) {
             npcl(FacialExpression.FRIENDLY, "Please, leave me alone.")
             stage = 24
             return true
         }
-        if (getVarbit(player, MakingHistoryUtils.DROALAK_PROGRESS) == 0 || getQuestStage(player, "Making History") >= 1) {
+        if (getVarbit(player, MakingHistoryUtils.DROALAK_PROGRESS) == 0 || getQuestStage(player, QuestName.MAKING_HISTORY) >= 1) {
             playerl(FacialExpression.FRIENDLY, "Hello. Are you Droalak?")
             stage = 1
             return true

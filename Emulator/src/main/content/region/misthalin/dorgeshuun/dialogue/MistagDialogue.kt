@@ -17,6 +17,7 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
+import org.rs.consts.QuestName
 
 /**
  * Represents the Mistag dialogue.
@@ -30,7 +31,7 @@ class MistagDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any?): Boolean {
         npc = args[0] as NPC
-        val ltStage = getQuestStage(player, "Lost Tribe")
+        val ltStage = getQuestStage(player, QuestName.THE_LOST_TRIBE)
 
         if (args.size > 1 && args[1] == "greeting") {
             npc(FacialExpression.OLD_NORMAL,"A human knows ancient greeting?")
@@ -61,7 +62,7 @@ class MistagDialogue(player: Player? = null) : Dialogue(player) {
             -100 -> npc("Help! A surface dweller this deep in our mines? We will", "all be destroyed!").also { stage++ }
             -99 -> end()
             START_DIALOGUE -> {
-                if (getQuestStage(player, "Lost Tribe") == 100 && getQuestStage(player, "Death to the Dorgeshuun") == 0) {
+                if (getQuestStage(player, QuestName.THE_LOST_TRIBE) == 100 && getQuestStage(player, "Death to the Dorgeshuun") == 0) {
                     npc(FacialExpression.OLD_NORMAL,"It is good to see you again! The Dorgeshuun Council would like to ask a favour of you, if you are interested.").also { stage++ }
                 } else {
                     options("Can I sell you some ore?", "Why do the dorgeshuun live underground?", "What happened to your arm?", "Can you show me the way out of the mines?").also { stage = 2 }

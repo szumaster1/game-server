@@ -11,6 +11,7 @@ import core.game.node.entity.player.link.diary.AchievementDiary
 import core.game.node.entity.player.link.diary.DiaryType
 import core.game.node.entity.player.link.quest.Quest
 import core.game.node.item.GroundItemManager
+import org.rs.consts.QuestName
 
 /**
  * Represents the Reldo dialogue.
@@ -30,7 +31,7 @@ class ReldoDialogue(player: Player? = null) : Dialogue(player) {
             stage = 3
             return true
         }
-        if (getQuestStage(player, "Lost Tribe") == 40 && player.inventory.contains(Items.BROOCH_5008, 1)
+        if (getQuestStage(player, QuestName.THE_LOST_TRIBE) == 40 && player.inventory.contains(Items.BROOCH_5008, 1)
         ) {
             options("Hello stranger.", "I have a question about my Achievement Diary.", "Ask about the brooch.")
         } else {
@@ -234,7 +235,7 @@ class ReldoDialogue(player: Player? = null) : Dialogue(player) {
 
                 2005 -> {
                     npc("The other day I filed a book about ancient goblin tribes.", "It's somewhere on the west end of the library, I think.", "Maybe that will be of some use.")
-                    player.getQuestRepository().getQuest("Lost Tribe").setStage(player, 42)
+                    player.getQuestRepository().getQuest(QuestName.THE_LOST_TRIBE).setStage(player, 42)
                     stage++
                 }
 

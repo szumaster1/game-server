@@ -7,6 +7,7 @@ import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC
 import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
+import org.rs.consts.QuestName
 
 /**
  * Represents the Duke Horacio lost tribe dialogue.
@@ -27,7 +28,7 @@ class DukeHoracioLostTribeDialogue(val questStage: Int) : DialogueFile() {
                 6 -> sendNormalDialogue(sigmund, FacialExpression.WORRIED, "Your grace, I think you should listen to " + (if (player!!.isMale) "him" else "her") + ".").also { stage++ }
                 7 -> {
                     npc("Hmm, very well. I give you permission to investigate", "this mystery. If there is a blocked tunnel then perhaps", "you should try to un-block it.")
-                    setQuestStage(player!!, "Lost Tribe", 30)
+                    setQuestStage(player!!, QuestName.THE_LOST_TRIBE, 30)
                     stage = END_DIALOGUE
                 }
             }
@@ -45,7 +46,7 @@ class DukeHoracioLostTribeDialogue(val questStage: Int) : DialogueFile() {
                 9 -> npc("I will not commit troops until I have proof that goblins", "are behind this.").also { stage++ }
                 10 -> {
                     npc(player!!.name + ", please find out what you can about this", "brooch. The librarian in Varrock might be able to help", "identify the symbol.")
-                    setQuestStage(player!!, "Lost Tribe", 40)
+                    setQuestStage(player!!, QuestName.THE_LOST_TRIBE, 40)
                     stage = END_DIALOGUE
                 }
             }
@@ -56,7 +57,7 @@ class DukeHoracioLostTribeDialogue(val questStage: Int) : DialogueFile() {
                 2 -> npc("Hmm, perhaps you are right. I will send word to the", "army to prepare for an underground assault.").also { stage++ }
                 3 -> {
                     npc(player!!.name.replaceFirstChar { if (it.isLowerCase()) it.titlecase() else it.toString() } + ", I would still like you to find out more", "about this tribe. It cannot hurt to know one's enemy.")
-                    setQuestStage(player!!, "Lost Tribe", 45)
+                    setQuestStage(player!!, QuestName.THE_LOST_TRIBE, 45)
                     stage = END_DIALOGUE
                 }
             }
@@ -68,7 +69,7 @@ class DukeHoracioLostTribeDialogue(val questStage: Int) : DialogueFile() {
                 3 -> npc("Actually, something was taken. Sigmund has informed", "me that some of the castle silverware is missing from", "the cellar.").also { stage++ }
                 4 -> {
                     npc("Unless it is returned, I am afraid I will have no option", "but war.")
-                    setQuestStage(player!!, "Lost Tribe", 47)
+                    setQuestStage(player!!, QuestName.THE_LOST_TRIBE, 47)
                     stage = END_DIALOGUE
                 }
             }
@@ -85,7 +86,7 @@ class DukeHoracioLostTribeDialogue(val questStage: Int) : DialogueFile() {
                 8 -> {
                     npc("This peace treaty specifies the border between", "Lumbridge and the Cave Goblin realm. Please take it to", "the cave goblins and tell them I would like to meet with", "their leader to sign it.")
                     addItemOrDrop(player!!, Items.PEACE_TREATY_5012)
-                    setQuestStage(player!!, "Lost Tribe", 50)
+                    setQuestStage(player!!, QuestName.THE_LOST_TRIBE, 50)
                     setVarbit(player!!, 532, 9, true)
                     stage = END_DIALOGUE
                 }

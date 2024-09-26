@@ -15,6 +15,7 @@ import core.game.world.map.Location
 import core.game.world.update.flag.context.Animation
 import core.game.world.update.flag.context.Graphic
 import core.tools.RandomFunction
+import org.rs.consts.QuestName
 import org.rs.consts.Sounds
 
 /**
@@ -52,10 +53,7 @@ object EssenceTeleport {
      */
     @JvmStatic
     fun teleport(npc: NPC, player: Player) {
-        if (!isQuestComplete(player, "Rune Mysteries")) return sendMessage(
-            player,
-            "You need to complete Rune Mysteries to enter the Rune Essence mine."
-        )
+        if (!isQuestComplete(player, QuestName.RUNE_MYSTERIES)) return sendMessage(player, "You need to complete Rune Mysteries to enter the Rune Essence mine.")
         if (npc.id != 171) npc.animate(ANIMATION) else npc.animate(OLD_ANIMATION)
         npc.faceTemporary(player, 1)
         npc.graphics(GLOWING_HANDS_GFX)

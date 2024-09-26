@@ -14,108 +14,36 @@ import core.game.world.map.zone.ZoneBorders;
 import core.plugin.Initializable;
 import core.plugin.PluginManager;
 import org.rs.consts.Items;
+import org.rs.consts.QuestName;
 import org.rs.consts.Vars;
 
 import static core.api.ContentAPIKt.setVarp;
 
 /**
- * Tourist trap.
+ * Tourist trap quest.
  */
 @Initializable
 public final class TouristTrap extends Quest {
-
-    /**
-     * The constant NAME.
-     */
-    public static final String NAME = "The Tourist Trap";
-
-    /**
-     * The constant METAL_KEY.
-     */
     public static final Item METAL_KEY = new Item(Items.METAL_KEY_1839);
-
-    /**
-     * The constant DESERT_CLOTHES.
-     */
-    public static final Item[] DESERT_CLOTHES = new Item[]{new Item(Items.DESERT_SHIRT_1833), new Item(Items.DESERT_ROBE_1835), new Item(Items.DESERT_BOOTS_1837)
-    };
-
-    /**
-     * The constant SLAVE_CLOTHES.
-     */
-    public static final Item[] SLAVE_CLOTHES = new Item[]{new Item(Items.SLAVE_SHIRT_1844), new Item(Items.SLAVE_ROBE_1845), new Item(Items.SLAVE_BOOTS_1846)
-    };
-
-    /**
-     * The constant TENTI_PINEAPPLE.
-     */
+    public static final Item[] DESERT_CLOTHES = new Item[]{new Item(Items.DESERT_SHIRT_1833), new Item(Items.DESERT_ROBE_1835), new Item(Items.DESERT_BOOTS_1837)};
+    public static final Item[] SLAVE_CLOTHES = new Item[]{new Item(Items.SLAVE_SHIRT_1844), new Item(Items.SLAVE_ROBE_1845), new Item(Items.SLAVE_BOOTS_1846)};
     public static final Item TENTI_PINEAPPLE = new Item(Items.TENTI_PINEAPPLE_1851);
-
-    /**
-     * The constant CELL_DOOR_KEY.
-     */
     public static final Item CELL_DOOR_KEY = new Item(Items.CELL_DOOR_KEY_1840);
-
-    /**
-     * The constant WROUGHT_IRON_KEY.
-     */
     public static final Item WROUGHT_IRON_KEY = new Item(Items.WROUGHT_IRON_KEY_1843);
-
-    /**
-     * The constant BEDABIN_KEY.
-     */
     public static final Item BEDABIN_KEY = new Item(Items.BEDABIN_KEY_1852);
-
-    /**
-     * The constant CONFIG_ID.
-     */
     public static final int CONFIG_ID = 907;
 
-    /**
-     * The constant TECHNICAL_PLANS.
-     */
     public static final Item TECHNICAL_PLANS = new Item(Items.TECHNICAL_PLANS_1850);
-
-    /**
-     * The constant PROTOTYPE_DART_TIP.
-     */
     public static final Item PROTOTYPE_DART_TIP = new Item(Items.PROTOTYPE_DART_TIP_1853);
-
-    /**
-     * The constant PROTOTYPE_DART.
-     */
     public static final Item PROTOTYPE_DART = new Item(Items.PROTOTYPE_DART_1849);
-
-    /**
-     * The constant BARREL.
-     */
     public static final Item BARREL = new Item(Items.BARREL_1841);
-
-    /**
-     * The constant ANNA_BARREL.
-     */
     public static final Item ANNA_BARREL = new Item(Items.ANA_IN_A_BARREL_1842);
-
-    /**
-     * The constant JAIL.
-     */
     public static final Location JAIL = Location.create(3285, 3034, 0);
-
-    /**
-     * The constant JAIL_BORDER.
-     */
     public static final ZoneBorders JAIL_BORDER = new ZoneBorders(3284, 3032, 3287, 3037);
-
-    /**
-     * The constant SLOTS.
-     */
     public static final int[] SLOTS = new int[]{EquipmentContainer.SLOT_WEAPON, EquipmentContainer.SLOT_FEET, EquipmentContainer.SLOT_SHIELD, EquipmentContainer.SLOT_HAT, EquipmentContainer.SLOT_CHEST, EquipmentContainer.SLOT_LEGS};
 
-    /**
-     * Instantiates a new Tourist trap.
-     */
     public TouristTrap() {
-        super(NAME, 123, 122, 2, Vars.VARP_QUEST_TOURIST_TRAP_PROGRESS, 0, 1, 30);
+        super(QuestName.THE_TOURIST_TRAP, 123, 122, 2, Vars.VARP_QUEST_TOURIST_TRAP_PROGRESS, 0, 1, 30);
     }
 
     @Override

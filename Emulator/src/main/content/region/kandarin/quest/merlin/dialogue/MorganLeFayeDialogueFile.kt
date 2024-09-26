@@ -12,6 +12,7 @@ import core.game.node.entity.combat.DeathTask
 import core.game.node.entity.npc.NPC
 import core.game.world.repository.Repository
 import core.tools.END_DIALOGUE
+import org.rs.consts.QuestName
 
 /**
  * Represents the Morgan Le Faye dialogue file.
@@ -54,7 +55,7 @@ class MorganLeFayeDialogueFile : DialogueFile() {
                     Topic(FacialExpression.NEUTRAL, "What are the magic words?", STAGE_MAGIC_WORDS))
 
             STAGE_EXCALIBUR -> npcl(FacialExpression.NEUTRAL, "The lady of the lake has it. I don't know if she'll give it to you though, she can be rather temperamental.").also {
-                var quest = getQuest(player!!, "Merlin's Crystal")
+                var quest = getQuest(player!!, QuestName.MERLINS_CRYSTAL)
 
                 if (quest.getStage(player) == 30) {
                     player!!.questRepository.setStage(quest, 40)

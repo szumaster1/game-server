@@ -9,6 +9,7 @@ import core.game.dialogue.Dialogue
 import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
+import org.rs.consts.QuestName
 
 /**
  * Represents the Brother Omad dialogue.
@@ -18,7 +19,7 @@ class BrotherOmadDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
-        if (getQuestStage(player, "Monk's Friend") in 0..100) {
+        if (getQuestStage(player, QuestName.MONKS_FRIEND) in 0..100) {
             end()
             openDialogue(player, BrotherOmadDialogueFile())
         } else {

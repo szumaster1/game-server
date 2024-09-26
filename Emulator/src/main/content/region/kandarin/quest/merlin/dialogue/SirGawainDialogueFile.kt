@@ -8,6 +8,7 @@ import core.game.dialogue.FacialExpression
 import core.game.dialogue.Topic
 import core.game.node.entity.npc.NPC
 import core.tools.END_DIALOGUE
+import org.rs.consts.QuestName
 
 /**
  * Represents the Sir Gawain dialogue file.
@@ -24,13 +25,13 @@ class SirGawainDialogueFile : DialogueFile() {
             0 -> {
                 npcl(FacialExpression.NEUTRAL, "Good day to you " + (if (player!!.isMale) "sir" else "madam") + "!")
 
-                if (getQuestStage(player!!, "Merlin's Crystal") == 0) {
+                if (getQuestStage(player!!, QuestName.MERLINS_CRYSTAL) == 0) {
                     stage = 1
-                } else if (getQuestStage(player!!, "Merlin's Crystal") == 10) {
+                } else if (getQuestStage(player!!, QuestName.MERLINS_CRYSTAL) == 10) {
                     stage = 10
-                } else if (getQuestStage(player!!, "Merlin's Crystal") in 20..30) {
+                } else if (getQuestStage(player!!, QuestName.MERLINS_CRYSTAL) in 20..30) {
                     stage = 20
-                } else if (getQuestStage(player!!, "Merlin's Crystal") >= 40) {
+                } else if (getQuestStage(player!!, QuestName.MERLINS_CRYSTAL) >= 40) {
                     stage = 40
                 }
             }
@@ -66,7 +67,7 @@ class SirGawainDialogueFile : DialogueFile() {
             }
             17 -> {
                 npc("She lives in her stronghold to the south of here,", "guarded by some renegade knights led by Sir Mordred.")
-                setQuestStage(player!!, "Merlin's Crystal", 20)
+                setQuestStage(player!!, QuestName.MERLINS_CRYSTAL, 20)
                 player!!.getQuestRepository().syncronizeTab(player)
                 stage++
             }

@@ -10,6 +10,7 @@ import core.game.node.Node
 import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.SpellBookManager.SpellBook
 import core.game.node.entity.skill.Skills
+import org.rs.consts.QuestName
 
 /**
  * Magic altar listener.
@@ -35,7 +36,7 @@ class MagicAltar : InteractionListener {
      */
     private fun meetsRequirements(player: Player, altar: Node): Boolean {
         val level = if (altar.id == ANCIENT_ALTAR) 50 else 65
-        if (!hasRequirement(player, if (altar.id == ANCIENT_ALTAR) "Desert Treasure" else "Lunar Diplomacy")) {
+        if (!hasRequirement(player, if (altar.id == ANCIENT_ALTAR) QuestName.DESERT_TREASURE else QuestName.LUNAR_DIPLOMACY)) {
             return false
         }
         if (!hasLevelStat(player, Skills.MAGIC, level)) {

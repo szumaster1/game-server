@@ -6,6 +6,7 @@ import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.quest.Quest
 import core.game.node.item.Item
+import org.rs.consts.QuestName
 
 /**
  * Represents the Al shabim dialogue.
@@ -16,7 +17,7 @@ class AlShabimDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
-        quest = player.getQuestRepository().getQuest(TouristTrap.NAME)
+        quest = player.getQuestRepository().getQuest(QuestName.THE_TOURIST_TRAP)
         when (quest!!.getStage(player)) {
             else -> npc("Hello Effendi!")
         }

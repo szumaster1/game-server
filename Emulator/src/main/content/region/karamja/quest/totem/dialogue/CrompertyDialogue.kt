@@ -17,6 +17,7 @@ import core.game.world.map.Location
 import core.game.world.update.flag.context.Animation
 import core.game.world.update.flag.context.Graphic
 import core.plugin.Initializable
+import org.rs.consts.QuestName
 
 /**
  * Represents the Cromperty dialogue.
@@ -37,7 +38,7 @@ class CrompertyDialogue(player: Player? = null) : Dialogue(player) {
                 1 -> playerl(FacialExpression.HAPPY, "Two jobs? That's got to be tough.").also { stage = 5 }
                 2 -> playerl(FacialExpression.ASKING, "So, what have you invented?").also { stage = 10 }
                 3 -> playerl(FacialExpression.HAPPY, "Can you teleport me to the Rune Essence?").also {
-                    if (isQuestComplete(player,"Rune Mysteries")) {
+                    if (isQuestComplete(player, QuestName.RUNE_MYSTERIES)) {
                         EssenceTeleport.teleport(npc!!, player)
                     } else stage = 2
                 }

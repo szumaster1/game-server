@@ -6,6 +6,7 @@ import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression
 import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
+import org.rs.consts.QuestName
 
 /**
  * Represents the Mistag lost tribe dialogue.
@@ -22,7 +23,7 @@ class MistagLostTribeDialogue(val isGreeting: Boolean, val questStage: Int) : Di
                 4 -> player("Did you break in to the castle cellar?").also { stage++ }
                 5 -> npc("It was an accident. We were following a seam of iron", "and suddenly we found ourselves in a room!").also { stage++ }
                 6 -> npc("We blocked up our tunnel behind us and ran back", "here. Then we did what cave goblins always do when", "there is a problem: we hid and hoped it would go away.").also { stage++ }
-                7 -> npc("We meant no harm! Please tell the ruler of the above", "people that we want to make peace.").also { stage = END_DIALOGUE; player!!.questRepository.getQuest("Lost Tribe").setStage(player, 46) }
+                7 -> npc("We meant no harm! Please tell the ruler of the above", "people that we want to make peace.").also { stage = END_DIALOGUE; player!!.questRepository.getQuest(QuestName.THE_LOST_TRIBE).setStage(player, 46) }
             }
         } else {
             if (questStage == 45) {
@@ -32,7 +33,7 @@ class MistagLostTribeDialogue(val isGreeting: Boolean, val questStage: Int) : Di
                     2 -> player("Did you break in to the castle cellar?").also { stage++ }
                     3 -> npc("It was an accident. We were following a seam of iron", "and suddenly we found ourselves in a room!").also { stage++ }
                     4 -> npc("We blocked up our tunnel behind us and ran back", "here. Then we did what cave goblins always do when", "there is a problem: we hid and hoped it would go away.").also { stage++ }
-                    5 -> npc("We meant no harm! Please tell the ruler of the above", "people that we want to make peace.").also { stage = END_DIALOGUE; player!!.questRepository.getQuest("Lost Tribe").setStage(player, 46) }
+                    5 -> npc("We meant no harm! Please tell the ruler of the above", "people that we want to make peace.").also { stage = END_DIALOGUE; player!!.questRepository.getQuest(QuestName.THE_LOST_TRIBE).setStage(player, 46) }
                 }
             }
 

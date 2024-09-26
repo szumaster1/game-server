@@ -4,7 +4,7 @@ import org.rs.consts.NPCs
 import content.region.misthalin.lumbridge.quest.losttribe.dialogue.DukeHoracioLostTribeDialogue
 import content.region.misthalin.varrock.quest.dragon.DragonSlayer
 import content.region.misthalin.varrock.quest.dragon.dialogue.DukeHoracioDragonSlayerDialogue
-import content.region.misthalin.lumbridge.quest.runemysteries.dialogue.DukeHoracioRuneMysteriesDialogue
+import content.region.misthalin.lumbridge.quest.runemysteries.dialogue.DukeHoracioRMDialogue
 import core.api.getQuestStage
 import core.api.isQuestComplete
 import core.game.dialogue.Dialogue
@@ -13,6 +13,7 @@ import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.tools.DIALOGUE_INITIAL_OPTIONS_HANDLE
 import core.tools.END_DIALOGUE
+import org.rs.consts.QuestName
 
 /**
  * Represents the Duke Horacio dialogue.
@@ -25,8 +26,8 @@ class DukeHoracioDialogue(player: Player? = null) : Dialogue(player) {
                 DragonSlayer.SHIELD)) || (player.questRepository.getQuest("Dragon Slayer").isStarted(player) && !isQuestComplete(player, "Dragon Slayer"))) {
             addOption("Dragon Slayer", DukeHoracioDragonSlayerDialogue(player.questRepository.getStage("Dragon Slayer")))
         }
-        if (!isQuestComplete(player, "Lost Tribe") && player.questRepository.getQuest("Lost Tribe").isStarted(player)) {
-            addOption("Lost Tribe", DukeHoracioLostTribeDialogue(player.questRepository.getStage("Lost Tribe")))
+        if (!isQuestComplete(player, QuestName.THE_LOST_TRIBE) && player.questRepository.getQuest(QuestName.THE_LOST_TRIBE).isStarted(player)) {
+            addOption(QuestName.THE_LOST_TRIBE, DukeHoracioLostTribeDialogue(player.questRepository.getStage(QuestName.THE_LOST_TRIBE)))
         }
         if (!sendChoices()) {
             interpreter.sendDialogues(npc, FacialExpression.HALF_GUILTY, "Greetings. Welcome to my castle.")
@@ -56,8 +57,8 @@ class DukeHoracioDialogue(player: Player? = null) : Dialogue(player) {
             }
             20 -> {
                 npc("Let me see...")
-                if (!player.questRepository.isComplete("Rune Mysteries")) {
-                    loadFile(DukeHoracioRuneMysteriesDialogue(player.questRepository.getStage("Rune Mysteries")))
+                if (!player.questRepository.isComplete(QuestName.RUNE_MYSTERIES)) {
+                    loadFile(DukeHoracioRMDialogue(player.questRepository.getStage(QuestName.RUNE_MYSTERIES)))
                 } else {
                     stage++
                 }

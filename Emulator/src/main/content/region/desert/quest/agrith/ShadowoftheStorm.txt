@@ -30,7 +30,7 @@ class SkillRequirement(val skill: Int?, val level: Int?)
             } else {
                 line(player, "!!Demon Slayer??", line++, false)
             }
-            if (isQuestComplete(player,"The Golem")) {
+            if (isQuestComplete(player,QuestName.THE_GOLEM)) {
                 line(player, "<str><col=000000>The Golem", line++, false)
             } else {
                 line(player, "!!The Golem??", line++, false)

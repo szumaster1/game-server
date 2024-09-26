@@ -13,6 +13,7 @@ import core.game.world.map.Location
 import core.game.world.map.RegionManager
 import core.game.world.update.flag.context.Animation
 import core.tools.END_DIALOGUE
+import org.rs.consts.QuestName
 
 /**
  * Represents the King bolren dialogue file.
@@ -21,7 +22,7 @@ class KingBolrenDialogueFile : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {
         npc = NPC(NPCs.KING_BOLREN_469)
-        val questStage = getQuestStage(player!!, "Tree Gnome Village")
+        val questStage = getQuestStage(player!!, QuestName.TREE_GNOME_VILLAGE)
         when {
             questStage < 10 -> {
                 when (stage) {
@@ -57,7 +58,7 @@ class KingBolrenDialogueFile : DialogueFile() {
                     21 -> {
                         teleport(player!!, TreeGnomeVillage.mazeEntrance)
                         sendNPCDialogue(player!!, NPCs.ELKOY_5179, "We're out of the maze now. Please hurry, we must have the orb if we are to survive.", FacialExpression.OLD_NORMAL)
-                        setQuestStage(player!!, "Tree Gnome Village", 10)
+                        setQuestStage(player!!, QuestName.TREE_GNOME_VILLAGE, 10)
                         stage = END_DIALOGUE
                     }
                 }
@@ -96,7 +97,7 @@ class KingBolrenDialogueFile : DialogueFile() {
                         17 -> {
                             if (removeItem(player!!, Items.ORB_OF_PROTECTION_587)) {
                                 teleport(player!!, TreeGnomeVillage.mazeEntrance)
-                                setQuestStage(player!!, "Tree Gnome Village", 40)
+                                setQuestStage(player!!, QuestName.TREE_GNOME_VILLAGE, 40)
                                 sendNPCDialogue(player!!, NPCs.ELKOY_5179, "Good luck friend.")
                             }
                             stage = END_DIALOGUE
@@ -180,7 +181,7 @@ class KingBolrenDialogueFile : DialogueFile() {
                             })
                             // This loops back to the start of the handle..
                             if (removeItem(player!!, Items.ORBS_OF_PROTECTION_588)) {
-                                setQuestStage(player!!, "Tree Gnome Village", 99)
+                                setQuestStage(player!!, QuestName.TREE_GNOME_VILLAGE, 99)
                             }
                             stage = 0
                         }
@@ -205,7 +206,7 @@ class KingBolrenDialogueFile : DialogueFile() {
 
                     4 -> playerl(FacialExpression.FRIENDLY, "Thank you King Bolren.").also { stage++ }
                     5 -> npcl(FacialExpression.OLD_NORMAL, "The tree has many other powers, some of which I cannot reveal. As a friend of the gnome people, I can now allow you to use the tree's magic to teleport to other trees grown from related seeds.").also {
-                        finishQuest(player!!, "Tree Gnome Village")
+                        finishQuest(player!!, QuestName.TREE_GNOME_VILLAGE)
                         stage = END_DIALOGUE
                     }
                 }

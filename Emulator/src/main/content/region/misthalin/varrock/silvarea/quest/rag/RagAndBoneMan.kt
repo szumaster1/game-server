@@ -10,12 +10,13 @@ import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.quest.Quest
 import core.game.node.entity.skill.Skills
 import core.plugin.Initializable
+import org.rs.consts.QuestName
 
 /**
  * Represents the Rag and bone man quest.
  */
 @Initializable
-class RagAndBoneMan : Quest("Rag and Bone Man", 100, 99, 2, 714, 0, 1, 4) {
+class RagAndBoneMan : Quest(QuestName.RAG_AND_BONE_MAN, 100, 99, 2, 714, 0, 1, 4) {
     companion object {
         const val attributeGoblinBone = "/save:quest:ragandboneman-goblinbonesubmit"
         const val attributeBearBone = "/save:quest:ragandboneman-bearbonesubmit"
@@ -129,7 +130,7 @@ class RagAndBoneMan : Quest("Rag and Bone Man", 100, 99, 2, 714, 0, 1, 4) {
     override fun finish(player: Player) {
         var ln = 10
         super.finish(player)
-        player.packetDispatch.sendString("You have completed Rag and Bone Man!", 277, 4)
+        player.packetDispatch.sendString("You have completed ${QuestName.RAG_AND_BONE_MAN}!", 277, 4)
         player.packetDispatch.sendItemZoomOnInterface(Items.BONE_IN_VINEGAR_7813, 240, 277, 5)
 
         drawReward(player, "2 Quest Points", ln++)

@@ -12,6 +12,7 @@ import core.game.node.item.Item
 import core.tools.StringUtils
 import org.rs.consts.Animations
 import org.rs.consts.Items
+import org.rs.consts.QuestName
 
 /**
  * Represents the smithing pulse.
@@ -36,11 +37,11 @@ class SmithingPulse(player: Player?, item: Item?, private val bars: Bars, privat
             sendDialogue(player, "You need a hammer to work the metal with.")
             return false
         }
-        if (!hasRequirement(player, "The Tourist Trap", false) && bars.smithingType == SmithingType.TYPE_DART_TIP) {
+        if (!hasRequirement(player, QuestName.THE_TOURIST_TRAP, false) && bars.smithingType == SmithingType.TYPE_DART_TIP) {
             sendDialogue(player, "You need to complete Tourist Trap to smith dart tips.")
             return false
         }
-        if (!hasRequirement(player, "Death Plateau", false) && bars.smithingType == SmithingType.TYPE_CLAWS) {
+        if (!hasRequirement(player, QuestName.DEATH_PLATEAU, false) && bars.smithingType == SmithingType.TYPE_CLAWS) {
             sendDialogue(player, "You need to complete Death Plateau to smith claws.")
             return false
         }

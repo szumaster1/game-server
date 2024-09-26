@@ -10,6 +10,7 @@ import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
+import org.rs.consts.QuestName
 
 /**
  * Represents the Mage of Zamorak dialogue.
@@ -22,7 +23,7 @@ class MageOfZamorakDialogue(player: Player? = null) : Dialogue(player) {
     override fun open(vararg args: Any?): Boolean {
         npc = args[0] as NPC
         varrockMage = npc.id == 2261 || npc.id == 2260
-        if (!isQuestComplete(player, "Rune Mysteries")) {
+        if (!isQuestComplete(player, QuestName.RUNE_MYSTERIES)) {
             end()
             sendMessage(player, "The mage doesn't seem interested in talking to you.")
             return true
@@ -185,11 +186,6 @@ class MageOfZamorakDialogue(player: Player? = null) : Dialogue(player) {
         setVarp(player, 492, stage, true)
     }
 
-    /**
-     * Get stage
-     *
-     * @return
-     */
     fun getStage(): Int {
         return getVarp(player, 492)
     }

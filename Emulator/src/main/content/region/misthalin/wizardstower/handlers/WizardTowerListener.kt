@@ -14,6 +14,7 @@ import core.game.system.task.Pulse
 import core.game.world.GameWorld
 import core.game.world.map.Location
 import core.game.world.update.flag.context.Graphic
+import org.rs.consts.QuestName
 
 class WizardTowerListener : InteractionListener {
 
@@ -33,7 +34,7 @@ class WizardTowerListener : InteractionListener {
          */
 
         on(SEDRIDOR_TELEPORT_OPTION, IntType.NPC, "teleport") { player, node ->
-            if (!hasRequirement(player, "Rune Mysteries")) return@on true
+            if (!hasRequirement(player, QuestName.RUNE_MYSTERIES)) return@on true
             EssenceTeleport.teleport((node as NPC), player)
             return@on true
         }

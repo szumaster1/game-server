@@ -4,7 +4,6 @@ import content.global.skill.magic.TeleportMethod
 import content.global.skill.prayer.Bones
 import content.global.travel.CanoeListener
 import content.global.travel.FairyRing
-import content.region.misthalin.varrock.museum.dialogue.CuratorHaigHalenDialogue
 import content.region.misthalin.varrock.museum.dialogue.OrlandoSmithDialogue
 import core.api.*
 import org.rs.consts.Components
@@ -14,6 +13,7 @@ import org.rs.consts.Scenery
 import content.region.misthalin.varrock.dialogue.BennyDialogue
 import content.region.misthalin.varrock.dialogue.ElsieDialogue
 import content.region.misthalin.varrock.quest.crest.dialogue.DimintheisDialogue
+import content.region.misthalin.varrock.quest.phoenixgang.dialogue.CuratorHaigHalenDialogue
 import core.game.diary.AreaDiaryTask
 import core.game.diary.DiaryEventHookBase
 import core.game.diary.DiaryLevel
@@ -33,6 +33,7 @@ class VarrockAchievementDiary : DiaryEventHookBase(DiaryType.VARROCK) {
     companion object {
 
         private const val ATTRIBUTE_CRAFT_AIR_BATTLESTAFF = "diary:varrock:craft-air-battlestaff"
+        const val ATTRIBUTE_VARROCK_ALT_TELE = "diaries:varrock:alttele"
 
         private val VARROCK_ROOF_AREA = ZoneBorders(3201, 3467, 3225, 3497, 3, true)
         private val SOS_LEVEL_2_AREA = ZoneBorders(2040, 5241, 2046, 5246)

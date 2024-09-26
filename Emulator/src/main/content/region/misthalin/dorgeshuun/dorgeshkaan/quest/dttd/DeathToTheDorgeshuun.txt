@@ -40,7 +40,7 @@ class DeathToTheDorgeshuun :
                 line++
             )
             line(player, "Be able to defeat a level !!50?? foe.", line++)
-            line(player, "I need to have completed The Lost Tribe.", line++, isQuestComplete(player, "Lost Tribe"))
+            line(player, "I need to have completed The Lost Tribe.", line++, isQuestComplete(player, QuestName.THE_LOST_TRIBE))
             line++
         }
 

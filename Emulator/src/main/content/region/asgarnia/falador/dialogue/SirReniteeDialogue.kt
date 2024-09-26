@@ -16,6 +16,7 @@ import core.game.node.item.Item
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 import core.tools.RandomFunction
+import org.rs.consts.QuestName
 
 /**
  * Represents the Sir renitee dialogue.
@@ -321,7 +322,7 @@ class SirReniteeDialogue(player: Player? = null) : Dialogue(player) {
             503 -> options("King Arthur", "Elena of Ardougne", "King Alvis of Keldagrim", "The Prince and Princess of Miscellania").also { stage++ }
             504 -> when (buttonId) {
                 1 -> {
-                    if (!hasRequirement(player, "Holy Grail", false)) {
+                    if (!hasRequirement(player, QuestName.HOLY_GRAIL, false)) {
                         npcl(FacialExpression.HALF_GUILTY, "Do you have, mmm, a connection with King Arthur? He wouldn't like me to just give his picture to anyone.")
                         sendMessage(player, "To buy the portrait of King Arthur you must have completed The Holy Grail.")
                         stage = 700
@@ -330,15 +331,15 @@ class SirReniteeDialogue(player: Player? = null) : Dialogue(player) {
                     }
                 }
                 2 -> {
-                    if (!isQuestComplete(player, "Plague City")) {
+                    if (!isQuestComplete(player, QuestName.PLAGUE_CITY)) {
                         npcl(FacialExpression.HALF_GUILTY, "The last I heard, Elena was, mmm, trapped in West Ardougne. I wouldn't feel right selling her portrait while she was in danger.")
-                        sendMessage(player, "To buy the portrait of Elena you must have completed the Plague City quest.")
+                        sendMessage(player, "To buy the portrait of Elena you must have completed the ${QuestName.PLAGUE_CITY} quest.")
                         stage = 700
                     } else {
                         npcl(FacialExpression.HALF_GUILTY, "That will be, mmm, 1000 coins please.").also { stage = 508 }
                     }
                 }
-                3 -> if (!hasRequirement(player, "The Giant Dwarf", false)) {
+                3 -> if (!hasRequirement(player, QuestName.THE_GIANT_DWARF, false)) {
                     npcl(FacialExpression.HALF_GUILTY, "Have you ever been to Keldagrim? I think I'd need you to jog my memory...")
                     sendMessage(player, "To buy the portrait of the Giant Dwarf you must have completed The Giant Dwarf.")
                     stage = 700
@@ -346,7 +347,7 @@ class SirReniteeDialogue(player: Player? = null) : Dialogue(player) {
                     npcl(FacialExpression.HALF_GUILTY, "That will be, mmm, 1000 coins please.").also { stage = 510 }
                 }
 
-                4 -> if (!hasRequirement(player, "Throne of Miscellania", false)) {
+                4 -> if (!hasRequirement(player, QuestName.THRONE_OF_MISCELLANIA, false)) {
                     npcl(FacialExpression.HALF_GUILTY, "Do you have some connection with the prince and princess? I wouldn't want to give out their picture to just anyone?")
                     sendMessage(player, "To buy the portrait of the Prince and Princess of Miscellania you must have completed The Throne of Miscellania.")
                     stage = 700
@@ -417,7 +418,7 @@ class SirReniteeDialogue(player: Player? = null) : Dialogue(player) {
             514 -> options("The River Lum", "The Kharid desert", "Morytania", "Karamja", "Isafdar").also { stage++ }
             515 -> when (buttonId) {
                 1 -> {
-                    if (!isQuestComplete(player, "Cook's Assistant") || !isQuestComplete(player, "Rune Mysteries") || !isQuestComplete(player, "The Restless Ghost")) {
+                    if (!isQuestComplete(player, QuestName.COOKS_ASSISTANT) || !isQuestComplete(player, QuestName.RUNE_MYSTERIES) || !isQuestComplete(player, QuestName.THE_RESTLESS_GHOST)) {
                         npcl(FacialExpression.HALF_GUILTY, "Mmm, I'm not sure you've had enough adventures in Lumbridge to deserve a painting of it.")
                         sendMessage(player, "To buy the painting of the Lum you must have completed Cook's Assistant, Rune Mysteries, and The Restless Ghost.")
                         stage = 700
@@ -426,7 +427,7 @@ class SirReniteeDialogue(player: Player? = null) : Dialogue(player) {
                     }
                 }
                 2 -> {
-                    if (!isQuestComplete(player, "The Tourist Trap") || !hasRequirement(player, "The Feud", false) || !isQuestComplete(player, "The Golem")) {
+                    if (!isQuestComplete(player, QuestName.THE_TOURIST_TRAP) || !hasRequirement(player, QuestName.THE_FEUD, false) || !isQuestComplete(player, QuestName.THE_GOLEM)) {
                         npcl(FacialExpression.HALF_GUILTY, "Mmm, I'm not sure you've had enough adventures in the desert to deserve a painting of it.")
                         sendMessage(player, "To buy the painting of the desert you must have completed Tourist Trap, The Feud, and The Golem.")
                         stage = 700
@@ -435,7 +436,7 @@ class SirReniteeDialogue(player: Player? = null) : Dialogue(player) {
                     }
                 }
                 3 -> {
-                    if (!isQuestComplete(player, "Creature of Fenkenstrain") || !hasRequirement(player, "Shades of Mort'ton", false) || !isQuestComplete(player, "Ghosts Ahoy") || !hasRequirement(player, "Haunted Mine", false)) {
+                    if (!isQuestComplete(player, QuestName.CREATURE_OF_FENKENSTRAIN) || !hasRequirement(player, QuestName.SHADES_OF_MORTTON, false) || !isQuestComplete(player, QuestName.GHOSTS_AHOY) || !hasRequirement(player, QuestName.HAUNTED_MINE, false)) {
                         npcl(FacialExpression.HALF_GUILTY, "Mmm, I'm not sure you've had enough adventures in Morytania to deserve a painting of it.")
                         sendMessage(player, "To buy the painting of Morytania you must have completed Shades of Mort'ton, The Creature of Fenkenstrain")
                         sendMessage(player, "Ghosts Ahoy, and The Haunted Mine.")
@@ -445,7 +446,7 @@ class SirReniteeDialogue(player: Player? = null) : Dialogue(player) {
                     }
                 }
                 4 -> {
-                    if (!isQuestComplete(player, "Pirate's Treasure") || !hasRequirement(player, "Tai Bwo Wannai Trio", false) || !hasRequirement(player, "Shilo Village", false)) {
+                    if (!isQuestComplete(player, QuestName.PIRATES_TREASURE) || !hasRequirement(player, QuestName.TAI_BWO_WANNAI_TRIO, false) || !hasRequirement(player, QuestName.SHILO_VILLAGE, false)) {
                         npcl(FacialExpression.HALF_GUILTY, "Mmm, I'm not sure you've had enough adventures in Karamja to deserve a painting of it.")
                         sendMessage(player, "To buy the painting of Karamja you must have completed Pirate's Treasure, Tai Bwo Wannai Trio, and Shilo Village.")
                         stage = 700
@@ -454,7 +455,7 @@ class SirReniteeDialogue(player: Player? = null) : Dialogue(player) {
                     }
                 }
                 5 -> {
-                    if (!isQuestComplete(player, "Roving Elves")) {
+                    if (!isQuestComplete(player, QuestName.ROVING_ELVES)) {
                         npcl(FacialExpression.HALF_GUILTY, "Mmm, I'm not sure you've had enough adventures in Isafdar to deserve a painting of it.")
                         sendMessage(player, "To buy the painting of Isafdar you must have completed Roving Elves.")
                         stage = 700
