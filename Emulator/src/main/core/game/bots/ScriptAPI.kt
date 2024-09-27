@@ -1,6 +1,5 @@
 package core.game.bots
 
-import org.rs.consts.Items
 import content.data.consumables.Consumables
 import content.data.consumables.effects.HealingEffect
 import core.Configuration
@@ -43,28 +42,58 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import org.json.simple.JSONArray
 import org.json.simple.JSONObject
+import org.rs.consts.Items
 import java.util.concurrent.CountDownLatch
 import kotlin.math.max
 import kotlin.math.pow
 import kotlin.math.sqrt
 
 /**
- * Script API
+ * The ScriptAPI class provides an interface for interacting with various in-game elements such as
+ * nodes, players, and the environment. It includes methods for navigating, interacting with objects,
+ * sending messages, and more.
  *
- * @param bot the bot.
+ * @property bot The player instance that represents the bot.
+ * @property GRAPHICSUP A variable related to graphical updates.
+ * @property ANIMATIONUP A variable related to animation updates.
+ * @property GRAPHICSDOWN A variable related to graphics downtimes.
+ * @property ANIMATIONDOWN A variable related to animation downtimes.
  */
 class ScriptAPI(private val bot: Player) {
+    /**
+     * A constant variable representing a specific `Graphic` instance.
+     *
+     * `GRAPHICSUP` is initialized with the `Graphic` class, with an identifier of 1576.
+     * This variable might be used to represent a particular graphic resource in the system.
+     */
     val GRAPHICSUP = Graphic(1576)
+    /**
+     * ANIMATIONUP represents a specific animation instance within the application.
+     * It is initialized with the ID 8939, which corresponds to a predefined animation sequence.
+     * This constant is typically used to refer to the upward movement animation within the system.
+     *
+     * The ID value helps in identifying and invoking the correct animation logic for rendering
+     * relevant visuals in the application.
+     */
     val ANIMATIONUP = Animation(8939)
+    /**
+     * Constant variable representing a specific graphic effect or image asset.
+     * The integer value 1577 associates with a particular graphic that can be
+     * used in rendering or other graphical operations within the application.
+     */
     val GRAPHICSDOWN = Graphic(1577)
+    /**
+     * ANIMATIONDOWN is an instance of the Animation class initialized with the ID 8941.
+     * This variable typically represents a specific type of animation used within an application.
+     */
     val ANIMATIONDOWN = Animation(8941)
 
     /**
-     * Gets the distance between two nodes.
+     * Calculates the Euclidean distance between two nodes.
      *
-     * @param n1 The first node for which the distance is to be calculated.
-     * @param n2 The second node for which the distance is to be calculated.
-     * @return The calculated distance between the two nodes.
+     * @param n1 The first node containing the x and y coordinates.
+     * @param n2 The second node containing the x and y coordinates.
+     * @return The Euclidean distance between the two nodes.
      */
     fun distance(n1: Node, n2: Node): Double {
         return sqrt(
@@ -75,11 +104,11 @@ class ScriptAPI(private val bot: Player) {
     }
 
     /**
-     * This function processes a command for a bot.
+     * Interacts with a given node based on the specified option.
      *
-     * @param bot The bot instance that will execute the command.
-     * @param node The node that represents the current state or context.
-     * @param option Additional options that may affect command execution.
+     * @param bot The player who is initiating the interaction.
+     * @param node The target node to interact with. It can be of type `Scenery`, `NPC`, or `Item`.
+     * @param option The interaction option name to use.
      */
     fun interact(bot: Player, node: Node?, option: String) {
 
@@ -102,11 +131,14 @@ class ScriptAPI(private val bot: Player) {
     }
 
     /**
-     * This function allows a player to use an item with a specified node.
+     * Uses the specified item on the provided node within the game context.
      *
-     * @param bot The player who is using the item.
-     * @param itemId The ID of the item being used.
-     * @param node The node with which the item is being used, can be null.
+     * This method determines the type of node and handles item usage interactions,
+     * triggering the appropriate event listeners and handlers.
+     *
+     * @param bot The player performing the interaction.
+     * @param itemId The ID of the item to be used.
+     * @param node The target node where the item will be used. If null, the method returns immediately.
      */
     fun useWith(bot: Player, itemId: Int, node: Node?) {
         if (node == null) return
@@ -134,9 +166,9 @@ class ScriptAPI(private val bot: Player) {
     }
 
     /**
-     * Send chat
+     * Sends a chat message using the bot's chat system and updates the mask.
      *
-     * @param message The message to be sent in the chat.
+     * @param message the message to be sent via chat
      */
     fun sendChat(message: String) {
         bot.sendChat(message)
@@ -144,11 +176,11 @@ class ScriptAPI(private val bot: Player) {
     }
 
     /**
-     * Gets the nearest node with a name contained in the list of acceptable names.
+     * Retrieves the nearest node from a list based on specified names and type (object or entity).
      *
-     * @param acceptedNames A list of names that are considered acceptable for matching.
-     * @param isObject A boolean flag indicating whether the node is an object.
-     * @return The nearest Node that matches one of the accepted names, or null if no match is found.
+     * @param acceptedNames A list of names to be matched against nodes in the region.
+     * @param isObject A boolean flag indicating whether to search for objects (true) or entities (false).
+     * @return The nearest node that matches one of the accepted names, or null if no match is found.
      */
     fun getNearestNodeFromList(acceptedNames: List<String>, isObject: Boolean): Node? {
         if (isObject) return processEvaluationList(
@@ -160,11 +192,11 @@ class ScriptAPI(private val bot: Player) {
     }
 
     /**
-     * Gets the nearest node with matching id.
+     * Retrieves the nearest node based on the given ID.
      *
-     * @param id The identifier of the node to search for.
-     * @param isObject A boolean indicating whether the search is for an object type.
-     * @return The nearest Node that matches the given id, or null if not found.
+     * @param id The identification number of the node to find.
+     * @param isObject A boolean flag indicating whether to search within object nodes or entity nodes.
+     * @return The nearest Node if found, otherwise null.
      */
     fun getNearestNode(id: Int, isObject: Boolean): Node? {
         if (isObject) return processEvaluationList(
@@ -176,10 +208,10 @@ class ScriptAPI(private val bot: Player) {
     }
 
     /**
-     * Gets the nearest node with name entityName.
+     * Finds and returns the nearest `Node` entity by its name.
      *
      * @param entityName The name of the entity to search for.
-     * @return The nearest node that matches the given entity name.
+     * @return The `Node` entity closest to the calling location, or null if not found.
      */
     fun getNearestNode(entityName: String): Node? {
         return processEvaluationList(
@@ -189,11 +221,11 @@ class ScriptAPI(private val bot: Player) {
     }
 
     /**
-     * Gets the nearest node with a matching name.
+     * Finds the nearest node by name.
      *
-     * @param name The name of the node to search for.
-     * @param isObject A boolean indicating whether to search for objects or entities.
-     * @return The nearest node that matches the given name, or null if none found.
+     * @param name The name of the node to find.
+     * @param isObject Specifies if the node is an object or an entity.
+     * @return The nearest node if found, otherwise null.
      */
     fun getNearestNode(name: String, isObject: Boolean): Node? {
         if (isObject) return processEvaluationList(
@@ -205,11 +237,11 @@ class ScriptAPI(private val bot: Player) {
     }
 
     /**
-     * Get nearest object by predicate
+     * Finds the nearest object that matches the given predicate.
      *
-     * @param predicate A function that defines the condition for filtering objects.
-     * @receiver The context in which the function is called.
-     * @return The nearest object that matches the predicate, or null if none found.
+     * @param predicate A function that takes a Node? and returns a Boolean. The function is used to evaluate
+     * each object to determine if it meets the criteria.
+     * @return The nearest Node that matches the predicate, or null if no such object is found.
      */
     fun getNearestObjectByPredicate(predicate: (Node?) -> Boolean): Node? {
         return processEvaluationList(
@@ -218,15 +250,15 @@ class ScriptAPI(private val bot: Player) {
     }
 
     /**
-     * Evaluate viability
+     * Evaluates if a node meets certain viability criteria based on distance, names, id, and a custom predicate.
      *
-     * @param e The node to evaluate.
-     * @param minDistance The minimum distance for the node to be considered viable.
-     * @param maxDistance The maximum distance for the node to be considered viable.
-     * @param acceptedNames A list of accepted names for filtering.
-     * @param acceptedId An accepted ID for filtering.
-     * @param acceptedPredicate A predicate for additional filtering.
-     * @return True if the node is viable, false otherwise.
+     * @param e The node to be evaluated. Can be null.
+     * @param minDistance The minimum distance from the bot to the node for it to be considered viable.
+     * @param maxDistance The maximum distance from the bot to the node for it to be considered viable.
+     * @param acceptedNames A list of accepted names for the node. Can be null.
+     * @param acceptedId The accepted id for the node. Default value is -1.
+     * @param acceptedPredicate A custom predicate to further evaluate the node. Can be null.
+     * @return True if the node meets the viability criteria, false otherwise.
      */
     fun evaluateViability(
         e: Node?,
@@ -253,13 +285,13 @@ class ScriptAPI(private val bot: Player) {
     }
 
     /**
-     * Process evaluation list
+     * Processes a list of nodes to find the nearest viable node based on specified criteria.
      *
-     * @param list The list of nodes to evaluate.
-     * @param acceptedName A list of accepted names for filtering.
-     * @param acceptedId An accepted ID for filtering.
-     * @param acceptedPredicate A predicate for additional filtering.
-     * @return The nearest node that matches the criteria, or null if none found.
+     * @param list List of nodes to evaluate.
+     * @param acceptedName Optional list of names to accept during evaluation.
+     * @param acceptedId Optional ID to accept during evaluation.
+     * @param acceptedPredicate Optional predicate function for custom evaluation.
+     * @return The nearest viable node that matches the criteria, or null if no such node is found.
      */
     fun processEvaluationList(list: List<Node>, acceptedName: List<String>? = null, acceptedId: Int = -1, acceptedPredicate: ((Node?) -> Boolean)? = null): Node? {
         var entity: Node? = null
@@ -275,7 +307,10 @@ class ScriptAPI(private val bot: Player) {
     }
 
     /**
-     * Gets the nearest ground item with matching ID from the list in AIRepository.
+     * Retrieves the nearest ground item with the specified ID that is within a distance of 10 units from the bot.
+     *
+     * @param id The ID of the ground item to find.
+     * @return The nearest ground item with the specified ID, or null if no such item is found within the allowed distance.
      */
     private fun getNearestGroundItem(id: Int): GroundItem? {
         var distance = 11.0
@@ -303,10 +338,10 @@ class ScriptAPI(private val bot: Player) {
     }
 
     /**
-     * Takes the nearest ground item with a matching id if it exists.
+     * Attempts to take the nearest ground item with the given ID.
      *
-     * @param id
-     * @return
+     * @param id The ID of the ground item to be taken.
+     * @return True if the item was successfully taken, false otherwise.
      */
     fun takeNearestGroundItem(id: Int): Boolean {
         val item = getNearestGroundItem(id)
@@ -317,11 +352,11 @@ class ScriptAPI(private val bot: Player) {
     }
 
     /**
-     * Gets the nearest GameObject to loc with matching objectId.
+     * Finds the nearest game object to the given location with the specified object ID.
      *
-     * @param loc
-     * @param objectId
-     * @return
+     * @param tag loc The location from which to find the nearest game object.
+     * @param tag objectId The ID of the game object to find.
+     * @return The nearest game object with the specified ID, or null if no such object exists.
      */
     fun getNearestGameObject(loc: Location, objectId: Int): Scenery? {
         var nearestObject: Scenery? = null
@@ -339,7 +374,12 @@ class ScriptAPI(private val bot: Player) {
     }
 
     /**
-     * Gets a list of NPCs that are attackable around the entity.
+     * Finds targets within a specified radius around a given entity.
+     *
+     * @param entity The central entity from which to search.
+     * @param radius The radius within which to search for targets.
+     * @param name The optional name of the targets to find. If null, all valid targets are considered.
+     * @return A list of targets found within the specified radius, or null if no targets are found.
      */
     private fun findTargets(entity: Entity, radius: Int, name: String? = null): List<Entity>? {
         val targets: MutableList<Entity> = ArrayList()
@@ -356,7 +396,11 @@ class ScriptAPI(private val bot: Player) {
     }
 
     /**
-     * Checks if the given target is a valid target for a combat bot.
+     * Checks if the given target is a valid target based on specific criteria.
+     *
+     * @param target The NPC to be checked.
+     * @param name The name to match against the target's name. If null, name check is bypassed.
+     * @return true if the target is valid, false otherwise.
      */
     private fun checkValidTargets(target: NPC, name: String?): Boolean {
         if (!target.isActive) {
@@ -372,11 +416,11 @@ class ScriptAPI(private val bot: Player) {
     }
 
     /**
-     * Attacks npcs in the given radius of the bot.
+     * Attacks non-playable characters (NPCs) within a specified radius around the player.
      *
-     * @param bot
-     * @param radius
-     * @return
+     * @param bot The player who will perform the attack.
+     * @param radius The radius within which NPCs will be targeted.
+     * @return Returns true if at least one NPC is successfully attacked, false otherwise.
      */
     fun attackNpcsInRadius(bot: Player, radius: Int): Boolean {
         if (bot.inCombat()) return true
@@ -395,9 +439,9 @@ class ScriptAPI(private val bot: Player) {
     }
 
     /**
-     * Function to iteratively walk a bot to a faraway location. Limited by doors and large obstacles like mountains.
+     * Instructs the bot to walk to a specified location.
      *
-     * @param loc
+     * @param loc the target destination for the bot.
      */
     fun walkTo(loc: Location) {
         if (!bot.walkingQueue.isMoving) {
@@ -406,13 +450,27 @@ class ScriptAPI(private val bot: Player) {
     }
 
     /**
-     * Function to iteratively walk an array of Locations to get over complex obstacles.
+     * Guides the bot to walk through the given array of locations step by step.
      *
-     * @param steps
+     * @param steps An array of Location objects that define the path the bot should follow.
      */
     fun walkArray(steps: Array<Location>) {
         bot.pulseManager.run(object : Pulse() {
+            /**
+             * Index used to track the current step in the `walkArray` function's step sequence.
+             */
             var stepIndex = 0
+            /**
+             * Executes a step-by-step walking pulse.
+             *
+             * This method determines the next step for the bot to take in its path. It checks
+             * if the bot is near the current target step, updates the step index, and
+             * commands the bot to walk to the next step if necessary. It returns a boolean
+             * indicating whether the bot has completed its path.
+             *
+             * @return `true` if the bot has completed its path or is near the last step;
+             *         `false` if the bot is still walking towards the next step.
+             */
             override fun pulse(): Boolean {
                 // If the stepIndex is out of bounds, we're done
                 if (stepIndex >= steps.size) return true
@@ -434,10 +492,12 @@ class ScriptAPI(private val bot: Player) {
     }
 
     /**
-     * Random walk to
+     * This method performs a random walk towards a specified location within a certain radius.
+     * If the bot is currently not moving, it calculates a new location within the defined radius
+     * around the given location and initiates movement towards it.
      *
-     * @param loc
-     * @param radius
+     * @param loc The target location to walk towards.
+     * @param radius The radius within which the new location will be randomly determined.
      */
     fun randomWalkTo(loc: Location, radius: Int) {
         if (!bot.walkingQueue.isMoving) {
@@ -449,7 +509,9 @@ class ScriptAPI(private val bot: Player) {
 
 
     /**
-     * The iterator for long-distance walking. Limited by doors and large obstacles like mountains.
+     * Moves the bot to the specified location using an iterator-based approach.
+     *
+     * @param loc The location to which the bot will walk.
      */
     private fun walkToIterator(loc: Location) {
         var diffX = loc.x - bot.location.x
@@ -461,6 +523,13 @@ class ScriptAPI(private val bot: Player) {
             kotlin.math.min(kotlin.math.floor(vec.magnitude()).toInt(), Configuration.MAX_PATHFIND_DISTANCE - 1)
         val loc = bot.location.transform(norm * tiles)
         bot.pulseManager.run(object : MovementPulse(bot, loc) {
+            /**
+             *
+             * This method is called to indicate a periodic heartbeat or pulse.
+             * Can be used to signal activity or status.
+             *
+             * @return Boolean indicating the pulse status.
+             */
             override fun pulse(): Boolean {
                 return true
             }
@@ -468,12 +537,12 @@ class ScriptAPI(private val bot: Player) {
     }
 
     /**
-     * Attacks npcs in the given radius of the bot.
+     * Attempts to attack a non-player character (NPC) within a specified radius from the given player.
      *
-     * @param bot
-     * @param name
-     * @param radius
-     * @return
+     * @param bot The player executing the attack.
+     * @param name The name of the NPC to target.
+     * @param radius The radius within which to search for targets.
+     * @return Returns true if an attack is initiated; false otherwise.
      */
     fun attackNpcInRadius(bot: Player, name: String, radius: Int): Boolean {
         if (bot.inCombat()) return true
@@ -492,19 +561,20 @@ class ScriptAPI(private val bot: Player) {
     }
 
     /**
-     * Extension function to find the distance between a location and a ground item.
+     * Calculates the distance between this GroundItem's location and the specified location.
      *
-     * @param loc
-     * @return
+     * @param loc The target location to which the distance is to be calculated.
+     * @return The distance between the GroundItem's location and the specified location as a Double.
      */
     fun GroundItem.distance(loc: Location): Double {
         return location.getDistance(loc)
     }
 
     /**
-     * A function for teleporting the bot to the GE.
+     * Teleports the bot to the Grand Exchange (GE) if it is not tele-blocked.
+     * This method will also handle necessary animations and disable impact for a short duration.
      *
-     * @return
+     * @return True if the teleportation was successful, false if the bot is tele-blocked.
      */
     fun teleportToGE(): Boolean {
         if (bot.isTeleBlocked) {
@@ -515,6 +585,11 @@ class ScriptAPI(private val bot: Player) {
         bot.impactHandler.disabledTicks = 4
         val location = Location.create(3165, 3482, 0)
         bot.pulseManager.run(object : Pulse(4, bot) {
+            /**
+             * Executes a series of actions to prepare the bot for teleportation.
+             *
+             * @return Always returns true indicating the completion of the pulse actions.
+             */
             override fun pulse(): Boolean {
                 bot.unlock()
                 bot.properties.teleportLocation = location
@@ -527,12 +602,22 @@ class ScriptAPI(private val bot: Player) {
     }
 
     /**
-     * A function for selling a given item on the GE.
+     * Sells the specified item on the Grand Exchange (GE).
      *
-     * @param id
+     * @param id The ID of the item to be sold.
      */
     fun sellOnGE(id: Int) {
         class toCounterPulse : MovementPulse(bot, Location.create(3165, 3487, 0)) {
+            /**
+             * Executes the pulse action for the bot.
+             *
+             * This method performs various operations such as checking the amount of an item in the bot's bank,
+             * determining the actual ID of the item (considering noted items), and attempting to sell the item
+             * on the Grand Exchange. If the sale is significant, it sends a news message. Finally, it removes
+             * the item from the bot's bank and refreshes the bank status.
+             *
+             * @return always returns true after performing the pulse action.
+             */
             override fun pulse(): Boolean {
                 var actualId = id
                 val itemAmt = bot.bank.getAmount(id)
@@ -556,11 +641,22 @@ class ScriptAPI(private val bot: Player) {
     }
 
     /**
-     * Function to sell all items in a bot's bank on the Grand Exchange, if they are tradable.
+     * Initiates the process of selling all tradeable items in the bot's bank on the Grand Exchange.
      *
+     * This method creates an internal movement pulse to a specified location and performs
+     * the sale operation for each item in the bot's bank. Non-tradeable items and certain
+     * excluded items such as lobsters, swordfish, and sharks are skipped. If an item can be
+     * sold and qualifies as noteworthy, a news message is broadcasted.
      */
     fun sellAllOnGe() {
         class toCounterPulseAll : MovementPulse(bot, Location.create(3165, 3487, 0)) {
+            /**
+             * The `pulse` method processes items in the bot's bank. It iterates through each item and checks certain conditions
+             * (if the item is null, if it is one of specified food items, or if it's tradeable). If an item meets these conditions,
+             * it attempts to sell the item using the Grand Exchange. If the sale is significant, it sends a news notification.
+             *
+             * @return Returns `true` after processing all items in the bot's bank.
+             */
             override fun pulse(): Boolean {
                 for (item in bot.bank.toArray()) {
                     item ?: continue
@@ -589,12 +685,29 @@ class ScriptAPI(private val bot: Player) {
     }
 
     /**
-     * Function to sell all items in a bot's bank on the Grand Exchange, if they are tradable.
+     * Initiates the process to sell all tradeable items available in the bot's bank on the Grand Exchange.
+     *
+     * The method locates the nearest "Desk" node in the environment and triggers a movement pulse
+     * to interact with it. Upon reaching the desk:
+     *
+     * - Iterates over all items in the bot's bank.
+     * - Skips items that are not tradeable.
+     * - Converts any noted items back to their unnoted form if necessary.
+     * - Attempts to add each tradeable item to the Grand Exchange offer.
+     * - Notifies of significant sales unless the item is one of the specified log types.
+     * - Removes items from the bank and refreshes the bank state after adding them to the offer.
      */
     fun sellAllOnGeAdv() {
         val ge: Scenery? = getNearestNode("Desk", true) as Scenery?
 
         class toCounterPulseAll : MovementPulse(bot, ge, DestinationFlag.OBJECT) {
+            /**
+             * Handles the process of posting items from the bot's bank to the Grand Exchange if they are tradeable.
+             * It iterates through the items in the bank, checks if they are tradeable, and attempts to sell them.
+             * If an item can be sold and is considered "big news," a notification is sent.
+             *
+             * @return Always returns true after processing all items in the bank.
+             */
             override fun pulse(): Boolean {
                 for (item in bot.bank.toArray()) {
                     item ?: continue
@@ -632,12 +745,11 @@ class ScriptAPI(private val bot: Player) {
     }
 
     /**
-     * Function to determine whether or not to bother everyone on the server
-     * with the big news that a bot is selling something to the GE, based on item value
+     * Determines if a sale is significant enough to be considered big news.
      *
-     * @param itemID
-     * @param amount
-     * @return
+     * @param itemID The unique identifier of the item being sold.
+     * @param amount The quantity of the item being sold.
+     * @return `true` if the sale amount meets or exceeds the announcement limit, `false` otherwise.
      */
     fun saleIsBigNews(itemID: Int, amount: Int): Boolean {
         return ItemDefinition.forId(itemID).getAlchemyValue(true) * amount >= (GameWorld.settings?.ge_announcement_limit ?: 500)
@@ -645,10 +757,10 @@ class ScriptAPI(private val bot: Player) {
 
 
     /**
-     * Function to teleport a bot to the given location.
+     * Teleports the bot to a given location if it is not currently teleblocked.
      *
-     * @param loc
-     * @return
+     * @param loc The destination location to teleport to.
+     * @return A boolean indicating whether the teleportation was successful.
      */
     fun teleport(loc: Location): Boolean {
         if (bot.isTeleBlocked) {
@@ -659,6 +771,12 @@ class ScriptAPI(private val bot: Player) {
         bot.impactHandler.disabledTicks = 4
         val location = loc
         GameWorld.Pulser.submit(object : Pulse(4, bot) {
+            /**
+             *
+             * This method pulses the bot's activity. The bot's state is reset and its location is updated.
+             *
+             * @return true if the pulse was successfully carried out
+             */
             override fun pulse(): Boolean {
                 bot.unlock()
                 bot.properties.teleportLocation = location
@@ -672,13 +790,20 @@ class ScriptAPI(private val bot: Player) {
 
 
     /**
-     * Takes the given item out of the bot's inventory and
-     * places it into the bank. Banks all items with matching ID.
+     * Initiates a banking action for the specified item. The method creates
+     * an instance of `BankingPulse` which executes the transfer of the item
+     * from the inventory to the bank.
      *
-     * @param item
+     * @param item The identifier of the item to be banked.
      */
     fun bankItem(item: Int) {
         class BankingPulse : Pulse(20) {
+            /**
+             *
+             * Carries out a pulse operation that transfers a specified item from the bot's inventory to the bank.
+             *
+             * @return true if the pulse operation was successful.
+             */
             override fun pulse(): Boolean {
                 val logs = bot.inventory.getAmount(item)
                 bot.inventory.remove(Item(item, logs))
@@ -691,12 +816,21 @@ class ScriptAPI(private val bot: Player) {
 
 
     /**
-     * Takes every item out of the bots inventory and places it into the bank.
+     * Banks all items from the bot's inventory. Once completed, the specified callback function is invoked.
      *
-     * @param onComplete
+     * @param onComplete A callback function to be executed after all items have been banked. It is optional and defaults to null.
      */
     fun bankAll(onComplete: (() -> Unit)? = null) {
         class BankingPulse : Pulse(20) {
+            /**
+             * Executes the pulse action by transferring all items from the bot's inventory to the bank.
+             * For each item in the inventory, if the item is not null, it attempts to remove the item
+             * from the inventory and add it to the bank.
+             *
+             * If a completion callback is specified, it is invoked after all items are transferred.
+             *
+             * @return true Always returns true, indicating the pulse action is complete.
+             */
             override fun pulse(): Boolean {
                 for (item in bot.inventory.toArray()) {
                     if (item != null) {
@@ -717,9 +851,9 @@ class ScriptAPI(private val bot: Player) {
     }
 
     /**
-     * Function that makes the bot eat the food item in their inventory if their HP is below 2/3.
+     * Consumes the specified food item to restore hitpoints if certain conditions are met.
      *
-     * @param foodId
+     * @param foodId The identifier of the food item to be consumed.
      */
     fun eat(foodId: Int) {
         val foodItem = Item(foodId)
@@ -738,9 +872,9 @@ class ScriptAPI(private val bot: Player) {
 
 
     /**
-     * Same as the eat function, except that it forces the bot to eat regardless of HP.
+     * Forces the bot to consume a specified food item from its inventory.
      *
-     * @param foodId
+     * @param foodId The unique identifier of the food item to be consumed.
      */
     fun forceEat(foodId: Int) {
         val foodItem = Item(foodId)
@@ -758,10 +892,10 @@ class ScriptAPI(private val bot: Player) {
     }
 
     /**
-     * Function for buying items off the GE.
+     * Initiates a buy offer on the Grand Exchange for a specified item and amount.
      *
-     * @param bot The player bot that is making the purchase.
-     * @param itemID The ID of the item to be bought.
+     * @param bot The player bot that is initiating the buy offer.
+     * @param itemID The ID of the item to be purchased.
      * @param amount The quantity of the item to be purchased.
      */
     fun buyFromGE(bot: Player, itemID: Int, amount: Int) {
@@ -777,6 +911,11 @@ class ScriptAPI(private val bot: Player) {
             var bought: Boolean = false
             val latch = CountDownLatch(1)
             bot.pulseManager.run(object : Pulse(5) {
+                /**
+                 * Checks if the offer has been fully bought and counts down the latch.
+                 *
+                 * @return Always returns true.
+                 */
                 override fun pulse(): Boolean {
                     bought = offer.completedAmount == offer.amount
                     latch.countDown()
@@ -792,10 +931,12 @@ class ScriptAPI(private val bot: Player) {
     }
 
     /**
-     * Method to allow a bot to withdraw items from its bank.
+     * Withdraws a specified amount of an item from the bank and adds it to the inventory.
      *
-     * @param itemID The ID of the item to withdraw.
-     * @param amount The quantity of the item to withdraw.
+     * @param itemID The unique identifier of the item to be withdrawn.
+     * @param amount The number of items to withdraw. If the amount exceeds the available quantity in the bank,
+     *               the maximum available quantity will be withdrawn. If the inventory does not have enough space,
+     *               only enough items to fill the space will be withdrawn.
      */
     fun withdraw(itemID: Int, amount: Int) {
         var item: Item? = null
@@ -813,9 +954,9 @@ class ScriptAPI(private val bot: Player) {
     }
 
     /**
-     * Method to equip list of items and set stats.
+     * Equips items and sets their stats for the character.
      *
-     * @param items The list of items to equip.
+     * @param items A list of items to be equipped and have their stats set.
      */
     fun equipAndSetStats(items: List<Item>?) {
         if (items == null) return
@@ -825,9 +966,10 @@ class ScriptAPI(private val bot: Player) {
     }
 
     /**
-     * Method to equip a single item and set stats.
+     * Equips the provided item to the bot and updates its stats accordingly.
      *
-     * @param item The item to equip.
+     * @param item The item to be equipped. The item must have defined 'equipment_slot' in its configurations.
+     * If 'requirements' are specified in the item's configurations, the bot's skill levels are set to meet these requirements.
      */
     fun equipAndSetStats(item: Item) {
         val configs = item.definition.handlers
@@ -843,9 +985,13 @@ class ScriptAPI(private val bot: Player) {
     }
 
     /**
-     * Method to load appearance and equipment from JSON.
+     * Loads the appearance and equipment of the bot from the provided JSON object.
+     * It parses the appearance and equipment from the JSON and updates the bot's
+     * equipment and appearance accordingly. Additionally, it sets all combat stats
+     * to a function of the highest combat stat.
      *
-     * @param json The JSON object containing appearance and equipment data.
+     * @param json The JSON object containing the appearance and equipment data. If null,
+     *             the method returns without making any changes.
      */
     fun loadAppearanceAndEquipment(json: JSONObject?) {
         if (json == null) return
@@ -872,19 +1018,20 @@ class ScriptAPI(private val bot: Player) {
     }
 
     /**
-     * Get overlay
+     * Retrieves an instance of the BottingOverlay specific to the current bot.
      *
-     * @return The botting overlay for the player.
+     * @return an instance of BottingOverlay configured with the current bot instance.
      */
     fun getOverlay(): BottingOverlay {
         return BottingOverlay(bot)
     }
 
     /**
-     * Function to check for price overrides.
+     * Checks for price overrides based on the provided item ID.
+     * If an override is found, returns the overridden price.
      *
-     * @param id The ID of the item to check.
-     * @return The overridden price if available, otherwise null.
+     * @param id the ID of the item to check for price overrides
+     * @return the overridden price if it exists, or null if no override is found
      */
     fun checkPriceOverrides(id: Int): Int? {
         return when (id) {
@@ -893,14 +1040,20 @@ class ScriptAPI(private val bot: Player) {
     }
 
     /**
-     * Botting overlay
+     * BottingOverlay class manages the player's interface overlay and updates various interface components.
      *
-     * @param player The player associated with the botting overlay.
-     * @constructor Botting overlay
+     * @property player The player instance for which this overlay is managed.
      */
     class BottingOverlay(val player: Player) {
         /**
-         * Initializes the botting overlay interface.
+         * Initializes the player's interface by opening an overlay and configuring the interface settings.
+         *
+         * This method performs the following actions:
+         * - Opens an interface overlay with the component ID 195.
+         * - Sends a packet to configure the interface with ID 195 at index 5 to be enabled.
+         *
+         * The purpose of this method is to set up the player's user interface with necessary components
+         * and configurations for the gameplay.
          */
         fun init() {
             player.interfaceManager.openOverlay(Component(195))
@@ -908,27 +1061,27 @@ class ScriptAPI(private val bot: Player) {
         }
 
         /**
-         * Set title
+         * Updates the player's title with the given text.
          *
-         * @param title
+         * @param title The new title to set for the player.
          */
         fun setTitle(title: String) {
             player.packetDispatch.sendString(colorize("%B$title"), 195, 7)
         }
 
         /**
-         * Set task label
+         * Sets the task label with the specified label text.
          *
-         * @param label
+         * @param label The text to be used as the task label.
          */
         fun setTaskLabel(label: String) {
             player.packetDispatch.sendString(colorize("%B$label"), 195, 8)
         }
 
         /**
-         * Set amount
+         * Sets the amount of a player's item.
          *
-         * @param amount
+         * @param amount The amount to be set.
          */
         fun setAmount(amount: Int) {
             player.packetDispatch.sendString(colorize("%B$amount"), 195, 9)
