@@ -1,6 +1,7 @@
 package content.region.misc.tutorial.dialogue
 
 import content.region.misc.tutorial.handlers.TutorialStage
+import core.api.lockMovement
 import core.api.setAttribute
 import core.game.component.Component
 import core.game.dialogue.Dialogue
@@ -8,32 +9,36 @@ import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
-import core.tools.END_DIALOGUE
 import org.rs.consts.NPCs
 
 /**
- * Represents the <CLIENT_NAME> Guide dialogue.
+ * Represents the [SERVER_NAME][core.Configuration.SERVER_NAME] Guide dialogue.
  */
 @Initializable
-class GielinorGuideDialogue(player: Player? = null) : Dialogue(player) {
+class RSGuideDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any?): Boolean {
         npc = args[0] as NPC
         val tutStage = player?.getAttribute("tutorial:stage", 0) ?: 0
-        if (tutStage < 2) {
-            end()
-            player.dialogueInterpreter.sendDialogues(npc, FacialExpression.HALF_GUILTY, "Greetings! Please follow the onscreen, instructions!").also { stage = END_DIALOGUE }
-            return false
-        } else {
-            Component.setUnclosable(player, interpreter.sendDialogues(npc, FacialExpression.HALF_GUILTY, "Greetings! Please follow the onscreen", "instructions!")).also { stage = END_DIALOGUE }
-        }
-
-        if (tutStage == 2) {
-            Component.setUnclosable(player, interpreter.sendDialogues(npc, FacialExpression.HALF_GUILTY, "Greetings! I see you are a new arrival to this land. My", "job is to welcome all new visitors. So welcome!"))
+        lockMovement(npc, 1000)
+        if (tutStage == 39) {
+            Component.setUnclosable(player, interpreter.sendDialogues(npc, FacialExpression.NOD_YES, "Greetings! I see you are a new arrival to this land. My", "job is to welcome all new visitors. So welcome!"))
             stage = 0
             return true
-        } else {
-            Component.setUnclosable(player, interpreter.sendDialogues(npc, FacialExpression.HALF_GUILTY, "Please follow the onscreen instructions!")).also { stage = END_DIALOGUE }
+        }
+        if (tutStage == 2) {
+            player.dialogueInterpreter.sendDialogues(npc, FacialExpression.NOD_YES, "I'm glad you're making progress!")
+            stage = 6
+            return true
+        }
+        if (tutStage < 2) {
+            end()
+            player.dialogueInterpreter.sendDialogues(npc, FacialExpression.NOD_YES, "You will notice a flashing icon of a spanner; please click", "on this to continue the tutorial.")
+            return false
+        }
+        else {
+            end()
+            Component.setUnclosable(player, interpreter.sendDialogues(npc, FacialExpression.HALF_GUILTY, "Please follow the onscreen instructions!"))
             return false
         }
     }
@@ -44,10 +49,18 @@ class GielinorGuideDialogue(player: Player? = null) : Dialogue(player) {
             1 -> Component.setUnclosable(player, interpreter.sendDialogues(npc, FacialExpression.FRIENDLY, "You will find many inhabitants of this world have useful", "things to say to you. By clicking on them with your", "mouse you can talk to them.")).also { stage++ }
             2 -> Component.setUnclosable(player, interpreter.sendDialogues(npc, FacialExpression.FRIENDLY, "I would also suggest reading through some of the", "supporting information on the website. There you can", "find the starter guides, which contain all the", "additional information you're ever likely to need. they also")).also { stage++ }
             3 -> Component.setUnclosable(player, interpreter.sendDialogues(npc, FacialExpression.FRIENDLY, "contain helpful tips to help you on your", "journey.")).also { stage++ }
-            4 -> Component.setUnclosable(player, interpreter.sendDialogues(npc, FacialExpression.FRIENDLY, "To continue the tutorial go through that door over", "there and speak to your first instructor!")).also { stage++ }
+            4 -> Component.setUnclosable(player, interpreter.sendDialogues(npc, FacialExpression.FRIENDLY, "You will notice a flashing icon of a spanner; please click", "on this to continue the tutorial.")).also { stage++ }
             5 -> {
                 end()
+                setAttribute(player, "tutorial:stage", 1)
+                TutorialStage.load(player, 1)
+            }
+            6 -> Component.setUnclosable(player, interpreter.sendDialogues(npc, FacialExpression.NOD_YES, "To continue the tutorial go through that door over", "there and speak to your first instructor!")).also { stage++ }
+            7 -> {
+                end()
+                npc.unlock()
                 setAttribute(player, "tutorial:stage", 3)
+                TutorialStage.removeHintIcon(player)
                 TutorialStage.load(player, 3)
             }
         }

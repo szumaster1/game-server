@@ -23,8 +23,8 @@ object TutorialButtonReceiver : EventHook<ButtonClickEvent> {
              * Character design interface, confirm button.
              */
             0 -> if (event.iface == 771 && event.buttonId == 362) {
-                setAttribute(player, "/save:tutorial:stage", 1)
-                TutorialStage.load(player, 1)
+                setAttribute(player, "/save:tutorial:stage", 39)
+                TutorialStage.load(player, 39)
             }
 
             /*
@@ -33,6 +33,7 @@ object TutorialButtonReceiver : EventHook<ButtonClickEvent> {
              * HD: 746,52
              */
             1 -> if ((event.iface == 548 && event.buttonId == 24) || (event.iface == 746 && event.buttonId == 52)) {
+                player.unlock()
                 setAttribute(player, "/save:tutorial:stage", 2)
                 TutorialStage.load(player, 2)
             }
@@ -263,7 +264,6 @@ object TutorialResourceReceiver : EventHook<ResourceProducedEvent> {
             /*
              * Gather some logs.
              */
-
             7 -> if (event.itemId == Items.LOGS_1511) {
                 setAttribute(player, "tutorial:stage", 8)
                 TutorialStage.load(player, 8)
@@ -272,7 +272,6 @@ object TutorialResourceReceiver : EventHook<ResourceProducedEvent> {
             /*
              * Catch some raw shrimp.
              */
-
             13 -> if (event.itemId == Items.RAW_SHRIMPS_317) {
                 setAttribute(player, "tutorial:stage", 14)
                 TutorialStage.load(player, 14)
@@ -281,7 +280,6 @@ object TutorialResourceReceiver : EventHook<ResourceProducedEvent> {
             /*
              * Cook a shrimp.
              */
-
             14, 15 -> if (event.itemId == Items.BURNT_SHRIMP_7954) {
                 setAttribute(player, "tutorial:stage", 15)
                 TutorialStage.load(player, 15)
@@ -293,7 +291,6 @@ object TutorialResourceReceiver : EventHook<ResourceProducedEvent> {
             /*
              * Make some bread dough.
              */
-
             19 -> if (event.itemId == Items.BREAD_DOUGH_2307) {
                 setAttribute(player, "tutorial:stage", 20)
                 TutorialStage.load(player, 20)

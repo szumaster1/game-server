@@ -35,7 +35,7 @@ object TutorialStage {
             0 -> {
                 lock(player, 10)
                 setMinimapState(player, 2)
-                teleport(player, Location.create(3094, 3107, 0))
+                player.properties.teleportLocation = Location.create(3094, 3107, 0)
                 hideTabs(player, login)
                 CharacterDesign.open(player)
                 Component.setUnclosable(
@@ -50,66 +50,62 @@ object TutorialStage {
                 )
             }
 
-            /*
-             * 1 -> {
-             *     setMinimapState(player, 0)
-             *     hideTabs(player, login)
-             *     setVarbit(player, 3756, 12)
-             *     Component.setUnclosable(player, player.dialogueInterpreter.sendPlaneMessageWithBlueTitle(
-             *         "Getting started",
-             *         "To start the tutorial use your left mouse button to click on the",
-             *         "" + settings!!.name + " Guide in this room. He is indicated by a flashing",
-             *         "yellow arrow above his head. If you can't see him, use your",
-             *         "keyboard's arrow keys to rotate the view."
-             *     ))
-             * }
-             */
+            39 -> {
+                hideTabs(player, login)
+                setMinimapState(player, 0)
+                registerHintIcon(player, Repository.findNPC(NPCs.RUNESCAPE_GUIDE_945)!!)
+                Component.setUnclosable(
+                    player, player.dialogueInterpreter.sendPlaneMessageWithBlueTitle(
+                        "Getting started",
+                        "To start the tutorial use your left mouse button to click on the",
+                        "" + settings!!.name + " Guide in this room. He is indicated by a flashing",
+                        "yellow arrow above his head. If you can't see him, use your",
+                        "keyboard's arrow keys to rotate the view."
+                    )
+                )
+            }
 
             1 -> {
-                setMinimapState(player, 0)
+                player.lock()
                 hideTabs(player, login)
                 player.interfaceManager.openTab(Component(Components.OPTIONS_261))
                 setVarbit(player, 3756, 12)
-                removeHintIcon(player)
-                sendUnclosableDialogue(
-                    player, true,
-                    "",
-                    "Game Options",
-                    "Please click on the flashing spanner icon found at the bottom",
-                    "right of your screen. This will display your game options."
+                Component.setUnclosable(
+                    player, player.dialogueInterpreter.sendPlaneMessageWithBlueTitle(
+                        "Game Options",
+                        "",
+                        "Please click on the flashing spanner icon found at the bottom-right of",
+                        "your screen. This will display your game options.",
+                        ""
+                    )
                 )
             }
 
             2 -> {
                 hideTabs(player, login)
                 setVarbit(player, 3756, 0)
-                registerHintIcon(player, Repository.findNPC(NPCs.RUNESCAPE_GUIDE_945)!!)
                 Component.setUnclosable(
-                    player,
-                    player.dialogueInterpreter.sendScrollMessageWithBlueTitle(
+                    player, player.dialogueInterpreter.sendPlaneMessageWithBlueTitle(
                         "Game Options",
                         "In the interface, you can now see a variety of options such as",
                         "screen brightness, sound and music volume and whether you",
                         "want to accept aid from other player's or not. Don't worry",
-                        "about these too much for now; they will become easier as you",
-                        "explore the game. Talk to the " + settings!!.name + " Guide to continue."
+                        "about these too much for now; they will become easier as you<br>explore the game. Talk to the " + settings!!.name + " Guide to continue."
                     )
                 )
             }
 
             3 -> {
                 hideTabs(player, login)
-                removeHintIcon(player)
                 registerHintIcon(player, Location.create(3098, 3107, 0), 125)
                 Component.setUnclosable(
                     player,
-                    player.dialogueInterpreter.sendScrollMessageWithBlueTitle(
+                    player.dialogueInterpreter.sendPlaneMessageWithBlueTitle(
                         "Interacting with scenery",
                         "You can interact with many items of scenery by simply clicking",
                         "on them. Right clicking will also give more options. Feel free to",
                         "try it with the things in this room, then click on the door",
-                        "indicated with the yellow arrow to go though to the next",
-                        "instructor."
+                        "indicated with the yellow arrow to go though to the next<br>instructor.",
                     )
                 )
             }
@@ -394,13 +390,12 @@ object TutorialStage {
                 setVarbit(player, 3756, 14)
                 Component.setUnclosable(
                     player,
-                    player.dialogueInterpreter.sendScrollMessageWithBlueTitle(
+                    player.dialogueInterpreter.sendPlaneMessageWithBlueTitle(
                         "Cooking dough",
                         "Well done! Your first loaf of bread. As you gain experience in",
                         "Cooking, you will be able to make other things like pies, cakes",
                         "and even kebabs. Now you've got the hang of cooking, let's",
-                        "move on. Click on the flashing icon in the bottom right to see",
-                        "the flashing icon in the bottom right to see the Music Player."
+                        "move on. Click on the flashing icon in the bottom right to see<br>the flashing icon in the bottom right to see the Music Player.",
                     )
                 )
             }
@@ -411,13 +406,12 @@ object TutorialStage {
                 registerHintIcon(player, Location.create(3072, 3090, 0), 125)
                 Component.setUnclosable(
                     player,
-                    player.dialogueInterpreter.sendScrollMessageWithBlueTitle(
+                    player.dialogueInterpreter.sendPlaneMessageWithBlueTitle(
                         "The Music Player",
                         "From this interface you can control the music that is played.",
                         "As you explore the world and complete quests, more of the",
                         "tunes will become unlocked. Once you've examined this menu,",
-                        "use the next door to continue. If you need a recap on anything",
-                        "you've learnt so far, speak to the Master Chef."
+                        "use the next door to continue. If you need a recap on anything<br>you've learnt so far, speak to the Master Chef.",
                     )
                 )
             }
@@ -817,13 +811,12 @@ object TutorialStage {
                 removeHintIcon(player)
                 Component.setUnclosable(
                     player,
-                    player.dialogueInterpreter.sendScrollMessageWithBlueTitle(
+                    player.dialogueInterpreter.sendPlaneMessageWithBlueTitle(
                         "You're now holding your dagger.",
                         "Clothes, armour, weapons and many other items are equipped",
                         "like this. You can unequip items by clicking on the item in the",
                         "worn equipment. You can close this window by clicking on the",
-                        "small 'x' in the top-right hand corner. Speak to the Combat",
-                        "Instructor."
+                        "small 'x' in the top-right hand corner. Speak to the Combat<br>Instructor."
                     )
                 )
             }
@@ -833,13 +826,12 @@ object TutorialStage {
                 removeHintIcon(player)
                 Component.setUnclosable(
                     player,
-                    player.dialogueInterpreter.sendScrollMessageWithBlueTitle(
+                    player.dialogueInterpreter.sendPlaneMessageWithBlueTitle(
                         "Unequipping items.",
                         "In your worn inventory panel, right click on the dagger and",
                         "select the remove option from the drop down list. After you've",
                         "unequipped the dagger, wield the sword and shield. As you",
-                        "pass the mouse over an item you will see its name appear at",
-                        "the top left of the screen."
+                        "pass the mouse over an item you will see its name appear at<br>the top left of the screen.",
                     )
                 )
             }
@@ -1189,8 +1181,7 @@ object TutorialStage {
                         "Now you have the runes you should see the Wind Strike icon at the",
                         "top-left of your spellbook, second in from the left. Walk over",
                         "to the caged chickens, click the Wind Strike icon and then",
-                        "select one of the chickens to cast it on. It may take several",
-                        "tries."
+                        "select one of the chickens to cast it on. It may take several<br>tries.",
                     )
                 )
             }
@@ -1216,8 +1207,12 @@ object TutorialStage {
     @JvmStatic
     fun hideTabs(player: Player, login: Boolean) {
         val stage = getAttribute(player, "tutorial:stage", 0)
-        if (login && player.interfaceManager.tabs.isNotEmpty())
-            player.interfaceManager.removeTabs(*(0..13).toIntArray())
+        if (login)
+            player.interfaceManager.removeTabs(0,1,2,3,4,5,6,7,8,9,10,11,12,13)
+        if(stage in 0..2)
+            player.interfaceManager.removeTabs(0,1,2,3,4,5,6,7,8,9,10,11,12,13)
+        if(stage == 39)
+            player.interfaceManager.removeTabs(0,1,2,3,4,5,6,7,8,9,10,11,12,13)
         if (stage > 2)
             player.interfaceManager.openTab(Component(Components.OPTIONS_261))
         if (stage > 5)
@@ -1253,8 +1248,8 @@ object TutorialStage {
 
     private fun updateProgressBar(player: Player) {
         val stage = getAttribute(player, "tutorial:stage", 0)
-        val percent = if (stage == 0) 0 else ((stage.toDouble() / 71.0) * 100.0).toInt()
-        val barPercent = if (stage == 0) 0 else (((percent.toDouble() / 100.0) * 20.0).toInt() + 1)
+        val percent = if (stage == 0 || stage == 39) 0 else ((stage.toDouble() / 71.0) * 100.0).toInt()
+        val barPercent = if (stage == 0 || stage == 39) 0 else (((percent.toDouble() / 100.0) * 20.0).toInt() + 1)
         setVarp(player, 406, barPercent)
         sendString(player, "$percent% Done", 371, 1)
     }
