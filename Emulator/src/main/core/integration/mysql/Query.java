@@ -9,7 +9,7 @@ public class Query {
     private String end;
 
     /**
-     * Instantiates a new Query.
+     * Constructs a new Query.
      */
     public Query() {
         this.start = "";

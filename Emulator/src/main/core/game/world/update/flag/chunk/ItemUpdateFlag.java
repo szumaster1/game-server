@@ -58,8 +58,9 @@ public final class ItemUpdateFlag extends UpdateFlag<Object> {
     /**
      * Constructs a new {@code ItemContext} {@code Object}.
      *
-     * @param item The ground item to update.
-     * @param type The update type.
+     * @param item      The ground item to update.
+     * @param type      The update type.
+     * @param oldAmount the old amount
      */
     public ItemUpdateFlag(GroundItem item, int type, int oldAmount) {
         super(null);

@@ -147,8 +147,9 @@ public final class ZoneMonitor {
     /**
      * Checks if the entity is able to continue attacking the target.
      *
-     * @param target The target.
-     * @param style  The combat style used.
+     * @param target  The target.
+     * @param style   The combat style used.
+     * @param message the message
      * @return {@code True} if so.
      */
     public boolean continueAttack(Node target, CombatStyle style, boolean message) {
@@ -194,6 +195,10 @@ public final class ZoneMonitor {
 
     /**
      * Checks if a zone handles a useWith interaction
+     *
+     * @param used the used
+     * @param with the with
+     * @return the boolean
      */
     public boolean useWith(Item used, Node with) {
         for (RegionZone z : zones) {
@@ -227,8 +232,7 @@ public final class ZoneMonitor {
      * Checks if multiway combat zone rules should be ignored.
      *
      * @param victim The victim.
-     * @return {@code True} if this entity can attack regardless of multiway
-     * combat zone.
+     * @return {@code True} if this entity can attack regardless of multiway combat zone.
      */
     public boolean isIgnoreMultiBoundaries(Entity victim) {
         for (RegionZone z : zones) {
@@ -243,6 +247,7 @@ public final class ZoneMonitor {
      * Checks if the entity can teleport.
      *
      * @param type The teleport type (0=spell, 1=item, 2=object, 3=npc -1= force)
+     * @param node the node
      * @return {@code True} if so.
      */
     public boolean teleport(int type, Node node) {

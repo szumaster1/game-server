@@ -145,6 +145,7 @@ public final class WeaponInterface extends Component {
 
     /**
      * Constructs a new {@code WeaponInterface} {@code Object}.
+     *
      * @param player The player.
      */
     public WeaponInterface(Player player) {
@@ -276,6 +277,7 @@ public final class WeaponInterface extends Component {
 
     /**
      * Sets the current attack style.
+     *
      * @param button The button the player has pressed.
      * @return {@code True} if the attack style got set.
      */
@@ -327,6 +329,7 @@ public final class WeaponInterface extends Component {
 
     /**
      * Gets the autocast tab component id.
+     *
      * @param spellId The spell id.
      * @return The component id for the autocast select tab.
      */
@@ -349,7 +352,8 @@ public final class WeaponInterface extends Component {
 
     /**
      * Selects the current autocast spell.
-     * @param buttonId The button id.
+     *
+     * @param buttonId          The button id.
      * @param adjustAttackStyle If the attack style should be adjusted.
      */
     public void selectAutoSpell(int buttonId, boolean adjustAttackStyle) {
@@ -471,6 +475,7 @@ public final class WeaponInterface extends Component {
 
     /**
      * Checks if the player is currently able to autocast.
+     *
      * @param message If we should notify the player if he's unable to autocast.
      * @return {@code True} if so.
      */
@@ -496,6 +501,8 @@ public final class WeaponInterface extends Component {
 
     /**
      * Gets the current weapon interface id.
+     *
+     * @param weapon the weapon
      * @return The component id.
      */
     public static WeaponInterfaces getWeaponInterface(Item weapon) {
@@ -508,6 +515,7 @@ public final class WeaponInterface extends Component {
 
     /**
      * Represents an attack style.
+     *
      * @author Emperor
      */
     public static class AttackStyle {
@@ -524,7 +532,8 @@ public final class WeaponInterface extends Component {
 
         /**
          * Constructs a new {@code AttackStyle} {@code Object}.
-         * @param style The style type.
+         *
+         * @param style     The style type.
          * @param bonusType The bonus type.
          */
         public AttackStyle(int style, int bonusType) {
@@ -534,6 +543,7 @@ public final class WeaponInterface extends Component {
 
         /**
          * Gets the style.
+         *
          * @return The style.
          */
         public int getStyle() {
@@ -542,6 +552,7 @@ public final class WeaponInterface extends Component {
 
         /**
          * Gets the bonusType.
+         *
          * @return The bonusType.
          */
         public int getBonusType() {
@@ -551,6 +562,7 @@ public final class WeaponInterface extends Component {
 
     /**
      * Represents the weapon interfaces.
+     *
      * @author Emperor
      */
     public static enum WeaponInterfaces {
@@ -699,6 +711,7 @@ public final class WeaponInterface extends Component {
 
         /**
          * Gets the interfaceId.
+         *
          * @return The interfaceId.
          */
         public int getInterfaceId() {
@@ -707,6 +720,7 @@ public final class WeaponInterface extends Component {
 
         /**
          * Gets the attackStyles.
+         *
          * @return The attackStyles.
          */
         public AttackStyle[] getAttackStyles() {
@@ -716,6 +730,7 @@ public final class WeaponInterface extends Component {
 
     /**
      * Gets the currently opened weapon interface.
+     *
      * @return The current weapon interface.
      */
     public WeaponInterfaces getWeaponInterface() {
@@ -724,6 +739,7 @@ public final class WeaponInterface extends Component {
 
     /**
      * If the special bar is enabled.
+     *
      * @return {@code True} if so.
      */
     public boolean isSpecialBar() {

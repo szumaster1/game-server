@@ -72,6 +72,11 @@ public final class Appearance {
         this.player = player;
     }
 
+    /**
+     * Parse.
+     *
+     * @param appearance the appearance
+     */
     public void parse(JSONObject appearance) {
         gender = gender.asByte(Byte.parseByte(appearance.get("gender").toString()));
         JSONArray appCache = (JSONArray) appearance.get("appearance_cache");
@@ -239,6 +244,9 @@ public final class Appearance {
         this.bodyParts[part] = 0;
     }
 
+    /**
+     * Flag hat clipping.
+     */
     public void flagHatClipping() {
         boolean isBald = getHair().getLook() == (isMale() ? 0 : 45);
         int hairLook = isBald ? getHair().getLook() : (isMale() ? 5 : 51);
@@ -338,6 +346,8 @@ public final class Appearance {
 
     /**
      * Rides a mine cart.
+     *
+     * @param ride the ride
      */
     public void rideCart(boolean ride) {
         if (!ride) {
@@ -457,7 +467,7 @@ public final class Appearance {
     /**
      * Method used to set the stand animation.
      *
-     * @param animation
+     * @param animation the animation
      */
     public void setStandAnimation(int animation) {
         animationCache[0] = animation;
@@ -474,6 +484,8 @@ public final class Appearance {
 
     /**
      * Sets the standing turn animation.
+     *
+     * @param animation the animation
      */
     public void setStandTurnAnimation(int animation) {
         animationCache[1] = animation;
@@ -545,7 +557,7 @@ public final class Appearance {
     /**
      * Sets thr turn90cww animation.
      *
-     * @param animation
+     * @param animation the animation
      */
     public void setTurn90ccw(int animation) {
         animationCache[5] = animation;

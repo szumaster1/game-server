@@ -20,7 +20,7 @@ public final class WorldStatistics {
     private final List<String> players = new ArrayList<>(20);
 
     /**
-     * Instantiates a new World statistics.
+     * Constructs a new World statistics.
      *
      * @param id the id - The constructor to initialize WorldStatistics with a specific id
      */

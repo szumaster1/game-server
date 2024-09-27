@@ -40,6 +40,11 @@ public class AchievementDiaryManager {
         this.player = player;
     }
 
+    /**
+     * Parse.
+     *
+     * @param data the data
+     */
     public void parse(JSONArray data) {
         for (int i = 0; i < data.size(); i++) {
             JSONObject diary = (JSONObject) data.get(i);
@@ -76,6 +81,14 @@ public class AchievementDiaryManager {
         getDiary(type).updateTask(player, level, index, complete);
     }
 
+    /**
+     * Finish task.
+     *
+     * @param player the player
+     * @param type   the type
+     * @param level  the level
+     * @param index  the index
+     */
     public void finishTask(Player player, DiaryType type, int level, int index) {
         if (!player.isArtificial()) {
             getDiary(type).finishTask(player, level, index);

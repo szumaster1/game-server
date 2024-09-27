@@ -62,8 +62,7 @@ public final class SQLColumn {
      *
      * @param name        The column name.
      * @param type        The data type.
-     * @param neverUpdate If this column should never be updated in the
-     *                    database.
+     * @param neverUpdate If this column should never be updated in the                    database.
      * @param parse       If the column should be parsed.
      */
     public SQLColumn(String name, Class<?> type, boolean neverUpdate, boolean parse) {

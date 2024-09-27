@@ -40,7 +40,7 @@ public class IoEventHandler {
     /**
      * Used for accepting a new connection.
      *
-     * @param key The selection key.
+     * @param key      The selection key.
      * @param selector The selector.
      * @throws IOException When an I/O exception occurs.
      */
@@ -99,7 +99,7 @@ public class IoEventHandler {
      * Disconnects a connection.
      *
      * @param key The selection key.
-     * @param t The occurred exception (if any).
+     * @param t   The occurred exception (if any).
      */
     public void disconnect(SelectionKey key, Throwable t) {
         try {

@@ -39,6 +39,7 @@ public class IronmanManager {
     /**
      * Checks the restriction.
      *
+     * @param mode the mode
      * @return {@code True} if so.
      */
     public boolean checkRestriction(IronmanMode mode) {

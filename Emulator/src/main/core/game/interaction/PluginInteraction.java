@@ -66,7 +66,7 @@ public abstract class PluginInteraction implements Plugin<Object> {
     }
 
     /**
-     * Instantiates a new Plugin interaction.
+     * Constructs a new Plugin interaction.
      *
      * @param ids the ids
      */
@@ -75,7 +75,7 @@ public abstract class PluginInteraction implements Plugin<Object> {
     }
 
     /**
-     * Instantiates a new Plugin interaction.
+     * Constructs a new Plugin interaction.
      *
      * @param item the item
      */

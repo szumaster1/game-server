@@ -192,6 +192,8 @@ public final class CommunicationInfo {
 
     /**
      * Toggles the loot-share.
+     *
+     * @param player the player
      */
     public void toggleLootshare(final Player player) {
         if (lootShare) {
@@ -219,7 +221,7 @@ public final class CommunicationInfo {
     /**
      * Roar temp
      *
-     * @param buffer
+     * @param buffer the buffer
      */
     public void parsePrevious(ByteBuffer buffer) {
         int size = buffer.get() & 0xFF;
@@ -257,6 +259,7 @@ public final class CommunicationInfo {
     /**
      * Adds a contact.
      *
+     * @param player  the player
      * @param contact The contact to add.
      */
     public static void add(Player player, String contact) {
@@ -296,6 +299,7 @@ public final class CommunicationInfo {
     /**
      * Removes a contact.
      *
+     * @param player  the player
      * @param contact The contact to remove.
      * @param block   If the contact should be removed from the block list.
      */
@@ -337,6 +341,7 @@ public final class CommunicationInfo {
     /**
      * Adds a blocked contact.
      *
+     * @param player  the player
      * @param contact The contact to block.
      */
     public static void block(Player player, String contact) {
@@ -367,6 +372,7 @@ public final class CommunicationInfo {
     /**
      * Updates the clan rank of a certain contact.
      *
+     * @param player   the player
      * @param contact  The contact.
      * @param clanRank The clan rank to set.
      */
@@ -407,7 +413,8 @@ public final class CommunicationInfo {
     /**
      * Checks if the target should be shown as online.
      *
-     * @param name The target's name.
+     * @param player the player
+     * @param name   The target's name.
      * @return {@code True} if so.
      */
     public static boolean showActive(Player player, String name) {
@@ -421,6 +428,7 @@ public final class CommunicationInfo {
     /**
      * Checks if the target should be shown as online.
      *
+     * @param player the player
      * @param target The target.
      * @return {@True} if so.
      */
@@ -607,6 +615,11 @@ public final class CommunicationInfo {
         this.lootShare = lootShare;
     }
 
+    /**
+     * Parse.
+     *
+     * @param accountInfo the account info
+     */
     public void parse(@NotNull UserAccountInfo accountInfo) {
         blocked.addAll(Arrays.asList(accountInfo.getBlocked().split(",")));
         clanName = accountInfo.getClanName();
@@ -623,6 +636,12 @@ public final class CommunicationInfo {
         this.contacts = parseContacts(contacts);
     }
 
+    /**
+     * Parse clan requirements clan rank [ ].
+     *
+     * @param clanReqs the clan reqs
+     * @return the clan rank [ ]
+     */
     public static ClanRank[] parseClanRequirements(String clanReqs) {
         ClanRank[] requirements = new ClanRank[4];
         String[] tokens = clanReqs.split(",");
@@ -657,6 +676,12 @@ public final class CommunicationInfo {
         return requirements;
     }
 
+    /**
+     * Parse contacts hash map.
+     *
+     * @param contacts the contacts
+     * @return the hash map
+     */
     public static HashMap<String, Contact> parseContacts(String contacts) {
         HashMap<String, Contact> theseContacts = new HashMap<>();
         String[] tokens;
@@ -677,6 +702,11 @@ public final class CommunicationInfo {
         return theseContacts;
     }
 
+    /**
+     * Gets contact string.
+     *
+     * @return the contact string
+     */
     public String getContactString() {
         StringBuilder sb = new StringBuilder();
 
@@ -693,6 +723,11 @@ public final class CommunicationInfo {
         return sb.toString();
     }
 
+    /**
+     * Gets blocked string.
+     *
+     * @return the blocked string
+     */
     public String getBlockedString() {
         StringBuilder sb = new StringBuilder();
 
@@ -705,6 +740,11 @@ public final class CommunicationInfo {
         return sb.toString();
     }
 
+    /**
+     * Gets clan req string.
+     *
+     * @return the clan req string
+     */
     public String getClanReqString() {
         return
             joinRequirement.ordinal()

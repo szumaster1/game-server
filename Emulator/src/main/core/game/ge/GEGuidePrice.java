@@ -44,7 +44,7 @@ public final class GEGuidePrice {
         private final int[] childData;
 
         /**
-         * Instantiates a new Guide item.
+         * Constructs a new Guide item.
          *
          * @param item      the item
          * @param childData the child data

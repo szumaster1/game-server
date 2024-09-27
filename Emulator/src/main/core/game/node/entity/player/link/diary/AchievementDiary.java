@@ -136,6 +136,11 @@ public class AchievementDiary {
         }
     }
 
+    /**
+     * Parse.
+     *
+     * @param data the data
+     */
     public void parse(JSONObject data) {
         JSONArray startedArray = (JSONArray) data.get("startedLevels");
         for (int i = 0; i < startedArray.size(); i++) {
@@ -202,6 +207,13 @@ public class AchievementDiary {
         drawStatus(player);
     }
 
+    /**
+     * Finish task.
+     *
+     * @param player the player
+     * @param level  the level
+     * @param index  the index
+     */
     public void finishTask(Player player, int level, int index) {
         if (!this.isComplete(level, index)) {
             this.updateTask(player, level, index, true);
@@ -220,6 +232,10 @@ public class AchievementDiary {
 
     /**
      * Resets a task to un-start
+     *
+     * @param player the player
+     * @param level  the level
+     * @param index  the index
      */
     public void resetTask(Player player, int level, int index) {
         taskCompleted[level][index] = false;
@@ -232,6 +248,12 @@ public class AchievementDiary {
         drawStatus(player);
     }
 
+    /**
+     * Check complete boolean.
+     *
+     * @param level the level
+     * @return the boolean
+     */
     public boolean checkComplete(DiaryLevel level) {
         if (type != DiaryType.LUMBRIDGE && level == DiaryLevel.BEGINNER) {
             return false;
@@ -324,6 +346,13 @@ public class AchievementDiary {
         return true;
     }
 
+    /**
+     * Is complete boolean.
+     *
+     * @param level      the level
+     * @param cumulative the cumulative
+     * @return the boolean
+     */
     public boolean isComplete(int level, boolean cumulative) {
         if (isComplete(level)) {
             return !cumulative || level <= 0 || isComplete(level - 1, true);
@@ -500,6 +529,7 @@ public class AchievementDiary {
      * @param player the player to flag completion for
      * @param type   the DiaryType: LUMBRIDGE, FALADOR, etc.
      * @param level  the diary level. 0-indexed.
+     * @return the boolean
      */
     public static boolean flagRewarded(Player player, DiaryType type, int level) {
         if (level > 0) {

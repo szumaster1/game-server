@@ -32,6 +32,7 @@ public final class SceneryBuilder {
      * @param remove    The object to remove.
      * @param construct The object to add.
      * @param clip      If clipping should be adjusted.
+     * @param permanent the permanent
      * @return {@code True} if successful.
      */
     public static boolean replace(Scenery remove, Scenery construct, boolean clip, boolean permanent) {
@@ -104,6 +105,7 @@ public final class SceneryBuilder {
      * @param remove       The object to remove.
      * @param construct    The object to add.
      * @param restoreTicks The amount of ticks before the object gets restored.
+     * @param clip         the clip
      * @return {@code True} if successful.
      */
     public static boolean replace(Scenery remove, Scenery construct, int restoreTicks, final boolean clip) {
@@ -206,8 +208,8 @@ public final class SceneryBuilder {
      * Adds a scenery.
      *
      * @param object The object to add.
-     * @param ticks  The amount of ticks this object should last for (-1 for
-     *               permanent).
+     * @param ticks  The amount of ticks this object should last for (-1 for               permanent).
+     * @param items  the items
      * @return {@code True} if successful.
      */
     public static Constructed add(Scenery object, int ticks, final GroundItem... items) {
@@ -236,9 +238,9 @@ public final class SceneryBuilder {
      * Removes all objects within a box
      *
      * @param objectId  - the object id to remove
-     * @param southWest
-     * @param northEast
-     * @return
+     * @param southWest the south west
+     * @param northEast the north east
+     * @return boolean
      */
     public static boolean removeAll(int objectId, Location southWest, Location northEast) {
         if (southWest.getX() > northEast.getX() || southWest.getY() > northEast.getY())

@@ -126,6 +126,11 @@ public final class Ammunition {
         return true;
     }
 
+    /**
+     * The entry point of application.
+     *
+     * @param args the input arguments
+     */
     public static void main(String... args) {
         initialize();
     }
@@ -150,6 +155,8 @@ public final class Ammunition {
     }
 
     /**
+     * Gets item id.
+     *
      * @return the itemId
      */
     public int getItemId() {
@@ -157,6 +164,8 @@ public final class Ammunition {
     }
 
     /**
+     * Gets start graphics.
+     *
      * @return the startGraphics
      */
     public Graphic getStartGraphics() {
@@ -164,6 +173,8 @@ public final class Ammunition {
     }
 
     /**
+     * Gets dark bow graphics.
+     *
      * @return the darkBowGraphics
      */
     public Graphic getDarkBowGraphics() {
@@ -171,6 +182,8 @@ public final class Ammunition {
     }
 
     /**
+     * Gets projectile.
+     *
      * @return the projectile
      */
     public Projectile getProjectile() {
@@ -178,6 +191,8 @@ public final class Ammunition {
     }
 
     /**
+     * Gets poison damage.
+     *
      * @return the poisonDamage
      */
     public int getPoisonDamage() {
@@ -194,7 +209,7 @@ public final class Ammunition {
     }
 
     /**
-     * Sets the baeffect.
+     * Sets the effect.
      *
      * @param effect the effect to set.
      */

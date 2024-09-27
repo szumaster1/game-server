@@ -28,11 +28,21 @@ public final class GroundItemManager {
      *
      * @param item     The ground item to create.
      * @param location The location to set the ground item on.
+     * @return the ground item
      */
     public static GroundItem create(Item item, Location location) {
         return create(new GroundItem(item, location, null));
     }
 
+    /**
+     * Create ground item.
+     *
+     * @param item      the item
+     * @param location  the location
+     * @param playerUid the player uid
+     * @param ticks     the ticks
+     * @return the ground item
+     */
     public static GroundItem create(Item item, Location location, int playerUid, int ticks) {
         return create(new GroundItem(item, location, playerUid, ticks));
     }
@@ -42,7 +52,7 @@ public final class GroundItemManager {
      *
      * @param item   the item.
      * @param player the player.
-     * @return
+     * @return ground item
      */
     public static GroundItem create(Item item, final Player player) {
         return create(new GroundItem(item, player.getLocation(), player));
@@ -54,6 +64,7 @@ public final class GroundItemManager {
      * @param item     The ground item to create.
      * @param location The location to set the ground item on.
      * @param player   The player creating the ground item.
+     * @return the ground item
      */
     public static GroundItem create(Item item, Location location, Player player) {
         return create(new GroundItem(item, location, player));
@@ -97,6 +108,7 @@ public final class GroundItemManager {
      * Destroys the ground item.
      *
      * @param item The ground item.
+     * @return the ground item
      */
     public static GroundItem destroy(GroundItem item) {
         if (item == null) {

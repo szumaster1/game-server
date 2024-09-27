@@ -25,6 +25,7 @@ public final class MusicZone implements Zone {
      * Constructs a new {@code MusicZone} {@code Object}.
      *
      * @param musicId The music id.
+     * @param borders the borders
      */
     public MusicZone(int musicId, ZoneBorders borders) {
         this.musicId = musicId;

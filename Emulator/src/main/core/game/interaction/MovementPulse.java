@@ -151,6 +151,14 @@ public abstract class MovementPulse extends Pulse {
         this.destinationFlag = destinationFlag;
     }
 
+    /**
+     * Constructs a new Movement pulse.
+     *
+     * @param mover           the mover
+     * @param destination     the destination
+     * @param destinationFlag the destination flag
+     * @param method          the method
+     */
     public MovementPulse(Entity mover, Node destination, DestinationFlag destinationFlag, Function2<Entity, Node, Location> method) {
         this(mover, destination, null, false);
         this.destinationFlag = destinationFlag;
@@ -273,6 +281,9 @@ public abstract class MovementPulse extends Pulse {
     private boolean usingTruncatedPath = false;
     private boolean isMoveNearSet = false;
 
+    /**
+     * Update path.
+     */
     public void updatePath() {
         if (mover instanceof NPC && mover.asNpc().isNeverWalks()) {
             return;

@@ -268,6 +268,15 @@ public enum Direction {
         return true;
     }
 
+    /**
+     * Can move from boolean.
+     *
+     * @param z                the z
+     * @param x                the x
+     * @param y                the y
+     * @param clipMaskSupplier the clip mask supplier
+     * @return the boolean
+     */
     public boolean canMoveFrom(int z, int x, int y, ClipMaskSupplier clipMaskSupplier) {
         int dx, dy;
         boolean ret = true;

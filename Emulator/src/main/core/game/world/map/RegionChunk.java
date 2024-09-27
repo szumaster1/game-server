@@ -70,6 +70,7 @@ public class RegionChunk {
      *
      * @param base     The base location of the region chunk.
      * @param rotation The rotation.
+     * @param plane    the plane
      */
     public RegionChunk(Location base, int rotation, RegionPlane plane) {
         this.base = base;
@@ -164,6 +165,13 @@ public class RegionChunk {
     }
 
 
+    /**
+     * Draw items array list.
+     *
+     * @param items  the items
+     * @param player the player
+     * @return the array list
+     */
     public ArrayList<GroundItem> drawItems(List<GroundItem> items, Player player) {
         ArrayList<GroundItem> totalItems = items != null ? new ArrayList<GroundItem>(items) : new ArrayList<GroundItem>();
 
@@ -223,6 +231,8 @@ public class RegionChunk {
 
     /**
      * Sends all the update flags.
+     *
+     * @param player the player
      */
     public void update(Player player) {
         if (isUpdated()) {
@@ -441,6 +451,11 @@ public class RegionChunk {
         this.currentBase = currentBase;
     }
 
+    /**
+     * Rebuild flags.
+     *
+     * @param from the from
+     */
     public void rebuildFlags(RegionPlane from) {
         for (int x = 0; x < 8; x++) {
             for (int y = 0; y < 8; y++) {

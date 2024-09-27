@@ -34,7 +34,7 @@ public final class RenderInfo {
     private boolean preparedAppearance;
 
     /**
-     * Instantiates a new Render info.
+     * Constructs a new Render info.
      *
      * @param player the player associated with this RenderInfo
      */

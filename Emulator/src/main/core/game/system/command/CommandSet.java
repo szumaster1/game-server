@@ -62,6 +62,7 @@ public enum CommandSet {
      * Checks if the player can use this set.
      *
      * @param player the player.
+     * @return the boolean
      */
     public boolean validate(final Player player) {
         return true;

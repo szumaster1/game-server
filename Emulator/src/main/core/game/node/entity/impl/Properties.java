@@ -94,6 +94,9 @@ public final class Properties {
      */
     private Animation deathAnimation = new Animation(9055, Animator.Priority.HIGH);
 
+    /**
+     * The Death gfx.
+     */
     public Graphic deathGfx = new Graphic(-1);
 
     /**
@@ -154,7 +157,7 @@ public final class Properties {
     /**
      * Constructs a new {@code Properties} {@code Object}.
      *
-     * @param entity
+     * @param entity the entity
      */
     public Properties(Entity entity) {
         this.entity = entity;
@@ -352,6 +355,7 @@ public final class Properties {
     /**
      * Sets the combatPulse.
      *
+     * @param combatPulse the combat pulse
      * @return The void.
      */
     public void setCombatPulse(CombatPulse combatPulse) {
@@ -452,6 +456,8 @@ public final class Properties {
     }
 
     /**
+     * Gets autocast spell.
+     *
      * @return the autocastSpell.
      */
     public CombatSpell getAutocastSpell() {
@@ -459,6 +465,8 @@ public final class Properties {
     }
 
     /**
+     * Sets autocast spell.
+     *
      * @param autocastSpell the autocastSpell to set.
      */
     public void setAutocastSpell(CombatSpell autocastSpell) {
@@ -466,6 +474,8 @@ public final class Properties {
     }
 
     /**
+     * Gets armour set.
+     *
      * @return the armourSet.
      */
     public ArmourSet getArmourSet() {
@@ -473,6 +483,8 @@ public final class Properties {
     }
 
     /**
+     * Sets armour set.
+     *
      * @param armourSet the armourSet to set.
      */
     public void setArmourSet(ArmourSet armourSet) {

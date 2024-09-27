@@ -22,7 +22,7 @@ class Vector3d {
     var z: Double
 
     /**
-     * Instantiates a new [Vector3d].
+     * Constructs a new [Vector3d].
      *
      * @param x the x
      * @param y the y
@@ -35,7 +35,7 @@ class Vector3d {
     }
 
     /**
-     * Instantiates a new [Vector3d].
+     * Constructs a new [Vector3d].
      *
      * @param t the t
      */
@@ -46,7 +46,7 @@ class Vector3d {
     }
 
     /**
-     * Instantiates a new [Vector3d].
+     * Constructs a new [Vector3d].
      *
      * @param v the v
      */
@@ -57,7 +57,7 @@ class Vector3d {
     }
 
     /**
-     * Instantiates a new [Vector3d].
+     * Constructs a new [Vector3d].
      *
      * @param l the l
      */
@@ -68,7 +68,7 @@ class Vector3d {
     }
 
     /**
-     * Instantiates a new [Vector3d].
+     * Constructs a new [Vector3d].
      */
     constructor() {
         this.x = 0.0

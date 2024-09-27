@@ -48,6 +48,10 @@ public final class ComponentDefinition {
     /**
      * Parses the definition values from a result set.
      *
+     * @param type     the type
+     * @param walkable the walkable
+     * @param tabIndex the tab index
+     * @return the component definition
      * @throws SQLException The exception if thrown.
      */
     public ComponentDefinition parse(String type, String walkable, String tabIndex) {

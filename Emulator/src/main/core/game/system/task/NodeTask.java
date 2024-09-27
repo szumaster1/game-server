@@ -49,8 +49,7 @@ public abstract class NodeTask {
      *
      * @param node The base node.
      * @param n    The other nodes.
-     * @return {@code True} if the pulse (if this is used in a pulse) should
-     * stop.
+     * @return {@code True} if the pulse (if this is used in a pulse) should stop.
      */
     public abstract boolean exec(Node node, Node... n);
 
@@ -70,6 +69,7 @@ public abstract class NodeTask {
      * @param s    The command string.
      * @param node The base node.
      * @param n    The other nodes.
+     * @return the boolean
      */
     public boolean removeFor(String s, Node node, Node... n) {
         return true;

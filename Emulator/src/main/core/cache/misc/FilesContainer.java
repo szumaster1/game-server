@@ -25,6 +25,7 @@ public final class FilesContainer extends Container {
 
     /**
      * Set the files.
+     *
      * @param containers the files.
      */
     public void setFiles(Container[] containers) {
@@ -33,6 +34,7 @@ public final class FilesContainer extends Container {
 
     /**
      * Get the files.
+     *
      * @return the files.
      */
     public Container[] getFiles() {
@@ -41,6 +43,7 @@ public final class FilesContainer extends Container {
 
     /**
      * Set the file indexes.
+     *
      * @param containersIndexes the file indexes.
      */
     public void setFilesIndexes(int[] containersIndexes) {
@@ -49,6 +52,7 @@ public final class FilesContainer extends Container {
 
     /**
      * Get the file indexes.
+     *
      * @return the file indexes.
      */
     public int[] getFilesIndexes() {

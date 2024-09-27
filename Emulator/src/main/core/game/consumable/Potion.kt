@@ -13,7 +13,7 @@ import core.game.node.item.Item
  */
 open class Potion
 /**
- * Instantiates a new Potion.
+ * Constructs a new Potion.
  *
  * @param ids      the ids
  * @param effect   the effect

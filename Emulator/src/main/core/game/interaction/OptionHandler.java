@@ -42,7 +42,8 @@ public abstract class OptionHandler implements Plugin<Object> {
     /**
      * Checks if it needs a walk..
      *
-     * @param node the node.
+     * @param player the player
+     * @param node   the node.
      * @return true if so.
      */
     public boolean isWalk(final Player player, final Node node) {
@@ -63,8 +64,7 @@ public abstract class OptionHandler implements Plugin<Object> {
      *
      * @param n    The moving node.
      * @param node The node to walk to.
-     * @return The custom destination, or {@code null} if we should use the
-     * default destination.
+     * @return The custom destination, or {@code null} if we should use the default destination.
      */
     public Location getDestination(Node n, Node node) {
         return null;

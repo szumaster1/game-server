@@ -58,11 +58,11 @@ public abstract class ActivityPlugin extends MapZone implements Plugin<Player> {
     /**
      * Constructs a new {@code ActivityPlugin} {@code Object}.
      *
-     * @param name        The name.
-     * @param instanced   If the activity is instanced.
-     * @param multicombat If the activity is multicombat.
-     * @param safe        If the activity is safe (the player does not lose his/her
-     *                    items).
+     * @param name         The name.
+     * @param instanced    If the activity is instanced.
+     * @param multicombat  If the activity is multicombat.
+     * @param safe         If the activity is safe (the player does not lose his/her                    items).
+     * @param restrictions the restrictions
      */
     public ActivityPlugin(String name, boolean instanced, boolean multicombat, boolean safe, ZoneRestriction... restrictions) {
         super(name, true, ZoneRestriction.RANDOM_EVENTS);
@@ -179,6 +179,8 @@ public abstract class ActivityPlugin extends MapZone implements Plugin<Player> {
 
     /**
      * Gets the spawn location for this activity.
+     *
+     * @return the spawn location
      */
     public abstract Location getSpawnLocation();
 

@@ -51,6 +51,7 @@ public class NodeList<E extends Node> implements Collection<E>, Iterable<E> {
     /**
      * Gets the index of a Node.
      *
+     * @param node the node
      * @return The index in the list.
      */
     public int indexOf(Node node) {
@@ -207,6 +208,11 @@ public class NodeList<E extends Node> implements Collection<E>, Iterable<E> {
         return size;
     }
 
+    /**
+     * Length int.
+     *
+     * @return the int
+     */
     public int length() {
         return nodes.length;
     }

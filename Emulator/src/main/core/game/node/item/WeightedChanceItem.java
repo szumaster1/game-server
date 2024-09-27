@@ -25,7 +25,7 @@ public class WeightedChanceItem {
     public int weight;
 
     /**
-     * Instantiates a new Weighted chance item.
+     * Constructs a new Weighted chance item.
      *
      * @param id             the id
      * @param minimum_amount the minimum amount
@@ -40,7 +40,7 @@ public class WeightedChanceItem {
     }
 
     /**
-     * Instantiates a new Weighted chance item.
+     * Constructs a new Weighted chance item.
      *
      * @param id     the id
      * @param amount the amount

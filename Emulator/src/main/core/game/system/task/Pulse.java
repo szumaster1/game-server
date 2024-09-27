@@ -66,8 +66,7 @@ public abstract class Pulse implements Runnable {
      * s
      * Called when the world pulses, once every 600ms.
      *
-     * @return {@code True} if this {@code Pulse} is finished and can be removed,
-     * {@code false} if not.
+     * @return {@code True} if this {@code Pulse} is finished and can be removed, {@code false} if not.
      */
     public boolean update() {
         if (hasInactiveNode()) {

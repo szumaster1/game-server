@@ -8,6 +8,7 @@ import core.game.node.Node;
 
 /**
  * Represents a node's definitions.
+ *
  * @param <T> The node type.
  * @author Emperor
  */
@@ -79,6 +80,7 @@ public class Definition<T extends Node> {
     /**
      * Gets a configuration of this item's definitions.
      *
+     * @param <V> the type parameter
      * @param key the key.
      * @return The configuration value.
      */
@@ -90,6 +92,7 @@ public class Definition<T extends Node> {
     /**
      * Gets a configuration from this item's definitions.
      *
+     * @param <V>  the type parameter
      * @param key  the key.
      * @param fail the object to return if there was no value found for this key.
      * @return The value, or the fail object.

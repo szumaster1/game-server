@@ -29,13 +29,13 @@ object TutorialStage {
      */
     fun load(player: Player, stage: Int, login: Boolean = false) {
         if (login) {
-            openOverlay(player, Components.TUTORIAL_PROGRESS_371)
             player.hook(Event.ButtonClicked, TutorialButtonReceiver)
             player.hook(Event.Interacted, TutorialInteractionReceiver)
             player.hook(Event.ResourceProduced, TutorialResourceReceiver)
             player.hook(Event.UsedWith, TutorialUseWithReceiver)
             player.hook(Event.FireLit, TutorialFireReceiver)
             player.hook(Event.NPCKilled, TutorialKillReceiver)
+            openOverlay(player, Components.TUTORIAL_PROGRESS_371)
             player.packetDispatch.sendInterfaceConfig(371, 4, true)
         }
 
@@ -60,8 +60,8 @@ object TutorialStage {
             }
 
             39 -> {
-                hideTabs(player, login)
                 setMinimapState(player, 0)
+                player.interfaceManager.removeTabs(0,1,2,3,4,5,6,7,8,9,10,11,12,13)
                 registerHintIcon(player, Repository.findNPC(NPCs.RUNESCAPE_GUIDE_945)!!)
                 Component.setUnclosable(
                     player, player.dialogueInterpreter.sendPlaneMessageWithBlueTitle(
@@ -76,7 +76,7 @@ object TutorialStage {
 
             1 -> {
                 player.lock()
-                hideTabs(player, login)
+                player.interfaceManager.removeTabs(0,1,2,3,4,5,6,7,8,9,10,11,12,13)
                 player.interfaceManager.openTab(Component(Components.OPTIONS_261))
                 setVarbit(player, 3756, 12)
                 Component.setUnclosable(
@@ -146,6 +146,7 @@ object TutorialStage {
                     player,
                     player.dialogueInterpreter.sendPlaneMessageWithBlueTitle(
                         "Viewing the items that you were given.",
+                        "",
                         "Click on the flashing backpack icon to the right-hand side of the main",
                         "window to view your inventory. Your inventory is a list of everything",
                         "you have in your backpack."
@@ -175,10 +176,10 @@ object TutorialStage {
                     player,
                     player.dialogueInterpreter.sendPlaneMessageWithBlueTitle(
                         "",
-                        "",
                         "Please wait.",
                         "Your character is now attempting to cut down the tree. Sit back for a",
                         "moment while " + (if (player.appearance.isMale) "he" else "she") + " does all the hard work.",
+                        ""
                     )
                 )
             }
@@ -203,10 +204,10 @@ object TutorialStage {
                     player,
                     player.dialogueInterpreter.sendPlaneMessageWithBlueTitle(
                         "",
-                        "",
                         "Please wait.",
                         "Your character is now attempting to light the fire.",
-                        "This should only take a few seconds."
+                        "This should only take a few seconds.",
+                        ""
                     )
                 )
             }
@@ -1217,10 +1218,8 @@ object TutorialStage {
     @JvmStatic
     fun hideTabs(player: Player, login: Boolean) {
         val stage = getAttribute(player, "tutorial:stage", 0)
-        if(login && player.interfaceManager.tabs.isNotEmpty())
-            player.interfaceManager.removeTabs(*(0..13).toIntArray())
-        if(stage == 39)
-            player.interfaceManager.removeTabs(*(0..13).toIntArray())
+        if(login)
+            player.interfaceManager.removeTabs(0,1,2,3,4,5,6,7,8,9,10,11,12,13)
         if (stage > 2)
             player.interfaceManager.openTab(Component(Components.OPTIONS_261))
         if (stage > 5)

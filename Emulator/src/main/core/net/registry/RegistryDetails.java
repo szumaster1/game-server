@@ -33,8 +33,8 @@ public class RegistryDetails {
      *
      * @param username The username to register.
      * @param password The password to register.
-     * @param birth The birth year.
-     * @param country The country code.
+     * @param birth    The birth year.
+     * @param country  The country code.
      */
     public RegistryDetails(String username, String password, Date birth, int country) {
         this.username = username;   // Initialize the username field with the provided username.

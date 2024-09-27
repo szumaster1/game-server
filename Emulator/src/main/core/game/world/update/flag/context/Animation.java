@@ -53,7 +53,7 @@ public class Animation {
      * Constructs a new {@code Animation}.
      *
      * @param id the id.
-     * @return
+     * @return animation
      */
     public static Animation create(int id) {
         return new Animation(id, 0, Priority.MID);
@@ -62,7 +62,8 @@ public class Animation {
     /**
      * Constructs a new {@code Animation} {@code Object}.
      *
-     * @param id The animation id.
+     * @param id       The animation id.
+     * @param priority the priority
      */
     public Animation(int id, Priority priority) {
         this(id, 0, priority);
@@ -81,8 +82,9 @@ public class Animation {
     /**
      * Constructs a new {@code Animation} {@code Object}.
      *
-     * @param id    The animation id.
-     * @param delay The animation delay.
+     * @param id       The animation id.
+     * @param delay    The animation delay.
+     * @param priority the priority
      */
     public Animation(int id, int delay, Priority priority) {
         this.id = id;
@@ -133,13 +135,15 @@ public class Animation {
     /**
      * Sets the id.
      *
-     * @param id
+     * @param id the id
      */
     public void setId(int id) {
         this.id = id;
     }
 
     /**
+     * Gets priority.
+     *
      * @return the priority.
      */
     public Priority getPriority() {

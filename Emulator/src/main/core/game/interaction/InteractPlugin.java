@@ -135,6 +135,7 @@ public class InteractPlugin {
      *
      * @param player The player.
      * @param node   The node to interact with.
+     * @param option the option
      */
     public static void handleInvalidInteraction(final Player player, final Node node, final Option option) {
         if (node == null) {
@@ -296,8 +297,8 @@ public class InteractPlugin {
     /**
      * Removes an option.
      *
-     * @return {@code True} if the option got removed, {@code false} if the
-     * option wasn't set.
+     * @param option the option
+     * @return {@code True} if the option got removed, {@code false} if the option wasn't set.
      */
     public boolean remove(Option option) {
         if (options[option.getIndex()] == option) {

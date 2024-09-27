@@ -13,7 +13,7 @@ public class MusicContext implements Context {
     private boolean secondary;
 
     /**
-     * Instantiates a new Music context.
+     * Constructs a new Music context.
      *
      * @param player  the player
      * @param musicId the music id
@@ -23,7 +23,7 @@ public class MusicContext implements Context {
     }
 
     /**
-     * Instantiates a new Music context.
+     * Constructs a new Music context.
      *
      * @param player    the player
      * @param musicId   the music id

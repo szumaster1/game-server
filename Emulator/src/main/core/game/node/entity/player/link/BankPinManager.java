@@ -38,7 +38,27 @@ public class BankPinManager {
     /**
      * The pin child constants.
      */
-    public static final int SET_PIN = 60, CHANGE_RECOVERY = 61, CHANGE_PIN = 62, DELETE_PIN = 63, CANCEL_PENDING = 65;
+    public static final int SET_PIN = 60,
+
+    /**
+     * The Change recovery.
+     */
+    CHANGE_RECOVERY = 61,
+
+    /**
+     * The Change pin.
+     */
+    CHANGE_PIN = 62,
+
+    /**
+     * The Delete pin.
+     */
+    DELETE_PIN = 63,
+
+    /**
+     * The Cancel pending.
+     */
+    CANCEL_PENDING = 65;
 
     /**
      * The player.
@@ -107,6 +127,8 @@ public class BankPinManager {
 
     /**
      * Constructs a new {@Code BankPinManager} {@Code Object}
+     *
+     * @param player the player
      */
     public BankPinManager(final Player player) {
         this.player = player;
@@ -115,6 +137,11 @@ public class BankPinManager {
         }
     }
 
+    /**
+     * Parse.
+     *
+     * @param data the data
+     */
     public void parse(JSONObject data) {
         if (data.containsKey("pin")) {
             pin = data.get("pin").toString();
@@ -142,6 +169,8 @@ public class BankPinManager {
 
     /**
      * Opens the bank pin settings.
+     *
+     * @param messages the messages
      */
     public void openSettings(String... messages) {
         player.getInterfaceManager().close();
@@ -477,6 +506,8 @@ public class BankPinManager {
 
     /**
      * Cancels the pin.
+     *
+     * @param messages the messages
      */
     public void cancelPin(String... messages) {
         status = PinStatus.NO_PIN;
@@ -717,6 +748,7 @@ public class BankPinManager {
      * Sets the batries.
      *
      * @param tries the tries to set.
+     * @return the tries
      */
     public int setTries(int tries) {
         this.tries = tries;
@@ -744,9 +776,12 @@ public class BankPinManager {
     /**
      * A pin status.
      *
-     * @author Vexia/k
+     * @author Vexia /k
      */
     public enum PinStatus {
+        /**
+         * The No pin.
+         */
         NO_PIN() {
             @Override
             public void draw(BankPinManager manager, Player player) {
@@ -755,6 +790,9 @@ public class BankPinManager {
             }
 
         },
+        /**
+         * The Pending.
+         */
         PENDING() {
             @Override
             public void draw(BankPinManager manager, Player player) {
@@ -778,6 +816,9 @@ public class BankPinManager {
                 return new String[]{"You have requested that a", "PIN be set on your bank", "account. This will take effect", "in another " + days + " day" + (days > 1 ? "s" : "") + ".", "", "If you wish to cancel this", "PIN, please use the button", "on the left."};
             }
         },
+        /**
+         * The Active.
+         */
         ACTIVE() {
             @Override
             public void draw(BankPinManager manager, Player player) {
@@ -795,7 +836,8 @@ public class BankPinManager {
         /**
          * Draws the status on the interface.
          *
-         * @param player the player.
+         * @param manager the manager
+         * @param player  the player.
          */
         public void draw(BankPinManager manager, Player player) {
 
@@ -837,6 +879,7 @@ public class BankPinManager {
         /**
          * Gets the messages to display.
          *
+         * @param manager the manager
          * @return the messages.
          */
         public String[] getMessages(BankPinManager manager) {
@@ -845,10 +888,20 @@ public class BankPinManager {
 
     }
 
+    /**
+     * Gets status.
+     *
+     * @return the status
+     */
     public PinStatus getStatus() {
         return status;
     }
 
+    /**
+     * Gets pending delay.
+     *
+     * @return the pending delay
+     */
     public long getPendingDelay() {
         return pendingDelay;
     }

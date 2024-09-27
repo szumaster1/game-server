@@ -22,7 +22,7 @@ public class VarbitContext implements Context {
     public int value;
 
     /**
-     * Instantiates a new Varbit context.
+     * Constructs a new Varbit context.
      *
      * @param player   the player
      * @param varbitId the varbit id

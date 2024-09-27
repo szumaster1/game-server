@@ -5,6 +5,8 @@ import core.net.packet.IoBuffer;
 
 /**
  * Represents an update flag, which holds the data the update mask uses to write.
+ *
+ * @param <T> the type parameter
  * @author Emperor
  */
 public abstract class UpdateFlag<T> implements Comparable<UpdateFlag<?>> {
@@ -16,6 +18,7 @@ public abstract class UpdateFlag<T> implements Comparable<UpdateFlag<?>> {
 
     /**
      * Constructs a new {@code UpdateFlag} {@code Object}.
+     *
      * @param context The context.
      */
     public UpdateFlag(T context) {
@@ -24,14 +27,16 @@ public abstract class UpdateFlag<T> implements Comparable<UpdateFlag<?>> {
 
     /**
      * Writes the data on the buffer.
+     *
      * @param buffer The buffer.
      */
     public abstract void write(IoBuffer buffer);
 
     /**
      * Writes the data on the buffer.
+     *
      * @param buffer The buffer.
-     * @param e The entity to write for.
+     * @param e      The entity to write for.
      */
     public void writeDynamic(IoBuffer buffer, Entity e) {
         write(buffer);
@@ -39,12 +44,14 @@ public abstract class UpdateFlag<T> implements Comparable<UpdateFlag<?>> {
 
     /**
      * Gets the update mask data for this update flag.
+     *
      * @return The update mask data.
      */
     public abstract int data();
 
     /**
      * The ordinal.
+     *
      * @return The update mask ordinal.
      */
     public abstract int ordinal();
@@ -70,6 +77,7 @@ public abstract class UpdateFlag<T> implements Comparable<UpdateFlag<?>> {
 
     /**
      * Get the context.
+     *
      * @return the context
      */
     public T getContext() {
@@ -77,6 +85,8 @@ public abstract class UpdateFlag<T> implements Comparable<UpdateFlag<?>> {
     }
 
     /**
+     * Sets context.
+     *
      * @param context the context to set
      */
     public void setContext(T context) {

@@ -10,7 +10,7 @@ public class Database {
     private String password;
 
     /**
-     * Instantiates a new Database.
+     * Constructs a new Database.
      *
      * @param host     the host
      * @param name     the name

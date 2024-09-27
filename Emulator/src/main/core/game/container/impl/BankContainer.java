@@ -136,6 +136,11 @@ public final class BankContainer extends Container {
         open = true;
     }
 
+    /**
+     * Open.
+     *
+     * @param player the player
+     */
     public void open(Player player) {
         if (open) {
             return;

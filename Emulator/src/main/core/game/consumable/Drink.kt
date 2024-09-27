@@ -13,7 +13,7 @@ import core.game.world.update.flag.context.Animation
  */
 open class Drink : Consumable {
     /**
-     * Instantiates a new Drink.
+     * Constructs a new Drink.
      *
      * @param ids      the ids
      * @param effect   the effect
@@ -24,7 +24,7 @@ open class Drink : Consumable {
     }
 
     /**
-     * Instantiates a new Drink.
+     * Constructs a new Drink.
      *
      * @param ids       the ids
      * @param effect    the effect

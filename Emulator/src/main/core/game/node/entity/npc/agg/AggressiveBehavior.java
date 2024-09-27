@@ -60,6 +60,7 @@ public class AggressiveBehavior {
      * Checks if the NPC is aggressive towards the entity.
      *
      * @param entity The timed entry.
+     * @param target the target
      * @return {@code True} if the NPC can select the entity as a target.
      */
     public boolean canSelectTarget(Entity entity, Entity target) {
@@ -85,6 +86,11 @@ public class AggressiveBehavior {
         return true;
     }
 
+    /**
+     * Ignore combat level difference boolean.
+     *
+     * @return the boolean
+     */
     public boolean ignoreCombatLevelDifference() {
         return false;
     }

@@ -118,6 +118,8 @@ public class Constructed extends Scenery {
     }
 
     /**
+     * Get items item [ ].
+     *
      * @return the items
      */
     public Item[] getItems() {
@@ -125,6 +127,8 @@ public class Constructed extends Scenery {
     }
 
     /**
+     * Sets items.
+     *
      * @param items the items to set
      */
     public void setItems(Item[] items) {

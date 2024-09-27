@@ -1548,14 +1548,6 @@ class AIPBuilder {
             Item(14604),  //Santa costume legs
 
             Item(14605),  //Santa costume boots
-
-            Item(14812),  //Black partyhat
-
-            Item(14819),  //Rainbow partyhat
-
-            Item(14873),  //Black santa hat
-
-            Item(14874) //Inverted santa hat
         )
     )
 

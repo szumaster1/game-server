@@ -5,7 +5,13 @@ package core.game.node.entity.player.link.appearance;
  * @author Vexia
  */
 public enum Gender {
+    /**
+     * The Male.
+     */
     MALE(new BodyPart[]{new BodyPart(0), new BodyPart(10), new BodyPart(18), new BodyPart(26), new BodyPart(33), new BodyPart(36), new BodyPart(42)}),
+    /**
+     * The Female.
+     */
     FEMALE(new BodyPart[]{new BodyPart(45), new BodyPart(1000), new BodyPart(56), new BodyPart(61), new BodyPart(68), new BodyPart(70), new BodyPart(79)});
 
     /**

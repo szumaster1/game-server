@@ -100,6 +100,7 @@ public final class BattleState {
     /**
      * Constructs a new {@code BattleState} {@Code Object}
      *
+     * @param entity the entity
      * @param victim The victim entity.
      */
     public BattleState(Entity entity, Entity victim) {
@@ -120,6 +121,8 @@ public final class BattleState {
     }
 
     /**
+     * Gets victim.
+     *
      * @return the victim.
      */
     public Entity getVictim() {
@@ -127,6 +130,8 @@ public final class BattleState {
     }
 
     /**
+     * Sets victim.
+     *
      * @param victim the victim to set.
      */
     public void setVictim(Entity victim) {
@@ -152,6 +157,8 @@ public final class BattleState {
     }
 
     /**
+     * Gets secondary hit.
+     *
      * @return the secondaryHit.
      */
     public int getSecondaryHit() {
@@ -159,6 +166,8 @@ public final class BattleState {
     }
 
     /**
+     * Sets secondary hit.
+     *
      * @param secondaryHit the secondaryHit to set.
      */
     public void setSecondaryHit(int secondaryHit) {
@@ -184,6 +193,8 @@ public final class BattleState {
     }
 
     /**
+     * Get targets battle state.
+     *
      * @return the targets.
      */
     public BattleState[] getTargets() {
@@ -191,6 +202,8 @@ public final class BattleState {
     }
 
     /**
+     * Sets targets.
+     *
      * @param targets the targets to set.
      */
     public void setTargets(BattleState[] targets) {
@@ -198,6 +211,8 @@ public final class BattleState {
     }
 
     /**
+     * Gets poison damage.
+     *
      * @return the poisonDamage.
      */
     public int getPoisonDamage() {
@@ -205,6 +220,8 @@ public final class BattleState {
     }
 
     /**
+     * Sets poison damage.
+     *
      * @param poisonDamage the poisonDamage to set.
      */
     public void setPoisonDamage(int poisonDamage) {
@@ -212,6 +229,8 @@ public final class BattleState {
     }
 
     /**
+     * Gets weapon.
+     *
      * @return the weapon.
      */
     public Weapon getWeapon() {
@@ -219,6 +238,8 @@ public final class BattleState {
     }
 
     /**
+     * Sets weapon.
+     *
      * @param weapon the weapon to set.
      */
     public void setWeapon(Weapon weapon) {
@@ -226,6 +247,8 @@ public final class BattleState {
     }
 
     /**
+     * Gets spell.
+     *
      * @return the spell.
      */
     public CombatSpell getSpell() {
@@ -233,6 +256,8 @@ public final class BattleState {
     }
 
     /**
+     * Sets spell.
+     *
      * @param spell the spell to set.
      */
     public void setSpell(CombatSpell spell) {
@@ -356,6 +381,11 @@ public final class BattleState {
         return entity;
     }
 
+    /**
+     * Gets total damage.
+     *
+     * @return the total damage
+     */
     public int getTotalDamage() {
         int hit = Math.max(estimatedHit, 0) + Math.max(secondaryHit, 0);
 

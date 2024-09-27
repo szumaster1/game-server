@@ -144,6 +144,13 @@ public final class RegionPlane {
         return chunks[chunkX][chunkY] = new RegionChunk(region.getBaseLocation().transform(chunkX << 3, chunkY << 3, plane), 0, this);
     }
 
+    /**
+     * Sets region chunk.
+     *
+     * @param chunkX the chunk x
+     * @param chunkY the chunk y
+     * @param chunk  the chunk
+     */
     public void setRegionChunk(int chunkX, int chunkY, RegionChunk chunk) {
         chunks[chunkX][chunkY] = chunk;
     }
@@ -210,6 +217,11 @@ public final class RegionPlane {
         return objects;
     }
 
+    /**
+     * Gets object list.
+     *
+     * @return the object list
+     */
     public List<Scenery> getObjectList() {
         ArrayList<Scenery> list = new ArrayList();
         for (int x = 0; x < REGION_SIZE; x++) {
@@ -346,6 +358,11 @@ public final class RegionPlane {
         return npcs;
     }
 
+    /**
+     * Gets entities.
+     *
+     * @return the entities
+     */
     public List<Node> getEntities() {
         List<Node> entities = new ArrayList<>(npcs);
         Arrays.stream(getObjects()).forEach(o -> entities.addAll(Arrays.asList(o)));

@@ -4,8 +4,9 @@ import core.game.node.entity.player.Player;
 
 /**
  * Represents a plugin.
- * @author Emperor
+ *
  * @param <T> The argument type.
+ * @author Emperor
  */
 public interface Plugin<T> {
 

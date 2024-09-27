@@ -51,6 +51,8 @@ public class Component {
 
     /**
      * Opens the component.
+     *
+     * @param player the player
      */
     public void open(Player player) {
         InterfaceManager manager = player.getInterfaceManager();
@@ -119,6 +121,7 @@ public class Component {
      * Sets the closeEvent.
      *
      * @param closeEvent The closeEvent to set.
+     * @return the close event
      */
     public Component setCloseEvent(CloseEvent closeEvent) {
         this.closeEvent = closeEvent;
@@ -128,6 +131,7 @@ public class Component {
     /**
      * Sets the component unclosable.
      *
+     * @param p the p
      * @param c The component.
      */
     public static void setUnclosable(Player p, Component c) {

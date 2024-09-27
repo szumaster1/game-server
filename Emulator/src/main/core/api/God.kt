@@ -6,9 +6,6 @@ import org.rs.consts.Items
  * Item represents different gods in the game.
  */
 enum class God(vararg val validItems: Int) {
-    /**
-     * The armadyl.
-     */
     ARMADYL(
         Items.ARMADYL_CHESTPLATE_11720,
         Items.ARMADYL_GODSWORD_11694,
@@ -18,10 +15,6 @@ enum class God(vararg val validItems: Int) {
         Items.ARMADYL_PENDANT_87,
         Items.ARMADYL_PLATESKIRT_11722,
     ),
-
-    /**
-     * The bandos.
-     */
     BANDOS(
         Items.ANCIENT_MACE_11061,
         Items.BANDOS_BOOTS_11728,
@@ -29,10 +22,6 @@ enum class God(vararg val validItems: Int) {
         Items.BANDOS_GODSWORD_11696,
         Items.BANDOS_TASSETS_11726,
     ),
-
-    /**
-     * The saradomin.
-     */
     SARADOMIN(
         Items.ANCIENT_SYMBOL_11181,
         Items.GILDED_KITESHIELD_3489,
@@ -66,10 +55,6 @@ enum class God(vararg val validItems: Int) {
         Items.SARADOMIN_SYMBOL_8055,
         Items.STEEL_HERALDIC_HELM_8706,
     ),
-
-    /**
-     * The zamorak.
-     */
     ZAMORAK(
         Items.DAGONHAI_HAT_14499,
         Items.DAGONHAI_ROBE_TOP_14497,
@@ -107,10 +92,6 @@ enum class God(vararg val validItems: Int) {
         Items.ZAMORAK_STOLE_10474,
         Items.ZAMORAK_SYMBOL_8056,
     ),
-
-    /**
-     * The guthix.
-     */
     GUTHIX(
         Items.STEEL_HERALDIC_HELM_8692,
         Items.RUNE_HERALDIC_HELM_8474,
@@ -142,10 +123,6 @@ enum class God(vararg val validItems: Int) {
         Items.GUTHIX_STOLE_10472,
         Items.GUTHIX_SYMBOL_8057
     ),
-
-    /**
-     * The zaros.
-     */
     ZAROS(
         Items.ANCIENT_STAFF_13406,
         Items.ANCIENT_STAFF_4675,

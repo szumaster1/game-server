@@ -49,6 +49,11 @@ public final class QuestRepository {
         }
     }
 
+    /**
+     * Parse.
+     *
+     * @param questData the quest data
+     */
     public void parse(JSONObject questData) {
         points = Integer.parseInt(questData.get("points").toString());
         JSONArray questArray = (JSONArray) questData.get("questStages");
@@ -293,6 +298,11 @@ public final class QuestRepository {
         return QUESTS;
     }
 
+    /**
+     * Gets quest list.
+     *
+     * @return the quest list
+     */
     public Map<Integer, Integer> getQuestList() {
         return quests;
     }

@@ -44,6 +44,14 @@ public class BuildRegionChunk extends RegionChunk {
         this.objects = new Scenery[ARRAY_SIZE][8][8];
     }
 
+    /**
+     * Constructs a new Build region chunk.
+     *
+     * @param base     the base
+     * @param rotation the rotation
+     * @param plane    the plane
+     * @param objects  the objects
+     */
     public BuildRegionChunk(Location base, int rotation, RegionPlane plane, Scenery[][] objects) {
         this(base, rotation, plane);
         for (int x = 0; x < SIZE; x++) {
@@ -285,6 +293,7 @@ public class BuildRegionChunk extends RegionChunk {
      * @param x        The x-coordinate on the region chunk.
      * @param y        The y-coordinate on the region chunk.
      * @param objectId The object id.
+     * @return the index
      */
     public int getIndex(int x, int y, int objectId) {
         for (int i = 0; i < objects.length; i++) {

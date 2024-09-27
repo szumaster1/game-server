@@ -142,8 +142,14 @@ public class NPC extends Entity {
      */
     private String forceTalk;
 
+    /**
+     * The Behavior.
+     */
     public NPCBehavior behavior;
 
+    /**
+     * The Is respawning.
+     */
     public boolean isRespawning = false;
 
     /**
@@ -158,8 +164,9 @@ public class NPC extends Entity {
     /**
      * Constructs a new {@code NPC} {@code Object}.
      *
-     * @param id       The NPC id.
-     * @param location The location.
+     * @param id        The NPC id.
+     * @param location  The location.
+     * @param direction the direction
      */
     protected NPC(int id, Location location, Direction direction) {
         super(NPCDefinition.forId(id).getName(), location);
@@ -208,6 +215,7 @@ public class NPC extends Entity {
      *
      * @param id       the id.
      * @param location the location.
+     * @param objects  the objects
      * @return the npc object.
      */
     public static NPC create(int id, Location location, Object... objects) {
@@ -539,6 +547,9 @@ public class NPC extends Entity {
         nextWalk = GameWorld.getTicks() + 5 + RandomFunction.randomize(10);
     }
 
+    /**
+     * Reset walk.
+     */
     public void resetWalk() {
         nextWalk = GameWorld.getTicks() - 1;
         getWalkingQueue().reset();
@@ -590,6 +601,11 @@ public class NPC extends Entity {
         setRespawnTick(GameWorld.getTicks() + definition.getConfiguration(NPCConfigParser.RESPAWN_DELAY, 17));
     }
 
+    /**
+     * Sets respawn ticks.
+     *
+     * @param ticks the ticks
+     */
     public void setRespawnTicks(int ticks) {
         definition.getHandlers().put(NPCConfigParser.RESPAWN_DELAY, ticks);
     }
@@ -689,6 +705,7 @@ public class NPC extends Entity {
      * Method used to check if the NPC can attack the victim. This method is
      * used for aggressive behavior.
      *
+     * @param victim the victim
      * @return <code>True</code> if so.
      */
     public boolean canAttack(final Entity victim) {
@@ -720,6 +737,7 @@ public class NPC extends Entity {
      * Transforms this NPC.
      *
      * @param id The new NPC id.
+     * @return the npc
      */
     public NPC transform(int id) {
         this.id = id;
@@ -865,7 +883,7 @@ public class NPC extends Entity {
     /**
      * Sets the name.
      *
-     * @param @name
+     * @param name the name
      */
     public void setName(String name) {
         this.name = name;
@@ -881,6 +899,8 @@ public class NPC extends Entity {
     }
 
     /**
+     * Is respawn boolean.
+     *
      * @return the respawn.
      */
     public boolean isRespawn() {
@@ -888,6 +908,8 @@ public class NPC extends Entity {
     }
 
     /**
+     * Sets respawn.
+     *
      * @param respawn the respawn to set.
      */
     public void setRespawn(boolean respawn) {
@@ -923,6 +945,8 @@ public class NPC extends Entity {
 
     /**
      * Sets the dialoguePlayer.
+     *
+     * @param dialoguePlayer the dialogue player
      */
     public void setDialoguePlayer(Player dialoguePlayer) {
         this.dialoguePlayer = dialoguePlayer;

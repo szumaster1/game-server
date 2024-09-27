@@ -52,9 +52,9 @@ public final class ByteBufferUtils {
     /**
      * Decodes the XTEA encryption.
      *
-     * @param keys the keys.
-     * @param start the start index.
-     * @param end the end index.
+     * @param keys   the keys.
+     * @param start  the start index.
+     * @param end    the end index.
      * @param buffer the byte buffer.
      */
     public static void decodeXTEA(int[] keys, int start, int end, ByteBuffer buffer) {
@@ -82,8 +82,8 @@ public final class ByteBufferUtils {
      * Converts a String to an Integer?
      *
      * @param position the position.
-     * @param buffer the buffer used.
-     * @param string the String to convert.
+     * @param buffer   the buffer used.
+     * @param string   the String to convert.
      * @return the integer.
      */
     public static int packGJString2(int position, byte[] buffer, String string) {
@@ -151,7 +151,7 @@ public final class ByteBufferUtils {
      * Writes an object on the buffer.
      *
      * @param buffer the buffer to write on.
-     * @param obj the object.
+     * @param obj    the object.
      */
     public static void putObject(ByteBuffer buffer, Object obj) {
         ByteBuffer b;

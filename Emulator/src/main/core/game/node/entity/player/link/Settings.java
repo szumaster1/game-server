@@ -308,8 +308,7 @@ public final class Settings {
      * Drains an amount of special attack energy.
      *
      * @param amount The amount to drain.
-     * @return {@code True} if succesful, {@code false} if the special attack
-     * energy amount hasn't changed after calling this method.
+     * @return {@code True} if succesful, {@code false} if the special attack energy amount hasn't changed after calling this method.
      */
     public boolean drainSpecial(int amount) {
         if (!specialToggled) {
@@ -393,6 +392,8 @@ public final class Settings {
     /**
      * Toggles the run button.
      * If the run button should be enabled.
+     *
+     * @param enabled the enabled
      */
     public void setRunToggled(boolean enabled) {
         runToggled = enabled;
@@ -669,6 +670,8 @@ public final class Settings {
     }
 
     /**
+     * Gets run energy.
+     *
      * @return the runEnergy
      */
     public double getRunEnergy() {
@@ -676,6 +679,8 @@ public final class Settings {
     }
 
     /**
+     * Sets run energy.
+     *
      * @param runEnergy the runEnergy to set
      */
     public void setRunEnergy(double runEnergy) {

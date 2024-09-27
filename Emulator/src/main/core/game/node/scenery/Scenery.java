@@ -107,6 +107,14 @@ public class Scenery extends Node {
         this(id, location, 10, rotation);
     }
 
+    /**
+     * Constructs a new Scenery.
+     *
+     * @param id        the id
+     * @param location  the location
+     * @param rotation  the rotation
+     * @param direction the direction
+     */
     public Scenery(int id, Location location, int rotation, Direction direction) {
         this(id, location, 10, rotation);
     }
@@ -172,6 +180,11 @@ public class Scenery extends Node {
         }
     }
 
+    /**
+     * Constructs a new Scenery.
+     *
+     * @param other the other
+     */
     public Scenery(Scenery other) {
         this(other.getId(), other.getLocation(), other.getType(), other.getRotation());
     }
@@ -326,6 +339,8 @@ public class Scenery extends Node {
     }
 
     /**
+     * Gets type.
+     *
      * @return the type
      */
     public int getType() {
@@ -333,12 +348,19 @@ public class Scenery extends Node {
     }
 
     /**
+     * Gets rotation.
+     *
      * @return the rotation
      */
     public int getRotation() {
         return rotation;
     }
 
+    /**
+     * Sets rotation.
+     *
+     * @param rot the rot
+     */
     public void setRotation(int rot) {
         rotation = rot;
     }
@@ -434,6 +456,8 @@ public class Scenery extends Node {
     }
 
     /**
+     * Gets attributes.
+     *
      * @return the attributes.
      */
     public GameAttributes getAttributes() {
@@ -470,6 +494,11 @@ public class Scenery extends Node {
         this.wrapper = wrapper;
     }
 
+    /**
+     * Gets occupied tiles.
+     *
+     * @return the occupied tiles
+     */
     @SuppressWarnings("SuspiciousNameCombination")
     @NotNull
     public List<Location> getOccupiedTiles() {

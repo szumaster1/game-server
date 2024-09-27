@@ -165,6 +165,7 @@ public class Projectile {
     /**
      * Creates a new projectile.
      *
+     * @param start        the start
      * @param destination  The victim.
      * @param projectileId The projectile's gfx id;
      * @param startHeight  The starting height.
@@ -277,7 +278,7 @@ public class Projectile {
      *
      * @param source    the source.
      * @param targetLoc the target location.
-     * @return
+     * @return speed
      */
     public static int getSpeed(Entity source, Location targetLoc) {
         return (int) (46 + (getLocation(source).getDistance(targetLoc) * 5));
@@ -419,6 +420,8 @@ public class Projectile {
     }
 
     /**
+     * Sets source.
+     *
      * @param source The source node.
      */
     public void setSource(Entity source) {
@@ -426,6 +429,8 @@ public class Projectile {
     }
 
     /**
+     * Gets source.
+     *
      * @return The source node.
      */
     public Entity getSource() {
@@ -433,6 +438,8 @@ public class Projectile {
     }
 
     /**
+     * Sets source location.
+     *
      * @param sourceLocation the sourceLocation to set
      */
     public void setSourceLocation(Location sourceLocation) {
@@ -440,6 +447,8 @@ public class Projectile {
     }
 
     /**
+     * Gets source location.
+     *
      * @return the sourceLocation
      */
     public Location getSourceLocation() {
@@ -447,6 +456,8 @@ public class Projectile {
     }
 
     /**
+     * Sets victim.
+     *
      * @param victim The entity victim.
      */
     public void setVictim(Entity victim) {
@@ -454,6 +465,8 @@ public class Projectile {
     }
 
     /**
+     * Gets victim.
+     *
      * @return The entity victim.
      */
     public Entity getVictim() {
@@ -461,6 +474,8 @@ public class Projectile {
     }
 
     /**
+     * Sets projectile id.
+     *
      * @param projectileId the projectileId to set
      */
     public void setProjectileId(int projectileId) {
@@ -468,6 +483,8 @@ public class Projectile {
     }
 
     /**
+     * Gets projectile id.
+     *
      * @return the projectileId
      */
     public int getProjectileId() {
@@ -475,6 +492,8 @@ public class Projectile {
     }
 
     /**
+     * Sets start height.
+     *
      * @param startHeight the startHeight to set
      */
     public void setStartHeight(int startHeight) {
@@ -482,6 +501,8 @@ public class Projectile {
     }
 
     /**
+     * Gets start height.
+     *
      * @return the startHeight
      */
     public int getStartHeight() {
@@ -489,6 +510,8 @@ public class Projectile {
     }
 
     /**
+     * Sets end height.
+     *
      * @param endHeight the endHeight to set
      */
     public void setEndHeight(int endHeight) {
@@ -496,6 +519,8 @@ public class Projectile {
     }
 
     /**
+     * Gets end height.
+     *
      * @return the endHeight
      */
     public int getEndHeight() {
@@ -503,6 +528,8 @@ public class Projectile {
     }
 
     /**
+     * Sets start delay.
+     *
      * @param delay the delay to set
      */
     public void setStartDelay(int delay) {
@@ -510,6 +537,8 @@ public class Projectile {
     }
 
     /**
+     * Gets start delay.
+     *
      * @return the start delay.
      */
     public int getStartDelay() {
@@ -517,6 +546,8 @@ public class Projectile {
     }
 
     /**
+     * Sets speed.
+     *
      * @param speed the speed to set
      */
     public void setSpeed(int speed) {
@@ -524,6 +555,8 @@ public class Projectile {
     }
 
     /**
+     * Gets speed.
+     *
      * @return the speed
      */
     public int getSpeed() {
@@ -531,6 +564,8 @@ public class Projectile {
     }
 
     /**
+     * Sets angle.
+     *
      * @param angle the angle to set
      */
     public void setAngle(int angle) {
@@ -538,6 +573,8 @@ public class Projectile {
     }
 
     /**
+     * Gets angle.
+     *
      * @return the angle
      */
     public int getAngle() {
@@ -545,6 +582,8 @@ public class Projectile {
     }
 
     /**
+     * Sets distance.
+     *
      * @param distance the distance to set
      */
     public void setDistance(int distance) {
@@ -552,6 +591,8 @@ public class Projectile {
     }
 
     /**
+     * Gets distance.
+     *
      * @return the distance
      */
     public int getDistance() {
@@ -568,6 +609,8 @@ public class Projectile {
     }
 
     /**
+     * Gets end location.
+     *
      * @return the endLocation
      */
     public Location getEndLocation() {
@@ -575,6 +618,8 @@ public class Projectile {
     }
 
     /**
+     * Sets end location.
+     *
      * @param endLocation the endLocation to set
      */
     public void setEndLocation(Location endLocation) {

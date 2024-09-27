@@ -10,6 +10,8 @@ import core.game.world.update.flag.context.Animation;
 
 /**
  * Pulse class specifically used for Skills.
+ *
+ * @param <T> the type parameter
  * @author Emperor
  */
 public abstract class SkillPulse<T extends Node> extends Pulse {

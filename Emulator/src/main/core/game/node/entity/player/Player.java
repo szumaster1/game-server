@@ -270,7 +270,7 @@ public class Player extends Entity {
     public int invalidPacketCount = 0;
 
     /**
-     * Instantiates a new Player.
+     * Constructs a new Player.
      *
      * @param details the details
      */

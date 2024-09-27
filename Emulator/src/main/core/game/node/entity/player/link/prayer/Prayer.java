@@ -44,6 +44,8 @@ public final class Prayer {
 
     /**
      * Constructs a new {@code Prayer} {@code Object}.
+     *
+     * @param player the player
      */
     public Prayer(Player player) {
         this.player = player;
@@ -53,6 +55,7 @@ public final class Prayer {
      * Method used to toggle a prayer.
      *
      * @param type the type of prayer.
+     * @return the boolean
      */
     public final boolean toggle(final PrayerType type) {
         if (!permitted(type)) {

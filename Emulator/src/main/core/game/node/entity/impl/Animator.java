@@ -173,6 +173,8 @@ public final class Animator {
     }
 
     /**
+     * Gets animation.
+     *
      * @return the animation.
      */
     public Animation getAnimation() {
@@ -180,6 +182,8 @@ public final class Animator {
     }
 
     /**
+     * Sets animation.
+     *
      * @param animation the animation to set.
      */
     public void setAnimation(Animation animation) {
@@ -187,6 +191,8 @@ public final class Animator {
     }
 
     /**
+     * Gets graphics.
+     *
      * @return the graphics.
      */
     public Graphic getGraphics() {
@@ -194,6 +200,8 @@ public final class Animator {
     }
 
     /**
+     * Sets graphics.
+     *
      * @param graphics the graphics to set.
      */
     public void setGraphics(Graphic graphics) {

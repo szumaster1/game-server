@@ -79,7 +79,7 @@ public abstract class Metamorphosis extends OptionHandler {
     /**
      * Gets a random npc id.
      *
-     * @return
+     * @return random npc id
      */
     public int getRandomNpcId() {
         int i = RandomFunction.getRandom(getIds().length - 1);

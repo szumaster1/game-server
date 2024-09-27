@@ -47,6 +47,11 @@ public final class BodyPart {
         this(look, 0);
     }
 
+    /**
+     * Parse.
+     *
+     * @param part the part
+     */
     public void parse(JSONObject part) {
         changeLook(Integer.parseInt(part.get("look").toString()));
         changeColor(Integer.parseInt(part.get("color").toString()));

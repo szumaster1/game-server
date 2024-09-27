@@ -66,8 +66,7 @@ public final class Location extends Node {
      * @param x          The x-coordinate.
      * @param y          The y coordinate.
      * @param z          The z-coordinate.
-     * @param randomizer The amount we should randomize the x and y coordinates
-     *                   with (x + random(randomizer), y + random(randomizer)).
+     * @param randomizer The amount we should randomize the x and y coordinates                   with (x + random(randomizer), y + random(randomizer)).
      */
     public Location(int x, int y, int z, int randomizer) {
         this(x + RandomFunction.getRandom(randomizer), y + RandomFunction.getRandom(randomizer), z);
@@ -85,6 +84,13 @@ public final class Location extends Node {
         return new Location(x, y, z);
     }
 
+    /**
+     * Create location.
+     *
+     * @param x the x
+     * @param y the y
+     * @return the location
+     */
     public static Location create(int x, int y) {
         return new Location(x, y, 0);
     }
@@ -145,8 +151,7 @@ public final class Location extends Node {
      * size 1x1).
      *
      * @param node The node to check.
-     * @return {@code True} if this location is 1 tile north, west, south or
-     * east of the node location.
+     * @return {@code True} if this location is 1 tile north, west, south or east of the node location.
      */
     public boolean isNextTo(Node node) {
         Location l = node.getLocation();
@@ -171,6 +176,7 @@ public final class Location extends Node {
     /**
      * Compares the users region with the one given
      *
+     * @param region the region
      * @return True if user is in given region
      */
     public boolean isInRegion(int region) {
@@ -293,6 +299,8 @@ public final class Location extends Node {
 
     /**
      * Gets the 8 tiles surrounding this location as an ArrayList<Location>
+     *
+     * @return the surrounding tiles
      */
     public ArrayList<Location> getSurroundingTiles() {
         ArrayList<Location> locs = new ArrayList<>();
@@ -309,6 +317,11 @@ public final class Location extends Node {
         return locs;
     }
 
+    /**
+     * Gets cardinal tiles.
+     *
+     * @return the cardinal tiles
+     */
     public ArrayList<Location> getCardinalTiles() {
         ArrayList<Location> locs = new ArrayList<>();
 
@@ -321,6 +334,8 @@ public final class Location extends Node {
 
     /**
      * Gets a square of 3 x 3 tiles as an ArrayList<Location>
+     *
+     * @return the 3 x 3 tiles
      */
     public ArrayList<Location> get3x3Tiles() {
         ArrayList<Location> locs = new ArrayList<>();
@@ -485,6 +500,12 @@ public final class Location extends Node {
         return "[" + x + ", " + y + ", " + z + "]";
     }
 
+    /**
+     * From string location.
+     *
+     * @param locString the loc string
+     * @return the location
+     */
     public static Location fromString(String locString) {
         String trimmed = locString.replace("[", "").replace("]", "");
         String[] tokens = trimmed.split(",");
@@ -554,6 +575,12 @@ public final class Location extends Node {
         this.z = z;
     }
 
+    /**
+     * Gets step components.
+     *
+     * @param dir the dir
+     * @return the step components
+     */
     @NotNull
     public List<Location> getStepComponents(Direction dir) {
         List<Location> output = new ArrayList<>(2);
@@ -565,6 +592,12 @@ public final class Location extends Node {
         return output;
     }
 
+    /**
+     * Derive direction direction.
+     *
+     * @param location the location
+     * @return the direction
+     */
     public Direction deriveDirection(Location location) {
         int diffX = location.x - this.x;
         int diffY = location.y - this.y;
@@ -595,6 +628,12 @@ public final class Location extends Node {
         return Direction.valueOf(sb.toString());
     }
 
+    /**
+     * Transform location.
+     *
+     * @param vector the vector
+     * @return the location
+     */
     public Location transform(Vector vector) {
         return Location.create(this.x + (int) Math.floor(vector.getX()), this.y + (int) Math.floor(vector.getY()));
     }

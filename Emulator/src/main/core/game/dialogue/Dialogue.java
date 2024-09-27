@@ -82,13 +82,11 @@ public abstract class Dialogue implements Plugin<Player> {
     /**
      * The NPC the player is talking with.
      */
-
     protected NPC npc;
 
     /**
      * The current dialogue stage.
      */
-
     public int stage;
 
     /**
@@ -97,7 +95,7 @@ public abstract class Dialogue implements Plugin<Player> {
     protected boolean finished;
 
     /**
-     * Instantiates a new Dialogue.
+     * Constructs a new Dialogue.
      */
     public Dialogue() {
         /*
@@ -116,7 +114,7 @@ public abstract class Dialogue implements Plugin<Player> {
     }
 
     /**
-     * Instantiates a new Dialogue.
+     * Constructs a new Dialogue.
      *
      * @param player the player
      */
@@ -223,7 +221,6 @@ public abstract class Dialogue implements Plugin<Player> {
      * @param args The arguments.
      * @return {@code True} if the dialogue plugin succesfully opened.
      */
-
     public boolean open(Object... args) {
         player.getDialogueInterpreter().activeTopics.clear();
         if (args.length > 0 && args[0] instanceof NPC) {
@@ -241,6 +238,8 @@ public abstract class Dialogue implements Plugin<Player> {
     /**
      * Handles the progress of this dialogue..
      *
+     * @param interfaceId the interface id
+     * @param buttonId    the button id
      * @return {@code True} if the dialogue has started.
      */
     public abstract boolean handle(int interfaceId, int buttonId);
@@ -250,7 +249,6 @@ public abstract class Dialogue implements Plugin<Player> {
      *
      * @return The array of NPC ids.
      */
-
     public abstract int[] getIds();
 
     /**
@@ -269,10 +267,10 @@ public abstract class Dialogue implements Plugin<Player> {
     /**
      * Method wrapper to send an npc dial.
      *
-     * @param id the id.
+     * @param id       the id.
+     * @param messages the messages
      * @return the component.
      */
-
     public Component npc(int id, final String... messages) {
         return interpreter.sendDialogues(id, FacialExpression.FRIENDLY, messages);
     }
@@ -290,9 +288,10 @@ public abstract class Dialogue implements Plugin<Player> {
     /**
      * Method wrapper to send an npc dial.
      *
+     * @param expression the expression
+     * @param messages   the messages
      * @return the component.
      */
-
     public Component npc(FacialExpression expression, final String... messages) {
         if (npc == null) {
             return interpreter.sendDialogues(getIds()[0], expression, messages);
@@ -303,9 +302,9 @@ public abstract class Dialogue implements Plugin<Player> {
     /**
      * Method wrapper to send a player dial.
      *
+     * @param messages the messages
      * @return the component.
      */
-
     public Component player(final String... messages) {
         return interpreter.sendDialogues(player, null, messages);
     }
@@ -313,9 +312,10 @@ public abstract class Dialogue implements Plugin<Player> {
     /**
      * Method wrapper to send a player dial.
      *
+     * @param expression the expression
+     * @param messages   the messages
      * @return the component.
      */
-
     public Component player(FacialExpression expression, final String... messages) {
         return interpreter.sendDialogues(player, expression, messages);
     }
@@ -325,7 +325,6 @@ public abstract class Dialogue implements Plugin<Player> {
      *
      * @param options the options.
      */
-
     public void options(final String... options) {
         interpreter.sendOptions("Select an Option", options);
     }
@@ -411,8 +410,8 @@ public abstract class Dialogue implements Plugin<Player> {
      *
      * @param expr the FacialExpression to use, located in the FacialExpression enum.
      * @param msg  the message for the NPC to say.
+     * @return the component
      */
-
     public Component npcl(FacialExpression expr, String msg) {
         return npc(expr, splitLines(msg, 54));
     }
@@ -422,6 +421,7 @@ public abstract class Dialogue implements Plugin<Player> {
      *
      * @param expr the FacialExpression to use, located in the FacialExpression enum.
      * @param msg  the message for the player to say.
+     * @return the component
      */
     public Component playerl(FacialExpression expr, String msg) {
         return player(expr, splitLines(msg, 54));

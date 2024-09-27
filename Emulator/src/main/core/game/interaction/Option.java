@@ -28,11 +28,20 @@ public final class Option {
      * The player trade option.
      */
     public static final Option _P_TRADE = new Option("Trade with", 3);
+    /**
+     * The constant _P_GIVETO.
+     */
     public static final Option _P_GIVETO = new Option("Give-to", 3);
 
+    /**
+     * The constant _P_PICKPOCKET.
+     */
     public static final Option _P_PICKPOCKET = new Option("Pickpocket", 4);
 
 
+    /**
+     * The constant _P_EXAMINE.
+     */
     public static final Option _P_EXAMINE = new Option("Examine", 7);
 
     /**

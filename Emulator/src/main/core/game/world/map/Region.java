@@ -158,6 +158,11 @@ public class Region {
         }
     }
 
+    /**
+     * Remove
+     *
+     * @param zone the zone.
+     */
     public void remove(RegionZone zone) {
         regionZones.remove(zone);
         for (RegionPlane plane : planes) {
@@ -216,6 +221,9 @@ public class Region {
 
     /**
      * Checks if player is tolerated by enemies in this region
+     *
+     * @param player the player
+     * @return the boolean
      */
     public boolean isTolerated(Player player) {
         return System.currentTimeMillis() - tolerances.getOrDefault(player.getUsername(), System.currentTimeMillis()) > TimeUnit.MINUTES.toMillis(10);
@@ -282,6 +290,12 @@ public class Region {
         }
     }
 
+    /**
+     * Flag inactive boolean.
+     *
+     * @param force the force
+     * @return the boolean
+     */
     public boolean flagInactive(boolean force) {
         if (unload(this, force)) {
             active = false;
@@ -293,6 +307,8 @@ public class Region {
 
     /**
      * Flags the region as inactive.
+     *
+     * @return the boolean
      */
     public boolean flagInactive() {
         return flagInactive(false);
@@ -361,6 +377,12 @@ public class Region {
         }
     }
 
+    /**
+     * Unload boolean.
+     *
+     * @param r the r
+     * @return the boolean
+     */
     public static boolean unload(Region r) {
         return unload(r, false);
     }
@@ -368,7 +390,9 @@ public class Region {
     /**
      * Unloads a region.
      *
-     * @param r The region.
+     * @param r     The region.
+     * @param force the force
+     * @return the boolean
      */
     public static boolean unload(Region r, boolean force) {
         if (!force && r.isViewed()) {
@@ -447,8 +471,7 @@ public class Region {
      * Sets the active.
      *
      * @param active The active to set.
-     * @deprecated This should not be used, instead use the {@link #flagInactive()},
-     * {@link #flagActive()} & {@link #checkInactive()} methods to safely change the activity state.
+     * @deprecated This should not be used, instead use the {@link #flagInactive()}, {@link #flagActive()} & {@link #checkInactive()} methods to safely change the activity state.
      */
     @Deprecated
     public void setActive(boolean active) {
@@ -502,6 +525,8 @@ public class Region {
 
     /**
      * Sets the region-wide music track.
+     *
+     * @param music the music
      */
     public void setMusic(MusicEntry music) {
         this.music = music;

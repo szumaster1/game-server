@@ -27,6 +27,9 @@ public class HitMark {
      */
     private final Entity entity;
 
+    /**
+     * The Show health bar.
+     */
     public boolean showHealthBar = true;
 
     /**
@@ -42,6 +45,14 @@ public class HitMark {
         this.entity = entity;
     }
 
+    /**
+     * Constructs a new Hit mark.
+     *
+     * @param damage        the damage
+     * @param type          the type
+     * @param entity        the entity
+     * @param showHealthBar the show health bar
+     */
     public HitMark(int damage, int type, Entity entity, boolean showHealthBar) {
         this.damage = damage;
         this.type = type;
@@ -68,6 +79,8 @@ public class HitMark {
     }
 
     /**
+     * Gets entity.
+     *
      * @return the entity.
      */
     public Entity getEntity() {

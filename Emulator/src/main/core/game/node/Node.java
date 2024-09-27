@@ -137,6 +137,11 @@ public abstract class Node {
         return location.transform(offset, offset, 0);
     }
 
+    /**
+     * Gets mathematical center.
+     *
+     * @return the mathematical center
+     */
     public Vector getMathematicalCenter() {
         Location topRight = location.transform(size - 1, size - 1, 0);
         double x = ((double) location.getX() + (double) topRight.getX()) / 2.0;
@@ -144,6 +149,12 @@ public abstract class Node {
         return new Vector(x, y);
     }
 
+    /**
+     * Gets face location.
+     *
+     * @param fromLoc the from loc
+     * @return the face location
+     */
     public Location getFaceLocation(Location fromLoc) {
         Vector center = getMathematicalCenter();
         Vector fromVec = new Vector((double) fromLoc.getX(), (double) fromLoc.getY());
