@@ -8,6 +8,7 @@ import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
+import org.rs.consts.QuestName
 
 /**
  * Represents the Sigmund dialogue.
@@ -22,11 +23,11 @@ class SigmundDialogue(player: Player? = null): Dialogue(player) {
 
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
-        if (isQuestComplete(player, "Fremennik Trials")) {
+        if (isQuestComplete(player, QuestName.THE_FREMENNIK_TRIALS)) {
             playerl(FacialExpression.HAPPY, "Hello there!")
             stage = 50
             return true
-        } else if (!player.questRepository.hasStarted("Fremennik Trials")) {
+        } else if (!player.questRepository.hasStarted(QuestName.THE_FREMENNIK_TRIALS)) {
             playerl(FacialExpression.HAPPY, "Hello there!")
             stage = 60
             return true

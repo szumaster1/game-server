@@ -6,14 +6,15 @@ import org.rs.consts.Items
 import core.game.component.Component
 import core.game.dialogue.DialogueFile
 import core.tools.END_DIALOGUE
+import org.rs.consts.QuestName
 
 /**
  * Represents the King narnode monkey madness dialogue.
  */
-class KingNarnodeMonkeyMadnessDialogue : DialogueFile() {
+class KingNarnodeMMDialogue : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {
-        when (getQuestStage(player!!, "Monkey Madness")) {
+        when (getQuestStage(player!!, QuestName.MONKEY_MADNESS)) {
             0 -> {
                 when(stage){
                     0 -> npcl("Adventurer! It is good to see you again!").also { stage++ }
@@ -46,7 +47,7 @@ class KingNarnodeMonkeyMadnessDialogue : DialogueFile() {
                     19 -> npcl("Thank you very much. You may need this Royal Seal to identify yourself as my envoy.").also { stage++ }
                     20 -> npcl("Please report to me as soon as you have any information.").also { stage++ }
                     21 -> end().also {
-                        startQuest(player!!, "Monkey Madness")
+                        startQuest(player!!, QuestName.MONKEY_MADNESS)
                         setAttribute(player!!, "/save:MonkeyMadnessPuzzleSolved", false)
 
                         val interfaceId = Components.QUEST_COMPLETE_SCROLL_277
@@ -89,7 +90,7 @@ class KingNarnodeMonkeyMadnessDialogue : DialogueFile() {
                     }
                     12 -> playerl("Where will I find Daero?").also { stage++ }
                     13 -> npcl("You will find him attending to business somewhere on the Grand Tree.").also {
-                        setQuestStage(player!!, "Monkey Madness", 20)
+                        setQuestStage(player!!, QuestName.MONKEY_MADNESS, 20)
                         stage = END_DIALOGUE
                     }
                 }
@@ -113,7 +114,7 @@ class KingNarnodeMonkeyMadnessDialogue : DialogueFile() {
                     14 -> sendItemDialogue(player!!, arrayOf(Items.DIAMOND_1601, Items.COINS_617), "King Narnode hands you a huge stack of old coins and several diamonds!").also {
                         addItemOrDrop(player!!, Items.DIAMOND_1601, 3)
                         addItemOrDrop(player!!, Items.COINS_617, 10000)
-                        finishQuest(player!!, "Monkey Madness")
+                        finishQuest(player!!, QuestName.MONKEY_MADNESS)
                         stage = 99
                     }
                     99 -> end()

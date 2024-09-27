@@ -1,19 +1,20 @@
 package content.region.fremennik.rellekka.quest.viking
 
 import core.api.*
-import org.rs.consts.Components
-import org.rs.consts.Items
-import org.rs.consts.Vars
 import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.quest.Quest
 import core.game.node.entity.skill.Skills
 import core.plugin.Initializable
+import org.rs.consts.Components
+import org.rs.consts.Items
+import org.rs.consts.QuestName
+import org.rs.consts.Vars
 
 /**
  * Fremennik trials quest.
  */
 @Initializable
-class FremennikTrials : Quest("Fremennik Trials", 64, 63, 3, Vars.VARP_QUEST_FREMENNIK_TRIALS_PROGRESS, 0, 1, 10) {
+class FremennikTrials : Quest(QuestName.THE_FREMENNIK_TRIALS, 64, 63, 3, Vars.VARP_QUEST_FREMENNIK_TRIALS_PROGRESS, 0, 1, 10) {
 
     class SkillRequirement(val skill: Int?, val level: Int?)
 
@@ -22,7 +23,7 @@ class FremennikTrials : Quest("Fremennik Trials", 64, 63, 3, Vars.VARP_QUEST_FRE
     override fun drawJournal(player: Player, stage: Int) {
         super.drawJournal(player, stage)
         var line = 11
-        val started = getQuestStage(player, "Fremennik Trials") > 0
+        val started = getQuestStage(player, QuestName.THE_FREMENNIK_TRIALS) > 0
 
         if (!started) {
             line(player, "Requirements to complete quest:", line++)
@@ -30,7 +31,7 @@ class FremennikTrials : Quest("Fremennik Trials", 64, 63, 3, Vars.VARP_QUEST_FRE
             line(player, "Level 40 Woodcutting", line++, getStatLevel(player, Skills.WOODCUTTING) >= 40)
             line(player, "Level 40 Crafting", line++, getStatLevel(player, Skills.CRAFTING) >= 40)
             line(player, "Level 25 Fletching", line++, getStatLevel(player, Skills.FLETCHING) >= 25)
-            line(player, "I must also be able to defeat a !!level 69 enemy?? and must", line++, player.properties.combatLevel >= 89)
+            line(player, "I must also be able to defeat a !!level 69 enemy?? and must", line++)
             line(player, "not be afraid of !!combat without any weapons or armour.", line++)
             line += 1
             line(player, "I can start this quest by speaking to !!Chieftan Brundt?? on", line++)

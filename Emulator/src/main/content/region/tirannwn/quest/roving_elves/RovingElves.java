@@ -4,6 +4,7 @@ import content.region.tirannwn.quest.roving_elves.dialogue.ElunedDialogue;
 import content.region.tirannwn.quest.roving_elves.dialogue.IslwynDialogue;
 import content.region.tirannwn.quest.roving_elves.handlers.RovingElvesObstacles;
 import content.region.tirannwn.quest.roving_elves.handlers.MossGiantNPC;
+import org.rs.consts.QuestName;
 import org.rs.consts.Vars;
 import content.region.tirannwn.quest.roving_elves.handlers.RovingElvesPlugin;
 import core.game.node.entity.player.Player;
@@ -25,7 +26,7 @@ public class RovingElves extends Quest {
     public static final Item CRYSTAL_SEED = new Item(4207);
 
     public RovingElves() {
-        super("Roving Elves", 105, 104, 1, Vars.VARP_QUEST_ROVING_ELVES_PROGRESS, 0, 1, 6);
+        super(QuestName.ROVING_ELVES, 105, 104, 1, Vars.VARP_QUEST_ROVING_ELVES_PROGRESS, 0, 1, 6);
     }
 
     @Override

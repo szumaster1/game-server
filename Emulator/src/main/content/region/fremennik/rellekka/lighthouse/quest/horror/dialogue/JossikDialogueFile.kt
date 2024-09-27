@@ -1,23 +1,28 @@
 package content.region.fremennik.rellekka.lighthouse.quest.horror.dialogue
 
-import org.rs.consts.NPCs
-import content.region.fremennik.rellekka.lighthouse.quest.horror.cutscene.DagannothCutscene
-import content.region.fremennik.rellekka.lighthouse.quest.horror.cutscene.DagannothBossCutscene
+import content.region.fremennik.rellekka.lighthouse.quest.horror.handlers.DagannothBossCutscene
+import content.region.fremennik.rellekka.lighthouse.quest.horror.handlers.DagannothCutscene
 import core.api.getQuestStage
 import core.api.sendMessage
 import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC
+import org.rs.consts.NPCs
+import org.rs.consts.QuestName
 
 /**
- * Represents the Jossik dialogue file related to Horror from the deep quest.
+ * Represents the Jossik dialogue.
+ *
+ * Related to **Horror from the deep** quest.
  */
 class JossikDialogueFile : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {
         npc = NPC(NPCs.JOSSIK_1335)
-        when (getQuestStage(player!!, "Horror from the Deep")) {
-            // Talk to Jossik in Lighthouse basement after passing the strange wall.
+        when (getQuestStage(player!!, QuestName.HORROR_FROM_THE_DEEP)) {
+            /*
+             * Talk to Jossik in Lighthouse basement after passing the strange wall.
+             */
             55 -> when (stage) {
                 0 -> npc(FacialExpression.SCARED, "*cough*", "Please...please help me...", "I think my leg is broken and those creatures will be", "back any minute now!").also { stage++ }
                 1 -> player(FacialExpression.STRUGGLE, "I guess you're Jossik then...", "What creatures are you talking about?").also { stage++ }
@@ -39,7 +44,9 @@ class JossikDialogueFile : DialogueFile() {
                     sendMessage(player!!, "You are too busy to talk to Jossik.")
                 }
             }
-            // Talk After killing the Daggonoth Babys.
+            /*
+             * Talk After killing the Daggonoth Babys.
+             */
             60 -> when (stage) {
                 0 -> player(FacialExpression.FRIENDLY, "Okay, now that the creature's dead we can get you out", "of here.").also { stage++ }
                 1 -> npc(FacialExpression.SCARED, "No... you do not understand...").also { stage++ }

@@ -3,6 +3,7 @@ package content.region.karamja.apeatoll.quest.mm.dialogue
 import core.api.setQuestStage
 import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression
+import org.rs.consts.QuestName
 
 /**
  * Represents the Garkor dialogue.
@@ -18,7 +19,7 @@ class GarkorDialogue: DialogueFile() {
             4 -> npcl(FacialExpression.NEUTRAL, "You must win his trust if we are to succeed.").also { stage++ }
             5 -> {
                 end()
-                setQuestStage(player!!, "Monkey Madness", 35)
+                setQuestStage(player!!, QuestName.MONKEY_MADNESS, 35)
             }
         }
     }

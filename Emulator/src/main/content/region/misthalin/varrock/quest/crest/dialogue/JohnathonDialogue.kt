@@ -1,13 +1,14 @@
 package content.region.misthalin.varrock.quest.crest.dialogue
 
-import org.rs.consts.Items
-import org.rs.consts.NPCs
+import content.region.misthalin.varrock.quest.crest.handlers.SwapGauntletsHelper
 import core.api.getAttribute
 import core.game.dialogue.Dialogue
 import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
-import content.region.misthalin.varrock.quest.crest.handlers.SwapGauntletsHelper
+import org.rs.consts.Items
+import org.rs.consts.NPCs
+import org.rs.consts.QuestName
 
 /**
  * Represents the Johnathon dialogue.
@@ -17,7 +18,7 @@ class JohnathonDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any?): Boolean {
         npc = (args[0] as NPC).getShownNPC(player)
-        val qstage = player?.questRepository?.getStage("Family Crest") ?: -1
+        val qstage = player?.questRepository?.getStage(QuestName.FAMILY_CREST) ?: -1
         if (qstage == 100) {
             options("Can you change my gauntlets for me?", "Nevermind").also { stage = 6000 }
             return true
@@ -42,14 +43,14 @@ class JohnathonDialogue(player: Player? = null) : Dialogue(player) {
             3 -> npc("The... poison... it is all... ", "too much... My head... ", "will not... stop spinning...").also { stage++ }
             4 -> sendDialogue("Sweat is pouring down Jonathons' face.").also {
                 stage = 1000
-                player.questRepository.getQuest("Family Crest").setStage(player, 17)
+                player.questRepository.getQuest(QuestName.FAMILY_CREST).setStage(player, 17)
             }
             100 -> npc("Ooooh... thank you... Wow! ", "I'm feeling a lot better now! ", "That potion really seems to have done the trick!").also { stage++ }
             101 -> npc("How can I reward you?").also { stage++ }
             102 -> player("I've come here for your piece of the Fitzharmon family crest.").also { stage++ }
             103 -> npc("You have? Unfortunately I don't have it any more... ", "in my attempts to slay the fiendish Chronozon, the blood demon, ", "I lost a lot of equipment in our last battle when he ", "bested me and forced me away from his den. He probably still has it now.").also {
                 stage = 200
-                player.questRepository.getQuest("Family Crest").setStage(player, 19)
+                player.questRepository.getQuest(QuestName.FAMILY_CREST).setStage(player, 19)
             }
 
             200 -> options("So is this Chronozon hard to defeat?", "Where can I find Chronozon?", "So how did you end up getting poisoned?", "I will be on my way now.").also { stage++ }

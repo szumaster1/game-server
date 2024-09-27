@@ -2,8 +2,6 @@ package content.region.kandarin.catherby.dialogue
 
 import core.ServerStore
 import core.api.*
-import org.rs.consts.Items
-import org.rs.consts.NPCs
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression
 import core.game.dialogue.IfTopic
@@ -14,6 +12,8 @@ import core.game.node.item.Item
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 import core.tools.StringUtils
+import org.rs.consts.Items
+import org.rs.consts.NPCs
 import org.rs.consts.QuestName
 
 /**
@@ -48,14 +48,7 @@ class ArheinDialogue(player: Player? = null) : Dialogue(player) {
         )
         if (removeItem(player, Item(Items.COINS_995, realamount * price), Container.INVENTORY)) {
             if (addItem(player, requestedItem, realamount, Container.INVENTORY)) {
-                ServerStore.addNPCItemAmount(
-                    NPCs.ARHEIN_563,
-                    requestedItem,
-                    limits.getOrDefault(requestedItem, 0),
-                    player,
-                    realamount,
-                    period
-                )
+                ServerStore.addNPCItemAmount(NPCs.ARHEIN_563, requestedItem, limits.getOrDefault(requestedItem, 0), player, realamount, period)
                 return realamount
             }
         }
@@ -64,8 +57,7 @@ class ArheinDialogue(player: Player? = null) : Dialogue(player) {
 
     fun selectGoods(requestedItem: Int) {
         this.goods = requestedItem
-        this.stock =
-            ServerStore.getNPCItemStock(NPCs.ARHEIN_563, this.goods, limits.getOrDefault(this.goods, 0), player, period)
+        this.stock = ServerStore.getNPCItemStock(NPCs.ARHEIN_563, this.goods, limits.getOrDefault(this.goods, 0), player, period)
     }
 
     override fun open(vararg args: Any?): Boolean {

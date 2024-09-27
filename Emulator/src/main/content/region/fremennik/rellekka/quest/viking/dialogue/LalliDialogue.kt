@@ -9,6 +9,7 @@ import core.game.node.entity.player.Player
 import core.game.node.item.Item
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
+import org.rs.consts.QuestName
 
 /**
  * Represents the Lalli dialogue.
@@ -19,7 +20,7 @@ class LalliDialogue(player: Player? = null): Dialogue(player) {
     override fun open(vararg args: Any): Boolean {
         player?.let {
             println(it.getAttribute("lalliEatStew", false))
-            if (it.questRepository.isComplete("Fremennik Trials")) {
+            if (it.questRepository.isComplete(QuestName.THE_FREMENNIK_TRIALS)) {
                 playerl(FacialExpression.NEUTRAL, "Hello there.")
                 stage = 100
                 return true
@@ -49,12 +50,12 @@ class LalliDialogue(player: Player? = null): Dialogue(player) {
                 stage = 50
                 return true
             }
-            if (player.questRepository.isComplete("Fremennik Trials")) {
+            if (player.questRepository.isComplete(QuestName.THE_FREMENNIK_TRIALS)) {
                 playerl(FacialExpression.HAPPY, "Hello there.")
                 stage = 100
                 return true
             }
-            if (it.questRepository.getStage("Fremennik Trials") > 0) {
+            if (it.questRepository.getStage(QuestName.THE_FREMENNIK_TRIALS) > 0) {
                 player("Hello there.").also { stage = 0; return true }
             }
         }

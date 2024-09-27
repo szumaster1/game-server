@@ -1,4 +1,4 @@
-package content.region.desert.alkharid.shantaypass.dialogue
+package content.region.desert.alkharid.dialogue
 
 import org.rs.consts.Items
 import org.rs.consts.NPCs

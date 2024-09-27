@@ -1,13 +1,13 @@
 package content.region.misthalin.quest.anma.dialogue
 
-import content.region.misthalin.quest.anma.AnimalMagnetism
-import org.rs.consts.NPCs
 import core.api.openNpcShop
 import core.game.dialogue.Dialogue
 import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.quest.Quest
 import core.tools.END_DIALOGUE
+import org.rs.consts.NPCs
+import org.rs.consts.QuestName
 
 /**
  * Represents the Alice dialogue.
@@ -18,7 +18,7 @@ class AliceDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
-        quest = player.getQuestRepository().getQuest(AnimalMagnetism.questName)
+        quest = player.getQuestRepository().getQuest(QuestName.ANIMAL_MAGNETISM)
         when (quest!!.getStage(player)) {
             10, 11, 12, 13, 14, 15, 16, 17, 18 -> options("What are you selling?", "I'm okay, thank you.", "I'm here about a quest.")
             else -> options("What are you selling?", "I'm okay, thank you.")

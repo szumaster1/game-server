@@ -29,6 +29,7 @@ import core.net.packet.context.CameraContext.CameraType;
 import core.net.packet.context.MinimapStateContext;
 import core.net.packet.outgoing.CameraViewPacket;
 import core.net.packet.outgoing.MinimapState;
+import org.rs.consts.QuestName;
 
 import static core.api.ContentAPIKt.*;
 
@@ -114,7 +115,7 @@ public final class DemonSlayerCutscene extends CutscenePlugin {
             return true;
         }
         final Player player = ((Player) entity);
-        final Quest quest = player.getQuestRepository().getQuest("Demon Slayer");
+        final Quest quest = player.getQuestRepository().getQuest(QuestName.DEMON_SLAYER);
         boolean in = player.getAttribute("demon-slayer:cutscene", false);
         if (quest.getStage(player) == 30 && !in && (player.getEquipment().containsItem(DemonSlayerUtils.SILVERLIGHT) || player.getInventory().containsItem(DemonSlayerUtils.SILVERLIGHT))) {
             ActivityManager.start(player, "Demon Slayer Cutscene", false);
@@ -386,7 +387,7 @@ public final class DemonSlayerCutscene extends CutscenePlugin {
                             cutscene.end();
                             cutscene.delrith.clear();
                             setVarp(player, 222, 5653570, true);
-                            player.getQuestRepository().getQuest("Demon Slayer").finish(player);
+                            player.getQuestRepository().getQuest(QuestName.DEMON_SLAYER).finish(player);
                             end();
                             return true;
                         }

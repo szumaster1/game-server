@@ -10,6 +10,7 @@ import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
+import org.rs.consts.QuestName
 
 /**
  * Represents the Mord Gunnars dialogue.
@@ -37,7 +38,7 @@ class MordGunnarsDialogue(player: Player? = null): Dialogue(player) {
 
             2 -> {
                 end()
-                if (!requireQuest(player, "Fremennik Trials", "")) {
+                if (!requireQuest(player, QuestName.THE_FREMENNIK_TRIALS, "")) {
                     return true
                 } else {
                     WaterbirthTravel.sail(player, if (npc.id == NPCs.MORD_GUNNARS_5481) TravelDestination.RELLEKKA_TO_JATIZSO else TravelDestination.JATIZSO_TO_RELLEKKA)

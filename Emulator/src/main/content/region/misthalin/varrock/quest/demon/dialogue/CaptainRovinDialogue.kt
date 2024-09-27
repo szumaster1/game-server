@@ -1,6 +1,5 @@
 package content.region.misthalin.varrock.quest.demon.dialogue
 
-import org.rs.consts.NPCs
 import content.region.misthalin.varrock.quest.demon.handlers.DemonSlayerUtils
 import core.api.freeSlots
 import core.api.inBank
@@ -10,6 +9,8 @@ import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.quest.Quest
+import org.rs.consts.NPCs
+import org.rs.consts.QuestName
 
 /**
  * Represents the Captain Rovin dialogue.
@@ -20,7 +21,7 @@ class CaptainRovinDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
-        quest = player.getQuestRepository().getQuest("Demon Slayer")
+        quest = player.getQuestRepository().getQuest(QuestName.DEMON_SLAYER)
         when (quest!!.getStage(player)) {
             else -> {
                 npc(FacialExpression.HALF_GUILTY, "What are you doing up here? Only the palace guards", "are allowed up here.")

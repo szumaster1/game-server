@@ -3,6 +3,7 @@ package content.region.karamja.apeatoll.quest.mm.dialogue
 import core.api.setQuestStage
 import core.game.dialogue.DialogueFile
 import core.tools.END_DIALOGUE
+import org.rs.consts.QuestName
 
 /**
  * Represents the G.L.O. Caranock dialogue.
@@ -22,7 +23,7 @@ class GLOCaranockDialogue : DialogueFile() {
             8 -> playerl("They were to oversee the decommission of the shipyard.").also { stage++ }
             9 -> npcl("Decommission the shipyard ... I see. Well, we have had some seriously strong southerly winds of late. They may have been blown off course during flight.").also { stage++ }
             10 -> npcl("I shall see personally to the decommission. You should report to the king immediately.").also {
-                setQuestStage(player!!, "Monkey Madness", 11)
+                setQuestStage(player!!, QuestName.MONKEY_MADNESS, 11)
                 stage = END_DIALOGUE
             }
         }

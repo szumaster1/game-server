@@ -1,7 +1,6 @@
 package content.region.karamja.apeatoll.quest.mm.dialogue
 
 import content.region.kandarin.quest.grandtree.dialogue.ShipyardWorkerDialogue
-import org.rs.consts.Items
 import core.api.getQuestStage
 import core.api.sendItemDialogue
 import core.game.dialogue.DialogueFile
@@ -10,14 +9,16 @@ import core.game.node.item.Item
 import core.game.node.scenery.Scenery
 import core.game.world.map.Location
 import core.tools.END_DIALOGUE
+import org.rs.consts.Items
+import org.rs.consts.QuestName
 
 /**
  * Represents the Shipyard worker monkey madness dialogue.
  */
-class ShipyardWorkerMonkeyMadnessDialogue : DialogueFile() {
+class ShipyardWorkerMMDialogue : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {
-        when (getQuestStage(player!!, "Monkey Madness")) {
+        when (getQuestStage(player!!, QuestName.MONKEY_MADNESS)) {
             0 -> ShipyardWorkerDialogue()
             10 -> when (stage) {
                 0 -> npcl("Hey you! What are you up to?").also { stage++ }

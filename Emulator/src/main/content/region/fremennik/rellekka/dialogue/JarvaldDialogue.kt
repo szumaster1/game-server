@@ -13,6 +13,7 @@ import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.game.node.item.Item
 import core.tools.END_DIALOGUE
+import org.rs.consts.QuestName
 
 /**
  * Represents the Jarvald dialogue.
@@ -61,10 +62,10 @@ class JarvaldDialogue(player: Player? = null) : Dialogue(player) {
             }
             32 -> options("YES", "NO").also { stage++ }
             33 -> when (buttonId) {
-                1 -> if (!isQuestComplete(player, "Fremennik Trials") && !player.inventory.contains(995, 1000)) {
+                1 -> if (!isQuestComplete(player, QuestName.THE_FREMENNIK_TRIALS) && !player.inventory.contains(995, 1000)) {
                     player("Sorry, I don't have enough coins.").also { stage = END_DIALOGUE }
 
-                } else if (!isQuestComplete(player, "Fremennik Trials") && player.inventory.remove(Item(995, 1000))) {
+                } else if (!isQuestComplete(player, QuestName.THE_FREMENNIK_TRIALS) && player.inventory.remove(Item(995, 1000))) {
                     end()
                     sail(player, TravelDestination.RELLEKKA_TO_WATERBIRTH)
                     npcl(FacialExpression.FRIENDLY, "I suggest you head to the cave with some urgency outerlander, the cold air out here might be too much for the likes of you...")
@@ -103,7 +104,7 @@ class JarvaldDialogue(player: Player? = null) : Dialogue(player) {
             npc("This should not concern you, outerlander.", "I am awaiting other Fremenniks to join me on an", "expedition to Waterbirth Island.")
             21
         } else {
-            if (isQuestComplete(player, "Fremennik Trials")) {
+            if (isQuestComplete(player, QuestName.THE_FREMENNIK_TRIALS)) {
                 npcl(FacialExpression.FRIENDLY, "Of course, " + player.username + "! Your presence is more than welcome on this cull! You wish to leave now?")
                 32
             } else {

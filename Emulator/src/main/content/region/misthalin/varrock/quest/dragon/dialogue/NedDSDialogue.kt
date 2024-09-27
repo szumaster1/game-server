@@ -4,6 +4,7 @@ import content.region.misthalin.varrock.quest.dragon.DragonSlayer
 import core.game.dialogue.DialogueFile
 import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
+import org.rs.consts.QuestName
 
 
 private const val SHIP_DIALOGUE = 2000
@@ -55,7 +56,7 @@ class NedDSDialogue(val questStage: Int) : DialogueFile() {
                 2006 -> {
                     if (player!!.inventory.remove(DragonSlayer.CRANDOR_MAP)) {
                         interpreter!!.sendItemMessage(DragonSlayer.CRANDOR_MAP.id, "You hand the map to Ned.")
-                        player!!.questRepository.getQuest("Dragon Slayer").setStage(player, 30)
+                        player!!.questRepository.getQuest(QuestName.DRAGON_SLAYER).setStage(player, 30)
                         stage++
                     } else stage = END_DIALOGUE
                 }

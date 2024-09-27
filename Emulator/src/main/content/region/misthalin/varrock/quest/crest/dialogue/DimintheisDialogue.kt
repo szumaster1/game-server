@@ -1,12 +1,13 @@
 package content.region.misthalin.varrock.quest.crest.dialogue
 
-import org.rs.consts.Items
-import org.rs.consts.NPCs
 import core.api.*
 import core.game.dialogue.Dialogue
 import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
+import org.rs.consts.Items
+import org.rs.consts.NPCs
+import org.rs.consts.QuestName
 
 /**
  * Represents the Dimintheis dialogue.
@@ -14,12 +15,10 @@ import core.plugin.Initializable
 @Initializable
 class DimintheisDialogue(player: Player? = null) : Dialogue(player) {
 
-    private val questName = "Family Crest"
-
     override fun open(vararg args: Any?): Boolean {
         npc = (args[0] as NPC).getShownNPC(player)
-        val questStage = getQuestStage(player, questName)
-        val questComplete = isQuestComplete(player, questName)
+        val questStage = getQuestStage(player, QuestName.FAMILY_CREST)
+        val questComplete = isQuestComplete(player, QuestName.FAMILY_CREST)
 
         if (questStage == 20 && inInventory(player, Items.FAMILY_CREST_782)) {
             player("I have retrieved your crest.").also { stage = 5000 }
@@ -95,7 +94,7 @@ class DimintheisDialogue(player: Player? = null) : Dialogue(player) {
                 1 -> npc("I thank you greatly adventurer!").also { stage++ }
                 2 -> npc("I realise it was a lot to ask of a stranger.").also { stage = 1000 }
             }
-            2012 -> if (startQuest(player, questName)) {
+            2012 -> if (startQuest(player, QuestName.FAMILY_CREST)) {
                 npc("If you find Caleb, or my other sons... please... ", "let them know their father still loves them...").also { stage = 1000 }
             } else {
                 npc("But im sorry, but you cannot help me right now").also { stage = 1000 }
@@ -110,7 +109,7 @@ class DimintheisDialogue(player: Player? = null) : Dialogue(player) {
             5004 -> npc("They can also be granted extra powers.", "Take them to one of my sons, ", "they should be able to imbue them with a skill for you.").also {
                 stage = 1000
                 if (removeItem(player, Items.FAMILY_CREST_782)) {
-                    finishQuest(player, questName)
+                    finishQuest(player, QuestName.FAMILY_CREST)
                 }
             }
             6000 -> npc("Not to worry, here they are").also {

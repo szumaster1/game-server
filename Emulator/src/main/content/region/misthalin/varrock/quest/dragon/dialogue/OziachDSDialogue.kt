@@ -7,6 +7,7 @@ import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.quest.Quest
 import core.game.node.item.Item
 import core.tools.END_DIALOGUE
+import org.rs.consts.QuestName
 
 /**
  * Represents the Oziach Dragon slayer dialogue.
@@ -17,7 +18,7 @@ class OziachDSDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
-        quest = player.getQuestRepository().getQuest("Dragon Slayer")
+        quest = player.getQuestRepository().getQuest(QuestName.DRAGON_SLAYER)
         player.debug("" + quest!!.getStage(player))
         when (quest!!.getStage(player)) {
             100 -> {
@@ -266,7 +267,7 @@ class OziachDSDialogue(player: Player? = null) : Dialogue(player) {
                                 DragonSlayer.ELVARG_HEAD.id,
                                 heads
                             )
-                        ) && !player.getQuestRepository().getQuest("Dragon Slayer").isCompleted(player)
+                        ) && !player.getQuestRepository().getQuest(QuestName.DRAGON_SLAYER).isCompleted(player)
                     ) {
                         quest!!.finish(player)
                     }

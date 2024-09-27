@@ -17,6 +17,7 @@ import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 import core.game.world.GameWorld.settings
 import core.tools.END_DIALOGUE
+import org.rs.consts.QuestName
 
 /**
  * Represents the Ava dialogue.
@@ -31,7 +32,7 @@ class AvaDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
-        quest = player.getQuestRepository().getQuest(AnimalMagnetism.questName)
+        quest = player.getQuestRepository().getQuest(QuestName.ANIMAL_MAGNETISM)
         if (!quest!!.hasRequirements(player)) {
             player.packetDispatch.sendMessage("She doesn't seem interested in talking to you.")
             return false

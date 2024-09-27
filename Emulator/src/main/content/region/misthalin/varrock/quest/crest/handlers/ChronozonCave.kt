@@ -1,5 +1,7 @@
 package content.region.misthalin.varrock.quest.crest.handlers
 
+import core.api.getQuestStage
+import core.api.hasAnItem
 import core.game.node.entity.Entity
 import core.game.node.entity.player.Player
 import core.game.world.map.Location
@@ -9,10 +11,9 @@ import core.game.world.map.zone.ZoneBorders
 import core.game.world.map.zone.ZoneBuilder
 import core.plugin.Initializable
 import core.plugin.Plugin
-import core.api.getQuestStage
-import core.api.hasAnItem
 import org.rs.consts.Items
 import org.rs.consts.NPCs
+import org.rs.consts.QuestName
 
 /**
  * Represents the Chronozon cave zone.
@@ -35,7 +36,7 @@ class ChronozonCave : MapZone("FC ChronozoneZone", true), Plugin<Unit> {
         if (e != null) {
             if (e.isPlayer) {
                 val player = e as Player
-                if (getQuestStage(player, "Family Crest") in (19..99) && !hasAnItem(
+                if (getQuestStage(player, QuestName.FAMILY_CREST) in (19..99) && !hasAnItem(
                         player,
                         Items.CREST_PART_781
                     ).exists()

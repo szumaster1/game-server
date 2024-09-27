@@ -1,6 +1,5 @@
 package content.region.misthalin.varrock.quest.surok.handlers;
 
-import org.rs.consts.Music;
 import core.game.activity.ActivityPlugin;
 import core.game.activity.CutscenePlugin;
 import core.game.dialogue.FacialExpression;
@@ -23,13 +22,14 @@ import core.net.packet.PacketRepository;
 import core.net.packet.context.CameraContext;
 import core.net.packet.context.CameraContext.CameraType;
 import core.net.packet.outgoing.CameraViewPacket;
+import org.rs.consts.Music;
+import org.rs.consts.QuestName;
 
 import static core.api.ContentAPIKt.removeAttribute;
 import static core.api.ContentAPIKt.setAttribute;
 
 /**
  * Handles the What Lies Below quest cutscene.
- *
  * @author Vexia
  */
 public class WhatLiesBelowCutscene extends CutscenePlugin {
@@ -50,7 +50,7 @@ public class WhatLiesBelowCutscene extends CutscenePlugin {
      * Constructs a new {@code WLBelowCutscene} {@code Object}
      */
     public WhatLiesBelowCutscene() {
-        super("What Lies below");
+        super(QuestName.WHAT_LIES_BELOW);
     }
 
     /**

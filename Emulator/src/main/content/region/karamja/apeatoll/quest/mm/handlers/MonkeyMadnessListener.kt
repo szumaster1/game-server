@@ -3,9 +3,8 @@ package content.region.karamja.apeatoll.quest.mm.handlers
 import content.region.karamja.apeatoll.dialogue.dungeon.ZooknockAfterBattleDialogueFile
 import content.region.karamja.apeatoll.dialogue.dungeon.ZooknockDialogue
 import content.region.karamja.apeatoll.dialogue.dungeon.ZooknockDialogueFile
-import core.api.*
-import org.rs.consts.*
 import content.region.karamja.apeatoll.quest.mm.dialogue.*
+import core.api.*
 import core.game.component.Component
 import core.game.global.action.DoorActionHandler
 import core.game.interaction.IntType
@@ -22,6 +21,7 @@ import core.net.packet.context.CameraContext
 import core.net.packet.context.ContainerContext
 import core.net.packet.outgoing.CameraViewPacket
 import core.net.packet.outgoing.ContainerPacket
+import org.rs.consts.*
 
 class MonkeyMadnessListener : InteractionListener {
 
@@ -38,9 +38,9 @@ class MonkeyMadnessListener : InteractionListener {
          */
 
         on(intArrayOf(NPCs.ZOOKNOCK_1425, NPCs.ZOOKNOCK_1426), IntType.NPC, "talk-to"){ player, npc ->
-            if (getQuestStage(player, "Monkey Madness") == 96) {
+            if (getQuestStage(player, QuestName.MONKEY_MADNESS) == 96) {
                 openDialogue(player, ZooknockAfterBattleDialogueFile(), npc)
-            } else if (getQuestStage(player, "Monkey Madness") == 30 || getQuestStage(player, "Monkey Madness") == 31) {
+            } else if (getQuestStage(player, QuestName.MONKEY_MADNESS) == 30 || getQuestStage(player, QuestName.MONKEY_MADNESS) == 31) {
                 openDialogue(player, ZooknockDialogue(), npc)
             } else {
                 openDialogue(player, ZooknockDialogueFile(0), npc)
@@ -67,7 +67,7 @@ class MonkeyMadnessListener : InteractionListener {
         on(NPCs.MONKEY_1463, IntType.NPC, "talk-to"){ player, npc ->
             if (player.equipment.containsAtLeastOneItem(IntArray(4031 - 4024 + 1) { it + 4024 }) &&
                 player.equipment.containsAtLeastOneItem(IntArray(4022 - 4021 + 1) { it + 4021 }) &&
-                getQuestStage(player, "Monkey Madness") == 33)
+                getQuestStage(player, QuestName.MONKEY_MADNESS) == 33)
             {
                 openDialogue(player, MonkeyDialogue(), npc)
             }
@@ -113,7 +113,7 @@ class MonkeyMadnessListener : InteractionListener {
          */
 
         on(NPCs.KRUK_1441, IntType.NPC, "talk-to"){ player, npc ->
-            if(player.questRepository.getQuest("Monkey Madness").getStage(player) >= 35) {
+            if(player.questRepository.getQuest(QuestName.MONKEY_MADNESS).getStage(player) >= 35) {
                 openDialogue(player, KrukDialogue(), npc)
             }
             return@on true
@@ -162,16 +162,16 @@ class MonkeyMadnessListener : InteractionListener {
             if(player.equipment.containsAtLeastOneItem(itemIds)) {
                 openDialogue(player, GarkorDialogue(), npc)
             }
-            if (player.questRepository.getQuest("Monkey Madness").getStage(player) == 46){
+            if (player.questRepository.getQuest(QuestName.MONKEY_MADNESS).getStage(player) == 46){
                 openDialogue(player, GarkorAfterChallengeDialogue(), npc)
             }
-            if (player.questRepository.getQuest("Monkey Madness").getStage(player) == 50){
+            if (player.questRepository.getQuest(QuestName.MONKEY_MADNESS).getStage(player) == 50){
                 openDialogue(player, GarkorFinalBattleDialogue(), npc)
             }
-            if (player.questRepository.getQuest("Monkey Madness").getStage(player) == 99){
+            if (player.questRepository.getQuest(QuestName.MONKEY_MADNESS).getStage(player) == 99){
                 openDialogue(player, GarkorAfterBattleDialogue(), npc)
             }
-            if (getQuestStage(player, "Monkey Madness") == 25){
+            if (getQuestStage(player, QuestName.MONKEY_MADNESS) == 25){
                 openDialogue(player, GarkorFirstDialogue(), npc)
             }
             return@on true
@@ -181,7 +181,7 @@ class MonkeyMadnessListener : InteractionListener {
          * Interaction with Daero NPC.
          */
         on(NPCs.DAERO_1407, IntType.NPC, "talk-to") { player, npc ->
-            if (getQuestStage(player, "Monkey Madness") == 100 &&
+            if (getQuestStage(player, QuestName.MONKEY_MADNESS) == 100 &&
                 !getAttribute(player, "/save:mm:xp_reward", false)
             ) {
                 openDialogue(player, DaeroTrainingPostQuestDialogue(), npc)
@@ -201,7 +201,7 @@ class MonkeyMadnessListener : InteractionListener {
          */
         on(Scenery.AWOWOGEI_4771, IntType.SCENERY, "talk-to") { player, npc ->
 
-            if (player.questRepository.getQuest("Monkey Madness").getStage(player) == 32) {
+            if (player.questRepository.getQuest(QuestName.MONKEY_MADNESS).getStage(player) == 32) {
                 openDialogue(player, AwowogeiDialogue(), NPC(NPCs.AWOWOGEI_1448))
             } else {
                 openDialogue(player, content.region.karamja.apeatoll.quest.mm.dialogue.AwowogeiChallengeDialogue(), NPC(NPCs.AWOWOGEI_1448))
@@ -348,7 +348,7 @@ class MonkeyMadnessListener : InteractionListener {
          */
         onEquip(Items.TENTH_SQUAD_SIGIL_4035) { player, _ ->
             sendDialogueOptions(player, "Let the sigil teleport you when worn?")
-            setQuestStage(player, "Monkey Madness", 94)
+            setQuestStage(player, QuestName.MONKEY_MADNESS, 94)
 
             PacketRepository.send(
                 CameraViewPacket::class.java,
@@ -376,7 +376,7 @@ class MonkeyMadnessListener : InteractionListener {
                 npc.attack(player)
 
                 if (DeathTask.isDead(npc)) {
-                    setQuestStage(player, "Monkey Madness", 95)
+                    setQuestStage(player, QuestName.MONKEY_MADNESS, 95)
                 }
 
             }

@@ -1,12 +1,13 @@
 package content.region.misthalin.quest.firedup.dialogue
 
-import org.rs.consts.NPCs
 import content.minigame.allfiredup.BeaconState
 import core.api.setVarbit
 import core.game.dialogue.Dialogue
 import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
+import org.rs.consts.NPCs
+import org.rs.consts.QuestName
 
 /**
  * Represents the Squire Fyre dialogue.
@@ -16,7 +17,7 @@ class SquireFyreDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any?): Boolean {
         npc = (args[0] as NPC).getShownNPC(player)
-        val qstage = player.questRepository.getQuest("All Fired Up").getStage(player)
+        val qstage = player.questRepository.getQuest(QuestName.ALL_FIRED_UP).getStage(player)
         when (qstage) {
             40 -> player("Hi there. I'm helping Blaze and King Roald test the", "beacon network. Can you see it from here? Blaze said", "you have pretty sharp eyes.").also { stage = 100 }
 
@@ -30,7 +31,7 @@ class SquireFyreDialogue(player: Player? = null) : Dialogue(player) {
             100 -> npc("Of course I can see it. I haven't spent my entire life", "practising my seeing skills for nothing! I'm happy to", "report that the fire near Blaze is burning brightly.").also { stage++ }
             101 -> player("Terrific! Blaze has asked me to light this fire as well, so", "he can see how things look from his vantage point.").also { stage++ }
             102 -> npc("Be my guest!").also {
-                stage++; player.questRepository.getQuest("All Fired Up").setStage(player, 50); setVarbit(
+                stage++; player.questRepository.getQuest(QuestName.ALL_FIRED_UP).setStage(player, 50); setVarbit(
                 player, 5146, BeaconState.DYING.ordinal
             )
             }

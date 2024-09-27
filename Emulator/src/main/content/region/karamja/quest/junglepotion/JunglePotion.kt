@@ -12,13 +12,14 @@ import core.game.node.entity.player.link.quest.Quest
 import core.game.node.entity.skill.Skills
 import core.plugin.Initializable
 import core.plugin.PluginManager.definePlugin
+import org.rs.consts.QuestName
 import org.rs.consts.Vars
 
 /**
  * Jungle potion quest.
  */
 @Initializable
-class JunglePotion : Quest("Jungle Potion", 81, 80, 1, Vars.VARP_QUEST_JUNGLE_POTION_PROGRESS, 0, 1, 12) {
+class JunglePotion : Quest(QuestName.JUNGLE_POTION, 81, 80, 1, Vars.VARP_QUEST_JUNGLE_POTION_PROGRESS, 0, 1, 12) {
 
     override fun drawJournal(player: Player, stage: Int) {
         super.drawJournal(player, stage)

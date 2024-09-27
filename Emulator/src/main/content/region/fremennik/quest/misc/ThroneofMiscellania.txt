@@ -21,7 +21,7 @@ class ThroneofMiscellania :
             line(player, "I can start this quest by talking to !!King Vargas?? in", line++, stage >= 1)
             line(player, "!!Miscellania??. To start this quest I need to have completed:", line++, stage >= 1)
             line(player, "!!Heroes Quest??", line++, isQuestComplete(player, "Heroes' Quest"))
-            line(player, "!!The Fremennik Trials??", line++, isQuestComplete(player, "Fremennik Trials"))
+            line(player, "!!The Fremennik Trials??", line++, isQuestComplete(player, QuestName.THE_FREMENNIK_TRIALS))
             line++
             line(player, "It would be an adventage to have at least one of the", line++, stage >= 1)
             line(player, "following skills:", line++, stage >= 1)

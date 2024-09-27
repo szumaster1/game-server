@@ -7,6 +7,7 @@ import core.game.node.entity.player.Player
 import core.game.node.entity.skill.SkillPulse
 import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
+import org.rs.consts.QuestName
 
 /**
  * Represents the pulse used to create herb tars.
@@ -15,8 +16,8 @@ class HerbTarPulse(player: Player?, node: Item?, val tar: Tar, private var amoun
     SkillPulse<Item?>(player, node) {
 
     override fun checkRequirements(): Boolean {
-        if (!isQuestComplete(player, "Druidic Ritual")) {
-            sendMessage(player, "You must complete the Druidic Ritual quest before you can use Herblore.")
+        if (!isQuestComplete(player, QuestName.DRUIDIC_RITUAL)) {
+            sendMessage(player, "You must complete the ${QuestName.DRUIDIC_RITUAL} quest before you can use Herblore.")
             return false
         }
         if (getDynLevel(player, Skills.HERBLORE) < tar.level) {

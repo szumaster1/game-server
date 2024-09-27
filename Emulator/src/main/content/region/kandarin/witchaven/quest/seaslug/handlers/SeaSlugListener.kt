@@ -1,13 +1,9 @@
 package content.region.kandarin.witchaven.quest.seaslug.handlers
 
+import content.region.kandarin.witchaven.quest.seaslug.SeaSlug
 import content.region.kandarin.witchaven.quest.seaslug.cutscene.SafeAndSoundCustcene
 import content.region.kandarin.witchaven.quest.seaslug.dialogue.KennithDialogueFile
 import core.api.*
-import org.rs.consts.Items
-import org.rs.consts.NPCs
-import org.rs.consts.Scenery
-import org.rs.consts.Sounds
-import content.region.kandarin.witchaven.quest.seaslug.SeaSlug
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.interaction.QueueStrength
@@ -15,6 +11,7 @@ import core.game.node.entity.combat.ImpactHandler.HitsplatType
 import core.game.node.entity.player.Player
 import core.game.node.item.Item
 import core.game.world.map.Location
+import org.rs.consts.*
 
 class SeaSlugListener : InteractionListener {
 
@@ -62,7 +59,7 @@ class SeaSlugListener : InteractionListener {
                 queueScript(player, 1, QueueStrength.SOFT) {
                     playAudio(player, Sounds.SLUG_DRY_STICKS_3023)
                     addItemOrDrop(player, LIT_TORCH)
-                    setQuestStage(player, "Sea slug", 20)
+                    setQuestStage(player, QuestName.SEA_SLUG, 20)
                     return@queueScript stopExecuting(player)
                 }
             }
@@ -88,7 +85,7 @@ class SeaSlugListener : InteractionListener {
                     2 -> {
                         sendMessage(player, "...leaving an opening big enough for Kenneth to climb through.")
                         replaceScenery(node.asScenery(), BROKEN_WALL, -1)
-                        setQuestStage(player, "Sea Slug", 25)
+                        setQuestStage(player, QuestName.SEA_SLUG, 25)
                         return@queueScript stopExecuting(player)
                     }
 
@@ -99,7 +96,7 @@ class SeaSlugListener : InteractionListener {
         }
 
         on(CRANE, IntType.SCENERY, "rotate") { player, _ ->
-            if (getQuestStage(player, "Sea Slug") == 30) {
+            if (getQuestStage(player, QuestName.SEA_SLUG) == 30) {
                 playAudio(player, Sounds.SLUG_CRANE_TURN_3021)
                 sendMessage(player, "You rotate the crane around")
                 SafeAndSoundCustcene(player).start()
@@ -109,13 +106,13 @@ class SeaSlugListener : InteractionListener {
 
         on(LADDER, IntType.SCENERY, "climb-up") { player, _ ->
             sendMessage(player, "You attempt to climb up the ladder.")
-            if (getQuestStage(player, "Sea Slug") in 5..10) {
+            if (getQuestStage(player, QuestName.SEA_SLUG) in 5..10) {
                 animate(player, 828)
                 runTask(player, 2) { teleport(player, location(2784, 3287, 1)) }
                 return@on true
             }
 
-            if (getQuestStage(player, "Sea Slug") in 10..14) {
+            if (getQuestStage(player, QuestName.SEA_SLUG) in 10..14) {
                 getSmack(player)
                 return@on true
             }

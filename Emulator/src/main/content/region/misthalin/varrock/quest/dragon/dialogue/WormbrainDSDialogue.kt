@@ -1,7 +1,6 @@
 package content.region.misthalin.varrock.quest.dragon.dialogue
 
 import content.region.misthalin.varrock.quest.dragon.DragonSlayer
-import org.rs.consts.NPCs
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC
@@ -9,6 +8,8 @@ import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.quest.Quest
 import core.game.node.item.GroundItemManager
 import core.game.node.item.Item
+import org.rs.consts.NPCs
+import org.rs.consts.QuestName
 
 /**
  * Represents the Wormbrain Dragon slayer dialogue.
@@ -19,7 +20,7 @@ class WormbrainDSDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
-        quest = player.getQuestRepository().getQuest("Dragon Slayer")
+        quest = player.getQuestRepository().getQuest(QuestName.DRAGON_SLAYER)
         stage = when (quest!!.getStage(player)) {
             else -> {
                 npc(FacialExpression.OLD_DEFAULT, "Whut you want?")

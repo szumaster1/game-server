@@ -13,7 +13,7 @@ import core.tools.RandomFunction
 /**
  * Represents the Crate monkey madness dialogue.
  */
-class CrateMonkeyMadnessDialogue(val it: Int) : DialogueFile() {
+class CrateMMDialogue(val it: Int) : DialogueFile() {
 
     private val monkeymadnessDungeon = Location.create(2804, 9168, 0)
 

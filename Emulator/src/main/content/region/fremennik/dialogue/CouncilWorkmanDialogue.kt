@@ -1,14 +1,15 @@
 package content.region.fremennik.dialogue
 
-import content.region.misthalin.varrock.diary.dialogue.CouncilWorkmanDiaryDialogue
-import org.rs.consts.NPCs
 import content.region.fremennik.rellekka.quest.viking.dialogue.CouncilWorkerDialogue
+import content.region.misthalin.varrock.diary.dialogue.CouncilWorkmanDiaryDialogue
 import core.api.getQuestStage
 import core.api.openDialogue
 import core.game.dialogue.Dialogue
 import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
+import org.rs.consts.NPCs
+import org.rs.consts.QuestName
 
 /**
  * Represents the Council workman dialogue.
@@ -19,7 +20,7 @@ class CouncilWorkmanDialogue(player: Player? = null): Dialogue(player) {
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
         end()
-        if (getQuestStage(player, "Fremennik Trials") in 1..99) {
+        if (getQuestStage(player, QuestName.THE_FREMENNIK_TRIALS) in 1..99) {
             player.dialogueInterpreter.open((CouncilWorkerDialogue(1)))
         } else {
             openDialogue(player, CouncilWorkmanDiaryDialogue(), npc)

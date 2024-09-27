@@ -9,6 +9,7 @@ import core.game.node.entity.player.Player
 import core.game.node.item.Item
 import core.plugin.Initializable
 import content.region.misthalin.varrock.quest.crest.handlers.SwapGauntletsHelper
+import org.rs.consts.QuestName
 
 /**
  * Represents the Caleb dialogue.
@@ -20,7 +21,7 @@ class CalebDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any?): Boolean {
         npc = (args[0] as NPC).getShownNPC(player)
-        val qstage = player?.questRepository?.getStage("Family Crest") ?: -1
+        val qstage = player?.questRepository?.getStage(QuestName.FAMILY_CREST) ?: -1
 
         if (qstage == 100) {
             options("Can you change my gauntlets for me?", "Nevermind")
@@ -75,7 +76,7 @@ class CalebDialogue(player: Player? = null) : Dialogue(player) {
             206 -> options("Ok, I will get those.", "Why don't you just give me the crest?").also { stage++ }
             207 -> when (buttonId) {
                 1 -> npc("You will? It would help me a lot!").also { stage = 1000 }.also {
-                    player.questRepository.getQuest("Family Crest").setStage(player, 11)
+                    player.questRepository.getQuest(QuestName.FAMILY_CREST).setStage(player, 11)
                 }
                 2 -> npc("It's a valuable family heirloom. ", "I think the least you can do is prove you're worthy ", "of it before I hand it over.").also { stage = 206 }
             }
@@ -88,7 +89,7 @@ class CalebDialogue(player: Player? = null) : Dialogue(player) {
             301 -> sendDialogue("You exchange the fish for Caleb's piece of the crest.").also { stage++ }.also {
                 player.inventory.remove(Item(315), Item(329), Item(361), Item(365), Item(373))
                 player.inventory.add(CREST_PIECE)
-                player.questRepository.getQuest("Family Crest").setStage(player, 12)
+                player.questRepository.getQuest(QuestName.FAMILY_CREST).setStage(player, 12)
             }
             302 -> options("Uh... what happened to the rest of it?", "Thank you very much!").also { stage++ }
             303 -> when (buttonId) {

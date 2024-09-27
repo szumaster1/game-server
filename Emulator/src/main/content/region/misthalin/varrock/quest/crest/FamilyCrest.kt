@@ -1,8 +1,6 @@
 package content.region.misthalin.varrock.quest.crest
 
 
-import org.rs.consts.Items
-import org.rs.consts.Vars
 import core.api.addItem
 import core.api.getStatLevel
 import core.api.log
@@ -12,12 +10,15 @@ import core.game.node.entity.player.link.quest.Quest
 import core.game.node.entity.skill.Skills
 import core.plugin.Initializable
 import core.tools.Log
+import org.rs.consts.Items
+import org.rs.consts.QuestName
+import org.rs.consts.Vars
 
 /**
  * Represents the Family crest quest.
  */
 @Initializable
-class FamilyCrest : Quest("Family Crest", 59, 58, 1, Vars.VARP_QUEST_FAMILY_CREST_PROGRESS, 0, 1, 11) {
+class FamilyCrest : Quest(QuestName.FAMILY_CREST, 59, 58, 1, Vars.VARP_QUEST_FAMILY_CREST_PROGRESS, 0, 1, 11) {
 
     override fun newInstance(`object`: Any?): Quest {
         return this

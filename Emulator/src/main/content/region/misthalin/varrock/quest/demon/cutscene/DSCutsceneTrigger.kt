@@ -1,11 +1,12 @@
 package content.region.misthalin.varrock.quest.demon.cutscene
 
-import org.rs.consts.Items
 import core.api.*
 import core.game.activity.ActivityManager
 import core.game.node.entity.Entity
 import core.game.node.entity.player.Player
 import core.game.world.map.zone.ZoneBorders
+import org.rs.consts.Items
+import org.rs.consts.QuestName
 
 /**
  * Represents the Demon slayer cutscene trigger.
@@ -19,7 +20,7 @@ class DSCutsceneTrigger : MapArea {
     override fun areaEnter(entity: Entity) {
         if (entity !is Player) return
 
-        val quest = entity.questRepository.getQuest("Demon Slayer")
+        val quest = entity.questRepository.getQuest(QuestName.DEMON_SLAYER)
         val alreadyInCutscene = getAttribute(entity, "demon-slayer:cutscene", false)
         val hasSilverlight = inInventory(entity, Items.SILVERLIGHT_2402) || inEquipment(entity, Items.SILVERLIGHT_2402)
 

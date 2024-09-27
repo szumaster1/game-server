@@ -1,11 +1,12 @@
 package content.region.karamja.quest.totem.dialogue
 
-import org.rs.consts.NPCs
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
+import org.rs.consts.NPCs
+import org.rs.consts.QuestName
 
 /**
  * Represents the Horacio dialogue.
@@ -14,7 +15,7 @@ import core.tools.END_DIALOGUE
 class HoracioDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any?): Boolean {
-        if (player.questRepository.hasStarted("Tribal Totem")) {
+        if (player.questRepository.hasStarted(QuestName.TRIBAL_TOTEM)) {
             npcl(FacialExpression.HAPPY, "It's a fine day to be out in a garden, isn't it?").also { stage = 5 }
         } else {
             npcl(FacialExpression.HAPPY, "It's a fine day to be out in a garden, isn't it?")

@@ -1,8 +1,6 @@
 package content.region.misthalin.varrock.quest.fluffs.dialogue
 
 import core.api.animate
-import org.rs.consts.Animations
-import org.rs.consts.NPCs
 import core.api.getQuestStage
 import core.api.sendChat
 import core.game.dialogue.Dialogue
@@ -13,6 +11,9 @@ import core.game.world.GameWorld
 import core.game.world.update.flag.context.Animation
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
+import org.rs.consts.Animations
+import org.rs.consts.NPCs
+import org.rs.consts.QuestName
 
 /**
  * Represents the Gertrudes cat dialogue.
@@ -29,7 +30,7 @@ class GertrudesCatDialogue(player: Player? = null) : Dialogue(player) {
     }
 
     override fun handle(interfaceId: Int, buttonId: Int): Boolean {
-        val quest = getQuestStage(player, "Gertrude's Cat")
+        val quest = getQuestStage(player, QuestName.GERTRUDES_CAT)
         when (stage) {
             545 -> end()
             0 -> when (buttonId) {

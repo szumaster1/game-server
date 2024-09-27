@@ -7,6 +7,7 @@ import core.game.dialogue.FacialExpression
 import core.game.node.entity.player.Player
 import core.game.node.item.GroundItemManager
 import core.game.node.item.Item
+import org.rs.consts.QuestName
 
 /**
  * Represents the Islwyn dialogue.
@@ -14,8 +15,8 @@ import core.game.node.item.Item
 class IslwynDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any): Boolean {
-        val quest = player.getQuestRepository().getQuest("Roving Elves")
-        val waterfall = player.getQuestRepository().getQuest("Waterfall")
+        val quest = player.getQuestRepository().getQuest(QuestName.ROVING_ELVES)
+        val waterfall = player.getQuestRepository().getQuest(QuestName.WATERFALL_QUEST)
         if (quest.getStage(player) == 0 && waterfall.isCompleted(player)) {
             player(FacialExpression.HALF_GUILTY, "Hello there.")
             stage = 0
@@ -36,7 +37,7 @@ class IslwynDialogue(player: Player? = null) : Dialogue(player) {
     }
 
     override fun handle(interfaceId: Int, buttonId: Int): Boolean {
-        val quest = player.getQuestRepository().getQuest("Roving Elves")
+        val quest = player.getQuestRepository().getQuest(QuestName.ROVING_ELVES)
         when (stage) {
             500 -> end()
             1000 -> {

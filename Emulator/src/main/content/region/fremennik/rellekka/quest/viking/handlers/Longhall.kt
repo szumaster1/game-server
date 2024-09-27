@@ -7,9 +7,6 @@ import core.game.world.map.zone.ZoneBuilder
 import core.plugin.Initializable
 import core.plugin.Plugin
 
-/**
- * Longhall stage zone.
- */
 @Initializable
 class Longhall : MapZone("LonghallStageZone", true), Plugin<Any?> {
 

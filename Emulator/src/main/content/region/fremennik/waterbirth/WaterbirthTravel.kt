@@ -1,22 +1,16 @@
 package content.region.fremennik.waterbirth
 
 import core.api.*
-import org.rs.consts.Components
 import core.game.node.entity.player.Player
 import core.game.system.task.Pulse
 import core.game.world.map.Location
+import org.rs.consts.Components
 
 /**
  * Represents the Waterbirth travel.
  */
 object WaterbirthTravel {
 
-    /**
-     * Sail
-     *
-     * @param player The player who is sailing.
-     * @param destination The destination where the player is sailing to.
-     */
     @JvmStatic
     fun sail(player: Player, destination: TravelDestination) {
         // Lock the player to prevent other actions while sailing
@@ -65,14 +59,6 @@ object WaterbirthTravel {
 
 }
 
-/**
- * Represents the Travel destination
- *
- * @param destName The name of the travel destination.
- * @param destinationLoc The location coordinates of the destination.
- * @param shipAnim The animation ID for the ship journey.
- * @return travel
- */
 enum class TravelDestination(val destName: String, val destinationLoc: Location, val shipAnim: Int) {
     RELLEKA_TO_MISCELLANIA(
         destName = "Miscellania",

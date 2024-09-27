@@ -8,6 +8,7 @@ import core.game.dialogue.FacialExpression
 import core.game.node.entity.player.Player
 import core.game.node.item.Item
 import core.plugin.Initializable
+import org.rs.consts.QuestName
 
 /**
  * Represents the Sigli the huntsman dialogue.
@@ -46,11 +47,11 @@ class SigliTheHuntsmanDialogue(player: Player? = null): Dialogue(player) {
             npc("I saw the entire hunt. Let me take that talisman from", "you, I would be honored to speak out for you to our", "council of elders after such a hunt, outerlander.")
             stage = 100
             return true
-        } else if (isQuestComplete(player, "Fremennik Trials")) {
+        } else if (isQuestComplete(player, QuestName.THE_FREMENNIK_TRIALS)) {
             playerl(FacialExpression.HAPPY, "Hello again Sigli.")
             stage = 180
             return true
-        } else if (player.questRepository.hasStarted("Fremennik Trials")) {
+        } else if (player.questRepository.hasStarted(QuestName.THE_FREMENNIK_TRIALS)) {
             npc("What do you want outerlander?")
             stage = 0
             return true

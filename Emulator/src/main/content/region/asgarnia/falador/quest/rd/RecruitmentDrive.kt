@@ -7,6 +7,7 @@ import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.quest.Quest
 import core.game.node.entity.skill.Skills
 import core.plugin.Initializable
+import org.rs.consts.QuestName
 
 /**
  * Recruitment drive quest.
@@ -41,15 +42,15 @@ class RecruitmentDrive : Quest("Recruitment Drive", 103, 102, 1, 496, 0, 1, 2) {
         if (!started) {
             line(player, "I can start this quest by speaking to !!Sir Amik Varze??,", line++)
             line(player, "upstairs in !!Falador Castle??.", line++)
-            if (isQuestComplete(player, "Druidic Ritual")) {
-                line(player, "with the Druidic Ritual Quest completed,", line++, isQuestComplete(player, "Druidic Ritual"))
+            if (isQuestComplete(player, QuestName.DRUIDIC_RITUAL)) {
+                line(player, "with the ${QuestName.DRUIDIC_RITUAL} Quest completed,", line++, isQuestComplete(player, QuestName.DRUIDIC_RITUAL))
             } else {
-                line(player, "I have to completed the !!Druidic Ritual Quest??,", line++)
+                line(player, "I have to completed the !!${QuestName.DRUIDIC_RITUAL} Quest??,", line++)
             }
-            if (isQuestComplete(player, "Black Knights' Fortress")) {
-                line(player, "and since I have completed the Black Knights' Fortress Quest.", line++, isQuestComplete(player, "Black Knights' Fortress"))
+            if (isQuestComplete(player, QuestName.BLACK_KNIGHTS_FORTRESS)) {
+                line(player, "and since I have completed the ${QuestName.BLACK_KNIGHTS_FORTRESS}.", line++, isQuestComplete(player, QuestName.BLACK_KNIGHTS_FORTRESS))
             } else {
-                line(player, "and I have to completed the !!Black Knights' Fortress Quest??.", line++)
+                line(player, "and I have to completed the !!${QuestName.BLACK_KNIGHTS_FORTRESS}??.", line++)
             }
             line++
         } else {

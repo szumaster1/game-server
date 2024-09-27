@@ -9,9 +9,10 @@ import core.game.node.scenery.Scenery
 import core.game.node.scenery.SceneryBuilder
 import core.game.world.map.Location
 import core.plugin.Plugin
+import org.rs.consts.QuestName
 
 /**
- * "Jungle potion" quest plugin.
+ * QuestName.JUNGLE_POTION quest plugin.
  */
 class JunglePotionPlugin : OptionHandler() {
 
@@ -26,7 +27,7 @@ class JunglePotionPlugin : OptionHandler() {
     }
 
     override fun handle(player: Player, node: Node, option: String): Boolean {
-        val quest = player.getQuestRepository().getQuest("Jungle Potion")
+        val quest = player.getQuestRepository().getQuest(QuestName.JUNGLE_POTION)
         when (node.id) {
             2584 -> {
                 player.dialogueInterpreter.open("jogre_dialogue")

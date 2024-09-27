@@ -1,20 +1,12 @@
 package content.region.kandarin.baxtorian.barbariantraining.smithing
 
-import org.rs.consts.Items
 import content.global.skill.firemaking.Origami
+import org.rs.consts.Items
 
 /**
  * Represents the Barbarian weapons.
  */
-enum class BarbarianWeapon(
-    val requiredWood: Int,
-    val requiredBar: Int,
-    val spearId: Int,
-    val hastaId: Int,
-    var amount: Int,
-    var requiredLevel: Int,
-    val experience: Double
-) {
+enum class BarbarianWeapon(val requiredWood: Int, val requiredBar: Int, val spearId: Int, val hastaId: Int, var amount: Int, var requiredLevel: Int, val experience: Double) {
     BRONZE(
         requiredWood = Items.LOGS_1511,
         requiredBar = Items.BRONZE_BAR_2349,

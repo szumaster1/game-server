@@ -1,7 +1,5 @@
 package content.region.karamja.quest.totem
 
-import org.rs.consts.Items
-import org.rs.consts.Vars
 import core.api.removeAttribute
 import core.api.rewardXP
 import core.game.node.entity.player.Player
@@ -10,12 +8,15 @@ import core.game.node.entity.skill.Skills
 import core.game.node.item.GroundItemManager
 import core.game.node.item.Item
 import core.plugin.Initializable
+import org.rs.consts.Items
+import org.rs.consts.QuestName
+import org.rs.consts.Vars
 
 /**
  * Tribal totem quest.
  */
 @Initializable
-class TribalTotem : Quest("Tribal Totem", 126, 125, 1, Vars.VARP_QUEST_TRIBAL_TOTEM_PROGRESS, 0, 1, 5) {
+class TribalTotem : Quest(QuestName.TRIBAL_TOTEM, 126, 125, 1, Vars.VARP_QUEST_TRIBAL_TOTEM_PROGRESS, 0, 1, 5) {
 
     class SkillRequirement(val skill: Int?, val level: Int?)
 
@@ -24,7 +25,7 @@ class TribalTotem : Quest("Tribal Totem", 126, 125, 1, Vars.VARP_QUEST_TRIBAL_TO
     override fun drawJournal(player: Player, stage: Int) {
         super.drawJournal(player, stage)
         var line = 11
-        val started = player?.questRepository?.getStage("Tribal Totem")!! > 0
+        val started = player?.questRepository?.getStage(QuestName.TRIBAL_TOTEM)!! > 0
 
         if (!started) {
             line(player, "I can start this quest by speaking to !!Kangai Mau?? in", line++)

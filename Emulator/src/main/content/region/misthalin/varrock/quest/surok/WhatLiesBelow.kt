@@ -1,7 +1,5 @@
 package content.region.misthalin.varrock.quest.surok
 
-import org.rs.consts.Components
-import org.rs.consts.Items
 import content.region.misthalin.varrock.quest.surok.handlers.WhatLiesBelowListener
 import core.api.*
 import core.game.node.entity.player.Player
@@ -9,6 +7,8 @@ import core.game.node.entity.player.link.quest.Quest
 import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 import core.plugin.Initializable
+import org.rs.consts.Components
+import org.rs.consts.Items
 import org.rs.consts.QuestName
 
 /**
@@ -16,7 +16,7 @@ import org.rs.consts.QuestName
  * @author Vexia
  */
 @Initializable
-class WhatLiesBelow : Quest("What Lies Below", 136, 135, 1) {
+class WhatLiesBelow : Quest(QuestName.WHAT_LIES_BELOW, 136, 135, 1) {
 
     private val requirements = BooleanArray(4)
 

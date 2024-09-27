@@ -11,6 +11,7 @@ import core.game.system.task.Pulse
 import core.game.world.GameWorld.Pulser
 import core.game.world.map.Location
 import core.game.world.update.flag.context.Animation
+import org.rs.consts.QuestName
 
 /**
  * Represents the Sir Pyrsin dialogue.
@@ -27,7 +28,7 @@ class SirPyrsinDialogue(player: Player? = null) : Dialogue(player) {
         } else if (args[0] is Int) {
             id = args[0] as Int
         }
-        quest = player.getQuestRepository().getQuest("Demon Slayer")
+        quest = player.getQuestRepository().getQuest(QuestName.DEMON_SLAYER)
         when (quest!!.getStage(player)) {
             30 -> {
                 npc(id, "Have you sorted that demon out yet?")

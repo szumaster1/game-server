@@ -1,6 +1,5 @@
 package content.region.fremennik.rellekka.dialogue
 
-import org.rs.consts.NPCs
 import core.api.isQuestComplete
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression
@@ -8,6 +7,8 @@ import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
+import org.rs.consts.NPCs
+import org.rs.consts.QuestName
 
 /**
  * Represents the Volf Olasfson dialogue.
@@ -17,11 +18,11 @@ class VolfOlasfsonDialogue(player: Player? = null): Dialogue(player) {
 
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
-        if (!isQuestComplete(player, "Fremennik Trials")) {
+        if (!isQuestComplete(player, QuestName.THE_FREMENNIK_TRIALS)) {
             npc(FacialExpression.ANNOYED, "Sorry, outlander, but I have things to be doing.").also { stage = END_DIALOGUE }
-        } else if (isQuestComplete(player, "Fremennik Trials") && !isQuestComplete(player, "Olaf's Quest")) {
+        } else if (isQuestComplete(player, QuestName.THE_FREMENNIK_TRIALS) && !isQuestComplete(player, "Olaf's Quest")) {
             npc(FacialExpression.FRIENDLY, "Hello there. Enjoying the view?").also { stage = 0 }
-        } else if (isQuestComplete(player, "Fremennik Trials") && isQuestComplete(player, "Olaf's Quest")) {
+        } else if (isQuestComplete(player, QuestName.THE_FREMENNIK_TRIALS) && isQuestComplete(player, "Olaf's Quest")) {
             npcl(FacialExpression.ASKING, "Hello again, friend! Does my father send any word... or treasures like before?").also { stage = 2 }
         }
         return true

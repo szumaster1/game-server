@@ -12,6 +12,7 @@ import core.game.world.GameWorld.Pulser
 import core.game.world.map.Location
 import core.game.world.update.flag.context.Animation
 import core.plugin.Plugin
+import org.rs.consts.QuestName
 
 /**
  * Roving elves plugin.
@@ -25,7 +26,7 @@ class RovingElvesPlugin : OptionHandler() {
     }
 
     override fun handle(player: Player, node: Node, option: String): Boolean {
-        val quest = player.getQuestRepository().getQuest("Roving Elves")
+        val quest = player.getQuestRepository().getQuest(QuestName.ROVING_ELVES)
         if (quest == null) {
             player.sendMessage("Error! RovingElves quest cannot be found, please contact an admin!")
             return true

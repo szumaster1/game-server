@@ -11,6 +11,7 @@ import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
+import org.rs.consts.QuestName
 
 /**
  * Represents the Holgart dialogue.
@@ -22,13 +23,13 @@ class HolgartDialogue(player: Player? = null) : Dialogue(player) {
         npc = args[0] as NPC
         when {
             // Quest complete.
-            isQuestComplete(player, "Sea Slug") -> player("Hello Holgart.").also { stage = 100 }
+            isQuestComplete(player, QuestName.SEA_SLUG) -> player("Hello Holgart.").also { stage = 100 }
             // Small island dialogue.
             npc.id == 699 -> player("We'd better get back to the platform so we can see", "what's going on.").also { stage = 200 }
             // After save Kennith.
-            getQuestStage(player, "Sea Slug") == 50 -> player("Did you get the kid back to shore?").also { stage = 300 }
+            getQuestStage(player, QuestName.SEA_SLUG) == 50 -> player("Did you get the kid back to shore?").also { stage = 300 }
             // After talk to Kennith before save.
-            getQuestStage(player, "Sea Slug") == 10 -> player("Holgart, something strange is going on here.").also { stage = 0 }
+            getQuestStage(player, QuestName.SEA_SLUG) == 10 -> player("Holgart, something strange is going on here.").also { stage = 0 }
             // Between stages.
             else -> sendDialogue(player, "Holgart seems too busy to talk.").also { stage = END_DIALOGUE }
         }

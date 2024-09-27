@@ -1,18 +1,16 @@
 package content.region.misthalin.varrock.quest.dragon
 
-import content.region.misthalin.varrock.quest.dragon.handlers.DragonSlayerCutscene
+import content.region.misthalin.lumbridge.dialogue.DukeHoracioDialogue
 import content.region.misthalin.varrock.quest.dragon.dialogue.DSChestDialogue
 import content.region.misthalin.varrock.quest.dragon.dialogue.GuildmasterDSDialogue
 import content.region.misthalin.varrock.quest.dragon.dialogue.OziachDSDialogue
 import content.region.misthalin.varrock.quest.dragon.dialogue.WormbrainDSDialogue
+import content.region.misthalin.varrock.quest.dragon.handlers.CrandorMapPlugin
+import content.region.misthalin.varrock.quest.dragon.handlers.DSMagicDoorPlugin
+import content.region.misthalin.varrock.quest.dragon.handlers.DragonSlayerCutscene
 import content.region.misthalin.varrock.quest.dragon.handlers.DragonSlayerPlugin
-import core.api.*
-import org.rs.consts.Items
-import org.rs.consts.Sounds
-import org.rs.consts.Vars
-import content.region.misthalin.lumbridge.dialogue.DukeHoracioDialogue
-import content.region.misthalin.varrock.quest.dragon.handlers.*
 import content.region.misthalin.varrock.quest.dragon.handlers.npc.*
+import core.api.*
 import core.game.component.Component
 import core.game.event.EventHook
 import core.game.event.PickUpEvent
@@ -27,14 +25,18 @@ import core.game.world.GameWorld.Pulser
 import core.game.world.map.Location
 import core.game.world.map.RegionManager.getObject
 import core.game.world.update.flag.context.Animation
-import core.plugin.PluginManager.definePlugins
 import core.plugin.Initializable
+import core.plugin.PluginManager.definePlugins
+import org.rs.consts.Items
+import org.rs.consts.QuestName
+import org.rs.consts.Sounds
+import org.rs.consts.Vars
 
 /**
  * Represents the Dragon slayer quest.
  */
 @Initializable
-class DragonSlayer : Quest("Dragon Slayer", 18, 17, 2, Vars.VARP_QUEST_DRAGON_SLAYER_PROGRESS, 0, 1, 10), LoginListener {
+class DragonSlayer : Quest(QuestName.DRAGON_SLAYER, 18, 17, 2, Vars.VARP_QUEST_DRAGON_SLAYER_PROGRESS, 0, 1, 10), LoginListener {
 
     override fun newInstance(`object`: Any?): Quest {
         definePlugins(
@@ -63,27 +65,11 @@ class DragonSlayer : Quest("Dragon Slayer", 18, 17, 2, Vars.VARP_QUEST_DRAGON_SL
         super.drawJournal(player, stage)
         when (getStage(player)) {
             0 -> {
-                player.packetDispatch.sendString(
-                    BLUE + "I can start this quest by speaking to the " + RED + "Guildmaster " + BLUE + "in",
-                    275,
-                    4 + 7
-                )
-                player.packetDispatch.sendString(
-                    BLUE + "the " + RED + "Champions' Guild" + BLUE + " , south-west of Varrock.",
-                    275,
-                    5 + 7
-                )
-                player.packetDispatch.sendString(
-                    BLUE + "I will need to be able to defeat a " + RED + "level 83 dragon.",
-                    275,
-                    6 + 7
-                )
+                player.packetDispatch.sendString(BLUE + "I can start this quest by speaking to the " + RED + "Guildmaster " + BLUE + "in", 275, 4 + 7)
+                player.packetDispatch.sendString(BLUE + "the " + RED + "Champions' Guild" + BLUE + " , south-west of Varrock.", 275, 5 + 7)
+                player.packetDispatch.sendString(BLUE + "I will need to be able to defeat a " + RED + "level 83 dragon.", 275, 6 + 7)
                 if (player.questRepository.points < 32) {
-                    player.packetDispatch.sendString(
-                        BLUE + "To enter the Champions' Guild I need" + RED + " 32 Quest Points.",
-                        275,
-                        7 + 7
-                    )
+                    player.packetDispatch.sendString(BLUE + "To enter the Champions' Guild I need" + RED + " 32 Quest Points.", 275, 7 + 7)
                 } else {
                     player.packetDispatch.sendString(
                         "<str>To enter the Champions' Guild I need 32 Quest Points.",
@@ -97,11 +83,7 @@ class DragonSlayer : Quest("Dragon Slayer", 18, 17, 2, Vars.VARP_QUEST_DRAGON_SL
                 line(player, "<str>The Guildmaster of the Champions' Guild said I could earn", 4 + 7)
                 line(player, "<str>the right to wear rune armour if I went on a quest for", 5 + 7)
                 line(player, "<str>Oziach, who makes the armour.", 6 + 7)
-                line(
-                    player,
-                    BLUE + "I should speak to " + RED + "Oziach" + BLUE + ", who lives by the cliffs to the",
-                    7 + 7
-                )
+                line(player, BLUE + "I should speak to " + RED + "Oziach" + BLUE + ", who lives by the cliffs to the", 7 + 7)
                 line(player, BLUE + "west of " + RED + "Edgeville.", 8 + 7)
             }
 
@@ -111,11 +93,7 @@ class DragonSlayer : Quest("Dragon Slayer", 18, 17, 2, Vars.VARP_QUEST_DRAGON_SL
                 line(player, "<str>Oziach, who makes the armour.", 6 + 7)
                 line(player, "<str>I spoke to Oziach in Edgeville. He told me to slay the", 7 + 7)
                 line(player, "<str>dragon of Crandor island.", 8 + 7)
-                line(
-                    player,
-                    BLUE + "I should return to the " + RED + "Champions' Guild Guildmaster " + BLUE + "for",
-                    9 + 7
-                )
+                line(player, BLUE + "I should return to the " + RED + "Champions' Guild Guildmaster " + BLUE + "for", 9 + 7)
                 line(player, BLUE + "more detailed instructions.", 10 + 7)
             }
 
@@ -127,16 +105,8 @@ class DragonSlayer : Quest("Dragon Slayer", 18, 17, 2, Vars.VARP_QUEST_DRAGON_SL
                 line(player, "<str>dragon of Crandor island.", 8 + 7)
                 line(player, "<str>The Champions' Guild Guildmaster gave me more detailed", 9 + 7)
                 line(player, "<str>instructions.", 10 + 7)
-                line(
-                    player,
-                    BLUE + "To defeat the dragon I will need to find a " + RED + "map " + BLUE + "to Crandor, a",
-                    11 + 7
-                )
-                line(
-                    player,
-                    RED + "ship" + BLUE + ", a " + RED + "captain " + BLUE + "to take me there and some kind of",
-                    12 + 7
-                )
+                line(player, BLUE + "To defeat the dragon I will need to find a " + RED + "map " + BLUE + "to Crandor, a", 11 + 7)
+                line(player, RED + "ship" + BLUE + ", a " + RED + "captain " + BLUE + "to take me there and some kind of", 12 + 7)
                 line(player, RED + "protection " + BLUE + "against the dragon's breath.", 13 + 7)
                 if (!player.inventory.containsItem(MAZE_PIECE) && !player.bank.containsItem(MAZE_PIECE)) {
                     line(player, BLUE + "One-third of the map is in " + RED + "Melzar's Maze" + BLUE + ", near", 14 + 7)
@@ -146,44 +116,28 @@ class DragonSlayer : Quest("Dragon Slayer", 18, 17, 2, Vars.VARP_QUEST_DRAGON_SL
                     line(player, "<str>Maze.", 15 + 7)
                 }
                 if (!player.inventory.containsItem(MAGIC_PIECE) && !player.bank.containsItem(MAGIC_PIECE)) {
-                    line(
-                        player,
-                        BLUE + "One-third of the map is hidden and only the " + RED + "Oracle " + BLUE + "on " + RED + "Ice",
-                        16 + 7
-                    )
+                    line(player, BLUE + "One-third of the map is hidden and only the " + RED + "Oracle " + BLUE + "on " + RED + "Ice", 16 + 7)
                     line(player, RED + "Mountain" + BLUE + " will know where it is.", 17 + 7)
                 } else {
                     line(player, "<str>I found the piece of the map that was hidden beneath Ice", 16 + 7)
                     line(player, "<str>Mountain.", 18 + 7)
                 }
                 if (!player.inventory.containsItem(WORMBRAIN_PIECE) && !player.bank.containsItem(WORMBRAIN_PIECE)) {
-                    line(
-                        player,
-                        BLUE + "One-third of the map was stolen by a " + RED + "goblin " + BLUE + "from the",
-                        18 + 7
-                    )
+                    line(player, BLUE + "One-third of the map was stolen by a " + RED + "goblin " + BLUE + "from the", 18 + 7)
                     line(player, RED + "Goblin Village.", 19 + 7)
                 } else {
                     line(player, "<str>I found the piece of the map that the goblin, Wormbrain,", 18 + 7)
                     line(player, "<str>stole.", 19 + 7)
                 }
                 if (!player.inventory.containsItem(SHIELD) && !player.bank.containsItem(SHIELD)) {
-                    line(
-                        player,
-                        BLUE + "I should ask the " + RED + "Duke of Lumbridge " + BLUE + "for an " + RED + "anti-",
-                        20 + 7
-                    )
+                    line(player, BLUE + "I should ask the " + RED + "Duke of Lumbridge " + BLUE + "for an " + RED + "anti-", 20 + 7)
                     line(player, RED + "dragonbreath shield.", 21 + 7)
                 } else {
                     line(player, "<str>The Duke of Lumbridge gave me an anti-dragonbreath", 20 + 7)
                     line(player, "<str>shield.", 21 + 7)
                 }
                 if (!player.savedData.questData.getDragonSlayerAttribute("ship")) {
-                    line(
-                        player,
-                        BLUE + "I should see if there is a " + RED + "ship " + BLUE + "for sale in " + RED + "Port Sarim",
-                        22 + 7
-                    )
+                    line(player, BLUE + "I should see if there is a " + RED + "ship " + BLUE + "for sale in " + RED + "Port Sarim", 22 + 7)
                 } else {
                     line(player, "<str>I bought a ship in Port Sarim called the Lady Lumbridge.", 22 + 7)
                     if (!player.savedData.questData.getDragonSlayerAttribute("repaired")) {
@@ -218,11 +172,7 @@ class DragonSlayer : Quest("Dragon Slayer", 18, 17, 2, Vars.VARP_QUEST_DRAGON_SL
                 line(player, "<str>nails.", 23 + 7)
                 line(player, "<str>Captain Ned from Draynor Village has agreed to sail the", 24 + 7)
                 line(player, "<str>ship to Crandor for me.", 25 + 7)
-                line(
-                    player,
-                    BLUE + "Now I should go to my ship in " + RED + "Port Sarim " + BLUE + "and set sail for",
-                    26 + 7
-                )
+                line(player, BLUE + "Now I should go to my ship in " + RED + "Port Sarim " + BLUE + "and set sail for", 26 + 7)
                 line(player, RED + "Crandor" + BLUE + "!", 27 + 7)
             }
 
@@ -248,11 +198,7 @@ class DragonSlayer : Quest("Dragon Slayer", 18, 17, 2, Vars.VARP_QUEST_DRAGON_SL
                     if (!inInventory(player, Items.ELVARGS_HEAD_11279)) {
                         line(player, BLUE + "Now all I need to do is kill the " + RED + "dragon" + BLUE + "!", 21 + 7)
                     } else {
-                        line(
-                            player,
-                            BLUE + "I have slain the dragon! Now I just need to tell " + RED + "Oziach.",
-                            21 + 7
-                        )
+                        line(player, BLUE + "I have slain the dragon! Now I just need to tell " + RED + "Oziach.", 21 + 7)
                     }
                 } else {
                     line(player, "<str>I have found a secret passage leading from Karamja to", 21 + 7)
@@ -261,11 +207,7 @@ class DragonSlayer : Quest("Dragon Slayer", 18, 17, 2, Vars.VARP_QUEST_DRAGON_SL
                     if (!inInventory(player, Items.ELVARGS_HEAD_11279)) {
                         line(player, BLUE + "Now all I need to do is kill the " + RED + "dragon" + BLUE + "!", 24 + 7)
                     } else {
-                        line(
-                            player,
-                            BLUE + "I have slain the dragon! Now I just need to tell " + RED + "Oziach.",
-                            24 + 7
-                        )
+                        line(player, BLUE + "I have slain the dragon! Now I just need to tell " + RED + "Oziach.", 24 + 7)
                     }
                 }
             }
@@ -295,11 +237,7 @@ class DragonSlayer : Quest("Dragon Slayer", 18, 17, 2, Vars.VARP_QUEST_DRAGON_SL
                 line(player, "<str>champion and have proved myself worthy to wear rune", 25 + 7)
                 line(player, "<str>platemail!", 26 + 7)
                 line(player, "<col=FF0000>QUEST COMPLETE!</col>", 28 + 7)
-                line(
-                    player,
-                    BLUE + "I gained " + RED + "2 Quest Points" + BLUE + ", " + RED + "18,650 Strength XP" + BLUE + ", " + RED + "18,650",
-                    29 + 7
-                )
+                line(player, BLUE + "I gained " + RED + "2 Quest Points" + BLUE + ", " + RED + "18,650 Strength XP" + BLUE + ", " + RED + "18,650", 29 + 7)
                 line(player, RED + "Defence XP " + BLUE + "and the right to wear " + RED + "rune platebodies.", 30 + 7)
             }
         }

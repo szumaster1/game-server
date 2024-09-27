@@ -10,6 +10,7 @@ import core.game.node.entity.player.link.diary.DiaryType
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 import core.tools.RandomFunction
+import org.rs.consts.QuestName
 import kotlin.random.Random
 
 /**
@@ -70,16 +71,16 @@ class PeerTheSeerDialogue(player: Player? = null): Dialogue(player) {
             npcl(FacialExpression.SAD, "Uuuh... What was that dark presence I felt?")
             stage = 120
             return true
-        } else if (isQuestComplete(player, "Fremennik Trials")) {
+        } else if (isQuestComplete(player, QuestName.THE_FREMENNIK_TRIALS)) {
             npcl(FacialExpression.SAD, "Uuuh... What was that dark presence I felt?")
             stage = 150
             return true
-        } else if (player.questRepository.hasStarted("Fremennik Trials")) {
+        } else if (player.questRepository.hasStarted(QuestName.THE_FREMENNIK_TRIALS)) {
             npcl(FacialExpression.SAD, "Uuuh... What was that dark presence I felt?")
             stage = 50
             return true
         }
-        if (getQuestStage(player, "Fremennik Trials") == 0) {
+        if (getQuestStage(player, QuestName.THE_FREMENNIK_TRIALS) == 0) {
             npc(FacialExpression.SAD, "Uuuh... What was that dark presence I felt?").also { stage = 300 }
         }
         return true

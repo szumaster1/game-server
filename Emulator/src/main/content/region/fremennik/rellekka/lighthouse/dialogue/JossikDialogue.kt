@@ -1,14 +1,16 @@
 package content.region.fremennik.rellekka.lighthouse.dialogue
 
 import content.data.GodBook
-import org.rs.consts.Items
-import org.rs.consts.NPCs
 import content.region.fremennik.rellekka.lighthouse.quest.horror.dialogue.JossikRewardDialogue
+import core.api.inInventory
+import core.api.openDialogue
 import core.game.dialogue.Dialogue
 import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.game.node.item.Item
 import core.plugin.Initializable
+import org.rs.consts.Items
+import org.rs.consts.NPCs
 
 /**
  * Represents the Jossik Lighthouse dialogue.
@@ -18,9 +20,9 @@ class JossikDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
-        if (player.inventory.contains(Items.RUSTY_CASKET_3849, 1)) {
+        if (inInventory(player, Items.RUSTY_CASKET_3849, 1)) {
             end()
-            player.dialogueInterpreter.open(JossikRewardDialogue(), npc)
+            openDialogue(player, JossikRewardDialogue(), npc)
         } else {
             npc("Hello again, adventurer.", "What brings you this way?")
         }

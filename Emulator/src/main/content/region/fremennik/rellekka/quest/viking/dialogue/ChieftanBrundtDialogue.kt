@@ -9,6 +9,7 @@ import core.game.node.entity.player.Player
 import core.game.node.item.Item
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
+import org.rs.consts.QuestName
 import kotlin.random.Random
 
 /**
@@ -58,11 +59,11 @@ class ChieftanBrundtDialogue(player: Player? = null): Dialogue(player) {
             npcl(FacialExpression.HAPPY, "Greetings again outerlander! How goes your attempts to gain votes with the council of elders?")
             stage = 530
             return true
-        } else if (isQuestComplete(player, "Fremennik Trials")) {
+        } else if (isQuestComplete(player, QuestName.THE_FREMENNIK_TRIALS)) {
             npcl(FacialExpression.HAPPY, "Hello again, $gender $fName. I hope your travels have brought you wealth and joy! What compels you to visit me on this day?")
             stage = 600
             return true
-        } else if (getQuestStage(player, "Fremennik Trials") == 0) {
+        } else if (getQuestStage(player, QuestName.THE_FREMENNIK_TRIALS) == 0) {
             npc("Greetings outlander!")
             stage = 0
         }
@@ -167,7 +168,7 @@ class ChieftanBrundtDialogue(player: Player? = null): Dialogue(player) {
             }
 
             321 -> {
-                npc("If you can gain the support of seven of the twelve, then", "you will be accepted as one of us without question."); stage = END_DIALOGUE; startQuest(player, "Fremennik Trials")
+                npc("If you can gain the support of seven of the twelve, then", "you will be accepted as one of us without question."); stage = END_DIALOGUE; startQuest(player, QuestName.THE_FREMENNIK_TRIALS)
             }
 
             //That sounds too complicated for me.
@@ -214,7 +215,7 @@ class ChieftanBrundtDialogue(player: Player? = null): Dialogue(player) {
             550 -> npcl(FacialExpression.HAPPY, "If you need any help with your trials, I suggest you speak to Askeladden. He is currently doing his own trials of manhood to become a true Fremennik.").also { stage = END_DIALOGUE }
             560 -> npcl(FacialExpression.HAPPY, "From this day onward, you are outerlander no more! In honour of your acceptance into the Fremennik, you gain a new name: ${getAttribute(player, "fremennikname", "fremmyname")}.").also {
                 cleanupAttributes(player)
-                finishQuest(player, "Fremennik Trials")
+                finishQuest(player, QuestName.THE_FREMENNIK_TRIALS)
                 stage = END_DIALOGUE
             }
             600 -> options("I just came to say hello.", "Do you have any quests?", "Nice hat!", "Can I hear the history of your people?", "Can I have a seal of passage?").also { stage++ }

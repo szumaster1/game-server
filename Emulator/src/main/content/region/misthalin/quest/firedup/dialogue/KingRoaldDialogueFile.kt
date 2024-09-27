@@ -9,6 +9,7 @@ import core.game.dialogue.FacialExpression
 import core.game.node.entity.skill.Skills
 import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
+import org.rs.consts.QuestName
 
 /**
  * Represents the King Roald dialogue file.
@@ -52,7 +53,7 @@ class KingRoaldDialogueFile(val questStage: Int) : DialogueFile() {
                     19 -> npc("With speed, ${player!!.username}. The security of Misthalin is in","your hands.").also { stage++ }
                     20 -> {
                         end()
-                        setQuestStage(player!!, "All Fired Up", 10)
+                        setQuestStage(player!!, QuestName.ALL_FIRED_UP, 10)
                         updateQuestTab(player!!)
                     }
                 }
@@ -71,7 +72,7 @@ class KingRoaldDialogueFile(val questStage: Int) : DialogueFile() {
                     9 -> npc("There is much more to be done and this is but a", "pittance compared to what I'm willing to offer for", "further assistance!").also { stage++ }
                     10 -> {
                         end()
-                        finishQuest(player!!, "All Fired Up")
+                        finishQuest(player!!, QuestName.ALL_FIRED_UP)
                     }
                 }
             }

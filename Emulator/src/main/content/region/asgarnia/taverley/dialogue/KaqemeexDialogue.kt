@@ -1,5 +1,6 @@
 package content.region.asgarnia.taverley.dialogue
 
+import core.api.finishQuest
 import org.rs.consts.NPCs
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression
@@ -9,6 +10,7 @@ import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.game.node.entity.skill.Skills
 import core.plugin.Initializable
+import org.rs.consts.QuestName
 
 /**
  * Represents the Kaqemeex dialogue.
@@ -36,16 +38,16 @@ class KaqemeexDialogue(player: Player? = null) : Dialogue(player) {
     override fun handle(interfaceId: Int, buttonId: Int): Boolean {
         when (stage) {
             0 -> {
-                if (player.getQuestRepository().isComplete("Druidic Ritual")) {
+                if (player.getQuestRepository().isComplete(QuestName.DRUIDIC_RITUAL)) {
                     npc("Hello again. How is the Herblore going?")
                     stage = 600
                 }
-                if (player.getQuestRepository().getQuest("Druidic Ritual").getStage(player) == 10) {
+                if (player.getQuestRepository().getQuest(QuestName.DRUIDIC_RITUAL).getStage(player) == 10) {
                     npc(FacialExpression.FRIENDLY, "Hello again.")
                     stage = 40
 
                 }
-                if (player.getQuestRepository().getQuest("Druidic Ritual").getStage(player) == 99) {
+                if (player.getQuestRepository().getQuest(QuestName.DRUIDIC_RITUAL).getStage(player) == 99) {
                     npc(FacialExpression.FRIENDLY, "I have word from Sanfew that you have been very", "helpful in assisting him with his preparations for the", "purification ritual. As promised I will now teach you the", "ancient arts of Herblore.")
                     stage = 200
                 }
@@ -53,7 +55,7 @@ class KaqemeexDialogue(player: Player? = null) : Dialogue(player) {
                 stage = 1
             }
 
-            1 -> if (player.getQuestRepository().getQuest("Druidic Ritual").isStarted(player)) {
+            1 -> if (player.getQuestRepository().getQuest(QuestName.DRUIDIC_RITUAL).isStarted(player)) {
                 if (isMaster(player, Skills.HERBLORE)) {
                     options("Can I buy a Skillcape of Herblore?", "Who are you?", "Did you build this?")
                     stage = 800
@@ -152,7 +154,7 @@ class KaqemeexDialogue(player: Player? = null) : Dialogue(player) {
             }
 
             26 -> {
-                player.getQuestRepository().getQuest("Druidic Ritual").start(player)
+                player.getQuestRepository().getQuest(QuestName.DRUIDIC_RITUAL).start(player)
                 npc(FacialExpression.HAPPY, "Excellent. Go to the village south of this place and speak", "to my fellow Sanfew who is working on the purification", "ritual. He knows better than I what is required to", "complete it.")
                 stage = 27
             }
@@ -171,7 +173,7 @@ class KaqemeexDialogue(player: Player? = null) : Dialogue(player) {
             41 -> end()
             200 -> {
                 end()
-                player.getQuestRepository().getQuest("Druidic Ritual").finish(player)
+                finishQuest(player, QuestName.DRUIDIC_RITUAL)
             }
 
             500 -> when (buttonId) {

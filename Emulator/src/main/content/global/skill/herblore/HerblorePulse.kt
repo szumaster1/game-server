@@ -13,6 +13,7 @@ import core.game.node.entity.skill.SkillPulse
 import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 import core.tools.RandomFunction
+import org.rs.consts.QuestName
 
 /**
  * Represents the skill pulse used to handle the creating of potions.
@@ -24,8 +25,8 @@ class HerblorePulse(player: Player?, node: Item?, var amount: Int, private val p
     private var cycles = 0
 
     override fun checkRequirements(): Boolean {
-        if (!isQuestComplete(player, "Druidic Ritual")) {
-            sendMessage(player, "You must complete the Druidic Ritual quest before you can use Herblore.")
+        if (!isQuestComplete(player, QuestName.DRUIDIC_RITUAL)) {
+            sendMessage(player, "You must complete the ${QuestName.DRUIDIC_RITUAL} quest before you can use Herblore.")
             return false
         }
         if (getDynLevel(player, Skills.HERBLORE) < potion.level) {

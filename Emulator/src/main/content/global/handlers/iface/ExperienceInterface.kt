@@ -33,9 +33,9 @@ class ExperienceInterface : ComponentPlugin() {
             } else {
                 removeAttribute(player, "exp_interface:skill")
                 when (confirmedSkill) {
-                    Skills.HERBLORE -> if (!checkHerblore(player)) sendMessage(player, "You need to have completed Druidic Ritual for this.").also { return true }
+                    Skills.HERBLORE -> if (!checkHerblore(player)) sendMessage(player, "You need to have completed ${QuestName.DRUIDIC_RITUAL} for this.").also { return true }
                     Skills.RUNECRAFTING -> if (!checkRunecrafting(player)) sendMessage(player, "You need to have completed Rune Mysteries for this.").also { return true }
-                    Skills.SUMMONING -> if (!checkSummoning(player)) sendMessage(player, "You need to have completed Wolf Whistle for this.").also { return true }
+                    Skills.SUMMONING -> if (!checkSummoning(player)) sendMessage(player, "You need to have completed ${QuestName.WOLF_WHISTLE} for this.").also { return true }
                 }
                 val caller = player.attributes["caller"]
                 caller ?: return true

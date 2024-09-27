@@ -9,6 +9,7 @@ import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.quest.Quest
 import core.game.node.item.Item
+import org.rs.consts.QuestName
 
 /**
  * Represents the Alice husband dialogue.
@@ -18,7 +19,7 @@ class AliceHusbandDialogue(player: Player? = null) : Dialogue(player) {
     private lateinit var quest: Quest
 
     override fun open(vararg args: Any): Boolean {
-        quest = player.questRepository.getQuest(AnimalMagnetism.questName)
+        quest = player.questRepository.getQuest(QuestName.ANIMAL_MAGNETISM)
         npc = args[0] as NPC
         if (!player.equipment.containsAtLeastOneItem(Items.GHOSTSPEAK_AMULET_552)) {
             npc("Wooo wooo wooooo!")

@@ -9,6 +9,7 @@ import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC
 import core.tools.END_DIALOGUE
+import org.rs.consts.QuestName
 
 /**
  * Represents the Holgart dialogue file.
@@ -19,7 +20,7 @@ class HolgartDialogueFile : DialogueFile() {
      * setVarbit(player, 2610, 1 | 2)
      */
     override fun handle(componentID: Int, buttonID: Int) {
-        val questStage = getQuestStage(player!!, "Sea Slug")
+        val questStage = getQuestStage(player!!, QuestName.SEA_SLUG)
         npc = NPC(NPCs.HOLGART_4866)
         when {
             (questStage in 2..3) -> {
@@ -57,7 +58,7 @@ class HolgartDialogueFile : DialogueFile() {
                     }
                     20 -> {
                         end()
-                        setQuestStage(player!!, "Sea Slug", 4)
+                        setQuestStage(player!!, QuestName.SEA_SLUG, 4)
                     }
                 }
             }

@@ -1,12 +1,13 @@
 package content.region.misthalin.varrock.quest.fluffs.handlers
 
-import org.rs.consts.NPCs
 import core.game.node.entity.npc.AbstractNPC
 import core.game.node.entity.player.Player
 import core.game.world.GameWorld.ticks
 import core.game.world.map.Location
 import core.plugin.Initializable
 import core.tools.RandomFunction
+import org.rs.consts.NPCs
+import org.rs.consts.QuestName
 
 /**
  * Represents the Lumber kitten NPC.
@@ -43,7 +44,7 @@ class LumberKittenNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id,
     }
 
     override fun isHidden(player: Player): Boolean {
-        val quest = player.getQuestRepository().getQuest("Gertrude's Cat")
+        val quest = player.getQuestRepository().getQuest(QuestName.GERTRUDES_CAT)
         return hidden || quest.getStage(player) < 20 || quest.getStage(player) > 50
     }
 

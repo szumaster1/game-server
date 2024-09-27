@@ -1,15 +1,17 @@
 package content.region.fremennik.rellekka.lighthouse.quest.horror.dialogue
 
 import core.api.addItemOrDrop
-import org.rs.consts.Items
-import org.rs.consts.NPCs
 import core.api.removeItem
 import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC
+import org.rs.consts.Items
+import org.rs.consts.NPCs
 
 /**
- * Represents the Jossik reward dialogue related to Horror from the deep quest.
+ * Represents the Jossik reward dialogue.
+ *
+ * Related to **Horror from the deep** quest.
  */
 class JossikRewardDialogue : DialogueFile() {
 

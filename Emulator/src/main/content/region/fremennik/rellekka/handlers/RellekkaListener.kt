@@ -12,6 +12,7 @@ import core.game.interaction.InteractionListener
 import core.game.node.entity.player.link.TeleportManager
 import core.game.world.map.Location
 import core.game.world.update.flag.context.Animation
+import org.rs.consts.QuestName
 
 class RellekkaListener : InteractionListener {
 
@@ -75,7 +76,7 @@ class RellekkaListener : InteractionListener {
          */
 
         on(NPCs.MARIA_GUNNARS_5508, IntType.NPC, "ferry-neitiznot") { player, _ ->
-            if (!requireQuest(player, "Fremennik Trials", "")) return@on true
+            if (!requireQuest(player, QuestName.THE_FREMENNIK_TRIALS, "")) return@on true
             WaterbirthTravel.sail(player, TravelDestination.RELLEKKA_TO_NEITIZNOT)
             return@on true
         }
@@ -94,7 +95,7 @@ class RellekkaListener : InteractionListener {
          */
 
         on(NPCs.MORD_GUNNARS_5481, IntType.NPC, "ferry-jatizso") { player, _ ->
-            if (!requireQuest(player, "Fremennik Trials", "")) return@on true
+            if (!requireQuest(player, QuestName.THE_FREMENNIK_TRIALS, "")) return@on true
             WaterbirthTravel.sail(player, TravelDestination.RELLEKKA_TO_JATIZSO)
             return@on true
         }
@@ -113,7 +114,7 @@ class RellekkaListener : InteractionListener {
          */
 
         on(NPCs.SAILOR_1385, IntType.NPC, "travel") { player, _ ->
-            if (!requireQuest(player, "Fremennik Trials", "")) return@on true
+            if (!requireQuest(player, QuestName.THE_FREMENNIK_TRIALS, "")) return@on true
             WaterbirthTravel.sail(player, TravelDestination.RELLEKA_TO_MISCELLANIA)
             return@on true
         }
@@ -123,7 +124,7 @@ class RellekkaListener : InteractionListener {
          */
 
         on(NPCs.SAILOR_1304, IntType.NPC, "travel") { player, _ ->
-            if (!requireQuest(player, "Fremennik Trials", "")) return@on true
+            if (!requireQuest(player, QuestName.THE_FREMENNIK_TRIALS, "")) return@on true
             WaterbirthTravel.sail(player, TravelDestination.MISCELLANIA_TO_RELLEKKA)
             return@on true
         }

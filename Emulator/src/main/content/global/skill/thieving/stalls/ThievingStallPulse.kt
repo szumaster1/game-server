@@ -14,6 +14,7 @@ import core.game.world.map.RegionManager.getLocalNpcs
 import core.tools.RandomFunction
 import core.tools.StringUtils
 import org.rs.consts.Animations
+import org.rs.consts.QuestName
 
 /**
  * Thieving stall pulse.
@@ -43,11 +44,11 @@ class ThievingStallPulse(player: Player?, node: Scenery?, private val stall: Sta
             sendMessage(player,"You don't have enough inventory space.")
             return false
         }
-        if (inBorders(player, getRegionBorders(10553)) && !isQuestComplete(player, "Fremennik Trials") && stall.fullIDs.contains(4278)) {
+        if (inBorders(player, getRegionBorders(10553)) && !isQuestComplete(player, QuestName.THE_FREMENNIK_TRIALS) && stall.fullIDs.contains(4278)) {
             sendDialogue(player, "The fur trader is staring at you suspiciously. You cannot steal from his stall while he distrusts you.")
             return false
         }
-        if (inBorders(player, getRegionBorders(10553)) && !isQuestComplete(player, "Fremennik Trials") && stall.fullIDs.contains(4277)) {
+        if (inBorders(player, getRegionBorders(10553)) && !isQuestComplete(player, QuestName.THE_FREMENNIK_TRIALS) && stall.fullIDs.contains(4277)) {
             sendDialogue(player, "The fishmonger is staring at you suspiciously. You cannot steal from his stall while he distrusts you.")
             return false
         }

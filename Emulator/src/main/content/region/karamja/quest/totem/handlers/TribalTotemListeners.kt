@@ -10,6 +10,7 @@ import core.game.node.entity.skill.Skills
 import core.game.node.scenery.SceneryBuilder
 import core.game.world.map.Location
 import core.game.world.update.flag.context.Animation
+import org.rs.consts.QuestName
 
 /**
  * Tribal totem listeners.
@@ -32,7 +33,7 @@ class TribalTotemListeners : InteractionListener {
          */
 
         on(frontDoor, IntType.SCENERY, "Open") { player, door ->
-            if (player.questRepository.getStage("Tribal Totem") >= 35) {
+            if (player.questRepository.getStage(QuestName.TRIBAL_TOTEM) >= 35) {
                 DoorActionHandler.handleAutowalkDoor(player, door.asScenery())
             }
             sendMessage(player, "The door is locked shut.")
@@ -44,10 +45,10 @@ class TribalTotemListeners : InteractionListener {
          */
 
         on(realCrate, IntType.SCENERY, "Investigate") { player, _ ->
-            if (player.questRepository.getStage("Tribal Totem") in 1..19 && !player.inventory.containsAtLeastOneItem(Items.ADDRESS_LABEL_1858)) {
+            if (player.questRepository.getStage(QuestName.TRIBAL_TOTEM) in 1..19 && !player.inventory.containsAtLeastOneItem(Items.ADDRESS_LABEL_1858)) {
                 sendDialogue(player, "There is a label on this crate. It says; To Lord Handelmort, Handelmort Mansion Ardogune.You carefully peel it off and take it.")
                 addItem(player, Items.ADDRESS_LABEL_1858, 1)
-            } else if (player.questRepository.getStage("Tribal Totem") in 1..19 && player.inventory.containsAtLeastOneItem(Items.ADDRESS_LABEL_1858)) {
+            } else if (player.questRepository.getStage(QuestName.TRIBAL_TOTEM) in 1..19 && player.inventory.containsAtLeastOneItem(Items.ADDRESS_LABEL_1858)) {
                 sendDialogue(player, "There was a label on this crate, but it's gone now since you took it!")
             }
             return@on true
@@ -69,7 +70,7 @@ class TribalTotemListeners : InteractionListener {
         onUseWith(IntType.SCENERY, label, wizCrate) { player, _, _ ->
             sendDialogue(player, "You carefully place the delivery address label over the existing label, covering it completely.")
             removeItem(player, label)
-            player.questRepository.getQuest("Tribal Totem").setStage(player, 20)
+            player.questRepository.getQuest(QuestName.TRIBAL_TOTEM).setStage(player, 20)
             return@onUseWith true
         }
 

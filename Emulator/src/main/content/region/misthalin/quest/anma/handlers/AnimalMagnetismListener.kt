@@ -1,9 +1,10 @@
 package content.region.misthalin.quest.anma.handlers
 
-import org.rs.consts.Items
 import core.api.isQuestComplete
 import core.api.sendMessage
 import core.game.interaction.InteractionListener
+import org.rs.consts.Items
+import org.rs.consts.QuestName
 
 class AnimalMagnetismListener : InteractionListener {
 
@@ -14,7 +15,7 @@ class AnimalMagnetismListener : InteractionListener {
          */
 
         onEquip(Items.CRONE_MADE_AMULET_10500) { player, _ ->
-            if (!isQuestComplete(player, "Animal Magnetism")) {
+            if (!isQuestComplete(player, QuestName.ANIMAL_MAGNETISM)) {
                 sendMessage(player, "Your ghostliness isn't ethereal enough to wear this.")
                 return@onEquip false
             } else {

@@ -15,6 +15,7 @@ import core.game.world.map.Location
 import core.game.world.update.flag.context.Animation
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
+import org.rs.consts.QuestName
 
 /**
  * Represents the Manni dialogue.
@@ -26,7 +27,7 @@ class ManniDialogue(player: Player? = null): Dialogue(player) {
 
     override fun open(vararg args: Any): Boolean {
         curNPC = args[0] as? NPC
-        if (getQuestStage(player, "Fremennik Trials") > 0) {
+        if (getQuestStage(player, QuestName.THE_FREMENNIK_TRIALS) > 0) {
             if (inInventory(player, Items.LEGENDARY_COCKTAIL_3707, 1)) {
                 playerl(FacialExpression.HAPPY, "Hey. I got your cocktail for you.")
                 stage = 170
@@ -64,7 +65,7 @@ class ManniDialogue(player: Player? = null): Dialogue(player) {
                 npc("e have my vote!")
                 stage = 1000
                 return true
-            } else if (isQuestComplete(player, "Fremennik Trials")) {
+            } else if (isQuestComplete(player, QuestName.THE_FREMENNIK_TRIALS)) {
                 playerl(FacialExpression.HAPPY, "Howdy!")
                 stage = 190
                 return true

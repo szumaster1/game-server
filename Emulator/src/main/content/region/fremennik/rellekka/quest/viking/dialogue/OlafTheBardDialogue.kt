@@ -7,6 +7,7 @@ import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
+import org.rs.consts.QuestName
 
 /**
  * Represents the Olaf the bard dialogue.
@@ -42,11 +43,11 @@ class OlafTheBardDialogue(player: Player? = null): Dialogue(player) {
             npc("I can't wait to see your performance.")
             stage = 1000
             return true
-        } else if (isQuestComplete(player, "Fremennik Trials")) {
+        } else if (isQuestComplete(player, QuestName.THE_FREMENNIK_TRIALS)) {
             npcl(FacialExpression.HAPPY, "Hello again to you, ${getAttribute(player, "fremennikname", "fremmyname")}. Us bards should stick together, what can I do for you?")
             stage = 98
             return true
-        } else if (player.questRepository.hasStarted("Fremennik Trials")) {
+        } else if (player.questRepository.hasStarted(QuestName.THE_FREMENNIK_TRIALS)) {
             npc("Hello? Yes? You want something outerlander?")
             stage = 0
             return true

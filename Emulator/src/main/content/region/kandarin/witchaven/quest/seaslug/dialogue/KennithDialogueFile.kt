@@ -1,6 +1,5 @@
 package content.region.kandarin.witchaven.quest.seaslug.dialogue
 
-import org.rs.consts.NPCs
 import core.api.getQuestStage
 import core.api.isQuestComplete
 import core.api.setQuestStage
@@ -8,6 +7,8 @@ import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC
 import core.tools.END_DIALOGUE
+import org.rs.consts.NPCs
+import org.rs.consts.QuestName
 
 /**
  * Represents the Kennith dialogue file.
@@ -19,11 +20,11 @@ class KennithDialogueFile : DialogueFile() {
         when (stage) {
             0 -> {
                 // After Sea Slug.
-                if (isQuestComplete(player!!, "Sea Slug")) {
+                if (isQuestComplete(player!!, QuestName.SEA_SLUG)) {
                     player("Hello there, Kennith. How are you today?").also { stage = 105 }
                 }
                 // After kick the wall.
-                else if (getQuestStage(player!!, "Sea Slug") == 25) {
+                else if (getQuestStage(player!!, QuestName.SEA_SLUG) == 25) {
                     player("Kennith, I've made an opening in the wall. You can", "come out through there.").also { stage = 100 }
                 }
                 // First talk.
@@ -38,14 +39,14 @@ class KennithDialogueFile : DialogueFile() {
             5 -> player("That's good advice, you stay here and I'll go try and", "find your father.").also { stage++ }
             6 -> {
                 end()
-                setQuestStage(player!!, "Sea Slug", 10)
+                setQuestStage(player!!, QuestName.SEA_SLUG, 10)
             }
             100 -> npc(FacialExpression.CHILD_THINKING, "Are there any sea slugs on the other side?").also { stage++ }
             101 -> player("Not one.").also { stage++ }
             102 -> npc(FacialExpression.CHILD_NORMAL, "How will I get downstairs?").also { stage++ }
             103 -> player("I'll figure that out in a moment.").also { stage++ }
             104 -> npc(FacialExpression.CHILD_NORMAL, "Ok, when you have I'll come out.").also {
-                setQuestStage(player!!, "Sea Slug", 30)
+                setQuestStage(player!!, QuestName.SEA_SLUG, 30)
                 stage = END_DIALOGUE
             }
             105 -> npc("Great " + if(player!!.isMale) "mister" else "miss" + "! Thanks again","for rescuing me.").also { stage++ }

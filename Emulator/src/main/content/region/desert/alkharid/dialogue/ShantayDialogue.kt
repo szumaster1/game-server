@@ -1,4 +1,4 @@
-package content.region.desert.alkharid.shantaypass.dialogue
+package content.region.desert.alkharid.dialogue
 
 import core.api.*
 import org.rs.consts.Items

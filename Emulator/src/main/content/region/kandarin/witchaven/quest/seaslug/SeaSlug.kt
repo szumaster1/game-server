@@ -1,19 +1,20 @@
 package content.region.kandarin.witchaven.quest.seaslug
 
 import core.api.*
-import org.rs.consts.Components
-import org.rs.consts.Items
-import org.rs.consts.Vars
 import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.quest.Quest
 import core.game.node.entity.skill.Skills
 import core.plugin.Initializable
+import org.rs.consts.Components
+import org.rs.consts.Items
+import org.rs.consts.QuestName
+import org.rs.consts.Vars
 
 /**
  * Sea slug quest.
  */
 @Initializable
-class SeaSlug : Quest("Sea Slug", 109, 108, 1, Vars.VARP_QUEST_SEA_SLUG_PROGRESS, 0, 1, 13) {
+class SeaSlug : Quest(QuestName.SEA_SLUG, 109, 108, 1, Vars.VARP_QUEST_SEA_SLUG_PROGRESS, 0, 1, 13) {
 
     /*
      * Quest Description:

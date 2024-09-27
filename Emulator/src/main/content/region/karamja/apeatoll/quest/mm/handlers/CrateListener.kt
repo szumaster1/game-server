@@ -1,6 +1,6 @@
 package content.region.karamja.apeatoll.quest.mm.handlers
 
-import content.region.karamja.apeatoll.quest.mm.dialogue.CrateMonkeyMadnessDialogue
+import content.region.karamja.apeatoll.quest.mm.dialogue.CrateMMDialogue
 import core.api.openDialogue
 import core.api.sendMessage
 import core.game.interaction.IntType
@@ -27,7 +27,7 @@ class CrateListener : InteractionListener {
         on(monkeyAmuletMouldCrate, IntType.SCENERY, "search") { player, _ ->
             player.animator.animate(Animation(536))
             sendMessage(player, "You search the crate.")
-            openDialogue(player, CrateMonkeyMadnessDialogue(0))
+            openDialogue(player, CrateMMDialogue(0))
             return@on true
         }
 
@@ -37,7 +37,7 @@ class CrateListener : InteractionListener {
                 var counter = 0
                 override fun pulse(): Boolean {
                     when (counter++) {
-                        3 -> openDialogue(player, CrateMonkeyMadnessDialogue(1))
+                        3 -> openDialogue(player, CrateMMDialogue(1))
                     }
                     return false
                 }
@@ -51,7 +51,7 @@ class CrateListener : InteractionListener {
                 var counter = 0
                 override fun pulse(): Boolean {
                     when (counter++) {
-                        3 -> openDialogue(player, CrateMonkeyMadnessDialogue(2))
+                        3 -> openDialogue(player, CrateMMDialogue(2))
                     }
                     return false
                 }
@@ -65,7 +65,7 @@ class CrateListener : InteractionListener {
                 var counter = 0
                 override fun pulse(): Boolean {
                     when (counter++) {
-                        3 -> openDialogue(player, CrateMonkeyMadnessDialogue(3))
+                        3 -> openDialogue(player, CrateMMDialogue(3))
                     }
                     return false
                 }
@@ -75,7 +75,7 @@ class CrateListener : InteractionListener {
 
         on(monkeyMadnessEntranceDown, IntType.SCENERY, "search") { player, _ ->
             sendMessage(player, "You search the crate.")
-            openDialogue(player, CrateMonkeyMadnessDialogue(4))
+            openDialogue(player, CrateMMDialogue(4))
             return@on true
         }
 
@@ -85,7 +85,7 @@ class CrateListener : InteractionListener {
                 var counter = 0
                 override fun pulse(): Boolean {
                     when (counter++) {
-                        3 -> openDialogue(player, CrateMonkeyMadnessDialogue(5))
+                        3 -> openDialogue(player, CrateMMDialogue(5))
                     }
                     return false
                 }
@@ -99,7 +99,7 @@ class CrateListener : InteractionListener {
                 var counter = 0
                 override fun pulse(): Boolean {
                     when (counter++) {
-                        3 -> openDialogue(player, CrateMonkeyMadnessDialogue(6))
+                        3 -> openDialogue(player, CrateMMDialogue(6))
                     }
                     return false
                 }
@@ -113,7 +113,7 @@ class CrateListener : InteractionListener {
                 var counter = 0
                 override fun pulse(): Boolean {
                     when (counter++) {
-                        3 -> openDialogue(player, CrateMonkeyMadnessDialogue(7))
+                        3 -> openDialogue(player, CrateMMDialogue(7))
                     }
                     return false
                 }

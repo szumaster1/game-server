@@ -1,8 +1,5 @@
 package content.region.misthalin.varrock.quest.surok.handlers
 
-import org.rs.consts.Components
-import org.rs.consts.Items
-import org.rs.consts.Scenery
 import content.global.skill.gather.SkillingTool.Companion.getPickaxe
 import core.api.*
 import core.game.interaction.IntType
@@ -12,6 +9,10 @@ import core.game.system.task.Pulse
 import core.game.world.GameWorld.Pulser
 import core.game.world.map.Location
 import core.game.world.update.flag.context.Animation
+import org.rs.consts.Components
+import org.rs.consts.Items
+import org.rs.consts.QuestName
+import org.rs.consts.Scenery
 
 class WhatLiesBelowListener : InteractionListener {
 
@@ -52,10 +53,10 @@ class WhatLiesBelowListener : InteractionListener {
          */
 
         on(Items.BEACON_RING_11014, IntType.ITEM, "summon", "operate") { player, _ ->
-            if (getQuestStage(player, "What Lies Below") > 70) {
+            if (getQuestStage(player, QuestName.WHAT_LIES_BELOW) > 70) {
                 sendMessage(player, "Zaff has removed the summon charges from the ring. It will not summon him again.")
             } else {
-                if (getQuestStage(player, "What Lies Below") == 70 && player.zoneMonitor.isInZone("What Lies below")) {
+                if (getQuestStage(player, QuestName.WHAT_LIES_BELOW) == 70 && player.zoneMonitor.isInZone(QuestName.WHAT_LIES_BELOW)) {
                     val cutscene = player.getAttribute<WhatLiesBelowCutscene>("cutscene", null)
                     cutscene.summonZaff()
                     return@on true
@@ -113,7 +114,7 @@ class WhatLiesBelowListener : InteractionListener {
          */
 
         on(Scenery.STATUE_23057, IntType.SCENERY, "excavate") { player, _ ->
-            if (getQuestStage(player, "What Lies Below") < 30) {
+            if (getQuestStage(player, QuestName.WHAT_LIES_BELOW) < 30) {
                 val tool = getPickaxe(player)
                 if (tool == null) {
                     sendMessage(player, "You need a pickaxe in order to do that.")
@@ -137,7 +138,7 @@ class WhatLiesBelowListener : InteractionListener {
                             }
 
                             duration * 2 -> {
-                                setQuestStage(player, "What Lies Below", 40)
+                                setQuestStage(player, QuestName.WHAT_LIES_BELOW, 40)
                                 resetAnimator(player)
                                 setVarp(player, 992, 1 shl 8, true)
                                 openDialogue(player, 5837, true, true, true)

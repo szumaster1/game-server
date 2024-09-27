@@ -1,8 +1,6 @@
 package content.region.asgarnia.taverley.quest.druid
 
 import core.api.*
-import org.rs.consts.Items
-import org.rs.consts.NPCs
 import core.game.component.Component
 import core.game.interaction.QueueStrength
 import core.game.node.entity.npc.NPC
@@ -10,23 +8,22 @@ import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.quest.Quest
 import core.game.node.entity.skill.Skills
 import core.plugin.Initializable
+import org.rs.consts.Items
+import org.rs.consts.NPCs
+import org.rs.consts.QuestName
 
 /**
  * Druidic ritual quest.
  */
 @Initializable
-class DruidicRitual : Quest("Druidic Ritual", 48, 47, 4, 80, 0, 3, 4) {
-
-    companion object {
-        const val questName = "Druidic Ritual"
-    }
+class DruidicRitual : Quest(QuestName.DRUIDIC_RITUAL, 48, 47, 4, 80, 0, 3, 4) {
 
     override fun drawJournal(player: Player, stage: Int) {
         super.drawJournal(player, stage)
         var line = 12
         var stage = getStage(player)
 
-        var started = getQuestStage(player, questName) > 0
+        var started = getQuestStage(player, QuestName.DRUIDIC_RITUAL) > 0
 
         if (!started) {
             line(player, "I can start this quest by speaking to !!Kaqemeex?? who is at", line++)
@@ -71,7 +68,7 @@ class DruidicRitual : Quest("Druidic Ritual", 48, 47, 4, 80, 0, 3, 4) {
     override fun finish(player: Player) {
         var ln = 10
         super.finish(player)
-        player.packetDispatch.sendString("You have completed the Druidic Ritual Quest!", 277, 4)
+        player.packetDispatch.sendString("You have completed the ${QuestName.DRUIDIC_RITUAL} Quest!", 277, 4)
         player.packetDispatch.sendItemZoomOnInterface(Items.CLEAN_GUAM_249, 230, 277, 5)
 
         drawReward(player, "4 Quest Points", ln++)

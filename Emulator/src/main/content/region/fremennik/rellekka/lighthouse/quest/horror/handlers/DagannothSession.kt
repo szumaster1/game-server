@@ -1,8 +1,8 @@
 package content.region.fremennik.rellekka.lighthouse.quest.horror.handlers
 
-import org.rs.consts.NPCs
 import core.api.location
 import core.game.node.entity.player.Player
+import org.rs.consts.NPCs
 
 /**
  * Represents the session with Dagannoth.

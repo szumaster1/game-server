@@ -14,7 +14,7 @@ import core.game.node.item.Item
  * Monkey madness quest.
  */
 // @Initializable
-class MonkeyMadness : Quest("Monkey Madness", 88, 87, 3, Vars.VARP_QUEST_MONKEY_MADNESS_PROGRESS, 0, 1, 9) {
+class MonkeyMadness : Quest(QuestName.MONKEY_MADNESS, 88, 87, 3, Vars.VARP_QUEST_MONKEY_MADNESS_PROGRESS, 0, 1, 9) {
 
     override fun drawJournal(player: Player, stage: Int) {
         super.drawJournal(player, stage)

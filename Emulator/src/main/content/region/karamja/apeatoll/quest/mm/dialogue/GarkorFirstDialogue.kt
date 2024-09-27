@@ -3,6 +3,7 @@ package content.region.karamja.apeatoll.quest.mm.dialogue
 import core.api.setQuestStage
 import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression
+import org.rs.consts.QuestName
 
 /**
  * Represents the Garkor first dialogue.
@@ -28,7 +29,7 @@ class GarkorFirstDialogue: DialogueFile() {
             14 -> npcl(FacialExpression.NEUTRAL, "I remain here so that I may overhear Awowogei's plans.").also { stage++ }
             15 -> {
                 end()
-                setQuestStage(player!!, "Monkey Madness", 30)
+                setQuestStage(player!!, QuestName.MONKEY_MADNESS, 30)
             }
         }
     }

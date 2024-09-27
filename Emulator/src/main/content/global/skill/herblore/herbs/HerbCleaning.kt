@@ -5,6 +5,7 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
+import org.rs.consts.QuestName
 
 /**
  * Handles dirty herb cleaning.
@@ -14,7 +15,7 @@ class HerbCleaning : InteractionListener {
     override fun defineListeners() {
         on(IntType.ITEM, "clean") { player, node ->
             lock(player, 1)
-            if (!requireQuest(player, "Druidic Ritual", "before you can use Herblore.")) return@on true
+            if (!requireQuest(player, QuestName.DRUIDIC_RITUAL, "before you can use Herblore.")) return@on true
             val herb: Herb = Herb.forItem(node as Item) ?: return@on true
 
             if (getDynLevel(player, Skills.HERBLORE) < herb.level) {

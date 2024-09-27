@@ -2,6 +2,7 @@ package content.global.travel
 
 import core.api.*
 import core.game.component.Component
+import core.game.dialogue.FacialExpression
 import core.game.event.FairyRingDialEvent
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
@@ -9,12 +10,12 @@ import core.game.interaction.InterfaceListener
 import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.TeleportManager.TeleportType
 import core.game.system.task.Pulse
-import core.game.world.GameWorld
 import core.game.world.map.Location
 import core.game.world.map.RegionManager
 import core.tools.RandomFunction
 import org.rs.consts.Components
 import org.rs.consts.Items
+import org.rs.consts.QuestName
 import org.rs.consts.Scenery
 
 class FairyRingListener : InterfaceListener, InteractionListener {
@@ -203,13 +204,9 @@ class FairyRingListener : InterfaceListener, InteractionListener {
             if (!RegionManager.isTeleportPermitted(tile) || RegionManager.getObject(tile) != null) {
                 tile = Location.create(2412, 4431, 0)
             }
-            GameWorld.Pulser.submit(object : Pulse(4, player) {
+            submitWorldPulse(object : Pulse(4, player) {
                 override fun pulse(): Boolean {
-                    sendPlayerDialogue(
-                        player,
-                        "Wow, fairy magic sure is useful, I hardly moved at all!",
-                        core.game.dialogue.FacialExpression.AMAZED
-                    )
+                    sendPlayerDialogue(player, "Wow, fairy magic sure is useful, I hardly moved at all!", FacialExpression.AMAZED)
                     return true
                 }
             })
@@ -285,7 +282,7 @@ enum class FairyRing(val tile: Location?, val tip: String = "", val childId: Int
      */
     ALQ(Location.create(3597, 3495, 0), "Morytania: Haunted Woods east of Canifis", 27) {
         override fun checkAccess(player: Player): Boolean {
-            return requireQuest(player, "Priest in Peril", "to use this ring.")
+            return requireQuest(player, QuestName.PRIEST_IN_PERIL, "to use this ring.")
         }
     },
 
@@ -329,7 +326,7 @@ enum class FairyRing(val tile: Location?, val tip: String = "", val childId: Int
      */
     BKR(Location.create(3469, 3431, 0), "Morytania: Mort Myre, south of Canifis", 40) {
         override fun checkAccess(player: Player): Boolean {
-            return requireQuest(player, "Priest in Peril", "to use this ring.")
+            return requireQuest(player, QuestName.PRIEST_IN_PERIL, "to use this ring.")
         }
     },
 
@@ -353,7 +350,7 @@ enum class FairyRing(val tile: Location?, val tip: String = "", val childId: Int
      */
     CIP(Location.create(2513, 3884, 0), "Islands: Miscellania", 46) {
         override fun checkAccess(player: Player): Boolean {
-            return requireQuest(player, "Fremennik Trials", "to use this ring.")
+            return requireQuest(player, QuestName.THE_FREMENNIK_TRIALS, "to use this ring.")
         }
     },
 

@@ -1,12 +1,13 @@
 package content.region.kandarin.witchaven.quest.seaslug.dialogue
 
 import core.api.*
-import org.rs.consts.NPCs
 import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC
 import core.game.node.entity.skill.Skills
 import core.tools.END_DIALOGUE
+import org.rs.consts.NPCs
+import org.rs.consts.QuestName
 
 /**
  * Represents the Caroline dialogue file.
@@ -14,7 +15,7 @@ import core.tools.END_DIALOGUE
 class CarolineDialogueFile : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {
-        val questStage = getQuestStage(player!!, "Sea Slug")
+        val questStage = getQuestStage(player!!, QuestName.SEA_SLUG)
         npc = NPC(NPCs.CAROLINE_696)
         when {
 
@@ -50,7 +51,7 @@ class CarolineDialogueFile : DialogueFile() {
                     12 -> npc(FacialExpression.HALF_GUILTY, "I'll reward you for your time. It'll give me peace of", "mind to know Kennith and my husband, Kent, are safe.").also { stage++ }
                     13 -> {
                         end()
-                        setQuestStage(player!!, "Sea Slug", 2)
+                        setQuestStage(player!!, QuestName.SEA_SLUG, 2)
                     }
                 }
             }
@@ -80,7 +81,7 @@ class CarolineDialogueFile : DialogueFile() {
                     7 -> npc("Thank you. Take care of yourself ${player!!.username}.").also { stage++ }
                     8 -> {
                         end()
-                        finishQuest(player!!, "Sea Slug")
+                        finishQuest(player!!, QuestName.SEA_SLUG)
                     }
                 }
             }

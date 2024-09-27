@@ -10,6 +10,7 @@ import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
+import org.rs.consts.QuestName
 
 /**
  * Represents the Bardur dialogue.
@@ -25,7 +26,7 @@ class BardurDialogue(player: Player? = null): Dialogue(player) {
 
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
-        if (!isQuestComplete(player, "Fremennik Trials")) {
+        if (!isQuestComplete(player, QuestName.THE_FREMENNIK_TRIALS)) {
             npcl(FacialExpression.FRIENDLY, "Ah! Outerlander! Do not interrupt me in my business! I must cull these fiends!").also { stage = 0 }
         } else if(player.username.toString().equals("Bardur", true)) {
             if(!player.isMale) {

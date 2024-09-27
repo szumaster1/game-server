@@ -3,7 +3,7 @@ package content.region.kandarin.quest.grandtree.handlers
 import content.global.handlers.iface.ScrollInterface
 import content.region.kandarin.quest.grandtree.dialogue.KingNarnodeUnderGroundDialogue
 import content.region.kandarin.quest.grandtree.dialogue.ShipyardWorkerGTDialogue
-import content.region.karamja.apeatoll.quest.mm.dialogue.KingNarnodeMonkeyMadnessDialogue
+import content.region.karamja.apeatoll.quest.mm.dialogue.KingNarnodeMMDialogue
 import core.api.*
 import core.game.global.action.DoorActionHandler
 import core.game.interaction.IntType
@@ -44,7 +44,7 @@ class TheGrandTreeListener : InteractionListener {
         on(NPCs.KING_NARNODE_SHAREEN_670, IntType.NPC, "talk-to") { player, npc ->
             val aboveground = 9782
             when {
-                getQuestStage(player, QuestName.THE_GRAND_TREE) == 100 -> openDialogue(player, KingNarnodeMonkeyMadnessDialogue(), npc)
+                getQuestStage(player, QuestName.THE_GRAND_TREE) == 100 -> openDialogue(player, KingNarnodeMMDialogue(), npc)
                 player.location.regionId == aboveground -> openDialogue(player, KingNarnodeUnderGroundDialogue(), npc)
                 player.location.regionId != aboveground -> openDialogue(player, KingNarnodeUnderGroundDialogue(), npc)
             }

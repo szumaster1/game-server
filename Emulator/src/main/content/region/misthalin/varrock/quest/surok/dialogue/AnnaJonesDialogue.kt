@@ -10,6 +10,7 @@ import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.quest.Quest
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
+import org.rs.consts.QuestName
 
 /**
  * Represents the Anna jones dialogue.
@@ -20,8 +21,8 @@ class AnnaJonesDialogue(player: Player? = null) : Dialogue(player) {
     private var quest: Quest? = null
 
     override fun open(vararg args: Any?): Boolean {
-        quest = player.getQuestRepository().getQuest("What Lies Below")
-        when (getQuestStage(player, "What Lies Below")) {
+        quest = player.getQuestRepository().getQuest(QuestName.WHAT_LIES_BELOW)
+        when (getQuestStage(player, QuestName.WHAT_LIES_BELOW)) {
             30 -> npc("Ah. You must be " + player.username + ", right? I have a bronze", "pickaxe here for you.")
             40 -> if (args.size >= 2) {
                 npc("You did it! oh, well done! How exciting!").also { stage = 10 }

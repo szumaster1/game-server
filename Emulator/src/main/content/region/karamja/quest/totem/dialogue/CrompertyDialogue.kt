@@ -76,7 +76,7 @@ class CrompertyDialogue(player: Player? = null) : Dialogue(player) {
             28 -> npcl(FacialExpression.HAPPY, "As you wish.").also { stage = 1000 }
             30 -> npcl(FacialExpression.HAPPY, "Okey dokey! Ready?").also { stage++ }
             31 -> {
-                if (isQuestInProgress(player, "Tribal Totem", 1, 49)) {
+                if (isQuestInProgress(player, QuestName.TRIBAL_TOTEM, 1, 49)) {
                     npcl(FacialExpression.HAPPY, "Okay, I got a signal. Get ready!").also { stage = 36 }
                 } else {
                     npcl(FacialExpression.THINKING, "Hmmm... that's odd... I can't seem to get a signal...").also { stage++ }
@@ -120,12 +120,12 @@ class CrompertyDialogue(player: Player? = null) : Dialogue(player) {
         npc.sendChat("Dipsolum sententa sententi!")
         GameWorld.Pulser.submit(object : Pulse(1) {
             var counter = 0
-            var delivered = player.questRepository.getStage("Tribal Totem") >= 25
+            var delivered = player.questRepository.getStage(QuestName.TRIBAL_TOTEM) >= 25
             override fun pulse(): Boolean {
                 when (counter++) {
                     2 -> {
                         if (delivered) {
-                            setQuestStage(player, "Tribal Totem", 30)
+                            setQuestStage(player, QuestName.TRIBAL_TOTEM, 30)
                             player.properties.teleportLocation = LOCATIONS[1]
                         } else player.properties.teleportLocation = LOCATIONS[0]
                     }

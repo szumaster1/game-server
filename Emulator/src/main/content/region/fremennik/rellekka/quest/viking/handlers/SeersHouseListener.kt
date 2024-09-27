@@ -1,10 +1,6 @@
 package content.region.fremennik.rellekka.quest.viking.handlers
 
 import core.api.*
-import org.rs.consts.Animations
-import org.rs.consts.Items
-import org.rs.consts.NPCs
-import org.rs.consts.Sounds
 import core.game.dialogue.DialogueFile
 import core.game.global.action.ClimbActionHandler
 import core.game.global.action.DoorActionHandler
@@ -17,71 +13,71 @@ import core.game.node.scenery.SceneryBuilder
 import core.game.world.map.Location
 import core.game.world.map.zone.ZoneBorders
 import core.game.world.update.flag.context.Animation
+import org.rs.consts.Animations
+import org.rs.consts.Items
+import org.rs.consts.NPCs
+import org.rs.consts.Sounds
 
 class SeersHouseListener : InteractionListener {
 
-    val WESTDOOR = 4165
-    val EASTDOOR = 4166
-    val WESTLADDER = 4163
-    val EASTLADDER = 4164
-    val WESTTRAPDOOR = getScenery(2631, 3663, 2)!!
-    val EASTTRAPDOOR = getScenery(2636, 3663, 2)!!
-    val TAP = 4176
-    val COOKINGRANGE = 4172
-    val DRAIN = 4175
-    val CUPBOARD_CLOSED = 4177
-    val CUPBOARD_OPENED = 4178
-    val BALANCECHEST = 4170
-    val UNICORNHEAD = 4181
-    val SOUTHBOXES = 4183
-    val CHEST = intArrayOf(4167, 4168)
-    val SOUTHCRATES = 4186
-    val EASTCRATES = 4185
-    val EASTBOXES = 4184
-    val FROZENTABLE = 4169
-    val BOOKCASE = 4171
-    val BULLSHEAD = 4182
-    val MURAL = 4179
+    private val WESTDOOR = 4165
+    private val EASTDOOR = 4166
+    private val WESTLADDER = 4163
+    private val EASTLADDER = 4164
+    private val WESTTRAPDOOR = getScenery(2631, 3663, 2)!!
+    private val EASTTRAPDOOR = getScenery(2636, 3663, 2)!!
+    private val TAP = 4176
+    private val COOKINGRANGE = 4172
+    private val DRAIN = 4175
+    private val CUPBOARD_CLOSED = 4177
+    private val CUPBOARD_OPENED = 4178
+    private val BALANCECHEST = 4170
+    private val UNICORNHEAD = 4181
+    private val SOUTHBOXES = 4183
+    private val CHEST = intArrayOf(4167, 4168)
+    private val SOUTHCRATES = 4186
+    private val EASTCRATES = 4185
+    private val EASTBOXES = 4184
+    private val FROZENTABLE = 4169
+    private val BOOKCASE = 4171
+    private val BULLSHEAD = 4182
+    private val MURAL = 4179
 
-    val OLDREDDISK = Items.OLD_RED_DISK_9947
-    val WOODENDISK = Items.WOODEN_DISK_3744
-    val REDHERRING = Items.RED_HERRING_3742
-    val BLUETHREAD = Items.THREAD_3719
-    val PICK = Items.PICK_3720
-    val SHIPTOY = Items.TOY_BOAT_3721
-    val MAGNET = Items.MAGNET_3718
-    val REDGOOP = Items.STICKY_RED_GOOP_3746
-    val REDDISK = Items.RED_DISK_3743
-    val VASELID = Items.VASE_LID_3737
-    val VASE = Items.VASE_3734
-    val FULLVASE = Items.VASE_OF_WATER_3735
-    val FROZENVASE = Items.FROZEN_VASE_3736
-    val SEALEDEMPTYVASE = Items.SEALED_VASE_3738
-    val SEALEDFULLVASE = Items.SEALED_VASE_3739
-    val FROZENKEY = Items.FROZEN_KEY_3741
-    val SEERSKEY = Items.SEERS_KEY_3745
-    val EMPTYBUCKET = Items.EMPTY_BUCKET_3727
-    val ONEFIFTHBUCKET = Items.ONE_5THS_FULL_BUCKET_3726
-    val TWOFIFTHBUCKET = Items.TWO_5THS_FULL_BUCKET_3725
-    val THREEFIFTHBUCKET = Items.THREE_5THS_FULL_BUCKET_3724
-    val FOURFIFTHBUCKET = Items.FOUR_5THS_FULL_BUCKET_3723
-    val FULLBUCKET = Items.FULL_BUCKET_3722
-    val FROZENBUCKET = Items.FROZEN_BUCKET_3728
-    val EMPTYJUG = Items.EMPTY_JUG_3732
-    val ONETHIRDJUG = Items.ONE_THIRDRDS_FULL_JUG_3731
-    val TWOTHIRDJUG = Items.TWO_THIRDSRDS_FULL_JUG_3730
-    val FULLJUG = Items.FULL_JUG_3729
-    val FROZENJUG = Items.FROZEN_JUG_3733
+    private val OLDREDDISK = Items.OLD_RED_DISK_9947
+    private val WOODENDISK = Items.WOODEN_DISK_3744
+    private val REDHERRING = Items.RED_HERRING_3742
+    private val BLUETHREAD = Items.THREAD_3719
+    private val PICK = Items.PICK_3720
+    private val SHIPTOY = Items.TOY_BOAT_3721
+    private val MAGNET = Items.MAGNET_3718
+    private val REDGOOP = Items.STICKY_RED_GOOP_3746
+    private val REDDISK = Items.RED_DISK_3743
+    private val VASELID = Items.VASE_LID_3737
+    private val VASE = Items.VASE_3734
+    private val FULLVASE = Items.VASE_OF_WATER_3735
+    private val FROZENVASE = Items.FROZEN_VASE_3736
+    private val SEALEDEMPTYVASE = Items.SEALED_VASE_3738
+    private val SEALEDFULLVASE = Items.SEALED_VASE_3739
+    private val FROZENKEY = Items.FROZEN_KEY_3741
+    private val SEERSKEY = Items.SEERS_KEY_3745
+    private val EMPTYBUCKET = Items.EMPTY_BUCKET_3727
+    private val ONEFIFTHBUCKET = Items.ONE_5THS_FULL_BUCKET_3726
+    private val TWOFIFTHBUCKET = Items.TWO_5THS_FULL_BUCKET_3725
+    private val THREEFIFTHBUCKET = Items.THREE_5THS_FULL_BUCKET_3724
+    private val FOURFIFTHBUCKET = Items.FOUR_5THS_FULL_BUCKET_3723
+    private val FULLBUCKET = Items.FULL_BUCKET_3722
+    private val FROZENBUCKET = Items.FROZEN_BUCKET_3728
+    private val EMPTYJUG = Items.EMPTY_JUG_3732
+    private val ONETHIRDJUG = Items.ONE_THIRDRDS_FULL_JUG_3731
+    private val TWOTHIRDJUG = Items.TWO_THIRDSRDS_FULL_JUG_3730
+    private val FULLJUG = Items.FULL_JUG_3729
+    private val FROZENJUG = Items.FROZEN_JUG_3733
 
-    val JUGS = intArrayOf(Items.EMPTY_JUG_3732, Items.ONE_THIRDRDS_FULL_JUG_3731, Items.TWO_THIRDSRDS_FULL_JUG_3730, Items.FULL_JUG_3729)
-
-    val BUCKETS = intArrayOf(Items.EMPTY_BUCKET_3727, Items.ONE_5THS_FULL_BUCKET_3726, Items.TWO_5THS_FULL_BUCKET_3725, Items.THREE_5THS_FULL_BUCKET_3724, Items.FOUR_5THS_FULL_BUCKET_3723, Items.FULL_BUCKET_3722)
-
-    val DISKS = intArrayOf(Items.OLD_RED_DISK_9947, Items.RED_DISK_3743)
-
-    val EASTZONE = ZoneBorders(2635, 3662, 2637, 3664, 2)
-
-    val WESTZONE = ZoneBorders(2630, 3662, 2632, 3664, 2)
+    private val JUGS = intArrayOf(Items.EMPTY_JUG_3732, Items.ONE_THIRDRDS_FULL_JUG_3731, Items.TWO_THIRDSRDS_FULL_JUG_3730, Items.FULL_JUG_3729)
+    private val BUCKETS = intArrayOf(Items.EMPTY_BUCKET_3727, Items.ONE_5THS_FULL_BUCKET_3726, Items.TWO_5THS_FULL_BUCKET_3725, Items.THREE_5THS_FULL_BUCKET_3724, Items.FOUR_5THS_FULL_BUCKET_3723, Items.FULL_BUCKET_3722)
+    private val DISKS = intArrayOf(Items.OLD_RED_DISK_9947, Items.RED_DISK_3743)
+    private val EASTZONE = ZoneBorders(2635, 3662, 2637, 3664, 2)
+    private val WESTZONE = ZoneBorders(2630, 3662, 2632, 3664, 2)
 
     override fun defineListeners() {
 

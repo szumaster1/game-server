@@ -2,6 +2,7 @@ package content.region.karamja.apeatoll.quest.mm.dialogue
 
 import core.api.setQuestStage
 import core.game.dialogue.DialogueFile
+import org.rs.consts.QuestName
 
 /**
  * Represents the Awowogei challenge dialogue.
@@ -22,7 +23,7 @@ class AwowogeiChallengeDialogue: DialogueFile() {
 
             99 -> {
                 end()
-                setQuestStage(player!!, "Monkey Madness", 46)
+                setQuestStage(player!!, QuestName.MONKEY_MADNESS, 46)
             }
         }
     }
