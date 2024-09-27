@@ -7,7 +7,6 @@ import core.api.setVarp
 import core.game.component.Component
 import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.appearance.Gender
-import core.game.world.GameWorld
 import core.tools.RandomFunction
 import kotlin.math.abs
 
@@ -60,7 +59,7 @@ object CharacterDesign {
         player.packetDispatch.sendAnimationInterface(9806, 771, 79)
         player.appearance.changeGender(player.appearance.gender)
         val c = player.interfaceManager.openComponent(771)
-        c?.setCloseEvent { player, c -> // Unclosable!
+        c?.setCloseEvent { player, c ->
             player.getAttribute("char-design:accepted", false)
         }
         reset(player)
@@ -99,13 +98,9 @@ object CharacterDesign {
                 randomize(player, false)
                 return true
             }
-            167 -> {
-                Component.setUnclosable(player, player.dialogueInterpreter.sendPlaneMessageWithBlueTitle("Getting started", "To start the tutorial use your left mouse button to click on the", "" + GameWorld.settings!!.name + " Guide in this room. He is indicated by a flashing", "yellow arrow above his head. If you can't see him, use your", "keyboard's arrow keys to rotate the view."))
-                return true
-            }
 
             169 -> {
-                randomize(player, true) // RANDOMIZE HAIR
+                randomize(player, true)
                 return true
             }
 

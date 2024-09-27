@@ -964,10 +964,23 @@ fun sendDialogue(player: Player, message: String) {
 }
 
 /**
+ * Sends a message to a player's dialogue box
+ *
+ * *by default dialogue box is assigned to tutorial island*.
+ *
+ * @param player  the player to send the dialogue to.
+ * @param title   the title [default blue][core.tools.colorize].
+ * @param message the message. No automatic splitting.
+ */
+fun sendTutorialDialogue(player: Player, title: String, vararg message: String) {
+    player.dialogueInterpreter.sendPlaneMessageWithBlueTitle(colorize(title, "%B"), *message)
+}
+
+/**
  * Sends a message to the player's dialogue box.
  *
- * @param player the player to send the dialogue to.
- * @param lines  the lines of dialogue to send. No automatic splitting.
+ * @param player  the player to send the dialogue to.
+ * @param message the lines of dialogue to send. No automatic splitting.
  */
 fun sendDialogueLines(player: Player, vararg message: String) {
     player.dialogueInterpreter.sendDialogue(*message)

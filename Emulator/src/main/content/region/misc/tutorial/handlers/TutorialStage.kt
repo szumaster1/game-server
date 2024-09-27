@@ -11,9 +11,6 @@ import core.game.world.GameWorld.Pulser
 import core.game.world.GameWorld.settings
 import core.game.world.map.Location
 import core.game.world.repository.Repository
-import core.net.packet.PacketRepository
-import core.net.packet.context.MinimapStateContext
-import core.net.packet.outgoing.MinimapState
 import core.tools.BLUE
 import org.rs.consts.Components
 import org.rs.consts.Items
@@ -36,21 +33,40 @@ object TutorialStage {
         updateProgressBar(player)
         when (stage) {
             0 -> {
-                PacketRepository.send(MinimapState::class.java, MinimapStateContext(player, 2))
                 lock(player, 10)
+                setMinimapState(player, 2)
                 teleport(player, Location.create(3094, 3107, 0))
                 hideTabs(player, login)
                 CharacterDesign.open(player)
-                sendUnclosableDialogue(
-                    player, true,
-                    "",
-                    "Getting started",
-                    "Please take a moment to design your character."
+                Component.setUnclosable(
+                    player,
+                    player.dialogueInterpreter.sendPlaneMessageWithBlueTitle(
+                        "Getting started",
+                        "",
+                        "",
+                        "Please take a moment to design your character.",
+                        ""
+                    )
                 )
             }
 
+            /*
+             * 1 -> {
+             *     setMinimapState(player, 0)
+             *     hideTabs(player, login)
+             *     setVarbit(player, 3756, 12)
+             *     Component.setUnclosable(player, player.dialogueInterpreter.sendPlaneMessageWithBlueTitle(
+             *         "Getting started",
+             *         "To start the tutorial use your left mouse button to click on the",
+             *         "" + settings!!.name + " Guide in this room. He is indicated by a flashing",
+             *         "yellow arrow above his head. If you can't see him, use your",
+             *         "keyboard's arrow keys to rotate the view."
+             *     ))
+             * }
+             */
+
             1 -> {
-                PacketRepository.send(MinimapState::class.java, MinimapStateContext(player, 0))
+                setMinimapState(player, 0)
                 hideTabs(player, login)
                 player.interfaceManager.openTab(Component(Components.OPTIONS_261))
                 setVarbit(player, 3756, 12)
