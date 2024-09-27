@@ -72,7 +72,7 @@ public abstract class ItemPlugin implements Plugin<Object> {
      * @param player the player.
      * @param npc    TODO
      * @param l      the location.
-     * @return
+     * @return boolean
      */
     public boolean createDrop(Item item, Player player, NPC npc, Location l) {
         return true;

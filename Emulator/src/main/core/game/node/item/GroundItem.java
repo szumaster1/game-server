@@ -37,6 +37,9 @@ public class GroundItem extends Item {
      */
     private boolean removed;
 
+    /**
+     * The Force visible.
+     */
     public boolean forceVisible;
 
     /**
@@ -69,6 +72,14 @@ public class GroundItem extends Item {
         this(item, location, 200, player);
     }
 
+    /**
+     * Constructs a new Ground item.
+     *
+     * @param item      the item
+     * @param location  the location
+     * @param playerUid the player uid
+     * @param ticks     the ticks
+     */
     public GroundItem(Item item, Location location, int playerUid, int ticks) {
         this(item, location);
         this.dropperUid = playerUid;
@@ -80,6 +91,7 @@ public class GroundItem extends Item {
      *
      * @param item     The item.
      * @param location The location.
+     * @param decay    the decay
      * @param player   The player who dropped this item.
      */
     public GroundItem(Item item, Location location, int decay, Player player) {
@@ -218,6 +230,11 @@ public class GroundItem extends Item {
         this.removed = removed;
     }
 
+    /**
+     * Gets dropper uid.
+     *
+     * @return the dropper uid
+     */
     public int getDropperUid() {
         return dropperUid;
     }

@@ -48,7 +48,7 @@ public class PlayerDetails {
     public boolean saveParsed = false;
 
     /**
-     * Instantiates a new Player details.
+     * Constructs a new Player details.
      *
      * @param username the username
      */

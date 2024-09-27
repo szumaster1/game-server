@@ -127,6 +127,11 @@ public class Container {
         return addedAll;
     }
 
+    /**
+     * Add list.
+     *
+     * @param items the items
+     */
     public void addList(List<Item> items) {
         items.stream().filter(Objects::nonNull).forEach(this::add);
         update();
@@ -178,6 +183,12 @@ public class Container {
         return true;
     }
 
+    /**
+     * Add if doesnt have boolean.
+     *
+     * @param item the item
+     * @return the boolean
+     */
     public boolean addIfDoesntHave(final Item item) {
         if (containsItem(item)) {
             return false;
@@ -323,8 +334,7 @@ public class Container {
      * @param item         The item.
      * @param slot         The item slot.
      * @param fireListener If the fire listener should be "notified".
-     * @return {@code True} if the item got removed, <br> {@code false} if the
-     * item on the slot was null or the ids didn't match.
+     * @return {@code True} if the item got removed, <br> {@code false} if the item on the slot was null or the ids didn't match.
      */
     @CheckReturnValue
     public boolean remove(Item item, int slot, boolean fireListener) {
@@ -376,8 +386,7 @@ public class Container {
      * Removes all items from the container that have the passed in IDs
      *
      * @param ids Array of IDs to remove
-     * @return {@code True} if all the items got removed, <br> {@code false} if some of the
-     * found items were null
+     * @return {@code True} if all the items got removed, <br> {@code false} if some of the found items were null
      */
     public boolean removeAll(int[] ids) {
         boolean removedAll = true;
@@ -394,8 +403,7 @@ public class Container {
      * Removes all items from the container that have the passed in ID
      *
      * @param id Item ID to remove all instances of
-     * @return {@code True} if all the items got removed, <br> {@code false} if some of the
-     * found items were null
+     * @return {@code True} if all the items got removed, <br> {@code false} if some of the found items were null
      */
     public boolean removeAll(int id) {
         ArrayList<Item> matchingIdItems = new ArrayList<>();
@@ -473,6 +481,8 @@ public class Container {
 
     /**
      * Updates the container.
+     *
+     * @param force the force
      */
     public void update(boolean force) {
         if (event.getChangeCount() < 1 && !force) {
@@ -494,6 +504,11 @@ public class Container {
         event = new ContainerEvent(capacity);
     }
 
+    /**
+     * Refresh.
+     *
+     * @param listener the listener
+     */
     public void refresh(ContainerListener listener) {
         listener.refresh(this);
         event = new ContainerEvent(capacity);
@@ -530,8 +545,7 @@ public class Container {
      * Gets the item on the given slot.
      *
      * @param slot The slot.
-     * @return The item on the slot, or a new constructed item with id 0 if the
-     * item wasn't there.
+     * @return The item on the slot, or a new constructed item with id 0 if the item wasn't there.
      */
     public Item getNew(int slot) {
         Item item = items[slot];
@@ -562,8 +576,7 @@ public class Container {
      * Parses the container data from the byte buffer.
      *
      * @param buffer The byte buffer.
-     * @return The total value of all items (G.E price > Store price > High
-     * alchemy price).
+     * @return The total value of all items (G.E price > Store price > High alchemy price).
      */
     public int parse(ByteBuffer buffer) {
         int slot;
@@ -582,6 +595,11 @@ public class Container {
         return total;
     }
 
+    /**
+     * Parse.
+     *
+     * @param itemArray the item array
+     */
     public void parse(JSONArray itemArray) {
         AtomicInteger total = new AtomicInteger(0);
         itemArray.forEach(item -> {
@@ -603,8 +621,7 @@ public class Container {
      * Saves the item data on the byte buffer.
      *
      * @param buffer The byte buffer.
-     * @return The total value of all items (G.E price > Store price > High
-     * alchemy price).
+     * @return The total value of all items (G.E price > Store price > High alchemy price).
      */
     public long save(ByteBuffer buffer) {
         long totalValue = 0;
@@ -713,6 +730,7 @@ public class Container {
      * Checks if the containers contains at least ONE item.
      *
      * @param itemId The item id.
+     * @return the boolean
      */
     public boolean containsAtLeastOneItem(int itemId) {
         for (Item item : items) {
@@ -737,6 +755,12 @@ public class Container {
         return false;
     }
 
+    /**
+     * Contains at least one item boolean.
+     *
+     * @param items the items
+     * @return the boolean
+     */
     public boolean containsAtLeastOneItem(Item... items) {
         for (Item item : items) {
             if (containsItem(item)) {
@@ -798,6 +822,12 @@ public class Container {
         return item.getAmount() <= getMaximumAdd(item);
     }
 
+    /**
+     * Has space for boolean.
+     *
+     * @param items the items
+     * @return the boolean
+     */
     public boolean hasSpaceFor(Item... items) {
         Container c = new Container(28, ContainerType.DEFAULT);
         c.add(items);
@@ -876,6 +906,12 @@ public class Container {
         return get(getSlot(item));
     }
 
+    /**
+     * Get item.
+     *
+     * @param item the item
+     * @return the item
+     */
     public Item get(Item item) {
         for (Item i : items) {
             if (i == null) continue;

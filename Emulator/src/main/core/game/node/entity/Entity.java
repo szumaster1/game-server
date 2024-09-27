@@ -104,9 +104,18 @@ public abstract class Entity extends Node {
      * The reward locks.
      */
     private final ActionLocks locks = new ActionLocks();
+    /**
+     * The Scripts.
+     */
     public ScriptProcessor scripts = new ScriptProcessor(this);
+    /**
+     * The Clocks.
+     */
     public final int[] clocks = new int[10];
 
+    /**
+     * The Current movement.
+     */
     public MovementPulse currentMovement;
 
 
@@ -114,6 +123,9 @@ public abstract class Entity extends Node {
      * The mapping of event types to event hooks
      */
     private HashMap<Class<?>, ArrayList<EventHook>> hooks = new HashMap<>();
+    /**
+     * The Timers.
+     */
     public TimerManager timers = new TimerManager(this);
 
     /**
@@ -158,6 +170,8 @@ public abstract class Entity extends Node {
 
     /**
      * Dispatches an event to this entity's event hooks
+     *
+     * @param event the event
      */
     public void dispatch(Event event) {
         if (this.hooks.containsKey(event.getClass())) {
@@ -170,6 +184,8 @@ public abstract class Entity extends Node {
 
     /**
      * Unhooks an eventhook from this entity
+     *
+     * @param hook the hook
      */
     public void unhook(EventHook hook) {
         for (ArrayList<EventHook> s : hooks.values()) s.remove(hook);
@@ -177,11 +193,20 @@ public abstract class Entity extends Node {
 
     /**
      * Hooks an eventhook to this entity
+     *
+     * @param event the event
+     * @param hook  the hook
      */
     public void hook(Event event, EventHook hook) {
         hook(event.getClass(), hook);
     }
 
+    /**
+     * Hook.
+     *
+     * @param event the event
+     * @param hook  the hook
+     */
     public void hook(Class<?> event, EventHook hook) {
         ArrayList<EventHook> hookList;
         if (hooks.get(event) != null) {
@@ -298,8 +323,7 @@ public abstract class Entity extends Node {
      * Checks if multiway combat zone rules should be ignored.
      *
      * @param victim The victim.
-     * @return {@code True} if this entity can attack regardless of multiway
-     * combat zone.
+     * @return {@code True} if this entity can attack regardless of multiway combat zone.
      */
     public boolean isIgnoreMultiBoundaries(Entity victim) {
         if (this instanceof NPC) {
@@ -310,6 +334,9 @@ public abstract class Entity extends Node {
 
     /**
      * Should this entity prevent the mover from moving through it?
+     *
+     * @param mover the mover
+     * @return the boolean
      */
     public boolean shouldPreventStacking(Entity mover) {
         return false;
@@ -317,6 +344,8 @@ public abstract class Entity extends Node {
 
     /**
      * Checks an impact before receiving it.
+     *
+     * @param state the state
      */
     public void checkImpact(BattleState state) {
         getProperties().getCombatPulse().setLastReceivedAttack(GameWorld.getTicks());
@@ -503,8 +532,9 @@ public abstract class Entity extends Node {
     /**
      * Checks if an entity can continue it's attack.
      *
-     * @param target the target.
-     * @param style  the style.
+     * @param target  the target.
+     * @param style   the style.
+     * @param message the message
      * @return {@code True} if so.
      */
     public boolean continueAttack(Entity target, CombatStyle style, boolean message) {
@@ -696,8 +726,7 @@ public abstract class Entity extends Node {
     /**
      * Gets the current combat swing handler.
      *
-     * @param swing If this method is called when actually performing a combat
-     *              swing.
+     * @param swing If this method is called when actually performing a combat              swing.
      * @return The current combat swing handler to use.
      */
     public abstract CombatSwingHandler getSwingHandler(boolean swing);
@@ -785,6 +814,7 @@ public abstract class Entity extends Node {
     /**
      * Gets an extension.
      *
+     * @param <T>   the type parameter
      * @param clazz The class type.
      * @return The object.
      */
@@ -796,6 +826,7 @@ public abstract class Entity extends Node {
     /**
      * Gets an extension.
      *
+     * @param <T>   the type parameter
      * @param clazz The class type.
      * @param fail  The object to return if the extension wasn't added.
      * @return The object.
@@ -827,6 +858,9 @@ public abstract class Entity extends Node {
         return attributes.getAttributes();
     }
 
+    /**
+     * Clear attributes.
+     */
     public void clearAttributes() {
         this.attributes.getAttributes().clear();
         this.attributes.getSavedAttributes().clear();
@@ -846,6 +880,7 @@ public abstract class Entity extends Node {
     /**
      * Gets an attribute.
      *
+     * @param <T> the type parameter
      * @param key The attribute name.
      * @return The attribute value.
      */
@@ -865,7 +900,8 @@ public abstract class Entity extends Node {
     /**
      * Increments an attribute
      *
-     * @param key The attribute name.
+     * @param key    The attribute name.
+     * @param amount the amount
      */
     public void incrementAttribute(String key, int amount) {
         attributes.setAttribute(key, attributes.getAttribute(key, 0) + amount);
@@ -874,6 +910,7 @@ public abstract class Entity extends Node {
     /**
      * Gets an attribute.
      *
+     * @param <T>    the type parameter
      * @param string The attribute name.
      * @param fail   The value to return if the attribute is null.
      * @return The attribute value, or the fail argument when null.
@@ -947,6 +984,8 @@ public abstract class Entity extends Node {
     }
 
     /**
+     * Gets animator.
+     *
      * @return the animator.
      */
     public Animator getAnimator() {
@@ -1007,6 +1046,12 @@ public abstract class Entity extends Node {
         this.invisible = invisible;
     }
 
+    /**
+     * Gets closest occupied tile.
+     *
+     * @param other the other
+     * @return the closest occupied tile
+     */
     public Location getClosestOccupiedTile(@NotNull Location other) {
         List<Location> occupied = getOccupiedTiles();
 
@@ -1025,6 +1070,11 @@ public abstract class Entity extends Node {
         return closest;
     }
 
+    /**
+     * Gets occupied tiles.
+     *
+     * @return the occupied tiles
+     */
     public List<Location> getOccupiedTiles() {
         ArrayList<Location> occupied = new ArrayList<>();
 
@@ -1038,10 +1088,20 @@ public abstract class Entity extends Node {
         return occupied;
     }
 
+    /**
+     * Delayed boolean.
+     *
+     * @return the boolean
+     */
     public boolean delayed() {
         return scripts.getDelay() > GameWorld.getTicks();
     }
 
+    /**
+     * Is teleporting boolean.
+     *
+     * @return the boolean
+     */
     public boolean isTeleporting() {
         return getAttribute("tele-pulse", null) != null || properties.getTeleportLocation() != null;
     }

@@ -142,11 +142,12 @@ public final class ImpactHandler {
     /**
      * Handles an impact.
      *
-     * @param source The impact-dealing entity.
-     * @param hit    The hit amount.
-     * @param style  The combat style used to deal the impact.
-     * @param state  The battle state.
-     * @param type   The hitsplat type.
+     * @param source    The impact-dealing entity.
+     * @param hit       The hit amount.
+     * @param style     The combat style used to deal the impact.
+     * @param state     The battle state.
+     * @param type      The hitsplat type.
+     * @param secondary the secondary
      * @return The impact object created.
      */
     public Impact handleImpact(Entity source, int hit, final CombatStyle style, final BattleState state, HitsplatType type, boolean secondary) {
@@ -338,6 +339,8 @@ public final class ImpactHandler {
 
     /**
      * Sets the disabledTicks.
+     *
+     * @param ticks the ticks
      */
     public void setDisabledTicks(int ticks) {
         this.disabledTicks = GameWorld.getTicks() + ticks;
@@ -428,6 +431,29 @@ public final class ImpactHandler {
      * @author Emperor
      */
     public static enum HitsplatType {
-        MISS, NORMAL, POISON, DISEASE, NORMAL_1, VENOM;
+        /**
+         * Miss hitsplat type.
+         */
+        MISS,
+        /**
+         * Normal hitsplat type.
+         */
+        NORMAL,
+        /**
+         * Poison hitsplat type.
+         */
+        POISON,
+        /**
+         * Disease hitsplat type.
+         */
+        DISEASE,
+        /**
+         * Normal 1 hitsplat type.
+         */
+        NORMAL_1,
+        /**
+         * Venom hitsplat type.
+         */
+        VENOM;
     }
 }

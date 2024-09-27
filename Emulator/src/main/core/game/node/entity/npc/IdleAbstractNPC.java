@@ -33,6 +33,7 @@ public abstract class IdleAbstractNPC extends AbstractNPC {
      * Constructs a new {@code IdleAbstractNPC} {@code Object}.
      *
      * @param idleId   The NPC id.
+     * @param activeId the active id
      * @param location The location.
      */
     public IdleAbstractNPC(int idleId, int activeId, Location location) {

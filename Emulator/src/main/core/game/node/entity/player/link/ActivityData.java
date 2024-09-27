@@ -123,6 +123,11 @@ public final class ActivityData {
          */
     }
 
+    /**
+     * Parse.
+     *
+     * @param data the data
+     */
     public void parse(JSONObject data) {
         pestPoints = Integer.parseInt(data.get("pestPoints").toString());
         warriorGuildTokens = Integer.parseInt(data.get("warriorGuildTokens").toString());
@@ -608,18 +613,38 @@ public final class ActivityData {
         return hardcoreDeath;
     }
 
+    /**
+     * Sets hardcore death.
+     *
+     * @param hardcoreDeath the hardcore death
+     */
     public void setHardcoreDeath(boolean hardcoreDeath) {
         this.hardcoreDeath = hardcoreDeath;
     }
 
+    /**
+     * Sets top grabbed.
+     *
+     * @param topGrabbed the top grabbed
+     */
     public void setTopGrabbed(boolean topGrabbed) {
         this.topGrabbed = topGrabbed;
     }
 
+    /**
+     * Is top grabbed boolean.
+     *
+     * @return the boolean
+     */
     public boolean isTopGrabbed() {
         return topGrabbed;
     }
 
+    /**
+     * Gets kolodion stage.
+     *
+     * @return the kolodion stage
+     */
     public int getKolodionStage() {
         return kolodionStage;
     }

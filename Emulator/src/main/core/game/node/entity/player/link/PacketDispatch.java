@@ -36,7 +36,7 @@ public final class PacketDispatch {
     private final PlayerContext context;
 
     /**
-     * Instantiates a new Packet dispatch.
+     * Constructs a new Packet dispatch.
      *
      * @param player the player
      */

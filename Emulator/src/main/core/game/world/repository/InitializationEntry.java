@@ -31,8 +31,7 @@ public class InitializationEntry {
      * Constructs a new {@code InitializationEntry} {@code Object}.
      *
      * @param node    The node.
-     * @param removal If the node should be removed from the game, rather than
-     *                added.
+     * @param removal If the node should be removed from the game, rather than                added.
      */
     public InitializationEntry(Node node, boolean removal) {
         this.node = node;

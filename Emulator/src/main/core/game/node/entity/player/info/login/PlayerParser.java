@@ -18,6 +18,7 @@ public final class PlayerParser {
      * Parses or creates the player's save file depending on whether it exists.
      *
      * @param player The player.
+     * @return the player save parser
      */
     public static PlayerSaveParser parse(Player player) {
         PlayerSaveParser parser = new PlayerSaveParser(player);
@@ -30,6 +31,7 @@ public final class PlayerParser {
             return null;
         }
     }
+
     /**
      * Saves the player's details to the character file at data/players/player_name.json
      *
@@ -39,6 +41,11 @@ public final class PlayerParser {
         player.setAttribute("flagged-for-save", true);
     }
 
+    /**
+     * Save immediately.
+     *
+     * @param player the player
+     */
     public static void saveImmediately(Player player) {
         new PlayerSaver(player).save();
     }

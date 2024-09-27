@@ -12,7 +12,7 @@ public class Results {
     private ResultSet set;
 
     /**
-     * Instantiates a new Results.
+     * Constructs a new Results.
      *
      * @param set the set
      */

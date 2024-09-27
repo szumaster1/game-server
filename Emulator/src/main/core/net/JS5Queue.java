@@ -9,6 +9,9 @@ import java.util.concurrent.atomic.AtomicBoolean;
  */
 public final class JS5Queue {
 
+    /**
+     * The constant RUNNING.
+     */
     public static AtomicBoolean RUNNING = new AtomicBoolean(true);
 
     private static final Js5QueueHandler handler = new Js5QueueHandler();
@@ -49,7 +52,7 @@ public final class JS5Queue {
         private final boolean priority;
 
         /**
-         * Instantiates a new JS-5 request.
+         * Constructs a new JS-5 request.
          *
          * @param queue    the queue
          * @param index    the index
@@ -70,7 +73,7 @@ public final class JS5Queue {
     private final IoSession session;
 
     /**
-     * Instantiates a new JS-5 queue.
+     * Constructs a new JS-5 queue.
      *
      * @param session the session
      */
@@ -84,10 +87,9 @@ public final class JS5Queue {
      * 1000ms queue up files for this long
      * 100ms  release a file from the queue
      *
-     * @param container The container.
-     * @param archive The archive.
+     * @param container    The container.
+     * @param archive      The archive.
      * @param highPriority If the request is high priority.
-     *
      */
     public void queue(int container, int archive, boolean highPriority) {
         Js5Request request = new Js5Request(this, container, archive, highPriority);

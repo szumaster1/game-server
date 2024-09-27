@@ -84,9 +84,9 @@ public final class Cache {
     /**
      * Gets the archive buffer for the grab requests.
      *
-     * @param index the index id.
-     * @param archive the archive id.
-     * @param priority the priority.
+     * @param index           the index id.
+     * @param archive         the archive id.
+     * @param priority        the priority.
      * @param encryptionValue the current encryption value.
      * @return the byte buffer.
      */

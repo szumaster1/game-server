@@ -72,7 +72,7 @@ public class IoBuffer {
      *
      * @param opcode The opcode.
      * @param header The packet header.
-     * @param buf The byte buffer.
+     * @param buf    The byte buffer.
      */
     public IoBuffer(int opcode, PacketHeader header, ByteBuffer buf) {
         this.opcode = opcode;
@@ -806,8 +806,8 @@ public class IoBuffer {
     /**
      * Puts a byte array as byte A in reverse.
      *
-     * @param data The data to put.
-     * @param start The start index.
+     * @param data   The data to put.
+     * @param start  The start index.
      * @param offset The offset.
      */
     public void putReverseA(byte[] data, int start, int offset) {
@@ -819,8 +819,8 @@ public class IoBuffer {
     /**
      * Puts a byte array as byte A in reverse.
      *
-     * @param data The data to put.
-     * @param start The start index.
+     * @param data   The data to put.
+     * @param start  The start index.
      * @param offset The offset.
      */
     public void putReverse(byte[] data, int start, int offset) {
@@ -1080,14 +1080,18 @@ public class IoBuffer {
     }
 
     /**
-     * @return
+     * Gets string.
+     *
+     * @return string
      */
     public String getString() {
         return ByteBufferUtils.getString(buf);
     }
 
     /**
-     * @return
+     * Gets jag string.
+     *
+     * @return jag string
      */
     public String getJagString() {
         byte b = buf.get();

@@ -63,6 +63,7 @@ public final class HintIconManager {
      *
      * @param player The player.
      * @param target The entity target.
+     * @param height the height
      * @return The slot of the hint icon.
      */
     public static int registerHeightHintIcon(Player player, Node target, int height) {

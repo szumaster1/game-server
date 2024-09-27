@@ -63,6 +63,9 @@ public final class DynamicRegion extends Region {
      */
     private DynamicRegion parentRegion;
 
+    /**
+     * The Np cs.
+     */
     public ArrayList<NPC> NPCs = new ArrayList<>(10);
 
     /**
@@ -79,6 +82,11 @@ public final class DynamicRegion extends Region {
         RegionManager.resetFlags(getId());
     }
 
+    /**
+     * Constructs a new Dynamic region.
+     *
+     * @param borders the borders
+     */
     public DynamicRegion(@NotNull ZoneBorders borders) {
         this(-1, borders.getSouthWestX() >> 6, borders.getSouthWestY() >> 6);
         setBorders(borders);
@@ -476,6 +484,9 @@ public final class DynamicRegion extends Region {
         return parentRegion;
     }
 
+    /**
+     * Clear.
+     */
     public void clear() {
         for (NPC n : NPCs) {
             n.clear();

@@ -19,7 +19,7 @@ public final class BufferOutputStream extends OutputStream {
      * Constructs a new {@code BufferOutputStream} {@code Object}.
      *
      * @param buffer the buffer to write on.
-     * @throws IOException when an I/O exception occurs.
+     * @throws IOException       when an I/O exception occurs.
      * @throws SecurityException if a security manager exists and its checkPermission method denies enabling subclassing.
      */
     public BufferOutputStream(ByteBuffer buffer) throws IOException, SecurityException {

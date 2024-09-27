@@ -45,6 +45,8 @@ public final class SkillBonus {
     }
 
     /**
+     * Gets skill id.
+     *
      * @return the skillId.
      */
     public int getSkillId() {
@@ -52,6 +54,8 @@ public final class SkillBonus {
     }
 
     /**
+     * Gets bonus.
+     *
      * @return the bonus.
      */
     public double getBonus() {
@@ -59,6 +63,8 @@ public final class SkillBonus {
     }
 
     /**
+     * Gets base bonus.
+     *
      * @return the baseBonus.
      */
     public int getBaseBonus() {

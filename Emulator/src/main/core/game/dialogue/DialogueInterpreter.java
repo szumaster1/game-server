@@ -44,7 +44,7 @@ public final class DialogueInterpreter {
     private final Player player;
 
     /**
-     * Instantiates a new Dialogue interpreter.
+     * Constructs a new Dialogue interpreter.
      *
      * @param player the player
      */

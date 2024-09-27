@@ -61,6 +61,9 @@ public final class WalkingQueue {
      */
     private Location footPrint;
 
+    /**
+     * The Route items.
+     */
     public ArrayList<GroundItem> routeItems = new ArrayList<GroundItem>();
 
     /**
@@ -267,6 +270,8 @@ public final class WalkingQueue {
      * Checks if the region should be updated, if so we set the update flag and
      * return true.
      *
+     * @param location the location
+     * @param move     the move
      * @return {@code True} if the region updated, {@code false} if not.
      */
     public boolean updateRegion(Location location, boolean move) {
@@ -354,8 +359,9 @@ public final class WalkingQueue {
     /**
      * Adds a point to the walking queue.
      *
-     * @param x The x-coordinate of the point.
-     * @param y The y-coordinate of the point.
+     * @param x           The x-coordinate of the point.
+     * @param y           The y-coordinate of the point.
+     * @param runDisabled the run disabled
      */
     public void addPoint(int x, int y, boolean runDisabled) {
         Point point = walkingQueue.peekLast();
@@ -372,9 +378,7 @@ public final class WalkingQueue {
     /**
      * Checks if the entity is running.
      *
-     * @return {@code True} if a ctrl + click reward was performed, <br> the
-     * player has the run option enabled or the NPC is a familiar, <p>
-     * {@code false} if not.
+     * @return {@code True} if a ctrl + click reward was performed, <br> the player has the run option enabled or the NPC is a familiar, <p> {@code false} if not.
      */
     public boolean isRunningBoth() {
         if (isRunDisabled()) return false;
@@ -466,6 +470,8 @@ public final class WalkingQueue {
     }
 
     /**
+     * Gets foot print.
+     *
      * @return the footPrint
      */
     public Location getFootPrint() {
@@ -473,6 +479,8 @@ public final class WalkingQueue {
     }
 
     /**
+     * Sets foot print.
+     *
      * @param footPrint the footPrint to set
      */
     public void setFootPrint(Location footPrint) {

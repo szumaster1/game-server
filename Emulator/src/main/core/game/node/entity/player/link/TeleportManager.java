@@ -55,7 +55,7 @@ public class TeleportManager {
     private int teleportType;
 
     /**
-     * Instantiates a new Teleport manager.
+     * Constructs a new Teleport manager.
      *
      * @param entity the entity
      */
@@ -794,7 +794,7 @@ public class TeleportManager {
         private int endGFX;
 
         /**
-         * Instantiates a new Teleport settings.
+         * Constructs a new Teleport settings.
          *
          * @param startAnim the start anim
          * @param endAnim   the end anim

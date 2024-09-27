@@ -1,15 +1,15 @@
 package content.region.kandarin.quest.zogre
 
-import core.api.*
-import org.rs.consts.Components
-import org.rs.consts.Items
-import org.rs.consts.Vars
 import content.region.kandarin.quest.zogre.handlers.ZUtils
+import core.api.*
 import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.quest.Quest
 import core.game.node.entity.skill.Skills
 import core.plugin.Initializable
+import org.rs.consts.Components
+import org.rs.consts.Items
 import org.rs.consts.QuestName
+import org.rs.consts.Vars
 
 /**
  * Zogre flesh eaters quest.
@@ -29,7 +29,7 @@ class ZogreFleshEaters : Quest(QuestName.ZOGRE_FLESH_EATERS, 40, 39, 1, Vars.VAR
             line(player, "To start this !!quest?? I should complete these quests:-", line++)
             line(player, if (isQuestComplete(player, QuestName.JUNGLE_POTION)) "---${QuestName.JUNGLE_POTION}./--" else "!!${QuestName.JUNGLE_POTION}.??", line++)
             line(player, if (isQuestComplete(player, QuestName.BIG_CHOMPY_BIRD_HUNTING)) "---${QuestName.BIG_CHOMPY_BIRD_HUNTING}./--" else "!!${QuestName.BIG_CHOMPY_BIRD_HUNTING}.??", line++)
-            line(player, "It would help if I had the following skill levels:-", line++, true)
+            line(player, "It would help if I had the following skill levels:-", line++, false)
             line(player, if (getStatLevel(player, Skills.RANGE) >= 30) "---Ranged level : 30/--" else "!!Ranged level : 30??", line++)
             line(player, if (getStatLevel(player, Skills.FLETCHING) >= 30) "---Fletching level : 30/--" else "!!Fletching level : 30??", line++)
             line(player, if (getStatLevel(player, Skills.SMITHING) >= 4) "---Smithing level : 4/--" else "!!Smithing level : 4??", line++)

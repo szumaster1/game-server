@@ -157,6 +157,8 @@ public final class RangeWeapon {
     }
 
     /**
+     * Gets item id.
+     *
      * @return the itemId
      */
     public int getItemId() {
@@ -164,6 +166,8 @@ public final class RangeWeapon {
     }
 
     /**
+     * Gets animation.
+     *
      * @return the animation
      */
     public Animation getAnimation() {
@@ -171,6 +175,8 @@ public final class RangeWeapon {
     }
 
     /**
+     * Gets ammunition slot.
+     *
      * @return the ammunitionSlot
      */
     public int getAmmunitionSlot() {
@@ -178,6 +184,8 @@ public final class RangeWeapon {
     }
 
     /**
+     * Gets ammunition.
+     *
      * @return the ammunition
      */
     public List<Integer> getAmmunition() {
@@ -185,6 +193,8 @@ public final class RangeWeapon {
     }
 
     /**
+     * Gets attack speed.
+     *
      * @return the attackSpeed
      */
     public int getAttackSpeed() {
@@ -192,6 +202,8 @@ public final class RangeWeapon {
     }
 
     /**
+     * Gets type.
+     *
      * @return the type
      */
     public int getType() {
@@ -208,6 +220,8 @@ public final class RangeWeapon {
     }
 
     /**
+     * Is drop ammo boolean.
+     *
      * @return the dropAmmo
      */
     public boolean isDropAmmo() {

@@ -17,7 +17,7 @@ public class RunScriptContext implements Context {
     private String string;
 
     /**
-     * Instantiates a new Run script context.
+     * Constructs a new Run script context.
      *
      * @param player  the player
      * @param id      the id

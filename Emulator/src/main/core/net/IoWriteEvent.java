@@ -19,7 +19,7 @@ public abstract class IoWriteEvent implements Runnable {
     private final Object context;
 
     /**
-     * Instantiates a new Io write event.
+     * Constructs a new Io write event.
      *
      * @param session The session.
      * @param context The write event context.
@@ -43,6 +43,7 @@ public abstract class IoWriteEvent implements Runnable {
 
     /**
      * Writes the data.
+     *
      * @param session The session.
      * @param context The write event context.
      */

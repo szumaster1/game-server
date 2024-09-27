@@ -125,6 +125,12 @@ public class ForceMovement extends Pulse {
     }
 
     /**
+     * Constructs a new Force movement.
+     *
+     * @param e           the e
+     * @param destination the destination
+     * @param startSpeed  the start speed
+     * @param animSpeed   the anim speed
      * @deprecated this is no longer the preferred way to use force movement. Use the ContentAPI forceMove method instead, please.
      */
     @Deprecated
@@ -223,6 +229,7 @@ public class ForceMovement extends Pulse {
      * @param e           The entity.
      * @param start       The start location.
      * @param destination The destination location.
+     * @param startAnim   the start anim
      * @param animation   The animation.
      * @return The created ForceMovement object.
      * @deprecated this is no longer the preferred way to use force movement. Use the ContentAPI forceMove method instead, please.
@@ -238,6 +245,7 @@ public class ForceMovement extends Pulse {
      * @param e           The entity.
      * @param start       The start location.
      * @param destination The destination location.
+     * @param startAnim   the start anim
      * @param animation   The animation.
      * @param direction   The direction.
      * @return The created ForceMovement object.
@@ -254,6 +262,7 @@ public class ForceMovement extends Pulse {
      * @param e           The entity.
      * @param start       The start location.
      * @param destination The destination location.
+     * @param startAnim   the start anim
      * @param animation   The animation.
      * @param direction   The direction.
      * @param pathSpeed   The speed (in ticks).
@@ -266,6 +275,17 @@ public class ForceMovement extends Pulse {
     }
 
     /**
+     * Run force movement.
+     *
+     * @param e             the e
+     * @param start         the start
+     * @param destination   the destination
+     * @param startAnim     the start anim
+     * @param animation     the animation
+     * @param direction     the direction
+     * @param commenceSpeed the commence speed
+     * @param pathSpeed     the path speed
+     * @return the force movement
      * @deprecated this is no longer the preferred way to use force movement. Use the ContentAPI forceMove method instead, please.
      */
     @Deprecated
@@ -276,11 +296,15 @@ public class ForceMovement extends Pulse {
     /**
      * Creates and runs a new force movement pulse.
      *
-     * @param e           The entity.
-     * @param start       The start location.
-     * @param destination The destination location.
-     * @param animation   The animation.
-     * @param direction   The direction.
+     * @param e             The entity.
+     * @param start         The start location.
+     * @param destination   The destination location.
+     * @param startAnim     the start anim
+     * @param animation     The animation.
+     * @param direction     The direction.
+     * @param commenceSpeed the commence speed
+     * @param pathSpeed     the path speed
+     * @param unlockAfter   the unlock after
      * @return The created ForceMovement object.
      * @deprecated this is no longer the preferred way to use force movement. Use the ContentAPI forceMove method instead, please.
      */
@@ -299,6 +323,15 @@ public class ForceMovement extends Pulse {
         return fm;
     }
 
+    /**
+     * Run force movement.
+     *
+     * @param e             the e
+     * @param destination   the destination
+     * @param commenceSpeed the commence speed
+     * @param pathSpeed     the path speed
+     * @return the force movement
+     */
     /*
      * @deprecated this is no longer the preferred way to use force movement. Use the ContentAPI forceMove method instead, please.
      */
@@ -310,7 +343,8 @@ public class ForceMovement extends Pulse {
     /**
      * Method used to run the force movement.
      *
-     * @param e the entity.
+     * @param e     the entity.
+     * @param speed the speed
      * @deprecated this is no longer the preferred way to use force movement. Use the ContentAPI forceMove method instead, please.
      */
     @Deprecated

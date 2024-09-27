@@ -13,6 +13,11 @@ public class EncryptionManager {
     // is a valid value.
     private static int workload = 12;
 
+    /**
+     * The entry point of application.
+     *
+     * @param args the input arguments
+     */
     public static void main(String... args) {
 
         String pass = "lugi";
@@ -35,10 +40,8 @@ public class EncryptionManager {
      * of 12 is a very reasonable safe default as of 2013. This automatically
      * handles secure 128-bit salt generation and storage within the hash.
      *
-     * @param password_plaintext The account's plaintext password as provided
-     *                           during account creation, or when changing an account's password.
-     * @return String - a string of length 60 that is the bcrypt hashed password
-     * in crypt(3) format.
+     * @param password_plaintext The account's plaintext password as provided                           during account creation, or when changing an account's password.
+     * @return String - a string of length 60 that is the bcrypt hashed password in crypt(3) format.
      */
     public String hashPassword(String password_plaintext) {
         String salt = BCrypt.gensalt(workload);
@@ -49,9 +52,9 @@ public class EncryptionManager {
     /**
      * Hash pass.
      *
-     * @param password_plaintext
-     * @param salt
-     * @return
+     * @param password_plaintext the password plaintext
+     * @param salt               the salt
+     * @return string
      */
     public String hashPassword(String password_plaintext, String salt) {
         String hashed_password = BCrypt.hashpw(password_plaintext, salt);
@@ -63,12 +66,9 @@ public class EncryptionManager {
      * during a login request) with that of a stored hash from a database. The
      * password hash from the database must be passed as the second variable.
      *
-     * @param password_plaintext The account's plaintext password, as provided
-     *                           during a login request
-     * @param stored_hash        The account's stored password hash, retrieved from the
-     *                           authorization database
-     * @return boolean - true if the password matches the password of the stored
-     * hash, false otherwise
+     * @param password_plaintext The account's plaintext password, as provided                           during a login request
+     * @param stored_hash        The account's stored password hash, retrieved from the                           authorization database
+     * @return boolean - true if the password matches the password of the stored hash, false otherwise
      */
     public boolean checkPassword(String password_plaintext, String stored_hash) {
         boolean password_verified = false;
@@ -415,8 +415,7 @@ public class EncryptionManager {
          * Hash a password using the OpenBSD bcrypt scheme
          *
          * @param password the password to hash
-         * @param salt     the salt to hash with (perhaps generated using
-         *                 BCrypt.gensalt)
+         * @param salt     the salt to hash with (perhaps generated using                 BCrypt.gensalt)
          * @return the hashed password
          */
         public static String hashpw(String password, String salt) {
@@ -471,8 +470,7 @@ public class EncryptionManager {
         /**
          * Generate a salt for use with the BCrypt.hashpw() method
          *
-         * @param log_rounds the log2 of the number of rounds of hashing to apply
-         *                   - the work factor therefore increases as 2**log_rounds.
+         * @param log_rounds the log2 of the number of rounds of hashing to apply                   - the work factor therefore increases as 2**log_rounds.
          * @param random     an instance of SecureRandom to use
          * @return an encoded salt value
          */
@@ -494,8 +492,7 @@ public class EncryptionManager {
         /**
          * Generate a salt for use with the BCrypt.hashpw() method
          *
-         * @param log_rounds the log2 of the number of rounds of hashing to apply
-         *                   - the work factor therefore increases as 2**log_rounds.
+         * @param log_rounds the log2 of the number of rounds of hashing to apply                   - the work factor therefore increases as 2**log_rounds.
          * @return an encoded salt value
          */
         public static String gensalt(int log_rounds) {

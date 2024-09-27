@@ -50,6 +50,7 @@ public final class ActivityManager {
      * @param name   The name.
      * @param login  If we are logging in.
      * @param args   The arguments.
+     * @return the boolean
      */
     public static boolean start(Player player, String name, boolean login, Object... args) {
         ActivityPlugin plugin = ACTIVITIES.get(name);

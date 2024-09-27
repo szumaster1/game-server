@@ -152,6 +152,7 @@ public final class GameAttributes {
     /**
      * Gets an attribute.
      *
+     * @param <T> the type parameter
      * @param key The attribute name.
      * @return The attribute value.
      */
@@ -164,6 +165,7 @@ public final class GameAttributes {
     /**
      * Gets an attribute.
      *
+     * @param <T>    the type parameter
      * @param string The attribute name.
      * @param fail   The value to return if the attribute is null.
      * @return The attribute value, or the fail argument when null.

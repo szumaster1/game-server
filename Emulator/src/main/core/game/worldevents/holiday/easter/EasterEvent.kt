@@ -2,7 +2,6 @@ package core.game.worldevents.holiday.easter
 
 import core.Configuration
 import core.api.*
-import org.rs.consts.Items
 import core.api.utils.WeightBasedTable
 import core.api.utils.WeightedItem
 import core.game.event.EventHook
@@ -24,6 +23,7 @@ import core.game.worldevents.WorldEvent
 import core.tools.RandomFunction
 import core.tools.StringUtils
 import core.tools.colorize
+import org.rs.consts.Items
 import java.util.*
 
 /**
@@ -72,6 +72,7 @@ class EasterEvent : WorldEvent("easter"), TickListener, InteractionListener, Log
     object xpEventHook : EventHook<XPGainEvent> {
         override fun process(entity: Entity, event: XPGainEvent) {
             if (entity !is Player) return
+            if(!getAttribute(entity, "tutorial:complete", false)) return
 
             val lastRoll = getAttribute(entity, LAST_EGG_ROLL, 0)
             if (getWorldTicks() - lastRoll < 10) return

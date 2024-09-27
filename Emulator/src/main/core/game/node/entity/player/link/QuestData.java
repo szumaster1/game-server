@@ -67,6 +67,11 @@ public final class QuestData {
         populateDesertTreasureNode();
     }
 
+    /**
+     * Parse data.
+     *
+     * @param data the data
+     */
     public void parse(JSONObject data) {
         JSONArray dl = (JSONArray) data.get("draynorLever");
         for (int i = 0; i < dl.size(); i++) {
@@ -289,30 +294,65 @@ public final class QuestData {
         desertTreasure[index] = item;
     }
 
+    /**
+     * Gets witchs experiment stage.
+     *
+     * @return the witchs experiment stage
+     */
     public int getWitchsExperimentStage() {
         return witchsExperimentStage;
     }
 
+    /**
+     * Sets witchs experiment stage.
+     *
+     * @param witchsExperimentStage the witchs experiment stage
+     */
     public void setWitchsExperimentStage(int witchsExperimentStage) {
         this.witchsExperimentStage = witchsExperimentStage;
     }
 
+    /**
+     * Is witchs experiment killed boolean.
+     *
+     * @return the boolean
+     */
     public boolean isWitchsExperimentKilled() {
         return witchsExperimentKilled;
     }
 
+    /**
+     * Sets witchs experiment killed.
+     *
+     * @param witchsExperimentKilled the witchs experiment killed
+     */
     public void setWitchsExperimentKilled(boolean witchsExperimentKilled) {
         this.witchsExperimentKilled = witchsExperimentKilled;
     }
 
+    /**
+     * Get draynor lever boolean [ ].
+     *
+     * @return the boolean [ ]
+     */
     public boolean[] getDraynorLever() {
         return draynorLever;
     }
 
+    /**
+     * Get dragon slayer boolean [ ].
+     *
+     * @return the boolean [ ]
+     */
     public boolean[] getDragonSlayer() {
         return dragonSlayer;
     }
 
+    /**
+     * Get desert treasure item [ ].
+     *
+     * @return the item [ ]
+     */
     public Item[] getDesertTreasure() {
         return desertTreasure;
     }

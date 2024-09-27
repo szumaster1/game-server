@@ -9,7 +9,7 @@ class TimeStamp {
     private var interval: Long = start
 
     /**
-     * Instantiates a new Time stamp and initializes start and interval.
+     * Constructs a new Time stamp and initializes start and interval.
      */
     init {
         start = System.currentTimeMillis()

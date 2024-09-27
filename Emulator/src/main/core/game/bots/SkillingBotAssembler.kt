@@ -3,30 +3,12 @@ package core.game.bots
 import core.game.node.item.Item
 import core.game.world.map.Location
 
-/**
- * Skilling bot assembler
- *
- * @constructor Skilling bot assembler
- */
 class SkillingBotAssembler {
-    /**
-     * Produce
-     *
-     * @param type
-     * @param loc
-     * @return
-     */
+
     fun produce(type: Wealth, loc: Location): AIPlayer {
         return assembleBot(AIPlayer(loc), type)
     }
 
-    /**
-     * Assemble bot
-     *
-     * @param bot
-     * @param type
-     * @return
-     */
     fun assembleBot(bot: AIPlayer, type: Wealth): AIPlayer {
         return when (type) {
             Wealth.POOR -> equipSet(bot, POORSETS.random())
@@ -35,13 +17,6 @@ class SkillingBotAssembler {
         }
     }
 
-    /**
-     * Equip set
-     *
-     * @param bot
-     * @param set
-     * @return
-     */
     fun equipSet(bot: AIPlayer, set: List<Int>): AIPlayer {
         for (i in set) {
             val item = Item(i)
@@ -59,31 +34,9 @@ class SkillingBotAssembler {
         return bot
     }
 
-    /**
-     * Wealth
-     *
-     * @constructor Wealth
-     */
     enum class Wealth {
-        /**
-         * Poor
-         *
-         * @constructor Poor
-         */
         POOR,
-
-        /**
-         * Average
-         *
-         * @constructor Average
-         */
         AVERAGE,
-
-        /**
-         * Rich
-         *
-         * @constructor Rich
-         */
         RICH
     }
 

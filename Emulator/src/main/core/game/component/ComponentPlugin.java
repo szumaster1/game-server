@@ -15,6 +15,7 @@ public abstract class ComponentPlugin implements Plugin<Object> {
      * @param player    The player.
      * @param component The component.
      * @param opcode    The opcode.
+     * @param button    the button
      * @param slot      The slot.
      * @param itemId    The item id.
      * @return {@code True} if successfully handled.

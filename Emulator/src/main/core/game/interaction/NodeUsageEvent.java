@@ -18,7 +18,7 @@ public final class NodeUsageEvent {
     private final Node with; // The node that is being used with
 
     /**
-     * Instantiates a new Node usage event.
+     * Constructs a new Node usage event.
      *
      * @param player      the player
      * @param componentId the component id

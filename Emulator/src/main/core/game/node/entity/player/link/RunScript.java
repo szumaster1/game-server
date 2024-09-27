@@ -35,6 +35,8 @@ public abstract class RunScript {
     public abstract boolean handle();
 
     /**
+     * Gets value.
+     *
      * @return the value.
      */
     public Object getValue() {
@@ -42,6 +44,8 @@ public abstract class RunScript {
     }
 
     /**
+     * Sets value.
+     *
      * @param value the value to set;.
      */
     public void setValue(Object value) {

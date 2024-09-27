@@ -56,7 +56,76 @@ public final class Skills {
     /**
      * Constants for the skill ids.
      */
-    public static final int ATTACK = 0, DEFENCE = 1, STRENGTH = 2, HITPOINTS = 3, RANGE = 4, PRAYER = 5, MAGIC = 6, COOKING = 7, WOODCUTTING = 8, FLETCHING = 9, FISHING = 10, FIREMAKING = 11, CRAFTING = 12, SMITHING = 13, MINING = 14, HERBLORE = 15, AGILITY = 16, THIEVING = 17, SLAYER = 18, FARMING = 19, RUNECRAFTING = 20, HUNTER = 21, CONSTRUCTION = 22, SUMMONING = 23;
+    public static final int ATTACK = 0, /**
+     * The Defence.
+     */
+    DEFENCE = 1, /**
+     * The Strength.
+     */
+    STRENGTH = 2, /**
+     * The Hitpoints.
+     */
+    HITPOINTS = 3, /**
+     * The Range.
+     */
+    RANGE = 4, /**
+     * The Prayer.
+     */
+    PRAYER = 5, /**
+     * The Magic.
+     */
+    MAGIC = 6, /**
+     * The Cooking.
+     */
+    COOKING = 7, /**
+     * The Woodcutting.
+     */
+    WOODCUTTING = 8, /**
+     * The Fletching.
+     */
+    FLETCHING = 9, /**
+     * The Fishing.
+     */
+    FISHING = 10, /**
+     * The Firemaking.
+     */
+    FIREMAKING = 11, /**
+     * The Crafting.
+     */
+    CRAFTING = 12, /**
+     * The Smithing.
+     */
+    SMITHING = 13, /**
+     * The Mining.
+     */
+    MINING = 14, /**
+     * The Herblore.
+     */
+    HERBLORE = 15, /**
+     * The Agility.
+     */
+    AGILITY = 16, /**
+     * The Thieving.
+     */
+    THIEVING = 17, /**
+     * The Slayer.
+     */
+    SLAYER = 18, /**
+     * The Farming.
+     */
+    FARMING = 19, /**
+     * The Runecrafting.
+     */
+    RUNECRAFTING = 20, /**
+     * The Hunter.
+     */
+    HUNTER = 21, /**
+     * The Construction.
+     */
+    CONSTRUCTION = 22, /**
+     * The Summoning.
+     */
+    SUMMONING = 23;
 
     /**
      * Number of skills in game
@@ -122,7 +191,13 @@ public final class Skills {
      */
     private int skillMilestone;
 
+    /**
+     * The Last trained skill.
+     */
     public int lastTrainedSkill = -1;
+    /**
+     * The Last xp gain.
+     */
     public int lastXpGain = 0;
 
     /**
@@ -150,7 +225,7 @@ public final class Skills {
      * Determine whether the specified skill is a combat skill.
      * Prayer and Summoning are included and counted as combat skills.
      *
-     * @param skill
+     * @param skill the skill
      * @return true if so.
      */
     public boolean isCombat(int skill) {
@@ -198,6 +273,7 @@ public final class Skills {
      *
      * @param slot       The skill slot.
      * @param experience The experience.
+     * @param playerMod  the player mod
      */
     public void addExperience(int slot, double experience, boolean playerMod) {
         if (lastUpdateXp == null)
@@ -339,6 +415,9 @@ public final class Skills {
 
     /**
      * Adds experience to the skills.
+     *
+     * @param slot       the slot
+     * @param experience the experience
      */
     public void addExperience(final int slot, double experience) {
         addExperience(slot, experience, false);
@@ -394,6 +473,11 @@ public final class Skills {
         experienceGained = buffer.getInt();
     }
 
+    /**
+     * Parse.
+     *
+     * @param skillData the skill data
+     */
     public void parse(JSONArray skillData) {
         for (int i = 0; i < skillData.size(); i++) {
             JSONObject skill = (JSONObject) skillData.get(i);
@@ -409,6 +493,11 @@ public final class Skills {
         }
     }
 
+    /**
+     * Correct.
+     *
+     * @param divisor the divisor
+     */
     public void correct(double divisor) {
         for (int i = 0; i < staticLevels.length; i++) {
             experience[i] /= divisor;
@@ -425,6 +514,11 @@ public final class Skills {
         updateCombatLevel();
     }
 
+    /**
+     * Parse exp rate.
+     *
+     * @param buffer the buffer
+     */
     public void parseExpRate(ByteBuffer buffer) {
         experienceMultiplier = buffer.getDouble();
         if (GameWorld.getSettings().getDefault_xp_rate() != experienceMultiplier) {
@@ -452,6 +546,11 @@ public final class Skills {
         buffer.putInt((int) experienceGained);
     }
 
+    /**
+     * Save exp rate.
+     *
+     * @param buffer the buffer
+     */
     public void saveExpRate(ByteBuffer buffer) {
         buffer.putDouble(experienceMultiplier);
     }
@@ -491,6 +590,12 @@ public final class Skills {
         return 99;
     }
 
+    /**
+     * Level from xp int.
+     *
+     * @param exp the exp
+     * @return the int
+     */
     public int levelFromXP(double exp) {
 
         int points = 0;
@@ -565,6 +670,8 @@ public final class Skills {
     }
 
     /**
+     * Gets entity.
+     *
      * @return the player
      */
     public Entity getEntity() {
@@ -634,7 +741,8 @@ public final class Skills {
     /**
      * Gets a dynamic level.
      *
-     * @param slot The skill id.
+     * @param slot          The skill id.
+     * @param discardAssist the discard assist
      * @return The dynamic level.
      */
     public int getLevel(int slot, boolean discardAssist) {
@@ -734,18 +842,22 @@ public final class Skills {
         return left;
     }
 
+    /**
+     * Heal no restrictions.
+     *
+     * @param amount the amount
+     */
     public void healNoRestrictions(int amount) {
         lifepoints += amount;
         lifepointsUpdate = true;
     }
 
     /**
+     * Hit int.
+     *
      * @param damage The amount to remove.
      * @return The amount of overflow.
-     * @Deprecated Use
-     * {@link ImpactHandler#manualHit(Entity, int, ImpactHandler.HitsplatType)}
-     * or <br> the <b>hitsplat WILL NOT show and combat will be
-     * desynchronized!</b>
+     * @Deprecated Use  {@link ImpactHandler#manualHit(Entity, int, ImpactHandler.HitsplatType)} or <br> the <b>hitsplat WILL NOT show and combat will be desynchronized!</b>
      */
     public int hit(int damage) {
         lifepoints -= damage;
@@ -870,8 +982,7 @@ public final class Skills {
      *
      * @param skill                  The skill.
      * @param drainPercentage        The drain percentage (0.05 indicates 5% drain).
-     * @param maximumDrainPercentage The maximum drain percentage (0.05
-     *                               indicates 5%).
+     * @param maximumDrainPercentage The maximum drain percentage (0.05                               indicates 5%).
      */
     public void drainLevel(int skill, double drainPercentage, double maximumDrainPercentage) {
         int drain = (int) (dynamicLevels[skill] * drainPercentage);
@@ -1022,6 +1133,11 @@ public final class Skills {
         this.skillMilestone = skillMilestone;
     }
 
+    /**
+     * Get dynamic levels int [ ].
+     *
+     * @return the int [ ]
+     */
     public int[] getDynamicLevels() {
         return dynamicLevels;
     }

@@ -152,7 +152,7 @@ public abstract class CutscenePlugin extends ActivityPlugin {
      * be toggled.
      *
      * @author Vexia
-     * @date 30/12/2013
+     * @date 30 /12/2013
      */
     public class StartPulse extends Pulse {
 
@@ -201,7 +201,7 @@ public abstract class CutscenePlugin extends ActivityPlugin {
      * dramatic effect for entering a cutscene.
      *
      * @author Vexia
-     * @date 30/12/2013
+     * @date 30 /12/2013
      */
     public class EndPulse extends Pulse {
 
@@ -345,6 +345,11 @@ public abstract class CutscenePlugin extends ActivityPlugin {
         return startPulse;
     }
 
+    /**
+     * Gets end pulse.
+     *
+     * @return the end pulse
+     */
     public Pulse getEndPulse() {
         return new EndPulse();
     }

@@ -21,42 +21,16 @@ public final class SkullManager {
      * The enum Skull icon.
      */
     public enum SkullIcon {
-        /**
-         * None skull icon.
-         */
         NONE(-1),
-        /**
-         * White skull icon.
-         */
         WHITE(0),
-        /**
-         * Red skull icon.
-         */
         RED(1),
-        /**
-         * Bh red 5 skull icon.
-         */
         BH_RED5(2),
-        /**
-         * Bh blue 4 skull icon.
-         */
         BH_BLUE4(3),
-        /**
-         * Bh green 3 skull icon.
-         */
         BH_GREEN3(4),
-        /**
-         * Bh grey 2 skull icon.
-         */
         BH_GREY2(5),
-        /**
-         * Bh brown 1 skull icon.
-         */
         BH_BROWN1(6),
-        /**
-         * Scream skull icon.
-         */
         SCREAM(7);
+
         /**
          * The Id.
          */
@@ -114,7 +88,7 @@ public final class SkullManager {
     private boolean deepWilderness;
 
     /**
-     * Instantiates a new Skull manager.
+     * Constructs a new Skull manager.
      *
      * @param player the player
      */

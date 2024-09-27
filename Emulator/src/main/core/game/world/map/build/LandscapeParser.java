@@ -21,6 +21,7 @@ public final class LandscapeParser {
      *
      * @param r            The region.
      * @param mapscape     The mapscape data.
+     * @param buffer       the buffer
      * @param storeObjects If all objects should be stored (rather than just the objects with options).
      */
     public static void parse(Region r, byte[][][] mapscape, ByteBuffer buffer, boolean storeObjects) {
@@ -84,6 +85,8 @@ public final class LandscapeParser {
      * Flags a scenery on the plane's clipping flags.
      *
      * @param plane        The plane.
+     * @param localX       the local x
+     * @param localY       the local y
      * @param object       The object.
      * @param landscape    If we are adding this scenery permanent.
      * @param storeObjects If all objects should be stored (rather than just the objects with options).
@@ -105,6 +108,15 @@ public final class LandscapeParser {
         }
     }
 
+    /**
+     * Apply clipping flags for boolean.
+     *
+     * @param plane  the plane
+     * @param localX the local x
+     * @param localY the local y
+     * @param object the object
+     * @return the boolean
+     */
     public static boolean applyClippingFlagsFor(RegionPlane plane, int localX, int localY, Scenery object) {
         SceneryDefinition def = object.getDefinition();
         int sizeX;

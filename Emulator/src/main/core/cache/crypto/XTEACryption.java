@@ -37,6 +37,7 @@ public final class XTEACryption {
      *
      * @param keys   The cryption keys.
      * @param buffer The buffer.
+     * @return the byte buffer
      */
     public static ByteBuffer decrypt(int[] keys, ByteBuffer buffer) {
         return decrypt(keys, buffer, buffer.position(), buffer.limit());

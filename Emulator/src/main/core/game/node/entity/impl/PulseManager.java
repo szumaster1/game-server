@@ -22,6 +22,11 @@ public final class PulseManager {
      */
     private final HashMap<PulseType, Pulse> currentPulses = new HashMap<>();
 
+    /**
+     * Run.
+     *
+     * @param pulse the pulse
+     */
     public void run(Pulse pulse) {
         run(pulse, PulseType.STANDARD);
     }
@@ -61,6 +66,9 @@ public final class PulseManager {
         }
     }
 
+    /**
+     * Clear.
+     */
     public void clear() {
         currentPulses.forEach((type, pulse) -> {
             if (type != PulseType.STRONG && pulse != null) pulse.stop();
@@ -69,6 +77,9 @@ public final class PulseManager {
 
     /**
      * Clears the pulses.
+     *
+     * @param pulseType the pulse type
+     * @return the boolean
      */
     public boolean clear(PulseType pulseType) {
         Pulse pulse = currentPulses.get(pulseType);

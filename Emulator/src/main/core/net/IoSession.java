@@ -70,7 +70,7 @@ public class IoSession {
     public String associatedUsername;
 
     /**
-     * Instantiates a new Io session.
+     * Constructs a new Io session.
      *
      * @param key     the key
      * @param service the service

@@ -22,7 +22,7 @@ public class VarcUpdateContext implements Context {
     public int value;
 
     /**
-     * Instantiates a new Varc update context.
+     * Constructs a new Varc update context.
      *
      * @param player the player
      * @param varcId the varc id

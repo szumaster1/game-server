@@ -11,7 +11,7 @@ public class DefaultContext implements Context {
     private Object[] objects;
 
     /**
-     * Instantiates a new Default context.
+     * Constructs a new Default context.
      *
      * @param player  the player
      * @param objects the objects

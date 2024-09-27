@@ -16,6 +16,7 @@ import core.net.packet.outgoing.CloseInterface;
 import core.net.packet.outgoing.Interface;
 import core.net.packet.outgoing.WindowsPane;
 import core.tools.Log;
+import org.rs.consts.QuestName;
 
 import static core.api.ContentAPIKt.*;
 
@@ -116,6 +117,7 @@ public final class InterfaceManager {
      * Opens the windows pane.
      *
      * @param windowsPane The windows pane.
+     * @param overlap     the overlap
      * @return The component instance.
      */
     public Component openWindowsPane(Component windowsPane, boolean overlap) {
@@ -134,6 +136,12 @@ public final class InterfaceManager {
         return windowsPane;
     }
 
+    /**
+     * Open windows pane.
+     *
+     * @param windowsPane the windows pane
+     * @param type        the type
+     */
     public void openWindowsPane(Component windowsPane, int type) {
         this.windowsPane = windowsPane;
         if (windowsPane.getDefinition().getType() != InterfaceType.WINDOW_PANE) {
@@ -196,6 +204,8 @@ public final class InterfaceManager {
 
     /**
      * Safely closes the currently opened interface.
+     *
+     * @return the boolean
      */
     public boolean close() {
         if (player.getAttribute("runscript", null) != null) {
@@ -289,6 +299,8 @@ public final class InterfaceManager {
 
     /**
      * Closes the current single tab opened.
+     *
+     * @return the boolean
      */
     public boolean closeSingleTab() {
         if (singleTab != null && close(singleTab)) {
@@ -420,7 +432,7 @@ public final class InterfaceManager {
         //Energy orb
         PacketRepository.send(Interface.class, new InterfaceContext(player, getWindowPaneId(), isResizable() ? 15 : 72, Components.TOPSTAT_RUN_750, true));
         //Summoning bar
-        if(GameWorld.getSettings().isMembers() && isQuestComplete(player, "Wolf Whistle")) {
+        if(GameWorld.getSettings().isMembers() && isQuestComplete(player, QuestName.WOLF_WHISTLE)) {
             PacketRepository.send(Interface.class, new InterfaceContext(player, getWindowPaneId(), isResizable() ? 16 : 73, Components.TOPSTAT_LORE_747, true));
         }
         //Split PM

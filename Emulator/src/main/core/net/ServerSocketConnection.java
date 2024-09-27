@@ -17,7 +17,7 @@ public final class ServerSocketConnection {
     private final SocketChannel socket; // Socket channel for client connections
 
     /**
-     * Instantiates a new Server socket connection.
+     * Constructs a new Server socket connection.
      *
      * @param selector the selector
      * @param channel  the channel
@@ -29,7 +29,7 @@ public final class ServerSocketConnection {
     }
 
     /**
-     * Instantiates a new Server socket connection.
+     * Constructs a new Server socket connection.
      *
      * @param selector the selector
      * @param channel  the channel

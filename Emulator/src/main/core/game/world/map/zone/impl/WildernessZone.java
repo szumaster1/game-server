@@ -41,7 +41,7 @@ public final class WildernessZone extends MapZone {
     private ZoneBorders[] borders;
 
     /**
-     * Instantiates a new Wilderness zone.
+     * Constructs a new Wilderness zone.
      *
      * @param borders the borders
      */

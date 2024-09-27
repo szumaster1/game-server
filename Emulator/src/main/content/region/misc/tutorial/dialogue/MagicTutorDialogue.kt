@@ -198,7 +198,7 @@ class MagicTutorDialogue(player: Player? = null) : Dialogue(player) {
                     setAttribute(player, "/save:tutorial:complete", true)
                     setVarbit(player, 3756, 0)
                     setVarp(player, 281, 1000, true)
-                    teleport(player, Location.create(3233, 3230), TeleportManager.TeleportType.NORMAL)
+                    teleport(player, Location.getRandomLocation(Location.create(3233, 3230),3,true), TeleportManager.TeleportType.NORMAL)
                     closeOverlay(player)
                     player.inventory.clear()
                     player.bank.clear()
@@ -209,10 +209,10 @@ class MagicTutorDialogue(player: Player? = null) : Dialogue(player) {
                     player.bank.add(*STARTER_BANK)
                     queueScript(player, 4, QueueStrength.WEAK) {
                         interpreter.sendDialogue(
-                            "Welcome to Lumbridge! To get more help click on the Lumbridge",
-                            "Guide or one of the Tutors - these can be found by looking",
-                            "for the question mark icon on your mini-map. If you are lost",
-                            "at any time, look for a signpost or use the Lumbridge Home Teleport."
+                            "Welcome to Lumbridge! To get more help, simply click on the Lumbridge",
+                            "Guide or one of the Tutors - these can be found by looking for",
+                            "the question mark icon on your minimap. If you find you are lost at any",
+                            "time, look for a signpost or use the Lumbridge Home Teleport."
                         )
                         return@queueScript stopExecuting(player)
                     }

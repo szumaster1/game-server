@@ -184,6 +184,7 @@ public final class ClimbActionHandler {
      * @param player      The player.
      * @param animation   The climbing animation.
      * @param destination The destination.
+     * @param messages    the messages
      */
     public static void climb(final Player player, Animation animation, final Location destination, final String... messages) {
         player.lock(2);

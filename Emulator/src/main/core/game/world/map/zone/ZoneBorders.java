@@ -54,11 +54,10 @@ public final class ZoneBorders {
     /**
      * Constructs a new {@code ZoneBorders} {@code Object}.
      *
-     * @param x1 The south west x-coordinate.
-     * @param y1 The south west y-coordinate.
-     * @param x2 The north east x-coordinate.
-     * @param y2 The north east y-coordinate.
-     *           Invariant enforced at runtime.
+     * @param x1 The south-west x-coordinate.
+     * @param y1 The south-west y-coordinate.
+     * @param x2 The north-east x-coordinate.
+     * @param y2 The north-east y-coordinate.           Invariant enforced at runtime.
      */
     public ZoneBorders(int x1, int y1, int x2, int y2) {
         this.southWestX = Math.min(x1, x2);
@@ -70,11 +69,10 @@ public final class ZoneBorders {
     /**
      * Constructs a new {@code ZoneBorders} {@code Object}.
      *
-     * @param x1    The south west x-coordinate.
-     * @param y1    The south west y-coordinate.
-     * @param x2    The north east x-coordinate.
-     * @param y2    The north east y-coordinate.
-     *              Invariant enforced at runtime.
+     * @param x1    The south-west x-coordinate.
+     * @param y1    The south-west y-coordinate.
+     * @param x2    The north-east x-coordinate.
+     * @param y2    The north-east y-coordinate.              Invariant enforced at runtime.
      * @param plane the plane.
      */
     public ZoneBorders(int x1, int y1, int x2, int y2, int plane) {
@@ -88,11 +86,10 @@ public final class ZoneBorders {
     /**
      * Constructs a new {@code ZoneBorders} {@code Object}.
      *
-     * @param x1             The south west x-coordinate.
-     * @param y1             The south west y-coordinate.
-     * @param x2             The north east x-coordinate.
-     * @param y2             The north east y-coordinate.
-     *                       Invariant enforced at runtime.
+     * @param x1             The south-west x-coordinate.
+     * @param y1             The south-west y-coordinate.
+     * @param x2             The north-east x-coordinate.
+     * @param y2             The north-east y-coordinate.                       Invariant enforced at runtime.
      * @param plane          the plane.
      * @param zeroPlaneCheck the plane check.
      */
@@ -101,6 +98,12 @@ public final class ZoneBorders {
         this.zeroPlaneCheck = zeroPlaneCheck;
     }
 
+    /**
+     * Constructs a new Zone borders.
+     *
+     * @param l1 the l 1
+     * @param l2 the l 2
+     */
     public ZoneBorders(Location l1, Location l2) {
         this(l1.getX(), l1.getY(), l2.getX(), l2.getY(), l1.getZ());
     }
@@ -240,18 +243,34 @@ public final class ZoneBorders {
         return exceptions;
     }
 
+    /**
+     * Gets weighted random location.
+     *
+     * @param intensity the intensity
+     * @return the weighted random loc
+     */
     public Location getWeightedRandomLoc(int intensity) {
         int x = northEastX - southWestX == 0 ? southWestX : RandomFunction.normalRandDist(northEastX - southWestX, intensity) + southWestX;
         int y = northEastY - southWestY == 0 ? southWestY : RandomFunction.normalRandDist(northEastY - southWestY, intensity) + southWestY;
         return new Location(x, y);
     }
 
+    /**
+     * Gets random location.
+     *
+     * @return the random loc
+     */
     public Location getRandomLoc() {
         int x = northEastX - southWestX == 0 ? southWestX : new Random().nextInt(northEastX - southWestX + 1) + southWestX;
         int y = northEastY - southWestY == 0 ? southWestY : new Random().nextInt(northEastY - southWestY + 1) + southWestY;
         return new Location(x, y, plane);
     }
 
+    /**
+     * Gets random walkable location.
+     *
+     * @return the random walkable location
+     */
     public Location getRandomWalkableLoc() {
         Location loc = getRandomLoc();
         int tries = 0; // prevent bad code from DOSing server
@@ -297,6 +316,12 @@ public final class ZoneBorders {
         this.plane = plane;
     }
 
+    /**
+     * Inside region boolean.
+     *
+     * @param n the node
+     * @return the boolean
+     */
     public boolean insideRegion(Node n) {
         return insideBorder(n.getLocation().getRegionX(), n.getLocation().getRegionY());
     }

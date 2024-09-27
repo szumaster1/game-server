@@ -11,6 +11,9 @@ import core.game.node.item.Item;
 // TODO reset all players tasks upon commit to master
 // TODO figure out secondary rewards for karamja, and fremennik
 public enum DiaryType {
+    /**
+     * The Karamja.
+     */
     KARAMJA("Karamja", 11,
         new String[]{"Easy", "Medium", "Hard"},
         new String[][]{
@@ -81,7 +84,10 @@ public enum DiaryType {
          * - Teleport to underground gem mine // todo
          */
     ),
-    // https://2009scape.wiki/w/Varrock_achievements?oldid=891055
+    /**
+     * The Varrock.
+     */
+// https://2009scape.wiki/w/Varrock_achievements?oldid=891055
     VARROCK("Varrock", 15,
         new String[]{"Easy", "Medium", "Hard"},
         new String[][]{ // TODO verify implementation ingame
@@ -178,7 +184,10 @@ public enum DiaryType {
          * - Option to change Varrock tele location to the GE by talking to Vannaka // todo
          */
     ),
-    // https://2009scape.wiki/w/Lumbridge_achievements?oldid=866361
+    /**
+     * The Lumbridge.
+     */
+// https://2009scape.wiki/w/Lumbridge_achievements?oldid=866361
     LUMBRIDGE("Lumbridge", 2,
         new String[]{"Beginner", "Easy", "Medium"},
         new String[][]{
@@ -267,7 +276,10 @@ public enum DiaryType {
          */
 
     ),
-    // https://2009scape.wiki/w/Falador_achievements?oldid=900390
+    /**
+     * The Falador.
+     */
+// https://2009scape.wiki/w/Falador_achievements?oldid=900390
     FALADOR("Falador", 23,
         new String[]{"Easy", "Medium", "Hard"},
         new String[][]{
@@ -338,7 +350,10 @@ public enum DiaryType {
          * - can trade Mole Skins in to Wyson in exchange for white lily seeds and birds nest
          */
     ),
-    // https://2009scape.wiki/w/Fremennik_achievements?oldid=877418
+    /**
+     * The Fremennik.
+     */
+// https://2009scape.wiki/w/Fremennik_achievements?oldid=877418
     FREMENNIK("Fremennik", 19,
         new String[]{"Easy", "Medium", "Hard"},
         new String[][]{
@@ -390,7 +405,10 @@ public enum DiaryType {
         // Council Workman, Yrsa, Advisor Ghrim
         new int[]{1287, 1301, 1375}
     ),
-    // https://2009scape.wiki/w/Seers%27_Village_achievements?oldid=900527
+    /**
+     * The Seers village.
+     */
+// https://2009scape.wiki/w/Seers%27_Village_achievements?oldid=900527
     // https://www.youtube.com/watch?v=chYdp5HKJAg easy
     SEERS_VILLAGE("Seers' Village", 27,
         new String[]{"Easy", "Medium", "Hard"},
@@ -543,6 +561,12 @@ public enum DiaryType {
         return npcs[level];
     }
 
+    /**
+     * Has reward equipment boolean.
+     *
+     * @param player the player
+     * @return the boolean
+     */
     public boolean hasRewardEquipment(Player player) {
         for (Item[] tier : getRewards()) {
             for (Item item : tier) {

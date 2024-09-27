@@ -34,7 +34,7 @@ object RegionManager {
      */
     @JvmStatic
     fun forId(regionId: Int): Region {
-        if(LOCK.tryLock() || LOCK.tryLock(10000, TimeUnit.MILLISECONDS)) {
+        if (LOCK.tryLock() || LOCK.tryLock(10000, TimeUnit.MILLISECONDS)) {
             var region = REGION_CACHE[regionId]
             if (region == null) {
                 region = Region((regionId shr 8) and 0xFF, regionId and 0xFF)
@@ -43,8 +43,8 @@ object RegionManager {
             LOCK.unlock()
             return REGION_CACHE[regionId]!!
         }
-        log(this::class.java, Log.ERR,  "UNABLE TO OBTAIN LOCK WHEN GETTING REGION BY ID. RETURNING BLANK REGION.")
-        return Region(0,0)
+        log(this::class.java, Log.ERR, "UNABLE TO OBTAIN LOCK WHEN GETTING REGION BY ID. RETURNING BLANK REGION.")
+        return Region(0, 0)
     }
 
     /**
@@ -52,7 +52,7 @@ object RegionManager {
      */
     @JvmStatic
     fun pulse() {
-        if(LOCK.tryLock() || LOCK.tryLock(10000,TimeUnit.MILLISECONDS)) {
+        if (LOCK.tryLock() || LOCK.tryLock(10000, TimeUnit.MILLISECONDS)) {
             for (r in REGION_CACHE.values) {
                 if (r.isActive) {
                     for (p in r.planes) {
@@ -66,6 +66,7 @@ object RegionManager {
 
     /**
      * Gets the clipping flag on the given location.
+     *
      * @param l The location.
      * @return The clipping flag.
      */
@@ -76,6 +77,7 @@ object RegionManager {
 
     /**
      * Gets the clipping flag.
+     *
      * @param z The plane.
      * @param x The absolute x-coordinate.
      * @param y The absolute y-coordinate.
@@ -95,7 +97,14 @@ object RegionManager {
      * e.g 0_50_50_13_13 gets plane 0, region 50-50 (12850), (13, 13) which is in lumbridge.
      */
     @JvmStatic
-    fun getClippingFlag(z: Int, regionX: Int, regionY: Int, localX: Int, localY: Int, projectile: Boolean = false) : Int {
+    fun getClippingFlag(
+        z: Int,
+        regionX: Int,
+        regionY: Int,
+        localX: Int,
+        localY: Int,
+        projectile: Boolean = false
+    ): Int {
         val (region, index) = getFlagIndex(z, regionX, regionY, localX, localY)
         var flag = getFlags(region, projectile)[index]
 
@@ -111,28 +120,28 @@ object RegionManager {
         return flag
     }
 
-    private fun getFlagIndex(z: Int, regionX: Int, regionY: Int, localX: Int, localY: Int) : Pair<Int,Int> {
+    private fun getFlagIndex(z: Int, regionX: Int, regionY: Int, localX: Int, localY: Int): Pair<Int, Int> {
         return Pair((regionX shl 8) or regionY, (z * 64 * 64) + (localX * 64) + localY)
     }
 
     @JvmStatic
-    fun getFlags(regionX: Int, regionY: Int, projectile: Boolean) : Array<Int> {
+    fun getFlags(regionX: Int, regionY: Int, projectile: Boolean): Array<Int> {
         val region = (regionX shl 8) or regionY
         return getFlags(region, projectile)
     }
 
     @JvmStatic
-    fun getFlags(regionId: Int, projectile: Boolean) : Array<Int> {
+    fun getFlags(regionId: Int, projectile: Boolean): Array<Int> {
         return if (projectile)
-            PROJECTILE_FLAGS.getOrPut (regionId) {Array(16384){0}}
+            PROJECTILE_FLAGS.getOrPut(regionId) { Array(16384) { 0 } }
         else
-            CLIPPING_FLAGS.getOrPut (regionId) {Array(16384){-1}}
+            CLIPPING_FLAGS.getOrPut(regionId) { Array(16384) { -1 } }
     }
 
     @JvmStatic
     fun resetFlags(regionId: Int) {
-        PROJECTILE_FLAGS.put (regionId, Array(16384){0})
-        CLIPPING_FLAGS.put (regionId, Array(16384){-1})
+        PROJECTILE_FLAGS.put(regionId, Array(16384) { 0 })
+        CLIPPING_FLAGS.put(regionId, Array(16384) { -1 })
     }
 
     /**
@@ -181,6 +190,7 @@ object RegionManager {
 
     /**
      * Adds a clipping flag.
+     *
      * @param z The plane.
      * @param x The absolute x-coordinate.
      * @param y The absolute y-coordinate.
@@ -207,6 +217,7 @@ object RegionManager {
 
     /**
      * Adds a clipping flag.
+     *
      * @param z The plane.
      * @param x The absolute x-coordinate.
      * @param y The absolute y-coordinate.
@@ -233,6 +244,7 @@ object RegionManager {
 
     /**
      * Gets the clipping flag.
+     *
      * @param z The plane.
      * @param x The absolute x-coordinate.
      * @param y The absolute y-coordinate.
@@ -249,6 +261,7 @@ object RegionManager {
 
     /**
      * Gets the clipping flag
+     *
      * @param location the Location
      * @return the clipping flag
      */
@@ -259,6 +272,7 @@ object RegionManager {
 
     /**
      * Gets the clipping flag.
+     *
      * @param z The plane.
      * @param x The absolute x-coordinate.
      * @param y The absolute y-coordinate.
@@ -310,23 +324,37 @@ object RegionManager {
         if (owner == null || node == null) {
             return null
         }
-        var destination: Location? = null
         outer@ for (i in 0..7) {
             val dir = Direction.get(i)
-            inner@for(j in 0 until node.size()) {
-                val l = owner.location.transform(dir, j)
-                for (x in 0 until node.size()) {
-                    for (y in 0 until node.size()) {
-                        if (isClipped(l.transform(x, y, 0))) {
-                            continue@inner
-                        }
+            var stepX = dir.stepX
+            var stepY = dir.stepY
+            // For objects that are larger than 1, the below corrects for the fact that their origin is on the SW tile
+            if (dir.stepX < 0) {
+                stepX -= (node.size() - 1)
+            }
+            if (dir.stepY < 0) {
+                stepY -= (node.size() - 1)
+            }
+            if (owner.size() > 1) { //e.g. if you used ::pnpc to morph yourself into a large NPC
+                if (dir.stepX > 0) {
+                    stepX += (owner.size() - 1)
+                }
+                if (dir.stepY > 0) {
+                    stepY += (owner.size() - 1)
+                }
+            }
+            val l = owner.location.transform(stepX, stepY, 0)
+            // Check if ALL target tiles are unclipped
+            for (x in 0 until node.size()) {
+                for (y in 0 until node.size()) {
+                    if (isClipped(l.transform(x, y, 0))) {
+                        continue@outer
                     }
                 }
-                destination = l
-                break@outer
             }
+            return l
         }
-        return destination
+        return null
     }
 
     /**
@@ -557,10 +585,10 @@ object RegionManager {
         val it = players.iterator()
         while (it.hasNext()) {
             val p = it.next()
-            if(p.isInvisible()) {
+            if (p.isInvisible()) {
                 it.remove()
             }
-            if(!p.location.withinMaxnormDistance(n.location, 1)) {
+            if (!p.location.withinMaxnormDistance(n.location, 1)) {
                 it.remove()
                 continue
             }
@@ -603,19 +631,23 @@ object RegionManager {
         val it = npcs.iterator()
         while (it.hasNext()) {
             val p = it.next()
-            if(p.properties.teleportLocation != null && !p.properties.teleportLocation.withinMaxnormDistance(n.location, 1)) {
+            if (p.properties.teleportLocation != null && !p.properties.teleportLocation.withinMaxnormDistance(
+                    n.location,
+                    1
+                )
+            ) {
                 it.remove()
                 continue
             }
-            if(p.getAttribute("state:death", false)) {
+            if (p.getAttribute("state:death", false)) {
                 it.remove()
                 continue
             }
-            if(p.isInvisible()) {
+            if (p.isInvisible()) {
                 it.remove()
                 continue
             }
-            if(!p.location.withinMaxnormDistance(n.location, 1)) {
+            if (!p.location.withinMaxnormDistance(n.location, 1)) {
                 it.remove()
                 continue
             }
@@ -770,7 +802,8 @@ object RegionManager {
                     if (player.location.x >= l.getX() - xdist &&
                         player.location.x <= l.getX() + xdist &&
                         player.location.y >= l.getY() - ydist &&
-                        player.location.y <= l.getY() + ydist) {
+                        player.location.y <= l.getY() + ydist
+                    ) {
                         players.add(player)
                     }
                 }
@@ -871,8 +904,8 @@ object RegionManager {
     }
 
     @JvmStatic
-    fun addRegion(id: Int, region: Region){
-        if(lock.tryLock() || LOCK.tryLock(10000, TimeUnit.MILLISECONDS)) {
+    fun addRegion(id: Int, region: Region) {
+        if (lock.tryLock() || LOCK.tryLock(10000, TimeUnit.MILLISECONDS)) {
             REGION_CACHE[id] = region
             LOCK.unlock()
         }
@@ -892,7 +925,7 @@ object RegionManager {
      * @return The regionCache.
      */
     val regionCache: Map<Int, Region>
-        @JvmStatic get(){
+        @JvmStatic get() {
             return REGION_CACHE
         }
 

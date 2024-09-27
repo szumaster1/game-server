@@ -221,6 +221,8 @@ public abstract class CombatSpell extends MagicSpell {
     }
 
     /**
+     * Gets type.
+     *
      * @return the type.
      */
     public SpellType getType() {
@@ -228,6 +230,8 @@ public abstract class CombatSpell extends MagicSpell {
     }
 
     /**
+     * Gets animation.
+     *
      * @return the animation.
      */
     public Animation getAnimation() {

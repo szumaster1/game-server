@@ -57,6 +57,7 @@ public abstract class MapZone implements Zone {
      *
      * @param name         The name.
      * @param overlappable If the zone can be overlapped.
+     * @param restrictions the restrictions
      */
     public MapZone(String name, boolean overlappable, ZoneRestriction... restrictions) {
         this.name = name;
@@ -117,6 +118,14 @@ public abstract class MapZone implements Zone {
         return false;
     }
 
+    /**
+     * Handle use with boolean.
+     *
+     * @param player the player
+     * @param used   the used
+     * @param with   the with
+     * @return the boolean
+     */
     public boolean handleUseWith(Player player, Item used, Node with) {
         return false;
     }
@@ -197,8 +206,8 @@ public abstract class MapZone implements Zone {
      * Checks if the entity can teleport.
      *
      * @param e    The entity.
-     * @param type The teleport type (0=spell, 1=item, 2=object, 3=npc -1=
-     *             force)
+     * @param type The teleport type (0=spell, 1=item, 2=object, 3=npc -1=             force)
+     * @param node the node
      * @return {@code True} if so.
      */
     public boolean teleport(Entity e, int type, Node node) {
@@ -220,6 +229,7 @@ public abstract class MapZone implements Zone {
      * Checks if a request can be made in this zone.
      *
      * @param type   the type.
+     * @param player the player
      * @param target the target.
      * @return {@code True} if so.
      */
@@ -322,6 +332,11 @@ public abstract class MapZone implements Zone {
         }
     }
 
+    /**
+     * Unregister.
+     *
+     * @param borders the borders
+     */
     public void unregister(ZoneBorders borders) {
         for (Integer id : borders.getRegionIds()) {
             Region r = RegionManager.forId(id);

@@ -11,10 +11,25 @@ import static java.lang.Math.max;
  */
 public final class RegionFlags {
 
+    /**
+     * The constant TILE_OBJECT.
+     */
     public static final int TILE_OBJECT = 0x40000;
+    /**
+     * The constant EMPTY_TILE.
+     */
     public static final int EMPTY_TILE = 0;
+    /**
+     * The constant SOLID_TILE.
+     */
     public static final int SOLID_TILE = 0x200000;
+    /**
+     * The constant OBJ_10_PROJECTILE.
+     */
     public static final int OBJ_10_PROJECTILE = 0x20000;
+    /**
+     * The constant OBJ_10.
+     */
     public static final int OBJ_10 = 0x100;
     /**
      * The plane.
@@ -49,8 +64,9 @@ public final class RegionFlags {
     /**
      * Constructs a new {@code RegionFlags} {@code Object}.
      *
-     * @param x The base x-coordinate (absolute).
-     * @param y The base y-coordinate (absolute).
+     * @param plane the plane
+     * @param x     The base x-coordinate (absolute).
+     * @param y     The base y-coordinate (absolute).
      */
     public RegionFlags(int plane, int x, int y) {
         this(plane, x, y, false);
@@ -59,8 +75,10 @@ public final class RegionFlags {
     /**
      * Constructs a new {@code RegionFlags} {@code Object}.
      *
-     * @param x The base x-coordinate (absolute).
-     * @param y The base y-coordinate (absolute).
+     * @param plane      the plane
+     * @param x          The base x-coordinate (absolute).
+     * @param y          The base y-coordinate (absolute).
+     * @param projectile the projectile
      */
     public RegionFlags(int plane, int x, int y, boolean projectile) {
         this.plane = plane;
@@ -79,6 +97,12 @@ public final class RegionFlags {
         flag(x, y, SOLID_TILE);
     }
 
+    /**
+     * Flag empty tile.
+     *
+     * @param x the x
+     * @param y the y
+     */
     public void flagEmptyTile(int x, int y) {
         flag(x, y, EMPTY_TILE);
     }
@@ -179,17 +203,38 @@ public final class RegionFlags {
         return new Pair<>(((baseX >> 6) << 8) | (baseY >> 6), (plane * 64 * 64) + (x * 64) + y);
     }
 
+    /**
+     * Gets flag.
+     *
+     * @param x the x
+     * @param y the y
+     * @return the flag
+     */
     public int getFlag(int x, int y) {
         Pair<Integer, Integer> indices = getFlagIndex(x, y);
         return RegionManager.getFlags(indices.getFirst(), projectile)[indices.getSecond()];
     }
 
+    /**
+     * Add flag.
+     *
+     * @param x        the x
+     * @param y        the y
+     * @param clipdata the clipdata
+     */
     public void addFlag(int x, int y, int clipdata) {
         int current = getFlag(x, y);
         Pair<Integer, Integer> indices = getFlagIndex(x, y);
         RegionManager.getFlags(indices.getFirst(), projectile)[indices.getSecond()] = max(0, current) | clipdata;
     }
 
+    /**
+     * Remove flag.
+     *
+     * @param x        the x
+     * @param y        the y
+     * @param clipdata the clipdata
+     */
     public void removeFlag(int x, int y, int clipdata) {
         int current = getFlag(x, y);
         Pair<Integer, Integer> indices = getFlagIndex(x, y);
@@ -199,11 +244,23 @@ public final class RegionFlags {
         RegionManager.getFlags(indices.getFirst(), projectile)[indices.getSecond()] = current;
     }
 
+    /**
+     * Clear flag.
+     *
+     * @param x the x
+     * @param y the y
+     */
     public void clearFlag(int x, int y) {
         Pair<Integer, Integer> indices = getFlagIndex(x, y);
         RegionManager.getFlags(indices.getFirst(), projectile)[indices.getSecond()] = 0;
     }
 
+    /**
+     * Invalidate flag.
+     *
+     * @param x the x
+     * @param y the y
+     */
     public void invalidateFlag(int x, int y) {
         Pair<Integer, Integer> indices = getFlagIndex(x, y);
         RegionManager.getFlags(indices.getFirst(), projectile)[indices.getSecond()] = -1;

@@ -144,6 +144,8 @@ public final class ClanRepository {
 
     /**
      * Cleans the chat from all players that shouldn't be in it.
+     *
+     * @param disable the disable
      */
     public void clean(boolean disable) {
         if (WorldCommunicator.isEnabled()) {
@@ -258,8 +260,9 @@ public final class ClanRepository {
     /**
      * Represents the method to leave a clan.
      *
-     * @param player the player.
-     * @param remove If the player should be removed from the list.
+     * @param player  the player.
+     * @param remove  If the player should be removed from the list.
+     * @param message the message
      */
     public void leave(Player player, boolean remove, String message) {
         if (remove) {

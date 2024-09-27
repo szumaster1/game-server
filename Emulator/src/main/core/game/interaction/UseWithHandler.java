@@ -59,16 +59,26 @@ public abstract class UseWithHandler implements Plugin<Object> {
     /**
      * Constructs a new {@code UseWithHandler.java} {@code Object}.
      *
-     * @param allowedNodes
+     * @param allowedNodes the allowed nodes
      */
     public UseWithHandler(int... allowedNodes) {
         this.allowedNodes = allowedNodes;
     }
 
+    /**
+     * Constructs a new Use with handler.
+     *
+     * @param allowedNodes the allowed nodes
+     */
     public UseWithHandler(ArrayList<Integer> allowedNodes) {
         this.allowedNodes = allowedNodes.stream().mapToInt(i -> i).toArray();
     }
 
+    /**
+     * Sets allowed nodes.
+     *
+     * @param allowedNodes the allowed nodes
+     */
     public void setAllowedNodes(ArrayList<Integer> allowedNodes) {
         this.allowedNodes = allowedNodes.stream().mapToInt(i -> i).toArray();
     }
@@ -230,6 +240,7 @@ public abstract class UseWithHandler implements Plugin<Object> {
      * one.
      *
      * @param player the player.
+     * @param with   the with
      * @return the location.
      */
     public Location getDestination(Player player, Node with) {

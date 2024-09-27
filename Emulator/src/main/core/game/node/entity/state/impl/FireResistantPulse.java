@@ -31,8 +31,10 @@ public class FireResistantPulse extends StatePulse {
     /**
      * Constructs a new {@Code FireResistantPulse} {@Code Object}
      *
-     * @param entity the entity.
-     * @param ticks  the ticks.
+     * @param entity      the entity.
+     * @param ticks       the ticks.
+     * @param currentTick the current tick
+     * @param extended    the extended
      */
     public FireResistantPulse(Entity entity, int ticks, int currentTick, boolean extended) {
         super(entity, ticks);

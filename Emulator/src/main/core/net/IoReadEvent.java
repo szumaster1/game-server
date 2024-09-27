@@ -27,7 +27,7 @@ public abstract class IoReadEvent implements Runnable {
      * Constructs a new {@code IoReadEvent}.
      *
      * @param session The session.
-     * @param buffer The buffer to read from.
+     * @param buffer  The buffer to read from.
      */
     public IoReadEvent(IoSession session, ByteBuffer buffer) {
         this.session = session;
@@ -68,7 +68,7 @@ public abstract class IoReadEvent implements Runnable {
      * Reads the data from the buffer.
      *
      * @param session The session.
-     * @param buffer The buffer to read from.
+     * @param buffer  The buffer to read from.
      */
     public abstract void read(IoSession session, ByteBuffer buffer);
 
