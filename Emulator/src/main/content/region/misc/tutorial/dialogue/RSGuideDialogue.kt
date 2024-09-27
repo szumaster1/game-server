@@ -24,31 +24,28 @@ class RSGuideDialogue(player: Player? = null) : Dialogue(player) {
         if (tutStage == 39) {
             Component.setUnclosable(player, interpreter.sendDialogues(npc, FacialExpression.NOD_YES, "Greetings! I see you are a new arrival to this land. My", "job is to welcome all new visitors. So welcome!"))
             stage = 0
-            return true
         }
         if (tutStage == 2) {
             player.dialogueInterpreter.sendDialogues(npc, FacialExpression.NOD_YES, "I'm glad you're making progress!")
             stage = 6
-            return true
         }
-        if (tutStage < 2) {
+        if (tutStage == 1) {
             end()
             player.dialogueInterpreter.sendDialogues(npc, FacialExpression.NOD_YES, "You will notice a flashing icon of a spanner; please click", "on this to continue the tutorial.")
-            return false
         }
         else {
             end()
             Component.setUnclosable(player, interpreter.sendDialogues(npc, FacialExpression.HALF_GUILTY, "Please follow the onscreen instructions!"))
-            return false
         }
+        return true
     }
 
     override fun handle(interfaceId: Int, buttonId: Int): Boolean {
         when (stage) {
             0 -> Component.setUnclosable(player, interpreter.sendDialogues(npc, FacialExpression.FRIENDLY, "You have already learned the first thing needed to", "succeed in this world: talking to other people!")).also { stage++ }
-            1 -> Component.setUnclosable(player, interpreter.sendDialogues(npc, FacialExpression.FRIENDLY, "You will find many inhabitants of this world have useful", "things to say to you. By clicking on them with your", "mouse you can talk to them.")).also { stage++ }
-            2 -> Component.setUnclosable(player, interpreter.sendDialogues(npc, FacialExpression.FRIENDLY, "I would also suggest reading through some of the", "supporting information on the website. There you can", "find the starter guides, which contain all the", "additional information you're ever likely to need. they also")).also { stage++ }
-            3 -> Component.setUnclosable(player, interpreter.sendDialogues(npc, FacialExpression.FRIENDLY, "contain helpful tips to help you on your", "journey.")).also { stage++ }
+            1 -> Component.setUnclosable(player, interpreter.sendDialogues(npc, FacialExpression.NOD_YES, "You will find many inhabitants of this world have useful", "things to say to you. By clicking on them with your", "mouse you can talk to them.")).also { stage++ }
+            2 -> Component.setUnclosable(player, interpreter.sendDialogues(npc, FacialExpression.FRIENDLY, "I would also suggest reading through some of the", "supporting information on the website. There you can", "find the Game Guide, which contain all the additional", "information you're ever likely to need. It also contains")).also { stage++ }
+            3 -> Component.setUnclosable(player, interpreter.sendDialogues(npc, FacialExpression.NOD_YES, "maps and helpful tips to help you on your journey.")).also { stage++ }
             4 -> Component.setUnclosable(player, interpreter.sendDialogues(npc, FacialExpression.FRIENDLY, "You will notice a flashing icon of a spanner; please click", "on this to continue the tutorial.")).also { stage++ }
             5 -> {
                 end()
@@ -60,7 +57,6 @@ class RSGuideDialogue(player: Player? = null) : Dialogue(player) {
                 end()
                 npc.unlock()
                 setAttribute(player, "tutorial:stage", 3)
-                TutorialStage.removeHintIcon(player)
                 TutorialStage.load(player, 3)
             }
         }

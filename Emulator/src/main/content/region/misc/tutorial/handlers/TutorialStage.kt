@@ -16,8 +16,17 @@ import org.rs.consts.Components
 import org.rs.consts.Items
 import org.rs.consts.NPCs
 
+/**
+ * Loads stage-relevant tutorial data.
+ * @author Ceikry
+ */
 object TutorialStage {
-
+    /**
+     * Performs stage actions for the player
+     *
+     * @param [player] the player to perform the actions on.
+     * @param [stage] the stage to load.
+     */
     fun load(player: Player, stage: Int, login: Boolean = false) {
         if (login) {
             openOverlay(player, Components.TUTORIAL_PROGRESS_371)
@@ -35,7 +44,7 @@ object TutorialStage {
             0 -> {
                 lock(player, 10)
                 setMinimapState(player, 2)
-                player.properties.teleportLocation = Location.create(3094, 3107, 0)
+                teleport(player, Location.create(3094, 3107, 0))
                 hideTabs(player, login)
                 CharacterDesign.open(player)
                 Component.setUnclosable(
@@ -58,9 +67,9 @@ object TutorialStage {
                     player, player.dialogueInterpreter.sendPlaneMessageWithBlueTitle(
                         "Getting started",
                         "To start the tutorial use your left mouse button to click on the",
-                        "" + settings!!.name + " Guide in this room. He is indicated by a flashing",
-                        "yellow arrow above his head. If you can't see him, use your",
-                        "keyboard's arrow keys to rotate the view."
+                        "" + settings!!.name + " Guide in this room. He is indicated by a flashing yellow",
+                        "arrow above his head. If you can't see him, use your keyboard's arrow",
+                        "keys to rotate the view.",
                     )
                 )
             }
@@ -82,30 +91,32 @@ object TutorialStage {
             }
 
             2 -> {
+                player.unlock()
                 hideTabs(player, login)
                 setVarbit(player, 3756, 0)
                 Component.setUnclosable(
                     player, player.dialogueInterpreter.sendPlaneMessageWithBlueTitle(
                         "Game Options",
-                        "In the interface, you can now see a variety of options such as",
-                        "screen brightness, sound and music volume and whether you",
-                        "want to accept aid from other player's or not. Don't worry",
-                        "about these too much for now; they will become easier as you<br>explore the game. Talk to the " + settings!!.name + " Guide to continue."
+                        "In the interface, you can now see a variety of options such as screen",
+                        "brightness, sound and music volume and whether you want to accept",
+                        "aid from other player's or not. Don't worry about these too much for",
+                        "now; they will become easier as you explore the game. Talk to the<br>" + settings!!.name + " Guide to continue."
                     )
                 )
             }
 
             3 -> {
                 hideTabs(player, login)
-                registerHintIcon(player, Location.create(3098, 3107, 0), 125)
+                removeHintIcon(player)
+                registerHintIcon(player, Location.create(3098, 3107, 0), 300)
                 Component.setUnclosable(
                     player,
                     player.dialogueInterpreter.sendPlaneMessageWithBlueTitle(
                         "Interacting with scenery",
-                        "You can interact with many items of scenery by simply clicking",
-                        "on them. Right clicking will also give more options. Feel free to",
-                        "try it with the things in this room, then click on the door",
-                        "indicated with the yellow arrow to go though to the next<br>instructor.",
+                        "You can interact with many items of scenery by simply clicking on",
+                        "them. Right clicking will also give more options. Feel free to try it with",
+                        "the things in this room, then click on the door indicated with the yellow",
+                        "arrow to go though to the next instructor.",
                     )
                 )
             }
@@ -118,10 +129,10 @@ object TutorialStage {
                     player,
                     player.dialogueInterpreter.sendPlaneMessageWithBlueTitle(
                         "Moving around",
-                        "Follow the path to find the next instructor. Clicking on the",
-                        "ground will walk you to that point. You can also navigate by",
-                        "clicking on the minimap in the top-right corner of your screen.",
-                        "Talk to Survival Expert by the pond to continue the tutorial."
+                        "Follow the path to find the next instructor. Clicking on the ground will",
+                        "walk you to that point. You can also navigate by clicking on the",
+                        "minimap in the top-right corner of your screen. Talk to the Survival",
+                        "Expert by the pond to continue the tutorial. Remember, you can<br>rotate the view by pressing the arrow keys."
                     )
                 )
             }
@@ -135,10 +146,9 @@ object TutorialStage {
                     player,
                     player.dialogueInterpreter.sendPlaneMessageWithBlueTitle(
                         "Viewing the items that you were given.",
-                        "",
-                        "Click on the flashing backpack icon to the right-hand side of",
-                        "the main window to view your inventory. Your inventory is a list",
-                        "of everything you have in your backpack."
+                        "Click on the flashing backpack icon to the right-hand side of the main",
+                        "window to view your inventory. Your inventory is a list of everything",
+                        "you have in your backpack."
                     )
                 )
             }
@@ -150,10 +160,10 @@ object TutorialStage {
                     player,
                     player.dialogueInterpreter.sendPlaneMessageWithBlueTitle(
                         "Cut down a tree",
-                        "You can click on the backpack icon at any time to view the",
-                        "items that you currently have in your inventory. You will see",
-                        "that you now have an axe in your inventory. Use this to get",
-                        "some logs by clicking on one of the trees in the area."
+                        "You can click on the backpack icon at any time to view the items that",
+                        "you currently have in your inventory. You will see that you now have",
+                        "an axe in your inventory. Use this to get some logs by clicking on",
+                        "one of the trees in the area."
                     )
                 )
             }
@@ -164,11 +174,11 @@ object TutorialStage {
                 Component.setUnclosable(
                     player,
                     player.dialogueInterpreter.sendPlaneMessageWithBlueTitle(
-                        "Please wait.",
                         "",
-                        "Your character is now attempting to cut down the tree. Sit back",
-                        "for a moment while " + (if (player.appearance.isMale) "he" else "she") + " does all the hard work.",
-                        ""
+                        "",
+                        "Please wait.",
+                        "Your character is now attempting to cut down the tree. Sit back for a",
+                        "moment while " + (if (player.appearance.isMale) "he" else "she") + " does all the hard work.",
                     )
                 )
             }
@@ -192,11 +202,11 @@ object TutorialStage {
                 Component.setUnclosable(
                     player,
                     player.dialogueInterpreter.sendPlaneMessageWithBlueTitle(
-                        "Please wait.",
                         "",
+                        "",
+                        "Please wait.",
                         "Your character is now attempting to light the fire.",
-                        "This should only take a few seconds.",
-                        ""
+                        "This should only take a few seconds."
                     )
                 )
             }
@@ -210,8 +220,8 @@ object TutorialStage {
                     player.dialogueInterpreter.sendPlaneMessageWithBlueTitle(
                         "You gained some experience.",
                         "",
-                        "Click on the flashing bar graph icon near the inventory button",
-                        "to see your skill state.",
+                        "Click on the flashing bar graph icon near the inventory button to see",
+                        "your skill stats.",
                         ""
                     )
                 )
@@ -225,10 +235,10 @@ object TutorialStage {
                     player,
                     player.dialogueInterpreter.sendPlaneMessageWithBlueTitle(
                         "Your skill stats",
-                        "Here you will see how good your skills are. As you move your",
-                        "mouse over any of the icons in this tab, the small yellow popup",
-                        "box will show you the exact amount of experience you have and how much",
-                        "is needed to get to the next level. Speak to the survival guide."
+                        "Here you will see how good your skills are. As you move your mouse",
+                        "over any of the icons in this tab, the small yellow popup box will show",
+                        "you the exact amount of experience you have and how much is",
+                        "needed to get to the next level. Speak to the Survival Expert to<br>continue."
                     )
                 )
             }
@@ -1207,12 +1217,10 @@ object TutorialStage {
     @JvmStatic
     fun hideTabs(player: Player, login: Boolean) {
         val stage = getAttribute(player, "tutorial:stage", 0)
-        if (login)
-            player.interfaceManager.removeTabs(0,1,2,3,4,5,6,7,8,9,10,11,12,13)
-        if(stage in 0..2)
-            player.interfaceManager.removeTabs(0,1,2,3,4,5,6,7,8,9,10,11,12,13)
+        if(login && player.interfaceManager.tabs.isNotEmpty())
+            player.interfaceManager.removeTabs(*(0..13).toIntArray())
         if(stage == 39)
-            player.interfaceManager.removeTabs(0,1,2,3,4,5,6,7,8,9,10,11,12,13)
+            player.interfaceManager.removeTabs(*(0..13).toIntArray())
         if (stage > 2)
             player.interfaceManager.openTab(Component(Components.OPTIONS_261))
         if (stage > 5)

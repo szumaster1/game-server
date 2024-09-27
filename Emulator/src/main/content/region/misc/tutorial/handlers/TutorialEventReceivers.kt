@@ -33,7 +33,6 @@ object TutorialButtonReceiver : EventHook<ButtonClickEvent> {
              * HD: 746,52
              */
             1 -> if ((event.iface == 548 && event.buttonId == 24) || (event.iface == 746 && event.buttonId == 52)) {
-                player.unlock()
                 setAttribute(player, "/save:tutorial:stage", 2)
                 TutorialStage.load(player, 2)
             }
