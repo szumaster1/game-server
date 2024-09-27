@@ -1,8 +1,6 @@
 package content.region.misthalin.varrock.quest.crest.handlers
 
 import core.api.*
-import org.rs.consts.Items
-import org.rs.consts.NPCs
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.entity.impl.ForceMovement
@@ -14,6 +12,9 @@ import core.game.world.update.flag.context.Animation
 import core.net.packet.outgoing.ClearScenery
 import core.net.packet.outgoing.ConstructScenery
 import core.net.packet.outgoing.UpdateAreaPosition
+import org.rs.consts.Items
+import org.rs.consts.NPCs
+import org.rs.consts.QuestName
 
 class FamilyCrestListener : InteractionListener {
 
@@ -40,14 +41,14 @@ class FamilyCrestListener : InteractionListener {
         onUseWith(IntType.NPC, POISON, NPCs.JOHNATHON_668) { player, used, with ->
             val npc = with.asNpc()
             val antip = used.asItem()
-            val stage = getQuestStage(player, "Family Crest")
+            val stage = getQuestStage(player, QuestName.FAMILY_CREST)
 
             val index = POISON.indexOf(used.id)
             val returnItem = if (index + 1 == POISON.size) Items.VIAL_229 else POISON[index + 1]
 
             if (stage == 17 && removeItem(player, antip)) {
                 addItem(player, returnItem)
-                setQuestStage(player, "Family Crest", 18)
+                setQuestStage(player, QuestName.FAMILY_CREST, 18)
                 openDialogue(player, NPCs.JOHNATHON_668, npc)
             } else {
                 sendMessage(player, "Nothing interesting happens.")
@@ -62,7 +63,7 @@ class FamilyCrestListener : InteractionListener {
             } else {
                 node.id
             }
-            if (player.questRepository.getQuest("Family Crest").getStage(player) == 0) {
+            if (player.questRepository.getQuest(QuestName.FAMILY_CREST).getStage(player) == 0) {
                 sendMessage(player, "Nothing interesting happens.")
             }
             val old = player.getAttribute("family-crest:witchaven-lever:${baseId}", false)
@@ -106,7 +107,7 @@ class FamilyCrestListener : InteractionListener {
             val northA = player.getAttribute("family-crest:witchaven-lever:${NORTH_LEVER_A}", false)
             val northB = player.getAttribute("family-crest:witchaven-lever:${NORTH_LEVER_B}", false)
             val south = player.getAttribute("family-crest:witchaven-lever:${SOUTH_LEVER}", false)
-            val questComplete = player.questRepository.getQuest("Family Crest").getStage(player) >= 100
+            val questComplete = player.questRepository.getQuest(QuestName.FAMILY_CREST).getStage(player) >= 100
             // Authentic door formulae from https://gitlab.com/open-runescape-classic/core/-/blob/develop/server/plugins/com/openrsc/server/plugins/authentic/quests/members/FamilyCrest.java#L575-657
             val canPass = when (node.id) {
                 NORTH_DOOR -> !northA && (south || northB)

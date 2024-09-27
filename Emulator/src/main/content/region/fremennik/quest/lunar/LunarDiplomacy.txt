@@ -66,7 +66,7 @@ class LunarDiplomacy : Quest("Lunar Diplomacy", 85, 84, 2, Vars.VARBIT_QUEST_LUN
                 line++
             )
             line(player, "I need to have completed the following quests:", line++, false)
-            line(player, "!!Fremennik Trials??", line++, isQuestComplete(player, "Fremennik Trials"))
+            line(player, "!!Fremennik Trials??", line++, isQuestComplete(player, QuestName.THE_FREMENNIK_TRIALS))
             line(player, "!!Lost City??", line++, isQuestComplete(player, "Lost City"))
             line(player, "!!Shilo Village??", line++, isQuestComplete(player, "Shilo Village"))
             line(player, "!!Rune Mysteries??", line++, isQuestComplete(player, QuestName.RUNE_MYSTERIES))

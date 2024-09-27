@@ -1,9 +1,10 @@
 package content.region.karamja.apeatoll.quest.mm.dialogue
 
-import org.rs.consts.NPCs
 import core.api.setQuestStage
 import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression
+import org.rs.consts.NPCs
+import org.rs.consts.QuestName
 
 /**
  * Represents the Awowogei dialogue.
@@ -34,7 +35,7 @@ class AwowogeiDialogue : DialogueFile() {
             19 -> playerl("Very well. I will be back later, with one of the captives.").also { stage++ }
             99 -> {
                 end()
-                setQuestStage(player!!, "Monkey Madness", 33)
+                setQuestStage(player!!, QuestName.MONKEY_MADNESS, 33)
             }
         }
     }

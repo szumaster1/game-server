@@ -1,8 +1,10 @@
 package content.region.karamja.apeatoll.quest.mm.dialogue
 
+import content.region.karamja.apeatoll.quest.mm.cutscenes.DungeonPlanWithAwowogeiCutScene
 import core.api.setQuestStage
 import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression
+import org.rs.consts.QuestName
 
 /**
  * Represents the Garkor after challenge dialogue.
@@ -17,8 +19,8 @@ class GarkorAfterChallengeDialogue : DialogueFile() {
             3 -> npcl(FacialExpression.NEUTRAL, "Progress in the caves has been slow. Whilst you were in Ardougne, Bunkwicket and Waymottin overheard a slightly disturbing conversation.").also { stage++ }
             4 -> playerl(FacialExpression.NEUTRAL, "Who was speaking? What was said?").also { stage++ }
             5 -> npcl(FacialExpression.NEUTRAL, "Listen closely whilst I narrate the details...").also {
-                setQuestStage(player!!, "Monkey Madness", 50)
-                content.region.karamja.apeatoll.quest.mm.cutscenes.DungeonPlanWithAwowogeiCutScene(player!!).start()
+                setQuestStage(player!!, QuestName.MONKEY_MADNESS, 50)
+                DungeonPlanWithAwowogeiCutScene(player!!).start()
                 stage++
             }
 

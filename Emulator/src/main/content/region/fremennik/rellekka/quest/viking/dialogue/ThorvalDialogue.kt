@@ -8,6 +8,7 @@ import core.game.dialogue.FacialExpression
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
+import org.rs.consts.QuestName
 
 /**
  * Represents the Thorval dialogue.
@@ -40,7 +41,7 @@ class ThorvalDialogue(player: Player? = null): Dialogue(player) {
             npcl(FacialExpression.FRIENDLY, "Hahaha! Well fought outerlander! Now come down from there, you have passed my trial with flying colours!")
             stage = 150
             return true
-        } else if (isQuestComplete(player, "Fremennik Trials")) {
+        } else if (isQuestComplete(player, QuestName.THE_FREMENNIK_TRIALS)) {
             playerl(FacialExpression.FRIENDLY, "Howdy Thorvald!")
             stage = 0
             return true
@@ -48,11 +49,11 @@ class ThorvalDialogue(player: Player? = null): Dialogue(player) {
             playerl(FacialExpression.FRIENDLY, "So can I count on your vote at the council of elders now Thorvald?")
             stage = 160
             return true
-        } else if (isQuestComplete(player, "Fremennik Trials")) {
+        } else if (isQuestComplete(player, QuestName.THE_FREMENNIK_TRIALS)) {
             playerl(FacialExpression.HAPPY, "Howdy Thorvald!")
             stage = 250
             return true
-        } else if (!player.questRepository.hasStarted("Fremennik Trials")) {
+        } else if (!player.questRepository.hasStarted(QuestName.THE_FREMENNIK_TRIALS)) {
             npcl(FacialExpression.ANNOYED, "Leave me be, outerlander. I have nothing to say to the likes of you.").also { stage = END_DIALOGUE }
             return true
         } else if (!getAttribute(player, "fremtrials:thorvald-vote", false)) {

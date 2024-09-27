@@ -129,19 +129,19 @@ class TouristTrapPlugin : OptionHandler() {
         val quest = player.getQuestRepository().getQuest(QuestName.THE_TOURIST_TRAP)
         val id = node.id
         when (option) {
-            "read" -> player.dialogueInterpreter.sendDialogue(
+            "read" -> sendDialogueLines(player,
                 "The plans look very technical! But you can see that this item will",
                 "require a bronze bar and at least 10 feathers."
             )
 
             "watch" -> when (id) {
-                2676, 2675 -> player.dialogueInterpreter.sendDialogue(
+                2676, 2675 -> sendDialogueLines(player,
                     "You watch the doors for some time. You notice that only slaves seem",
                     "to do down there. You might be able to sneak down if you pass as a",
                     "slave."
                 )
 
-                else -> player.dialogueInterpreter.sendDialogue(
+                else -> sendDialogueLines(player,
                     "You watch the Mercenary Captain for some time. He has a large",
                     "metal key attached to his belt. You notice that he usually gets his",
                     "men to do his dirty work."

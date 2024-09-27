@@ -1,14 +1,15 @@
 package content.region.misthalin.quest.anma.dialogue
 
 import content.region.misthalin.quest.anma.AnimalMagnetism
-import org.rs.consts.Items
-import org.rs.consts.NPCs
 import core.api.setQuestStage
 import core.game.dialogue.Dialogue
 import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.quest.Quest
 import core.game.node.item.Item
 import core.tools.END_DIALOGUE
+import org.rs.consts.Items
+import org.rs.consts.NPCs
+import org.rs.consts.QuestName
 
 /**
  * Represents the Witch dialogue.
@@ -18,7 +19,7 @@ class WitchDialogue(player: Player? = null) : Dialogue(player) {
     private var quest: Quest? = null
 
     override fun open(vararg args: Any): Boolean {
-        quest = player.getQuestRepository().getQuest(AnimalMagnetism.questName)
+        quest = player.getQuestRepository().getQuest(QuestName.ANIMAL_MAGNETISM)
         when (quest!!.getStage(player)) {
             25 -> npc("Hello, hello, my poppet. What brings you to my little", "room?")
             26 -> if (!player.inventory.containsItem(IRON_BARS)) {
@@ -47,7 +48,7 @@ class WitchDialogue(player: Player? = null) : Dialogue(player) {
                 5 -> player("I'll be back.").also { stage++ }
                 6 -> {
                     end()
-                    setQuestStage(player, AnimalMagnetism.questName, 26)
+                    setQuestStage(player, QuestName.ANIMAL_MAGNETISM, 26)
                 }
             }
 
@@ -61,7 +62,7 @@ class WitchDialogue(player: Player? = null) : Dialogue(player) {
                 3 -> npc("Go to the iron mine just north-east of Rimmington and", "hit the bar with a plain old smithing hammer while facing", "north. Then take your new magnet to Ava. Poor girl,", "having to deal with whippersnappers like you.").also { stage++ }
                 4 -> if (player.inventory.remove(IRON_BARS)) {
                     player.inventory.add(AnimalMagnetism.SELECTED_IRON)
-                    setQuestStage(player, AnimalMagnetism.questName, 27)
+                    setQuestStage(player, QuestName.ANIMAL_MAGNETISM, 27)
                     end()
                 }
                 1 -> end()

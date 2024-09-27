@@ -1,8 +1,5 @@
 package content.region.misthalin.lumbridge.quest.haunted
 
-import org.rs.consts.Components
-import org.rs.consts.Items
-import org.rs.consts.Vars
 import content.region.misthalin.lumbridge.quest.haunted.handlers.ErnestChickenNPC
 import content.region.misthalin.lumbridge.quest.haunted.handlers.ErnestNPC
 import core.api.removeAttributes
@@ -12,14 +9,18 @@ import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.quest.Quest
 import core.game.node.item.GroundItemManager
 import core.game.node.item.Item
-import core.plugin.PluginManager.definePlugins
 import core.plugin.Initializable
+import core.plugin.PluginManager.definePlugins
+import org.rs.consts.Components
+import org.rs.consts.Items
+import org.rs.consts.QuestName
+import org.rs.consts.Vars
 
 /**
  * Represents the Ernest the chicken quest.
  */
 @Initializable
-class ErnestTheChicken : Quest("Ernest the Chicken", 19, 18, 4, Vars.VARP_QUEST_ERNEST_THE_CHICKEN_PROGRESS, 0, 1, 3) {
+class ErnestTheChicken : Quest(QuestName.ERNEST_THE_CHICKEN, 19, 18, 4, Vars.VARP_QUEST_ERNEST_THE_CHICKEN_PROGRESS, 0, 1, 3) {
 
     override fun drawJournal(player: Player, stage: Int) {
         super.drawJournal(player, stage)
@@ -59,7 +60,7 @@ class ErnestTheChicken : Quest("Ernest the Chicken", 19, 18, 4, Vars.VARP_QUEST_
         var line = 10
         drawReward(player, "4 Quest Points", line++)
         drawReward(player, "300 coins", line++)
-        drawReward(player, "You have completed the Ernest The Chicken Quest!", line)
+        drawReward(player, "You have completed the ${QuestName.ERNEST_THE_CHICKEN} Quest!", line)
 
         removeAttributes(player, "piranhas-killed", "pressure-gauge")
         sendItemZoomOnInterface(player, Components.QUEST_COMPLETE_SCROLL_277, 5, Items.FEATHER_314, 230)

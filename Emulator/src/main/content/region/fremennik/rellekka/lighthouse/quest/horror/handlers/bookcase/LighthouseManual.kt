@@ -1,13 +1,13 @@
-package content.region.fremennik.rellekka.lighthouse.quest.horror.book
+package content.region.fremennik.rellekka.lighthouse.quest.horror.handlers.bookcase
 
 import content.global.handlers.iface.BookInterface
 import content.global.handlers.iface.BookLine
 import content.global.handlers.iface.Page
 import content.global.handlers.iface.PageSet
-import org.rs.consts.Items
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.entity.player.Player
+import org.rs.consts.Items
 
 /**
  * Lighthouse manual.

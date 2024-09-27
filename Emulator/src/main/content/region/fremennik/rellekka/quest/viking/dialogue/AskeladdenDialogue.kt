@@ -1,13 +1,14 @@
 package content.region.fremennik.rellekka.quest.viking.dialogue
 
 import core.api.*
-import org.rs.consts.Items
-import org.rs.consts.NPCs
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression
 import core.game.node.entity.player.Player
 import core.game.node.item.Item
 import core.plugin.Initializable
+import org.rs.consts.Items
+import org.rs.consts.NPCs
+import org.rs.consts.QuestName
 
 /**
  * Represents the Askeladden dialogue.
@@ -29,11 +30,11 @@ class AskeladdenDialogue(player: Player? = null): Dialogue(player) {
                 playerl(FacialExpression.ASKING, "I've lost one of the items I was supposed to be trading.")
                 stage = 35
                 return true
-            } else if (isQuestComplete(player, "Fremennik Trials")) {
+            } else if (isQuestComplete(player, QuestName.THE_FREMENNIK_TRIALS)) {
                 playerl(FacialExpression.HAPPY, "Hello again Askeladden.")
                 stage = 40
                 return true
-            } else if (it.questRepository.getStage("Fremennik Trials") > 0) {
+            } else if (it.questRepository.getStage(QuestName.THE_FREMENNIK_TRIALS) > 0) {
                 player("Hello there.")
                 stage = 0
                 return true

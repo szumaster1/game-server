@@ -1,16 +1,14 @@
 package content.region.misthalin.varrock.quest.demon
 
-import org.rs.consts.Components
-import org.rs.consts.Vars
 import content.region.misthalin.varrock.quest.demon.cutscene.DemonSlayerCutscene
 import content.region.misthalin.varrock.quest.demon.cutscene.WallyCutscenePlugin
 import content.region.misthalin.varrock.quest.demon.dialogue.CaptainRovinDialogue
 import content.region.misthalin.varrock.quest.demon.dialogue.GypsyArisDialogue
 import content.region.misthalin.varrock.quest.demon.dialogue.SirPyrsinDialogue
 import content.region.misthalin.varrock.quest.demon.dialogue.TraibornDialogue
-import content.region.misthalin.varrock.quest.demon.handlers.DemonSlayerUtils
 import content.region.misthalin.varrock.quest.demon.handlers.DemonSlayerDrainPlugin
 import content.region.misthalin.varrock.quest.demon.handlers.DemonSlayerPlugin
+import content.region.misthalin.varrock.quest.demon.handlers.DemonSlayerUtils
 import core.api.inInventory
 import core.api.removeAttributes
 import core.api.sendItemZoomOnInterface
@@ -19,12 +17,15 @@ import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.quest.Quest
 import core.plugin.Initializable
 import core.plugin.PluginManager
+import org.rs.consts.Components
+import org.rs.consts.QuestName
+import org.rs.consts.Vars
 
 /**
  * Represents the Demon slayer quest.
  */
 @Initializable
-class DemonSlayer : Quest("Demon Slayer", 16, 15, 3, Vars.VARP_QUEST_DEMON_SLAYER_PROGRESS, 0, 1, 3) {
+class DemonSlayer : Quest(QuestName.DEMON_SLAYER, 16, 15, 3, Vars.VARP_QUEST_DEMON_SLAYER_PROGRESS, 0, 1, 3) {
 
 
     override fun newInstance(`object`: Any?): Quest {

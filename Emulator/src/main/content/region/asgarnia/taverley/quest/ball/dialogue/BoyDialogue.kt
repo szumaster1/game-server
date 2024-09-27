@@ -1,12 +1,13 @@
 package content.region.asgarnia.taverley.quest.ball.dialogue
 
-import org.rs.consts.Items
-import org.rs.consts.NPCs
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression
 import core.game.node.entity.player.Player
 import core.game.node.item.Item
 import core.plugin.Initializable
+import org.rs.consts.Items
+import org.rs.consts.NPCs
+import org.rs.consts.QuestName
 
 /**
  * Represents the Boy dialogue.
@@ -15,7 +16,7 @@ import core.plugin.Initializable
 class BoyDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any): Boolean {
-        val quest = player.getQuestRepository().getQuest("Witch's House")
+        val quest = player.getQuestRepository().getQuest(QuestName.WITCHS_HOUSE)
         player.debug(quest.isStarted(player).toString() + " " + quest.getStage(player))
         if (!quest.isStarted(player) && quest.getStage(player) < 10) {
             player("Hello young man.")
@@ -37,7 +38,7 @@ class BoyDialogue(player: Player? = null) : Dialogue(player) {
     }
 
     override fun handle(interfaceId: Int, buttonId: Int): Boolean {
-        val quest = player.getQuestRepository().getQuest("Witch's House")
+        val quest = player.getQuestRepository().getQuest(QuestName.WITCHS_HOUSE)
         when (stage) {
             -1 -> end()
             1 -> {

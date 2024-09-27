@@ -2,6 +2,7 @@ package content.region.karamja.apeatoll.quest.mm.dialogue
 
 import core.api.setQuestStage
 import core.game.dialogue.DialogueFile
+import org.rs.consts.QuestName
 
 /**
  * Represents the Monkey dialogue.
@@ -30,7 +31,7 @@ class MonkeyDialogue : DialogueFile() {
             17 -> npcl("Ook!").also { stage++ }
             18 -> {
                 end()
-                setQuestStage(player!!, "Monkey Madness", 40)
+                setQuestStage(player!!, QuestName.MONKEY_MADNESS, 40)
             }
         }
     }

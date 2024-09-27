@@ -1,13 +1,13 @@
-package content.region.fremennik.rellekka.lighthouse.quest.horror.book
+package content.region.fremennik.rellekka.lighthouse.quest.horror.handlers.bookcase
 
 import content.global.handlers.iface.BookInterface
 import content.global.handlers.iface.BookLine
 import content.global.handlers.iface.Page
 import content.global.handlers.iface.PageSet
-import org.rs.consts.Items
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.entity.player.Player
+import org.rs.consts.Items
 
 /**
  * Jossik journal.
@@ -74,7 +74,6 @@ class JossikJournal : InteractionListener {
             ),
             PageSet(
                 Page(
-
                     BookLine("to my uncle... Some", 55),
                     BookLine("of the local folks have", 56),
                     BookLine("tried to suggest that", 57),
@@ -348,21 +347,9 @@ class JossikJournal : InteractionListener {
     }
 
     private fun display(player: Player, pageNum: Int, buttonID: Int): Boolean {
-        BookInterface.pageSetup(
-            player, BookInterface.FANCY_BOOK_3_49,
-            TITLE,
-            CONTENTS
-        )
-        player.packetDispatch.sendString(
-            "",
-            BookInterface.FANCY_BOOK_3_49,
-            BookInterface.FANCY_BOOK_3_49_LINE_IDS[1]
-        )
-        player.packetDispatch.sendString(
-            "",
-            BookInterface.FANCY_BOOK_3_49,
-            BookInterface.FANCY_BOOK_3_49_LINE_IDS[2]
-        )
+        BookInterface.pageSetup(player, BookInterface.FANCY_BOOK_3_49, TITLE, CONTENTS)
+        player.packetDispatch.sendString("", BookInterface.FANCY_BOOK_3_49, BookInterface.FANCY_BOOK_3_49_LINE_IDS[1])
+        player.packetDispatch.sendString("", BookInterface.FANCY_BOOK_3_49, BookInterface.FANCY_BOOK_3_49_LINE_IDS[2])
         return true
     }
 

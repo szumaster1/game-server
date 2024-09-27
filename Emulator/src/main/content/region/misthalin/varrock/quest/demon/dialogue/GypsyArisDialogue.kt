@@ -21,6 +21,7 @@ import core.net.packet.PacketRepository
 import core.net.packet.context.CameraContext
 import core.net.packet.context.CameraContext.CameraType
 import core.net.packet.outgoing.CameraViewPacket
+import org.rs.consts.QuestName
 
 /**
  * Represents the Gypsy Aris dialogue.
@@ -33,7 +34,7 @@ class GypsyArisDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
-        quest = player.getQuestRepository().getQuest("Demon Slayer")
+        quest = player.getQuestRepository().getQuest(QuestName.DEMON_SLAYER)
         when (quest!!.getStage(player)) {
             100 -> {
                 npc("Greetings young one.")

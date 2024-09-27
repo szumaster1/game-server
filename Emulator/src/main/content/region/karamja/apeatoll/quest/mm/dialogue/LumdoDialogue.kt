@@ -1,11 +1,12 @@
 package content.region.karamja.apeatoll.quest.mm.dialogue
 
-import org.rs.consts.Items
 import core.api.getQuestStage
 import core.api.sendItemDialogue
 import core.api.setQuestStage
 import core.game.dialogue.DialogueFile
 import core.tools.END_DIALOGUE
+import org.rs.consts.Items
+import org.rs.consts.QuestName
 
 /**
  * Represents the Lumdo dialogue.
@@ -15,9 +16,9 @@ class LumdoDialogue: DialogueFile() {
     override fun handle(componentID: Int, buttonID: Int) {
         when (stage) {
             0 -> {
-                if (getQuestStage(player!!, "Monkey Madness") == 23) {
+                if (getQuestStage(player!!, QuestName.MONKEY_MADNESS) == 23) {
                     npcl("Who are you two?").also { stage++ }
-                } else if (getQuestStage(player!!, "Monkey Madness") == 24) {
+                } else if (getQuestStage(player!!, QuestName.MONKEY_MADNESS) == 24) {
                     playerl("You will take me to the atoll?").also { stage = 23 }
                 } else {
                     end()
@@ -46,7 +47,7 @@ class LumdoDialogue: DialogueFile() {
             21 -> playerl("You will not take me?").also { stage++ }
             22 -> npcl("I will not take orders from you.").also {
                 stage = END_DIALOGUE
-                setQuestStage(player!!, "Monkey Madness", 24)
+                setQuestStage(player!!, QuestName.MONKEY_MADNESS, 24)
             }
             23 -> npcl("I am under direct orders to remain here.").also { stage = END_DIALOGUE }
         }

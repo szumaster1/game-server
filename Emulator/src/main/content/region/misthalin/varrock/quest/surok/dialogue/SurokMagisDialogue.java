@@ -9,6 +9,7 @@ import core.game.node.entity.player.Player;
 import core.game.node.entity.player.link.quest.Quest;
 import core.game.world.update.flag.context.Animation;
 import core.plugin.Initializable;
+import org.rs.consts.QuestName;
 
 /**
  * Represents the Surok Magis dialogue.
@@ -34,7 +35,7 @@ public class SurokMagisDialogue extends Dialogue {
     @Override
     public boolean open(Object... args) {
         npc = (NPC) args[0];
-        quest = player.getQuestRepository().getQuest("What Lies Below");
+        quest = player.getQuestRepository().getQuest(QuestName.WHAT_LIES_BELOW);
         switch (quest.getStage(player)) {
             default:
                 npc("Excuse me?");
@@ -422,7 +423,7 @@ public class SurokMagisDialogue extends Dialogue {
                         break;
                     case 7:
                         end();
-                        ActivityManager.start(player, "What Lies below", false);
+                        ActivityManager.start(player, QuestName.WHAT_LIES_BELOW, false);
                         break;
                     case 10:
                         close();

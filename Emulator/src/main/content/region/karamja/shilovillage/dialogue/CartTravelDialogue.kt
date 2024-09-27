@@ -1,6 +1,5 @@
 package content.region.karamja.shilovillage.dialogue
 
-import org.rs.consts.Items
 import content.region.karamja.shilovillage.handlers.ShilovillageListener
 import core.api.hasRequirement
 import core.api.inInventory
@@ -8,6 +7,8 @@ import core.api.openDialogue
 import core.api.sendDialogue
 import core.game.dialogue.DialogueFile
 import core.tools.END_DIALOGUE
+import org.rs.consts.Items
+import org.rs.consts.QuestName
 
 /**
  * Represents the Cart travel dialogue.
@@ -15,7 +16,7 @@ import core.tools.END_DIALOGUE
 class CartTravelDialogue : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {
-        if (!hasRequirement(player!!, "Shilo Village")) return
+        if (!hasRequirement(player!!, QuestName.SHILO_VILLAGE)) return
         val shilo = npc?.id == 510
         when (stage) {
             0 -> npcl("I am offering a cart ride to " + (if (shilo) "Shilo Village" else "Brimhaven") + " if you're interested? It will cost 10 gold coins. Is that Ok?").also { stage++ }

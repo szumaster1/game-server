@@ -1,19 +1,20 @@
 package content.region.misthalin.quest.firedup
 
-import org.rs.consts.Components
+import content.minigame.allfiredup.AFUBeacon
+import core.api.*
 import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.quest.Quest
 import core.game.node.entity.skill.Skills
 import core.plugin.Initializable
-import content.minigame.allfiredup.AFUBeacon
-import core.api.*
+import org.rs.consts.Components
 import org.rs.consts.Items
+import org.rs.consts.QuestName
 
 /**
  * Represents the All fired up.
  */
 @Initializable
-class AllFiredUp : Quest("All Fired Up", 157, 156, 1){
+class AllFiredUp : Quest(QuestName.ALL_FIRED_UP, 157, 156, 1){
 
     override fun drawJournal(player: Player, stage: Int) {
         super.drawJournal(player, stage)

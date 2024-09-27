@@ -1,7 +1,6 @@
 package content.region.misthalin.varrock.quest.dragon.handlers;
 
 import content.region.misthalin.varrock.quest.dragon.DragonSlayer;
-import org.rs.consts.Animations;
 import core.cache.def.impl.ItemDefinition;
 import core.cache.def.impl.NPCDefinition;
 import core.cache.def.impl.SceneryDefinition;
@@ -23,6 +22,8 @@ import core.game.world.map.Location;
 import core.game.world.map.RegionManager;
 import core.game.world.update.flag.context.Animation;
 import core.plugin.Plugin;
+import org.rs.consts.Animations;
+import org.rs.consts.QuestName;
 
 import java.util.List;
 
@@ -103,7 +104,7 @@ public final class DragonSlayerPlugin extends OptionHandler {
 
     @Override
     public boolean handle(final Player player, Node node, String option) {
-        final Quest quest = player.getQuestRepository().getQuest("Dragon Slayer");
+        final Quest quest = player.getQuestRepository().getQuest(QuestName.DRAGON_SLAYER);
         final int id = node instanceof Item ? node.getId() : node instanceof Scenery ? ((Scenery) node).getId() : node.getId();
         switch (id) {
             case 1755:
@@ -115,12 +116,12 @@ public final class DragonSlayerPlugin extends OptionHandler {
                 }
                 break;
             case 742:
-                if (player.getQuestRepository().getQuest("Dragon Slayer").getStage(player) == 40 && (player.getInventory().containsItem(DragonSlayer.ELVARG_HEAD))) {
+                if (player.getQuestRepository().getQuest(QuestName.DRAGON_SLAYER).getStage(player) == 40 && (player.getInventory().containsItem(DragonSlayer.ELVARG_HEAD))) {
                     player.getPacketDispatch().sendMessage("You have already slain the dragon. Now you just need to return to Oziach for");
                     player.getPacketDispatch().sendMessage("your reward!");
                     return true;
                 }
-                if (player.getQuestRepository().getQuest("Dragon Slayer").getStage(player) > 40) {
+                if (player.getQuestRepository().getQuest(QuestName.DRAGON_SLAYER).getStage(player) > 40) {
                     player.getPacketDispatch().sendMessage("You have already slain Elvarg the dragon.");
                     return true;
                 }
@@ -133,16 +134,16 @@ public final class DragonSlayerPlugin extends OptionHandler {
                     movement.run(player, 10);
                     return true;
                 }
-                if (player.getQuestRepository().getQuest("Dragon Slayer").getStage(player) == 40 && (player.getInventory().containsItem(DragonSlayer.ELVARG_HEAD))) {
+                if (player.getQuestRepository().getQuest(QuestName.DRAGON_SLAYER).getStage(player) == 40 && (player.getInventory().containsItem(DragonSlayer.ELVARG_HEAD))) {
                     player.getPacketDispatch().sendMessage("You have already slain the dragon. Now you just need to return to Oziach for");
                     player.getPacketDispatch().sendMessage("your reward!");
                     return true;
                 }
-                if (player.getQuestRepository().getQuest("Dragon Slayer").getStage(player) > 40) {
+                if (player.getQuestRepository().getQuest(QuestName.DRAGON_SLAYER).getStage(player) > 40) {
                     player.getPacketDispatch().sendMessage("You have already slain the dragon.");
                     return true;
                 }
-                if (player.getQuestRepository().getQuest("Dragon Slayer").getStage(player) == 40 && !player.getInventory().containsItem(DragonSlayer.ELVARG_HEAD)) {
+                if (player.getQuestRepository().getQuest(QuestName.DRAGON_SLAYER).getStage(player) == 40 && !player.getInventory().containsItem(DragonSlayer.ELVARG_HEAD)) {
                     ForceMovement movement = new ForceMovement(player, player.getLocation(), player.getLocation().transform(player.getLocation().getX() == 2845 ? 2 : -2, 0, 0), new Animation(Animations.WALKING_OVER_ROCKS_IN_ELVARGS_CAVE_10573));
                     movement.run(player, 10);
                     if (player.getLocation().getX() <= 2845) {
@@ -161,7 +162,7 @@ public final class DragonSlayerPlugin extends OptionHandler {
                 player.getAchievementDiaryManager().finishTask(player, DiaryType.KARAMJA, 1, 2);
                 break;
             case 2606:
-                if (player.getLocation().getY() < 9600 && !player.getSavedData().questData.getDragonSlayerAttribute("memorized") && player.getQuestRepository().getQuest("Dragon Slayer").getStage(player) != 100) {
+                if (player.getLocation().getY() < 9600 && !player.getSavedData().questData.getDragonSlayerAttribute("memorized") && player.getQuestRepository().getQuest(QuestName.DRAGON_SLAYER).getStage(player) != 100) {
                     player.getPacketDispatch().sendMessage("The door is securely locked.");
                 } else {
                     if (!player.getSavedData().questData.getDragonSlayerAttribute("memorized")) {

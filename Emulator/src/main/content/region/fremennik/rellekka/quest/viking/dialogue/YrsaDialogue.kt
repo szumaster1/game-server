@@ -13,6 +13,7 @@ import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.diary.DiaryType
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
+import org.rs.consts.QuestName
 
 /**
  * Represents the Yrsa dialogue.
@@ -43,7 +44,7 @@ class YrsaDialogue(player: Player? = null): Dialogue(player) {
             playerl(FacialExpression.ASKING, "I don't suppose you have any idea where I could find some custom sturdy boots, do you?")
             stage = 1
             return true
-        } else if (isQuestComplete(player, "Fremennik Trials")) {
+        } else if (isQuestComplete(player, QuestName.THE_FREMENNIK_TRIALS)) {
             npcl(FacialExpression.HAPPY, "Welcome to my clothes shop. I can change your shoes, or I've got a fine selection of clothes for sale.")
             stage = 30
             return true

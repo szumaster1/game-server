@@ -1,6 +1,5 @@
 package content.region.karamja.shilovillage.dialogue
 
-import org.rs.consts.NPCs
 import core.api.isQuestComplete
 import core.api.sendMessage
 import core.api.sendMessageWithDelay
@@ -10,6 +9,8 @@ import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
+import org.rs.consts.NPCs
+import org.rs.consts.QuestName
 
 /**
  * Represents the Mosol Rei dialogue.
@@ -19,7 +20,7 @@ class MosolReiDialogue(player: Player? = null): Dialogue(player) {
 
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
-        if (isQuestComplete(player, "Shilo Village")) {
+        if (isQuestComplete(player, QuestName.SHILO_VILLAGE)) {
             player("Greetings")
         } else {
             npc(FacialExpression.FRIENDLY, "Sorry bwana, I cannot help you at this time. Go and talk", "to Trufitus at Tai Bwo Wannai, I believe he needs some", "help.").also { stage = END_DIALOGUE }

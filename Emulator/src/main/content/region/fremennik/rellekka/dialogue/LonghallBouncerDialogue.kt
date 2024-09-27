@@ -1,6 +1,5 @@
 package content.region.fremennik.rellekka.dialogue
 
-import org.rs.consts.NPCs
 import core.api.isQuestComplete
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression
@@ -8,6 +7,8 @@ import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
+import org.rs.consts.NPCs
+import org.rs.consts.QuestName
 
 /**
  * Represents the Longhall bouncer dialogue.
@@ -17,7 +18,7 @@ class LonghallBouncerDialogue(player: Player? = null): Dialogue(player) {
 
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
-        if (!isQuestComplete(player, "Fremennik Trials")) {
+        if (!isQuestComplete(player, QuestName.THE_FREMENNIK_TRIALS)) {
             npcl(FacialExpression.ANNOYED, "Hey, outerlander. You can't go through there. Talent only, backstage.").also { stage = END_DIALOGUE }
         } else {
             npcl(FacialExpression.ANNOYED, "You can't go through there. Talent only, backstage.")

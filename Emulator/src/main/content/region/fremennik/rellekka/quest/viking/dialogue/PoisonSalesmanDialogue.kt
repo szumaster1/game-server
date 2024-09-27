@@ -2,8 +2,6 @@ package content.region.fremennik.rellekka.quest.viking.dialogue
 
 import content.region.kandarin.quest.murder.dialogue.PoisonSalesmanDialogueFile
 import core.api.addItemOrDrop
-import org.rs.consts.Items
-import org.rs.consts.NPCs
 import core.api.getQuestStage
 import core.api.openDialogue
 import core.api.removeItem
@@ -13,6 +11,9 @@ import core.game.node.item.Item
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
+import org.rs.consts.Items
+import org.rs.consts.NPCs
+import org.rs.consts.QuestName
 
 /**
  * Represents the Poison salesman dialogue.
@@ -27,8 +28,8 @@ class PoisonSalesmanDialogue(player: Player? = null): Dialogue(player) {
     }
 
     override fun handle(interfaceId: Int, buttonId: Int): Boolean {
-        val murderMysteryStage = getQuestStage(player, "Murder Mystery")
-        val fremennikTrialsStage = getQuestStage(player, "Fremennik Trials")
+        val murderMysteryStage = getQuestStage(player, QuestName.MURDER_MYSTERY)
+        val fremennikTrialsStage = getQuestStage(player, QuestName.THE_FREMENNIK_TRIALS)
         when (stage) {
             START_DIALOGUE -> when (buttonId) {
                 1 -> player("Hello.").also { stage = 1 }

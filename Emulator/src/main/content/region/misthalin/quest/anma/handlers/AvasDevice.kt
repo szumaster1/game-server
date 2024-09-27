@@ -1,6 +1,5 @@
 package content.region.misthalin.quest.anma.handlers
 
-import org.rs.consts.Items
 import core.api.*
 import core.game.event.EventHook
 import core.game.event.TickEvent
@@ -10,6 +9,8 @@ import core.game.node.entity.Entity
 import core.game.node.entity.player.Player
 import core.tools.colorize
 import core.tools.secondsToTicks
+import org.rs.consts.Items
+import org.rs.consts.QuestName
 
 /**
  * Represents the Avas device.
@@ -18,7 +19,7 @@ class AvasDevice : InteractionListener, EventHook<TickEvent> {
 
     override fun defineListeners() {
         onEquip(devices) { player, _ ->
-            if (!isQuestComplete(player, "Animal Magnetism")) {
+            if (!isQuestComplete(player, QuestName.ANIMAL_MAGNETISM)) {
                 sendMessage(player, "You need to complete Animal Magnetism to equip this.")
                 return@onEquip false
             }

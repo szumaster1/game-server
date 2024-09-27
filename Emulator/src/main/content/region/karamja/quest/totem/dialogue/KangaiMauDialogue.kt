@@ -9,6 +9,7 @@ import core.game.dialogue.FacialExpression
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
+import org.rs.consts.QuestName
 
 /**
  * Represents the Kangai Mau dialogue.
@@ -17,16 +18,16 @@ import core.tools.END_DIALOGUE
 class KangaiMauDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any?): Boolean {
-        if (!player.questRepository.hasStarted("Tribal Totem")) {
+        if (!player.questRepository.hasStarted(QuestName.TRIBAL_TOTEM)) {
             npcl(FacialExpression.HAPPY, "Hello. I'm Kangai Mau of the Rantuki Tribe.")
             stage = 0
-        } else if (isQuestComplete(player, "Tribal Totem")) {
+        } else if (isQuestComplete(player, QuestName.TRIBAL_TOTEM)) {
             npcl(FacialExpression.HAPPY, "Many greetings esteemed thief.")
             stage = 40
         } else if (player.inventory.containsAtLeastOneItem(Items.TOTEM_1857)) {
             npcl(FacialExpression.ASKING, "Have you got our totem back?")
             stage = 35
-        } else if (player.questRepository.hasStarted("Tribal Totem")) {
+        } else if (player.questRepository.hasStarted(QuestName.TRIBAL_TOTEM)) {
             npcl(FacialExpression.ASKING, "Have you got our totem back?")
             stage = 30
         }
@@ -55,8 +56,8 @@ class KangaiMauDialogue(player: Player? = null) : Dialogue(player) {
             20 -> playerl(FacialExpression.THINKING, "How can I find Handlemoret's house? Ardougne IS a big place...").also { stage++ }
             21 -> npcl(FacialExpression.ANNOYED, "I don't know Ardougne. You tell me.").also { stage++ }
             22 -> playerl(FacialExpression.HAPPY, "Ok, I will get it back.").also {
-                player.questRepository.getQuest("Tribal Totem").start(player)
-                player.questRepository.getQuest("Tribal Totem").setStage(player, 10)
+                player.questRepository.getQuest(QuestName.TRIBAL_TOTEM).start(player)
+                player.questRepository.getQuest(QuestName.TRIBAL_TOTEM).setStage(player, 10)
                 stage++
             }
             23 -> npcl(FacialExpression.HAPPY, "Best of luck with that adventurer").also { stage = END_DIALOGUE }
@@ -64,8 +65,8 @@ class KangaiMauDialogue(player: Player? = null) : Dialogue(player) {
             35 -> playerl(FacialExpression.HAPPY, "Yes I have.").also { stage++ }
             36 -> npcl(FacialExpression.HAPPY, "You have??? Many thanks brave adventurer! Here, have some freshly cooked Karamjan fish, caught specially by my tribe.").also { stage++ }
             37 -> sendDialogue("You hand over the totem").also {
-                if (!isQuestComplete(player, "Tribal Totem") && removeItem(player, Items.TOTEM_1857)) {
-                    player.questRepository.getQuest("Tribal Totem").finish(player)
+                if (!isQuestComplete(player, QuestName.TRIBAL_TOTEM) && removeItem(player, Items.TOTEM_1857)) {
+                    player.questRepository.getQuest(QuestName.TRIBAL_TOTEM).finish(player)
                     stage = END_DIALOGUE
                 } else {
                     stage = END_DIALOGUE

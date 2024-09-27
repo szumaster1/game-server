@@ -1,6 +1,5 @@
 package content.region.misthalin.lumbridge.quest.haunted.dialogue
 
-import org.rs.consts.NPCs
 import core.api.finishQuest
 import core.api.isQuestComplete
 import core.api.runTask
@@ -9,6 +8,8 @@ import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
+import org.rs.consts.NPCs
+import org.rs.consts.QuestName
 
 /**
  * Represents the Ernest dialogue.
@@ -43,12 +44,12 @@ class ErnestDialogue(player: Player? = null) : Dialogue(player) {
     }
 
     override fun finish() {
-        if (isQuestComplete(player, "Ernest the Chicken")) {
+        if (isQuestComplete(player, QuestName.ERNEST_THE_CHICKEN)) {
             npc.clear()
             return
         }
         npc.clear()
-        finishQuest(player, "Ernest the Chicken")
+        finishQuest(player, QuestName.ERNEST_THE_CHICKEN)
     }
 
     override fun getIds(): IntArray {

@@ -7,6 +7,7 @@ import core.game.node.Node;
 import core.game.node.entity.player.Player;
 import core.game.world.map.Location;
 import core.plugin.Plugin;
+import org.rs.consts.QuestName;
 
 /**
  * Represents the Ds magic door plugin.
@@ -33,7 +34,7 @@ public final class DSMagicDoorPlugin extends UseWithHandler {
     @Override
     public boolean handle(NodeUsageEvent event) {
         final Player player = event.getPlayer();
-        if (player.getQuestRepository().getQuest("Dragon Slayer").getStage(player) < 20) {
+        if (player.getQuestRepository().getQuest(QuestName.DRAGON_SLAYER).getStage(player) < 20) {
             return true;
         }
         if (player.getInventory().remove(event.getUsedItem())) {

@@ -1,5 +1,7 @@
 package content.region.asgarnia.taverley.dialogue
 
+import core.api.setQuestStage
+import core.api.updateQuestTab
 import org.rs.consts.NPCs
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression
@@ -7,6 +9,7 @@ import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.game.node.item.Item
 import core.plugin.Initializable
+import org.rs.consts.QuestName
 
 /**
  * Represents the Sanfew dialogue.
@@ -28,11 +31,11 @@ class SanfewDialogue(player: Player? = null) : Dialogue(player) {
     override fun handle(interfaceId: Int, buttonId: Int): Boolean {
         when (stage) {
             0 -> {
-                if (player.getQuestRepository().getQuest("Druidic Ritual").getStage(player) == 20) {
+                if (player.getQuestRepository().getQuest(QuestName.DRUIDIC_RITUAL).getStage(player) == 20) {
                     npc(FacialExpression.HALF_ASKING, "Did you bring me the required ingredients for the", "potion?")
                     stage = 100
                 }
-                if (player.getQuestRepository().getQuest("Druidic Ritual").getStage(player) == 10) {
+                if (player.getQuestRepository().getQuest(QuestName.DRUIDIC_RITUAL).getStage(player) == 10) {
                     options("I've been sent to help purify the Varrock stone circle.", "Actually, I don't need to speak to you.")
                     stage = 2
                 }
@@ -78,7 +81,7 @@ class SanfewDialogue(player: Player? = null) : Dialogue(player) {
 
             8 -> {
                 npc(FacialExpression.HALF_GUILTY, "It is located somewhere in the mysterious underground", "halls which are located somewhere in the woods just", "South of here. They are too dangerous for me to go", "myself however.")
-                player.getQuestRepository().getQuest("Druidic Ritual").setStage(player, 20)
+                setQuestStage(player, QuestName.DRUIDIC_RITUAL, 20)
                 stage = 9
             }
 
@@ -121,8 +124,8 @@ class SanfewDialogue(player: Player? = null) : Dialogue(player) {
 
             202 -> {
                 player.inventory.remove(Item(522, 1), Item(523, 1), Item(524, 1), Item(525, 1))
-                player.getQuestRepository().getQuest("Druidic Ritual").setStage(player, 99)
-                player.getQuestRepository().syncronizeTab(player)
+                setQuestStage(player, QuestName.DRUIDIC_RITUAL, 99)
+                updateQuestTab(player)
                 npc("Now go and talk to Kaqemeex and he will introduce", "you to the wonderful world of herblore and potion", "making!")
                 stage = 203
             }

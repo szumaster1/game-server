@@ -7,6 +7,7 @@ import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
+import org.rs.consts.QuestName
 
 /**
  * Represents the Swensen the navigator dialogue.
@@ -48,11 +49,11 @@ class SwensenTheNavigatorDialogue(player: Player? = null): Dialogue(player) {
             npc("You have my vote!")
             stage = 1000
             return true
-        } else if (isQuestComplete(player, "Fremennik Trials")) {
+        } else if (isQuestComplete(player, QuestName.THE_FREMENNIK_TRIALS)) {
             playerl(FacialExpression.HAPPY, "Hello!")
             stage = 140
             return true
-        } else if (player.questRepository.hasStarted("Fremennik Trials")) {
+        } else if (player.questRepository.hasStarted(QuestName.THE_FREMENNIK_TRIALS)) {
             player("Hello!")
             stage = 0
             return true

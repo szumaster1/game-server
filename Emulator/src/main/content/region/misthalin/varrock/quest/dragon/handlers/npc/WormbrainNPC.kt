@@ -1,13 +1,14 @@
 package content.region.misthalin.varrock.quest.dragon.handlers.npc
 
 import content.region.misthalin.varrock.quest.dragon.DragonSlayer
-import org.rs.consts.NPCs
 import core.game.node.entity.Entity
 import core.game.node.entity.combat.CombatStyle
 import core.game.node.entity.npc.AbstractNPC
 import core.game.node.entity.player.Player
 import core.game.node.item.GroundItemManager
 import core.game.world.map.Location
+import org.rs.consts.NPCs
+import org.rs.consts.QuestName
 
 /**
  * Represents the Wormbrain NPC.
@@ -25,7 +26,7 @@ class WormbrainNPC : AbstractNPC {
     override fun finalizeDeath(killer: Entity) {
         super.finalizeDeath(killer)
         if (killer is Player) {
-            if (killer.getQuestRepository().getQuest("Dragon Slayer").getStage(killer.asPlayer()) == 20 && !killer.inventory.containsItem(
+            if (killer.getQuestRepository().getQuest(QuestName.DRAGON_SLAYER).getStage(killer.asPlayer()) == 20 && !killer.inventory.containsItem(
                     DragonSlayer.WORMBRAIN_PIECE) && !killer.bank.containsItem(DragonSlayer.WORMBRAIN_PIECE)) {
                 GroundItemManager.create(DragonSlayer.WORMBRAIN_PIECE, getLocation(), killer)
                 killer.packetDispatch.sendMessage("Wormbrain drops a map piece on the floor.")
@@ -36,7 +37,7 @@ class WormbrainNPC : AbstractNPC {
     override fun isAttackable(entity: Entity, style: CombatStyle, message: Boolean): Boolean {
         if (entity is Player) {
             val player = entity
-            if (player.getQuestRepository().getQuest("Dragon Slayer").getStage(player) != 20) {
+            if (player.getQuestRepository().getQuest(QuestName.DRAGON_SLAYER).getStage(player) != 20) {
                 if (message) {
                     player.packetDispatch.sendMessage("The goblin is already in prison. You have no reason to attack him.")
                 }

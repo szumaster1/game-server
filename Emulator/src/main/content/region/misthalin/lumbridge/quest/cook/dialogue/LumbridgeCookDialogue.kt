@@ -24,12 +24,12 @@ class LumbridgeCookDialogue(player: Player? = null) : Dialogue(player) {
             stage = 0
             return true
         }
-        if (getQuestStage(player, "Cook's Assistant") <= 0) {
+        if (getQuestStage(player, QuestName.COOKS_ASSISTANT) <= 0) {
             npc(FacialExpression.SAD, "What am I to do?")
             stage = 0
             return true
         }
-        else if (getQuestStage(player, "Cook's Assistant") in 10..99) {
+        else if (getQuestStage(player, QuestName.COOKS_ASSISTANT) in 10..99) {
             if (getAttribute(player, "cooks_assistant:all_submitted", false) || (getAttribute(player, "cooks_assistant:milk_submitted", false) && getAttribute(player, "cooks_assistant:flour_submitted", false) && getAttribute(player, "cooks_assistant:egg_submitted", false))) {
                 npc(FacialExpression.HAPPY, "You've brought me everything I need! I am saved!", "Thank you!")
                 stage = 200
@@ -98,7 +98,7 @@ class LumbridgeCookDialogue(player: Player? = null) : Dialogue(player) {
             42 -> npc(FacialExpression.SAD, "It's all standard-issue cook's uniform.").also { stage++ }
             43 -> player(FacialExpression.HAPPY, "The whole hat, apron, stripy trousers ensemble. It", "works. It makes you looks like a real cook.").also { stage++ }
             44 -> npc(FacialExpression.ANGRY, "I AM a real cook! I haven't got time to be chatting", "about culinary fashion. I'm in desperate need of help!").also { stage = 21 }
-            50 -> npc(FacialExpression.HAPPY, "Oh thank you, thank you. I need milk, an egg and", "flour. I'd be very grateful if you can get them for me.").also { player?.questRepository?.getQuest("Cook's Assistant")?.start(player!!); stage++ }
+            50 -> npc(FacialExpression.HAPPY, "Oh thank you, thank you. I need milk, an egg and", "flour. I'd be very grateful if you can get them for me.").also { player?.questRepository?.getQuest(QuestName.COOKS_ASSISTANT)?.start(player!!); stage++ }
             51 -> player(FacialExpression.NEUTRAL, "So where do I find these ingredients then?").also { stage = 60 }
             60 -> options("Where do I find some flour?", "How about milk?", "And eggs? Where are they found?", "Actually, I know where to find this stuff.").also { stage++ }
             61 -> when (buttonId) {
@@ -193,7 +193,7 @@ class LumbridgeCookDialogue(player: Player? = null) : Dialogue(player) {
             201 -> npc(FacialExpression.SAD, "I'm afraid not, only the big cheeses get to dine with the", "Duke.").also { stage++ }
             202 -> player(FacialExpression.NEUTRAL, "Well, maybe one day I'll be important enough to sit on", "the Duke's table.").also { stage++ }
             203 -> npc(FacialExpression.NEUTRAL, "Maybe, but I won't be holding my breath.").also { stage++ }
-            204 -> end().also { finishQuest(player, "Cook's Assistant") }
+            204 -> end().also { finishQuest(player, QuestName.COOKS_ASSISTANT) }
             300 -> if (getQuestStage(player, QuestName.THE_LOST_TRIBE) == 10) {
                 player("Do you know what happened in the castle cellar?").also { stage = 600 }
             } else {

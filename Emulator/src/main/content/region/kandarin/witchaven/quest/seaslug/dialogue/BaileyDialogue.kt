@@ -1,8 +1,6 @@
 package content.region.kandarin.witchaven.quest.seaslug.dialogue
 
 import core.api.addItemOrDrop
-import org.rs.consts.Items
-import org.rs.consts.NPCs
 import core.api.getQuestStage
 import core.api.sendDoubleItemDialogue
 import core.api.setQuestStage
@@ -12,6 +10,9 @@ import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
+import org.rs.consts.Items
+import org.rs.consts.NPCs
+import org.rs.consts.QuestName
 
 /**
  * Represents the Bailey dialogue.
@@ -23,9 +24,9 @@ class BaileyDialogue(player: Player? = null) : Dialogue(player) {
         npc = args[0] as NPC
         when {
             // After visit small island.
-            getQuestStage(player, "Sea Slug") >= 15 -> player("Hello.").also { stage = 100 }
+            getQuestStage(player, QuestName.SEA_SLUG) >= 15 -> player("Hello.").also { stage = 100 }
             // After light up the torch.
-            getQuestStage(player, "Sea Slug") >= 20 -> player("I've managed to light the torch.").also { stage = 200 }
+            getQuestStage(player, QuestName.SEA_SLUG) >= 20 -> player("I've managed to light the torch.").also { stage = 200 }
             // First talk.
             else -> player("Hello there.")
         }
@@ -52,7 +53,7 @@ class BaileyDialogue(player: Player? = null) : Dialogue(player) {
 
             14 -> {
                 end()
-                setQuestStage(player, "Sea Slug", 6)
+                setQuestStage(player, QuestName.SEA_SLUG, 6)
             }
             100 -> npc(FacialExpression.SCARED, "Oh, thank the gods it's you. They've all gone mad I tell", "you, one of the fishermen tried to throw me into the", "sea!").also { stage++ }
             101 -> player("They're all being controlled by the sea slugs.").also { stage++ }

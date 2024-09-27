@@ -8,6 +8,7 @@ import core.api.setAttribute
 import core.game.dialogue.Dialogue
 import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.quest.Quest
+import org.rs.consts.QuestName
 
 /**
  * Represents the Trufitus dialogue.
@@ -19,7 +20,7 @@ class TrufitusDialogue(player: Player? = null) : Dialogue(player) {
     private var quest: Quest? = null
 
     override fun open(vararg args: Any): Boolean {
-        quest = player.getQuestRepository().getQuest("Jungle Potion")
+        quest = player.getQuestRepository().getQuest(QuestName.JUNGLE_POTION)
         when (quest!!.getStage(player)) {
             0 -> npc("Greetings Bwana! I am Trufitus Shakaya of the Tai", "Bwo Wannai village.")
             10, 20, 30, 40, 50 -> {
@@ -298,7 +299,7 @@ class TrufitusDialogue(player: Player? = null) : Dialogue(player) {
                 }
 
                 0 -> {
-                    finishQuest(player, "Jungle Potion")
+                    finishQuest(player, QuestName.JUNGLE_POTION)
                     end()
                 }
             }

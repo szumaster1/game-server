@@ -1,7 +1,6 @@
 package content.region.misthalin.varrock.quest.fluffs.handlers
 
 import core.api.*
-import org.rs.consts.*
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.entity.npc.NPC
@@ -11,6 +10,7 @@ import core.game.world.map.Location
 import core.game.world.map.path.Path
 import core.game.world.map.path.Pathfinder
 import core.tools.RandomFunction
+import org.rs.consts.*
 
 class GertrudesCatListener : InteractionListener {
 
@@ -19,8 +19,8 @@ class GertrudesCatListener : InteractionListener {
     override fun defineListeners() {
 
         on(CRATE, IntType.SCENERY, "search") { player, node ->
-            if (getQuestStage(player, "Gertrude's Cat") == 50 && hasAnItem(player, Items.THREE_LITTLE_KITTENS_13236).container != null) {
-                setQuestStage(player, "Gertrude's Cat", 40)
+            if (getQuestStage(player, QuestName.GERTRUDES_CAT) == 50 && hasAnItem(player, Items.THREE_LITTLE_KITTENS_13236).container != null) {
+                setQuestStage(player, QuestName.GERTRUDES_CAT, 40)
             }
 
             if (node is NPC) {
@@ -28,9 +28,9 @@ class GertrudesCatListener : InteractionListener {
                 sendMessage(player, "You find nothing.")
             }
 
-            if (getQuestStage(player, "Gertrude's Cat") == 40) {
+            if (getQuestStage(player, QuestName.GERTRUDES_CAT) == 40) {
                 if (getAttribute(player, "findkitten", false) && freeSlots(player) > 0) {
-                    setQuestStage(player, "Gertrude's Cat", 50)
+                    setQuestStage(player, QuestName.GERTRUDES_CAT, 50)
                     sendDialogue(player, "You find a kitten! You carefully place it in your backpack.")
                     addItem(player, Items.THREE_LITTLE_KITTENS_13236)
                 }
@@ -49,21 +49,21 @@ class GertrudesCatListener : InteractionListener {
         }
 
         onUseWith(IntType.NPC, Items.BUCKET_OF_MILK_1927, NPCs.GERTRUDES_CAT_2997) { player, used, with ->
-            if (getQuestStage(player, "Gertrude's Cat") == 20 && removeItem(player, used.asItem())) {
+            if (getQuestStage(player, QuestName.GERTRUDES_CAT) == 20 && removeItem(player, used.asItem())) {
                 addItem(player, Items.BUCKET_1925)
                 animate(player, Animations.MULTI_USE_BEND_OVER_827)
                 sendChat(with.asNpc(), "Mew!")
-                setQuestStage(player, "Gertrude's Cat", 30)
+                setQuestStage(player, QuestName.GERTRUDES_CAT, 30)
             }
             return@onUseWith true
         }
 
         onUseWith(IntType.NPC, Items.DOOGLE_SARDINE_1552, NPCs.GERTRUDES_CAT_2997) { player, used, with ->
-            if (getQuestStage(player, "Gertrude's Cat") == 30 && removeItem(player, used.asItem())) {
+            if (getQuestStage(player, QuestName.GERTRUDES_CAT) == 30 && removeItem(player, used.asItem())) {
                 animate(player, Animations.MULTI_USE_BEND_OVER_827)
                 sendChat(with.asNpc(), "Mew!")
                 playAudio(player, Sounds.KITTENS_MEW_339)
-                setQuestStage(player, "Gertrude's Cat", 40)
+                setQuestStage(player, QuestName.GERTRUDES_CAT, 40)
             }
             return@onUseWith true
         }
@@ -75,7 +75,7 @@ class GertrudesCatListener : InteractionListener {
 
         onUseWith(IntType.NPC, Items.THREE_LITTLE_KITTENS_13236, NPCs.GERTRUDES_CAT_2997) { player, used, with ->
             if (removeItem(player, used.asItem())) {
-                setQuestStage(player, "Gertrude's Cat", 60)
+                setQuestStage(player, QuestName.GERTRUDES_CAT, 60)
                 Pulser.submit(object : Pulse(1) {
                     var count = 0
                     val kitten = core.game.node.entity.npc.NPC.create(NPCs.KITTEN_761, player.location)

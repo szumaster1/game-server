@@ -6,6 +6,7 @@ import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.quest.Quest
 import core.game.node.item.GroundItemManager
+import org.rs.consts.QuestName
 
 /**
  * Represents the Guildmaster dragon slayer dialogue.
@@ -19,7 +20,7 @@ class GuildmasterDSDialogue(player: Player? = null) : Dialogue(player) {
         if (player.getQuestRepository().points < 32) {
             return true
         }
-        quest = player.getQuestRepository().getQuest("Dragon Slayer")
+        quest = player.getQuestRepository().getQuest(QuestName.DRAGON_SLAYER)
         npc("Greetings!")
         stage = if (quest!!.getStage(player) == 10) {
             0

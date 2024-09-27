@@ -17,6 +17,7 @@ import core.game.node.scenery.SceneryBuilder
 import core.game.world.map.Location
 import core.game.world.update.flag.context.Animation
 import core.plugin.Plugin
+import org.rs.consts.QuestName
 
 /**
  * Represents the Demon slayer plugin.
@@ -35,7 +36,7 @@ class DemonSlayerPlugin : OptionHandler() {
     }
 
     override fun handle(player: Player, node: Node, option: String): Boolean {
-        val quest = player.getQuestRepository().getQuest("Demon Slayer")
+        val quest = player.getQuestRepository().getQuest(QuestName.DEMON_SLAYER)
         val id = if (node is Scenery) node.getId() else if (node is Item) node.id else node.id
         when (id) {
             880 -> player.dialogueInterpreter.open(8427322)

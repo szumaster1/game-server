@@ -8,6 +8,7 @@ import core.game.dialogue.FacialExpression
 import core.game.node.entity.combat.ImpactHandler
 import core.game.node.entity.player.Player
 import core.game.world.map.Direction
+import org.rs.consts.QuestName
 
 class AnimalMagnetismCutscene(player: Player) : Cutscene(player) {
 
@@ -223,7 +224,7 @@ class AnimalMagnetismCutscene(player: Player) : Cutscene(player) {
 
             32 -> {
                 end {
-                    setQuestStage(player, "Animal Magnetism", 20)
+                    setQuestStage(player, QuestName.ANIMAL_MAGNETISM, 20)
                 }
             }
         }

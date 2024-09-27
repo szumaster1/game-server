@@ -1,12 +1,13 @@
 package content.region.fremennik.rellekka.quest.viking.dialogue
 
 import core.api.*
-import org.rs.consts.Items
-import org.rs.consts.NPCs
 import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC
 import core.tools.END_DIALOGUE
+import org.rs.consts.Items
+import org.rs.consts.NPCs
+import org.rs.consts.QuestName
 
 /**
  * Represents the Fremennik fisherman dialogue.
@@ -33,9 +34,9 @@ class FremennikFishermanDialogue : DialogueFile() {
                 } else if (getAttribute(player!!, "sigmund-steps", 0) == 7) {
                     playerl(FacialExpression.ASKING, "I don't suppose you have any idea where I could find an exotic and extremely odd fish, do you?")
                     stage = 1
-                } else if (!isQuestComplete(player!!, "Fremennik Trials")) {
+                } else if (!isQuestComplete(player!!, QuestName.THE_FREMENNIK_TRIALS)) {
                     player(FacialExpression.FRIENDLY, "Hello there.").also { stage = 200 }
-                } else if (isQuestComplete(player!!, "Fremennik Trials")) {
+                } else if (isQuestComplete(player!!, QuestName.THE_FREMENNIK_TRIALS)) {
                     player(FacialExpression.FRIENDLY, "Hello there.").also { stage = 100 }
                 }
             }

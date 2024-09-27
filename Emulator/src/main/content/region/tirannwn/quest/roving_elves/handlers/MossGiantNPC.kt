@@ -1,7 +1,6 @@
 package content.region.tirannwn.quest.roving_elves.handlers
 
 import content.region.tirannwn.quest.roving_elves.RovingElves
-import org.rs.consts.NPCs
 import core.cache.def.impl.NPCDefinition
 import core.game.interaction.OptionHandler
 import core.game.node.Node
@@ -12,8 +11,10 @@ import core.game.node.entity.player.Player
 import core.game.node.item.GroundItemManager
 import core.game.node.item.Item
 import core.game.world.map.Location
-import core.plugin.PluginManager.definePlugin
 import core.plugin.Plugin
+import core.plugin.PluginManager.definePlugin
+import org.rs.consts.NPCs
+import org.rs.consts.QuestName
 
 /**
  * Moss giant NPC.
@@ -34,7 +35,7 @@ class MossGiantNPC : AbstractNPC {
         super.finalizeDeath(killer)
         if (killer is Player) {
             val player = killer
-            val quest = player.getQuestRepository().getQuest("Roving Elves")
+            val quest = player.getQuestRepository().getQuest(QuestName.ROVING_ELVES)
             if (quest.getStage(player) == 15 && !player.inventory.contains(RovingElves.CONSECRATION_SEED.id, 1)) {
                 player.packetDispatch.sendMessages("A small grey seed drops on the ground.")
                 GroundItemManager.create(Item(RovingElves.CONSECRATION_SEED.id), getLocation(), player)

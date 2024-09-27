@@ -1,16 +1,16 @@
-package content.region.fremennik.rellekka.lighthouse.quest.horror.dialogue
+package content.region.fremennik.rellekka.lighthouse.quest.horror.handlers
 
 import core.api.*
-import org.rs.consts.Components
-import org.rs.consts.Items
-import content.region.fremennik.rellekka.lighthouse.quest.horror.handlers.HorrorUtils
 import core.game.dialogue.DialogueFile
 import core.game.node.item.Item
+import org.rs.consts.Items
 
 /**
- * Represents the Metal doors interaction dialogue related to Horror from the deep quest.
+ * Represents the strange wall dialogue.
+ *
+ * Related to **Horror from the deep** quest.
  */
-class MetalDoorsInteractionDialogue(private var items: Int) : DialogueFile() {
+class StrangeWallDialogue(private var items: Int) : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {
         when (stage) {
@@ -20,8 +20,7 @@ class MetalDoorsInteractionDialogue(private var items: Int) : DialogueFile() {
             }
 
             1 -> {
-                setComponentVisibility(player!!, Components.MULTI2_228, 6, true)
-                setComponentVisibility(player!!, Components.MULTI2_228, 9, false)
+                setTitle(player!!, 2)
                 sendDialogueOptions(player!!, "Really place the rune into the door?", "Yes", "No")
                 stage++
             }
@@ -34,8 +33,8 @@ class MetalDoorsInteractionDialogue(private var items: Int) : DialogueFile() {
                             sendMessage(player!!, "Nothing interesting happens.")
                         } else {
                             sendMessage(player!!, "you place an arrow into the slot in the wall.")
-                            setAttribute(player!!, HorrorUtils.STRANGE_W_ARROW, 1)
-                            player!!.incrementAttribute(HorrorUtils.PUZZLE_PROGRESS)
+                            setAttribute(player!!, HorrorFromTheDeepUtils.USE_ARROW, 1)
+                            player!!.incrementAttribute(HorrorFromTheDeepUtils.UNLOCK_DOOR)
                         }
                     }
 
@@ -45,8 +44,8 @@ class MetalDoorsInteractionDialogue(private var items: Int) : DialogueFile() {
                             sendMessage(player!!, "Nothing interesting happens.")
                         } else {
                             sendMessage(player!!, "you place an a sword into the slot in the wall.")
-                            setAttribute(player!!, HorrorUtils.STRANGE_W_SWORD, 1)
-                            player!!.incrementAttribute(HorrorUtils.PUZZLE_PROGRESS)
+                            setAttribute(player!!, HorrorFromTheDeepUtils.USE_SWORD, 1)
+                            player!!.incrementAttribute(HorrorFromTheDeepUtils.UNLOCK_DOOR)
                         }
                     }
 
@@ -56,8 +55,8 @@ class MetalDoorsInteractionDialogue(private var items: Int) : DialogueFile() {
                             sendMessage(player!!, "Nothing interesting happens.")
                         } else {
                             sendMessage(player!!, "you place an air rune into the slot in the wall.")
-                            setAttribute(player!!, HorrorUtils.STRANGE_W_AIR, 1)
-                            player!!.incrementAttribute(HorrorUtils.PUZZLE_PROGRESS)
+                            setAttribute(player!!, HorrorFromTheDeepUtils.USE_AIR_RUNE, 1)
+                            player!!.incrementAttribute(HorrorFromTheDeepUtils.UNLOCK_DOOR)
                         }
                     }
 
@@ -67,8 +66,8 @@ class MetalDoorsInteractionDialogue(private var items: Int) : DialogueFile() {
                             sendMessage(player!!, "Nothing interesting happens.")
                         } else {
                             sendMessage(player!!, "you place a fire rune into the slot in the wall.")
-                            setAttribute(player!!, HorrorUtils.STRANGE_W_FIRE, 1)
-                            player!!.incrementAttribute(HorrorUtils.PUZZLE_PROGRESS)
+                            setAttribute(player!!, HorrorFromTheDeepUtils.USE_FIRE_RUNE, 1)
+                            player!!.incrementAttribute(HorrorFromTheDeepUtils.UNLOCK_DOOR)
                         }
                     }
 
@@ -78,8 +77,8 @@ class MetalDoorsInteractionDialogue(private var items: Int) : DialogueFile() {
                             sendMessage(player!!, "Nothing interesting happens.")
                         } else {
                             sendMessage(player!!, "you place an earth rune into the slot in the wall.")
-                            setAttribute(player!!, HorrorUtils.STRANGE_W_EARTH, 1)
-                            player!!.incrementAttribute(HorrorUtils.PUZZLE_PROGRESS)
+                            setAttribute(player!!, HorrorFromTheDeepUtils.USE_EARTH_RUNE, 1)
+                            player!!.incrementAttribute(HorrorFromTheDeepUtils.UNLOCK_DOOR)
                         }
                     }
 
@@ -89,8 +88,8 @@ class MetalDoorsInteractionDialogue(private var items: Int) : DialogueFile() {
                             sendMessage(player!!, "Nothing interesting happens.")
                         } else {
                             sendMessage(player!!, "you place a water rune into the slot in the wall.")
-                            setAttribute(player!!, HorrorUtils.STRANGE_W_WATER, 1)
-                            player!!.incrementAttribute(HorrorUtils.PUZZLE_PROGRESS)
+                            setAttribute(player!!, HorrorFromTheDeepUtils.USE_WATER_RUNE, 1)
+                            player!!.incrementAttribute(HorrorFromTheDeepUtils.UNLOCK_DOOR)
                         }
                     }
                 }

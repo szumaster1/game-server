@@ -1,9 +1,8 @@
 package content.region.misthalin.quest.anma.handlers
 
 import content.global.skill.gather.SkillingTool.Companion.getHatchet
-import core.api.*
-import org.rs.consts.*
 import content.region.misthalin.quest.anma.AnimalMagnetism
+import core.api.*
 import core.cache.def.impl.ItemDefinition
 import core.cache.def.impl.NPCDefinition
 import core.cache.def.impl.SceneryDefinition
@@ -27,10 +26,11 @@ import core.game.world.map.zone.MapZone
 import core.game.world.map.zone.ZoneBorders
 import core.game.world.map.zone.ZoneBuilder
 import core.game.world.update.flag.context.Animation
-import core.plugin.PluginManager.definePlugin
 import core.plugin.Initializable
 import core.plugin.Plugin
+import core.plugin.PluginManager.definePlugin
 import core.tools.RandomFunction
+import org.rs.consts.*
 
 /**
  * Represents the Animal Magnetism plugin.
@@ -61,7 +61,7 @@ class AnimalMagnetismPlugin : OptionHandler() {
             }
 
             5198, 5199 -> {
-                if (getQuestStage(player, AnimalMagnetism.questName) == 0) {
+                if (getQuestStage(player, QuestName.ANIMAL_MAGNETISM) == 0) {
                     player.dialogueInterpreter.sendDialogues(node as NPC, null, "Hello there, I'm busy with my research. Come back in a", "bit, could you?")
                     return true
                 }
@@ -152,7 +152,7 @@ class AnimalMagnetismPlugin : OptionHandler() {
                 }
 
                 override fun handle(player: Player, node: Node, option: String): Boolean {
-                    val quest = player.getQuestRepository().getQuest(AnimalMagnetism.questName)
+                    val quest = player.getQuestRepository().getQuest(QuestName.ANIMAL_MAGNETISM)
                     if (quest.getStage(player) <= 28) {
                         val tool = getHatchet(player)
                         if (tool == null || tool.ordinal < 4) {
@@ -195,7 +195,7 @@ class AnimalMagnetismPlugin : OptionHandler() {
         override fun handle(event: NodeUsageEvent): Boolean {
             val player = event.player
             val animation = getAnimation(event.usedItem.id)
-            val quest = player.getQuestRepository().getQuest(AnimalMagnetism.questName)
+            val quest = player.getQuestRepository().getQuest(QuestName.ANIMAL_MAGNETISM)
             player.animate(animation, 2)
             if (quest.getStage(player) == 28) {
                 quest.setStage(player, 29)
@@ -250,7 +250,7 @@ class AnimalMagnetismPlugin : OptionHandler() {
             val data = getIndex(button)
             val toggled = data[1] as Boolean
             val configs = getConfigs(data[0] as Int)
-            val quest = player.getQuestRepository().getQuest(AnimalMagnetism.questName)
+            val quest = player.getQuestRepository().getQuest(QuestName.ANIMAL_MAGNETISM)
             player.packetDispatch.sendInterfaceConfig(Components.ANMA_RGB_480, configs[0], !toggled)
             player.packetDispatch.sendInterfaceConfig(Components.ANMA_RGB_480, data[2] as Int, toggled)
             if (quest.getStage(player) == 33) {

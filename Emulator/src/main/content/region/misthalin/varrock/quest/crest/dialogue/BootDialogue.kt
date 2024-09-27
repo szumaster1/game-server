@@ -1,11 +1,12 @@
 package content.region.misthalin.varrock.quest.crest.dialogue
 
-import org.rs.consts.NPCs
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
+import org.rs.consts.NPCs
+import org.rs.consts.QuestName
 
 /**
  * Represents the Boot dialogue.
@@ -14,7 +15,7 @@ import core.plugin.Initializable
 class BootDialogue(player: Player? = null) : Dialogue(player) {
     override fun open(vararg args: Any?): Boolean {
         npc = (args[0] as NPC).getShownNPC(player)
-        val qstage = player?.questRepository?.getStage("Family Crest") ?: -1
+        val qstage = player?.questRepository?.getStage(QuestName.FAMILY_CREST) ?: -1
 
         if (qstage < 14 || qstage > 14) {
             npc(FacialExpression.OLD_NORMAL, "Hello tall person.")
@@ -43,7 +44,7 @@ class BootDialogue(player: Player? = null) : Dialogue(player) {
             }
             21 -> npc("I don't believe it's exactly easy to get to though...").also {
                 stage = 1000
-                player.questRepository.getQuest("Family Crest").setStage(player, 15)
+                player.questRepository.getQuest(QuestName.FAMILY_CREST).setStage(player, 15)
             }
             1000 -> end()
         }

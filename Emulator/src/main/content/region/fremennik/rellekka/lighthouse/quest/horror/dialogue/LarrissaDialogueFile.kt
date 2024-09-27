@@ -1,19 +1,22 @@
 package content.region.fremennik.rellekka.lighthouse.quest.horror.dialogue
 
+import content.region.fremennik.rellekka.lighthouse.quest.horror.handlers.HorrorFromTheDeepUtils
 import core.api.*
-import org.rs.consts.Items
-import content.region.fremennik.rellekka.lighthouse.quest.horror.handlers.HorrorUtils
 import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression
 import core.tools.END_DIALOGUE
+import org.rs.consts.Items
+import org.rs.consts.QuestName
 
 /**
- * Represents the Larrissa dialogue file related to Horror from the deep quest.
+ * Represents the Larrissa dialogue.
+ *
+ * Related to **Horror from the deep** quest.
  */
 class LarrissaDialogueFile : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {
-        when (getQuestStage(player!!, "Horror from the Deep")) {
+        when (getQuestStage(player!!, QuestName.HORROR_FROM_THE_DEEP)) {
             0 -> when (stage) {
                 0 -> playerl(FacialExpression.FRIENDLY, "Hello there.").also { stage++ }
                 1 -> npcl(FacialExpression.HALF_GUILTY, "Oh, thank Armadyl! I am in such a worry... please help me!").also { stage++ }
@@ -38,7 +41,11 @@ class LarrissaDialogueFile : DialogueFile() {
                 14 -> npcl(FacialExpression.HALF_GUILTY, "as well as fix the bridge enough so that I can go and speak to my family in Rellekka and tell them whats happened, I will be eternally grateful!").also { stage++ }
                 15 -> options("Okay, I'll help!", "Sorry, just passing through.").also { stage++ }
                 16 -> when (buttonID) {
-                    1 -> playerl(FacialExpression.FRIENDLY, "Okay, I'll help!").also { stage++ }
+                    1 -> playerl(FacialExpression.FRIENDLY, "Okay, I'll help!").also {
+                        setVarbit(player!!, 34, 1, true)
+                        setQuestStage(player!!, QuestName.HORROR_FROM_THE_DEEP, 1)
+                        stage++
+                    }
                     2 -> playerl(FacialExpression.FRIENDLY, "Sorry, just passing through.").also { stage = END_DIALOGUE }
                 }
                 17 -> npc(FacialExpression.FRIENDLY, "OH! THANK YOU SO MUCH! I know my darling", "would never have left with the lighthouse lights off", "and without even telling me where he's gone!").also { stage++ }
@@ -52,25 +59,20 @@ class LarrissaDialogueFile : DialogueFile() {
                 21 -> npcl(FacialExpression.FRIENDLY, "I don't exactly know where he has gone, but I am sure he went somewhere to practice his agility. If you see him, his name is Gunnjorn. Mention my name, he will recognise it.").also { stage = 18 }
                 22 -> npcl(FacialExpression.FRIENDLY, "Well, I am not just some helpless girl! I have pretty good agility, so you will only need to use two planks to make a ledge that I can balance along.").also { stage++ }
                 23 -> npcl(FacialExpression.FRIENDLY, "Just use a plank on each side of the bridge. You will need a hammer, and thirty steel nails for each plank you use as well. I believe there are some planks near here...").also { stage = 18 }
-                24 -> npcl(FacialExpression.FRIENDLY, "Thank you so much!").also { stage++ }
-                25 -> {
-                    end()
-                    setVarbit(player!!, 34, 1, true)
-                    setQuestStage(player!!, "Horror from the Deep", 1)
-                }
+                24 -> npcl(FacialExpression.FRIENDLY, "Thank you so much!").also { stage = END_DIALOGUE }
             }
 
             in 1..29 -> {
-                if (inInventory(player!!, Items.LIGHTHOUSE_KEY_3848) && getAttribute(player!!, HorrorUtils.fixBridge, 0) == 2)
+                if (inInventory(player!!, Items.LIGHTHOUSE_KEY_3848) && getAttribute(player!!, HorrorFromTheDeepUtils.UNLOCK_BRIDGE, 0) >= 2)
                     when (stage) {
                         0 -> playerl(FacialExpression.FRIENDLY, "I've got your key for you!").also { stage++ }
                         1 -> npcl(FacialExpression.HALF_GUILTY, "Oh, thank you so much!").also { stage++ }
                         2 -> npcl(FacialExpression.HALF_GUILTY, "Quickly, we must go inside and find out what has happened to my beloved Jossik!").also { stage = END_DIALOGUE }
-                    } else if (!inInventory(player!!, Items.LIGHTHOUSE_KEY_3848) && getAttribute(player!!, HorrorUtils.fixBridge, 0) == 2)
+                    } else if (!inInventory(player!!, Items.LIGHTHOUSE_KEY_3848) && getAttribute(player!!, HorrorFromTheDeepUtils.UNLOCK_BRIDGE, 0) >= 2)
                     when (stage) {
                         0 -> playerl(FacialExpression.FRIENDLY, "I've fixed the bridge for you!").also { stage++ }
                         1 -> npcl(FacialExpression.HALF_GUILTY, "Oh, thank you so much! Please find the key to the lighthouse for me though! I cannot bear to think that something bad may have happened to my darling Jossik...").also { stage = END_DIALOGUE }
-                    } else if (inInventory(player!!, Items.LIGHTHOUSE_KEY_3848) && getAttribute(player!!, HorrorUtils.fixBridge, 0) == 0)
+                    } else if (inInventory(player!!, Items.LIGHTHOUSE_KEY_3848) && getAttribute(player!!, HorrorFromTheDeepUtils.UNLOCK_BRIDGE, 0) == 0)
                     when (stage) {
                         0 -> playerl(FacialExpression.FRIENDLY, "I've got your key for you!").also { stage++ }
                         1 -> npcl(FacialExpression.HALF_GUILTY, "Thank you adventurer, but I need you to fix the bridge for me. The key to the lighthouse is of little comfort while I am trapped here on this causeway!").also { stage = END_DIALOGUE }
@@ -85,7 +87,7 @@ class LarrissaDialogueFile : DialogueFile() {
                 1 -> playerl(FacialExpression.FRIENDLY, "Okay, I will see what I can do.").also { stage++ }
                 2 -> {
                     end()
-                    setQuestStage(player!!, "Horror from the Deep", 31)
+                    setQuestStage(player!!, QuestName.HORROR_FROM_THE_DEEP, 31)
                 }
             }
 
@@ -98,9 +100,15 @@ class LarrissaDialogueFile : DialogueFile() {
                 5 -> npcl(FacialExpression.HALF_GUILTY, "My darling Jossik knew nothing about Lighthouses when he first came here, so the council must have left him some kind of manual or something.").also { stage = END_DIALOGUE }
             }
 
-            in 40..59 -> when (stage) {
+            in 40..54 -> when (stage) {
                 0 -> playerl(FacialExpression.FRIENDLY, "I have managed to fix the light!").also { stage++ }
-                1 -> npcl(FacialExpression.HALF_GUILTY, "Excellent work, adventurer! Now you can devote all of your energies to finding out what has happened to my darling Jossik!").also { stage = END_DIALOGUE }
+                1 -> npcl(FacialExpression.HALF_GUILTY, "Excellent work, adventurer!").also { stage = END_DIALOGUE }
+            }
+
+            in 55..59 -> when (stage) {
+                0 -> playerl(FacialExpression.FRIENDLY, "I have managed to fix the light!").also { stage++ }
+                1 -> npcl(FacialExpression.HALF_GUILTY, "Excellent work, adventurer!").also { stage++ }
+                2 -> npcl(FacialExpression.HALF_GUILTY, "Now you can devote all of your energies to finding out what has happened to my darling Jossik!").also { stage = END_DIALOGUE }
             }
 
             in 60..69 -> when (stage) {

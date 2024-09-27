@@ -1,4 +1,4 @@
-package content.region.desert.alkharid.shantaypass.handlers
+package content.region.desert.alkharid.handlers
 
 import org.rs.consts.Components
 import org.rs.consts.Items

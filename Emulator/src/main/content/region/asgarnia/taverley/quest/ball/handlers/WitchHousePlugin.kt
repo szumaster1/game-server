@@ -2,8 +2,6 @@ package content.region.asgarnia.taverley.quest.ball.handlers
 
 import content.region.asgarnia.taverley.quest.ball.handlers.npc.MouseNPC
 import core.api.*
-import org.rs.consts.Items
-import org.rs.consts.NPCs
 import core.cache.def.impl.ItemDefinition
 import core.cache.def.impl.SceneryDefinition
 import core.game.global.action.DoorActionHandler.handleAutowalkDoor
@@ -18,10 +16,13 @@ import core.game.node.entity.player.link.TeleportManager
 import core.game.node.item.Item
 import core.game.node.scenery.Scenery
 import core.game.world.map.Location
-import core.plugin.PluginManager.definePlugin
 import core.plugin.Initializable
 import core.plugin.Plugin
+import core.plugin.PluginManager.definePlugin
 import core.tools.RandomFunction
+import org.rs.consts.Items
+import org.rs.consts.NPCs
+import org.rs.consts.QuestName
 
 /**
  * Witch house plugin.
@@ -30,7 +31,7 @@ import core.tools.RandomFunction
 class WitchHousePlugin : OptionHandler() {
 
     override fun handle(player: Player, node: Node, option: String): Boolean {
-        val quest = player.getQuestRepository().getQuest("Witch's House")
+        val quest = player.getQuestRepository().getQuest(QuestName.WITCHS_HOUSE)
         val id = if (node is Item) node.getId() else if (node is Scenery) node.id else if (node is NPC) node.id else node.id
         val readBook = getAttribute(player, "readWitchsBook", false)
         val magnetAttached = getAttribute(player, "attached_magnet", false)

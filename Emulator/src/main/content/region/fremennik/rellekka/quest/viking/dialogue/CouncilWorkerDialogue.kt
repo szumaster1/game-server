@@ -1,13 +1,14 @@
 package content.region.fremennik.rellekka.quest.viking.dialogue
 
 import core.api.addItem
-import org.rs.consts.Items
 import core.api.getQuestStage
 import core.api.inInventory
 import core.api.removeItem
 import core.game.dialogue.DialogueFile
 import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
+import org.rs.consts.Items
+import org.rs.consts.QuestName
 
 const val COUNCIL_WORKER = 1287
 
@@ -40,7 +41,7 @@ class CouncilWorkerDialogue(val questStage: Int, var isBeerInteraction: Boolean 
         } else if (questStage in 1..99) {
             when (stage) {
                 START_DIALOGUE ->
-                    if (getQuestStage(player!!, "Fremennik Trials") > 0) {
+                    if (getQuestStage(player!!, QuestName.THE_FREMENNIK_TRIALS) > 0) {
                         player("I know this is an odd question, but are you", "a member of the elder council?"); stage =
                             1
                     } else {

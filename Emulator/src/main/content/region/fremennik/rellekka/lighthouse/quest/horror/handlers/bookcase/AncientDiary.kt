@@ -1,4 +1,4 @@
-package content.region.fremennik.rellekka.lighthouse.quest.horror.book
+package content.region.fremennik.rellekka.lighthouse.quest.horror.handlers.bookcase
 
 import content.global.handlers.iface.BookInterface
 import content.global.handlers.iface.BookLine

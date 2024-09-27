@@ -20,11 +20,6 @@ import org.rs.consts.QuestName;
 public final class AnimalMagnetism extends Quest {
 
     /**
-     * The constant questName.
-     */
-    public static String questName = "Animal Magnetism";
-
-    /**
      * The constant CRONE_AMULET.
      */
     public static final Item CRONE_AMULET = new Item(10500);

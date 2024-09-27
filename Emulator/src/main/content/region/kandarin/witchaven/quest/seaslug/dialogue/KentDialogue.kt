@@ -2,8 +2,6 @@ package content.region.kandarin.witchaven.quest.seaslug.dialogue
 
 import content.region.kandarin.witchaven.quest.seaslug.SeaSlug
 import core.api.*
-import org.rs.consts.NPCs
-import org.rs.consts.Sounds
 import core.game.dialogue.Dialogue
 import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression
@@ -12,6 +10,9 @@ import core.game.node.entity.player.Player
 import core.game.system.task.Pulse
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
+import org.rs.consts.NPCs
+import org.rs.consts.QuestName
+import org.rs.consts.Sounds
 
 /**
  * Represents the Kent dialogue.
@@ -23,9 +24,9 @@ class KentDialogue(player: Player? = null) : Dialogue(player) {
         npc = args[0] as NPC
         when {
             // After complete the quest.
-            isQuestComplete(player, "Sea Slug") -> npc("Hello there, ${player.username}!").also { stage = 200 }
+            isQuestComplete(player, QuestName.SEA_SLUG) -> npc("Hello there, ${player.username}!").also { stage = 200 }
             // First talk.
-            getQuestStage(player, "Sea Slug") < 15 -> npc("Oh thank Saradomin! I thought I'd be left out here", "forever.").also { stage = 0 }
+            getQuestStage(player, QuestName.SEA_SLUG) < 15 -> npc("Oh thank Saradomin! I thought I'd be left out here", "forever.").also { stage = 0 }
             // Talk to him again.
             else -> player("Hello.").also { stage = 100 }
         }
@@ -43,7 +44,7 @@ class KentDialogue(player: Player? = null) : Dialogue(player) {
             6 -> npc(FacialExpression.HALF_GUILTY, "I told Kennith to hide until I returned but I was", "washed up here.").also { stage++ }
             7 -> npc(FacialExpression.HALF_GUILTY, "Please go back and get my boy, you can send help for", "me later.").also { stage++ }
             8 -> npc(FacialExpression.SCARED,"${player.username} wait!").also {
-                setQuestStage(player!!, "Sea Slug", 15)
+                setQuestStage(player!!, QuestName.SEA_SLUG, 15)
                 setAttribute(player, "/save:${SeaSlug.ATTRIBUTE_TALK_WITH_KENT}", true)
                 stage++
             }

@@ -10,6 +10,7 @@ import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
+import org.rs.consts.QuestName
 
 /**
  * Represents the Maria gunnars dialogue.
@@ -26,7 +27,7 @@ class MariaGunnarsDialogue(player: Player? = null) : Dialogue(player) {
     override fun open(vararg args: Any?): Boolean {
         npc = args[0] as NPC
         if(npc.id == NPCs.MARIA_GUNNARS_5508) {
-            if (!isQuestComplete(player, "Fremennik Trials")) {
+            if (!isQuestComplete(player, QuestName.THE_FREMENNIK_TRIALS)) {
                 npcl(FacialExpression.HALF_GUILTY, "I do not speak to outlanders. Maybe you should speak with Rellekka's Chieftain.").also { stage = END_DIALOGUE }
             } else {
                 npcl(FacialExpression.HAPPY, "Welcome back, ${getAttribute(player!!, "fremennikname", "name")}. Do you have any questions?").also { stage = 22 }
@@ -153,7 +154,7 @@ class MariaGunnarsDialogue(player: Player? = null) : Dialogue(player) {
             90 -> npc("Let's set sail then.").also { stage++ }
             91 -> {
                 end()
-                if (!requireQuest(player, "Fremennik Trials", "")) return true
+                if (!requireQuest(player, QuestName.THE_FREMENNIK_TRIALS, "")) return true
                 sail(player, TravelDestination.RELLEKKA_TO_NEITIZNOT)
             }
             92 -> npc("Thanks!").also { stage++ }

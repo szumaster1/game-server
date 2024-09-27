@@ -6,6 +6,7 @@ import core.api.setQuestStage
 import core.game.dialogue.DialogueBuilder
 import core.game.dialogue.DialogueBuilderFile
 import core.game.dialogue.FacialExpression
+import org.rs.consts.QuestName
 
 /**
  * Represents the Sir Amik Varze dialogue file.
@@ -14,11 +15,11 @@ import core.game.dialogue.FacialExpression
 class SirAmikVarzeDialogueFile : DialogueBuilderFile() {
 
     override fun create(builder: DialogueBuilder) {
-        builder.onQuestStages("Recruitment Drive", 0)
+        builder.onQuestStages(QuestName.RECRUITMENT_DRIVE, 0)
             .npcl("Hello, friend!")
             .playerl(FacialExpression.THINKING, "Do you have any other quests for me to do?")
             .branch { player ->
-                if (isQuestComplete(player, "Black Knights' Fortress") && isQuestComplete(player, "Druidic Ritual")) 1 else 0
+                if (isQuestComplete(player, QuestName.BLACK_KNIGHTS_FORTRESS) && isQuestComplete(player, QuestName.DRUIDIC_RITUAL)) 1 else 0
             }.let { branch ->
                 branch.onValue(0)
                     .npcl(FacialExpression.THINKING, "A quest? Alas I do not have any quests I can offer you at this time.")

@@ -9,6 +9,7 @@ import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.game.world.map.Location
 import core.plugin.Initializable
+import org.rs.consts.QuestName
 
 /**
  * Represents the Thora dialogue.
@@ -37,7 +38,7 @@ class ThoraDialogue(player: Player? = null): Dialogue(player) {
         } else if (getAttribute(player, "sigmund-steps", 0) == 12) {
             playerl(FacialExpression.ASKING, "I don't suppose you have any idea where I could find the longhall barkeeps' legendary cocktail, do you?")
             stage = 1
-        } else if (isQuestComplete(player, "Fremennik Trials")) {
+        } else if (isQuestComplete(player, QuestName.THE_FREMENNIK_TRIALS)) {
             npcl(FacialExpression.HAPPY, "Hello again, $fName. I suppose you want a drink? Or are you going to try another scam with that terrible Askeladden again?")
             stage = 50
         } else {

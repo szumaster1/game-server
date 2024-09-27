@@ -9,6 +9,7 @@ import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.game.node.item.Item
 import core.plugin.Initializable
+import org.rs.consts.QuestName
 
 /**
  * Represents the Avan dialogue.
@@ -20,7 +21,7 @@ class AvanDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any?): Boolean {
         npc = (args[0] as NPC).getShownNPC(player)
-        val qstage = player?.questRepository?.getStage("Family Crest") ?: -1
+        val qstage = player?.questRepository?.getStage(QuestName.FAMILY_CREST) ?: -1
 
         if (qstage == 100) {
             options("Can you change my gauntlets for me?", "Nevermind")
@@ -68,7 +69,7 @@ class AvanDialogue(player: Player? = null) : Dialogue(player) {
             14 -> npc("Unfortunately he has apparently returned to this home,", "somewhere in the mountains, ", "and I have no idea how to find him.").also { stage++ }
             15 -> player("Well, I'll see what I can do.").also {
                 stage = 1000
-                player.questRepository.getQuest("Family Crest").setStage(player, 14)
+                player.questRepository.getQuest(QuestName.FAMILY_CREST).setStage(player, 14)
             }
             100 -> player("I'm still after that 'perfect gold'.").also { stage++ }
             101 -> npc("I know how you feel... for such a long time ", "I have searched and searched for the elusive perfect gold... ", "I thought I had gotten a good lead on finding it ").also { stage++ }
@@ -81,7 +82,7 @@ class AvanDialogue(player: Player? = null) : Dialogue(player) {
             }
             201 -> npc("Well, I won't entrust you with my piece of the crest ", "until you have brought me a necklace of perfect gold ", "with a red precious stone, and a perfect gold ring to match.").also { stage = 1000 }
             300 -> sendDialogue("You hand Avan the perfect gold ring and necklace.").also {
-                player.questRepository.getQuest("Family Crest").setStage(player, 16)
+                player.questRepository.getQuest(QuestName.FAMILY_CREST).setStage(player, 16)
                 player.inventory.remove(Item(774), Item(773))
                 player.inventory.add(CREST_PIECE_AVAN)
                 stage++

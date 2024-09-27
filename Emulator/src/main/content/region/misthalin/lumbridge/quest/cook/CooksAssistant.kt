@@ -1,18 +1,19 @@
 package content.region.misthalin.lumbridge.quest.cook
 
 import core.api.*
-import org.rs.consts.Components
-import org.rs.consts.Vars
 import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.quest.Quest
 import core.game.node.entity.skill.Skills
 import core.plugin.Initializable
+import org.rs.consts.Components
+import org.rs.consts.QuestName
+import org.rs.consts.Vars
 
 /**
  * Represents the Cooks assistant quest.
  */
 @Initializable
-class CooksAssistant : Quest("Cook's Assistant", 15, 14, 1, Vars.VARP_QUEST_COOKS_ASSISTANT_PROGRESS, 0, 1, 2) {
+class CooksAssistant : Quest(QuestName.COOKS_ASSISTANT, 15, 14, 1, Vars.VARP_QUEST_COOKS_ASSISTANT_PROGRESS, 0, 1, 2) {
 
     val MILK = 1927
     val FLOUR = 1933
@@ -21,7 +22,7 @@ class CooksAssistant : Quest("Cook's Assistant", 15, 14, 1, Vars.VARP_QUEST_COOK
     override fun drawJournal(player: Player, stage: Int) {
         super.drawJournal(player, stage)
         var line = 12
-        var stage = player?.questRepository?.getStage("Cook's Assistant")!!
+        var stage = player?.questRepository?.getStage(QuestName.COOKS_ASSISTANT)!!
         if (stage < 10) {
             line(player, "I can start this quest by speaking to the !!Cook?? in the", line++)
             line(player, "!!Kitchen?? on the ground floor of !!Lumbridge Castle.??", line)
@@ -75,7 +76,7 @@ class CooksAssistant : Quest("Cook's Assistant", 15, 14, 1, Vars.VARP_QUEST_COOK
     override fun finish(player: Player) {
         var ln = 10
         super.finish(player)
-        sendString(player, "You have completed the Cook's Assistant Quest!", Components.QUEST_COMPLETE_SCROLL_277, 4)
+        sendString(player, "You have completed the ${QuestName.COOKS_ASSISTANT} Quest!", Components.QUEST_COMPLETE_SCROLL_277, 4)
         sendItemZoomOnInterface(player, Components.QUEST_COMPLETE_SCROLL_277,5,1891,240)
         drawReward(player, "1 Quest Point", ln++)
         drawReward(player, "300 Cooking XP", ln)

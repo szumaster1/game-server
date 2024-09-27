@@ -1,6 +1,5 @@
 package content.region.misthalin.varrock.quest.fluffs.dialogue
 
-import content.global.skill.summoning.pet.Pet
 import core.api.*
 import org.rs.consts.Items
 import org.rs.consts.NPCs
@@ -12,6 +11,7 @@ import core.game.node.item.Item
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 import core.tools.RandomFunction
+import org.rs.consts.QuestName
 
 /**
  * Represents the Gertrude dialogue.
@@ -21,7 +21,7 @@ class GertrudeDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
-        val quest = player.getQuestRepository().getQuest("Gertrude's Cat")
+        val quest = player.getQuestRepository().getQuest(QuestName.GERTRUDES_CAT)
         when (quest.getStage(player)) {
             0 -> player(FacialExpression.HALF_GUILTY, "Hello, are you ok?")
             10 -> player(FacialExpression.HALF_GUILTY, "Hello Gertrude.").also { stage = 210 }
@@ -36,7 +36,7 @@ class GertrudeDialogue(player: Player? = null) : Dialogue(player) {
     }
 
     override fun handle(interfaceId: Int, buttonId: Int): Boolean {
-        val quest = player.getQuestRepository().getQuest("Gertrude's Cat")
+        val quest = player.getQuestRepository().getQuest(QuestName.GERTRUDES_CAT)
         when (stage) {
             0 -> npc(FacialExpression.HALF_GUILTY, "Do I look ok? Those kids drive me crazy.").also { stage++ }
             1 -> npc(FacialExpression.HALF_GUILTY, "I'm sorry. It's just that I've lost her.").also { stage++ }
@@ -101,7 +101,7 @@ class GertrudeDialogue(player: Player? = null) : Dialogue(player) {
             329 -> sendDialogue(player, "Gertrude gives you a kitten.").also { stage++ }
             330 -> {
                 end()
-                finishQuest(player, "Gertrude's Cat")
+                finishQuest(player, QuestName.GERTRUDES_CAT)
                 sendMessageWithDelay(player, "...and some food!", 1)
                 updateQuestTab(player)
             }

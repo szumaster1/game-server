@@ -10,6 +10,7 @@ import core.game.node.item.Item
 import core.game.world.map.Location
 import core.game.world.update.flag.context.Animation
 import core.plugin.Plugin
+import org.rs.consts.QuestName
 
 /**
  * Represents the Demon slayer drain plugin.
@@ -23,7 +24,7 @@ class DemonSlayerDrainPlugin: UseWithHandler(1929) {
 
     override fun handle(event: NodeUsageEvent): Boolean {
         val player = event.player
-        val quest = player.getQuestRepository().getQuest("Demon Slayer")
+        val quest = player.getQuestRepository().getQuest(QuestName.DEMON_SLAYER)
         if (player.inventory.remove(BUCKET_OF_WATER)) {
             player.inventory.add(BUCKET)
             player.animate(ANIMATION)

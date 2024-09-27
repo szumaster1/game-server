@@ -1,7 +1,5 @@
 package content.region.fremennik.rellekka.lighthouse.quest.horror.handlers
 
-import org.rs.consts.Items
-import org.rs.consts.NPCs
 import content.region.fremennik.rellekka.lighthouse.quest.horror.dialogue.JossikDialogueFile
 import core.api.*
 import core.game.node.entity.Entity
@@ -14,6 +12,9 @@ import core.game.system.task.Pulse
 import core.game.world.GameWorld.Pulser
 import core.game.world.map.Location
 import core.tools.RandomFunction
+import org.rs.consts.Items
+import org.rs.consts.NPCs
+import org.rs.consts.QuestName
 
 /**
  * Handles the Dagannoth mother NPC.
@@ -212,7 +213,7 @@ class DagannothMotherNPC(id: Int = 0, location: Location? = null, session: Dagan
             clearHintIcon(killer)
             val hasCasket = hasAnItem(killer, Items.RUSTY_CASKET_3849).container != null
             teleport(killer, Location.create(2515, 4625, 1))
-            finishQuest(killer, "Horror from the Deep")
+            finishQuest(killer, QuestName.HORROR_FROM_THE_DEEP)
             lock(killer, 10)
             lockInteractions(killer, 10)
             if (!hasCasket) {

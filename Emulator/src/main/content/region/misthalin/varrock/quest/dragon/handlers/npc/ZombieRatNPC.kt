@@ -8,6 +8,7 @@ import core.game.node.item.GroundItemManager
 import core.game.node.item.Item
 import core.game.world.map.Location
 import core.tools.RandomFunction
+import org.rs.consts.QuestName
 
 /**
  * Represents the Zombie rat NPC.
@@ -26,7 +27,7 @@ class ZombieRatNPC : AbstractNPC {
         super.finalizeDeath(killer)
         if (killer is Player) {
             val p = killer
-            var quest = p.getQuestRepository().getQuest("Dragon Slayer")
+            var quest = p.getQuestRepository().getQuest(QuestName.DRAGON_SLAYER)
             if (RandomFunction.random(0, 4) == 2) {
                 GroundItemManager.create(DragonSlayer.RED_KEY, getLocation(), killer)
             }

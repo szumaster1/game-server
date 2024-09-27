@@ -9,6 +9,7 @@ import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
+import org.rs.consts.QuestName
 
 /**
  * Represents the Bjorn and Eldgrim dialogues.
@@ -18,9 +19,9 @@ class BjornAndEldgrimDialogues(player: Player? = null): Dialogue(player) {
 
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
-        if (!isQuestComplete(player, "Fremennik Trials")) {
+        if (!isQuestComplete(player, QuestName.THE_FREMENNIK_TRIALS)) {
             player(FacialExpression.FRIENDLY, "Hello there.")
-        } else if (isQuestComplete(player, "Fremennik Trials")) {
+        } else if (isQuestComplete(player, QuestName.THE_FREMENNIK_TRIALS)) {
             npc(FacialExpression.DRUNK, "Hey! Itsh you again! Whatshyerfashe!").also { stage = 10 }
         }
         return true

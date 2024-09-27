@@ -1,8 +1,6 @@
 package content.region.fremennik.rellekka.quest.viking.dialogue
 
 import core.api.addItemOrDrop
-import org.rs.consts.Items
-import org.rs.consts.NPCs
 import core.api.getAttribute
 import core.api.inInventory
 import core.api.removeItem
@@ -11,6 +9,9 @@ import core.game.dialogue.FacialExpression
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
+import org.rs.consts.Items
+import org.rs.consts.NPCs
+import org.rs.consts.QuestName
 
 /**
  * Represents the Fremennik sailor dialogue.
@@ -19,7 +20,7 @@ import core.tools.END_DIALOGUE
 class FremennikSailorDialogue(player: Player? = null): Dialogue(player) {
 
     override fun open(vararg args: Any): Boolean {
-        if (!player.questRepository.hasStarted("Fremennik Trials")) {
+        if (!player.questRepository.hasStarted(QuestName.THE_FREMENNIK_TRIALS)) {
             npcl(FacialExpression.ANNOYED, "Don't talk to me outerlander. I need to fix this longboat. Go talk to the chieftain.").also { stage = END_DIALOGUE }
         } else if (inInventory(player, Items.FREMENNIK_BALLAD_3699, 1)) {
             playerl(FacialExpression.HAPPY, "You'll be glad to know I have had a love song written just for you by Olaf. So can I have that flower of yours now?")

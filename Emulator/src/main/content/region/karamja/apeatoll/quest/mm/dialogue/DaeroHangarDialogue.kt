@@ -1,12 +1,13 @@
 package content.region.karamja.apeatoll.quest.mm.dialogue
 
-import org.rs.consts.NPCs
 import core.api.getAttribute
 import core.api.getQuestStage
 import core.api.sendNPCDialogue
 import core.api.setQuestStage
 import core.game.dialogue.DialogueFile
 import core.tools.END_DIALOGUE
+import org.rs.consts.NPCs
+import org.rs.consts.QuestName
 
 /**
  * Represents the Daero hangar dialogue.
@@ -20,9 +21,9 @@ class DaeroHangarDialogue : DialogueFile() {
                     npcl("Well done adventurer. You have managed to break Glough's code. Now the process of reinitialisation is complete, you can truly begin your journey into the unknown.").also {
                         stage = 21
                     }
-                } else if (getQuestStage(player!!, "Monkey Madness") == 21) {
+                } else if (getQuestStage(player!!, QuestName.MONKEY_MADNESS) == 21) {
                     npcl("Welcome adventurer, to the Underground Military Glider Hangar.").also { stage++ }
-                } else if (getQuestStage(player!!, "Monkey Madness") == 22) {
+                } else if (getQuestStage(player!!, QuestName.MONKEY_MADNESS) == 22) {
                     npcl("${player!!.username}, you will have to wait till reinitialization is complete.").also {
                         stage = END_DIALOGUE
                     }
@@ -48,7 +49,7 @@ class DaeroHangarDialogue : DialogueFile() {
             17 -> sendNPCDialogue(player!!, NPCs.WAYDAR_1408, "Yes sir.").also { stage++ }
             18 -> npcl("Very well. Notify me when you have managed to reinitialize.").also { stage++ }
             19 -> npcl("${player!!.username}, you will have to wait till reinitialization is complete.").also {
-                setQuestStage(player!!, "Monkey Madness", 22)
+                setQuestStage(player!!, QuestName.MONKEY_MADNESS, 22)
                 stage = END_DIALOGUE
             }
 
@@ -62,7 +63,7 @@ class DaeroHangarDialogue : DialogueFile() {
             28 -> npcl("And ... good luck.").also { stage++ }
             29 -> {
                 end()
-                setQuestStage(player!!, "Monkey Madness", 23)
+                setQuestStage(player!!, QuestName.MONKEY_MADNESS, 23)
             }
         }
     }

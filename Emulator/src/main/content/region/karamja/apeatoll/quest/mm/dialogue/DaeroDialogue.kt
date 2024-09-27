@@ -9,6 +9,7 @@ import core.game.system.task.Pulse
 import core.game.world.GameWorld
 import core.game.world.map.Location
 import core.tools.END_DIALOGUE
+import org.rs.consts.QuestName
 
 /**
  * Represents the Daero dialogue.
@@ -21,7 +22,7 @@ class DaeroDialogue : DialogueFile() {
             1 -> npcl("Indeed i am - and you are?").also { stage++ }
             2 -> playerl("I am an adventurer. I am currently in service of your King.").also { stage++ }
             3 -> {
-                if (getQuestStage(player!!, "Monkey Madness") <= 11) {
+                if (getQuestStage(player!!, QuestName.MONKEY_MADNESS) <= 11) {
                     end()
                 } else {
                     npcl("I see. You must be the individual who helped defeat my predecessor Glough. I hope you'll find me a more honest replacement.").also { stage++ }
@@ -129,7 +130,7 @@ class DaeroDialogue : DialogueFile() {
                     override fun pulse(): Boolean {
                         openOverlay(player!!, Components.FADE_FROM_BLACK_170)
                         teleport(player!!, Location.create(2390, 9886, 0)).also {
-                            setQuestStage(player!!, "Monkey Madness", 21)
+                            setQuestStage(player!!, QuestName.MONKEY_MADNESS, 21)
                             stage = END_DIALOGUE
                             end()
                         }

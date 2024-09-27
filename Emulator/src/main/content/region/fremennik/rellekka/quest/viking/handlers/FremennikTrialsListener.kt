@@ -2,11 +2,9 @@ package content.region.fremennik.rellekka.quest.viking.handlers
 
 import content.global.skill.gather.woodcutting.WoodcuttingPulse
 import content.global.travel.LyreTeleport
-import core.api.*
-import org.rs.consts.Items
-import org.rs.consts.NPCs
 import content.region.fremennik.rellekka.quest.viking.dialogue.CouncilWorkerDialogue
 import content.region.fremennik.rellekka.quest.viking.dialogue.FremennikFishermanDialogue
+import core.api.*
 import core.game.container.impl.EquipmentContainer.SLOT_WEAPON
 import core.game.dialogue.FacialExpression
 import core.game.global.action.ClimbActionHandler
@@ -26,6 +24,9 @@ import core.game.world.GameWorld.Pulser
 import core.game.world.map.Location
 import core.game.world.map.RegionManager
 import core.game.world.update.flag.context.Animation
+import org.rs.consts.Items
+import org.rs.consts.NPCs
+import org.rs.consts.QuestName
 
 class FremennikTrialsListener : InteractionListener {
 
@@ -290,7 +291,7 @@ class FremennikTrialsListener : InteractionListener {
                         lyre.id
                     )
                 )
-            } else if (getQuestStage(player, "Fremennik Trials") < 20 || !isQuestComplete(player, "Fremennik Trials")) {
+            } else if (getQuestStage(player, QuestName.THE_FREMENNIK_TRIALS) < 20 || !isQuestComplete(player, QuestName.THE_FREMENNIK_TRIALS)) {
                 // Sends a message indicating the player lacks knowledge to play
                 sendMessage(player, "You lack the knowledge to play this.")
             } else if (LYRE_IDs.isLast(lyre.id)) {
@@ -337,52 +338,17 @@ class FremennikTrialsListener : InteractionListener {
         on(PORTALIDs, IntType.SCENERY, "use") { player, portal ->
             // Set the player's teleport location based on the portal ID
             player.properties?.teleportLocation = when (portal.id) {
-                2273 -> DestRoom(
-                    2639,
-                    10012,
-                    2645,
-                    10018
-                ).getCenter() // Teleport to specific coordinates
-                2274 -> DestRoom(
-                    2650,
-                    10034,
-                    2656,
-                    10040
-                ).getCenter() // Teleport to specific coordinates
-                2506 -> DestRoom(
-                    2662,
-                    10023,
-                    2669,
-                    10029
-                ).getCenter() // Teleport to specific coordinates
-                2507 -> DestRoom(
-                    2626,
-                    10023,
-                    2633,
-                    10029
-                ).getCenter() // Teleport to specific coordinates
-                2505 -> DestRoom(
-                    2650,
-                    10001,
-                    2656,
-                    10007
-                ).getCenter() // Teleport to specific coordinates
-                2503 -> DestRoom(
-                    2662,
-                    10012,
-                    2668,
-                    10018
-                ).getCenter() // Teleport to specific coordinates
+                2273 -> DestRoom(2639, 10012, 2645, 10018).getCenter() // Teleport to specific coordinates
+                2274 -> DestRoom(2650, 10034, 2656, 10040).getCenter() // Teleport to specific coordinates
+                2506 -> DestRoom(2662, 10023, 2669, 10029).getCenter() // Teleport to specific coordinates
+                2507 -> DestRoom(2626, 10023, 2633, 10029).getCenter() // Teleport to specific coordinates
+                2505 -> DestRoom(2650, 10001, 2656, 10007).getCenter() // Teleport to specific coordinates
+                2503 -> DestRoom(2662, 10012, 2668, 10018).getCenter() // Teleport to specific coordinates
                 2504 -> {
                     // Set an attribute indicating the player has completed a maze
                     setAttribute(player, "/save:fremtrials:maze-complete", true)
                     // Teleport to specific coordinates
-                    DestRoom(
-                        2662,
-                        10034,
-                        2668,
-                        10039
-                    ).getCenter()
+                    DestRoom(2662, 10034, 2668, 10039).getCenter()
                 }
                 else -> getRandomLocation(player) // Teleport to a random location if no match
             }
@@ -404,7 +370,7 @@ class FremennikTrialsListener : InteractionListener {
         // Handle the action when a player interacts with the THORVALD_LADDER
         on(THORVALD_LADDER, IntType.SCENERY, "climb-down") { player, _ ->
             // Check if the player has completed the quest or voted for Thorvald
-            if (isQuestComplete(player, "Fremennik Trials") || getAttribute(player, "fremtrials:thorvald-vote", false)) {
+            if (isQuestComplete(player, QuestName.THE_FREMENNIK_TRIALS) || getAttribute(player, "fremtrials:thorvald-vote", false)) {
                 // Notify the player they have no reason to go back down
                 sendMessage(player, "You have no reason to go back down there.")
                 return@on true
@@ -457,7 +423,7 @@ class FremennikTrialsListener : InteractionListener {
         // Handle the action when a player interacts with SHOPNPCS
         on(SHOPNPCS, IntType.NPC, "Trade") { player, npc ->
             // Check if the player has completed the quest
-            if (isQuestComplete(player, "Fremennik Trials")) {
+            if (isQuestComplete(player, QuestName.THE_FREMENNIK_TRIALS)) {
                 // Open the NPC shop for the player
                 openNpcShop(player, npc.id)
             } else when (npc.id) {
@@ -750,32 +716,34 @@ class FremennikTrialsListener : InteractionListener {
     }
 
     companion object {
-        private val BEER = intArrayOf(Items.BEER_3803, Items.BEER_1917)
-        private val WORKER = NPCs.COUNCIL_WORKMAN_1287
-        private val FISH_ALTAR = 4141
-        private val FISH = intArrayOf(Items.RAW_BASS_363, Items.RAW_SHARK_383, Items.RAW_SEA_TURTLE_395, Items.RAW_MANTA_RAY_389)
-        private val LOW_ALC_KEG = Items.LOW_ALCOHOL_KEG_3712
-        private val KEG = Items.KEG_OF_BEER_3711
-        private val TINDERBOX = Items.TINDERBOX_590
-        private val CHERRY_BOMB = Items.STRANGE_OBJECT_3713
-        private val LIT_BOMB = Items.LIT_STRANGE_OBJECT_3714
-        private val PIPE = 4162
-        private val PORTALIDs = intArrayOf(2273, 2274, 2506, 2507, 2505, 2503, 2504, 5138)
-        private val SWENSEN_LADDER = 4158
-        private val SWAYING_TREE = 4142
-        private val KNIFE = Items.KNIFE_946
-        private val TREE_BRANCH = Items.BRANCH_3692
+        private const val WORKER = NPCs.COUNCIL_WORKMAN_1287
+        private const val FISH_ALTAR = 4141
+        private const val LOW_ALC_KEG = Items.LOW_ALCOHOL_KEG_3712
+        private const val KEG = Items.KEG_OF_BEER_3711
+        private const val TINDERBOX = Items.TINDERBOX_590
+        private const val CHERRY_BOMB = Items.STRANGE_OBJECT_3713
+        private const val LIT_BOMB = Items.LIT_STRANGE_OBJECT_3714
+        private const val PIPE = 4162
+        private const val SWENSEN_LADDER = 4158
+        private const val SWAYING_TREE = 4142
+        private const val KNIFE = Items.KNIFE_946
+        private const val TREE_BRANCH = Items.BRANCH_3692
+        private const val THORVALD_LADDER = 34286
+        private const val THORVALD_LADDER_LOWER = 4188
+        private const val LALLIS_STEW = 4149
+        private const val UNSTRUNG_LYRE = Items.UNSTRUNG_LYRE_3688
+        private const val GOLDEN_FLEECE = Items.GOLDEN_FLEECE_3693
+        private const val GOLDEN_WOOL = Items.GOLDEN_WOOL_3694
+        private const val LONGHALL_BACKDOOR = 4148
+        private const val FISHERMAN = NPCs.FISHERMAN_1302
         private val LYRE_IDs = intArrayOf(14591, 14590, 6127, 6126, 6125, 3691, 3690)
-        private val THORVALD_LADDER = 34286
-        private val THORVALD_LADDER_LOWER = 4188
-        private val LALLIS_STEW = 4149
-        private val UNSTRUNG_LYRE = Items.UNSTRUNG_LYRE_3688
-        private val GOLDEN_FLEECE = Items.GOLDEN_FLEECE_3693
-        private val GOLDEN_WOOL = Items.GOLDEN_WOOL_3694
-        private val LONGHALL_BACKDOOR = 4148
-        private val SHOPNPCS = intArrayOf(NPCs.YRSA_1301, NPCs.SKULGRIMEN_1303, NPCs.THORA_THE_BARKEEP_1300, NPCs.SIGMUND_THE_MERCHANT_1282, NPCs.FISH_MONGER_1315)
+        private val PORTALIDs = intArrayOf(2273, 2274, 2506, 2507, 2505, 2503, 2504, 5138)
         private val SPINNING_WHEEL_IDS = intArrayOf(2644, 4309, 8748, 20365, 21304, 25824, 26143, 34497, 36970, 37476)
+        private val BEER = intArrayOf(Items.BEER_3803, Items.BEER_1917)
+        private val FISH = intArrayOf(Items.RAW_BASS_363, Items.RAW_SHARK_383, Items.RAW_SEA_TURTLE_395, Items.RAW_MANTA_RAY_389)
         private val STEW_INGREDIENT_IDS = intArrayOf(Items.POTATO_1942, Items.ONION_1957, Items.CABBAGE_1965, Items.PET_ROCK_3695)
-        private val FISHERMAN = NPCs.FISHERMAN_1302
+        private val SHOPNPCS = intArrayOf(NPCs.YRSA_1301, NPCs.SKULGRIMEN_1303, NPCs.THORA_THE_BARKEEP_1300, NPCs.SIGMUND_THE_MERCHANT_1282, NPCs.FISH_MONGER_1315)
+
+
     }
 }

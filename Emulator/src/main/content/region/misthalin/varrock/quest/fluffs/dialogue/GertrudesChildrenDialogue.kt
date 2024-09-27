@@ -1,8 +1,6 @@
 package content.region.misthalin.varrock.quest.fluffs.dialogue
 
 import core.api.*
-import org.rs.consts.Items
-import org.rs.consts.NPCs
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC
@@ -10,6 +8,9 @@ import core.game.node.entity.player.Player
 import core.game.node.item.Item
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
+import org.rs.consts.Items
+import org.rs.consts.NPCs
+import org.rs.consts.QuestName
 
 /**
  * Represents the Gertrude children's dialogue.
@@ -31,7 +32,7 @@ class GertrudesChildrenDialogue(player: Player? = null) : Dialogue(player) {
             is Int -> arg
             else -> 0
         }
-        val quest = getQuestStage(player, "Gertrude's Cat")
+        val quest = getQuestStage(player, QuestName.GERTRUDES_CAT)
         stage = when (quest) {
             0 -> {
                 player(FacialExpression.HALF_GUILTY, "Hello again.")
@@ -91,7 +92,7 @@ class GertrudesChildrenDialogue(player: Player? = null) : Dialogue(player) {
                     return true
                 } else {
                     sendItemDialogue(player, Items.COINS_8896, "You give the lad 100 coins.")
-                    setQuestStage(player, "Gertrude's Cat", 20)
+                    setQuestStage(player, QuestName.GERTRUDES_CAT, 20)
                     stage++
                 }
             }

@@ -3,6 +3,7 @@ package content.region.karamja.apeatoll.quest.mm.dialogue
 import core.api.setQuestStage
 import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression
+import org.rs.consts.QuestName
 
 /**
  * Represents the Garkor after battle dialogue.
@@ -19,7 +20,7 @@ class GarkorAfterBattleDialogue : DialogueFile() {
             5 -> npcl(FacialExpression.NEUTRAL, "Speak to Zooknock. He will arrange for you to leave.").also { stage++ }
             6 -> {
                 end()
-                setQuestStage(player!!, "Monkey Madness", 96)
+                setQuestStage(player!!, QuestName.MONKEY_MADNESS, 96)
             }
         }
     }

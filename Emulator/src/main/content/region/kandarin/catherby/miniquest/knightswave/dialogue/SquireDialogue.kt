@@ -1,6 +1,5 @@
 package content.region.kandarin.catherby.miniquest.knightswave.dialogue
 
-import org.rs.consts.NPCs
 import content.region.kandarin.catherby.miniquest.knightswave.handlers.KnightWavesUtils
 import core.api.getAttribute
 import core.api.hasRequirement
@@ -10,6 +9,8 @@ import core.game.dialogue.FacialExpression
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
+import org.rs.consts.NPCs
+import org.rs.consts.QuestName
 
 /**
  * Represents the Squire dialogue.
@@ -18,7 +19,7 @@ import core.tools.END_DIALOGUE
 class SquireDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any?): Boolean {
-        if (!hasRequirement(player, "King's Ransom")) return true
+        if (!hasRequirement(player, QuestName.KINGS_RANSOM)) return true
         when {
             getAttribute(player, KnightWavesUtils.KW_BEGIN, false) -> npc("Good day, my lord. Is there anything I can do","for you?").also { stage = 14 }
             getAttribute(player, KnightWavesUtils.KW_COMPLETE, false) -> npc("Congratulations on succeeding in the Knight Waves,","${if (!player.isMale) "my lady" else "my lord"}.").also { stage = 29 }

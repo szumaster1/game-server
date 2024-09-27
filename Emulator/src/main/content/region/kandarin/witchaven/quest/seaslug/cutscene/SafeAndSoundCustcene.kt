@@ -8,6 +8,7 @@ import core.api.transformNpc
 import core.game.activity.Cutscene
 import core.game.node.entity.player.Player
 import core.game.world.map.Direction
+import org.rs.consts.QuestName
 
 /**
  * Safe and sound custcene.
@@ -59,7 +60,7 @@ class SafeAndSoundCustcene(player: Player) : Cutscene(player) {
 
             5 -> {
                 end().also {
-                    setQuestStage(player, "Sea Slug", 50)
+                    setQuestStage(player, QuestName.SEA_SLUG, 50)
                 }
             }
         }

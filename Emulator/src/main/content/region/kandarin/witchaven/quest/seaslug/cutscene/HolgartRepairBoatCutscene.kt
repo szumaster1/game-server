@@ -1,11 +1,12 @@
 package content.region.kandarin.witchaven.quest.seaslug.cutscene
 
 import core.api.*
-import org.rs.consts.NPCs
 import core.game.activity.Cutscene
 import core.game.node.entity.player.Player
 import core.game.world.map.Direction
 import core.game.world.map.Location
+import org.rs.consts.NPCs
+import org.rs.consts.QuestName
 
 /**
  * Holgart repair boat cutscene.
@@ -55,7 +56,7 @@ class HolgartRepairBoatCutscene(player: Player) : Cutscene(player) {
 
             5 -> {
                 end()
-                setQuestStage(player, "Sea Slug", 5)
+                setQuestStage(player, QuestName.SEA_SLUG, 5)
             }
         }
     }

@@ -1,6 +1,5 @@
 package content.region.misthalin.varrock.quest.surok.handlers
 
-import org.rs.consts.NPCs
 import core.api.amountInBank
 import core.api.amountInInventory
 import core.game.node.entity.Entity
@@ -10,6 +9,8 @@ import core.game.node.item.GroundItemManager
 import core.game.node.item.Item
 import core.game.world.map.Location
 import core.plugin.Initializable
+import org.rs.consts.NPCs
+import org.rs.consts.QuestName
 
 /**
  * Handles the Outlaw NPC.
@@ -49,7 +50,7 @@ class OutlawNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id, locat
         super.finalizeDeath(killer)
         if (killer is Player) {
             val player = killer.asPlayer()
-            val quest = player.getQuestRepository().getQuest("What Lies Below")
+            val quest = player.getQuestRepository().getQuest(QuestName.WHAT_LIES_BELOW)
             if (quest.getStage(player) == 10) {
                 val amount = amountInInventory(player, WhatLiesBelowListener.RATS_PAPER) + amountInBank(
                     player,

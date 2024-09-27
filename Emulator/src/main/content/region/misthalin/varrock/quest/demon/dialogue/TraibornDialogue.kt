@@ -16,6 +16,7 @@ import core.game.system.task.Pulse
 import core.game.world.GameWorld.Pulser
 import core.game.world.map.Location
 import core.game.world.update.flag.context.Animation
+import org.rs.consts.QuestName
 
 /**
  * Represents the Traiborn dialogue.
@@ -26,7 +27,7 @@ class TraibornDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
-        quest = player.getQuestRepository().getQuest("Demon Slayer")
+        quest = player.getQuestRepository().getQuest(QuestName.DEMON_SLAYER)
         stage = when (quest!!.getStage(player)) {
             20 -> if (player.getAttribute("demon-slayer:traiborn", false)) {
                 npc("How are you doing finding bones?")

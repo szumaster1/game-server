@@ -25,6 +25,7 @@ import core.game.world.map.RegionManager.getObject
 import core.game.world.update.flag.context.Animation
 import core.plugin.Initializable
 import core.tools.RandomFunction
+import org.rs.consts.QuestName
 import kotlin.math.ceil
 
 /**
@@ -110,7 +111,7 @@ class ElvargNPC : AbstractNPC {
             return super.isAttackable(entity, style, message)
         }
         val player = entity
-        if (player.getQuestRepository().getQuest("Dragon Slayer").getStage(player) == 40 && (player.inventory.containsItem(
+        if (player.getQuestRepository().getQuest(QuestName.DRAGON_SLAYER).getStage(player) == 40 && (player.inventory.containsItem(
                 DragonSlayer.ELVARG_HEAD))) {
             if (message) {
                 player.packetDispatch.sendMessage("You have already slain the dragon. Now you just need to return to Oziach for")
@@ -118,7 +119,7 @@ class ElvargNPC : AbstractNPC {
             }
             return false
         }
-        if (player.getQuestRepository().getQuest("Dragon Slayer").getStage(player) > 40) {
+        if (player.getQuestRepository().getQuest(QuestName.DRAGON_SLAYER).getStage(player) > 40) {
             if (message) {
                 player.packetDispatch.sendMessage("You have already slain Elvarg.")
             }

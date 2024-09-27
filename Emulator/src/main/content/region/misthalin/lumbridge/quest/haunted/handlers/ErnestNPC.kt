@@ -1,10 +1,11 @@
 package content.region.misthalin.lumbridge.quest.haunted.handlers
 
-import org.rs.consts.NPCs
 import core.api.isQuestComplete
 import core.game.node.entity.npc.AbstractNPC
 import core.game.node.entity.player.Player
 import core.game.world.map.Location
+import org.rs.consts.NPCs
+import org.rs.consts.QuestName
 
 /**
  * Represents the Ernest NPC.
@@ -20,7 +21,7 @@ class ErnestNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id, locat
         if (player != target) {
             return true
         }
-        if(player == target && isQuestComplete(target, "Ernest the Chicken")) {
+        if(player == target && isQuestComplete(target, QuestName.ERNEST_THE_CHICKEN)) {
             clear()
             super.isHidden(player)
         }

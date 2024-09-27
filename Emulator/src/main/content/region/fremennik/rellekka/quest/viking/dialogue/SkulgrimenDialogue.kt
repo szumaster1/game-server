@@ -1,8 +1,6 @@
 package content.region.fremennik.rellekka.quest.viking.dialogue
 
 import core.api.*
-import org.rs.consts.Items
-import org.rs.consts.NPCs
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC
@@ -10,6 +8,9 @@ import core.game.node.entity.player.Player
 import core.game.node.item.Item
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
+import org.rs.consts.Items
+import org.rs.consts.NPCs
+import org.rs.consts.QuestName
 
 /**
  * Represents the Skulgrimen dialogue.
@@ -40,7 +41,7 @@ class SkulgrimenDialogue(player: Player? = null): Dialogue(player) {
             playerl(FacialExpression.ASKING, "I don't suppose you have any idea where I could find a finely balanced custom bowstring, do you?")
             stage = 1
             return true
-        } else if (isQuestComplete(player, "Fremennik Trials")) {
+        } else if (isQuestComplete(player, QuestName.THE_FREMENNIK_TRIALS)) {
             npcl(FacialExpression.HAPPY, "Hello again, ${getAttribute(player, "fremennikname", "fremmyname")}. Come to see what's for sale?")
             stage = 101
             return true

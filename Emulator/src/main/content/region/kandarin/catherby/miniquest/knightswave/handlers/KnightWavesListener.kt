@@ -1,6 +1,5 @@
 package content.region.kandarin.catherby.miniquest.knightswave.handlers
 
-import org.rs.consts.NPCs
 import content.data.GameAttributes
 import core.api.*
 import core.game.interaction.IntType
@@ -8,12 +7,14 @@ import core.game.interaction.InteractionListener
 import core.game.system.task.Pulse
 import core.game.world.GameWorld
 import core.game.world.map.Location
+import org.rs.consts.NPCs
+import org.rs.consts.QuestName
 
 class KnightWavesListener : InteractionListener {
 
     override fun defineListeners() {
         on(KnightWavesUtils.DOORS, IntType.SCENERY, "open") { player, node ->
-            if (!hasRequirement(player, "King's Ransom")) return@on true
+            if (!hasRequirement(player, QuestName.KINGS_RANSOM)) return@on true
             if (getAttribute(player, KnightWavesUtils.KW_COMPLETE, false) || !getAttribute(player, KnightWavesUtils.KW_BEGIN, false)) {
                 openDialogue(player, NPCs.SQUIRE_6169)
                 return@on false

@@ -1,15 +1,18 @@
 package content.region.fremennik.rellekka.lighthouse.quest.horror.dialogue
 
 import core.api.addItem
-import org.rs.consts.Items
 import core.api.freeSlots
 import core.api.setQuestStage
 import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression
 import core.tools.END_DIALOGUE
+import org.rs.consts.Items
+import org.rs.consts.QuestName
 
 /**
- * Represents the Gunnjorn dialogue file related to Horror from the deep quest.
+ * Represents the Gunnjorn dialogue.
+ *
+ * Related to **Horror from the deep** quest.
  */
 class GunnjornDialogueFile : DialogueFile() {
 
@@ -28,7 +31,7 @@ class GunnjornDialogueFile : DialogueFile() {
                     end()
                     npc("Sure. Here you go.")
                     addItem(player!!, Items.LIGHTHOUSE_KEY_3848)
-                    setQuestStage(player!!, "Horror from the Deep", 5)
+                    setQuestStage(player!!, QuestName.HORROR_FROM_THE_DEEP, 5)
                 }
             }
         }

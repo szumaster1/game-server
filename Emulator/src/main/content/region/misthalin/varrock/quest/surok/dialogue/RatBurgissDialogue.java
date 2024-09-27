@@ -9,6 +9,7 @@ import core.game.node.entity.player.link.diary.AchievementDiary;
 import core.game.node.entity.player.link.diary.DiaryType;
 import core.game.node.entity.player.link.quest.Quest;
 import core.plugin.Initializable;
+import org.rs.consts.QuestName;
 
 /**
  * Represents the Rat Burgiss dialogue.
@@ -36,7 +37,7 @@ public class RatBurgissDialogue extends Dialogue {
     @Override
     public boolean open(Object... args) {
         npc = (NPC) args[0];
-        quest = player.getQuestRepository().getQuest("What Lies Below");
+        quest = player.getQuestRepository().getQuest(QuestName.WHAT_LIES_BELOW);
         options("Hello there!", "I have a question about my Achievement Diary.");
         stage = -1;
         return true;

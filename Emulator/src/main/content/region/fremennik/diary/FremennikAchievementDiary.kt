@@ -1,12 +1,8 @@
 package content.region.fremennik.diary
 
-import content.global.travel.FairyRing
 import content.global.skill.cooking.type.dairy.DairyChurnDialogue
+import content.global.travel.FairyRing
 import content.minigame.barbassault.dialogue.CaptainCainDialogue
-import org.rs.consts.Components
-import org.rs.consts.Items
-import org.rs.consts.NPCs
-import org.rs.consts.Scenery
 import content.region.fremennik.jatizso.dialogue.TowerGuardDialogue
 import content.region.fremennik.rellekka.dialogue.HuntingExpertRellekkaDialogue
 import content.region.fremennik.rellekka.quest.viking.dialogue.ChieftanBrundtDialogue
@@ -22,6 +18,10 @@ import core.game.node.entity.player.link.SpellBookManager
 import core.game.node.entity.player.link.diary.DiaryType
 import core.game.node.entity.skill.Skills
 import core.game.world.map.zone.ZoneBorders
+import org.rs.consts.Components
+import org.rs.consts.Items
+import org.rs.consts.NPCs
+import org.rs.consts.Scenery
 
 /**
  * Represents the Fremennik achievement diary.
@@ -356,7 +356,7 @@ class FremennikAchievementDiary : DiaryEventHookBase(DiaryType.FREMENNIK) {
                 )
             }
             /*
-            10553 -> if (event.target.id == Scenery.FISH_STALL_4277 && event.option == "steal-from" && isQuestComplete(player, "Fremennik Trials")) {
+            10553 -> if (event.target.id == Scenery.FISH_STALL_4277 && event.option == "steal-from" && isQuestComplete(player, QuestName.THE_FREMENNIK_TRIALS)) {
                 finishTask(
                     player,
                     DiaryLevel.MEDIUM,

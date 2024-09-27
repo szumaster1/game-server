@@ -1,10 +1,11 @@
 package content.region.misthalin.varrock.quest.fluffs.handlers
 
-import org.rs.consts.NPCs
 import core.game.node.entity.npc.AbstractNPC
 import core.game.node.entity.player.Player
 import core.game.world.map.Location
 import core.plugin.Initializable
+import org.rs.consts.NPCs
+import org.rs.consts.QuestName
 
 /**
  * Represents the Fluff NPC.
@@ -24,7 +25,7 @@ class FluffNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id, locati
      * @return true if fluff is hidden, false otherwise.
      */
     override fun isHidden(player: Player): Boolean {
-        if (player.getQuestRepository().getQuest("Gertrude's Cat").getStage(player) < 20) {
+        if (player.getQuestRepository().getQuest(QuestName.GERTRUDES_CAT).getStage(player) < 20) {
             return true // Hide fluff if player's quest stage is less than 20.
         }
         return player.getAttribute("hidefluff", 0L) > System.currentTimeMillis() // Check if fluff should be hidden based on time.

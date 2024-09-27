@@ -7,6 +7,7 @@ import core.game.node.entity.npc.AbstractNPC
 import core.game.node.entity.player.Player
 import core.game.world.map.Location
 import org.rs.consts.NPCs
+import org.rs.consts.QuestName
 
 /**
  * Represents the Chronozon NPC.
@@ -71,8 +72,8 @@ class ChronozonNPC(id: Int, location: Location?) : AbstractNPC(NPCs.CHRONOZON_66
 
     override fun finalizeDeath(killer: Entity?) {
         if (killer == targetplayer) {
-            if (targetplayer.questRepository.getStage("Family Crest") != 20) {
-                targetplayer.questRepository.getQuest("Family Crest").setStage(targetplayer, 20)
+            if (targetplayer.questRepository.getStage(QuestName.FAMILY_CREST) != 20) {
+                targetplayer.questRepository.getQuest(QuestName.FAMILY_CREST).setStage(targetplayer, 20)
                 this.clear()
             }
         }

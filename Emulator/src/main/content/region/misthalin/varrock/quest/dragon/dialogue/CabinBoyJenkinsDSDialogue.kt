@@ -6,6 +6,7 @@ import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.quest.Quest
 import core.plugin.Initializable
+import org.rs.consts.QuestName
 
 /**
  * Represents the Cabin boy jenkins dragon slayer dialogue.
@@ -17,7 +18,7 @@ class CabinBoyJenkinsDSDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
-        quest = player.getQuestRepository().getQuest("Dragon Slayer")
+        quest = player.getQuestRepository().getQuest(QuestName.DRAGON_SLAYER)
         when (quest!!.getStage(player)) {
             20 -> {
                 npc("Ahoy! Whay d'ye think of yer ship then?")

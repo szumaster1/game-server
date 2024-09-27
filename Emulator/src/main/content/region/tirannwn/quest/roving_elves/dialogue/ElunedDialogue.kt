@@ -1,13 +1,14 @@
 package content.region.tirannwn.quest.roving_elves.dialogue
 
 import content.region.tirannwn.quest.roving_elves.RovingElves
-import org.rs.consts.Items
-import org.rs.consts.NPCs
 import core.api.sendItemDialogue
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression
 import core.game.node.entity.player.Player
 import core.game.node.item.Item
+import org.rs.consts.Items
+import org.rs.consts.NPCs
+import org.rs.consts.QuestName
 
 /**
  * Represents the Eluned dialogue.
@@ -15,7 +16,7 @@ import core.game.node.item.Item
 class ElunedDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any): Boolean {
-        val quest = player.getQuestRepository().getQuest("Roving Elves")
+        val quest = player.getQuestRepository().getQuest(QuestName.ROVING_ELVES)
         stage = if (quest.getStage(player) == 10) {
             player(FacialExpression.HALF_GUILTY, "Hey there... Islwyn said you may be able to help me.", "He told me you know how to consecrate ground for an", "elven burial. I need to reconsecrate Glarial's resting", "place.")
             1
@@ -27,7 +28,7 @@ class ElunedDialogue(player: Player? = null) : Dialogue(player) {
     }
 
     override fun handle(interfaceId: Int, buttonId: Int): Boolean {
-        val quest = player.getQuestRepository().getQuest("Roving Elves")
+        val quest = player.getQuestRepository().getQuest(QuestName.ROVING_ELVES)
         when (stage) {
             500 -> end()
             1000 -> {

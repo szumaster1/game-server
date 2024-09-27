@@ -2,9 +2,6 @@ package content.region.karamja.apeatoll.dialogue.dungeon
 
 import content.global.handlers.item.withnpc.ZooknockListener
 import core.api.*
-import org.rs.consts.Components
-import org.rs.consts.Graphics
-import org.rs.consts.Items
 import core.game.component.Component
 import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression
@@ -12,6 +9,9 @@ import core.game.node.entity.npc.NPC
 import core.game.node.item.Item
 import core.game.world.update.flag.context.Graphic
 import core.tools.END_DIALOGUE
+import org.rs.consts.Components
+import org.rs.consts.Graphics
+import org.rs.consts.Items
 
 /**
  * Represents the Zooknock after battle dialogue file.
@@ -19,7 +19,7 @@ import core.tools.END_DIALOGUE
 class ZooknockAfterBattleDialogueFile: DialogueFile(){
     override fun handle(componentID: Int, buttonID: Int) {
         when(stage){
-
+            0 -> end()
         }
     }
 }
