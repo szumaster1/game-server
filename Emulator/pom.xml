@@ -83,6 +83,7 @@
             <version>[1.0.0,)</version>
             <scope>compile</scope>
         </dependency>
+
         <!-- https://mvnrepository.com/artifact/com.mysql/mysql-connector-j -->
         <dependency>
             <groupId>mysql</groupId>
