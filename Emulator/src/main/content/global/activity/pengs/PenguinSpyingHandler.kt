@@ -1,4 +1,4 @@
-package content.global.activity.pengs.handlers
+package content.global.activity.pengs
 
 import core.api.*
 import org.rs.consts.NPCs

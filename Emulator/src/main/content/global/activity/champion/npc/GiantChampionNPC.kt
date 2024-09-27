@@ -1,9 +1,9 @@
-package content.global.activity.champion.handlers.npc
+package content.global.activity.champion.npc
 
 import core.api.*
 import org.rs.consts.Items
 import org.rs.consts.NPCs
-import content.global.activity.champion.handlers.ChallengeListener
+import content.global.activity.champion.ChallengeListener
 import core.game.node.entity.Entity
 import core.game.node.entity.combat.BattleState
 import core.game.node.entity.combat.CombatStyle
@@ -16,21 +16,21 @@ import core.game.world.map.Location
 import core.plugin.Initializable
 
 /**
- * Represents the Hobgoblin champion NPC for Champions challenge.
+ * Represents the Giant champion NPC for Champions challenge.
  */
 @Initializable
-class HobgoblinChampionNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id, location) {
+class GiantChampionNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id, location) {
 
     var clearTime = 0
 
     override fun construct(id: Int, location: Location, vararg objects: Any): AbstractNPC {
-        return HobgoblinChampionNPC(id, location)
+        return GiantChampionNPC(id, location)
     }
 
     override fun getIds(): IntArray {
-        return intArrayOf(NPCs.HOBGOBLIN_CHAMPION_3061)
-    }
+        return intArrayOf(NPCs.GIANT_CHAMPION_3058)
 
+    }
 
     override fun handleTickActions() {
         super.handleTickActions()
@@ -38,8 +38,8 @@ class HobgoblinChampionNPC(id: Int = 0, location: Location? = null) : AbstractNP
     }
 
     companion object {
-        fun spawnHobgoblinChampion(player: Player) {
-            val champion = HobgoblinChampionNPC(NPCs.HOBGOBLIN_CHAMPION_3061)
+        fun spawnGiantChampion(player: Player) {
+            val champion = GiantChampionNPC(NPCs.GIANT_CHAMPION_3058)
             champion.location = location(3170, 9758, 0)
             champion.isWalks = true
             champion.isAggressive = true
@@ -48,6 +48,7 @@ class HobgoblinChampionNPC(id: Int = 0, location: Location? = null) : AbstractNP
             if (champion.asNpc() != null && champion.isActive) {
                 champion.properties.teleportLocation = champion.properties.spawnLocation
             }
+
             champion.isActive = true
             GameWorld.Pulser.submit(object : Pulse(0, champion) {
                 override fun pulse(): Boolean {
@@ -64,13 +65,12 @@ class HobgoblinChampionNPC(id: Int = 0, location: Location? = null) : AbstractNP
         super.checkImpact(state)
         val player = state.attacker
         if (player is Player) {
-            if (state.style == CombatStyle.MAGIC || state.style == CombatStyle.RANGE) {
+            if (state.style == CombatStyle.MELEE) {
                 state.neutralizeHits()
                 state.estimatedHit = state.maximumHit
             }
-
-            if (state.style == CombatStyle.MELEE) {
-                sendMessage(player, "You cannot use melee in this challenge.")
+            if (state.style == CombatStyle.RANGE || state.style == CombatStyle.MAGIC) {
+                sendMessage(player, "You can use only melee in this challenge.")
                 if (state.estimatedHit > -1) {
                     state.estimatedHit = 0
                     return
@@ -88,14 +88,14 @@ class HobgoblinChampionNPC(id: Int = 0, location: Location? = null) : AbstractNP
             lock(killer, 2)
             runTask(killer, 1) {
                 openInterface(killer, 63)
-                sendString(killer, "Well done, you defeated the Hobgoblin Champion!", 63, 2)
-                killer.packetDispatch.sendItemZoomOnInterface(Items.CHAMPION_SCROLL_6802, 260, 63, 3)
-                sendString(killer, "232 Slayer Xp", 63, 6)
-                sendString(killer, "232 Hitpoint Xp", 63, 7)
+                sendString(killer, "Well done, you defeated the Giant Champion!", 63, 2)
+                killer.packetDispatch.sendItemZoomOnInterface(Items.CHAMPION_SCROLL_6800, 260, 63, 3)
+                sendString(killer, "280 Slayer Xp", 63, 6)
+                sendString(killer, "280 Hitpoint Xp", 63, 7)
             }
-            setVarbit(killer, 1456, 1, true)
-            rewardXP(killer, Skills.HITPOINTS, 232.0)
-            rewardXP(killer, Skills.SLAYER, 232.0)
+            setVarbit(killer, 1454, 1, true)
+            rewardXP(killer, Skills.HITPOINTS, 280.0)
+            rewardXP(killer, Skills.SLAYER, 280.0)
             removeAttribute("championsarena:start")
             clearHintIcon(killer)
             ChallengeListener.isFinalBattle(killer)

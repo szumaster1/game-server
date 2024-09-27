@@ -1,4 +1,4 @@
-package content.global.activity.pengs.handlers
+package content.global.activity.pengs
 
 import core.ServerStore.Companion.toJSONArray
 import core.api.log

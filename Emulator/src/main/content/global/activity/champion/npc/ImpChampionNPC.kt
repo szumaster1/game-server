@@ -1,13 +1,13 @@
-package content.global.activity.champion.handlers.npc
+package content.global.activity.champion.npc
 
 import core.api.*
 import org.rs.consts.Items
 import org.rs.consts.NPCs
-import content.global.activity.champion.handlers.ChallengeListener
-import core.game.container.impl.EquipmentContainer
-import core.game.global.action.EquipHandler
+import content.global.activity.champion.ChallengeListener
 import core.game.node.entity.Entity
 import core.game.node.entity.combat.BattleState
+import core.game.node.entity.combat.CombatStyle
+import core.game.node.entity.combat.equipment.WeaponInterface
 import core.game.node.entity.npc.AbstractNPC
 import core.game.node.entity.player.Player
 import core.game.node.entity.skill.Skills
@@ -17,19 +17,19 @@ import core.game.world.map.Location
 import core.plugin.Initializable
 
 /**
- * Represents the Lesser demon champion NPC for Champions challenge.
+ * Represents the Imp champion NPC for Champions challenge.
  */
 @Initializable
-class LesserDemonChampionNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id, location) {
+class ImpChampionNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id, location) {
 
     var clearTime = 0
 
     override fun construct(id: Int, location: Location, vararg objects: Any): AbstractNPC {
-        return LesserDemonChampionNPC(id, location)
+        return ImpChampionNPC(id, location)
     }
 
     override fun getIds(): IntArray {
-        return intArrayOf(NPCs.LESSER_DEMON_CHAMPION_3064)
+        return intArrayOf(NPCs.IMP_CHAMPION_3062)
     }
 
     override fun handleTickActions() {
@@ -38,8 +38,8 @@ class LesserDemonChampionNPC(id: Int = 0, location: Location? = null) : Abstract
     }
 
     companion object {
-        fun spawnLesserDemonChampion(player: Player) {
-            val champion = LesserDemonChampionNPC(NPCs.LESSER_DEMON_CHAMPION_3064)
+        fun spawnImpChampion(player: Player) {
+            val champion = ImpChampionNPC(NPCs.IMP_CHAMPION_3062)
             champion.location = location(3170, 9758, 0)
             champion.isWalks = true
             champion.isAggressive = true
@@ -48,6 +48,7 @@ class LesserDemonChampionNPC(id: Int = 0, location: Location? = null) : Abstract
             if (champion.asNpc() != null && champion.isActive) {
                 champion.properties.teleportLocation = champion.properties.spawnLocation
             }
+
             champion.isActive = true
             GameWorld.Pulser.submit(object : Pulse(0, champion) {
                 override fun pulse(): Boolean {
@@ -64,13 +65,13 @@ class LesserDemonChampionNPC(id: Int = 0, location: Location? = null) : Abstract
         super.checkImpact(state)
         val player = state.attacker
         if (player is Player) {
-            if (player.equipment.get(3) == null) {
+            val w = player.getExtension<WeaponInterface>(WeaponInterface::class.java)
+            if (state.style == CombatStyle.MELEE || state.style == CombatStyle.MAGIC || state.style == CombatStyle.RANGE) {
                 state.neutralizeHits()
                 state.estimatedHit = state.maximumHit
-                return
-            } else {
-                EquipHandler.unequip(player, EquipmentContainer.SLOT_WEAPON, id)
-                sendMessage(player, "You cannot use weapons in this challenge.")
+            }
+            if (w.weaponInterface?.interfaceId == 10) {
+                sendMessage(player, "You cannot use special attack in this challenge.")
                 if (state.estimatedHit > -1) {
                     state.estimatedHit = 0
                     return
@@ -88,14 +89,14 @@ class LesserDemonChampionNPC(id: Int = 0, location: Location? = null) : Abstract
             lock(killer, 2)
             runTask(killer, 1) {
                 openInterface(killer, 63)
-                sendString(killer, "Well done, you defeated the Lesser Demon Champion!", 63, 2)
-                killer.packetDispatch.sendItemZoomOnInterface(Items.CHAMPION_SCROLL_6805, 260, 63, 3)
-                sendString(killer, "592 Slayer Xp", 63, 6)
-                sendString(killer, "592 Hitpoint Xp", 63, 7)
+                sendString(killer, "Well done, you defeated the Imp Champion!", 63, 2)
+                killer.packetDispatch.sendItemZoomOnInterface(Items.CHAMPION_SCROLL_6803, 260, 63, 3)
+                sendString(killer, "160 Slayer Xp", 63, 6)
+                sendString(killer, "160 Hitpoint Xp", 63, 7)
             }
-            setVarbit(killer, 1459, 1, true)
-            rewardXP(killer, Skills.HITPOINTS, 592.0)
-            rewardXP(killer, Skills.SLAYER, 592.0)
+            setVarbit(killer, 1457, 1, true)
+            rewardXP(killer, Skills.HITPOINTS, 160.0)
+            rewardXP(killer, Skills.SLAYER, 160.0)
             removeAttribute("championsarena:start")
             clearHintIcon(killer)
             ChallengeListener.isFinalBattle(killer)

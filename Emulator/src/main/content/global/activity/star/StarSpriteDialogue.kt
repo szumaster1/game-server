@@ -1,12 +1,10 @@
-package content.global.activity.star.dialogue
+package content.global.activity.star
 
 import core.ServerStore
 import core.ServerStore.Companion.getBoolean
 import core.api.*
 import org.rs.consts.Items
 import org.rs.consts.NPCs
-import content.global.activity.star.handlers.ShootingStarPlugin
-import content.global.activity.star.handlers.StarBonus
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC

@@ -1,4 +1,4 @@
-package content.global.activity.champion.handlers.npc
+package content.global.activity.champion.npc
 
 import core.api.*
 import org.rs.consts.Items

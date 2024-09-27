@@ -1,12 +1,13 @@
-package content.global.activity.champion.handlers.npc
+package content.global.activity.champion.npc
 
 import core.api.*
 import org.rs.consts.Items
 import org.rs.consts.NPCs
-import content.global.activity.champion.handlers.ChallengeListener
+import content.global.activity.champion.ChallengeListener
+import core.game.container.impl.EquipmentContainer
+import core.game.global.action.EquipHandler
 import core.game.node.entity.Entity
 import core.game.node.entity.combat.BattleState
-import core.game.node.entity.combat.CombatStyle
 import core.game.node.entity.npc.AbstractNPC
 import core.game.node.entity.player.Player
 import core.game.node.entity.skill.Skills
@@ -16,19 +17,19 @@ import core.game.world.map.Location
 import core.plugin.Initializable
 
 /**
- * Represents the Goblin champion NPC for Champions challenge.
+ * Represents the Lesser demon champion NPC for Champions challenge.
  */
 @Initializable
-class GoblinChampionNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id, location) {
+class LesserDemonChampionNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id, location) {
 
     var clearTime = 0
 
     override fun construct(id: Int, location: Location, vararg objects: Any): AbstractNPC {
-        return GoblinChampionNPC(id, location)
+        return LesserDemonChampionNPC(id, location)
     }
 
     override fun getIds(): IntArray {
-        return intArrayOf(NPCs.GOBLIN_CHAMPION_3060)
+        return intArrayOf(NPCs.LESSER_DEMON_CHAMPION_3064)
     }
 
     override fun handleTickActions() {
@@ -37,8 +38,8 @@ class GoblinChampionNPC(id: Int = 0, location: Location? = null) : AbstractNPC(i
     }
 
     companion object {
-        fun spawnGoblinChampion(player: Player) {
-            val champion = GoblinChampionNPC(NPCs.GOBLIN_CHAMPION_3060)
+        fun spawnLesserDemonChampion(player: Player) {
+            val champion = LesserDemonChampionNPC(NPCs.LESSER_DEMON_CHAMPION_3064)
             champion.location = location(3170, 9758, 0)
             champion.isWalks = true
             champion.isAggressive = true
@@ -63,12 +64,13 @@ class GoblinChampionNPC(id: Int = 0, location: Location? = null) : AbstractNPC(i
         super.checkImpact(state)
         val player = state.attacker
         if (player is Player) {
-            if (state.style == CombatStyle.MAGIC) {
+            if (player.equipment.get(3) == null) {
                 state.neutralizeHits()
                 state.estimatedHit = state.maximumHit
-            }
-            if (state.style == CombatStyle.MELEE || state.style == CombatStyle.RANGE) {
-                sendMessage(player, "You can use only spells in this challenge.")
+                return
+            } else {
+                EquipHandler.unequip(player, EquipmentContainer.SLOT_WEAPON, id)
+                sendMessage(player, "You cannot use weapons in this challenge.")
                 if (state.estimatedHit > -1) {
                     state.estimatedHit = 0
                     return
@@ -86,14 +88,14 @@ class GoblinChampionNPC(id: Int = 0, location: Location? = null) : AbstractNPC(i
             lock(killer, 2)
             runTask(killer, 1) {
                 openInterface(killer, 63)
-                sendString(killer, "Well done, you defeated the Goblin Champion!", 63, 2)
-                killer.packetDispatch.sendItemZoomOnInterface(Items.CHAMPION_SCROLL_6801, 260, 63, 3)
-                sendString(killer, "128 Slayer Xp", 63, 6)
-                sendString(killer, "128 Hitpoint Xp", 63, 7)
+                sendString(killer, "Well done, you defeated the Lesser Demon Champion!", 63, 2)
+                killer.packetDispatch.sendItemZoomOnInterface(Items.CHAMPION_SCROLL_6805, 260, 63, 3)
+                sendString(killer, "592 Slayer Xp", 63, 6)
+                sendString(killer, "592 Hitpoint Xp", 63, 7)
             }
-            setVarbit(killer, 1455, 1, true)
-            rewardXP(killer, Skills.HITPOINTS, 128.0)
-            rewardXP(killer, Skills.SLAYER, 128.0)
+            setVarbit(killer, 1459, 1, true)
+            rewardXP(killer, Skills.HITPOINTS, 592.0)
+            rewardXP(killer, Skills.SLAYER, 592.0)
             removeAttribute("championsarena:start")
             clearHintIcon(killer)
             ChallengeListener.isFinalBattle(killer)

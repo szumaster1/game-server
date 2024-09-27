@@ -1,4 +1,4 @@
-package content.global.activity.champion.dialogue
+package content.global.activity.champion
 
 import core.api.*
 import org.rs.consts.Items

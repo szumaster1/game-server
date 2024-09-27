@@ -1,4 +1,4 @@
-package content.global.activity.star.handlers
+package content.global.activity.star
 
 import content.global.skill.gather.SkillingTool
 import core.api.*
@@ -14,7 +14,7 @@ import core.tools.colorize
 /**
  * The pulse used to handle mining shooting stars.
  */
-class ShootingStarMiningPulse(player: Player?, node: Scenery?, val star: content.global.activity.star.handlers.ShootingStar) : SkillPulse<Scenery?>(player, node) {
+class ShootingStarMiningPulse(player: Player?, node: Scenery?, val star: ShootingStar) : SkillPulse<Scenery?>(player, node) {
 
     /**
      * The amount of ticks it takes to get star dust.
@@ -49,7 +49,7 @@ class ShootingStarMiningPulse(player: Player?, node: Scenery?, val star: content
             player.incrementAttribute("/save:shooting-star:bonus-xp", bonusXp)
             sendNews(player.username + " is the discoverer of the crashed star near " + star.location + "!")
             sendMessage(player, "You have ${player.skills.experienceMultiplier * getAttribute(player, "shooting-star:bonus-xp", 0).toDouble()} bonus xp towards mining stardust.")
-            content.global.activity.star.handlers.ShootingStarPlugin.Companion.submitScoreBoard(player)
+            ShootingStarPlugin.submitScoreBoard(player)
             star.isDiscovered = true
             return getStatLevel(player, Skills.MINING) >= star.miningLevel
         }
@@ -63,7 +63,7 @@ class ShootingStarMiningPulse(player: Player?, node: Scenery?, val star: content
             return false
         }
         if (freeSlots(player) < 1 && !inInventory(player,
-                content.global.activity.star.handlers.ShootingStarPlugin.Companion.STAR_DUST, 1)) {
+                ShootingStarPlugin.STAR_DUST, 1)) {
             sendDialogue(player, "Your inventory is too full to hold any more stardust.")
             return false
         }
@@ -97,8 +97,8 @@ class ShootingStarMiningPulse(player: Player?, node: Scenery?, val star: content
         }
 
         rewardXP(player, Skills.MINING, xp)
-        if (content.global.activity.star.handlers.ShootingStarPlugin.Companion.getStarDust(player) < 200) {
-            addItem(player, content.global.activity.star.handlers.ShootingStarPlugin.Companion.STAR_DUST, 1)
+        if (ShootingStarPlugin.getStarDust(player) < 200) {
+            addItem(player, ShootingStarPlugin.STAR_DUST, 1)
         }
         if (!inInventory(player, Items.ANCIENT_BLUEPRINT_14651) && !inBank(player, Items.ANCIENT_BLUEPRINT_14651)) {
             rollBlueprint(player)
@@ -115,15 +115,15 @@ class ShootingStarMiningPulse(player: Player?, node: Scenery?, val star: content
      */
     fun rollBlueprint(player: Player) {
         val chance = when (star.level) {
-            content.global.activity.star.handlers.ShootingStarType.LEVEL_9 -> 250
-            content.global.activity.star.handlers.ShootingStarType.LEVEL_8 -> 500
-            content.global.activity.star.handlers.ShootingStarType.LEVEL_7 -> 750
-            content.global.activity.star.handlers.ShootingStarType.LEVEL_6 -> 1000
-            content.global.activity.star.handlers.ShootingStarType.LEVEL_5 -> 2000
-            content.global.activity.star.handlers.ShootingStarType.LEVEL_4 -> 3000
-            content.global.activity.star.handlers.ShootingStarType.LEVEL_3 -> 4000
-            content.global.activity.star.handlers.ShootingStarType.LEVEL_2 -> 5000
-            content.global.activity.star.handlers.ShootingStarType.LEVEL_1 -> 10000
+            ShootingStarType.LEVEL_9 -> 250
+            ShootingStarType.LEVEL_8 -> 500
+            ShootingStarType.LEVEL_7 -> 750
+            ShootingStarType.LEVEL_6 -> 1000
+            ShootingStarType.LEVEL_5 -> 2000
+            ShootingStarType.LEVEL_4 -> 3000
+            ShootingStarType.LEVEL_3 -> 4000
+            ShootingStarType.LEVEL_2 -> 5000
+            ShootingStarType.LEVEL_1 -> 10000
         }
 
         if (RandomFunction.roll(chance)) {

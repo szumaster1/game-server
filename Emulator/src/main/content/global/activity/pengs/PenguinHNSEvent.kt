@@ -1,4 +1,4 @@
-package content.global.activity.pengs.handlers
+package content.global.activity.pengs
 
 import core.ServerStore
 import core.api.StartupListener
@@ -16,7 +16,7 @@ class PenguinHNSEvent : StartupListener {
 
     override fun startup() {
         manager.rebuildVars() // Rebuild variables in the PenguinManager
-        PluginManager.definePlugins(content.global.activity.pengs.dialogue.LarryDialogue(), NotebookHandler()) // Define plugins using ClassScanner
+        PluginManager.definePlugins(LarryDialogue(), NotebookHandler()) // Define plugins using ClassScanner
         log(this::class.java, Log.FINE, "Penguin HNS initialized.") // Log initialization message
     }
 

@@ -1,4 +1,4 @@
-package content.global.activity.star.handlers
+package content.global.activity.star
 
 import core.game.bots.impl.ShootingStarBot
 import core.ServerStore.Companion.getBoolean
@@ -175,7 +175,7 @@ class ShootingStar(var level: ShootingStarType = ShootingStarType.values().rando
 
     fun mine(player: Player) {
         player.pulseManager.run(
-            content.global.activity.star.handlers.ShootingStarMiningPulse(
+            ShootingStarMiningPulse(
                 player,
                 starObject,
                 this

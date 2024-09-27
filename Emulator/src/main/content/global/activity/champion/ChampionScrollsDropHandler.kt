@@ -1,4 +1,4 @@
-package content.global.activity.champion.handlers
+package content.global.activity.champion
 
 import org.rs.consts.Items
 import org.rs.consts.NPCs

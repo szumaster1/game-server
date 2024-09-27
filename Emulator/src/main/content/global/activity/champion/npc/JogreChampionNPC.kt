@@ -1,12 +1,13 @@
-package content.global.activity.champion.handlers.npc
+package content.global.activity.champion.npc
 
 import core.api.*
 import org.rs.consts.Items
 import org.rs.consts.NPCs
-import content.global.activity.champion.handlers.ChallengeListener
+import content.global.activity.champion.ChallengeListener
 import core.game.node.entity.Entity
 import core.game.node.entity.combat.BattleState
 import core.game.node.entity.combat.CombatStyle
+import core.game.node.entity.combat.equipment.Weapon
 import core.game.node.entity.npc.AbstractNPC
 import core.game.node.entity.player.Player
 import core.game.node.entity.skill.Skills
@@ -16,20 +17,19 @@ import core.game.world.map.Location
 import core.plugin.Initializable
 
 /**
- * Represents the Giant champion NPC for Champions challenge.
+ * Represents the Jogre champion NPC for Champions challenge.
  */
 @Initializable
-class GiantChampionNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id, location) {
+class JogreChampionNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id, location) {
 
     var clearTime = 0
 
     override fun construct(id: Int, location: Location, vararg objects: Any): AbstractNPC {
-        return content.global.activity.champion.handlers.npc.GiantChampionNPC(id, location)
+        return JogreChampionNPC(id, location)
     }
 
     override fun getIds(): IntArray {
-        return intArrayOf(NPCs.GIANT_CHAMPION_3058)
-
+        return intArrayOf(NPCs.JOGRE_CHAMPION_3063)
     }
 
     override fun handleTickActions() {
@@ -38,8 +38,8 @@ class GiantChampionNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id
     }
 
     companion object {
-        fun spawnGiantChampion(player: Player) {
-            val champion = content.global.activity.champion.handlers.npc.GiantChampionNPC(NPCs.GIANT_CHAMPION_3058)
+        fun spawnJogreChampion(player: Player) {
+            val champion = JogreChampionNPC(NPCs.JOGRE_CHAMPION_3063)
             champion.location = location(3170, 9758, 0)
             champion.isWalks = true
             champion.isAggressive = true
@@ -48,7 +48,6 @@ class GiantChampionNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id
             if (champion.asNpc() != null && champion.isActive) {
                 champion.properties.teleportLocation = champion.properties.spawnLocation
             }
-
             champion.isActive = true
             GameWorld.Pulser.submit(object : Pulse(0, champion) {
                 override fun pulse(): Boolean {
@@ -65,12 +64,12 @@ class GiantChampionNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id
         super.checkImpact(state)
         val player = state.attacker
         if (player is Player) {
-            if (state.style == CombatStyle.MELEE) {
+            if (state.style == CombatStyle.MAGIC || state.style == CombatStyle.MELEE) {
                 state.neutralizeHits()
                 state.estimatedHit = state.maximumHit
             }
-            if (state.style == CombatStyle.RANGE || state.style == CombatStyle.MAGIC) {
-                sendMessage(player, "You can use only melee in this challenge.")
+            if (state.weapon.type == Weapon.WeaponType.DEGRADING || state.style == CombatStyle.RANGE) {
+                sendMessage(player, "You cannot use ranged weapons.")
                 if (state.estimatedHit > -1) {
                     state.estimatedHit = 0
                     return
@@ -88,14 +87,14 @@ class GiantChampionNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id
             lock(killer, 2)
             runTask(killer, 1) {
                 openInterface(killer, 63)
-                sendString(killer, "Well done, you defeated the Giant Champion!", 63, 2)
-                killer.packetDispatch.sendItemZoomOnInterface(Items.CHAMPION_SCROLL_6800, 260, 63, 3)
-                sendString(killer, "280 Slayer Xp", 63, 6)
-                sendString(killer, "280 Hitpoint Xp", 63, 7)
+                sendString(killer, "Well done, you defeated the Jogre Champion!", 63, 2)
+                killer.packetDispatch.sendItemZoomOnInterface(Items.CHAMPION_SCROLL_6804, 260, 63, 3)
+                sendString(killer, "480 Slayer Xp", 63, 6)
+                sendString(killer, "480 Hitpoint Xp", 63, 7)
             }
-            setVarbit(killer, 1454, 1, true)
-            rewardXP(killer, Skills.HITPOINTS, 280.0)
-            rewardXP(killer, Skills.SLAYER, 280.0)
+            setVarbit(killer, 1458, 1, true)
+            rewardXP(killer, Skills.HITPOINTS, 480.0)
+            rewardXP(killer, Skills.SLAYER, 480.0)
             removeAttribute("championsarena:start")
             clearHintIcon(killer)
             ChallengeListener.isFinalBattle(killer)

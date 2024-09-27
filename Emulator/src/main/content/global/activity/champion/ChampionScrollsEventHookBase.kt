@@ -1,4 +1,4 @@
-package content.global.activity.champion.handlers
+package content.global.activity.champion
 
 import core.api.LoginListener
 import core.game.event.Event

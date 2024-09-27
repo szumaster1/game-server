@@ -1,8 +1,6 @@
-package content.global.activity.pengs.dialogue
+package content.global.activity.pengs
 
 import org.rs.consts.NPCs
-import content.global.activity.pengs.handlers.Penguin
-import content.global.activity.pengs.handlers.PenguinManager
 import core.api.getStatLevel
 import core.api.removeAttribute
 import core.api.sendMessage
@@ -84,7 +82,7 @@ class LarryDialogue(player: Player? = null) : Dialogue(player) {
     }
 
     override fun newInstance(player: Player?): Dialogue {
-        return content.global.activity.pengs.dialogue.LarryDialogue(player)
+        return LarryDialogue(player)
     }
 
     override fun getIds(): IntArray {

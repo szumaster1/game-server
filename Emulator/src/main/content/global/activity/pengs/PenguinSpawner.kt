@@ -1,4 +1,4 @@
-package content.global.activity.pengs.handlers
+package content.global.activity.pengs
 
 import org.rs.consts.NPCs
 import core.game.node.entity.npc.NPC

@@ -1,4 +1,4 @@
-package content.global.activity.star.handlers
+package content.global.activity.star
 
 import core.ServerStore
 import core.ServerStore.Companion.getBoolean

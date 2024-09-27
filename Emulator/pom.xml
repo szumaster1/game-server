@@ -3,9 +3,11 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <modelVersion>4.0.0</modelVersion>
+
     <groupId>org.rs</groupId>
     <artifactId>server</artifactId>
     <version>1.0.0</version>
+
     <properties>
         <project.mainClassName>core.Main</project.mainClassName>
         <kotlin.compiler.incremental>true</kotlin.compiler.incremental>
@@ -15,7 +17,9 @@
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
     </properties>
+
     <dependencies>
+
         <!-- https://mvnrepository.com/artifact/org.jetbrains.kotlin/kotlin-stdlib -->
         <dependency>
             <groupId>org.jetbrains.kotlin</groupId>
@@ -23,6 +27,7 @@
             <version>${kotlin.version}</version>
             <scope>compile</scope>
         </dependency>
+
         <!-- https://mvnrepository.com/artifact/com.googlecode.json-simple/json-simple -->
         <dependency>
             <groupId>com.googlecode.json-simple</groupId>
@@ -30,6 +35,7 @@
             <version>1.1.1</version>
             <scope>compile</scope>
         </dependency>
+
         <!-- https://mvnrepository.com/artifact/org.jetbrains.kotlin/kotlin-reflect -->
         <dependency>
             <groupId>org.jetbrains.kotlin</groupId>
@@ -37,6 +43,7 @@
             <version>1.5.20</version>
             <scope>compile</scope>
         </dependency>
+
         <!-- https://mvnrepository.com/artifact/org.jetbrains.kotlinx/kotlinx-coroutines-core-jvm -->
         <dependency>
             <groupId>org.jetbrains.kotlinx</groupId>
@@ -44,6 +51,7 @@
             <version>1.4.2</version>
             <scope>compile</scope>
         </dependency>
+
         <!-- https://mvnrepository.com/artifact/io.hotmoka/toml4j -->
         <dependency>
             <groupId>com.moandjiezana.toml</groupId>
@@ -51,6 +59,7 @@
             <version>0.7.2</version>
             <scope>compile</scope>
         </dependency>
+
         <!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-engine -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
@@ -58,6 +67,7 @@
             <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
+
         <!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
@@ -65,6 +75,7 @@
             <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
+
         <!-- https://gitlab.com/rs-source/library -->
         <dependency>
             <groupId>org.rs.consts</groupId>
@@ -78,12 +89,14 @@
             <artifactId>mysql-connector-java</artifactId>
             <version>8.0.29</version>
         </dependency>
+
         <!-- https://mvnrepository.com/artifact/io.github.classgraph/classgraph -->
         <dependency>
             <groupId>io.github.classgraph</groupId>
             <artifactId>classgraph</artifactId>
             <version>4.8.146</version>
         </dependency>
+
         <!-- https://mvnrepository.com/artifact/org.xerial/sqlite-jdbc -->
         <dependency>
             <groupId>org.xerial</groupId>
@@ -91,6 +104,7 @@
             <version>3.41.2.2</version>
             <scope>compile</scope>
         </dependency>
+
         <!-- https://mvnrepository.com/artifact/com.github.ajalt.mordant/mordant -->
         <dependency>
             <groupId>com.github.ajalt.mordant</groupId>
@@ -98,6 +112,7 @@
             <version>2.0.0-beta6</version>
             <scope>compile</scope>
         </dependency>
+
         <!-- https://mvnrepository.com/artifact/com.google.errorprone/error_prone_annotations -->
         <dependency>
             <groupId>com.google.errorprone</groupId>
@@ -111,7 +126,8 @@
         <sourceDirectory>src/main</sourceDirectory>
         <testSourceDirectory>src/test</testSourceDirectory>
         <plugins>
-            <!-- Installs our local dependencies (const/extension libraries) to a local maven repo) -->
+
+            <!-- Maven Install Plugin for local dependency -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-install-plugin</artifactId>
@@ -136,11 +152,11 @@
                 </executions>
             </plugin>
 
+            <!-- Maven Assembly Plugin -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-assembly-plugin</artifactId>
                 <version>3.4.2</version>
-
                 <configuration>
                     <descriptorRefs>
                         <descriptorRef>jar-with-dependencies</descriptorRef>
@@ -151,7 +167,6 @@
                         </manifest>
                     </archive>
                 </configuration>
-
                 <executions>
                     <execution>
                         <id>make-assembly</id>
@@ -161,8 +176,9 @@
                         </goals>
                     </execution>
                 </executions>
-
             </plugin>
+
+            <!-- Kotlin Maven Plugin -->
             <plugin>
                 <groupId>org.jetbrains.kotlin</groupId>
                 <artifactId>kotlin-maven-plugin</artifactId>
@@ -192,6 +208,8 @@
                     </execution>
                 </executions>
             </plugin>
+
+            <!-- Compiler Plugin -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
