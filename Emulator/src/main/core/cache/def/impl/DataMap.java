@@ -12,15 +12,12 @@ import java.util.Map;
 
 import static core.api.ContentAPIKt.log;
 
-/**
- * The data map.
- */
 public class DataMap {
 
     /**
      * The config definitions mapping.
      */
-    private static final Map<Integer, core.cache.def.impl.DataMap> definitions = new HashMap<>();
+    private static final Map<Integer, DataMap> definitions = new HashMap<>();
 
     /**
      * The enum id.
@@ -67,7 +64,7 @@ public class DataMap {
     }
 
     public static DataMap get(int id){
-        core.cache.def.impl.DataMap def = definitions.get(id);
+        DataMap def = definitions.get(id);
         if (def != null) {
             return def;
         }

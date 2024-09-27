@@ -1,6 +1,5 @@
 package core.cache.def.impl;
 
-import core.Configuration;
 import core.api.EquipmentSlot;
 import core.cache.Cache;
 import core.cache.def.Definition;
@@ -11,26 +10,24 @@ import core.game.node.entity.player.Player;
 import core.game.node.entity.skill.Skills;
 import core.game.node.item.Item;
 import core.game.node.item.ItemPlugin;
+import core.game.system.config.ItemConfigParser;
 import core.game.world.GameWorld;
-import core.plugin.Plugin;
 import core.tools.Log;
 import core.tools.StringUtils;
-import core.tools.SystemLogger;
-import core.game.system.config.ItemConfigParser;
 import org.rs.consts.Items;
 
 import java.nio.ByteBuffer;
-import java.text.DecimalFormat;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
-import java.util.Arrays;
 
 import static core.api.ContentAPIKt.equipSlot;
 import static core.api.ContentAPIKt.log;
 
 /**
  * Represents an item's definitions.
+ *
  * @author Jagex, Emperor
  */
 public class ItemDefinition extends Definition<Item> {
@@ -674,9 +671,7 @@ public class ItemDefinition extends Definition<Item> {
         Items.BOOTS_4310
     ));
     private static final HashSet<Integer> entranaBannedItems = new HashSet(Arrays.asList(
-        /*
-         * Items.BUTTERFLY_NET_10010, easing the restriction until barehanded implementation
-         */
+        /**Items.BUTTERFLY_NET_10010, easing the restriction until barehanded implementation**/
         Items.DWARF_CANNON_SET_11967,
         Items.CANNON_BARRELS_10,
         Items.CANNON_BASE_6,

@@ -19,15 +19,15 @@ import java.util.Map;
 
 import static core.api.ContentAPIKt.getVarp;
 
+/*
+ * Debug NPC Opcodes Line 483, Uncomment
+ */
+
 /**
  * Represents an NPC's definitions.
  * @author Emperor
  */
 public final class NPCDefinition extends Definition<NPC> {
-
-    /*
-     * Debug NPC Opcodes Line 483, Uncomment
-     */
 
     /**
      * The definitions.
@@ -58,6 +58,9 @@ public final class NPCDefinition extends Definition<NPC> {
      * If the NPC can be seen on the minimap.
      */
     public boolean isVisibleOnMap;
+
+
+    /*	public String examine;*/
 
     /**
      * The drop tables.
@@ -127,7 +130,7 @@ public final class NPCDefinition extends Definition<NPC> {
     private int turnAnimation;
 
     /**
-     * The turn 180 animation.
+     * The turn 180� animation.
      */
     private int turn180Animation;
 
@@ -215,16 +218,15 @@ public final class NPCDefinition extends Definition<NPC> {
 
     public static void main(String... args) throws Throwable {
         GameWorld.prompt(false);
-        /*
-        for (int i = 0; i < 11000; i++) {
-            ItemDefinition def = ItemDefinition.forId(i);
-            if (def.getMaleWornModelId1() >= 1250 && def.getMaleWornModelId1() <=
-                1550) {
 
-                def.getMaleWornModelId1());
-            }
-        }
-        */
+        // for (int i = 0; i < 11000; i++) {
+        // ItemDefinition def = ItemDefinition.forId(i);
+        // if (def.getMaleWornModelId1() >= 1250 && def.getMaleWornModelId1() <=
+        // 1550) {
+
+        // def.getMaleWornModelId1());
+        // }
+        // }
     }
 
     /**
@@ -285,7 +287,7 @@ public final class NPCDefinition extends Definition<NPC> {
                 anIntArray868 = new int[length];
                 for (int i_66_ = 0; i_66_ < length; i_66_++) {
                     anIntArray868[i_66_] = buffer.getShort() & 0xFFFF;
-                    if ((~anIntArray868[i_66_]) == -65536)
+                    if ((anIntArray868[i_66_] ^ 0xffffffff) == -65536)
                         anIntArray868[i_66_] = -1;
                 }
                 break;
@@ -324,7 +326,7 @@ public final class NPCDefinition extends Definition<NPC> {
                 length = buffer.get() & 0xFF;
                 aShortArray859 = new short[length];
                 aShortArray896 = new short[length];
-                for (int i_65_ = 0; (~length) < (~i_65_); i_65_++) {
+                for (int i_65_ = 0; (length ^ 0xffffffff) < (i_65_ ^ 0xffffffff); i_65_++) {
                     aShortArray896[i_65_] = (short) (buffer.getShort() & 0xFFFF);
                     aShortArray859[i_65_] = (short) (buffer.getShort() & 0xFFFF);
                 }
@@ -333,7 +335,7 @@ public final class NPCDefinition extends Definition<NPC> {
                 length = buffer.get() & 0xFF;
                 aShortArray880 = new short[length];
                 aShortArray866 = new short[length];
-                for (int i_54_ = 0; (~i_54_) > (~length); i_54_++) {
+                for (int i_54_ = 0; (i_54_ ^ 0xffffffff) > (length ^ 0xffffffff); i_54_++) {
                     aShortArray880[i_54_] = (short) (buffer.getShort() & 0xFFFF);
                     aShortArray866[i_54_] = (short) (buffer.getShort() & 0xFFFF);
                 }
@@ -348,7 +350,7 @@ public final class NPCDefinition extends Definition<NPC> {
             case 60:
                 length = buffer.get() & 0xFF;
                 anIntArray892 = new int[length];
-                for (int i_64_ = 0; (~i_64_) > (~length); i_64_++) {
+                for (int i_64_ = 0; (i_64_ ^ 0xffffffff) > (length ^ 0xffffffff); i_64_++) {
                     anIntArray892[i_64_] = buffer.getShort() & 0xFFFF;
                 }
                 break;
@@ -390,7 +392,7 @@ public final class NPCDefinition extends Definition<NPC> {
                     configId = -1;
                 }
                 int defaultValue = -1;
-                if ((~opcode) == -119) {
+                if ((opcode ^ 0xffffffff) == -119) {
                     defaultValue = buffer.getShort() & 0xFFFF;
                     if (defaultValue == 65535) {
                         defaultValue = -1;
@@ -487,9 +489,7 @@ public final class NPCDefinition extends Definition<NPC> {
                 }
                 break;
             default:
-                /*
-                 * SystemLogger.logErr("Unhandled NPC definition opcode: " + opcode);
-                 */
+                //SystemLogger.logErr("Unhandled NPC definition opcode: " + opcode);
         }
     }
 
@@ -525,7 +525,7 @@ public final class NPCDefinition extends Definition<NPC> {
     }
 
     /**
-     * Checks if a npc has a reward.
+     * Checks if an npc has an reward.
      *
      * @param optionName The option name.
      * @return {@code True} if so.
