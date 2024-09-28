@@ -11,6 +11,14 @@
 
 ### 2009scape
 
+***
+
+<div style="text-align: center;">
+
+![](https://i.imgur.com/vHj2ulG.png)
+
+</div>
+
 Fork for educational purposes & single-player experience.
 
 #### Setting up the project
@@ -91,18 +99,13 @@ If you have encountered a problem with GitLab please refer to the help center av
 * Put creds in `credentials.json`
 * `sudo apt install libmariadb3 libmariadb-dev`
 
-##### Running the project
-
-### Setting up the single-player
-
 ***
 
 #### Basic information:
 - Default xp modes: 1.0x, 25.0x, 500.0x, 1000.0x
 
-***
+## Setting up the single-player
 
-#### How to launch
 1. Download [github desktop](https://desktop.github.com/download/).
    ![](https://i.imgur.com/RZnyFVo.png)
 2. Fork this repository to your repositories, then Clone.
