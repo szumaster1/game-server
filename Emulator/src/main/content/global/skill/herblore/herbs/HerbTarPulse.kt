@@ -10,10 +10,9 @@ import core.game.node.item.Item
 import org.rs.consts.QuestName
 
 /**
- * Represents the pulse used to create herb tars.
+ * Represents the pulse used to create tar.
  */
-class HerbTarPulse(player: Player?, node: Item?, val tar: Tar, private var amount: Int) :
-    SkillPulse<Item?>(player, node) {
+class HerbTarPulse(player: Player?, node: Item?, val tar: Tar, private var amount: Int) : SkillPulse<Item?>(player, node) {
 
     override fun checkRequirements(): Boolean {
         if (!isQuestComplete(player, QuestName.DRUIDIC_RITUAL)) {
@@ -44,10 +43,10 @@ class HerbTarPulse(player: Player?, node: Item?, val tar: Tar, private var amoun
             delay = 4
             return false
         }
-        if (inInventory(player, Items.SWAMP_TAR_1939, 15) && inInventory(player, tar.ingredient.id) && removeItem(player, Item(Items.SWAMP_TAR_1939, 15)) && removeItem(player, tar.ingredient)) {
-            addItem(player, tar.tar.id, 15)
+        if (inInventory(player, Items.SWAMP_TAR_1939, 15) && inInventory(player, tar.ingredient) && removeItem(player, Item(Items.SWAMP_TAR_1939, 15)) && removeItem(player, tar.ingredient)) {
+            addItem(player, tar.product, 15)
             rewardXP(player, Skills.HERBLORE, tar.experience)
-            sendMessage(player, "You add the " + tar.ingredient.name.lowercase().replace("clean", "").trim { it <= ' ' } + " to the swamp tar.")
+            sendMessage(player, "You add the " + getItemName(tar.ingredient).lowercase().replace("clean", "").trim { it <= ' ' } + " to the swamp tar.")
         } else {
             return true
         }

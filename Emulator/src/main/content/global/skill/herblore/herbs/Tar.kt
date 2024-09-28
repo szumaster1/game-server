@@ -7,40 +7,40 @@ import core.game.node.item.Item
  * Represents a tar to create.
  */
 enum class Tar(
-    val ingredient: Item,
+    val ingredient: Int,
     val level: Int,
     val experience: Double,
-    val tar: Item
+    val product: Int
 ) {
     GUAM_TAR(
-        ingredient = Herb.GUAM.product,
+        ingredient = Herb.GUAM.product.id,
         level = 19,
         experience = 30.0,
-        tar = Item(Items.GUAM_TAR_10142)
+        product = Items.GUAM_TAR_10142
     ),
     GROUND_GUAM_TAR(
-        ingredient = Item(Items.GROUND_GUAM_6681),
+        ingredient = Items.GROUND_GUAM_6681,
         level = 19,
         experience = 30.0,
-        tar = Item(Items.GUAM_TAR_10142)
+        product = Items.GUAM_TAR_10142
     ),
     MARRENTILL_TAR(
-        ingredient = Herb.MARRENTILL.product,
+        ingredient = Herb.MARRENTILL.product.id,
         level = 31,
         experience = 42.5,
-        tar = Item(Items.MARRENTILL_TAR_10143)
+        product = Items.MARRENTILL_TAR_10143
     ),
     TARROMIN_TAR(
-        ingredient = Herb.TARROMIN.product,
+        ingredient = Herb.TARROMIN.product.id,
         level = 39,
         experience = 55.0,
-        tar = Item(Items.TARROMIN_TAR_10144)
+        product = Items.TARROMIN_TAR_10144
     ),
     HARRALANDER_TAR(
-        ingredient = Herb.HARRALANDER.product,
+        ingredient = Herb.HARRALANDER.product.id,
         level = 44,
         experience = 72.5,
-        tar = Item(Items.HARRALANDER_TAR_10145)
+        product = Items.HARRALANDER_TAR_10145
     );
 
     companion object {
@@ -52,7 +52,7 @@ enum class Tar(
         @JvmStatic
         fun forItem(item: Item): Tar? {
             for (tar in values()) {
-                if (tar.ingredient.id == item.id) {
+                if (tar.ingredient == item.id) {
                     return tar
                 }
             }
