@@ -1,7 +1,6 @@
 package content.global.skill.herblore.herbs
 
 import org.rs.consts.Items
-import core.game.node.item.Item
 
 /**
  * Represents a tar to create.
@@ -44,15 +43,10 @@ enum class Tar(
     );
 
     companion object {
-        /**
-         * Gets the tar.
-         * @param item the item.
-         * @return the tar.
-         */
         @JvmStatic
-        fun forItem(item: Item): Tar? {
+        fun forId(id: Int): Tar? {
             for (tar in values()) {
-                if (tar.ingredient == item.id) {
+                if (tar.ingredient == id) {
                     return tar
                 }
             }

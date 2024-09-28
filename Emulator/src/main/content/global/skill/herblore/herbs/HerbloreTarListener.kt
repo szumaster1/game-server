@@ -16,7 +16,7 @@ class HerbloreTarListener : InteractionListener {
 
     override fun defineListeners() {
         onUseWith(IntType.ITEM, tar, Items.SWAMP_TAR_1939) { player, used, _ ->
-            var tar = Tar.forItem(used.asItem())
+            var tar = Tar.forId(used.id)
             val handler: SkillDialogueHandler = object : SkillDialogueHandler(player, SkillDialogue.ONE_OPTION, tar!!.product) {
                 override fun create(amount: Int, index: Int) {
                     player.pulseManager.run(
