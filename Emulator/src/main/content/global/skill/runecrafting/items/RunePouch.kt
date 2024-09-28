@@ -1,9 +1,6 @@
 package content.global.skill.runecrafting.items
 
-import core.api.freeSlots
-import core.api.getStatLevel
-import core.api.hasSpaceFor
-import core.api.sendMessage
+import core.api.*
 import core.game.global.action.DropListener
 import core.game.node.entity.player.Player
 import core.game.node.entity.skill.Skills
@@ -15,42 +12,42 @@ import java.util.*
  * Represents the [RunePouch].
  */
 enum class RunePouch(
-    val pouch: Item,
+    val pouch: Int,
     val level: Int,
     private val capacity: Int,
     val cumulativeCapacity: Int,
     val uses: Int
 ) {
     SMALL(
-        pouch = Item(Items.SMALL_POUCH_5509),
+        pouch = Items.SMALL_POUCH_5509,
         level = 1,
         capacity = 3,
         cumulativeCapacity = 3,
         uses = 0
     ),
     MEDIUM(
-        pouch = Item(Items.MEDIUM_POUCH_5510),
+        pouch = Items.MEDIUM_POUCH_5510,
         level = 25,
         capacity = 6,
         cumulativeCapacity = 9,
         uses = 45
     ),
     LARGE(
-        pouch = Item(Items.LARGE_POUCH_5512),
+        pouch = Items.LARGE_POUCH_5512,
         level = 50,
         capacity = 9,
         cumulativeCapacity = 18,
         uses = 29
     ),
     GIANT(
-        pouch = Item(Items.GIANT_POUCH_5514),
+        pouch = Items.GIANT_POUCH_5514,
         level = 75,
         capacity = 12,
         cumulativeCapacity = 30,
         uses = 10
     );
 
-    val decayedPouch = Item(pouch.id + 1)
+    val decayedPouch = Item(pouch + 1)
 
     /**
      * Performs an action based on the player's input option regarding the pouch.
@@ -144,11 +141,11 @@ enum class RunePouch(
      */
     fun checkDoubles(player: Player): Boolean {
         var hit = false
-        for (pouch in values()) {
-            if (player.inventory.getAmount(pouch.pouch) > 1 || player.bank.getAmount(pouch.pouch) > 1) {
+        for (item in values()) {
+            if (player.inventory.getAmount(item.pouch) > 1 || player.bank.getAmount(item.pouch) > 1) {
                 hit = true
-                player.inventory.remove(Item(pouch.pouch.id, player.inventory.getAmount(pouch.pouch) - 1))
-                player.bank.remove(Item(pouch.pouch.id, player.bank.getAmount(pouch.pouch)))
+                player.inventory.remove(Item(item.pouch, player.inventory.getAmount(item.pouch) - 1))
+                player.bank.remove(Item(item.pouch, player.bank.getAmount(item.pouch)))
             }
         }
         return hit
@@ -265,7 +262,7 @@ enum class RunePouch(
      */
     fun repair(player: Player, pouch: Item) {
         if (isDecayed(pouch)) {
-            player.inventory.replace(Item(this.pouch.id, pouch.amount, pouch.charge), pouch.slot)
+            player.inventory.replace(Item(this.pouch, pouch.amount, pouch.charge), pouch.slot)
         }
         resetDecay(player)
     }
@@ -364,7 +361,7 @@ enum class RunePouch(
      * @return True if the item is full, otherwise false.
      */
     fun isFull(item: Item): Boolean {
-        return getEssence(item) >= getCapacity(pouch)
+        return getEssence(item) >= getCapacity(pouch.asItem())
     }
 
     /**
@@ -606,9 +603,10 @@ enum class RunePouch(
          * @param pouch the pouch item to evaluate.
          * @return the corresponding RunePouch if found, otherwise null.
          */
+        @JvmStatic
         fun forItem(pouch: Item): RunePouch? {
             for (p in values()) {
-                if (p.pouch.id == pouch.id || (p != SMALL && p.decayedPouch.id == pouch.id)) {
+                if (p.pouch == pouch.id || (p != SMALL && p.decayedPouch.id == pouch.id)) {
                     return p
                 }
             }

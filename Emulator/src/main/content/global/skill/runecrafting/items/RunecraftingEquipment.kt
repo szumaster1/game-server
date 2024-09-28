@@ -7,7 +7,6 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.entity.player.Player
 import core.game.node.entity.skill.Skills
-import core.game.node.item.Item
 import org.rs.consts.Items
 import org.rs.consts.Vars
 
@@ -88,17 +87,17 @@ class RunecraftingEquipment : InteractionListener {
          * If player has both (tiara and staff) in inventory.
          */
 
-        TalismanStaff.values().forEach { staff ->
-            val altar = map(staff)
+        TalismanStaff.values().forEach { item ->
+            val altar = map(item)
             altar?.let {
-                onUseWith(IntType.SCENERY, staff.item.id, it.scenery) { player, used, _ ->
+                onUseWith(IntType.SCENERY, item.item.id, it.scenery) { player, used, _ ->
                     setTitle(player, 2)
                     sendDialogueOptions(player, "Do you want to enchant a tiara or staff?", "Tiara.", "Staff.")
                     openDialogue(player, object : DialogueFile() {
                         override fun handle(componentID: Int, buttonID: Int) {
                             when (buttonID) {
-                                1 -> enchantTiara(player, used.asItem(), staff)
-                                2 -> enchantStaff(player, used.asItem(), staff)
+                                1 -> enchantTiara(player, used.id, item)
+                                2 -> enchantStaff(player, used.id, item)
                             }
                         }
                     })
@@ -108,27 +107,28 @@ class RunecraftingEquipment : InteractionListener {
         }
     }
 
-    private fun enchantTiara(player: Player, used: Item, staff: TalismanStaff) {
+    private fun enchantTiara(player: Player, itemId: Int, product: TalismanStaff) {
         if (!inInventory(player, Items.TIARA_5525)) {
             sendMessage(player, "You need a tiara.")
             return
         }
-        removeItem(player, used.id)
-        removeItem(player, Item(Items.TIARA_5525))
-        addItemOrDrop(player, staff.tiara)
-        rewardXP(player, Skills.RUNECRAFTING, Staff.forStaff(staff.tiara)!!.experience)
+        removeItem(player, itemId)
+        removeItem(player, Items.TIARA_5525)
+        addItemOrDrop(player, product.tiara)
+        rewardXP(player, Skills.RUNECRAFTING, Staff.forStaff(product.tiara)!!.experience)
         sendMessage(player, "You bind the power of the talisman into your tiara.")
     }
 
-    private fun enchantStaff(player: Player, used: Item, staff: TalismanStaff) {
+    private fun enchantStaff(player: Player, itemId: Int, product: TalismanStaff) {
         if (!inInventory(player, Items.RUNECRAFTING_STAFF_13629)) {
             sendMessage(player, "You need a runecrafting staff.")
             return
         }
-        removeItem(player, used.id)
-        removeItem(player, Item(Items.RUNECRAFTING_STAFF_13629))
-        addItemOrDrop(player, staff.staff.item)
-        rewardXP(player, Skills.RUNECRAFTING, staff.staff.experience)
+        removeItem(player, itemId)
+        removeItem(player, Items.RUNECRAFTING_STAFF_13629)
+        addItemOrDrop(player, product.staff.item)
+        rewardXP(player, Skills.RUNECRAFTING, product.staff.experience)
         sendMessage(player, "You bind the power of the talisman into your staff.")
     }
+
 }

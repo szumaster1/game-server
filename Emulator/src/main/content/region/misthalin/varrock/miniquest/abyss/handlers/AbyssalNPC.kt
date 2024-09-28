@@ -1,11 +1,12 @@
 package content.region.misthalin.varrock.miniquest.abyss.handlers
 
 import content.global.skill.runecrafting.items.RunePouch
+import core.api.asItem
+import core.api.hasAnItem
 import org.rs.consts.NPCs
 import core.game.node.entity.Entity
 import core.game.node.entity.npc.AbstractNPC
 import core.game.node.entity.player.Player
-import core.game.node.item.Item
 import core.game.world.map.Location
 import core.tools.RandomFunction
 
@@ -40,25 +41,27 @@ class AbyssalNPC : AbstractNPC {
             if (RandomFunction.random(750) < 12) {
                 val pouch = getPouch(p)
                 if (pouch != null) {
-                    definition.dropTables.createDrop(pouch, p, this, getLocation())
+                    definition.dropTables.createDrop(pouch.asItem(), p, this, getLocation())
                 }
             }
         }
     }
 
-    private fun getPouch(player: Player): Item? {
-        if (!player.hasItem(RunePouch.SMALL.pouch)) {
+    private fun getPouch(player: Player): Int? {
+        val small = hasAnItem(player, RunePouch.SMALL.pouch).container != null || hasAnItem(player, RunePouch.SMALL.decayedPouch.id).container != null
+        val medium = hasAnItem(player, RunePouch.MEDIUM.pouch).container != null || hasAnItem(player, RunePouch.MEDIUM.decayedPouch.id).container != null
+        val large = hasAnItem(player, RunePouch.LARGE.pouch).container != null || hasAnItem(player, RunePouch.LARGE.decayedPouch.id).container != null
+        val giant = hasAnItem(player, RunePouch.GIANT.pouch).container != null || hasAnItem(player, RunePouch.GIANT.decayedPouch.id).container != null
+
+        if (!small)
             return RunePouch.SMALL.pouch
-        }
-        if (!player.hasItem(RunePouch.MEDIUM.pouch) && !player.hasItem(RunePouch.MEDIUM.decayedPouch)) {
+        if (!medium)
             return RunePouch.MEDIUM.pouch
-        }
-        if (!player.hasItem(RunePouch.LARGE.pouch) && !player.hasItem(RunePouch.LARGE.decayedPouch)) {
+        if (!large)
             return RunePouch.LARGE.pouch
-        }
-        return if (!player.hasItem(RunePouch.GIANT.pouch) && !player.hasItem(RunePouch.GIANT.decayedPouch)) {
+        return if(!giant)
             RunePouch.GIANT.pouch
-        } else null
+        else null
     }
 
     override fun getIds(): IntArray {
