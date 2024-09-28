@@ -2,7 +2,7 @@ package core.api.utils
 
 import content.data.tables.*
 import content.global.activity.ttrails.ClueLevel
-import content.global.skill.combat.equipment.gloves.FOGGlovesManager
+import content.global.skill.combat.equipment.gloves.FOGGlovesListener
 import core.api.inEquipment
 import core.cache.def.impl.ItemDefinition
 import core.game.node.entity.Entity
@@ -78,16 +78,16 @@ open class WeightBasedTable : ArrayList<WeightedItem>() {
                 SLOT_HDT -> {
                     if (RandomFunction.nextBool() && receiver is Player) {
                         if (inEquipment(receiver, Items.IRIT_GLOVES_12856)) {
-                            FOGGlovesManager.updateCharges(receiver)
+                            FOGGlovesListener.updateCharges(receiver)
                             Item(Items.GRIMY_IRIT_209)
                         } else if (inEquipment(receiver, Items.AVANTOE_GLOVES_12857)) {
-                            FOGGlovesManager.updateCharges(receiver)
+                            FOGGlovesListener.updateCharges(receiver)
                             Item(Items.GRIMY_AVANTOE_211)
                         } else if (inEquipment(receiver, Items.KWUARM_GLOVES_12858)) {
-                            FOGGlovesManager.updateCharges(receiver)
+                            FOGGlovesListener.updateCharges(receiver)
                             Item(Items.GRIMY_KWUARM_213)
                         } else if (inEquipment(receiver, Items.CADANTINE_GLOVES_12859)) {
-                            FOGGlovesManager.updateCharges(receiver)
+                            FOGGlovesListener.updateCharges(receiver)
                             Item(Items.GRIMY_CADANTINE_215)
                         } else
                             HerbDropTable.retrieve(receiver)

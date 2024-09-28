@@ -1,6 +1,6 @@
 package content.global.skill.gather.fishing
 
-import content.global.skill.combat.equipment.gloves.FOGGlovesManager
+import content.global.skill.combat.equipment.gloves.FOGGlovesListener
 import content.global.skill.skillcape.SkillcapePerksEffect
 import content.global.skill.skillcape.SkillcapePerksEffect.Companion.isActive
 import core.api.*
@@ -119,7 +119,7 @@ class FishingListener : InteractionListener {
                 || (item.id == Items.RAW_SHARK_383 && inEquipment(player, Items.SHARK_GLOVES_12861))
             ) {
                 xp += 100
-                FOGGlovesManager.updateCharges(player)
+                FOGGlovesListener.updateCharges(player)
             }
             rewardXP(player, Skills.FISHING, xp)
             delayClock(player, Clocks.SKILLING, 5)

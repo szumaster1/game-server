@@ -1,6 +1,6 @@
 package content.global.skill.runecrafting
 
-import content.global.skill.combat.equipment.gloves.FOGGlovesManager.Companion.updateCharges
+import content.global.skill.combat.equipment.gloves.FOGGlovesListener.Companion.updateCharges
 import content.global.skill.runecrafting.altars.Altar
 import content.global.skill.runecrafting.items.Talisman
 import content.global.skill.runecrafting.runes.CombinationRune

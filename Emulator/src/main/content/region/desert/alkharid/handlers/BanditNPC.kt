@@ -1,49 +1,61 @@
 package content.region.desert.alkharid.handlers
 
-import core.api.*
-import org.rs.consts.NPCs
+import core.api.God
+import core.api.hasGodItem
 import core.game.node.entity.Entity
 import core.game.node.entity.combat.BattleState
-import core.game.node.entity.npc.NPC
-import core.game.node.entity.npc.NPCBehavior
+import core.game.node.entity.npc.AbstractNPC
+import core.game.node.entity.player.Player
+import core.game.world.map.Location
 import core.game.world.map.RegionManager
-import core.tools.RandomFunction
+import core.plugin.Initializable
+import org.rs.consts.NPCs
 
-/**
- * Represents the Bandit NPC.
- */
-class BanditNPC : NPCBehavior(NPCs.BANDIT_1926) {
+@Initializable
+class BanditNPC(id: Int = NPCs.BANDIT_1926, location: Location? = null) : AbstractNPC(id, location) {
+    private val supportRange: Int = 3
 
-    override fun tick(self: NPC): Boolean {
-        if (!self.inCombat() && RandomFunction.roll(3) && getWorldTicks() % 5 == 0) {
-            val players = RegionManager.getLocalPlayers(self, 5)
+    override fun construct(id: Int, location: Location, vararg objects: Any): AbstractNPC {
+        return BanditNPC(id, location)
+    }
+
+    override fun tick() {
+        if (!inCombat()) {
+            val players = RegionManager.getLocalPlayers(this, 5)
             for (player in players) {
                 if (player.inCombat()) continue
                 if (hasGodItem(player, God.SARADOMIN)) {
-                    sendChat(self, "Prepare to die, Saradominist scum!")
-                    self.attack(player)
+                    sendChat("Time to die, Saradominist filth!")
+                    attack(player)
                     break
                 } else if (hasGodItem(player, God.ZAMORAK)) {
-                    sendChat(self, "Prepare to die, Zamorakian scum!")
-                    self.attack(player)
+                    sendChat("Prepare to suffer, Zamorakian scum!")
+                    attack(player)
                     break
                 }
             }
         }
-        return true
+        super.tick()
     }
 
-    override fun afterDamageReceived(self: NPC, attacker: Entity, state: BattleState) {
-        if (getAttribute(self, "alerted-others", false)) return
-        val otherBandits = RegionManager.getLocalNpcs(self, 3).filter { it.id == self.id }
-        for (bandit in otherBandits) {
-            if (!bandit.inCombat())
-                bandit.attack(attacker)
+    override fun finalizeDeath(killer: Entity?) {
+        super.finalizeDeath(killer)
+    }
+
+    override fun onImpact(entity: Entity?, state: BattleState?) {
+        if (entity is Player) {
+            RegionManager.getLocalNpcs(entity, supportRange).forEach {
+                if (it.id == NPCs.BANDIT_1926 && !it.properties.combatPulse.isAttacking && it != this) {
+                    it.sendChat("You picked the wrong place to start trouble!")
+                    it.attack(entity)
+                }
+            }
         }
-        setAttribute(self, "alerted-others", true)
+        super.onImpact(entity, state)
     }
 
-    override fun onDeathStarted(self: NPC, killer: Entity) {
-        removeAttribute(self, "alerted-others")
+    override fun getIds(): IntArray {
+        return intArrayOf(NPCs.BANDIT_1926)
     }
+
 }

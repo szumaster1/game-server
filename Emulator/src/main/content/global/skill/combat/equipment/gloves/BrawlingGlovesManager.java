@@ -115,9 +115,9 @@ public class BrawlingGlovesManager implements LoginListener, PersistPlayer {
             }
             int currentCharges = GloveCharges.get(glove);
             GloveCharges.replace(glove, currentCharges - charges);
-            player.debug("Glove charges: " + (currentCharges - 1));
+            player.debug("Charges remaining: " + (currentCharges - 1));
             if ((currentCharges - 1) % 50 == 0) {
-                player.getPacketDispatch().sendMessage("<col=1fbd0d>Your " + ItemDefinition.forId(glove).getName() + " have " + GloveCharges.get(glove) + " charges left.</col>");
+                player.getPacketDispatch().sendMessage("<col=1fbd0d>Charges remaining: " +GloveCharges.get(glove));
             }
         }
     }

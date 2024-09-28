@@ -1,6 +1,6 @@
 package content.global.skill.slayer
 
-import content.global.skill.combat.equipment.gloves.FOGGlovesManager
+import content.global.skill.combat.equipment.gloves.FOGGlovesListener
 import content.global.skill.slayer.masters.SlayerMaster
 import core.api.*
 import core.cache.def.impl.NPCDefinition
@@ -103,7 +103,7 @@ class SlayerManager(val player: Player? = null) : LoginListener, PersistPlayer, 
             var xp = npc.skills.maximumLifepoints.toDouble()
             if (slayer.task!!.dragon && inEquipment(player, Items.DRAGON_SLAYER_GLOVES_12862)) {
                 xp *= 1.15
-                FOGGlovesManager.updateCharges(player)
+                FOGGlovesListener.updateCharges(player)
             }
             rewardXP(player, Skills.SLAYER, xp)
             slayer.decrementAmount(1)
