@@ -9,15 +9,14 @@
 
 </div>
 
-### 2009scape
-
 ***
 
 <div style="text-align: center;">
 
-![](https://i.imgur.com/HneWpTx.png)
-
+![](https://cdn.2009scape.org/wiki/_media/2009scape_wallpaper.png?t=1726534164&w=500&h=304&tok=8feee8)
 </div>
+
+***
 
 Fork for educational purposes & single-player experience.
 
