@@ -19,12 +19,9 @@ import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.diary.DiaryType
 import core.game.world.map.zone.ZoneBorders
-import org.rs.consts.Components
-import org.rs.consts.Items
-import org.rs.consts.NPCs
-import org.rs.consts.Scenery
 import content.region.misthalin.lumbridge.dialogue.DukeHoracioDialogue
 import content.region.misthalin.lumbridge.dialogue.LumbridgeGuideDialogue
+import org.rs.consts.*
 
 /**
  * Represents the Lumbridge achievement diary.
@@ -469,7 +466,7 @@ class LumbridgeAchievementDiary : DiaryEventHookBase(DiaryType.LUMBRIDGE) {
     override fun onDialogueOptionSelected(player: Player, event: DialogueOptionSelectionEvent) {
         when (event.dialogue) {
             is DukeHoracioDragonSlayerDialogue -> {
-                val dragonSlayerStage = getQuestStage(player, "Dragon Slayer")
+                val dragonSlayerStage = getQuestStage(player, QuestName.DRAGON_SLAYER)
                 if ((dragonSlayerStage == 100 && event.currentStage == 4) || event.currentStage == 12) {
                     finishTask(
                         player,

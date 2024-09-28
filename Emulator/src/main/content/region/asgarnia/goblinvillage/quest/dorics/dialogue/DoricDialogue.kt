@@ -8,6 +8,7 @@ import core.game.dialogue.Topic
 import core.game.node.entity.player.Player
 import core.game.node.item.Item
 import core.tools.END_DIALOGUE
+import org.rs.consts.QuestName
 
 /**
  * Represents the Doric dialogue.
@@ -38,7 +39,7 @@ class DoricDialogue(private val questStage: Int) : DialogueFile() {
             40 -> npc(FacialExpression.OLD_NORMAL, "Clay is what I use more than anything, to make casts.", "Could you get me 6 clay, 4 copper ore, and 2 iron ore,", "please? I could pay a little, and let you use my anvils.", "Take this pickaxe with you just in case you need it.").also { stage++ }
             41 -> {
                 playerl(FacialExpression.FRIENDLY, "Certainly, I'll be right back!")
-                startQuest(player, "Doric's Quest")
+                startQuest(player, QuestName.DORICS_QUEST)
                 if (!inInventory(player, Items.BRONZE_PICKAXE_1265)) addItemOrDrop(player, Items.BRONZE_PICKAXE_1265)
                 stage = END_DIALOGUE
             }
@@ -63,7 +64,7 @@ class DoricDialogue(private val questStage: Int) : DialogueFile() {
             3 -> {
                 if (removeItem(player, Item(Items.CLAY_434, 6)) && removeItem(player, Item(Items.COPPER_ORE_436, 4)) && removeItem(player, Item(Items.IRON_ORE_440, 2))) {
                     sendItemDialogue(player, Items.COPPER_ORE_436, "You hand the clay, copper, and iron to Doric.")
-                    finishQuest(player, "Doric's Quest")
+                    finishQuest(player, QuestName.DORICS_QUEST)
                     stage = END_DIALOGUE
                 }
             }

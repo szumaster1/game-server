@@ -12,6 +12,7 @@ import core.game.world.repository.Repository.findNPC
 import core.tools.StringUtils
 import org.rs.consts.Components
 import org.rs.consts.Items
+import org.rs.consts.QuestName
 
 object CharterShipUtils {
 
@@ -96,7 +97,7 @@ object CharterShipUtils {
             13
         ) {
             override fun checkTravel(player: Player?): Boolean {
-                return requireQuest(player!!, "Priest in Peril", "to go there.")
+                return requireQuest(player!!, QuestName.PRIEST_IN_PERIL, "to go there.")
             }
         },
         CRANDOR(

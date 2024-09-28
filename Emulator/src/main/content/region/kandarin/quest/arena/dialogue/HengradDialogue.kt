@@ -2,10 +2,11 @@ package content.region.kandarin.quest.arena.dialogue
 
 import content.region.kandarin.quest.arena.cutscene.ScorpionFightCutscene
 import core.api.*
-import org.rs.consts.NPCs
 import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC
+import org.rs.consts.NPCs
+import org.rs.consts.QuestName
 
 /**
  * Represents the Hengrad dialogue.
@@ -14,7 +15,7 @@ class HengradDialogue : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {
         npc = NPC(NPCs.HENGRAD_263)
-        when (getQuestStage(player!!, "Fight Arena")) {
+        when (getQuestStage(player!!, QuestName.FIGHT_ARENA)) {
 
             in 72..88 -> when (stage) {
                 0 -> {
@@ -44,7 +45,7 @@ class HengradDialogue : DialogueFile() {
 
                 10 -> {
                     end()
-                    setQuestStage(player!!, "Fight Arena", 88)
+                    setQuestStage(player!!, QuestName.FIGHT_ARENA, 88)
                     ScorpionFightCutscene(player!!).start()
                 }
             }

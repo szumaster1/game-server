@@ -29,6 +29,7 @@ import kotlinx.coroutines.launch
 import java.io.BufferedWriter
 import java.io.File
 import java.io.FileWriter
+import org.rs.consts.QuestName
 
 /**
  * Development command set.
@@ -147,8 +148,8 @@ class DevelopmentCommandSet : CommandSet(Privilege.ADMIN) {
          */
 
         define(name = "dscut", privilege = Privilege.ADMIN, usage = "::dscut", description = "Starts the Dragon slayer cutscene.") { player, _ ->
-            setQuestStage(player, "Dragon Slayer", 30)
-            ActivityManager.start(player, "Dragon Slayer", false, player.location);
+            setQuestStage(player, QuestName.DRAGON_SLAYER, 30)
+            ActivityManager.start(player, QuestName.DRAGON_SLAYER, false, player.location);
         }
 
         /*

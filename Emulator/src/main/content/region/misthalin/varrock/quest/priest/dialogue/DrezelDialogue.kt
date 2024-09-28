@@ -7,6 +7,7 @@ import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.game.node.item.Item
 import core.plugin.Initializable
+import org.rs.consts.QuestName
 
 /**
  * Represents the Drezel dialogue.
@@ -17,8 +18,8 @@ class DrezelDialogue(player: Player? = null) : Dialogue(player) {
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
         npc.name = "Drezel"
-        NPCDefinition.forId(getIds()[0]).name = "Drezel"
-        val quest = player.getQuestRepository().getQuest("Priest in Peril")
+        NPCDefinition.forId(ids[0]).name = "Drezel"
+        val quest = player.getQuestRepository().getQuest(QuestName.PRIEST_IN_PERIL)
         if (quest.getStage(player) == 13) {
             npc(FacialExpression.HALF_GUILTY, "Hello.")
             stage = 0
@@ -45,7 +46,7 @@ class DrezelDialogue(player: Player? = null) : Dialogue(player) {
     }
 
     override fun handle(interfaceId: Int, buttonId: Int): Boolean {
-        val quest = player.getQuestRepository().getQuest("Priest in Peril")
+        val quest = player.getQuestRepository().getQuest(QuestName.PRIEST_IN_PERIL)
         when (stage) {
             0 -> {
                 npc(FacialExpression.HALF_GUILTY,
@@ -616,7 +617,7 @@ class DrezelDialogue(player: Player? = null) : Dialogue(player) {
             }
 
             802 -> {
-                val quests = player.getQuestRepository().getQuest("Priest in Peril")
+                val quests = player.getQuestRepository().getQuest(QuestName.PRIEST_IN_PERIL)
                 quests.setStage(player, 17)
                 end()
             }

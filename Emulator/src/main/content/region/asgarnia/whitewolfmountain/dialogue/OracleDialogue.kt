@@ -1,12 +1,13 @@
 package content.region.asgarnia.whitewolfmountain.dialogue
 
-import org.rs.consts.NPCs
 import core.game.dialogue.Dialogue
 import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.quest.Quest
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
+import org.rs.consts.NPCs
+import org.rs.consts.QuestName
 
 /**
  * Represents the Oracle dialogue.
@@ -21,7 +22,7 @@ class OracleDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
-        quest = player.getQuestRepository().getQuest("Dragon Slayer")
+        quest = player.getQuestRepository().getQuest(QuestName.DRAGON_SLAYER)
         when (quest!!.getStage(player)) {
             20 -> player("I seek a piece of the map to the island of Crandor.").also { stage = 0 }
             else -> player("Can you impart your wise knowledge on me, O Oracle?").also { stage = 0 }

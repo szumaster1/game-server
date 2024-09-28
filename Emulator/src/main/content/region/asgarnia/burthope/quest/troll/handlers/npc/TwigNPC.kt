@@ -11,6 +11,7 @@ import core.game.node.entity.npc.AbstractNPC
 import core.game.node.entity.player.Player
 import core.game.world.map.Location
 import core.plugin.Initializable
+import org.rs.consts.QuestName
 
 /**
  * Twig NPC.
@@ -45,7 +46,7 @@ class TwigNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id, locatio
     }
 
     override fun finalizeDeath(killer: Entity?) {
-        if (isQuestInProgress(killer as Player, "Troll Stronghold", 8, 10) && !inInventory(killer, Items.CELL_KEY_1_3136)) {
+        if (isQuestInProgress(killer as Player, QuestName.TROLL_STRONGHOLD, 8, 10) && !inInventory(killer, Items.CELL_KEY_1_3136)) {
             produceGroundItem(killer, Items.CELL_KEY_1_3136, 1, this.location)
         }
         super.finalizeDeath(killer)

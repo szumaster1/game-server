@@ -10,6 +10,7 @@ import core.game.node.entity.player.link.quest.Quest
 import core.game.node.item.Item
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
+import org.rs.consts.QuestName
 
 /**
  * Represents the Klarense dialogue.
@@ -27,7 +28,7 @@ class KlarenseDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
-        quest = player.getQuestRepository().getQuest("Dragon Slayer")
+        quest = player.getQuestRepository().getQuest(QuestName.DRAGON_SLAYER)
         if (args.size > 1) {
             npc(FacialExpression.ANGRY, "Hey, stay off my ship! That's private property!")
             stage = 0

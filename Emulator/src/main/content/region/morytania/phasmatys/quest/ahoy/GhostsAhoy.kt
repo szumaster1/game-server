@@ -1,15 +1,15 @@
 package content.region.morytania.phasmatys.quest.ahoy
 
-import core.api.*
-import org.rs.consts.Components
-import org.rs.consts.Items
-import org.rs.consts.Vars
 import content.region.morytania.phasmatys.quest.ahoy.handlers.GhostsAhoyUtils
+import core.api.*
 import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.quest.Quest
 import core.game.node.entity.skill.Skills
 import core.plugin.Initializable
+import org.rs.consts.Components
+import org.rs.consts.Items
 import org.rs.consts.QuestName
+import org.rs.consts.Vars
 
 /**
  * Ghosts Ahoy quest.
@@ -37,13 +37,13 @@ class GhostsAhoy : Quest("Ghosts Ahoy", 68, 67, 2, Vars.VARBIT_QUEST_GHOST_AHOY_
             line(player, "and be enable to defeat a !!level 32 monster??.", line++, false)
             line++
             line(player, "I must also have completed the following quests:", line++, false)
-            if (isQuestComplete(player, "Priest in Peril")) {
-                line(player, "<str><col=000000>Priest in Peril", line++, false)
+            if (isQuestComplete(player, QuestName.PRIEST_IN_PERIL)) {
+                line(player, "<str><col=000000>${QuestName.PRIEST_IN_PERIL}", line++, false)
             } else {
                 line(player, "!!Priest in Peril??", line++, false)
             }
             if (isQuestComplete(player, QuestName.THE_RESTLESS_GHOST)) {
-                line(player, "<str><col=000000>The Restless Ghost", line++, false)
+                line(player, "<str><col=000000>${QuestName.THE_RESTLESS_GHOST}", line++, false)
             } else {
                 line(player, "!!The Restless Ghost??", line++, false)
             }

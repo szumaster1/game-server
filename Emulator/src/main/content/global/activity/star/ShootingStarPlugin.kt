@@ -3,8 +3,6 @@ package content.global.activity.star
 import core.ServerStore
 import core.ServerStore.Companion.getBoolean
 import core.api.*
-import org.rs.consts.Items
-import org.rs.consts.Scenery
 import core.game.dialogue.DialogueFile
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
@@ -17,6 +15,9 @@ import core.tools.DARK_RED
 import core.tools.Log
 import core.tools.secondsToTicks
 import org.json.simple.JSONObject
+import org.rs.consts.Items
+import org.rs.consts.QuestName
+import org.rs.consts.Scenery
 
 /**
  * Handling various functionalities related to shooting stars in the game.
@@ -84,17 +85,17 @@ class ShootingStarPlugin : LoginListener, InteractionListener, TickListener, Com
                 override fun handle(componentID: Int, buttonID: Int) {
                     fun teleportToStar(player: Player) {
                         val condition: (p: Player) -> Boolean = when (star.location.lowercase()) {
-                            "canifis bank"              -> {p -> requireQuest(p, "Priest in Peril", "to access this.") }
-                            "burgh de rott bank"        -> {p -> hasRequirement(p, "In Aid of the Myreque") } //disabled: crash
+                            "canifis bank"              -> {p -> requireQuest(p, QuestName.PRIEST_IN_PERIL, "to access this.") }
+                            "burgh de rott bank"        -> {p -> hasRequirement(p, QuestName.IN_AID_OF_THE_MYREQUE) } //disabled: crash
                             "crafting guild"            -> {p -> hasLevelStat(p, Skills.CRAFTING, 40)       }
-                            "lletya bank"               -> {p -> hasRequirement(p, "Mourning's End Part I") }
-                            "jatizso mine"              -> {p -> hasRequirement(p, "The Fremennik Isles")   }
-                            "south crandor mining site" -> {p -> hasRequirement(p, "Dragon Slayer")         }
-                            "shilo village mining site" -> {p -> hasRequirement(p, "Shilo Village")         }
-                            "mos le'harmless bank"      -> {p -> hasRequirement(p, "Cabin Fever")           } //needs to be updated to check for completion when the quest releases; https://runescape.wiki/w/Mos_Le%27Harmless?oldid=913025
-                            "lunar isle mine"           -> {p -> hasRequirement(p, "Lunar Diplomacy")       }
-                            "miscellania coal mine"     -> {p -> requireQuest(p, "The Fremennik Trials", "to access this.") }
-                            "neitiznot runite mine"     -> {p -> hasRequirement(p, "The Fremennik Isles") } //disabled: currently not reachable
+                            "lletya bank"               -> {p -> hasRequirement(p, QuestName.MOURNINGS_END_PART_I) }
+                            "jatizso mine"              -> {p -> hasRequirement(p, QuestName.THE_FREMENNIK_ISLES)   }
+                            "south crandor mining site" -> {p -> hasRequirement(p, QuestName.DRAGON_SLAYER)         }
+                            "shilo village mining site" -> {p -> hasRequirement(p, QuestName.SHILO_VILLAGE) }
+                            "mos le'harmless bank"      -> {p -> hasRequirement(p, QuestName.CABIN_FEVER)           } //needs to be updated to check for completion when the quest releases; https://runescape.wiki/w/Mos_Le%27Harmless?oldid=913025
+                            "lunar isle mine"           -> {p -> hasRequirement(p, QuestName.LUNAR_DIPLOMACY)       }
+                            "miscellania coal mine"     -> {p -> requireQuest(p, QuestName.THE_FREMENNIK_TRIALS, "to access this.") }
+                            "neitiznot runite mine"     -> {p -> hasRequirement(p, QuestName.THE_FREMENNIK_ISLES) } //disabled: currently not reachable
                             else -> { _ -> true}
                         }
                         if (!condition.invoke(player)) {

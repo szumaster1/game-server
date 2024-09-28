@@ -379,7 +379,7 @@ enum class FairyRing(val tile: Location?, val tip: String = "", val childId: Int
      */
     CKS(Location.create(3447, 3470, 0), "Morytania: Canifis", 57) {
         override fun checkAccess(player: Player): Boolean {
-            return requireQuest(player, "Priest in Peril", "to use this ring.")
+            return requireQuest(player, QuestName.PRIEST_IN_PERIL, "to use this ring.")
         }
     },
 

@@ -1,9 +1,8 @@
 package content.region.misthalin.varrock.palace.dialogue
 
-import org.rs.consts.NPCs
 import content.minigame.allfiredup.KingRoaldAFUDialogue
-import content.region.misthalin.varrock.quest.phoenixgang.dialogue.KingRoaldDialogue
 import content.region.misthalin.quest.firedup.dialogue.KingRoaldDialogueFile
+import content.region.misthalin.varrock.quest.phoenixgang.dialogue.KingRoaldDialogue
 import content.region.misthalin.varrock.quest.priest.dialogue.KingRoaldPriestInPerilDialogue
 import core.api.getAttribute
 import core.api.getQuestStage
@@ -15,9 +14,11 @@ import core.game.node.entity.player.Player
 import core.tools.DIALOGUE_INITIAL_OPTIONS_HANDLE
 import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
+import org.rs.consts.NPCs
+import org.rs.consts.QuestName
 
 /**
- * Represents the King roald dialogue.
+ * Represents the King Roald dialogue.
  */
 class KingRoaldDialogue(player: Player? = null) : Dialogue(player) {
 
@@ -34,15 +35,15 @@ class KingRoaldDialogue(player: Player? = null) : Dialogue(player) {
             loadFile(KingRoaldAFUDialogue())
             return true
         }
-        if (isQuestComplete(player, "Priest in Peril")) {
-            if (!player.questRepository.hasStarted("All Fired Up") || getQuestStage(player, "All Fired Up") == 90) {
-                addOption("All Fired Up", KingRoaldDialogueFile(getQuestStage(player, "All Fired Up")))
+        if (isQuestComplete(player, QuestName.PRIEST_IN_PERIL)) {
+            if (!player.questRepository.hasStarted(QuestName.ALL_FIRED_UP) || getQuestStage(player, QuestName.ALL_FIRED_UP) == 90) {
+                addOption(QuestName.ALL_FIRED_UP, KingRoaldDialogueFile(getQuestStage(player, QuestName.ALL_FIRED_UP)))
             }
         } else {
-            addOption("Priest in Peril", KingRoaldPriestInPerilDialogue(getQuestStage(player, "Priest in Peril")))
+            addOption(QuestName.PRIEST_IN_PERIL, KingRoaldPriestInPerilDialogue(getQuestStage(player, QuestName.PRIEST_IN_PERIL)))
         }
-        if (player.questRepository.getQuest("Shield of Arrav").isStarted(player) && !isQuestComplete(player, "Shield of Arrav")) {
-            addOption("Shield of Arrav", KingRoaldDialogue())
+        if (player.questRepository.getQuest(QuestName.SHIELD_OF_ARRAV).isStarted(player) && !isQuestComplete(player, QuestName.SHIELD_OF_ARRAV)) {
+            addOption(QuestName.SHIELD_OF_ARRAV, KingRoaldDialogue())
         }
         if (!sendChoices()) {
             player("Greetings, your Majesty.")

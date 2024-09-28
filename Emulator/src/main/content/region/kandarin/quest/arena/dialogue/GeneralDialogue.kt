@@ -4,13 +4,14 @@ import content.region.kandarin.quest.arena.cutscene.BouncerFightCutscene
 import content.region.kandarin.quest.arena.cutscene.PrisonCutscene
 import content.region.kandarin.quest.arena.handlers.FightArenaListener.Companion.General
 import core.api.*
-import org.rs.consts.Items
-import org.rs.consts.NPCs
 import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC
 import core.game.world.map.RegionManager
 import core.tools.END_DIALOGUE
+import org.rs.consts.Items
+import org.rs.consts.NPCs
+import org.rs.consts.QuestName
 
 /**
  * Represents the General dialogue.
@@ -19,7 +20,7 @@ class GeneralDialogue : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {
         npc = NPC(NPCs.GENERAL_KHAZARD_258)
-        when (getQuestStage(player!!, "Fight Arena")) {
+        when (getQuestStage(player!!, QuestName.FIGHT_ARENA)) {
 
             in 68..70 -> when (stage) {
                 0 -> npcl(FacialExpression.FRIENDLY, "Out of the way, guard! I don't tolerate disruption when I'm watching slaves being slaughtered.").also { stage = END_DIALOGUE }
@@ -116,7 +117,7 @@ class GeneralDialogue : DialogueFile() {
                 4 -> npcl(FacialExpression.OLD_EVIL_LAUGH, "You however have coused me much trouble today. You must remain here so that I may at least have the pleasure of killing you myself.").also { stage++ }
                 5 -> {
                     end()
-                    setQuestStage(player!!, "Fight Arena", 97)
+                    setQuestStage(player!!, QuestName.FIGHT_ARENA, 97)
                     RegionManager.getNpc(player!!.location, NPCs.GENERAL_KHAZARD_258, 15)
                     General.attack(player!!)
                 }

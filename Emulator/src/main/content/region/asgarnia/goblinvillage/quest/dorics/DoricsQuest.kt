@@ -8,12 +8,13 @@ import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.quest.Quest
 import core.game.node.entity.skill.Skills
 import core.plugin.Initializable
+import org.rs.consts.QuestName
 
 /**
  * Doric's quest.
  */
 @Initializable
-class DoricsQuest : Quest("Doric's Quest", 17, 16, 1, Vars.VARP_QUEST_DORICS_QUEST_PROGRESS, 0, 1, 100) {
+class DoricsQuest : Quest(QuestName.DORICS_QUEST, 17, 16, 1, Vars.VARP_QUEST_DORICS_QUEST_PROGRESS, 0, 1, 100) {
 
     override fun drawJournal(player: Player, stage: Int) {
         super.drawJournal(player, stage)

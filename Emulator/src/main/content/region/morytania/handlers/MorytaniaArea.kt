@@ -1,6 +1,5 @@
 package content.region.morytania.handlers
 
-import org.rs.consts.NPCs
 import core.api.*
 import core.game.bots.AIPlayer
 import core.game.dialogue.DialogueFile
@@ -14,6 +13,8 @@ import core.game.system.task.Pulse
 import core.game.world.GameWorld
 import core.game.world.map.Location
 import core.game.world.map.zone.ZoneBorders
+import org.rs.consts.NPCs
+import org.rs.consts.QuestName
 
 /**
  * Represents the Morytania map area.
@@ -25,7 +26,7 @@ class MorytaniaArea : MapArea {
     }
 
     override fun areaEnter(entity: Entity) {
-        if (entity is Player && entity !is AIPlayer && !isQuestComplete(entity, "Priest in Peril") && entity.details.rights != Rights.ADMINISTRATOR) {
+        if (entity is Player && entity !is AIPlayer && !isQuestComplete(entity, QuestName.PRIEST_IN_PERIL) && entity.details.rights != Rights.ADMINISTRATOR) {
             kickThemOut(entity)
         }
     }

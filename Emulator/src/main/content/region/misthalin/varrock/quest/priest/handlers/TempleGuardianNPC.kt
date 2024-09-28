@@ -11,6 +11,7 @@ import core.game.node.entity.player.Player
 import core.game.world.map.Location
 import core.plugin.Initializable
 import org.rs.consts.NPCs
+import org.rs.consts.QuestName
 
 /**
  * Represents the Temple guardian NPC.
@@ -51,8 +52,8 @@ class TempleGuardianNPC(id: Int = 0, location: Location? = null) : AbstractNPC(i
     override fun finalizeDeath(killer: Entity) {
         super.finalizeDeath(killer)
         val player = (killer as Player)
-        if (getQuestStage(player, "Priest in Peril") == 11) {
-            setQuestStage(player, "Priest in Peril", 12)
+        if (getQuestStage(player, QuestName.PRIEST_IN_PERIL) == 11) {
+            setQuestStage(player, QuestName.PRIEST_IN_PERIL, 12)
         }
     }
 

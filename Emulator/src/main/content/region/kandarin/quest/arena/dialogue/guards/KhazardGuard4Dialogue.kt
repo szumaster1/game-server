@@ -10,6 +10,7 @@ import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
+import org.rs.consts.QuestName
 
 /**
  * Represents the Khazard guard4 dialogue.
@@ -19,7 +20,7 @@ class KhazardGuard4Dialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any?): Boolean {
         npc = args[0] as NPC
-        if (isQuestComplete(player, "Fight Arena")) {
+        if (isQuestComplete(player, QuestName.FIGHT_ARENA)) {
             npcl(FacialExpression.FRIENDLY, "It's you! I don't believe it. You beat the General! You are a traitor to the uniform!").also { stage = END_DIALOGUE }
         } else if (allInEquipment(player, Items.KHAZARD_HELMET_74, Items.KHAZARD_ARMOUR_75)) {
             playerl(FacialExpression.FRIENDLY, "Hello.")

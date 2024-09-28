@@ -1,11 +1,12 @@
 package content.region.kandarin.quest.arena.dialogue
 
 import core.api.*
-import org.rs.consts.NPCs
 import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression
 import core.game.global.action.DoorActionHandler
 import core.game.node.entity.npc.NPC
+import org.rs.consts.NPCs
+import org.rs.consts.QuestName
 
 /**
  * Represents the West door support dialogue.
@@ -28,7 +29,7 @@ class WestDoorSupportDialogue : DialogueFile() {
             2 -> {
                 end()
                 lock(player!!, 2)
-                setQuestStage(player!!, "Fight Arena", 20)
+                setQuestStage(player!!, QuestName.FIGHT_ARENA, 20)
                 DoorActionHandler.handleAutowalkDoor(player!!, getScenery(2584, 3141, 0)!!)
             }
         }

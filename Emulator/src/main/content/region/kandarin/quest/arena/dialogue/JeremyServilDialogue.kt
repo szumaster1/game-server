@@ -1,6 +1,5 @@
 package content.region.kandarin.quest.arena.dialogue
 
-import org.rs.consts.NPCs
 import core.api.getQuestStage
 import core.api.setQuestStage
 import core.game.dialogue.Dialogue
@@ -8,6 +7,8 @@ import core.game.dialogue.FacialExpression
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
+import org.rs.consts.NPCs
+import org.rs.consts.QuestName
 
 /**
  * Represents the Jeremy servil dialogue.
@@ -16,7 +17,7 @@ import core.tools.END_DIALOGUE
 class JeremyServilDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun handle(componentID: Int, buttonID: Int): Boolean {
-        when (getQuestStage(player!!, "Fight Arena")) {
+        when (getQuestStage(player!!, QuestName.FIGHT_ARENA)) {
 
             20 -> when (stage) {
                 0 -> playerl(FacialExpression.FRIENDLY, "Hello.").also { stage++ }
@@ -26,7 +27,7 @@ class JeremyServilDialogue(player: Player? = null) : Dialogue(player) {
                 4 -> playerl(FacialExpression.FRIENDLY, "Don't lose heart, I'll be back.").also { stage++ }
                 5 -> {
                     end()
-                    setQuestStage(player!!, "Fight Arena", 40)
+                    setQuestStage(player!!, QuestName.FIGHT_ARENA, 40)
                 }
             }
 

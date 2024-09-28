@@ -1,8 +1,7 @@
 package content.region.kandarin.quest.arena.handlers.npc
 
-import core.api.*
-import org.rs.consts.NPCs
 import content.region.kandarin.quest.arena.dialogue.GeneralDialogue
+import core.api.*
 import core.game.node.entity.Entity
 import core.game.node.entity.npc.AbstractNPC
 import core.game.node.entity.player.Player
@@ -10,6 +9,8 @@ import core.game.system.task.Pulse
 import core.game.world.GameWorld
 import core.game.world.map.Location
 import core.plugin.Initializable
+import org.rs.consts.NPCs
+import org.rs.consts.QuestName
 
 /**
  * Scorpion NPC.
@@ -50,9 +51,8 @@ class ScorpionNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id, loc
 
     override fun finalizeDeath(killer: Entity?) {
         if (killer is Player) {
-            val quest = "Fight Arena"
-            if (getQuestStage(killer, quest) == 88) {
-                setQuestStage(killer, "Fight Arena", 89)
+            if (getQuestStage(killer, QuestName.FIGHT_ARENA) == 88) {
+                setQuestStage(killer, QuestName.FIGHT_ARENA, 89)
             }
             removeAttribute(killer, "spawn-scorpion")
             openDialogue(killer, GeneralDialogue())

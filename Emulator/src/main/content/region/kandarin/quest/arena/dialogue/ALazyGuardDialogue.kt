@@ -1,13 +1,14 @@
 package content.region.kandarin.quest.arena.dialogue
 
 import core.api.*
-import org.rs.consts.Items
-import org.rs.consts.NPCs
 import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC
 import core.game.node.item.Item
 import core.tools.END_DIALOGUE
+import org.rs.consts.Items
+import org.rs.consts.NPCs
+import org.rs.consts.QuestName
 
 /**
  * Represents the A lazy guard dialogue file.
@@ -20,7 +21,7 @@ class ALazyGuardDialogue: DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {
         npc = NPC(NPCs.A_LAZY_KHAZARD_GUARD_8498)
-        when (getQuestStage(player!!, "Fight Arena")) {
+        when (getQuestStage(player!!, QuestName.FIGHT_ARENA)) {
             in 40..49 -> when (stage) {
                 0 -> {
                     face(player!!, guardLocation)
@@ -31,7 +32,7 @@ class ALazyGuardDialogue: DialogueFile() {
                 3 -> npcl(FacialExpression.DRUNK, "Now I just want a decent drink. Mind you, too much Khali brew and I'll fall asleep.").also { stage++ }
                 4 -> {
                     end()
-                    setQuestStage(player!!, "Fight Arena", 50)
+                    setQuestStage(player!!, QuestName.FIGHT_ARENA, 50)
                 }
             }
 

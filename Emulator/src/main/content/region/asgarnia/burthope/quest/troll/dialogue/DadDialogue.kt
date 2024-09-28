@@ -12,6 +12,7 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
+import org.rs.consts.QuestName
 
 /**
  * Represents the Dad dialogue.
@@ -19,7 +20,7 @@ import core.tools.START_DIALOGUE
 @Initializable
 class DadDialogue(player: Player? = null) : Dialogue(player) {
     override fun handle(interfaceId: Int, buttonId: Int): Boolean {
-        when (getQuestStage(player!!, "Troll Stronghold")) {
+        when (getQuestStage(player!!, QuestName.TROLL_STRONGHOLD)) {
             in 3..4 -> {
                 when (stage) {
                     START_DIALOGUE -> npcl(FacialExpression.OLD_HAPPY, "What tiny human do in troll arena? Dad challenge human to fight!").also { stage++ }
@@ -32,7 +33,7 @@ class DadDialogue(player: Player? = null) : Dialogue(player) {
                     3 -> npcl(FacialExpression.OLD_HAPPY, "Tiny human brave. Dad squish!").also { stage++ }
                     4 -> npc!!.attack(player).also {
                         npc!!.skills.lifepoints = npc!!.skills.maximumLifepoints // Reset dad to max hitpoints.
-                        setQuestStage(player!!, "Troll Stronghold", 4)
+                        setQuestStage(player!!, QuestName.TROLL_STRONGHOLD, 4)
                         stage = END_DIALOGUE
                     }
                 }
@@ -60,7 +61,7 @@ class DadDialogueFile(private val dialogueNum: Int = 0) : DialogueFile() {
             1 -> when (stage) {
                 START_DIALOGUE -> npcl(FacialExpression.OLD_HAPPY, "No human pass through arena without defeating Dad!").also {
                     stage = END_DIALOGUE
-                    setQuestStage(player!!, "Troll Stronghold", 3)
+                    setQuestStage(player!!, QuestName.TROLL_STRONGHOLD, 3)
                 }
             }
 
@@ -68,7 +69,7 @@ class DadDialogueFile(private val dialogueNum: Int = 0) : DialogueFile() {
                 START_DIALOGUE -> npcl(FacialExpression.OLD_NORMAL, "Tiny human brave. Dad squish!").also { stage++ }
                 1 -> npc!!.attack(player).also {
                     npc!!.skills.lifepoints = npc!!.skills.maximumLifepoints // Reset dad to max hitpoints.
-                    setQuestStage(player!!, "Troll Stronghold", 4)
+                    setQuestStage(player!!, QuestName.TROLL_STRONGHOLD, 4)
                     stage = END_DIALOGUE
                 }
             }
@@ -81,7 +82,7 @@ class DadDialogueFile(private val dialogueNum: Int = 0) : DialogueFile() {
                 )
 
                 2 -> player!!.attack(npc).also {
-                    setQuestStage(player!!, "Troll Stronghold", 5)
+                    setQuestStage(player!!, QuestName.TROLL_STRONGHOLD, 5)
                     stage = END_DIALOGUE
                 }
             }

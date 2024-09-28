@@ -14,6 +14,7 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
+import org.rs.consts.QuestName
 
 /**
  * Represents the Denulth dialogue.
@@ -25,7 +26,7 @@ class DenulthDialogue(player: Player? = null) : Dialogue(player) {
         /*
          * When Troll Stronghold is complete.
          */
-        if (isQuestComplete(player!!, "Troll Stronghold")) {
+        if (isQuestComplete(player!!, QuestName.TROLL_STRONGHOLD)) {
             when (stage) {
                 START_DIALOGUE -> playerl(FacialExpression.FRIENDLY, "Hello!").also { stage++ }
                 1 -> npcl(FacialExpression.HAPPY, "Welcome back friend!").also { stage++ }
@@ -46,7 +47,7 @@ class DenulthDialogue(player: Player? = null) : Dialogue(player) {
         /*
          * Troll Stronghold in progress.
          */
-        if (isQuestInProgress(player!!, "Troll Stronghold", 1, 99)) {
+        if (isQuestInProgress(player!!, QuestName.TROLL_STRONGHOLD, 1, 99)) {
             openDialogue(player!!, DenulthDialogue(), npc)
             return true
         }
@@ -67,7 +68,7 @@ class DenulthDialogue(player: Player? = null) : Dialogue(player) {
                 15 -> showTopics(Topic("I'll get Godric back!", 16), Topic("I'm sorry, there's nothing I can do.'", END_DIALOGUE))
                 16 -> npcl(FacialExpression.HAPPY, "God speed friend! I would send some of my men with you, but none of them are brave enough to follow.").also {
                     stage = END_DIALOGUE
-                    setQuestStage(player!!, "Troll Stronghold", 1)
+                    setQuestStage(player!!, QuestName.TROLL_STRONGHOLD, 1)
                 }
                 20 -> npcl(FacialExpression.ANGRY, "You are right citizen. The White Knights have taken advantage of the old and weak king, they control most of Asgarnia, including Falador. However they do not control Burthorpe!").also { stage++ }
                 21 -> npcl(FacialExpression.EVIL_LAUGH, "We are the prince's elite troops! We keep Burthorpe secure!").also { stage++ }

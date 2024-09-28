@@ -2,7 +2,6 @@ package content.region.kandarin.quest.arena.handlers.npc
 
 import content.region.kandarin.quest.arena.dialogue.GeneralDialogue
 import core.api.*
-import org.rs.consts.NPCs
 import core.game.node.entity.Entity
 import core.game.node.entity.npc.AbstractNPC
 import core.game.node.entity.player.Player
@@ -10,6 +9,8 @@ import core.game.system.task.Pulse
 import core.game.world.GameWorld
 import core.game.world.map.Location
 import core.plugin.Initializable
+import org.rs.consts.NPCs
+import org.rs.consts.QuestName
 
 /**
  * Ogre NPC.
@@ -50,9 +51,8 @@ class OgreNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id, locatio
 
     override fun finalizeDeath(killer: Entity?) {
         if (killer is Player) {
-            val quest = "Fight Arena"
-            if (getQuestStage(killer, quest) == 68 || getQuestStage(killer, quest) == 88) {
-                setQuestStage(killer, "Fight Arena", 72)
+            if (getQuestStage(killer, QuestName.FIGHT_ARENA) == 68 || getQuestStage(killer, QuestName.FIGHT_ARENA) == 88) {
+                setQuestStage(killer, QuestName.FIGHT_ARENA, 72)
             }
             clearHintIcon(killer)
             removeAttribute(killer, "spawn-ogre")

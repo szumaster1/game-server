@@ -1,6 +1,5 @@
 package content.region.misthalin.varrock.quest.priest.handlers;
 
-import org.rs.consts.NPCs;
 import core.cache.def.impl.NPCDefinition;
 import core.cache.def.impl.SceneryDefinition;
 import core.game.component.Component;
@@ -15,6 +14,8 @@ import core.game.node.scenery.Scenery;
 import core.game.world.map.Location;
 import core.plugin.Initializable;
 import core.plugin.Plugin;
+import org.rs.consts.NPCs;
+import org.rs.consts.QuestName;
 
 import static core.api.ContentAPIKt.*;
 
@@ -83,7 +84,7 @@ public class PriestInPerilOptionPlugin extends OptionHandler {
 
     @Override
     public boolean handle(Player player, Node node, String option) {
-        final Quest quest = player.getQuestRepository().getQuest("Priest in Peril");
+        final Quest quest = player.getQuestRepository().getQuest(QuestName.PRIEST_IN_PERIL);
         int id = node.getId();
         switch (option) {
             case "study":
@@ -165,7 +166,7 @@ public class PriestInPerilOptionPlugin extends OptionHandler {
                 break;
             case 3443:
 
-                if (!player.getQuestRepository().isComplete("Priest in Peril")) {
+                if (!player.getQuestRepository().isComplete(QuestName.PRIEST_IN_PERIL)) {
                     player.getPacketDispatch().sendMessage("A magic force prevents you from passing through.");
                 } else {
                     player.getProperties().setTeleportLocation(Location.create(3423, 3484, 0));
@@ -217,7 +218,7 @@ public class PriestInPerilOptionPlugin extends OptionHandler {
                         if (quest.getStage(player) == 10 || quest.getStage(player) == 12 || quest.getStage(player) == 13) {
                             player.getDialogueInterpreter().open(54584, node);
                         } else {
-                            if (getQuestStage(player, "Priest in Peril") == 0) {
+                            if (getQuestStage(player, QuestName.PRIEST_IN_PERIL) == 0) {
                                 sendMessage(player, "You knock at the door...");
                                 sendMessageWithDelay(player, "but nothing interesting happens.", 2);
                             }

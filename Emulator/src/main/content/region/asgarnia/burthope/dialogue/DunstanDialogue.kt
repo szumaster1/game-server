@@ -11,6 +11,7 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
+import org.rs.consts.QuestName
 
 /**
  * Represents the Dunstan dialogue.
@@ -22,7 +23,7 @@ class DunstanDialogue(player: Player? = null) : Dialogue(player) {
         /*
          * When Troll Stronghold is complete
          */
-        if (isQuestComplete(player!!, "Troll Stronghold")) {
+        if (isQuestComplete(player!!, QuestName.TROLL_STRONGHOLD)) {
             when (stage) {
                 START_DIALOGUE -> playerl(FacialExpression.FRIENDLY, "Hi!").also { stage++ }
                 1 -> npcl(FacialExpression.FRIENDLY, "Hi! What can I do for you?").also { stage++ }
@@ -55,7 +56,7 @@ class DunstanDialogue(player: Player? = null) : Dialogue(player) {
         /*
          * Troll Stronghold in progress.
          */
-        if (isQuestInProgress(player!!, "Troll Stronghold", 1, 99)) {
+        if (isQuestInProgress(player!!, QuestName.TROLL_STRONGHOLD, 1, 99)) {
             openDialogue(player!!, DunstanDialogue(), npc)
             return true
         }

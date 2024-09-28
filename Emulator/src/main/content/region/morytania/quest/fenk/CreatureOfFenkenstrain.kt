@@ -1,13 +1,13 @@
 package content.region.morytania.quest.fenk
 
-import org.rs.consts.Items
-import org.rs.consts.Vars
 import core.api.*
 import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.quest.Quest
 import core.game.node.entity.skill.Skills
 import core.plugin.Initializable
+import org.rs.consts.Items
 import org.rs.consts.QuestName
+import org.rs.consts.Vars
 
 /**
  * Creature of fenkenstrain quest.
@@ -41,7 +41,7 @@ class CreatureOfFenkenstrain : Quest("Creature of Fenkenstrain", 41, 40, 2, Vars
             line(player, "Level 20 Crafting", line++, hasLevelStat(player, Skills.CRAFTING, 20))
             line(player, "Level 25 Thieving", line++, hasLevelStat(player, Skills.THIEVING, 25))
             line(player, "I also need to have completed the following quests:", line++, false)
-            line(player, "Priest in Peril", line++, isQuestComplete(player, QuestName.PRIEST_IN_PERIL))
+            line(player, QuestName.PRIEST_IN_PERIL, line++, isQuestComplete(player, QuestName.PRIEST_IN_PERIL))
             line(player, "Restless Ghost", line++, isQuestComplete(player, QuestName.THE_RESTLESS_GHOST))
         } else {
             line(player, "I read the signpost in Canifis, which tells of a butler", line++, true)
@@ -118,7 +118,7 @@ class CreatureOfFenkenstrain : Quest("Creature of Fenkenstrain", 41, 40, 2, Vars
         return arrayOf(
             hasLevelStat(player, Skills.CRAFTING, 20),
             hasLevelStat(player, Skills.THIEVING, 25),
-            isQuestComplete(player, "Priest in Peril"),
+            isQuestComplete(player, QuestName.PRIEST_IN_PERIL),
             isQuestComplete(player, QuestName.THE_RESTLESS_GHOST),
         ).all { it }
     }

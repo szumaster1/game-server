@@ -9,6 +9,7 @@ import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 import org.rs.consts.Animations
 import org.rs.consts.Items
+import org.rs.consts.QuestName
 import org.rs.consts.Scenery
 
 /**
@@ -107,7 +108,7 @@ class SmithingInteraction : InteractionListener {
          */
 
         onUseWith(IntType.SCENERY, BARS, *ANVIL) { player, used, with ->
-            if (!isQuestComplete(player, "Doric's Quest") && with.asScenery().id == Scenery.ANVIL_2782) {
+            if (!isQuestComplete(player, QuestName.DORICS_QUEST) && with.asScenery().id == Scenery.ANVIL_2782) {
                 sendDialogue(player, "Property of Doric the Dwarf.")
                 return@onUseWith false
             }
