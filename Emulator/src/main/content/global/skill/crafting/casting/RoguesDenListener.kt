@@ -35,7 +35,6 @@ class RoguesDenListener : InteractionListener {
             }
 
             if (getUsedOption(player) == "crack") {
-                if (!finishedMoving(player)) return@on false
 
                 if (getStatLevel(player, Skills.THIEVING) < 50) {
                     sendMessage(player, "You need to be level 50 thief to crack this safe.")
@@ -59,7 +58,6 @@ class RoguesDenListener : InteractionListener {
                         handleSuccess(player, node.asScenery())
                         playAudio(player, SOUNDS_EFFECTS[1])
                     } else if (trapped) {
-                        animate(player, ANIMATIONS[2])
                         playAudio(player, SOUNDS_EFFECTS[2])
                         sendMessage(player, "You slip and trigger a trap!")
                         impact(player, RandomFunction.random(2, 6), ImpactHandler.HitsplatType.NORMAL)
