@@ -13,7 +13,7 @@
 
 <div style="text-align: center;">
 
-![](https://cdn.2009scape.org/wiki/_media/2009scape_wallpaper.png?t=1726534164&w=500&h=304&tok=8feee8)
+![](https://i.imgur.com/jkRbQTC.png)
 </div>
 
 ***
