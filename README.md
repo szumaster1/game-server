@@ -15,7 +15,7 @@
 
 <div style="text-align: center;">
 
-![](https://i.imgur.com/vHj2ulG.png)
+![](https://i.imgur.com/HneWpTx.png)
 
 </div>
 
