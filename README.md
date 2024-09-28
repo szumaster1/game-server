@@ -100,10 +100,106 @@ If you have encountered a problem with GitLab please refer to the help center av
 
 ***
 
-#### Basic information:
-- Default xp modes: 1.0x, 25.0x, 500.0x, 1000.0x
-
 ## Setting up the single-player
+
+### Single player structure
+
+```
+singleplayer_folder
+├─ .gitignore
+├─ launch.bat
+├─ launch.sh
+│
+├─ game
+│  │ ├─ client.jar
+│  │ ├─ config.json
+│  │ └─ server.jar
+│  │
+│  ├─ data
+│  │   │ └─ ObjectParser.xml
+│  │   │
+│  │   ├─ botdata
+│  │   │    ├─ botnames.txt
+│  │   │    ├─ bot_dialogue.json
+│  │   │    ├─ getnames.sh
+│  │   │    ├─ ge_bot_appearances_and_equipment.json
+│  │   │    ├─ namesandarmor.txt
+│  │   │    ├─ namesandarmorscript
+│  │   │    └─ pestcontrolcopies.txt
+│  │   │ 
+│  │   ├─ cache
+│  │   │    ├─ main_file_cache.dat2
+│  │   │    ├─ main_file_cache.idx0
+│  │   │    ├─ main_file_cache.idx1
+│  │   │    ├─ main_file_cache.idx2
+│  │   │    ├─ main_file_cache.idx3
+│  │   │    ├─ main_file_cache.idx4
+│  │   │    ├─ main_file_cache.idx5
+│  │   │    ├─ main_file_cache.idx6
+│  │   │    ├─ main_file_cache.idx7
+│  │   │    ├─ main_file_cache.idx8
+│  │   │    ├─ main_file_cache.idx9
+│  │   │    ├─ main_file_cache.idx10
+│  │   │    ├─ main_file_cache.idx11
+│  │   │    ├─ main_file_cache.idx12
+│  │   │    ├─ main_file_cache.idx13
+│  │   │    ├─ main_file_cache.idx14
+│  │   │    ├─ main_file_cache.idx15
+│  │   │    ├─ main_file_cache.idx16
+│  │   │    ├─ main_file_cache.idx17
+│  │   │    ├─ main_file_cache.idx18
+│  │   │    ├─ main_file_cache.idx19
+│  │   │    ├─ main_file_cache.idx20
+│  │   │    ├─ main_file_cache.idx21
+│  │   │    ├─ main_file_cache.idx22
+│  │   │    ├─ main_file_cache.idx23
+│  │   │    ├─ main_file_cache.idx24
+│  │   │    ├─ main_file_cache.idx25
+│  │   │    ├─ main_file_cache.idx26
+│  │   │    ├─ main_file_cache.idx27
+│  │   │    ├─ main_file_cache.idx28
+│  │   │    └─ main_file_cache.idx255
+│  │   │
+│  │   ├─ configs
+│  │   │    ├─ account_limit_exceptions.conf
+│  │   │    ├─ ammo_configs.json
+│  │   │    ├─ clue_rewards.json
+│  │   │    ├─ door_configs.json
+│  │   │    ├─ drop_tables.json
+│  │   │    ├─ ground_spawns.json
+│  │   │    ├─ interface_configs.json
+│  │   │    ├─ item_configs.json
+│  │   │    ├─ music_configs.json
+│  │   │    ├─ npc_configs.json
+│  │   │    ├─ npc_spawns.json
+│  │   │    ├─ object_configs.json
+│  │   │    ├─ ranged_weapon_configs.json
+│  │   │    ├─ shops.json
+│  │   │    ├─ varbit_definitions.json
+│  │   │    ├─ xteas.json
+│  │   │    │
+│  │   │    └─ shared_tables
+│  │   │         ├─ ASDT.xml
+│  │   │         ├─ CELEDT.xml
+│  │   │         ├─ GDT.xml
+│  │   │         ├─ HDT.xml
+│  │   │         ├─ RDT.xml
+│  │   │         ├─ RSDT.xml
+│  │   │         └─ USDT.xml
+│  │   │    
+│  │   ├─ eco
+│  │   │   └─ .gitignore
+│  │   │   
+│  │   └─ players
+│  │       └─ ...
+│  │         
+│  │         
+│  └─ worldprops
+│          └─ default.conf
+│
+└─ jre
+    └─ ...
+```
 
 1. Download [github desktop](https://desktop.github.com/download/).
    ![](https://i.imgur.com/RZnyFVo.png)
