@@ -415,7 +415,7 @@ public final class RegionFlags {
     }
 
     /**
-     * Unlags a door object (type 0-3).
+     * Unflags a door object (type 0-3).
      *
      * @param x                 The x-coordinate
      * @param y                 The y-coordinate.

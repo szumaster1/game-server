@@ -11,15 +11,9 @@ import core.game.node.item.ChanceItem
 import core.game.node.item.Item
 import core.game.world.update.flag.context.Animation
 import core.tools.RandomFunction
-import org.rs.consts.Items
-import org.rs.consts.NPCs
-import org.rs.consts.Scenery
-import org.rs.consts.Sounds
+import org.rs.consts.*
 import kotlin.math.ceil
 
-/**
- * Thieving Guild listener.
- */
 class RoguesDenListener : InteractionListener {
 
     override fun defineListeners() {
@@ -41,7 +35,7 @@ class RoguesDenListener : InteractionListener {
             }
 
             if (getUsedOption(player) == "crack") {
-                if (finishedMoving(player))
+                if (!finishedMoving(player)) return@on false
 
                 if (getStatLevel(player, Skills.THIEVING) < 50) {
                     sendMessage(player, "You need to be level 50 thief to crack this safe.")
@@ -58,19 +52,19 @@ class RoguesDenListener : InteractionListener {
 
                 lock(player, 4)
                 sendMessage(player, "You start cracking the safe.")
-                playAudio(player, Sounds.SAFE_CRACK_1243)
+                playAudio(player, SOUNDS_EFFECTS[0])
                 animate(player, ANIMATIONS[if (success) 1 else 0])
                 queueScript(player, 3, QueueStrength.SOFT) {
                     if (success) {
                         handleSuccess(player, node.asScenery())
-                        playAudio(player, Sounds.ROGUE_SAFE_OPEN_1238)
+                        playAudio(player, SOUNDS_EFFECTS[1])
                     } else if (trapped) {
                         animate(player, ANIMATIONS[2])
+                        playAudio(player, SOUNDS_EFFECTS[2])
                         sendMessage(player, "You slip and trigger a trap!")
                         impact(player, RandomFunction.random(2, 6), ImpactHandler.HitsplatType.NORMAL)
-                        runTask(player, 1) {
-                            resetAnimator(player)
-                        }
+                        player.skills.drainLevel(Skills.THIEVING, 0.05, 0.05)
+                        player.animate(Animation.RESET,1)
                     }
                     return@queueScript stopExecuting(player)
                 }
@@ -129,7 +123,8 @@ class RoguesDenListener : InteractionListener {
 
     companion object {
         private val OBJECTS = intArrayOf(Scenery.WALL_SAFE_7236, Scenery.FLOOR_7227, Scenery.DOORWAY_7256)
-        private val ANIMATIONS = arrayOf(Animation(2247), Animation(2248), Animation(1113), Animation(2244))
+        private val ANIMATIONS = arrayOf(Animation(Animations.CRACKING_SAFE_2247), Animation(Animations.CRACKING_SAFE_2248), Animation(1111), Animation(Animations.CLEAN_SOMETHING_ON_GROUND_2244))
+        private val SOUNDS_EFFECTS = arrayOf(Sounds.SAFE_CRACK_1243, Sounds.ROGUE_SAFE_OPEN_1238, Sounds.FLOOR_SPIKES_1383)
         private val COINS_REWARD = arrayOf(ChanceItem(Items.COINS_995, 20, 20, 90.0), ChanceItem(995, 40, 40, 80.0))
         private val GEMS_REWARD = arrayOf(
             ChanceItem(Items.UNCUT_SAPPHIRE_1623, 1, 1, 80.0),
