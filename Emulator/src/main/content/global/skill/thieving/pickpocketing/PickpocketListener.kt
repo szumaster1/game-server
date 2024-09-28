@@ -68,7 +68,7 @@ class PickpocketListener : InteractionListener {
     override fun defineListeners() {
 
         on(IntType.NPC, "pickpocket", "pick-pocket") { player, node ->
-            val pickpocketData = Pickpocket.forID(node.id) ?: return@on false
+            val pocketData = Pocket.forID(node.id) ?: return@on false
             val npc = node.asNpc()
             val npcName = npc.name.lowercase()
 
@@ -77,13 +77,13 @@ class PickpocketListener : InteractionListener {
                 return@on true
             }
 
-            if (pickpocketData == null) {
+            if (pocketData == null) {
                 sendMessage(player, "You cannot pickpocket that NPC.")
                 return@on true
             }
 
-            if (getStatLevel(player, Skills.THIEVING) < pickpocketData.requiredLevel) {
-                sendMessage(player, "You need a Thieving level of ${pickpocketData.requiredLevel} to do that.")
+            if (getStatLevel(player, Skills.THIEVING) < pocketData.requiredLevel) {
+                sendMessage(player, "You need a Thieving level of ${pocketData.requiredLevel} to do that.")
                 return@on true
             }
 
@@ -97,24 +97,24 @@ class PickpocketListener : InteractionListener {
                 return@on true
             }
 
-            if (!pickpocketData.table.canRoll(player)) {
+            if (!pocketData.table.canRoll(player)) {
                 sendMessage(player, "You don't have enough inventory space to do that.")
                 return@on true
             }
 
             animate(player, PICKPOCKET_ANIM)
             sendMessage(player, "You attempt to pick the $npcName pocket.")
-            val lootTable = pickpocketRoll(player, pickpocketData.low, pickpocketData.high, pickpocketData.table)
+            val lootTable = pickpocketRoll(player, pocketData.low, pocketData.high, pocketData.table)
 
             if (lootTable == null) {
                 npc.face(player)
                 npc.animator.animate(NPC_ANIM)
-                npc.sendChat(pickpocketData.message)
+                npc.sendChat(pocketData.message)
                 sendMessage(player, "You fail to pick the $npcName pocket.")
-                sendMessage(player, "${npc.name}: ${pickpocketData.message}")
+                sendMessage(player, "${npc.name}: ${pocketData.message}")
                 playHurtAudio(player, 20)
-                stun(player, pickpocketData.stunTime)
-                impact(player, RandomFunction.random(pickpocketData.stunDamageMin, pickpocketData.stunDamageMax), ImpactHandler.HitsplatType.NORMAL)
+                stun(player, pocketData.stunTime)
+                impact(player, RandomFunction.random(pocketData.stunDamageMin, pocketData.stunDamageMax), ImpactHandler.HitsplatType.NORMAL)
                 sendMessage(player, "You feel slightly concussed from the blow.")
                 npc.face(null)
             } else {
@@ -129,7 +129,7 @@ class PickpocketListener : InteractionListener {
                     inBorders(player, ZoneBorders(3201, 3456, 3227, 3468)) && npc.id == NPCs.GUARD_5920 -> finishDiaryTask(player, DiaryType.VARROCK, 1, 12)
                     inBorders(player, ZoneBorders(2934, 3399, 3399, 3307)) && npc.id in intArrayOf(NPCs.GUARD_9, NPCs.GUARD_3230, NPCs.GUARD_3228, NPCs.GUARD_3229) -> finishDiaryTask(player, DiaryType.FALADOR, 1, 6)
                 }
-                rewardXP(player, Skills.THIEVING, pickpocketData.experience)
+                rewardXP(player, Skills.THIEVING, pocketData.experience)
             }
             return@on true
         }

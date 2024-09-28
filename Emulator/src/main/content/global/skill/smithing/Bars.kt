@@ -201,14 +201,14 @@ enum class Bars(val barType: BarType, val smithingType: SmithingType, val produc
         }
 
         /**
-         * Get the item ID based on button ID and bar type.
+         * Get the item id based on [buttonId] and [BarType].
          */
         fun getItemId(buttonId: Int, type: BarType): Int {
             return values().firstOrNull { it.barType == type && buttonId in it.smithingType.button }?.product ?: -1
         }
 
         /**
-         * Get the index of a bar based on player, button ID, and bar type.
+         * Get the index of a bar based on [buttonId], and [BarType].
          */
         fun getIndex(player: Player?, buttonId: Int, type: BarType): Int {
             return values().indexOfFirst {

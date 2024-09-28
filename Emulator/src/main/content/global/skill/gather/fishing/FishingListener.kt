@@ -24,7 +24,7 @@ import core.tools.colorize
 /**
  * Represents the fishing option listener.
  */
-class Fishing : InteractionListener {
+class FishingListener : InteractionListener {
 
     override fun defineListeners() {
         val spotIds = FishingSpot.values().flatMap { it.ids.toList() }.toIntArray()

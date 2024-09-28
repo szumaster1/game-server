@@ -12,7 +12,7 @@ import java.util.stream.IntStream
 /**
  * Pickpocket data.
  */
-enum class Pickpocket(val ids: IntArray, val requiredLevel: Int, val low: Double, val high: Double, val experience: Double, val stunDamageMin: Int, val stunDamageMax: Int, val stunTime: Int, val message: String?, val table: WeightBasedTable) {
+enum class Pocket(val ids: IntArray, val requiredLevel: Int, val low: Double, val high: Double, val experience: Double, val stunDamageMin: Int, val stunDamageMax: Int, val stunTime: Int, val message: String?, val table: WeightBasedTable) {
     /**
      * Man.
      */
@@ -479,7 +479,7 @@ enum class Pickpocket(val ids: IntArray, val requiredLevel: Int, val low: Double
 
 
     companion object {
-        val idMap = HashMap<Int, Pickpocket>(values().size * 5)
+        val idMap = HashMap<Int, Pocket>(values().size * 5)
 
         init {
             values().forEach {
@@ -487,7 +487,7 @@ enum class Pickpocket(val ids: IntArray, val requiredLevel: Int, val low: Double
             }
         }
 
-        fun forID(id: Int): Pickpocket? {
+        fun forID(id: Int): Pocket? {
             return idMap[id]
         }
     }

@@ -1,53 +1,41 @@
-package content.global.skill.slayer;
+package content.global.skill.slayer
 
-import core.cache.def.impl.SceneryDefinition;
-import core.game.global.action.DoorActionHandler;
-import core.game.interaction.OptionHandler;
-import core.game.node.Node;
-import core.game.node.entity.player.Player;
-import core.game.node.scenery.Scenery;
-import core.game.node.scenery.SceneryBuilder;
-import core.game.world.map.Location;
-import core.game.world.map.RegionManager;
-import core.plugin.Initializable;
-import core.plugin.Plugin;
+import core.game.global.action.DoorActionHandler.handleAutowalkDoor
+import core.game.interaction.IntType
+import core.game.interaction.InteractionListener
+import core.game.node.scenery.SceneryBuilder
+import core.game.world.map.Location
+import core.game.world.map.RegionManager.getObject
+import core.plugin.Initializable
 
-/**
- * Slayer tower plugin.
- */
 @Initializable
-public final class SlayerTowerPlugin extends OptionHandler {
-    private static final Location[] LOCATIONS = new Location[]{new Location(3430, 3534, 0), new Location(3426, 3534, 0)};
-    private static final int OPEN_ID = 5117;
-    private static final int CLOSED_ID = 5116;
+class SlayerTowerListener : InteractionListener {
 
-    @Override
-    public Plugin<Object> newInstance(Object arg) throws Throwable {
-        SceneryDefinition.forId(4490).getHandlers().put("option:open", this);
-        SceneryDefinition.forId(4487).getHandlers().put("option:open", this);
-        SceneryDefinition.forId(4492).getHandlers().put("option:close", this);
-        return this;
-    }
-
-    @Override
-    public boolean handle(Player player, Node node, String option) {
-        switch (node.getId()) {
-            case 4490:
-            case 4487:
-                DoorActionHandler.handleAutowalkDoor(player, (Scenery) node);
-                switchStatue();
-                return true;
+    override fun defineListeners() {
+        on(sceneryIDs, IntType.SCENERY, "open", "close") { player, node ->
+            when(node.id){
+                4490, 4487 -> handleAutowalkDoor(player, node.asScenery()).also {
+                    switchStatue()
+                }
+            }
+            return@on true
         }
-        return true;
     }
 
-    private void switchStatue() {
-        for (Location l : LOCATIONS) {
-            Scenery object = RegionManager.getObject(l);
-            if (object != null) {
-                int id = object.getId() == OPEN_ID ? CLOSED_ID : OPEN_ID;
-                SceneryBuilder.replace(object, object.transform(id));
+    private fun switchStatue() {
+        for (l in LOCATIONS) {
+            val `object` = getObject(l)
+            if (`object` != null) {
+                val id = if (`object`.id == OPEN_ID) CLOSED_ID else OPEN_ID
+                SceneryBuilder.replace(`object`, `object`.transform(id))
             }
         }
+    }
+
+    companion object {
+        private val LOCATIONS = arrayOf(Location(3430, 3534, 0), Location(3426, 3534, 0))
+        private val sceneryIDs = intArrayOf(4490, 4487, 4492)
+        private const val OPEN_ID = 5117
+        private const val CLOSED_ID = 5116
     }
 }
