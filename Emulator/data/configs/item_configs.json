@@ -20052,8 +20052,7 @@
     "tradeable": "true",
     "weight": "1",
     "archery_ticket_price": "0",
-    "id": "1917",
-    "equipment_slot": "3"
+    "id": "1917"
   },
   {
     "ge_buy_limit": "100",
