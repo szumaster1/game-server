@@ -22,17 +22,16 @@ class LeatherCraftingListener : InteractionListener {
                 Leather.LEATHER -> {
                     Leather.SoftLeather.open(player)
                 }
-
-                Leather.HARD_LEATHER -> {
-                    handleHardLeather(player)
-                }
-
                 else -> {
                     player.dialogueInterpreter.open(48923, "dragon", used.id)
                 }
             }
             return@onUseWith true
         }
+
+        /*
+         * Handles hard leather crafting.
+         */
 
         onUseWith(IntType.ITEM, Leather.HARD_LEATHER, Leather.NEEDLE) { player, used, _ ->
             if (getStatLevel(player, Skills.CRAFTING) < 28) {
@@ -58,22 +57,6 @@ class LeatherCraftingListener : InteractionListener {
         }
     }
 
-    private fun handleHardLeather(player: Player) {
-        val handler: SkillDialogueHandler =
-            object : SkillDialogueHandler(player, SkillDialogue.ONE_OPTION, Items.HARDLEATHER_BODY_1131) {
-                override fun create(amount: Int, index: Int) {
-                    submitIndividualPulse(
-                        entity = player,
-                        pulse = HardLeatherCraftingPulse(player, Item(Items.HARD_LEATHER_1743), amount)
-                    )
-                }
-
-                override fun getAll(index: Int): Int {
-                    return amountInInventory(player, Items.HARD_LEATHER_1743)
-                }
-            }
-        handler.open()
-    }
 
     companion object {
         private val LEATHER = intArrayOf(
