@@ -23,7 +23,7 @@ class SnelmCraftingPulse(player: Player?, node: Item?, val itemId: Snelm) : Skil
 
     override fun reward(): Boolean {
         sendMessage(player, "You craft the shell into a helmet.")
-        replaceSlot(player, Item(itemId.shell).index, Item(node!!.slot))
+        replaceSlot(player, node!!.slot, Item(itemId.product))
         rewardXP(player, Skills.CRAFTING, 32.5)
         return true
     }
