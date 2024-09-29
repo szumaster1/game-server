@@ -15,6 +15,7 @@ import core.game.system.task.Pulse
 import core.game.world.map.Location
 import core.game.world.update.flag.context.Animation
 import core.tools.RandomFunction
+import org.rs.consts.QuestName
 import kotlin.math.ceil
 
 class TrollStrongholdListener : InteractionListener {
@@ -26,12 +27,12 @@ class TrollStrongholdListener : InteractionListener {
 
         on(intArrayOf(Scenery.ARENA_ENTRANCE_3782, Scenery.ARENA_ENTRANCE_3783), IntType.SCENERY, "open") { player, node ->
             // Only get the dialogue once.
-            if (getQuestStage(player, "Troll Stronghold") == 1) {
+            if (getQuestStage(player, QuestName.TROLL_STRONGHOLD) == 1) {
                 openDialogue(player, DadDialogueFile(1), findNPC(NPCs.DAD_1125)!!)
             }
             // Only allow players through when they start Troll Stronghold.
             // No one is allowed to go to GWD unless they start the Troll Stronghold quest.
-            if (getQuestStage(player, "Troll Stronghold") > 0) {
+            if (getQuestStage(player, QuestName.TROLL_STRONGHOLD) > 0) {
                 DoorActionHandler.handleAutowalkDoor(player, node.asScenery())
             } else {
                 sendMessage(player, "You need to start the Troll Stronghold quest.")
@@ -44,7 +45,7 @@ class TrollStrongholdListener : InteractionListener {
          */
 
         on(intArrayOf(Scenery.ARENA_EXIT_3785, Scenery.ARENA_EXIT_3786), IntType.SCENERY, "open") { player, node ->
-            if (getQuestStage(player, "Troll Stronghold") < 5) {
+            if (getQuestStage(player, QuestName.TROLL_STRONGHOLD) < 5) {
                 openDialogue(player, DadDialogueFile(1), findNPC(NPCs.DAD_1125)!!)
             } else {
                 DoorActionHandler.handleAutowalkDoor(player, node.asScenery())
@@ -57,12 +58,12 @@ class TrollStrongholdListener : InteractionListener {
          */
 
         on(Scenery.PRISON_DOOR_3780, IntType.SCENERY, "unlock") { player, node ->
-            if (getQuestStage(player, "Troll Stronghold") >= 8) {
+            if (getQuestStage(player, QuestName.TROLL_STRONGHOLD) >= 8) {
                 DoorActionHandler.handleAutowalkDoor(player, node.asScenery())
             } else {
                 if (inInventory(player, Items.PRISON_KEY_3135)) {
-                    if (getQuestStage(player, "Troll Stronghold") == 5) {
-                        setQuestStage(player, "Troll Stronghold", 8)
+                    if (getQuestStage(player, QuestName.TROLL_STRONGHOLD) == 5) {
+                        setQuestStage(player, QuestName.TROLL_STRONGHOLD, 8)
                     }
                     if (removeItem(player, Items.PRISON_KEY_3135)) {
                         DoorActionHandler.handleAutowalkDoor(player, node.asScenery())
@@ -98,7 +99,7 @@ class TrollStrongholdListener : InteractionListener {
                         3 -> {
                             val success: Boolean = success(player, Skills.THIEVING)
                             if (success) {
-                                if (isQuestInProgress(player, "Troll Stronghold", 8, 10)) {
+                                if (isQuestInProgress(player, QuestName.TROLL_STRONGHOLD, 8, 10)) {
                                     addItem(player, Items.CELL_KEY_1_3136)
                                     sendMessage(player, "You find a small key on Twig.")
                                 } else {
@@ -142,7 +143,7 @@ class TrollStrongholdListener : InteractionListener {
                         3 -> {
                             val success: Boolean = success(player, Skills.THIEVING)
                             if (success) {
-                                if (isQuestInProgress(player, "Troll Stronghold", 8, 10)) {
+                                if (isQuestInProgress(player, QuestName.TROLL_STRONGHOLD, 8, 10)) {
                                     addItem(player, Items.CELL_KEY_2_3137)
                                     sendMessage(player, "You find a small key on Berry.")
                                 } else {
@@ -170,10 +171,10 @@ class TrollStrongholdListener : InteractionListener {
         fun unlockMadEadgarCellDoor(player: Player, node: Node) {
             if (inInventory(player, Items.CELL_KEY_1_3136)) {
                 sendMessage(player, "You unlock the cell door.")
-                if (getQuestStage(player, "Troll Stronghold") == 8) {
-                    setQuestStage(player, "Troll Stronghold", 9)
-                } else if (getQuestStage(player, "Troll Stronghold") == 10) {
-                    setQuestStage(player, "Troll Stronghold", 11)
+                if (getQuestStage(player, QuestName.TROLL_STRONGHOLD) == 8) {
+                    setQuestStage(player, QuestName.TROLL_STRONGHOLD, 9)
+                } else if (getQuestStage(player, QuestName.TROLL_STRONGHOLD) == 10) {
+                    setQuestStage(player, QuestName.TROLL_STRONGHOLD, 11)
                 }
                 // Animate Mad Eadgar leaving cell.
                 val npc = findNPC(NPCs.EADGAR_1113)!!
@@ -254,10 +255,10 @@ class TrollStrongholdListener : InteractionListener {
         fun unlockGodricCellDoor(player: Player, node: Node) {
             if (inInventory(player, Items.CELL_KEY_2_3137)) {
                 sendMessage(player, "You unlock the cell door.")
-                if (getQuestStage(player, "Troll Stronghold") == 8) {
-                    setQuestStage(player, "Troll Stronghold", 10)
-                } else if (getQuestStage(player, "Troll Stronghold") == 9) {
-                    setQuestStage(player, "Troll Stronghold", 11)
+                if (getQuestStage(player, QuestName.TROLL_STRONGHOLD) == 8) {
+                    setQuestStage(player, QuestName.TROLL_STRONGHOLD, 10)
+                } else if (getQuestStage(player, QuestName.TROLL_STRONGHOLD) == 9) {
+                    setQuestStage(player, QuestName.TROLL_STRONGHOLD, 11)
                 }
                 // Animate Godric leaving cell.
                 val npc = findNPC(NPCs.GODRIC_1114)!!
@@ -342,7 +343,7 @@ class TrollStrongholdListener : InteractionListener {
          * Reentry Secret Door.
          */
         on(Scenery.SECRET_DOOR_3762, IntType.SCENERY, "open") { player, _ ->
-            if (getQuestStage(player, "Troll Stronghold") >= 8) {
+            if (getQuestStage(player, QuestName.TROLL_STRONGHOLD) >= 8) {
                 player.properties.teleportLocation = Location.create(2824, 10050, 0)
             } else {
                 sendMessage(player, "The door is locked.")

@@ -3,6 +3,7 @@ package content.minigame.templetrekking
 import core.api.hasRequirement
 import core.api.isQuestComplete
 import core.game.node.entity.player.Player
+import org.rs.consts.QuestName
 
 /**
  * Temple Trekking
@@ -18,12 +19,12 @@ object TempleTrekking {
 
     fun hasRequirements(player: Player?): Boolean {
         if (player != null) {
-            if (!isQuestComplete(player, "Priest in Peril")) return false
-            if (!isQuestComplete(player, "Nature Spirit")) return false
-            if (!hasRequirement(player, "In Search of the Myreque", false)) return false
-            if (!hasRequirement(player, "In Aid of the Myreque", false)) return false
-            if (!hasRequirement(player, "Darkness of Hallowvale", false)) return false
-            if (!hasRequirement(player, "Legacy of Seergaze", false)) return false
+            if (!isQuestComplete(player, QuestName.PRIEST_IN_PERIL)) return false
+            if (!isQuestComplete(player, QuestName.NATURE_SPIRIT)) return false
+            if (!hasRequirement(player, QuestName.IN_SEARCH_OF_THE_MYREQUE, false)) return false
+            if (!hasRequirement(player, QuestName.IN_AID_OF_THE_MYREQUE, false)) return false
+            if (!hasRequirement(player, QuestName.DARKNESS_OF_HALLOWVALE, false)) return false
+            if (!hasRequirement(player, QuestName.LEGACY_OF_SEERGAZE, false)) return false
         }
         return true
     }

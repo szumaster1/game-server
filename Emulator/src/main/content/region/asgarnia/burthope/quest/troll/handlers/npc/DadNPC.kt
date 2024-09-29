@@ -10,6 +10,7 @@ import core.game.node.entity.npc.AbstractNPC
 import core.game.system.task.Pulse
 import core.game.world.map.Location
 import core.plugin.Initializable
+import org.rs.consts.QuestName
 
 /**
  * Dad NPC.
@@ -29,7 +30,7 @@ class DadNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id, location
         val player = entity.asPlayer()
 
         // Attack Dad. If quest is done, you cannot attack Dad.
-        when (getQuestStage(player, "Troll Stronghold")) {
+        when (getQuestStage(player, QuestName.TROLL_STRONGHOLD)) {
             3 -> openDialogue(player, DadDialogueFile(2), this.asNpc()).also { return false }
             4 -> {
                 return attackable
@@ -49,8 +50,8 @@ class DadNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id, location
         if (opponent.skills.lifepoints < 30) {
             player.properties.combatPulse.stop()
             opponent.properties.combatPulse.stop()
-            if (getQuestStage(player!!.asPlayer(), "Troll Stronghold") == 4) {
-                setQuestStage(player.asPlayer(), "Troll Stronghold", 5)
+            if (getQuestStage(player!!.asPlayer(), QuestName.TROLL_STRONGHOLD) == 4) {
+                setQuestStage(player.asPlayer(), QuestName.TROLL_STRONGHOLD, 5)
             }
             submitWorldPulse(object : Pulse() {
                 var counter = 0
@@ -70,8 +71,8 @@ class DadNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id, location
     override fun finalizeDeath(killer: Entity?) {
         // In case Dad gets one shotted to death.
         super.finalizeDeath(killer)
-        if (getQuestStage(killer!!.asPlayer(), "Troll Stronghold") == 4) {
-            setQuestStage(killer.asPlayer(), "Troll Stronghold", 5)
+        if (getQuestStage(killer!!.asPlayer(), QuestName.TROLL_STRONGHOLD) == 4) {
+            setQuestStage(killer.asPlayer(), QuestName.TROLL_STRONGHOLD, 5)
         }
     }
 

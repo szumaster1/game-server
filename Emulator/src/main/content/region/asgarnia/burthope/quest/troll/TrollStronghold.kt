@@ -8,12 +8,13 @@ import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.quest.Quest
 import core.game.node.entity.skill.Skills
 import core.plugin.Initializable
+import org.rs.consts.QuestName
 
 /**
  * Troll Stronghold quest.
  */
 @Initializable
-class TrollStronghold : Quest("Troll Stronghold", 128, 127, 1, Vars.VARP_QUEST_TROLL_SRONGHOLD_PROGRESS, 0, 1, 50) {
+class TrollStronghold : Quest(QuestName.TROLL_STRONGHOLD, 128, 127, 1, Vars.VARP_QUEST_TROLL_SRONGHOLD_PROGRESS, 0, 1, 50) {
 
     /*
      * Quest description:
@@ -26,7 +27,7 @@ class TrollStronghold : Quest("Troll Stronghold", 128, 127, 1, Vars.VARP_QUEST_T
         super.drawJournal(player, stage)
         var line = 12
         var stage = getStage(player)
-        var started = getQuestStage(player!!, "Troll Stronghold") > 0
+        var started = getQuestStage(player, QuestName.TROLL_STRONGHOLD) > 0
 
         val hasBoots = hasAnItem(player, Items.CLIMBING_BOOTS_3105).container != null
 

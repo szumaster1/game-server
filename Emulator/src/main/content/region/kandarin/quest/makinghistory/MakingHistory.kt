@@ -1,17 +1,17 @@
 package content.region.kandarin.quest.makinghistory
 
-import core.api.*
-import org.rs.consts.Components
-import org.rs.consts.Items
-import org.rs.consts.Vars
 import content.global.activity.enchkey.EnchantedKey
 import content.region.kandarin.quest.makinghistory.handlers.MakingHistoryUtils
+import core.api.*
 import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.quest.Quest
 import core.game.node.entity.skill.Skills
 import core.game.world.GameWorld
 import core.plugin.Initializable
+import org.rs.consts.Components
+import org.rs.consts.Items
 import org.rs.consts.QuestName
+import org.rs.consts.Vars
 
 /**
  * Making history quest.
@@ -28,7 +28,7 @@ class MakingHistory : Quest(QuestName.MAKING_HISTORY, 86, 85, 3, Vars.VARBIT_QUE
             line(player, "!!North West of West Ardougne??.", line++, false)
             line += 1
             line(player, "Minimum requirements:", line++, false)
-            line(player, "!!I must have completed the Priest in Peril Quest??", line++, isQuestComplete(player, "Priest in Peril"))
+            line(player, "!!I must have completed the ${QuestName.PRIEST_IN_PERIL} Quest??", line++, isQuestComplete(player, QuestName.PRIEST_IN_PERIL))
             line(player, "It will be easier with", line++, false)
             line(player, "!!Crafting lvl 24??", line++, getStatLevel(player, Skills.CRAFTING) >= 24)
             line(player, "!!Smithing lvl 40??", line++, getStatLevel(player, Skills.SMITHING) >= 40)

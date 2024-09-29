@@ -27,7 +27,7 @@ class TrollRomance : Quest("Troll Romance", 127, 126, 2, Vars.VARP_QUEST_TROLL_R
                 player,
                 "!!Must have completed Troll Stronghold??",
                 line++,
-                isQuestComplete(player, "Troll Stronghold")
+                isQuestComplete(player, QuestName.TROLL_STRONGHOLD)
             )
             line(
                 player,

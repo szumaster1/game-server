@@ -7,6 +7,7 @@ import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression
 import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
+import org.rs.consts.QuestName
 
 /**
  * Represents the Denulth.
@@ -14,7 +15,7 @@ import core.tools.START_DIALOGUE
 class DenulthDialogue : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {
-        when (getQuestStage(player!!, "Troll Stronghold")) {
+        when (getQuestStage(player!!, QuestName.TROLL_STRONGHOLD)) {
             in 1..7 -> {
                 when (stage) {
                     START_DIALOGUE -> npcl(FacialExpression.FRIENDLY, "How are you getting on with rescuing Godric?").also { stage++ }

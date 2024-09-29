@@ -8,6 +8,7 @@ import core.game.global.action.DoorActionHandler
 import core.game.node.entity.player.Player
 import core.game.node.scenery.Scenery
 import core.plugin.Initializable
+import org.rs.consts.QuestName
 
 /**
  * Represents the Priest door dialogue.
@@ -19,15 +20,15 @@ class PriestDoorDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any): Boolean {
         door = args[0] as Scenery
-        if (getQuestStage(player, "Priest in Peril") == 10) {
+        if (getQuestStage(player, QuestName.PRIEST_IN_PERIL) == 10) {
             sendDialogue("You knock at the door...You hear a voice from inside.", "${BLUE}Who are you, and what do you want?")
             stage = 0
         }
-        if (getQuestStage(player, "Priest in Peril") == 12) {
+        if (getQuestStage(player, QuestName.PRIEST_IN_PERIL) == 12) {
             sendDialogue("You knock at the door...You hear a voice from inside.", "${BLUE}You again?", "${BLUE}What do you want now?")
             stage = 11
         }
-        if (getQuestStage(player, "Priest in Peril") >= 13) {
+        if (getQuestStage(player, QuestName.PRIEST_IN_PERIL) >= 13) {
             sendDialogue("You knock at the door...The door swings open as you knock.")
             stage = 20
         }
@@ -98,7 +99,7 @@ class PriestDoorDialogue(player: Player? = null) : Dialogue(player) {
 
             10 -> {
                 end()
-                setQuestStage(player, "Priest in Peril", 11)
+                setQuestStage(player, QuestName.PRIEST_IN_PERIL, 11)
             }
 
             11 -> {

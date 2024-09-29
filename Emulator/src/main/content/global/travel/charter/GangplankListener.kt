@@ -10,6 +10,7 @@ import core.game.world.map.Location
 import core.game.world.repository.Repository.findNPC
 import core.game.world.update.flag.context.Animation
 import org.rs.consts.NPCs
+import org.rs.consts.QuestName
 import org.rs.consts.Scenery
 
 class GangplankListener : InteractionListener {
@@ -42,7 +43,7 @@ class GangplankListener : InteractionListener {
          */
 
         on(Scenery.GANGPLANK_2593, IntType.SCENERY, "cross") { player, _ ->
-            if (isQuestComplete(player, "Dragon Slayer")) {
+            if (isQuestComplete(player, QuestName.DRAGON_SLAYER)) {
                 player.dialogueInterpreter.open(NPCs.KLARENSE_744, findNPC(NPCs.KLARENSE_744), true)
                 return@on true
             }

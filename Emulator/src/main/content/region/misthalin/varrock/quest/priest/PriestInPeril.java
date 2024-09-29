@@ -1,12 +1,13 @@
 package content.region.misthalin.varrock.quest.priest;
 
-import org.rs.consts.Vars;
 import core.game.node.entity.player.Player;
 import core.game.node.entity.player.link.quest.Quest;
 import core.game.node.entity.skill.Skills;
 import core.game.node.item.GroundItemManager;
 import core.game.node.item.Item;
 import core.plugin.Initializable;
+import org.rs.consts.QuestName;
+import org.rs.consts.Vars;
 
 import static core.api.ContentAPIKt.removeAttribute;
 
@@ -20,7 +21,7 @@ public class PriestInPeril extends Quest {
      * Instantiates a new Priest in peril quest.
      */
     public PriestInPeril() {
-        super("Priest in Peril", 99, 98, 1, Vars.VARP_QUEST_PRIEST_IN_PERIL_PROGRESS, 0, 1, 100);
+        super(QuestName.PRIEST_IN_PERIL, 99, 98, 1, Vars.VARP_QUEST_PRIEST_IN_PERIL_PROGRESS, 0, 1, 100);
     }
 
     @Override

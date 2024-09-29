@@ -1,12 +1,13 @@
 package content.region.misthalin.varrock.quest.priest.handlers
 
 import core.api.*
-import org.rs.consts.*
+import core.game.dialogue.FacialExpression
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.interaction.QueueStrength
-import core.game.world.map.Location
 import core.game.node.item.Item
+import core.game.world.map.Location
+import org.rs.consts.*
 
 class PriestInPerilListener : InteractionListener {
 
@@ -137,7 +138,7 @@ class PriestInPerilListener : InteractionListener {
                 return@onUseWith false
             }
 
-            setQuestStage(player, "Priest in Peril", 15)
+            setQuestStage(player, QuestName.PRIEST_IN_PERIL, 15)
             sendMessage(player, "You have unlocked the cell door.")
 
             val npc = core.game.node.entity.npc.NPC.create(NPCs.DREZEL_7690, player.location)
@@ -146,7 +147,7 @@ class PriestInPerilListener : InteractionListener {
                 player,
                 npc.id,
                 "Oh! Thank you! You have found the key!",
-                core.game.dialogue.FacialExpression.HALF_GUILTY
+                FacialExpression.HALF_GUILTY
             )
 
             return@onUseWith true
@@ -159,7 +160,7 @@ class PriestInPerilListener : InteractionListener {
             addItem(player, Items.BUCKET_1925)
             animate(player, 1077)
             playAudio(player, Sounds.HOLY_WATER_POUR_1733)
-            setQuestStage(player, "Priest in Peril", 16)
+            setQuestStage(player, QuestName.PRIEST_IN_PERIL, 16)
             sendMessage(player, "You pour the blessed water over the coffin...")
             return@onUseWith true
         }

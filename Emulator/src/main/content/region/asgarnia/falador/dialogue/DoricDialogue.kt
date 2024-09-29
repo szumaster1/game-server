@@ -14,6 +14,7 @@ import core.game.node.entity.skill.Skills
 import core.game.world.GameWorld.settings
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
+import org.rs.consts.QuestName
 
 /**
  * Represents the Doric dialogue.
@@ -23,7 +24,7 @@ class DoricDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any?): Boolean {
         npc = args[0] as NPC
-        val quesStage = getQuestStage(player, "Doric's Quest")
+        val quesStage = getQuestStage(player, QuestName.DORICS_QUEST)
         when (quesStage) {
             0 -> {
                 npcl(FacialExpression.OLD_NORMAL, "Hello traveller, what brings you to my humble smithy?").also { stage = 0 }

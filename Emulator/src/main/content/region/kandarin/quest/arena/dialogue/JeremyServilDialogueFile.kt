@@ -1,6 +1,5 @@
 package content.region.kandarin.quest.arena.dialogue
 
-import org.rs.consts.NPCs
 import core.api.getQuestStage
 import core.api.sendNPCDialogue
 import core.api.sendPlayerDialogue
@@ -9,6 +8,8 @@ import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC
 import core.tools.END_DIALOGUE
+import org.rs.consts.NPCs
+import org.rs.consts.QuestName
 
 /**
  * Represents the Jeremy servil dialogue file.
@@ -17,7 +18,7 @@ class JeremyServilDialogueFile : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {
         npc = NPC(NPCs.JEREMY_SERVIL_266)
-        when (getQuestStage(player!!, "Fight Arena")) {
+        when (getQuestStage(player!!, QuestName.FIGHT_ARENA)) {
             in 1..84 -> when (stage) {
                 0 -> playerl(FacialExpression.FRIENDLY, "Don't worry, I'll get us out of here.").also { stage++ }
                 1 -> npcl(FacialExpression.CHILD_NORMAL, "Thanks, traveller. I'm sorry that you too are a subject of this arena.").also { stage = END_DIALOGUE }
@@ -27,7 +28,7 @@ class JeremyServilDialogueFile : DialogueFile() {
                 1 -> npcl(FacialExpression.CHILD_NORMAL, "Thank you, we are truly indebted to you.").also { stage++ }
                 2 -> {
                     end()
-                    setQuestStage(player!!, "Fight Arena", 99)
+                    setQuestStage(player!!, QuestName.FIGHT_ARENA, 99)
                 }
             }
             98 -> when (stage) {
@@ -35,7 +36,7 @@ class JeremyServilDialogueFile : DialogueFile() {
                 1 -> npcl(FacialExpression.CHILD_NORMAL, "Thank you, we are truly indebted to you.").also { stage++ }
                 2 -> {
                     end()
-                    setQuestStage(player!!, "Fight Arena", 99)
+                    setQuestStage(player!!, QuestName.FIGHT_ARENA, 99)
                 }
             }
             100 -> when (stage) {

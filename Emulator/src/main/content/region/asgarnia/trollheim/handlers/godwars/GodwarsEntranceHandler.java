@@ -16,6 +16,7 @@ import core.game.world.map.RegionManager;
 import core.game.world.update.flag.context.Animation;
 import core.plugin.Initializable;
 import core.plugin.Plugin;
+import org.rs.consts.QuestName;
 
 import static core.api.ContentAPIKt.*;
 
@@ -66,7 +67,7 @@ public final class GodwarsEntranceHandler extends OptionHandler {
                 });
                 return true;
             case 26338:
-                if (!hasRequirement(player, "Troll Stronghold"))
+                if (!hasRequirement(player, QuestName.TROLL_STRONGHOLD))
                     return true;
                 if (player.getSkills().getStaticLevel(Skills.STRENGTH) < 60) {
                     player.getPacketDispatch().sendMessage("You need a Strength level of 60 to move this boulder.");

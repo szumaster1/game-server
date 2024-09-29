@@ -1,7 +1,5 @@
 package content.region.misthalin.draynor.dialogue
 
-import org.rs.consts.Items
-import org.rs.consts.NPCs
 import content.region.desert.quest.rescue.dialogue.NedDialogueFile
 import content.region.misthalin.lumbridge.diary.dialogue.NedDiaryDialogue
 import content.region.misthalin.varrock.quest.dragon.dialogue.NedDSDialogue
@@ -16,6 +14,9 @@ import core.game.node.item.Item
 import core.game.world.GameWorld.settings
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
+import org.rs.consts.Items
+import org.rs.consts.NPCs
+import org.rs.consts.QuestName
 
 /**
  * Represents the Ned dialogue.
@@ -32,8 +33,8 @@ class NedDialogue(player: Player? = null) : Dialogue(player) {
     override fun handle(interfaceId: Int, buttonId: Int): Boolean {
         when (stage) {
             0 -> {
-                val dSlayerStage = player.questRepository.getStage("Dragon Slayer")
-                val parStage = player.questRepository.getStage("Prince Ali Rescue")
+                val dSlayerStage = player.questRepository.getStage(QuestName.DRAGON_SLAYER)
+                val parStage = player.questRepository.getStage(QuestName.PRINCE_ALI_RESCUE)
                 showTopics(
                     IfTopic("I'd like to talk about Dragon Slayer.", NedDSDialogue(dSlayerStage), dSlayerStage == 20 || dSlayerStage == 30),
                     IfTopic("I'd like to talk about Prince Ali Rescue.", NedDialogueFile(parStage), parStage == 20 || parStage == 30 || parStage == 40 || parStage == 50),

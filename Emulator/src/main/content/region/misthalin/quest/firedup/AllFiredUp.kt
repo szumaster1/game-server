@@ -27,7 +27,7 @@ class AllFiredUp : Quest(QuestName.ALL_FIRED_UP, 157, 156, 1){
             line++
             line(player, "Minimum requirements:", line++)
             line(player, "I need level !!43 Firemaking?? to start the quest.", line++, getStatLevel(player, Skills.FIREMAKING) >= 43)
-            line(player, "I need to have completed !!Priest in Peril??.", line++, isQuestComplete(player, "Priest in Peril"))
+            line(player, "I need to have completed !!${QuestName.PRIEST_IN_PERIL}??.", line++, isQuestComplete(player, QuestName.PRIEST_IN_PERIL))
         } else {
             line(player, "I have agreed to help King Roald test the beacon network", line++, true)
             line(player, "that he hopes will serve as an early warning system,", line++, true)

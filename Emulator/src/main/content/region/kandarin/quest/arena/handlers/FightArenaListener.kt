@@ -13,6 +13,7 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.entity.npc.NPC
 import core.game.world.map.Location
+import org.rs.consts.QuestName
 
 class FightArenaListener : InteractionListener {
 
@@ -51,7 +52,7 @@ class FightArenaListener : InteractionListener {
         }
 
         on(FULL_ARMOR_STAND, IntType.SCENERY, "borrow") { player, _ ->
-            if (getQuestStage(player, "Fight Arena") >= 10 && !allInEquipment(player, HELMET, ARMOR) && freeSlots(player) >= 2) {
+            if (getQuestStage(player, QuestName.FIGHT_ARENA) >= 10 && !allInEquipment(player, HELMET, ARMOR) && freeSlots(player) >= 2) {
                 replaceScenery(FULL_ARMOR_STAND_1!!.asScenery(), EMPTY_STAND, 10, location(2619, 3196, 0))
                 sendMessage(player, "You borrow the suit of armour. It looks like it's just your size.")
                 addItem(player, ARMOR, 1)
@@ -77,7 +78,7 @@ class FightArenaListener : InteractionListener {
             setVarbit(player, 5627, 3)
             animate(player, 832)
             addItemOrDrop(player, CELL_KEY)
-            setQuestStage(player, "Fight Arena", 68)
+            setQuestStage(player, QuestName.FIGHT_ARENA, 68)
             sendMessage(player, "You pick up the keys from the table.")
             return@on true
         }
@@ -112,9 +113,9 @@ class FightArenaListener : InteractionListener {
             CELL_KEY,
             CELL_DOOR_2
         ) { player, _, _ ->
-            if (getQuestStage(player, "Fight Arena") == 88) {
+            if (getQuestStage(player, QuestName.FIGHT_ARENA) == 88) {
                 PrisonCutscene(player).start()
-            } else if (getQuestStage(player, "Fight Arena") >= 68) {
+            } else if (getQuestStage(player, QuestName.FIGHT_ARENA) >= 68) {
                 setAttribute(player, "spawn-ogre", true)
                 JeremyRescueCutscene(player).start()
             }
@@ -125,7 +126,7 @@ class FightArenaListener : InteractionListener {
             CELL_KEY,
             CELL_DOOR_1
         ) { player, _, _ ->
-            if (getQuestStage(player, "Fight Arena") >= 68) {
+            if (getQuestStage(player, QuestName.FIGHT_ARENA) >= 68) {
                 sendDialogue(player, "I don't want to attract too much attention by freeing all the prisoners. I need to find Jeremy and he's not in this cell.")
             } else {
                 sendMessage(player, "The cell gate is securely locked.")

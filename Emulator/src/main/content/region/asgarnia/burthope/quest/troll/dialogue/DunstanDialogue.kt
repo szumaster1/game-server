@@ -7,6 +7,7 @@ import core.game.dialogue.FacialExpression
 import core.game.dialogue.Topic
 import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
+import org.rs.consts.QuestName
 
 /**
  * Represents the Dunstan.
@@ -14,7 +15,7 @@ import core.tools.START_DIALOGUE
 class DunstanDialogue : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {
-        when (getQuestStage(player!!, "Troll Stronghold")) {
+        when (getQuestStage(player!!, QuestName.TROLL_STRONGHOLD)) {
             in 1..10 -> {
                 when (stage) {
                     START_DIALOGUE ->
@@ -39,7 +40,7 @@ class DunstanDialogue : DialogueFile() {
                     3 -> npcl(FacialExpression.FRIENDLY, "I have very little to offer you by way of thanks, but perhaps you will accept these family heirlooms. They were found by my great-great-grandfather, but we still don't have any idea what they do.").also { stage++ }
                     4 -> {
                         end()
-                        finishQuest(player!!, "Troll Stronghold")
+                        finishQuest(player!!, QuestName.TROLL_STRONGHOLD)
                     }
                 }
             }

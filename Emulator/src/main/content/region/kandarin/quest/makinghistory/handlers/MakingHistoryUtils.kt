@@ -6,6 +6,7 @@ import core.api.isQuestComplete
 import core.api.setVarbit
 import core.game.node.entity.player.Player
 import core.game.node.entity.skill.Skills
+import org.rs.consts.QuestName
 
 object MakingHistoryUtils {
     const val PROGRESS = 1383
@@ -23,7 +24,7 @@ object MakingHistoryUtils {
         return getStatLevel(player, Skills.CRAFTING) >= 24 &&
                 getStatLevel(player, Skills.MINING) >= 40 &&
                 getStatLevel(player, Skills.SMITHING) >= 40 &&
-                isQuestComplete(player, "Priest in Peril")
+                isQuestComplete(player, QuestName.PRIEST_IN_PERIL)
     }
 
     fun checkProgress(player: Player) {

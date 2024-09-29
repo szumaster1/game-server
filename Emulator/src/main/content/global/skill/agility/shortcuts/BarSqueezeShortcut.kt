@@ -11,6 +11,7 @@ import core.game.world.map.Location
 import core.game.world.update.flag.context.Animation
 import core.plugin.Initializable
 import core.plugin.Plugin
+import org.rs.consts.QuestName
 
 /**
  * Represents the Bar squeeze shortcut.
@@ -40,7 +41,7 @@ class BarSqueezeShortcut : AgilityShortcut {
     }
 
     override fun checkRequirements(player: Player): Boolean {
-        return if (!isQuestComplete(player, "Priest in Peril") && player.location.y !in 3159..3161) {
+        return if (!isQuestComplete(player, QuestName.PRIEST_IN_PERIL) && player.location.y !in 3159..3161) {
             sendDialogue(player, "You need to have completed Priest in Peril in order to do this.")
             false
         } else {

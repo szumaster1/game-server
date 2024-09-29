@@ -1,7 +1,6 @@
 package content.region.asgarnia.portsarim.handlers
 
 import core.api.*
-import org.rs.consts.*
 import core.game.dialogue.DialogueFile
 import core.game.global.action.DoorActionHandler
 import core.game.interaction.IntType
@@ -10,6 +9,7 @@ import core.game.interaction.QueueStrength
 import core.game.node.entity.npc.NPC
 import core.game.world.map.Location
 import core.tools.RandomFunction
+import org.rs.consts.*
 
 /**
  * Represents the Port sarim listeners.
@@ -145,7 +145,7 @@ class PortSarimListener : InteractionListener {
          */
 
         on(WORMBRAIN, IntType.NPC, "attack") { player, node ->
-            if (getQuestStage(player, "Dragon Slayer") != 20) {
+            if (getQuestStage(player, QuestName.DRAGON_SLAYER) != 20) {
                 sendDialogue(player, "The goblin is already in prison. You have no reason to attack him.")
             } else {
                 player.properties.combatPulse.attack(node)

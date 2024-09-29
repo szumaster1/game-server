@@ -6,10 +6,6 @@ import content.global.travel.CanoeListener
 import content.global.travel.FairyRing
 import content.region.misthalin.varrock.museum.dialogue.OrlandoSmithDialogue
 import core.api.*
-import org.rs.consts.Components
-import org.rs.consts.Items
-import org.rs.consts.NPCs
-import org.rs.consts.Scenery
 import content.region.misthalin.varrock.dialogue.BennyDialogue
 import content.region.misthalin.varrock.dialogue.ElsieDialogue
 import content.region.misthalin.varrock.quest.crest.dialogue.DimintheisDialogue
@@ -25,6 +21,7 @@ import core.game.node.entity.player.link.diary.DiaryType
 import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 import core.game.world.map.zone.ZoneBorders
+import org.rs.consts.*
 
 /**
  * Represents the Varrock achievement diary.
@@ -338,7 +335,7 @@ class VarrockAchievementDiary : DiaryEventHookBase(DiaryType.VARROCK) {
             }
         }
 
-        if (isQuestComplete(player, "Dragon Slayer")) {
+        if (isQuestComplete(player, QuestName.DRAGON_SLAYER)) {
             if (event.target.id == NPCs.OZIACH_747 && event.option == "trade" && inBorders(player, OZIACH_SHOP_AREA)) {
                 finishTask(
                     player,

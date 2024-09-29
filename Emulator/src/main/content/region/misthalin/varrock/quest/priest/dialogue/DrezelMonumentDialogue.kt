@@ -12,6 +12,7 @@ import core.game.node.entity.player.Player
 import core.game.node.item.Item
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
+import org.rs.consts.QuestName
 
 /**
  * Represents the Drezel monument dialogue.
@@ -21,7 +22,7 @@ class DrezelMonumentDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
-        var quest = player.getQuestRepository().getQuest("Priest in Peril")
+        var quest = player.getQuestRepository().getQuest(QuestName.PRIEST_IN_PERIL)
         if (quest.getStage(player) == 17) {
             npc(FacialExpression.HALF_GUILTY,
                 "Ah, " + player.username + ". I see you finally made it down here.",
@@ -69,7 +70,7 @@ class DrezelMonumentDialogue(player: Player? = null) : Dialogue(player) {
     }
 
     override fun handle(interfaceId: Int, buttonId: Int): Boolean {
-        val quest = player.getQuestRepository().getQuest("Priest in Peril")
+        val quest = player.getQuestRepository().getQuest(QuestName.PRIEST_IN_PERIL)
         when (stage) {
             400 -> {
                 npc(FacialExpression.HALF_GUILTY,

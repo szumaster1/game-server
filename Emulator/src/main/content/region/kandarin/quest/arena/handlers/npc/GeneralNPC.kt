@@ -2,7 +2,6 @@ package content.region.kandarin.quest.arena.handlers.npc
 
 import content.region.kandarin.quest.arena.dialogue.JeremyServilDialogueFile
 import content.region.kandarin.quest.arena.handlers.FightArenaListener.Companion.General
-import org.rs.consts.NPCs
 import core.api.getQuestStage
 import core.api.openDialogue
 import core.api.setQuestStage
@@ -11,6 +10,8 @@ import core.game.node.entity.npc.AbstractNPC
 import core.game.node.entity.player.Player
 import core.game.world.map.Location
 import core.plugin.Initializable
+import org.rs.consts.NPCs
+import org.rs.consts.QuestName
 
 /**
  * General NPC.
@@ -33,9 +34,8 @@ class GeneralNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id, loca
 
     override fun finalizeDeath(killer: Entity?) {
         if (killer is Player) {
-            val quest = "Fight Arena"
-            if (getQuestStage(killer, quest) == 97) {
-                setQuestStage(killer, "Fight Arena", 98)
+            if (getQuestStage(killer, QuestName.FIGHT_ARENA) == 97) {
+                setQuestStage(killer, QuestName.FIGHT_ARENA, 98)
                 openDialogue(killer.asPlayer(), JeremyServilDialogueFile())
             }
         }

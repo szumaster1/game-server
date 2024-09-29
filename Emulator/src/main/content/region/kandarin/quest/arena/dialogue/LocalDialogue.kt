@@ -1,6 +1,5 @@
 package content.region.kandarin.quest.arena.dialogue
 
-import org.rs.consts.NPCs
 import core.api.getQuestStage
 import core.api.isQuestComplete
 import core.game.dialogue.Dialogue
@@ -9,6 +8,8 @@ import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
+import org.rs.consts.NPCs
+import org.rs.consts.QuestName
 
 /**
  * Represents the Local dialogue.
@@ -18,11 +19,11 @@ class LocalDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any?): Boolean {
         npc = args[0] as NPC
-        if (isQuestComplete(player, "Fight Arena")) {
+        if (isQuestComplete(player, QuestName.FIGHT_ARENA)) {
             npcl(FacialExpression.FRIENDLY, "Hey, you're the guy from the arena! How'd you get out?").also { stage = END_DIALOGUE }
-        } else if (getQuestStage(player, "Fight Arena") in 91..99) {
+        } else if (getQuestStage(player, QuestName.FIGHT_ARENA) in 91..99) {
             playerl(FacialExpression.FRIENDLY, "Hello.").also { stage = 9 }
-        } else if (getQuestStage(player, "Fight Arena") >= 10) {
+        } else if (getQuestStage(player, QuestName.FIGHT_ARENA) >= 10) {
             playerl(FacialExpression.FRIENDLY, "Hello.")
         } else {
             playerl(FacialExpression.FRIENDLY, "Hello.").also { stage = 7 }

@@ -1,21 +1,22 @@
 package content.region.kandarin.quest.arena
 
 import core.api.addItemOrDrop
-import org.rs.consts.Components
-import org.rs.consts.Items
-import org.rs.consts.Vars
 import core.api.rewardXP
 import core.api.sendItemZoomOnInterface
 import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.quest.Quest
 import core.game.node.entity.skill.Skills
 import core.plugin.Initializable
+import org.rs.consts.Components
+import org.rs.consts.Items
+import org.rs.consts.QuestName
+import org.rs.consts.Vars
 
 /**
  * Fight arena quest.
  */
 @Initializable
-class FightArena : Quest("Fight Arena", 61, 60, 2, Vars.VARP_QUEST_FIGHT_ARENA_PROGRESS, 0, 1, 14) {
+class FightArena : Quest(QuestName.FIGHT_ARENA, 61, 60, 2, Vars.VARP_QUEST_FIGHT_ARENA_PROGRESS, 0, 1, 14) {
 
     /*
      * Release: 23 July 2002 and developed by Paul Gower.

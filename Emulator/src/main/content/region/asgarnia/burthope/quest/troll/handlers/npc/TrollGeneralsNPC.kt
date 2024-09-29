@@ -10,6 +10,7 @@ import core.game.node.entity.npc.AbstractNPC
 import core.game.node.entity.player.Player
 import core.game.world.map.Location
 import core.plugin.Initializable
+import org.rs.consts.QuestName
 
 /**
  * Troll generals NPC.
@@ -26,7 +27,7 @@ class TrollGeneralsNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id
     }
 
     override fun finalizeDeath(killer: Entity?) {
-        if (isQuestInProgress(killer as Player, "Troll Stronghold", 1, 7) && !inInventory(killer, Items.PRISON_KEY_3135)) {
+        if (isQuestInProgress(killer as Player, QuestName.TROLL_STRONGHOLD, 1, 7) && !inInventory(killer, Items.PRISON_KEY_3135)) {
             produceGroundItem(killer, Items.PRISON_KEY_3135, 1, this.location)
         }
         super.finalizeDeath(killer)

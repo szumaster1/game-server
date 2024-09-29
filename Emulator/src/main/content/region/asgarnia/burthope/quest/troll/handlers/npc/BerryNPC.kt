@@ -11,6 +11,7 @@ import core.game.node.entity.npc.AbstractNPC
 import core.game.node.entity.player.Player
 import core.game.world.map.Location
 import core.plugin.Initializable
+import org.rs.consts.QuestName
 
 /**
  * Berry NPC.
@@ -45,7 +46,7 @@ class BerryNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id, locati
     }
 
     override fun finalizeDeath(killer: Entity?) {
-        if (isQuestInProgress(killer as Player, "Troll Stronghold", 8, 10) && !inInventory(
+        if (isQuestInProgress(killer as Player, QuestName.TROLL_STRONGHOLD, 8, 10) && !inInventory(
                 killer,
                 Items.CELL_KEY_2_3137
             )

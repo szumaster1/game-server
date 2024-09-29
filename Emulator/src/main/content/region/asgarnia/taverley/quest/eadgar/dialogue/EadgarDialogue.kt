@@ -9,6 +9,7 @@ import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
+import org.rs.consts.QuestName
 
 /**
  * Represents the Eadgar dialogue.
@@ -18,7 +19,7 @@ class EadgarDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any?): Boolean {
         npc = args[0] as NPC
-        if (!isQuestComplete(player, "Troll Stronghold")) {
+        if (!isQuestComplete(player, QuestName.TROLL_STRONGHOLD)) {
             sendDialogue(player, "Mad Eadgar seems too busy to talk.").also { stage = END_DIALOGUE }
         } else {
             npcl(FacialExpression.HALF_GUILTY, "Welcome to Mad Eadgar's! Happiness in a bowl! Would you care to sample our delicious home cooking?").also { stage = 0 }

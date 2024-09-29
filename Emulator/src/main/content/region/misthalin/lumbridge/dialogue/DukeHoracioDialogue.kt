@@ -1,10 +1,9 @@
 package content.region.misthalin.lumbridge.dialogue
 
-import org.rs.consts.NPCs
 import content.region.misthalin.lumbridge.quest.losttribe.dialogue.DukeHoracioLostTribeDialogue
+import content.region.misthalin.lumbridge.quest.runemysteries.dialogue.DukeHoracioRMDialogue
 import content.region.misthalin.varrock.quest.dragon.DragonSlayer
 import content.region.misthalin.varrock.quest.dragon.dialogue.DukeHoracioDragonSlayerDialogue
-import content.region.misthalin.lumbridge.quest.runemysteries.dialogue.DukeHoracioRMDialogue
 import core.api.getQuestStage
 import core.api.isQuestComplete
 import core.game.dialogue.Dialogue
@@ -13,6 +12,7 @@ import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.tools.DIALOGUE_INITIAL_OPTIONS_HANDLE
 import core.tools.END_DIALOGUE
+import org.rs.consts.NPCs
 import org.rs.consts.QuestName
 
 /**
@@ -22,9 +22,9 @@ class DukeHoracioDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
-        if ((getQuestStage(player, "Dragon Slayer") == 100 && !player.inventory.containsItem(DragonSlayer.SHIELD) && !player.bank.containsItem(
-                DragonSlayer.SHIELD)) || (player.questRepository.getQuest("Dragon Slayer").isStarted(player) && !isQuestComplete(player, "Dragon Slayer"))) {
-            addOption("Dragon Slayer", DukeHoracioDragonSlayerDialogue(player.questRepository.getStage("Dragon Slayer")))
+        if ((getQuestStage(player, QuestName.DRAGON_SLAYER) == 100 && !player.inventory.containsItem(DragonSlayer.SHIELD) && !player.bank.containsItem(
+                DragonSlayer.SHIELD)) || (player.questRepository.getQuest(QuestName.DRAGON_SLAYER).isStarted(player) && !isQuestComplete(player, QuestName.DRAGON_SLAYER))) {
+            addOption(QuestName.DRAGON_SLAYER, DukeHoracioDragonSlayerDialogue(player.questRepository.getStage(QuestName.DRAGON_SLAYER)))
         }
         if (!isQuestComplete(player, QuestName.THE_LOST_TRIBE) && player.questRepository.getQuest(QuestName.THE_LOST_TRIBE).isStarted(player)) {
             addOption(QuestName.THE_LOST_TRIBE, DukeHoracioLostTribeDialogue(player.questRepository.getStage(QuestName.THE_LOST_TRIBE)))
