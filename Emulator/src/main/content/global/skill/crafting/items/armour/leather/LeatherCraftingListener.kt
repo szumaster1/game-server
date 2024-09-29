@@ -8,7 +8,6 @@ import core.api.submitIndividualPulse
 import core.game.dialogue.SkillDialogueHandler
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
-import core.game.node.entity.player.Player
 import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 import org.rs.consts.Items
@@ -16,16 +15,12 @@ import org.rs.consts.Items
 class LeatherCraftingListener : InteractionListener {
 
     override fun defineListeners() {
-        onUseWith(IntType.ITEM, LEATHER, Leather.NEEDLE) { player, used, with ->
-            player.attributes["leatherId"] = used.id
-            when (used.id) {
-                Leather.LEATHER -> {
-                    Leather.SoftLeather.open(player)
-                }
-                else -> {
-                    player.dialogueInterpreter.open(48923, "dragon", used.id)
-                }
-            }
+        /*
+         * Handles leather crafting.
+         */
+
+        onUseWith(IntType.ITEM, Leather.LEATHER, Leather.NEEDLE) { player, used, with ->
+            Leather.SoftLeather.open(player)
             return@onUseWith true
         }
 
@@ -55,16 +50,40 @@ class LeatherCraftingListener : InteractionListener {
             handler.open()
             return@onUseWith true
         }
+
+        /*
+         * Handles dragon leather crafting.
+         */
+
+        onUseWith(IntType.ITEM, DRAGON_LEATHER, Leather.NEEDLE) { player, used, with ->
+            val item = Leather.DragonHide.values()[used.id] ?: return@onUseWith true
+            val handler: SkillDialogueHandler =
+                object : SkillDialogueHandler(player, SkillDialogue.THREE_OPTION, Item(item.product)) {
+                    override fun create(amount: Int, index: Int) {
+                        submitIndividualPulse(
+                            entity = player,
+                            pulse = DragonCraftingPulse(player, used.asItem(), item, amount)
+                        )
+                    }
+
+                    override fun getAll(index: Int): Int {
+                        return amountInInventory(player, item.amount)
+                    }
+                }
+            handler.open()
+            return@onUseWith true
+        }
+
     }
 
 
     companion object {
-        private val LEATHER = intArrayOf(
-            Leather.LEATHER,
-            Leather.GREEN_LEATHER,
-            Leather.BLUE_LEATHER,
-            Leather.RED_LEATHER,
-            Leather.BLACK_LEATHER
-        )
+        private val DRAGON_LEATHER =
+            intArrayOf(
+                Leather.GREEN_LEATHER,
+                Leather.BLUE_LEATHER,
+                Leather.RED_LEATHER,
+                Leather.BLACK_LEATHER
+            )
     }
 }
