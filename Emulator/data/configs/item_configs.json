@@ -31372,7 +31372,7 @@
     "id": "3157"
   },
   {
-    "examine": "The Karambwan Vessel is loaded with Karambwanji."
+    "examine": "The Karambwan Vessel is loaded with Karambwanji.",
     "ge_buy_limit": "100",
     "grand_exchange_price": "221",
     "durability": null,
@@ -77886,6 +77886,7 @@
     "name": "Torch",
     "archery_ticket_price": "0",
     "id": "8987"
+  },
   {
     "shop_price": "5",
     "examine": "Apparently good for brewing.",
@@ -90954,6 +90955,7 @@
     "defence_anim": "378",
     "equipment_slot": "3"
   },
+  {
     "examine": "The twisted blade is covered with a nasty poison.",
     "attack_anims": "376,376,377,376",
     "destroy_message": "You can obtain another from Osman. You will then need to poison it.",
