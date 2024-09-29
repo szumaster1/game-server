@@ -1,6 +1,6 @@
 package content.global.skill.crafting.items.armour.leather
 
-import content.global.skill.crafting.Leather
+import content.global.skill.crafting.leather.Leather
 import core.api.*
 import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.diary.DiaryType
@@ -13,10 +13,10 @@ import org.rs.consts.Animations
 /**
  * Represents a pulse used to craft soft leather.
  */
-class SoftLeatherCraftingPulse(player: Player?, node: Item?, val soft: Leather.SoftLeather, var amount: Int) :
-    SkillPulse<Item?>(player, node) {
+class SoftLeatherCraftingPulse(player: Player?, node: Item?, val soft: Leather.SoftLeather, var amount: Int) : SkillPulse<Item?>(player, node) {
 
-    var ticks = 0
+    private var ticks = 0
+
     override fun checkRequirements(): Boolean {
         if (getStatLevel(player, Skills.CRAFTING) < soft.level) {
             sendDialogue(player, "You need a crafting level of " + soft.level + " to make " + (if (StringUtils.isPlusN(soft.product.name)) "an" else "a" + " " + soft.product.name).lowercase() + ".")

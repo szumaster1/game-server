@@ -85,7 +85,7 @@ enum class Tanning(val button: Int, val item: Int, val product: Int) {
 
             if (removeItem(player, Item(Items.COINS_995, coinsRequired * availableAmount)) && removeItem(player, Item(def.item, availableAmount))) {
                 addItem(player, def.product, availableAmount)
-                sendMessage(player, "The tanner tans ${if (availableAmount > 1) "$availableAmount ${getItemName(def.item).lowercase()}s" else "your ${getItemName(def.item).lowercase()}."}")
+                sendMessage(player, "The tanner tans ${if (availableAmount > 1) "$availableAmount ${getItemName(def.item).lowercase()}s for you" else "${getItemName(def.item).lowercase()} for you"}" + ".")
                 if (def == SOFT_LEATHER) {
                     finishDiaryTask(player, DiaryType.LUMBRIDGE, 1, 2)
                 }

@@ -1,6 +1,7 @@
-package content.global.skill.crafting.items.armour.leather
+package content.global.skill.crafting.leather
 
-import content.global.skill.crafting.Leather
+import content.global.skill.crafting.items.armour.leather.DragonCraftingPulse
+import content.global.skill.crafting.items.armour.leather.HardLeatherCraftingPulse
 import core.api.amountInInventory
 import core.api.getStatLevel
 import core.api.sendDialogue
@@ -55,7 +56,7 @@ class LeatherCraftingListener : InteractionListener {
          * Handles dragon leather crafting.
          */
 
-        onUseWith(IntType.ITEM, DRAGON_LEATHER, Leather.NEEDLE) { player, used, with ->
+        onUseWith(IntType.ITEM, DRAGON_LEATHER, Leather.NEEDLE) { player, used, _ ->
             val item = Leather.DragonHide.values()[used.id] ?: return@onUseWith true
             val handler: SkillDialogueHandler =
                 object : SkillDialogueHandler(player, SkillDialogue.THREE_OPTION, Item(item.product)) {
@@ -67,7 +68,7 @@ class LeatherCraftingListener : InteractionListener {
                     }
 
                     override fun getAll(index: Int): Int {
-                        return amountInInventory(player, item.amount)
+                        return amountInInventory(player, item.leather)
                     }
                 }
             handler.open()

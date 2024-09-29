@@ -13,6 +13,7 @@ import org.rs.consts.Items
  * Represents a pulse for studded armor.
  */
 class StuddedArmourPulse(player: Player?, node: Item?, private val armour: StuddedArmourListener.StuddedArmour?, private var amount: Int) : SkillPulse<Item?>(player, node) {
+
     private var ticks = 0
 
     override fun checkRequirements(): Boolean {
@@ -37,8 +38,8 @@ class StuddedArmourPulse(player: Player?, node: Item?, private val armour: Studd
         if (++ticks % 5 != 0) {
             return false
         }
-        if (player.inventory.remove(armour!!.item, STEEL_STUDS)) {
-            player.inventory.add(armour.studded)
+        if (removeItem(player, armour!!.item) && removeItem(player, Item(STEEL_STUDS, 1))) {
+            addItem(player, armour.studded.id, 1)
             rewardXP(player, Skills.CRAFTING, armour.experience)
             sendMessage(player, "You make a " + armour.studded.name.lowercase() + ".")
         }
@@ -54,6 +55,6 @@ class StuddedArmourPulse(player: Player?, node: Item?, private val armour: Studd
 
     companion object {
         private const val ANIMATION = Animations.CRAFT_LEATHER_1249
-        private val STEEL_STUDS = Item(Items.STEEL_STUDS_2370)
+        private const val STEEL_STUDS = Items.STEEL_STUDS_2370
     }
 }

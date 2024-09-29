@@ -1,4 +1,4 @@
-package content.global.skill.crafting
+package content.global.skill.crafting.leather
 
 import core.api.removeItem
 import core.api.sendMessage

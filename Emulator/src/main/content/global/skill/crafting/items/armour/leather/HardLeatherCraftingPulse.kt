@@ -1,6 +1,6 @@
 package content.global.skill.crafting.items.armour.leather
 
-import content.global.skill.crafting.Leather
+import content.global.skill.crafting.leather.Leather
 import core.api.*
 import core.game.node.entity.player.Player
 import core.game.node.entity.skill.SkillPulse
@@ -14,7 +14,7 @@ import org.rs.consts.Items
  */
 class HardLeatherCraftingPulse(player: Player?, node: Item?, var amount: Int) : SkillPulse<Item?>(player, node) {
 
-    var ticks = 0
+    private var ticks = 0
 
     override fun checkRequirements(): Boolean {
         if (!inInventory(player, Leather.NEEDLE, 1)) {
@@ -45,6 +45,7 @@ class HardLeatherCraftingPulse(player: Player?, node: Item?, var amount: Int) : 
             val item = Item(Items.HARDLEATHER_BODY_1131)
             addItem(player, item.id)
             rewardXP(player, Skills.CRAFTING, 35.0)
+            sendMessage(player, "You make a hard leather body.")
             Leather.decayThread(player)
             if (Leather.isLastThread(player)) {
                 Leather.removeThread(player)

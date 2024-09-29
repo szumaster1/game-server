@@ -1,6 +1,6 @@
 package content.global.skill.crafting.items.armour.leather
 
-import content.global.skill.crafting.Leather
+import content.global.skill.crafting.leather.Leather
 import core.api.*
 import core.cache.def.impl.ItemDefinition
 import core.game.node.entity.player.Player
@@ -13,10 +13,9 @@ import org.rs.consts.Animations
 /**
  * Represents a pulse used to craft dragon leather.
  */
-class DragonCraftingPulse(player: Player?, node: Item?, val hide: Leather.DragonHide, var amount: Int) :
-    SkillPulse<Item?>(player, node) {
+class DragonCraftingPulse(player: Player?, node: Item?, val hide: Leather.DragonHide, var amount: Int) : SkillPulse<Item?>(player, node) {
 
-    var ticks = 0
+    private var ticks = 0
 
     override fun checkRequirements(): Boolean {
         if (getStatLevel(player, Skills.CRAFTING) < hide.level) {

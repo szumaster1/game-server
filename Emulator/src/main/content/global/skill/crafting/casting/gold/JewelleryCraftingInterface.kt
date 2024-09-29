@@ -15,7 +15,7 @@ import org.rs.consts.Components
 /**
  * Jewellery interface listener.
  */
-class JewelleryInterface : InterfaceListener {
+class JewelleryCraftingInterface : InterfaceListener {
 
     companion object {
         const val RING_MOULD = 1592
