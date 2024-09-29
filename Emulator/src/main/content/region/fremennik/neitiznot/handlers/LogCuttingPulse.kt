@@ -1,5 +1,6 @@
 package content.region.fremennik.neitiznot.handlers
 
+import content.global.skill.gather.SkillingTool
 import org.rs.consts.Animations
 import org.rs.consts.Items
 import core.api.*
@@ -21,6 +22,11 @@ class LogCuttingPulse(player: Player?, node: Item?, var amount: Int) : SkillPuls
     var ticks = 0
 
     override fun checkRequirements(): Boolean {
+        val tool = SkillingTool.getToolForSkill(player, Skills.WOODCUTTING)
+        if(tool == null) {
+            sendMessage(player, "You do not have a pickaxe to use.")
+            return false
+        }
         if (amountInInventory(player, Items.ARCTIC_PINE_LOGS_10810) < 1) {
             sendMessage(player, "You have run out of an Arctic pine log.")
             return false

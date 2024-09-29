@@ -29,15 +29,15 @@ enum class Tanning(val button: Int, val item: Int, val product: Int) {
         item = Items.SNAKE_HIDE_7801,
         product = Items.SNAKESKIN_6289
     ),
-    GREEN_DHIDE(
+    GREENDHIDE(
         button = 5,
         item = Items.GREEN_DRAGONHIDE_1753,
         product = Items.GREEN_D_LEATHER_1745
     ),
     BLUEDHIDE(
-        6,
-        Items.BLUE_DRAGONHIDE_1751,
-        Items.BLUE_D_LEATHER_2505
+        button = 6,
+        item = Items.BLUE_DRAGONHIDE_1751,
+        product = Items.BLUE_D_LEATHER_2505
     ),
     REDDHIDE(
         button = 7,

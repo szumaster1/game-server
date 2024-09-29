@@ -7,7 +7,7 @@ import org.rs.consts.Items
  * Represents the Snakeskin data.
  */
 enum class Snakeskin(val product: Item, val level: Int, val experience: Double, val amount: Int) {
-    SNAKESKIN_BOOT(
+    SNAKESKIN_BOOTS(
         product = Item(Items.SNAKESKIN_BOOTS_6328),
         level = 45,
         experience = 30.0,

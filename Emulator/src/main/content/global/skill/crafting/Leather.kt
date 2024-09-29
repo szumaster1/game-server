@@ -1,5 +1,7 @@
 package content.global.skill.crafting
 
+import core.api.removeItem
+import core.api.sendMessage
 import core.game.component.Component
 import core.game.node.entity.player.Player
 import core.game.node.item.Item
@@ -31,8 +33,8 @@ object Leather {
 
     @JvmStatic
     fun removeThread(player: Player) {
-        if (player.inventory.remove(THREAD)) {
-            player.packetDispatch.sendMessage("You use a reel of your thread.")
+        if (removeItem(player, THREAD)) {
+            sendMessage(player, "You use up one of your reels of thread.")
             getThread(player)?.charge = 1000
         }
     }
@@ -127,13 +129,6 @@ object Leather {
             level = 84,
             experience = 258.0
         );
-
-        companion object {
-            @JvmStatic
-            fun forLeather(leather: Int): DragonHide? {
-                return values().find { it.leather == leather }
-            }
-        }
     }
 
     enum class SoftLeather(val button: Int, val level: Int, val experience: Double, val product: Item) {

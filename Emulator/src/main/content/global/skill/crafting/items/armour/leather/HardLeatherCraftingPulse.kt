@@ -17,10 +17,6 @@ class HardLeatherCraftingPulse(player: Player?, node: Item?, var amount: Int) : 
     var ticks = 0
 
     override fun checkRequirements(): Boolean {
-        if (getStatLevel(player, Skills.CRAFTING) < 28) {
-            sendDialogue(player, "You need a crafting level of " + 28 + " to make a hardleather body.")
-            return false
-        }
         if (!inInventory(player, Leather.NEEDLE, 1)) {
             return false
         }

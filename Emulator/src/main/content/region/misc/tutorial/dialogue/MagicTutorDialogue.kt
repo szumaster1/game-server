@@ -210,8 +210,8 @@ class MagicTutorDialogue(player: Player? = null) : Dialogue(player) {
                     queueScript(player, 4, QueueStrength.WEAK) {
                         interpreter.sendDialogue(
                             "Welcome to Lumbridge! To get more help, simply click on the Lumbridge",
-                            "Guide or one of the Tutors - these can be found by looking for",
-                            "the question mark icon on your minimap. If you find you are lost at any",
+                            "Guide or one of the Tutors - these can be found by looking for the",
+                            "question mark icon on your minimap. If you find you are lost at any",
                             "time, look for a signpost or use the Lumbridge Home Teleport."
                         )
                         return@queueScript stopExecuting(player)

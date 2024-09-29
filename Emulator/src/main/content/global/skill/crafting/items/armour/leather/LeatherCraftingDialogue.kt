@@ -3,11 +3,9 @@ package content.global.skill.crafting.items.armour.leather
 import content.global.skill.crafting.items.armour.dragon.DragonCraftingPulse
 import content.global.skill.crafting.Leather
 import core.api.*
-import core.cache.def.impl.ItemDefinition
 import core.game.component.Component
 import core.game.dialogue.Dialogue
 import core.game.node.entity.player.Player
-import core.game.node.item.Item
 import core.plugin.Initializable
 import org.rs.consts.Components
 import org.rs.consts.Items
@@ -16,7 +14,7 @@ import org.rs.consts.Items
  * Represents the leather craft dialogue.
  */
 @Initializable
-class LeatherCraftingDialogue(player: Player) : Dialogue(player) {
+class LeatherCraftingDialogue(player: Player? = null) : Dialogue(player) {
 
     private var type: String = ""
     private var leather: Int = 0
@@ -27,21 +25,14 @@ class LeatherCraftingDialogue(player: Player) : Dialogue(player) {
         val component = Component(Components.SKILL_MAKE_304)
         type = args[0] as String
         leather = if (type == "hard") 0 else args[1] as Int
-        if (type == "hard") openHardLeatherDialogue(component) else openDragonLeatherDialogue(component)
+        if (type == "hard") openDragonLeatherDialogue(component)
         return true
-    }
-
-    private fun openHardLeatherDialogue(component: Component) {
-        openChatbox(player, component.id)
-        sendItemZoomOnInterface(player, component.id, 2, Items.HARDLEATHER_BODY_1131, 150)
-        sendString(player,"<br><br><br><br>Hardleather body", Components.SKILL_MULTI1_309, 6)
     }
 
     private fun openDragonLeatherDialogue(component: Component) {
         openChatbox(player, component.id)
         getDragonHideProducts().forEachIndexed { i, productId ->
             sendItemZoomOnInterface(player, Components.SKILL_MAKE_304, i + 2, productId, 175)
-
             sendString(player, "<br><br><br><br>${getItemName(productId)}", Components.SKILL_MAKE_304, 8 + i * 3)
         }
     }
@@ -74,36 +65,15 @@ class LeatherCraftingDialogue(player: Player) : Dialogue(player) {
 
     override fun handle(interfaceId: Int, buttonId: Int): Boolean {
         closeChatBox(player)
-        val amt = when (type) {
-            "hard" -> handleHardLeather(buttonId)
-            "dragon" -> handleDragonLeather(buttonId)
-            else -> 0
-        }
+        handleDragonLeather(buttonId)
         return true
     }
 
-    private fun handleHardLeather(buttonId: Int): Int {
-        val amt = when (buttonId) {
-            6 -> 1
-            4 -> 5
-            3 -> {
-                sendInputDialogue(player, true, "Enter the amount:") { value ->
-                    submitIndividualPulse(player, HardLeatherCraftingPulse(player, null, value as Int))
-                }
-                return 0
-            }
-            2 -> amountInInventory(player, Leather.HARD_LEATHER)
-            else -> 0
-        }
-        if (amt > 0) submitIndividualPulse(player, HardLeatherCraftingPulse(player, null, amt))
-        return amt
-    }
-
     private fun handleDragonLeather(buttonId: Int): Int {
-        val index = when {
-            buttonId in 4..7 -> 1
-            buttonId in 8..12 -> 2
-            buttonId in 12..16 -> 3
+        val index = when (buttonId) {
+            in 4..7 -> 1
+            in 8..12 -> 2
+            in 12..16 -> 3
             else -> 0
         }
         val hide = getDragonHideByIndex(index)

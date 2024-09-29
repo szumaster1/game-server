@@ -18,7 +18,7 @@ class TanningInterface : InterfaceListener {
                 2 -> type = Tanning.HARD_LEATHER
                 3 -> type = Tanning.SNAKESKIN
                 4 -> type = Tanning.SNAKESKIN2
-                5 -> type = Tanning.GREEN_DHIDE
+                5 -> type = Tanning.GREENDHIDE
                 6 -> type = Tanning.BLUEDHIDE
                 7 -> type = Tanning.REDDHIDE
                 8 -> type = Tanning.BLACKDHIDE
