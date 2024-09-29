@@ -4351,8 +4351,7 @@
     "name": "Pickaxe handle",
     "tradeable": "true",
     "archery_ticket_price": "0",
-    "id": "466",
-    "equipment_slot": "3"
+    "id": "466"
   },
   {
     "durability": null,
@@ -4369,8 +4368,7 @@
     "tradeable": "true",
     "weight": "0.2",
     "archery_ticket_price": "0",
-    "id": "468",
-    "equipment_slot": "3"
+    "id": "468"
   },
   {
     "durability": null,
@@ -4387,8 +4385,7 @@
     "tradeable": "true",
     "weight": "0.2",
     "archery_ticket_price": "0",
-    "id": "470",
-    "equipment_slot": "3"
+    "id": "470"
   },
   {
     "durability": null,
@@ -4405,8 +4402,7 @@
     "tradeable": "true",
     "weight": "0.2",
     "archery_ticket_price": "0",
-    "id": "472",
-    "equipment_slot": "3"
+    "id": "472"
   },
   {
     "durability": null,
@@ -4423,8 +4419,7 @@
     "tradeable": "true",
     "weight": "0.2",
     "archery_ticket_price": "0",
-    "id": "474",
-    "equipment_slot": "3"
+    "id": "474"
   },
   {
     "durability": null,
@@ -4441,8 +4436,7 @@
     "tradeable": "true",
     "weight": "0.2",
     "archery_ticket_price": "0",
-    "id": "476",
-    "equipment_slot": "3"
+    "id": "476"
   },
   {
     "durability": null,
@@ -4459,8 +4453,7 @@
     "tradeable": "true",
     "weight": "0.2",
     "archery_ticket_price": "0",
-    "id": "478",
-    "equipment_slot": "3"
+    "id": "478"
   },
   {
     "durability": null,
@@ -4571,8 +4564,7 @@
     "name": "Picture",
     "tradeable": "true",
     "archery_ticket_price": "0",
-    "id": "492",
-    "equipment_slot": "3"
+    "id": "492"
   },
   {
     "durability": null,
@@ -4582,13 +4574,12 @@
     "id": "493"
   },
   {
-    "examine": "Bob can fix this broken (metal) axe for me.",
+    "examine": "Bob can fix this broken axe for me.",
     "durability": null,
     "name": "Broken axe",
     "weight": "2.5",
     "archery_ticket_price": "0",
-    "id": "494",
-    "equipment_slot": "3"
+    "id": "494"
   },
   {
     "durability": null,
@@ -4598,13 +4589,12 @@
     "id": "495"
   },
   {
-    "examine": "Bob can fix this broken (metal) axe for me.",
+    "examine": "Bob can fix this broken axe for me.",
     "durability": null,
     "name": "Broken axe",
     "weight": "2.5",
     "archery_ticket_price": "0",
-    "id": "496",
-    "equipment_slot": "3"
+    "id": "496"
   },
   {
     "durability": null,
@@ -4614,13 +4604,12 @@
     "id": "497"
   },
   {
-    "examine": "Bob can fix this broken (metal) axe for me.",
+    "examine": "Bob can fix this broken axe for me.",
     "durability": null,
     "name": "Broken axe",
     "weight": "2.5",
     "archery_ticket_price": "0",
-    "id": "498",
-    "equipment_slot": "3"
+    "id": "498"
   },
   {
     "durability": null,
@@ -4630,13 +4619,12 @@
     "id": "499"
   },
   {
-    "examine": "Bob can fix this broken (metal) axe for me.",
+    "examine": "Bob can fix this broken axe for me.",
     "durability": null,
     "name": "Broken axe",
     "weight": "2.5",
     "archery_ticket_price": "0",
-    "id": "500",
-    "equipment_slot": "3"
+    "id": "500"
   },
   {
     "durability": null,
@@ -4646,13 +4634,12 @@
     "id": "501"
   },
   {
-    "examine": "Bob can fix this broken (metal) axe for me.",
+    "examine": "Bob can fix this broken axe for me.",
     "durability": null,
     "name": "Broken axe",
     "weight": "2.5",
     "archery_ticket_price": "0",
-    "id": "502",
-    "equipment_slot": "3"
+    "id": "502"
   },
   {
     "durability": null,
@@ -4662,13 +4649,12 @@
     "id": "503"
   },
   {
-    "examine": "Bob can fix this broken (metal) axe for me.",
+    "examine": "Bob can fix this broken axe for me.",
     "durability": null,
     "name": "Broken axe",
     "weight": "2.5",
     "archery_ticket_price": "0",
-    "id": "504",
-    "equipment_slot": "3"
+    "id": "504"
   },
   {
     "durability": null,
@@ -4678,13 +4664,12 @@
     "id": "505"
   },
   {
-    "examine": "Bob can fix this broken (metal) axe for me.",
+    "examine": "Bob can fix this broken axe for me.",
     "durability": null,
     "name": "Broken axe",
     "weight": "2.5",
     "archery_ticket_price": "0",
-    "id": "506",
-    "equipment_slot": "3"
+    "id": "506"
   },
   {
     "durability": null,
@@ -6322,8 +6307,7 @@
     "durability": null,
     "name": "Rock pick",
     "archery_ticket_price": "0",
-    "id": "675",
-    "equipment_slot": "3"
+    "id": "675"
   },
   {
     "examine": "Used for digging!",
@@ -31361,14 +31345,14 @@
     "id": "3154"
   },
   {
-    "examine": "This paste smells of raw fish./This paste smells of cooked fish.",
+    "examine": "This paste smells of raw fish.",
     "durability": null,
     "name": "Karambwanji paste",
     "archery_ticket_price": "0",
     "id": "3155"
   },
   {
-    "examine": "This paste smells of raw fish./This paste smells of cooked fish.",
+    "examine": "This paste smells of cooked fish.",
     "durability": null,
     "name": "Karambwanji paste",
     "archery_ticket_price": "0",
@@ -31378,17 +31362,17 @@
     "requirements": "{10,65}",
     "shop_price": "5",
     "ge_buy_limit": "100",
-    "examine": "A wide bodied and thin necked vessel, encrusted with sea salt. / The Karambwan Vessel is loaded with Karambwanji",
+    "examine": "A wide bodied and thin necked vessel, encrusted with sea salt.",
     "grand_exchange_price": "221",
     "durability": null,
     "name": "Karambwan vessel",
     "tradeable": "true",
     "weight": "3",
     "archery_ticket_price": "0",
-    "id": "3157",
-    "equipment_slot": "3"
+    "id": "3157"
   },
   {
+    "examine": "The Karambwan Vessel is loaded with Karambwanji."
     "ge_buy_limit": "100",
     "grand_exchange_price": "221",
     "durability": null,
@@ -31400,7 +31384,7 @@
   {
     "requirements": "{10,65}",
     "shop_price": "5",
-    "examine": "A wide bodied and thin necked vessel, encrusted with sea salt. / The Karambwan Vessel is loaded with Karambwanji",
+    "examine": "A wide bodied and thin necked vessel, encrusted with sea salt.",
     "grand_exchange_price": "240",
     "durability": null,
     "name": "Karambwan vessel",
@@ -31417,7 +31401,7 @@
     "id": "3160"
   },
   {
-    "examine": "A set of instructions explaining how to construct a Karambwan vessel",
+    "examine": "A set of instructions explaining how to construct a Karambwan vessel.",
     "durability": null,
     "name": "Crafting manual",
     "archery_ticket_price": "0",
@@ -37399,7 +37383,7 @@
     "id": "4082"
   },
   {
-    "examine": "Unwaxed: It needs waxing before I can use it. Waxed: A waxed sled.",
+    "examine": "It needs waxing before I can use it.",
     "durability": null,
     "name": "Sled",
     "archery_ticket_price": "0",
@@ -37409,7 +37393,7 @@
   },
   {
     "turn90cw_anim": "1468",
-    "examine": "Unwaxed: It needs waxing before I can use it. Waxed: A waxed sled.",
+    "examine": "A waxed sled.",
     "walk_anim": "1468",
     "durability": null,
     "turn90ccw_anim": "1468",
@@ -42559,8 +42543,7 @@
     "name": "Snake charm",
     "weight": "0.1",
     "archery_ticket_price": "0",
-    "id": "4605",
-    "equipment_slot": "3"
+    "id": "4605"
   },
   {
     "examine": "This is used to hold snakes.",
@@ -48182,8 +48165,7 @@
     "name": "Secateurs",
     "tradeable": "true",
     "archery_ticket_price": "0",
-    "id": "5329",
-    "equipment_slot": "3"
+    "id": "5329"
   },
   {
     "ge_buy_limit": "100",
@@ -50579,8 +50561,7 @@
     "durability": null,
     "name": "Fox",
     "archery_ticket_price": "0",
-    "id": "5608",
-    "equipment_slot": "3"
+    "id": "5608"
   },
   {
     "examine": "Normal: Yep. Definitely a chicken.",
@@ -50588,8 +50569,7 @@
     "name": "Chicken",
     "archery_ticket_price": "0",
     "attack_speed": "4",
-    "id": "5609",
-    "equipment_slot": "5"
+    "id": "5609"
   },
   {
     "examine": "There's not much sand left in the top half...",
@@ -50628,7 +50608,6 @@
     "turn90ccw_anim": "330",
     "turn180_anim": "330",
     "render_anim": "191",
-    "equipment_slot": "3",
     "stand_anim": "330",
     "name": "Magic carpet",
     "run_anim": "330",
@@ -76581,8 +76560,7 @@
     "tradeable": "true",
     "weight": "1",
     "archery_ticket_price": "0",
-    "id": "8794",
-    "equipment_slot": "3"
+    "id": "8794"
   },
   {
     "ge_buy_limit": "100",
@@ -77907,9 +77885,7 @@
     "durability": null,
     "name": "Torch",
     "archery_ticket_price": "0",
-    "id": "8987",
-    "equipment_slot": "3"
-  },
+    "id": "8987"
   {
     "shop_price": "5",
     "examine": "Apparently good for brewing.",
@@ -80364,8 +80340,7 @@
     "name": "Wooden stock",
     "tradeable": "true",
     "archery_ticket_price": "0",
-    "id": "9440",
-    "equipment_slot": "3"
+    "id": "9440"
   },
   {
     "ge_buy_limit": "1000",
@@ -80386,8 +80361,7 @@
     "tradeable": "true",
     "weight": "3",
     "archery_ticket_price": "0",
-    "id": "9442",
-    "equipment_slot": "3"
+    "id": "9442"
   },
   {
     "ge_buy_limit": "1000",
@@ -80409,8 +80383,7 @@
     "tradeable": "true",
     "weight": "1",
     "archery_ticket_price": "0",
-    "id": "9444",
-    "equipment_slot": "3"
+    "id": "9444"
   },
   {
     "ge_buy_limit": "1000",
@@ -80431,8 +80404,7 @@
     "name": "Teak stock",
     "tradeable": "true",
     "archery_ticket_price": "0",
-    "id": "9446",
-    "equipment_slot": "3"
+    "id": "9446"
   },
   {
     "ge_buy_limit": "1000",
@@ -80452,8 +80424,7 @@
     "name": "Maple stock",
     "tradeable": "true",
     "archery_ticket_price": "0",
-    "id": "9448",
-    "equipment_slot": "3"
+    "id": "9448"
   },
   {
     "ge_buy_limit": "1000",
@@ -80474,8 +80445,7 @@
     "tradeable": "true",
     "weight": "3",
     "archery_ticket_price": "0",
-    "id": "9450",
-    "equipment_slot": "3"
+    "id": "9450"
   },
   {
     "ge_buy_limit": "1000",
@@ -80496,8 +80466,7 @@
     "tradeable": "true",
     "weight": "3",
     "archery_ticket_price": "0",
-    "id": "9452",
-    "equipment_slot": "3"
+    "id": "9452"
   },
   {
     "ge_buy_limit": "1000",
@@ -81658,8 +81627,7 @@
     "tradeable": "false",
     "destroy": "true",
     "archery_ticket_price": "0",
-    "id": "9625",
-    "equipment_slot": "3"
+    "id": "9625"
   },
   {
     "destroy_message": "Maybe Brimstail will have another...",
@@ -81992,8 +81960,7 @@
     "durability": null,
     "name": "Torch",
     "archery_ticket_price": "0",
-    "id": "9665",
-    "equipment_slot": "3"
+    "id": "9665"
   },
   {
     "shop_price": "25000",
@@ -84929,7 +84896,7 @@
   {
     "shop_price": "6",
     "ge_buy_limit": "100",
-    "examine": "A simple bird catcher./There's something caught in it.",
+    "examine": "A simple bird catcher.",
     "grand_exchange_price": "2",
     "durability": null,
     "name": "Bird snare",
@@ -85117,8 +85084,7 @@
     "archery_ticket_price": "0",
     "attack_speed": "4",
     "id": "10023",
-    "bonuses": "0,0,0,0,0,0,1,1,0,0,0,0,0,0,0",
-    "equipment_slot": "3"
+    "bonuses": "0,0,0,0,0,0,1,1,0,0,0,0,0,0,0"
   },
   {
     "shop_price": "500",
@@ -85132,7 +85098,6 @@
     "attack_speed": "4",
     "turn180_anim": "5165",
     "render_anim": "1283",
-    "equipment_slot": "3",
     "stand_anim": "5160",
     "name": "Falconer's glove",
     "tradeable": "false",
@@ -90104,8 +90069,7 @@
     "durability": null,
     "name": "Scroll",
     "archery_ticket_price": "0",
-    "id": "10485",
-    "equipment_slot": "3"
+    "id": "10485"
   },
   {
     "shop_price": "1",
@@ -90145,8 +90109,7 @@
     "tradeable": "false",
     "destroy": "true",
     "archery_ticket_price": "0",
-    "id": "10488",
-    "equipment_slot": "3"
+    "id": "10488"
   },
   {
     "destroy_message": "I can make another magnet using special bars. The Witch in Draynor supplies these bars.",
@@ -90274,7 +90237,7 @@
     "equipment_slot": "2"
   },
   {
-    "examine": "Made from snow. / It's a ball of snow! Uncanny. / How did this not melt in the box?",
+    "examine": "Made from snow.",
     "durability": null,
     "name": "Snowball",
     "archery_ticket_price": "0",
@@ -90318,7 +90281,7 @@
     "id": "10508"
   },
   {
-    "examine": "Made from snow. / It's a ball of snow! Uncanny. / How did this not melt in the box?",
+    "examine": "How did this not melt in the box?",
     "durability": null,
     "name": "Snowball",
     "tradeable": "false",
@@ -90960,7 +90923,7 @@
     "id": "10580"
   },
   {
-    "examine": "(Normal) A mystical-feeling dagger. (Poisoned) The twisted blade is covered with a nasty poison.",
+    "examine": "A mystical-feeling dagger.",
     "durability": null,
     "destroy": "true",
     "weight": "0.4",
@@ -90978,6 +90941,7 @@
     "bonuses": "40,20,-10,2,0,0,0,0,2,0,0,30,2,0,0"
   },
   {
+    "examine": "The twisted blade is covered with a nasty poison.",
     "attack_anims": "376,376,377,376",
     "destroy_message": "You can obtain another from Osman. You will then need to poison it.",
     "durability": null,
@@ -90990,7 +90954,7 @@
     "defence_anim": "378",
     "equipment_slot": "3"
   },
-  {
+    "examine": "The twisted blade is covered with a nasty poison.",
     "attack_anims": "376,376,377,376",
     "destroy_message": "You can obtain another from Osman. You will then need to poison it.",
     "durability": null,
@@ -91004,6 +90968,7 @@
     "equipment_slot": "3"
   },
   {
+    "examine": "The twisted blade is covered with a nasty poison.",
     "attack_anims": "376,376,377,376",
     "destroy_message": "You can obtain another from Osman. You will then need to poison it.",
     "durability": null,
@@ -95050,8 +95015,7 @@
     "tradeable": "false",
     "destroy": "true",
     "archery_ticket_price": "0",
-    "id": "11012",
-    "equipment_slot": "3"
+    "id": "11012"
   },
   {
     "destroy_message": "You can reclaim this item from the place you found it.",
@@ -95061,8 +95025,7 @@
     "tradeable": "false",
     "destroy": "true",
     "archery_ticket_price": "0",
-    "id": "11013",
-    "equipment_slot": "3"
+    "id": "11013"
   },
   {
     "destroy_message": "You will need to get another ring from Zaff if you destroy this one.",
@@ -95210,8 +95173,7 @@
     "name": "Easter egg",
     "tradeable": "true",
     "archery_ticket_price": "0",
-    "id": "11027",
-    "equipment_slot": "3"
+    "id": "11027"
   },
   {
     "destroy_message": "You can reclaim this item from the place you found it.",
@@ -95221,8 +95183,7 @@
     "name": "Easter egg",
     "tradeable": "true",
     "archery_ticket_price": "0",
-    "id": "11028",
-    "equipment_slot": "3"
+    "id": "11028"
   },
   {
     "destroy_message": "You can reclaim this item from the place you found it.",
@@ -95232,8 +95193,7 @@
     "name": "Easter egg",
     "tradeable": "true",
     "archery_ticket_price": "0",
-    "id": "11029",
-    "equipment_slot": "3"
+    "id": "11029"
   },
   {
     "destroy_message": "You can reclaim this item from the place you found it.",
@@ -95243,8 +95203,7 @@
     "name": "Easter egg",
     "tradeable": "true",
     "archery_ticket_price": "0",
-    "id": "11030",
-    "equipment_slot": "3"
+    "id": "11030"
   },
   {
     "destroy_message": "These logs will be destroyed if you drop them and you will need to see Olaf Hradson to get some more.",
@@ -96203,8 +96162,8 @@
     "id": "11141"
   },
   {
-    "destroy_message": "You can reclaim this item from the place you found it.",
-    "examine": "When empty: A vessel for holding liquid. Filled with water: A vessel containing water. Filled with Goutweed: A vessel containing water and goutweed.",
+    "destroy_message": "You can get another from the Oneiromancer on Lunar Isle.",
+    "examine": "A vessel for holding liquid.",
     "durability": null,
     "name": "Dream vial (empty)",
     "tradeable": "false",
@@ -96214,8 +96173,8 @@
     "id": "11151"
   },
   {
-    "destroy_message": "You can reclaim this item from the place you found it.",
-    "examine": "When empty: A vessel for holding liquid. Filled with water: A vessel containing water. Filled with Goutweed: A vessel containing water and goutweed.",
+    "destroy_message": "You can get another from the Oneiromancer on Lunar Isle.",
+    "examine": "A vessel containing water.",
     "durability": null,
     "name": "Dream vial (water)",
     "tradeable": "false",
@@ -96225,8 +96184,8 @@
     "id": "11152"
   },
   {
-    "destroy_message": "You can reclaim this item from the place you found it.",
-    "examine": "When empty: A vessel for holding liquid. Filled with water: A vessel containing water. Filled with Goutweed: A vessel containing water and goutweed.",
+    "destroy_message": "You can get another from the Oneiromancer on Lunar Isle.",
+    "examine": "A vessel containing water and goutweed.",
     "durability": null,
     "name": "Dream vial (herb)",
     "tradeable": "false",
@@ -96669,8 +96628,7 @@
     "tradeable": "false",
     "destroy": "true",
     "archery_ticket_price": "0",
-    "id": "11204",
-    "equipment_slot": "3"
+    "id": "11204"
   },
   {
     "shop_price": "4",
@@ -97333,8 +97291,7 @@
     "tradeable": "false",
     "destroy": "true",
     "archery_ticket_price": "0",
-    "id": "11279",
-    "equipment_slot": "3"
+    "id": "11279"
   },
   {
     "remove_head": "true",
@@ -100845,8 +100802,7 @@
     "destroy": "true",
     "weight": "1",
     "archery_ticket_price": "0",
-    "id": "11749",
-    "equipment_slot": "3"
+    "id": "11749"
   },
   {
     "destroy_message": "There may be another in the chest where you found this.",
@@ -102873,8 +102829,7 @@
     "tradeable": "false",
     "destroy": "true",
     "archery_ticket_price": "0",
-    "id": "11949",
-    "equipment_slot": "3"
+    "id": "11949"
   },
   {
     "destroy_message": "You can get another from Diango in Draynor Village.",
@@ -102884,12 +102839,11 @@
     "tradeable": "false",
     "destroy": "true",
     "archery_ticket_price": "0",
-    "id": "11950",
-    "equipment_slot": "3"
+    "id": "11950"
   },
   {
     "attack_anims": "5063",
-    "examine": "Made from snow. / It's a ball of snow! Uncanny. / How did this not melt in the box?",
+    "examine": "It's a ball of snow! Uncanny.",
     "durability": null,
     "name": "Snowball",
     "archery_ticket_price": "0",
@@ -104764,8 +104718,7 @@
     "name": "Truffle",
     "tradeable": "false",
     "archery_ticket_price": "0",
-    "id": "12133",
-    "equipment_slot": "3"
+    "id": "12133"
   },
   {
     "ge_buy_limit": "5000",
@@ -108051,8 +108004,7 @@
     "tradeable": "false",
     "destroy": "true",
     "archery_ticket_price": "0",
-    "id": "12655",
-    "equipment_slot": "3"
+    "id": "12655"
   },
   {
     "destroy_message": "You can reclaim this item from the place you found it.",
@@ -109810,7 +109762,7 @@
     "turn180_anim": "9001",
     "render_anim": "370",
     "equipment_slot": "3",
-    "destroy_message": "You can reclaim this item from the place you found it.",
+    "destroy_message": "You can get a new stone from one of the dispensers at the edge of the arena.",
     "stand_anim": "8998",
     "name": "Stone of power",
     "tradeable": "false",
@@ -109830,7 +109782,7 @@
     "turn180_anim": "9001",
     "render_anim": "370",
     "equipment_slot": "3",
-    "destroy_message": "You can reclaim this item from the place you found it.",
+    "destroy_message": "You can get a new stone from one of the dispensers at the edge of the arena.",
     "stand_anim": "8998",
     "name": "Stone of power",
     "tradeable": "false",
@@ -109850,7 +109802,7 @@
     "turn180_anim": "9001",
     "render_anim": "370",
     "equipment_slot": "3",
-    "destroy_message": "You can reclaim this item from the place you found it.",
+    "destroy_message": "You can get a new stone from one of the dispensers at the edge of the arena.",
     "stand_anim": "8998",
     "name": "Stone of power",
     "tradeable": "false",
@@ -109870,7 +109822,7 @@
     "turn180_anim": "9001",
     "render_anim": "370",
     "equipment_slot": "3",
-    "destroy_message": "You can reclaim this item from the place you found it.",
+    "destroy_message": "You can get a new stone from one of the dispensers at the edge of the arena.",
     "stand_anim": "8998",
     "name": "Stone of power",
     "tradeable": "false",
@@ -109890,7 +109842,7 @@
     "turn180_anim": "9001",
     "render_anim": "370",
     "equipment_slot": "3",
-    "destroy_message": "You can reclaim this item from the place you found it.",
+    "destroy_message": "You can get a new stone from one of the dispensers at the edge of the arena.",
     "stand_anim": "8998",
     "name": "Stone of power",
     "tradeable": "false",
@@ -114292,8 +114244,7 @@
     "destroy": "true",
     "weight": "1",
     "archery_ticket_price": "0",
-    "id": "13231",
-    "equipment_slot": "3"
+    "id": "13231"
   },
   {
     "destroy_message": "It will reappear near the bottom of Ice Mountain.",
@@ -115042,10 +114993,7 @@
     "destroy": "true",
     "archery_ticket_price": "0",
     "attack_speed": "4",
-    "id": "13319",
-    "absorb": "0,0,0",
-    "bonuses": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
-    "equipment_slot": "3"
+    "id": "13319"
   },
   {
     "destroy_message": "If you drop this cup it will be destroyed and you will have to pick up another.",
@@ -115056,10 +115004,7 @@
     "destroy": "true",
     "archery_ticket_price": "0",
     "attack_speed": "4",
-    "id": "13320",
-    "absorb": "0,0,0",
-    "bonuses": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
-    "equipment_slot": "3"
+    "id": "13320"
   },
   {
     "destroy_message": "Destroy",
@@ -115132,10 +115077,7 @@
     "destroy": "true",
     "archery_ticket_price": "0",
     "attack_speed": "4",
-    "id": "13326",
-    "absorb": "0,0,0",
-    "bonuses": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
-    "equipment_slot": "3"
+    "id": "13326"
   },
   {
     "destroy_message": "If you drop this quill, you will need to talk to the guard for a replacement.",
@@ -119805,10 +119747,7 @@
     "destroy": "true",
     "archery_ticket_price": "0",
     "attack_speed": "4",
-    "id": "13663",
-    "absorb": "0,0,0",
-    "bonuses": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
-    "equipment_slot": "3"
+    "id": "13663"
   },
   {
     "shop_price": "10",
@@ -124785,10 +124724,7 @@
     "destroy": "true",
     "archery_ticket_price": "0",
     "attack_speed": "4",
-    "id": "14058",
-    "absorb": "0,0,0",
-    "bonuses": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
-    "equipment_slot": "3"
+    "id": "14058"
   },
   {
     "destroy_message": "You can get another flask of magic unguent from the chest in Betty's basement.",
@@ -124825,10 +124761,7 @@
     "destroy": "true",
     "archery_ticket_price": "0",
     "attack_speed": "4",
-    "id": "14064",
-    "absorb": "0,0,0",
-    "bonuses": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
-    "equipment_slot": "3"
+    "id": "14064"
   },
   {
     "destroy_message": "You can get another newt label from Gus in Hetty's basement in Rimmington.",
@@ -129952,10 +129885,7 @@
     "destroy": "true",
     "archery_ticket_price": "0",
     "attack_speed": "4",
-    "id": "14460",
-    "absorb": "0,0,0",
-    "bonuses": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
-    "equipment_slot": "3"
+    "id": "14460"
   },
   {
     "destroy_message": "You found this basket in Movario's base.",
@@ -130184,10 +130114,7 @@
     "destroy": "true",
     "archery_ticket_price": "0",
     "attack_speed": "4",
-    "id": "14478",
-    "absorb": "0,0,0",
-    "bonuses": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
-    "equipment_slot": "3"
+    "id": "14478"
   },
   {
     "requirements": "{1,60}",
@@ -131218,10 +131145,7 @@
     "destroy": "true",
     "archery_ticket_price": "0",
     "attack_speed": "4",
-    "id": "14590",
-    "absorb": "0,0,0",
-    "bonuses": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
-    "equipment_slot": "3"
+    "id": "14590"
   },
   {
     "destroy_message": "Drop",
@@ -131232,10 +131156,7 @@
     "destroy": "true",
     "archery_ticket_price": "0",
     "attack_speed": "4",
-    "id": "14591",
-    "absorb": "0,0,0",
-    "bonuses": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
-    "equipment_slot": "3"
+    "id": "14591"
   },
   {
     "lendable": "true",
