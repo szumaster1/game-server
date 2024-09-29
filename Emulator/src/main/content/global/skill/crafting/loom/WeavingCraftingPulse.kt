@@ -5,11 +5,12 @@ import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.diary.DiaryType
 import core.game.node.entity.skill.SkillPulse
 import core.game.node.entity.skill.Skills
+import core.game.node.scenery.Scenery
 import core.game.world.map.Location
 import core.tools.StringUtils
 import org.rs.consts.Animations
 
-class WeaveCraftingPulse(player: Player?, node: core.game.node.scenery.Scenery?, private val type: Weaving, private var amount: Int) : SkillPulse<core.game.node.scenery.Scenery?>(player, node) {
+class WeavingCraftingPulse(player: Player?, node: Scenery?, private val type: Weaving, private var amount: Int) : SkillPulse<core.game.node.scenery.Scenery?>(player, node) {
 
     private var ticks = 0
     override fun checkRequirements(): Boolean {

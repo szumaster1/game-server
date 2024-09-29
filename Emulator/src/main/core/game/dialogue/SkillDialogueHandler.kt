@@ -1,8 +1,8 @@
 package core.game.dialogue
 
 import core.api.sendItemZoomOnInterface
-import core.api.setInterfaceSprite
 import core.api.sendString
+import core.api.setInterfaceSprite
 import core.game.node.entity.player.Player
 import core.game.node.item.Item
 import core.net.packet.PacketRepository
@@ -180,8 +180,8 @@ open class SkillDialogueHandler(val player: Player, val type: SkillDialogue?, va
                 var item: Item? = null
                 for (i in 0..2) {
                     item = handler.data[i] as Item
-                    setInterfaceSprite(player, 304, 0, 12, 15)
-                    setInterfaceSprite(player, 304, 1, 431, 15)
+                    setInterfaceSprite(player, 304, 0, 12, 13)
+                    setInterfaceSprite(player, 304, 1, 431, 13)
                     player.packetDispatch.sendItemZoomOnInterface(item.id, 170, 304, 2 + i)
                     player.packetDispatch.sendString("<br><br><br><br>" + item.name, 304, 304 - 296 + i * 4)
                 }
@@ -218,7 +218,7 @@ open class SkillDialogueHandler(val player: Player, val type: SkillDialogue?, va
                     setInterfaceSprite(player, 305, 0, 12, 15)
                     setInterfaceSprite(player, 305, 1, 431, 15)
                     player.packetDispatch.sendItemZoomOnInterface(item.id, 160, 305, 2 + i)
-                    player.packetDispatch.sendString("<br><br><br><br>" + item.name, 305, 305 - 296 + i * 4)
+                    sendString(player, "<br><br><br><br>" + item.name, 305, 305 - 296 + i * 4)
                 }
             }
 
@@ -259,7 +259,7 @@ open class SkillDialogueHandler(val player: Player, val type: SkillDialogue?, va
                 player.interfaceManager.openChatbox(306)
                 for (i in handler.data.indices) {
                     item = handler.data[i] as Item
-                    player.packetDispatch.sendString("<br><br><br><br>" + handler.getName(item), 306, 10 + 4 * i)
+                    sendString(player, "<br><br><br><br>" + handler.getName(item), 306, 10 + 4 * i)
                     player.packetDispatch.sendItemZoomOnInterface(item.id, 160, 306, 2 + i)
                     PacketRepository.send(
                         RepositionChild::class.java,
