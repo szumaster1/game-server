@@ -1,9 +1,7 @@
 package content.global.activity.champion.npc
 
-import core.api.*
-import org.rs.consts.Items
-import org.rs.consts.NPCs
 import content.global.activity.champion.ChallengeListener
+import core.api.*
 import core.game.node.entity.Entity
 import core.game.node.entity.combat.BattleState
 import core.game.node.entity.combat.CombatStyle
@@ -14,6 +12,10 @@ import core.game.system.task.Pulse
 import core.game.world.GameWorld
 import core.game.world.map.Location
 import core.plugin.Initializable
+import org.rs.consts.Components
+import org.rs.consts.Items
+import org.rs.consts.NPCs
+import org.rs.consts.Vars
 
 /**
  * Represents the Hobgoblin champion NPC for Champions challenge.
@@ -87,13 +89,13 @@ class HobgoblinChampionNPC(id: Int = 0, location: Location? = null) : AbstractNP
         if (killer is Player) {
             lock(killer, 2)
             runTask(killer, 1) {
-                openInterface(killer, 63)
-                sendString(killer, "Well done, you defeated the Hobgoblin Champion!", 63, 2)
-                killer.packetDispatch.sendItemZoomOnInterface(Items.CHAMPION_SCROLL_6802, 260, 63, 3)
-                sendString(killer, "232 Slayer Xp", 63, 6)
-                sendString(killer, "232 Hitpoint Xp", 63, 7)
+                openInterface(killer, Components.CHAMPIONS_SCROLL_63)
+                sendString(killer, "Well done, you defeated the Hobgoblin Champion!", Components.CHAMPIONS_SCROLL_63, 2)
+                sendItemZoomOnInterface(killer, Components.CHAMPIONS_SCROLL_63, 3, Items.CHAMPION_SCROLL_6802, 260)
+                sendString(killer, "232 Slayer Xp", Components.CHAMPIONS_SCROLL_63, 6)
+                sendString(killer, "232 Hitpoint Xp", Components.CHAMPIONS_SCROLL_63, 7)
             }
-            setVarbit(killer, 1456, 1, true)
+            setVarbit(killer, Vars.VARBIT_SCENERY_CHAMPIONS_CHALLENGE_HOBGOBLIN_BANNER, 1, true)
             rewardXP(killer, Skills.HITPOINTS, 232.0)
             rewardXP(killer, Skills.SLAYER, 232.0)
             removeAttribute("championsarena:start")

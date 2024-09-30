@@ -9,7 +9,9 @@ import core.game.node.scenery.Scenery;
 import core.game.world.map.Direction;
 import core.game.world.map.Location;
 import core.plugin.Plugin;
+import org.rs.consts.Items;
 
+import static core.api.ContentAPIKt.inEquipment;
 import static core.api.ContentAPIKt.sendMessage;
 
 /**
@@ -88,6 +90,10 @@ public abstract class AgilityShortcut extends OptionHandler {
     public boolean checkRequirements(Player player) {
         if (player.getSkills().getLevel(Skills.AGILITY) < level) {
             sendMessage(player, "You need an agility level of at least " + level + " to negotiate this obstacle.");
+            return false;
+        }
+        if(inEquipment(player, Items.SLED_4084, 1)) {
+            sendMessage(player, "You can't do that on a sled.");
             return false;
         }
         return true;

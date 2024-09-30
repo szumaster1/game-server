@@ -1,10 +1,8 @@
 package content.global.activity.champion.npc
 
-import core.api.*
-import org.rs.consts.Items
-import org.rs.consts.NPCs
 import content.data.GameAttributes
 import content.global.activity.champion.ChallengeListener
+import core.api.*
 import core.game.node.entity.Entity
 import core.game.node.entity.npc.AbstractNPC
 import core.game.node.entity.player.Player
@@ -13,6 +11,10 @@ import core.game.system.task.Pulse
 import core.game.world.GameWorld
 import core.game.world.map.Location
 import core.plugin.Initializable
+import org.rs.consts.Components
+import org.rs.consts.Items
+import org.rs.consts.NPCs
+import org.rs.consts.Vars
 
 /**
  * Represents the Earth warrior champion NPC for Champions challenge.
@@ -96,13 +98,13 @@ class EarthWarriorChampionNPC(id: Int = 0, location: Location? = null) : Abstrac
         if (killer is Player) {
             lock(killer, 2)
             runTask(killer, 1) {
-                openInterface(killer, 63)
-                sendString(killer, "Well done, you defeated the Earth Warrior Champion!", 63, 2)
-                killer.packetDispatch.sendItemZoomOnInterface(Items.CHAMPION_SCROLL_6798, 260, 63, 3)
-                sendString(killer, "432 Slayer Xp", 63, 6)
-                sendString(killer, "432 Hitpoint Xp", 63, 7)
+                openInterface(killer, Components.CHAMPIONS_SCROLL_63)
+                sendString(killer, "Well done, you defeated the Earth Warrior Champion!", Components.CHAMPIONS_SCROLL_63, 2)
+                sendItemZoomOnInterface(killer, Components.CHAMPIONS_SCROLL_63, 3, Items.CHAMPION_SCROLL_6798, 260)
+                sendString(killer, "432 Slayer Xp", Components.CHAMPIONS_SCROLL_63, 6)
+                sendString(killer, "432 Hitpoint Xp", Components.CHAMPIONS_SCROLL_63, 7)
             }
-            setVarbit(killer, 1452, 1, true)
+            setVarbit(killer, Vars.VARBIT_SCENERY_CHAMPIONS_CHALLENGE_EARTH_WARRIOR_BANNER, 1, true)
             rewardXP(killer, Skills.HITPOINTS, 432.0)
             rewardXP(killer, Skills.SLAYER, 432.0)
             removeAttributes(killer, "championsarena:start", GameAttributes.PRAYER_LOCK)

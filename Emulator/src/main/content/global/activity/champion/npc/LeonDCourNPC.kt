@@ -1,8 +1,6 @@
 package content.global.activity.champion.npc
 
 import core.api.*
-import org.rs.consts.Items
-import org.rs.consts.NPCs
 import core.game.node.entity.Entity
 import core.game.node.entity.combat.BattleState
 import core.game.node.entity.npc.AbstractNPC
@@ -12,6 +10,9 @@ import core.game.system.task.Pulse
 import core.game.world.GameWorld
 import core.game.world.map.Location
 import core.plugin.Initializable
+import org.rs.consts.Components
+import org.rs.consts.Items
+import org.rs.consts.NPCs
 
 /**
  * Represents the Leon d'Cour champion boss NPC for Champions challenge.
@@ -65,11 +66,11 @@ class LeonDCourNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id, lo
         if (killer is Player) {
             lock(killer, 2)
             runTask(killer, 1) {
-                openInterface(killer, 63)
-                sendString(killer, "Well done, you defeated the Human Champion!", 63, 2)
-                killer.packetDispatch.sendItemZoomOnInterface(Items.CHAMPION_SCROLL_6808, 260, 63, 3)
-                sendString(killer, "492 Slayer Xp", 63, 6)
-                sendString(killer, "492 Hitpoint Xp", 63, 7)
+                openInterface(killer, Components.CHAMPIONS_SCROLL_63)
+                sendString(killer, "Well done, you defeated the Human Champion!", Components.CHAMPIONS_SCROLL_63, 2)
+                sendItemZoomOnInterface(killer, Components.CHAMPIONS_SCROLL_63, 3, Items.CHAMPION_SCROLL_6808, 260)
+                sendString(killer, "492 Slayer Xp", Components.CHAMPIONS_SCROLL_63, 6)
+                sendString(killer, "492 Hitpoint Xp", Components.CHAMPIONS_SCROLL_63, 7)
             }
             rewardXP(killer, Skills.HITPOINTS, 492.0)
             rewardXP(killer, Skills.SLAYER, 492.0)

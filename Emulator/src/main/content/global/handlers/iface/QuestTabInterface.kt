@@ -63,33 +63,29 @@ class QuestTabInterface : InterfaceListener {
                 else if (req is QPCumulative) qpPenalty += req.amount
             }
 
-            messageList.add(colorize("%DB[Quests Needed]"))
-            messageList.addAll(questList.map { "Completion of %DR$it" })
+            messageList.add(colorize("Quests Needed"))
+            messageList.addAll(questList.map { "Completion of $it." })
 
             messageList.add(" ")
-            messageList.add(colorize("%DB[Skills Needed]"))
+            messageList.add(colorize("Skills Needed"))
 
             for ((skillId, level) in statMap) {
                 val name = Skills.SKILL_NAME[skillId]
-                messageList.add("%DR$level $name")
+                messageList.add("$level $name")
             }
 
             messageList.add(" ")
-            messageList.add(colorize("%DB[Other Reqs]"))
+            messageList.add(colorize("Other Reqs"))
 
             val totalQpRequirement = QPReq(min(max(maxQpReq, qpPenalty), player.questRepository.availablePoints))
             val (meetsQp, _) = totalQpRequirement.evaluate(player)
             isMet = isMet && meetsQp
 
-            if (isMet) messageList.add(colorize("%GCongratulations! You've earned this one."))
+            if (isMet) messageList.add(colorize("Congratulations! You've earned this one."))
 
-            if (!meetsQp) messageList.add("A total of %DR${totalQpRequirement.amount}%BK Quest Points.")
+            if (!meetsQp) messageList.add("A total of ${totalQpRequirement.amount} Quest Points.")
 
             messageList.add("")
-            messageList.add(colorize("%DRDISCLAIMER%DB: If you're seeing this screen, this quest is not"))
-            messageList.add(colorize("%DBimplemented yet. These are the requirements that you need in order"))
-            messageList.add(colorize("%DBto access implemented content that would normally require this quest"))
-
 
             sendString(player, questName, Components.QUESTJOURNAL_SCROLL_275, 2)
             var lineId = 11
