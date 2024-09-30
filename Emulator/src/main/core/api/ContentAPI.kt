@@ -2,8 +2,8 @@ package core.api
 
 import com.moandjiezana.toml.Toml
 import content.data.consumables.*
-import content.global.skill.gather.SkillingTool
 import content.global.handlers.iface.ge.StockMarket
+import content.global.skill.gather.SkillingTool
 import content.global.skill.slayer.SlayerManager
 import content.global.skill.slayer.Tasks
 import core.Configuration
@@ -920,10 +920,22 @@ fun unlockEmote(player: Player, emoteId: Int) {
 /**
  * Sends a message to the given player.
  *
+ * **Lines are split automatically.**
  * @param player the player to send the message to.
  */
 fun sendMessage(player: Player, message: String) {
     player.sendMessages(*splitLines(message, 86))
+}
+
+/**
+ * Sends a messages to the given player.
+ *
+ * **No automatic splitting.**
+ *
+ * @param player the player to send the message to.
+ */
+fun sendMessages(player: Player, vararg message: String) {
+    player.packetDispatch.sendMessages(*message)
 }
 
 /**
