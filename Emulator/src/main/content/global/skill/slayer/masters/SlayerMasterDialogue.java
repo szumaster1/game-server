@@ -37,7 +37,7 @@ public final class SlayerMasterDialogue extends Dialogue {
 
     private boolean isDiary;
     private final int level = 2;
-    private int rerolls = 0;
+
 
     /**
      * Instantiates a new Slayer master dialogue.
@@ -84,7 +84,6 @@ public final class SlayerMasterDialogue extends Dialogue {
 
     @Override
     public boolean handle(int interfaceId, int buttonId) {
-        rerolls = ServerStore.getInt(getStoreFile(), player.getUsername().toLowerCase(), 0);
         if (isDiary) {
             switch (stage) {
                 case 999:
@@ -470,11 +469,7 @@ public final class SlayerMasterDialogue extends Dialogue {
                 }
                 break;
             case 844:
-                if (GameWorld.getSettings().getAllow_slayer_reroll()) {
-                    options("Got any tips for me?", "Okay, great!", "I'd like to re-roll that task.");
-                } else {
-                    options("Got any tips for me?", "Okay, great!");
-                }
+                options("Got any tips for me?", "Okay, great!");
                 stage++;
                 break;
             case 845:
@@ -486,46 +481,6 @@ public final class SlayerMasterDialogue extends Dialogue {
                     case 2:
                         player("Okay, great!");
                         stage = 999;
-                        break;
-                    case 3:
-                        player("I'd like to re-roll this task.");
-                        if (rerolls == 10) {
-                            stage++;
-                        } else {
-                            SlayerManager.getInstance(player).clear();
-                            getStoreFile().put(player.getUsername().toLowerCase(), rerolls + 1);
-                            stage = 701;
-                        }
-                }
-                break;
-            case 846:
-                npcl(getExpression(master), "Actually, you're out of free re-rolls. You can buy a re-roll from my reward store, though.");
-                stage = END_DIALOGUE;
-                break;
-            case 847:
-                if (rerolls < 10) {
-                    npcl(getExpression(master), "You do have " + (10 - rerolls) + " re-rolls left today, would you like to use one?");
-                    stage++;
-                } else {
-                    npcl(getExpression(master), "And it also seems you're out of re-rolls for today. That's unfortunate.");
-                    stage = END_DIALOGUE;
-                }
-                break;
-            case 848:
-                options("Yes, please.", "No, thanks.");
-                stage++;
-                break;
-            case 849:
-                switch (buttonId) {
-                    case 1:
-                        playerl(FacialExpression.FRIENDLY, "Yes, please.");
-                        SlayerManager.getInstance(player).clear();
-                        getStoreFile().put(player.getUsername().toLowerCase(), rerolls + 1);
-                        stage = 701;
-                        break;
-                    case 2:
-                        playerl(FacialExpression.NEUTRAL, "No, thanks.");
-                        stage = END_DIALOGUE;
                         break;
                 }
                 break;
@@ -654,10 +609,6 @@ public final class SlayerMasterDialogue extends Dialogue {
     @Override
     public int[] getIds() {
         return new int[]{70, 1598, 1596, 1597, 1599, 7780, 8275, 8273, 8274, 8649};
-    }
-
-    private JSONObject getStoreFile() {
-        return ServerStore.getArchive("daily-slayer-rerolls");
     }
 
 }

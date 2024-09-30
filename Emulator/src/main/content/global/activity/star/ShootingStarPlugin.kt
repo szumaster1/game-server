@@ -1,22 +1,16 @@
 package content.global.activity.star
 
 import core.ServerStore
-import core.ServerStore.Companion.getBoolean
 import core.api.*
-import core.game.dialogue.DialogueFile
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.entity.player.Player
-import core.game.node.entity.player.link.TeleportManager
-import core.game.node.entity.skill.Skills
 import core.game.system.command.Privilege
 import core.game.world.GameWorld
-import core.tools.DARK_RED
 import core.tools.Log
 import core.tools.secondsToTicks
 import org.json.simple.JSONObject
 import org.rs.consts.Items
-import org.rs.consts.QuestName
 import org.rs.consts.Scenery
 
 /**
@@ -25,7 +19,7 @@ import org.rs.consts.Scenery
 class ShootingStarPlugin : LoginListener, InteractionListener, TickListener, Commands, StartupListener {
 
     override fun login(player: Player) {
-        if(star.isSpawned && !star.spriteSpawned)
+        if (star.isSpawned && !star.spriteSpawned)
             sendMessage(player, "<img=12><col=CC6600>News: A shooting star (Level ${star.level.ordinal + 1}) has just crashed near the ${star.location}!")
     }
 
@@ -33,7 +27,7 @@ class ShootingStarPlugin : LoginListener, InteractionListener, TickListener, Com
         ++star.ticks
 
         val maxDelay = tickDelay + (tickDelay / 3)
-        if(star.ticks > maxDelay && star.spriteSpawned){
+        if (star.ticks > maxDelay && star.spriteSpawned) {
             star.clearSprite()
         }
 
@@ -55,75 +49,20 @@ class ShootingStarPlugin : LoginListener, InteractionListener, TickListener, Com
             return@on true
         }
 
-        on(SHOOTING_STARS, IntType.SCENERY, "mine"){ player, _ ->
+        on(SHOOTING_STARS, IntType.SCENERY, "mine") { player, _ ->
             star.mine(player)
             return@on true
         }
 
-        on(SHOOTING_STARS, IntType.SCENERY, "prospect"){ player, _ ->
+        on(SHOOTING_STARS, IntType.SCENERY, "prospect") { player, _ ->
             star.prospect(player)
-            return@on true
-        }
-
-        on(RING, IntType.ITEM, "rub", "operate") { player, _ ->
-            if (getRingStoreFile().getBoolean(player.username.lowercase())) {
-                sendDialogue(player, "The ring is still recharging.")
-                return@on true
-            }
-
-            class RingDialogue(val star: ShootingStar) : DialogueFile() {
-                val shouldWarn = when (star.location) {
-                    "North Edgeville mining site",
-                    "Southern wilderness mine",
-                    "Wilderness hobgoblin mine",
-                    "Pirates' Hideout mine",
-                    "Lava Maze mining site",
-                    "Mage Arena bank" -> true
-                    else -> false
-                }
-
-                override fun handle(componentID: Int, buttonID: Int) {
-                    fun teleportToStar(player: Player) {
-                        val condition: (p: Player) -> Boolean = when (star.location.lowercase()) {
-                            "canifis bank"              -> {p -> requireQuest(p, QuestName.PRIEST_IN_PERIL, "to access this.") }
-                            "burgh de rott bank"        -> {p -> hasRequirement(p, QuestName.IN_AID_OF_THE_MYREQUE) } //disabled: crash
-                            "crafting guild"            -> {p -> hasLevelStat(p, Skills.CRAFTING, 40)       }
-                            "lletya bank"               -> {p -> hasRequirement(p, QuestName.MOURNINGS_END_PART_I) }
-                            "jatizso mine"              -> {p -> hasRequirement(p, QuestName.THE_FREMENNIK_ISLES)   }
-                            "south crandor mining site" -> {p -> hasRequirement(p, QuestName.DRAGON_SLAYER)         }
-                            "shilo village mining site" -> {p -> hasRequirement(p, QuestName.SHILO_VILLAGE) }
-                            "mos le'harmless bank"      -> {p -> hasRequirement(p, QuestName.CABIN_FEVER)           } //needs to be updated to check for completion when the quest releases; https://runescape.wiki/w/Mos_Le%27Harmless?oldid=913025
-                            "lunar isle mine"           -> {p -> hasRequirement(p, QuestName.LUNAR_DIPLOMACY)       }
-                            "miscellania coal mine"     -> {p -> requireQuest(p, QuestName.THE_FREMENNIK_TRIALS, "to access this.") }
-                            "neitiznot runite mine"     -> {p -> hasRequirement(p, QuestName.THE_FREMENNIK_ISLES) } //disabled: currently not reachable
-                            else -> { _ -> true}
-                        }
-                        if (!condition.invoke(player)) {
-                            sendDialogue(player,"Magical forces prevent your teleportation.")
-                        } else if (teleport(player, star.crashLocations[star.location]!!.transform(0, -1, 0), TeleportManager.TeleportType.MINIGAME)) {
-                            getRingStoreFile()[player.username.lowercase()] = true
-                        }
-                    }
-                    when (stage) {
-                        0 -> dialogue(if (star.spriteSpawned) "The star sprite has already been freed." else "The star sprite is still trapped.").also { if (shouldWarn) stage++ else stage += 2 }
-                        1 -> dialogue(DARK_RED+"WARNING</col>: The star is located in the wilderness.").also { stage++ }
-                        2 -> player.dialogueInterpreter.sendOptions("Teleport to the star?", "Yes", "No").also { stage++ }
-                        3 -> when (buttonID) {
-                            1 -> end().also { teleportToStar(player) }
-                            2 -> end()
-                        }
-                    }
-                }
-            }
-
-            openDialogue(player, RingDialogue(star))
             return@on true
         }
     }
 
     override fun defineCommands() {
         define("tostar", Privilege.ADMIN) { player, _ ->
-            teleport(player, star.starObject.location.transform(1,1,0))
+            teleport(player, star.starObject.location.transform(1, 1, 0))
         }
 
         define("submit", Privilege.ADMIN) { _, _ ->
@@ -148,27 +87,22 @@ class ShootingStarPlugin : LoginListener, InteractionListener, TickListener, Com
         private val scoreboardIface = 787
         val SHOOTING_STARS = ShootingStarType.values().map(ShootingStarType::objectId).toIntArray()
         val STAR_DUST = Items.STARDUST_13727
-        val RING = Items.RING_OF_THE_STAR_SPRITE_14652
 
-
-        @JvmStatic fun submitScoreBoard(player: Player)
-        {
-            if(scoreboardEntries.size == 5)
+        @JvmStatic
+        fun submitScoreBoard(player: Player) {
+            if (scoreboardEntries.size == 5)
                 scoreboardEntries.removeAt(0)
             scoreboardEntries.add(ScoreboardEntry(player.username, GameWorld.ticks))
         }
 
-        @JvmStatic fun getStar(): ShootingStar
-        {
+        @JvmStatic
+        fun getStar(): ShootingStar {
             return star
         }
 
-        @JvmStatic fun getStoreFile() : JSONObject {
+        @JvmStatic
+        fun getStoreFile(): JSONObject {
             return ServerStore.getArchive("shooting-star")
-        }
-
-        @JvmStatic fun getRingStoreFile() : JSONObject {
-            return ServerStore.getArchive("daily-star-ring")
         }
 
         fun getStarDust(player: Player): Int {

@@ -58,19 +58,19 @@ public class SceneryDefinition extends Definition<Scenery> {
     static int anInt3832;
 
     /**
-     * A unkown integer array.
+     * The animations.
      */
-    int[] anIntArray3833 = null;
+    int[] animations = null;
 
     /**
-     * A unknown integer.
+     * The positionXOffset
      */
-    private int anInt3834;
+    private int positionXOffset;
 
     /**
-     * A unknown integer.
+     * The option sprite 1.
      */
-    int anInt3835;
+    int optionSprite1;
 
     /**
      * A unknown integer.
@@ -88,7 +88,7 @@ public class SceneryDefinition extends Definition<Scenery> {
     int anInt3838 = -1;
 
     /**
-     * A unknown boolean.
+     * An unknown boolean.
      */
     boolean aBoolean3839;
 
@@ -113,12 +113,12 @@ public class SceneryDefinition extends Definition<Scenery> {
     static int anInt3843;
 
     /**
-     * A unknown integer.
+     * The index of option sprite 2.
      */
-    int anInt3844;
+    int indexOfOptionSprite2;
 
     /**
-     * A unknown boolean.
+     * An unknown boolean.
      */
     boolean aBoolean3845;
 
@@ -143,9 +143,9 @@ public class SceneryDefinition extends Definition<Scenery> {
     int anInt3850;
 
     /**
-     * A unknown integer.
+     * The map area id.
      */
-    int anInt3851;
+    int mapAreaId;
 
     /**
      * The second boolean.
@@ -153,9 +153,9 @@ public class SceneryDefinition extends Definition<Scenery> {
     public boolean secondBool;
 
     /**
-     * A unknown boolean.
+     * Has shadow.
      */
-    public boolean aBoolean3853;
+    public boolean hasShadow;
 
     /**
      * A unknown integer.
@@ -168,17 +168,17 @@ public class SceneryDefinition extends Definition<Scenery> {
     public boolean notClipped;
 
     /**
-     * A unknown integer.
+     * The index of option sprite 1.
      */
-    int anInt3857;
+    int indexOfOptionSprite1;
 
     /**
-     * A unknown byte array.
+     * An unknown byte array.
      */
     private byte[] aByteArray3858;
 
     /**
-     * A unknown integer array.
+     * An unknown integer array.
      */
     int[] anIntArray3859;
 
@@ -203,12 +203,12 @@ public class SceneryDefinition extends Definition<Scenery> {
     int anInt3865;
 
     /**
-     * A unknown boolean.
+     * An unknown boolean.
      */
     boolean aBoolean3866;
 
     /**
-     * A unknown boolean.
+     * An unknown boolean.
      */
     boolean aBoolean3867;
 
@@ -218,12 +218,12 @@ public class SceneryDefinition extends Definition<Scenery> {
     public boolean projectileClipped;
 
     /**
-     * A unknown integer array.
+     * An unknown integer array.
      */
     private int[] anIntArray3869;
 
     /**
-     * A unknown boolean.
+     * An unknown boolean.
      */
     boolean aBoolean3870;
 
@@ -233,24 +233,24 @@ public class SceneryDefinition extends Definition<Scenery> {
     public int sizeY;
 
     /**
-     * A unknown boolean.
+     * An unknown boolean.
      */
     boolean aBoolean3872;
 
     /**
-     * A unknown boolean.
+     * An unknown boolean.
      */
     boolean membersOnly;
 
     /**
      * The third integer.
      */
-    public boolean boolean1;
+    public boolean thirdInt;
 
     /**
-     * A unknown integer.
+     * The position Z offset
      */
-    private int anInt3875;
+    private int positionZOffset;
 
     /**
      * The add object check.
@@ -258,9 +258,9 @@ public class SceneryDefinition extends Definition<Scenery> {
     public int animationId;
 
     /**
-     * A unknown integer.
+     * The position Y offset
      */
-    private int anInt3877;
+    private int positionYOffset;
 
     /**
      * A unknown integer.
@@ -303,7 +303,7 @@ public class SceneryDefinition extends Definition<Scenery> {
     public int sizeX;
 
     /**
-     * A unknown boolean.
+     * An unknown boolean.
      */
     public boolean aBoolean3891;
 
@@ -318,7 +318,7 @@ public class SceneryDefinition extends Definition<Scenery> {
     public int interactable;
 
     /**
-     * A unknown boolean.
+     * An unknown boolean.
      */
     boolean aBoolean3894;
 
@@ -338,7 +338,7 @@ public class SceneryDefinition extends Definition<Scenery> {
     int configId;
 
     /**
-     * A unknown byte array.
+     * An unknown byte array.
      */
     private byte[] aByteArray3899;
 
@@ -348,9 +348,9 @@ public class SceneryDefinition extends Definition<Scenery> {
     int anInt3900;
 
     /**
-     * A unknown integer.
+     * The x-width
      */
-    private int anInt3902;
+    private int widthX;
 
     /**
      * A unknown integer.
@@ -363,24 +363,24 @@ public class SceneryDefinition extends Definition<Scenery> {
     int anInt3905;
 
     /**
-     * A unknown boolean.
+     * An unknown boolean.
      */
     boolean aBoolean3906;
 
     /**
-     * A unknown integer array.
+     * An unknown integer array.
      */
     int[] anIntArray3908;
 
     /**
-     * A unknown byte.
+     * The bend to plane
      */
-    private byte aByte3912;
+    private byte bendToPlane;
 
     /**
-     * A unknown integer.
+     * The option sprite 2.
      */
-    int anInt3913;
+    int optionSprite2;
 
     /**
      * A unknown byte.
@@ -413,9 +413,9 @@ public class SceneryDefinition extends Definition<Scenery> {
     private short[] aShortArray3920;
 
     /**
-     * A unknown integer.
+     * The standing on height offset.
      */
-    int anInt3921;
+    int standingOnHeightOffset;
 
     /**
      * A unknown object.
@@ -448,37 +448,37 @@ public class SceneryDefinition extends Definition<Scenery> {
     private short mapIcon;
 
     /**
-     * Construct a new {@code ObjectDefinition} {@code Object}.
+     * Constructs a new Scenery definition.
      */
     public SceneryDefinition() {
-        anInt3835 = -1;
+        optionSprite1 = -1;
         anInt3860 = -1;
         configFileId = -1;
         aBoolean3866 = false;
-        anInt3851 = -1;
+        mapAreaId = -1;
         anInt3865 = 255;
         aBoolean3845 = false;
         aBoolean3867 = false;
         anInt3850 = 0;
-        anInt3844 = -1;
+        indexOfOptionSprite2 = -1;
         anInt3881 = 0;
-        anInt3857 = -1;
+        indexOfOptionSprite1 = -1;
         aBoolean3872 = true;
         anInt3882 = -1;
-        anInt3834 = 0;
+        positionXOffset = 0;
         options = new String[5];
-        anInt3875 = 0;
+        positionZOffset = 0;
         aBoolean3839 = false;
         anIntArray3869 = null;
         sizeY = 1;
-        boolean1 = false;
+        thirdInt = false;
         projectileClipped = true;
         anInt3883 = 0;
         aBoolean3895 = true;
         anInt3840 = 0;
         aBoolean3870 = false;
         anInt3889 = 0;
-        aBoolean3853 = true;
+        hasShadow = true;
         secondBool = false;
         clipType = 2;
         anInt3855 = -1;
@@ -490,7 +490,7 @@ public class SceneryDefinition extends Definition<Scenery> {
         aBoolean3891 = false;
         anInt3905 = 0;
         name = "null";
-        anInt3913 = -1;
+        optionSprite2 = -1;
         aBoolean3906 = false;
         membersOnly = false;
         aByte3914 = (byte) 0;
@@ -498,11 +498,11 @@ public class SceneryDefinition extends Definition<Scenery> {
         anInt3900 = 0;
         interactable = -1;
         aBoolean3894 = false;
-        aByte3912 = (byte) 0;
-        anInt3921 = 0;
-        anInt3902 = 128;
+        bendToPlane = (byte) 0;
+        standingOnHeightOffset = 0;
+        widthX = 128;
         configId = -1;
-        anInt3877 = 0;
+        positionYOffset = 0;
         walkingFlag = 0;
         anInt3892 = 64;
         aBoolean3923 = false;
@@ -592,10 +592,10 @@ public class SceneryDefinition extends Definition<Scenery> {
     }
 
     /**
-     * Gets an object definition.
+     * Gets an scenery definition.
      *
-     * @param objectId The object's id.
-     * @return The object definition.
+     * @param objectId The scenery's id.
+     * @return The scenery definition.
      */
     public static SceneryDefinition forId(int objectId) {
         SceneryDefinition def = DEFINITIONS.get(objectId);
@@ -609,11 +609,11 @@ public class SceneryDefinition extends Definition<Scenery> {
 
 
     /**
-     * Parses an object's definitions.
+     * Parses the scenery's definitions.
      *
      * @param objectId The object id.
      * @param buffer   The buffer.
-     * @return The object definition.
+     * @return The scenery definition.
      */
     public static SceneryDefinition parseDefinition(int objectId, ByteBuffer buffer) {
         SceneryDefinition def = new SceneryDefinition();
@@ -656,11 +656,11 @@ public class SceneryDefinition extends Definition<Scenery> {
             } else if (opcode == 19) {
                 def.interactable = buffer.get() & 0xFF;
             } else if (opcode == 21) {
-                def.aByte3912 = (byte) 1;
+                def.bendToPlane = (byte) 1;
             } else if (opcode == 22) {
                 def.aBoolean3867 = true;
             } else if (opcode == 23) {
-                def.boolean1 = true;
+                def.thirdInt = true;
             } else if (opcode == 24) {
                 def.animationId = buffer.getShort() & 0xFFFF;
                 if (def.animationId == 65535) {
@@ -709,7 +709,7 @@ public class SceneryDefinition extends Definition<Scenery> {
             } else if (opcode == 64) {
                 def.aBoolean3872 = false;
             } else if (opcode == 65) {
-                def.anInt3902 = buffer.getShort() & 0xFFFF;
+                def.widthX = buffer.getShort() & 0xFFFF;
             } else if (opcode == 66) {
                 def.anInt3841 = buffer.getShort() & 0xFFFF;
             } else if (opcode == 67) {
@@ -768,7 +768,7 @@ public class SceneryDefinition extends Definition<Scenery> {
                     def.anIntArray3859[i] = buffer.getShort() & 0xFFFF;
                 }
             } else if (opcode == 81) {
-                def.aByte3912 = (byte) 2;
+                def.bendToPlane = (byte) 2;
                 def.anInt3882 = 256 * buffer.get() & 0xFF;
             } else if (opcode == 82 || opcode == 88) {
                 // Nothing.
@@ -779,12 +779,12 @@ public class SceneryDefinition extends Definition<Scenery> {
             } else if (opcode == 91) {
                 def.membersOnly = true;
             } else if (opcode == 93) {
-                def.aByte3912 = (byte) 3;
+                def.bendToPlane = (byte) 3;
                 def.anInt3882 = buffer.getShort() & 0xFFFF;
             } else if (opcode == 94) {
-                def.aByte3912 = (byte) 4;
+                def.bendToPlane = (byte) 4;
             } else if (opcode == 95) {
-                def.aByte3912 = (byte) 5;
+                def.bendToPlane = (byte) 5;
             } else if (opcode == 96 || opcode == 97) {
                 //
             } else if (opcode == 100) {
@@ -821,7 +821,7 @@ public class SceneryDefinition extends Definition<Scenery> {
     }
 
     /**
-     * Configures the object definitions.
+     * Configures the scenery definitions.
      */
     final void configureObject() {
         if (interactable == -1) {
@@ -905,6 +905,12 @@ public class SceneryDefinition extends Definition<Scenery> {
         return childDef;
     }
 
+    /**
+     * Gets child object at index.
+     *
+     * @param index the index
+     * @return the child object at index
+     */
     public SceneryDefinition getChildObjectAtIndex(int index) {
         if (childrenIds == null || childrenIds.length < 1) {
             return this;
@@ -931,26 +937,18 @@ public class SceneryDefinition extends Definition<Scenery> {
         return null;
     }
 
-    /**
-     * Get the aBoolean3839.
-     *
-     * @return the aBoolean3839
-     */
     public boolean isaBoolean3839() {
         return aBoolean3839;
     }
 
-    /**
-     * @param aBoolean3839 the aBoolean3839 to set
-     */
     public void setaBoolean3839(boolean aBoolean3839) {
         this.aBoolean3839 = aBoolean3839;
     }
 
     /**
-     * Get the originalColors.
+     * Get original colors.
      *
-     * @return the originalColors
+     * @return the originalColors.
      */
     public short[] getOriginalColors() {
         return originalColors;
@@ -965,254 +963,132 @@ public class SceneryDefinition extends Definition<Scenery> {
         return childrenIds;
     }
 
-    /**
-     * Get the anInt3832.
-     *
-     * @return the anInt3832
-     */
     public static int getAnInt3832() {
         return anInt3832;
     }
 
     /**
-     * Get the anIntArray3833.
+     * Get the animation id.
      *
-     * @return the anIntArray3833
+     * @return the animation id.
      */
-    public int[] getAnIntArray3833() {
-        return anIntArray3833;
+    public int[] getAnimations() {
+        return animations;
     }
 
     /**
-     * Get the anInt3834.
+     * Gets position x offset.
      *
-     * @return the anInt3834
+     * @return the position x offset.
      */
-    public int getAnInt3834() {
-        return anInt3834;
+    public int getPositionXOffset() {
+        return positionXOffset;
     }
 
     /**
-     * Get the anInt3835.
+     * Gets option sprite 1.
      *
-     * @return the anInt3835
+     * @return the option sprite 1.
      */
-    public int getAnInt3835() {
-        return anInt3835;
+    public int getOptionSprite1() {
+        return optionSprite1;
+    }
+
+    public static int getAnInt3836() {return anInt3836;}
+
+    public byte getaByte3837() {return aByte3837;}
+
+    public int getAnInt3838() {return anInt3838;}
+
+    public int getAnInt3840() {return anInt3840;}
+
+    public int getAnInt3841() {return anInt3841;}
+
+    public static int getAnInt3842() {return anInt3842;}
+
+    public static int getAnInt3843() {return anInt3843;}
+
+    /**
+     * Gets index of option sprite 2.
+     *
+     * @return the index of option sprite 2
+     */
+    public int getIndexOfOptionSprite2() {
+        return indexOfOptionSprite2;
+    }
+
+    public boolean isaBoolean3845() {return aBoolean3845;}
+
+    public static int getAnInt3846() {return anInt3846;}
+
+    public byte getaByte3847() {return aByte3847;}
+
+    public byte getaByte3849() {return aByte3849;}
+
+    public int getAnInt3850() {return anInt3850;}
+
+    /**
+     * Gets map area id.
+     *
+     * @return the map area id.
+     */
+    public int getMapAreaId() {
+        return mapAreaId;
     }
 
     /**
-     * Get the anInt3836.
+     * Is second bool boolean.
      *
-     * @return the anInt3836
-     */
-    public static int getAnInt3836() {
-        return anInt3836;
-    }
-
-    /**
-     * Get the aByte3837.
-     *
-     * @return the aByte3837
-     */
-    public byte getaByte3837() {
-        return aByte3837;
-    }
-
-    /**
-     * Get the anInt3838.
-     *
-     * @return the anInt3838
-     */
-    public int getAnInt3838() {
-        return anInt3838;
-    }
-
-    /**
-     * Get the anInt3840.
-     *
-     * @return the anInt3840
-     */
-    public int getAnInt3840() {
-        return anInt3840;
-    }
-
-    /**
-     * Get the anInt3841.
-     *
-     * @return the anInt3841
-     */
-    public int getAnInt3841() {
-        return anInt3841;
-    }
-
-    /**
-     * Get the anInt3842.
-     *
-     * @return the anInt3842
-     */
-    public static int getAnInt3842() {
-        return anInt3842;
-    }
-
-    /**
-     * Get the anInt3843.
-     *
-     * @return the anInt3843
-     */
-    public static int getAnInt3843() {
-        return anInt3843;
-    }
-
-    /**
-     * Get the anInt3844.
-     *
-     * @return the anInt3844
-     */
-    public int getAnInt3844() {
-        return anInt3844;
-    }
-
-    /**
-     * Get the aBoolean3845.
-     *
-     * @return the aBoolean3845
-     */
-    public boolean isaBoolean3845() {
-        return aBoolean3845;
-    }
-
-    /**
-     * Get the anInt3846.
-     *
-     * @return the anInt3846
-     */
-    public static int getAnInt3846() {
-        return anInt3846;
-    }
-
-    /**
-     * Get the aByte3847.
-     *
-     * @return the aByte3847
-     */
-    public byte getaByte3847() {
-        return aByte3847;
-    }
-
-    /**
-     * Get the aByte3849.
-     *
-     * @return the aByte3849
-     */
-    public byte getaByte3849() {
-        return aByte3849;
-    }
-
-    /**
-     * Get the anInt3850.
-     *
-     * @return the anInt3850
-     */
-    public int getAnInt3850() {
-        return anInt3850;
-    }
-
-    /**
-     * Get the anInt3851.
-     *
-     * @return the anInt3851
-     */
-    public int getAnInt3851() {
-        return anInt3851;
-    }
-
-    /**
-     * Get the secondBool.
-     *
-     * @return the secondBool
+     * @return the boolean.
      */
     public boolean isSecondBool() {
         return secondBool;
     }
 
     /**
-     * Get the aBoolean3853.
+     * Get the shadow boolean.
      *
-     * @return the aBoolean3853
+     * @return the boolean
      */
-    public boolean isaBoolean3853() {
-        return aBoolean3853;
+    public boolean isHasShadow() {
+        return hasShadow;
     }
 
-    /**
-     * Get the anInt3855.
-     *
-     * @return the anInt3855
-     */
-    public int getAnInt3855() {
-        return anInt3855;
-    }
+    public int getAnInt3855() {return anInt3855;}
 
     /**
-     * Get the firstBool.
+     * Is first bool boolean.
      *
-     * @return the firstBool
+     * @return the boolean
      */
     public boolean isFirstBool() {
         return notClipped;
     }
 
     /**
-     * Get the anInt3857.
+     * Gets index of option sprite 1.
      *
-     * @return the anInt3857
+     * @return the index of option sprite 1
      */
-    public int getAnInt3857() {
-        return anInt3857;
+    public int getIndexOfOptionSprite1() {
+        return indexOfOptionSprite1;
     }
 
-    /**
-     * Get the aByteArray3858.
-     *
-     * @return the aByteArray3858
-     */
-    public byte[] getaByteArray3858() {
-        return aByteArray3858;
-    }
+    public byte[] getaByteArray3858() {return aByteArray3858;}
 
-    /**
-     * Get the anIntArray3859.
-     *
-     * @return the anIntArray3859
-     */
-    public int[] getAnIntArray3859() {
-        return anIntArray3859;
-    }
+    public int[] getAnIntArray3859() {return anIntArray3859;}
 
-    /**
-     * Get the anInt3860.
-     *
-     * @return the anInt3860
-     */
-    public int getAnInt3860() {
-        return anInt3860;
-    }
+    public int getAnInt3860() {return anInt3860;}
 
-    /**
-     * Get the options.
-     *
-     * @return the options
-     */
     @Override
     public String[] getOptions() {
         return options;
     }
 
     /**
-     * Get the configFileId.
+     * Gets varbit id.
      *
-     * @return the configFileId
+     * @return the varbit id
      */
     public int getVarbitID() {
         return configFileId;
@@ -1221,173 +1097,96 @@ public class SceneryDefinition extends Definition<Scenery> {
     /**
      * Get the modifiedColors.
      *
-     * @return the modifiedColors
+     * @return the modifiedColors.
      */
     public short[] getModifiedColors() {
         return modifiedColors;
     }
 
-    /**
-     * Get the anInt3865.
-     *
-     * @return the anInt3865
-     */
-    public int getAnInt3865() {
-        return anInt3865;
-    }
+    public int getAnInt3865() {return anInt3865;}
+
+    public boolean isaBoolean3866() {return aBoolean3866;}
+
+    public boolean isaBoolean3867() {return aBoolean3867;}
 
     /**
-     * Get the aBoolean3866.
+     * Is projectile clipped boolean.
      *
-     * @return the aBoolean3866
-     */
-    public boolean isaBoolean3866() {
-        return aBoolean3866;
-    }
-
-    /**
-     * Get the aBoolean3867.
-     *
-     * @return the aBoolean3867
-     */
-    public boolean isaBoolean3867() {
-        return aBoolean3867;
-    }
-
-    /**
-     * Get the solid.
-     *
-     * @return the solid
+     * @return the boolean
      */
     public boolean isProjectileClipped() {
         return projectileClipped;
     }
 
-    /**
-     * Get the anIntArray3869.
-     *
-     * @return the anIntArray3869
-     */
-    public int[] getAnIntArray3869() {
-        return anIntArray3869;
-    }
+    public int[] getAnIntArray3869() {return anIntArray3869;}
+
+    public boolean isaBoolean3870() {return aBoolean3870;}
 
     /**
-     * Get the aBoolean3870.
+     * Gets size y.
      *
-     * @return the aBoolean3870
-     */
-    public boolean isaBoolean3870() {
-        return aBoolean3870;
-    }
-
-    /**
-     * Get the sizeY.
-     *
-     * @return the sizeY
+     * @return the size y
      */
     public int getSizeY() {
         return sizeY;
     }
 
-    /**
-     * Get the aBoolean3872.
-     *
-     * @return the aBoolean3872
-     */
-    public boolean isaBoolean3872() {
-        return aBoolean3872;
-    }
+    public boolean isaBoolean3872() {return aBoolean3872;}
+
+    public boolean isaBoolean3873() {return membersOnly;}
 
     /**
-     * Get the membersOnly.
+     * Gets third boolean.
      *
-     * @return the membersOnly
-     */
-    public boolean isaBoolean3873() {
-        return membersOnly;
-    }
-
-    /**
-     * Get the thirdInt.
-     *
-     * @return the thirdInt
+     * @return the third boolean
      */
     public boolean getThirdBoolean() {
-        return boolean1;
+        return thirdInt;
     }
 
     /**
-     * Get the anInt3875.
+     * Gets position z offset.
      *
-     * @return the anInt3875
+     * @return the position z offset
      */
-    public int getAnInt3875() {
-        return anInt3875;
+    public int getPositionZOffset() {
+        return positionZOffset;
     }
 
     /**
-     * Get the addObjectCheck.
+     * Gets add object check.
      *
-     * @return the addObjectCheck
+     * @return the add object check
      */
     public int getAddObjectCheck() {
         return animationId;
     }
 
     /**
-     * Get the anInt3877.
+     * Gets position y offset.
      *
-     * @return the anInt3877
+     * @return the position y offset
      */
-    public int getAnInt3877() {
-        return anInt3877;
+    public int getPositionYOffset() {
+        return positionYOffset;
     }
 
-    /**
-     * Get the anInt3878.
-     *
-     * @return the anInt3878
-     */
-    public int getAnInt3878() {
-        return anInt3878;
-    }
+    public int getAnInt3878() {return anInt3878;}
 
     /**
-     * Get the clipType.
+     * Gets clip type.
      *
-     * @return the clipType
+     * @return the clip type
      */
     public int getClipType() {
         return clipType;
     }
 
-    /**
-     * Get the anInt3881.
-     *
-     * @return the anInt3881
-     */
-    public int getAnInt3881() {
-        return anInt3881;
-    }
+    public int getAnInt3881() {return anInt3881;}
 
-    /**
-     * Get the anInt3882.
-     *
-     * @return the anInt3882
-     */
-    public int getAnInt3882() {
-        return anInt3882;
-    }
+    public int getAnInt3882() {return anInt3882;}
 
-    /**
-     * Get the anInt3883.
-     *
-     * @return the anInt3883
-     */
-    public int getAnInt3883() {
-        return anInt3883;
-    }
+    public int getAnInt3883() {return anInt3883;}
 
     /**
      * Get the loader.
@@ -1398,41 +1197,20 @@ public class SceneryDefinition extends Definition<Scenery> {
         return loader;
     }
 
-    /**
-     * Get the anInt3889.
-     *
-     * @return the anInt3889
-     */
-    public int getAnInt3889() {
-        return anInt3889;
-    }
+    public int getAnInt3889() {return anInt3889;}
 
     /**
-     * Get the sizeX.
+     * Get the size x.
      *
-     * @return the sizeX
+     * @return the size x
      */
     public int getSizeX() {
         return sizeX;
     }
 
-    /**
-     * Get the aBoolean3891.
-     *
-     * @return the aBoolean3891
-     */
-    public boolean isaBoolean3891() {
-        return aBoolean3891;
-    }
+    public boolean isaBoolean3891() {return aBoolean3891;}
 
-    /**
-     * Get the anInt3892.
-     *
-     * @return the anInt3892
-     */
-    public int getAnInt3892() {
-        return anInt3892;
-    }
+    public int getAnInt3892() {return anInt3892;}
 
     /**
      * Get the interactable.
@@ -1443,222 +1221,91 @@ public class SceneryDefinition extends Definition<Scenery> {
         return interactable;
     }
 
-    /**
-     * Get the aBoolean3894.
-     *
-     * @return the aBoolean3894
-     */
-    public boolean isaBoolean3894() {
-        return aBoolean3894;
-    }
+    public boolean isaBoolean3894() {return aBoolean3894;}
+
+    public boolean isaBoolean3895() {return aBoolean3895;}
+
+    public int getAnInt3896() {return anInt3896;}
 
     /**
-     * Get the aBoolean3895.
+     * Get the config id.
      *
-     * @return the aBoolean3895
-     */
-    public boolean isaBoolean3895() {
-        return aBoolean3895;
-    }
-
-    /**
-     * Get the anInt3896.
-     *
-     * @return the anInt3896
-     */
-    public int getAnInt3896() {
-        return anInt3896;
-    }
-
-    /**
-     * Get the configId.
-     *
-     * @return the configId
+     * @return the config id.
      */
     public int getConfigId() {
         return configId;
     }
 
-    /**
-     * Get the aByteArray3899.
-     *
-     * @return the aByteArray3899
-     */
-    public byte[] getaByteArray3899() {
-        return aByteArray3899;
-    }
+    public byte[] getaByteArray3899() {return aByteArray3899;}
 
-    /**
-     * Get the anInt3900.
-     *
-     * @return the anInt3900
-     */
-    public int getAnInt3900() {
-        return anInt3900;
-    }
+    public int getAnInt3900() {return anInt3900;}
 
-    /**
-     * Get the name.
-     *
-     * @return the name
-     */
     @Override
     public String getName() {
         return name;
     }
 
     /**
-     * Get the anInt3902.
+     * Get the x width.
      *
-     * @return the anInt3902
+     * @return the width x
      */
-    public int getAnInt3902() {
-        return anInt3902;
+    public int getWidthX() {
+        return widthX;
+    }
+
+    public int getAnInt3904() {return anInt3904;}
+
+    public int getAnInt3905() {return anInt3905;}
+
+    public boolean isaBoolean3906() {return aBoolean3906;}
+
+    public int[] getAnIntArray3908() {return anIntArray3908;}
+
+    /**
+     * Gets bend to plane.
+     *
+     * @return the bendToPlane
+     */
+    public byte getBendToPlane() {
+        return bendToPlane;
     }
 
     /**
-     * Get the anInt3904.
+     * Gets option sprite 2.
      *
-     * @return the anInt3904
+     * @return the option sprite 2
      */
-    public int getAnInt3904() {
-        return anInt3904;
+    public int getOptionSprite2() {
+        return optionSprite2;
     }
 
-    /**
-     * Get the anInt3905.
-     *
-     * @return the anInt3905
-     */
-    public int getAnInt3905() {
-        return anInt3905;
-    }
+    public byte getaByte3914() {return aByte3914;}
+
+    public int getAnInt3915() {return anInt3915;}
+
+    public int[][] getAnIntArrayArray3916() {return anIntArrayArray3916;}
+
+    public int getAnInt3917() {return anInt3917;}
+
+    public short[] getaShortArray3919() {return aShortArray3919;}
+
+    public short[] getaShortArray3920() {return aShortArray3920;}
 
     /**
-     * Get the aBoolean3906.
+     * Gets standing on height offset.
      *
-     * @return the aBoolean3906
+     * @return the standing on height offset
      */
-    public boolean isaBoolean3906() {
-        return aBoolean3906;
+    public int getStandingOnHeightOffset() {
+        return standingOnHeightOffset;
     }
 
-    /**
-     * Get the anIntArray3908.
-     *
-     * @return the anIntArray3908
-     */
-    public int[] getAnIntArray3908() {
-        return anIntArray3908;
-    }
+    public Object getaClass194_3922() {return aClass194_3922;}
 
-    /**
-     * Get the aByte3912.
-     *
-     * @return the aByte3912
-     */
-    public byte getaByte3912() {
-        return aByte3912;
-    }
+    public boolean isaBoolean3923() {return aBoolean3923;}
 
-    /**
-     * Get the anInt3913.
-     *
-     * @return the anInt3913
-     */
-    public int getAnInt3913() {
-        return anInt3913;
-    }
-
-    /**
-     * Get the aByte3914.
-     *
-     * @return the aByte3914
-     */
-    public byte getaByte3914() {
-        return aByte3914;
-    }
-
-    /**
-     * Get the anInt3915.
-     *
-     * @return the anInt3915
-     */
-    public int getAnInt3915() {
-        return anInt3915;
-    }
-
-    /**
-     * Get the anIntArrayArray3916.
-     *
-     * @return the anIntArrayArray3916
-     */
-    public int[][] getAnIntArrayArray3916() {
-        return anIntArrayArray3916;
-    }
-
-    /**
-     * Get the anInt3917.
-     *
-     * @return the anInt3917
-     */
-    public int getAnInt3917() {
-        return anInt3917;
-    }
-
-    /**
-     * Get the aShortArray3919.
-     *
-     * @return the aShortArray3919
-     */
-    public short[] getaShortArray3919() {
-        return aShortArray3919;
-    }
-
-    /**
-     * Get the aShortArray3920.
-     *
-     * @return the aShortArray3920
-     */
-    public short[] getaShortArray3920() {
-        return aShortArray3920;
-    }
-
-    /**
-     * Get the anInt3921.
-     *
-     * @return the anInt3921
-     */
-    public int getAnInt3921() {
-        return anInt3921;
-    }
-
-    /**
-     * Get the aClass194_3922.
-     *
-     * @return the aClass194_3922
-     */
-    public Object getaClass194_3922() {
-        return aClass194_3922;
-    }
-
-    /**
-     * Get the aBoolean3923.
-     *
-     * @return the aBoolean3923
-     */
-    public boolean isaBoolean3923() {
-        return aBoolean3923;
-    }
-
-    /**
-     * Get the aBoolean3924.
-     *
-     * @return the aBoolean3924
-     */
-    public boolean isaBoolean3924() {
-        return aBoolean3924;
-    }
+    public boolean isaBoolean3924() {return aBoolean3924;}
 
     /**
      * Gets the object's model ids.
@@ -1704,8 +1351,7 @@ public class SceneryDefinition extends Definition<Scenery> {
      *
      * @param nodeId The node id.
      * @param name   The name.
-     * @return The option handler, or {@code null} if there was no default
-     * option handler.
+     * @return The option handler, or {@code null} if there was no default option handler.
      */
     public static OptionHandler getOptionHandler(int nodeId, String name) {
         SceneryDefinition def = forId(nodeId);

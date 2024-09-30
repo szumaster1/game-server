@@ -10,7 +10,6 @@ import core.tools.END_DIALOGUE
 
 /**
  * Represents the Wizard Vief dialogue.
- * @author Szumaster
  */
 @Initializable
 class WizardViefDialogue(player: Player? = null) : Dialogue(player) {

@@ -10,7 +10,6 @@ import core.tools.END_DIALOGUE
 
 /**
  * Represents the Wizard Acantha dialogue.
- * @author Szumaster
  */
 @Initializable
 class WizardAcanthaDialogue(player: Player? = null) : Dialogue(player) {

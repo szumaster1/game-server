@@ -131811,33 +131811,6 @@
     "id": "14647"
   },
   {
-    "shop_price": "0",
-    "ge_buy_limit": "0",
-    "examine": "A totally alive monkey friend for your back!",
-    "durability": null,
-    "destroy": "true",
-    "weight": "0.0",
-    "equipment_slot": "1",
-    "grand_exchange_price": "0",
-    "name": "Jangles the Monkey Backpack",
-    "tradeable": "false",
-    "archery_ticket_price": "0",
-    "id": "14648",
-    "bonuses": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0"
-  },
-  {
-    "ge_buy_limit": "0",
-    "examine": "A ring for only the truest of cave goblins. And Logg too.",
-    "grand_exchange_price": "0",
-    "durability": null,
-    "name": "Zanik ring",
-    "tradeable": "false",
-    "archery_ticket_price": "0",
-    "destroy": "true",
-    "id": "14649",
-    "equipment_slot": "12"
-  },
-  {
     "examine": "A chunk of rock.",
     "name": "Rock",
     "id": "1480"

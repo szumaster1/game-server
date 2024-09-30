@@ -14,7 +14,6 @@ import core.tools.END_DIALOGUE
 
 /**
  * Represents the Wizard Korvak dialogue.
- * @author Szumaster
  */
 @Initializable
 class WizardKorvakDialogue(player: Player? = null) : Dialogue(player) {
