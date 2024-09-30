@@ -80,7 +80,6 @@ object ServerConfigParser {
             isLootshare = false,
             msAddress = data.getString("server.msip"),
             default_xp_rate = data.getDouble("world.default_xp_rate"),
-            allow_slayer_reroll = data.getBoolean("world.allow_slayer_reroll"),
             enable_default_clan = data.getBoolean("world.enable_default_clan"),
             enable_bots = data.getBoolean("world.enable_bots"),
             autostock_ge = data.getBoolean("world.autostock_ge"),
@@ -134,7 +133,6 @@ object ServerConfigParser {
         Configuration.RSDT_DATA_PATH = data.getPath("paths.rare_seed_drop_table_path")
         Configuration.ASDT_DATA_PATH = data.getPath("paths.allotment_seed_drop_table_path")
         Configuration.SERVER_GE_NAME = data.getString("world.name_ge") ?: Configuration.SERVER_NAME
-        Configuration.RULES_AND_INFO_ENABLED = data.getBoolean("world.show_rules", true)
         Configuration.BOTS_INFLUENCE_PRICE_INDEX = data.getBoolean("world.bots_influence_ge_price", true)
         Configuration.PRELOAD_MAP = data.getBoolean("server.preload_map", false)
         Configuration.REVENANT_POPULATION = data.getLong("world.revenant_population", 30L).toInt()

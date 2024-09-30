@@ -13,7 +13,6 @@ import org.rs.consts.Sounds
 
 /**
  * Represents the Skippy dialogue.
- * @author szumaster
  */
 @Initializable
 class SkippyDialogue(player: Player? = null) : Dialogue(player) {

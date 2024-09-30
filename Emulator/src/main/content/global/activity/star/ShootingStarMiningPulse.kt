@@ -100,19 +100,11 @@ class ShootingStarMiningPulse(player: Player?, node: Scenery?, val star: Shootin
         if (ShootingStarPlugin.getStarDust(player) < 200) {
             addItem(player, ShootingStarPlugin.STAR_DUST, 1)
         }
-        if (!inInventory(player, Items.ANCIENT_BLUEPRINT_14651) && !inBank(player, Items.ANCIENT_BLUEPRINT_14651)) {
-            rollBlueprint(player)
-        }
 
         star.decDust()
         return false
     }
 
-    /**
-     * Roll blueprint
-     *
-     * @param player
-     */
     fun rollBlueprint(player: Player) {
         val chance = when (star.level) {
             ShootingStarType.LEVEL_9 -> 250

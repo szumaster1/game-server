@@ -23,7 +23,6 @@ class GameSettings internal constructor(
     var isLootshare: Boolean,
     var msAddress: String,
     var default_xp_rate: Double,
-    var allow_slayer_reroll: Boolean,
     var enable_default_clan: Boolean,
     var enable_bots: Boolean,
     var autostock_ge: Boolean,
@@ -79,7 +78,6 @@ class GameSettings internal constructor(
             val pvpWorld = data["pvpWorld"] as Boolean
             val msip = data["msip"].toString()
             val default_xp_rate = data["default_xp_rate"].toString().toDouble()
-            val allow_slayer_reroll = data["allow_slayer_reroll"] as Boolean
             val enable_default_clan = data["enable_default_clan"] as Boolean
             val enable_bots = data["enable_bots"] as Boolean
             val autostock_ge = data["autostock_ge"] as Boolean
@@ -96,7 +94,7 @@ class GameSettings internal constructor(
             val allow_token_purchase = data["allow_token_purchase"] as Boolean
             val message_of_the_week_identifier = data["message_of_the_week_identifier"].toString().toInt()
             val message_of_the_week_text = data["message_of_the_week_text"].toString()
-            return GameSettings(name, debug, dev, startGui, worldId, countryId, activity, true, pvpWorld, false, false, msip, default_xp_rate, allow_slayer_reroll, enable_default_clan, enable_bots, autostock_ge, allow_token_purchase, skillcape_perks, increased_door_time, enable_botting, max_adv_bots, enable_doubling_money_scammers, wild_pvp_enabled, jad_practice_enabled, ge_announcement_limit, smartpathfinder_bfs, enable_castle_wars, message_of_the_week_identifier, message_of_the_week_text)
+            return GameSettings(name, debug, dev, startGui, worldId, countryId, activity, true, pvpWorld, false, false, msip, default_xp_rate, enable_default_clan, enable_bots, autostock_ge, allow_token_purchase, skillcape_perks, increased_door_time, enable_botting, max_adv_bots, enable_doubling_money_scammers, wild_pvp_enabled, jad_practice_enabled, ge_announcement_limit, smartpathfinder_bfs, enable_castle_wars, message_of_the_week_identifier, message_of_the_week_text)
         }
 
         /**
