@@ -31,7 +31,7 @@ enum class BNetTypes(val node: content.global.skill.hunter.bnet.BNetNode) {
         )
     ),
     SNOWRY_KNIGHT(
-        content.global.skill.hunter.bnet.BNetNode(
+        BNetNode(
             intArrayOf(5083, 7498),
             intArrayOf(35, 90, 85),
             doubleArrayOf(44.0, 500.0, 100.0),
@@ -40,7 +40,7 @@ enum class BNetTypes(val node: content.global.skill.hunter.bnet.BNetNode) {
         )
     ),
     BLACK_WARLOCK(
-        content.global.skill.hunter.bnet.BNetNode(
+        BNetNode(
             intArrayOf(5082),
             intArrayOf(45, 95, 90),
             doubleArrayOf(54.0, 650.0, 125.0),
@@ -49,7 +49,7 @@ enum class BNetTypes(val node: content.global.skill.hunter.bnet.BNetNode) {
         )
     ),
     BABY_IMPLING(
-        content.global.skill.hunter.bnet.ImplingNode(
+        ImplingNode(
             intArrayOf(1028, 6055),
             17,
             20.0,
@@ -78,7 +78,7 @@ enum class BNetTypes(val node: content.global.skill.hunter.bnet.BNetNode) {
         )
     ),
     YOUNG_IMPLING(
-        content.global.skill.hunter.bnet.ImplingNode(
+         ImplingNode(
             intArrayOf(1029, 6056),
             22,
             22.0,
@@ -97,7 +97,7 @@ enum class BNetTypes(val node: content.global.skill.hunter.bnet.BNetNode) {
         )
     ),
     GOURMET_IMPLING(
-        content.global.skill.hunter.bnet.ImplingNode(
+        ImplingNode(
             intArrayOf(1030, 6057),
             28,
             24.0,
@@ -122,7 +122,7 @@ enum class BNetTypes(val node: content.global.skill.hunter.bnet.BNetNode) {
         )
     ),
     EARTH_IMPLING(
-        content.global.skill.hunter.bnet.ImplingNode(
+        ImplingNode(
             intArrayOf(1031, 6058),
             36,
             27.0,
@@ -140,7 +140,7 @@ enum class BNetTypes(val node: content.global.skill.hunter.bnet.BNetNode) {
         )
     ),
     ESSENCE_IMPLING(
-        content.global.skill.hunter.bnet.ImplingNode(
+        ImplingNode(
             intArrayOf(1032, 6059),
             42,
             29.0,
@@ -160,7 +160,7 @@ enum class BNetTypes(val node: content.global.skill.hunter.bnet.BNetNode) {
         )
     ),
     ECLECTIC_IMPLING(
-        content.global.skill.hunter.bnet.ImplingNode(
+        ImplingNode(
             intArrayOf(1033, 6060),
             50,
             32.0,
@@ -189,7 +189,7 @@ enum class BNetTypes(val node: content.global.skill.hunter.bnet.BNetNode) {
         )
     ),
     NATURE_IMPLING(
-        content.global.skill.hunter.bnet.ImplingNode(
+        ImplingNode(
             intArrayOf(1034, 6061),
             58,
             36.0,
@@ -217,7 +217,7 @@ enum class BNetTypes(val node: content.global.skill.hunter.bnet.BNetNode) {
         )
     ),
     MAGPIE_IMPLING(
-        content.global.skill.hunter.bnet.ImplingNode(
+        ImplingNode(
             intArrayOf(1035, 6062),
             65,
             216.0,
@@ -246,7 +246,7 @@ enum class BNetTypes(val node: content.global.skill.hunter.bnet.BNetNode) {
         )
     ),
     NINJA_IMPLING(
-        content.global.skill.hunter.bnet.ImplingNode(
+        ImplingNode(
             intArrayOf(6053, 6063),
             74,
             240.0,
@@ -268,7 +268,7 @@ enum class BNetTypes(val node: content.global.skill.hunter.bnet.BNetNode) {
         )
     ),
     DRAGON_IMPLING(
-        content.global.skill.hunter.bnet.ImplingNode(
+        ImplingNode(
             intArrayOf(6054, 6064),
             83,
             300.0,
@@ -300,10 +300,10 @@ enum class BNetTypes(val node: content.global.skill.hunter.bnet.BNetNode) {
     }
 
     companion object {
-        private val implings = mutableListOf<content.global.skill.hunter.bnet.ImplingNode>()
+        private val implings = mutableListOf<ImplingNode>()
 
         @JvmStatic
-        fun getImpling(player: Player): content.global.skill.hunter.bnet.ImplingNode? {
+        fun getImpling(player: Player): ImplingNode? {
             return implings.firstOrNull { player.inventory.containsItem(it.reward) }
         }
 
@@ -315,17 +315,17 @@ enum class BNetTypes(val node: content.global.skill.hunter.bnet.BNetNode) {
         }
 
         @JvmStatic
-        fun forItem(item: Item): content.global.skill.hunter.bnet.BNetNode? {
+        fun forItem(item: Item): BNetNode? {
             return values().firstOrNull { type ->
                 type.node.reward.id == item.id
             }?.node
         }
 
-        fun getImplings(): List<content.global.skill.hunter.bnet.ImplingNode> = implings
+        fun getImplings(): List<ImplingNode> = implings
 
         init {
             implings.addAll(values().mapNotNull { type ->
-                type.node as? content.global.skill.hunter.bnet.ImplingNode
+                type.node as? ImplingNode
             })
         }
     }

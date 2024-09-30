@@ -8,7 +8,6 @@ import core.game.dialogue.FacialExpression
 import core.game.interaction.QueueStrength
 import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
-import core.game.node.entity.player.link.IronmanMode
 import core.game.node.entity.player.link.TeleportManager
 import core.game.node.item.GroundItemManager
 import core.game.node.item.Item
@@ -108,55 +107,8 @@ class MagicTutorDialogue(player: Player? = null) : Dialogue(player) {
             }
 
             71 -> when (stage) {
-                0 -> {
-                    setTitle(player, 4)
-                    options("What is an Ironman account?", "Set Ironman Mode (current: ${player.ironmanManager.mode.name})", "Change XP Rate (current: ${player.skills.experienceMultiplier}x)", "I'm ready now.").also { stage++ }
-                }
-
-                1 -> when (buttonId) {
-                    1 -> player(FacialExpression.HALF_THINKING, "What is an Ironman account?").also { stage++ }
-                    2 -> {
-                        setTitle(player, 5)
-                        sendDialogueOptions(player!!, "What game mode do you want to choose?", "None", "Standard", "Hardcore", "Ultimate", "Nevermind.")
-                        stage = 10
-                    }
-                    3 -> {
-                        setTitle(player!!, 4)
-                        sendDialogueOptions(player!!, "What experience multiplier do you choose?", "1.0x", "25.0x", "500.0x", "1000x")
-                        stage = 20
-                    }
-                    4 -> npcl(FacialExpression.FRIENDLY, "Well, you're all finished here now. I'll give you a reasonable number of starting items when you leave.").also { stage = 30 }
-                }
-
-                2 -> npc("An Ironman account is a style of playing where players", "are completely self-sufficient.").also { stage++ }
-                3 -> npc("A standard Ironman does not receive items or", "assistance from other players. They cannot trade, stake,", "receive Player killing loot, scavenge dropped items, nor player", "certain minigames.").also { stage++ }
-                4 -> npc("In addition to the standard Ironman rules. An", "Ultimate Ironman cannot use banks, nor retain any", "items on death in dangerous areas.").also { stage = 0 }
-
-                10 -> {
-                    stage = 0
-                    if (buttonId < 5) {
-                        val mode = IronmanMode.values()[buttonId - 1]
-                        sendDialogue(player,"You set your ironman mode to: ${mode.name}.")
-                        player.ironmanManager.mode = mode
-                        if (player.skills.experienceMultiplier == 1000.0 && mode != IronmanMode.HARDCORE) player.skills.experienceMultiplier = 500.0
-                    } else {
-                        handle(interfaceId, 0)
-                    }
-                }
-
-                20 -> {
-                    val rates = arrayOf(1.0, 25.0, 500.0, 1000.0)
-                    val rate = rates[buttonId - 1]
-                    if (rate == 1000.0 && player.ironmanManager.mode != IronmanMode.HARDCORE) {
-                        sendDialogue(player,"1000.0x is only available to Hardcore Ironman!")
-                        stage = 0
-                        return true
-                    }
-                    sendDialogue(player, "You set your XP rate to: ${rate}x.")
-                    player.skills.experienceMultiplier = rate
-                    stage = 0
-                }
-                30 -> {
+                0 -> npcl(FacialExpression.FRIENDLY, "Well, you're all finished here now. I'll give you a reasonable number of starting items when you leave.").also { stage = 30 }
+                1 -> {
                     setTitle(player, 2)
                     sendDialogueOptions(player, "Do you want to go to the mainland?", "Yes.", "No.").also { stage++ }
                 }
@@ -215,11 +167,6 @@ class MagicTutorDialogue(player: Player? = null) : Dialogue(player) {
                             "time, look for a signpost or use the Lumbridge Home Teleport."
                         )
                         return@queueScript stopExecuting(player)
-                    }
-                    if (player.ironmanManager.mode == IronmanMode.HARDCORE) {
-                        setAttribute(player, "/save:permadeath", true)
-                    } else if (player.skills.experienceMultiplier == 1000.0) {
-                        player.skills.experienceMultiplier = 500.0
                     }
 
                     stage = 39

@@ -1,9 +1,6 @@
 package content.global.activity.mogre
 
 import core.api.*
-import org.rs.consts.Items
-import org.rs.consts.Sounds
-import content.region.misc.tutorial.dialogue.SkippyTutorialDialogue
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression
 import core.game.interaction.QueueStrength
@@ -11,6 +8,8 @@ import core.game.node.entity.player.Player
 import core.game.world.update.flag.context.Animation
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
+import org.rs.consts.Items
+import org.rs.consts.Sounds
 
 /**
  * Represents the Skippy dialogue.
@@ -26,27 +25,15 @@ class SkippyDialogue(player: Player? = null) : Dialogue(player) {
      */
 
     override fun open(vararg args: Any?): Boolean {
-        if (inBorders(player, SkippyUtils.TUTORIAL_ISLAND)) {
-            openDialogue(player, SkippyTutorialDialogue())
-            return true
-        } else {
-            when (getVarbit(player, SkippyUtils.VARBIT_SKIPPY_AND_THE_MOGRES_PROGRESS)) {
-                0 -> if (!inInventory(player, Items.BUCKET_OF_WATER_1929)) {
-                    playerl(
-                        FacialExpression.HALF_GUILTY,
-                        "You know, I could shock him out of it if I could find some cold water..."
-                    ).also { stage = END_DIALOGUE }
-                } else {
-                    playerl(
-                        FacialExpression.HALF_GUILTY,
-                        "Well, I could dump this bucket of water over him. That would sober him up a little."
-                    ).also { stage = 0 }
-                }
-
-                1 -> player("Hey, Skippy.").also { stage = 12 }
-                2 -> player("Hey, Skippy.").also { stage = 30 }
-                else -> player("Hey, Skippy.").also { stage = 77 }
+        when (getVarbit(player, SkippyUtils.VARBIT_SKIPPY_AND_THE_MOGRES_PROGRESS)) {
+            0 -> if (!inInventory(player, Items.BUCKET_OF_WATER_1929)) {
+                playerl(FacialExpression.HALF_GUILTY, "You know, I could shock him out of it if I could find some cold water...").also { stage = END_DIALOGUE }
+            } else {
+                playerl(FacialExpression.HALF_GUILTY, "Well, I could dump this bucket of water over him. That would sober him up a little.").also { stage = 0 }
             }
+            1 -> player("Hey, Skippy.").also { stage = 12 }
+            2 -> player("Hey, Skippy.").also { stage = 30 }
+            else -> player("Hey, Skippy.").also { stage = 77 }
         }
         return true
     }
