@@ -20,7 +20,7 @@ class QuestCommandSet : CommandSet(Privilege.ADMIN) {
          * Completes all implemented quests.
          */
 
-        define(name = "allquest") { player, _ ->
+        define(name = "allquest", Privilege.ADMIN) { player, _ ->
             for (quest in QuestRepository.getQuests().values) {
                 quest.finish(player)
             }
@@ -30,7 +30,7 @@ class QuestCommandSet : CommandSet(Privilege.ADMIN) {
          * Displays the currently implemented quests with debug information.
          */
 
-        define(name = "quest") { player, args ->
+        define(name = "quest", Privilege.ADMIN) { player, args ->
             if (args.size < 3) {
                 val lookupP = if (args.size == 1) {
                     player
@@ -50,7 +50,7 @@ class QuestCommandSet : CommandSet(Privilege.ADMIN) {
          * Sets stage of quest.
          */
 
-        define(name = "setqueststage") { player, args ->
+        define(name = "setqueststage", Privilege.ADMIN) { player, args ->
             if (args.size < 3) {
                 reject(player, "You must specify the index# of a quest, and a stage number!")
             }
@@ -74,7 +74,7 @@ class QuestCommandSet : CommandSet(Privilege.ADMIN) {
          * Displays the currently implemented quests.
          */
 
-        define(name = "quests", privilege = Privilege.STANDARD) { player, _ ->
+        define(name = "quests", privilege = Privilege.ADMIN) { player, _ ->
             sendQuests(player)
         }
     }

@@ -139,7 +139,7 @@ class DevelopmentCommandSet : CommandSet(Privilege.ADMIN) {
          * Prints current Region ID.
          */
 
-        define(name = "region", privilege = Privilege.STANDARD, usage = "::region", description = "Prints your current Region ID.") { player, _ ->
+        define(name = "region", privilege = Privilege.ADMIN, usage = "::region", description = "Prints your current Region ID.") { player, _ ->
             sendMessage(player, "Region ID: ${player.viewport.region.regionId}")
         }
 
@@ -173,14 +173,14 @@ class DevelopmentCommandSet : CommandSet(Privilege.ADMIN) {
             player.impactHandler.manualHit(player, player.skills.lifepoints, HitsplatType.NORMAL)
         }
 
-        define(name = "struct") { _, args ->
+        define(name = "struct", Privilege.ADMIN) { _, args ->
             val mapId = args[1].toIntOrNull() ?: return@define
 
             val def = Struct.get(mapId)
             log(this::class.java, Log.FINE, def.toString())
         }
 
-        define(name = "datamap") { _, args ->
+        define(name = "datamap", Privilege.ADMIN) { _, args ->
             val mapId = args[1].toIntOrNull() ?: return@define
 
             val def = DataMap.get(mapId)
@@ -280,7 +280,7 @@ class DevelopmentCommandSet : CommandSet(Privilege.ADMIN) {
          * Provides test packet.
          */
 
-        define(name = "testpacket") { player, _ ->
+        define(name = "testpacket", Privilege.ADMIN) { player, _ ->
             PacketWriteQueue.write(ResetInterface(), PlayerContext(player))
         }
 
@@ -288,7 +288,7 @@ class DevelopmentCommandSet : CommandSet(Privilege.ADMIN) {
          * Provides a command to search the npc.
          */
 
-        define(name = "npcsearch", privilege = Privilege.STANDARD, usage = "npcsearch name", description = "Searches for NPCs that match the name either in main or children.") { player, strings ->
+        define(name = "npcsearch", privilege = Privilege.ADMIN, usage = "npcsearch name", description = "Searches for NPCs that match the name either in main or children.") { player, strings ->
             val name = strings.slice(1 until strings.size).joinToString(" ").lowercase()
             for (id in 0 until 9000) {
                 val def = NPCDefinition.forId(id)
@@ -311,7 +311,7 @@ class DevelopmentCommandSet : CommandSet(Privilege.ADMIN) {
          * Command to search for items by name.
          */
 
-        define(name = "itemsearch") { player, args ->
+        define(name = "itemsearch", Privilege.ADMIN) { player, args ->
             val itemName = args.copyOfRange(1, args.size).joinToString(" ").lowercase()
             for (i in 0 until 15000) {
                 val name = getItemName(i).lowercase()

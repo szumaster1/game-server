@@ -104,7 +104,7 @@ class GrandExchange : StartupListener, Commands {
             notify(player, "Allowed ${getItemName(id)} for GE trade.")
         }
 
-        define("geprivacy", Privilege.STANDARD) { player, _ ->
+        define("geprivacy", Privilege.ADMIN) { player, _ ->
             val current = getAttribute(player, "ge-exclude", false)
             val new = !current
             notify(player, "Your name is now ${if (new) colorize("%RHIDDEN") else colorize("%RSHOWN")}.")

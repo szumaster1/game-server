@@ -290,7 +290,7 @@ class Shops : StartupListener, TickListener, InteractionListener, InterfaceListe
             shopsById[shopId]?.openFor(player)
         }
 
-        define("shopscript") { player, args ->
+        define("shopscript", Privilege.ADMIN) { player, args ->
             val arg1 = args[1].toInt()
             /*
              * Run CS2 script 25, with args 868? and 92(our container id).

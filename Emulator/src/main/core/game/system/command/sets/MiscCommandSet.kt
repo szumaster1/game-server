@@ -61,7 +61,7 @@ class MiscCommandSet : CommandSet(Privilege.ADMIN) {
          * Toggle debug.
          */
 
-        define(name = "debug", privilege = Privilege.STANDARD, usage = "", description = "Toggles debug mode.") { player, _ ->
+        define(name = "debug", privilege = Privilege.ADMIN, usage = "", description = "Toggles debug mode.") { player, _ ->
             player.toggleDebug()
         }
 
@@ -73,7 +73,7 @@ class MiscCommandSet : CommandSet(Privilege.ADMIN) {
             finishQuest(player, "Enlightened Journey")
         }
 
-        define(name = "calc_accuracy", privilege = Privilege.STANDARD, usage = "::calc_accuracy <lt>NPC ID<gt>", description = "Calculates and prints your current chance to hit a given NPC.") { player, args ->
+        define(name = "calc_accuracy", privilege = Privilege.ADMIN, usage = "::calc_accuracy <lt>NPC ID<gt>", description = "Calculates and prints your current chance to hit a given NPC.") { player, args ->
             val handler = player.getSwingHandler(false)
             player.sendMessage("handler type: ${handler.type}")
             player.sendMessage("calculateAccuracy: ${handler.calculateAccuracy(player)}")
@@ -91,7 +91,7 @@ class MiscCommandSet : CommandSet(Privilege.ADMIN) {
          * Prints player's current location
          */
 
-        define(name = "loc", privilege = Privilege.STANDARD, usage = "", description = "Prints quite a lot of information about your current location.") { player, _ ->
+        define(name = "loc", privilege = Privilege.ADMIN, usage = "", description = "Prints quite a lot of information about your current location.") { player, _ ->
             val l = player.location
             val r = player.viewport.region
             var obj: Scenery? = null
@@ -117,7 +117,7 @@ class MiscCommandSet : CommandSet(Privilege.ADMIN) {
          * Tells the player to use loc
          */
 
-        define(name = "pos", privilege = Privilege.STANDARD) { player, _ ->
+        define(name = "pos", privilege = Privilege.ADMIN) { player, _ ->
             notify(player, "Do you mean ::loc?")
         }
 
@@ -125,11 +125,11 @@ class MiscCommandSet : CommandSet(Privilege.ADMIN) {
          * Tells the player to use loc
          */
 
-        define(name = "coords", privilege = Privilege.STANDARD) { player, _ ->
+        define(name = "coords", privilege = Privilege.ADMIN) { player, _ ->
             notify(player, "Do you mean ::loc?")
         }
 
-        define(name = "calcmaxhit", privilege = Privilege.STANDARD, usage = "", description = "Calculates and shows you your current max hit.") { player, _ ->
+        define(name = "calcmaxhit", privilege = Privilege.ADMIN, usage = "", description = "Calculates and shows you your current max hit.") { player, _ ->
             val swingHandler = player.getSwingHandler(false)
             val hit = swingHandler.calculateHit(player, player, 1.0)
             notify(player, "max hit (${(swingHandler as Object).getClass().getName()}): $hit")
@@ -180,7 +180,7 @@ class MiscCommandSet : CommandSet(Privilege.ADMIN) {
          * Lists information about a bot.
          */
 
-        define(name = "botinfo", privilege = Privilege.STANDARD, usage = "::botinfo <lt>botname<gt>", description = "Prints debug information about a bot") { player, args ->
+        define(name = "botinfo", privilege = Privilege.ADMIN, usage = "::botinfo <lt>botname<gt>", description = "Prints debug information about a bot") { player, args ->
             val scriptInstances = AIRepository.PulseRepository
 
             // Find the bot with the given name (non-case sensitive, concat args by space)
@@ -199,7 +199,7 @@ class MiscCommandSet : CommandSet(Privilege.ADMIN) {
          * Opens the credit/voting shop.
          */
 
-        define(name = "shop", privilege = Privilege.STANDARD, usage = "", description = "Opens the credit shop.") { player, _ ->
+        define(name = "shop", privilege = Privilege.ADMIN, usage = "", description = "Opens the credit shop.") { player, _ ->
             if (player.locks.isInteractionLocked || player.locks.isMovementLocked) {
                 sendMessage(player, "You can't open the shop right now.")
             } else player.interfaceManager.open(Component(Components.CREDIT_SHOP_837))
@@ -209,7 +209,7 @@ class MiscCommandSet : CommandSet(Privilege.ADMIN) {
          * Shows the player a list of currently active GE sell offers.
          */
 
-        define(name = "ge", privilege = Privilege.STANDARD, usage = "::ge <lt>MODE<gt> (Modes: buying, selling, search, bots, botsearch)", description = "Various commands for viewing GE offers.") { player, args ->
+        define(name = "ge", privilege = Privilege.ADMIN, usage = "::ge <lt>MODE<gt> (Modes: buying, selling, search, bots, botsearch)", description = "Various commands for viewing GE offers.") { player, args ->
             if (args.size < 2) {
                 reject(player, "Usage: ::ge mode", "Available modes: buying, selling, search, bots, botsearch")
             }
@@ -229,7 +229,7 @@ class MiscCommandSet : CommandSet(Privilege.ADMIN) {
          * List all commands.
          */
 
-        define(name = "commands", privilege = Privilege.STANDARD, usage = "::commands <lt>page<gt>", description = "Lists all the commands.") { player, args ->
+        define(name = "commands", privilege = Privilege.ADMIN, usage = "::commands <lt>page<gt>", description = "Lists all the commands.") { player, args ->
             val page = if (args.size > 1) (args[1].toIntOrNull() ?: 1) - 1 else 0
             var lineid = 11
             var pages = CommandMapping.getPageIndices(player.rights.ordinal)
@@ -286,7 +286,7 @@ class MiscCommandSet : CommandSet(Privilege.ADMIN) {
          * Reply to PMs (also enables tab-to-reply)
          */
 
-        define(name = "reply", privilege = Privilege.STANDARD, usage = "", description = "Opens a reply prompt to your last DM. Same as pressing tab.") { player, _ ->
+        define(name = "reply", privilege = Privilege.ADMIN, usage = "", description = "Opens a reply prompt to your last DM. Same as pressing tab.") { player, _ ->
             if (player.interfaceManager.isOpened) {
                 reject(player, "<col=e74c3c>Please finish what you're doing first.")
             }
@@ -306,7 +306,7 @@ class MiscCommandSet : CommandSet(Privilege.ADMIN) {
          * Enables client to safety close the currently opened interface or dialogue (esc-to-close plugin)
          */
 
-        define(name = "xface", privilege = Privilege.STANDARD, usage = "", description = "Closes the currently opened interface/dialogue.") { player, _ ->
+        define(name = "xface", privilege = Privilege.ADMIN, usage = "", description = "Closes the currently opened interface/dialogue.") { player, _ ->
             player.interfaceManager.close()
             player.dialogueInterpreter.close()
         }
@@ -609,7 +609,7 @@ class MiscCommandSet : CommandSet(Privilege.ADMIN) {
         }
 
         /*
-         * define("rules", Privilege.STANDARD, "", "Shows the rules."){ player, _ ->
+         * define("rules", Privilege.ADMIN, "", "Shows the rules."){ player, _ ->
          *     RulesAndInfo.setBaseRulesAndInfo(player)
          *     player.packetDispatch.sendInterfaceConfig(384, 17, true)
          *     openInterface(player, 384)
@@ -617,7 +617,7 @@ class MiscCommandSet : CommandSet(Privilege.ADMIN) {
          */
 
         /*
-         * define("confirmrules", Privilege.STANDARD) { player, args ->
+         * define("confirmrules", Privilege.ADMIN) { player, args ->
          * if(getAttribute(player,"rules:confirmed", false))
          *      reject(player, "You have already confirmed the rules.")
          * if(args.size < 2)

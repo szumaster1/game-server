@@ -14,14 +14,14 @@ import core.tools.colorize
  * Botting command set.
  */
 @Initializable
-class BottingCommandSet : CommandSet(Privilege.STANDARD) {
+class BottingCommandSet : CommandSet(Privilege.ADMIN) {
     override fun defineCommands() {
 
         if (GameWorld.settings?.enabled_botting != true) {
             return
         }
 
-        define(name = "scripts") { player, _ ->
+        define(name = "scripts", Privilege.ADMIN) { player, _ ->
             if (GameWorld.settings?.enabled_botting != true) {
                 player.sendChat("I just tried to do something silly!")
                 return@define
@@ -49,7 +49,7 @@ class BottingCommandSet : CommandSet(Privilege.STANDARD) {
             player.interfaceManager.open(Component(Components.QUESTJOURNAL_SCROLL_275))
         }
 
-        define(name = "script") { player, args ->
+        define(name = "script", Privilege.ADMIN) { player, args ->
             if (GameWorld.settings?.enabled_botting != true) {
                 player.sendChat("I just tried to do something very silly!")
                 return@define
@@ -78,7 +78,7 @@ class BottingCommandSet : CommandSet(Privilege.STANDARD) {
 
         }
 
-        define(name = "stopscript") { player, _ ->
+        define(name = "stopscript", Privilege.ADMIN) { player, _ ->
             val pulse: GeneralBotCreator.BotScriptPulse? = player.getAttribute("botting:script", null)
             pulse?.stop()
             player.interfaceManager.closeOverlay()

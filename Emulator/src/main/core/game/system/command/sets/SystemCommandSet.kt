@@ -25,7 +25,7 @@ class SystemCommandSet : CommandSet(Privilege.ADMIN) {
          * Start an update countdown.
          */
 
-        define(name = "update") { _, args ->
+        define(name = "update", Privilege.ADMIN) { _, args ->
             if (args.size > 1) {
                 SystemManager.updater.setCountdown(args[1].toInt())
             }
@@ -35,7 +35,7 @@ class SystemCommandSet : CommandSet(Privilege.ADMIN) {
         /*
          * Cancel an update countdown.
          */
-        define(name = "cancelupdate") { _, _ ->
+        define(name = "cancelupdate", Privilege.MODERATOR) { _, _ ->
             SystemManager.updater.cancel()
         }
 
@@ -44,7 +44,7 @@ class SystemCommandSet : CommandSet(Privilege.ADMIN) {
          * Allows a player to reset their password.
          */
 
-        define(name = "resetpassword", privilege = Privilege.STANDARD, usage = "", description = "WARNING: Case insensitive due to dialogue limitations.") { player, _ ->
+        define(name = "resetpassword", privilege = Privilege.MODERATOR, usage = "", description = "WARNING: Case insensitive due to dialogue limitations.") { player, _ ->
             sendInputDialogue(player, InputType.STRING_SHORT, "Enter Current Password:") { value ->
                 val pass = value.toString()
                 runTask(player) {

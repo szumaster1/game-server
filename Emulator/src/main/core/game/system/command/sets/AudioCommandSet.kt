@@ -15,14 +15,14 @@ import core.plugin.Initializable
  * Audio command set.
  */
 @Initializable
-class AudioCommandSet : CommandSet(Privilege.STANDARD) {
+class AudioCommandSet : CommandSet(Privilege.ADMIN) {
     override fun defineCommands() {
 
         /*
          * Command that lets you play a specific song.
          */
 
-        define(name = "playsong", privilege = Privilege.STANDARD, usage = "::playsong <lt>Song ID<gt>", description = "Plays the song with the given ID.") { player, args ->
+        define(name = "playsong", privilege = Privilege.ADMIN, usage = "::playsong <lt>Song ID<gt>", description = "Plays the song with the given ID.") { player, args ->
             if (args.size < 2) {
                 reject(player, "Usage: ::playsong songID")
             }
@@ -38,7 +38,7 @@ class AudioCommandSet : CommandSet(Privilege.STANDARD) {
          * Command that lets you play a specific jingle.
          */
 
-        define(name = "playjingle", privilege = Privilege.STANDARD, usage = "::playjingle <lt>jingle ID<gt>", description = "Plays the jingle with the given ID.") { player, args ->
+        define(name = "playjingle", privilege = Privilege.ADMIN, usage = "::playjingle <lt>jingle ID<gt>", description = "Plays the jingle with the given ID.") { player, args ->
             if (args.size < 2) {
                 reject(player, "Usage: ::playjingle jingleID")
             }
@@ -56,7 +56,7 @@ class AudioCommandSet : CommandSet(Privilege.STANDARD) {
          * music player yet.
          */
 
-        define(name = "playid") { player, arg ->
+        define(name = "playid", Privilege.ADMIN) { player, arg ->
             if (arg.size < 2) reject(player, "Needs more args.")
             val id = arg[1].toIntOrNull()
             if (id != null) {

@@ -20,7 +20,7 @@ class SlayerCommandSet : CommandSet(Privilege.ADMIN) {
          * Finishes a player's slayer task (the correct way).
          */
 
-        define(name = "finishtask") { player, _ ->
+        define(name = "finishtask", Privilege.ADMIN) { player, _ ->
             notify(player, "Kill the npc that spawned to finish your task.")
             SlayerManager.getInstance(player).amount = 1
             val finisher = NPC(SlayerManager.getInstance(player).task?.npcs?.get(0) ?: 0, player.location)
@@ -32,7 +32,7 @@ class SlayerCommandSet : CommandSet(Privilege.ADMIN) {
          * Set slayer points.
          */
 
-        define(name = "setslayerpoints") { player, args ->
+        define(name = "setslayerpoints", Privilege.ADMIN) { player, args ->
             if (args.size < 2) {
                 reject(player, "Usage: ::setslayerpoints amount")
             }

@@ -15,7 +15,7 @@ class ConfigCommandSet : CommandSet(Privilege.ADMIN) {
          * Sets a range of configs to a maximum value.
          */
 
-        define(name = "sconfigrange") { player, args ->
+        define(name = "sconfigrange", Privilege.ADMIN) { player, args ->
             if (args.size < 3) {
                 reject(player, "usage: sconfigrange idlo idhi")
             }
@@ -31,7 +31,7 @@ class ConfigCommandSet : CommandSet(Privilege.ADMIN) {
          * Sets a range of configs to 0.
          */
 
-        define(name = "sconfigrange0") { player, args ->
+        define(name = "sconfigrange0", Privilege.ADMIN) { player, args ->
             if (args.size < 3) {
                 reject(player, "usage: sconfigrange0 idlo idhi")
             }

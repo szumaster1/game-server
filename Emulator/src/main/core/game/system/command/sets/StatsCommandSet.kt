@@ -40,7 +40,7 @@ val FAKE_CONTENT = arrayOf(
  * Stats command set.
  */
 @Initializable
-class StatsCommandSet : CommandSet(Privilege.STANDARD) {
+class StatsCommandSet : CommandSet(Privilege.ADMIN) {
 
     /*
         ::Stats pages for player.
@@ -172,7 +172,7 @@ class StatsCommandSet : CommandSet(Privilege.STANDARD) {
 
     }
     override fun defineCommands() {
-        define("stats"){ player, args ->
+        define("stats", Privilege.ADMIN){ player, args ->
 
             // Bad number of args
             if(args.size > 2){
