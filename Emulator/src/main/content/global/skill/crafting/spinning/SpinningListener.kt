@@ -1,15 +1,15 @@
 package content.global.skill.crafting.spinning
 
-import org.rs.consts.Components
-import org.rs.consts.Scenery
 import core.api.openInterface
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
+import org.rs.consts.Components
+import org.rs.consts.Scenery
 
 /**
  * Spinning wheel listener.
  */
-class SpinningWheelListener : InteractionListener {
+class SpinningListener : InteractionListener {
 
     override fun defineListeners() {
         on(SPINING_WHEEL, IntType.SCENERY, "spin") { player, _ ->

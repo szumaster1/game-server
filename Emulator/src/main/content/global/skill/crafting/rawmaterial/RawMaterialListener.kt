@@ -4,18 +4,37 @@ import core.api.*
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.entity.skill.Skills
+import core.game.node.item.Item
 import core.tools.RandomUtils
 import org.rs.consts.Animations
 import org.rs.consts.Items
 import org.rs.consts.Sounds
 import kotlin.math.min
 
-/**
- * Handles crafting the limestone bricks.
- */
-class LimestoneCraftingListener : InteractionListener {
+class RawMaterialListener : InteractionListener {
 
     override fun defineListeners() {
+
+        /*
+         * Handles cutting the granite.
+         */
+
+        onUseWith(IntType.ITEM, Items.CHISEL_1755, *graniteIDs) { player, _, with ->
+            setTitle(player, 2)
+            sendDialogueOptions(player, "What would you like to do?", "Split the block into smaller pieces.", "Nothing.")
+            addDialogueAction(player) { player, button ->
+                if (button <= 2) {
+                    var amount = min(amountInInventory(player, with.id), amountInInventory(player, with.id))
+                    submitIndividualPulse(player, GraniteCuttingPulse(player, Item(with.id), amount))
+                } else return@addDialogueAction
+            }
+            return@onUseWith true
+        }
+
+        /*
+         * Handles creating limestone bricks.
+         */
+
         onUseWith(IntType.ITEM, Items.LIMESTONE_3211, Items.CHISEL_1755) { player, used, _ ->
             if (!inInventory(player, Items.CHISEL_1755)) {
                 return@onUseWith true
@@ -62,7 +81,6 @@ class LimestoneCraftingListener : InteractionListener {
                     min(amountInInventory(player, used.id), amountInInventory(player, used.id))
                 }
             }
-
             return@onUseWith true
         }
     }
@@ -73,5 +91,6 @@ class LimestoneCraftingListener : InteractionListener {
         val MAXIMUM_SUCCESS_PROBABILITY = 1.0
         val spreadSuccess = MAXIMUM_SUCCESS_PROBABILITY - BASE_SUCCESS_PROBABILITY
         val successPerLevel = spreadSuccess / MAXIMUM_SUCCESS_LEVEL
+        val graniteIDs = intArrayOf(Items.GRANITE_2KG_6981, Items.GRANITE_5KG_6983)
     }
 }
