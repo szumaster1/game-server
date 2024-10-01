@@ -44,7 +44,9 @@ Emulator/latestdump.txt
 Emulator/target/*
 Emulator/worldprops/
 
-/Tools/Interface Editor/config.properties
+Tools/Interface Editor/*
+Tools/Cache Editor/*
+Tools/Item Editor/*
 
 __pycache__/
 
