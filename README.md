@@ -1,18 +1,12 @@
-<div style="text-align: center;">  
+### 2009scape
 
-[![License][license-shield]][license-url]  
-[![Fork][fork-shield]][fork-url]  
-[![Kotlin][kotlin-version]][kotlin-url]  
-[![Java][java-version]][java-url]  
-[![Release][play-release]][play-url]
-
-</div>  
-
-## 2009scape
+[![License][license-shield]] [license-url] [![Fork][fork-shield]][fork-url] [![Kotlin][kotlin-version]][kotlin-url] [![Java][java-version]][java-url] [![Release][play-release]][play-url]
 
 Fork of official repository for educational purposes & single-player experience but mostly for personal use.
 
-## Setting up project
+***
+
+Setting up project
 
 *For Windows users* - Turn developer mode on first in Windows developer settings.
 
@@ -20,52 +14,64 @@ Fork of official repository for educational purposes & single-player experience 
 2. Install [JDK 11](https://adoptium.net)
 3. Install [IntelliJ IDEA](https://www.jetbrains.com/idea/download/)
 
-## SSH setup
+***
+
+SSH setup
 
 1. [Set up a key if you don't have one (ed25519)](https://docs.gitlab.com/ee/user/ssh.html#generate-an-ssh-key-pair)
 2. [Add your public key to your gitlab account](https://docs.gitlab.com/ee/user/ssh.html#add-an-ssh-key-to-your-gitlab-account)
 3. [Verify you can connect to git@gitlab.com](https://docs.gitlab.com/ee/user/ssh.html#verify-that-you-can-connect)
 
-## Install Git
+***
 
-<details>  
+Install Git
 
-<summary>Git (Windows)</summary>  
+<details>
 
-## Git on Windows
+<summary>Windows</summary>  
+
+### Git on Windows
+
 ![Windows](https://i.imgur.com/p2UtTDY.png)
 
-### 1. Download
+#### 1. Download
 
-Visit the [official Git website](https://git-scm.com/download/win) to download the latest version of the Git installer for Windows. The download should start automatically when you visit the page.
+Visit the [official Git website](https://git-scm.com/download/win) to download the latest version of the Git installer
+for Windows. The download should start automatically when you visit the page.
 
-### 2. Run the Installer
+#### 2. Run the Installer
+
 Launch the downloaded installer and follow the installation wizard.
 
-### 3. Verify the install via *Git Bash*
+#### 3. Verify the install via *Git Bash*
+
 To ensure that Git has been installed correctly, open Git Bash and type the following command:
+
 ```  
 git --version  
-```  
+```
+
 Press **Enter**, and the name of the version of Git you just installed should appear.
 
 </details>  
  <details>  
-<summary>Git (macOS)</summary>  
+<summary>macOS</summary>  
 
-## Git on macOS
+### Git on macOS
 
-### 1. Download
+#### 1. Download
 
-Visit the [official Git website](https://git-scm.com/download/mac) to download the latest version of the Git installer for macOS.
+Visit the [official Git website](https://git-scm.com/download/mac) to download the latest version of the Git installer
+for macOS.
 
 ![macOs](https://i.imgur.com/vCe9oRG.png)
 
+#### 2. Complete Installation Instructions
 
-### 2. Complete Installation Instructions
 Once the installer is downloaded, open the .dmg file and follow the installation instructions.
 
-### 3. Verify Installation With Terminal
+#### 3. Verify Installation With Terminal
+
 To ensure that Git has been installed correctly, open Terminal and type the following command:
 
 ```  
@@ -78,22 +84,22 @@ Press Enter, and you should see the version of Git you installed displayed on th
 
 <details>  
 
-<summary>Git (Linux)</summary>  
+<summary>Linux</summary>  
 
+### Git on Linux
 
-## Git on Linux
-
-### 1. Install Via Package Manager
+#### 1. Install Via Package Manager
 
 ![Linux](https://i.imgur.com/htuf2ii.png)
 
-The easiest way to install Git on Linux is through the package manager for your distribution. For Debian-based distributions like Ubuntu, you can use the apt package manager:
+The easiest way to install Git on Linux is through the package manager for your distribution. For Debian-based
+distributions like Ubuntu, you can use the apt package manager:
 
 ```  
 sudo apt-get install git  
 ```  
 
-### 2. Verify the Installation
+#### 2. Verify the Installation
 
 Open Terminal and type in the following:
 
@@ -101,9 +107,14 @@ Open Terminal and type in the following:
 git --version  
 ```  
 
-</details>  
+</details>
 
-## Fork the repository
+***
+
+
+<details>  
+
+<summary>Fork the repository</summary>
 
 1. Go to the page of the project you want to fork.
 2. In the upper right corner you will find the **fork** button, click it.  
@@ -112,61 +123,123 @@ git --version
 3. Select the project url = your gitlab username, and click fork project.  
    ![Url](https://i.imgur.com/h28Hph6.png)
 
-4. Once the process is complete, you should be redirected to your account exactly to the homepage of the project you forked.
-5. To get started work with the project, It needs to be moved to intelij idea, on your fork page, click the code button and copy the url.    
+4. Once the process is complete, you should be redirected to your account exactly to the homepage of the project you
+   forked.
+5. To get started work with the project, It needs to be moved to intelij idea, on your fork page, click the code button
+   and copy the url.    
    ![Copy](https://i.imgur.com/AsUaLN3.png)
 
 6. Start the IntelliJ IDEA and click **_Get from VCS_** button.  
    ![Vcs](https://i.imgur.com/8A5VBQJ.png)
 
-7. To clone the fork into the program we will need [GIT](https://gitforwindows.org/index.html) (If you have not used the instructions above continue), you can download it right now by clicking **_download and install_**.  
+7. To clone the fork into the program we will need [GIT](https://gitforwindows.org/index.html) (If you have not used the
+   instructions above continue), you can download it right now by clicking **_download and install_**.  
    ![Install](https://i.imgur.com/Beto8tJ.png)
 
 8. When the process finishes paste the previously copied **_URL_** of your fork, and wait for it to done.<br>
 9. If you get this message after paste the url:, setup ssh again  
    ![Error](https://i.imgur.com/pKYNbZN.png)
 
-11. When it finishes the process, the project will automatically open, when it is before that the program requires you to get permission select yes if you want to continue.
-12. Once the project has opened in the lower right corner you will see a window indicating that you can **_Load maven_** config, do so and the project will automatically load, next.
+10. When it finishes the process, the project will automatically open, when it is before that the program requires you
+    to get permission select yes if you want to continue.
+11. Once the project has opened in the lower right corner you will see a window indicating that you can **_Load maven_**
+    config, do so and the project will automatically load, next.
+
+</details>
+<details>  
+
+<summary>Running the project</summary>   
 
 ### Running the project
 
-***  
-
-####  Linux / OSX
+#### Linux / OSX
 
 Start the game server with the included run script. Use `./run -h` for more info.
 
-####  Windows
+#### Windows
+
 Start the game server with `run-server.bat`  
 You can also use maven plugins, on the right side of the program:  
 ![17](https://i.imgur.com/guCIxqP.png)
 
-## Contributions
+***
+
+</details>
+<details>  
+
+<summary>Contributions</summary>  
+
+### Contributions
+
 1. If you want to send your work to the main repository, add official repository as your upstream
 2. In program click the terminal on bottom left corner and paste:
+
 ```  
 git remote add upstream https://gitlab.com/2009scape/2009scape  
  ``` 
 
 ![9](https://i.imgur.com/ic0irvY.png)
 
-## Merge
-1. When you push changes to your repository, on the gitlab page, there will be an option for you to send this commit to the main repository.
-2. Click New merge request option, select target branch master, continue, fill in the description (of the changes you made) and approve.  
-![10](https://i.imgur.com/9A4q5jK.png)
+***
 
-If you have encountered a problem with GitLab please refer to the help center available at this [link]( https://gitlab.com/help).
+</details>
+<details>  
 
-## Server Setup
+<summary>Merge</summary>   
+
+### Merge
+
+1. When you push changes to your repository, on the gitlab page, there will be an option for you to send this commit to
+   the main repository.
+2. Click New merge request option, select target branch master, continue, fill in the description (of the changes you
+   made) and approve.  
+   ![10](https://i.imgur.com/9A4q5jK.png)
+
+If you have encountered a problem with GitLab please refer to the help center available at
+this [link]( https://gitlab.com/help).
+
+***
+
+</details>
+
+<details>  
+
+<summary>Server setup</summary>  
+
+### Server Setup
+
 * Set up `db` user with read/write permissions on server database
 * Put creds in `credentials.json`
 * `sudo apt install libmariadb3 libmariadb-dev`
 
-## Singleplayer
-To run singleplayer, read the following information.
+</details>
+
 <details>  
-<summary>Check single-player file structure</summary>
+
+<summary>Singleplayer setup</summary> 
+
+### Singleplayer
+
+To run singleplayer, read the following information.
+
+### Setup
+
+1. Download [GitHub Desktop](https://desktop.github.com/download/) app.  
+   ![](https://i.imgur.com/RZnyFVo.png)
+
+2. Fork this repository to your repositories, then Clone.  
+   ![](https://i.imgur.com/GM2vT7k.png)  
+   ![](https://github.com/user-attachments/assets/96765cd1-e5a4-47f3-8a3b-2b40b1f9a656)  
+   ![](https://github.com/user-attachments/assets/83b6b35f-35d5-4cc3-a6a5-9c2ebcaa72a8)
+
+4. Run `launch.bat` on Windows, or `launch.sh` on a UN*X system.  
+   ![](https://i.imgur.com/y7lQ5F7.png)
+
+5. If the server starts, run `client.jar`.
+
+</details>
+<details>  
+<summary>Single-player file structure</summary>
 
 ```
 singleplayer_folder  
@@ -259,11 +332,12 @@ singleplayer_folder
 └─ jre  
  └─ ...
  ```
+
 </details>
 
 <details>  
-<summary>Check default configuration</summary>  
-  
+<summary>Default server configuration</summary>  
+
 ```  
 
 [server]  
@@ -425,11 +499,12 @@ bot_data = "@data/botdata"
 eco_data = "@data/eco"
 
 ```  
+
 </details>  
 <details><summary>Commands (only for admin)</summary>  
-  
-#### Command list  
-  
+
+#### Command list
+
 ````  
 ::1hit  
 ::addcredits  
@@ -587,49 +662,43 @@ eco_data = "@data/eco"
 ::varbits  
 ::xface
 ````  
-</details>  
-  
-## Setup  
-  
-1. Download [GitHub Desktop](https://desktop.github.com/download/) app.  
-![](https://i.imgur.com/RZnyFVo.png)  
-  
-2. Fork this repository to your repositories, then Clone.  
-![](https://i.imgur.com/GM2vT7k.png)  
-![](https://github.com/user-attachments/assets/96765cd1-e5a4-47f3-8a3b-2b40b1f9a656)  
-![](https://github.com/user-attachments/assets/83b6b35f-35d5-4cc3-a6a5-9c2ebcaa72a8)  
-  
-4. Run `launch.bat` on Windows, or `launch.sh` on a UN*X system.  
-![](https://i.imgur.com/y7lQ5F7.png)  
-  
-5. If the server starts, run `client.jar`.  
-  
-## FAQ   
-  
-##### Add admin rights:  
-  
-You'll need to change config and set `noauth_default_admin = false` to `true  
-  
-## License  
-  
-AGPL 3.0 license, The license applies to the entire repository, unless otherwise specified. Full license can be found [here](https://www.gnu.org/licenses/agpl-3.0.en.html).  
-  
-[license-shield]: https://img.shields.io/badge/license-AGPL--3.0-informational  
-  
-[license-url]: https://www.gnu.org/licenses/agpl-3.0.en.html  
-  
-[fork-shield]: https://img.shields.io/badge/repository-fork-blue  
-  
-[fork-url]: https://gitlab.com/2009scape/2009scape  
-  
-[play-release]: https://img.shields.io/badge/singleplayer-release-blue  
-  
-[play-url]: https://github.com/szumaster1/game  
-  
-[kotlin-version]: https://img.shields.io/badge/kotlin-1.8.20-blue.svg?logo=kotlin  
-  
-[kotlin-url]: http://kotlinlang.org  
-  
-[java-version]: https://img.shields.io/badge/java-11-blue.svg?logo=openjdk  
-  
+
+</details>
+
+<details>  
+<summary>FAQ</summary>  
+
+### FAQ
+
+#### Add admin rights:
+
+You'll need to change config and set `noauth_default_admin = false` to `true
+
+</details>
+
+***
+
+### License
+
+AGPL 3.0 license, The license applies to the entire repository, unless otherwise specified. Full license can be
+found [here](https://www.gnu.org/licenses/agpl-3.0.en.html).
+
+[license-shield]: https://img.shields.io/badge/license-AGPL--3.0-informational
+
+[license-url]: https://www.gnu.org/licenses/agpl-3.0.en.html
+
+[fork-shield]: https://img.shields.io/badge/repository-fork-blue
+
+[fork-url]: https://gitlab.com/2009scape/2009scape
+
+[play-release]: https://img.shields.io/badge/singleplayer-release-blue
+
+[play-url]: https://github.com/szumaster1/game
+
+[kotlin-version]: https://img.shields.io/badge/kotlin-1.8.20-blue.svg?logo=kotlin
+
+[kotlin-url]: http://kotlinlang.org
+
+[java-version]: https://img.shields.io/badge/java-11-blue.svg?logo=openjdk
+
 [java-url]: https://adoptium.net/temurin/releases/?version=11
