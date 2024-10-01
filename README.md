@@ -1,6 +1,6 @@
 ### 2009scape
 
-[![License][license-shield]] [license-url] [![Fork][fork-shield]][fork-url] [![Kotlin][kotlin-version]][kotlin-url] [![Java][java-version]][java-url] [![Release][play-release]][play-url]
+[![License][license-shield]][license-url] [![Fork][fork-shield]][fork-url] [![Kotlin][kotlin-version]][kotlin-url] [![Java][java-version]][java-url] [![Release][play-release]][play-url]
 
 Fork of official repository for educational purposes & single-player experience but mostly for personal use.
 
@@ -14,15 +14,11 @@ Setting up project
 2. Install [JDK 11](https://adoptium.net)
 3. Install [IntelliJ IDEA](https://www.jetbrains.com/idea/download/)
 
-***
-
 SSH setup
 
 1. [Set up a key if you don't have one (ed25519)](https://docs.gitlab.com/ee/user/ssh.html#generate-an-ssh-key-pair)
 2. [Add your public key to your gitlab account](https://docs.gitlab.com/ee/user/ssh.html#add-an-ssh-key-to-your-gitlab-account)
 3. [Verify you can connect to git@gitlab.com](https://docs.gitlab.com/ee/user/ssh.html#verify-that-you-can-connect)
-
-***
 
 Install Git
 
