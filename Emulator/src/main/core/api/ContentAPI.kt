@@ -3647,6 +3647,17 @@ fun setInterfaceSprite(player: Player, interfaceId: Int, childId: Int, positionX
 }
 
 /**
+ * Send interface config.
+ *
+ * @param interfaceId the interface id.
+ * @param childId     the child id.
+ * @param hide        the hide.
+ */
+fun sendInterfaceConfig(player: Player, interfaceId: Int, childId: Int, hide: Boolean) {
+    player.packetDispatch.sendInterfaceConfig(interfaceId, childId, hide)
+}
+
+/**
  * Check if a prayer type is active.
  *
  * @param type The type.
