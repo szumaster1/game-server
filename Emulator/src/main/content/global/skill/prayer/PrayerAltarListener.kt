@@ -17,7 +17,7 @@ import org.rs.consts.Sounds
 /**
  * Prayer altar listener.
  */
-class PrayerAltar : InteractionListener {
+class PrayerAltarListener : InteractionListener {
 
     override fun defineListeners() {
 

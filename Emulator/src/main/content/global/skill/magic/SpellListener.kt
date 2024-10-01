@@ -36,25 +36,14 @@ abstract class SpellListener(val bookName: String) : Listener {
     }
 
     fun onCast(spellID: Int, type: Int, range: Int = 10, method: (player: Player, node: Node?) -> Unit) {
-        content.global.skill.magic.SpellListeners.add(spellID, type, bookName, range, method)
+        SpellListeners.add(spellID, type, bookName, range, method)
     }
 
-    fun onCast(
-        spellID: Int,
-        type: Int,
-        vararg ids: Int,
-        range: Int = 10,
-        method: (player: Player, node: Node?) -> Unit
-    ) {
-        content.global.skill.magic.SpellListeners.add(spellID, type, ids, bookName, range, method)
+    fun onCast(spellID: Int, type: Int, vararg ids: Int, range: Int = 10, method: (player: Player, node: Node?) -> Unit) {
+        SpellListeners.add(spellID, type, ids, bookName, range, method)
     }
 
-    fun requires(
-        player: Player,
-        magicLevel: Int = 0,
-        runes: Array<Item> = arrayOf<Item>(),
-        specialEquipment: IntArray = intArrayOf()
-    ) {
+    fun requires(player: Player, magicLevel: Int = 0, runes: Array<Item> = arrayOf(), specialEquipment: IntArray = intArrayOf()) {
         if (player.getAttribute("magic-delay", 0) > GameWorld.ticks) {
             throw IllegalStateException()
         }
@@ -100,14 +89,7 @@ abstract class SpellListener(val bookName: String) : Listener {
      * @param delay The delay that should be applied before the sound plays, defaults to 0.
      * @param global Whether the sound should be played globally instead of per-player. Defaults to true.
      */
-    fun visualizeSpell(
-        player: Player,
-        anim: Animation,
-        gfx: Graphic,
-        soundID: Int = -1,
-        delay: Int = 0,
-        global: Boolean = true
-    ) {
+    fun visualizeSpell(player: Player, anim: Animation, gfx: Graphic, soundID: Int = -1, delay: Int = 0, global: Boolean = true) {
         if (player.getAttribute("tablet-spell", false)) return
         player.visualize(anim, gfx)
         if (soundID != -1) {
@@ -125,15 +107,7 @@ abstract class SpellListener(val bookName: String) : Listener {
      * @param delay The delay that should be applied before the sound plays, defaults to 0.
      * @param global Whether the sound should be played globally instead of per-player. Defaults to true.
      */
-    fun visualizeSpell(
-        player: Player,
-        anim: Int,
-        gfx: Int,
-        height: Int = 0,
-        soundID: Int = -1,
-        delay: Int = 0,
-        global: Boolean = true
-    ) {
+    fun visualizeSpell(player: Player, anim: Int, gfx: Int, height: Int = 0, soundID: Int = -1, delay: Int = 0, global: Boolean = true) {
         if (player.getAttribute("tablet-spell", false)) return
         player.visualize(Animation(anim), Graphic(gfx, height))
         if (soundID != -1) {

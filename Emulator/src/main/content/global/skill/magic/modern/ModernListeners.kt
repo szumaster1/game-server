@@ -563,12 +563,12 @@ class ModernListeners : SpellListener("modern") {
      */
     private fun chargeOrb(player: Player, node: Node?) {
         if (node == null) return
-        val spell = ChargeOrbData.spellMap[node.id] ?: return
+        val spell = ChargeOrb.spellMap[node.id] ?: return
         requires(player, spell.level, spell.requiredRunes)
         removeAttribute(player, "spell:runes")
         face(player, node)
         sendSkillDialogue(player) {
-            withItems(spell.chargedOrb)
+            withItems(spell.product)
             calculateMaxAmount { return@calculateMaxAmount amountInInventory(player, Items.UNPOWERED_ORB_567) }
             create { _, amount ->
                 var crafted = 0
@@ -585,13 +585,13 @@ class ModernListeners : SpellListener("modern") {
                     }
                     visualizeSpell(player, CHARGE_ORB_ANIM, spell.graphics, spell.sound)
                     removeRunes(player)
-                    addItem(player, spell.chargedOrb)
+                    addItem(player, spell.product)
                     addXP(player, spell.experience)
                     setDelay(player, 3)
                     crafted++
 
-                    if (crafted == 5 && spell.chargedOrb == Items.WATER_ORB_571) {
-                        player.dispatch(ResourceProducedEvent(spell.chargedOrb, crafted, node))
+                    if (crafted == 5 && spell.product == Items.WATER_ORB_571) {
+                        player.dispatch(ResourceProducedEvent(spell.product, crafted, node))
                     }
                     if (amount == crafted) {
                         return@queueScript stopExecuting(player)

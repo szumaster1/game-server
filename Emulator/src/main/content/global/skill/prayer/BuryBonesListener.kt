@@ -12,7 +12,7 @@ import core.game.node.item.Item
 import org.rs.consts.Animations
 import org.rs.consts.Sounds
 
-class BuryBones : InteractionListener {
+class BuryBonesListener : InteractionListener {
 
     private val bones = Bones.values().map { it.itemId }.toIntArray()
 

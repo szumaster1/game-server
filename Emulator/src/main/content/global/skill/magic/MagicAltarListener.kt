@@ -1,21 +1,21 @@
 package content.global.skill.magic
 
 import core.api.*
-import org.rs.consts.Animations
-import org.rs.consts.Scenery
-import org.rs.consts.Sounds
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.Node
 import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.SpellBookManager.SpellBook
 import core.game.node.entity.skill.Skills
+import org.rs.consts.Animations
 import org.rs.consts.QuestName
+import org.rs.consts.Scenery
+import org.rs.consts.Sounds
 
 /**
  * Magic altar listener.
  */
-class MagicAltar : InteractionListener {
+class MagicAltarListener : InteractionListener {
 
     override fun defineListeners() {
         on(intArrayOf(ANCIENT_ALTAR, LUNAR_ALTAR), IntType.SCENERY, "pray-at", "pray") { player, node ->
@@ -29,8 +29,8 @@ class MagicAltar : InteractionListener {
     /**
      * Meets requirements.
      *
-     * @param [player] the player who is interacting with the altar.
-     * @param [altar] the altar that the player is interacting with.
+     * @param player the player who is interacting with the altar.
+     * @param altar the altar that the player is interacting with.
      *
      * @return `true` if the player meets the requirements to interact with the altar, `false` otherwise.
      */
@@ -50,8 +50,8 @@ class MagicAltar : InteractionListener {
     /**
      * Swap spell book.
      *
-     * @param [player] the player who is swapping the spell book.
-     * @param [altar] the altar node that the player is interacting with.
+     * @param player the player who is swapping the spell book.
+     * @param altar the altar node that the player is interacting with.
      */
     private fun swapSpellBook(player: Player, altar: Node) {
         lock(player, 3)

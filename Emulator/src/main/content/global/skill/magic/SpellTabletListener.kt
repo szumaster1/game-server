@@ -1,8 +1,6 @@
 package content.global.skill.magic
 
 import content.global.skill.magic.spellconsts.Modern
-import org.rs.consts.Items
-import org.rs.consts.Sounds
 import core.api.playAudio
 import core.api.setAttribute
 import core.game.interaction.IntType
@@ -10,11 +8,13 @@ import core.game.interaction.InteractionListener
 import core.game.node.entity.player.Player
 import core.game.node.item.Item
 import core.game.world.update.flag.context.Animation
+import org.rs.consts.Items
+import org.rs.consts.Sounds
 
 /**
  * Spell tablets.
  */
-class SpellTablets : InteractionListener {
+class SpellTabletListener : InteractionListener {
 
     // Define the item IDs for Bones to Bananas and Bones to Peaches tablets
     val B2P_TABLET = Items.BONES_TO_PEACHES_8015
