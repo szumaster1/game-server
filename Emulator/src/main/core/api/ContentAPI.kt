@@ -1051,6 +1051,17 @@ fun <T> animate(entity: Entity, anim: T, forced: Boolean = false) {
 }
 
 /**
+ * Send animation.
+ *
+ * @param player    the player to animate.
+ * @param animation the animation id.
+ * @param delay     the delay.
+ */
+fun sendAnimation(player: Player, animation: Int, delay : Int) {
+    player.packetDispatch.sendAnimation(animation, delay)
+}
+
+/**
  * Plays audio for the player.
  *
  * @param player   the player to play the defined audio for.
