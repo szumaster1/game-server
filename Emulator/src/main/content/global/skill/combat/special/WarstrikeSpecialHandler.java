@@ -1,6 +1,5 @@
 package content.global.skill.combat.special;
 
-import org.rs.consts.Sounds;
 import core.game.node.entity.Entity;
 import core.game.node.entity.combat.BattleState;
 import core.game.node.entity.combat.CombatStyle;
@@ -13,6 +12,9 @@ import core.game.world.update.flag.context.Graphic;
 import core.plugin.Initializable;
 import core.plugin.Plugin;
 import core.tools.RandomFunction;
+import org.rs.consts.Graphics;
+import org.rs.consts.Items;
+import org.rs.consts.Sounds;
 
 import static core.api.ContentAPIKt.playGlobalAudio;
 
@@ -36,7 +38,7 @@ public final class WarstrikeSpecialHandler extends MeleeSwingHandler implements 
     /**
      * The graphic.
      */
-    private static final Graphic GRAPHIC = new Graphic(1223);
+    private static final Graphic GRAPHIC = new Graphic(Graphics.BANDOS_GODSWORD_SPECIAL_ATTACK_1223);
 
     @Override
     public Object fireEvent(String identifier, Object... args) {
@@ -45,8 +47,8 @@ public final class WarstrikeSpecialHandler extends MeleeSwingHandler implements 
 
     @Override
     public Plugin<Object> newInstance(Object arg) throws Throwable {
-        CombatStyle.MELEE.getSwingHandler().register(11696, this);
-        CombatStyle.MELEE.getSwingHandler().register(13451, this);
+        CombatStyle.MELEE.getSwingHandler().register(Items.BANDOS_GODSWORD_11696, this);
+        CombatStyle.MELEE.getSwingHandler().register(Items.BANDOS_GODSWORD_13451, this);
         return this;
     }
 

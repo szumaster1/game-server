@@ -1,6 +1,5 @@
 package content.global.skill.combat.special;
 
-import org.rs.consts.Sounds;
 import core.game.node.entity.Entity;
 import core.game.node.entity.combat.BattleState;
 import core.game.node.entity.combat.CombatStyle;
@@ -15,6 +14,10 @@ import core.game.world.update.flag.context.Animation;
 import core.game.world.update.flag.context.Graphic;
 import core.plugin.Initializable;
 import core.plugin.Plugin;
+import org.rs.consts.Animations;
+import org.rs.consts.Graphics;
+import org.rs.consts.Items;
+import org.rs.consts.Sounds;
 
 import static core.api.ContentAPIKt.playGlobalAudio;
 import static core.api.ContentAPIKt.stun;
@@ -34,17 +37,17 @@ public final class ShoveSpecialHandler extends MeleeSwingHandler implements Plug
     /**
      * The attack animation.
      */
-    private static final Animation ANIMATION = new Animation(1064, Priority.HIGH);
+    private static final Animation ANIMATION = new Animation(Animations.TIPTOE_1064, Priority.HIGH);
 
     /**
      * The graphic.
      */
-    private static final Graphic GRAPHIC = new Graphic(253, 96);
+    private static final Graphic GRAPHIC = new Graphic(Graphics.DRAGON_SPEAR_SPECIAL_253, 96);
 
     /**
      * The stun animation.
      */
-    private static Animation STUN_ANIM = new Animation(424);
+    private static Animation STUN_ANIM = new Animation(Animations.DEFEND_UNARMED_424);
 
     @Override
     public Object fireEvent(String identifier, Object... args) {
@@ -53,13 +56,12 @@ public final class ShoveSpecialHandler extends MeleeSwingHandler implements Plug
 
     @Override
     public Plugin<Object> newInstance(Object arg) throws Throwable {
-        CombatStyle.MELEE.getSwingHandler().register(1249, this);
-        CombatStyle.MELEE.getSwingHandler().register(1263, this);
-        CombatStyle.MELEE.getSwingHandler().register(3176, this);
-        CombatStyle.MELEE.getSwingHandler().register(5716, this);
-        CombatStyle.MELEE.getSwingHandler().register(5730, this);
-        CombatStyle.MELEE.getSwingHandler().register(11716, this);
-        CombatStyle.MELEE.getSwingHandler().register(14662, this);
+        CombatStyle.MELEE.getSwingHandler().register(Items.DRAGON_SPEAR_1249, this);
+        CombatStyle.MELEE.getSwingHandler().register(Items.DRAGON_SPEARP_1263, this);
+        CombatStyle.MELEE.getSwingHandler().register(Items.DRAGON_SPEARKP_3176, this);
+        CombatStyle.MELEE.getSwingHandler().register(Items.DRAGON_SPEARP_PLUS_5716, this);
+        CombatStyle.MELEE.getSwingHandler().register(Items.DRAGON_SPEARP_PLUS_PLUS_5730, this);
+        CombatStyle.MELEE.getSwingHandler().register(Items.ZAMORAKIAN_SPEAR_11716, this);
         return this;
     }
 

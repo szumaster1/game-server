@@ -43,7 +43,7 @@ class GemCuttingPulse(player: Player?, item: Item?, var amount: Int, val gem: Ge
     override fun reward(): Boolean {
         if (removeItem(player, gem.uncut)) {
             val item = gem.gem
-            addItem(player, item.id)
+            addItem(player, item.id, amount)
             rewardXP(player, Skills.CRAFTING, gem.exp)
         }
         amount--

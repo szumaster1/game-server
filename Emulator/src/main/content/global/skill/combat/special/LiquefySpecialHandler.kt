@@ -1,18 +1,19 @@
 package content.global.skill.combat.special
 
-import org.rs.consts.Items
 import core.game.node.entity.Entity
 import core.game.node.entity.combat.BattleState
 import core.game.node.entity.combat.CombatStyle
 import core.game.node.entity.combat.MeleeSwingHandler
 import core.plugin.Initializable
 import core.plugin.Plugin
+import org.rs.consts.Items
 
 /**
  * Handles Brine sabre special attack underwater.
  */
 @Initializable
 class LiquefySpecialHandler : MeleeSwingHandler(), Plugin<Any> {
+
     override fun newInstance(arg: Any?): Plugin<Any> {
         CombatStyle.MELEE.swingHandler.register(Items.BRINE_SABRE_11037, this)
         return this

@@ -36,9 +36,9 @@ class MossGiantNPC : AbstractNPC {
         if (killer is Player) {
             val player = killer
             val quest = player.getQuestRepository().getQuest(QuestName.ROVING_ELVES)
-            if (quest.getStage(player) == 15 && !player.inventory.contains(RovingElves.CONSECRATION_SEED.id, 1)) {
+            if (quest.getStage(player) == 15 && !player.inventory.contains(RovingElves.CONSECRATION_SEED, 1)) {
                 player.packetDispatch.sendMessages("A small grey seed drops on the ground.")
-                GroundItemManager.create(Item(RovingElves.CONSECRATION_SEED.id), getLocation(), player)
+                GroundItemManager.create(Item(RovingElves.CONSECRATION_SEED), getLocation(), player)
             }
         }
     }

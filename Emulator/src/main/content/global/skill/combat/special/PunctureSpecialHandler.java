@@ -1,6 +1,5 @@
 package content.global.skill.combat.special;
 
-import org.rs.consts.Sounds;
 import core.game.node.entity.Entity;
 import core.game.node.entity.combat.BattleState;
 import core.game.node.entity.combat.CombatStyle;
@@ -12,6 +11,9 @@ import core.game.world.update.flag.context.Graphic;
 import core.plugin.Initializable;
 import core.plugin.Plugin;
 import core.tools.RandomFunction;
+import org.rs.consts.Animations;
+import org.rs.consts.Items;
+import org.rs.consts.Sounds;
 
 import static core.api.ContentAPIKt.playGlobalAudio;
 
@@ -30,7 +32,7 @@ public final class PunctureSpecialHandler extends MeleeSwingHandler implements P
 	/**
 	 * The attack animation.
 	 */
-	private static final Animation ANIMATION = new Animation(1062, Priority.HIGH);
+	private static final Animation ANIMATION = new Animation(Animations.SMITHING_WITH_SC_HAMMER_11062, Priority.HIGH);
 
 	/**
 	 * The graphic.
@@ -50,7 +52,7 @@ public final class PunctureSpecialHandler extends MeleeSwingHandler implements P
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		if (CombatStyle.MELEE.getSwingHandler().register(1215, this) && CombatStyle.MELEE.getSwingHandler().register(1231, this) && CombatStyle.MELEE.getSwingHandler().register(5680, this) && CombatStyle.MELEE.getSwingHandler().register(5698, this) && CombatStyle.MELEE.getSwingHandler().register(13465, this) && CombatStyle.MELEE.getSwingHandler().register(13466, this) && CombatStyle.MELEE.getSwingHandler().register(13467, this) && CombatStyle.MELEE.getSwingHandler().register(13468, this))
+		if (CombatStyle.MELEE.getSwingHandler().register(Items.DRAGON_DAGGER_1215, this) && CombatStyle.MELEE.getSwingHandler().register(1231, this) && CombatStyle.MELEE.getSwingHandler().register(Items.DRAGON_DAGGERP_PLUS_5680, this) && CombatStyle.MELEE.getSwingHandler().register(Items.DRAGON_DAGGERP_PLUS_PLUS_5698, this) && CombatStyle.MELEE.getSwingHandler().register(Items.DRAGON_DAGGER_13465, this) && CombatStyle.MELEE.getSwingHandler().register(Items.DRAGON_DAGGERP_13466, this) && CombatStyle.MELEE.getSwingHandler().register(Items.DRAGON_DAGGERP_PLUS_13467, this) && CombatStyle.MELEE.getSwingHandler().register(Items.DRAGON_DAGGERP_PLUS_PLUS_13468, this))
 			;
 		return this;
 	}

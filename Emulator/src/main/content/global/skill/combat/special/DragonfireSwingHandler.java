@@ -1,6 +1,5 @@
 package content.global.skill.combat.special;
 
-import org.rs.consts.Sounds;
 import core.game.container.impl.EquipmentContainer;
 import core.game.node.entity.Entity;
 import core.game.node.entity.combat.BattleState;
@@ -16,6 +15,7 @@ import core.game.world.GameWorld;
 import core.game.world.update.flag.context.Animation;
 import core.game.world.update.flag.context.Graphic;
 import core.tools.RandomFunction;
+import org.rs.consts.Sounds;
 
 import static core.api.ContentAPIKt.*;
 

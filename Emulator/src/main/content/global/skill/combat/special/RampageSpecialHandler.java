@@ -1,6 +1,5 @@
 package content.global.skill.combat.special;
 
-import org.rs.consts.Sounds;
 import core.game.node.entity.Entity;
 import core.game.node.entity.combat.BattleState;
 import core.game.node.entity.combat.CombatStyle;
@@ -12,6 +11,10 @@ import core.game.world.update.flag.context.Animation;
 import core.game.world.update.flag.context.Graphic;
 import core.plugin.Initializable;
 import core.plugin.Plugin;
+import org.rs.consts.Animations;
+import org.rs.consts.Graphics;
+import org.rs.consts.Items;
+import org.rs.consts.Sounds;
 
 import static core.api.ContentAPIKt.playAudio;
 
@@ -30,12 +33,12 @@ public final class RampageSpecialHandler extends MeleeSwingHandler implements Pl
     /**
      * The attack animation.
      */
-    private static final Animation ANIMATION = new Animation(1056, Priority.HIGH);
+    private static final Animation ANIMATION = new Animation(Animations.DRAGON_BATTLEAXE_SPECIAL_ATTACK_1056, Priority.HIGH);
 
     /**
      * The graphic.
      */
-    private static final Graphic GRAPHIC = new Graphic(246);
+    private static final Graphic GRAPHIC = new Graphic(Graphics.DRAGON_BATTLE_AXE_SPECIAL_ORIGINAL_ANIMATION_246);
 
     @Override
     public Object fireEvent(String identifier, Object... args) {
@@ -49,7 +52,7 @@ public final class RampageSpecialHandler extends MeleeSwingHandler implements Pl
 
     @Override
     public Plugin<Object> newInstance(Object arg) throws Throwable {
-        CombatStyle.MELEE.getSwingHandler().register(1377, this);
+        CombatStyle.MELEE.getSwingHandler().register(Items.DRAGON_BATTLEAXE_1377, this);
         return this;
     }
 

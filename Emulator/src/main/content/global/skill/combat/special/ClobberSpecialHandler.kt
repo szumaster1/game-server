@@ -1,9 +1,5 @@
 package content.global.skill.combat.special
 
-import org.rs.consts.Graphics
-import org.rs.consts.Items
-import org.rs.consts.Sounds
-import core.Configuration
 import core.api.playAudio
 import core.game.container.impl.EquipmentContainer
 import core.game.node.entity.Entity
@@ -20,6 +16,9 @@ import core.game.world.update.flag.context.Graphic
 import core.plugin.Initializable
 import core.plugin.Plugin
 import core.tools.RandomFunction
+import org.rs.consts.Graphics
+import org.rs.consts.Items
+import org.rs.consts.Sounds
 
 /**
  * Handles the Dragon axe special attack.
@@ -27,13 +26,14 @@ import core.tools.RandomFunction
  */
 @Initializable
 class ClobberSpecialHandler : MeleeSwingHandler(), Plugin<Any> {
+
     override fun newInstance(arg: Any?): Plugin<Any> {
         CombatStyle.MELEE.swingHandler.register(ITEM.id, this)
         return this
     }
 
     override fun fireEvent(identifier: String, vararg args: Any): Any {
-        return if (Configuration.DRAGON_AXE_USE_OSRS_SPEC && identifier == "instant_spec") true else Unit
+        return Unit
     }
 
     override fun visualize(entity: Entity, victim: Entity?, state: BattleState?) {
@@ -41,17 +41,6 @@ class ClobberSpecialHandler : MeleeSwingHandler(), Plugin<Any> {
     }
 
     override fun swing(entity: Entity?, victim: Entity?, state: BattleState?): Int {
-        return if (Configuration.DRAGON_AXE_USE_OSRS_SPEC) {
-            swingOSRS(entity)
-        } else {
-            swingAuthentic(entity, victim, state)
-        }
-    }
-
-    /**
-     * https://runescape.wiki/w/Dragon_hatchet?oldid=1107166
-     */
-    private fun swingAuthentic(entity: Entity?, victim: Entity?, state: BattleState?): Int {
         val player = entity as? Player ?: return -1
         if (victim == null) return -1
         if (state == null) return -1
@@ -74,39 +63,10 @@ class ClobberSpecialHandler : MeleeSwingHandler(), Plugin<Any> {
         return 1
     }
 
-    /**
-     * https://oldschool.runescape.wiki/w/Dragon_axe
-     */
-    private fun swingOSRS(entity: Entity?): Int {
-        val player = entity as? Player ?: return -1
-        if (!player.settings.drainSpecial(SPECIAL_ENERGY)) return -1
-
-        player.sendChat("Chop chop!")
-        player.skills.updateLevel(Skills.WOODCUTTING, 3, player.skills.getStaticLevel(Skills.WOODCUTTING) + 3)
-        visualize(player, null, null)
-        playAudio(player, Sounds.CLOBBER_2531, 20)
-        return -1
-    }
-
     companion object {
-        /**
-         * The special energy required.
-         */
         private const val SPECIAL_ENERGY = 100
-
-        /**
-         * The attack animation.
-         */
         private val ANIMATION = Animation(2876, Priority.HIGH)
-
-        /**
-         * The graphic.
-         */
         private val GRAPHIC = Graphic(Graphics.DRAGON_HATCHET_SPECIAL_479, 96)
-
-        /**
-         * The item.
-         */
         private val ITEM = Item(Items.DRAGON_AXE_6739)
     }
 }

@@ -1,6 +1,5 @@
 package content.global.skill.combat.special;
 
-import org.rs.consts.Sounds;
 import core.game.node.entity.Entity;
 import core.game.node.entity.combat.BattleState;
 import core.game.node.entity.combat.CombatStyle;
@@ -13,6 +12,9 @@ import core.game.world.update.flag.context.Graphic;
 import core.plugin.Initializable;
 import core.plugin.Plugin;
 import core.tools.RandomFunction;
+import org.rs.consts.Graphics;
+import org.rs.consts.Items;
+import org.rs.consts.Sounds;
 
 import static core.api.ContentAPIKt.playGlobalAudio;
 
@@ -36,7 +38,7 @@ public final class SeverSpecialHandler extends MeleeSwingHandler implements Plug
     /**
      * The graphic.
      */
-    private static final Graphic GRAPHIC = new Graphic(347, 96);
+    private static final Graphic GRAPHIC = new Graphic(Graphics.DRAGON_SCIMITAR_SPECIAL_347, 96);
 
     @Override
     public Object fireEvent(String identifier, Object... args) {
@@ -45,7 +47,7 @@ public final class SeverSpecialHandler extends MeleeSwingHandler implements Plug
 
     @Override
     public Plugin<Object> newInstance(Object arg) throws Throwable {
-        if (CombatStyle.MELEE.getSwingHandler().register(4587, this) && CombatStyle.MELEE.getSwingHandler().register(13477, this))
+        if (CombatStyle.MELEE.getSwingHandler().register(Items.DRAGON_SCIMITAR_4587, this) && CombatStyle.MELEE.getSwingHandler().register(Items.DRAGON_SCIMITAR_13477, this))
             ;
         return this;
     }

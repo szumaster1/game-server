@@ -1,6 +1,5 @@
 package content.global.skill.combat.special;
 
-import org.rs.consts.Sounds;
 import core.game.node.entity.Entity;
 import core.game.node.entity.combat.BattleState;
 import core.game.node.entity.combat.CombatStyle;
@@ -13,6 +12,9 @@ import core.game.world.update.flag.context.Animation;
 import core.plugin.Initializable;
 import core.plugin.Plugin;
 import core.tools.RandomFunction;
+import org.rs.consts.Animations;
+import org.rs.consts.Items;
+import org.rs.consts.Sounds;
 
 import static core.api.ContentAPIKt.playGlobalAudio;
 
@@ -29,10 +31,9 @@ public final class SnipeSpecialHandler extends RangeSwingHandler implements Plug
     private static final int SPECIAL_ENERGY = 75;
 
     /**
-     * The attack animation. TODO: This is techically the wrong animation. The
-     * real one is incredibly similiar but I can't find it anywhere.
+     * The attack animation.
      */
-    private static final Animation ANIMATION = new Animation(4230, Priority.HIGH);
+    private static final Animation ANIMATION = new Animation(Animations.FIRE_CROSSBOW_4230, Priority.HIGH);
 
     @Override
     public Object fireEvent(String identifier, Object... args) {
@@ -41,7 +42,7 @@ public final class SnipeSpecialHandler extends RangeSwingHandler implements Plug
 
     @Override
     public Plugin<Object> newInstance(Object arg) throws Throwable {
-        CombatStyle.RANGE.getSwingHandler().register(8880, this);
+        CombatStyle.RANGE.getSwingHandler().register(Items.DORGESHUUN_CBOW_8880, this);
         return this;
     }
 

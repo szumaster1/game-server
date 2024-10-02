@@ -1,6 +1,7 @@
 package content.region.tirannwn.quest.roving_elves.handlers
 
 import content.region.tirannwn.quest.roving_elves.RovingElves
+import core.api.sendMessage
 import core.cache.def.impl.ItemDefinition
 import core.cache.def.impl.SceneryDefinition
 import core.game.interaction.OptionHandler
@@ -13,6 +14,7 @@ import core.game.world.map.Location
 import core.game.world.update.flag.context.Animation
 import core.plugin.Plugin
 import org.rs.consts.QuestName
+import org.rs.consts.Scenery
 
 /**
  * Roving elves plugin.
@@ -20,8 +22,8 @@ import org.rs.consts.QuestName
 class RovingElvesPlugin : OptionHandler() {
 
     override fun newInstance(arg: Any?): Plugin<Any> {
-        SceneryDefinition.forId(5252).handlers["option:search"] = this
-        ItemDefinition.forId(RovingElves.CONSECRATION_SEED_CHARGED.id).handlers["option:plant"] = this
+        SceneryDefinition.forId(Scenery.FIRE_REMAINS_5252).handlers["option:search"] = this
+        ItemDefinition.forId(RovingElves.CONSECRATION_SEED_CHARGED).handlers["option:plant"] = this
         return this
     }
 
@@ -52,10 +54,10 @@ class RovingElvesPlugin : OptionHandler() {
                                 }
 
                                 6 -> {
-                                    player.inventory.remove(Item(RovingElves.CONSECRATION_SEED_CHARGED.id))
+                                    player.inventory.remove(Item(RovingElves.CONSECRATION_SEED_CHARGED))
                                     quest.setStage(player, 20)
                                     player.packetDispatch.sendGlobalPositionGraphic(719, Location(2604, 9907, 0))
-                                    player.packetDispatch.sendMessage("The seed vanishes in a puff of smoke.")
+                                    sendMessage(player, "The seed vanishes in a puff of smoke.")
                                 }
                             }
                             return false

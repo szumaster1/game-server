@@ -1,13 +1,13 @@
 package content.global.skill.crafting.pottery
 
 import core.api.*
-import org.rs.consts.Animations
 import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.diary.DiaryType
 import core.game.node.entity.skill.SkillPulse
 import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 import core.game.world.map.Location
+import org.rs.consts.Animations
 
 /**
  * Represents the pulse used to fire pottery.
@@ -40,7 +40,7 @@ class FirePotteryPulse(player: Player?, node: Item?, val pottery: Pottery, var a
         }
         if (removeItem(player, pottery.unfinished)) {
             val item = pottery.product
-            addItem(player, item.id)
+            addItem(player, item.id, item.amount)
             rewardXP(player, Skills.CRAFTING, pottery.fireExp)
             sendMessage(player, "You put the " + pottery.unfinished.name.lowercase() + " in the oven.")
             sendMessage(player, "You remove a " + pottery.product.name.lowercase() + " from the oven.")

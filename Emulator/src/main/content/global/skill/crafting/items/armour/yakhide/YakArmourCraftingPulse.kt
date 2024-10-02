@@ -1,6 +1,6 @@
 package content.global.skill.crafting.items.armour.yakhide
 
-import content.global.skill.crafting.leather.Leather
+import content.global.skill.crafting.items.armour.leather.LeatherUtils
 import core.api.*
 import core.game.node.entity.player.Player
 import core.game.node.entity.skill.SkillPulse
@@ -18,10 +18,10 @@ class YakArmourCraftingPulse(player: Player?, node: Item?, private val index: In
             sendDialogue(player, "You need a crafting level of at least $level in order to do this.")
             return false
         }
-        if (!inInventory(player, Leather.NEEDLE, 1)) {
+        if (!inInventory(player, Items.NEEDLE_1733, 1)) {
             return false
         }
-        if (!inInventory(player, Leather.THREAD.id)) {
+        if (!inInventory(player, Items.THREAD_1734, 1)) {
             sendDialogue(player, "You need some thread to make anything out of leather.")
             return false
         }
@@ -46,11 +46,11 @@ class YakArmourCraftingPulse(player: Player?, node: Item?, private val index: In
         }
         val requiredAmount = if (index == 1) 2 else 1
         if (removeItem(player, Item(Items.CURED_YAK_HIDE_10820, requiredAmount))) {
-            player.inventory.add(node)
+            addItem(player, node!!.id, node!!.amount)
             rewardXP(player, Skills.CRAFTING, 32.0)
-            Leather.decayThread(player)
-            if (Leather.isLastThread(player)) {
-                Leather.removeThread(player)
+            LeatherUtils.decayThread(player)
+            if (LeatherUtils.isLastThread(player)) {
+                LeatherUtils.removeThread(player)
             }
             sendMessage(player, "You make " + node!!.name.lowercase() + ".")
         }

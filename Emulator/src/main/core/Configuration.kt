@@ -296,9 +296,6 @@ class Configuration {
         var PERSIST_ACCOUNTS = false
 
         @JvmField
-        var DRAGON_AXE_USE_OSRS_SPEC = false
-
-        @JvmField
         var ENABLE_GLOBALCHAT = false
 
         @JvmField

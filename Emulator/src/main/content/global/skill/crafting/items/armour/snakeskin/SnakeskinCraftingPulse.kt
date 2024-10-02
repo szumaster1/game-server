@@ -1,6 +1,6 @@
 package content.global.skill.crafting.items.armour.snakeskin
 
-import content.global.skill.crafting.leather.Leather
+import content.global.skill.crafting.items.armour.leather.LeatherUtils
 import core.api.*
 import core.game.node.entity.player.Player
 import core.game.node.entity.skill.SkillPulse
@@ -12,8 +12,7 @@ import org.rs.consts.Items
 /**
  * Represents the pulse used to craft snake skin.
  */
-class SnakeskinCraftingPulse(player: Player?, node: Item?, var amount: Int, val skin: Snakeskin) :
-    SkillPulse<Item?>(player, node) {
+class SnakeskinCraftingPulse(player: Player?, node: Item?, var amount: Int, val skin: Snakeskin) : SkillPulse<Item?>(player, node) {
 
     var ticks = 0
 
@@ -22,10 +21,10 @@ class SnakeskinCraftingPulse(player: Player?, node: Item?, var amount: Int, val 
             sendDialogue(player, "You need a crafting level of " + skin.level + " to make this.")
             return false
         }
-        if (!inInventory(player, Leather.NEEDLE, 1)) {
+        if (!inInventory(player, Items.NEEDLE_1733, 1)) {
             return false
         }
-        if (!inInventory(player, Leather.THREAD.id)) {
+        if (!inInventory(player, Items.THREAD_1734, 1)) {
             sendDialogue(player, "You need thread to make this.")
             return false
         }
@@ -48,12 +47,12 @@ class SnakeskinCraftingPulse(player: Player?, node: Item?, var amount: Int, val 
             return false
         }
         if (removeItem(player, Item(Items.SNAKESKIN_6289, skin.amount))) {
-            val item = skin.product
-            addItem(player, item.id, item.amount)
+            val item = Item(skin.product, amount)
+            player.inventory.add(item)
             rewardXP(player, Skills.CRAFTING, skin.experience)
-            Leather.decayThread(player)
-            if (Leather.isLastThread(player)) {
-                Leather.removeThread(player)
+            LeatherUtils.decayThread(player)
+            if (LeatherUtils.isLastThread(player)) {
+                LeatherUtils.removeThread(player)
             }
         }
         amount--

@@ -1,6 +1,5 @@
 package content.global.skill.combat.special;
 
-import org.rs.consts.Sounds;
 import content.global.skill.summoning.familiar.Familiar;
 import core.game.node.entity.Entity;
 import core.game.node.entity.combat.BattleState;
@@ -17,6 +16,10 @@ import core.game.world.update.flag.context.Graphic;
 import core.plugin.Initializable;
 import core.plugin.Plugin;
 import core.tools.RandomFunction;
+import org.rs.consts.Animations;
+import org.rs.consts.Graphics;
+import org.rs.consts.Items;
+import org.rs.consts.Sounds;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,16 +41,16 @@ public final class SweepSpecialHandler extends MeleeSwingHandler implements Plug
     /**
      * The attack animation.
      */
-    private static final Animation ANIMATION = new Animation(1203, Priority.HIGH);
+    private static final Animation ANIMATION = new Animation(Animations.ATTACK_WITH_WEAPON_1203, Priority.HIGH);
 
     /**
      * The graphic.
      */
-    private static final Graphic GRAPHIC = new Graphic(282, 96);
+    private static final Graphic GRAPHIC = new Graphic(Graphics.DRAGON_HALBERD_SPECIAL_IN_FRONT_282, 96);
 
     @Override
     public Plugin<Object> newInstance(Object arg) throws Throwable {
-        CombatStyle.MELEE.getSwingHandler().register(3204, this);
+        CombatStyle.MELEE.getSwingHandler().register(Items.DRAGON_HALBERD_3204, this);
         return this;
     }
 

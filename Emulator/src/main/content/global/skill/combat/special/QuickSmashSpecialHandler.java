@@ -1,6 +1,5 @@
 package content.global.skill.combat.special;
 
-import org.rs.consts.Sounds;
 import core.game.node.entity.Entity;
 import core.game.node.entity.combat.BattleState;
 import core.game.node.entity.combat.CombatStyle;
@@ -13,6 +12,10 @@ import core.game.world.update.flag.context.Graphic;
 import core.plugin.Initializable;
 import core.plugin.Plugin;
 import core.tools.RandomFunction;
+import org.rs.consts.Animations;
+import org.rs.consts.Graphics;
+import org.rs.consts.Items;
+import org.rs.consts.Sounds;
 
 import static core.api.ContentAPIKt.playGlobalAudio;
 
@@ -31,12 +34,12 @@ public final class QuickSmashSpecialHandler extends MeleeSwingHandler implements
 	/**
 	 * The attack animation.
 	 */
-	private static final Animation ANIMATION = new Animation(1667, Priority.HIGH);
+	private static final Animation ANIMATION = new Animation(Animations.ATTACK_WITH_MAUL_1667, Priority.HIGH);
 
 	/**
 	 * The graphic.
 	 */
-	private static final Graphic GRAPHIC = new Graphic(340, 96);
+	private static final Graphic GRAPHIC = new Graphic(Graphics.GRANITE_MAUL_SPECIAL_340, 96);
 
 	@Override
 	public Object fireEvent(String identifier, Object... args) {
@@ -49,8 +52,7 @@ public final class QuickSmashSpecialHandler extends MeleeSwingHandler implements
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		CombatStyle.MELEE.getSwingHandler().register(4153, this);
-		CombatStyle.MELEE.getSwingHandler().register(14792, this);
+		CombatStyle.MELEE.getSwingHandler().register(Items.GRANITE_MAUL_4153, this);
 		return this;
 	}
 

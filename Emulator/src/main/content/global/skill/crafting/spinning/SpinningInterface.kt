@@ -1,9 +1,9 @@
 package content.global.skill.crafting.spinning
 
 import core.api.*
-import org.rs.consts.Components
 import core.game.interaction.InterfaceListener
 import core.game.node.item.Item
+import org.rs.consts.Components
 
 /**
  * Spinning interface listener.

@@ -1,6 +1,5 @@
 package content.global.skill.combat.special;
 
-import org.rs.consts.Sounds;
 import core.game.node.entity.Entity;
 import core.game.node.entity.combat.BattleState;
 import core.game.node.entity.combat.CombatStyle;
@@ -12,6 +11,9 @@ import core.game.world.update.flag.context.Graphic;
 import core.plugin.Initializable;
 import core.plugin.Plugin;
 import core.tools.RandomFunction;
+import org.rs.consts.Graphics;
+import org.rs.consts.Items;
+import org.rs.consts.Sounds;
 
 import static core.api.ContentAPIKt.playGlobalAudio;
 
@@ -35,7 +37,7 @@ public final class JudgementSpecialHandler extends MeleeSwingHandler implements 
     /**
      * The graphic.
      */
-    private static final Graphic GRAPHIC = new Graphic(1222);
+    private static final Graphic GRAPHIC = new Graphic(Graphics.ARMADYL_GODSWORD_SPECIAL_ATTACK_1222);
 
     @Override
     public Object fireEvent(String identifier, Object... args) {
@@ -44,7 +46,7 @@ public final class JudgementSpecialHandler extends MeleeSwingHandler implements 
 
     @Override
     public Plugin<Object> newInstance(Object arg) throws Throwable {
-        if (CombatStyle.MELEE.getSwingHandler().register(11694, this) && CombatStyle.MELEE.getSwingHandler().register(13450, this))
+        if (CombatStyle.MELEE.getSwingHandler().register(Items.ARMADYL_GODSWORD_11694, this) && CombatStyle.MELEE.getSwingHandler().register(Items.ARMADYL_GODSWORD_13450, this))
             ;
         return this;
     }

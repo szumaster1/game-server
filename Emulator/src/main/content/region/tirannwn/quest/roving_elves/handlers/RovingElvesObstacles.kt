@@ -12,6 +12,7 @@ import core.game.world.map.Direction
 import core.game.world.map.Location
 import core.game.world.update.flag.context.Animation
 import core.plugin.Plugin
+import org.rs.consts.Animations
 
 /**
  * Roving elves obstacles.
@@ -25,9 +26,9 @@ class RovingElvesObstacles : OptionHandler() {
 
     private val OVER = Animation(839)
     private val THROUGH = Animation(1237)
-    private val STICK_TRAP = Animation(819)
-    private val LEAF_TRAP = Animation(1115)
-    private val WIRE_TRAP = Animation(1236)
+    private val STICK_TRAP = Animation(Animations.HUMAN_WALK_SHORT_819)
+    private val LEAF_TRAP = Animation(Animations.PRESSURE_PADS_BRIMHAVEN_AGILITY_1115)
+    private val WIRE_TRAP = Animation(Animations.CROSS_TRIPWIRE_1236)
 
     private val STICK_TRAP_NORTH = Location(0, 2, 0)
     private val STICK_TRAP_SOUTH = Location(0, -1, 0)

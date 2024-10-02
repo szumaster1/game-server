@@ -1,6 +1,5 @@
 package content.global.skill.combat.special;
 
-import org.rs.consts.Sounds;
 import core.game.node.entity.Entity;
 import core.game.node.entity.combat.BattleState;
 import core.game.node.entity.combat.CombatStyle;
@@ -13,6 +12,9 @@ import core.game.world.update.flag.context.Graphic;
 import core.plugin.Initializable;
 import core.plugin.Plugin;
 import core.tools.RandomFunction;
+import org.rs.consts.Animations;
+import org.rs.consts.Graphics;
+import org.rs.consts.Sounds;
 
 import static core.api.ContentAPIKt.playGlobalAudio;
 
@@ -31,12 +33,12 @@ public final class ImpaleSpecialHandler extends MeleeSwingHandler implements Plu
     /**
      * The attack animation.
      */
-    private static final Animation ANIMATION = new Animation(923, Priority.HIGH);
+    private static final Animation ANIMATION = new Animation(Animations.BIG_ATTACK_923, Priority.HIGH);
 
     /**
      * The graphic.
      */
-    private static final Graphic GRAPHIC = new Graphic(274, 96);
+    private static final Graphic GRAPHIC = new Graphic(Graphics.RUNE_CLAW_SPECIAL_274, 96);
 
     @Override
     public Object fireEvent(String identifier, Object... args) {

@@ -1,6 +1,5 @@
 package content.global.skill.combat.special;
 
-import org.rs.consts.Sounds;
 import core.game.node.entity.Entity;
 import core.game.node.entity.combat.BattleState;
 import core.game.node.entity.combat.CombatStyle;
@@ -13,6 +12,9 @@ import core.game.world.update.flag.context.Graphic;
 import core.plugin.Initializable;
 import core.plugin.Plugin;
 import core.tools.RandomFunction;
+import org.rs.consts.Graphics;
+import org.rs.consts.Items;
+import org.rs.consts.Sounds;
 
 import static core.api.ContentAPIKt.playGlobalAudio;
 
@@ -36,7 +38,7 @@ public final class WeakenSpecialHandler extends MeleeSwingHandler implements Plu
     /**
      * The graphic.
      */
-    private static final Graphic GRAPHIC = new Graphic(483);
+    private static final Graphic GRAPHIC = new Graphic(Graphics.DARK_LIGHT_SPECIAL_483);
 
     @Override
     public Object fireEvent(String identifier, Object... args) {
@@ -45,7 +47,7 @@ public final class WeakenSpecialHandler extends MeleeSwingHandler implements Plu
 
     @Override
     public Plugin<Object> newInstance(Object arg) throws Throwable {
-        CombatStyle.MELEE.getSwingHandler().register(6746, this);
+        CombatStyle.MELEE.getSwingHandler().register(Items.DARKLIGHT_6746, this);
         return this;
     }
 

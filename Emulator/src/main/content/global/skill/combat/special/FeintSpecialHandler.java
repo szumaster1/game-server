@@ -1,6 +1,5 @@
 package content.global.skill.combat.special;
 
-import org.rs.consts.Sounds;
 import core.game.node.entity.Entity;
 import core.game.node.entity.combat.BattleState;
 import core.game.node.entity.combat.CombatStyle;
@@ -11,6 +10,8 @@ import core.game.world.update.flag.context.Animation;
 import core.plugin.Initializable;
 import core.plugin.Plugin;
 import core.tools.RandomFunction;
+import org.rs.consts.Items;
+import org.rs.consts.Sounds;
 
 import static core.api.ContentAPIKt.playGlobalAudio;
 
@@ -31,7 +32,6 @@ public final class FeintSpecialHandler extends MeleeSwingHandler implements Plug
      */
     private static final Animation ANIMATION = new Animation(10502, Priority.HIGH);
 
-
     @Override
     public Object fireEvent(String identifier, Object... args) {
         return null;
@@ -39,7 +39,7 @@ public final class FeintSpecialHandler extends MeleeSwingHandler implements Plug
 
     @Override
     public Plugin<Object> newInstance(Object arg) throws Throwable {
-        if (CombatStyle.MELEE.getSwingHandler().register(13899, this) && CombatStyle.MELEE.getSwingHandler().register(13901, this))
+        if (CombatStyle.MELEE.getSwingHandler().register(Items.VESTAS_LONGSWORD_13899, this) && CombatStyle.MELEE.getSwingHandler().register(Items.VESTAS_LONGSWORD_DEG_13901, this))
             ;
         return this;
     }

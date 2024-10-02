@@ -1,6 +1,5 @@
 package content.global.skill.combat.special;
 
-import org.rs.consts.Sounds;
 import core.game.container.impl.EquipmentContainer;
 import core.game.node.entity.Entity;
 import core.game.node.entity.combat.BattleState;
@@ -13,6 +12,10 @@ import core.game.world.update.flag.context.Animation;
 import core.game.world.update.flag.context.Graphic;
 import core.plugin.Initializable;
 import core.plugin.Plugin;
+import org.rs.consts.Animations;
+import org.rs.consts.Graphics;
+import org.rs.consts.Items;
+import org.rs.consts.Sounds;
 
 import static core.api.ContentAPIKt.*;
 
@@ -31,12 +34,12 @@ public final class ExcaliburSpecialHandler extends MeleeSwingHandler implements 
     /**
      * The attack animation.
      */
-    private static final Animation ANIMATION = new Animation(1057, Priority.HIGH);
+    private static final Animation ANIMATION = new Animation(Animations.OLD_EXCALIBUR_1057, Priority.HIGH);
 
     /**
      * The graphic.
      */
-    private static final Graphic GRAPHIC = new Graphic(247);
+    private static final Graphic GRAPHIC = new Graphic(Graphics.BLUE_PURPLE_GLOW_SARA_EXCALIBER_SPECIAL_247);
 
     @Override
     public Object fireEvent(String identifier, Object... args) {
@@ -50,8 +53,8 @@ public final class ExcaliburSpecialHandler extends MeleeSwingHandler implements 
 
     @Override
     public Plugin<Object> newInstance(Object arg) throws Throwable {
-        CombatStyle.MELEE.getSwingHandler().register(35, this);
-        CombatStyle.MELEE.getSwingHandler().register(14632, this);
+        CombatStyle.MELEE.getSwingHandler().register(Items.EXCALIBUR_35, this);
+        CombatStyle.MELEE.getSwingHandler().register(Items.ENHANCED_EXCALIBUR_14632, this);
         return this;
     }
 

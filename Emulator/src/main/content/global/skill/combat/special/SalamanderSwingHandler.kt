@@ -1,6 +1,5 @@
 package content.global.skill.combat.special
 
-import org.rs.consts.Items
 import core.api.EquipmentSlot
 import core.api.getItemFromEquipment
 import core.game.node.entity.Entity
@@ -16,6 +15,8 @@ import core.game.node.item.Item
 import core.game.world.update.flag.context.Animation
 import core.game.world.update.flag.context.Graphic
 import core.tools.RandomFunction
+import org.rs.consts.Animations
+import org.rs.consts.Items
 import kotlin.math.ceil
 import kotlin.math.floor
 
@@ -24,6 +25,7 @@ import kotlin.math.floor
  * @author Vexia, itsmedoggo
  */
 class SalamanderSwingHandler(private var style: CombatStyle) : CombatSwingHandler(style) {
+
     override fun canSwing(entity: Entity, victim: Entity): InteractionType? {
         checkStyle(entity)
         if (!isProjectileClipped(entity, victim, false)) {
@@ -78,7 +80,7 @@ class SalamanderSwingHandler(private var style: CombatStyle) : CombatSwingHandle
     }
 
     override fun visualize(entity: Entity, victim: Entity?, state: BattleState?) {
-        entity.visualize(Animation.create(5247), Graphic(952, 100))
+        entity.visualize(Animation.create(Animations.ATTACK_WITH_SALAMANDER_5247), Graphic(952, 100))
     }
 
     override fun visualizeImpact(entity: Entity?, victim: Entity?, state: BattleState?) {

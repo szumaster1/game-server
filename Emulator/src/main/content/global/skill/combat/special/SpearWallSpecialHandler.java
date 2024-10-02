@@ -1,6 +1,5 @@
 package content.global.skill.combat.special;
 
-import org.rs.consts.Sounds;
 import core.game.node.entity.Entity;
 import core.game.node.entity.combat.BattleState;
 import core.game.node.entity.combat.CombatStyle;
@@ -15,6 +14,9 @@ import core.game.world.update.flag.context.Graphic;
 import core.plugin.Initializable;
 import core.plugin.Plugin;
 import core.tools.RandomFunction;
+import org.rs.consts.Graphics;
+import org.rs.consts.Items;
+import org.rs.consts.Sounds;
 
 import java.util.List;
 
@@ -40,7 +42,7 @@ public final class SpearWallSpecialHandler extends MeleeSwingHandler implements 
     /**
      * The graphic.
      */
-    private static final Graphic GRAPHIC = new Graphic(1835);
+    private static final Graphic GRAPHIC = new Graphic(Graphics.VESTAS_SPEAR_1835);
 
     @Override
     public Object fireEvent(String identifier, Object... args) {
@@ -62,8 +64,8 @@ public final class SpearWallSpecialHandler extends MeleeSwingHandler implements 
 
     @Override
     public Plugin<Object> newInstance(Object arg) throws Throwable {
-        CombatStyle.MELEE.getSwingHandler().register(13905, this);
-        CombatStyle.MELEE.getSwingHandler().register(13907, this);
+        CombatStyle.MELEE.getSwingHandler().register(Items.VESTAS_SPEAR_13905, this);
+        CombatStyle.MELEE.getSwingHandler().register(Items.VESTAS_SPEAR_DEG_13907, this);
         return this;
     }
 

@@ -1,6 +1,5 @@
 package content.global.skill.combat.special;
 
-import org.rs.consts.Sounds;
 import core.game.node.entity.Entity;
 import core.game.node.entity.combat.BattleState;
 import core.game.node.entity.combat.CombatStyle;
@@ -12,6 +11,9 @@ import core.game.world.update.flag.context.Graphic;
 import core.plugin.Initializable;
 import core.plugin.Plugin;
 import core.tools.RandomFunction;
+import org.rs.consts.Graphics;
+import org.rs.consts.Items;
+import org.rs.consts.Sounds;
 
 import static core.api.ContentAPIKt.playGlobalAudio;
 
@@ -35,7 +37,7 @@ public final class CleaveSpecialHandler extends MeleeSwingHandler implements Plu
     /**
      * The graphic.
      */
-    private static final Graphic GRAPHIC = new Graphic(248, 96);
+    private static final Graphic GRAPHIC = new Graphic(Graphics.DRAGON_LONGSWORD_SPECIAL_248, 96);
 
     @Override
     public Object fireEvent(String identifier, Object... args) {
@@ -44,8 +46,7 @@ public final class CleaveSpecialHandler extends MeleeSwingHandler implements Plu
 
     @Override
     public Plugin<Object> newInstance(Object arg) throws Throwable {
-        if (CombatStyle.MELEE.getSwingHandler().register(1305, this) && CombatStyle.MELEE.getSwingHandler().register(13475, this))
-            ;
+        if (CombatStyle.MELEE.getSwingHandler().register(Items.DRAGON_LONGSWORD_1305, this) && CombatStyle.MELEE.getSwingHandler().register(Items.DRAGON_LONGSWORD_13475, this)) ;
         return this;
     }
 

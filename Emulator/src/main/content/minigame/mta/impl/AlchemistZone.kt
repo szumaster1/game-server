@@ -243,39 +243,10 @@ class AlchemistZone :
      * @constructor Alchemist item initializes the enum with a specific item.
      */
     enum class AlchemistItem(val item: Item) {
-        /**
-         * Leather Boots
-         *
-         * @constructor Leather Boots initializes the enum with the item ID for Leather Boots.
-         */
         LEATHER_BOOTS(Item(6893)),
-
-        /**
-         * Adamant Kiteshield
-         *
-         * @constructor Adamant Kiteshield initializes the enum with the item ID for Adamant Kiteshield.
-         */
         ADAMANT_KITESHIELD(Item(6894)),
-
-        /**
-         * Adamant Helm
-         *
-         * @constructor Adamant Helm initializes the enum with the item ID for Adamant Helm.
-         */
         ADAMANT_HELM(Item(6895)),
-
-        /**
-         * Emerald
-         *
-         * @constructor Emerald initializes the enum with the item ID for Emerald.
-         */
         EMERALD(Item(6896)),
-
-        /**
-         * Rune Longsword
-         *
-         * @constructor Rune Longsword initializes the enum with the item ID for Rune Longsword.
-         */
         RUNE_LONGSWORD(Item(6897));
 
         // Cost of the item, initialized to 0 and can only be modified within the class.

@@ -1,6 +1,5 @@
 package content.global.skill.combat.special;
 
-import org.rs.consts.Sounds;
 import core.game.node.entity.Entity;
 import core.game.node.entity.combat.BattleState;
 import core.game.node.entity.combat.CombatStyle;
@@ -12,6 +11,9 @@ import core.game.world.update.flag.context.Graphic;
 import core.plugin.Initializable;
 import core.plugin.Plugin;
 import core.tools.RandomFunction;
+import org.rs.consts.Graphics;
+import org.rs.consts.Items;
+import org.rs.consts.Sounds;
 
 import static core.api.ContentAPIKt.playGlobalAudio;
 
@@ -35,7 +37,7 @@ public final class ShatterSpecialHandler extends MeleeSwingHandler implements Pl
 	/**
 	 * The graphic.
 	 */
-	private static final Graphic GRAPHIC = new Graphic(251, 96);
+	private static final Graphic GRAPHIC = new Graphic(Graphics.DRAGON_MACE_SPECIAL_251, 96);
 
 	@Override
 	public Object fireEvent(String identifier, Object... args) {
@@ -44,8 +46,8 @@ public final class ShatterSpecialHandler extends MeleeSwingHandler implements Pl
 
 	@Override
 	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		CombatStyle.MELEE.getSwingHandler().register(1434, this);
-		CombatStyle.MELEE.getSwingHandler().register(13479, this);
+		CombatStyle.MELEE.getSwingHandler().register(Items.DRAGON_MACE_1434, this);
+		CombatStyle.MELEE.getSwingHandler().register(Items.DRAGON_MACE_13479, this);
 		return this;
 	}
 

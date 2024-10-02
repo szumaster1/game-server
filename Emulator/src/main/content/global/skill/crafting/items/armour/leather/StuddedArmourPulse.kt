@@ -1,6 +1,5 @@
 package content.global.skill.crafting.items.armour.leather
 
-import content.global.skill.smithing.Bars
 import core.api.*
 import core.game.node.entity.player.Player
 import core.game.node.entity.skill.SkillPulse
@@ -12,25 +11,25 @@ import org.rs.consts.Items
 /**
  * Represents a pulse for studded armor.
  */
-class StuddedArmourPulse(player: Player?, node: Item?, private val armour: StuddedArmourListener.StuddedArmour?, private var amount: Int) : SkillPulse<Item?>(player, node) {
+class StuddedArmourPulse(player: Player?, node: Item?, val armour: StuddedArmour, private var amount: Int) : SkillPulse<Item?>(player, node) {
 
     private var ticks = 0
 
     override fun checkRequirements(): Boolean {
-        if (getStatLevel(player, Skills.CRAFTING) < armour!!.level) {
+        if (getStatLevel(player, Skills.CRAFTING) < armour.level) {
             sendMessage(player, "You need a crafting level of at least " + armour.level + " to do this.")
             return false
         }
-        if (!inInventory(player, Bars.STEEL_STUDS.product)) {
+        if (!inInventory(player, Items.STEEL_STUDS_2370)) {
             sendMessage(player, "You need studs in order to make studded armour.")
             return false
         }
-        return inInventory(player, armour.item.id)
+        return inInventory(player, armour.leather)
     }
 
     override fun animate() {
         if (ticks % 5 == 0) {
-            animate(player, ANIMATION)
+            animate(player, Animations.CRAFT_LEATHER_1249)
         }
     }
 
@@ -38,23 +37,14 @@ class StuddedArmourPulse(player: Player?, node: Item?, private val armour: Studd
         if (++ticks % 5 != 0) {
             return false
         }
-        if (removeItem(player, armour!!.item) && removeItem(player, Item(STEEL_STUDS, 1))) {
-            addItem(player, armour.studded.id, 1)
+        sendMessage(player, "You use the studs with the " + getItemName(node!!.id).lowercase() + ".")
+        if (removeItem(player, armour.leather) && removeItem(player, Item(Items.STEEL_STUDS_2370, 1))) {
+            addItem(player, armour.product, 1)
             rewardXP(player, Skills.CRAFTING, armour.experience)
-            sendMessage(player, "You make a " + armour.studded.name.lowercase() + ".")
+            sendMessage(player, "You make a " + getItemName(armour.product).lowercase() + ".")
         }
         amount--
         return amount < 1
     }
 
-    override fun message(type: Int) {
-        when (type) {
-            0 -> sendMessage(player, "You use the studs with the " + node!!.name.lowercase() + ".")
-        }
-    }
-
-    companion object {
-        private const val ANIMATION = Animations.CRAFT_LEATHER_1249
-        private const val STEEL_STUDS = Items.STEEL_STUDS_2370
-    }
 }

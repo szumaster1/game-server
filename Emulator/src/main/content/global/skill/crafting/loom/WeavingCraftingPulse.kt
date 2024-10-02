@@ -36,7 +36,7 @@ class WeavingCraftingPulse(player: Player?, node: Scenery?, private val type: We
             return false
         }
         if (removeItem(player, type.required)) {
-            addItem(player, type.product.id)
+            addItem(player, type.product.id, type.product.amount)
             rewardXP(player, Skills.CRAFTING, type.experience)
             sendMessage(player, "You weave the "
                         + type.required.name.lowercase().replace("ball", "balls")

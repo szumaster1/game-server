@@ -1,6 +1,5 @@
 package content.global.skill.combat.special;
 
-import org.rs.consts.Sounds;
 import core.game.node.entity.Entity;
 import core.game.node.entity.combat.BattleState;
 import core.game.node.entity.combat.CombatStyle;
@@ -11,6 +10,9 @@ import core.game.world.update.flag.context.Graphic;
 import core.plugin.Initializable;
 import core.plugin.Plugin;
 import core.tools.RandomFunction;
+import org.rs.consts.Graphics;
+import org.rs.consts.Items;
+import org.rs.consts.Sounds;
 
 import static core.api.ContentAPIKt.playGlobalAudio;
 
@@ -29,7 +31,7 @@ public final class PowershotSpecialHandler extends RangeSwingHandler implements 
     /**
      * The graphic.
      */
-    private static final Graphic GRAPHIC = new Graphic(250, 96);
+    private static final Graphic GRAPHIC = new Graphic(Graphics.MAGIC_LONGBOW_SPECIAL_250, 96);
 
     @Override
     public Object fireEvent(String identifier, Object... args) {
@@ -38,8 +40,8 @@ public final class PowershotSpecialHandler extends RangeSwingHandler implements 
 
     @Override
     public Plugin<Object> newInstance(Object arg) throws Throwable {
-        CombatStyle.RANGE.getSwingHandler().register(859, this);
-        CombatStyle.RANGE.getSwingHandler().register(10284, this);
+        CombatStyle.RANGE.getSwingHandler().register(Items.MAGIC_LONGBOW_859, this);
+        CombatStyle.RANGE.getSwingHandler().register(Items.MAGIC_COMP_BOW_10284, this);
         return this;
     }
 

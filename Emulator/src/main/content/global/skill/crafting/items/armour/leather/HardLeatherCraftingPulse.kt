@@ -1,6 +1,5 @@
 package content.global.skill.crafting.items.armour.leather
 
-import content.global.skill.crafting.leather.Leather
 import core.api.*
 import core.game.node.entity.player.Player
 import core.game.node.entity.skill.SkillPulse
@@ -17,13 +16,13 @@ class HardLeatherCraftingPulse(player: Player?, node: Item?, var amount: Int) : 
     private var ticks = 0
 
     override fun checkRequirements(): Boolean {
-        if (!inInventory(player, Leather.NEEDLE, 1)) {
+        if (!inInventory(player, Items.NEEDLE_1733, 1)) {
             return false
         }
-        if (!inInventory(player, Leather.HARD_LEATHER, 1)) {
+        if (!inInventory(player, Items.HARD_LEATHER_1743, 1)) {
             return false
         }
-        if (!inInventory(player, Leather.THREAD.id)) {
+        if (!inInventory(player, Items.THREAD_1734, 1)) {
             sendDialogue(player, "You need thread to make this.")
             return false
         }
@@ -41,14 +40,14 @@ class HardLeatherCraftingPulse(player: Player?, node: Item?, var amount: Int) : 
         if (++ticks % 5 != 0) {
             return false
         }
-        if (removeItem(player, Item(Leather.HARD_LEATHER))) {
+        if (removeItem(player, Item(Items.HARD_LEATHER_1743, 1))) {
             val item = Item(Items.HARDLEATHER_BODY_1131)
-            addItem(player, item.id)
+            addItem(player, item.id, item.amount)
             rewardXP(player, Skills.CRAFTING, 35.0)
             sendMessage(player, "You make a hard leather body.")
-            Leather.decayThread(player)
-            if (Leather.isLastThread(player)) {
-                Leather.removeThread(player)
+            LeatherUtils.decayThread(player)
+            if (LeatherUtils.isLastThread(player)) {
+                LeatherUtils.removeThread(player)
             }
         }
         amount--

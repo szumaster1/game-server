@@ -1,6 +1,5 @@
 package content.global.skill.combat.special;
 
-import org.rs.consts.Items;
 import core.api.ContentAPIKt;
 import core.game.node.entity.Entity;
 import core.game.node.entity.combat.BattleState;
@@ -13,6 +12,7 @@ import core.game.system.timer.TimerFlag;
 import core.plugin.Initializable;
 import core.plugin.Plugin;
 import core.tools.RandomFunction;
+import org.rs.consts.Items;
 
 /**
  * Handles Morrigans javelin special attack.

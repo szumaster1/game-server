@@ -147,7 +147,6 @@ object ServerConfigParser {
         Configuration.DAILY_ACCOUNT_LIMIT = data.getLong("server.daily_accounts_per_ip", 3L).toInt()
         Configuration.DISCORD_MOD_WEBHOOK = data.getString("integrations.discord_moderation_webhook", "")
         Configuration.NOAUTH_DEFAULT_ADMIN = data.getBoolean("server.noauth_default_admin", false)
-        Configuration.DRAGON_AXE_USE_OSRS_SPEC = data.getBoolean("world.dragon_axe_use_osrs_spec", false)
         Configuration.DISCORD_OPENRSC_HOOK = data.getString("integrations.openrsc_integration_webhook", "")
         Configuration.ENABLE_GLOBALCHAT = data.getBoolean("world.enable_globalchat", true)
         Configuration.MAX_PATHFIND_DISTANCE = data.getLong("server.max_pathfind_dist", 25L).toInt()

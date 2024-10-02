@@ -1,6 +1,7 @@
 package content.global.skill.combat.special
 
 import core.api.playAudio
+import core.api.sendMessage
 import core.game.node.entity.Entity
 import core.game.node.entity.combat.BattleState
 import core.game.node.entity.combat.CombatStyle
@@ -12,6 +13,8 @@ import core.game.world.update.flag.context.Graphic
 import core.plugin.Initializable
 import core.plugin.Plugin
 import core.tools.RandomFunction
+import org.rs.consts.Graphics
+import org.rs.consts.Items
 
 /**
  * Sunder special handler.
@@ -20,7 +23,7 @@ import core.tools.RandomFunction
 class SunderSpecialHandler : MeleeSwingHandler(), Plugin<Any> {
 
     override fun newInstance(arg: Any?): Plugin<Any> {
-        CombatStyle.MELEE.swingHandler.register(10887, this)
+        CombatStyle.MELEE.swingHandler.register(Items.BARRELCHEST_ANCHOR_10887, this)
         return this
     }
 
@@ -38,7 +41,7 @@ class SunderSpecialHandler : MeleeSwingHandler(), Plugin<Any> {
 
         state.estimatedHit = hit
         if (victim is Player) {
-            victim.packetDispatch.sendMessage("You have been drained.")
+            sendMessage(victim, "You have been drained.")
         }
 
 
@@ -57,7 +60,7 @@ class SunderSpecialHandler : MeleeSwingHandler(), Plugin<Any> {
     }
 
     override fun visualize(entity: Entity, victim: Entity?, state: BattleState?) {
-        entity.visualize(Animation(5870), Graphic(1027))
+        entity.visualize(Animation(5870), Graphic(Graphics.BARRELCHEST_ANCHOR_SPECIAL_GFX_1027))
     }
 
     override fun fireEvent(identifier: String?, vararg args: Any?): Any? {

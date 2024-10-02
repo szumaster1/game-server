@@ -1,54 +1,44 @@
 package content.global.skill.crafting.items.armour.snakeskin
 
-import core.api.amountInInventory
-import core.game.dialogue.SkillDialogueHandler
+import core.api.*
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
-import core.game.node.item.Item
+import org.rs.consts.Components
 import org.rs.consts.Items
 
 class SnakeskinCraftingListener : InteractionListener {
 
     override fun defineListeners() {
+
+        /*
+         * Handles crafting snakeskin.
+         * TODO: trim item names.
+         */
+
         onUseWith(IntType.ITEM, Items.NEEDLE_1733, Items.SNAKESKIN_6289) { player, used, _ ->
-            object : SkillDialogueHandler(player, SkillDialogue.FIVE_OPTION, skins) {
-                override fun create(amount: Int, index: Int) {
-                    player.pulseManager.run(
-                        SnakeskinCraftingPulse(
-                            player = player,
-                            node = used.asItem(),
-                            amount = amount,
-                            skin = Snakeskin.values()[index]
-                        )
+            sendString(player, "Which snakeskin item would you like to make?", Components.SKILL_MAKE_306, 27)
+            sendSkillDialogue(player) {
+                withItems(
+                    Items.SNAKESKIN_BODY_6322,
+                    Items.SNAKESKIN_CHAPS_6324,
+                    Items.SNAKESKIN_VBRACE_6330,
+                    Items.SNAKESKIN_BANDANA_6326,
+                    Items.SNAKESKIN_BOOTS_6328,
+                )
+                create { id, amount ->
+                    val item = Snakeskin.forId(id)
+                    submitIndividualPulse(
+                        entity = player,
+                        pulse = SnakeskinCraftingPulse(player, null, amount, item!!)
                     )
                 }
-
-                override fun getAll(index: Int): Int {
-                    return amountInInventory(player, Items.SNAKESKIN_6289)
+                calculateMaxAmount {
+                    amountInInventory(player, used.id)
                 }
 
-                public override fun getName(item: Item): String {
-                    return when (item.id) {
-                        Items.SNAKESKIN_BOOTS_6328 -> "Boots"
-                        Items.SNAKESKIN_VBRACE_6330 -> "Vambs"
-                        Items.SNAKESKIN_BANDANA_6326 -> "Bandana"
-                        Items.SNAKESKIN_CHAPS_6324 -> "Chaps"
-                        else -> "Body"
-                    }
-                }
-            }.open()
+            }
             return@onUseWith true
         }
     }
 
-    companion object {
-        val skins: Array<Item?>
-            get() {
-                val items = arrayOfNulls<Item>(Snakeskin.values().size)
-                for (i in items.indices) {
-                    items[i] = Snakeskin.values()[i].product
-                }
-                return items
-            }
-    }
 }

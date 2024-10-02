@@ -5,6 +5,7 @@ import content.region.tirannwn.quest.roving_elves.dialogue.IslwynDialogue
 import content.region.tirannwn.quest.roving_elves.handlers.MossGiantNPC
 import content.region.tirannwn.quest.roving_elves.handlers.RovingElvesObstacles
 import content.region.tirannwn.quest.roving_elves.handlers.RovingElvesPlugin
+import core.api.inInventory
 import core.api.rewardXP
 import core.api.sendItemZoomOnInterface
 import core.api.updateQuestTab
@@ -15,6 +16,7 @@ import core.game.node.item.Item
 import core.plugin.Initializable
 import core.plugin.PluginManager.definePlugin
 import org.rs.consts.Components
+import org.rs.consts.Items
 import org.rs.consts.QuestName
 import org.rs.consts.Vars
 
@@ -30,12 +32,12 @@ class RovingElves : Quest(QuestName.ROVING_ELVES, 105, 104, 1, Vars.VARP_QUEST_R
             0 -> line(player, "I can start this quest by talking to !!Islwyn?? found in !!Isafdar??.<n><n>Minimum requirements:<n>!!I must have completed the Waterfall quest??<n>!!I must be able to kill a level 84 moss giant unarmed??", 11)
             10 -> line(player, "It appears that when I recovered !!Glarial's ashes?? from<n>her !!tomb?? near the waterfall, I disturbed her peace.<n><n>I talked to !!Islwyn??, an elf that I found in the woods.<n>When I offered to help he said I should talk with !!Eluned??,<n>she will tell me how !!elven consecration?? is done.", 11)
             15 -> {
-                if (player.inventory.contains(CONSECRATION_SEED.id, 1)) {
+                if (inInventory(player, CONSECRATION_SEED, 1)) {
                     line(player, "<str>It appears that when I recovered Glarial's ashes from<n><str>her tomb near the waterfall, I disturbed her peace.<n><str>I talked to Islwyn, an elf that I found in the woods.<n><str>When I offered to help he said I should talk with Eluned,<n><str>she will tell me how elven consecration is done.<n><n><str>Eluned told me that I must acquire the<str> old consecration<n><str> seed <str>from the <str>guardian spirit<str> in <str>Glarial's old tomb.<n><n><str>Once I have the old seed I will need to return to Eluned, who<n><str>will re-enchant it for me.<n><n>I have the !!consecration seed??. I should return to !!Eluned??<n>and have her enchant it for me.", 11)
                 } else {
                     line(player, "<str>It appears that when I recovered Glarial's ashes from<n><str>her tomb near the waterfall, I disturbed her peace.<n><str>I talked to Islwyn, an elf that I found in the woods.<n><str>When I offered to help he said I should talk with Eluned,<n><str>she will tell me how elven consecration is done.<n><n>Eluned told me that I must acquire the !!old consecration??<n><!!seed??from the !!guardian spirit?? in !!Glarial's old tomb??.<n><n>Once I have the old seed I will need to return to Eluned, who<n>will re-enchant it for me.", 11)
                 }
-                if (player.inventory.contains(CONSECRATION_SEED_CHARGED.id, 1)) {
+                if (inInventory(player, CONSECRATION_SEED_CHARGED, 1)) {
                     line(player, "<str>It appears that when I recovered Glarial's ashes from<n><str>her tomb near the waterfall, I disturbed her peace.<n><str>I talked to Islwyn, an elf that I found in the woods.<n><str>When I offered to help he said I should talk with Eluned,<n><str>she will tell me how elven consecration is done.<n><n><str>Eluned told me that I must acquire the<str> old consecration<n><str> seed <str>from the <str>guardian spirit<str> in <str>Glarial's old tomb.<n><n><str>Once I have the old seed I will need to return to Eluned, who<n><str>will re-enchant it for me.<n><n>I have the !!charged consecration seed??.<n>I need to head to the treasure room under the !!waterfall?? and<n> plant the !!consecration seed?? near the !!chalice?? in order to<n> free Glarial's spirit.", 11)
                 }
             }
@@ -57,12 +59,13 @@ class RovingElves : Quest(QuestName.ROVING_ELVES, 105, 104, 1, Vars.VARP_QUEST_R
         drawReward(player, "Used elf equipment.", ln++)
         drawReward(player, "10000 Strength XP", ln++)
         drawReward(player, "You have completed Roving Elves!", ln)
-        sendItemZoomOnInterface(player, Components.QUEST_COMPLETE_SCROLL_277, CRYSTAL_BOW_FULL.id, 235)
+
+        sendItemZoomOnInterface(player, Components.QUEST_COMPLETE_SCROLL_277, 5, CRYSTAL_BOW_FULL, 235)
         rewardXP(player, Skills.STRENGTH, 10000.0)
         updateQuestTab(player)
     }
 
-    override fun newInstance(`object`: Any): Quest {
+    override fun newInstance(`object`: Any?): Quest {
         definePlugin(RovingElvesPlugin())
         definePlugin(RovingElvesObstacles())
         definePlugin(MossGiantNPC())
@@ -72,10 +75,10 @@ class RovingElves : Quest(QuestName.ROVING_ELVES, 105, 104, 1, Vars.VARP_QUEST_R
     }
 
     companion object {
-        val CRYSTAL_BOW_FULL: Item = Item(4214)
-        val CRYSTAL_SHIELD_FULL: Item = Item(4225)
-        val CONSECRATION_SEED: Item = Item(4205)
-        val CONSECRATION_SEED_CHARGED: Item = Item(4206)
-        val CRYSTAL_SEED: Item = Item(4207)
+        const val CRYSTAL_BOW_FULL = Items.CRYSTAL_BOW_FULL_4214
+        const val CRYSTAL_SHIELD_FULL = Items.CRYSTAL_SHIELD_FULL_4225
+        const val CONSECRATION_SEED = Items.CONSECRATION_SEED_4205
+        const val CONSECRATION_SEED_CHARGED = Items.CONSECRATION_SEED_4206
+        const val CRYSTAL_SEED = Items.CRYSTAL_SEED_4207
     }
 }

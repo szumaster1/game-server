@@ -1,6 +1,5 @@
 package content.global.skill.combat.special;
 
-import org.rs.consts.Sounds;
 import core.game.node.entity.Entity;
 import core.game.node.entity.combat.BattleState;
 import core.game.node.entity.combat.CombatStyle;
@@ -15,6 +14,8 @@ import core.game.world.update.flag.context.Graphic;
 import core.plugin.Initializable;
 import core.plugin.Plugin;
 import core.tools.RandomFunction;
+import org.rs.consts.Items;
+import org.rs.consts.Sounds;
 
 import static core.api.ContentAPIKt.playGlobalAudio;
 
@@ -47,7 +48,7 @@ public final class SnapshotSpecialHandler extends RangeSwingHandler implements P
 
     @Override
     public Plugin<Object> newInstance(Object arg) throws Throwable {
-        CombatStyle.RANGE.getSwingHandler().register(861, this);
+        CombatStyle.RANGE.getSwingHandler().register(Items.MAGIC_SHORTBOW_861, this);
         return this;
     }
 
