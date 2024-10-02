@@ -1,6 +1,6 @@
 ### 2009scape
 
-[![License][license-shield]][license-url] [![Fork][fork-shield]][fork-url] [![Kotlin][kotlin-version]][kotlin-url] [![Java][java-version]][java-url] [![Release][play-release]][play-url]
+[![License][license-shield]][license-url] [![Fork][fork-shield]][fork-url] [![Kotlin][kotlin-version]][kotlin-url] [![Java][java-version]][java-url] [![Release][play-release]][play-url] [![GitLab][gitlab-repo]][gitlab-url] [![License][github-repo]][github-url]
 
 Fork of official repository for educational purposes & single-player experience but mostly for personal use.
 
@@ -20,21 +20,32 @@ Fork of official repository for educational purposes & single-player experience 
 2. Install [JDK 11](https://adoptium.net)
 3. Install [IntelliJ IDEA](https://www.jetbrains.com/idea/download/)
 
+***
+
 </details>
 
 <details>
 
 <summary>SSH setup</summary>
 
+***
+
+### SSH setup
+
 1. [Set up a key if you don't have one (ed25519)](https://docs.gitlab.com/ee/user/ssh.html#generate-an-ssh-key-pair)
 2. [Add your public key to your gitlab account](https://docs.gitlab.com/ee/user/ssh.html#add-an-ssh-key-to-your-gitlab-account)
 3. [Verify you can connect to git@gitlab.com](https://docs.gitlab.com/ee/user/ssh.html#verify-that-you-can-connect)
+
+***
 
 </details>
 
 <details>
 
 <summary>Install Git</summary>
+
+***
+
 <details>
 <summary>on Windows</summary>
 
@@ -122,8 +133,11 @@ git --version
 ```  
 
 </details>
+
+***
+
 </details>
-<details>  
+<details>
 
 <summary>Fork the repository</summary>
 
@@ -228,11 +242,7 @@ this [link]( https://gitlab.com/help).
 
 <details>  
 
-<summary>
-
-~~Server setup~~
-
-</summary>  
+<summary>Server setup</summary>  
 
 ***
 
@@ -259,15 +269,15 @@ To run singleplayer, read the following information.
 ### Setup
 
 1. Download [GitHub Desktop](https://desktop.github.com/download/) app.  
-![](https://i.imgur.com/RZnyFVo.png)
+   ![](https://i.imgur.com/RZnyFVo.png)
 2. Go to [singleplayer](https://github.com/szumaster1/game) repository.
 3. Fork this repository to your repositories, then Clone it using github desktop app.  
-![](https://i.imgur.com/GM2vT7k.png)  
-![](https://github.com/user-attachments/assets/96765cd1-e5a4-47f3-8a3b-2b40b1f9a656)  
-![](https://github.com/user-attachments/assets/83b6b35f-35d5-4cc3-a6a5-9c2ebcaa72a8)
+   ![](https://i.imgur.com/GM2vT7k.png)  
+   ![](https://github.com/user-attachments/assets/96765cd1-e5a4-47f3-8a3b-2b40b1f9a656)  
+   ![](https://github.com/user-attachments/assets/83b6b35f-35d5-4cc3-a6a5-9c2ebcaa72a8)
 
 4. Run `launch.bat` on Windows, or `launch.sh` on a UN*X system.  
-![](https://i.imgur.com/y7lQ5F7.png)
+   ![](https://i.imgur.com/y7lQ5F7.png)
 
 5. If the server starts, run `client.jar`.
 
@@ -279,7 +289,6 @@ To run singleplayer, read the following information.
 <summary>Single-player file structure</summary>
 
 ***
-
 
 ```
 singleplayer_folder
@@ -383,7 +392,6 @@ singleplayer_folder
 <summary>Default server configuration</summary>
 
 ***
-
 
 ```  
 [server]
@@ -547,16 +555,13 @@ eco_data = "@data/eco"
 ```
 
 </details>
-<details><summary>
 
-Commands (only for admin)
-
-</summary>
+<details>
+<summary>Commands (only for admin)</summary>
 
 ***
 
 #### Command list
-
 
 ````  
 ::1hit  
@@ -714,6 +719,7 @@ Commands (only for admin)
 ::update  
 ::varbits  
 ::xface
+
 ````  
 
 </details>
@@ -729,7 +735,7 @@ Commands (only for admin)
 
 You'll need to edit default config and set `noauth_default_admin = false` to `true`
 
-####  How to change xp rates:
+#### How to change xp rates:
 
 You'll need to edit default config `default xp rate` to `default xp rate = desired rate`
 
@@ -761,3 +767,11 @@ found [here](https://www.gnu.org/licenses/agpl-3.0.en.html).
 [java-version]: https://img.shields.io/badge/java-11-blue.svg?logo=openjdk
 
 [java-url]: https://adoptium.net/temurin/releases/?version=11
+
+[gitlab-repo]: https://img.shields.io/badge/emulator-src-blue.svg?logo=gitlab
+
+[gitlab-url]: https://gitlab.com/rs2emu/game-server
+
+[github-repo]: https://img.shields.io/badge/emulator-src-blue.svg?logo=github
+
+[github-url]: https://github.com/szumaster1/game-server
