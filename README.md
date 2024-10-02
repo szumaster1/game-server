@@ -6,7 +6,13 @@ Fork of official repository for educational purposes & single-player experience 
 
 ***
 
-Setting up project
+<details>
+
+<summary>Setting up project</summary>
+
+***
+
+### Setting up project
 
 *For Windows users* - Turn developer mode on first in Windows developer settings.
 
@@ -14,17 +20,25 @@ Setting up project
 2. Install [JDK 11](https://adoptium.net)
 3. Install [IntelliJ IDEA](https://www.jetbrains.com/idea/download/)
 
-SSH setup
+</details>
+
+<details>
+
+<summary>SSH setup</summary>
 
 1. [Set up a key if you don't have one (ed25519)](https://docs.gitlab.com/ee/user/ssh.html#generate-an-ssh-key-pair)
 2. [Add your public key to your gitlab account](https://docs.gitlab.com/ee/user/ssh.html#add-an-ssh-key-to-your-gitlab-account)
 3. [Verify you can connect to git@gitlab.com](https://docs.gitlab.com/ee/user/ssh.html#verify-that-you-can-connect)
 
-Install Git
+</details>
 
 <details>
 
-<summary>Windows</summary>  
+<summary>Install Git</summary>
+<details>
+<summary>on Windows</summary>
+
+***
 
 ### Git on Windows
 
@@ -49,9 +63,11 @@ git --version
 
 Press **Enter**, and the name of the version of Git you just installed should appear.
 
-</details>  
- <details>  
-<summary>macOS</summary>  
+</details>
+<details>
+<summary>on macOS</summary>
+
+***
 
 ### Git on macOS
 
@@ -76,11 +92,11 @@ git --version
 
 Press Enter, and you should see the version of Git you installed displayed on the next line.
 
-</details>  
+</details>
+<details>
+<summary>on Linux</summary>  
 
-<details>  
-
-<summary>Linux</summary>  
+***
 
 ### Git on Linux
 
@@ -97,6 +113,8 @@ sudo apt-get install git
 
 #### 2. Verify the Installation
 
+***
+
 Open Terminal and type in the following:
 
 ```  
@@ -104,13 +122,14 @@ git --version
 ```  
 
 </details>
-
-***
-
-
+</details>
 <details>  
 
 <summary>Fork the repository</summary>
+
+***
+
+#### Fork the repository
 
 1. Go to the page of the project you want to fork.
 2. In the upper right corner you will find the **fork** button, click it.  
@@ -141,10 +160,15 @@ git --version
 11. Once the project has opened in the lower right corner you will see a window indicating that you can **_Load maven_**
     config, do so and the project will automatically load, next.
 
+***
+
 </details>
+
 <details>  
 
 <summary>Running the project</summary>   
+
+***
 
 ### Running the project
 
@@ -165,6 +189,8 @@ You can also use maven plugins, on the right side of the program:
 
 <summary>Contributions</summary>  
 
+***
+
 ### Contributions
 
 1. If you want to send your work to the main repository, add official repository as your upstream
@@ -183,6 +209,8 @@ git remote add upstream https://gitlab.com/2009scape/2009scape
 
 <summary>Merge</summary>   
 
+***
+
 ### Merge
 
 1. When you push changes to your repository, on the gitlab page, there will be an option for you to send this commit to
@@ -200,19 +228,29 @@ this [link]( https://gitlab.com/help).
 
 <details>  
 
-<summary>Server setup</summary>  
+<summary>
+
+~~Server setup~~
+
+</summary>  
+
+***
 
 ### Server Setup
 
-* Set up `db` user with read/write permissions on server database
-* Put creds in `credentials.json`
-* `sudo apt install libmariadb3 libmariadb-dev`
+* ~~Set up `db` user with read/write permissions on server database~~
+* ~~Put creds in `credentials.json`~~
+* ~~`sudo apt install libmariadb3 libmariadb-dev`~~
+
+***
 
 </details>
 
 <details>  
 
 <summary>Singleplayer setup</summary> 
+
+***
 
 ### Singleplayer
 
@@ -221,21 +259,27 @@ To run singleplayer, read the following information.
 ### Setup
 
 1. Download [GitHub Desktop](https://desktop.github.com/download/) app.  
-   ![](https://i.imgur.com/RZnyFVo.png)
-
-2. Fork this repository to your repositories, then Clone.  
-   ![](https://i.imgur.com/GM2vT7k.png)  
-   ![](https://github.com/user-attachments/assets/96765cd1-e5a4-47f3-8a3b-2b40b1f9a656)  
-   ![](https://github.com/user-attachments/assets/83b6b35f-35d5-4cc3-a6a5-9c2ebcaa72a8)
+![](https://i.imgur.com/RZnyFVo.png)
+2. Go to [singleplayer](https://github.com/szumaster1/game) repository.
+3. Fork this repository to your repositories, then Clone it using github desktop app.  
+![](https://i.imgur.com/GM2vT7k.png)  
+![](https://github.com/user-attachments/assets/96765cd1-e5a4-47f3-8a3b-2b40b1f9a656)  
+![](https://github.com/user-attachments/assets/83b6b35f-35d5-4cc3-a6a5-9c2ebcaa72a8)
 
 4. Run `launch.bat` on Windows, or `launch.sh` on a UN*X system.  
-   ![](https://i.imgur.com/y7lQ5F7.png)
+![](https://i.imgur.com/y7lQ5F7.png)
 
 5. If the server starts, run `client.jar`.
 
+***
+
 </details>
-<details>  
+<details>
+
 <summary>Single-player file structure</summary>
+
+***
+
 
 ```
 singleplayer_folder
@@ -334,11 +378,14 @@ singleplayer_folder
  ```
 
 </details>
-<details>  
-<summary>Default server configuration</summary>  
+<details>
+
+<summary>Default server configuration</summary>
+
+***
+
 
 ```  
-
 [server]
 #Log Level - the level of verbosity used for logs.
 #"verbose" - ALL logs are shown.
@@ -497,13 +544,19 @@ logs_path = "@data/logs"
 bot_data = "@data/botdata"
 eco_data = "@data/eco"
 
+```
 
-```  
+</details>
+<details><summary>
 
-</details>  
-<details><summary>Commands (only for admin)</summary>  
+Commands (only for admin)
+
+</summary>
+
+***
 
 #### Command list
+
 
 ````  
 ::1hit  
@@ -665,14 +718,20 @@ eco_data = "@data/eco"
 
 </details>
 
-<details>  
-<summary>FAQ</summary>  
+<details>
+<summary>FAQ</summary>
+
+***
 
 ### FAQ
 
 #### Add admin rights:
 
-You'll need to change config and set `noauth_default_admin = false` to `true
+You'll need to edit default config and set `noauth_default_admin = false` to `true`
+
+####  How to change xp rates:
+
+You'll need to edit default config `default xp rate` to `default xp rate = desired rate`
 
 </details>
 
