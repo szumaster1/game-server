@@ -46,7 +46,7 @@ class ShipPulse(private val player: Player, private val ship: Ship) : Pulse(1) {
             openInterface(player, Components.SOULBANE_DARKNESS_317)
         }
 
-        if (ship == Ship.KARAMJAMA_TO_PORT_SARIM) {
+        if (ship == Ship.MUSA_POINT_TO_PORT_SARIM) {
             finishDiaryTask(player, DiaryType.KARAMJA, 0, 3)
         }
         if (ship == Ship.BRIMHAVEN_TO_ARDOUGNE) {

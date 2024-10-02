@@ -29,13 +29,13 @@ enum class Ship(@JvmField val location: Location, val config: Int, val delay: In
         delay = 13,
         destination = "Port Sarim"
     ),
-    PORT_SARIM_TO_KARAMAJA(
+    PORT_SARIM_TO_KARAMJA(
         location = Location.create(2956, 3143, 1),
         config = 5,
         delay = 9,
         destination = "Karamja"
     ),
-    KARAMJAMA_TO_PORT_SARIM(
+    MUSA_POINT_TO_PORT_SARIM(
         location = Location.create(3029, 3217, 0),
         config = 6,
         delay = 8,

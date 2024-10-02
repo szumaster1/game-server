@@ -89,7 +89,7 @@ class CustomsOfficerDialogue(player: Player? = null): Dialogue(player) {
                     ship = Ship.BRIMHAVEN_TO_ARDOUGNE
                 }
                 if (player.location.getDistance(LOCATIONS[1]) < 40) {
-                    ship = Ship.KARAMJAMA_TO_PORT_SARIM
+                    ship = Ship.MUSA_POINT_TO_PORT_SARIM
                 }
                 getPrice()
                 ship!!.sail(player)

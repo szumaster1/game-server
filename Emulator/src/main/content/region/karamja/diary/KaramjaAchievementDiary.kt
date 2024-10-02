@@ -248,9 +248,9 @@ class KaramjaAchievementDiary : DiaryEventHookBase(DiaryType.KARAMJA) {
 
     override val areaTasks get() = arrayOf(
         AreaDiaryTask(
-            CAIRN_ISLE_AREA,
-            DiaryLevel.EASY,
-            EasyTasks.CAIRN_ISLE_VISIT
+            zoneBorders = CAIRN_ISLE_AREA,
+            diaryLevel = DiaryLevel.EASY,
+            taskId = EasyTasks.CAIRN_ISLE_VISIT
         ),
     )
 
@@ -258,9 +258,9 @@ class KaramjaAchievementDiary : DiaryEventHookBase(DiaryType.KARAMJA) {
         when (event.itemId){
             6297 -> {
                 finishTask(
-                    player,
-                    DiaryLevel.MEDIUM,
-                    MediumTasks.COOK_SPIDER_ON_STICK
+                    player = player,
+                    level = DiaryLevel.MEDIUM,
+                    task = MediumTasks.COOK_SPIDER_ON_STICK
                 )
             }
         }
@@ -268,24 +268,27 @@ class KaramjaAchievementDiary : DiaryEventHookBase(DiaryType.KARAMJA) {
         when (player.viewport.region.id) {
             10802 -> if (event.itemId == Items.GOLD_ORE_444) {
                 finishTask(
-                    player, DiaryLevel.EASY, EasyTasks.BRIMHAVEN_MINE_GOLD
+                    player = player,
+                    level = DiaryLevel.EASY,
+                    task = EasyTasks.BRIMHAVEN_MINE_GOLD
                 )
             }
 
             11310, 11410 -> if (event.itemId == Items.UNCUT_RED_TOPAZ_1629) {
                 finishTask(
-                    player,
-                    DiaryLevel.MEDIUM,
-                    MediumTasks.MINE_RED_TOPAZ
+                    player = player,
+                    level = DiaryLevel.MEDIUM,
+                    task = MediumTasks.MINE_RED_TOPAZ
                 )
             }
 
             11569 -> if (event.itemId == Items.BANANA_1963) {
                 progressIncrementalTask(
-                    player,
-                    DiaryLevel.EASY,
-                    EasyTasks.PICK_5_BANANAS,
-                    ATTRIBUTE_BANANA_PICKED, 5
+                    player = player,
+                    level = DiaryLevel.EASY,
+                    task = EasyTasks.PICK_5_BANANAS,
+                    attribute = ATTRIBUTE_BANANA_PICKED,
+                    maxProgress = 5
                 )
             }
         }
@@ -295,9 +298,9 @@ class KaramjaAchievementDiary : DiaryEventHookBase(DiaryType.KARAMJA) {
                 when (event.source.id) {
                     NPCs.FISHING_SPOT_323, NPCs.FISHING_SPOT_333 -> {
                         finishTask(
-                            player,
-                            DiaryLevel.EASY,
-                            EasyTasks.USE_FISHING_SPOTS_BANANA_PLANTATION
+                            player = player,
+                            level = DiaryLevel.EASY,
+                            task = EasyTasks.USE_FISHING_SPOTS_BANANA_PLANTATION
                         )
                     }
                 }
@@ -307,17 +310,17 @@ class KaramjaAchievementDiary : DiaryEventHookBase(DiaryType.KARAMJA) {
                 when (event.itemId) {
                     Items.MAHOGANY_LOGS_6332 -> {
                         finishTask(
-                            player,
-                            DiaryLevel.MEDIUM,
-                            MediumTasks.CUT_MAHOGANY_TREE
+                            player = player,
+                            level = DiaryLevel.MEDIUM,
+                            task = MediumTasks.CUT_MAHOGANY_TREE
                         )
                     }
 
                     Items.TEAK_LOGS_6333 -> {
                         finishTask(
-                            player,
-                            DiaryLevel.MEDIUM,
-                            MediumTasks.CUT_TEAK_TREE
+                            player = player,
+                            level = DiaryLevel.MEDIUM,
+                            task = MediumTasks.CUT_TEAK_TREE
                         )
                     }
                 }
@@ -329,26 +332,26 @@ class KaramjaAchievementDiary : DiaryEventHookBase(DiaryType.KARAMJA) {
         when (player.viewport.region.id) {
             10899, 10900 -> if (event.npc.id in METAL_DRAGONS) {
                 finishTask(
-                    player,
-                    DiaryLevel.HARD,
-                    HardTasks.BRIMHAVEN_DUNGEON_KILL_METAL_DRAGON
+                    player = player,
+                    level = DiaryLevel.HARD,
+                    task = HardTasks.BRIMHAVEN_DUNGEON_KILL_METAL_DRAGON
                 )
             }
 
             11412 -> if (event.npc.id == NPCs.JOGRE_113) {
                 finishTask(
-                    player,
-                    DiaryLevel.EASY,
-                    EasyTasks.POTHOLE_DUNGEON_KILL_JOGRE
+                    player = player,
+                    level = DiaryLevel.EASY,
+                    task = EasyTasks.POTHOLE_DUNGEON_KILL_JOGRE
                 )
             }
 
 
             else -> if (event.npc.id in KET_ZEKS) {
                 finishTask(
-                    player,
-                    DiaryLevel.HARD,
-                    HardTasks.FIGHT_CAVE_KILL_KET_ZEK
+                    player = player,
+                    level = DiaryLevel.HARD,
+                    task = HardTasks.FIGHT_CAVE_KILL_KET_ZEK
                 )
             }
         }
@@ -359,18 +362,21 @@ class KaramjaAchievementDiary : DiaryEventHookBase(DiaryType.KARAMJA) {
             inBorders(player, MAIN_ISLAND_AREA) -> {
                 if (event.itemId == Items.SEAWEED_401) {
                     progressIncrementalTask(
-                        player,
-                        DiaryLevel.EASY,
-                        EasyTasks.PICK_5_SEAWEED,
-                        ATTRIBUTE_SEAWEED_PICKED, 5
+                        player = player,
+                        level = DiaryLevel.EASY,
+                        task = EasyTasks.PICK_5_SEAWEED,
+                        attribute = ATTRIBUTE_SEAWEED_PICKED,
+                        maxProgress = 5
                     )
                 }
 
                 if (event.itemId == Items.PALM_LEAF_2339) {
                     progressIncrementalTask(
-                        player, DiaryLevel.HARD,
-                        HardTasks.PICK_5_PALM_LEAVES,
-                        ATTRIBUTE_PALM_LEAF_PICKED, 5
+                        player = player,
+                        level = DiaryLevel.HARD,
+                        task = HardTasks.PICK_5_PALM_LEAVES,
+                        attribute = ATTRIBUTE_PALM_LEAF_PICKED,
+                        maxProgress = 5
                     )
                 }
             }
@@ -381,25 +387,25 @@ class KaramjaAchievementDiary : DiaryEventHookBase(DiaryType.KARAMJA) {
         when (player.viewport.region.id) {
             10644 -> if (event.target.id == Scenery.STAIRS_5097 && event.option == "walk-up") {
                 finishTask(
-                    player,
-                    DiaryLevel.EASY,
-                    MediumTasks.BRIMHAVEN_DUNGEON_CLIMB_STAIRS
+                    player = player,
+                    level = DiaryLevel.EASY,
+                    task = MediumTasks.BRIMHAVEN_DUNGEON_CLIMB_STAIRS
                 )
             }
 
             11058 -> {
                 if (event.target.id == NPCs.HAJEDY_510 && event.option == "pay-fare") {
                     finishTask(
-                        player,
-                        DiaryLevel.MEDIUM,
-                        MediumTasks.USE_VIGROY_HAJEDY_CARTS
+                        player = player,
+                        level = DiaryLevel.MEDIUM,
+                        task = MediumTasks.USE_VIGROY_HAJEDY_CARTS
                     )
                 }
                 if (event.target.id in FRUIT_TREES) {
                     finishTask(
-                        player,
-                        DiaryLevel.MEDIUM,
-                        MediumTasks.BRIMHAVEN_GROW_HEALTHY_FRUIT_TREE
+                        player = player,
+                        level = DiaryLevel.MEDIUM,
+                        task = MediumTasks.BRIMHAVEN_GROW_HEALTHY_FRUIT_TREE
                     )
                 }
             }

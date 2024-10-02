@@ -234,10 +234,7 @@ object CharterShipUtils {
                             closeOverlay(player)
                             restoreTabs(player)
                             setMinimapState(player, 0)
-                            sendMessage(
-                                player,
-                                "You pay the fare and sail to " + StringUtils.formatDisplayName(name) + "."
-                            )
+                            sendMessage(player, "You pay the fare and sail to " + StringUtils.formatDisplayName(name) + ".")
                             if (start.withinDistance(Location.create(3001, 3032, 0))) {
                                 finishDiaryTask(player, DiaryType.KARAMJA, 1, 17)
                             }
