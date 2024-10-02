@@ -14,13 +14,7 @@ import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 import core.game.system.task.Pulse
 import core.game.world.map.Location
-import core.net.packet.PacketRepository
-import core.net.packet.context.MinimapStateContext
-import core.net.packet.outgoing.MinimapState
-import org.rs.consts.Components
-import org.rs.consts.Items
-import org.rs.consts.NPCs
-import org.rs.consts.Vars
+import org.rs.consts.*
 
 class BalloonListener : InterfaceListener, InteractionListener {
 
@@ -36,7 +30,7 @@ class BalloonListener : InterfaceListener, InteractionListener {
         fun adjustInterface(player: Player, npc: Node) {
             val npcs = npc as NPC
             setComponentVisibility(
-                player, 469, when (npcs.id) {
+                player, BALLOON_MAP_INTERFACE, when (npcs.id) {
                     5049 -> 12
                     5050 -> 22
                     5053 -> 21
@@ -171,12 +165,12 @@ class BalloonListener : InterfaceListener, InteractionListener {
 
     override fun defineInterfaceListeners() {
         onOpen(BALLOON_MAP_INTERFACE) { player: Player, _: Component ->
-            PacketRepository.send(MinimapState::class.java, MinimapStateContext(player, 2))
+            setMinimapState(player, 2)
             return@onOpen true
         }
 
         onClose(BALLOON_MAP_INTERFACE) { player: Player, _: Component ->
-            PacketRepository.send(MinimapState::class.java, MinimapStateContext(player, 0))
+            setMinimapState(player, 0)
             return@onClose true
         }
 
@@ -218,7 +212,7 @@ class BalloonListener : InterfaceListener, InteractionListener {
             when (node.id) {
                 5054 -> player.dialogueInterpreter.open(5065)
                 else -> {
-                    if (!hasRequirement(player, "Enlightened Journey")) return@on true
+                    if (!hasRequirement(player, QuestName.ENLIGHTENED_JOURNEY)) return@on true
                     openInterface(player, Components.ZEP_BALLOON_MAP_469).also {
                         setComponentVisibility(
                             player, Components.ZEP_BALLOON_MAP_469,
@@ -239,7 +233,7 @@ class BalloonListener : InterfaceListener, InteractionListener {
         }
 
         on(allAssistants, IntType.NPC, "fly") { player, node ->
-            if (!isQuestComplete(player, "Enlightened Journey")) {
+            if (!isQuestComplete(player, QuestName.ENLIGHTENED_JOURNEY)) {
                 sendMessage(player, "You must complete Enlightened Journey before you can use it.")
             } else {
                 adjustInterface(player, node.asNpc())

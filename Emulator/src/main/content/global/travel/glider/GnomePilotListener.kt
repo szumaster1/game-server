@@ -7,6 +7,7 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import org.rs.consts.Components
 import org.rs.consts.NPCs
+import org.rs.consts.QuestName
 
 class GnomePilotListener : InteractionListener {
 
@@ -15,7 +16,7 @@ class GnomePilotListener : InteractionListener {
     override fun defineListeners() {
 
         on(GNOME_PILOTS, IntType.NPC, "glider") { player, _ ->
-            if (!isQuestComplete(player, "The Grand Tree")) {
+            if (!isQuestComplete(player, QuestName.THE_GRAND_TREE)) {
                 sendMessage(player, "You must complete The Grand Tree Quest to access the gnome glider.")
             } else {
                 openInterface(player, Components.GLIDERMAP_138)
