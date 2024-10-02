@@ -19,9 +19,6 @@ import core.game.world.map.zone.ZoneRestriction
 import core.game.world.update.flag.context.Animation
 import core.tools.RandomFunction
 
-/**
- * Pyramid plunder minigame.
- */
 class PyramidPlunderMinigame : InteractionListener, TickListener, LogoutListener, MapArea {
     override fun tick() {
         val playersToExpel = PlunderUtils.decrementTimeRemaining()

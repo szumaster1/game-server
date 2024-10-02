@@ -1,6 +1,6 @@
 package content.global.skill.farming
 
-import content.minigame.vinesweeper.VinesweeperMinigame
+import content.minigame.vinesweeper.VinesweeperListener
 import org.rs.consts.Components
 import org.rs.consts.NPCs
 import core.cache.def.impl.NPCDefinition
@@ -32,7 +32,7 @@ class ToolLeprechaunHandler : OptionHandler() {
         node ?: return false
         when (option) {
             "exchange" -> player?.interfaceManager?.open(Component(Components.FARMING_TOOLS_125))
-            "teleport" -> VinesweeperMinigame.Companion.VinesweeperTeleport.teleport(node as NPC, player!!)
+            "teleport" -> VinesweeperListener.Companion.VinesweeperTeleport.teleport(node as NPC, player!!)
         }
         return true
     }

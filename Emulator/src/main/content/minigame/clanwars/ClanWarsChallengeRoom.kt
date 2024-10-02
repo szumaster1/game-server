@@ -28,7 +28,7 @@ class ClanWarsChallengeRoom : MapZone("clan wars cr", true, ZoneRestriction.RAND
             p.skullManager.isWilderness = false
             p.interfaceManager.closeOverlay()
             p.interaction.remove(Option._P_ASSIST)
-            p.interaction.set(CWChallengeOption.OPTION)
+            p.interaction.set(CWChallengeOptionHandler.OPTION)
         }
         return super.enter(e)
     }
@@ -37,7 +37,7 @@ class ClanWarsChallengeRoom : MapZone("clan wars cr", true, ZoneRestriction.RAND
         if (e is Player) {
             val p = e
             p.skullManager.isWildernessDisabled = false
-            p.interaction.remove(CWChallengeOption.OPTION)
+            p.interaction.remove(CWChallengeOptionHandler.OPTION)
             p.interaction.set(Option._P_ASSIST)
             if (WildernessZone.isInZone(e)) {
                 WildernessZone.show(p)
@@ -70,7 +70,7 @@ class ClanWarsChallengeRoom : MapZone("clan wars cr", true, ZoneRestriction.RAND
     @Throws(Throwable::class)
     override fun newInstance(arg: Any?): Plugin<Any?> {
         ZoneBuilder.configure(this)
-        definePlugin(CWChallengeOption())
+        definePlugin(CWChallengeOptionHandler())
         return this
     }
 

@@ -8,7 +8,7 @@ import content.global.ame.evilchicken.EvilChickenNPC
 import content.global.ame.eviltwin.MollyNPC
 import content.global.ame.freakyforest.FreakyForesterNPC
 import content.global.ame.genie.GenieNPC
-import content.global.ame.kissthefrog.FrogHeraldNPC
+import content.global.ame.frogs.FrogHeraldNPC
 import content.global.ame.lostandfound.LostAndFoundNPC
 import content.global.ame.mime.MimeNPC
 import content.global.ame.pinball.PinballNPC

@@ -12,10 +12,7 @@ import core.game.node.entity.player.Player
 import core.game.node.item.Item
 import core.game.system.task.Pulse
 
-/**
- * Pass gnome ball listeners.
- */
-class PassGnomeBallListeners : InteractionListener {
+class PassGnomeBallListener : InteractionListener {
 
     override fun defineListeners() {
         on(IntType.PLAYER, "pass") { player, node ->

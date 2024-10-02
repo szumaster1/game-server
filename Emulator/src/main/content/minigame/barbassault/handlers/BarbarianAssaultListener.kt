@@ -11,7 +11,7 @@ import core.game.interaction.InteractionListener
 /**
  * Barbarian assault listeners.
  */
-class BarbarianAssaultListeners : InteractionListener {
+class BarbarianAssaultListener : InteractionListener {
 
     override fun defineListeners() {
 

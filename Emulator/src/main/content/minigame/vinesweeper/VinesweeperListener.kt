@@ -1,15 +1,15 @@
 package content.minigame.vinesweeper
 
 import content.minigame.vinesweeper.FlagsHandler.Companion.FARMER_FLAG_LINES
-import content.minigame.vinesweeper.VinesweeperMinigame.Companion.FARMERS
-import content.minigame.vinesweeper.VinesweeperMinigame.Companion.FARMER_CLEAR_RADIUS
-import content.minigame.vinesweeper.VinesweeperMinigame.Companion.HOLES
-import content.minigame.vinesweeper.VinesweeperMinigame.Companion.NUMBERS
-import content.minigame.vinesweeper.VinesweeperMinigame.Companion.RABBITS
-import content.minigame.vinesweeper.VinesweeperMinigame.Companion.SEED_LOCS
-import content.minigame.vinesweeper.VinesweeperMinigame.Companion.populateSeeds
-import content.minigame.vinesweeper.VinesweeperMinigame.Companion.scheduleNPCs
-import content.minigame.vinesweeper.VinesweeperMinigame.Companion.sendPoints
+import content.minigame.vinesweeper.VinesweeperListener.Companion.FARMERS
+import content.minigame.vinesweeper.VinesweeperListener.Companion.FARMER_CLEAR_RADIUS
+import content.minigame.vinesweeper.VinesweeperListener.Companion.HOLES
+import content.minigame.vinesweeper.VinesweeperListener.Companion.NUMBERS
+import content.minigame.vinesweeper.VinesweeperListener.Companion.RABBITS
+import content.minigame.vinesweeper.VinesweeperListener.Companion.SEED_LOCS
+import content.minigame.vinesweeper.VinesweeperListener.Companion.populateSeeds
+import content.minigame.vinesweeper.VinesweeperListener.Companion.scheduleNPCs
+import content.minigame.vinesweeper.VinesweeperListener.Companion.sendPoints
 import content.minigame.vinesweeper.dialogue.BlinkinDialogueFile
 import content.minigame.vinesweeper.dialogue.MrsWinkinDialogueFile
 import core.api.*
@@ -47,7 +47,7 @@ import org.rs.consts.Scenery as Sceneries
 /**
  * Vinesweeper minigame.
  */
-class VinesweeperMinigame : InteractionListener, InterfaceListener, MapArea {
+class VinesweeperListener : InteractionListener, InterfaceListener, MapArea {
 
     override fun defineAreaBorders(): Array<ZoneBorders> {
         return arrayOf(getRegionBorders(6473))
@@ -597,7 +597,7 @@ class VinesweeperMinigame : InteractionListener, InterfaceListener, MapArea {
  */
 @Initializable
 class VinesweeperNPC : AbstractNPC {
-    var seedDestinations: ArrayList<VinesweeperMinigame.SeedDestination> = ArrayList()
+    var seedDestinations: ArrayList<VinesweeperListener.SeedDestination> = ArrayList()
 
     constructor() : super(RABBITS[0], null, true)
     private constructor(id: Int, location: Location) : super(id, location)
@@ -656,7 +656,7 @@ class VinesweeperNPC : AbstractNPC {
      * @param scenery
      * @param dest
      */
-    fun handleRabbitSeed(scenery: Scenery, dest: VinesweeperMinigame.SeedDestination) {
+    fun handleRabbitSeed(scenery: Scenery, dest: VinesweeperListener.SeedDestination) {
         if (SEED_LOCS.contains(dest.loc)) {
             val replacement = Sceneries.DEAD_PLANT_29456
             lock(4)
@@ -674,7 +674,7 @@ class VinesweeperNPC : AbstractNPC {
      * @param scenery
      * @param dest
      */
-    fun handleFarmerSeed(scenery: Scenery, dest: VinesweeperMinigame.SeedDestination) {
+    fun handleFarmerSeed(scenery: Scenery, dest: VinesweeperListener.SeedDestination) {
         lock()
         var i = 0
         animate(Animation(Animations.GNOME_FARMER_DIG_SEED_8730))
@@ -712,7 +712,7 @@ class VinesweeperNPC : AbstractNPC {
      * @param scenery
      * @param dest
      */
-    fun handleFarmerFlag(scenery: Scenery, dest: VinesweeperMinigame.SeedDestination) {
+    fun handleFarmerFlag(scenery: Scenery, dest: VinesweeperListener.SeedDestination) {
         val npc = this
         lock()
         var i = 0
@@ -762,7 +762,7 @@ class VinesweeperNPC : AbstractNPC {
      *
      * @param dest
      */
-    fun farmerClear(dest: VinesweeperMinigame.SeedDestination) {
+    fun farmerClear(dest: VinesweeperListener.SeedDestination) {
         for (dx in -FARMER_CLEAR_RADIUS..FARMER_CLEAR_RADIUS) {
             for (dy in -FARMER_CLEAR_RADIUS..FARMER_CLEAR_RADIUS) {
                 val toClear = getScenery(dest.loc.transform(dx, dy, 0))

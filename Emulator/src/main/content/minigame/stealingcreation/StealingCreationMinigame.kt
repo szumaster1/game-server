@@ -12,7 +12,7 @@ import core.game.interaction.InteractionListener
 /**
  * Stealing creation listeners.
  */
-class StealingCreationListeners : InteractionListener {
+class StealingCreationMinigame: InteractionListener {
 
     override fun defineListeners() {
         on(Scenery.ENTRY_PORTAL_39515, IntType.SCENERY, "enter") { player, _ ->

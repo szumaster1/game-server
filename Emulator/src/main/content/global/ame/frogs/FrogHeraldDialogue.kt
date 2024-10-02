@@ -1,4 +1,4 @@
-package content.global.ame.kissthefrog
+package content.global.ame.frogs
 
 import core.api.*
 import core.game.dialogue.DialogueFile

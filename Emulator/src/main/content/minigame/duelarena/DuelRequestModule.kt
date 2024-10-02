@@ -6,7 +6,7 @@ import core.game.node.entity.player.link.request.RequestModule
 /**
  * Duel req module.
  */
-class DuelReqModule(private val staked: Boolean) : RequestModule {
+class DuelRequestModule(private val staked: Boolean) : RequestModule {
 
     override fun open(player: Player?, target: Player?) {
         val session = DuelSession(player, target, staked)

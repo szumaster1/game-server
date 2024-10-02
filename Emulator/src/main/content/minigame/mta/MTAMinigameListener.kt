@@ -1,6 +1,5 @@
 package content.minigame.mta
 
-import content.global.skill.magic.SpellListener
 import content.global.skill.magic.spellconsts.Modern
 import content.minigame.mta.impl.AlchemistZone
 import org.rs.consts.Animations
@@ -18,7 +17,7 @@ import core.game.world.update.flag.context.Graphic
 /**
  * Represents the MTA listeners.
  */
-class MTAListeners : InteractionListener {
+class MTAMinigameListener : InteractionListener {
 
     override fun defineListeners() {
         on(NPCs.MAZE_GUARDIAN_3102, IntType.NPC, "talk-to") { player, node ->

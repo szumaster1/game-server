@@ -1,6 +1,6 @@
 package content.minigame.vinesweeper.dialogue
 
-import content.minigame.vinesweeper.VinesweeperMinigame
+import content.minigame.vinesweeper.VinesweeperListener
 import org.rs.consts.Components
 import org.rs.consts.NPCs
 import core.api.openInterface
@@ -66,7 +66,7 @@ class ToolLeprechaunDialogue(player: Player? = null) : Dialogue(player) {
             20 -> npcl(faceExpressions, "Ye must be dafter than ye look if ye likes luggin' yer tools everywhere ye goes!").also { stage = END_DIALOGUE }
             30 -> {
                 end()
-                VinesweeperMinigame.Companion.VinesweeperTeleport.teleport(npc!!, player!!)
+                VinesweeperListener.Companion.VinesweeperTeleport.teleport(npc!!, player!!)
             }
         }
         return true
@@ -120,7 +120,7 @@ class ToolLeprechaunGothDialogue(player: Player? = null) : Dialogue(player) {
 
             30 -> {
                 end()
-                VinesweeperMinigame.Companion.VinesweeperTeleport.teleport(npc!!, player!!)
+                VinesweeperListener.Companion.VinesweeperTeleport.teleport(npc!!, player!!)
             }
         }
         return true

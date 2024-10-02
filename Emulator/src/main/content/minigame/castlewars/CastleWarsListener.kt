@@ -22,7 +22,7 @@ import core.game.world.update.flag.context.Animation
  * @author Dginovoker
  */
 @Suppress("unused")
-class CastleWarsListeners : InteractionListener {
+class CastleWarsListener : InteractionListener {
 
     override fun defineListeners() {
 

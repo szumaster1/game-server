@@ -1,6 +1,6 @@
 package content.minigame.sorceressgarden
 
-import content.minigame.sorceressgarden.SorceressGarden.SeasonDefinitions.Companion.forGateId
+import content.minigame.sorceressgarden.SorceressGardenListener.SeasonDefinitions.Companion.forGateId
 import content.minigame.sorceressgarden.dialogue.SorceressApprenticeDialogue
 import core.api.*
 import org.rs.consts.Items
@@ -33,7 +33,7 @@ import org.rs.consts.Components
 /**
  * Sorceress garden.
  */
-class SorceressGarden : InteractionListener {
+class SorceressGardenListener : InteractionListener {
     val GATES = intArrayOf(21709, 21753, 21731, 21687)
     val APPRENTICE = NPCs.APPRENTICE_5532
     val SQIRK_TREES = intArrayOf(21767, 21768, 21769, 21766)
@@ -421,7 +421,7 @@ class SorceressGarden : InteractionListener {
  */
 class SqirkMakingDialogue(player: Player? = null) : Dialogue(player) {
     private var dialogueId = 0
-    private var definition: SorceressGarden.SeasonDefinitions? = null
+    private var definition: SorceressGardenListener.SeasonDefinitions? = null
 
     override fun getIds(): IntArray {
         return intArrayOf(43382)
@@ -448,7 +448,7 @@ class SqirkMakingDialogue(player: Player? = null) : Dialogue(player) {
             0 -> player(FacialExpression.THINKING, "I should get an empty beer glass to", "hold the juice before I squeeze the fruit.")
 
             1 -> {
-                definition = SorceressGarden.SeasonDefinitions.forFruitId(args[1] as Int)
+                definition = SorceressGardenListener.SeasonDefinitions.forFruitId(args[1] as Int)
                 if (definition == null) end()
                 player(FacialExpression.THINKING, "I think I should wait till I have", "enough fruits to make a full glass.")
             }

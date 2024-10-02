@@ -1,27 +1,28 @@
 package content.minigame.pyramidplunder
 
+import core.api.openDialogue
 import core.game.interaction.NodeUsageEvent
 import core.game.interaction.UseWithHandler
 import core.game.node.entity.npc.NPC
 import core.plugin.Initializable
 import core.plugin.Plugin
+import org.rs.consts.NPCs
 
 /**
  * Represents the Simon Scepter interaction.
  */
 @Initializable
-class SimonScepterInteraction : UseWithHandler(9044, 9046, 9048, 9050) {
+class SimonScepterHandler : UseWithHandler(9044, 9046, 9048, 9050) {
 
     @Throws(Throwable::class)
     override fun newInstance(arg: Any?): Plugin<Any> {
-        addHandler(3123, NPC_TYPE, this)
-        //PluginManager.definePlugin(new SimonScepterInteraction());
+        addHandler(NPCs.SIMON_TEMPLETON_3123, NPC_TYPE, this)
         return this
     }
 
     override fun handle(event: NodeUsageEvent): Boolean {
         val player = event.player
-        player.dialogueInterpreter.open(3123, event.usedWith as NPC, true, false, event.usedItem.id)
+        openDialogue(player, NPCs.SIMON_TEMPLETON_3123, event.usedWith as NPC, true, false, event.usedItem.id)
         return true
     }
 }

@@ -34,7 +34,7 @@ import core.tools.RandomFunction
  * Puro-puro plugin.
  */
 @Initializable
-class PuroPuroPlugin : MapZone("puro puro", true), Plugin<Any> {
+class PuroPuroMinigame : MapZone("puro puro", true), Plugin<Any> {
     init {
         zoneType = ZoneType.SAFE.id
     }

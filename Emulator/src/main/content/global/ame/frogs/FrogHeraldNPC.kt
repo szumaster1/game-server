@@ -1,4 +1,4 @@
-package content.global.ame.kissthefrog
+package content.global.ame.frogs
 
 import content.global.ame.RandomEventNPC
 import core.api.utils.WeightBasedTable

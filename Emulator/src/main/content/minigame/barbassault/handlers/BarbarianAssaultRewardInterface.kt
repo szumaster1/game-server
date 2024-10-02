@@ -7,7 +7,7 @@ import core.game.interaction.InterfaceListener
 /**
  * Reward interface listener.
  */
-class RewardInterfaceListener : InterfaceListener {
+class BarbarianAssaultRewardInterface : InterfaceListener {
 
     override fun defineInterfaceListeners() {
         // Reset points.

@@ -13,13 +13,16 @@ import core.game.world.map.zone.ZoneRestriction
 import core.tools.secondsToTicks
 import org.rs.consts.Components
 import org.rs.consts.NPCs
+import org.rs.consts.Scenery
 import org.rs.consts.Sounds
 
 /**
  * Drill demon listeners.
  */
 class DrillDemonListener : InteractionListener, MapArea {
-    val MATS = intArrayOf(10076, 10077, 10078, 10079)
+
+    val MATS = intArrayOf(Scenery.EXERCISE_MAT_10076, Scenery.EXERCISE_MAT_10077, Scenery.EXERCISE_MAT_10078, Scenery.EXERCISE_MAT_10079)
+
     override fun defineListeners() {
 
         on(DrillDemonUtils.DD_NPC, IntType.NPC, "talk-to") { player, _ ->

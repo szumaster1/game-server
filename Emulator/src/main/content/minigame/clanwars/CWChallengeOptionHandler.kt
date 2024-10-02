@@ -9,12 +9,11 @@ import core.game.node.entity.player.link.request.RequestModule
 import core.game.node.entity.player.link.request.RequestType
 import core.game.system.communication.ClanRank
 import core.plugin.Plugin
-import java.util.*
 
 /**
  * CW challenge option.
  */
-class CWChallengeOption : OptionHandler() {
+class CWChallengeOptionHandler : OptionHandler() {
 
     override fun newInstance(arg: Any?): Plugin<Any> {
         OPTION.setHandler(this)
@@ -30,7 +29,7 @@ class CWChallengeOption : OptionHandler() {
 
         val OPTION = Option("Challenge", 0)
         private val REQUEST_TYPE: RequestType =
-            object : RequestType("Sending challenge request...", ":clanreq:", CWChallengeOption.module) {
+            object : RequestType("Sending challenge request...", ":clanreq:", CWChallengeOptionHandler.module) {
                 override fun canRequest(player: Player?, target: Player?): Boolean {
                     if (player!!.communication.clan == null) {
                         player.packetDispatch.sendMessage("You have to be in a clan to challenge players.")

@@ -18,7 +18,7 @@ import core.game.world.update.flag.context.Graphic
 /**
  * Mage arena listeners.
  */
-class MageArenaListeners : InteractionListener {
+class MageArenaListener : InteractionListener {
 
     private val godCapes = intArrayOf(Items.SARADOMIN_CAPE_2412, Items.GUTHIX_CAPE_2413, Items.ZAMORAK_CAPE_2414)
     private val godStatue = intArrayOf(Scenery.STATUE_OF_SARADOMIN_2873, Scenery.STATUE_OF_ZAMORAK_2874, Scenery.STATUE_OF_GUTHIX_2875)
@@ -89,15 +89,7 @@ class MageArenaListeners : InteractionListener {
                         queueScript(player, 1, QueueStrength.STRONG) { stage: Int ->
                             when (stage) {
                                 0 -> {
-                                    forceMove(
-                                        player,
-                                        player.location,
-                                        Location(2542, 4720, 0),
-                                        0,
-                                        30,
-                                        Direction.NORTH,
-                                        Animations.HUMAN_JUMP_INTO_WATER_7269
-                                    )
+                                    forceMove(player, player.location, Location(2542, 4720, 0), 0, 30, Direction.NORTH, Animations.HUMAN_JUMP_INTO_WATER_7269)
                                     return@queueScript keepRunning(player)
                                 }
 

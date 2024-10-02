@@ -93,8 +93,8 @@ class DuelArenaActivity : ActivityPlugin("Duel arena", false, false, true) {
     }
 
     companion object {
-        val FRIEND_REQUEST = RequestType("Sending duel offer...", ":duelfriend:", DuelReqModule(false))
-        val STAKE_REQUEST = RequestType("Sending duel offer...", ":duelstake:", DuelReqModule(true))
+        val FRIEND_REQUEST = RequestType("Sending duel offer...", ":duelfriend:", DuelRequestModule(false))
+        val STAKE_REQUEST = RequestType("Sending duel offer...", ":duelstake:", DuelRequestModule(true))
         val DUEL_AREAS = arrayOf(
             DuelArea(0, ZoneBorders(3332, 3244, 3357, 3258), false, Location.create(3345, 3251, 0)),
             DuelArea(1, ZoneBorders(3364, 3244, 3388, 3259), true, Location.create(3378, 3251, 0)),
