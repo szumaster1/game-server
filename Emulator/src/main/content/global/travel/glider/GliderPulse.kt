@@ -13,7 +13,7 @@ import org.rs.consts.Components
 /**
  * Represents the glider pulse.
  */
-class GliderPulse(delay: Int, private val player: Player, private val glider: Gliders) : Pulse(delay, player) {
+class GliderPulse(delay: Int, private val player: Player, private val glider: Glider) : Pulse(delay, player) {
         private var count: Int = 0
 
         init {
@@ -21,7 +21,7 @@ class GliderPulse(delay: Int, private val player: Player, private val glider: Gl
         }
 
         override fun pulse(): Boolean {
-            val crash = glider == Gliders.LEMANTO_ADRA
+            val crash = glider == Glider.LEMANTO_ADRA
             if (count == 1) {
                 setVarp(player, 153, glider.config)
                 setMinimapState(player, 2)
@@ -35,7 +35,7 @@ class GliderPulse(delay: Int, private val player: Player, private val glider: Gl
                 }
                 4 -> {
                     unlock(player)
-                    player.properties.teleportLocation = glider.location
+                    teleport(player, glider.location)
                 }
                 5 -> {
                     if (crash) {
@@ -46,7 +46,7 @@ class GliderPulse(delay: Int, private val player: Player, private val glider: Gl
                     closeInterface(player)
                     setMinimapState(player, 0)
                     setVarp(player, 153, 0)
-                    if (!crash && glider == Gliders.GANDIUS) {
+                    if (!crash && glider == Glider.GANDIUS) {
                         finishDiaryTask(player, DiaryType.KARAMJA, 1, 11)
                     }
                     return true

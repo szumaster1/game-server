@@ -15,7 +15,7 @@ import org.rs.consts.NPCs
  * @param npc      The NPC associated with the gnome glider.
  * @constructor Creates a new instance of the GnomeGlider enum.
  */
-enum class Gliders(val button: Int, val location: Location, val config: Int, val npc: Int) {
+enum class Glider(val button: Int, val location: Location, val config: Int, val npc: Int) {
     /*
      * Crash Island.
      */
@@ -92,8 +92,8 @@ enum class Gliders(val button: Int, val location: Location, val config: Int, val
             }
         }
 
-        fun forNpc(npc: Int): Gliders? = values().find { it.npc == npc }
+        fun forNpc(npc: Int): Glider? = values().find { it.npc == npc }
 
-        fun forId(id: Int): Gliders? = values().find { it.button == id }
+        fun forId(id: Int): Glider? = values().find { it.button == id }
     }
 }

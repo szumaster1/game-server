@@ -10,6 +10,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 import org.rs.consts.Components
 import org.rs.consts.NPCs
+import org.rs.consts.QuestName
 
 /**
  * Represents the Gnome Pilot dialogue.
@@ -26,7 +27,7 @@ class GnomePilotDialogue(player: Player? = null) : Dialogue(player) {
     override fun handle(interfaceId: Int, buttonId: Int): Boolean {
         when (stage) {
             0 -> player(FacialExpression.HALF_GUILTY, "May you fly me somewhere on your glider?").also { stage++ }
-            1 -> if (!isQuestComplete(player, "The Grand Tree")) {
+            1 -> if (!isQuestComplete(player, QuestName.THE_GRAND_TREE)) {
                 npc(FacialExpression.OLD_ANGRY3, "I only fly friends of the gnomes!").also { stage = END_DIALOGUE }
             } else {
                 npc(FacialExpression.OLD_DEFAULT, "If you wish.").also { stage++ }

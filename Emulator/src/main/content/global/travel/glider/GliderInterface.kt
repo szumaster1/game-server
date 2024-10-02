@@ -19,7 +19,7 @@ class GliderInterface : InterfaceListener {
 
 
         on(Components.GLIDERMAP_138) { player, _, _, buttonID, _, _ ->
-            val glider = Gliders.forId(buttonID) ?: return@on true
+            val glider = Glider.forId(buttonID) ?: return@on true
             when (buttonID) {
                 glider.button -> submitWorldPulse(GliderPulse(1, player, glider))
             }

@@ -1,6 +1,6 @@
 package content.global.handlers.item
 
-import content.global.travel.glider.Gliders
+import content.global.travel.glider.Glider
 import core.api.*
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
@@ -49,7 +49,7 @@ class GrandSeedPodListener : InteractionListener {
                     }
 
                     if (stage == 2) {
-                        teleport(player, Gliders.TA_QUIR_PRIW.location)
+                        teleport(player, Glider.TA_QUIR_PRIW.location)
                         return@queueScript delayScript(player, 2)
                     }
 
