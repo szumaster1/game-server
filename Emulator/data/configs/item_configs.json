@@ -35668,7 +35668,7 @@
     "id": "3737"
   },
   {
-    "examine": "The lid is screwed on tightly. ",
+    "examine": "The lid is screwed on tightly.",
     "durability": null,
     "name": "Sealed vase",
     "tradeable": "false",
@@ -35686,7 +35686,7 @@
     "id": "3739"
   },
   {
-    "examine": "The lid is screwed on tightly. It is very cold. ",
+    "examine": "The lid is screwed on tightly. It is very cold.",
     "durability": null,
     "name": "Sealed vase",
     "tradeable": "false",
@@ -37458,7 +37458,7 @@
     "requirements": "{1,20}-{6,40}",
     "shop_price": "15000",
     "ge_buy_limit": "100",
-    "examine": "Blue: A magical hat. ",
+    "examine": "Blue: A magical hat.",
     "durability": null,
     "weight": "0.4",
     "absorb": "3,1,0",
@@ -37587,7 +37587,7 @@
     "requirements": "{1,20}-{6,40}",
     "shop_price": "15000",
     "ge_buy_limit": "100",
-    "examine": "Black: A magical hat. ",
+    "examine": "Black: A magical hat.",
     "durability": null,
     "weight": "0.4",
     "absorb": "3,1,0",
@@ -37716,7 +37716,7 @@
     "requirements": "{1,20}-{6,40}",
     "shop_price": "15000",
     "ge_buy_limit": "100",
-    "examine": "White: A magical hat. ",
+    "examine": "White: A magical hat.",
     "durability": null,
     "weight": "0.4",
     "absorb": "3,1,0",
@@ -47414,7 +47414,7 @@
     "id": "5068"
   },
   {
-    "examine": "Full: ",
+    "examine": "It's a bird's nest with an egg in it.",
     "durability": null,
     "name": "Bird's nest",
     "tradeable": "false",
@@ -47422,7 +47422,7 @@
     "id": "5070"
   },
   {
-    "examine": "Full: ",
+    "examine": "It's a bird's nest with an egg in it.",
     "durability": null,
     "name": "Bird's nest",
     "tradeable": "false",
@@ -47430,7 +47430,7 @@
     "id": "5071"
   },
   {
-    "examine": "Full: ",
+    "examine": "It's a bird's nest with an egg in it.",
     "durability": null,
     "name": "Bird's nest",
     "tradeable": "false",
@@ -47438,7 +47438,7 @@
     "id": "5072"
   },
   {
-    "examine": "Full: ",
+    "examine": "It's a bird's nest with some seeds in it.",
     "durability": null,
     "name": "Bird's nest",
     "tradeable": "false",
@@ -47446,7 +47446,7 @@
     "id": "5073"
   },
   {
-    "examine": "Full: ",
+    "examine": "It's a bird's nest with a ring in it.",
     "durability": null,
     "name": "Bird's nest",
     "tradeable": "false",
@@ -47454,7 +47454,7 @@
     "id": "5074"
   },
   {
-    "examine": "Full: ",
+    "examine": "It's an empty bird's nest.",
     "durability": null,
     "name": "Bird's nest",
     "tradeable": "false",
@@ -54596,7 +54596,7 @@
   },
   {
     "ge_buy_limit": "1000",
-    "examine": "N doses of extra-stong antipoison potion",
+    "examine": "4 doses of extra-stong antipoison potion",
     "grand_exchange_price": "1032",
     "durability": null,
     "name": "Antipoison+(4)",
@@ -54616,7 +54616,7 @@
   },
   {
     "ge_buy_limit": "1000",
-    "examine": "N doses of extra-stong antipoison potion",
+    "examine": "3 doses of extra-stong antipoison potion",
     "grand_exchange_price": "1499",
     "durability": null,
     "name": "Antipoison+(3)",
@@ -54636,7 +54636,7 @@
   },
   {
     "ge_buy_limit": "1000",
-    "examine": "N doses of extra-stong antipoison potion",
+    "examine": "2 doses of extra-stong antipoison potion",
     "grand_exchange_price": "1316",
     "durability": null,
     "name": "Antipoison+(2)",
@@ -54656,7 +54656,7 @@
   },
   {
     "ge_buy_limit": "1000",
-    "examine": "N doses of extra-stong antipoison potion",
+    "examine": "1 doses of extra-stong antipoison potion",
     "grand_exchange_price": "1599",
     "durability": null,
     "name": "Antipoison+(1)",
@@ -61400,7 +61400,7 @@
     "id": "6694"
   },
   {
-    "examine": "\"A cold-blooded creature, partial to warmth.",
+    "examine": "A cold-blooded creature, partial to warmth.",
     "durability": null,
     "name": "Desert lizard",
     "archery_ticket_price": "0",
@@ -65347,7 +65347,7 @@
   },
   {
     "ge_buy_limit": "1000",
-    "examine": "Still needs two more ingredients. ",
+    "examine": "Still needs two more ingredients.",
     "grand_exchange_price": "159",
     "durability": null,
     "name": "Part admiral pie",
@@ -67505,7 +67505,7 @@
     "id": "7411"
   },
   {
-    "examine": "Full: ",
+    "examine": "It has something inside.",
     "durability": null,
     "name": "Bird's nest",
     "archery_ticket_price": "0",
@@ -84624,7 +84624,7 @@
     "id": "9974"
   },
   {
-    "examine": "Aww, how cute. ",
+    "examine": "Aww, how cute.",
     "durability": null,
     "name": "Rabbit",
     "archery_ticket_price": "0",
@@ -86727,7 +86727,7 @@
     "id": "10177"
   },
   {
-    "examine": "\"It looks like bird seed, but it's not quite right somehow.",
+    "examine": "It looks like bird seed, but it's not quite right somehow.",
     "durability": null,
     "name": "Odd bird seed",
     "archery_ticket_price": "0",
@@ -91110,7 +91110,7 @@
   },
   {
     "shop_price": "15000",
-    "examine": "Blue: A magical hat. ",
+    "examine": "Blue: A magical hat.",
     "durability": null,
     "weight": "0.4",
     "absorb": "3,1,0",
@@ -91125,7 +91125,7 @@
   },
   {
     "shop_price": "15000",
-    "examine": "Blue: A magical hat. ",
+    "examine": "Blue: A magical hat.",
     "durability": null,
     "weight": "0.4",
     "absorb": "3,1,0",
@@ -91140,7 +91140,7 @@
   },
   {
     "shop_price": "15000",
-    "examine": "Blue: A magical hat. ",
+    "examine": "Blue: A magical hat.",
     "durability": null,
     "weight": "0.4",
     "absorb": "3,1,0",
@@ -94273,7 +94273,7 @@
   },
   {
     "ge_buy_limit": "100",
-    "examine": "A \"X\" dose Sanfew Serum.",
+    "examine": "4 dose Sanfew Serum.",
     "grand_exchange_price": "15900",
     "durability": null,
     "name": "Sanfew serum(4)",
@@ -94292,7 +94292,7 @@
   },
   {
     "ge_buy_limit": "100",
-    "examine": "A \"X\" dose Sanfew Serum.",
+    "examine": "3 dose Sanfew Serum.",
     "grand_exchange_price": "12000",
     "durability": null,
     "name": "Sanfew serum(3)",
@@ -94311,7 +94311,7 @@
   },
   {
     "ge_buy_limit": "100",
-    "examine": "A \"X\" dose Sanfew Serum.",
+    "examine": "2 dose Sanfew Serum.",
     "grand_exchange_price": "10200",
     "durability": null,
     "name": "Sanfew serum(2)",
@@ -94330,7 +94330,7 @@
   },
   {
     "ge_buy_limit": "100",
-    "examine": "A \"X\" dose Sanfew Serum.",
+    "examine": "1 dose Sanfew Serum.",
     "grand_exchange_price": "6114",
     "durability": null,
     "name": "Sanfew serum(1)",
@@ -98787,7 +98787,7 @@
   },
   {
     "ge_buy_limit": "1000",
-    "examine": "One/Two dose(s) of fishy attack potion",
+    "examine": "Two doses of fishy attack potion",
     "grand_exchange_price": "20",
     "durability": null,
     "name": "Attack mix(2)",
@@ -98807,7 +98807,7 @@
   },
   {
     "ge_buy_limit": "1000",
-    "examine": "One/Two dose(s) of fishy attack potion",
+    "examine": "One dose of fishy attack potion",
     "grand_exchange_price": "19",
     "durability": null,
     "name": "Attack mix(1)",
@@ -98847,7 +98847,7 @@
   },
   {
     "ge_buy_limit": "1000",
-    "examine": "Two doses of fishy antipoison potion.",
+    "examine": "One dose of fishy antipoison potion.",
     "grand_exchange_price": "608",
     "durability": null,
     "name": "Antipoison mix(1)",
@@ -98867,7 +98867,7 @@
   },
   {
     "ge_buy_limit": "1000",
-    "examine": "2 dose: Two doses of fishy Relicym's balm.",
+    "examine": "Two doses of fishy Relicym's balm.",
     "grand_exchange_price": "264",
     "durability": null,
     "name": "Relicym's mix(2)",
@@ -98887,7 +98887,7 @@
   },
   {
     "ge_buy_limit": "1000",
-    "examine": "2 dose: Two doses of fishy Relicym's balm.",
+    "examine": "One dose of fishy Relicym's balm.",
     "grand_exchange_price": "131",
     "durability": null,
     "name": "Relicym's mix(1)",
@@ -98907,7 +98907,7 @@
   },
   {
     "ge_buy_limit": "1000",
-    "examine": "One/two doses of fishy strength potion.",
+    "examine": "One dose of fishy strength potion.",
     "grand_exchange_price": "159",
     "durability": null,
     "name": "Strength mix(1)",
@@ -98927,7 +98927,7 @@
   },
   {
     "ge_buy_limit": "1000",
-    "examine": "One/two doses of fishy strength potion.",
+    "examine": "Two doses of fishy strength potion.",
     "grand_exchange_price": "164",
     "durability": null,
     "name": "Strength mix(2)",
@@ -98947,7 +98947,7 @@
   },
   {
     "ge_buy_limit": "1000",
-    "examine": "One/two doses of a fishy Combat potion",
+    "examine": "Two doses of a fishy Combat potion",
     "grand_exchange_price": "366",
     "durability": null,
     "name": "Combat mix(2)",
@@ -98967,7 +98967,7 @@
   },
   {
     "ge_buy_limit": "1000",
-    "examine": "One/two doses of a fishy Combat potion",
+    "examine": "One dose of a fishy Combat potion",
     "grand_exchange_price": "328",
     "durability": null,
     "name": "Combat mix(1)",
@@ -98987,7 +98987,7 @@
   },
   {
     "ge_buy_limit": "1000",
-    "examine": "One/two dose(s) of fishy restore potion.",
+    "examine": "Two doses of fishy restore potion.",
     "grand_exchange_price": "17",
     "durability": null,
     "name": "Restore mix(2)",
@@ -99007,7 +99007,7 @@
   },
   {
     "ge_buy_limit": "1000",
-    "examine": "One/two dose(s) of fishy restore potion.",
+    "examine": "One dose of fishy restore potion.",
     "grand_exchange_price": "24",
     "durability": null,
     "name": "Restore mix(1)",
@@ -99027,7 +99027,7 @@
   },
   {
     "ge_buy_limit": "1000",
-    "examine": "One/two doses of fishy energy potion.",
+    "examine": "Two doses of fishy energy potion.",
     "grand_exchange_price": "248",
     "durability": null,
     "name": "Energy mix(2)",
@@ -99047,7 +99047,7 @@
   },
   {
     "ge_buy_limit": "1000",
-    "examine": "One/two doses of fishy energy potion.",
+    "examine": "One dose of fishy energy potion.",
     "grand_exchange_price": "212",
     "durability": null,
     "name": "Energy mix(1)",
@@ -99067,7 +99067,7 @@
   },
   {
     "ge_buy_limit": "1000",
-    "examine": "One/two doses of a fishy defence potion",
+    "examine": "Two doses of a fishy defence potion",
     "grand_exchange_price": "887",
     "durability": null,
     "name": "Defence mix(2)",
@@ -99087,7 +99087,7 @@
   },
   {
     "ge_buy_limit": "1000",
-    "examine": "One/two doses of a fishy defence potion",
+    "examine": "One dose of a fishy defence potion",
     "grand_exchange_price": "780",
     "durability": null,
     "name": "Defence mix(1)",
@@ -99107,7 +99107,7 @@
   },
   {
     "ge_buy_limit": "1000",
-    "examine": "2 doses of a fishy agility potion",
+    "examine": "Two doses of a fishy agility potion",
     "grand_exchange_price": "388",
     "durability": null,
     "name": "Agility mix(2)",
@@ -99127,7 +99127,7 @@
   },
   {
     "ge_buy_limit": "1000",
-    "examine": "1 dose of a fishy agility potion",
+    "examine": "One dose of a fishy agility potion",
     "grand_exchange_price": "459",
     "durability": null,
     "name": "Agility mix(1)",
@@ -99147,7 +99147,7 @@
   },
   {
     "ge_buy_limit": "1000",
-    "examine": "One/two dose(s) of a fishy Prayer potion.",
+    "examine": "Two doses of a fishy Prayer potion.",
     "grand_exchange_price": "2761",
     "durability": null,
     "name": "Prayer mix(2)",
@@ -99167,7 +99167,7 @@
   },
   {
     "ge_buy_limit": "1000",
-    "examine": "One/two dose(s) of a fishy Prayer potion.",
+    "examine": "One dose of a fishy Prayer potion.",
     "grand_exchange_price": "1857",
     "durability": null,
     "name": "Prayer mix(1)",
@@ -99187,7 +99187,7 @@
   },
   {
     "ge_buy_limit": "1000",
-    "examine": "one/two doses of fishy super attack potion",
+    "examine": "Two doses of fishy super attack potion",
     "grand_exchange_price": "375",
     "durability": null,
     "name": "Superattack mix(2)",
@@ -99207,7 +99207,7 @@
   },
   {
     "ge_buy_limit": "1000",
-    "examine": "one/two doses of fishy super attack potion",
+    "examine": "One dose of fishy super attack potion",
     "grand_exchange_price": "516",
     "durability": null,
     "name": "Superattack mix(1)",
@@ -99227,7 +99227,7 @@
   },
   {
     "ge_buy_limit": "1000",
-    "examine": "One/Two dose(s) of fishy super antipoison potion.",
+    "examine": "Two doses of fishy super antipoison potion.",
     "grand_exchange_price": "613",
     "durability": null,
     "name": "Anti-p supermix(2)",
@@ -99247,7 +99247,7 @@
   },
   {
     "ge_buy_limit": "1000",
-    "examine": "One/Two dose(s) of fishy super antipoison potion.",
+    "examine": "One dose of fishy super antipoison potion.",
     "grand_exchange_price": "1119",
     "durability": null,
     "name": "Anti-p supermix(1)",
@@ -99267,7 +99267,7 @@
   },
   {
     "ge_buy_limit": "1000",
-    "examine": "One/Two Doses of fishy fishing potion.",
+    "examine": "Two doses of fishy fishing potion.",
     "grand_exchange_price": "123",
     "durability": null,
     "name": "Fishing mix(2)",
@@ -99287,7 +99287,7 @@
   },
   {
     "ge_buy_limit": "1000",
-    "examine": "One/Two Doses of fishy fishing potion.",
+    "examine": "One dose of fishy fishing potion.",
     "grand_exchange_price": "87",
     "durability": null,
     "name": "Fishing mix(1)",
@@ -99307,7 +99307,7 @@
   },
   {
     "ge_buy_limit": "1000",
-    "examine": "One/Two doses of fishy super energy potion.",
+    "examine": "Two doses of fishy super energy potion.",
     "grand_exchange_price": "1062",
     "durability": null,
     "name": "Super energy mix(2)",
@@ -99327,7 +99327,7 @@
   },
   {
     "ge_buy_limit": "1000",
-    "examine": "One/Two doses of fishy super energy potion.",
+    "examine": "One dose of fishy super energy potion.",
     "grand_exchange_price": "562",
     "durability": null,
     "name": "Super energy mix(1)",
@@ -99347,7 +99347,7 @@
   },
   {
     "ge_buy_limit": "1000",
-    "examine": "One/Two doses of fishy Super strength potion.",
+    "examine": "Two doses of fishy Super strength potion.",
     "grand_exchange_price": "955",
     "durability": null,
     "name": "Super strength mix(2)",
@@ -99367,7 +99367,7 @@
   },
   {
     "ge_buy_limit": "1000",
-    "examine": "One/Two doses of fishy Super strength potion.",
+    "examine": "One dose of fishy Super strength potion.",
     "grand_exchange_price": "1040",
     "durability": null,
     "name": "Super strength mix(1)",
@@ -99387,7 +99387,7 @@
   },
   {
     "ge_buy_limit": "1000",
-    "examine": "One/Two doses of fishy Magic essence potion.",
+    "examine": "Two doses of fishy Magic essence potion.",
     "grand_exchange_price": "808",
     "durability": null,
     "name": "Magic ess. mix(2)",
@@ -99407,7 +99407,7 @@
   },
   {
     "ge_buy_limit": "1000",
-    "examine": "One/Two doses of fishy Magic essence potion.",
+    "examine": "One dose of fishy Magic essence potion.",
     "grand_exchange_price": "447",
     "durability": null,
     "name": "Magic ess. mix(1)",
@@ -99427,7 +99427,7 @@
   },
   {
     "ge_buy_limit": "1000",
-    "examine": "One/Two doses of fishy super restore potion.",
+    "examine": "Two doses of fishy super restore potion.",
     "grand_exchange_price": "3670",
     "durability": null,
     "name": "Super restore mix(2)",
@@ -99447,7 +99447,7 @@
   },
   {
     "ge_buy_limit": "1000",
-    "examine": "One/Two doses of fishy super restore potion.",
+    "examine": "One dose of fishy super restore potion.",
     "grand_exchange_price": "3104",
     "durability": null,
     "name": "Super restore mix(1)",
@@ -99467,7 +99467,7 @@
   },
   {
     "ge_buy_limit": "1000",
-    "examine": "One/two doses of fishy super defence potion",
+    "examine": "Two doses of fishy super defence potion",
     "grand_exchange_price": "38",
     "durability": null,
     "name": "Super defence mix(2)",
@@ -99487,7 +99487,7 @@
   },
   {
     "ge_buy_limit": "1000",
-    "examine": "One/two doses of fishy super defence potion",
+    "examine": "One dose of fishy super defence potion",
     "grand_exchange_price": "66",
     "durability": null,
     "name": "Super defence mix(1)",
@@ -99507,7 +99507,7 @@
   },
   {
     "ge_buy_limit": "1000",
-    "examine": "One/Two doses of fishy extra strength antidote potion.",
+    "examine": "Two doses of fishy extra strength antidote potion.",
     "grand_exchange_price": "1909",
     "durability": null,
     "name": "Antidote+ mix(2)",
@@ -99527,7 +99527,7 @@
   },
   {
     "ge_buy_limit": "1000",
-    "examine": "One/Two doses of fishy extra strength antidote potion.",
+    "examine": "One dose of fishy extra strength antidote potion.",
     "grand_exchange_price": "1330",
     "durability": null,
     "name": "Antidote+ mix(1)",
@@ -99547,7 +99547,7 @@
   },
   {
     "ge_buy_limit": "1000",
-    "examine": "One/Two dose(s) of fishy anti-fire breath potion.",
+    "examine": "Two doses of fishy anti-fire breath potion.",
     "grand_exchange_price": "2048",
     "durability": null,
     "name": "Antifire mix(2)",
@@ -99567,7 +99567,7 @@
   },
   {
     "ge_buy_limit": "1000",
-    "examine": "One/Two dose(s) of fishy anti-fire breath potion.",
+    "examine": "One dose of fishy anti-fire breath potion.",
     "grand_exchange_price": "1444",
     "durability": null,
     "name": "Antifire mix(1)",
@@ -99587,7 +99587,7 @@
   },
   {
     "ge_buy_limit": "1000",
-    "examine": "One/Two doses of fishy ranging potion.",
+    "examine": "Two doses of fishy ranging potion.",
     "grand_exchange_price": "2879",
     "durability": null,
     "name": "Ranging mix(2)",
@@ -99607,7 +99607,7 @@
   },
   {
     "ge_buy_limit": "1000",
-    "examine": "One/Two doses of fishy ranging potion.",
+    "examine": "One dose of fishy ranging potion.",
     "grand_exchange_price": "1880",
     "durability": null,
     "name": "Ranging mix(1)",
@@ -99627,7 +99627,7 @@
   },
   {
     "ge_buy_limit": "1000",
-    "examine": "One/Two doses of fishy magic potion.",
+    "examine": "Two doses of fishy magic potion.",
     "grand_exchange_price": "1022",
     "durability": null,
     "name": "Magic mix(2)",
@@ -99647,7 +99647,7 @@
   },
   {
     "ge_buy_limit": "1000",
-    "examine": "One/Two doses of fishy magic potion.",
+    "examine": "One dose of fishy magic potion.",
     "grand_exchange_price": "1323",
     "durability": null,
     "name": "Magic mix(1)",
@@ -99667,7 +99667,7 @@
   },
   {
     "ge_buy_limit": "1000",
-    "examine": "Doses of fishy hunting potion",
+    "examine": "Two doses of fishy hunting potion.",
     "grand_exchange_price": "146",
     "durability": null,
     "name": "Hunting mix(2)",
@@ -99687,7 +99687,7 @@
   },
   {
     "ge_buy_limit": "1000",
-    "examine": "Doses of fishy hunting potion",
+    "examine": "One dose of fishy hunting potion.",
     "grand_exchange_price": "87",
     "durability": null,
     "name": "Hunting mix(1)",
@@ -99707,7 +99707,7 @@
   },
   {
     "ge_buy_limit": "1000",
-    "examine": "One/Two doses of fishy Zamorak potion.",
+    "examine": "Two doses of fishy Zamorak potion.",
     "grand_exchange_price": "665",
     "durability": null,
     "name": "Zamorak mix(2)",
@@ -99727,7 +99727,7 @@
   },
   {
     "ge_buy_limit": "1000",
-    "examine": "One/Two doses of fishy Zamorak potion.",
+    "examine": "One dose of fishy Zamorak potion.",
     "grand_exchange_price": "339",
     "durability": null,
     "name": "Zamorak mix(1)",
@@ -103001,7 +103001,7 @@
     "id": "11965"
   },
   {
-    "examine": "Full: ",
+    "examine": "It's a bird's nest with an egg in it.",
     "durability": null,
     "name": "Bird's nest",
     "archery_ticket_price": "0",
@@ -114851,7 +114851,7 @@
     "bonuses": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0"
   },
   {
-    "destroy_message": "If you drop this paper, you will need to call to the guards for a replacement. ",
+    "destroy_message": "If you drop this paper, you will need to call to the guards for a replacement.",
     "examine": "This is generally used for writing on.",
     "durability": null,
     "name": "Paper",
@@ -115094,7 +115094,7 @@
     "bonuses": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0"
   },
   {
-    "destroy_message": "Unknown ",
+    "destroy_message": "If you drop this quill, then you will need to call the guards for a replacement.",
     "examine": "From a bird - can be used for writing. It has some ink on the tip.",
     "durability": null,
     "name": "Inky quill",
@@ -115159,7 +115159,7 @@
     "bonuses": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0"
   },
   {
-    "destroy_message": "If you drop this dead parrot in a cage (and who wouldn't) then you will need to see ",
+    "destroy_message": "If you drop this dead parrot in a cage (and who wouldn't) then you will need to see 50 Ships Mufassah and Bill Teach for replacements.",
     "examine": "A very dead rotten parrot in a magical cage.",
     "durability": null,
     "name": "Ex-parrot in a magic cage",
@@ -115957,7 +115957,7 @@
     "bonuses": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0"
   },
   {
-    "destroy_message": "If you drop this paper, you will need to call to the guards for a replacement. ",
+    "destroy_message": "If you drop this paper, you will need to call to the guards for a replacement.",
     "examine": "This is generally used for writing on.",
     "durability": null,
     "name": "Paper",
@@ -117634,7 +117634,7 @@
   {
     "lendable": "true",
     "destroy_message": "Drop",
-    "examine": "Blue: A magical hat. ",
+    "examine": "Blue: A magical hat.",
     "grand_exchange_price": "1",
     "durability": null,
     "name": "Mystic hat",
@@ -117704,7 +117704,7 @@
   {
     "lendable": "true",
     "destroy_message": "Drop",
-    "examine": "Blue: A magical hat. ",
+    "examine": "Blue: A magical hat.",
     "grand_exchange_price": "1",
     "durability": null,
     "name": "Mystic hat",
@@ -117774,7 +117774,7 @@
   {
     "lendable": "true",
     "destroy_message": "Drop",
-    "examine": "Blue: A magical hat. ",
+    "examine": "Blue: A magical hat.",
     "grand_exchange_price": "1",
     "durability": null,
     "name": "Mystic hat",
@@ -118398,7 +118398,7 @@
     "equipment_slot": "12"
   },
   {
-    "destroy_message": "You will have talk to ",
+    "destroy_message": "You will have talk to Bob (Smith) in Lumbridge if you destroy this one.",
     "shop_price": "350",
     "examine": "A Lumbridge explorer's ring.",
     "durability": null,
@@ -118626,7 +118626,7 @@
   },
   {
     "destroy_message": "Drop",
-    "examine": "A slightly muddy spade. ",
+    "examine": "A slightly muddy spade.",
     "grand_exchange_price": "130",
     "durability": null,
     "name": "Spade",
@@ -118751,7 +118751,7 @@
   {
     "destroy_message": "Drop",
     "shop_price": "2",
-    "examine": "It's an empty bucket. ",
+    "examine": "It's an empty bucket.",
     "grand_exchange_price": "39",
     "durability": null,
     "name": "Bucket",
@@ -119552,7 +119552,7 @@
     "bonuses": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0"
   },
   {
-    "destroy_message": "You will have to speak to ",
+    "destroy_message": "You will have to speak to Wizard Elriss to get another omni-talisman.",
     "shop_price": "4",
     "examine": "Many mysterious powers emanate from the talisman.",
     "durability": null,
@@ -119565,7 +119565,7 @@
     "bonuses": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0"
   },
   {
-    "destroy_message": "Unknown ",
+    "destroy_message": "Drop",
     "examine": "Wizard Elriss will exchange these for rewards.",
     "durability": null,
     "name": "Runecrafting guild token",
@@ -119577,7 +119577,7 @@
     "bonuses": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0"
   },
   {
-    "destroy_message": "Unknown ",
+    "destroy_message": "Drop",
     "examine": "Wizard Elriss will exchange these for rewards.",
     "durability": null,
     "name": "Runecrafting guild token",
@@ -119589,7 +119589,7 @@
     "bonuses": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0"
   },
   {
-    "destroy_message": "Unknown ",
+    "destroy_message": "Drop",
     "examine": "Wizard Elriss will exchange these for rewards.",
     "durability": null,
     "name": "Runecrafting guild token",
@@ -119601,7 +119601,7 @@
     "bonuses": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0"
   },
   {
-    "destroy_message": "Unknown ",
+    "destroy_message": "Drop",
     "examine": "Wizard Elriss will exchange these for rewards.",
     "durability": null,
     "name": "Runecrafting guild token",
@@ -119613,7 +119613,7 @@
     "bonuses": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0"
   },
   {
-    "destroy_message": "Unknown ",
+    "destroy_message": "Drop",
     "examine": "Wizard Elriss will exchange these for rewards.",
     "durability": null,
     "name": "Runecrafting guild token",
@@ -120962,7 +120962,7 @@
   {
     "destroy_message": "You'll have to speak to Thurgo to find another.",
     "shop_price": "1",
-    "examine": "The location of ",
+    "examine": "The location of Camdozaal, given to me by Thurgo.",
     "durability": null,
     "name": "Scrap of paper",
     "destroy": "true",
@@ -120994,8 +120994,8 @@
     "bonuses": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0"
   },
   {
-    "destroy_message": "You can get another from ",
-    "examine": "This lists each of the founding members of the ",
+    "destroy_message": "You can get another from Varrock Palace Library.",
+    "examine": "This lists each of the founding members of the Council of Varrock.",
     "durability": null,
     "name": "List of elders",
     "destroy": "true",
@@ -126728,7 +126728,7 @@
   },
   {
     "shop_price": "150",
-    "examine": "3 doses of Prayer restore potion.",
+    "examine": "5 doses of Prayer restore potion.",
     "durability": null,
     "destroy": "true",
     "attack_speed": "4",
@@ -126744,7 +126744,7 @@
   {
     "destroy_message": "Drop",
     "shop_price": "150",
-    "examine": "3 doses of Prayer restore potion.",
+    "examine": "5 doses of Prayer restore potion.",
     "grand_exchange_price": "4",
     "durability": null,
     "name": "Prayer potion(5)",
@@ -126868,7 +126868,7 @@
   },
   {
     "shop_price": "150",
-    "examine": "4 doses of energy potion.",
+    "examine": "5 doses of energy potion.",
     "durability": null,
     "destroy": "true",
     "attack_speed": "4",
@@ -126884,7 +126884,7 @@
   {
     "destroy_message": "Drop",
     "shop_price": "150",
-    "examine": "4 doses of energy potion.",
+    "examine": "5 doses of energy potion.",
     "grand_exchange_price": "4",
     "durability": null,
     "name": "Energy potion (5)",
@@ -127288,7 +127288,7 @@
   },
   {
     "shop_price": "150",
-    "examine": "4 doses of ranging potion.",
+    "examine": "5 doses of ranging potion.",
     "durability": null,
     "destroy": "true",
     "attack_speed": "4",
@@ -127428,7 +127428,7 @@
   },
   {
     "shop_price": "150",
-    "examine": "3 doses of Defence Potion.",
+    "examine": "5 doses of Defence Potion.",
     "durability": null,
     "destroy": "true",
     "attack_speed": "4",
@@ -127444,7 +127444,7 @@
   {
     "destroy_message": "Drop",
     "shop_price": "150",
-    "examine": "3 doses of Defence Potion.",
+    "examine": "5 doses of Defence Potion.",
     "grand_exchange_price": "4",
     "durability": null,
     "name": "Defence potion(5)",
@@ -127568,7 +127568,7 @@
   },
   {
     "shop_price": "150",
-    "examine": "4 doses of Magic potion.",
+    "examine": "5 doses of Magic potion.",
     "durability": null,
     "destroy": "true",
     "attack_speed": "4",
@@ -127708,7 +127708,7 @@
   },
   {
     "shop_price": "150",
-    "examine": "3 doses of Summoning potion.",
+    "examine": "5 doses of Summoning potion.",
     "durability": null,
     "destroy": "true",
     "attack_speed": "4",
@@ -127724,7 +127724,7 @@
   {
     "destroy_message": "Drop",
     "shop_price": "150",
-    "examine": "3 doses of Summoning potion.",
+    "examine": "5 doses of Summoning potion.",
     "grand_exchange_price": "4",
     "durability": null,
     "name": "Summoning potion(5)",
@@ -129925,8 +129925,8 @@
     "bonuses": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0"
   },
   {
-    "destroy_message": "You found these notes loosely piled up on ",
-    "examine": "A loose-leaf collection of research notes, found on Movario's study desk.",
+    "destroy_message": "You found these notes loosely piled up on Movario's desk, in his base of operations near the Khazard Battlefield.",
+    "examine": "A loose-leaf selection of notes, written by a mage called Movario. These look like they were made over an extended period, all loosely and in no particular order.",
     "durability": null,
     "name": "Movario's notes (volume 1)",
     "destroy": "true",
@@ -129938,7 +129938,7 @@
   },
   {
     "destroy_message": "You found these notes in Movario's bedchest, in his base of operations near the Khazard Battlefield.",
-    "examine": "A loose-leaf collection of research notes, found in Movario's bed chest.",
+    "examine": "A loose-leaf selection of notes, written by a mage called Movario. These look like they were made over an extended period, all loosely and in no particular order.",
     "durability": null,
     "name": "Movario's notes (volume 2)",
     "destroy": "true",
@@ -129985,7 +129985,7 @@
     "bonuses": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0"
   },
   {
-    "destroy_message": "You can find another under the bed on the top level of Movario's base",
+    "destroy_message": "You should be able to get another from Movario's base.",
     "examine": "The loop half of a strange key.",
     "durability": null,
     "name": "Strange key loop",
@@ -129997,7 +129997,7 @@
     "bonuses": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0"
   },
   {
-    "destroy_message": "You can find another under the bed on the top level of Movario's base",
+    "destroy_message": "You should be able to get another from Movario's base.",
     "examine": "The teeth half of a strange key.",
     "durability": null,
     "name": "Strange key teeth",
@@ -131102,7 +131102,7 @@
     "bonuses": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0"
   },
   {
-    "destroy_message": "Harvest (turns to ",
+    "destroy_message": "Harvest (turns to ashes)",
     "examine": "A white lily seed - plant in a flower patch.",
     "durability": null,
     "name": "White lily",
@@ -131573,7 +131573,7 @@
     "bonuses": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0"
   },
   {
-    "destroy_message": "Unknown ",
+    "destroy_message": "You can reclaim this item from the place you found it.",
     "examine": "I found this egg in the Phoenix's Lair, and clapped at it!",
     "durability": null,
     "name": "Phoenix egg",
@@ -131585,7 +131585,7 @@
     "bonuses": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0"
   },
   {
-    "destroy_message": "Unknown ",
+    "destroy_message": "You can reclaim this item from the place you found it.",
     "examine": "I found this egg in the Phoenix's Lair, and kicked it!",
     "durability": null,
     "name": "Cracked phoenix egg",
