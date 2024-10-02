@@ -95,7 +95,7 @@ class PyreLordNPC @JvmOverloads constructor(owner: Player? = null, id: Int = 737
             val player = event.player
             val log = forId(event.usedItem.id)
             val familiar = event.usedWith as content.global.skill.summoning.familiar.Familiar
-            val ticks = FIREMAKE_ANIMATION.definition!!.getDurationTicks()
+            val ticks = FIREMAKE_ANIMATION.definition.getDurationTicks()
             if (!player.familiarManager.isOwner(familiar)) {
                 return true
             }
@@ -109,7 +109,7 @@ class PyreLordNPC @JvmOverloads constructor(owner: Player? = null, id: Int = 737
                 val ground = GroundItemManager.create(event.usedItem, familiar.location, player)
                 Pulser.submit(object : Pulse(ticks, player, familiar) {
                     override fun pulse(): Boolean {
-                        if (!ground.isActive) {
+                        if (!ground!!.isActive) {
                             return true
                         }
                         val `object` = Scenery(log!!.fireId, familiar.location)

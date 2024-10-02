@@ -11,18 +11,7 @@ import core.tools.Log
  * Various data for beacons.
  * @author Ceikry
  */
-enum class AFUBeacon(
-    val title: String,
-    val fmLevel: Int,
-    val varbit: Int,
-    val location: Location,
-    val experience: Double,
-    val keeper: Int = 0
-) {
-
-    /**
-     * River Salve.
-     */
+enum class AFUBeacon(val title: String, val fmLevel: Int, val varbit: Int, val location: Location, val experience: Double, val keeper: Int = 0) {
     RIVER_SALVE(
         title = "",
         fmLevel = 43,
@@ -31,10 +20,6 @@ enum class AFUBeacon(
         experience = 216.2,
         keeper = 8065
     ),
-
-    /**
-     * Rag And Bone.
-     */
     RAG_AND_BONE(
         title = "",
         fmLevel = 43,
@@ -43,10 +28,6 @@ enum class AFUBeacon(
         experience = 235.8,
         keeper = 8066
     ),
-
-    /**
-     * Jolly Boar.
-     */
     JOLLY_BOAR(
         title = "",
         fmLevel = 48,
@@ -55,10 +36,6 @@ enum class AFUBeacon(
         experience = 193.8,
         keeper = 8067
     ),
-
-    /**
-     * North Varrock Castle.
-     */
     NORTH_VARROCK_CASTLE(
         title = "",
         fmLevel = 53,
@@ -67,10 +44,6 @@ enum class AFUBeacon(
         experience = 178.5,
         keeper = 8068
     ),
-
-    /**
-     * Grand Exchange.
-     */
     GRAND_EXCHANGE(
         title = "",
         fmLevel = 59,
@@ -79,10 +52,6 @@ enum class AFUBeacon(
         experience = 194.3,
         keeper = 8069
     ),
-
-    /**
-     * Edgeville.
-     */
     EDGEVILLE(
         title = "",
         fmLevel = 62,
@@ -91,10 +60,6 @@ enum class AFUBeacon(
         experience = 86.7,
         keeper = 8070
     ),
-
-    /**
-     * Monastery.
-     */
     MONASTERY(
         title = "",
         fmLevel = 68,
@@ -103,10 +68,6 @@ enum class AFUBeacon(
         experience = 224.4,
         keeper = 8071
     ),
-
-    /**
-     * Goblin Village.
-     */
     GOBLIN_VILLAGE(
         title = "",
         fmLevel = 72,
@@ -115,10 +76,6 @@ enum class AFUBeacon(
         experience = 194.8,
         keeper = 8072
     ),
-
-    /**
-     * Burthorpe.
-     */
     BURTHORPE(
         title = "",
         fmLevel = 76,
@@ -127,10 +84,6 @@ enum class AFUBeacon(
         experience = 195.3,
         keeper = 8073
     ),
-
-    /**
-     * Death Plateau.
-     */
     DEATH_PLATEAU(
         title = "",
         fmLevel = 79,
@@ -139,10 +92,6 @@ enum class AFUBeacon(
         experience = 249.9,
         keeper = 8074
     ),
-
-    /**
-     * Trollheim.
-     */
     TROLLHEIM(
         title = "",
         fmLevel = 83,
@@ -151,10 +100,6 @@ enum class AFUBeacon(
         experience = 201.0,
         keeper = 8075
     ),
-
-    /**
-     * Gwd.
-     */
     GWD(
         title = "",
         fmLevel = 87,
@@ -163,10 +108,6 @@ enum class AFUBeacon(
         experience = 255.0,
         keeper = 8076
     ),
-
-    /**
-     * Temple.
-     */
     TEMPLE(
         title = "",
         fmLevel = 89,
@@ -174,10 +115,6 @@ enum class AFUBeacon(
         location = Location.create(2946, 3836, 0),
         experience = 198.9
     ),
-
-    /**
-     * Plateau.
-     */
     PLATEAU(
         title = "",
         fmLevel = 92,
@@ -187,7 +124,9 @@ enum class AFUBeacon(
     );
 
     companion object {
-        // This function returns the AFUBeacon object for a given location.
+        /*
+         * Returns the AFUBeacon object for a given location.
+         */
         fun forLocation(location: Location): AFUBeacon {
             for (beacon in values()) {
                 if (beacon.location == location) return beacon
@@ -197,7 +136,9 @@ enum class AFUBeacon(
             }
         }
 
-        // This function resets all the beacons for a given player.
+        /*
+         * Resets all the beacons for a given player.
+         */
         fun resetAllBeacons(player: Player) {
             for (beacon in values()) {
                 setVarbit(player, beacon.varbit, 0)
@@ -265,28 +206,9 @@ enum class AFUBeacon(
  * Beacon state.
  */
 enum class BeaconState {
-    /**
-     * Empty.
-     */
     EMPTY,
-
-    /**
-     * Filled.
-     */
     FILLED,
-
-    /**
-     * Lit.
-     */
     LIT,
-
-    /**
-     * Dying.
-     */
     DYING,
-
-    /**
-     * Warning.
-     */
     WARNING
 }

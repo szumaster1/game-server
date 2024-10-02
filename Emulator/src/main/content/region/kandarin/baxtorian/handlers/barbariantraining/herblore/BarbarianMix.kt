@@ -1,4 +1,4 @@
-package content.region.kandarin.baxtorian.barbariantraining.herblore
+package content.region.kandarin.baxtorian.handlers.barbariantraining.herblore
 
 import org.rs.consts.Items
 

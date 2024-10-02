@@ -85,7 +85,7 @@ class ThievingStallPulse(player: Player?, node: Scenery?, private val stall: Sta
                 sendMessage(player,"You steal grapes from the grape stall.")
                 return true
             }
-            if (stall === Stall.CANDLES) {
+            if (stall == Stall.CANDLES) {
                 return true
             }
             if(stall == Stall.FISH_STALL){
@@ -98,7 +98,7 @@ class ThievingStallPulse(player: Player?, node: Scenery?, private val stall: Sta
     }
 
     override fun message(type: Int) {
-        if (stall === Stall.CANDLES) {
+        if (stall == Stall.CANDLES) {
             return
         }
         if (type == 0) {
@@ -113,11 +113,9 @@ class ThievingStallPulse(player: Player?, node: Scenery?, private val stall: Sta
     private fun success(): Boolean {
         val mod = 0
         if (RandomFunction.random(15 + mod) < 4) {
-            if (stall === Stall.CANDLES) {
+            if (stall == Stall.CANDLES) {
                 stun(player, 15, false)
                 impact(player, 3, ImpactHandler.HitsplatType.NORMAL)
-                // Location playerLoc = player.getLocation();
-                // forceMove(player, playerLoc, new Location(playerLoc.getX() - 1, playerLoc.getY() - 1), 0, 4, Direction.SOUTH_WEST, 819, null);
                 sendMessage(player, "A higher power smites you.")
                 return false
             }

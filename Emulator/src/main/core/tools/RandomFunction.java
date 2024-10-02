@@ -309,13 +309,13 @@ public class RandomFunction {
      * @return the item
      */
     public static Item rollWeightedChanceTable(List<WeightedChanceItem> table) {
-        int sumOfWeights = table.stream().mapToInt(item -> item.weight).sum();
+        int sumOfWeights = table.stream().mapToInt(item -> item.getWeight()).sum();
         int rand = random(sumOfWeights);
         Collections.shuffle(table);
         for (WeightedChanceItem item : table) {
-            if (rand <= item.weight)
+            if (rand <= item.getWeight())
                 return item.getItem();
-            rand -= item.weight;
+            rand -= item.getWeight();
         }
         //We should get here if and only if the weighted chance table is empty.
 

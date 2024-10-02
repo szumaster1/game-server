@@ -44,7 +44,7 @@ class GripNPC : NPCBehavior(NPCs.GRIP_792) {
                 val gi = GroundItemManager.create(
                     GroundItem(Item(Items.GRIPS_KEY_RING_1588), self.location, killer)
                 )
-                gi.forceVisible = true
+                gi!!.forceVisible = true
                 gi.isRemainPrivate = false
             }
         }

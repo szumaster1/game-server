@@ -67,7 +67,7 @@ class HunterPlugin : OptionHandler() {
             SceneryDefinition.forId(trap.failed).handlers["option:investigate"] = this
             SceneryDefinition.forId(trap.net).handlers["option:investigate"] = this
         }
-        definePlugin(content.global.skill.hunter.HunterNPC())
+        definePlugin(HunterNPC())
         definePlugin(HunterNetPlugin())
         definePlugin(HunterItemPlugin())
         definePlugin(FalconryActivityPlugin())
@@ -131,11 +131,11 @@ class HunterPlugin : OptionHandler() {
             val player = event.player
             val `object` = if (event.usedWith is Scenery) event.usedWith as Scenery else (event.used as Scenery)
             val item = event.usedItem
-            if (content.global.skill.hunter.HunterManager.getInstance(player).isOwner(`object`)) {
+            if (HunterManager.getInstance(player).isOwner(`object`)) {
                 player.sendMessage("This isn't your trap!")
                 return true
             }
-            val wrapper = content.global.skill.hunter.HunterManager.getInstance(player).getWrapper(`object`)
+            val wrapper = HunterManager.getInstance(player).getWrapper(`object`)
             if (item.id == 594) {
                 wrapper.smoke()
             } else {

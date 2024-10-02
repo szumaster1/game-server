@@ -1,18 +1,16 @@
 package core.game.system.config
 
-import core.api.Commands
-import core.game.node.item.GroundItemManager
+import core.api.*
+
+import core.game.world.repository.Repository
 import core.game.system.command.Privilege
 import core.game.world.map.RegionManager
-import core.game.world.repository.Repository
+import core.game.node.item.GroundItemManager
+
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
-/**
- * Config parser.
- */
 class ConfigParser : Commands {
-
     fun prePlugin() {
         NPCConfigParser().load()
         ItemConfigParser().load()
@@ -20,7 +18,6 @@ class ConfigParser : Commands {
         XteaParser().load()
         InterfaceConfigParser().load()
     }
-
     fun postPlugin() {
         ShopParser().load()
         DropTableParser().load()
@@ -33,11 +30,6 @@ class ConfigParser : Commands {
         ClueRewardParser().load()
     }
 
-    /**
-     * Function to reload configurations.
-     *
-     * @param callback a lambda function to be executed after reloading configurations.
-     */
     fun reloadConfigs(callback: () -> Unit) {
         GlobalScope.launch {
             Repository.npcs.toTypedArray().forEach { npc ->
@@ -47,7 +39,7 @@ class ConfigParser : Commands {
                 Repository.removeRenderableNPC(npc)
             }
 
-            GroundItemManager.getItems().toTypedArray().forEach { gi ->
+            GroundItemManager.getItems().toTypedArray().forEach {gi ->
                 GroundItemManager.getItems().remove(gi)
                 RegionManager.getRegionPlane(gi.location).remove(gi)
             }

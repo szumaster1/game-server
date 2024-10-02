@@ -19,19 +19,24 @@ class ElnockInquisitorListener : InteractionListener {
     }
 
     override fun defineListeners() {
-        // Elnock Exchange
+        /*
+         * Elnock Exchange store.
+         */
         on(NPCs.ELNOCK_INQUISITOR_6070, IntType.NPC, "trade") { player, _ ->
             ElnockInquisitorDialogue.openShop(player)
             return@on true
         }
 
-        // Quick-start option
+        /*
+         * Quick-start option.
+         */
+
         on(ELNOCK_INQUISITOR, IntType.NPC, "quick-start") { player, _ ->
             if (!player.savedData.activityData.isElnockSupplies) {
                 player.savedData.activityData.isElnockSupplies = true
-                addItemOrDrop(player, 10010, 1)
-                addItemOrDrop(player, 11262, 1)
-                addItemOrDrop(player, 11260, 6)
+                addItemOrDrop(player, Items.BUTTERFLY_NET_10010, 1)
+                addItemOrDrop(player, Items.IMP_REPELLENT_11262, 1)
+                addItemOrDrop(player, Items.IMPLING_JAR_11260, 6)
                 sendNPCDialogue(player, ELNOCK_INQUISITOR, "Here you go!")
             } else {
                 sendNPCDialogue(player, ELNOCK_INQUISITOR, "Since I have already given you some equipment for free, I'll be willing to sell you some now.")

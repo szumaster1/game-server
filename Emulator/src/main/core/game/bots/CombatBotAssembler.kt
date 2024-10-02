@@ -482,7 +482,7 @@ class CombatBotAssembler {
                 }
             }
         }
-        bot.equipment.add(highestItems.random(), highest!!.definition!!.handlers["equipment_slot"] as Int, false, false)
+        bot.equipment.add(highestItems.random(), highest!!.definition.handlers["equipment_slot"] as Int, false, false)
     }
 
     /**

@@ -8,6 +8,7 @@ import org.rs.consts.Scenery
 import core.game.dialogue.DialogueFile
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
+import core.game.interaction.QueueStrength
 import core.game.node.entity.player.Player
 import core.game.node.entity.skill.Skills
 import core.game.system.task.Pulse
@@ -38,7 +39,7 @@ class PyramidPlunderMinigame : InteractionListener, TickListener, LogoutListener
     override fun defineListeners() {
         val checkAnim = 3572
         val checkUrnAnim = 4340
-        val urnBitAnim = 4341
+        val urnBitAnim = 4341 // HUMAN_SLASH_WITH_JAPANESE_SWORD_4341
         val urnSuccessAnim = 4342
         val pushLidStartAnim = 4343
         val pushLidLoopAnim = 4344
@@ -59,15 +60,14 @@ class PyramidPlunderMinigame : InteractionListener, TickListener, LogoutListener
             val anim = Animation(checkAnim)
             val duration = animationDuration(anim)
 
-            if (player.skills.getStaticLevel(Skills.THIEVING) < PlunderUtils.getRoomLevel(player)) {
+            if (getStatLevel(player, Skills.THIEVING) < PlunderUtils.getRoomLevel(player)) {
                 sendDialogue(player, "You need a Thieving level of ${PlunderUtils.getRoomLevel(player)} to do that.")
                 return@on true
             }
 
             val spearDir = PlunderUtils.getRoom(player)!!.spearDirection
 
-            val pastSpears =
-                (spearDir == Direction.NORTH && player.location.y > node.location.y) || (spearDir == Direction.SOUTH && player.location.y < node.location.y) || (spearDir == Direction.EAST && player.location.x > node.location.x) || (spearDir == Direction.WEST && player.location.x < node.location.x)
+            val pastSpears = (spearDir == Direction.NORTH && player.location.y > node.location.y) || (spearDir == Direction.SOUTH && player.location.y < node.location.y) || (spearDir == Direction.EAST && player.location.x > node.location.x) || (spearDir == Direction.WEST && player.location.x < node.location.x)
 
             if (pastSpears) {
                 sendDialogue(player, "I have no reason to do that.")
@@ -76,7 +76,7 @@ class PyramidPlunderMinigame : InteractionListener, TickListener, LogoutListener
 
             animate(player, anim)
             sendMessage(player, "You carefully try to temporarily deactivate the trap mechanism.")
-            player.pulseManager.run(object : Pulse(duration) {
+            submitIndividualPulse(player, object : Pulse(duration) {
                 override fun pulse(): Boolean {
                     if (RandomFunction.roll(5)) {
                         val dest = PlunderUtils.getSpearDestination(player)
@@ -104,7 +104,7 @@ class PyramidPlunderMinigame : InteractionListener, TickListener, LogoutListener
             animate(player, checkUrnAnim)
             player.faceLocation(node.location)
             lock(player, 1)
-            runTask(player, 1) {
+            queueScript(player, 1, QueueStrength.SOFT) {
                 if (!PlunderUtils.rollUrnSuccess(player)) {
                     animate(player, urnBitAnim)
                     sendMessage(player, "You've been poisoned by the snake bite.")
@@ -118,6 +118,7 @@ class PyramidPlunderMinigame : InteractionListener, TickListener, LogoutListener
                     addItemOrDrop(player, PlunderUtils.rollArtifact(player, 1))
                     setVarbit(player, node.asScenery().definition.varbitID, 1)
                 }
+                return@queueScript stopExecuting(player)
             }
             return@on true
         }
@@ -127,10 +128,11 @@ class PyramidPlunderMinigame : InteractionListener, TickListener, LogoutListener
             animate(player, checkUrnAnim)
             player.faceLocation(node.location)
             lock(player, 1)
-            runTask(player, 1) {
+            queueScript(player, 1, QueueStrength.SOFT) {
                 animate(player, urnBitAnim)
                 setVarbit(player, urn.definition.varbitID, 2)
                 animateScenery(urn, snakeUrnAnim)
+                return@queueScript stopExecuting(player)
             }
             return@on true
         }
@@ -142,9 +144,10 @@ class PyramidPlunderMinigame : InteractionListener, TickListener, LogoutListener
             }
             lock(player, 2)
             animate(player, charmAnim)
-            runTask(player, 1) {
+            queueScript(player, 1, QueueStrength.SOFT) {
                 setVarbit(player, node.asScenery().definition.varbitID, 3)
                 sendMessage(player, "You charm the snake with your music.")
+                return@queueScript stopExecuting(player)
             }
             return@on true
         }
@@ -153,7 +156,7 @@ class PyramidPlunderMinigame : InteractionListener, TickListener, LogoutListener
             animate(player, checkUrnAnim)
             player.faceLocation(node.location)
             lock(player, 1)
-            runTask(player, 1) {
+            queueScript(player, 1, QueueStrength.SOFT) {
                 if (!PlunderUtils.rollUrnSuccess(player, true)) {
                     animate(player, urnBitAnim)
                     sendMessage(player, "You've been poisoned by something moving inside the urn.")
@@ -167,6 +170,7 @@ class PyramidPlunderMinigame : InteractionListener, TickListener, LogoutListener
                     rewardXP(player, Skills.THIEVING, PlunderUtils.getUrnXp(player, false) * 0.66)
                     setVarbit(player, node.asScenery().definition.varbitID, 1)
                 }
+                return@queueScript stopExecuting(player)
             }
             return@on true
         }
@@ -184,7 +188,7 @@ class PyramidPlunderMinigame : InteractionListener, TickListener, LogoutListener
             sendMessage(player, "You attempt to push open the massive lid.")
             val strength = getDynLevel(player, Skills.STRENGTH)
             animate(player, pushLidStartAnim)
-            player.pulseManager.run(object : Pulse(2) {
+            submitIndividualPulse(player, object : Pulse(2) {
                 override fun pulse(): Boolean {
                     animate(player, pushLidLoopAnim)
                     if (RandomFunction.random(125) > strength) return false
@@ -269,11 +273,7 @@ class PyramidPlunderMinigame : InteractionListener, TickListener, LogoutListener
                     } else {
                         when (getVarbit(player, varbitId)) {
                             0 -> sendMessage(player, "The door leads to a dead end.").also {
-                                setVarbit(
-                                    player,
-                                    varbitId,
-                                    1
-                                )
+                                setVarbit(player, varbitId, 1)
                             }
 
                             else -> sendMessage(player, "You've already opened this door and it leads to a dead end.")
@@ -310,9 +310,7 @@ class PyramidPlunderMinigame : InteractionListener, TickListener, LogoutListener
 
         on(entranceId, IntType.SCENERY, "search") { player, door ->
             if (!getAttribute(player, "tarik-spoken-to", false)) {
-                sendDialogue(
-                    player, "I should probably try to find out more about this place before I try to break in."
-                )
+                sendDialogue(player, "I should probably try to find out more about this place before I try to break in.")
                 return@on true
             }
             val anim = Animation(checkAnim)
@@ -379,12 +377,7 @@ class PyramidPlunderMinigame : InteractionListener, TickListener, LogoutListener
     }
 
     override fun getRestrictions(): Array<ZoneRestriction> {
-        return arrayOf(
-            ZoneRestriction.TELEPORT,
-            ZoneRestriction.RANDOM_EVENTS,
-            ZoneRestriction.CANNON,
-            ZoneRestriction.FIRES
-        )
+        return arrayOf(ZoneRestriction.TELEPORT, ZoneRestriction.RANDOM_EVENTS, ZoneRestriction.CANNON, ZoneRestriction.FIRES)
     }
 
 }

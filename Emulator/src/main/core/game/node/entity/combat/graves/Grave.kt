@@ -82,7 +82,7 @@ class Grave : AbstractNPC {
             val finalItem = GraveController.checkTransform(item)
 
             val gi = GroundItemManager.create(finalItem, this.location, player)
-            gi.isRemainPrivate = true
+            gi!!.isRemainPrivate = true
             gi.decayTime = secondsToTicks(type.durationMinutes * 60)
             this.items.add(gi)
         }
@@ -100,10 +100,7 @@ class Grave : AbstractNPC {
         }
 
         GraveController.activeGraves[ownerUid] = this
-        sendMessage(
-            player,
-            colorize("%RBecause of your current gravestone, you have ${type.durationMinutes} minutes to get your items back.")
-        )
+        sendMessage(player, colorize("%RBecause of your current gravestone, you have ${type.durationMinutes} minutes to get your items back."))
     }
 
     /**
@@ -126,7 +123,7 @@ class Grave : AbstractNPC {
 
         for (item in items) {
             val gi = GroundItemManager.create(item, location, playerUid, GameWorld.ticks + ticksRemaining)
-            gi.isRemainPrivate = true
+            gi!!.isRemainPrivate = true
             this.items.add(gi)
         }
 
@@ -207,7 +204,7 @@ class Grave : AbstractNPC {
      *
      * @return A formatted string with the owner's username and remaining time.
      */
-    fun retrieveFormattedText(): String {
+    fun getFormattedText(): String {
         return type.text
             .replace("@name", ownerUsername)
             .replace("@mins", getFormattedTimeRemaining())

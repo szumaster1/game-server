@@ -29,7 +29,7 @@ class DukeHoracioDragonSlayerDialogue(val questStage: Int) : DialogueFile() {
                 11 -> npc("If you really think you're up to it then perhaps you", "are the one who can kill this dragon.").also { stage++ }
                 12 -> {
                     if (!player!!.inventory.add(DragonSlayer.SHIELD)) {
-                        GroundItemManager.create(DragonSlayer.SHIELD, player)
+                        GroundItemManager.create(DragonSlayer.SHIELD, player!!)
                     }
                     interpreter!!.sendItemMessage(DragonSlayer.SHIELD, "The Duke hands you a heavy orange shield.")
                     stage = END_DIALOGUE
@@ -50,7 +50,7 @@ class DukeHoracioDragonSlayerDialogue(val questStage: Int) : DialogueFile() {
                 3 -> npc("Of course. Now you've slain Elvarg, you've earned", "the right to call the shield your own!").also { stage++ }
                 4 -> {
                     if (!player!!.inventory.add(DragonSlayer.SHIELD)) {
-                        GroundItemManager.create(DragonSlayer.SHIELD, player)
+                        GroundItemManager.create(DragonSlayer.SHIELD, player!!)
                     }
                     interpreter!!.sendItemMessage(DragonSlayer.SHIELD, "The Duke hands you the shield.")
                     stage = END_DIALOGUE

@@ -120,7 +120,7 @@ class ForgeRegentNPC @JvmOverloads constructor(owner: Player? = null, id: Int = 
             val player = event.player
             val log = forId(event.usedItem.id)
             val familiar = event.usedWith as Familiar
-            val ticks = FIREMAKE_ANIMATION.definition!!.getDurationTicks()
+            val ticks = FIREMAKE_ANIMATION.definition.getDurationTicks()
             if (!player.familiarManager.isOwner(familiar)) {
                 return true
             }

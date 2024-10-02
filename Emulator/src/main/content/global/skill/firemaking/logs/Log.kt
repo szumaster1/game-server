@@ -6,14 +6,7 @@ import org.rs.consts.Scenery
 /**
  * Representing different types of logs.
  */
-enum class Log(
-    val logId: Int,
-    val defaultLevel: Int,
-    val barbarianLevel: Int,
-    val life: Int,
-    val fireId: Int,
-    val xp: Double
-) {
+enum class Log(val logId: Int, val defaultLevel: Int, val barbarianLevel: Int, val life: Int, val fireId: Int, val xp: Double) {
     NORMAL(
         logId = Items.LOGS_1511,
         defaultLevel = 1,

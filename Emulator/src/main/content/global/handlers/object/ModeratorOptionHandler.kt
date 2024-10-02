@@ -28,7 +28,7 @@ class ModeratorOptionHandler : OptionHandler() {
         when (option) {
             "climb-up" -> climb(player, Animation(828), Location.create(3222, 3218, 0))
             "j-mod options" -> {
-                if (player.details.rights === Rights.REGULAR_PLAYER) {
+                if (player.details.rights == Rights.REGULAR_PLAYER) {
                     return true
                 }
                 sendMessage(player, "Disabled...")

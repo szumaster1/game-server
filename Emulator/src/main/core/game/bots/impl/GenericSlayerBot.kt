@@ -210,7 +210,7 @@ class GenericSlayerBot : Script() {
         if (name.lowercase().contains("charm")) return true
         if (name.lowercase().contains("lobster")) return true
         if (name.lowercase().contains("clue")) return true
-        if (!definition.isTradeable) return true
+        if (definition.isTradeable) return true
         return when (id) {
             Items.BONES_2530 -> true
             995 -> true

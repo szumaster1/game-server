@@ -6,6 +6,8 @@ import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
+import org.rs.consts.Items
+import org.rs.consts.NPCs
 
 /**
  * Represents the Del Monty dialogue.
@@ -33,13 +35,13 @@ class DelMontyDialogue(player: Player? = null) : Dialogue(player) {
     }
 
     override fun getIds(): IntArray {
-        return intArrayOf(5563)
+        return intArrayOf(NPCs.DEL_MONTY_5563)
     }
 
     companion object {
         fun hasCatAmulet(player: Player): Boolean {
             val item = player.equipment[EquipmentContainer.SLOT_AMULET] ?: return false
-            return item.id == 4677 || item.id == 6544
+            return item.id == Items.CATSPEAK_AMULET_4677 || item.id == Items.CATSPEAK_AMULETE_6544
         }
     }
 }

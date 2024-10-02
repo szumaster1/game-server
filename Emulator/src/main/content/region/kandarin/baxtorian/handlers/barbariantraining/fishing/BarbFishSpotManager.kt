@@ -1,7 +1,7 @@
-package content.region.kandarin.baxtorian.barbariantraining.fishing
+package content.region.kandarin.baxtorian.handlers.barbariantraining.fishing
 
-import content.region.kandarin.baxtorian.barbariantraining.fishing.BarbFishSpotManager.Companion.locations
-import content.region.kandarin.baxtorian.barbariantraining.fishing.BarbFishSpotManager.Companion.usedLocations
+import content.region.kandarin.baxtorian.handlers.barbariantraining.fishing.BarbFishSpotManager.Companion.locations
+import content.region.kandarin.baxtorian.handlers.barbariantraining.fishing.BarbFishSpotManager.Companion.usedLocations
 import core.api.StartupListener
 import core.api.TickListener
 import core.game.node.entity.npc.NPC

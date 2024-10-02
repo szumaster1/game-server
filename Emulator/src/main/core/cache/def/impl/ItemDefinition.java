@@ -439,7 +439,7 @@ public class ItemDefinition extends Definition<Item> {
             } else if (opcode == 249) {
                 int length = buffer.get() & 0xFF;
                 if (def.clientScriptData == null) {
-                    def.clientScriptData = new HashMap<Integer, Object>();
+                    def.clientScriptData = new HashMap();
                 }
                 for (int index = 0; index < length; index++) {
                     boolean string = (buffer.get() & 0xFF) == 1;

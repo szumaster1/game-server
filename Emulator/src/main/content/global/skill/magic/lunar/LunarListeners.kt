@@ -488,7 +488,7 @@ class LunarListeners : content.global.skill.magic.SpellListener("lunar"), Comman
             var counter = 0
             override fun pulse(): Boolean {
                 if (playerPies.isEmpty()) return true
-                if (counter == 0) delay = Animation(4413).definition!!.getDurationTicks() + 1
+                if (counter == 0) delay = Animation(4413).definition.getDurationTicks() + 1
                 val item = playerPies[0]
                 val pie = Cookable.forId(item.id)
                 visualizeSpell(player, 4413, 746, 75, Sounds.LUNAR_BAKE_PIE_2879)

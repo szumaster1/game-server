@@ -84,12 +84,7 @@ class MeldarMadNPC : AbstractNPC {
                 state!!.spell = combatSpell
                 for (i in 0..1) {
                     val l = getLocation().transform(RandomFunction.random(1, 5), RandomFunction.random(1, 5), 0)
-                    if (isTeleportPermitted(l) && GroundItemManager.get(
-                            CABBAGE.id,
-                            l,
-                            null
-                        ) == null && l.y <= 9651 && l.y >= 9644
-                    ) {
+                    if (isTeleportPermitted(l) && GroundItemManager.get(CABBAGE.id, l, null) == null && l.y <= 9651 && l.y >= 9644) {
                         if (victim is Player) victim.packetDispatch.sendPositionedGraphic(86, 1, 0, l)
                         GroundItemManager.create(CABBAGE, l, (victim as Player?))
                     }

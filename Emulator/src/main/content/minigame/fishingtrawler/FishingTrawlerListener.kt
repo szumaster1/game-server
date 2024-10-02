@@ -60,8 +60,7 @@ class FishingTrawlerInteractionHandler : InteractionListener {
                 override fun pulse(): Boolean {
                     when (counter++) {
                         0 -> player.animator.animate(Animation(827)).also { player.lock() }
-                        1 -> session.repairHole(player, node.asScenery())
-                            .also { player.incrementAttribute("/save:$STATS_BASE:$FISHING_TRAWLER_LEAKS_PATCHED"); player.unlock() }
+                        1 -> session.repairHole(player, node.asScenery()).also { player.incrementAttribute("/save:$STATS_BASE:$FISHING_TRAWLER_LEAKS_PATCHED"); player.unlock() }
                         2 -> return true
                     }
                     return false

@@ -1,4 +1,4 @@
-package content.region.kandarin.baxtorian.barbariantraining.smithing
+package content.region.kandarin.baxtorian.handlers.barbariantraining.smithing
 
 import content.global.skill.firemaking.Origami
 import org.rs.consts.Items

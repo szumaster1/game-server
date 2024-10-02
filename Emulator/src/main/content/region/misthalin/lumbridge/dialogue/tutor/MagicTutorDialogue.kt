@@ -28,10 +28,8 @@ class MagicTutorDialogue(player: Player? = null) : Dialogue(player) {
                 for (y in 0..15) {
                     val ground = GroundItemManager.get(MIND_RUNE.id, player.location.transform(x, y, 0), player)
                     val second = GroundItemManager.get(AIR_RUNE.id, player.location.transform(x, y, 0), player)
-                    if (ground != null && ground.droppedBy(player) || second != null && second.dropper != null && second.dropper === player) {
-                        npc("Someone seems to have dropped some " + (if (ground == null) "air" else "mind") + " runes on",
-                            "the floor, perhaps you should pick them up to use them."
-                        )
+                    if (ground != null && ground.droppedBy(player) || second.dropper != null && second.dropper == player) {
+                        npc("Someone seems to have dropped some " + (if (ground == null) "air" else "mind") + " runes on", "the floor, perhaps you should pick them up to use them.")
                         return true
                     }
                 }

@@ -20,7 +20,7 @@ class AIRepository {
             if (groundItems[item.dropper] == null) {
                 val list = ArrayList<GroundItem>()
                 list.add(item)
-                groundItems[item.dropper] = list
+                groundItems[item.dropper!!] = list
                 return
             }
             groundItems[item.dropper]!!.add(item)

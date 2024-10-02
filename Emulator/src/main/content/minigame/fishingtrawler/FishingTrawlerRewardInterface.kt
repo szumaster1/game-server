@@ -13,6 +13,7 @@ import kotlin.math.ceil
  * Fishing trawler reward interface.
  */
 class FishingTrawlerRewardInterface : ComponentPlugin() {
+
     override fun newInstance(arg: Any?): Plugin<Any> {
         ComponentDefinition.put(Components.TRAWLER_REWARD_367, this)
         return this
@@ -32,9 +33,7 @@ class FishingTrawlerRewardInterface : ComponentPlugin() {
         }
     }
 
-    override fun handle(
-        player: Player?, component: Component?, opcode: Int, button: Int, slot: Int, itemId: Int
-    ): Boolean {
+    override fun handle(player: Player?, component: Component?, opcode: Int, button: Int, slot: Int, itemId: Int): Boolean {
         TODO("Not yet implemented")
     }
 

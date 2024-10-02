@@ -1,5 +1,6 @@
 package content.minigame.fishingtrawler
 
+import core.api.sendString
 import core.api.setVarp
 import core.game.node.entity.player.Player
 
@@ -15,11 +16,11 @@ private const val timeChild = 30
  */
 object FishingTrawlerOverlay {
     @JvmStatic
-    fun sendUpdate(player: Player, waterPercent: Int, NetRipped: Boolean, fishCaught: Int, timeLeft: Int) {
+    fun sendUpdate(player: Player, waterPercent: Int, netRipped: Boolean, fishCaught: Int, timeLeft: Int) {
         setVarp(player, configIndex, waterPercent)
-        player.packetDispatch.sendInterfaceConfig(interfaceID, if (NetRipped) netRippedChild else netOkayChild, false)
-        player.packetDispatch.sendInterfaceConfig(interfaceID, if (NetRipped) netOkayChild else netRippedChild, true)
-        player.packetDispatch.sendString("${if (fishCaught > 0) fishCaught else "Nothing"}", interfaceID, fishChild)
-        player.packetDispatch.sendString("$timeLeft Minutes", interfaceID, timeChild)
+        player.packetDispatch.sendInterfaceConfig(interfaceID, if (netRipped) netRippedChild else netOkayChild, false)
+        player.packetDispatch.sendInterfaceConfig(interfaceID, if (netRipped) netOkayChild else netRippedChild, true)
+        sendString(player, "${if (fishCaught > 0) fishCaught else "Nothing"}", interfaceID, fishChild)
+        sendString(player,"$timeLeft Minutes", interfaceID, timeChild)
     }
 }

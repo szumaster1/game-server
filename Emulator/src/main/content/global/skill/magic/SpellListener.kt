@@ -55,7 +55,7 @@ abstract class SpellListener(val bookName: String) : Listener {
             throw IllegalStateException()
         }
         for (rune in runes) {
-            if (!content.global.skill.magic.SpellUtils.hasRune(player, rune)) {
+            if (!SpellUtils.hasRune(player, rune)) {
                 player.sendMessage("You don't have enough ${rune.definition.name.lowercase()}s to cast this spell.")
                 throw IllegalStateException()
             }

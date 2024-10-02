@@ -65,19 +65,13 @@ class GroundSpawnLoader {
      * @param respawnRate The rate at which the ground item respawns.
      * @param item The item to be spawned on the ground.
      * @param location The location where the item should be spawned.
-     * @constructor Creates a new GroundSpawn instance.
      */
-    class GroundSpawn(var respawnRate: Int, item: Item?, location: Location?) : GroundItem(item, location) {
+    class GroundSpawn(var respawnRate: Int, item: Item, location: Location?) : GroundItem(item, location) {
 
         override fun toString(): String {
             return "GroundSpawn [name=" + getName() + ", respawnRate=" + respawnRate + ", loc=" + getLocation() + "]"
         }
 
-        /**
-         * Save.
-         *
-         * @param buffer The buffer to save the ground spawn data to.
-         */
         fun save(buffer: ByteBuffer) {
             buffer.putInt(respawnRate)
             buffer.putShort(id.toShort())
@@ -86,11 +80,6 @@ class GroundSpawnLoader {
                 .put(getLocation().z.toByte())
         }
 
-        /**
-         * Init.
-         *
-         * @return The initialized [GroundItem].
-         */
         fun init(): GroundItem {
             return GroundItemManager.create(this)
         }

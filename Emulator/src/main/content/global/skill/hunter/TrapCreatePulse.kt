@@ -74,7 +74,7 @@ class TrapCreatePulse(player: Player, node: Node, val trap: Traps) : SkillPulse<
     }
 
     override fun reward(): Boolean {
-        if (++ticks % (trap.settings.setupAnimation.definition!!.getDurationTicks()) != 0) {
+        if (++ticks % (trap.settings.setupAnimation.definition.getDurationTicks()) != 0) {
             return false
         }
         var `object` = trap.settings.buildObject(player, node)
@@ -107,8 +107,8 @@ class TrapCreatePulse(player: Player, node: Node, val trap: Traps) : SkillPulse<
         } else {
             if (!isGroundSetup) {
                 if (player.inventory.remove(node as Item?)) {
-                    groundItem = GroundItem(node as Item?, player.location, player)
-                    GroundItemManager.create(groundItem)
+                    groundItem = GroundItem(node as Item, player.location, player)
+                    GroundItemManager.create(groundItem!!)
                 }
                 return
             }

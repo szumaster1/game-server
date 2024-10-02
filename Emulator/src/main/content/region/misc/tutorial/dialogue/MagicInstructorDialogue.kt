@@ -25,7 +25,7 @@ import proto.management.JoinClanRequest
  * Represents the Magic Tutor dialogue.
  */
 @Initializable
-class MagicTutorDialogue(player: Player? = null) : Dialogue(player) {
+class MagicInstructorDialogue(player: Player? = null) : Dialogue(player) {
 
     private val STARTER_PACK = arrayOf(
         /*
@@ -107,19 +107,18 @@ class MagicTutorDialogue(player: Player? = null) : Dialogue(player) {
             }
 
             71 -> when (stage) {
-                0 -> npcl(FacialExpression.FRIENDLY, "Well, you're all finished here now. I'll give you a reasonable number of starting items when you leave.").also { stage++ }
-                1 -> {
+                0 -> {
                     setTitle(player, 2)
                     sendDialogueOptions(player, "Do you want to go to the mainland?", "Yes.", "No.").also { stage++ }
                 }
-                2 -> when (buttonId) {
+                1 -> when (buttonId) {
                     1 -> playerl(FacialExpression.NEUTRAL, "I'm ready to go now, thank you.").also { stage++ }
                     2 -> playerl(FacialExpression.NEUTRAL, "No.").also { stage = END_DIALOGUE }
                 }
-                3 -> npc("Good good. I've deactivated the protective spells around", "the island so now you can teleport yourself out of", "here.").also { stage++ }
-                4 -> npc("When you get to the mainland you will find yourself in", "the town of Lumbridge. If you want some ideas on", "where to go next, talk to my friend Phileas, also known", "as the Lumbridge Guide. You can't miss him; he's").also { stage++ }
-                5 -> npc("holding a big staff with a question mark on the end. He", "also has a white beard and carries a rucksack full of", "scrolls. There are also tutors willing to teach you about", "the many skills you could learn.").also { stage++ }
-                6 -> {
+                2 -> npc("Good good. I've deactivated the protective spells around", "the island so now you can teleport yourself out of", "here.").also { stage++ }
+                3 -> npc("When you get to the mainland you will find yourself in", "the town of Lumbridge. If you want some ideas on", "where to go next, talk to my friend Phileas, also known", "as the Lumbridge Guide. You can't miss him; he's").also { stage++ }
+                4 -> npc("holding a big staff with a question mark on the end. He", "also has a white beard and carries a rucksack full of", "scrolls. There are also tutors willing to teach you about", "the many skills you could learn.").also { stage++ }
+                5 -> {
                     openInterface(player, Components.DOUBLEOBJBOX_131).also {
                         sendModelOnInterface(player, Components.DOUBLEOBJBOX_131,2, 7369, -1)
                         sendAngleOnInterface(player, Components.DOUBLEOBJBOX_131, 2, 1200, 500, 0)
@@ -127,7 +126,7 @@ class MagicTutorDialogue(player: Player? = null) : Dialogue(player) {
                     }
                     stage++
                 }
-                7 -> {
+                6 -> {
                     openInterface(player, Components.DOUBLEOBJBOX_131).also {
                         sendModelOnInterface(player, Components.DOUBLEOBJBOX_131,2, 7369, -1)
                         sendAngleOnInterface(player, Components.DOUBLEOBJBOX_131, 2, 1200, 500, 0)
@@ -135,11 +134,11 @@ class MagicTutorDialogue(player: Player? = null) : Dialogue(player) {
                     }
                     stage++
                 }
-                8 -> {
+                7 -> {
                     npc("If all else fails, visit the " + GameWorld.settings!!.name + " website for a whole", "chestload of information on quests skills and minigames", "as well as a very good starter's guide.")
                     stage++
                 }
-                9 -> {
+                8 -> {
                     /*
                      * "You have almost completed the tutorial!"
                      * "Just click on the first spell, Home Teleport, in your Magic Spellbook."
@@ -150,7 +149,7 @@ class MagicTutorDialogue(player: Player? = null) : Dialogue(player) {
                     setAttribute(player, "/save:tutorial:complete", true)
                     setVarbit(player, 3756, 0)
                     setVarp(player, 281, 1000, true)
-                    teleport(player, Location.getRandomLocation(Location.create(3233, 3230),3,true), TeleportManager.TeleportType.NORMAL)
+                    teleport(player, Location.getRandomLocation(Location.create(3233, 3230),1,true), TeleportManager.TeleportType.NORMAL)
                     closeOverlay(player)
                     player.inventory.clear()
                     player.bank.clear()
@@ -169,7 +168,7 @@ class MagicTutorDialogue(player: Player? = null) : Dialogue(player) {
                         return@queueScript stopExecuting(player)
                     }
 
-                    stage = 10
+                    stage = 9
 
                     TutorialStage.removeHintIcon(player)
                     player.unhook(TutorialKillReceiver)
@@ -188,7 +187,7 @@ class MagicTutorDialogue(player: Player? = null) : Dialogue(player) {
                     }
                 }
 
-                10 -> {
+                9 -> {
                     setAttribute(player, "close_c_", true)
                     end()
                 }

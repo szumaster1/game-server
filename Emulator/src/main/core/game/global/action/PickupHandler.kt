@@ -65,8 +65,8 @@ object PickupHandler {
         // Add the item to the player's inventory and handle any additional actions
         if (item.isActive && player.inventory.add(add)) {
             // Log the item pickup if it was dropped by another player
-            if (item.dropper is Player && item.dropper.details.uid != player.details.uid) {
-                PlayerMonitor.log(item.dropper, LogType.DROP_TRADE, "${getItemName(item.id)} x${item.amount} picked up by ${player.name}.")
+            if (item.dropper is Player && item.dropper!!.details.uid != player.details.uid) {
+                PlayerMonitor.log(item.dropper!!, LogType.DROP_TRADE, "${getItemName(item.id)} x${item.amount} picked up by ${player.name}.")
             }
             // Play an animation if the item's location does not permit teleportation
             if (!RegionManager.isTeleportPermitted(item.location)) {
@@ -124,7 +124,7 @@ object PickupHandler {
 
         // Check if the item has a plugin and call its canPickUp method
         return if (item.hasItemPlugin()) {
-            item.plugin.canPickUp(player, item, type)
+            item.plugin!!.canPickUp(player, item, type)
         } else true
     }
 }

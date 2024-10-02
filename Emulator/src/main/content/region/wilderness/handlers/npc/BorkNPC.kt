@@ -121,7 +121,7 @@ class BorkNPC : AbstractNPC {
         ) RING_DROPS else DROPS
         for (i in drops.indices) {
             val item = Item(drops[i].id, RandomFunction.random(drops[i].minimumAmount, drops[i].maximumAmount))
-            GroundItemManager.create(item, getLocation(), player)
+            GroundItemManager.create(item, getLocation(), player!!)
         }
         if (RandomFunction.random(5) == 1) {
             super.handleDrops(p, killer)

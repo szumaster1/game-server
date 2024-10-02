@@ -15,13 +15,7 @@ import core.game.world.map.zone.ZoneBorders
  * @param exitLocation      the location of the exit.
  * @param zone              the zone borders of the crater.
  */
-enum class CraterType(
-    val level: Int,
-    val roomLocation: Location,
-    val craterLocation: Location,
-    val exitLocation: Location,
-    val zone: ZoneBorders
-) {
+enum class CraterType(val level: Int, val roomLocation: Location, val craterLocation: Location, val exitLocation: Location, val zone: ZoneBorders) {
     LOW_LEVEL(
         level = 3,
         roomLocation = Location.create(1548, 5804, 0),

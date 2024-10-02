@@ -78,7 +78,7 @@ class NechryaelNPC : NPCBehavior(*Tasks.NECHRYAELS.npcs) {
     }
 }
 
-class DeathspawnBehavior : NPCBehavior(NPCs.DEATH_SPAWN_1614) {
+class DeathSpawnBehavior : NPCBehavior(NPCs.DEATH_SPAWN_1614) {
     override fun onCreation(self: NPC) {
         setAttribute(self, "despawn-time", GameWorld.ticks + 100)
         val target = getAttribute<Player?>(self, "target", null) ?: return

@@ -30,7 +30,7 @@ class SpiritTzKihNPC @JvmOverloads constructor(owner: Player? = null, id: Int = 
         for (i in 0..1) {
             if (entity.size >= i) {
                 target = entity[i]
-                if (target == null || target === this || target === owner) {
+                if (target == this || target == owner) {
                     continue
                 }
                 if (!canCombatSpecial(target)) {

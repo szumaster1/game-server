@@ -175,15 +175,15 @@ class BFPlayerState(val player: Player) {
     }
 
     companion object {
-        val DISPENSER_STATE = 936
-        val COAL_NEEDED = 940
-        val BRONZE_COUNT = 941
-        val IRON_COUNT = 942
-        val STEEL_COUNT = 943
-        val MITHRIL_COUNT = 944
-        val ADDY_COUNT = 945
-        val RUNITE_COUNT = 946
-        val GOLD_COUNT = 947
-        val SILVER_COUNT = 948
+        const val DISPENSER_STATE = 936
+        const val COAL_NEEDED = 940
+        const val BRONZE_COUNT = 941
+        const val IRON_COUNT = 942
+        const val STEEL_COUNT = 943
+        const val MITHRIL_COUNT = 944
+        const val ADDY_COUNT = 945
+        const val RUNITE_COUNT = 946
+        const val GOLD_COUNT = 947
+        const val SILVER_COUNT = 948
     }
 }

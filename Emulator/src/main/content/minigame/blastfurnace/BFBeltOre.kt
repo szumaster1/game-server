@@ -84,8 +84,8 @@ class BFBeltOre(
     }
 
     companion object {
-        val ORE_START_LOC = Location.create(1942, 4966, 0)
-        val ORE_END_LOC = Location.create(1942, 4963, 0)
-        val ORE_DEPOSIT_ANIM = 2434
+        val ORE_START_LOC: Location = Location.create(1942, 4966, 0)
+        val ORE_END_LOC: Location = Location.create(1942, 4963, 0)
+        const val ORE_DEPOSIT_ANIM = 2434
     }
 }

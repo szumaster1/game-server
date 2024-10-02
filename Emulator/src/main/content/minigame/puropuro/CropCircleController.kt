@@ -58,20 +58,12 @@ class CropCircleController : TickListener, InteractionListener {
         /*
          * Add the center of the crop circle.
          */
-        activeObjects.add(
-            addScenery(
-                center, location, rotation = 0, type = 10
-            )
-        )
+        activeObjects.add(addScenery(center, location, rotation = 0, type = 10))
         /*
          * Add the surrounding tiles of the crop circle.
          */
         for ((index, tile) in location.surroundingTiles.withIndex()) {
-            activeObjects.add(
-                addScenery(
-                    surrounding[index % 4], tile, rotation = (index / 4) * 2, type = 10
-                )
-            )
+            activeObjects.add(addScenery(surrounding[index % 4], tile, rotation = (index / 4) * 2, type = 10))
         }
     }
 

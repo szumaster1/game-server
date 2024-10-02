@@ -7,19 +7,19 @@ import core.tools.RandomFunction
  * @author Ceikry
  */
 class BlastState {
-    var disableBreaking = false // Indicates whether breaking is disabled.
-    var forceBreaking = false // Indicates whether breaking is forced.
-    var potPipeBroken = false // Indicates whether the pot pipe is broken.
-    var pumpPipeBroken = false // Indicates whether the pump pipe is broken.
-    var beltBroken = false // Indicates whether the belt is broken.
-    var cogBroken = false // Indicates whether the cog is broken.
-    var ticksElapsed = 0 // Keeps track of the number of ticks elapsed.
+    var disableBreaking = false
+    var forceBreaking = false
+    var potPipeBroken = false
+    var pumpPipeBroken = false
+    var beltBroken = false
+    var cogBroken = false
+    var ticksElapsed = 0
 
-    var stoveTemp = 0 // Stores the temperature of the stove.
+    var stoveTemp = 0
         private set
-    var furnaceTemp = 0 // Stores the temperature of the furnace.
+    var furnaceTemp = 0
         private set
-    var cokeInStove = 0 // Stores the amount of coke in the stove.
+    var cokeInStove = 0
 
     /**
      * Tick

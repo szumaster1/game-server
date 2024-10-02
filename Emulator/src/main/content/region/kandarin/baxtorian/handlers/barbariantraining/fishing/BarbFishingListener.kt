@@ -1,6 +1,6 @@
-package content.region.kandarin.baxtorian.barbariantraining.fishing
+package content.region.kandarin.baxtorian.handlers.barbariantraining.fishing
 
-import content.region.kandarin.baxtorian.barbariantraining.BarbarianTraining
+import content.region.kandarin.baxtorian.handlers.barbariantraining.BarbarianTraining
 import core.api.*
 import org.rs.consts.Items
 import org.rs.consts.NPCs

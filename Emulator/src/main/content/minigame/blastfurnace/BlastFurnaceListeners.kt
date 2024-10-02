@@ -32,17 +32,7 @@ class BlastFurnaceListeners : InteractionListener {
         val PEDAL_ANIM = Animations.USING_BIKE_MACHINE_BLAST_FURNACE_2433
         val PEDAL_SCENERY = getScenery(PEDAL_LOC)!!
         val PUMP_SCENERY = getScenery(PUMP_LOC)!!
-        val validOreIds = intArrayOf(
-            Items.IRON_ORE_440,
-            Items.COPPER_ORE_436,
-            Items.TIN_ORE_438,
-            Items.COAL_453,
-            Items.MITHRIL_ORE_447,
-            Items.ADAMANTITE_ORE_449,
-            Items.SILVER_ORE_442,
-            Items.GOLD_ORE_444,
-            Items.RUNITE_ORE_451
-        )
+        val validOreIds = intArrayOf(Items.IRON_ORE_440, Items.COPPER_ORE_436, Items.TIN_ORE_438, Items.COAL_453, Items.MITHRIL_ORE_447, Items.ADAMANTITE_ORE_449, Items.SILVER_ORE_442, Items.GOLD_ORE_444, Items.RUNITE_ORE_451)
     }
 
     override fun defineListeners() {

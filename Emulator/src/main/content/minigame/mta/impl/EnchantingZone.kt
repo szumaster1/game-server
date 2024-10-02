@@ -121,7 +121,7 @@ class EnchantingZone : MTAZone("Enchantment Chamber", arrayOf(Item(6899), Item(6
             // Override the pulse method to define what happens on each pulse
             override fun pulse(): Boolean {
                 // Create the ground item using the GroundItemManager
-                GroundItemManager.create(item)
+                GroundItemManager.create(item!!)
                 // Return true to indicate the pulse has completed successfully
                 return true
             }

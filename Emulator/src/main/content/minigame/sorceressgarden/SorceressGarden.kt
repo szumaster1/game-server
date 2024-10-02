@@ -2,11 +2,9 @@ package content.minigame.sorceressgarden
 
 import content.minigame.sorceressgarden.SorceressGarden.SeasonDefinitions.Companion.forGateId
 import content.minigame.sorceressgarden.dialogue.SorceressApprenticeDialogue
+import core.api.*
 import org.rs.consts.Items
 import org.rs.consts.NPCs
-import core.api.sendItemDialogue
-import core.api.sendMessage
-import core.api.sendNPCDialogue
 import core.game.component.Component
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression
@@ -30,6 +28,7 @@ import core.net.packet.context.MinimapStateContext
 import core.net.packet.outgoing.MinimapState
 import core.plugin.Plugin
 import core.tools.RandomFunction
+import org.rs.consts.Components
 
 /**
  * Sorceress garden.
@@ -49,11 +48,7 @@ class SorceressGarden : InteractionListener {
             val def = forGateId((node as Scenery).id)
             if (def != null) {
                 if (player.getSkills().getStaticLevel(Skills.THIEVING) < def.level) {
-                    sendItemDialogue(
-                        player,
-                        Items.HIGHWAYMAN_MASK_10692,
-                        "You need Thieving level of " + def.level + " to pick the lock of this gate."
-                    )
+                    sendItemDialogue(player, Items.HIGHWAYMAN_MASK_10692, "You need Thieving level of " + def.level + " to pick the lock of this gate.")
                     return@on true
                 }
                 DoorActionHandler.handleAutowalkDoor(player, node.asScenery())
@@ -137,12 +132,12 @@ class SorceressGarden : InteractionListener {
             return@on true
         }
 
-        on(SHELVES, IntType.SCENERY, "search") { player, node ->
-            if (player.inventory.freeSlots() < 1) {
+        on(SHELVES, IntType.SCENERY, "search") { player, _ ->
+            if (freeSlots(player) < 1) {
                 sendMessage(player, "You don't have enough space in your inventory to take a beer glass.")
             } else {
                 sendMessage(player, "You take an empty beer glass off the shelves.")
-                player.inventory.add(Item(1919, 1))
+                addItem(player, Items.BEER_GLASS_1919, 1)
             }
 
             return@on true
@@ -167,20 +162,21 @@ class SorceressGarden : InteractionListener {
             var counter = 0
             override fun pulse(): Boolean {
                 if (counter == 1) {
-                    player.inventory.add(Item(HERBS_ITEMS[RandomFunction.random(0, HERBS_ITEMS.size)], +1))
-                    player.inventory.add(Item(HERBS_ITEMS[RandomFunction.random(0, HERBS_ITEMS.size)], +1))
-                    player.packetDispatch.sendMessage("You pick up a herb.")
-                    player.interfaceManager.openOverlay(Component(115))
-                    PacketRepository.send(MinimapState::class.java, MinimapStateContext(player, 2))
-                } else if (counter == 3) player.properties.teleportLocation =
-                    Location.create(herbDef.respawn) else if (counter == 4) {
-                    player.unlock()
-                    player.packetDispatch.sendMessage("An elemental force emanating from the garden teleports you away.")
-                    PacketRepository.send(MinimapState::class.java, MinimapStateContext(player, 0))
-                    player.interfaceManager.close()
+                    addItem(player, HERBS_ITEMS[RandomFunction.random(0, HERBS_ITEMS.size)], +1)
+                    addItem(player, HERBS_ITEMS[RandomFunction.random(0, HERBS_ITEMS.size)], +1)
+                    sendMessage(player,"You pick up a herb.")
+                    openOverlay(player, Components.FADE_TO_BLACK_115)
+                    setMinimapState(player, 2)
+                } else if (counter == 3) {
+                    player.properties.teleportLocation = Location.create(herbDef.respawn)
+                    unlock(player)
+                } else if (counter == 4) {
+                    sendMessage(player, "An elemental force emanating from the garden teleports you away.")
+                    setMinimapState(player, 0)
+                    closeInterface(player)
                     player.interfaceManager.closeOverlay()
-                    player.logoutListeners.remove("garden")
-                    player.unlock()
+                    clearLogoutListener(player, "garden")
+                    unlock(player)
                     return true
                 }
                 counter++
@@ -195,40 +191,28 @@ class SorceressGarden : InteractionListener {
      * @param id Unique identifier for the herb
      * @param exp Experience points gained from harvesting the herb
      * @param respawn Location where the herb will respawn after being harvested
-     * @constructor Herb definition
      */
     enum class HerbDefinition(val id: Int, val exp: Double, val respawn: Location) {
-        /**
-         * Winter
-         *
-         * @constructor Winter
-         */
-        WINTER(21671, 30.0, Location(2907, 5470, 0)),
-
-        /**
-         * Spring
-         *
-         * @constructor Spring
-         */
-        SPRING(21668, 40.0, Location(2916, 5473, 0)),
-
-        /**
-         * Autumn
-         *
-         * @constructor Autumn
-         */
-        AUTUMN(
-            21670,
-            50.0,
-            Location(2913, 5467, 0)
+        WINTER(
+            id = 21671,
+            exp = 30.0,
+            respawn = Location(2907, 5470, 0)
         ),
-
-        /**
-         * Summer
-         *
-         * @constructor Summer
-         */
-        SUMMER(21669, 60.0, Location(2910, 5476, 0));
+        SPRING(
+            id = 21668,
+            exp = 40.0,
+            respawn = Location(2916, 5473, 0)
+        ),
+        AUTUMN(
+            id = 21670,
+            exp = 50.0,
+            respawn = Location(2913, 5467, 0)
+        ),
+        SUMMER(
+            id = 21669,
+            exp = 60.0,
+            respawn = Location(2910, 5476, 0)
+        );
 
         companion object {
             /**
@@ -240,10 +224,10 @@ class SorceressGarden : InteractionListener {
             fun forId(id: Int): HerbDefinition? {
                 for (def in values()) {
                     if (def.id == id) {
-                        return def // Return the matching HerbDefinition
+                        return def
                     }
                 }
-                return null // Return null if no match is found
+                return null
             }
         }
     }
@@ -264,27 +248,8 @@ class SorceressGarden : InteractionListener {
      * @param osmanExp Experience points gained from Osman-related activities in this season
      * @param gateId Unique identifier for the gate associated with this season
      * @param respawn Location where entities respawn in this season
-     * @constructor Season definitions
      */
-    enum class SeasonDefinitions(
-        val treeId: Int, // Unique identifier for the tree associated with the season
-        val level: Int, // The level required to access this season
-        val farmExp: Double, // Experience points gained from farming in this season
-        val exp: Double, // General experience points gained in this season
-        val fruitId: Int, // Unique identifier for the fruit produced in this season
-        val juiceId: Int, // Unique identifier for the juice made from the fruit
-        val fruitAmt: Int, // Amount of fruit produced in this season
-        val boost: Int, // Boost effect provided by this season
-        val energy: Int, // Energy cost associated with activities in this season
-        val osmanExp: Double, // Experience points gained from Osman-related activities in this season
-        val gateId: Int, // Unique identifier for the gate associated with this season
-        val respawn: Location // Location where entities respawn in this season
-    ) {
-        /**
-         * Winter
-         *
-         * @constructor Winter
-         */
+    enum class SeasonDefinitions(val treeId: Int, val level: Int, val farmExp: Double, val exp: Double, val fruitId: Int, val juiceId: Int, val fruitAmt: Int, val boost: Int, val energy: Int, val osmanExp: Double, val gateId: Int, val respawn: Location) {
         WINTER(
             treeId = 21769,
             level = 1,
@@ -299,12 +264,6 @@ class SorceressGarden : InteractionListener {
             gateId = 21709,
             respawn = Location(2907, 5470, 0)
         ),
-
-        /**
-         * Spring
-         *
-         * @constructor Spring
-         */
         SPRING(
             treeId = 21767,
             level = 25,
@@ -319,12 +278,6 @@ class SorceressGarden : InteractionListener {
             gateId = 21753,
             respawn = Location(2916, 5473, 0)
         ),
-
-        /**
-         * Autumn
-         *
-         * @constructor Autumn
-         */
         AUTUMN(
             treeId = 21768,
             level = 45,
@@ -339,12 +292,6 @@ class SorceressGarden : InteractionListener {
             gateId = 21731,
             respawn = Location(2913, 5467, 0)
         ),
-
-        /**
-         * Summer
-         *
-         * @constructor Summer
-         */
         SUMMER(
             treeId = 21766,
             level = 65,
@@ -368,14 +315,10 @@ class SorceressGarden : InteractionListener {
              * @return The corresponding SeasonDefinitions object or null if not found
              */
             fun forFruitId(fruitId: Int): SeasonDefinitions? {
-                // Iterate through all defined SeasonDefinitions values
                 for (def in values()) {
-                    // Skip null definitions
                     if (def == null) continue
-                    // Check if the current definition's fruitId matches the provided fruitId
                     if (fruitId == def.fruitId) return def
                 }
-                // Return null if no matching definition is found
                 return null
             }
 
@@ -387,12 +330,9 @@ class SorceressGarden : InteractionListener {
              */
             @JvmStatic
             fun forGateId(gateId: Int): SeasonDefinitions? {
-                // Iterate through all defined SeasonDefinitions values
                 for (def in values()) {
-                    // Check if the current definition's gateId matches the provided gateId
                     if (gateId == def.gateId) return def
                 }
-                // Return null if no matching definition is found
                 return null
             }
 
@@ -403,14 +343,10 @@ class SorceressGarden : InteractionListener {
              * @return The corresponding SeasonDefinitions object or null if not found
              */
             fun forJuiceId(juiceId: Int): SeasonDefinitions? {
-                // Iterate through all defined SeasonDefinitions values
                 for (def in values()) {
-                    // Skip null definitions
                     if (def == null) continue
-                    // Check if the current definition's juiceId matches the provided juiceId
                     if (juiceId == def.juiceId) return def
                 }
-                // Return null if no matching definition is found
                 return null
             }
 
@@ -421,19 +357,14 @@ class SorceressGarden : InteractionListener {
              * @return The corresponding SeasonDefinitions object or null if not found
              */
             fun forTreeId(treeId: Int): SeasonDefinitions? {
-                // Iterate through all defined SeasonDefinitions values
                 for (def in values()) {
-                    // Skip null definitions
                     if (def == null) continue
-                    // Check if the current definition's treeId matches the provided treeId
                     if (treeId == def.treeId) return def
                 }
-                // Return null if no matching definition is found
                 return null
             }
         }
     }
-
 
     /**
      * Sqirk juice plugin.

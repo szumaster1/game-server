@@ -69,21 +69,13 @@ class ImpDefenderNPC : NPCBehavior(NPCs.IMP_DEFENDER_6074) {
                 1 -> {
                     var hasRepellent = inInventory(player, Items.IMP_REPELLENT_11262)
                     var baseRoll = RandomFunction.randomDouble(100.0)
-                    var playerRoll = RandomFunction.getSkillSuccessChance(
-                        catchPlayerLow + if (hasRepellent) impRepellentBonus else 0.0,
-                        catchPlayerHigh + if (hasRepellent) impRepellentBonus else 0.0,
-                        getStatLevel(player, Skills.THIEVING)
-                    )
+                    var playerRoll = RandomFunction.getSkillSuccessChance(catchPlayerLow + if (hasRepellent) impRepellentBonus else 0.0, catchPlayerHigh + if (hasRepellent) impRepellentBonus else 0.0, getStatLevel(player, Skills.THIEVING))
                     if (playerRoll < baseRoll) {
                         sendChat(self, "Be free!")
                         animate(self, 6629)
                         removeItem(player, jarItem)
-                        var loc = ZoneBorders(
-                            self.location.x - 2, self.location.y - 2, self.location.x + 2, self.location.y + 2
-                        ).randomLoc
-                        GroundItemManager.create(
-                            Item(Items.IMPLING_JAR_11260), loc, player
-                        )
+                        var loc = ZoneBorders(self.location.x - 2, self.location.y - 2, self.location.x + 2, self.location.y + 2).randomLoc
+                        GroundItemManager.create(Item(Items.IMPLING_JAR_11260), loc, player)
                     }
                     resetFace(self)
                 }

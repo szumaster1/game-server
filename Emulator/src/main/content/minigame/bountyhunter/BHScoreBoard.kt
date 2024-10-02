@@ -33,7 +33,7 @@ class BHScoreBoard {
         player.interfaceManager.open(Component(component))
         for (i in 0 until SIZE) {
             player.packetDispatch.sendString(StringUtils.formatDisplayName(names[i]), component, 15 + i)
-            player.packetDispatch.sendString(Integer.toString(scores[i]), component, 25 + i)
+            player.packetDispatch.sendString(scores[i].toString(), component, 25 + i)
         }
     }
 

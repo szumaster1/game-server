@@ -49,7 +49,7 @@ class WitchExperimentNPC : AbstractNPC {
     }
 
     override fun startDeath(killer: Entity) {
-        if (killer === p) {
+        if (killer == p) {
             type!!.transform(this, p)
             return
         }
@@ -57,12 +57,12 @@ class WitchExperimentNPC : AbstractNPC {
     }
 
     override fun isAttackable(entity: Entity, style: CombatStyle, message: Boolean): Boolean {
-        return p === entity
+        return p == entity
     }
 
     override fun canSelectTarget(target: Entity): Boolean {
         if (target is Player) {
-            return target === this.p
+            return target == this.p
         }
         return true
     }
