@@ -112,11 +112,6 @@ public class Item extends Node {
         return value * getAmount();
     }
 
-    /**
-     * Gets alchemy value.
-     *
-     * @return the alchemy value
-     */
     public long getAlchemyValue() {
         long value = 1;
         if (definition.getAlchemyValue(true) > value) {
@@ -137,7 +132,8 @@ public class Item extends Node {
     /**
      * Gets the item id of the exchange item for this item.
      *
-     * @return The note item id, if this item is unnoted, or the unnoted item id if this item is noted.
+     * @return The note item id, if this item is unnoted, or the unnoted item id
+     * if this item is noted.
      */
     public int getNoteChange() {
         int noteId = definition.getNoteId();
@@ -155,8 +151,6 @@ public class Item extends Node {
     }
 
     /**
-     * Sets id.
-     *
      * @param id the id to set
      */
     public void setId(int id) {
@@ -165,8 +159,6 @@ public class Item extends Node {
     }
 
     /**
-     * Gets amount.
-     *
      * @return the amount
      */
     public int getAmount() {
@@ -174,8 +166,6 @@ public class Item extends Node {
     }
 
     /**
-     * Sets amount.
-     *
      * @param amount the amount to set
      */
     public void setAmount(int amount) {
@@ -195,8 +185,6 @@ public class Item extends Node {
     }
 
     /**
-     * Gets charge.
-     *
      * @return the charge
      */
     public int getCharge() {
@@ -204,8 +192,6 @@ public class Item extends Node {
     }
 
     /**
-     * Sets charge.
-     *
      * @param charge the charge to set
      */
     public void setCharge(int charge) {
@@ -270,7 +256,8 @@ public class Item extends Node {
     /**
      * Gets the slot of this item.
      *
-     * @return The container slot, or {@code -1} if the item wasn't added to a container.
+     * @return The container slot, or {@code -1} if the item wasn't added to a
+     * container.
      */
     public int getSlot() {
         return index;

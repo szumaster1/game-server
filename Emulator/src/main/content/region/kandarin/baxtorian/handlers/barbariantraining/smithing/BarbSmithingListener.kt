@@ -1,4 +1,4 @@
-package content.region.kandarin.baxtorian.barbariantraining.smithing
+package content.region.kandarin.baxtorian.handlers.barbariantraining.smithing
 
 import org.rs.consts.Items
 import org.rs.consts.Scenery

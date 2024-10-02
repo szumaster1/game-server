@@ -1,6 +1,7 @@
 package content.global.handlers.iface
 
 import core.api.sendInputDialogue
+import core.api.sendMessage
 import core.game.component.Component
 import core.game.component.ComponentDefinition
 import core.game.component.ComponentPlugin
@@ -55,7 +56,7 @@ class TradeInterface : ComponentPlugin() {
                     if (getExtension(if (button == 32) module.target else player) == null) {
                         return true
                     }
-                    player.packetDispatch.sendMessage(getExtension(if (button == 32) module.target else player)!!.container!![slot].definition.examine)
+                    sendMessage(player, getExtension(if (button == 32) module.target else player)!!.container!![slot].definition.examine)
                 }
             }
 
@@ -72,7 +73,7 @@ class TradeInterface : ComponentPlugin() {
                     module.container!!.offer(slot, `val`)
                 }
 
-                9 -> player.packetDispatch.sendMessage(player.inventory[slot].definition.examine)
+                9 -> sendMessage(player, player.inventory[slot].definition.examine)
             }
         }
         return true

@@ -47,7 +47,7 @@ class KingRoaldDialogue : DialogueFile() {
                     )
                     if (player!!.inventory.remove(CERTIFICATE)) {
                         if (!player!!.inventory.add(Item(995, 600))) {
-                            GroundItemManager.create(Item(995, 600), player)
+                            GroundItemManager.create(Item(995, 600), player!!)
                         }
                         player!!.questRepository.getQuest("Shield of Arrav").finish(player)
                         stage = END_DIALOGUE

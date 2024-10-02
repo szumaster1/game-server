@@ -63,13 +63,13 @@ class TelekineticGrabSpell : MagicSpell(SpellBookManager.SpellBook.MODERN, 33, 4
         return object : Pulse(getDelay(ground.location.getDistance(entity.location)), entity) {
             override fun pulse(): Boolean {
                 val player = if (entity is Player) entity else null
-                val g = GroundItemManager.get(ground.id, ground.location, player)
+                val g = GroundItemManager.get(ground.id, ground.location, player!!)
                 if (g == null) {
-                    player!!.packetDispatch.sendMessage("Too late!")
+                    sendMessage(player, "Too late!")
                     return true
                 }
                 if (ground.id == 6561) {
-                    player!!.dialogueInterpreter.open(2692, findNPC(2692)!!, true)
+                    player.dialogueInterpreter.open(2692, findNPC(2692)!!, true)
                     return true
                 }
                 if (player == null) {
@@ -78,7 +78,7 @@ class TelekineticGrabSpell : MagicSpell(SpellBookManager.SpellBook.MODERN, 33, 4
                 val teleZone = player.zoneMonitor.isInZone("Telekinetic Theatre") && g.id == 6888
                 if (player != null) {
                     if (g == null || !g.isActive) {
-                        player.packetDispatch.sendMessage("Too late!")
+                        sendMessage(player, "Too late!")
                         return true
                     }
                     playAudio(player, Sounds.VULNERABILITY_IMPACT_3008)

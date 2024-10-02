@@ -36,7 +36,6 @@ object PestControlHelper {
         Location.create(2665, 2660, 0)
     }
 
-    ////////////Begin functions///////////////
     fun isInPestControlInstance(p: Player): Boolean {
         return p.getAttribute<Any?>("pc_zeal") != null
     }

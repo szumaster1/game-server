@@ -27,16 +27,7 @@ private val ftWaitingArea = arrayOf(ZoneBorders(2668, 3165, 2675, 3184))
  * Fishing trawler activity.
  */
 @Initializable
-class FishingTrawlerActivity : ActivityPlugin(
-    "fishing trawler",
-    false,
-    false,
-    true,
-    ZoneRestriction.CANNON,
-    ZoneRestriction.FIRES,
-    ZoneRestriction.FOLLOWERS,
-    ZoneRestriction.RANDOM_EVENTS
-), MapArea {
+class FishingTrawlerActivity : ActivityPlugin("fishing trawler", false, false, true, ZoneRestriction.CANNON, ZoneRestriction.FIRES, ZoneRestriction.FOLLOWERS, ZoneRestriction.RANDOM_EVENTS), MapArea {
 
     init {
         activity = this
@@ -45,13 +36,18 @@ class FishingTrawlerActivity : ActivityPlugin(
     override fun configure() {
         GameWorld.Pulser.submit(object : Pulse(1) {
             override fun pulse(): Boolean {
-                // Display the time until the next game for players waiting
+                /*
+                 * Display the time until the next game for players waiting.
+                 */
                 if ((nextStart - GameWorld.ticks) % 100 == 0) {
                     for (player in waitingPlayers) {
                         player.sendMessage(colorize("%R${ticksToSeconds(nextStart - GameWorld.ticks) / 60} minutes until next game."))
                     }
                 }
-                // Start a new session if the waiting time has passed and there are players waiting
+
+                /*
+                 * Start a new session if the waiting time has passed and there are players waiting.
+                 */
                 if (GameWorld.ticks >= nextStart && waitingPlayers.isNotEmpty()) {
                     val session = FishingTrawlerSession(DynamicRegion.create(8011), activity!!)
                     session.start(waitingPlayers)
@@ -59,7 +55,9 @@ class FishingTrawlerActivity : ActivityPlugin(
                     waitingPlayers.clear()
                     nextStart = GameWorld.ticks + WAIT_TIME
                 }
-                // Remove inactive sessions
+                /*
+                 * Remove inactive sessions.
+                 */
                 sessions.removeIf { session ->
                     if (!session.isActive && session.inactiveTicks >= 100) {
                         session.clearNPCs()

@@ -27,8 +27,7 @@ class CuratorHaigHalenDialogueFile : DialogueFile() {
                 10 -> sendItemDialogue(player, ShieldofArrav.getShield(player), "You hand over the shield half.").also { stage++ }
                 11 -> {
                     val shield = ShieldofArrav.getShield(player)
-                    val certificate =
-                        if (shield === ShieldofArrav.BLACKARM_SHIELD) ShieldofArrav.BLACKARM_CERTIFICATE else ShieldofArrav.PHOENIX_CERTIFICATE
+                    val certificate = if (shield == ShieldofArrav.BLACKARM_SHIELD) ShieldofArrav.BLACKARM_CERTIFICATE else ShieldofArrav.PHOENIX_CERTIFICATE
                     if (player.inventory.remove(shield)) {
                         player.inventory.add(certificate)
                         interpreter!!.sendItemMessage(certificate, "The curator writes out two half-certificates.")

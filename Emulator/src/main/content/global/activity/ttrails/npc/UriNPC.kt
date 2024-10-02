@@ -43,7 +43,7 @@ class UriNPC : AbstractNPC {
     }
 
     override fun finalizeDeath(killer: Entity) {
-        if (killer is Player && killer === player && isDoubleAgent) {
+        if (killer is Player && killer == player && isDoubleAgent) {
             killer.setAttribute("killed-agent", clueScroll!!.clueId)
         }
         super.finalizeDeath(killer)
@@ -62,7 +62,7 @@ class UriNPC : AbstractNPC {
     }
 
     override fun isAttackable(entity: Entity, style: CombatStyle, message: Boolean): Boolean {
-        return if (entity is Player && player === entity) {
+        return if (entity is Player && player == entity) {
             true
         } else {
             super.isAttackable(entity, style, message)
@@ -70,7 +70,7 @@ class UriNPC : AbstractNPC {
     }
 
     override fun canSelectTarget(target: Entity): Boolean {
-        return target === player
+        return target == player
     }
 
     @Throws(Throwable::class)
@@ -135,10 +135,7 @@ class UriNPC : AbstractNPC {
 
         private fun canSpeak(): Boolean {
             val scroll = asUri().clueScroll as content.global.activity.ttrails.scroll.EmoteClueScroll?
-            return asUri().player === player && player.getAttribute(
-                "commence-emote",
-                !scroll!!.hasCommencedEmote()
-            ) && scroll.hasEquipment(player, scroll.equipment)
+            return asUri().player == player && player.getAttribute("commence-emote", !scroll!!.hasCommencedEmote()) && scroll.hasEquipment(player, scroll.equipment)
         }
 
         private fun asUri(): UriNPC {

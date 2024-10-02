@@ -142,14 +142,7 @@ class DuelArea
         return super.move(entity, from, to)
     }
 
-    override fun actionButton(
-        player: Player,
-        interfaceId: Int,
-        buttonId: Int,
-        slot: Int,
-        itemId: Int,
-        opcode: Int
-    ): Boolean {
+    override fun actionButton(player: Player, interfaceId: Int, buttonId: Int, slot: Int, itemId: Int, opcode: Int): Boolean {
         val session: DuelSession = getSession(player) ?: return true
         val inter = player.getExtension<WeaponInterface>(WeaponInterface::class.java)
         if (inter != null && interfaceId == inter.id) {
@@ -185,13 +178,13 @@ class DuelArea
         if (e.isPlayer && target is Player && !checkAttack(e.asPlayer(), target)) {
             return false
         }
-        if (e is content.global.skill.summoning.familiar.Familiar && target is Player) {
+        if (e is Familiar && target is Player) {
             val o = e.owner
             if (o != null && target.asPlayer() !== getSession(o)!!.getOpposite(o)) {
                 return false
             }
         }
-        if (e is content.global.skill.summoning.familiar.Familiar && target is content.global.skill.summoning.familiar.Familiar) {
+        if (e is Familiar && target is Familiar) {
             val f = e
             if (getSession(f.owner)!!.getOpposite(f.owner) !== target.owner) {
                 return false
@@ -210,15 +203,8 @@ class DuelArea
                 p.sendMessage(StringUtils.formatDisplayName(style.name.lowercase(Locale.getDefault())) + " has been turned off for this duel.")
                 return false
             }
-            if (session.hasRule(DuelRule.FUN_WEAPONS) && (p.equipment[EquipmentContainer.SLOT_WEAPON] == null || !p.equipment[EquipmentContainer.SLOT_WEAPON].definition.getConfiguration(
-                    "fun_weapon",
-                    false
-                ))
-            ) {
-                p.sendMessages(
-                    "This is a 'fun weapon' duel. You can only use flowers, basket of eggs, or a",
-                    "rubber chicken."
-                )
+            if (session.hasRule(DuelRule.FUN_WEAPONS) && (p.equipment[EquipmentContainer.SLOT_WEAPON] == null || !p.equipment[EquipmentContainer.SLOT_WEAPON].definition.getConfiguration("fun_weapon", false))) {
+                p.sendMessages("This is a 'fun weapon' duel. You can only use flowers, basket of eggs, or a", "rubber chicken.")
                 return false
             }
             if (target is content.global.skill.summoning.familiar.Familiar) {
@@ -274,7 +260,7 @@ class DuelArea
             session.leave(p, if (logout) 1 else if (p.getAttribute("duel:forfeit", false)) 0 else 2)
             remove(session.getOpposite(p))
             leave(session.getOpposite(p))
-        } else if (entity is content.global.skill.summoning.familiar.Familiar) {
+        } else if (entity is Familiar) {
             val familiar = entity
             if (familiar.isCombatFamiliar) {
                 familiar.reTransform()
@@ -360,8 +346,8 @@ class DuelArea
     }
 
     override fun death(e: Entity, killer: Entity): Boolean {
-        if (e.isPlayer && (killer.isPlayer || killer is content.global.skill.summoning.familiar.Familiar)) {
-            val k = if (killer is content.global.skill.summoning.familiar.Familiar) killer.owner else killer.asPlayer()
+        if (e.isPlayer && (killer.isPlayer || killer is Familiar)) {
+            val k = if (killer is Familiar) killer.owner else killer.asPlayer()
             if (k != null) {
                 k.getSkills().heal(100)
                 PulseManager.cancelDeathTask(e)

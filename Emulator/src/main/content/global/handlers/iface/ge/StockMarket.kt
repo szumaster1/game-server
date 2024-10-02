@@ -59,7 +59,7 @@ class StockMarket : InterfaceListener {
             }
             val item = player.inventory[slot] ?: return@on false
             when (op) {
-                196 -> player.packetDispatch.sendMessage(item.definition.examine)
+                196 -> sendMessage(player, item.definition.examine)
                 155 -> {
                     val offer = getAttribute(player, "ge-temp", GrandExchangeOffer())
                     val index = getAttribute(player, "ge-index", -1)
@@ -81,7 +81,7 @@ class StockMarket : InterfaceListener {
                     offer.index = index
                     updateVarbits(player, offer, index, true)
                     setAttribute(player, "ge-temp", offer)
-                    player.packetDispatch.sendString(getOfferStats(id, true), 105, 142)
+                    sendString(player, getOfferStats(id, true), 105, 142)
                 }
             }
             return@on true

@@ -15,10 +15,7 @@ import core.plugin.Plugin
 /**
  * Pyramid plunder NPC.
  */
-abstract class PyramidPlunderNPC(
-    id: Int, location: Location?,
-    val player: Player
-) : AbstractNPC(id, location) {
+abstract class PyramidPlunderNPC(id: Int, location: Location?, val player: Player) : AbstractNPC(id, location) {
 
     private val quotes: Array<String>? = null
     private var count = 0
@@ -70,14 +67,12 @@ abstract class PyramidPlunderNPC(
         }
     }
 
-
     /**
      * Handle player leave
      */
     fun handlePlayerLeave() {
         clear()
     }
-
 
     /**
      * Handle time up
@@ -99,7 +94,6 @@ abstract class PyramidPlunderNPC(
     override fun construct(id: Int, location: Location, vararg objects: Any): AbstractNPC? {
         return null
     }
-
 
     /**
      * Start following

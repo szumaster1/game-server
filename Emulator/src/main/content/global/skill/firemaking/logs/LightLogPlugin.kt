@@ -1,11 +1,7 @@
 package content.global.skill.firemaking.logs
 
-import content.global.skill.gather.SkillingTool
 import content.global.skill.firemaking.FireMakingPulse
-import content.region.kandarin.baxtorian.barbariantraining.BarbarianTraining
-import content.region.kandarin.baxtorian.barbariantraining.firemaking.BarbFiremakingPulse
-import core.api.inInventory
-import core.api.sendMessage
+import core.api.*
 import core.cache.def.impl.ItemDefinition
 import core.game.interaction.OptionHandler
 import core.game.node.Node
@@ -19,24 +15,7 @@ import core.plugin.Plugin
 class LightLogPlugin : OptionHandler() {
 
     override fun handle(player: Player, node: Node, option: String): Boolean {
-        var barbarianFiremaking = player.getAttribute(BarbarianTraining.FM_BASE, false) == true
-        var completeBarbarianFiremaking = player.getAttribute(BarbarianTraining.FM_FULL, false) == true
-
-        if (completeBarbarianFiremaking || barbarianFiremaking) {
-            if (!inInventory(player, SkillingTool.getFiremakingTool(player)!!.id)) {
-                player.pulseManager.run(FireMakingPulse(player, (node as Item), (node as GroundItem)))
-            } else {
-                player.pulseManager.run(
-                    BarbFiremakingPulse(
-                        player,
-                        (node as Item),
-                        (node as GroundItem)
-                    )
-                )
-            }
-        } else {
-            sendMessage(player, "You do not have the required items to light this.")
-        }
+        submitIndividualPulse(player, FireMakingPulse(player, (node as Item), (node as GroundItem)))
         return true
     }
 

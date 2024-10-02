@@ -1,4 +1,4 @@
-package content.region.kandarin.baxtorian.barbariantraining
+package content.region.kandarin.baxtorian.handlers.barbariantraining
 
 import content.global.handlers.iface.BookInterface
 import content.global.handlers.iface.BookLine
@@ -709,15 +709,22 @@ class BarbarianBook : InteractionListener {
         on(Items.BARBARIAN_SKILLS_11340, IntType.ITEM, "read") { player, _ ->
             val guideType = when {
                 getAttribute(player, BarbarianTraining.FISHING_BASE, false) -> GuideType.FISH_BASE
-                getAttribute(player, BarbarianTraining.FISHING_FULL, false) -> if (getAttribute(player, BarbarianTraining.FM_FULL, false)) GuideType.FISH_FM_FULL else GuideType.FISH_FULL
+                getAttribute(player, BarbarianTraining.FISHING_FULL, false) -> if (getAttribute(player,
+                        BarbarianTraining.FM_FULL, false)) GuideType.FISH_FM_FULL else GuideType.FISH_FULL
                 getAttribute(player, BarbarianTraining.FM_BASE, false) -> GuideType.FM_BASE
-                getAttribute(player, BarbarianTraining.FM_FULL, false) -> if (getAttribute(player, BarbarianTraining.PYRESHIP_BASE, false)) GuideType.PS_FULL else GuideType.FM_FULL
+                getAttribute(player, BarbarianTraining.FM_FULL, false) -> if (getAttribute(player,
+                        BarbarianTraining.PYRESHIP_BASE, false)) GuideType.PS_FULL else GuideType.FM_FULL
                 getAttribute(player, BarbarianTraining.PYRESHIP_BASE, false) -> GuideType.PS_BASE
                 getAttribute(player, BarbarianTraining.PYRESHIP_FULL, false) -> GuideType.PS_FULL
                 getAttribute(player, BarbarianTraining.HERBLORE_BASE, false) -> GuideType.H_BASE
-                getAttribute(player, BarbarianTraining.HERBLORE_FULL, false) -> if (getAttribute(player, BarbarianTraining.FISHING_FULL, false) && getAttribute(player, BarbarianTraining.FM_FULL, false)) { GuideType.FISH_FM_H_FULL } else GuideType.H_FULL
-                getAttribute(player, BarbarianTraining.SPEAR_BASE, false) -> if (getAttribute(player, BarbarianTraining.FISHING_FULL, false)) GuideType.SMITH_M_REQS else GuideType.SMITH_N_REQS
-                getAttribute(player, BarbarianTraining.SPEAR_FULL, false) -> if (getAttribute(player, BarbarianTraining.HASTA_BASE, false)) GuideType.SMITH_H_BASE else GuideType.SMITH_S_FULL
+                getAttribute(player, BarbarianTraining.HERBLORE_FULL, false) -> if (getAttribute(player,
+                        BarbarianTraining.FISHING_FULL, false) && getAttribute(player, BarbarianTraining.FM_FULL, false)) {
+                    GuideType.FISH_FM_H_FULL
+                } else GuideType.H_FULL
+                getAttribute(player, BarbarianTraining.SPEAR_BASE, false) -> if (getAttribute(player,
+                        BarbarianTraining.FISHING_FULL, false)) GuideType.SMITH_M_REQS else GuideType.SMITH_N_REQS
+                getAttribute(player, BarbarianTraining.SPEAR_FULL, false) -> if (getAttribute(player,
+                        BarbarianTraining.HASTA_BASE, false)) GuideType.SMITH_H_BASE else GuideType.SMITH_S_FULL
                 getAttribute(player, BarbarianTraining.HASTA_FULL, false) -> GuideType.SMITH_H_FULL
                 else -> GuideType.DEFAULT
             }

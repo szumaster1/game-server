@@ -1,9 +1,8 @@
-package content.region.kandarin.baxtorian.dialogue
+package content.region.kandarin.baxtorian.handlers.barbariantraining
 
 import core.api.*
 import org.rs.consts.Items
 import org.rs.consts.NPCs
-import content.region.kandarin.baxtorian.barbariantraining.BarbarianTraining
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC
@@ -41,10 +40,7 @@ class OttoGodblessedDialogue(player: Player? = null) : Dialogue(player) {
             )
             stage = 14
         } else {
-            npc(FacialExpression.NEUTRAL, "Good day, you seem a hearty warrior.", "Maybe even some barbarian blood in that body of yours?").also {
-                setAttribute(player, "/save:${BarbarianTraining.BARBARIAN_TRAINING}", true)
-                stage = 0
-            }
+            npc(FacialExpression.NEUTRAL, "Good day, you seem a hearty warrior.", "Maybe even some barbarian blood in that body of yours?").also { stage = 0 }
         }
         return true
     }
@@ -89,7 +85,8 @@ class OttoGodblessedDialogue(player: Player? = null) : Dialogue(player) {
                         "My mind is ready for your Firemaking wisdom, please instruct me."
                     }
                 )
-                stage++
+                setAttribute(player, "/save:${BarbarianTraining.BARBARIAN_TRAINING}", true)
+                stage = 14
             }
 
             14 -> when(buttonId) {
@@ -119,7 +116,7 @@ class OttoGodblessedDialogue(player: Player? = null) : Dialogue(player) {
                     }
                     // Talking to Otto Godblessed about Firemaking training.
                     else {
-                        player("My mind is ready for your Firemaking wisdom, please", "instruct me.").also { stage++ }
+                        player("My mind is ready for your Firemaking wisdom, please", "instruct me.").also { stage = 15 }
                     }
                 }
             }

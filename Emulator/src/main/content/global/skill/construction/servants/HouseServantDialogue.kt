@@ -188,7 +188,7 @@ class HouseServantDialogue(player: Player? = null) : Dialogue(player) {
                     stage = 50
                     return true
                 } else {
-                    if (servant.getAttribute<Any>("con:lastfetchtype") === "bank") {
+                    if (servant.getAttribute<Any>("con:lastfetchtype") == "bank") {
                         bankFetch(player, servant.getAttribute("con:lastfetch"))
                         return true
                     }

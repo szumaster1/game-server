@@ -9,9 +9,8 @@ import core.tools.RandomFunction
 /**
  * Represents the Pyramid plunder swarm NPC.
  */
-class PyramidPlunderSwarmNPC
-    (location: Location?, player: Player?) :
-    PyramidPlunderNPC(IDS[0], location, player!!) {
+class PyramidPlunderSwarmNPC(location: Location?, player: Player?) : PyramidPlunderNPC(IDS[0], location, player!!) {
+
     override fun init() {
         super.init()
         isRespawn = false

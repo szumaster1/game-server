@@ -13,6 +13,7 @@ import core.tools.END_DIALOGUE
  */
 @Initializable
 class AfrahDialogue(player: Player? = null) : Dialogue(player) {
+
     private val conversations = arrayOf(0, 4, 10, 11, 15, 17, 20, 22, 23, 24, 29, 32)
 
     override fun open(vararg args: Any): Boolean {

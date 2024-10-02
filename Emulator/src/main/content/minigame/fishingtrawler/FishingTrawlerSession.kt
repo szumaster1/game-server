@@ -71,47 +71,31 @@ class FishingTrawlerSession(val activity: FishingTrawlerActivity? = null) : MapA
      * @param pl the players.
      */
     fun start(pl: ArrayList<Player>) {
-        // Set the music ID based on a random roll
         if (RandomFunction.roll(2)) {
             region.setMusicId(Music.TRAWLER_38)
         } else {
             region.setMusicId(Music.TRAWLER_MINOR_51)
         }
-        // Add the players to the session
         this.players.addAll(pl)
         isActive = true
-        // Initialize the holes
         initHoles()
-        // Initialize Murphy NPC
         initMurphy(29, 25)
-        // Initialize the seagulls
         initGulls()
-        // Submit the TrawlerPulse task to the GameWorld.Pulser
         GameWorld.Pulser.submit(TrawlerPulse(this))
-        // Perform actions for each player in the session
         for (player in pl) {
-            // Open the overlay and tutorial interfaces for the player
             player.interfaceManager.openOverlay(Component(OVERLAY_ID))
             player.interfaceManager.open(Component(TUTORIAL_ID))
-            // Update the overlay for the player
             updateOverlay(player)
-            // Set the teleport location for the player
             player.properties.teleportLocation = base.transform(36, 24, 0)
-            // Set the "ft-session" attribute for the player
             setAttribute(player, "ft-session", this)
-            // Register a logout listener for the player
             registerLogoutListener(player, "ft-logout") {
                 val session =
                     player.getAttribute<FishingTrawlerSession?>("ft-session", null) ?: return@registerLogoutListener
-                // Teleport the player to a specific location
                 player.location = Location.create(2667, 3161, 0)
-                // Remove the player from the session
                 session.players.remove(player)
-                // Unlock the player's teleport
                 player.locks.unlockTeleport()
             }
         }
-        // Register the session's region borders
         zone.register(getRegionBorders(region.id))
     }
 
@@ -121,9 +105,7 @@ class FishingTrawlerSession(val activity: FishingTrawlerActivity? = null) : MapA
      * @param fromRegion from region.
      */
     fun swapBoatType(fromRegion: Int) {
-        // Create a new DynamicRegion based on the fromRegion parameter
         val newRegion = DynamicRegion.create(fromRegion)
-        // Submit the SwapBoatPulse task to the GameWorld.Pulser
         GameWorld.Pulser.submit(SwapBoatPulse(players, newRegion))
     }
 
@@ -135,27 +117,17 @@ class FishingTrawlerSession(val activity: FishingTrawlerActivity? = null) : MapA
      */
     class SwapBoatPulse(val playerList: ArrayList<Player>, val newRegion: DynamicRegion) : Pulse(3) {
         override fun pulse(): Boolean {
-            // Get the FishingTrawlerSession from the first player in the playerList
             val session: FishingTrawlerSession? = playerList[0].getAttribute("ft-session", null)
             session ?: return true
-            // Update the session's region and base location
             session.region = newRegion
             session.base = newRegion.baseLocation
-            // Clear the NPCs in the session
             session.clearNPCs()
-            // Initialize Murphy NPC in the new location
             session.initMurphy(26, 26)
-            // Initialize the seagulls in the new location
             session.initGulls()
-            // Perform actions for each player in the playerList
             for (player in playerList) {
-                // Close the overlay interface for the player
                 player.interfaceManager.closeOverlay()
-                // Set the animations for the player
                 player.appearance.setAnimations(Animation(188))
-                // Set the teleport location for the player
                 player.properties.teleportLocation = session.base.transform(36, 24, 0)
-                // Increment the "FISHING_TRAWLER_SHIPS_SANK" attribute for the player
                 player.incrementAttribute("/save:$STATS_BASE:$FISHING_TRAWLER_SHIPS_SANK")
             }
             return true

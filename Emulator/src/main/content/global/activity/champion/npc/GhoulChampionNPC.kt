@@ -69,11 +69,7 @@ class GhoulChampionNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id
         val player = state.attacker
         if (player is Player) {
             val i: Item = player.equipment[EquipmentContainer.SLOT_WEAPON].id.asItem()
-            if (i.definition.getConfiguration(
-                    ItemConfigParser.TWO_HANDED,
-                    false
-                ) == true && state.style == CombatStyle.MELEE
-            ) {
+            if (i.definition.getConfiguration(ItemConfigParser.TWO_HANDED, false) == true && state.style == CombatStyle.MELEE) {
                 state.neutralizeHits()
                 state.estimatedHit = state.maximumHit
             }

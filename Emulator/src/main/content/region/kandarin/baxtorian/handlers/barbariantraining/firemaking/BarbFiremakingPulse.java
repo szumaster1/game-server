@@ -1,7 +1,7 @@
-package content.region.kandarin.baxtorian.barbariantraining.firemaking;
+package content.region.kandarin.baxtorian.handlers.barbariantraining.firemaking;
 
 import content.global.skill.gather.SkillingTool;
-import content.region.kandarin.baxtorian.barbariantraining.BarbarianTraining;
+import content.region.kandarin.baxtorian.handlers.barbariantraining.BarbarianTraining;
 import content.global.skill.firemaking.logs.Log;
 import core.api.Container;
 import org.rs.consts.Items;
@@ -85,7 +85,7 @@ public final class BarbFiremakingPulse extends SkillPulse<Item> {
             player.getPacketDispatch().sendMessage("You can't light a fire here.");
             return false;
         }
-        if (!anyInInventory(player, SkillingTool.getFiremakingTool(player).id)) {
+        if (!inInventory(player, SkillingTool.getFiremakingTool(player).id, 1)) {
             sendMessage(player, "You do not have the required items to light this.");
             return false;
         }

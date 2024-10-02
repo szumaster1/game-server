@@ -1,6 +1,5 @@
 package content.minigame.castlewars
 
-import content.global.skill.summoning.familiar.BurdenBeast
 import content.minigame.castlewars.areas.CastleWarsWaitingArea
 import core.api.*
 import org.rs.consts.Items

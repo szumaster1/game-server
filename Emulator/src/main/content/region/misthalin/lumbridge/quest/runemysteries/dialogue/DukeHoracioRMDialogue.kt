@@ -32,7 +32,7 @@ class DukeHoracioRMDialogue(val questStage: Int) : DialogueFile() {
                     sendItemDialogue(player!!, talisman, "The Duke hands you an " + Quest.BLUE + "air talisman</col>.").also { stage++ }
                     player!!.questRepository.getQuest(QuestName.RUNE_MYSTERIES).start(player)
                     if (!player!!.inventory.add(talisman)) {
-                        GroundItemManager.create(talisman, player!!.location, player)
+                        GroundItemManager.create(talisman, player!!.location, player!!)
                     }
                     stage = END_DIALOGUE
                 }

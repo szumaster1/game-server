@@ -8,6 +8,7 @@ import core.game.component.ComponentPlugin
 import core.game.node.entity.player.Player
 import core.game.world.GameWorld
 import core.plugin.Plugin
+import org.rs.consts.Components
 
 /**
  * Duel component plugin.
@@ -16,20 +17,13 @@ class DuelComponentPlugin : ComponentPlugin() {
 
     @Throws(Throwable::class)
     override fun newInstance(arg: Any?): Plugin<Any> {
-        ComponentDefinition.forId(640)?.plugin = this
+        ComponentDefinition.forId(Components.DUEL2_SELECT_TYPE_640)?.plugin = this
         return this
     }
 
-    override fun handle(
-        player: Player,
-        component: Component,
-        opcode: Int,
-        button: Int,
-        slot: Int,
-        itemId: Int
-    ): Boolean {
+    override fun handle(player: Player, component: Component, opcode: Int, button: Int, slot: Int, itemId: Int): Boolean {
         when (component.id) {
-            640 -> {
+            Components.DUEL2_SELECT_TYPE_640 -> {
                 var staked = false
                 when (button) {
                     20 -> {
@@ -38,17 +32,13 @@ class DuelComponentPlugin : ComponentPlugin() {
                             player.packetDispatch.sendMessage("Other player is busy at the moment.")
                             return true
                         }
-                        if (player.getAttribute(
-                                "duel:staked",
-                                false
-                            ) && other.ironmanManager.isIronman && !GameWorld.settings!!.isDevMode
-                        ) {
+                        if (player.getAttribute("duel:staked", false) && other.ironmanManager.isIronman && !GameWorld.settings!!.isDevMode) {
                             other.sendMessage("You can't accept a staked duel as an Ironman.")
                             player.sendMessage("You can't duel Ironman players.")
                             return true
                         }
                         player.interfaceManager.close()
-                        if (!player.getAttribute<Boolean>("duel:staked", false)) {
+                        if (!player.getAttribute("duel:staked", false)) {
                             player.requestManager.request(other, DuelArenaActivity.FRIEND_REQUEST)
                         } else {
                             player.requestManager.request(other, DuelArenaActivity.STAKE_REQUEST)

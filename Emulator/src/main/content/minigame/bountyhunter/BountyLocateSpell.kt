@@ -2,6 +2,7 @@ package content.minigame.bountyhunter
 
 import core.api.hasTimerActive
 import core.api.isStunned
+import core.api.sendMessage
 import core.game.interaction.MovementPulse
 import core.game.node.Node
 import core.game.node.entity.Entity
@@ -20,16 +21,7 @@ import core.plugin.Plugin
  * Handles the bounty target locate spell.
  * @author Emperor
  */
-class BountyLocateSpell
-    : MagicSpell(
-    SpellBookManager.SpellBook.MODERN,
-    32,
-    45.0,
-    null,
-    null,
-    null,
-    arrayOf(Runes.AIR_RUNE.getItem(1), Runes.FIRE_RUNE.getItem(1), Runes.LAW_RUNE.getItem(1))
-) {
+class BountyLocateSpell : MagicSpell(SpellBookManager.SpellBook.MODERN, 32, 45.0, null, null, null, arrayOf(Runes.AIR_RUNE.getItem(1), Runes.FIRE_RUNE.getItem(1), Runes.LAW_RUNE.getItem(1))) {
     override fun cast(entity: Entity, target: Node): Boolean {
         var target: Node? = target
         val activity = entity.getExtension<BountyHunterActivity>(BountyHunterActivity::class.java)
@@ -52,7 +44,7 @@ class BountyLocateSpell
             return false
         }
         if (combat) {
-            player.packetDispatch.sendMessage("You were fighting recently so you'll run instead of teleport.")
+            sendMessage(player, "You were fighting recently so you'll run instead of teleport.")
             target = entry.target
             val location = entry.target!!.location
             if (!location.withinDistance(player.location, 30)) {

@@ -32,7 +32,7 @@ class FishermanHGDialogue : DialogueFile() {
             6 -> npcl(FacialExpression.NEUTRAL, "Just ring one of the bells outside.").also { stage++ }
             7 -> playerl(FacialExpression.NEUTRAL, "...I didn't see any bells.").also { stage++ }
             8 -> npcl(FacialExpression.NEUTRAL, "You must be blind then. There's ALWAYS bells there when I go to the castle.").also {
-                GroundItemManager.create(Item(Items.GRAIL_BELL_17, 1), Location.create(2762, 4694, 0), player)
+                GroundItemManager.create(Item(Items.GRAIL_BELL_17, 1), Location.create(2762, 4694, 0), player!!)
                 stage = END_DIALOGUE
             }
 

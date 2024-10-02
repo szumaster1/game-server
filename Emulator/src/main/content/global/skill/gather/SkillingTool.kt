@@ -474,23 +474,7 @@ enum class SkillingTool(@JvmField val id: Int, val level: Int, @JvmField val rat
         @JvmStatic
         fun getFiremakingTool(player: Player): SkillingTool? {
             var tool: SkillingTool? = null
-            val bowPriority = arrayOf(
-                SACRED_CLAY_BOW,
-                SEERCULL,
-                MAGIC_SHORTBOW,
-                MAGIC_LONGBOW,
-                YEW_SHORTBOW,
-                YEW_LONGBOW,
-                MAPLE_SHORTBOW,
-                MAPLE_LONGBOW,
-                WILLOW_SHORTBOW,
-                WILLOW_LONGBOW,
-                OAK_LONGBOW,
-                OAK_SHORTBOW,
-                SHORTBOW,
-                LONGBOW,
-                TRAINING_BOW
-            )
+            val bowPriority = arrayOf(SACRED_CLAY_BOW, SEERCULL, MAGIC_SHORTBOW, MAGIC_LONGBOW, YEW_SHORTBOW, YEW_LONGBOW, MAPLE_SHORTBOW, MAPLE_LONGBOW, WILLOW_SHORTBOW, WILLOW_LONGBOW, OAK_LONGBOW, OAK_SHORTBOW, SHORTBOW, LONGBOW, TRAINING_BOW)
             for (bowId in bowPriority) {
                 if (checkTool(player, Skills.FIREMAKING, bowId)) {
                     tool = bowId

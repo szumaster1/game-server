@@ -40,7 +40,7 @@ class RestlessGhostNPC : AbstractNPC {
     override fun isAttackable(entity: Entity, style: CombatStyle, message: Boolean): Boolean {
         val player = (entity as Player)
         val pl = getAttribute<Player>("player", null)
-        return pl != null && pl === player
+        return pl != null && pl == player
     }
 
     override fun finalizeDeath(killer: Entity) {

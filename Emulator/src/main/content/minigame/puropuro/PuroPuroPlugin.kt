@@ -122,10 +122,7 @@ class PuroPuroPlugin : MapZone("puro puro", true), Plugin<Any> {
 
 
     private fun hasImplingBox(player: Player): Boolean {
-        return player.inventory.contains(10025, 1) || player.inventory.contains(10027, 1) || player.inventory.contains(
-            10028,
-            1
-        )
+        return player.inventory.contains(10025, 1) || player.inventory.contains(10027, 1) || player.inventory.contains(10028, 1)
     }
 
     override fun configure() {

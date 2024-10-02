@@ -42,7 +42,7 @@ class VampireNPC : AbstractNPC {
             if (!properties.combatPulse.isAttacking) {
                 properties.combatPulse.attack(p)
             }
-            if (p.properties.combatPulse.isAttacking && p.properties.combatPulse.getVictim() === this) {
+            if (p.properties.combatPulse.isAttacking && p.properties.combatPulse.getVictim() == this) {
                 for (l in CANDLE_LOCATION) {
                     if (p.location == l) {
                         p.sendChat(FORCE_CHAT[RandomFunction.random(FORCE_CHAT.size)])
@@ -107,7 +107,7 @@ class VampireNPC : AbstractNPC {
     override fun isAttackable(entity: Entity, style: CombatStyle, message: Boolean): Boolean {
         val player = (entity as Player)
         val pl = getAttribute<Player>("player", null)
-        return pl != null && pl === player
+        return pl != null && pl == player
     }
 
     override fun getIds(): IntArray {

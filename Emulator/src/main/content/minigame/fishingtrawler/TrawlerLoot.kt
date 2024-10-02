@@ -14,47 +14,10 @@ import core.tools.colorize
  * Trawler loot.
  */
 object TrawlerLoot {
-    private val junkItems = arrayOf(
-        Items.BROKEN_ARMOUR_698,
-        Items.BROKEN_ARROW_687,
-        Items.OLD_BOOT_685,
-        Items.BROKEN_GLASS_1469,
-        Items.BROKEN_STAFF_689,
-        Items.BUTTONS_688,
-        Items.DAMAGED_ARMOUR_697,
-        Items.RUSTY_SWORD_686,
-        Items.EMPTY_POT_1931,
-        Items.OYSTER_407
-    )
-    private val trawlerFish = arrayOf(
-        Fish.MANTA_RAY,
-        Fish.SEA_TURTLE,
-        Fish.SHARK,
-        Fish.SWORDFISH,
-        Fish.LOBSTER,
-        Fish.TUNA,
-        Fish.ANCHOVIE,
-        Fish.SARDINE,
-        Fish.SHRIMP
-    )
-    private val trawlerFishIds = arrayOf(
-        Items.RAW_MANTA_RAY_389,
-        Items.RAW_SEA_TURTLE_395,
-        Items.RAW_SHARK_383,
-        Items.RAW_SWORDFISH_371,
-        Items.RAW_LOBSTER_377,
-        Items.RAW_TUNA_359,
-        Items.RAW_ANCHOVIES_321,
-        Items.RAW_SARDINE_327,
-        Items.RAW_SHRIMPS_317
-    )
-    private val trawlerMisc = arrayOf(
-        Items.LOOP_HALF_OF_A_KEY_987,
-        Items.TOOTH_HALF_OF_A_KEY_985,
-        Items.CASKET_405,
-        Items.PIRATES_HAT_2651,
-        Items.LUCKY_CUTLASS_7140
-    )
+    private val junkItems = arrayOf(Items.BROKEN_ARMOUR_698, Items.BROKEN_ARROW_687, Items.OLD_BOOT_685, Items.BROKEN_GLASS_1469, Items.BROKEN_STAFF_689, Items.BUTTONS_688, Items.DAMAGED_ARMOUR_697, Items.RUSTY_SWORD_686, Items.EMPTY_POT_1931, Items.OYSTER_407)
+    private val trawlerFish = arrayOf(Fish.MANTA_RAY, Fish.SEA_TURTLE, Fish.SHARK, Fish.SWORDFISH, Fish.LOBSTER, Fish.TUNA, Fish.ANCHOVIE, Fish.SARDINE, Fish.SHRIMP)
+    private val trawlerFishIds = arrayOf(Items.RAW_MANTA_RAY_389, Items.RAW_SEA_TURTLE_395, Items.RAW_SHARK_383, Items.RAW_SWORDFISH_371, Items.RAW_LOBSTER_377, Items.RAW_TUNA_359, Items.RAW_ANCHOVIES_321, Items.RAW_SARDINE_327, Items.RAW_SHRIMPS_317)
+    private val trawlerMisc = arrayOf(Items.LOOP_HALF_OF_A_KEY_987, Items.TOOTH_HALF_OF_A_KEY_985, Items.CASKET_405, Items.PIRATES_HAT_2651, Items.LUCKY_CUTLASS_7140)
 
     private fun rollTrawlerFish(fishLevel: Int): Item {
         while (true) {
@@ -101,7 +64,8 @@ object TrawlerLoot {
             }
         }
         player.sendMessage(colorize("%RYour reward has been sent to your bank:"))
-        // Extract and join each frequency maps entries as string. Split based on length, then send each line as message.
+        // Extract and join each frequency maps entries as string.
+        // Split based on length, then send each line as message.
         frequencyList.forEachIndexed { idx, fMap ->
             if (fMap.isNotEmpty()) {
                 splitLines(

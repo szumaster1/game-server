@@ -14,43 +14,53 @@ import org.rs.consts.Components
 class MainGameInterface : InterfaceListener {
 
     override fun defineInterfaceListeners() {
-        on(FILTER_BUTTONS){player, _, _, buttonID, _, _ ->
-            if(buttonID == 27)
+        on(FILTER_BUTTONS) { player, _, _, buttonID, _, _ ->
+            if (buttonID == 27)
                 openReport(player)
             return@on true
         }
 
-        on(RUN_BUTTON){player, _, _, _, _, _ ->
+        on(RUN_BUTTON) { player, _, _, _, _, _ ->
             player.settings.toggleRun()
             return@on true
         }
 
-        on(TOPLEVEL_FS){player, _, _, buttonID, _, _ ->
+        on(TOPLEVEL_FS) { player, _, _, buttonID, _, _ ->
             when (buttonID) {
-                12 -> sendString(player, "When you have finished playing " + settings!!.name + ", always use the button below to logout safely. ", 182, 0)
-                49 -> sendString(player, "Friends List - " + settings!!.name + " " + settings!!.worldId, 550, 3)
+                12 -> sendString(player, "When you have finished playing ${settings!!.name}, always use the button below to logout safely.", 182, 0)
+                49 -> sendString(player, "Friends List - ${settings!!.name} ${settings!!.worldId}", 550, 3)
                 110 -> configureWorldMap(player)
             }
             return@on true
         }
 
-        on(TOPLEVEL){player, _, _, buttonID, _, _ ->
+        on(TOPLEVEL) { player, _, _, buttonID, _, _ ->
             when (buttonID) {
                 21 -> {
-                    player.packetDispatch.sendString("Friends List -" + settings!!.name + " " + settings!!.worldId, 550, 3)
+                    player.packetDispatch.sendString(
+                        "Friends List - " + settings!!.name + " " + settings!!.worldId,
+                        550,
+                        3
+                    )
                 }
+
                 38 -> {
-                    if (player.getExtension<Any>(WeaponInterface::class.java) === WeaponInterfaces.STAFF) {
+                    if (player.getExtension<Any>(WeaponInterface::class.java) == WeaponInterfaces.STAFF) {
                         val c = Component(WeaponInterfaces.STAFF.interfaceId)
                         player.interfaceManager.openTab(0, c)
                         val inter = player.getExtension<WeaponInterface>(WeaponInterface::class.java)
                         inter.updateInterface()
                     }
                 }
+
                 40 -> player.questRepository.syncronizeTab(player)
                 41 -> player.inventory.refresh()
                 66, 110 -> configureWorldMap(player)
-                69 -> player.packetDispatch.sendString("When you have finished playing " + settings!!.name + ", always use the button below to logout safely. ", 182, 0)
+                69 -> player.packetDispatch.sendString(
+                    "When you have finished playing ${settings!!.name}, always use the button below to logout safely.",
+                    182,
+                    0
+                )
             }
             return@on true
         }
@@ -88,11 +98,11 @@ class MainGameInterface : InterfaceListener {
     }
 
     companion object {
-         const val TOPLEVEL = Components.TOPLEVEL_548
-         const val TOPLEVEL_FS = Components.TOPLEVEL_FULLSCREEN_746
-         const val RUN_BUTTON = Components.TOPSTAT_RUN_750
-         const val FILTER_BUTTONS = Components.FILTERBUTTONS_751
-         const val REPORT_ABUSE = Components.SNAPSHOT_MAIN_553
+        const val TOPLEVEL = Components.TOPLEVEL_548
+        const val TOPLEVEL_FS = Components.TOPLEVEL_FULLSCREEN_746
+        const val RUN_BUTTON = Components.TOPSTAT_RUN_750
+        const val FILTER_BUTTONS = Components.FILTERBUTTONS_751
+        const val REPORT_ABUSE = Components.SNAPSHOT_MAIN_553
     }
 
 }

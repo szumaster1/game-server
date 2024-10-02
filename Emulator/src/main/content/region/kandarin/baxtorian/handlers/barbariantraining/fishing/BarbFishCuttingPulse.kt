@@ -1,4 +1,4 @@
-package content.region.kandarin.baxtorian.barbariantraining.fishing
+package content.region.kandarin.baxtorian.handlers.barbariantraining.fishing
 
 import org.rs.consts.Items
 import core.api.freeSlots

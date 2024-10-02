@@ -55,7 +55,7 @@ class GardenerNPC : AbstractNPC {
 
     override fun finalizeDeath(killer: Entity) {
         val target = getAttribute<Player>("target", null)
-        if (target != null && target === killer) {
+        if (target != null && target == killer) {
             target.getSavedData().questData.isGardenerAttack = true
         }
         clear()

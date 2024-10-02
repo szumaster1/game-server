@@ -1,6 +1,6 @@
-package content.region.kandarin.baxtorian.barbariantraining.herblore
+package content.region.kandarin.baxtorian.handlers.barbariantraining.herblore
 
-import content.region.kandarin.baxtorian.barbariantraining.BarbarianTraining
+import content.region.kandarin.baxtorian.handlers.barbariantraining.BarbarianTraining
 import core.api.*
 import org.rs.consts.Animations
 import org.rs.consts.Items

@@ -37,7 +37,7 @@ class SandwichLadyDialogue(val isChoice: Boolean) : DialogueFile() {
                 } else {
                     npc("Here you are, dear. I hope you enjoy it!")
                     if (!player!!.inventory.add(Item(assigned))) {
-                        GroundItemManager.create(Item(assigned), player)
+                        GroundItemManager.create(Item(assigned), player!!)
                     }
                     AntiMacro.terminateEventNpc(player!!)
                     stage = END_DIALOGUE

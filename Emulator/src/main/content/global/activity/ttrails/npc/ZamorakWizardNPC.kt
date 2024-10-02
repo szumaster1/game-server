@@ -45,7 +45,7 @@ class ZamorakWizardNPC : AbstractNPC {
     }
 
     override fun finalizeDeath(killer: Entity) {
-        if (killer is Player && killer === player) {
+        if (killer is Player && killer == player) {
             killer.setAttribute("killed-wizard", clueScroll?.clueId)
         }
         super.finalizeDeath(killer)
@@ -63,15 +63,15 @@ class ZamorakWizardNPC : AbstractNPC {
     }
 
     override fun isAttackable(entity: Entity, style: CombatStyle, message: Boolean): Boolean {
-        return (entity is Player && entity === player) || super.isAttackable(entity, style, message)
+        return (entity is Player && entity == player) || super.isAttackable(entity, style, message)
     }
 
     override fun canAttack(entity: Entity): Boolean {
-        return (entity is Player && entity === player) || super.canAttack(entity)
+        return (entity is Player && entity == player) || super.canAttack(entity)
     }
 
     override fun canSelectTarget(target: Entity): Boolean {
-        return target === player
+        return target == player
     }
 
     @Throws(Throwable::class)

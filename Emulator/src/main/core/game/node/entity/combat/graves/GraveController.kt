@@ -97,7 +97,7 @@ class GraveController : PersistWorld, TickListener, InteractionListener, Command
             setVarbit(player, 4191, 0)
 
         openInterface(player, 266)
-        sendString(player, grave.retrieveFormattedText(), 266, 23)
+        sendString(player, grave.getFormattedText(), 266, 23)
         sendMessage(player, "It looks like it'll survive another ${grave.getFormattedTimeRemaining()}.")
 
         if (player.details.uid == grave.ownerUid) {
@@ -262,7 +262,7 @@ class GraveController : PersistWorld, TickListener, InteractionListener, Command
         @JvmStatic
         fun checkTransform(item: Item): Item {
             if (item.hasItemPlugin())
-                return item.plugin.getDeathItem(item)
+                return item.plugin!!.getDeathItem(item)
             return item
         }
 

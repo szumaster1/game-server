@@ -19,7 +19,7 @@ import org.rs.consts.Scenery
 @Initializable
 class PotteryPlugin : UseWithHandler(Items.SOFT_CLAY_1761) {
     @Throws(Throwable::class)
-    override fun newInstance(arg: Any): Plugin<Any> {
+    override fun newInstance(arg: Any?): Plugin<Any> {
         FireOvenPlugin().newInstance(arg)
         addHandler(Scenery.POTTER_S_WHEEL_2642, OBJECT_TYPE, this)
         addHandler(Scenery.POTTERY_OVEN_2643, OBJECT_TYPE, this)
@@ -59,7 +59,7 @@ class PotteryPlugin : UseWithHandler(Items.SOFT_CLAY_1761) {
      */
     inner class FireOvenPlugin : OptionHandler() {
         @Throws(Throwable::class)
-        override fun newInstance(arg: Any): Plugin<Any> {
+        override fun newInstance(arg: Any?): Plugin<Any> {
             for (id in OVENS) {
                 SceneryDefinition.forId(id).handlers["option:fire"] = this
             }
@@ -83,7 +83,7 @@ class PotteryPlugin : UseWithHandler(Items.SOFT_CLAY_1761) {
             Items.UNFIRED_POT_LID_4438
         ) {
             @Throws(Throwable::class)
-            override fun newInstance(arg: Any): Plugin<Any> {
+            override fun newInstance(arg: Any?): Plugin<Any> {
                 addHandler(Scenery.POTTERY_OVEN_2643, OBJECT_TYPE, this)
                 addHandler(Scenery.POTTERY_OVEN_4308, OBJECT_TYPE, this)
                 addHandler(Scenery.POTTERY_OVEN_11601, OBJECT_TYPE, this)

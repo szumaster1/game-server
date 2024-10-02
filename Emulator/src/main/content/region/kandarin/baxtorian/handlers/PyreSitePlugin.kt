@@ -251,7 +251,7 @@ class PyreSitePlugin : OptionHandler() {
 
         override fun finalizeDeath(killer: Entity) {
             super.finalizeDeath(killer)
-            if (killer is Player && killer === target) {
+            if (killer is Player && killer == target) {
                 target!!.removeAttribute("barb")
             }
         }

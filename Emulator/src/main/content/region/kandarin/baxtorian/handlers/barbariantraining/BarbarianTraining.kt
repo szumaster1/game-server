@@ -1,4 +1,4 @@
-package content.region.kandarin.baxtorian.barbariantraining
+package content.region.kandarin.baxtorian.handlers.barbariantraining
 
 /**
  * Barbarian training attributes.
