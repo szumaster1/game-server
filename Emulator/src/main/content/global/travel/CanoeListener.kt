@@ -246,10 +246,9 @@ class CanoeListener : InteractionListener, InterfaceListener {
                 sendMessage(player, "You do not have an axe which you have the woodcutting level to use.")
                 return@on true
             }
-            lock(player, CANOE_TREE_FALLING_ANIMATION.duration)
-            animate(player, axe.animation)
-            val axeAnimation = animationCycles(axe.animation)
-            queueScript(player, axeAnimation + 1, QueueStrength.SOFT) { stage: Int ->
+            val anim = Animation(axe.animation).duration
+            lock(player, anim + CANOE_TREE_FALLING_ANIMATION.duration)
+            queueScript(player, anim + 1, QueueStrength.SOFT) { stage: Int ->
                 when (stage) {
                     0 -> {
                         resetAnimator(player)

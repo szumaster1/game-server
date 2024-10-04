@@ -1,6 +1,5 @@
 package content.region.kandarin.baxtorian.handlers.barbariantraining.firemaking;
 
-import content.global.skill.gather.SkillingTool;
 import content.region.kandarin.baxtorian.handlers.barbariantraining.BarbarianTraining;
 import content.global.skill.firemaking.logs.Log;
 import core.api.Container;
@@ -30,7 +29,7 @@ public final class BarbFiremakingPulse extends SkillPulse<Item> {
     /**
      * Represents the animation to use.
      */
-    private final Animation ANIMATION = new Animation(SkillingTool.getFiremakingTool(player).animation.getId());
+    private final Animation ANIMATION = new Animation(tool.animation);
 
     /**
      * Represents the tinderbox item.
@@ -78,19 +77,19 @@ public final class BarbFiremakingPulse extends SkillPulse<Item> {
             return false;
         }
         if (player.getIronmanManager().isIronman() && !groundItem.droppedBy(player)) {
-            player.getPacketDispatch().sendMessage("You can't do that as an Ironman.");
+            sendMessage(player,"You can't do that as an Ironman.");
             return false;
         }
         if (RegionManager.getObject(player.getLocation()) != null || player.getZoneMonitor().isInZone("bank")) {
-            player.getPacketDispatch().sendMessage("You can't light a fire here.");
+            sendMessage(player,"You can't light a fire here.");
             return false;
         }
-        if (!inInventory(player, SkillingTool.getFiremakingTool(player).id, 1)) {
+        if (!inInventory(player, tool.id, 1)) {
             sendMessage(player, "You do not have the required items to light this.");
             return false;
         }
-        if (player.getSkills().getLevel(Skills.FIREMAKING) < fire.getBarbarianLevel()) {
-            player.getPacketDispatch().sendMessage("You need a firemaking level of " + fire.getBarbarianLevel() + " to light this log.");
+        if (getStatLevel(player, Skills.FIREMAKING) < fire.getBarbarianLevel()) {
+            sendMessage(player, "You need a firemaking level of " + fire.getBarbarianLevel() + " to light this log.");
             return false;
         }
         if (player.getAttribute("remove-log", false)) {
@@ -162,10 +161,10 @@ public final class BarbFiremakingPulse extends SkillPulse<Item> {
         String name = node.getId() == Items.JOGRE_BONES_3125 ? "bones" : "logs";
         switch (type) {
             case 0:
-                player.getPacketDispatch().sendMessage("You attempt to light the " + name + "..");
+                sendMessage(player,"You attempt to light the " + name + "..");
                 break;
             case 1:
-                player.getPacketDispatch().sendMessage("The fire catches and the " + name + " begin to burn.");
+                sendMessage(player,"The fire catches and the " + name + " begin to burn.");
                 break;
         }
     }

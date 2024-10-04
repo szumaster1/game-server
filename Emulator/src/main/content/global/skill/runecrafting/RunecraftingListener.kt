@@ -1,9 +1,7 @@
 package content.global.skill.runecrafting
 
 import content.global.skill.runecrafting.`object`.Altar
-import content.global.skill.runecrafting.items.Staves
 import content.global.skill.runecrafting.items.TalismanStaves
-import content.global.skill.runecrafting.items.Tiara
 import core.api.*
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
@@ -11,14 +9,10 @@ import core.game.node.entity.player.Player
 import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 import org.rs.consts.Items
-import org.rs.consts.Vars
 
 class RunecraftingListener : InteractionListener {
 
     private val pouchIDs = (5509..5515).toIntArray()
-    private val varpIDs = (13630..13641).associateWith { 1 shl (it - 13630) }
-    private val stavesIDs = Staves.values().map { it.item }.toIntArray()
-    private val tiaraIDs = Tiara.values().map { it.item.id }.toIntArray()
 
     override fun defineListeners() {
 
@@ -46,48 +40,7 @@ class RunecraftingListener : InteractionListener {
         }
 
         /*
-         * Handles equip a tiara and enter to altar.
-         */
-
-        onEquip(tiaraIDs) { player, node ->
-            setVarp(player, Vars.VARP_SCENERY_ABYSS, tiaraIDs[node.id] ?: 0)
-            return@onEquip true
-        }
-
-        /*
-         * Handles hidden scenery options.
-         */
-
-        onUnequip(tiaraIDs) { player, _ ->
-            setVarp(player, Vars.VARP_SCENERY_ABYSS, 0)
-            return@onUnequip true
-        }
-
-        /*
-         * Handles equip a talisman staff and enter to altar.
-         */
-
-        onEquip(stavesIDs) { player, node ->
-            val varpValue = varpIDs[node.id] ?: run {
-                sendMessage(player, "Nothing interesting happens.")
-                return@onEquip false
-            }
-            setVarp(player, Vars.VARP_SCENERY_ABYSS, varpValue)
-            return@onEquip true
-        }
-
-        /*
-         * Handles hidden scenery options.
-         */
-
-        onUnequip(stavesIDs) { player, _ ->
-            setVarp(player, Vars.VARP_SCENERY_ABYSS, 0)
-            return@onUnequip true
-        }
-
-        /*
-         * Handles separate options dialogue,
-         * If player has both (tiara and staff) in inventory.
+         * Handles enchanting tiara and talisman staves,
          */
 
         TalismanStaves.values().forEach { item ->
@@ -109,11 +62,13 @@ class RunecraftingListener : InteractionListener {
                 }
             }
         }
+
     }
 
     /*
      * Map the rc staff to ruins.
      */
+
     fun map(staff: TalismanStaves): Altar? {
         return when (staff) {
             TalismanStaves.AIR -> Altar.AIR

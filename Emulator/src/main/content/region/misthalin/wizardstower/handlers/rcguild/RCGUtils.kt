@@ -30,7 +30,7 @@ object RCGUtils {
     const val DEATH_ITEMS = "death"
     const val BLOOD_ITEMS = "blood"
 
-    val TALLYS = Talisman.values().map { it.item.id }.toIntArray()
+    val talismanIDs = Talisman.values().map { it.item.id }.toIntArray()
 
     /**
      * Function to check if the player has all required items to receive a reward.

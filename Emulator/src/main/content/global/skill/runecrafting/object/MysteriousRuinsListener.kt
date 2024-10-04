@@ -30,7 +30,7 @@ class MysteriousRuinsListener : InteractionListener {
         }
 
         /*
-         * Handles enter the altar with tiara or staff equip.
+         * Handles enter the altar with tiara or staff equipped.
          */
 
         on(sceneryIDs, IntType.SCENERY, "enter", "search") { player, node ->
@@ -106,7 +106,7 @@ class MysteriousRuinsListener : InteractionListener {
             return true
         }
 
-        val tiara = Tiara.forItem(player.equipment.get(SLOT_HAT))
+        val tiara = player.equipment?.get(SLOT_HAT)?.let { Tiara.forItem(it) }
         if (tiara != ruin.tiara) {
             sendMessage(player, "Nothing interesting happens.")
             return false

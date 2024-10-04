@@ -33,8 +33,8 @@ class TableMapInterface : InterfaceListener, InteractionListener {
          * Use talisman with Map table to show altar location.
          */
 
-        onUseWith(IntType.SCENERY, RCGUtils.TALLYS, MAP_TABLE) { player, used, _ ->
-            if (anyInInventory(player, *RCGUtils.TALLYS)) {
+        onUseWith(IntType.SCENERY, RCGUtils.talismanIDs, MAP_TABLE) { player, used, _ ->
+            if (anyInInventory(player, *RCGUtils.talismanIDs)) {
                 openInterface(player, STUDY_INTERFACE)
                 setComponentVisibility(player, STUDY_INTERFACE, swapIds(used.id), false)
             }

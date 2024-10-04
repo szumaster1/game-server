@@ -31,7 +31,7 @@ class WizardElrissDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any?): Boolean {
         npc = args[0] as NPC
-        if (anyInInventory(player!!, *RCGUtils.TALLYS) && !getAttribute(player!!,
+        if (anyInInventory(player!!, *RCGUtils.talismanIDs) && !getAttribute(player!!,
                 RCGUtils.ACCESS_TO_OMNI_ITEMS, false)) {
             end(); openDialogue(player, ShowTalismanDialogue())
         } else {

@@ -38,7 +38,7 @@ class VarrockAchievementDiary : DiaryEventHookBase(DiaryType.VARROCK) {
         private val OZIACH_SHOP_AREA = ZoneBorders(3066, 3514, 3070, 3518)
         private val AIR_OBELISK_AREA = ZoneBorders(3087, 3568, 3089, 3570)
         private val FARMING_PATCH_AREA = ZoneBorders(3180, 3356, 3183, 3359)
-
+        private val EARTH_ALTAR_AREA = getRegionBorders(10571)
         private val STRAY_DOGS = arrayOf(NPCs.STRAY_DOG_4766, NPCs.STRAY_DOG_4767, NPCs.STRAY_DOG_5917, NPCs.STRAY_DOG_5918)
 
         object EasyTasks {
@@ -226,6 +226,11 @@ class VarrockAchievementDiary : DiaryEventHookBase(DiaryType.VARROCK) {
             CHAMPIONS_GUILD_AREA,
             DiaryLevel.MEDIUM,
             MediumTasks.CHAMPIONS_GUILD_VISIT
+        ),
+        AreaDiaryTask(
+            EARTH_ALTAR_AREA,
+            DiaryLevel.EASY,
+            EasyTasks.ENTER_EARTH_ALTAR
         )
     )
 
