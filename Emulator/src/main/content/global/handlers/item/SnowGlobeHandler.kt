@@ -1,15 +1,14 @@
 package content.global.handlers.item
 
+import core.api.*
 import core.game.component.Component
 import core.game.component.ComponentDefinition
 import core.game.component.ComponentPlugin
 import core.game.interaction.OptionHandler
+import core.game.interaction.QueueStrength
 import core.game.node.Node
 import core.game.node.entity.player.Player
 import core.game.node.item.Item
-import core.game.system.task.Pulse
-import core.game.world.update.flag.context.Animation
-import core.game.world.update.flag.context.Graphic
 import core.plugin.Initializable
 import core.plugin.Plugin
 import core.plugin.PluginManager
@@ -41,21 +40,16 @@ class SnowGlobeHandler : OptionHandler() {
 
         override fun handle(player: Player, component: Component, opcode: Int, button: Int, slot: Int, itemId: Int): Boolean {
             if (button == 2) {
-                player.interfaceManager.close()
-                player.animator.animate(Animation(Animations.SNOWGLOBE_SNOW_FALL_SLOW_7538))
-                player.pulseManager.run(object : Pulse(1) {
-                    override fun pulse(): Boolean {
-                        player.animator.animate(
-                            Animation(Animations.SNOWGLOBE_STOMP_7528),
-                            Graphic(Graphics.SNOW_FALLING_FROM_SNOW_GLOBE_1284)
-                        )
-                        player.inventory.add(Item(Items.SNOWBALL_11951, player.inventory.freeSlots()))
-                        return true
-                    }
-                })
+                closeInterface(player)
+                animate(player, Animations.SNOWGLOBE_SNOW_FALL_SLOW_7538)
+                queueScript(player, 1, QueueStrength.WEAK) {
+                    visualize(player, Animations.SNOWGLOBE_STOMP_7528, Graphics.SNOW_FALLING_FROM_SNOW_GLOBE_1284)
+                    player.inventory.add(Item(Items.SNOWBALL_11951, freeSlots(player)))
+                    return@queueScript stopExecuting(player)
+                }
                 return true
             }
-            player.animator.animate(Animation(Animations.SNOWGLOBE_SNOW_FALL_FAST_7537))
+            animate(player, Animations.SNOWGLOBE_SNOW_FALL_FAST_7537)
             return true
         }
     }
