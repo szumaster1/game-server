@@ -13,6 +13,7 @@ import core.plugin.Initializable
 class CaveGoblinMinerNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id, location) {
     var mining = false
     var originallyMiner = false
+    val forceChat = arrayOf("Nooo!","Eeek!")
 
     init {
         originallyMiner = id > 2073
@@ -34,6 +35,7 @@ class CaveGoblinMinerNPC(id: Int = 0, location: Location? = null) : AbstractNPC(
             this.isWalks = true
             this.walkRadius = 4
             this.isNeverWalks = false
+            sendChat(forceChat.random())
         }
         super.tick()
     }
