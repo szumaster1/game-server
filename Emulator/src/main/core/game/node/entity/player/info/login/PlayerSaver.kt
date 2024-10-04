@@ -23,7 +23,6 @@ import java.lang.Math.ceil
 import java.util.*
 import javax.script.ScriptEngineManager
 
-
 /**
  * Class used for saving the player's data in JSON format.
  * Files are saved in the directory defined in ServerConstants.PLAYER_SAVE_PATH
@@ -477,6 +476,7 @@ class PlayerSaver(val player: Player) {
     fun saveActivityData(root: JSONObject) {
         val activityData = JSONObject()
         activityData["pestPoints"] = player.savedData.activityData.pestPoints.toString()
+        activityData["runecraftingTokens"] = player.savedData.activityData.runecraftingTokens.toString()
         activityData["warriorGuildTokens"] = player.savedData.activityData.warriorGuildTokens.toString()
         activityData["bountyHunterRate"] = player.savedData.activityData.bountyHunterRate.toString()
         activityData["bountyRogueRate"] = player.savedData.activityData.bountyRogueRate.toString()

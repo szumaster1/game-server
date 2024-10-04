@@ -1,7 +1,5 @@
 package content.global.skill.cooking
 
-import content.global.skill.skillcape.SkillcapePerksEffect
-import content.global.skill.skillcape.SkillcapePerksEffect.Companion.isActive
 import core.api.*
 import org.rs.consts.Animations
 import org.rs.consts.Items
@@ -76,9 +74,6 @@ open class StandardCookingPulse(open val player: Player, open val scenery: Scene
     open fun reward(): Boolean {
         if (delay == 1) {
             var delay = if (scenery.name.lowercase().contains("range")) 5 else 4
-            if (isActive(SkillcapePerksEffect.HASTY_COOKING, player)) {
-                delay -= 1
-            }
             setDelay(delay)
             return false
         }
@@ -94,9 +89,6 @@ open class StandardCookingPulse(open val player: Player, open val scenery: Scene
     open fun isBurned(player: Player, scenery: Scenery, food: Int): Boolean {
         val hasGauntlets = player.equipment.containsItem(Item(Items.COOKING_GAUNTLETS_775))
         var effectiveCookingLevel = player.getSkills().getLevel(Skills.COOKING)
-        if (isActive(SkillcapePerksEffect.HASTY_COOKING, player)) {
-            effectiveCookingLevel -= 5
-        }
 
         val item = Cookable.forId(food)
         val low: Int

@@ -1,7 +1,6 @@
 package content.global.skill.gather.mining
 
 import content.global.skill.gather.SkillingTool
-import content.global.skill.skillcape.SkillcapePerksEffect
 import core.api.*
 import org.rs.consts.Items
 import core.cache.def.impl.ItemDefinition
@@ -287,18 +286,12 @@ class MiningPulse(private val player: Player, private val node: Node) : Pulse(1,
 
         if (!isMiningEssence && player.achievementDiaryManager.getDiary(DiaryType.VARROCK)!!.level != -1) {
             when (reward) {
-                Items.CLAY_434, Items.COPPER_ORE_436, Items.TIN_ORE_438, Items.LIMESTONE_3211, Items.BLURITE_ORE_668, Items.IRON_ORE_440, Items.ELEMENTAL_ORE_2892, Items.SILVER_ORE_442, Items.COAL_453 -> if (player.achievementDiaryManager.armour >= 0 && RandomFunction.random(
-                        100
-                    ) <= 4
-                ) {
+                Items.CLAY_434, Items.COPPER_ORE_436, Items.TIN_ORE_438, Items.LIMESTONE_3211, Items.BLURITE_ORE_668, Items.IRON_ORE_440, Items.ELEMENTAL_ORE_2892, Items.SILVER_ORE_442, Items.COAL_453 -> if (player.achievementDiaryManager.armour >= 0 && RandomFunction.random(100) <= 4) {
                     amount += 1
                     sendMessage(player, "The Varrock armour allows you to mine an additional ore.")
                 }
 
-                Items.GOLD_ORE_444, Items.GRANITE_500G_6979, Items.GRANITE_2KG_6981, Items.GRANITE_5KG_6983, Items.MITHRIL_ORE_447 -> if (player.achievementDiaryManager.armour >= 1 && RandomFunction.random(
-                        100
-                    ) <= 3
-                ) {
+                Items.GOLD_ORE_444, Items.GRANITE_500G_6979, Items.GRANITE_2KG_6981, Items.GRANITE_5KG_6983, Items.MITHRIL_ORE_447 -> if (player.achievementDiaryManager.armour >= 1 && RandomFunction.random(100) <= 3) {
                     amount += 1
                     sendMessage(player, "The Varrock armour allows you to mine an additional ore.")
                 }
@@ -346,9 +339,6 @@ class MiningPulse(private val player: Player, private val node: Node) : Pulse(1,
         val level = 1 + getDynLevel(player, Skills.MINING) + getFamiliarBoost(player, Skills.MINING)
         val hostRatio = Math.random() * (100.0 * resource!!.rate)
         var toolRatio = SkillingTool.getPickaxe(player)!!.ratio
-        if (SkillcapePerksEffect.isActive(SkillcapePerksEffect.PRECISION_MINER, player)) {
-            toolRatio += 0.075
-        }
         val clientRatio = Math.random() * ((level - resource!!.level) * (1.0 + toolRatio))
         return hostRatio < clientRatio
     }

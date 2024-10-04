@@ -14,8 +14,7 @@ import core.game.node.item.Item
  */
 object Skillcape {
 
-    // Array of skillcapes
-    val SKILLCAPES = intArrayOf(
+    val skillcapeIDs = intArrayOf(
         Items.ATTACK_CAPE_9747,
         Items.DEFENCE_CAPE_9753,
         Items.STRENGTH_CAPE_9750,
@@ -110,8 +109,8 @@ object Skillcape {
      */
     fun getItems(player: Player, skill: Int): Array<Item> {
         return arrayOf(
-            Item(SKILLCAPES[skill] + if (player.getSkills().getMasteredSkills() > 1) 1 else 0),
-            Item(SKILLCAPES[skill] + 2)
+            Item(skillcapeIDs[skill] + if (player.getSkills().getMasteredSkills() > 1) 1 else 0),
+            Item(skillcapeIDs[skill] + 2)
         )
     }
 
@@ -122,7 +121,7 @@ object Skillcape {
      * @return the trimmed cape.
      */
     private fun getTrimmed(skill: Int): Item {
-        return Item(SKILLCAPES[skill] + 1)
+        return Item(skillcapeIDs[skill] + 1)
     }
 
     /**
@@ -132,8 +131,8 @@ object Skillcape {
      * @return the skill index, if not `(-1)`.
      */
     private fun getCapeIndex(item: Item): Int {
-        for (i in SKILLCAPES.indices) {
-            if (SKILLCAPES[i] == item.id) {
+        for (i in skillcapeIDs.indices) {
+            if (skillcapeIDs[i] == item.id) {
                 return i
             }
         }

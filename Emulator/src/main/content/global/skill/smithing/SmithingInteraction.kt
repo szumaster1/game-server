@@ -1,6 +1,5 @@
 package content.global.skill.smithing
 
-import content.global.skill.skillcape.SkillcapePerksEffect
 import content.global.skill.smithing.smelting.Bar
 import core.api.*
 import core.game.interaction.IntType
@@ -28,7 +27,7 @@ class SmithingInteraction : InteractionListener {
                 sendDialogue(player, "You need to have a Smithing level of at least 60 to do this.")
                 return@onUseWith false
             }
-            if (!inInventory(player, Items.HAMMER_2347, 1) && !SkillcapePerksEffect.isActive(SkillcapePerksEffect.BAREFISTED_SMITHING, player)) {
+            if (!inInventory(player, Items.HAMMER_2347, 1)) {
                 sendDialogue(player, "You need a hammer to work the metal with.")
                 return@onUseWith false
             }
@@ -54,7 +53,7 @@ class SmithingInteraction : InteractionListener {
                 sendDialogue(player, "You need to have a Smithing level of at least 90 to do this.")
                 return@onUseWith false
             }
-            if (!inInventory(player, Items.HAMMER_2347, 1) && !SkillcapePerksEffect.isActive(SkillcapePerksEffect.BAREFISTED_SMITHING, player)) {
+            if (!inInventory(player, Items.HAMMER_2347, 1)) {
                 sendDialogue(player, "You need a hammer to work the metal with.")
                 return@onUseWith false
             }
@@ -75,7 +74,7 @@ class SmithingInteraction : InteractionListener {
          */
 
         onUseWith(IntType.SCENERY, GODSWORD, *ANVIL) { player, used, _ ->
-            if (!inInventory(player, Items.HAMMER_2347, 1) && !SkillcapePerksEffect.isActive(SkillcapePerksEffect.BAREFISTED_SMITHING, player)) {
+            if (!inInventory(player, Items.HAMMER_2347, 1)) {
                 sendDialogue(player, "You need a hammer to work the metal with.")
                 return@onUseWith false
             }
@@ -112,7 +111,7 @@ class SmithingInteraction : InteractionListener {
                 sendDialogue(player, "Property of Doric the Dwarf.")
                 return@onUseWith false
             }
-            if (!inInventory(player, Items.HAMMER_2347, 1) && !SkillcapePerksEffect.isActive(SkillcapePerksEffect.BAREFISTED_SMITHING, player)) {
+            if (!inInventory(player, Items.HAMMER_2347, 1)) {
                 sendDialogue(player, "You need a hammer to work the metal with.")
                 return@onUseWith false
             }

@@ -3,8 +3,6 @@ package content.global.skill.gather.woodcutting
 import content.global.skill.gather.SkillingTool
 import content.data.tables.BirdNestDropTable
 import content.global.skill.farming.FarmingPatch
-import content.global.skill.skillcape.SkillcapePerksEffect
-import content.global.skill.skillcape.SkillcapePerksEffect.Companion.isActive
 import content.global.skill.firemaking.logs.Log
 import core.api.*
 import org.rs.consts.Items
@@ -141,11 +139,7 @@ class WoodcuttingListener : InteractionListener {
                  */
                 val chance = 282
                 if (RandomFunction.random(chance) == chance / 2) {
-                    if (isActive(SkillcapePerksEffect.NEST_HUNTER, player)) {
-                        if (!player.inventory.add(BirdNestDropTable.getRandomNest(false)!!.nest)) {
-                            BirdNestDropTable.drop(player)
-                        }
-                    } else {
+                    if (!player.inventory.add(BirdNestDropTable.getRandomNest(false)!!.nest)) {
                         BirdNestDropTable.drop(player)
                     }
                 }

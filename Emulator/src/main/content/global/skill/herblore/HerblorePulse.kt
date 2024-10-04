@@ -2,8 +2,6 @@ package content.global.skill.herblore
 
 import content.data.consumables.Consumables.Companion.getConsumableById
 import content.global.skill.herblore.potions.GenericPotion
-import content.global.skill.skillcape.SkillcapePerksEffect
-import content.global.skill.skillcape.SkillcapePerksEffect.Companion.isActive
 import core.api.*
 import org.rs.consts.Animations
 import org.rs.consts.Items
@@ -85,13 +83,6 @@ class HerblorePulse(player: Player?, node: Item?, var amount: Int, private val p
     fun handleFinished() {
         if (inInventory(player, potion.base!!.id) && inInventory(player, potion.ingredient!!.id) && player.inventory.remove(potion.base, potion.ingredient)) {
             var item = potion.product
-            if (isActive(SkillcapePerksEffect.BREWMASTER, player)) {
-                if (RandomFunction.random(100) < 15) {
-                    val consume = getConsumableById(item!!.id)
-                    if (consume != null) item = Item(consume.consumable.ids[0], item.amount)
-                    sendMessage(player, "Due to your expertise, you manage to make an extra dose.")
-                }
-            }
             addItem(player, item!!.id)
             rewardXP(player, Skills.HERBLORE, potion.experience)
             sendMessage(player, "You mix the " + potion.ingredient.name.lowercase() + " into your potion.")

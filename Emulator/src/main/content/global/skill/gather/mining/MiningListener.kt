@@ -1,7 +1,6 @@
 package content.global.skill.gather.mining
 
 import content.global.skill.gather.SkillingTool
-import content.global.skill.skillcape.SkillcapePerksEffect
 import core.api.*
 import org.rs.consts.Items
 import org.rs.consts.Sounds
@@ -374,9 +373,6 @@ class MiningListener : InteractionListener {
         val level = 1 + getDynLevel(player, Skills.MINING) + getFamiliarBoost(player, Skills.MINING)
         val hostRatio = Math.random() * (100.0 * resource!!.rate)
         var toolRatio = tool.ratio
-        if (SkillcapePerksEffect.isActive(SkillcapePerksEffect.PRECISION_MINER, player)) {
-            toolRatio += 0.075
-        }
         val clientRatio = Math.random() * ((level - resource.level) * (1.0 + toolRatio))
         return hostRatio < clientRatio
     }

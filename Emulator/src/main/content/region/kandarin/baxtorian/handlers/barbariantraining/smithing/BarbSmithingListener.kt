@@ -2,7 +2,6 @@ package content.region.kandarin.baxtorian.handlers.barbariantraining.smithing
 
 import org.rs.consts.Items
 import org.rs.consts.Scenery
-import content.global.skill.skillcape.SkillcapePerksEffect
 import core.api.*
 import core.game.dialogue.SkillDialogueHandler
 import core.game.interaction.IntType
@@ -25,7 +24,7 @@ class BarbSmithingListener : InteractionListener {
                 sendMessage(player, "You need a Smithing level of ${weapon.requiredLevel} to make this.")
                 return@onUseWith false
             }
-            if (!inInventory(player, Items.HAMMER_2347) && !SkillcapePerksEffect.isActive(SkillcapePerksEffect.BAREFISTED_SMITHING, player)) {
+            if (!inInventory(player, Items.HAMMER_2347)) {
                 sendDialogue(player, "You need a hammer to work the metal with.")
                 return@onUseWith false
             }

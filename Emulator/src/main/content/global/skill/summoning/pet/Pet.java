@@ -1,6 +1,5 @@
 package content.global.skill.summoning.pet;
 
-import content.global.skill.skillcape.SkillcapePerksEffect;
 import content.global.skill.summoning.familiar.Familiar;
 import content.global.skill.summoning.familiar.FamiliarSpecial;
 import core.game.node.entity.player.Player;
@@ -66,15 +65,6 @@ public final class Pet extends Familiar {
     @Override
     public void handleTickActions() {
         final PetDetails petDetails = details;
-        if (getPet().food.length > 0) {
-            if(!SkillcapePerksEffect.isActive(SkillcapePerksEffect.PET_MASTERY, owner)) {
-                double amount = itemId == pet.babyItemId ? 0.025 : 0.018;
-                if (GameWorld.getSettings().isDevMode()) {
-                    amount *= 100;
-                }
-                petDetails.updateHunger(amount);
-            }
-        }
         double hunger = petDetails.getHunger();
         if (hunger >= 75.0 && hunger <= 90.0 && hasWarned < 1) {
             owner.sendMessage("<col=ff0000>Your pet is getting hungry.</col>");

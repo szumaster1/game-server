@@ -3,8 +3,6 @@ package content.region.asgarnia.falador.handlers
 import content.data.BossKillCounter.Companion.addtoKillcount
 import content.global.skill.firemaking.LightSource.Companion.getActiveLightSource
 import content.global.skill.firemaking.LightSource.Companion.hasActiveLightSource
-import content.global.skill.skillcape.SkillcapePerksEffect
-import content.global.skill.skillcape.SkillcapePerksEffect.Companion.isActive
 import core.api.*
 import org.rs.consts.Components
 import org.rs.consts.Graphics
@@ -192,7 +190,7 @@ class GiantMoleNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id, lo
 
         val action: DigAction = object : DigAction {
             override fun run(player: Player?) {
-                if (!isActive(SkillcapePerksEffect.CONSTANT_GLOW, player!!) && !hasActiveLightSource(player)) {
+                if (!hasActiveLightSource(player!!)) {
                     sendPlayerDialogue(player, "It's going to be dark down there, I should bring a light source.")
                     return
                 }

@@ -1,8 +1,6 @@
 package content.global.skill.gather.fishing
 
 import content.global.skill.combat.equipment.gloves.FOGGlovesListener
-import content.global.skill.skillcape.SkillcapePerksEffect
-import content.global.skill.skillcape.SkillcapePerksEffect.Companion.isActive
 import core.api.*
 import org.rs.consts.Items
 import core.game.event.ResourceProducedEvent
@@ -105,12 +103,6 @@ class FishingListener : InteractionListener {
                 msg += if (fish == Fish.SHARK) "!" else "."
                 sendMessage(player, msg)
                 addItemOrDrop(player, item.id, item.amount)
-            }
-
-            if (isActive(SkillcapePerksEffect.GREAT_AIM, player) && RandomFunction.roll(20)) {
-                addItemOrDrop(player, item.id, item.amount)
-                sendMessage(player, colorize("%RYour expert aim catches you a second fish."))
-                player.incrementAttribute("/save:$STATS_BASE:$STATS_FISH")
             }
 
             player.incrementAttribute("/save:$STATS_BASE:$STATS_FISH")

@@ -1,6 +1,5 @@
 package core.game.node.entity.impl;
 
-import content.global.skill.skillcape.SkillcapePerksEffect;
 import core.game.node.entity.Entity;
 import core.game.node.entity.player.Player;
 import core.game.node.entity.skill.Skills;
@@ -221,13 +220,6 @@ public final class WalkingQueue {
             return;
         }
         Player p = (Player) entity;
-        if (decrease && SkillcapePerksEffect.isActive(SkillcapePerksEffect.MARATHON_RUNNER, p)) {
-            if (p.getAttribute("run-incrementer", 0) == 3) {
-                p.setAttribute("run-incrementer", 0);
-                return;
-            }
-            p.incrementAttribute("run-incrementer");
-        }
         if (!decrease && p.getSettings().getRunEnergy() >= 100.0) {
             return;
         }

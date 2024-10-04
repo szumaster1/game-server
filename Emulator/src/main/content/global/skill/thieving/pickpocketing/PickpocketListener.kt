@@ -1,6 +1,5 @@
 package content.global.skill.thieving.pickpocketing
 
-import content.global.skill.skillcape.SkillcapePerksEffect
 import core.api.*
 import org.rs.consts.Animations
 import org.rs.consts.Items
@@ -40,9 +39,7 @@ class PickpocketListener : InteractionListener {
              * Able to pickpocket
              */
             var successMod = 0.0
-            if (SkillcapePerksEffect.isActive(SkillcapePerksEffect.SMOOTH_HANDS, player)) {
-                successMod += 25
-            }
+
             if (inInventory(player, Items.GLOVES_OF_SILENCE_10075, 1)) {
                 successMod += 3
             }

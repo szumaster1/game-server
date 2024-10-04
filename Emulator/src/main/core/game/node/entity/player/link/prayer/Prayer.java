@@ -1,7 +1,6 @@
 package core.game.node.entity.player.link.prayer;
 
 import org.rs.consts.Sounds;
-import content.global.skill.skillcape.SkillcapePerksEffect;
 import core.game.event.PrayerDeactivatedEvent;
 import core.game.node.entity.Entity;
 import core.game.node.entity.combat.CombatStyle;
@@ -151,9 +150,6 @@ public final class Prayer {
                 drain = drain * (1 + bonus);
                 drain = 0.6 / drain;
                 amountDrain += drain;
-            }
-            if (SkillcapePerksEffect.isActive(SkillcapePerksEffect.DIVINE_FAVOR, getPlayer()) && RandomFunction.random(100) <= 10) {
-                amountDrain = 0;
             }
 
             getPlayer().getSkills().decrementPrayerPoints(amountDrain);

@@ -1,7 +1,6 @@
 package core.game.node.entity.combat
 
 import org.rs.consts.Items
-import content.global.skill.skillcape.SkillcapePerksEffect
 import content.global.skill.slayer.SlayerEquipmentFlags
 import content.global.skill.slayer.SlayerEquipmentFlags.getDamAccBonus
 import core.api.*
@@ -130,18 +129,10 @@ open class MeleeSwingHandler(vararg flags: SwingHandlerFlag) : CombatSwingHandle
         entity ?: return 0
         var effectiveAttackLevel = entity.skills.getLevel(Skills.ATTACK).toDouble()
         if (entity is Player && !flags.contains(SwingHandlerFlag.IGNORE_PRAYER_BOOSTS_ACCURACY))
-            effectiveAttackLevel =
-                floor(effectiveAttackLevel + (entity.prayer.getSkillBonus(Skills.ATTACK) * effectiveAttackLevel))
+            effectiveAttackLevel = floor(effectiveAttackLevel + (entity.prayer.getSkillBonus(Skills.ATTACK) * effectiveAttackLevel))
         if (entity.properties.attackStyle.style == WeaponInterface.STYLE_ACCURATE) effectiveAttackLevel += 3
         else if (entity.properties.attackStyle.style == WeaponInterface.STYLE_CONTROLLED) effectiveAttackLevel += 1
         effectiveAttackLevel += 8
-        if (entity is Player && SkillcapePerksEffect.isActive(
-                SkillcapePerksEffect.PRECISION_STRIKES,
-                entity
-            )
-        ) { //Attack skillcape perk
-            effectiveAttackLevel += 6
-        }
         effectiveAttackLevel *= getSetMultiplier(entity, Skills.ATTACK)
         effectiveAttackLevel = floor(effectiveAttackLevel)
 
@@ -182,32 +173,6 @@ open class MeleeSwingHandler(vararg flags: SwingHandlerFlag) : CombatSwingHandle
         } else if (entity.properties.attackStyle.style == WeaponInterface.STYLE_CONTROLLED) {
             cumulativeStr += 1.0
         }
-
-        /*
-            Strength skillcape perk.
-         */
-        if (entity is Player && SkillcapePerksEffect.isActive(SkillcapePerksEffect.FINE_ATTUNEMENT, entity) && getItemFromEquipment(
-                entity,
-                EquipmentSlot.WEAPON
-            )?.definition?.getRequirement(Skills.STRENGTH) != 0
-        )
-            bonus = ceil(bonus * 1.20).toInt()
-
-        if (flags.contains(SwingHandlerFlag.IGNORE_STAT_BOOSTS_DAMAGE))
-            bonus = 0
-
-        cumulativeStr *= getSetMultiplier(entity, Skills.STRENGTH)
-
-        if (entity is Player && getSlayerTask(entity)?.npcs?.contains(
-                (entity.properties.combatPulse?.getVictim()?.id ?: 0)
-            ) == true
-        )
-            cumulativeStr *= SlayerEquipmentFlags.getDamAccBonus(entity) //Slayer helm/black mask/skillcape
-
-        /*
-        val hit = (16 + cumulativeStr + bonus / 8 + cumulativeStr * bonus * 0.016865) * modifier
-        return (hit / 10).toInt() + 1
-        */
 
         return ((1.3 + (cumulativeStr / 10) + (bonus / 80) + ((cumulativeStr * bonus) / 640)) * modifier).toInt()
     }

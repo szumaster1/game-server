@@ -1,6 +1,5 @@
 package core.game.node.entity.combat
 
-import content.global.skill.skillcape.SkillcapePerksEffect
 import core.api.applyPoison
 import core.api.log
 import core.game.container.impl.EquipmentContainer
@@ -183,8 +182,6 @@ open class RangeSwingHandler(vararg flags: SwingHandlerFlag) : CombatSwingHandle
         if (entity.properties.attackStyle.style == WeaponInterface.STYLE_RANGE_ACCURATE) effectiveRangedLevel += 3
         effectiveRangedLevel += 8
         effectiveRangedLevel *= getSetMultiplier(entity, Skills.RANGE)
-        if (entity is Player && SkillcapePerksEffect.isActive(SkillcapePerksEffect.ACCURATE_MARKSMAN, entity)) effectiveRangedLevel *= 1.1
-
         effectiveRangedLevel = floor(effectiveRangedLevel)
         if (!flags.contains(SwingHandlerFlag.IGNORE_STAT_BOOSTS_ACCURACY))
             effectiveRangedLevel *= (entity.properties.bonuses[entity.properties.attackStyle.bonusType] + 64)
