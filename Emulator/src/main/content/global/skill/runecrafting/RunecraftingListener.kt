@@ -1,7 +1,9 @@
 package content.global.skill.runecrafting
 
+import content.global.skill.runecrafting.items.Staves
 import content.global.skill.runecrafting.`object`.Altar
 import content.global.skill.runecrafting.items.TalismanStaves
+import content.global.skill.runecrafting.items.Tiara
 import core.api.*
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
@@ -9,10 +11,24 @@ import core.game.node.entity.player.Player
 import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 import org.rs.consts.Items
+import org.rs.consts.Vars
 
 class RunecraftingListener : InteractionListener {
 
     private val pouchIDs = (5509..5515).toIntArray()
+    private val tiara = IntArray(Tiara.values().size) { Tiara.values()[it].item.id }
+    private val staves = IntArray(Staves.values().size) { Staves.values()[it].item }
+    private val stavesMap = HashMap<Int, Int>()
+    private val tiaraMap = HashMap<Int, Int>()
+
+    init {
+        for (i in 13630..13641) {
+            stavesMap[i] = 1 shl (i - 13630)
+        }
+        for (index in tiara.indices) {
+            tiaraMap[tiara[index]] = 1 shl index
+        }
+    }
 
     override fun defineListeners() {
 
@@ -61,6 +77,18 @@ class RunecraftingListener : InteractionListener {
                     return@onUseWith true
                 }
             }
+        }
+
+        onEquip(tiara + staves) { player, n ->
+            val num = tiaraMap[n.id] ?: stavesMap[n.id] ?: 0
+            setVarp(player, Vars.VARP_SCENERY_ABYSS, num)
+            return@onEquip true
+        }
+
+
+        onUnequip(tiara + staves) { player, _ ->
+            setVarp(player, Vars.VARP_SCENERY_ABYSS, 0)
+            return@onUnequip true
         }
 
     }

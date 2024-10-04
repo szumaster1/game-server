@@ -25,7 +25,6 @@ import org.rs.consts.*
 import java.util.*
 import kotlin.math.max
 
-
 /**
  * Represents the pulse of crafting runes.
  */

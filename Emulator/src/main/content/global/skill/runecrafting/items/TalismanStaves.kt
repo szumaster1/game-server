@@ -6,9 +6,9 @@ import org.rs.consts.Items
 /**
  * Represents a talisman staffs.
  *
- * @property items      The item associated with the talisman.
- * @property staves      The staff associated with the talisman.
- * @property tiara      The id of the tiara associated with the talisman.
+ * @property items The item associated with the talisman.
+ * @property staves The staff associated with the talisman.
+ * @property tiara The id of the tiara associated with the talisman.
  */
 enum class TalismanStaves(val items: Item, val staves: Staves, val tiara: Int) {
     AIR(
