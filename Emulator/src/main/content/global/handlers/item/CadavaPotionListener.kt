@@ -1,22 +1,22 @@
 package content.global.handlers.item
 
+import core.api.getUsedOption
 import core.api.sendItemDialogue
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import org.rs.consts.Items
 
-/**
- * Cadava potion options.
- */
 class CadavaPotionListener : InteractionListener {
 
     override fun defineListeners() {
-        on(Items.CADAVA_POTION_756, IntType.ITEM, "drink") { player, _ ->
-            sendItemDialogue(player, Items.CADAVA_POTION_756, "You dare not drink.")
-            return@on true
-        }
-        on(Items.CADAVA_POTION_756, IntType.ITEM, "look-at") { player, _ ->
-            sendItemDialogue(player, Items.CADAVA_POTION_756, "This looks very colourful.")
+
+        /*
+         * Handles interaction with Cadava potion.
+         */
+
+        on(Items.CADAVA_POTION_756, IntType.ITEM, "drink", "look-at") { player, node ->
+            val option = getUsedOption(player)
+            sendItemDialogue(player, node.id, if(option == "drink") "You dare not drink." else "This looks very colourful.")
             return@on true
         }
     }
