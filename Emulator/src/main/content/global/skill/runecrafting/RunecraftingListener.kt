@@ -1,11 +1,10 @@
 package content.global.skill.runecrafting
 
 import content.global.skill.runecrafting.`object`.Altar
-import content.global.skill.runecrafting.items.Staff
-import content.global.skill.runecrafting.items.TalismanStaff
+import content.global.skill.runecrafting.items.Staves
+import content.global.skill.runecrafting.items.TalismanStaves
 import content.global.skill.runecrafting.items.Tiara
 import core.api.*
-import core.game.dialogue.DialogueFile
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.entity.player.Player
@@ -18,7 +17,7 @@ class RunecraftingListener : InteractionListener {
 
     private val pouchIDs = (5509..5515).toIntArray()
     private val varpIDs = (13630..13641).associateWith { 1 shl (it - 13630) }
-    private val staffIDs = Staff.values().map { it.item }.toIntArray()
+    private val stavesIDs = Staves.values().map { it.item }.toIntArray()
     private val tiaraIDs = Tiara.values().map { it.item.id }.toIntArray()
 
     override fun defineListeners() {
@@ -68,7 +67,7 @@ class RunecraftingListener : InteractionListener {
          * Handles equip a talisman staff and enter to altar.
          */
 
-        onEquip(staffIDs) { player, node ->
+        onEquip(stavesIDs) { player, node ->
             val varpValue = varpIDs[node.id] ?: run {
                 sendMessage(player, "Nothing interesting happens.")
                 return@onEquip false
@@ -81,7 +80,7 @@ class RunecraftingListener : InteractionListener {
          * Handles hidden scenery options.
          */
 
-        onUnequip(staffIDs) { player, _ ->
+        onUnequip(stavesIDs) { player, _ ->
             setVarp(player, Vars.VARP_SCENERY_ABYSS, 0)
             return@onUnequip true
         }
@@ -91,20 +90,21 @@ class RunecraftingListener : InteractionListener {
          * If player has both (tiara and staff) in inventory.
          */
 
-        TalismanStaff.values().forEach { item ->
+        TalismanStaves.values().forEach { item ->
             val altar = map(item)
             altar?.let {
-                onUseWith(IntType.SCENERY, item.item.id, it.objs) { player, used, _ ->
+                onUseWith(IntType.SCENERY, item.items.id, it.objs) { player, used, _ ->
                     setTitle(player, 2)
                     sendDialogueOptions(player, "Do you want to enchant a tiara or staff?", "Tiara.", "Staff.")
-                    openDialogue(player, object : DialogueFile() {
-                        override fun handle(componentID: Int, buttonID: Int) {
-                            when (buttonID) {
-                                1 -> enchantTiara(player, used.id, item)
-                                2 -> enchantStaff(player, used.id, item)
-                            }
+                    addDialogueAction(player) { p, button ->
+                        if (button == 2 && !inInventory(p, Items.TIARA_5525, 1)) {
+                            return@addDialogueAction sendMessage(p, "You need a tiara.")
                         }
-                    })
+                        if (button == 3 && !inInventory(p, Items.RUNECRAFTING_STAFF_13629, 1)) {
+                            return@addDialogueAction sendMessage(p, "You need a runecrafting staff.")
+                        }
+                        enchant(p, used.asItem(), button, item)
+                    }
                     return@onUseWith true
                 }
             }
@@ -114,20 +114,20 @@ class RunecraftingListener : InteractionListener {
     /*
      * Map the rc staff to ruins.
      */
-    fun map(staff: TalismanStaff): Altar? {
+    fun map(staff: TalismanStaves): Altar? {
         return when (staff) {
-            TalismanStaff.AIR -> Altar.AIR
-            TalismanStaff.MIND -> Altar.MIND
-            TalismanStaff.WATER -> Altar.WATER
-            TalismanStaff.EARTH -> Altar.EARTH
-            TalismanStaff.FIRE -> Altar.FIRE
-            TalismanStaff.BODY -> Altar.BODY
-            TalismanStaff.COSMIC -> Altar.COSMIC
-            TalismanStaff.CHAOS -> Altar.CHAOS
-            TalismanStaff.NATURE -> Altar.NATURE
-            TalismanStaff.LAW -> Altar.LAW
-            TalismanStaff.DEATH -> Altar.DEATH
-            TalismanStaff.BLOOD -> Altar.BLOOD
+            TalismanStaves.AIR -> Altar.AIR
+            TalismanStaves.MIND -> Altar.MIND
+            TalismanStaves.WATER -> Altar.WATER
+            TalismanStaves.EARTH -> Altar.EARTH
+            TalismanStaves.FIRE -> Altar.FIRE
+            TalismanStaves.BODY -> Altar.BODY
+            TalismanStaves.COSMIC -> Altar.COSMIC
+            TalismanStaves.CHAOS -> Altar.CHAOS
+            TalismanStaves.NATURE -> Altar.NATURE
+            TalismanStaves.LAW -> Altar.LAW
+            TalismanStaves.DEATH -> Altar.DEATH
+            TalismanStaves.BLOOD -> Altar.BLOOD
             else -> null
         }
     }
@@ -144,36 +144,22 @@ class RunecraftingListener : InteractionListener {
         return Item(id, amount)
     }
 
-    /*
-     * Handles enchanting tiara item.
+    /**
+     * This function handles the enchanting process.
+     *
+     * @param player    The player.
+     * @param itemId    The talisman id.
+     * @param buttonId  The button id.
+     * @param product   The enchanted item.
      */
-
-    private fun enchantTiara(player: Player, itemId: Int, product: TalismanStaff) {
-        if (!inInventory(player, Items.TIARA_5525)) {
-            sendMessage(player, "You need a tiara.")
-            return
-        }
-        if (removeItem(player, Item(itemId))) {
-            replaceSlot(player, Item(Items.TIARA_5525).slot, Item(product.tiara))
-            rewardXP(player, Skills.RUNECRAFTING, Staff.forStaff(product.tiara)!!.experience)
-            sendMessage(player, "You bind the power of the talisman into your tiara.")
-        }
-    }
-
-    /*
-     * Handles enchanting runecrafting staff.
-     */
-
-    private fun enchantStaff(player: Player, itemId: Int, product: TalismanStaff) {
-        if (!inInventory(player, Items.RUNECRAFTING_STAFF_13629) ) {
-            sendMessage(player, "You need a runecrafting staff.")
-            return
-        }
-        if (removeItem(player, Item(itemId))) {
-            replaceSlot(player, Item(Items.RUNECRAFTING_STAFF_13629).slot, Item(product.staff.item))
-            rewardXP(player, Skills.RUNECRAFTING, product.staff.experience)
-            sendMessage(player, "You bind the power of the talisman into your staff.")
-        }
+    private fun enchant(player: Player, itemId: Item, buttonId: Int, product: TalismanStaves) {
+        closeDialogue(player)
+        removeItem(player, if (buttonId == 3) Items.RUNECRAFTING_STAFF_13629 else Items.TIARA_5525)
+        replaceSlot(player, itemId.slot, if (buttonId == 3) Item(product.staves.item) else Item(product.tiara))
+        rewardXP(player, Skills.RUNECRAFTING, product.staves.experience) /*
+                                                                         * Same experience for both items.
+                                                                         */
+        sendMessage(player, "You bind the power of the talisman into your ${if (buttonId == 3) "staff" else "tiara"}.")
     }
 
 }

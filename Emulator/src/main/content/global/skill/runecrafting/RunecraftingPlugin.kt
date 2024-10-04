@@ -1,7 +1,7 @@
 package content.global.skill.runecrafting
 
 import content.global.skill.runecrafting.`object`.Altar
-import content.global.skill.runecrafting.items.RunePouchPlugin
+import content.global.skill.runecrafting.pouch.RunePouchPlugin
 import content.global.skill.runecrafting.items.Talisman
 import content.global.skill.runecrafting.runes.CombinationHandler
 import content.global.travel.EssenceTeleport.home
@@ -95,7 +95,7 @@ class RunecraftingPlugin : OptionHandler() {
                 if (a == Altar.ASTRAL) {
                     if (!hasRequirement(player, "Lunar Diplomacy")) return true
                 }
-                player.pulseManager.run(RunecraftingPulse(player, null, a!!, false, null))
+                player.pulseManager.run(RunecraftPulse(player, null, a!!, false, null))
             }
 
             "locate" -> {

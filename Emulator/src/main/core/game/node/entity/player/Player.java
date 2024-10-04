@@ -6,7 +6,7 @@ import content.global.skill.combat.equipment.EquipmentDegrader;
 import content.global.skill.combat.special.ChinchompaSwingHandler;
 import content.global.skill.combat.special.SalamanderSwingHandler;
 import content.global.skill.summoning.familiar.FamiliarManager;
-import content.global.skill.runecrafting.items.PouchManager;
+import content.global.skill.runecrafting.pouch.PouchManager;
 import content.global.skill.construction.HouseManager;
 import core.Configuration;
 import core.GlobalStatistics;

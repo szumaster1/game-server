@@ -1,15 +1,13 @@
 package content.region.misc.enchvalley.handlers
 
 import content.global.skill.gather.SkillingTool
-import core.api.inBorders
-import core.api.sendChat
-import core.api.sendMessage
-import core.api.visualize
+import core.api.*
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.game.system.task.Pulse
+import org.rs.consts.Graphics
 import org.rs.consts.NPCs
 import org.rs.consts.Scenery
 import kotlin.math.ceil
@@ -31,9 +29,9 @@ class EnchantedValleyListener : InteractionListener {
                     val g = getGolem(player)
                     override fun pulse(): Boolean {
                         when (counter++) {
-                            0 -> player.animator.animate(tool?.animation)
+                            0 -> animate(player, tool?.animation)
                             3 -> {
-                                visualize(g, -1, 86)
+                                visualize(g, -1, Graphics.RANDOM_EVENT_PUFF_OF_SMOKE_86)
                                 sendChat(g, "Gerroff da rock!")
                                 g.location = player.location
                                 g.init()
@@ -63,7 +61,7 @@ class EnchantedValleyListener : InteractionListener {
                 val n = getSpirit(player)
                 override fun pulse(): Boolean {
                     when (counter++) {
-                        0 -> player.animator.animate(tool?.animation)
+                        0 -> animate(player, tool?.animation)
                         3 -> {
                             n.location = player.location
                             n.init()

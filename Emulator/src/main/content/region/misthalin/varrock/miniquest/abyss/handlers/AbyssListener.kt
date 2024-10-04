@@ -83,7 +83,7 @@ class AbyssListener : InteractionListener {
                 return@on true
             }
             return@on handleObstacle(
-                node, player, Skills.MINING, MINE_PROGRESS, tool.animation, arrayOf(
+                node, player, Skills.MINING, MINE_PROGRESS, Animation(tool.animation), arrayOf(
                     "You attempt to mine your way through...",
                     "...and manage to break through the rock.",
                     "...but fail to break-up the rock."
@@ -102,7 +102,7 @@ class AbyssListener : InteractionListener {
                 return@on true
             }
             return@on handleObstacle(
-                node, player, Skills.WOODCUTTING, CHOP_PROGRESS, tool.animation, arrayOf(
+                node, player, Skills.WOODCUTTING, CHOP_PROGRESS, Animation(tool.animation), arrayOf(
                     "You attempt to chop your way through...",
                     "...and manage to chop down the tendrils.",
                     "...but fail to cut through the tendrils."

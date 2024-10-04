@@ -2,99 +2,109 @@ package content.global.skill.gather
 
 import core.game.node.entity.player.Player
 import core.game.node.entity.skill.Skills
-import core.game.world.update.flag.context.Animation
+import org.rs.consts.Animations
 import org.rs.consts.Items
 
 /**
- * Represents a skilling tool.
- * @author Emperor
+ * Enum class representing various skilling tools used in the game.
+ *
+ * @property id         the item id.
+ * @property level      the required level to use the tool.
+ * @property ratio      the efficiency ratio of the tool.
+ * @property animation  animation id associated with the tool interaction.
  */
-enum class SkillingTool(@JvmField val id: Int, val level: Int, @JvmField val ratio: Double, @JvmField val animation: Animation) {
+enum class SkillingTool(
+    @JvmField val id: Int,
+    val level: Int,
+    @JvmField val ratio: Double,
+    @JvmField val animation: Int
+) {
     /*
      * Woodcutting axes.
      */
-    BRONZE_AXE(id = Items.BRONZE_AXE_1351,
+    BRONZE_AXE(
+        id = Items.BRONZE_AXE_1351,
         level = 1,
         ratio = 0.05,
-        animation = Animation(879)
+        animation = Animations.WOODCUTTING_WITH_BRONZE_HATCHET_879
     ),
     IRON_AXE(
         id = Items.IRON_AXE_1349,
         level = 1,
         ratio = 0.1,
-        animation = Animation(877)
+        animation = Animations.WOODCUTTING_WITH_IRON_HATCHET_877
     ),
     STEEL_AXE(
         id = Items.STEEL_AXE_1353,
         level = 6,
         ratio = 0.2,
-        animation = Animation(875)
+        animation = Animations.WOODCUTTING_WITH_STEEL_HATCHET_875
     ),
     BLACK_AXE(
         id = Items.BLACK_AXE_1361,
         level = 6,
         ratio = 0.25,
-        animation = Animation(873)
+        animation = Animations.WOODCUTTING_WITH_BLACK_HATCHET_873
     ),
     MITHRIL_AXE(
         id = Items.MITHRIL_AXE_1355,
         level = 21,
         ratio = 0.30,
-        animation = Animation(871)
+        animation = Animations.WOODCUTTING_WITH_MITHRIL_HATCHET_871
     ),
     ADAMANT_AXE(
         id = Items.ADAMANT_AXE_1357,
         level = 31,
         ratio = 0.45,
-        animation = Animation(869)
+        animation = Animations.WOODCUTTING_WITH_ADAMANT_HATCHET_869
     ),
     RUNE_AXE(
         id = Items.RUNE_AXE_1359,
         level = 41,
         ratio = 0.65,
-        animation = Animation(867)
+        animation = Animations.WOODCUTTING_WITH_RUNE_HATCHET_867
     ),
     DRAGON_AXE(
         id = Items.DRAGON_AXE_6739,
         level = 61,
         ratio = 0.85,
-        animation = Animation(2846)
+        animation = Animations.DRAGON_HATCHET_2846
     ),
     INFERNO_ADZE(
         id = Items.INFERNO_ADZE_13661,
         level = 61,
         ratio = 0.85,
-        animation = Animation(10251)
+        animation = Animations.INFERNO_ADZE_10251
     ),
     HATCHET_CLASS1(
         id = Items.HATCHET_CLASS_1_14132,
         level = 1,
         ratio = 0.1,
-        animation = Animation(10603)
+        animation = Animations.UNKNOWN_10603
     ),
     HATCHET_CLASS2(
         id = Items.HATCHET_CLASS_2_14134,
         level = 20,
         ratio = 0.3,
-        animation = Animation(10604)
+        animation = Animations.UNKNOWN_10604
     ),
     HATCHET_CLASS3(
         id = Items.HATCHET_CLASS_3_14136,
         level = 40,
         ratio = 0.65,
-        animation = Animation(10605)
+        animation = Animations.UNKNOWN_10605
     ),
     HATCHET_CLASS4(
         id = Items.HATCHET_CLASS_4_14138,
         level = 60,
         ratio = 0.85,
-        animation = Animation(10606)
+        animation = Animations.UNKNOWN_10606
     ),
     HATCHET_CLASS5(
         id = Items.HATCHET_CLASS_5_14140,
         level = 80,
         ratio = 1.0,
-        animation = Animation(10607)
+        animation = Animations.UNKNOWN_10607
     ),
 
     /*
@@ -104,73 +114,73 @@ enum class SkillingTool(@JvmField val id: Int, val level: Int, @JvmField val rat
         id = Items.BRONZE_PICKAXE_1265,
         level = 1,
         ratio = 0.05,
-        animation = Animation(625)
+        animation = Animations.MINING_WITH_BRONZE_PICKAXE_625
     ),
     IRON_PICKAXE(
         id = Items.IRON_PICKAXE_1267,
         level = 1,
         ratio = 0.1,
-        animation = Animation(626)
+        animation = Animations.MINING_WITH_IRON_PICKAXE_626
     ),
     STEEL_PICKAXE(
         id = Items.STEEL_PICKAXE_1269,
         level = 6,
         ratio = 0.2,
-        animation = Animation(627)
+        animation = Animations.MINING_WITH_STEEL_PICKAXE_627
     ),
     MITHRIL_PICKAXE(
         id = Items.MITHRIL_PICKAXE_1273,
         level = 21,
         ratio = 0.30,
-        animation = Animation(629)
+        animation = Animations.MINING_WITH_MITHRIL_PICKAXE_629
     ),
     ADAMANT_PICKAXE(
         id = Items.ADAMANT_PICKAXE_1271,
         level = 31,
         ratio = 0.45,
-        animation = Animation(628)
+        animation = Animations.MINING_WITH_ADAMANT_PICKAXE_628
     ),
     RUNE_PICKAXE(
         id = Items.RUNE_PICKAXE_1275,
         level = 41,
         ratio = 0.65,
-        animation = Animation(624)
+        animation = Animations.MINING_WITH_RUNE_PICKAXE_624
     ),
     INFERNO_ADZE2(
         id = Items.INFERNO_ADZE_13661,
         level = 61,
         ratio = 1.0,
-        animation = Animation(10222)
+        animation = Animations.MINING_WITH_INFERNO_ADZE_10222
     ),
     PICKAXE_CLASS1(
         id = Items.PICKAXE_CLASS_1_14122,
         level = 1,
         ratio = 0.1,
-        animation = Animation(10608)
+        animation = Animations.UNKNOWN_10608
     ),
     PICKAXE_CLASS2(
         id = Items.PICKAXE_CLASS_2_14124,
         level = 20,
         ratio = 0.3,
-        animation = Animation(10609)
+        animation = Animations.UNKNOWN_10609
     ),
     PICKAXE_CLASS3(
         id = Items.PICKAXE_CLASS_3_14126,
         level = 40,
         ratio = 0.65,
-        animation = Animation(10610)
+        animation = Animations.UNKNOWN_10610
     ),
     PICKAXE_CLASS4(
         id = Items.PICKAXE_CLASS_4_14128,
         level = 60,
         ratio = 0.85,
-        animation = Animation(10611)
+        animation = Animations.UNKNOWN_10611
     ),
     PICKAXE_CLASS5(
         id = Items.PICKAXE_CLASS_5_14130,
         level = 80,
         ratio = 1.0,
-        animation = Animation(10612)
+        animation = Animations.UNKNOWN_10613
     ),
 
     /*
@@ -180,31 +190,31 @@ enum class SkillingTool(@JvmField val id: Int, val level: Int, @JvmField val rat
         id = Items.HARPOON_CLASS_1_14142,
         level = 1,
         ratio = 0.1,
-        animation = Animation(10613)
+        animation = Animations.UNKNOWN_10613
     ),
     HARPOON_CLASS2(
         id = Items.HARPOON_CLASS_2_14144,
         level = 20,
         ratio = 0.3,
-        animation = Animation(10614)
+        animation = Animations.UNKNOWN_10614
     ),
     HARPOON_CLASS3(
         id = Items.HARPOON_CLASS_3_14146,
         level = 40,
         ratio = 0.65,
-        animation = Animation(10615)
+        animation = Animations.UNKNOWN_10615
     ),
     HARPOON_CLASS4(
         id = Items.HARPOON_CLASS_4_14148,
         level = 60,
         ratio = 0.85,
-        animation = Animation(10616)
+        animation = Animations.UNKNOWN_10616
     ),
     HARPOON_CLASS5(
         id = Items.HARPOON_CLASS_5_14150,
         level = 80,
         ratio = 1.0,
-        animation = Animation(10617)
+        animation = Animations.UNKNOWN_10617
     ),
 
     /*
@@ -214,31 +224,31 @@ enum class SkillingTool(@JvmField val id: Int, val level: Int, @JvmField val rat
         id = Items.BUTTERFLY_NET_CLASS_1_14152,
         level = 1,
         ratio = 0.1,
-        animation = Animation(10618)
+        animation = Animations.SC_BUTTERFLY_NET_CLASS_1_10618
     ),
     BUTTERFLY_NET_CLASS2(
         id = Items.BUTTERFLY_NET_CLASS_2_14154,
         level = 20,
         ratio = 0.3,
-        animation = Animation(10619)
+        animation = Animations.SC_BUTTERFLY_NET_CLASS_2_10619
     ),
     BUTTERFLY_NET_CLASS3(
         id = Items.BUTTERFLY_NET_CLASS_3_14156,
         level = 40,
         ratio = 0.65,
-        animation = Animation(10620)
+        animation = Animations.SC_BUTTERFLY_NET_CLASS_3_10620
     ),
     BUTTERFLY_NET_CLASS4(
         id = Items.BUTTERFLY_NET_CLASS_4_14158,
         level = 60,
         ratio = 0.85,
-        animation = Animation(10621)
+        animation = Animations.SC_BUTTERFLY_NET_CLASS_4_10621
     ),
     BUTTERFLY_NET_CLASS5(
         id = Items.BUTTERFLY_NET_CLASS_5_14160,
         level = 80,
         ratio = 1.0,
-        animation = Animation(10622)
+        animation = Animations.SC_BUTTERFLY_NET_CLASS_5_10622
     ),
 
     /*
@@ -248,91 +258,91 @@ enum class SkillingTool(@JvmField val id: Int, val level: Int, @JvmField val rat
         id = Items.TRAINING_BOW_9705,
         level = 1,
         ratio = 0.1,
-        animation = Animation(6713)
+        animation = Animations.LIGHT_FIRE_WITH_BOW_6713
     ),
     LONGBOW(
         id = Items.LONGBOW_839,
         level = 1,
         ratio = 0.1,
-        animation = Animation(6714)
+        animation = Animations.LIGHT_FIRE_WITH_BOW_6714
     ),
     SHORTBOW(
         id = Items.SHORTBOW_841,
         level = 1,
         ratio = 0.1,
-        animation = Animation(6714)
+        animation = Animations.LIGHT_FIRE_WITH_BOW_6714
     ),
     OAK_SHORTBOW(
         id = Items.OAK_SHORTBOW_843,
         level = 1,
         ratio = 0.2,
-        animation = Animation(6715)
+        animation = Animations.LIGHT_FIRE_WITH_BOW_6715
     ),
     OAK_LONGBOW(
         id = Items.OAK_LONGBOW_845,
         level = 1,
         ratio = 0.2,
-        animation = Animation(6715)
+        animation = Animations.LIGHT_FIRE_WITH_BOW_6715
     ),
     WILLOW_SHORTBOW(
         id = Items.WILLOW_SHORTBOW_849,
         level = 1,
         ratio = 0.30,
-        animation = Animation(6716)
+        animation = Animations.LIGHT_FIRE_WITH_BOW_6716
     ),
     WILLOW_LONGBOW(
         id = Items.WILLOW_LONGBOW_847,
         level = 1,
         ratio = 0.30,
-        animation = Animation(6716)
+        animation = Animations.LIGHT_FIRE_WITH_BOW_6716
     ),
     MAPLE_SHORTBOW(
         id = Items.MAPLE_SHORTBOW_853,
         level = 1,
         ratio = 0.45,
-        animation = Animation(6717)
+        animation = Animations.LIGHT_FIRE_WITH_BOW_6717
     ),
     MAPLE_LONGBOW(
         id = Items.MAPLE_LONGBOW_851,
         level = 1,
         ratio = 0.45,
-        animation = Animation(6717)
+        animation = Animations.LIGHT_FIRE_WITH_BOW_6717
     ),
     YEW_SHORTBOW(
         id = Items.YEW_SHORTBOW_857,
         level = 1,
         ratio = 0.65,
-        animation = Animation(6718)
+        animation = Animations.LIGHT_FIRE_WITH_BOW_6718
     ),
     YEW_LONGBOW(
         id = Items.YEW_LONGBOW_855,
         level = 1,
         ratio = 0.65,
-        animation = Animation(6718)
+        animation = Animations.LIGHT_FIRE_WITH_BOW_6718
     ),
     MAGIC_SHORTBOW(
         id = Items.MAGIC_SHORTBOW_861,
         level = 1,
         ratio = 0.85,
-        animation = Animation(6719)
+        animation = Animations.LIGHT_FIRE_WITH_MAGIC_BOW_6719
     ),
     MAGIC_LONGBOW(
         id = Items.MAGIC_LONGBOW_859,
         level = 1,
         ratio = 0.85,
-        animation = Animation(6719)
+        animation = Animations.LIGHT_FIRE_WITH_MAGIC_BOW_6719
     ),
     SEERCULL(
         id = Items.SEERCULL_6724,
         level = 1,
         ratio = 0.85,
-        animation = Animation(6720)
+        animation = Animations.LIGHT_FIRE_WITH_BOW_6720
     ),
     SACRED_CLAY_BOW(
         id = Items.SACRED_CLAY_BOW_14121,
         level = 1,
         ratio = 1.00,
-        animation = Animation(10990)
+        animation = Animations.LIGHT_FIRE_WITH_SC_BOW_10990
     ),
 
     /*
@@ -342,25 +352,25 @@ enum class SkillingTool(@JvmField val id: Int, val level: Int, @JvmField val rat
         id = Items.MACHETE_975,
         level = 1,
         ratio = 0.24,
-        animation = Animation(2382)
+        animation = Animations.SWIPE_WITH_MACHETE_TAI_BWO_WANNAI_CLEANUP_2382
     ),
     OPAL_MACHETE(
         id = Items.OPAL_MACHETE_6313,
         level = 1,
         ratio = 0.26,
-        animation = Animation(6085)
+        animation = Animations.SWING_WITH_OPAL_MACHETE_6085
     ),
     JADE_MACHETE(
         id = Items.JADE_MACHETE_6315,
         level = 1,
         ratio = 0.32,
-        animation = Animation(6086)
+        animation = Animations.SWING_WITH_JADE_MACHETE_6086
     ),
     RED_TOPAZ_MACHETE(
         id = Items.RED_TOPAZ_MACHETE_6317,
         level = 1,
         ratio = 0.38,
-        animation = Animation(6087)
+        animation = Animations.SWING_WITH_RED_TOPAZ_MACHETE_6087
     );
 
     companion object {
@@ -474,7 +484,23 @@ enum class SkillingTool(@JvmField val id: Int, val level: Int, @JvmField val rat
         @JvmStatic
         fun getFiremakingTool(player: Player): SkillingTool? {
             var tool: SkillingTool? = null
-            val bowPriority = arrayOf(SACRED_CLAY_BOW, SEERCULL, MAGIC_SHORTBOW, MAGIC_LONGBOW, YEW_SHORTBOW, YEW_LONGBOW, MAPLE_SHORTBOW, MAPLE_LONGBOW, WILLOW_SHORTBOW, WILLOW_LONGBOW, OAK_LONGBOW, OAK_SHORTBOW, SHORTBOW, LONGBOW, TRAINING_BOW)
+            val bowPriority = arrayOf(
+                SACRED_CLAY_BOW,
+                SEERCULL,
+                MAGIC_SHORTBOW,
+                MAGIC_LONGBOW,
+                YEW_SHORTBOW,
+                YEW_LONGBOW,
+                MAPLE_SHORTBOW,
+                MAPLE_LONGBOW,
+                WILLOW_SHORTBOW,
+                WILLOW_LONGBOW,
+                OAK_LONGBOW,
+                OAK_SHORTBOW,
+                SHORTBOW,
+                LONGBOW,
+                TRAINING_BOW
+            )
             for (bowId in bowPriority) {
                 if (checkTool(player, Skills.FIREMAKING, bowId)) {
                     tool = bowId

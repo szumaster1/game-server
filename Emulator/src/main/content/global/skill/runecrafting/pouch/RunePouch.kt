@@ -1,4 +1,4 @@
-package content.global.skill.runecrafting.items
+package content.global.skill.runecrafting.pouch
 
 import core.api.*
 import core.game.global.action.DropListener

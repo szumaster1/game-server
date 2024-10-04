@@ -25,6 +25,7 @@ import core.game.system.task.Pulse
 import core.game.world.map.Location
 import core.game.world.map.RegionManager.getLocalPlayers
 import core.tools.RandomFunction
+import org.rs.consts.Items
 import java.util.stream.Collectors
 
 /**
@@ -105,7 +106,7 @@ class WoodcuttingPulse(private val player: Player, private val node: Scenery) : 
 
     fun animate() {
         if (!player.animator.isAnimating) {
-            player.animate(getHatchet(player)!!.animation)
+            animate(player, getHatchet(player)!!.animation)
             val playersAroundMe =
                 getLocalPlayers(player, 2).stream().filter { p: Player -> p.username != player.username }
                     .collect(Collectors.toList())
@@ -135,7 +136,7 @@ class WoodcuttingPulse(private val player: Player, private val node: Scenery) : 
          * 20% chance to auto burn logs when using "inferno adze" item.
          */
 
-        if (getHatchet(player)!!.id == 13661 && RandomFunction.random(100) < 25) {
+        if (getHatchet(player)!!.id == Items.INFERNO_ADZE_13661 && RandomFunction.random(100) < 25) {
             sendMessage(player, "You chop some logs. The heat of the inferno adze incinerates them.")
             Projectile.create(player, null, 1776, 35, 30, 20, 25)
                 .transform(player, Location(player.location.x + 2, player.location.y), true, 25, 25).send()

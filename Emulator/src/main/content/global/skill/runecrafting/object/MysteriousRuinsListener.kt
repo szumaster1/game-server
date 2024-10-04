@@ -1,7 +1,6 @@
-package content.global.skill.runecrafting
+package content.global.skill.runecrafting.`object`
 
-import content.global.skill.runecrafting.`object`.MysteriousRuins
-import content.global.skill.runecrafting.items.Staff
+import content.global.skill.runecrafting.items.Staves
 import content.global.skill.runecrafting.items.Talisman
 import content.global.skill.runecrafting.items.Tiara
 import core.api.*
@@ -17,7 +16,7 @@ import org.rs.consts.Animations
 class MysteriousRuinsListener : InteractionListener {
 
     private val sceneryIDs = allRuins()
-    private val staffIDs = Staff.values().map { it.item }.toIntArray()
+    private val stavesIDs = Staves.values().map { it.item }.toIntArray()
     private val talismanIDs = arrayOf(1438, 1448, 1444, 1440, 1442, 5516, 1446, 1454, 1452, 1462, 1458, 1456, 1450, 1460).toIntArray()
 
     override fun defineListeners() {
@@ -35,7 +34,7 @@ class MysteriousRuinsListener : InteractionListener {
          */
 
         on(sceneryIDs, IntType.SCENERY, "enter", "search") { player, node ->
-            if (anyInEquipment(player, *staffIDs)) {
+            if (anyInEquipment(player, *stavesIDs)) {
                 handleStaff(player, node)
             } else {
                 handleTiara(player, node)

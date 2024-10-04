@@ -29,7 +29,7 @@ import kotlin.math.max
 /**
  * Represents the pulse of crafting runes.
  */
-class RunecraftingPulse(player: Player?, node: Item?, val altar: Altar, private val combination: Boolean, private val combo: CombinationRune?) : SkillPulse<Item?>(player, node) {
+class RunecraftPulse(player: Player?, node: Item?, val altar: Altar, private val combination: Boolean, private val combo: CombinationRune?) : SkillPulse<Item?>(player, node) {
 
     private val rune: Rune
     private var talisman: Talisman? = null
@@ -49,11 +49,7 @@ class RunecraftingPulse(player: Player?, node: Item?, val altar: Altar, private 
         if (altar == Altar.BLOOD) {
             if (!hasRequirement(player, QuestName.LEGACY_OF_SEERGAZE)) return false
         }
-        if (!altar.isOurania && getStatLevel(player, Skills.RUNECRAFTING) < rune.level) {
-            sendMessage(player, "You need a runecrafting level of at least " + rune.level + " to craft this rune.")
-            return false
-        }
-        if (combination && !inInventory(player, PURE_ESSENCE)) {
+        if (altar.isOurania && !inInventory(player, PURE_ESSENCE)) {
             sendMessage(player, "You need pure essence to craft this rune.")
             return false
         }
@@ -61,11 +57,15 @@ class RunecraftingPulse(player: Player?, node: Item?, val altar: Altar, private 
             sendMessage(player, "You need pure essence to craft this rune.")
             return false
         }
+        if (!altar.isOurania && getStatLevel(player, Skills.RUNECRAFTING) < rune.level) {
+            sendMessage(player, "You need a runecrafting level of at least " + rune.level + " to craft this rune.")
+            return false
+        }
         if (!altar.isOurania && rune.isNormal && !inInventory(player, PURE_ESSENCE) && !inInventory(player, RUNE_ESSENCE)) {
             sendMessage(player, "You need rune essence or pure essence in order to craft this rune.")
             return false
         }
-        if (altar.isOurania && !inInventory(player, PURE_ESSENCE)) {
+        if (combination && !inInventory(player, PURE_ESSENCE)) {
             sendMessage(player, "You need pure essence to craft this rune.")
             return false
         }

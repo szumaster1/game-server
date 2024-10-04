@@ -52,15 +52,15 @@ class CanoeListener : InteractionListener, InterfaceListener {
         @JvmStatic
         fun getAxeAnimation(axe: SkillingTool): Animation {
             return when (axe) {
-                SkillingTool.BRONZE_AXE -> Animation(6744)
-                SkillingTool.IRON_AXE -> Animation(6743)
-                SkillingTool.STEEL_AXE -> Animation(6742)
-                SkillingTool.BLACK_AXE -> Animation(6741)
-                SkillingTool.MITHRIL_AXE -> Animation(6740)
-                SkillingTool.ADAMANT_AXE -> Animation(6739)
-                SkillingTool.RUNE_AXE -> Animation(6738)
-                SkillingTool.DRAGON_AXE -> Animation(6745)
-                else -> axe.animation
+                SkillingTool.BRONZE_AXE -> Animation(Animations.BRONZE_HATCHET_6744)
+                SkillingTool.IRON_AXE -> Animation(Animations.IRON_HATCHET_6743)
+                SkillingTool.STEEL_AXE -> Animation(Animations.STEEL_HATCHET_6742)
+                SkillingTool.BLACK_AXE -> Animation(Animations.BLACK_HATCHET_6741)
+                SkillingTool.MITHRIL_AXE -> Animation(Animations.MITHRIL_HATCHET_6740)
+                SkillingTool.ADAMANT_AXE -> Animation(Animations.ADAMANT_HATCHET_6739)
+                SkillingTool.RUNE_AXE -> Animation(Animations.RUNE_HATCHET_6738)
+                SkillingTool.DRAGON_AXE -> Animation(Animations.DRAGON_HATCHET_6745)
+                else -> Animation(axe.animation)
             }
         }
 
@@ -246,9 +246,10 @@ class CanoeListener : InteractionListener, InterfaceListener {
                 sendMessage(player, "You do not have an axe which you have the woodcutting level to use.")
                 return@on true
             }
-            lock(player, axe.animation.duration + CANOE_TREE_FALLING_ANIMATION.duration)
+            lock(player, CANOE_TREE_FALLING_ANIMATION.duration)
             animate(player, axe.animation)
-            queueScript(player, axe.animation.duration + 1, QueueStrength.SOFT) { stage: Int ->
+            val axeAnimation = animationCycles(axe.animation)
+            queueScript(player, axeAnimation + 1, QueueStrength.SOFT) { stage: Int ->
                 when (stage) {
                     0 -> {
                         resetAnimator(player)

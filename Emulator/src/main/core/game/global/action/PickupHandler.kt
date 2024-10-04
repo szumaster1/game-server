@@ -4,7 +4,7 @@ import org.rs.consts.Items
 import org.rs.consts.NPCs
 import org.rs.consts.Sounds
 import content.data.GodType
-import content.global.skill.runecrafting.items.RunePouch
+import content.global.skill.runecrafting.pouch.RunePouch
 import core.api.*
 import core.game.dialogue.FacialExpression
 import core.game.event.PickUpEvent

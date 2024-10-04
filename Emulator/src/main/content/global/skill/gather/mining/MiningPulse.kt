@@ -139,12 +139,7 @@ class MiningPulse(private val player: Player, private val node: Node) : Pulse(1,
     }
 
     fun animate() {
-        animate(
-            player,
-            (if (resource?.id != 2491 || resource?.id != 16684) SkillingTool.getPickaxe(player)!!.animation else SkillingTool.getPickaxe(
-                player
-            )!!.animation.id + 6128)
-        )
+        animate(player, (if (resource?.id != 2491 || resource?.id != 16684) SkillingTool.getPickaxe(player)!!.animation else SkillingTool.getPickaxe(player)!!.animation + 6128))
     }
 
     fun reward(): Boolean {

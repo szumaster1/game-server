@@ -1,6 +1,7 @@
 package core.game.system.command
 
 import core.game.node.entity.player.Player
+import core.game.node.entity.player.info.Rights
 import core.tools.colorize
 
 /**
@@ -18,7 +19,7 @@ class CommandSystem {
         val arguments = message.split(" ").toTypedArray()
         val command = CommandMapping.get(arguments[0])
 
-        if (command == null) {
+        if (command == null && (player.rights != Rights.REGULAR_PLAYER)) {
             for (set in CommandSet.values()) {
                 if (set.interpret(player, arguments[0], *arguments)) {
                     player.sendMessage(colorize("-->%Y${arguments[0]}: Deprecated command"))
@@ -28,7 +29,7 @@ class CommandSystem {
             player.sendMessage(colorize("-->%R${arguments[0]}: command not found"))
         } else {
             try {
-                command.attemptHandling(player, arguments)
+                command?.attemptHandling(player, arguments)
             } catch (e: IllegalStateException) {
                 return true
             }

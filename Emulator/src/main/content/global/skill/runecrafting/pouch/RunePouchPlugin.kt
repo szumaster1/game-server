@@ -1,4 +1,4 @@
-package content.global.skill.runecrafting.items
+package content.global.skill.runecrafting.pouch
 
 import core.cache.def.impl.ItemDefinition
 import core.game.interaction.OptionHandler

@@ -388,7 +388,7 @@ class MiningListener : InteractionListener {
     fun anim(player: Player, resource: MiningNode?, tool: SkillingTool) {
         val isEssence = resource!!.id in intArrayOf(2491, 16684)
         if (animationFinished(player))
-            animate(player, if (!isEssence) tool.animation else tool.animation.id + 6128, true)
+            animate(player, if (!isEssence) tool.animation else tool.animation + 6128, true)
     }
 
     fun checkRequirements(player: Player, resource: MiningNode, node: Node): Boolean {

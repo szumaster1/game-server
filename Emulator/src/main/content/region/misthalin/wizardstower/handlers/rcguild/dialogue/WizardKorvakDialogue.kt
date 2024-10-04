@@ -2,7 +2,7 @@ package content.region.misthalin.wizardstower.handlers.rcguild.dialogue
 
 import org.rs.consts.Items
 import org.rs.consts.NPCs
-import content.global.skill.runecrafting.items.PouchManager.Pouches
+import content.global.skill.runecrafting.pouch.PouchManager.Pouches
 import core.api.*
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression

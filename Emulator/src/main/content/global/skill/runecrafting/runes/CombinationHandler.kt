@@ -1,6 +1,6 @@
 package content.global.skill.runecrafting.runes
 
-import content.global.skill.runecrafting.RunecraftingPulse
+import content.global.skill.runecrafting.RunecraftPulse
 import content.global.skill.runecrafting.`object`.Altar
 import content.global.skill.runecrafting.`object`.Altar.Companion.forScenery
 import content.global.skill.runecrafting.items.Talisman
@@ -26,7 +26,7 @@ class CombinationHandler : UseWithHandler(Talisman.AIR.item.id, Talisman.WATER.i
         val player = event.player
         val altar = forScenery((event.usedWith as Scenery))
         val combo = forAltar(altar!!, event.usedItem) ?: return false
-        player.pulseManager.run(RunecraftingPulse(player, event.usedItem, altar, true, combo))
+        player.pulseManager.run(RunecraftPulse(player, event.usedItem, altar, true, combo))
         return true
     }
 }

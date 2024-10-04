@@ -155,8 +155,8 @@ class LostTribeListener : InteractionListener {
                         }
 
                         1 -> {
-                            player.animator.animate(tool.animation)
-                            delay = tool.animation.duration
+                            animate(player, tool.animation)
+                            delay = animationCycles(tool.animation)
                         }
 
                         2 -> {

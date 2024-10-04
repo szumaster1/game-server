@@ -209,7 +209,7 @@ class WoodcuttingListener : InteractionListener {
      */
     fun animateWoodcutting(player: Player) {
         if (!player.animator.isAnimating) {
-            player.animate(SkillingTool.getHatchet(player)!!.animation)
+            animate(player, SkillingTool.getHatchet(player)!!.animation)
             val playersAroundMe: List<Player> = RegionManager.getLocalPlayers(player, 2)
                 .stream()
                 .filter { p: Player -> p.username != player.username }
