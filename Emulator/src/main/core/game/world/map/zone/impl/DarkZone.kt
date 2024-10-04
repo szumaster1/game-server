@@ -48,11 +48,17 @@ class DarkZone : MapZone("Dark zone", true), EventHook<UseWithEvent> {
             if (s != null) {
                 val name = option.name.lowercase()
                 if (name == "drop") {
-                    sendMessage((e as Player), "Dropping the " + s.getName() + " would leave you without a light source.")
+                    sendMessage(
+                        (e as Player),
+                        "Dropping the " + s.getName() + " would leave you without a light source."
+                    )
                     return true
                 }
                 if (name == "extinguish") {
-                    sendMessage((e as Player), "Extinguishing the " + s.getName() + " would leave you without a light source.")
+                    sendMessage(
+                        (e as Player),
+                        "Extinguishing the " + s.getName() + " would leave you without a light source."
+                    )
                     return true
                 }
                 if (name == "destroy") {
@@ -168,11 +174,16 @@ class DarkZone : MapZone("Dark zone", true), EventHook<UseWithEvent> {
             }
         }
 
-        fun checkDarkArea(p: Player): Boolean {
-            for (r in p.zoneMonitor.zones) {
+        /**
+         * Checks if the player is in a dark area and will update accordingly.
+         *
+         * @param player The player.
+         */
+        fun checkDarkArea(player: Player): Boolean {
+            for (r in player.zoneMonitor.zones) {
                 if (r.zone is DarkZone) {
                     val zone = r.zone as DarkZone
-                    zone.updateOverlay(p)
+                    zone.updateOverlay(player)
                     return true
                 }
             }

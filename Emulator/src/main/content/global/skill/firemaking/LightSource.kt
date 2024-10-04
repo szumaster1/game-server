@@ -91,8 +91,14 @@ enum class LightSource(val level: Int, val raw: Item, val product: Item, val ope
         product = Item(Items.MINING_HELMET_5013, 1),
         open = false,
         interfaceId = Components.DARKNESS_LIGHT_97
-    )
-    ;
+    ),
+    SEERS_HEADBAND(
+        level = 0,
+        raw = Item(Items.SEERS_HEADBAND_1_14631, 1),
+        product = Item(Items.SEERS_HEADBAND_1_14631, 1),
+        open = false,
+        interfaceId = -1
+    );
 
     /**
      * Get strength of light.

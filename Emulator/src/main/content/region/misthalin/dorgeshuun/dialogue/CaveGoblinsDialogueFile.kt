@@ -19,12 +19,10 @@ import org.rs.consts.QuestName
  */
 class CaveGoblinsDialogueFile : DialogueFile() {
 
-    private val randomConversation = RandomFunction.getRandomElement(arrayOf(0, 1, 2, 3, 4, 5))
-
     override fun handle(componentID: Int, buttonID: Int) {
         npc = NPC(NPCs.CAVE_GOBLIN_MINER_2069)
         if (isQuestComplete(player!!, QuestName.THE_LOST_TRIBE)) {
-            when (randomConversation) {
+            when ((0..5).random()) {
                 0 -> when (stage) {
                     0 -> npcl(FacialExpression.OLD_NORMAL, "What are you doing down here without a lamp?").also { stage++ }
                     1 -> npcl(FacialExpression.OLD_NORMAL, "Here, I have a spare torch.").also { stage++ }
