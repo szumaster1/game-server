@@ -39,7 +39,14 @@ class FletchingPlugin : UseWithHandler(
 ) {
 
     override fun newInstance(arg: Any?): Plugin<Any> {
-        for (i in intArrayOf(Items.FEATHER_314, Items.STRIPY_FEATHER_10087, Items.RED_FEATHER_10088, Items.BLUE_FEATHER_10089, Items.YELLOW_FEATHER_10090, Items.ORANGE_FEATHER_10091))
+        for (i in intArrayOf(
+            Items.FEATHER_314,
+            Items.STRIPY_FEATHER_10087,
+            Items.RED_FEATHER_10088,
+            Items.BLUE_FEATHER_10089,
+            Items.YELLOW_FEATHER_10090,
+            Items.ORANGE_FEATHER_10091
+        ))
             addHandler(i, ITEM_TYPE, this)
         return this
     }
@@ -55,7 +62,10 @@ class FletchingPlugin : UseWithHandler(
     private fun handleDart(event: NodeUsageEvent): Boolean {
         val dart = Dart.product[event.usedItem.id] ?: return false
         val handler = createSkillDialogueHandler(event, dart.finished.asItem()) { amount ->
-            submitIndividualPulse(event.player, DartPulse(event.player, event.usedItem, dart, amount))
+            submitIndividualPulse(
+                entity = event.player,
+                pulse = DartPulse(event.player, event.usedItem, dart, amount)
+            )
         }
         handler.open()
         return true
@@ -72,7 +82,10 @@ class FletchingPlugin : UseWithHandler(
 
         if (hasFeather) {
             val handler = createSkillDialogueHandler(event, bolt.finished.asItem()) { amount ->
-                submitIndividualPulse(event.player, BoltPulse(event.player, event.usedItem, bolt, Item(featherId), amount))
+                submitIndividualPulse(
+                    entity = event.player,
+                    pulse = BoltPulse(event.player, event.usedItem, bolt, Item(featherId), amount)
+                )
             }
             handler.open()
             return true
@@ -80,7 +93,11 @@ class FletchingPlugin : UseWithHandler(
         return false
     }
 
-    private fun createSkillDialogueHandler(event: NodeUsageEvent, finishedItem: Item, createAction: (Int) -> Unit): SkillDialogueHandler {
+    private fun createSkillDialogueHandler(
+        event: NodeUsageEvent,
+        finishedItem: Item,
+        createAction: (Int) -> Unit
+    ): SkillDialogueHandler {
         return object : SkillDialogueHandler(event.player, SkillDialogue.MAKE_SET_ONE_OPTION, finishedItem) {
             override fun create(amount: Int, index: Int) {
                 createAction(amount)

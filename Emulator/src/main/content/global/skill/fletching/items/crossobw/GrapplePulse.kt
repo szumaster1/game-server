@@ -37,7 +37,7 @@ class GrapplePulse(player: Player?, node: Item?, private var amount: Int) : Skil
             delay = 3
             return false
         }
-        if (player.inventory.remove(Item(Items.MITH_GRAPPLE_TIP_9416, Items.MITHRIL_BOLTS_9142))) {
+        if (removeItem(player, Items.MITH_GRAPPLE_TIP_9416) && removeItem(player, Items.MITHRIL_BOLTS_9142)) {
             addItem(player, Items.MITH_GRAPPLE_9418)
             rewardXP(player, Skills.FLETCHING, 5.0)
         }

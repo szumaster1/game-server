@@ -2,7 +2,7 @@ package content.region.misthalin.wizardstower.handlers.rcguild.dialogue
 
 import org.rs.consts.Items
 import org.rs.consts.NPCs
-import content.global.skill.runecrafting.items.PouchManager.RCPouch
+import content.global.skill.runecrafting.items.PouchManager.Pouches
 import core.api.*
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression
@@ -226,7 +226,7 @@ class WizardKorvakDialogue(player: Player? = null) : Dialogue(player) {
      * @return
      */
     fun repair(): Boolean {
-        player.pouchManager.pouches.forEach { (id: Int, pouch: RCPouch) ->
+        player.pouchManager.pouches.forEach { (id: Int, pouch: Pouches) ->
             pouch.currentCap = pouch.capacity
             val newCharges: Int
             newCharges = when (id) {

@@ -16,10 +16,10 @@ import org.rs.consts.Items
  */
 class PouchManager(val player: Player) {
     val pouches = mapOf(
-        Items.SMALL_POUCH_5509 to RCPouch(3, 3, 1),
-        Items.MEDIUM_POUCH_5510 to RCPouch(6, 264, 25),
-        Items.LARGE_POUCH_5512 to RCPouch(9, 186, 50),
-        Items.GIANT_POUCH_5514 to RCPouch(12, 140, 75)
+        Items.SMALL_POUCH_5509 to Pouches(3, 3, 1),
+        Items.MEDIUM_POUCH_5510 to Pouches(6, 264, 25),
+        Items.LARGE_POUCH_5512 to Pouches(9, 186, 50),
+        Items.GIANT_POUCH_5514 to Pouches(12, 140, 75)
     )
 
     /**
@@ -202,7 +202,7 @@ class PouchManager(val player: Player) {
     /**
      * A class that represents a runecrafting pouch.
      */
-    class RCPouch(val capacity: Int, val maxCharges: Int, val levelRequirement: Int) {
+    class Pouches(val capacity: Int, val maxCharges: Int, val levelRequirement: Int) {
         var container = Container(capacity)
         var currentCap = capacity
         var charges = maxCharges

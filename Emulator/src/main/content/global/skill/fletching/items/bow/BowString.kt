@@ -3,7 +3,14 @@ package content.global.skill.fletching.items.bow
 import org.rs.consts.Items
 
 /**
- * Represents the different types of bow strings.
+ * Enum class representing different types of bow strings.
+ *
+ * @property indicator      the type of string (1 for bow, 2 for crossbow).
+ * @property unfinished     the unfinished item id.
+ * @property product        the finished product item id.
+ * @property level          the required level to craft the bow.
+ * @property experience     the experience gained from crafting the bow.
+ * @property animation      the animation ID used during crafting.
  */
 enum class BowString(private val indicator: Byte, val unfinished: Int, val product: Int, val level: Int, val experience: Double, val animation: Int) {
     SHORT_BOW(

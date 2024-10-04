@@ -3,7 +3,12 @@ package content.global.skill.fletching.items.bolt
 import org.rs.consts.Items
 
 /**
- * Represents the bolt data.
+ * Represents the different bolts in the game.
+ *
+ * @property unfinished     The id of the unfinished bolt item.
+ * @property finished       The id of the finished bolt item.
+ * @property level          The required level to create the finished bolt.
+ * @property experience     The experience gained from creating the finished bolt.
  */
 enum class Bolt(val unfinished: Int, val finished: Int, val level: Int, val experience: Double) {
     BRONZE_BOLT(

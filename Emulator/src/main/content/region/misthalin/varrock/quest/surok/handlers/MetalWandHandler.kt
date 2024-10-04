@@ -1,7 +1,7 @@
 package content.region.misthalin.varrock.quest.surok.handlers
 
 import org.rs.consts.Sounds
-import content.global.skill.runecrafting.altars.Altar
+import content.global.skill.runecrafting.`object`.Altar
 import core.api.*
 import core.game.interaction.NodeUsageEvent
 import core.game.interaction.UseWithHandler
@@ -18,7 +18,7 @@ import core.plugin.Plugin
 class MetalWandHandler : UseWithHandler(WhatLiesBelowListener.WAND) {
     @Throws(Throwable::class)
     override fun newInstance(arg: Any?): Plugin<Any> {
-        addHandler(Altar.CHAOS.scenery, OBJECT_TYPE, this)
+        addHandler(Altar.CHAOS.objs, OBJECT_TYPE, this)
         return this
     }
 

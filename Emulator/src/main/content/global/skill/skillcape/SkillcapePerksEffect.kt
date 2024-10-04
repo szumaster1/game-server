@@ -1,6 +1,6 @@
 package content.global.skill.skillcape
 
-import content.global.skill.runecrafting.altars.Altar
+import content.global.skill.runecrafting.`object`.Altar
 import core.ServerStore
 import core.ServerStore.Companion.getBoolean
 import core.ServerStore.Companion.getInt

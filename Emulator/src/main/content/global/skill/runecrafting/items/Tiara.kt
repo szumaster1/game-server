@@ -4,7 +4,10 @@ import core.game.node.item.Item
 import org.rs.consts.Items
 
 /**
- * Represents the tiara.
+ * Represents tiaras in the game.
+ *
+ * @property item The item associated with the tiara.
+ * @property experience The experience gained from creating the tiara.
  */
 enum class Tiara(val item: Item, val experience: Double) {
     AIR(
@@ -65,10 +68,9 @@ enum class Tiara(val item: Item, val experience: Double) {
         /**
          * Method used to get the [Tiara] by the item.
          *
-         * @param [item] the item.
-         * @return the Tiara or `null`.
+         * @param [item] the item to search for.
+         * @return the Tiara or `null` if not found.
          */
-        @JvmStatic
         fun forItem(item: Item): Tiara? {
             return values().firstOrNull { it.item.id == item.id }
         }

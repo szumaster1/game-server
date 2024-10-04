@@ -3,8 +3,11 @@ package content.global.skill.smithing
 import org.rs.consts.Items
 
 /**
- * Bar type enum class.
- * @author Emperor
+ * Represents different types of bars used in smithing.
+ *
+ * @property bar        The item id associated with the bar.
+ * @property experience The experience gained from smelting the bar.
+ * @property barName    The name of the bar type.
  */
 enum class BarType(val bar: Int, val experience: Double, val barName: String) {
     BRONZE(

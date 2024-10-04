@@ -3,7 +3,14 @@ package content.global.skill.fletching.items.crossobw
 import org.rs.consts.Items
 
 /**
- * Represents the Limb data.
+ * Represents a different types of limbs for crossbows.
+ *
+ * @property stock          The item id for the stock of the crossbow.
+ * @property limb           The item id for the limb of the crossbow.
+ * @property product        The item id for the finished crossbow product.
+ * @property level          The required level to craft the crossbow.
+ * @property experience     The experience gained from crafting the crossbow.
+ * @property animation      The animation id used during the crafting pulse.
  */
 enum class Limb(val stock: Int, val limb: Int, val product: Int, val level: Int, val experience: Double, val animation: Int) {
     WOODEN_STOCK(

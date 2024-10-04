@@ -18,7 +18,8 @@ import org.rs.consts.Vars
 /**
  * Handles the fletch creation pulse.
  */
-class FletchingPulse(player: Player?, node: Item?, amount: Int, fletch: FletchingMap.FletchingItems) : SkillPulse<Item?>(player, node) {
+class FletchingPulse(player: Player?, node: Item?, amount: Int, fletch: FletchingMap.FletchingItems) :
+    SkillPulse<Item?>(player, node) {
 
     private val fletch: FletchingMap.FletchingItems
     private var amount = 0
@@ -30,7 +31,13 @@ class FletchingPulse(player: Player?, node: Item?, amount: Int, fletch: Fletchin
 
     override fun checkRequirements(): Boolean {
         if (getStatLevel(player, Skills.FLETCHING) < fletch.level) {
-            sendDialogue(player, "You need a fletching skill of " + fletch.level + " or above to make " + (if (StringUtils.isPlusN(getItemName(fletch.id).replace("(u)", "").trim())) "an" else "a") + " " + getItemName(fletch.id).replace("(u)", "").trim())
+            sendDialogue(
+                player,
+                "You need a fletching skill of " + fletch.level + " or above to make " + (if (StringUtils.isPlusN(
+                        getItemName(fletch.id).replace("(u)", "").trim()
+                    )
+                ) "an" else "a") + " " + getItemName(fletch.id).replace("(u)", "").trim()
+            )
             return false
         }
         if (amount > amountInInventory(player, node!!.id)) {
@@ -42,7 +49,7 @@ class FletchingPulse(player: Player?, node: Item?, amount: Int, fletch: Fletchin
                 return false
             }
         }
-        if(fletch == FletchingMap.FletchingItems.OGRE_COMPOSITE_BOW) {
+        if (fletch == FletchingMap.FletchingItems.OGRE_COMPOSITE_BOW) {
             if (!getAttribute(player!!, ZUtils.TALK_WITH_SITHIK_OGRE_DONE, false) || getVarbit(player, Vars.VARBIT_QUEST_ZORGE_FLESH_EATERS_PROGRESS) < 6) {
                 sendMessage(player, "You must have started Zogre Flesh Eaters to make those.")
                 return false

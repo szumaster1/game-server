@@ -1,12 +1,12 @@
 package content.global.skill.runecrafting
 
 import content.global.skill.combat.equipment.gloves.FOGGlovesListener.Companion.updateCharges
-import content.global.skill.runecrafting.altars.Altar
+import content.global.skill.runecrafting.`object`.Altar
 import content.global.skill.runecrafting.items.Talisman
+import content.global.skill.runecrafting.items.Talisman.Companion.forName
 import content.global.skill.runecrafting.runes.CombinationRune
 import content.global.skill.runecrafting.runes.Rune
 import core.Configuration
-import core.Util
 import core.api.*
 import core.game.container.impl.EquipmentContainer
 import core.game.node.entity.impl.Animator.Priority
@@ -24,6 +24,7 @@ import core.tools.RandomFunction
 import org.rs.consts.*
 import java.util.*
 import kotlin.math.max
+
 
 /**
  * Represents the pulse of crafting runes.
@@ -76,7 +77,7 @@ class RunecraftingPulse(player: Player?, node: Item?, val altar: Altar, private 
             if (node!!.name.contains("rune") && !hasSpellImbue()) {
                 val r = Rune.forItem(node!!)
                 val t = Talisman.forName(r!!.name)
-                if (!player.inventory.containsItem(t!!.talisman)) {
+                if (!player.inventory.containsItem(t!!.item)) {
                     sendMessage(player, "You don't have the correct talisman to combine this rune.")
                     return false
                 }
@@ -193,38 +194,51 @@ class RunecraftingPulse(player: Player?, node: Item?, val altar: Altar, private 
      * Method used to combine runes.
      */
     private fun combine() {
-        val remove = if (node!!.name.contains("talisman")) node!! else if (talisman != null) talisman!!.talisman else Talisman.forName(
-            Rune.forItem(node!!)!!.name)!!.talisman
+        val remove =
+            if (node!!.name.contains("talisman")) node!! else if (talisman != null) talisman!!.item else forName(
+                Rune.forItem(
+                    node!!
+                )!!.name
+            )!!.item
         val imbued = hasSpellImbue()
-        if (if (!imbued) removeItem(player, remove) else imbued) {
+        if (if (!imbued) player.inventory.remove(remove) else imbued) {
             var amount = 0
-            val essenceAmt = amountInInventory(player, PURE_ESSENCE)
-            val rune = if (node!!.name.contains("rune")) Rune.forItem(node!!)!!.talisman else Rune.forName(Talisman.forItem(node!!)!!.name)!!.rune
+            val essenceAmt = player.inventory.getAmount(PURE_ESSENCE)
+            val rune = if (node!!.name.contains("rune")) Rune.forItem(node!!)!!.rune else Rune.forName(
+                Talisman.forItem(
+                    node!!
+                )!!.name
+            )!!.rune
             val runeAmt = player.inventory.getAmount(rune)
             amount = if (essenceAmt > runeAmt) {
                 runeAmt
             } else {
                 essenceAmt
             }
-            if (removeItem(player, Item(PURE_ESSENCE, amount)) && removeItem(player, Item(rune.id, amount))) {
+            if (player.inventory.remove(Item(PURE_ESSENCE, amount)) && player.inventory.remove(
+                    Item(
+                        rune.id,
+                        amount
+                    )
+                )
+            ) {
                 for (i in 0 until amount) {
                     if (RandomFunction.random(1, 3) == 1 || hasBindingNecklace()) {
-                        addItem(player, combo!!.rune.id, 1)
-                        rewardXP(player, Skills.RUNECRAFTING, combo.experience)
+                        player.inventory.add(Item(combo!!.rune.id, 1))
+                        player.getSkills().addExperience(Skills.RUNECRAFTING, combo.experience, true)
                     }
                 }
                 if (hasBindingNecklace()) {
-                    var chargeItem = player.equipment[EquipmentContainer.SLOT_AMULET].charge
-                    chargeItem -= 1
-                    sendMessage(player, "You have " + Util.convert(chargeItem - 1) + " charges left before your Binding necklace disintegrates.")
+                    player.equipment[EquipmentContainer.SLOT_AMULET].charge -= 1
                     if (1000 - player.equipment[EquipmentContainer.SLOT_AMULET].charge > 14) {
-                        removeItem(player, BINDING_NECKLACE, Container.EQUIPMENT)
-                        sendMessage(player,"Your binding necklace crumbles into dust.")
+                        player.equipment.remove(Item(Items.BINDING_NECKLACE_5521), true)
+                        player.packetDispatch.sendMessage("Your binding necklace crumbles into dust.")
                     }
                 }
             }
         }
     }
+
 
     private fun hasSpellImbue(): Boolean {
         return player.getAttribute("spell:imbue", 0) > ticks

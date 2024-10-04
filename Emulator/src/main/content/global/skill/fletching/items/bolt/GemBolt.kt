@@ -4,6 +4,13 @@ import org.rs.consts.Items
 
 /**
  * Represents the gem bolt data.
+ *
+ * @property base       The base item id used to create.
+ * @property gem        The gem id used for fletch.
+ * @property tip        The tip id used for the gem bolt.
+ * @property product    The product created from the base, gem, and tip.
+ * @property level      The required level to create the gem bolt.
+ * @property experience The experience gained from creating the bolt.
  */
 enum class GemBolt(val base: Int, val gem: Int, val tip: Int, val product: Int, val level: Int, val experience: Double) {
     OPAL(

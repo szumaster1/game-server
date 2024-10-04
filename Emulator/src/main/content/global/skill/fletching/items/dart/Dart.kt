@@ -3,7 +3,12 @@ package content.global.skill.fletching.items.dart
 import org.rs.consts.Items
 
 /**
- * Represents the darts data.
+ * Enum class representing different types of darts in the game.
+ *
+ * @property unfinished     The id of the unfinished dart tip.
+ * @property finished       The id of the finished dart.
+ * @property level          The level required to create.
+ * @property experience     The experience gained from creating dart.
  */
 enum class Dart(val unfinished: Int, val finished: Int, val level: Int, val experience: Double) {
     BRONZE_DART(

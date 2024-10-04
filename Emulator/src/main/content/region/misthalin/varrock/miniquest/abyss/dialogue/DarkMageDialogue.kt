@@ -1,6 +1,6 @@
 package content.region.misthalin.varrock.miniquest.abyss.dialogue
 
-import content.global.skill.runecrafting.items.PouchManager.RCPouch
+import content.global.skill.runecrafting.items.PouchManager.Pouches
 import org.rs.consts.Items
 import org.rs.consts.NPCs
 import core.game.dialogue.Dialogue
@@ -65,7 +65,7 @@ class DarkMageDialogue(player: Player? = null) : Dialogue(player) {
      * @return
      */
     fun repair(): Boolean {
-        player.pouchManager.pouches.forEach { (id: Int, pouch: RCPouch) ->
+        player.pouchManager.pouches.forEach { (id: Int, pouch: Pouches) ->
             pouch.currentCap = pouch.capacity
             val newCharges: Int = when (id) {
                 Items.MEDIUM_POUCH_5510 -> 264

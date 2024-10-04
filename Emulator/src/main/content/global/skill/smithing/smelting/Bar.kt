@@ -4,7 +4,14 @@ import core.game.node.item.Item
 import org.rs.consts.Items
 
 /**
- * Represents the [Bar] that can be created.
+ * Represents the types of bars that can be smelted.
+ *
+ * @property level The required level to smelt the bar.
+ * @property experience The experience gained from smelting the bar.
+ * @property product The item the produced bar.
+ * @constructor Creates a [Bar] with specified properties and ores.
+ *
+ * @param ores The ores required to smelt the bar.
  */
 enum class Bar(val level: Int, val experience: Double, val product: Item, vararg ores: Item) {
     BRONZE(

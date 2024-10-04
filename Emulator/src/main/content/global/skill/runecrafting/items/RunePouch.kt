@@ -9,41 +9,41 @@ import org.rs.consts.Items
 import java.util.*
 
 /**
- * Represents the [RunePouch].
+ * Enum class representing different types of rune pouches.
+ *
+ * @property pouch      The id for the pouch item.
+ * @property level      The required level to use the pouch.
+ * @property capacity   The maximum number of runes the pouch can hold at a time.
+ * @property totalCap   The total capacity of the pouch, including any decay.
+ * @property uses       The number of uses remaining for the pouch.
  */
-enum class RunePouch(
-    val pouch: Int,
-    val level: Int,
-    private val capacity: Int,
-    val cumulativeCapacity: Int,
-    val uses: Int
-) {
+enum class RunePouch(val pouch: Int, val level: Int, private val capacity: Int, val totalCap: Int, val uses: Int) {
     SMALL(
         pouch = Items.SMALL_POUCH_5509,
         level = 1,
         capacity = 3,
-        cumulativeCapacity = 3,
+        totalCap = 3,
         uses = 0
     ),
     MEDIUM(
         pouch = Items.MEDIUM_POUCH_5510,
         level = 25,
         capacity = 6,
-        cumulativeCapacity = 9,
+        totalCap = 9,
         uses = 45
     ),
     LARGE(
         pouch = Items.LARGE_POUCH_5512,
         level = 50,
         capacity = 9,
-        cumulativeCapacity = 18,
+        totalCap = 18,
         uses = 29
     ),
     GIANT(
         pouch = Items.GIANT_POUCH_5514,
         level = 75,
         capacity = 12,
-        cumulativeCapacity = 30,
+        totalCap = 30,
         uses = 10
     );
 

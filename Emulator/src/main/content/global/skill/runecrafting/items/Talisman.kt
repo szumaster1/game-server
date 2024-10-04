@@ -1,68 +1,71 @@
 package content.global.skill.runecrafting.items
 
-import content.global.skill.runecrafting.altars.MysteriousRuin
+import content.global.skill.runecrafting.`object`.MysteriousRuins
 import core.game.node.entity.player.Player
 import core.game.node.item.Item
 import org.rs.consts.Items
 
 /**
  * Represents a talisman.
+ *
+ * @property item       The item associated with the talisman.
+ * @property ruin       The mysterious ruin associated with the talisman, if any.
  */
-enum class Talisman(val talisman: Item, private val ruin: MysteriousRuin?) {
+enum class Talisman(val item: Item, private val ruin: MysteriousRuins?) {
     AIR(
-        talisman = Item(Items.AIR_TALISMAN_1438),
-        ruin = MysteriousRuin.AIR
+        item = Item(Items.AIR_TALISMAN_1438),
+        ruin = MysteriousRuins.AIR
     ),
     MIND(
-        talisman = Item(Items.MIND_TALISMAN_1448),
-        ruin = MysteriousRuin.MIND
+        item = Item(Items.MIND_TALISMAN_1448),
+        ruin = MysteriousRuins.MIND
     ),
     WATER(
-        talisman = Item(Items.WATER_TALISMAN_1444),
-        ruin = MysteriousRuin.WATER
+        item = Item(Items.WATER_TALISMAN_1444),
+        ruin = MysteriousRuins.WATER
     ),
     EARTH(
-        talisman = Item(Items.EARTH_TALISMAN_1440),
-        ruin = MysteriousRuin.EARTH
+        item = Item(Items.EARTH_TALISMAN_1440),
+        ruin = MysteriousRuins.EARTH
     ),
     FIRE(
-        talisman = Item(Items.FIRE_TALISMAN_1442),
-        ruin = MysteriousRuin.FIRE
+        item = Item(Items.FIRE_TALISMAN_1442),
+        ruin = MysteriousRuins.FIRE
     ),
     ELEMENTAL(
-        talisman = Item(Items.ELEMENTAL_TALISMAN_5516),
+        item = Item(Items.ELEMENTAL_TALISMAN_5516),
         ruin = null
     ),
     BODY(
-        talisman = Item(Items.BODY_TALISMAN_1446),
-        ruin = MysteriousRuin.BODY
+        item = Item(Items.BODY_TALISMAN_1446),
+        ruin = MysteriousRuins.BODY
     ),
     COSMIC(
-        talisman = Item(Items.COSMIC_TALISMAN_1454),
-        ruin = MysteriousRuin.COSMIC
+        item = Item(Items.COSMIC_TALISMAN_1454),
+        ruin = MysteriousRuins.COSMIC
     ),
     CHAOS(
-        talisman = Item(Items.CHAOS_TALISMAN_1452),
-        ruin = MysteriousRuin.CHAOS
+        item = Item(Items.CHAOS_TALISMAN_1452),
+        ruin = MysteriousRuins.CHAOS
     ),
     NATURE(
-        talisman = Item(Items.NATURE_TALISMAN_1462),
-        ruin = MysteriousRuin.NATURE
+        item = Item(Items.NATURE_TALISMAN_1462),
+        ruin = MysteriousRuins.NATURE
     ),
     LAW(
-        talisman = Item(Items.LAW_TALISMAN_1458),
-        ruin = MysteriousRuin.LAW
+        item = Item(Items.LAW_TALISMAN_1458),
+        ruin = MysteriousRuins.LAW
     ),
     DEATH(
-        talisman = Item(Items.DEATH_TALISMAN_1456),
-        ruin = MysteriousRuin.DEATH
+        item = Item(Items.DEATH_TALISMAN_1456),
+        ruin = MysteriousRuins.DEATH
     ),
     BLOOD(
-        talisman = Item(Items.BLOOD_TALISMAN_1450),
-        ruin = MysteriousRuin.BLOOD
+        item = Item(Items.BLOOD_TALISMAN_1450),
+        ruin = MysteriousRuins.BLOOD
     ),
     SOUL(
-        talisman = Item(Items.SOUL_TALISMAN_1460),
+        item = Item(Items.SOUL_TALISMAN_1460),
         ruin = null
     );
 
@@ -94,7 +97,7 @@ enum class Talisman(val talisman: Item, private val ruin: MysteriousRuin?) {
      *
      * @return The ruin.
      */
-    fun getRuin(): MysteriousRuin? {
+    fun getRuin(): MysteriousRuins? {
         return ruin
     }
 
@@ -115,7 +118,7 @@ enum class Talisman(val talisman: Item, private val ruin: MysteriousRuin?) {
          */
         @JvmStatic
         fun forItem(item: Item): Talisman? {
-            return values().find { it.talisman.id == item.id }
+            return values().find { it.item.id == item.id }
         }
 
         /**

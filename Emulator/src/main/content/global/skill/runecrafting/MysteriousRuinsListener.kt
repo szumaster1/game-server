@@ -1,5 +1,6 @@
-package content.global.skill.runecrafting.altars
+package content.global.skill.runecrafting
 
+import content.global.skill.runecrafting.`object`.MysteriousRuins
 import content.global.skill.runecrafting.items.Staff
 import content.global.skill.runecrafting.items.Talisman
 import content.global.skill.runecrafting.items.Tiara
@@ -11,18 +12,13 @@ import core.game.node.Node
 import core.game.node.entity.player.Player
 import core.game.node.item.Item
 import core.game.system.task.Pulse
-import core.game.world.update.flag.context.Animation
 import org.rs.consts.Animations
 
-/**
- * Mysterious ruin listeners (*altar entrance interactions*).
- */
-class MysteriousRuinListeners : InteractionListener {
+class MysteriousRuinsListener : InteractionListener {
 
-    private val animation = Animation(Animations.MULTI_USE_BEND_OVER_827)
-    private val allowedUsed = arrayOf(1438, 1448, 1444, 1440, 1442, 5516, 1446, 1454, 1452, 1462, 1458, 1456, 1450, 1460).toIntArray()
-    private val allowedWith = allRuins()
-    private val talismanStaff = Staff.values().map { it.item }.toIntArray()
+    private val sceneryIDs = allRuins()
+    private val staffIDs = Staff.values().map { it.item }.toIntArray()
+    private val talismanIDs = arrayOf(1438, 1448, 1444, 1440, 1442, 5516, 1446, 1454, 1452, 1462, 1458, 1456, 1450, 1460).toIntArray()
 
     override fun defineListeners() {
 
@@ -30,7 +26,7 @@ class MysteriousRuinListeners : InteractionListener {
          * Handles use talisman to enter the altar.
          */
 
-        onUseWith(IntType.SCENERY, allowedUsed, *allowedWith) { player, used, with ->
+        onUseWith(IntType.SCENERY, talismanIDs, *sceneryIDs) { player, used, with ->
             return@onUseWith handleTalisman(player, used, with)
         }
 
@@ -38,8 +34,8 @@ class MysteriousRuinListeners : InteractionListener {
          * Handles enter the altar with tiara or staff equip.
          */
 
-        on(allowedWith, IntType.SCENERY, "enter", "search") { player, node ->
-            if (anyInEquipment(player, *talismanStaff)) {
+        on(sceneryIDs, IntType.SCENERY, "enter", "search") { player, node ->
+            if (anyInEquipment(player, *staffIDs)) {
                 handleStaff(player, node)
             } else {
                 handleTiara(player, node)
@@ -53,7 +49,7 @@ class MysteriousRuinListeners : InteractionListener {
      */
 
     private fun allRuins(): IntArray {
-        return MysteriousRuin
+        return MysteriousRuins
             .values()
             .flatMap { ruins -> ruins.`object`.asList() }
             .toIntArray()
@@ -65,7 +61,7 @@ class MysteriousRuinListeners : InteractionListener {
 
     private fun handleTalisman(player: Player, used: Node, with: Node): Boolean {
         val ruin =
-            MysteriousRuin.forObject(with.asScenery())
+            MysteriousRuins.forObject(with.asScenery())
         if (!checkQuestCompletion(player, ruin!!)) {
             return true
         }
@@ -90,7 +86,7 @@ class MysteriousRuinListeners : InteractionListener {
 
     private fun handleStaff(player: Player, node: Node): Boolean {
         val ruin =
-            MysteriousRuin.forObject(node.asScenery())
+            MysteriousRuins.forObject(node.asScenery())
 
         if (!checkQuestCompletion(player, ruin!!)) {
             return true
@@ -105,8 +101,7 @@ class MysteriousRuinListeners : InteractionListener {
      */
 
     private fun handleTiara(player: Player, node: Node): Boolean {
-        val ruin =
-            MysteriousRuin.forObject(node.asScenery())
+        val ruin = MysteriousRuins.forObject(node.asScenery())
 
         if (!checkQuestCompletion(player, ruin!!)) {
             return true
@@ -126,10 +121,10 @@ class MysteriousRuinListeners : InteractionListener {
      * Check if player has all requirements.
      */
 
-    private fun checkQuestCompletion(player: Player, ruin: MysteriousRuin): Boolean {
+    private fun checkQuestCompletion(player: Player, ruin: MysteriousRuins): Boolean {
         return when (ruin) {
-            MysteriousRuin.DEATH -> hasRequirement(player, QuestReq(QuestRequirements.MEP_2), true)
-            MysteriousRuin.BLOOD -> hasRequirement(player, QuestReq(QuestRequirements.SEERGAZE), true)
+            MysteriousRuins.DEATH -> hasRequirement(player, QuestReq(QuestRequirements.MEP_2), true)
+            MysteriousRuins.BLOOD -> hasRequirement(player, QuestReq(QuestRequirements.SEERGAZE), true)
             else -> hasRequirement(player, QuestReq(QuestRequirements.RUNE_MYSTERIES), true)
         }
     }
@@ -138,9 +133,9 @@ class MysteriousRuinListeners : InteractionListener {
      * Handles teleport to altar using talisman on object.
      */
 
-    private fun teleportToRuinTalisman(player: Player, talisman: Item, ruin: MysteriousRuin) {
+    private fun teleportToRuinTalisman(player: Player, talisman: Item, ruin: MysteriousRuins) {
         lock(player, 4)
-        animate(player, animation)
+        animate(player, Animations.MULTI_USE_BEND_OVER_827)
         sendMessage(player, "You hold the ${talisman.name} towards the mysterious ruins.")
         submitTeleportPulse(player, ruin, 3)
     }
@@ -149,7 +144,7 @@ class MysteriousRuinListeners : InteractionListener {
      * Handles standard teleport to altar using tiara or rc staff.
      */
 
-    private fun submitTeleportPulse(player: Player, ruin: MysteriousRuin, delay: Int) {
+    private fun submitTeleportPulse(player: Player, ruin: MysteriousRuins, delay: Int) {
         sendMessage(player, "You feel a powerful force take hold of you.")
         submitWorldPulse(object : Pulse(delay, player) {
             override fun pulse(): Boolean {

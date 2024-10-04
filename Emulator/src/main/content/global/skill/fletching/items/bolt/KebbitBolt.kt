@@ -5,6 +5,11 @@ import org.rs.consts.Items
 
 /**
  * Represents the Kebbit bolts.
+ *
+ * @param base          The base item used to create.
+ * @param product       The resulting product.
+ * @param level         The required level to craft.
+ * @param experience    The experience gained from crafting.
  */
 enum class KebbitBolt(val base: Int, val product: Int, val level: Int, val experience: Double) {
     KEBBIT_BOLT(
@@ -21,7 +26,6 @@ enum class KebbitBolt(val base: Int, val product: Int, val level: Int, val exper
     );
 
     companion object {
-        @JvmStatic
         fun forId(item: Item): KebbitBolt? {
             return values().firstOrNull { it.base == item.id }
         }

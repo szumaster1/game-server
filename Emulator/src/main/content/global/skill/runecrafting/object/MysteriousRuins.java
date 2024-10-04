@@ -1,14 +1,11 @@
-package content.global.skill.runecrafting.altars;
+package content.global.skill.runecrafting.object;
 
 import content.global.skill.runecrafting.items.Talisman;
 import content.global.skill.runecrafting.items.Tiara;
 import core.game.node.scenery.Scenery;
 import core.game.world.map.Location;
 
-/**
- * Represents a mysterious ruin.
- */
-public enum MysteriousRuin {
+public enum MysteriousRuins {
     AIR(new int[]{2452, 7103, 7104}, Location.create(2983, 3292, 0), Location.create(2841, 4829, 0), Talisman.AIR, Tiara.AIR),
     MIND(new int[]{2453, 7105, 7106}, Location.create(2980, 3514, 0), Location.create(2793, 4828, 0), Talisman.MIND, Tiara.MIND),
     WATER(new int[]{2454, 7107, 7108}, Location.create(3183, 3163, 0), Location.create(3482, 4838, 0), Talisman.WATER, Tiara.WATER),
@@ -22,41 +19,17 @@ public enum MysteriousRuin {
     DEATH(new int[]{2462, 7123, 7124}, Location.create(1862, 4639, 0), Location.create(2208, 4830, 0), Talisman.DEATH, Tiara.DEATH),
     BLOOD(new int[]{2464, 30529, 30530}, Location.create(3561, 9779, 0), Location.create(2467, 4889, 1), Talisman.BLOOD, Tiara.BLOOD);
 
-    /**
-     * Represents the object id.
-     */
     private final int[] object;
 
-    /**
-     * Represents the base location.
-     */
     private final Location base;
 
-    /**
-     * Represents the end location.
-     */
     private final Location end;
 
-    /**
-     * Represents the talisman.
-     */
     private final Talisman talisman;
 
-    /**
-     * Represents the tiara.
-     */
     private final Tiara tiara;
 
-    /**
-     * Constructs a new {@code MysteriousRuin} {@code Object}.
-     *
-     * @param object   the object.
-     * @param base     the base.
-     * @param end      the end.
-     * @param talisman the talisman.
-     * @param tiara    the tiara.
-     */
-    MysteriousRuin(int[] object, Location base, Location end, final Talisman talisman, final Tiara tiara) {
+    MysteriousRuins(int[] object, Location base, Location end, final Talisman talisman, final Tiara tiara) {
         this.object = object;
         this.base = base;
         this.end = end;
@@ -64,38 +37,18 @@ public enum MysteriousRuin {
         this.tiara = tiara;
     }
 
-    /**
-     * Gets the object.
-     *
-     * @return The object.
-     */
     public int[] getObject() {
         return object;
     }
 
-    /**
-     * Gets the base.
-     *
-     * @return The base.
-     */
     public Location getBase() {
         return base;
     }
 
-    /**
-     * Gets the end.
-     *
-     * @return The end.
-     */
     public Location getEnd() {
         return end;
     }
 
-    /**
-     * Gets the talisman.
-     *
-     * @return The talisman.
-     */
     public Talisman getTalisman() {
         for (Talisman talisman : Talisman.values()) {
             if (talisman.name().equals(name())) {
@@ -105,11 +58,6 @@ public enum MysteriousRuin {
         return talisman;
     }
 
-    /**
-     * Gets the tiara.
-     *
-     * @return The tiara.
-     */
     public Tiara getTiara() {
         for (Tiara tiara : Tiara.values()) {
             if (tiara.name().equals(name())) {
@@ -119,14 +67,8 @@ public enum MysteriousRuin {
         return tiara;
     }
 
-    /**
-     * Method used to get the <code>MysteriousRuin</code> by the object.
-     *
-     * @param object the object.
-     * @return the <code>MysteriousRuin</code> or <code>Null</code>.
-     */
-    public static MysteriousRuin forObject(final Scenery object) {
-        for (MysteriousRuin ruin : values()) {
+    public static MysteriousRuins forObject(final Scenery object) {
+        for (MysteriousRuins ruin : values()) {
             for (int i : ruin.getObject()) {
                 if (i == object.getId()) {
                     return ruin;
@@ -136,14 +78,8 @@ public enum MysteriousRuin {
         return null;
     }
 
-    /**
-     * Method used to get the <code>MysteriousRuin</code>
-     *
-     * @param talisman the talisman.
-     * @return the <code>MysteriousRuin</code>.
-     */
-    public static MysteriousRuin forTalisman(final Talisman talisman) {
-        for (MysteriousRuin ruin : values()) {
+    public static MysteriousRuins forTalisman(final Talisman talisman) {
+        for (MysteriousRuins ruin : values()) {
             if (ruin.getTalisman() == talisman) {
                 return ruin;
             }

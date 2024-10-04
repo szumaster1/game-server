@@ -1,9 +1,9 @@
 package content.global.skill.runecrafting
 
-import content.global.skill.runecrafting.altars.Altar
+import content.global.skill.runecrafting.`object`.Altar
 import content.global.skill.runecrafting.items.RunePouchPlugin
 import content.global.skill.runecrafting.items.Talisman
-import content.global.skill.runecrafting.runes.CombinationRunes
+import content.global.skill.runecrafting.runes.CombinationHandler
 import content.global.travel.EssenceTeleport.home
 import content.global.travel.EssenceTeleport.teleport
 import core.api.*
@@ -36,7 +36,7 @@ class RunecraftingPlugin : OptionHandler() {
     override fun newInstance(arg: Any?): Plugin<Any?> {
         addNodes()
         definePlugin(RunePouchPlugin())
-        definePlugin(CombinationRunes())
+        definePlugin(CombinationHandler())
         SceneryDefinition.forId(2492).handlers["option:use"] = this
         NPCDefinition.forId(553).handlers["option:teleport"] = this
         NPCDefinition.forId(2328).handlers["option:teleport"] = this
@@ -118,11 +118,11 @@ class RunecraftingPlugin : OptionHandler() {
      */
     private fun addNodes() {
         for (altar in Altar.values()) {
-            SceneryDefinition.forId(altar.scenery).handlers["option:craft-rune"] = this
-            SceneryDefinition.forId(altar.portal).handlers["option:use"] = this
+            SceneryDefinition.forId(altar.objs).handlers["option:craft-rune"] = this
+            SceneryDefinition.forId(altar.exit).handlers["option:use"] = this
         }
         for (talisman in Talisman.values()) {
-            ItemDefinition.forId(talisman.talisman.id).handlers["option:locate"] = this
+            ItemDefinition.forId(talisman.item.id).handlers["option:locate"] = this
         }
     }
 

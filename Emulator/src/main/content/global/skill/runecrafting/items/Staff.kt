@@ -4,6 +4,9 @@ import org.rs.consts.Items
 
 /**
  * Represents a talisman staff.
+ *
+ * @property item       The talisman staff.
+ * @property experience The xp gained from enchanting.
  */
 enum class Staff(val item: Int, val experience: Double) {
     AIR_RC_STAFF(
@@ -56,7 +59,6 @@ enum class Staff(val item: Int, val experience: Double) {
     );
 
     companion object {
-        @JvmStatic
         fun forStaff(item: Int): Staff? = values().firstOrNull { it.item == item }
     }
 }

@@ -124,7 +124,7 @@ class FletchingListener : InteractionListener {
                 sendMessage(player, "You need a fletching level of 59 to make this.")
                 return@onUseWith true
             }
-            if (player.inventory.remove(rope.asItem(), grapple.asItem())) {
+            if (removeItem(player, rope.asItem()) && removeItem(player, grapple.asItem())) {
                 addItem(player, Items.MITH_GRAPPLE_9419)
             }
             return@onUseWith true
@@ -202,9 +202,9 @@ class FletchingListener : InteractionListener {
             val maxAmount = min(amountInInventory(player, used.id), amountInInventory(player, with.id))
             submitIndividualPulse(player, object : Pulse(3) {
                 override fun pulse(): Boolean {
-                    val amountThisIter = min(6, maxAmount)
-                    if (removeItem(player, Item(Items.OGRE_ARROW_SHAFT_2864, amountThisIter)) && removeItem(player, Item(with.id, amountThisIter))) {
-                        player.inventory.add(Item(FletchingMap.fligtedOgreArrowId, amountThisIter))
+                    val amount = min(6, maxAmount)
+                    if (removeItem(player, Item(Items.OGRE_ARROW_SHAFT_2864, amount)) && removeItem(player, Item(with.id, amount))) {
+                        addItem(player, FletchingMap.fligtedOgreArrowId, amount)
                     }
                     return true
                 }
