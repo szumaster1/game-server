@@ -105,9 +105,7 @@ open class MTAZone(name: String?, val items: Array<Item>) :
      * @param amount The amount by which to increment the points
      */
     fun incrementPoints(player: Player, index: Int, amount: Int) {
-        // Call the method to increment the pizazz points for the player
         player.getSavedData().activityData.incrementPizazz(index, amount)
-        // Update the player's data after incrementing points
         update(player)
     }
 
@@ -117,11 +115,9 @@ open class MTAZone(name: String?, val items: Array<Item>) :
      * @param player The player whose data is to be updated
      */
     open fun update(player: Player?) {
-        // Check if the type is null; if so, exit the function early
         if (type == null) {
             return
         }
-        // Additional update logic would go here
         player!!.packetDispatch.sendString("" + player.getSavedData().activityData.getPizazzPoints(type!!.ordinal), type!!.overlay.id, 9)
     }
 }

@@ -135,25 +135,9 @@ class GraveyardZone : MTAZone("Creature Graveyard", arrayOf(Item(6904), Item(690
      * @constructor Creates a new BoneType with the specified objectId and item.
      */
     enum class BoneType(val objectId: Int, val item: Item) {
-
-        /**
-         * First.
-         */
         FIRST(10725, Item(6904)),
-
-        /**
-         * Second.
-         */
         SECOND(10726, Item(6905)),
-
-        /**
-         * Third.
-         */
         THIRD(10727, Item(6906)),
-
-        /**
-         * Fourth.
-         */
         FOURTH(10728, Item(6907));
 
         /**

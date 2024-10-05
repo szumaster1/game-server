@@ -115,15 +115,7 @@ class MageArenaListener : InteractionListener {
                 queueScript(player, 1, QueueStrength.STRONG) { stage: Int ->
                     when (stage) {
                         0 -> {
-                            forceMove(
-                                player,
-                                player.location,
-                                Location(2509, 4687, 0),
-                                0,
-                                30,
-                                Direction.SOUTH,
-                                Animations.HUMAN_JUMP_INTO_WATER_7269
-                            )
+                            forceMove(player, player.location, Location(2509, 4687, 0), 0, 30, Direction.SOUTH, Animations.HUMAN_JUMP_INTO_WATER_7269)
                             return@queueScript keepRunning(player)
                         }
 

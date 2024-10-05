@@ -162,10 +162,10 @@ class AlchemistZone :
      * @constructor Initializes an Alchemist session with the specified player
      */
     class AlchemistSession(val player: Player) {
-        private var indexer = 0 // Indexer to track the current position in the session
+        private var indexer = 0
 
         init {
-            shuffleObjects() // Shuffle objects at the start of the session
+            shuffleObjects()
         }
 
         /**
@@ -249,11 +249,9 @@ class AlchemistZone :
         EMERALD(Item(6896)),
         RUNE_LONGSWORD(Item(6897));
 
-        // Cost of the item, initialized to 0 and can only be modified within the class.
         var cost = 0
             private set
 
-        // Calculates the child value based on the ordinal position of the enum.
         val child: Int
             get() = 14 + ordinal
 
@@ -265,14 +263,12 @@ class AlchemistZone :
              * @return The corresponding AlchemistItem or null if not found.
              */
             fun forItem(id: Int): AlchemistItem? {
-                // Iterates through all values of the enum to find a match.
                 for (item in values()) {
-                    // Checks if the current item's ID matches the provided ID.
                     if (item.item.id == id) {
-                        return item // Returns the matching AlchemistItem.
+                        return item
                     }
                 }
-                return null // Returns null if no match is found.
+                return null
             }
         }
     }

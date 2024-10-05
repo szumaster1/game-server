@@ -107,29 +107,24 @@ class TelekineticGrabSpell : MagicSpell(SpellBookManager.SpellBook.MODERN, 33, 4
      * @return `true` if the entity can cast the item, `false` otherwise
      */
     fun canCast(entity: Entity, item: GroundItem?): Boolean {
-        // Check if the entity's interaction is locked
         if (entity.locks.isInteractionLocked || entity.locks.isComponentLocked) {
-            return false // Return false if locked
+            return false
         }
-        // Check if the entity is a Player
+
         if (entity is Player) {
-            val player = entity // Cast entity to Player
-            // Check if the player's inventory has space for the item
+            val player = entity
             if (!player.inventory.hasSpaceFor(item as Item?)) {
                 sendMessage(player, "You don't have enough inventory space.") // Notify player
                 return false // Return false if no space
             }
-            // Check if the player can take the item
             if (!canTake(player, item!!, 1)) {
-                return false // Return false if cannot take
+                return false
             }
         }
-        // Check if the action is blocked for the item
         if (isBlocked(SPELL_ID, (item as Node?)!!)) {
             (entity as? Player)?.asPlayer()?.dialogueInterpreter?.sendDialogue("You can't do that.") // Notify player
-            return false // Return false if blocked
+            return false
         }
-        // Check if the entity meets the requirements to cast
         return super.meetsRequirements(entity, true, true) // Return true if requirements are met
     }
 

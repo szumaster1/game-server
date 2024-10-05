@@ -183,35 +183,11 @@ class EnchantingZone : MTAZone("Enchantment Chamber", arrayOf(Item(6899), Item(6
      *
      * @param objectId Unique identifier for the shape
      * @param item The item associated with the shape
-     * @constructor Shapes Initializes a shape with its objectId and item
      */
     enum class Shapes(val objectId: Int, val item: Item) {
-        /**
-         * Cube
-         *
-         * @constructor Cube Initializes a Cube shape with its specific objectId and item
-         */
         CUBE(10799, Item(6899)),
-
-        /**
-         * Cylinder
-         *
-         * @constructor Cylinder Initializes a Cylinder shape with its specific objectId and item
-         */
         CYLINDER(10800, Item(6898)),
-
-        /**
-         * Pentamid
-         *
-         * @constructor Pentamid Initializes a Pentamid shape with its specific objectId and item
-         */
         PENTAMID(10802, Item(6901)),
-
-        /**
-         * Icosahedron
-         *
-         * @constructor Icosahedron Initializes an Icosahedron shape with its specific objectId and item
-         */
         ICOSAHEDRON(10801, Item(6900));
 
         /**

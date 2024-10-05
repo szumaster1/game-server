@@ -61,10 +61,6 @@ class KolodionNPC(id: Int = 0, location: Location? = null, session: KolodionSess
         super.startDeath(killer)
     }
 
-    /**
-     * Set random spell
-     *
-     */
     fun setRandomSpell() {
         val spell = SpellBook.MODERN.getSpell(SPELL_IDS[RandomFunction.random(SPELL_IDS.size)]) as CombatSpell?
         properties.spell = spell
@@ -106,13 +102,12 @@ class KolodionNPC(id: Int = 0, location: Location? = null, session: KolodionSess
     }
 
     /**
-     * Kolodion type
+     * Types of Kolodion NPCs.
      *
-     * @param npcId
-     * @param appearAnimation
-     * @param graphcId
-     * @param appearMessage
-     * @constructor Kolodion type
+     * @param npcId The id of the npc.
+     * @param appearAnimation The animation that play when the NPC appears.
+     * @param graphcId The gfx id associated with the NPC.
+     * @param appearMessage The message displayed when the NPC appears.
      */
     enum class KolodionType(
         val npcId: Int,
@@ -120,54 +115,19 @@ class KolodionNPC(id: Int = 0, location: Location? = null, session: KolodionSess
         val graphcId: Int,
         val appearMessage: String?
     ) {
-        /**
-         * Human
-         *
-         * @constructor Human
-         */
         HUMAN(NPCs.KOLODION_907, Animation(6941), -1, "You must prove yourself... now!"),
-
-        /**
-         * Ogre
-         *
-         * @constructor Ogre
-         */
         OGRE(NPCs.KOLODION_908, Animation(6941), 188, "This is only the beginning; you can't beat me!"),
-
-        /**
-         * Spider
-         *
-         * @constructor Spider
-         */
         SPIDER(NPCs.KOLODION_909, Animation(5324), 190, "Foolish mortal; I am unstoppable."),
-
-        /**
-         * Ghost
-         *
-         * @constructor Ghost
-         */
         GHOST(NPCs.KOLODION_910, Animation(715), 188, "Now you feel it.. The dark energy."),
-
-        /**
-         * Demon
-         *
-         * @constructor Demon
-         */
         DEMON(NPCs.KOLODION_911, Animation(4623), 190, "Aaaaaaaarrgghhhh! The power!"),
-
-        /**
-         * End
-         *
-         * @constructor End
-         */
         END(NPCs.KOLODION_906, Animation(6941), 188, null);
 
 
         /**
-         * Transform
+         * Transforms the Kolodion NPC into the next type.
          *
-         * @param kolodion
-         * @param player
+         * @param kolodion The Kolodion NPC to transform.
+         * @param player The player interacting with the NPC.
          */
         fun transform(kolodion: KolodionNPC, player: Player) {
             val newType = next()
@@ -235,9 +195,9 @@ class KolodionNPC(id: Int = 0, location: Location? = null, session: KolodionSess
         }
 
         /**
-         * Next
+         * Gets the next type of Kolodion.
          *
-         * @return
+         * @return The next KolodionType.
          */
         fun next(): KolodionType {
             return values()[ordinal + 1]
