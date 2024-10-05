@@ -39,7 +39,6 @@ class MaximillianSackvilleDialogue(player: Player? = null) : Dialogue(player) {
             3 -> npcl(FacialExpression.NEUTRAL, "How inconsiderate of me, dear ${if (player.isMale) "sir" else "madam"}. " + "My name is Maximillian Sackville and I conduct operations here on behalf " + "of The Bank of Gielinor.").also { stage++ }
             4 -> showTopics(
                 Topic(FacialExpression.NEUTRAL, "I'd like to access my bank account.", 10),
-                IfTopic(FacialExpression.NEUTRAL, "I'd like to switch to my ${getBankAccountName(player, true)} bank account.", 11, hasActivatedSecondaryBankAccount(player)),
                 Topic(FacialExpression.NEUTRAL, "I'd like to check my PIN settings.", 12),
                 Topic(FacialExpression.NEUTRAL, "I'd like to collect items.", 13),
                 Topic(FacialExpression.ASKING, "Aren't you afraid of working in the Wilderness?", 5)
@@ -50,11 +49,6 @@ class MaximillianSackvilleDialogue(player: Player? = null) : Dialogue(player) {
                 openBankAccount(player)
                 end()
             }
-            11 -> {
-                toggleBankAccount(player)
-                npcl(FacialExpression.NEUTRAL, "Naturally. You can now access your ${getBankAccountName(player)} bank account.").also { stage = END_DIALOGUE }
-            }
-
             12 -> {
                 openBankPinSettings(player)
                 end()

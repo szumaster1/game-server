@@ -34,7 +34,6 @@ class EmeraldBenedictDialogue(player: Player? = null) : Dialogue(player) {
             1 -> npcl(FacialExpression.SUSPICIOUS, "By the way, a little bird told me you got some stuff waiting for you " + "on the Grand Exchange.").also { stage++ }
             2 -> showTopics(
                 Topic(FacialExpression.ASKING, "Yes, actually. Can you help?", 3),
-                IfTopic(FacialExpression.ASKING, "Yes, but can you switch my bank accounts?", 4, hasActivatedSecondaryBankAccount(player)),
                 Topic(FacialExpression.ASKING, "Yes, but can you show me my PIN settings?", 5),
                 Topic(FacialExpression.ASKING, "Yes, but can you show me my collection box?", 6),
                 Topic(FacialExpression.ANNOYED, "Yes, thanks. And I'll keep hold of it too.", END_DIALOGUE)
@@ -42,10 +41,6 @@ class EmeraldBenedictDialogue(player: Player? = null) : Dialogue(player) {
             3 -> {
                 openBankAccount(player)
                 end()
-            }
-            4 -> {
-                toggleBankAccount(player)
-                npcl(FacialExpression.SUSPICIOUS, "Sure thing. Feel free to rummage through whatever's in your ${getBankAccountName(player)} now.").also { stage = END_DIALOGUE }
             }
             5 -> {
                 openBankPinSettings(player)
