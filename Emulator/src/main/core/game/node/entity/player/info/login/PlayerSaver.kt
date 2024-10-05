@@ -476,7 +476,6 @@ class PlayerSaver(val player: Player) {
     fun saveActivityData(root: JSONObject) {
         val activityData = JSONObject()
         activityData["pestPoints"] = player.savedData.activityData.pestPoints.toString()
-        activityData["runecraftingTokens"] = player.savedData.activityData.runecraftingTokens.toString()
         activityData["warriorGuildTokens"] = player.savedData.activityData.warriorGuildTokens.toString()
         activityData["bountyHunterRate"] = player.savedData.activityData.bountyHunterRate.toString()
         activityData["bountyRogueRate"] = player.savedData.activityData.bountyRogueRate.toString()

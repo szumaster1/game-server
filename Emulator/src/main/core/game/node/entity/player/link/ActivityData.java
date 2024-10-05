@@ -115,11 +115,6 @@ public final class ActivityData {
     boolean topGrabbed;
 
     /**
-     * The amount of runecrafting guild tokens.
-     */
-    private int runecraftingTokens;
-
-    /**
      * Constructs a new {@code ActivityInfo} {@code Object}.
      */
     public ActivityData() {
@@ -136,7 +131,6 @@ public final class ActivityData {
     public void parse(JSONObject data) {
         pestPoints = Integer.parseInt(data.get("pestPoints").toString());
         warriorGuildTokens = Integer.parseInt(data.get("warriorGuildTokens").toString());
-        runecraftingTokens = Integer.parseInt(data.get("runecraftingTokens").toString());
         bountyHunterRate = Integer.parseInt(data.get("bountyHunterRate").toString());
         bountyRogueRate = Integer.parseInt(data.get("bountyRogueRate").toString());
         barrowKills = Integer.parseInt(data.get("barrowKills").toString());
@@ -244,30 +238,12 @@ public final class ActivityData {
     }
 
     /**
-     * Gets the runecraftingTokens.
-     *
-     * @return The runecraftingTokens.
-     */
-    public int getRunecraftingGuildTokens() {
-        return runecraftingTokens;
-    }
-
-    /**
-     * Sets the runecraftingTokens.
-     *
-     * @param runecraftingTokens The warriorGuildTokens to set.
-     */
-    public void setRunecraftingGuildTokens(int runecraftingTokens) {
-        this.runecraftingTokens = runecraftingTokens;
-    }
-
-    /**
-     * Updates the runecrafting guild tokens.
+     * Updates the warrior guild tokens.
      *
      * @param amount The amount to increase with.
      */
-    public void updateRunecraftingTokens(int amount) {
-        this.runecraftingTokens += amount;
+    public void updateWarriorTokens(int amount) {
+        this.warriorGuildTokens += amount;
     }
 
     /**

@@ -129,7 +129,8 @@ open class MeleeSwingHandler(vararg flags: SwingHandlerFlag) : CombatSwingHandle
         entity ?: return 0
         var effectiveAttackLevel = entity.skills.getLevel(Skills.ATTACK).toDouble()
         if (entity is Player && !flags.contains(SwingHandlerFlag.IGNORE_PRAYER_BOOSTS_ACCURACY))
-            effectiveAttackLevel = floor(effectiveAttackLevel + (entity.prayer.getSkillBonus(Skills.ATTACK) * effectiveAttackLevel))
+            effectiveAttackLevel =
+                floor(effectiveAttackLevel + (entity.prayer.getSkillBonus(Skills.ATTACK) * effectiveAttackLevel))
         if (entity.properties.attackStyle.style == WeaponInterface.STYLE_ACCURATE) effectiveAttackLevel += 3
         else if (entity.properties.attackStyle.style == WeaponInterface.STYLE_CONTROLLED) effectiveAttackLevel += 1
         effectiveAttackLevel += 8
@@ -173,6 +174,20 @@ open class MeleeSwingHandler(vararg flags: SwingHandlerFlag) : CombatSwingHandle
         } else if (entity.properties.attackStyle.style == WeaponInterface.STYLE_CONTROLLED) {
             cumulativeStr += 1.0
         }
+
+
+        if (flags.contains(SwingHandlerFlag.IGNORE_STAT_BOOSTS_DAMAGE))
+            bonus = 0
+
+        cumulativeStr *= getSetMultiplier(entity, Skills.STRENGTH)
+
+        if (entity is Player && getSlayerTask(entity)?.npcs?.contains((entity.properties.combatPulse?.getVictim()?.id ?: 0)) == true)
+            cumulativeStr *= getDamAccBonus(entity)
+
+        /*
+         * val hit = (16 + cumulativeStr + bonus / 8 + cumulativeStr * bonus * 0.016865) * modifier
+         * return (hit / 10).toInt() + 1
+         */
 
         return ((1.3 + (cumulativeStr / 10) + (bonus / 80) + ((cumulativeStr * bonus) / 640)) * modifier).toInt()
     }
