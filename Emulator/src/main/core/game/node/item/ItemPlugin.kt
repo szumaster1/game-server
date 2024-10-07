@@ -6,7 +6,10 @@ import core.game.node.entity.player.Player
 import core.game.world.map.Location
 import core.plugin.Plugin
 
-abstract class ItemPlugin : Plugin<Any?> {
+/**
+ * Represents a plugin for an item.
+ */
+abstract class ItemPlugin : Plugin<Any> {
 
     /**
      * The drop type identifier.
@@ -15,7 +18,7 @@ abstract class ItemPlugin : Plugin<Any?> {
         const val DROP = 1
     }
 
-    override fun fireEvent(identifier: String, vararg args: Any): Any {
+    override fun fireEvent(identifier: String, vararg args: Any?): Any {
         return this
     }
 
@@ -37,30 +40,32 @@ abstract class ItemPlugin : Plugin<Any?> {
      * @param item   the item.
      * @param type   the type. (1=drop)
      */
-    fun remove(player: Player, item: Item, type: Int) {
+    open fun remove(player: Player, item: Item, type: Int) {
     }
 
     /**
      * Checks if the item can be picked up.
-     *
      * @param player the player.
-     * @param item   the item.
-     * @param type   the pickup type (1=ground, 2=telegab)
-     * @return {@code True} if so.
+     * @param item the item.
+     * @param type the pickup type (1=ground, 2=telegrab)
+     * @return true if so.
      */
-    open fun canPickUp(player: Player, item: GroundItem, type: Int): Boolean = true
+    open fun canPickUp(player: Player, item: GroundItem, type: Int): Boolean {
+        return true
+    }
 
     /**
      * Checks if the item can be made as a drop.
      *
      * @param item   the item.
      * @param player the player.
-     * @param npc    the NPC.
+     * @param npc    TODO
      * @param location the location.
      * @return boolean
      */
-    open fun createDrop(item: Item, player: Player, npc: NPC, location: Location): Boolean = true
-
+    open fun createDrop(item: Item, player: Player, npc: NPC?, location: Location): Boolean {
+        return true
+    }
 
     /**
      * Changes an item if needed.
@@ -69,7 +74,9 @@ abstract class ItemPlugin : Plugin<Any?> {
      * @param npc  the npc.
      * @return the item.
      */
-    open fun getItem(item: Item, npc: NPC): Item = item
+    open fun getItem(item: Item, npc: NPC?): Item {
+        return item
+    }
 
     /**
      * Gets the death item.
@@ -77,6 +84,7 @@ abstract class ItemPlugin : Plugin<Any?> {
      * @param item the item.
      * @return the item.
      */
-    open fun getDeathItem(item: Item): Item = item
-
+    open fun getDeathItem(item: Item): Item {
+        return item
+    }
 }

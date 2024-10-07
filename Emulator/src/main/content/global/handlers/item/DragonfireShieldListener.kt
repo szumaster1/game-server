@@ -170,7 +170,7 @@ class DragonfireShieldListener : InteractionListener {
 class DFSItemPlugin : ItemPlugin() {
 
     @Throws(Throwable::class)
-    override fun newInstance(arg: Any?): Plugin<Any?> {
+    override fun newInstance(arg: Any?): Plugin<Any> {
         register(Items.DRAGONFIRE_SHIELD_11283)
         return this
     }

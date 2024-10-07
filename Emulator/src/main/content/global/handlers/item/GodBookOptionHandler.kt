@@ -53,7 +53,7 @@ class GodBookOptionHandler : OptionHandler() {
      */
     inner class GodBookItem : ItemPlugin() {
 
-        override fun newInstance(arg: Any?): Plugin<Any?> {
+        override fun newInstance(arg: Any?): Plugin<Any> {
             for (book in GodBook.values()) {
                 register(book.damagedBook.id)
             }
