@@ -75,7 +75,6 @@ object TutorialStage {
             }
 
             1 -> {
-                player.lock()
                 player.interfaceManager.removeTabs(0,1,2,3,4,5,6,7,8,9,10,11,12,13)
                 player.interfaceManager.openTab(Component(Components.OPTIONS_261))
                 setVarbit(player, 3756, 12)
@@ -91,7 +90,6 @@ object TutorialStage {
             }
 
             2 -> {
-                player.unlock()
                 hideTabs(player, login)
                 setVarbit(player, 3756, 0)
                 Component.setUnclosable(

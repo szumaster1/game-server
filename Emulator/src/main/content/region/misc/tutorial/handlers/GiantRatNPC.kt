@@ -8,7 +8,9 @@ import core.game.node.item.GroundItemManager
 import core.game.node.item.Item
 import core.game.world.map.Location
 import core.plugin.Initializable
+import org.rs.consts.Items
 import org.rs.consts.NPCs
+import org.rs.consts.QuestName
 
 /**
  * Represents the Giant rat NPC.
@@ -45,17 +47,14 @@ class GiantRatNPC : AbstractNPC {
         }
         val p = killer
         if (killer is Player) {
-            if (p.getQuestRepository().getQuest("Witch's Potion").isStarted(p)) {
-                GroundItemManager.create(Item(300), getLocation(), p)
+            if (p.getQuestRepository().getQuest(QuestName.WITCHS_POTION).isStarted(p)) {
+                GroundItemManager.create(Item(Items.RATS_TAIL_300), getLocation(), p)
             }
         }
     }
 
     override fun getIds(): IntArray {
-        return ID
+        return intArrayOf(NPCs.GIANT_RAT_86)
     }
 
-    companion object {
-        private val ID = intArrayOf(NPCs.GIANT_RAT_86)
-    }
 }
