@@ -29,12 +29,13 @@ class DragonSlayerListener : InteractionListener {
          */
 
         setDest(IntType.NPC, intArrayOf(NPCs.WORMBRAIN_745), "talk-to") { player, node ->
-            val npc = node.asNpc()
-            val p = player.asPlayer()
-            val dis = player.location.withinMaxnormDistance(npc.location, 1)
-            if (dis) {
-                return@setDest Location.create(p.location.x, p.location.y, 0)
-            } else return@setDest Location.create(npc.location.x, npc.location.y, 0)
+            val npcLocation = node.asNpc().location
+            val playerLocation = player.asPlayer().location
+
+            val isWithinDistance = playerLocation.withinMaxnormDistance(npcLocation, 1)
+            val targetLocation = if (isWithinDistance) playerLocation else npcLocation
+
+            return@setDest Location.create(targetLocation.x, targetLocation.y, 0)
         }
 
         /*
@@ -42,8 +43,12 @@ class DragonSlayerListener : InteractionListener {
          */
 
         on(Scenery.CLIMBING_ROPE_25213, IntType.SCENERY, "climb") { player, _ ->
-            ClimbActionHandler.climb(player, Animation(Animations.USE_LADDER_828), Location(2834, 3258, 0))
+            val animation = Animation(Animations.USE_LADDER_828)
+            val location = Location(2834, 3258, 0)
+
+            ClimbActionHandler.climb(player, animation, location)
             finishDiaryTask(player, DiaryType.KARAMJA, 1, 2)
+
             return@on true
         }
 
@@ -52,7 +57,11 @@ class DragonSlayerListener : InteractionListener {
          */
 
         on(Scenery.HOLE_25154, IntType.SCENERY, "enter") { player, _ ->
-            ClimbActionHandler.climb(player, Animation(Animations.USE_LADDER_828), Location(2833, 9658, 0))
+            val animation = Animation(Animations.USE_LADDER_828)
+            val location = Location(2833, 9658, 0)
+
+            ClimbActionHandler.climb(player, animation, location)
+
             return@on true
         }
 
@@ -137,11 +146,16 @@ class DragonSlayerListener : InteractionListener {
          */
 
         on(mapPieces + Items.CRANDOR_MAP_1538, IntType.ITEM, "study") { player, node ->
-            when(node.id){
-                Items.MAP_PART_1535 -> sendItemDialogue(player, Items.MAP_PART_1535, "This is a piece of map that you found in Melzar's Maze. You will need to join it to the other two map pieces before you can see the route to Crandor.")
-                Items.MAP_PART_1536 -> sendItemDialogue(player, Items.MAP_PART_1536, "This is a piece of map that you got from Wormbrain, the goblin thief. You will need to join it to the other two map pieces before you can see the route to Crandor.")
-                Items.MAP_PART_1537 -> sendItemDialogue(player, Items.MAP_PART_1537, "This is a piece of map that you found in a secret chest in the Dwarven Mine. You will need to join it to the other two map pieces before you can see the route to Crandor.")
-                else -> openInterface(player, Components.DRAGON_SLAYER_QIP_MAP_547)
+            val itemDialogues = mapOf(
+                Items.MAP_PART_1535 to "This is a piece of map that you found in Melzar's Maze. You will need to join it to the other two map pieces before you can see the route to Crandor.",
+                Items.MAP_PART_1536 to "This is a piece of map that you got from Wormbrain, the goblin thief. You will need to join it to the other two map pieces before you can see the route to Crandor.",
+                Items.MAP_PART_1537 to "This is a piece of map that you found in a secret chest in the Dwarven Mine. You will need to join it to the other two map pieces before you can see the route to Crandor."
+            )
+
+            itemDialogues[node.id]?.let { dialogue ->
+                sendItemDialogue(player, node.id, dialogue)
+            } ?: run {
+                openInterface(player, Components.DRAGON_SLAYER_QIP_MAP_547)
             }
             return@on true
         }
