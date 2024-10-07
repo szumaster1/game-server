@@ -1,11 +1,11 @@
 package content.region.misthalin.varrock.quest.dragon
 
+import content.global.skill.agility.AgilityHandler
 import content.region.misthalin.lumbridge.dialogue.DukeHoracioDialogue
 import content.region.misthalin.varrock.quest.dragon.dialogue.DSChestDialogue
 import content.region.misthalin.varrock.quest.dragon.dialogue.GuildmasterDSDialogue
 import content.region.misthalin.varrock.quest.dragon.dialogue.OziachDSDialogue
 import content.region.misthalin.varrock.quest.dragon.dialogue.WormbrainDSDialogue
-import content.region.misthalin.varrock.quest.dragon.handlers.CrandorMapPlugin
 import content.region.misthalin.varrock.quest.dragon.handlers.DSMagicDoorPlugin
 import content.region.misthalin.varrock.quest.dragon.handlers.DragonSlayerCutscene
 import content.region.misthalin.varrock.quest.dragon.handlers.DragonSlayerPlugin
@@ -24,13 +24,9 @@ import core.game.system.task.Pulse
 import core.game.world.GameWorld.Pulser
 import core.game.world.map.Location
 import core.game.world.map.RegionManager.getObject
-import core.game.world.update.flag.context.Animation
 import core.plugin.Initializable
 import core.plugin.PluginManager.definePlugins
-import org.rs.consts.Items
-import org.rs.consts.QuestName
-import org.rs.consts.Sounds
-import org.rs.consts.Vars
+import org.rs.consts.*
 
 /**
  * Represents the Dragon slayer quest.
@@ -40,7 +36,6 @@ class DragonSlayer : Quest(QuestName.DRAGON_SLAYER, 18, 17, 2, Vars.VARP_QUEST_D
 
     override fun newInstance(`object`: Any?): Quest {
         definePlugins(
-            CrandorMapPlugin(),
             DragonSlayerPlugin(),
             DSMagicDoorPlugin(),
             DragonSlayerCutscene(),
@@ -48,7 +43,7 @@ class DragonSlayer : Quest(QuestName.DRAGON_SLAYER, 18, 17, 2, Vars.VARP_QUEST_D
             MazeGhostNPC(),
             MazeSkeletonNPC(),
             MazeZombieNPC(),
-            MeldarMadNPC(),
+            MelzarTheMadNPC(),
             WormbrainNPC(),
             ZombieRatNPC(),
             DSChestDialogue(),
@@ -245,12 +240,13 @@ class DragonSlayer : Quest(QuestName.DRAGON_SLAYER, 18, 17, 2, Vars.VARP_QUEST_D
 
     override fun finish(player: Player) {
         super.finish(player)
-        player.packetDispatch.sendString("2 Quests Points", 277, 8 + 2)
-        player.packetDispatch.sendString("Ability to wear rune platebody", 277, 9 + 2)
-        player.packetDispatch.sendString("18,650 Strength XP", 277, 10 + 2)
-        player.packetDispatch.sendString("18,650 Defence XP", 277, 11 + 2)
-        player.packetDispatch.sendString("You have completed the Dragon Slayer Quest!", 277, 2 + 2)
-        player.packetDispatch.sendItemZoomOnInterface(ELVARG_HEAD.id, 230, 277, 3 + 2)
+        var ln = 10
+        drawReward(player, "2 Quests Points", ln++)
+        drawReward(player, "Ability to wear rune platebody", ln++)
+        drawReward(player, "18,650 Strength XP", ln++)
+        drawReward(player, "18,650 Defence XP", ln++)
+        drawReward(player, "You have completed the Dragon Slayer Quest!", ln)
+        sendItemZoomOnInterface(player, Components.QUEST_COMPLETE_SCROLL_277, 5, ELVARG_HEAD.id, 230)
         rewardXP(player, Skills.STRENGTH, 18650.0)
         rewardXP(player, Skills.DEFENCE, 18650.0)
         player.unhook(SpellCastHook)
@@ -290,93 +286,93 @@ class DragonSlayer : Quest(QuestName.DRAGON_SLAYER, 18, 17, 2, Vars.VARP_QUEST_D
     companion object {
 
         @JvmField
-        val MAZE_KEY = Item(1542)
+        val MAZE_KEY = Item(Items.MAZE_KEY_1542)
 
 
         @JvmField
-        val RED_KEY = Item(1543)
+        val RED_KEY = Item(Items.KEY_1543)
 
 
         @JvmField
-        val ORANGE_KEY = Item(1544)
+        val ORANGE_KEY = Item(Items.KEY_1544)
 
 
         @JvmField
-        val YELLOW_KEY = Item(1545)
+        val YELLOW_KEY = Item(Items.KEY_1545)
 
 
         @JvmField
-        val BLUE_KEY = Item(1546)
+        val BLUE_KEY = Item(Items.KEY_1546)
 
 
         @JvmField
-        val PURPLE_KEY = Item(1547)
+        val PURPLE_KEY = Item(Items.KEY_1547)
 
 
         @JvmField
-        val GREEN_KEY = Item(1548)
+        val GREEN_KEY = Item(Items.KEY_1548)
 
 
         @JvmField
-        val MAZE_PIECE = Item(1535)
+        val MAZE_PIECE = Item(Items.MAP_PART_1535)
 
 
         @JvmField
-        val MAGIC_PIECE = Item(1537)
+        val MAGIC_PIECE = Item(Items.MAP_PART_1537)
 
 
         @JvmField
-        val WORMBRAIN_PIECE = Item(1536)
+        val WORMBRAIN_PIECE = Item(Items.MAP_PART_1536)
 
 
-        val SHIELD = Item(1540)
-
-
-        @JvmField
-        val CRANDOR_MAP = Item(1538)
+        val SHIELD = Item(Items.ANTI_DRAGON_SHIELD_1540)
 
 
         @JvmField
-        val MAP_COMPONENT = Component(547)
+        val CRANDOR_MAP = Item(Items.CRANDOR_MAP_1538)
 
 
         @JvmField
-        val NAILS = Item(1539, 30)
+        val MAP_COMPONENT = Component(Components.DRAGON_SLAYER_QIP_MAP_547)
 
 
         @JvmField
-        val PLANK = Item(960)
+        val NAILS = Item(Items.STEEL_NAILS_1539, 30)
 
 
         @JvmField
-        val HAMMER = Item(2347)
+        val PLANK = Item(Items.PLANK_960)
 
 
         @JvmField
-        val ELVARG_HEAD = Item(11279)
+        val HAMMER = Item(Items.HAMMER_2347)
+
+
+        @JvmField
+        val ELVARG_HEAD = Item(Items.ELVARGS_HEAD_11279)
 
 
         @JvmStatic
         fun handleMagicDoor(player: Player, interaction: Boolean): Boolean {
             if (!player.savedData.questData.getDragonSlayerItem("lobster") || !player.savedData.questData.getDragonSlayerItem("bowl") || !player.savedData.questData.getDragonSlayerItem("silk") || !player.savedData.questData.getDragonSlayerItem("wizard")) {
                 if (interaction) {
-                    player.packetDispatch.sendMessage("You can't see any way to open the door.")
+                    sendMessage(player, "You can't see any way to open the door.")
                 }
                 return true
             }
             playAudio(player, Sounds.DRAGONSLAYER_MAGICDOOR_3758)
-            player.packetDispatch.sendMessage("The door opens...")
+            sendMessage(player, "The door opens...")
             val `object` = getObject(Location(3050, 9839, 0))
             player.faceLocation(`object`!!.location)
-            player.packetDispatch.sendSceneryAnimation(`object`, Animation(6636))
+            animateScenery(`object`, 6636)
             Pulser.submit(object : Pulse(1, player) {
                 var counter = 0
                 override fun pulse(): Boolean {
                     when (counter++) {
-                        4 -> content.global.skill.agility.AgilityHandler.walk(player, 0, player.location, if (player.location.x == 3051) Location.create(3049, 9840, 0) else Location.create(3051, 9840, 0), null, 0.0, null)
-                        5 -> player.packetDispatch.sendSceneryAnimation(`object`, Animation(6637))
+                        4 -> AgilityHandler.walk(player, 0, player.location, if (player.location.x == 3051) Location.create(3049, 9840, 0) else Location.create(3051, 9840, 0), null, 0.0, null)
+                        5 -> animateScenery(`object`, 6637)
                         6 -> {
-                            player.packetDispatch.sendSceneryAnimation(`object`, Animation(6635))
+                            animateScenery(`object`, 6635)
                             return true
                         }
                     }

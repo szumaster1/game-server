@@ -6,6 +6,7 @@ import core.game.node.entity.npc.AbstractNPC
 import core.game.node.entity.player.Player
 import core.game.node.item.GroundItemManager
 import core.game.world.map.Location
+import org.rs.consts.NPCs
 
 /**
  * Represents the Maze demon NPC.
@@ -30,12 +31,10 @@ class MazeDemonNPC : AbstractNPC {
     }
 
     override fun getIds(): IntArray {
-        return ID
+        return intArrayOf(NPCs.LESSER_DEMON_82)
     }
 
     companion object {
-        private val ID = intArrayOf(82)
-
         private val LOCATION: Location = Location.create(2936, 9652, 0)
     }
 }

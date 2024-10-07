@@ -105,11 +105,6 @@ class WormbrainDSDialogue(player: Player? = null) : Dialogue(player) {
         return intArrayOf(NPCs.WORMBRAIN_745)
     }
 
-    /**
-     * Default dialogue
-     *
-     * @param buttonId
-     */
     fun defaultDialogue(buttonId: Int) {
         when (stage) {
             -1 -> {

@@ -24,7 +24,7 @@ class GhostsAhoyListener : InteractionListener, InterfaceListener {
          */
 
         on(Scenery.DOOR_5244, IntType.SCENERY, "open") { player, node ->
-            if(node.location == Location(3461,3555,0)){
+            if (node.location == Location(3461, 3555, 0)) {
                 DoorActionHandler.handleDoor(player, node.asScenery())
                 return@on true
             }
@@ -45,9 +45,16 @@ class GhostsAhoyListener : InteractionListener, InterfaceListener {
                             }
 
                             1 -> player("Err, I was just curious...").also { stage++ }
-                            2 -> npc("Inside that room is a coffin, inside which lie", "the mortal remains of our most glorious master,", "Necrovarus. None may enter.").also { stage = END_DIALOGUE }
+                            2 -> npc(
+                                "Inside that room is a coffin, inside which lie",
+                                "the mortal remains of our most glorious master,",
+                                "Necrovarus. None may enter."
+                            ).also { stage = END_DIALOGUE }
 
-                            3 -> sendDialogue(player, "You get the general impression that the ghost doesn't want you to open the door.").also { stage = END_DIALOGUE }
+                            3 -> sendDialogue(
+                                player,
+                                "You get the general impression that the ghost doesn't want you to open the door."
+                            ).also { stage = END_DIALOGUE }
                         }
                     }
                 })
@@ -72,7 +79,11 @@ class GhostsAhoyListener : InteractionListener, InterfaceListener {
 
         on(Scenery.COFFIN_5279, IntType.SCENERY, "search") { player, _ ->
             if (!inInventory(player, Items.MYSTICAL_ROBES_4247)) {
-                sendItemDialogue(player, Items.MYSTICAL_ROBES_4247, "You take the Robes of Necrovarus from the remains of his mortal body.")
+                sendItemDialogue(
+                    player,
+                    Items.MYSTICAL_ROBES_4247,
+                    "You take the Robes of Necrovarus from the remains of his mortal body."
+                )
                 addItemOrDrop(player, Items.MYSTICAL_ROBES_4247)
             } else {
                 sendMessage(player, "You search the coffin and find nothing.")
@@ -137,15 +148,14 @@ class GhostsAhoyListener : InteractionListener, InterfaceListener {
          * Connect scraps for completed map.
          */
 
-        onUseWith(IntType.ITEM, Items.MAP_SCRAP_4276, Items.MAP_SCRAP_4275) { player, used, with ->
-            if (!anyInInventory(player, Items.MAP_SCRAP_4274, Items.MAP_SCRAP_4275, Items.MAP_SCRAP_4276)) {
-                sendDialogue(player, "You don't have all the pieces of the map yet.")
-                return@onUseWith false
+        onUseWith(IntType.ITEM, mapPieces, *mapPieces) { player, _, _ ->
+            if (!inInventory(player, Items.MAP_SCRAP_4274) || !inInventory(player, Items.MAP_SCRAP_4275) || !inInventory(player, Items.MAP_SCRAP_4276)) {
+                sendMessage(player, "You don't have all the pieces of the map yet.")
             }
-
-            if (inInventory(player, Items.MAP_SCRAP_4274) && removeItem(player, Items.MAP_SCRAP_4274) && removeItem(player, used.asItem()) && removeItem(player, with.asItem())) {
+            else if (removeItem(player, Items.MAP_SCRAP_4274) && removeItem(player, Items.MAP_SCRAP_4275) && removeItem(player, Items.MAP_SCRAP_4276)) {
                 sendItemDialogue(player, Items.TREASURE_MAP_4277, "You piece the three map scraps together to form a complete map.")
                 addItemOrDrop(player, Items.TREASURE_MAP_4277)
+
             }
             return@onUseWith true
         }
@@ -357,5 +367,7 @@ class GhostsAhoyListener : InteractionListener, InterfaceListener {
 
     }
 
-
+    companion object {
+        val mapPieces = intArrayOf(Items.MAP_SCRAP_4274, Items.MAP_SCRAP_4275, Items.MAP_SCRAP_4276)
+    }
 }

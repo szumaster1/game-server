@@ -14,12 +14,14 @@ import core.game.node.item.Item
 import core.game.world.map.Location
 import core.game.world.map.RegionManager.isTeleportPermitted
 import core.tools.RandomFunction
+import org.rs.consts.Items
+import org.rs.consts.NPCs
 
 /**
- * Represents the Meldar mad NPC.
+ * Represents the Melzar the mad NPC.
  */
-class MeldarMadNPC : AbstractNPC {
-    private val combatHandler = MeldarSwingHandler()
+class MelzarTheMadNPC : AbstractNPC {
+    private val combatHandler = MelzarSwingHandler()
 
     constructor() : super(0, null)
 
@@ -27,7 +29,7 @@ class MeldarMadNPC : AbstractNPC {
     private constructor(id: Int, location: Location) : super(id, location)
 
     override fun construct(id: Int, location: Location, vararg objects: Any): AbstractNPC {
-        return MeldarMadNPC(id, location)
+        return MelzarTheMadNPC(id, location)
     }
 
     override fun init() {
@@ -55,14 +57,14 @@ class MeldarMadNPC : AbstractNPC {
     }
 
     override fun getIds(): IntArray {
-        return ID
+        return intArrayOf(NPCs.MELZAR_THE_MAD_753)
     }
 
 
     /**
-     * Meldar swing handler.
+     * Melzar swing handler.
      */
-    inner class MeldarSwingHandler : CombatSwingHandler(CombatStyle.MAGIC) {
+    inner class MelzarSwingHandler : CombatSwingHandler(CombatStyle.MAGIC) {
         private var style = CombatStyle.MAGIC
         private val SPELL_IDS = intArrayOf(8, 2, 7, 11)
 
@@ -131,8 +133,7 @@ class MeldarMadNPC : AbstractNPC {
     }
 
     companion object {
-        private val ID = intArrayOf(753)
-        val CABBAGE: Item = Item(1965)
-        val MESSAGES: Array<String> = arrayOf("Feel the wrath of my feet!", "By the power of custard!", "Let me drink my tea in peace.", "Leave me alone, I need to feed my pet rock.")
+        val CABBAGE: Item = Item(Items.CABBAGE_1965)
+        val MESSAGES = arrayOf("Feel the wrath of my feet!", "By the power of custard!", "Let me drink my tea in peace.", "Leave me alone, I need to feed my pet rock.")
     }
 }

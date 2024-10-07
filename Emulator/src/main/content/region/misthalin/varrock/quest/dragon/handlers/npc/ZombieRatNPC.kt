@@ -8,6 +8,8 @@ import core.game.node.item.GroundItemManager
 import core.game.node.item.Item
 import core.game.world.map.Location
 import core.tools.RandomFunction
+import org.rs.consts.Items
+import org.rs.consts.NPCs
 import org.rs.consts.QuestName
 
 /**
@@ -31,8 +33,8 @@ class ZombieRatNPC : AbstractNPC {
             if (RandomFunction.random(0, 4) == 2) {
                 GroundItemManager.create(DragonSlayer.RED_KEY, getLocation(), killer)
             }
-            quest = p.getQuestRepository().getQuest("Witch's Potion")
-            if (quest.getStage(p) > 0 && quest.getStage(p) < 100) {
+            quest = p.getQuestRepository().getQuest(QuestName.WITCHS_POTION)
+            if (quest.getStage(p) in 1..99) {
                 GroundItemManager.create(RAT_TAIL, getLocation(), p)
             }
             GroundItemManager.create(Item(526), getLocation(), p)
@@ -44,7 +46,7 @@ class ZombieRatNPC : AbstractNPC {
     }
 
     companion object {
-        private val ID = intArrayOf(6088, 6089, 6090)
-        private val RAT_TAIL = Item(300, 1)
+        private val ID = intArrayOf(NPCs.ZOMBIE_RAT_6088, NPCs.ZOMBIE_RAT_6089, NPCs.ZOMBIE_RAT_6090)
+        private val RAT_TAIL = Item(Items.RATS_TAIL_300, 1)
     }
 }

@@ -7,6 +7,7 @@ import core.game.node.entity.player.Player
 import core.game.node.item.GroundItemManager
 import core.game.world.map.Location
 import core.tools.RandomFunction
+import org.rs.consts.NPCs
 
 /**
  * Represents the Maze zombie NPC.
@@ -32,11 +33,10 @@ class MazeZombieNPC : AbstractNPC {
     }
 
     override fun getIds(): IntArray {
-        return ID
+        return intArrayOf(NPCs.ZOMBIE_75)
     }
 
     companion object {
-        private val ID = intArrayOf(75)
         private val LOCATION: Location = Location.create(2933, 9641, 0)
     }
 }

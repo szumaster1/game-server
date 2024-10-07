@@ -72,19 +72,11 @@ class NedDSDialogue(val questStage: Int) : DialogueFile() {
         } else if (questStage == 20) {
             when (stage) {
                 START_DIALOGUE -> player("You're a sailor? Could you take me to Crandor?").also { stage++ }
-                1 -> npc(
-                    "Well, I was a sailor. I've not been able to get work at",
-                    "sea these days, though. They say I'm too old."
-                ).also { stage++ }
-
+                1 -> npc("Well, I was a sailor. I've not been able to get work at", "sea these days, though. They say I'm too old.").also { stage++ }
                 2 -> npc("Sorry, where was it you said you wanted to go?").also { stage++ }
                 3 -> player("To the island of Crandor.").also { stage++ }
                 4 -> npc("Crandor? You've got to be out of your mind!").also { stage++ }
-                5 -> npc(
-                    "But... It would be a chance to sail a ship once more.",
-                    "I'd sail anywhere if it was a chance to sail again."
-                ).also { stage++ }
-
+                5 -> npc("But... It would be a chance to sail a ship once more.", "I'd sail anywhere if it was a chance to sail again.").also { stage++ }
                 6 -> npc("Then again, no captain in his right mind would sail to", "that island...").also { stage++ }
                 7 -> {
                     npc("Ah, you only live once! I'll do it!")
@@ -97,10 +89,7 @@ class NedDSDialogue(val questStage: Int) : DialogueFile() {
         } else if (questStage == 30) {
             when (stage) {
                 START_DIALOGUE -> player("So will you take me to Crandor now then?").also { stage++ }
-                1 -> npc(
-                    "I Said I would and old Ned is a man of his word! I'll",
-                    "meet you on board the Lady Lumbridge in Port Sarim."
-                ).also { stage = END_DIALOGUE }
+                1 -> npc("I Said I would and old Ned is a man of his word! I'll", "meet you on board the Lady Lumbridge in Port Sarim.").also { stage = END_DIALOGUE }
             }
         }
 

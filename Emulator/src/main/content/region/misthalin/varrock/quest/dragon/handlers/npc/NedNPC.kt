@@ -1,5 +1,6 @@
 package content.region.misthalin.varrock.quest.dragon.handlers.npc
 
+import core.api.getQuestStage
 import core.game.node.entity.npc.AbstractNPC
 import core.game.node.entity.player.Player
 import core.game.world.map.Location
@@ -20,15 +21,11 @@ class NedNPC : AbstractNPC {
     }
 
     override fun isHidden(player: Player): Boolean {
-        return player.getQuestRepository().getQuest(QuestName.DRAGON_SLAYER)
-            .getStage(player) != 30 && player.getQuestRepository().getQuest(QuestName.DRAGON_SLAYER).getStage(player) != 40
+        return getQuestStage(player, QuestName.DRAGON_SLAYER) != 30 && getQuestStage(player, QuestName.DRAGON_SLAYER) != 40
     }
 
     override fun getIds(): IntArray {
-        return ID
+        return intArrayOf(NPCs.NED_918)
     }
 
-    companion object {
-        private val ID = intArrayOf(NPCs.NED_918)
-    }
 }

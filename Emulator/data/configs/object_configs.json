@@ -21290,5 +21290,9 @@
   {
     "examine": "Wow, he looks busy.",
     "ids": "31459"
+  },
+  {
+    "examine": "Some arcane equipment.",
+    "ids": "38331"
   }
 ]

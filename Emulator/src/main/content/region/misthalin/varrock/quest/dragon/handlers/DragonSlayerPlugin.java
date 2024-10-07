@@ -1,15 +1,12 @@
 package content.region.misthalin.varrock.quest.dragon.handlers;
 
 import content.region.misthalin.varrock.quest.dragon.DragonSlayer;
-import core.cache.def.impl.ItemDefinition;
 import core.cache.def.impl.NPCDefinition;
 import core.cache.def.impl.SceneryDefinition;
 import core.game.global.action.ClimbActionHandler;
 import core.game.global.action.DoorActionHandler;
 import core.game.interaction.OptionHandler;
 import core.game.node.Node;
-import core.game.node.entity.Entity;
-import core.game.node.entity.impl.ForceMovement;
 import core.game.node.entity.npc.NPC;
 import core.game.node.entity.player.Player;
 import core.game.node.entity.player.link.diary.DiaryType;
@@ -19,15 +16,10 @@ import core.game.node.item.Item;
 import core.game.node.scenery.Scenery;
 import core.game.node.scenery.SceneryBuilder;
 import core.game.world.map.Location;
-import core.game.world.map.RegionManager;
 import core.game.world.update.flag.context.Animation;
 import core.plugin.Plugin;
-import org.rs.consts.Animations;
 import org.rs.consts.QuestName;
 
-import java.util.List;
-
-import static core.api.ContentAPIKt.sendItemDialogue;
 import static core.api.ContentAPIKt.setVarp;
 
 /**
@@ -79,11 +71,6 @@ public final class DragonSlayerPlugin extends OptionHandler {
         SceneryDefinition.forId(2604).getHandlers().put("option:close", this);// search
         // chest.
         SceneryDefinition.forId(1755).getHandlers().put("option:climb-up", this);
-        // map parts
-        ItemDefinition.forId(DragonSlayer.MAZE_PIECE.getId()).getHandlers().put("option:study", this);
-        ItemDefinition.forId(DragonSlayer.MAGIC_PIECE.getId()).getHandlers().put("option:study", this);
-        ItemDefinition.forId(DragonSlayer.WORMBRAIN_PIECE.getId()).getHandlers().put("option:study", this);
-        ItemDefinition.forId(DragonSlayer.CRANDOR_MAP.getId()).getHandlers().put("option:study", this);
         // dwarv mine
         SceneryDefinition.forId(2587).getHandlers().put("option:open", this);
         NPCDefinition.forId(745).getHandlers().put("option:talk-to", this);
@@ -92,9 +79,7 @@ public final class DragonSlayerPlugin extends OptionHandler {
         SceneryDefinition.forId(2589).getHandlers().put("option:repair", this);
 
         // crandor
-        SceneryDefinition.forId(25154).getHandlers().put("option:enter", this);
         SceneryDefinition.forId(2606).getHandlers().put("option:open", this);
-        SceneryDefinition.forId(25213).getHandlers().put("option:climb", this);
         SceneryDefinition.forId(25161).getHandlers().put("option:climb-over", this);
         NPCDefinition.forId(742).getHandlers().put("option:attack", this);
         NPCDefinition.forId(745).getHandlers().put("option:attack", this);
@@ -115,52 +100,6 @@ public final class DragonSlayerPlugin extends OptionHandler {
                     return true;
                 }
                 break;
-            case 742:
-                if (player.getQuestRepository().getQuest(QuestName.DRAGON_SLAYER).getStage(player) == 40 && (player.getInventory().containsItem(DragonSlayer.ELVARG_HEAD))) {
-                    player.getPacketDispatch().sendMessage("You have already slain the dragon. Now you just need to return to Oziach for");
-                    player.getPacketDispatch().sendMessage("your reward!");
-                    return true;
-                }
-                if (player.getQuestRepository().getQuest(QuestName.DRAGON_SLAYER).getStage(player) > 40) {
-                    player.getPacketDispatch().sendMessage("You have already slain Elvarg the dragon.");
-                    return true;
-                }
-                player.getProperties().getCombatPulse().attack(node);
-                player.face((Entity) node);
-                break;
-            case 25161:
-                if (player.getLocation().getX() >= 2847) {
-                    ForceMovement movement = new ForceMovement(player, player.getLocation(), player.getLocation().transform(player.getLocation().getX() == 2845 ? 2 : -2, 0, 0), new Animation(Animations.WALKING_OVER_ROCKS_IN_ELVARGS_CAVE_10573));
-                    movement.run(player, 10);
-                    return true;
-                }
-                if (player.getQuestRepository().getQuest(QuestName.DRAGON_SLAYER).getStage(player) == 40 && (player.getInventory().containsItem(DragonSlayer.ELVARG_HEAD))) {
-                    player.getPacketDispatch().sendMessage("You have already slain the dragon. Now you just need to return to Oziach for");
-                    player.getPacketDispatch().sendMessage("your reward!");
-                    return true;
-                }
-                if (player.getQuestRepository().getQuest(QuestName.DRAGON_SLAYER).getStage(player) > 40) {
-                    player.getPacketDispatch().sendMessage("You have already slain the dragon.");
-                    return true;
-                }
-                if (player.getQuestRepository().getQuest(QuestName.DRAGON_SLAYER).getStage(player) == 40 && !player.getInventory().containsItem(DragonSlayer.ELVARG_HEAD)) {
-                    ForceMovement movement = new ForceMovement(player, player.getLocation(), player.getLocation().transform(player.getLocation().getX() == 2845 ? 2 : -2, 0, 0), new Animation(Animations.WALKING_OVER_ROCKS_IN_ELVARGS_CAVE_10573));
-                    movement.run(player, 10);
-                    if (player.getLocation().getX() <= 2845) {
-                        List<NPC> npcs = RegionManager.getLocalNpcs(player);
-                        for (NPC n : npcs) {
-                            if (n.getId() == 742) {
-                                n.getProperties().getCombatPulse().attack(player);
-                                return true;
-                            }
-                        }
-                    }
-                }
-                break;
-            case 25213:
-                ClimbActionHandler.climb(player, new Animation(828), new Location(2834, 3258, 0));
-                player.getAchievementDiaryManager().finishTask(player, DiaryType.KARAMJA, 1, 2);
-                break;
             case 2606:
                 if (player.getLocation().getY() < 9600 && !player.getSavedData().questData.getDragonSlayerAttribute("memorized") && player.getQuestRepository().getQuest(QuestName.DRAGON_SLAYER).getStage(player) != 100) {
                     player.getPacketDispatch().sendMessage("The door is securely locked.");
@@ -173,9 +112,6 @@ public final class DragonSlayerPlugin extends OptionHandler {
                     player.getSavedData().questData.setDragonSlayerAttribute("memorized", true);
                     DoorActionHandler.handleAutowalkDoor(player, (Scenery) node);
                 }
-                break;
-            case 25154:
-                ClimbActionHandler.climb(player, new Animation(828), new Location(2833, 9658, 0));
                 break;
             case 25036:
             case 2589:
@@ -208,24 +144,12 @@ public final class DragonSlayerPlugin extends OptionHandler {
                     }
                 }
                 break;
-            case 1538:
-                player.getInterfaceManager().open(DragonSlayer.MAP_COMPONENT);
-                break;
             case 745:
                 if (option.equals("attack")) {
                     player.getProperties().getCombatPulse().attack(node);
                     return true;
                 }
                 player.getDialogueInterpreter().open(745, node);
-                break;
-            case 1535:// maze map piece.
-                player.getDialogueInterpreter().sendItemMessage(1535, "This is a piece of map that you found in Melzar's Maze. You will need to join it to the other two map pieces before you can see the route to Crandor.");
-                break;
-            case 1536:
-                sendItemDialogue(player, 1536, "This is a piece of map that you got from Wormbrain, the goblin thief. You will need to join it to the other two map pieces before you can see the route to Crandor.");
-                break;
-            case 1537:// magic map piece.
-                sendItemDialogue(player, 1537, "This is a piece of map that you found in a secret chest in the Dwarven Mine. You will need to join it to the other two map pieces before you can see the route to Crandor.");
                 break;
             case 2587:
                 if (!player.getInventory().containsItem(DragonSlayer.MAGIC_PIECE) && !player.getBank().containsItem(DragonSlayer.MAGIC_PIECE)) {

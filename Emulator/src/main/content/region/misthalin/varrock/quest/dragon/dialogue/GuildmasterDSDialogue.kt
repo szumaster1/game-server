@@ -6,6 +6,7 @@ import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.quest.Quest
 import core.game.node.item.GroundItemManager
+import org.rs.consts.NPCs
 import org.rs.consts.QuestName
 
 /**
@@ -596,11 +597,6 @@ class GuildmasterDSDialogue(player: Player? = null) : Dialogue(player) {
         return true
     }
 
-    /**
-     * Handle description
-     *
-     * @param buttonId
-     */
     fun handleDescription(buttonId: Int) {
         when (buttonId) {
             1 -> {
@@ -622,6 +618,6 @@ class GuildmasterDSDialogue(player: Player? = null) : Dialogue(player) {
     }
 
     override fun getIds(): IntArray {
-        return intArrayOf(198)
+        return intArrayOf(NPCs.GUILDMASTER_198)
     }
 }

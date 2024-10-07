@@ -1,6 +1,10 @@
 package content.region.misthalin.varrock.quest.dragon.handlers.npc
 
 import content.region.misthalin.varrock.quest.dragon.DragonSlayer
+import core.api.getQuestStage
+import core.api.inBank
+import core.api.inInventory
+import core.api.sendMessage
 import core.game.node.entity.Entity
 import core.game.node.entity.combat.CombatStyle
 import core.game.node.entity.npc.AbstractNPC
@@ -26,10 +30,9 @@ class WormbrainNPC : AbstractNPC {
     override fun finalizeDeath(killer: Entity) {
         super.finalizeDeath(killer)
         if (killer is Player) {
-            if (killer.getQuestRepository().getQuest(QuestName.DRAGON_SLAYER).getStage(killer.asPlayer()) == 20 && !killer.inventory.containsItem(
-                    DragonSlayer.WORMBRAIN_PIECE) && !killer.bank.containsItem(DragonSlayer.WORMBRAIN_PIECE)) {
+            if (getQuestStage(killer, QuestName.DRAGON_SLAYER) == 20 && !inInventory(killer, DragonSlayer.WORMBRAIN_PIECE.id) && !inBank(killer, DragonSlayer.WORMBRAIN_PIECE.id)) {
                 GroundItemManager.create(DragonSlayer.WORMBRAIN_PIECE, getLocation(), killer)
-                killer.packetDispatch.sendMessage("Wormbrain drops a map piece on the floor.")
+                sendMessage(killer, "Wormbrain drops a map piece on the floor.")
             }
         }
     }
@@ -37,9 +40,9 @@ class WormbrainNPC : AbstractNPC {
     override fun isAttackable(entity: Entity, style: CombatStyle, message: Boolean): Boolean {
         if (entity is Player) {
             val player = entity
-            if (player.getQuestRepository().getQuest(QuestName.DRAGON_SLAYER).getStage(player) != 20) {
+            if (getQuestStage(player, QuestName.DRAGON_SLAYER)  != 20) {
                 if (message) {
-                    player.packetDispatch.sendMessage("The goblin is already in prison. You have no reason to attack him.")
+                    sendMessage(player, "The goblin is already in prison. You have no reason to attack him.")
                 }
                 return false
             }
@@ -48,10 +51,7 @@ class WormbrainNPC : AbstractNPC {
     }
 
     override fun getIds(): IntArray {
-        return ID
+        return intArrayOf(NPCs.WORMBRAIN_745)
     }
 
-    companion object {
-        private val ID = intArrayOf(NPCs.WORMBRAIN_745)
-    }
 }

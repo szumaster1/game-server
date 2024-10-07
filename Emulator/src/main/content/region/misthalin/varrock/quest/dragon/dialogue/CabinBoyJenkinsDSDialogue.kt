@@ -6,6 +6,7 @@ import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.quest.Quest
 import core.plugin.Initializable
+import org.rs.consts.NPCs
 import org.rs.consts.QuestName
 
 /**
@@ -86,6 +87,6 @@ class CabinBoyJenkinsDSDialogue(player: Player? = null) : Dialogue(player) {
     }
 
     override fun getIds(): IntArray {
-        return intArrayOf(6085)
+        return intArrayOf(NPCs.CABIN_BOY_JENKINS_6085)
     }
 }

@@ -7,6 +7,7 @@ import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.quest.Quest
 import core.game.node.item.Item
 import core.tools.END_DIALOGUE
+import org.rs.consts.NPCs
 import org.rs.consts.QuestName
 
 /**
@@ -438,6 +439,6 @@ class OziachDSDialogue(player: Player? = null) : Dialogue(player) {
     }
 
     override fun getIds(): IntArray {
-        return intArrayOf(747)
+        return intArrayOf(NPCs.OZIACH_747)
     }
 }

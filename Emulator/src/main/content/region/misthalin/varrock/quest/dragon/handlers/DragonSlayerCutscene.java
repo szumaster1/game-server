@@ -22,6 +22,7 @@ import core.net.packet.context.CameraContext.CameraType;
 import core.net.packet.context.MinimapStateContext;
 import core.net.packet.outgoing.CameraViewPacket;
 import core.net.packet.outgoing.MinimapState;
+import org.rs.consts.Animations;
 import org.rs.consts.QuestName;
 
 import java.util.ArrayList;
@@ -38,7 +39,7 @@ public final class DragonSlayerCutscene extends CutscenePlugin {
     /**
      * The animation associated with the Dragon Slayer cutscene.
      */
-    private static final Animation ANIMATION = new Animation(4191);
+    private static final Animation ANIMATION = new Animation(Animations.GET_UP_FROM_BEING_FACE_DOWN_ON_FLOOR_DRAGON_SLAYER_4191);
 
     /**
      * The instance of BobingPulse used for camera bobbing effects.

@@ -3,6 +3,9 @@ package content.region.misthalin.varrock.quest.dragon.handlers.npc
 import content.global.skill.combat.special.DragonfireSwingHandler
 import content.region.misthalin.varrock.quest.dragon.DragonSlayer
 import core.api.calculateDragonfireMaxHit
+import core.api.getQuestStage
+import core.api.inInventory
+import core.api.sendMessage
 import core.game.node.entity.Entity
 import core.game.node.entity.combat.BattleState
 import core.game.node.entity.combat.CombatStyle
@@ -25,6 +28,8 @@ import core.game.world.map.RegionManager.getObject
 import core.game.world.update.flag.context.Animation
 import core.plugin.Initializable
 import core.tools.RandomFunction
+import org.rs.consts.Animations
+import org.rs.consts.NPCs
 import org.rs.consts.QuestName
 import kotlin.math.ceil
 
@@ -90,7 +95,7 @@ class ElvargNPC : AbstractNPC {
     }
 
     override fun getIds(): IntArray {
-        return ID
+        return intArrayOf(NPCs.ELVARG_742)
     }
 
 
@@ -111,17 +116,16 @@ class ElvargNPC : AbstractNPC {
             return super.isAttackable(entity, style, message)
         }
         val player = entity
-        if (player.getQuestRepository().getQuest(QuestName.DRAGON_SLAYER).getStage(player) == 40 && (player.inventory.containsItem(
-                DragonSlayer.ELVARG_HEAD))) {
+        if (getQuestStage(player, QuestName.DRAGON_SLAYER) == 40 && (inInventory(player, DragonSlayer.ELVARG_HEAD.id))) {
             if (message) {
-                player.packetDispatch.sendMessage("You have already slain the dragon. Now you just need to return to Oziach for")
-                player.packetDispatch.sendMessage("your reward!")
+                sendMessage(player, "You have already slain the dragon. Now you just need to return to Oziach for")
+                sendMessage(player, "your reward!")
             }
             return false
         }
-        if (player.getQuestRepository().getQuest(QuestName.DRAGON_SLAYER).getStage(player) > 40) {
+        if (getQuestStage(player, QuestName.DRAGON_SLAYER) > 40) {
             if (message) {
-                player.packetDispatch.sendMessage("You have already slain Elvarg.")
+                sendMessage(player, "You have already slain Elvarg.")
             }
             return false
         }
@@ -262,7 +266,6 @@ class ElvargNPC : AbstractNPC {
     }
 
     companion object {
-        private val ID = intArrayOf(742)
-        private val ANIMATIONS = arrayOf(Animation(6654), Animation(6655))
+        private val ANIMATIONS = arrayOf(Animation(Animations.TAKING_OFF_ELVARG_S_HEAD_6654), Animation(Animations.ELVARG_S_HEAD_6655))
     }
 }

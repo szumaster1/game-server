@@ -62,12 +62,6 @@ class DukeHoracioDragonSlayerDialogue(val questStage: Int) : DialogueFile() {
         }
     }
 
-    /**
-     * Has shield
-     *
-     * @param player
-     * @return
-     */
     fun hasShield(player: Player): Boolean {
         return player.inventory.containsItem(DragonSlayer.SHIELD) || player.bank.containsItem(DragonSlayer.SHIELD) || player.equipment.containsItem(
             DragonSlayer.SHIELD
