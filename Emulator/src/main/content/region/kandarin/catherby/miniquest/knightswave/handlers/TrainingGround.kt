@@ -9,16 +9,26 @@ import core.game.node.entity.player.Player
 import core.game.world.map.Location
 import core.game.world.map.zone.ZoneBorders
 import core.game.world.map.zone.ZoneRestriction
+import core.plugin.Initializable
 
 /**
  * Represents the training ground.
  */
+@Initializable
 class TrainingGround : ActivityPlugin("knight wave", true, false, true), MapArea {
     private var activity: TrainingGround? = this
 
     init {
         activity = this
         this.safeRespawn = Location.create(2750, 3507, 2)
+    }
+
+    override fun death(entity: Entity, killer: Entity): Boolean {
+        if (entity is Player) {
+            entity.getProperties().teleportLocation = Location.create(2751, 3507, 2)
+            return true
+        }
+        return false
     }
 
     override fun areaLeave(entity: Entity, logout: Boolean) {
