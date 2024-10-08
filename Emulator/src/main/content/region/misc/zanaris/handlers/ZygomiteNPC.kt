@@ -3,6 +3,7 @@ package content.region.misc.zanaris.handlers
 import content.global.skill.slayer.Tasks
 import core.api.replaceSlot
 import core.api.sendMessage
+import core.api.toIntArray
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.Node
@@ -20,19 +21,7 @@ import org.rs.consts.Items
  */
 class ZygomiteNPC : NPCBehavior(*Tasks.ZYGOMITES.npcs), InteractionListener {
 
-    private val fungicideSpray = intArrayOf(
-        Items.FUNGICIDE_SPRAY_10_7421,
-        Items.FUNGICIDE_SPRAY_9_7422,
-        Items.FUNGICIDE_SPRAY_8_7423,
-        Items.FUNGICIDE_SPRAY_7_7424,
-        Items.FUNGICIDE_SPRAY_6_7425,
-        Items.FUNGICIDE_SPRAY_5_7426,
-        Items.FUNGICIDE_SPRAY_4_7427,
-        Items.FUNGICIDE_SPRAY_3_7428,
-        Items.FUNGICIDE_SPRAY_2_7429,
-        Items.FUNGICIDE_SPRAY_1_7430,
-        Items.FUNGICIDE_SPRAY_0_7431
-    )
+    private val fungicideSpray = (Items.FUNGICIDE_SPRAY_10_7421..Items.FUNGICIDE_SPRAY_0_7431).toIntArray()
 
     override fun defineListeners() {
         onUseWith(IntType.NPC, fungicideSpray, *ids, handler = ::handleFungicideSpray)

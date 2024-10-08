@@ -35,6 +35,7 @@ import core.plugin.PluginManager.definePlugin
 import core.plugin.Initializable
 import core.plugin.Plugin
 import core.tools.RandomFunction
+import org.rs.consts.Animations
 import java.util.*
 
 /**
@@ -312,21 +313,21 @@ class BountyHunterActivity @JvmOverloads constructor(val type: CraterType = Crat
     /**
      * Enter crater
      *
-     * @param player
+     * @param player The player who is entering the crater.
      */
     fun enterCrater(player: Player) {
-        val offset = RandomFunction.getRandomElement<Point>(EXIT_OFFSETS)
+        val offset = RandomFunction.getRandomElement(EXIT_OFFSETS)
         val destination = Location.create(type.zone.southWestX + offset.x, type.zone.southWestY + offset.y, 0)
         player.properties.teleportLocation = destination
-        player.animate(Animation.create(7377))
+        player.animate(Animation.create(Animations.WALK_AND_APPEAR_7377))
     }
 
     /**
      * Leave crater
      *
-     * @param player
-     * @param logout
-     * @param entry
+     * @param player The player who is leaving the crater.
+     * @param logout Indicates whether the player is logging out.
+     * @param entry The bounty entry associated with the player.
      */
     fun leaveCrater(player: Player, logout: Boolean, entry: BountyEntry) {
         if (entry.hunter != null) {

@@ -1,5 +1,9 @@
 package content.global.activity.ttrails.npc
 
+import content.global.activity.ttrails.clue.ClueScrollPlugin
+import content.global.activity.ttrails.scroll.EmoteClueScroll
+import core.api.removeAttribute
+import core.api.sendItemDialogue
 import org.rs.consts.NPCs
 import core.game.dialogue.Dialogue
 import core.game.node.entity.Entity
@@ -12,13 +16,14 @@ import core.game.world.map.RegionManager.getSpawnLocation
 import core.plugin.Plugin
 import core.plugin.PluginManager.definePlugin
 import core.tools.RandomFunction
+import org.rs.consts.Items
 
 /**
  * Represents the Uri & Double-agent NPC.
  */
 class UriNPC : AbstractNPC {
 
-    private var clueScroll: content.global.activity.ttrails.clue.ClueScrollPlugin? = null
+    private var clueScroll: ClueScrollPlugin? = null
 
     var player: Player? = null
 
@@ -102,7 +107,7 @@ class UriNPC : AbstractNPC {
                 stage = -1
                 return true
             }
-            npc(RandomFunction.getRandomElement(QUOTES))
+            npc(QUOTES.random())
             return true
         }
 
@@ -116,7 +121,7 @@ class UriNPC : AbstractNPC {
                 }
 
                 1 -> {
-                    interpreter.sendItemMessage(405, "You've been given a casket!")
+                    sendItemDialogue(player, Items.CASKET_405, "You've been given a casket!")
                     stage++
                 }
 
@@ -128,13 +133,13 @@ class UriNPC : AbstractNPC {
         override fun close(): Boolean {
             if (stage >= 1) {
                 npc.clear()
-                player.removeAttribute("killed-agent")
+                removeAttribute(player, "killed-agent")
             }
             return super.close()
         }
 
         private fun canSpeak(): Boolean {
-            val scroll = asUri().clueScroll as content.global.activity.ttrails.scroll.EmoteClueScroll?
+            val scroll = asUri().clueScroll as EmoteClueScroll?
             return asUri().player == player && player.getAttribute("commence-emote", !scroll!!.hasCommencedEmote()) && scroll.hasEquipment(player, scroll.equipment)
         }
 

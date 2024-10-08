@@ -1,4 +1,4 @@
-package content.region.wilderness.handlers
+package content.region.wilderness.handlers.roguescastle
 
 import org.rs.consts.Items
 

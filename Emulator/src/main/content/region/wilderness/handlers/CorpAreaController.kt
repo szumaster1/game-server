@@ -35,7 +35,7 @@ class CorpAreaController : MapArea, TickListener {
             if (entity.familiarManager.hasFamiliar()) {
                 entity.familiarManager.familiar.call()
             }
-        } else if (entity is content.global.skill.summoning.familiar.Familiar) {
+        } else if (entity is Familiar) {
             entity.setAttribute("corp-time-remaining", secondsToTicks(10))
         } else if (entity is NPC && entity.behavior is CorporealBeastNPC) {
             corpBeast = entity

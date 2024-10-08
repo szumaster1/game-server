@@ -206,7 +206,7 @@
   {
     "id": "1558",
     "replaceId": "1560",
-    "fence": "true",
+    "fence": "false",
     "metal": "true"
   },
   {
