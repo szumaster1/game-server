@@ -4,7 +4,6 @@ import core.api.hasRequirement
 import core.api.openInterface
 import core.api.sendMessage
 import core.api.teleport
-import core.game.component.Component
 import core.game.global.action.ClimbActionHandler
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
@@ -52,7 +51,7 @@ class WildernessPassageListener : InteractionListener {
          */
 
         on(Scenery.TRAPDOOR_39188, IntType.SCENERY, "open") { player, _ ->
-            if (!hasRequirement(player, QuestName.DEFENDER_OF_VARROCK))
+            if (!hasRequirement(player, QuestName.DEFENDER_OF_VARROCK)) return@on true
                 ClimbActionHandler.climb(
                     player,
                     ClimbActionHandler.CLIMB_DOWN,
