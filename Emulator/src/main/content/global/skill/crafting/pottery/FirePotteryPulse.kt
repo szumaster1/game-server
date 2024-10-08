@@ -22,7 +22,7 @@ class FirePotteryPulse(player: Player?, node: Item?, val pottery: Pottery, var a
             return false
         }
         if (!inInventory(player, pottery.unfinished.id)) {
-            sendMessage(player, "You need a " + pottery.name.lowercase() + "in order to do this.")
+            sendMessage(player, "You don't have any more ${pottery.name.lowercase()} which need firing.")
             return false
         }
         return true
