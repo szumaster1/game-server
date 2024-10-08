@@ -1,6 +1,6 @@
 package content.global.skill.crafting.items.armour.yakhide
 
-import content.global.skill.crafting.items.armour.leather.LeatherUtils
+import content.global.skill.crafting.items.armour.leather.Thread
 import core.api.*
 import core.game.node.entity.player.Player
 import core.game.node.entity.skill.SkillPulse
@@ -48,9 +48,9 @@ class YakArmourCraftingPulse(player: Player?, node: Item?, private val index: In
         if (removeItem(player, Item(Items.CURED_YAK_HIDE_10820, requiredAmount))) {
             addItem(player, node!!.id, node!!.amount)
             rewardXP(player, Skills.CRAFTING, 32.0)
-            LeatherUtils.decayThread(player)
-            if (LeatherUtils.isLastThread(player)) {
-                LeatherUtils.removeThread(player)
+            Thread.decayThread(player)
+            if (Thread.isLastThread(player)) {
+                Thread.removeThread(player)
             }
             sendMessage(player, "You make " + node!!.name.lowercase() + ".")
         }

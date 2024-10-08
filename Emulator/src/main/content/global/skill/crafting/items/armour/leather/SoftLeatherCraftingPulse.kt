@@ -56,9 +56,9 @@ class SoftLeatherCraftingPulse(player: Player?, node: Item?, val soft: SoftLeath
             val item = soft.product.id
             addItem(player, item)
             rewardXP(player, Skills.CRAFTING, soft.experience)
-            LeatherUtils.decayThread(player)
-            if (LeatherUtils.isLastThread(player)) {
-                LeatherUtils.removeThread(player)
+            Thread.decayThread(player)
+            if (Thread.isLastThread(player)) {
+                Thread.removeThread(player)
             }
             if (soft == SoftLeather.GLOVES) {
                 finishDiaryTask(player, DiaryType.LUMBRIDGE, 1, 3)

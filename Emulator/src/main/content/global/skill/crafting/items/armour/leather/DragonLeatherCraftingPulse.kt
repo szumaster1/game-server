@@ -60,9 +60,9 @@ class DragonLeatherCraftingPulse(player: Player?, node: Item?, val leather: Drag
             val item = Item(leather.product)
             addItem(player, item.id, item.amount)
             rewardXP(player, Skills.CRAFTING, leather.experience)
-            LeatherUtils.decayThread(player)
-            if (LeatherUtils.isLastThread(player)) {
-                LeatherUtils.removeThread(player)
+            Thread.decayThread(player)
+            if (Thread.isLastThread(player)) {
+                Thread.removeThread(player)
             }
             resetAnimation = true
             amount--

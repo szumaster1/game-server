@@ -6,7 +6,7 @@ import core.game.node.entity.player.Player
 import core.game.node.item.Item
 import org.rs.consts.Items
 
-object LeatherUtils {
+object Thread {
 
     @JvmStatic
     fun isLastThread(player: Player): Boolean {

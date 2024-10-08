@@ -110,7 +110,7 @@ class Grafana : StartupListener {
             currentTask = db.runAsync {
                 with(it.prepareStatement(INSERT_TOP_PULSES)) {
                     for (i in 0 until 50) {
-                        val topSorted = core.integration.grafana.Grafana.cycleData[i].pulseTimes.sortedByDescending { entry -> entry.value }
+                        val topSorted = cycleData[i].pulseTimes.sortedByDescending { entry -> entry.value }
                         val rootObj = JSONObject()
                         val contentObj = JSONObject()
                         for (j in 0 until 5) {
@@ -118,14 +118,14 @@ class Grafana : StartupListener {
                         }
                         rootObj["pulses"] = contentObj
                         setString(1, rootObj.toJSONString())
-                        setInt(2, core.integration.grafana.Grafana.cycleData[i].timeSecs)
+                        setInt(2, cycleData[i].timeSecs)
                         execute()
                     }
                 }
 
                 with(it.prepareStatement(INSERT_PULSE_COUNT)) {
                     for (i in 0 until 50) {
-                        val topSorted = core.integration.grafana.Grafana.cycleData[i].pulseCounts.sortedByDescending { entry -> entry.value }
+                        val topSorted = cycleData[i].pulseCounts.sortedByDescending { entry -> entry.value }
                         val rootObj = JSONObject()
                         val contentObj = JSONObject()
                         for (j in 0 until 5) {
@@ -133,29 +133,29 @@ class Grafana : StartupListener {
                         }
                         rootObj["pulses"] = contentObj
                         setString(1, rootObj.toJSONString())
-                        setInt(2, core.integration.grafana.Grafana.cycleData[i].timeSecs)
+                        setInt(2, cycleData[i].timeSecs)
                         execute()
                     }
                 }
 
                 with(it.prepareStatement(INSERT_BOT_COUNT)) {
                     for (i in 0 until 50) {
-                        setInt(1, core.integration.grafana.Grafana.cycleData[i].botCount)
-                        setInt(2, core.integration.grafana.Grafana.cycleData[i].timeSecs)
+                        setInt(1, cycleData[i].botCount)
+                        setInt(2, cycleData[i].timeSecs)
                         execute()
                     }
                 }
 
                 with(it.prepareStatement(INSERT_TICK_MEAS)) {
                     for (i in 0 until 50) {
-                        setInt(1, core.integration.grafana.Grafana.cycleData[i].botPulseTime)
-                        setInt(2, core.integration.grafana.Grafana.cycleData[i].otherPulseTime)
-                        setInt(3, core.integration.grafana.Grafana.cycleData[i].npcTickTime)
-                        setInt(4, core.integration.grafana.Grafana.cycleData[i].playerTickTime)
-                        setInt(5, core.integration.grafana.Grafana.cycleData[i].playerRenderTime)
-                        setInt(6, core.integration.grafana.Grafana.cycleData[i].packetProcessTime)
-                        setInt(7, core.integration.grafana.Grafana.cycleData[i].totalTickTime - (core.integration.grafana.Grafana.cycleData[i].botPulseTime + core.integration.grafana.Grafana.cycleData[i].otherPulseTime + core.integration.grafana.Grafana.cycleData[i].npcTickTime + core.integration.grafana.Grafana.cycleData[i].playerTickTime + core.integration.grafana.Grafana.cycleData[i].playerRenderTime + core.integration.grafana.Grafana.cycleData[i].packetProcessTime))
-                        setInt(8, core.integration.grafana.Grafana.cycleData[i].timeSecs)
+                        setInt(1, cycleData[i].botPulseTime)
+                        setInt(2, cycleData[i].otherPulseTime)
+                        setInt(3, cycleData[i].npcTickTime)
+                        setInt(4, cycleData[i].playerTickTime)
+                        setInt(5, cycleData[i].playerRenderTime)
+                        setInt(6, cycleData[i].packetProcessTime)
+                        setInt(7, cycleData[i].totalTickTime - (cycleData[i].botPulseTime + cycleData[i].otherPulseTime + core.integration.grafana.Grafana.cycleData[i].npcTickTime + core.integration.grafana.Grafana.cycleData[i].playerTickTime + core.integration.grafana.Grafana.cycleData[i].playerRenderTime + core.integration.grafana.Grafana.cycleData[i].packetProcessTime))
+                        setInt(8, cycleData[i].timeSecs)
                         execute()
                     }
                 }

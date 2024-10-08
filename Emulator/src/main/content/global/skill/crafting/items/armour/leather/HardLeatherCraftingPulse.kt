@@ -45,9 +45,9 @@ class HardLeatherCraftingPulse(player: Player?, node: Item?, var amount: Int) : 
             addItem(player, item.id, item.amount)
             rewardXP(player, Skills.CRAFTING, 35.0)
             sendMessage(player, "You make a hard leather body.")
-            LeatherUtils.decayThread(player)
-            if (LeatherUtils.isLastThread(player)) {
-                LeatherUtils.removeThread(player)
+            Thread.decayThread(player)
+            if (Thread.isLastThread(player)) {
+                Thread.removeThread(player)
             }
         }
         amount--

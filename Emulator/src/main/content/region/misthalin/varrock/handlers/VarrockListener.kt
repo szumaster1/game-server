@@ -154,11 +154,7 @@ class VarrockListener : InteractionListener {
             when (node.id) {
                 26810 -> {
                     if (!inEquipment(player, Items.VARROCK_ARMOUR_3_11758) && player.location.x <= 3143) {
-                        sendNPCDialogue(
-                            player,
-                            NPCs.HEAD_CHEF_847,
-                            "The bank's closed. You just can't get the staff these days."
-                        )
+                        sendNPCDialogue(player, NPCs.HEAD_CHEF_847, "The bank's closed. You just can't get the staff these days.")
                     } else if (getStatLevel(player, Skills.COOKING) == 99) {
                         DoorActionHandler.handleAutowalkDoor(player, node.asScenery())
                     } else {
@@ -386,6 +382,16 @@ class VarrockListener : InteractionListener {
 
         setDest(IntType.NPC, intArrayOf(SAWMILL_OPERATOR), "talk-to", "buy-plank", "trade") { _, _ ->
             return@setDest Location.create(3302, 3491, 0)
+        }
+
+        on(Scenery.VARROCK_CENSUS_37209, IntType.SCENERY, "read") { player, _ ->
+            sendPlayerDialogue(player, "Hmm. The Varrock Census - year 160. That means it's nine years out of date.")
+            addDialogueAction(player) { _, buttonID ->
+                if (buttonID == 6) {
+                    openInterface(player, Components.VM_LECTERN_794)
+                }
+            }
+            return@on true
         }
     }
 

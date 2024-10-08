@@ -9,7 +9,7 @@ import core.game.interaction.InteractionListener
 /**
  * Represents the Chest listener.
  */
-class ChestObjectListener : InteractionListener {
+class SpecialChestListener : InteractionListener {
 
     override fun defineListeners() {
 

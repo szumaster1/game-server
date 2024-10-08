@@ -1,6 +1,6 @@
 package content.global.skill.crafting.items.armour.snakeskin
 
-import content.global.skill.crafting.items.armour.leather.LeatherUtils
+import content.global.skill.crafting.items.armour.leather.Thread
 import core.api.*
 import core.game.node.entity.player.Player
 import core.game.node.entity.skill.SkillPulse
@@ -50,9 +50,9 @@ class SnakeskinCraftingPulse(player: Player?, node: Item?, var amount: Int, val 
             val item = Item(skin.product, amount)
             player.inventory.add(item)
             rewardXP(player, Skills.CRAFTING, skin.experience)
-            LeatherUtils.decayThread(player)
-            if (LeatherUtils.isLastThread(player)) {
-                LeatherUtils.removeThread(player)
+            Thread.decayThread(player)
+            if (Thread.isLastThread(player)) {
+                Thread.removeThread(player)
             }
         }
         amount--

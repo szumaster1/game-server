@@ -30,6 +30,7 @@ class EdgevilleListener : InteractionListener {
          */
 
         on(Scenery.TRAPDOOR_12267, IntType.SCENERY, "open") { player, _ ->
+            animate(player, Animations.OPEN_CHEST_536)
             setVarbit(player, 1888, 1)
             return@on true
         }
