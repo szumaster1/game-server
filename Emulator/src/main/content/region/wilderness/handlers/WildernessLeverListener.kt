@@ -1,62 +1,64 @@
 package content.region.wilderness.handlers
 
 import core.api.*
-import org.rs.consts.NPCs
-import org.rs.consts.Sounds
 import core.game.dialogue.DialogueFile
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
+import core.game.interaction.QueueStrength
 import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.TeleportManager
+import core.game.node.entity.player.link.TeleportManager.TeleportType
 import core.game.system.task.Pulse
 import core.game.world.GameWorld.Pulser
 import core.game.world.map.Location
+import org.rs.consts.Animations
+import org.rs.consts.NPCs
+import org.rs.consts.Scenery
+import org.rs.consts.Sounds
 
 class WildernessLeverListener : InteractionListener {
 
-    private val leverIds = intArrayOf(1814, 1815, 5959, 5960, 9706, 9707)
+    private val leverIDs = intArrayOf(1814, 1815, 5959, 5960, 9706, 9707)
+    private val kbdleverIDs = intArrayOf(Scenery.LEVER_1816, Scenery.LEVER_1817)
 
     private fun teleport(player: Player, location: Location?) {
-        player.teleporter.send(location, TeleportManager.TeleportType.NORMAL, TeleportManager.WILDY_TELEPORT)
+        player.teleporter.send(Location.create(2272, 4680, 0), TeleportManager.TeleportType.NORMAL, TeleportManager.WILDY_TELEPORT)
     }
 
     override fun defineListeners() {
-        on(leverIds, IntType.SCENERY, "pull") { player, node ->
-            when (node.id) {
-                1814 -> {
-                    openDialogue(player, object : DialogueFile() {
-                        override fun handle(componentID: Int, buttonID: Int) {
-                            when (stage) {
-                                0 -> sendDialogue(player, "Warning! Pulling the lever will teleport you deep into the wilderness.").also { stage++ }
-                                1 -> options("Yes I'm brave.", "Eep! The wilderness... No thank you.").also { stage++ }
-                                2 -> when (buttonID) {
-                                    1 -> {
-                                        closeDialogue(player)
-                                        lock(player, 2)
-                                        animate(player, 2140)
-                                        playAudio(player, Sounds.LEVER_2400)
-                                        sendMessage(player, "You pull the lever...")
-                                        Pulser.submit(object : Pulse(2, player) {
-                                            override fun pulse(): Boolean {
-                                                if (player.timers.getTimer("teleblock") == null) {
-                                                    teleport(player, Location(3154, 3923, 0))
-                                                    sendMessage(player, "...And teleport into the wilderness.")
-                                                } else {
-                                                    sendMessage(
-                                                        player, "A magical force has stopped you from teleporting."
-                                                    )
-                                                }
-                                                return true
-                                            }
-                                        })
-                                    }
 
-                                    2 -> end()
+        /*
+         * Handles levers to / at Wilderness.
+         */
+        on(leverIDs, IntType.SCENERY, "pull") { player, node ->
+            when (node.id) {
+                1814 -> openDialogue(player, object : DialogueFile() {
+                    override fun handle(componentID: Int, buttonID: Int) {
+                        when (stage) {
+                            0 -> sendDialogue(player, "Warning! Pulling the lever will teleport you deep into the wilderness.").also { stage++ }
+                            1 -> options("Yes I'm brave.", "Eep! The wilderness... No thank you.").also { stage++ }
+                            2 -> when (buttonID) {
+                                1 -> {
+                                    end()
+                                    lock(player, 2)
+                                    animate(player, Animations.PULL_DOWN_LEVER_2140)
+                                    playAudio(player, Sounds.LEVER_2400)
+                                    sendMessage(player, "You pull the lever...")
+                                    queueScript(player, 2, QueueStrength.WEAK) {
+                                        if (player.timers.getTimer("teleblock") == null) {
+                                            teleport(player, Location(3154, 3923, 0))
+                                            sendMessage(player, "...And teleport into the wilderness.")
+                                        } else {
+                                            sendMessage(player, "A magical force has stopped you from teleporting.")
+                                        }
+                                        return@queueScript stopExecuting(player)
+                                    }
                                 }
+                                2 -> end()
                             }
                         }
-                    })
-                }
+                    }
+                })
 
                 1815, 5959, 5960, 9706, 9707 -> {
                     if (!player.savedData.activityData.hasKilledKolodion() && node.id == 9706) {
@@ -64,7 +66,7 @@ class WildernessLeverListener : InteractionListener {
                         return@on false
                     }
                     lock(player, 2)
-                    animate(player, 2140)
+                    animate(player, Animations.PULL_DOWN_LEVER_2140)
                     playAudio(player, Sounds.LEVER_2400)
                     sendMessage(player, "You pull the lever...")
                     Pulser.submit(object : Pulse(2, player) {
@@ -103,6 +105,35 @@ class WildernessLeverListener : InteractionListener {
                 }
             }
 
+            return@on true
+        }
+
+        /*
+         * Lever to / from KBD Lair.
+         */
+
+        on(kbdleverIDs, IntType.SCENERY, "pull") { player, node ->
+            sendMessage(player, "You pull the lever...")
+            animate(player, 2140, false)
+            playAudio(player, Sounds.LEVER_2400)
+            when (node.id) {
+                Scenery.LEVER_1816 -> if (node.location == Location.create(3067, 10252, 0)) {
+                    if (player.zoneMonitor.isInZone("Wilderness") && hasTimerActive(player, "teleblock")) {
+                        sendMessage(player, "A magical force has stopped you from teleporting.")
+                    } else {
+                        sendMessageWithDelay(player, "... and teleport into the lair of the King Black Dragon!", 5)
+                        player.teleporter.send(
+                            Location.create(2272, 4680, 0),
+                            TeleportType.NORMAL,
+                            TeleportManager.WILDY_TELEPORT
+                        )
+                    }
+                }
+                Scenery.LEVER_1817 -> {
+                    player.teleporter.send(Location.create(3067, 10253, 0), TeleportType.NORMAL)
+                    sendMessageWithDelay(player, "... and teleport out of the lair of the King Black Dragon!", 5)
+                }
+            }
             return@on true
         }
     }

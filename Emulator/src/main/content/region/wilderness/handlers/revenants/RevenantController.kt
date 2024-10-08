@@ -252,12 +252,12 @@ class RevenantController : TickListener, Commands {
     }
 
     override fun defineCommands() {
-        define("setrevcap", Privilege.ADMIN) { player, strings ->
+        define("setrevcap", Privilege.ADMIN) { _, strings ->
             val amt = strings[1].toInt()
             expectedRevAmount = amt
         }
 
-        define("listrevs", Privilege.ADMIN) { player, strings ->
+        define("listrevs", Privilege.ADMIN) { _, _ ->
             for (rev in trackedRevenants) {
                 log(this::class.java, Log.FINE, "REV ${rev.id}-${rev.name} @ ${rev.location.toString()}")
             }

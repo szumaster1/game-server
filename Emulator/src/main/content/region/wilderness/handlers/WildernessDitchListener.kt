@@ -16,7 +16,7 @@ import core.game.world.update.flag.context.Animation
 import org.rs.consts.Animations
 import org.rs.consts.Sounds
 
-class WildernessListener : InteractionListener {
+class WildernessDitchListener : InteractionListener {
 
     override fun defineListeners() {
 

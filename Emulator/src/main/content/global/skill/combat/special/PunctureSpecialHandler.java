@@ -11,7 +11,7 @@ import core.game.world.update.flag.context.Graphic;
 import core.plugin.Initializable;
 import core.plugin.Plugin;
 import core.tools.RandomFunction;
-import org.rs.consts.Animations;
+import org.rs.consts.Graphics;
 import org.rs.consts.Items;
 import org.rs.consts.Sounds;
 
@@ -32,12 +32,12 @@ public final class PunctureSpecialHandler extends MeleeSwingHandler implements P
 	/**
 	 * The attack animation.
 	 */
-	private static final Animation ANIMATION = new Animation(Animations.SMITHING_WITH_SC_HAMMER_11062, Priority.HIGH);
+	private static final Animation ANIMATION = new Animation(1062, Priority.HIGH);
 
 	/**
 	 * The graphic.
 	 */
-	private static final Graphic GRAPHIC = new Graphic(252, 96);
+	private static final Graphic GRAPHIC = new Graphic(Graphics.DRAGON_DAGGER_SPECIAL_252, 96);
 
 	@Override
 	public Object fireEvent(String identifier, Object... args) {

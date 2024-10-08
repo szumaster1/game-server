@@ -13,6 +13,7 @@ import core.game.node.entity.player.link.prayer.PrayerType
 import core.game.world.map.zone.impl.WildernessZone
 import core.game.world.update.flag.context.Animation
 import core.game.world.update.flag.context.Graphic
+import org.rs.consts.Graphics
 
 /**
  * Represents the Revenant combat handler.
@@ -76,8 +77,8 @@ class RevenantCombatHandler(meleeAnimation: Animation?, magicAnimation: Animatio
     }
 
     companion object {
-        private val MAGIC_GRAPHIC: Graphic = Graphic.create(1276)
-        private val RANGE_GRAPHIC: Graphic = Graphic.create(1278)
+        private val MAGIC_GRAPHIC: Graphic = Graphic.create(Graphics.PUFF_OF_GREY_1276)
+        private val RANGE_GRAPHIC: Graphic = Graphic.create(Graphics.BIT_OF_WATER_1278)
 
         fun createProjectile(graphic: Graphic): Projectile {
             return Projectile.create(null, null, graphic.id, 48, 36, 34, 20)
