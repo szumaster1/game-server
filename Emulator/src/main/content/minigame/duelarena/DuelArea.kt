@@ -232,7 +232,7 @@ class DuelArea
             e.properties.spawnLocation = RandomFunction.getRandomElement<Location>(RESPAWN_LOCATIONS)
             e.asPlayer().interaction.remove(DuelArenaActivity.CHALLENGE_OPTION)
             e.asPlayer().interaction.set(FIGHT_OPTION)
-        } else if (e is content.global.skill.summoning.familiar.Familiar) {
+        } else if (e is Familiar) {
             val f = e
             val o = f.owner
             if (o != null && !o.familiarManager.hasPet()) {

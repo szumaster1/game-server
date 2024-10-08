@@ -12,7 +12,6 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.entity.npc.NPC
 import core.game.world.map.Location
-import core.tools.RandomFunction
 import org.rs.consts.QuestName
 
 class DorgeshuunListener : InteractionListener {
@@ -53,8 +52,7 @@ class DorgeshuunListener : InteractionListener {
          */
 
         onUseWith(IntType.NPC, Items.BROOCH_5008, NPCs.MISTAG_2084) { player, used, _ ->
-            val randomHelm: Int = RandomFunction.getRandomElement(arrayOf(Items.MINING_HELMET_5013, Items.MINING_HELMET_5014))
-
+            val randomReward = arrayOf(Items.MINING_HELMET_5013, Items.MINING_HELMET_5014).random()
             if (isQuestComplete(player, QuestName.THE_LOST_TRIBE) && !removeItem(player, used.asItem(), Container.INVENTORY)) {
                 sendMessage(player, "Nothing interesting happens.")
                 return@onUseWith true
@@ -67,8 +65,8 @@ class DorgeshuunListener : InteractionListener {
                             1 -> npc(FacialExpression.OLD_NORMAL, "Yes! I thought I'd lost it. Thank you. Have one of these", "helmets. It will be useful if you want to work in the mine.").also { stage++ }
                             2 -> {
                                 end()
-                                addItemOrDrop(player, randomHelm, 1)
-                                sendItemDialogue(player, randomHelm, "Mistag hands you a Mining helmet.")
+                                addItemOrDrop(player, randomReward, 1)
+                                sendItemDialogue(player, randomReward, "Mistag hands you a Mining helmet.")
                             }
                         }
                     }

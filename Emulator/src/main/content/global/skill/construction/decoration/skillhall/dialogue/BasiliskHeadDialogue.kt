@@ -5,7 +5,6 @@ import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC
 import core.tools.END_DIALOGUE
-import core.tools.RandomFunction
 import org.rs.consts.NPCs
 
 /**
@@ -13,10 +12,10 @@ import org.rs.consts.NPCs
  */
 class BasiliskHeadDialogue : DialogueFile() {
 
-    private val randomWord_0 = RandomFunction.getRandomElement(arrayOf("boring", "fat", "hideous", "puny", "smelly", "stupid"))
-    private val randomWord_1 = RandomFunction.getRandomElement(arrayOf("beetle", "chicken", "egg", "mud", "slime", "worm"))
-    private val randomWord_2 = RandomFunction.getRandomElement(arrayOf("brained", "eating", "like", "loving", "smelling", "witted"))
-    private val randomWord_3 = RandomFunction.getRandomElement(arrayOf("basilisk", "idiot", "lizard", "mudworm", "slimeball", "weakling"))
+    private val randomWordA = arrayOf("boring", "fat", "hideous", "puny", "smelly", "stupid").random()
+    private val randomWordB = arrayOf("beetle", "chicken", "egg", "mud", "slime", "worm").random()
+    private val randomWordC = arrayOf("brained", "eating", "like", "loving", "smelling", "witted").random()
+    private val randomWordD = arrayOf("basilisk", "idiot", "lizard", "mudworm", "slimeball", "weakling").random()
 
     override fun handle(componentID: Int, buttonID: Int) {
         npc = NPC(NPCs.BASILISK_4228)
@@ -35,7 +34,7 @@ class BasiliskHeadDialogue : DialogueFile() {
                 4 -> playerl(FacialExpression.FRIENDLY, "Nothing.").also { stage = END_DIALOGUE }
             }
             3 -> npcl(FacialExpression.CHILD_FRIENDLY, "All right. Go on then.").also { stage++ }
-            4 -> playerl(FacialExpression.FRIENDLY, "You're a $randomWord_0 $randomWord_1 $randomWord_2 $randomWord_3.").also { stage++ }
+            4 -> playerl(FacialExpression.FRIENDLY, "You're a $randomWordA $randomWordB $randomWordC $randomWordD.").also { stage++ }
             5 -> npcl(FacialExpression.CHILD_SAD, "I'm going back to sleep.").also { stage = END_DIALOGUE }
             6 -> npcl(FacialExpression.CHILD_FRIENDLY, "Go on then.").also { stage++ }
             7 -> playerl(FacialExpression.FRIENDLY, "I'm, um, very sorry I killed you.").also { stage++ }

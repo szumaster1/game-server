@@ -15,6 +15,8 @@ import core.game.world.map.Location
 import core.game.world.update.flag.context.Graphic
 import core.tools.END_DIALOGUE
 import core.tools.RandomFunction
+import org.rs.consts.Graphics
+import org.rs.consts.QuestName
 
 /**
  * NPC contact interface listener.
@@ -124,17 +126,14 @@ class NPCContactInterface : InterfaceListener {
      * Cyrisus.
      */
     class Cyrisus: DialogueFile() {
-        private val randomConversation = RandomFunction.getRandomElement(arrayOf(1, 2, 3, 4, 5, 6))
         override fun handle(componentID: Int, buttonID: Int) {
             npc = NPC(NPCs.CYRISUS_8279)
-            if (randomConversation == 1) {
-                when (stage) {
+            when ((0..5).random()) {
+                0 -> when (stage) {
                     0 -> playerl(FacialExpression.FRIENDLY, "Hi, Cyrisus. I'm contacting you using magic.").also { stage++ }
                     1 -> npcl(FacialExpression.FRIENDLY, "I'm quite familiar with it. Can I help with something?").also { stage = END_DIALOGUE }
                 }
-            }
-            if (randomConversation == 2) {
-                when (stage) {
+                1 -> when (stage) {
                     0 -> playerl(FacialExpression.FRIENDLY, "Hello!").also { stage++ }
                     1 -> npcl(FacialExpression.FRIENDLY, "Oh, hi.").also { stage++ }
                     2 -> playerl(FacialExpression.FRIENDLY, "What adventure are you now on?").also { stage++ }
@@ -143,9 +142,7 @@ class NPCContactInterface : InterfaceListener {
                     5 -> npcl(FacialExpression.FRIENDLY, "I've already thought of that. I've arranged for a couple of the slayer masters to join me.").also { stage++ }
                     6 -> playerl(FacialExpression.FRIENDLY, "Wow! I wish I could witness that!").also { stage = END_DIALOGUE }
                 }
-            }
-            if (randomConversation == 3) {
-                when (stage) {
+                2 -> when (stage) {
                     0 -> playerl(FacialExpression.FRIENDLY, "Hello again!").also { stage++ }
                     1 -> npcl(FacialExpression.FRIENDLY, "That's funny, I was just talking about you.").also { stage++ }
                     2 -> playerl(FacialExpression.FRIENDLY, "You were?").also { stage++ }
@@ -154,9 +151,7 @@ class NPCContactInterface : InterfaceListener {
                     5 -> npcl(FacialExpression.FRIENDLY, "Sorry, that's top secret information.").also { stage++ }
                     6 -> playerl(FacialExpression.FRIENDLY, "That's fine, I understand.").also { stage = END_DIALOGUE }
                 }
-            }
-            if (randomConversation == 4) {
-                when (stage) {
+                3 -> when (stage) {
                     0 -> playerl(FacialExpression.FRIENDLY, "Hi there, where are you now?").also { stage++ }
                     1 -> npcl(FacialExpression.FRIENDLY, "I am in the clan wars free for all arena: the one with the pretty red portal. I'm meeting lots of interesting people.").also { stage++ }
                     2 -> playerl(FacialExpression.FRIENDLY, "Oh? That's a funny place to meet people.").also { stage++ }
@@ -165,9 +160,7 @@ class NPCContactInterface : InterfaceListener {
                     5 -> npcl(FacialExpression.FRIENDLY, "Oh yes, they did try that. So I killed all of them instead. But it was very nice to meet them anyway.").also { stage++ }
                     6 -> playerl(FacialExpression.FRIENDLY, "I guess you're fine.").also { stage = END_DIALOGUE }
                 }
-            }
-            if (randomConversation == 5) {
-                when (stage) {
+                4 -> when (stage) {
                     0 -> playerl(FacialExpression.FRIENDLY, "Hey. How's it going?").also { stage++ }
                     1 -> npcl(FacialExpression.FRIENDLY, "Summoning, summoning and more summoning!").also { stage++ }
                     2 -> playerl(FacialExpression.FRIENDLY, "Really? Nice one. SO what's your choice of a pet at the moment?").also { stage++ }
@@ -176,9 +169,7 @@ class NPCContactInterface : InterfaceListener {
                     5 -> npcl(FacialExpression.FRIENDLY, "It's certainly taken a lot of hard work, but it's very much worthwhile!").also { stage++ }
                     6 -> playerl(FacialExpression.FRIENDLY, "I'll bet!").also { stage = END_DIALOGUE }
                 }
-            }
-            if (randomConversation == 6) {
-                when (stage) {
+                5 -> when (stage) {
                     0 -> playerl(FacialExpression.FRIENDLY, "Hello mate. What are you up to now?").also { stage++ }
                     1 -> npcl(FacialExpression.FRIENDLY, "Erm, I'm a bit busy at the moment.").also { stage++ }
                     2 -> playerl(FacialExpression.FRIENDLY, "Oooh, I bet you're travelling the seas. Or maybe you're visiting world leaders?").also { stage++ }
@@ -366,18 +357,15 @@ class NPCContactInterface : InterfaceListener {
      */
     class KGPAgent : DialogueFile() {
 
-        private val randomConversation = RandomFunction.getRandomElement(arrayOf(1, 2))
         override fun handle(componentID: Int, buttonID: Int) {
             npc = NPC(NPCs.KGP_AGENT_5441)
-            if (randomConversation == 1) {
-                when (stage) {
+            when ((0..1).random()) {
+                0 -> when (stage) {
                     0 -> playerl(FacialExpression.FRIENDLY, "Anyone there?").also { stage++ }
                     1 -> npcl(FacialExpression.CHILD_NORMAL, "INTRUDER! Red alert! Batten down the hatches! DIVE, DIVE, DIVE!").also { stage++ }
                     2 -> playerl(FacialExpression.FRIENDLY, "Err, maybe I'll call back later.").also { stage = END_DIALOGUE }
                 }
-            }
-            if (randomConversation == 2) {
-                when (stage) {
+                1 -> when (stage) {
                     0 -> player("Hello.").also { stage++ }
                     1 -> npcl(FacialExpression.CHILD_NORMAL, "The fish cannot ride the gravy train.").also { stage++ }
                     2 -> player("Sorry?").also { stage++ }
@@ -475,7 +463,7 @@ class NPCContactInterface : InterfaceListener {
             when (stage) {
                 0 -> player("Hi there.").also { stage++ }
                 1 -> {
-                    if (!isQuestComplete(player!!, "My Arm's Big Adventure")) {
+                    if (!isQuestComplete(player!!, QuestName.MY_ARMS_BIG_ADVENTURE)) {
                         npcl(FacialExpression.CHILD_FRIENDLY, "Is dat you, ${player!!.username}? My Arm can hear you but you not here.").also { stage++ }
                     } else {
                         npcl(FacialExpression.CHILD_THINKING, "Voice in my head?").also { stage = 3 }
@@ -550,7 +538,7 @@ class NPCContactInterface : InterfaceListener {
             when (stage) {
                 0 -> {
                     player("Hello!")
-                    visualize(player!!, -1, Graphic(157, 50))
+                    visualize(player!!, -1, Graphic(Graphics.PRAYER_BOOK_PROJECTILE_157, 50))
                     stage++
                 }
                 1 -> player(FacialExpression.SCARED,"Ow!").also { stage++ }
