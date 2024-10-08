@@ -42,8 +42,8 @@ class FirePotteryPulse(player: Player?, node: Item?, val pottery: Pottery, var a
             val item = pottery.product
             addItem(player, item.id, item.amount)
             rewardXP(player, Skills.CRAFTING, pottery.fireExp)
-            sendMessage(player, "You put the " + pottery.unfinished.name.lowercase() + " in the oven.")
-            sendMessage(player, "You remove a " + pottery.product.name.lowercase() + " from the oven.")
+            sendMessage(player, "You put the " + getItemName(pottery.unfinished.id).lowercase() + " in the oven.")
+            sendMessage(player, "You remove a " + getItemName(pottery.product.id).lowercase() + " from the oven.")
 
             /*
              * Spin a bowl on the pottery wheel and fire it in the oven in Barbarian Village.

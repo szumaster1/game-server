@@ -3,6 +3,15 @@ package content.global.skill.crafting.pottery
 import core.game.node.item.Item
 import org.rs.consts.Items
 
+/**
+ * Represents the different types of pottery items.
+ *
+ * @property unfinished The unfinished item id.
+ * @property product The final product item id after crafting.
+ * @property level The required crafting level to create the item.
+ * @property exp The experience gained from crafting the item.
+ * @property fireExp The experience gained from firing the item.
+ */
 enum class Pottery(val unfinished: Item, val product: Item, val level: Int, val exp: Double, val fireExp: Double) {
     POT(
         unfinished = Item(Items.UNFIRED_POT_1787),
@@ -41,6 +50,12 @@ enum class Pottery(val unfinished: Item, val product: Item, val level: Int, val 
     );
 
     companion object {
+        /**
+         * Get a [Pottery] item by its [unfinished] id.
+         *
+         * @param id The id of the unfinished item.
+         * @return The corresponding `Pottery` enum constant or `null` if not found.
+         */
         @JvmStatic
         fun forId(id: Int): Pottery? {
             return values().find { it.unfinished.id == id }
