@@ -1,5 +1,6 @@
 package content.global.handlers.item
 
+import core.api.sendMessages
 import core.api.submitIndividualPulse
 import core.game.dialogue.SkillDialogueHandler
 import core.game.interaction.NodeUsageEvent
@@ -79,7 +80,7 @@ class SoftclayPlugin : UseWithHandler(Items.CLAY_434) {
         if (player.inventory.containsItem(clayId) && player.inventory.containsItem(removeItem)) {
             player.inventory.remove(removeItem)
             player.inventory.remove(clayId)
-            player.packetDispatch.sendMessage("You mix the clay and water. You now have some soft, workable clay.")
+            sendMessages(player, "You mix the clay and water.", "You now have some soft, workable clay.")
             player.inventory.add(softClay)
             player.inventory.add(returnItem)
             return true

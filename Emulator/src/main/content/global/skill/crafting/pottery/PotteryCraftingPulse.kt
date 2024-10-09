@@ -26,7 +26,7 @@ class PotteryCraftingPulse(player: Player?, node: Item?, var amount: Int, val po
             return false
         }
         if (!inInventory(player, Items.SOFT_CLAY_1761, 1)) {
-            sendMessage(player, "You need soft clay in order to do this.")
+            sendMessage(player, "You have run out of clay.")
             return false
         }
         return true
@@ -49,7 +49,7 @@ class PotteryCraftingPulse(player: Player?, node: Item?, var amount: Int, val po
             val item = pottery.unfinished
             addItem(player, item.id, item.amount)
             rewardXP(player, Skills.CRAFTING, pottery.exp)
-            sendMessage(player, "You make the soft clay into " + (if (StringUtils.isPlusN(pottery.unfinished.name)) "an" else "a") + " " + pottery.unfinished.name.lowercase() + ".")
+            sendMessage(player, "You make the clay into " + (if (StringUtils.isPlusN(pottery.unfinished.name)) "an" else "a") + " " + pottery.unfinished.name.lowercase() + ".")
 
             if (pottery == Pottery.POT && withinDistance(player, Location(3086, 3410, 0))) {
                 finishDiaryTask(player, DiaryType.LUMBRIDGE, 0, 7)
@@ -60,7 +60,7 @@ class PotteryCraftingPulse(player: Player?, node: Item?, var amount: Int, val po
     }
 
     companion object {
-        private val ANIMATION = Animation.create(Animations.HUMAN_COOKING_RANGE_896)
-        private val SOFT_CLAY = Item(Items.SOFT_CLAY_1761)
+        private const val ANIMATION = Animations.HUMAN_COOKING_RANGE_896
+        private const val SOFT_CLAY = Items.SOFT_CLAY_1761
     }
 }
