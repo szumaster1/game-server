@@ -1,5 +1,7 @@
 package content.global.skill.summoning.familiar.npc
 
+import content.global.skill.summoning.familiar.Familiar
+import content.global.skill.summoning.familiar.FamiliarSpecial
 import core.game.node.entity.Entity
 import core.game.node.entity.combat.ImpactHandler.HitsplatType
 import core.game.node.entity.combat.equipment.WeaponInterface
@@ -15,13 +17,13 @@ import org.rs.consts.NPCs
  */
 @Initializable
 class VampireBatNPC @JvmOverloads constructor(owner: Player? = null, id: Int = NPCs.VAMPIRE_BAT_6835) :
-    content.global.skill.summoning.familiar.Familiar(owner, id, 3300, 12053, 4, WeaponInterface.STYLE_CONTROLLED) {
+    Familiar(owner, id, 3300, 12053, 4, WeaponInterface.STYLE_CONTROLLED) {
 
-    override fun construct(owner: Player, id: Int): content.global.skill.summoning.familiar.Familiar {
+    override fun construct(owner: Player, id: Int): Familiar {
         return VampireBatNPC(owner, id)
     }
 
-    override fun specialMove(special: content.global.skill.summoning.familiar.FamiliarSpecial): Boolean {
+    override fun specialMove(special: FamiliarSpecial): Boolean {
         val target = special.node as Entity
         if (!canCombatSpecial(target)) {
             return false

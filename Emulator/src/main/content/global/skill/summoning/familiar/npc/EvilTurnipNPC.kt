@@ -1,5 +1,8 @@
 package content.global.skill.summoning.familiar.npc
 
+import content.global.skill.summoning.familiar.Familiar
+import content.global.skill.summoning.familiar.FamiliarSpecial
+import content.global.skill.summoning.familiar.Forager
 import core.game.node.entity.Entity
 import core.game.node.entity.combat.equipment.WeaponInterface
 import core.game.node.entity.impl.Projectile
@@ -18,21 +21,14 @@ import kotlin.math.floor
  */
 @Initializable
 class EvilTurnipNPC(owner: Player? = null, id: Int = NPCs.EVIL_TURNIP_6833) :
-    content.global.skill.summoning.familiar.Forager(
-        owner,
-        id,
-        3000,
-        12051,
-        6,
-        WeaponInterface.STYLE_RANGE_ACCURATE,
-        EVIL_TURNIP
-    ) {
 
-    override fun construct(owner: Player, id: Int): content.global.skill.summoning.familiar.Familiar {
+    Forager(owner, id, 3000, 12051, 6, WeaponInterface.STYLE_RANGE_ACCURATE, EVIL_TURNIP) {
+
+    override fun construct(owner: Player, id: Int): Familiar {
         return EvilTurnipNPC(owner, id)
     }
 
-    override fun specialMove(special: content.global.skill.summoning.familiar.FamiliarSpecial): Boolean {
+    override fun specialMove(special: FamiliarSpecial): Boolean {
         val target = special.node as Entity
         if (!canCombatSpecial(target)) {
             return false

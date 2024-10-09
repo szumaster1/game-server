@@ -1,5 +1,6 @@
 package content.global.skill.summoning
 
+import content.global.skill.summoning.SummoningPouch.Companion.forSlot
 import org.rs.consts.Items
 import core.api.closeInterface
 import core.api.sendInputDialogue
@@ -26,22 +27,15 @@ class SummoningCreationPlugin : ComponentPlugin() {
     override fun newInstance(arg: Any?): Plugin<Any> {
         ComponentDefinition.put(669, this)
         ComponentDefinition.put(673, this)
-        PluginManager.definePlugin(content.global.skill.summoning.SummoningCreationPlugin.ObeliskHandler())
+        PluginManager.definePlugin(ObeliskHandler())
         return this
     }
 
-    override fun handle(
-        player: Player,
-        component: Component,
-        opcode: Int,
-        button: Int,
-        slot: Int,
-        itemId: Int
-    ): Boolean {
+    override fun handle(player: Player, component: Component, opcode: Int, button: Int, slot: Int, itemId: Int): Boolean {
         when (button) {
             17, 18 -> {
                 closeInterface(player)
-                content.global.skill.summoning.SummoningCreator.configure(player, button == 17)
+                SummoningCreator.configure(player, button == 17)
                 return true
             }
         }
@@ -49,7 +43,7 @@ class SummoningCreationPlugin : ComponentPlugin() {
         when (opcode) {
             155, 196, 124, 199 -> {
                 val pouch = getPouch(component, slot)
-                content.global.skill.summoning.SummoningCreator.create(player, getItemAmount(opcode), pouch)
+                SummoningCreator.create(player, getItemAmount(opcode), pouch)
                 return true
             }
 
@@ -57,7 +51,7 @@ class SummoningCreationPlugin : ComponentPlugin() {
                 sendInputDialogue(player, true, "Enter the amount:") { value: Any ->
                     val pouch = getPouch(component, slot)
                     if (value is Int && value > 0) {
-                        content.global.skill.summoning.SummoningCreator.create(player, value, pouch)
+                        SummoningCreator.create(player, value, pouch)
                     } else {
                         sendMessage(player, "Please enter a valid integer amount greater than zero.")
                     }
@@ -65,8 +59,8 @@ class SummoningCreationPlugin : ComponentPlugin() {
                 return true
             }
 
-            166 -> content.global.skill.summoning.SummoningPouch.Companion.forSlot(if (slot > 50) slot - 1 else slot)
-                ?.let { content.global.skill.summoning.SummoningCreator.list(player, it) }
+            166 -> forSlot(if (slot > 50) slot - 1 else slot)
+                ?.let { SummoningCreator.list(player, it) }
             168 -> sendMessage(
                 player,
                 ItemDefinition.forId(content.global.skill.summoning.SummoningScroll.Companion.forId(if (slot > 50) slot - 1 else slot)!!.itemId).examine
@@ -115,7 +109,7 @@ class SummoningCreationPlugin : ComponentPlugin() {
         }
 
         override fun handle(event: NodeUsageEvent): Boolean {
-            event.player.let { content.global.skill.summoning.SummoningCreator.open(it, false) }
+            event.player.let { SummoningCreator.open(it, false) }
             return true
         }
     }

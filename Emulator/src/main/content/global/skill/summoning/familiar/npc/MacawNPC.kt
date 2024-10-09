@@ -1,5 +1,7 @@
 package content.global.skill.summoning.familiar.npc
 
+import content.global.skill.summoning.familiar.Familiar
+import content.global.skill.summoning.familiar.FamiliarSpecial
 import core.game.node.entity.player.Player
 import core.game.node.item.GroundItemManager
 import core.game.node.item.Item
@@ -21,7 +23,7 @@ class MacawNPC @JvmOverloads constructor(owner: Player? = null, id: Int = 6851) 
 
     private var specialDelay = 0
 
-    override fun construct(owner: Player, id: Int): content.global.skill.summoning.familiar.Familiar {
+    override fun construct(owner: Player, id: Int): Familiar {
         return MacawNPC(owner, id)
     }
 
@@ -33,7 +35,7 @@ class MacawNPC @JvmOverloads constructor(owner: Player? = null, id: Int = 6851) 
         return intArrayOf(6851, 6852)
     }
 
-    override fun specialMove(special: content.global.skill.summoning.familiar.FamiliarSpecial): Boolean {
+    override fun specialMove(special: FamiliarSpecial): Boolean {
         if (specialDelay > GameWorld.ticks) {
             owner.packetDispatch.sendMessage("You must wait one minute until using the macaws special again.")
             return false

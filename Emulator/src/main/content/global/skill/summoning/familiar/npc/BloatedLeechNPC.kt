@@ -1,5 +1,7 @@
 package content.global.skill.summoning.familiar.npc
 
+import content.global.skill.summoning.familiar.Familiar
+import content.global.skill.summoning.familiar.FamiliarSpecial
 import core.api.curePoison
 import core.api.removeTimer
 import core.game.node.entity.combat.ImpactHandler.HitsplatType
@@ -8,19 +10,19 @@ import core.game.node.entity.player.Player
 import core.game.node.entity.skill.Skills
 import core.plugin.Initializable
 import core.tools.RandomFunction
+import org.rs.consts.NPCs
 import kotlin.math.ceil
 
 /**
  * Bloated leech familiar.
  */
 @Initializable
-class BloatedLeechNPC @JvmOverloads constructor(owner: Player? = null, id: Int = 6843) :
-    content.global.skill.summoning.familiar.Familiar(owner, id, 3400, 12061, 6, WeaponInterface.STYLE_ACCURATE) {
-    override fun construct(owner: Player, id: Int): content.global.skill.summoning.familiar.Familiar {
+class BloatedLeechNPC @JvmOverloads constructor(owner: Player? = null, id: Int = 6843) : Familiar(owner, id, 3400, 12061, 6, WeaponInterface.STYLE_ACCURATE) {
+    override fun construct(owner: Player, id: Int): Familiar {
         return BloatedLeechNPC(owner, id)
     }
 
-    override fun specialMove(special: content.global.skill.summoning.familiar.FamiliarSpecial): Boolean {
+    override fun specialMove(special: FamiliarSpecial): Boolean {
         curePoison(owner)
         removeTimer(owner, "disease")
         for (i in Skills.SKILL_NAME.indices) {
@@ -37,6 +39,6 @@ class BloatedLeechNPC @JvmOverloads constructor(owner: Player? = null, id: Int =
     }
 
     override fun getIds(): IntArray {
-        return intArrayOf(6843, 6844)
+        return intArrayOf(NPCs.BLOATED_LEECH_6843, NPCs.BLOATED_LEECH_6844)
     }
 }

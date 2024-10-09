@@ -11,10 +11,7 @@ import org.rs.consts.NPCs
  * Karamthulhu overlord familiar.
  */
 @Initializable
-class KaramthulhuOverlordNPC @JvmOverloads constructor(
-    owner: Player? = null,
-    id: Int = NPCs.KARAMTHULHU_OVERLORD_6809
-) : Familiar(owner, id, 4400, 12023, 3, WeaponInterface.STYLE_RANGE_ACCURATE) {
+class KaramthulhuOverlordNPC @JvmOverloads constructor(owner: Player? = null, id: Int = NPCs.KARAMTHULHU_OVERLORD_6809) : Familiar(owner, id, 4400, 12023, 3, WeaponInterface.STYLE_RANGE_ACCURATE) {
 
     override fun construct(owner: Player, id: Int): Familiar {
         return KaramthulhuOverlordNPC(owner, id)

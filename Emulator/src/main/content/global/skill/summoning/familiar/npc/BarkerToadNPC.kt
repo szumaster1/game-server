@@ -1,6 +1,7 @@
 package content.global.skill.summoning.familiar.npc
 
 import content.global.skill.summoning.familiar.Familiar
+import content.global.skill.summoning.familiar.FamiliarSpecial
 import core.game.node.entity.combat.equipment.WeaponInterface
 import core.game.node.entity.player.Player
 import core.game.world.update.flag.context.Graphic
@@ -18,7 +19,7 @@ class BarkerToadNPC(owner: Player? = null, id: Int = NPCs.BARKER_TOAD_6889) :
         return BarkerToadNPC(owner, id)
     }
 
-    override fun specialMove(special: content.global.skill.summoning.familiar.FamiliarSpecial): Boolean {
+    override fun specialMove(special: FamiliarSpecial): Boolean {
         val target = special.target
         if (!canCombatSpecial(target)) {
             return false

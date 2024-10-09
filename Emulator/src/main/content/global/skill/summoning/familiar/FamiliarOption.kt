@@ -10,7 +10,7 @@ class FamiliarOption : InteractionListener {
 
     override fun defineListeners() {
         onUseWith(IntType.NPC, FOOD_ID[0], FAMILIAR_ID[1]) { player, used, with ->
-            val f = with.asNpc() as content.global.skill.summoning.familiar.Familiar as? content.global.skill.summoning.pet.Pet
+            val f = with.asNpc() as Familiar as? content.global.skill.summoning.pet.Pet
                 ?: return@onUseWith false
             player.familiarManager.eat(used.id, f)
             return@onUseWith true

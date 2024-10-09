@@ -40,10 +40,10 @@ class CockatriceFamiliarNPC : Plugin<Any> {
     /**
      * Petrifying gaze
      *
-     * @param familiar
-     * @param special
-     * @param skill
-     * @return
+     * @param familiar The familiar casting the special ability
+     * @param special The special ability details
+     * @param skill The skill level to be affected
+     * @return Returns true if the ability was successfully executed
      */
     fun petrifyingGaze(
         familiar: Familiar,

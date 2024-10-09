@@ -26,12 +26,12 @@ class SpiritKyattDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any?): Boolean {
         npc = args[0] as NPC
-        if (npc !is content.global.skill.summoning.familiar.Familiar) {
+        if (npc !is Familiar) {
             return false
         }
-        val f = npc as content.global.skill.summoning.familiar.Familiar
+        val f = npc as Familiar
         if (f.owner !== player) {
-            player.packetDispatch.sendMessage("This is not your follower.")
+            sendMessage(player, "This is not your follower.")
             return true
         } else {
             sendDialogueOptions(player, "Select an Option", "Chat", "Teleport")
@@ -57,11 +57,6 @@ class SpiritKyattDialogue(player: Player? = null) : Dialogue(player) {
     }
 }
 
-/**
- * Represents the Spirit kyatt dialogue file
- *
- * @constructor Spirit kyatt dialogue file
- */
 class SpiritKyattDialogueFile : DialogueFile() {
 
     private val randomConversation = (0..3).random()

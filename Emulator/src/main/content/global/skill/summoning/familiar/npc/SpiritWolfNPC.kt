@@ -1,5 +1,6 @@
 package content.global.skill.summoning.familiar.npc
 
+import content.global.skill.summoning.familiar.Familiar
 import core.api.playAudio
 import core.game.activity.CutscenePlugin
 import core.game.dialogue.Dialogue
@@ -21,8 +22,7 @@ import org.rs.consts.Sounds
  * Spirit wolf familiar.
  */
 @Initializable
-class SpiritWolfNPC @JvmOverloads constructor(owner: Player? = null, id: Int = 6829) :
-    content.global.skill.summoning.familiar.Familiar(owner, id, 600, 12047, 3, WeaponInterface.STYLE_ACCURATE) {
+class SpiritWolfNPC @JvmOverloads constructor(owner: Player? = null, id: Int = 6829) : Familiar(owner, id, 600, 12047, 3, WeaponInterface.STYLE_ACCURATE) {
     // Cutscene during wolf whistle.
     private var cutscene: CutscenePlugin? = null
 
@@ -32,7 +32,7 @@ class SpiritWolfNPC @JvmOverloads constructor(owner: Player? = null, id: Int = 6
         }
     }
 
-    override fun construct(owner: Player, id: Int): content.global.skill.summoning.familiar.Familiar {
+    override fun construct(owner: Player, id: Int): Familiar {
         return SpiritWolfNPC(owner, id)
     }
 
@@ -58,7 +58,7 @@ class SpiritWolfNPC @JvmOverloads constructor(owner: Player? = null, id: Int = 6
         return super.call()
     }
 
-    override fun specialMove(special: content.global.skill.summoning.familiar.FamiliarSpecial): Boolean {
+    override fun specialMove(special: FamiliarSpecial): Boolean {
         if (special.node !is NPC) {
             owner.packetDispatch.sendMessage("You can only target monsters with this special move.")
             return false

@@ -1,5 +1,7 @@
 package content.global.skill.summoning.familiar.npc
 
+import content.global.skill.summoning.familiar.Familiar
+import content.global.skill.summoning.familiar.FamiliarSpecial
 import core.game.node.entity.Entity
 import core.game.node.entity.combat.equipment.WeaponInterface
 import core.game.node.entity.player.Player
@@ -14,13 +16,13 @@ import org.rs.consts.NPCs
  */
 @Initializable
 class SpiritTzKihNPC @JvmOverloads constructor(owner: Player? = null, id: Int = NPCs.SPIRIT_TZ_KIH_7361) :
-    content.global.skill.summoning.familiar.Familiar(owner, id, 1800, 12808, 6, WeaponInterface.STYLE_CAST) {
+    Familiar(owner, id, 1800, 12808, 6, WeaponInterface.STYLE_CAST) {
 
-    override fun construct(owner: Player, id: Int): content.global.skill.summoning.familiar.Familiar {
+    override fun construct(owner: Player, id: Int): Familiar {
         return SpiritTzKihNPC(owner, id)
     }
 
-    override fun specialMove(special: content.global.skill.summoning.familiar.FamiliarSpecial): Boolean {
+    override fun specialMove(special: FamiliarSpecial): Boolean {
         val entity = getLocalEntitys(owner, 8)
         if (entity.size == 0) {
             return false

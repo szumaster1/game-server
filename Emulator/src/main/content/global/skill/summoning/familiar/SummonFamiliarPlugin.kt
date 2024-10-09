@@ -1,6 +1,7 @@
 package content.global.skill.summoning.familiar
 
 import content.global.skill.summoning.familiar.npc.IbisNPC
+import core.api.finishDiaryTask
 import core.api.getAttribute
 import core.api.isQuestComplete
 import core.api.sendMessage
@@ -33,7 +34,7 @@ class SummonFamiliarPlugin : OptionHandler() {
         }
         player.familiarManager.summon(item, false)
         if (player.familiarManager.hasFamiliar() && player.familiarManager.familiar is IbisNPC && (ZoneBorders(3011, 3222, 3017, 3229, 0).insideBorder(player) || ZoneBorders(3011, 3220, 3015, 3221, 0).insideBorder(player))) {
-            player.achievementDiaryManager.finishTask(player, DiaryType.FALADOR, 2, 9)
+            finishDiaryTask(player, DiaryType.FALADOR, 2, 9)
         }
         return true
     }

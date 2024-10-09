@@ -12,6 +12,7 @@ import core.game.world.map.RegionManager.getLocalEntitys
 import core.game.world.update.flag.context.Animation
 import core.game.world.update.flag.context.Graphic
 import core.plugin.Initializable
+import org.rs.consts.NPCs
 
 /**
  * Spirit kalphite familiar.
@@ -19,7 +20,8 @@ import core.plugin.Initializable
 @Initializable
 class SpiritKalphiteNPC @JvmOverloads constructor(owner: Player? = null, id: Int = 6994) :
     BurdenBeast(owner, id, 2200, 12063, 6, 6, WeaponInterface.STYLE_DEFENSIVE) {
-    override fun construct(owner: Player, id: Int): Familiar {
+
+        override fun construct(owner: Player, id: Int): Familiar {
         return SpiritKalphiteNPC(owner, id)
     }
 
@@ -54,6 +56,6 @@ class SpiritKalphiteNPC @JvmOverloads constructor(owner: Player? = null, id: Int
     }
 
     override fun getIds(): IntArray {
-        return intArrayOf(6994, 6995)
+        return intArrayOf(NPCs.SPIRIT_KALPHITE_6994, NPCs.SPIRIT_KALPHITE_6995)
     }
 }

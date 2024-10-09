@@ -8,6 +8,7 @@ import core.game.node.entity.skill.SkillBonus
 import core.game.node.entity.skill.Skills
 import core.game.world.update.flag.context.Graphic
 import core.plugin.Initializable
+import org.rs.consts.NPCs
 
 /**
  * Obsidian golem familiar.
@@ -35,6 +36,6 @@ class ObsidianGolemNPC @JvmOverloads constructor(owner: Player? = null, id: Int 
     }
 
     override fun getIds(): IntArray {
-        return intArrayOf(7345, 7346)
+        return intArrayOf(NPCs.OBSIDIAN_GOLEM_7345, NPCs.OBSIDIAN_GOLEM_7346)
     }
 }

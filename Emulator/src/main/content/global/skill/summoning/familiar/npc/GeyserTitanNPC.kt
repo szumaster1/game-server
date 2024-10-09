@@ -1,5 +1,7 @@
 package content.global.skill.summoning.familiar.npc
 
+import content.global.skill.summoning.familiar.Familiar
+import content.global.skill.summoning.familiar.FamiliarSpecial
 import core.game.node.entity.combat.equipment.WeaponInterface
 import core.game.node.entity.impl.Projectile
 import core.game.node.entity.player.Player
@@ -14,13 +16,14 @@ import org.rs.consts.NPCs
  */
 @Initializable
 class GeyserTitanNPC @JvmOverloads constructor(owner: Player? = null, id: Int = 7339) :
-    content.global.skill.summoning.familiar.Familiar(owner, id, 6900, 12786, 6, WeaponInterface.STYLE_RANGE_ACCURATE) {
 
-    override fun construct(owner: Player, id: Int): content.global.skill.summoning.familiar.Familiar {
+    Familiar(owner, id, 6900, 12786, 6, WeaponInterface.STYLE_RANGE_ACCURATE) {
+
+    override fun construct(owner: Player, id: Int): Familiar {
         return GeyserTitanNPC(owner, id)
     }
 
-    override fun specialMove(special: content.global.skill.summoning.familiar.FamiliarSpecial): Boolean {
+    override fun specialMove(special: FamiliarSpecial): Boolean {
         if (!canCombatSpecial(special.target)) {
             return false
         }

@@ -1,6 +1,7 @@
 package content.global.skill.summoning.familiar.npc
 
 import content.global.skill.summoning.SummoningScroll
+import content.global.skill.summoning.familiar.BurdenBeast
 import core.api.*
 import core.game.node.entity.combat.equipment.WeaponInterface
 import core.game.node.entity.player.Player
@@ -18,21 +19,13 @@ import org.rs.consts.NPCs
  */
 @Initializable
 class PackYakNPC @JvmOverloads constructor(owner: Player? = null, id: Int = NPCs.PACK_YAK_6873) :
-    content.global.skill.summoning.familiar.BurdenBeast(
-        owner,
-        id,
-        5800,
-        12093,
-        12,
-        30,
-        WeaponInterface.STYLE_AGGRESSIVE
-    ) {
+    BurdenBeast(owner, id, 5800, 12093, 12, 30, WeaponInterface.STYLE_AGGRESSIVE) {
 
-    override fun construct(owner: Player, id: Int): content.global.skill.summoning.familiar.Familiar {
+    override fun construct(owner: Player, id: Int): Familiar {
         return PackYakNPC(owner, id)
     }
 
-    override fun specialMove(special: content.global.skill.summoning.familiar.FamiliarSpecial): Boolean {
+    override fun specialMove(special: FamiliarSpecial): Boolean {
         val player = owner
         var item = Item(special.item.id, 1)
         if (item.id == SummoningScroll.WINTER_STORAGE_SCROLL.itemId) {

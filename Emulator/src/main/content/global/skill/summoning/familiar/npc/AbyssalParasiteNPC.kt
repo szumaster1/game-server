@@ -10,6 +10,7 @@ import core.game.world.update.flag.context.Animation
 import core.game.world.update.flag.context.Graphic
 import core.plugin.Initializable
 import core.tools.RandomFunction
+import org.rs.consts.NPCs
 
 /**
  * Abyssal parasite familiar.
@@ -47,6 +48,6 @@ class AbyssalParasiteNPC @JvmOverloads constructor(owner: Player? = null, id: In
     }
 
     override fun getIds(): IntArray {
-        return intArrayOf(6818, 6819)
+        return intArrayOf(NPCs.ABYSSAL_PARASITE_6818, NPCs.ABYSSAL_PARASITE_6819)
     }
 }

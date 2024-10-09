@@ -12,6 +12,7 @@ import org.rs.consts.NPCs
  */
 @Initializable
 class PrayingMantisNPC @JvmOverloads constructor(owner: Player? = null, id: Int = NPCs.PRAYING_MANTIS_6798) :
+
     Familiar(owner, id, 6900, 12011, 6, WeaponInterface.STYLE_ACCURATE) {
 
     override fun construct(owner: Player, id: Int): Familiar {

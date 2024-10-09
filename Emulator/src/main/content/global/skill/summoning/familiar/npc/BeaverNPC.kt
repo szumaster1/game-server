@@ -1,5 +1,9 @@
 package content.global.skill.summoning.familiar.npc
 
+import content.global.skill.summoning.familiar.Familiar
+import content.global.skill.summoning.familiar.FamiliarSpecial
+import content.global.skill.summoning.familiar.Forager
+import core.api.sendMessages
 import core.game.node.entity.player.Player
 import core.game.node.entity.skill.SkillBonus
 import core.game.node.entity.skill.Skills
@@ -19,21 +23,21 @@ import kotlin.math.floor
  */
 @Initializable
 class BeaverNPC @JvmOverloads constructor(owner: Player? = null, id: Int = 6808) :
-    content.global.skill.summoning.familiar.Forager(owner, id, 2700, 12021, 6, *ITEMS) {
+    Forager(owner, id, 2700, 12021, 6, *ITEMS) {
     private var multiChop = false
 
     init {
         boosts.add(SkillBonus(Skills.WOODCUTTING, 2.0))
     }
 
-    override fun construct(owner: Player, id: Int): content.global.skill.summoning.familiar.Familiar {
+    override fun construct(owner: Player, id: Int): Familiar {
         return BeaverNPC(owner, id)
     }
 
-    override fun specialMove(special: content.global.skill.summoning.familiar.FamiliarSpecial): Boolean {
+    override fun specialMove(special: FamiliarSpecial): Boolean {
         val `object` = special.node as Scenery
         if (!isTree(`object`.name)) {
-            owner.packetDispatch.sendMessages(
+            sendMessages(owner,
                 "This scroll only works on naturally growing, oak, willow, arctic pine",
                 "teak, mahogany, maple, yew, and magic trees."
             )
