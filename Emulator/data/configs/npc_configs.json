@@ -68926,6 +68926,21 @@
     "defence_level": "1",
     "lifepoints": "10",
     "strength_level": "1",
+    "id": "6970",
+    "range_level": "1",
+    "attack_level": "1"
+  },
+  {
+    "examine": "He's a very important druid.",
+    "melee_animation": "0",
+    "range_animation": "0",
+    "defence_animation": "0",
+    "magic_animation": "0",
+    "death_animation": "0",
+    "name": "Pikkupstix",
+    "defence_level": "1",
+    "lifepoints": "10",
+    "strength_level": "1",
     "id": "6971",
     "range_level": "1",
     "attack_level": "1"

@@ -5,84 +5,98 @@ import org.rs.consts.Items
 /**
  * Represents various types of enchanted headgear.
  *
+ * @param baseItem          The item id to create an empty item id.
  * @param emptyItem         The item id of the empty version of the headgear.
  * @param chargedItem       The item id of the charged version of the headgear.
  * @param scrollCapacity    The maximum amount of scrolls the headgear can hold.
  * @param requiredLevel     The required summoning level to charge the headgear.
  */
 enum class EnchantedHeadgear(
+    val baseItem: Int,
     val emptyItem: Int,
     val chargedItem: Int,
     val scrollCapacity: Int,
     val requiredLevel: Int
 ) {
     ANTLERS(
+        baseItem = Items.ANTLERS_12204,
         emptyItem = Items.ANTLERS_12204,
         chargedItem = Items.ANTLERS_CHARGED_12206,
         scrollCapacity = 40,
         requiredLevel = 10
     ),
     ADAMANT_FULL_HELM(
+        baseItem = Items.ADAMANT_FULL_HELM_1161,
         emptyItem = Items.ADAMANT_FULL_HELM_E_12658,
         chargedItem = Items.ADAMANT_FULL_HELM_CHARGED_12659,
         scrollCapacity = 50,
         requiredLevel = 20
     ),
     SLAYER_HELMET(
+        baseItem = Items.SLAYER_HELMET_13263,
         emptyItem = Items.SLAYER_HELMET_E_14636,
         chargedItem = Items.SLAYER_HELMET_CHARGED_14637,
         scrollCapacity = 50,
         requiredLevel = 20
     ),
     SNAKESKIN_BANDANA(
+        baseItem = Items.SNAKESKIN_BANDANA_6326,
         emptyItem = Items.SNAKESKIN_BANDANA_E_12660,
         chargedItem = Items.SNAKESKIN_BANDANA_CHARGED_12661,
         scrollCapacity = 50,
         requiredLevel = 20
     ),
     LIZARD_SKULL(
+        baseItem = Items.LIZARD_SKULL_12207,
         emptyItem = Items.LIZARD_SKULL_12207,
         chargedItem = Items.LIZARD_SKULL_CHARGED_12209,
         scrollCapacity = 65,
         requiredLevel = 30
     ),
     SPLITBARK_HELM(
+        baseItem = Items.SPLITBARK_HELM_3385,
         emptyItem = Items.SPLITBARK_HELM_E_12662,
         chargedItem = Items.SPLITBARK_HELM_CHARGED_12663,
         scrollCapacity = 50,
         requiredLevel = 30
     ),
     RUNE_FULL_HELM(
+        baseItem = Items.RUNE_FULL_HELM_1163,
         emptyItem = Items.RUNE_FULL_HELM_E_12664,
         chargedItem = Items.RUNE_FULL_HELM_CHARGED_12665,
         scrollCapacity = 60,
         requiredLevel = 30
     ),
     WARRIOR_HELM(
+        baseItem = Items.WARRIOR_HELM_3753,
         emptyItem = Items.WARRIOR_HELM_E_12676,
         chargedItem = Items.WARRIOR_HELM_CHARGED_12677,
         scrollCapacity = 70,
         requiredLevel = 35
     ),
     BERSERKER_HELM(
+        baseItem = Items.BERSERKER_HELM_3751,
         emptyItem = Items.BERSERKER_HELM_E_12674,
         chargedItem = Items.BERSERKER_HELM_CHARGED_12675,
         scrollCapacity = 70,
         requiredLevel = 35
     ),
     ARCHER_HELM(
+        baseItem = Items.ARCHER_HELM_3749,
         emptyItem = Items.ARCHER_HELM_E_12672,
         chargedItem = Items.ARCHER_HELM_CHARGED_12673,
         scrollCapacity = 70,
         requiredLevel = 35
     ),
     FARSEER_HELM(
+        baseItem = Items.FARSEER_HELM_3755,
         emptyItem = Items.FARSEER_HELM_E_12678,
         chargedItem = Items.FARSEER_HELM_CHARGED_12679,
         scrollCapacity = 70,
         requiredLevel = 35
     ),
     HELM_OF_NEITIZNOT(
+        baseItem = Items.HELM_OF_NEITIZNOT_10828,
         emptyItem = Items.HELM_OF_NEITIZNOT_E_12680,
         chargedItem = Items.HELM_OF_NEITIZNOT_CHARGED_12681,
         scrollCapacity = 90,
@@ -90,51 +104,74 @@ enum class EnchantedHeadgear(
     ),
 
     FEATHER_HEADDRESS_0(
+        baseItem = Items.FEATHER_HEADDRESS_12210,
         emptyItem = Items.FEATHER_HEADDRESS_12210,
         chargedItem = Items.FEATHER_HEADDRESS_CHARGED_12212,
         scrollCapacity = 150,
         requiredLevel = 50
     ),
     FEATHER_HEADDRESS_1(
+        baseItem = Items.FEATHER_HEADDRESS_12222,
         emptyItem = Items.FEATHER_HEADDRESS_12222,
         chargedItem = Items.FEATHER_HEADDRESS_CHARGED_12224,
         scrollCapacity = 150,
         requiredLevel = 50
     ),
     FEATHER_HEADDRESS_2(
+        baseItem = Items.FEATHER_HEADDRESS_12216,
         emptyItem = Items.FEATHER_HEADDRESS_12216,
         chargedItem = Items.FEATHER_HEADDRESS_CHARGED_12218,
         scrollCapacity = 150,
         requiredLevel = 50
     ),
     FEATHER_HEADDRESS_3(
+        baseItem = Items.FEATHER_HEADDRESS_12219,
         emptyItem = Items.FEATHER_HEADDRESS_12219,
         chargedItem = Items.FEATHER_HEADDRESS_CHARGED_12221,
         scrollCapacity = 150,
         requiredLevel = 50
     ),
     FEATHER_HEADDRESS_4(
+        baseItem = Items.FEATHER_HEADDRESS_12213,
         emptyItem = Items.FEATHER_HEADDRESS_12213,
         chargedItem = Items.FEATHER_HEADDRESS_CHARGED_12215,
         scrollCapacity = 150,
         requiredLevel = 50
     ),
     DRAGON_HELM(
+        baseItem = Items.DRAGON_MED_HELM_1149,
         emptyItem = Items.DRAGON_MED_HELM_E_12666,
         chargedItem = Items.DRAGON_MED_HELM_CHARGED_12667,
         scrollCapacity = 110,
         requiredLevel = 50
     ),
     LUNAR_HELM(
+        baseItem = Items.LUNAR_HELM_9096,
         emptyItem = Items.LUNAR_HELM_E_12668,
         chargedItem = Items.LUNAR_HELM_CHARGED_12669,
         scrollCapacity = 110,
         requiredLevel = 55
     ),
     ARMADYL_HELM(
+        baseItem = Items.ARMADYL_HELMET_11718,
         emptyItem = Items.ARMADYL_HELMET_E_12670,
         chargedItem = Items.ARMADYL_HELMET_CHARGED_12671,
         scrollCapacity = 120,
         requiredLevel = 60
-    )
+    );
+
+    companion object {
+
+        val values = enumValues<EnchantedHeadgear>()
+        val product = values.associateBy { it.baseItem }
+
+        /**
+         * Get the enchanted gear.
+         * @param itemId The item id.
+         * @return The gear.
+         */
+        fun forId(itemId: Int): EnchantedHeadgear? {
+            return product[itemId]
+        }
+    }
 }

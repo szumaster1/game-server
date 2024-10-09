@@ -1,3 +1,5 @@
 "You put a bowl in the oven."
 "You remove the bowl from the oven."
 "You don't have any more bowls which need firing."
+"You charge the headgear with a scroll."
+"The item contains " + scroll.amount + " charges of the " + scroll.name + " scroll."

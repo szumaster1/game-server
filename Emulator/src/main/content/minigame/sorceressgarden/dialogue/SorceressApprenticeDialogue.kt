@@ -43,7 +43,7 @@ class SorceressApprenticeDialogue(player: Player? = null) : Dialogue(player) {
                 2 -> player("Surely there must be upsides to the task?").also { stage = 19 }
             }
             15 -> npc("No, no, she'd kill me or worse if she knew I was using", "Magic to do chores. Her last apprentice - well I'd", "rather not say.").also { stage++ }
-            16 -> player("Oh go on, what happend to them?").also { stage++ }
+            16 -> player("Oh go on, what happened to them?").also { stage++ }
             17 -> npc("They say she turned them into little spiders.").also { stage++ }
             18 -> player("Oh, that's too bad. I had better leave you to it.").also { stage = END_DIALOGUE }
             19 -> npc("Nope. Clean this, clean that. When I'm finished cleaning", "here I have to go help out in the garden.").also { stage++ }
