@@ -2,6 +2,9 @@ package content.global.skill.summoning.familiar.npc
 
 import content.global.skill.farming.FarmingPatch
 import content.global.skill.farming.PatchType
+import content.global.skill.summoning.familiar.Familiar
+import content.global.skill.summoning.familiar.FamiliarSpecial
+import content.global.skill.summoning.familiar.Forager
 import core.game.interaction.NodeUsageEvent
 import core.game.interaction.UseWithHandler
 import core.game.node.entity.combat.equipment.WeaponInterface
@@ -18,21 +21,13 @@ import org.rs.consts.NPCs
  */
 @Initializable
 class GiantEntNPC @JvmOverloads constructor(owner: Player? = null, id: Int = 6800) :
-    content.global.skill.summoning.familiar.Forager(
-        owner,
-        id,
-        4900,
-        12013,
-        6,
-        WeaponInterface.STYLE_CONTROLLED,
-        *ITEMS
-    ) {
+    Forager(owner, id, 4900, 12013, 6, WeaponInterface.STYLE_CONTROLLED, *ITEMS) {
 
-    override fun construct(owner: Player, id: Int): content.global.skill.summoning.familiar.Familiar {
+    override fun construct(owner: Player, id: Int): Familiar {
         return GiantEntNPC(owner, id)
     }
 
-    override fun specialMove(special: content.global.skill.summoning.familiar.FamiliarSpecial): Boolean {
+    override fun specialMove(special: FamiliarSpecial): Boolean {
         return false
     }
 

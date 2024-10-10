@@ -1,5 +1,6 @@
 package content.global.skill.summoning.familiar.npc
 
+import content.global.skill.summoning.familiar.Familiar
 import core.game.node.entity.combat.equipment.WeaponInterface
 import core.game.node.entity.player.Player
 import core.game.node.item.GroundItemManager
@@ -17,7 +18,7 @@ import core.tools.RandomFunction
  */
 @Initializable
 class SpiritSpiderNPC @JvmOverloads constructor(owner: Player? = null, id: Int = 6841) :
-    content.global.skill.summoning.familiar.Familiar(owner, id, 1500, 12059, 6, WeaponInterface.STYLE_CONTROLLED) {
+    Familiar(owner, id, 1500, 12059, 6, WeaponInterface.STYLE_CONTROLLED) {
     // The delay until the next chance of random eggs.
     private var eggDelay = GameWorld.ticks + 500
 

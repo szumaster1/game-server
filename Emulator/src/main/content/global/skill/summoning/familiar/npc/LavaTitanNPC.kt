@@ -1,5 +1,6 @@
 package content.global.skill.summoning.familiar.npc
 
+import content.global.skill.summoning.familiar.Familiar
 import core.game.node.entity.combat.equipment.WeaponInterface
 import core.game.node.entity.player.Player
 import core.game.node.entity.skill.SkillBonus
@@ -12,7 +13,7 @@ import org.rs.consts.NPCs
  */
 @Initializable
 class LavaTitanNPC @JvmOverloads constructor(owner: Player? = null, id: Int = NPCs.LAVA_TITAN_7341) :
-    content.global.skill.summoning.familiar.Familiar(owner, id, 6100, 12788, 4, WeaponInterface.STYLE_AGGRESSIVE) {
+    Familiar(owner, id, 6100, 12788, 4, WeaponInterface.STYLE_AGGRESSIVE) {
 
     init {
         boosts.add(SkillBonus(Skills.MINING, 10.0))

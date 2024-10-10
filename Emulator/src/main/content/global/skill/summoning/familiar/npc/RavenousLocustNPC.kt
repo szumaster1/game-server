@@ -14,6 +14,7 @@ import org.rs.consts.NPCs
  */
 @Initializable
 class RavenousLocustNPC @JvmOverloads constructor(owner: Player? = null, id: Int = NPCs.RAVENOUS_LOCUST_7372) :
+
     Familiar(owner, id, 2400, 12820, 12, WeaponInterface.STYLE_ACCURATE) {
 
     override fun construct(owner: Player, id: Int): Familiar {

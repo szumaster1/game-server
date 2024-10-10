@@ -857,7 +857,7 @@ class PikkupstixDialogue(player: Player? = null) : Dialogue(player) {
     }
 
     override fun getIds(): IntArray {
-        return intArrayOf(NPCs.PIKKUPSTIX_6971)
+        return intArrayOf(NPCs.PIKKUPSTIX_6970, NPCs.PIKKUPSTIX_6971)
     }
 
     companion object {

@@ -1,5 +1,6 @@
 package content.global.skill.summoning.familiar.npc
 
+import content.global.skill.summoning.familiar.BurdenBeast
 import core.game.node.entity.combat.equipment.WeaponInterface
 import core.game.node.entity.player.Player
 import core.game.node.entity.skill.Skills
@@ -12,15 +13,7 @@ import core.plugin.Initializable
  */
 @Initializable
 class BullAntNPC @JvmOverloads constructor(owner: Player? = null, id: Int = 6867) :
-    content.global.skill.summoning.familiar.BurdenBeast(
-        owner,
-        id,
-        3000,
-        12087,
-        12,
-        9,
-        WeaponInterface.STYLE_CONTROLLED
-    ) {
+    BurdenBeast(owner, id, 3000, 12087, 12, 9, WeaponInterface.STYLE_CONTROLLED) {
     override fun construct(owner: Player, id: Int): content.global.skill.summoning.familiar.Familiar {
         return BullAntNPC(owner, id)
     }

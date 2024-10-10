@@ -1,6 +1,8 @@
 package content.global.skill.summoning.familiar.npc
 
 import content.global.skill.gather.fishing.Fish.Companion.forItem
+import content.global.skill.summoning.familiar.FamiliarSpecial
+import content.global.skill.summoning.familiar.Forager
 import core.game.node.entity.impl.Projectile
 import core.game.node.entity.player.Player
 import core.game.node.entity.skill.SkillBonus
@@ -18,7 +20,7 @@ import org.rs.consts.NPCs
  */
 @Initializable
 class GraniteLobsterNPC @JvmOverloads constructor(owner: Player? = null, id: Int = NPCs.GRANITE_LOBSTER_6849) :
-    content.global.skill.summoning.familiar.Forager(owner, id, 4700, 12069, 6) {
+    Forager(owner, id, 4700, 12069, 6) {
 
     init {
         boosts.add(SkillBonus(Skills.FISHING, 4.0))
@@ -28,7 +30,7 @@ class GraniteLobsterNPC @JvmOverloads constructor(owner: Player? = null, id: Int
         return GraniteLobsterNPC(owner, id)
     }
 
-    override fun specialMove(special: content.global.skill.summoning.familiar.FamiliarSpecial): Boolean {
+    override fun specialMove(special: FamiliarSpecial): Boolean {
         val target = special.target
         if (!canCombatSpecial(target)) {
             return false

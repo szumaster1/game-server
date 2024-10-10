@@ -13,14 +13,7 @@ import org.rs.consts.NPCs
  */
 @Initializable
 class IceTitanNPC @JvmOverloads constructor(owner: Player? = null, id: Int = NPCs.ICE_TITAN_7359) :
-    ElementalTitanNPC(
-        owner,
-        id,
-        6400,
-        12806,
-        20,
-        WeaponInterface.STYLE_ACCURATE
-    ) {
+    ElementalTitanNPC(owner, id, 6400, 12806, 20, WeaponInterface.STYLE_ACCURATE) {
 
     override fun construct(owner: Player, id: Int): content.global.skill.summoning.familiar.Familiar {
         return IceTitanNPC(owner, id)

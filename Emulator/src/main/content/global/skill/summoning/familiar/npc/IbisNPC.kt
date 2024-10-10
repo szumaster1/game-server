@@ -1,6 +1,9 @@
 package content.global.skill.summoning.familiar.npc
 
 import content.global.skill.gather.fishing.Fish
+import content.global.skill.summoning.familiar.Familiar
+import content.global.skill.summoning.familiar.FamiliarSpecial
+import content.global.skill.summoning.familiar.Forager
 import core.api.rewardXP
 import core.game.node.entity.player.Player
 import core.game.node.entity.skill.SkillBonus
@@ -22,15 +25,8 @@ import org.rs.consts.NPCs
  */
 @Initializable
 class IbisNPC @JvmOverloads constructor(owner: Player? = null, id: Int = NPCs.IBIS_6991) :
-    content.global.skill.summoning.familiar.Forager(
-        owner,
-        id,
-        3800,
-        12531,
-        12,
-        Item(Items.TUNA_361),
-        Item(Items.SWORDFISH_373)
-    ) {
+
+    Forager(owner, id, 3800, 12531, 12, Item(Items.TUNA_361), Item(Items.SWORDFISH_373)) {
 
     init {
         boosts.add(SkillBonus(Skills.FISHING, 3.0))
@@ -52,11 +48,11 @@ class IbisNPC @JvmOverloads constructor(owner: Player? = null, id: Int = NPCs.IB
         return false
     }
 
-    override fun construct(owner: Player, id: Int): content.global.skill.summoning.familiar.Familiar {
+    override fun construct(owner: Player, id: Int): Familiar {
         return IbisNPC(owner, id)
     }
 
-    override fun specialMove(special: content.global.skill.summoning.familiar.FamiliarSpecial): Boolean {
+    override fun specialMove(special: FamiliarSpecial): Boolean {
         animate(Animation.create(8201))
         Pulser.submit(object : Pulse(3, owner, this) {
             override fun pulse(): Boolean {

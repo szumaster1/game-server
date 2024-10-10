@@ -16,6 +16,9 @@ import core.game.world.update.flag.context.Graphic
 import core.plugin.Initializable
 import core.plugin.Plugin
 import core.plugin.PluginManager.definePlugin
+import org.rs.consts.Animations
+import org.rs.consts.Graphics
+import org.rs.consts.NPCs
 import org.rs.consts.Sounds
 
 /**
@@ -68,10 +71,10 @@ class UnicornStallionNPC @JvmOverloads constructor(owner: Player? = null, id: In
     }
 
     override fun visualizeSpecialMove() {
-        owner.visualize(Animation.create(7660), Graphic.create(1298))
+        owner.visualize(Animation.create(Animations.CAST_FAMILIAR_SCROLL_7660), Graphic.create(Graphics.WHITE_FAMILIAR_GRAPHIC_1298))
     }
 
     override fun getIds(): IntArray {
-        return intArrayOf(6822, 6823)
+        return intArrayOf(NPCs.UNICORN_STALLION_6822, NPCs.UNICORN_STALLION_6823)
     }
 }

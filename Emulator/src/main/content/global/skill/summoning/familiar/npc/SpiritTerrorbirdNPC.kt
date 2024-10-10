@@ -17,15 +17,7 @@ import org.rs.consts.NPCs
  */
 @Initializable
 class SpiritTerrorbirdNPC @JvmOverloads constructor(owner: Player? = null, id: Int = NPCs.SPIRIT_TERRORBIRD_6794) :
-    BurdenBeast(
-        owner,
-        id,
-        3600,
-        12007,
-        8,
-        12,
-        WeaponInterface.STYLE_CONTROLLED
-    ) {
+    BurdenBeast(owner, id, 3600, 12007, 8, 12, WeaponInterface.STYLE_CONTROLLED) {
 
     override fun construct(owner: Player, id: Int): Familiar {
         return SpiritTerrorbirdNPC(owner, id)

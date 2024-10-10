@@ -25,7 +25,7 @@ class FamiliarNPCOptionPlugin : OptionHandler() {
     }
 
     override fun handle(player: Player, node: Node, option: String): Boolean {
-        if (node !is content.global.skill.summoning.familiar.Familiar) {
+        if (node !is Familiar) {
             return false
         }
         if (node.getOwner() !== player) {
@@ -45,7 +45,7 @@ class FamiliarNPCOptionPlugin : OptionHandler() {
                     sendMessage(player, "This is not a beast of burden.")
                     return false
                 }
-                (node as content.global.skill.summoning.familiar.BurdenBeast).openInterface()
+                (node as BurdenBeast).openInterface()
             }
         }
         return true

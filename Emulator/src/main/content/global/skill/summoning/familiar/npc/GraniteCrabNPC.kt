@@ -1,6 +1,9 @@
 package content.global.skill.summoning.familiar.npc
 
 import content.global.skill.gather.fishing.Fish
+import content.global.skill.summoning.familiar.Familiar
+import content.global.skill.summoning.familiar.FamiliarSpecial
+import content.global.skill.summoning.familiar.Forager
 import core.api.rewardXP
 import core.game.node.entity.combat.equipment.WeaponInterface
 import core.game.node.entity.player.Player
@@ -17,13 +20,13 @@ import org.rs.consts.NPCs
  */
 @Initializable
 class GraniteCrabNPC(owner: Player? = null, id: Int = NPCs.GRANITE_CRAB_6796) :
-    content.global.skill.summoning.familiar.Forager(owner, id, 1800, 12009, 12, WeaponInterface.STYLE_DEFENSIVE) {
+    Forager(owner, id, 1800, 12009, 12, WeaponInterface.STYLE_DEFENSIVE) {
 
     init {
         boosts.add(SkillBonus(Skills.FISHING, 1.0))
     }
 
-    override fun construct(owner: Player, id: Int): content.global.skill.summoning.familiar.Familiar {
+    override fun construct(owner: Player, id: Int): Familiar {
         return GraniteCrabNPC(owner, id)
     }
 
@@ -38,7 +41,7 @@ class GraniteCrabNPC(owner: Player? = null, id: Int = NPCs.GRANITE_CRAB_6796) :
         }
     }
 
-    override fun specialMove(special: content.global.skill.summoning.familiar.FamiliarSpecial): Boolean {
+    override fun specialMove(special: FamiliarSpecial): Boolean {
         owner.getSkills().updateLevel(Skills.DEFENCE, 4)
         visualize(Animation.create(8109), Graphic.create(1326))
         return true

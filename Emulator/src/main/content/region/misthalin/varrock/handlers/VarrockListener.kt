@@ -55,12 +55,25 @@ class VarrockListener : InteractionListener {
          */
 
         on(Scenery.DOOR_1804, IntType.SCENERY, "open") { player, node ->
-            if (!inInventory(player, Items.BRASS_KEY_983)) {
+            if (player.location == Location.create(3115, 3449, 0) && !inInventory(player, Items.BRASS_KEY_983)) {
                 sendMessage(player, "This door is locked.")
-            } else {
-                DoorActionHandler.handleAutowalkDoor(player, node.asScenery())
+                return@on true
             }
+            DoorActionHandler.handleAutowalkDoor(player, node.asScenery())
             return@on true
+        }
+
+        /*
+         * Handles use the brass key on the door to unlock.
+         */
+
+        onUseWith(IntType.SCENERY, Items.BRASS_KEY_983, Scenery.DOOR_1804) { player, used, with ->
+            if (player.location == Location.create(3115, 3449, 0) && used.id != Items.BRASS_KEY_983) {
+                sendMessage(player, "This door is locked.")
+                return@onUseWith false
+            }
+            DoorActionHandler.handleAutowalkDoor(player, with.asScenery())
+            return@onUseWith true
         }
 
         /*

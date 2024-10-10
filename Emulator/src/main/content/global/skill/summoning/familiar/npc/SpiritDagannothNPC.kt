@@ -11,6 +11,7 @@ import core.plugin.Initializable
  */
 @Initializable
 class SpiritDagannothNPC @JvmOverloads constructor(owner: Player? = null, id: Int = 6804) :
+
     Familiar(owner, id, 5700, 12017, 6, WeaponInterface.STYLE_CONTROLLED) {
 
     override fun construct(owner: Player, id: Int): Familiar {

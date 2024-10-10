@@ -1,6 +1,9 @@
 package content.global.skill.summoning.familiar.npc
 
 import content.global.skill.gather.mining.MiningNode
+import content.global.skill.summoning.familiar.Familiar
+import content.global.skill.summoning.familiar.FamiliarSpecial
+import content.global.skill.summoning.familiar.Forager
 import core.cache.def.impl.NPCDefinition
 import core.game.interaction.OptionHandler
 import core.game.node.Node
@@ -30,17 +33,17 @@ import org.rs.consts.NPCs
  */
 @Initializable
 class DesertWyrmNPC @JvmOverloads constructor(owner: Player? = null, id: Int = NPCs.DESERT_WYRM_6831) :
-    content.global.skill.summoning.familiar.Forager(owner, id, 1900, 12049, 6, WeaponInterface.STYLE_AGGRESSIVE) {
+    Forager(owner, id, 1900, 12049, 6, WeaponInterface.STYLE_AGGRESSIVE) {
 
     init {
         boosts.add(SkillBonus(Skills.MINING, 1.0))
     }
 
-    override fun construct(owner: Player, id: Int): content.global.skill.summoning.familiar.Familiar {
+    override fun construct(owner: Player, id: Int): Familiar {
         return DesertWyrmNPC(owner, id)
     }
 
-    override fun specialMove(special: content.global.skill.summoning.familiar.FamiliarSpecial): Boolean {
+    override fun specialMove(special: FamiliarSpecial): Boolean {
         val target = special.node as Entity
         if (!canCombatSpecial(target)) {
             return false
@@ -63,7 +66,7 @@ class DesertWyrmNPC @JvmOverloads constructor(owner: Player? = null, id: Int = N
 
             override fun handle(player: Player, node: Node, option: String): Boolean {
                 val rock = getClosestRock(player)
-                if (!player.familiarManager.isOwner(node as content.global.skill.summoning.familiar.Familiar)) {
+                if (!player.familiarManager.isOwner(node as Familiar)) {
                     return true
                 }
                 if ((node as NPC).locks.isMovementLocked) {
