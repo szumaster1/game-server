@@ -191,7 +191,7 @@ class FremennikTrialsListener : InteractionListener {
          */
 
         on(LONGHALL_BACKDOOR, IntType.SCENERY, "open") { player, node ->
-            if(player.location == Location.create(2662, 3692, 0)){
+            if(player.location == Location.create(2662, 3692, 0) || player.location == Location.create(2661, 3692, 0)){
                 DoorActionHandler.handleAutowalkDoor(player, node.asScenery())
                 return@on true
             }

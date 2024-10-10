@@ -45,7 +45,7 @@ class FamiliarNPCOptionPlugin : OptionHandler() {
                     sendMessage(player, "This is not a beast of burden.")
                     return false
                 }
-                (node as content.global.skill.summoning.familiar.BurdenBeast).openInterface()
+                (node as BurdenBeast).openInterface()
             }
         }
         return true
