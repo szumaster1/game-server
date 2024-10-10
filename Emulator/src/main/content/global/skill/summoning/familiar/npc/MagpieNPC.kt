@@ -1,6 +1,9 @@
 package content.global.skill.summoning.familiar.npc
 
 import content.global.skill.crafting.casting.Gem
+import content.global.skill.summoning.familiar.Familiar
+import content.global.skill.summoning.familiar.FamiliarSpecial
+import content.global.skill.summoning.familiar.Forager
 import core.api.visualize
 import core.game.node.entity.player.Player
 import core.game.node.entity.skill.SkillBonus
@@ -15,17 +18,17 @@ import org.rs.consts.NPCs
  */
 @Initializable
 class MagpieNPC @JvmOverloads constructor(owner: Player? = null, id: Int = NPCs.MAGPIE_6824) :
-    content.global.skill.summoning.familiar.Forager(owner, id, 3400, 12041, 3, *ITEMS) {
+    Forager(owner, id, 3400, 12041, 3, *ITEMS) {
 
     init {
         boosts.add(SkillBonus(Skills.THIEVING, 3.0))
     }
 
-    override fun construct(owner: Player, id: Int): content.global.skill.summoning.familiar.Familiar {
+    override fun construct(owner: Player, id: Int): Familiar {
         return MagpieNPC(owner, id)
     }
 
-    override fun specialMove(special: content.global.skill.summoning.familiar.FamiliarSpecial): Boolean {
+    override fun specialMove(special: FamiliarSpecial): Boolean {
         visualize(Animation.create(8020), Graphic.create(1336))
         return true
     }

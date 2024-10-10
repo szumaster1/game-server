@@ -65,10 +65,7 @@ class HeroesGuildPlugin : OptionHandler() {
             checkNotNull(event.usedItem)
             val jewellery = idMap[event.usedItem.id]
             if (!hasRequirement(player, "Heroes' Quest")) return true
-            if (jewellery == EnchantedJewellery.COMBAT_BRACELET || jewellery == EnchantedJewellery.SKILLS_NECKLACE) if (!hasRequirement(
-                    player,
-                    "Legend's Quest"
-                )
+            if (jewellery == EnchantedJewellery.COMBAT_BRACELET || jewellery == EnchantedJewellery.SKILLS_NECKLACE) if (!hasRequirement(player, "Legend's Quest")
             ) return true
             if (jewellery == null && event.usedItem.id != 2572) {
                 return true
@@ -89,8 +86,15 @@ class HeroesGuildPlugin : OptionHandler() {
             val rechargedItem = Item(jewellery!!.ids[0])
             player.inventory.replace(rechargedItem, event.usedItem.slot)
             val name = jewellery.getJewelleryName(rechargedItem)
+            val item = when {
+                name.contains("amulet", true) -> "amulet"
+                name.contains("bracelet", true) -> "bracelet"
+                name.contains("ring", true) -> "ring"
+                name.contains("necklace", true) -> "necklace"
+                else -> name
+            }
             if (!fam) {
-                player.sendMessage("You dip the $name in the fountain...")
+                player.sendMessage("You dip the $item in the fountain...")
             } else {
                 player.sendMessage("Your titan recharges the glory.")
             }

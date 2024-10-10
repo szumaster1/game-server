@@ -79,7 +79,7 @@ class BarbFishingPulse(player: Player) : SkillPulse<NPC>(player, NPC(NPCs.FISHIN
 
             if (getAttribute(player, BarbarianTraining.FISHING_BASE, false)) {
                 removeAttribute(player, BarbarianTraining.FISHING_BASE)
-                setAttribute(player, "/save:${BarbarianTraining.FISHING_FULL}", true)
+                setAttribute(player, BarbarianTraining.FISHING_FULL, true)
                 sendDialogueLines(player, "You feel you have learned more of barbarian ways. Otto might wish","to talk to you more.")
             }
         }

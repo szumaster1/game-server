@@ -1,5 +1,8 @@
 package content.global.skill.summoning.familiar.npc
 
+import content.global.skill.summoning.familiar.Familiar
+import content.global.skill.summoning.familiar.FamiliarSpecial
+import content.global.skill.summoning.familiar.Forager
 import core.cache.def.impl.NPCDefinition
 import core.game.interaction.OptionHandler
 import core.game.node.Node
@@ -44,10 +47,7 @@ class VoidFamiliarNPC : Plugin<Any> {
      * @param special An optional special ability associated with the familiar.
      * @return Returns true if the call to arms was successful, false otherwise.
      */
-    fun callToArms(
-        familiar: content.global.skill.summoning.familiar.Familiar,
-        special: content.global.skill.summoning.familiar.FamiliarSpecial?
-    ): Boolean {
+    fun callToArms(familiar: Familiar, special: FamiliarSpecial?): Boolean {
         val owner = familiar.owner
         owner.lock()
         Pulser.submit(object : Pulse(1, owner) {
@@ -73,25 +73,17 @@ class VoidFamiliarNPC : Plugin<Any> {
      * Void ravager NPC.
      */
     inner class VoidRavagerNPC @JvmOverloads constructor(owner: Player? = null, id: Int = 7370) :
-        content.global.skill.summoning.familiar.Forager(
-            owner,
-            id,
-            2700,
-            12818,
-            3,
-            WeaponInterface.STYLE_AGGRESSIVE,
-            *ITEMS
-        ) {
+        Forager(owner, id, 2700, 12818, 3, WeaponInterface.STYLE_AGGRESSIVE, *ITEMS) {
 
         init {
             boosts.add(SkillBonus(Skills.MINING, 1.0))
         }
 
-        override fun construct(owner: Player, id: Int): content.global.skill.summoning.familiar.Familiar {
+        override fun construct(owner: Player, id: Int): Familiar {
             return VoidRavagerNPC(owner, id)
         }
 
-        override fun specialMove(special: content.global.skill.summoning.familiar.FamiliarSpecial): Boolean {
+        override fun specialMove(special: FamiliarSpecial): Boolean {
             return callToArms(this, special)
         }
 
@@ -104,9 +96,9 @@ class VoidFamiliarNPC : Plugin<Any> {
      * Void shifter NPC.
      */
     inner class VoidShifterNPC @JvmOverloads constructor(owner: Player? = null, id: Int = 7367) :
-        content.global.skill.summoning.familiar.Familiar(owner, id, 9400, 12814, 3, WeaponInterface.STYLE_ACCURATE) {
+        Familiar(owner, id, 9400, 12814, 3, WeaponInterface.STYLE_ACCURATE) {
 
-        override fun construct(owner: Player, id: Int): content.global.skill.summoning.familiar.Familiar {
+        override fun construct(owner: Player, id: Int): Familiar {
             return VoidShifterNPC(owner, id)
         }
 
@@ -118,7 +110,7 @@ class VoidFamiliarNPC : Plugin<Any> {
             }
         }
 
-        override fun specialMove(special: content.global.skill.summoning.familiar.FamiliarSpecial): Boolean {
+        override fun specialMove(special: FamiliarSpecial): Boolean {
             return callToArms(this, special)
         }
 
@@ -132,7 +124,7 @@ class VoidFamiliarNPC : Plugin<Any> {
      * Void spinner NPC.
      */
     inner class VoidSpinnerNPC @JvmOverloads constructor(owner: Player? = null, id: Int = 7333) :
-        content.global.skill.summoning.familiar.Familiar(owner, id, 2700, 12780, 3, WeaponInterface.STYLE_DEFENSIVE) {
+        Familiar(owner, id, 2700, 12780, 3, WeaponInterface.STYLE_DEFENSIVE) {
         // The delay till the next heal.
         private var healDelay = 0
 
@@ -144,11 +136,11 @@ class VoidFamiliarNPC : Plugin<Any> {
             }
         }
 
-        override fun construct(owner: Player, id: Int): content.global.skill.summoning.familiar.Familiar {
+        override fun construct(owner: Player, id: Int): Familiar {
             return VoidSpinnerNPC(owner, id)
         }
 
-        override fun specialMove(special: content.global.skill.summoning.familiar.FamiliarSpecial): Boolean {
+        override fun specialMove(special: FamiliarSpecial): Boolean {
             return callToArms(this, special)
         }
 
@@ -161,8 +153,8 @@ class VoidFamiliarNPC : Plugin<Any> {
      * Void torcher NPC.
      */
     inner class VoidTorcherNPC @JvmOverloads constructor(owner: Player? = null, id: Int = 7351) :
-        content.global.skill.summoning.familiar.Familiar(owner, id, 9400, 12798, 3, WeaponInterface.STYLE_CAST) {
-        override fun construct(owner: Player, id: Int): content.global.skill.summoning.familiar.Familiar {
+        Familiar(owner, id, 9400, 12798, 3, WeaponInterface.STYLE_CAST) {
+        override fun construct(owner: Player, id: Int): Familiar {
             return VoidTorcherNPC(owner, id)
         }
 
@@ -177,7 +169,7 @@ class VoidFamiliarNPC : Plugin<Any> {
                 }
 
                 override fun handle(player: Player, node: Node, option: String): Boolean {
-                    val familiar = node as content.global.skill.summoning.familiar.Familiar
+                    val familiar = node as Familiar
                     if (!player.familiarManager.isOwner(familiar)) {
                         return true
                     }
@@ -187,7 +179,7 @@ class VoidFamiliarNPC : Plugin<Any> {
             })
         }
 
-        override fun specialMove(special: content.global.skill.summoning.familiar.FamiliarSpecial): Boolean {
+        override fun specialMove(special: FamiliarSpecial): Boolean {
             return callToArms(this, special)
         }
 

@@ -1,5 +1,7 @@
 package content.global.skill.summoning.familiar.npc
 
+import content.global.skill.summoning.familiar.Familiar
+import content.global.skill.summoning.familiar.FamiliarSpecial
 import core.api.sendMessage
 import core.api.visualize
 import core.game.node.entity.combat.equipment.WeaponInterface
@@ -14,10 +16,9 @@ import org.rs.consts.NPCs
  * Honey badger familiar.
  */
 @Initializable
-class HoneyBadgerNPC @JvmOverloads constructor(owner: Player? = null, id: Int = NPCs.HONEY_BADGER_6845) :
-    content.global.skill.summoning.familiar.Familiar(owner, id, 2500, 12065, 4, WeaponInterface.STYLE_AGGRESSIVE) {
+class HoneyBadgerNPC @JvmOverloads constructor(owner: Player? = null, id: Int = NPCs.HONEY_BADGER_6845) : Familiar(owner, id, 2500, 12065, 4, WeaponInterface.STYLE_AGGRESSIVE) {
 
-    override fun construct(owner: Player, id: Int): content.global.skill.summoning.familiar.Familiar {
+    override fun construct(owner: Player, id: Int): Familiar {
         return HoneyBadgerNPC(owner, id)
     }
 
@@ -29,7 +30,7 @@ class HoneyBadgerNPC @JvmOverloads constructor(owner: Player? = null, id: Int = 
         return "Raaaar!"
     }
 
-    override fun specialMove(special: content.global.skill.summoning.familiar.FamiliarSpecial): Boolean {
+    override fun specialMove(special: FamiliarSpecial): Boolean {
         if (isCharged) {
             return false
         }

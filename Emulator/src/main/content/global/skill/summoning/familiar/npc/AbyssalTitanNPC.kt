@@ -1,5 +1,8 @@
 package content.global.skill.summoning.familiar.npc
 
+import content.global.skill.summoning.familiar.BurdenBeast
+import content.global.skill.summoning.familiar.Familiar
+import content.global.skill.summoning.familiar.FamiliarSpecial
 import core.api.Container
 import core.api.addItem
 import core.api.amountInInventory
@@ -18,16 +21,9 @@ import org.rs.consts.NPCs
  */
 @Initializable
 class AbyssalTitanNPC(owner: Player? = null, id: Int = NPCs.ABYSSAL_TITAN_7349) :
-    content.global.skill.summoning.familiar.BurdenBeast(
-        owner,
-        id,
-        3200,
-        Items.ABYSSAL_TITAN_POUCH_12796,
-        6,
-        7,
-        WeaponInterface.STYLE_ACCURATE
-    ) {
-    override fun construct(owner: Player, id: Int): content.global.skill.summoning.familiar.Familiar {
+    BurdenBeast(owner, id, 3200, Items.ABYSSAL_TITAN_POUCH_12796, 6, 7, WeaponInterface.STYLE_ACCURATE) {
+
+    override fun construct(owner: Player, id: Int): Familiar {
         return AbyssalTitanNPC(owner, id)
     }
 
@@ -41,7 +37,7 @@ class AbyssalTitanNPC(owner: Player? = null, id: Int = NPCs.ABYSSAL_TITAN_7349) 
         }
     }
 
-    override fun specialMove(special: content.global.skill.summoning.familiar.FamiliarSpecial): Boolean {
+    override fun specialMove(special: FamiliarSpecial): Boolean {
         val playerRuneEssenceAmount = amountInInventory(owner, Items.RUNE_ESSENCE_1436)
         val playerPureEssenceAmount = amountInInventory(owner, Items.PURE_ESSENCE_7936)
         val beastRuneEssenceAmount = this.container.getAmount(Items.RUNE_ESSENCE_1436)
@@ -54,11 +50,7 @@ class AbyssalTitanNPC(owner: Player? = null, id: Int = NPCs.ABYSSAL_TITAN_7349) 
             return false
         }
 
-        if (!owner.bank.hasSpaceFor(
-                Item(Items.RUNE_ESSENCE_1436, totalRuneEssence),
-                Item(Items.PURE_ESSENCE_7936, totalPureEssence)
-            )
-        ) {
+        if (!owner.bank.hasSpaceFor(Item(Items.RUNE_ESSENCE_1436, totalRuneEssence), Item(Items.PURE_ESSENCE_7936, totalPureEssence))) {
             owner.sendMessage("You have no space in your bank to deposit your essence.")
             return false
         }

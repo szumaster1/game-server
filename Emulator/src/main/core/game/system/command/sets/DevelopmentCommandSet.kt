@@ -2,8 +2,8 @@ package core.game.system.command.sets
 
 import org.rs.consts.Items
 import content.global.activity.jobs.JobManager
-import content.global.skill.construction.HouseLocation
 import content.minigame.tbwcleanup.changeSpawnChance
+import content.region.kandarin.baxtorian.handlers.barbariantraining.BarbarianTraining
 import core.api.*
 import core.cache.Cache
 import core.cache.def.impl.DataMap
@@ -50,6 +50,7 @@ class DevelopmentCommandSet : CommandSet(Privilege.ADMIN) {
         define(name = "buyhouse", privilege = Privilege.ADMIN, usage = "::buyhouse", description = "Allows you to buy house.") { player, _ ->
             player.houseManager.createNewHouseAt(content.global.skill.construction.HouseLocation.RIMMINGTON)
             sendMessage(player, RED + "The house has been bought.")
+            addItem(player, Items.COINS_995, 10000000)
         }
 
         /*
@@ -195,7 +196,7 @@ class DevelopmentCommandSet : CommandSet(Privilege.ADMIN) {
             val dump = File("structs.txt")
             val writer = BufferedWriter(FileWriter(dump))
             val index = Cache.getIndexes()[2]
-            val containers = index.information.containers[26].filesIndexes
+            val containers = index!!.information!!.containers[26].filesIndexes
             for (fID in containers) {
                 val file = index.getFileData(26, fID)
                 if (file != null) {
@@ -215,13 +216,13 @@ class DevelopmentCommandSet : CommandSet(Privilege.ADMIN) {
 
         define(name = "dumpdatamaps", privilege = Privilege.ADMIN, usage = "::dumpdatamaps", description = "Dumps all the cache data maps to datamaps.txt") { _, _ ->
             val index = Cache.getIndexes()[17]
-            val containers = index.information.containersIndexes
+            val containers = index!!.information!!.containersIndexes
 
             val dump = File("datamaps.txt")
             val writer = BufferedWriter(FileWriter(dump))
 
             for (cID in containers) {
-                val fileIndexes = index.information.containers[cID].filesIndexes
+                val fileIndexes = index.information!!.containers[cID].filesIndexes
                 for (fID in fileIndexes) {
                     val file = index.getFileData(cID, fID)
                     if (file != null) {
@@ -465,6 +466,20 @@ class DevelopmentCommandSet : CommandSet(Privilege.ADMIN) {
         define(name = "interface", privilege = Privilege.ADMIN, usage = "::interface <lt>Interface ID<gt>") { player, args ->
             val interfaceInt = args[1].toInt()
             openInterface(player, interfaceInt)
+        }
+
+        /*
+         * Command to complete barbarian fm training.
+         */
+
+        define(name = "barbfm", privilege = Privilege.ADMIN, usage = "::barbfm", description = "Completes barbarian fm training.") { player: Player, _: Array<String> ->
+            if(getAttribute(player, BarbarianTraining.FM_FULL, false)) {
+                removeAttribute(player, BarbarianTraining.FM_FULL)
+                notify(player, "Barbarian firemaking method:%R Disabled.")
+            } else {
+                setAttribute(player, BarbarianTraining.FM_FULL, true)
+                notify(player, "Barbarian firemaking method:%DP Enabled.")
+            }
         }
 
         /*

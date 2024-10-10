@@ -4,6 +4,7 @@ import content.global.skill.firemaking.FireMakingPulse.getAsh
 import content.global.skill.firemaking.logs.Log.Companion.forId
 import content.global.skill.summoning.familiar.Familiar
 import content.global.skill.summoning.familiar.FamiliarSpecial
+import core.api.*
 import core.game.container.impl.EquipmentContainer
 import core.game.interaction.NodeUsageEvent
 import core.game.interaction.UseWithHandler
@@ -24,13 +25,16 @@ import core.game.world.update.flag.context.Graphic
 import core.plugin.Initializable
 import core.plugin.Plugin
 import core.plugin.PluginManager.definePlugin
+import core.tools.Log
 import core.tools.RandomFunction
+import org.rs.consts.NPCs
 
 /**
  * Forge regent familiar.
  */
 @Initializable
 class ForgeRegentNPC @JvmOverloads constructor(owner: Player? = null, id: Int = 7335) :
+
     Familiar(owner, id, 4500, 12782, 6, WeaponInterface.STYLE_RANGE_ACCURATE) {
 
     init {
@@ -81,33 +85,10 @@ class ForgeRegentNPC @JvmOverloads constructor(owner: Player? = null, id: Int = 
     }
 
     override fun getIds(): IntArray {
-        return intArrayOf(7335, 7336)
+        return intArrayOf(NPCs.FORGE_REGENT_7335, NPCs.FORGE_REGENT_7336)
     }
 
-    /**
-     * Forge regent firemake
-     *
-     * @constructor Forge regent firemake
-     */
-    inner class ForgeRegentFiremake : UseWithHandler(
-        1511,
-        2862,
-        1521,
-        1519,
-        6333,
-        10810,
-        1517,
-        6332,
-        12581,
-        1515,
-        1513,
-        13567,
-        10329,
-        10328,
-        7406,
-        7405,
-        7404
-    ) {
+    inner class ForgeRegentFiremake : UseWithHandler(*logsIDs) {
 
         override fun newInstance(arg: Any?): Plugin<Any> {
             for (id in ids) {
@@ -125,12 +106,12 @@ class ForgeRegentNPC @JvmOverloads constructor(owner: Player? = null, id: Int = 
                 return true
             }
             if (getObject(familiar.location) != null || familiar.zoneMonitor.isInZone("bank")) {
-                player.packetDispatch.sendMessage("You can't light a fire here.")
+                sendMessage(player, "You can't light a fire here.")
                 return false
             }
-            familiar.lock(ticks)
-            familiar.animate(FIREMAKE_ANIMATION)
-            if (player.inventory.remove(event.usedItem)) {
+            lock(familiar, ticks)
+            animate(familiar, FIREMAKE_ANIMATION)
+            if (removeItem(player, event.usedItem)) {
                 val ground = GroundItemManager.create(event.usedItem, familiar.location, player)
                 Pulser.submit(object : Pulse(ticks, player, familiar) {
                     override fun pulse(): Boolean {
@@ -140,11 +121,11 @@ class ForgeRegentNPC @JvmOverloads constructor(owner: Player? = null, id: Int = 
                         val `object` = Scenery(log!!.fireId, familiar.location)
                         familiar.moveStep()
                         GroundItemManager.destroy(ground)
-                        player.getSkills().addExperience(Skills.FIREMAKING, log.xp + 10)
+                        rewardXP(player, Skills.FIREMAKING, log.xp + 10)
                         familiar.faceLocation(`object`.getFaceLocation(familiar.location))
                         SceneryBuilder.add(`object`, log.life, getAsh(player, log, `object`))
                         if (player.viewport.region.id == 10806) {
-                            player.achievementDiaryManager.finishTask(player, DiaryType.SEERS_VILLAGE, 1, 9)
+                            finishDiaryTask(player, DiaryType.SEERS_VILLAGE, 1, 9)
                         }
                         return true
                     }
@@ -155,7 +136,7 @@ class ForgeRegentNPC @JvmOverloads constructor(owner: Player? = null, id: Int = 
     }
 
     companion object {
-        // TODO FIX - this is from pyrelord.
         private val FIREMAKE_ANIMATION: Animation = Animation.create(8085)
+        val logsIDs = content.global.skill.firemaking.logs.Log.values().map { it.logId }.toIntArray()
     }
 }

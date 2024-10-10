@@ -1,5 +1,8 @@
 package content.global.skill.summoning.familiar.npc
 
+import content.global.skill.summoning.familiar.BurdenBeast
+import content.global.skill.summoning.familiar.Familiar
+import content.global.skill.summoning.familiar.FamiliarSpecial
 import core.game.node.entity.Entity
 import core.game.node.entity.combat.BattleState
 import core.game.node.entity.combat.CombatStyle
@@ -20,13 +23,13 @@ import kotlin.math.floor
  */
 @Initializable
 class ThornySnailNPC(owner: Player? = null, id: Int = NPCs.THORNY_SNAIL_6806) :
-    content.global.skill.summoning.familiar.BurdenBeast(owner, id, 1600, 12019, 3, 3) {
+    BurdenBeast(owner, id, 1600, 12019, 3, 3) {
 
-    override fun construct(owner: Player, id: Int): content.global.skill.summoning.familiar.Familiar {
+    override fun construct(owner: Player, id: Int): Familiar {
         return ThornySnailNPC(owner, id)
     }
 
-    override fun specialMove(special: content.global.skill.summoning.familiar.FamiliarSpecial): Boolean {
+    override fun specialMove(special: FamiliarSpecial): Boolean {
         val target = special.node as Entity
         if (!canCombatSpecial(target)) {
             return false
