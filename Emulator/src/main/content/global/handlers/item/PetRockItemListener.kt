@@ -119,7 +119,7 @@ class PetRockItemListener : InteractionListener {
                             lock(player, duration = animDuration)
                             lockInteractions(player, duration = animDuration)
                             face(player, Location.getRandomLocation(getLocation(player), 2, true))
-                            visualize(player, Animations.HUMAN_THROW_STICK_6665, 1157)
+                            visualize(player, Animations.HUMAN_THROW_STICK_6665, 1157) // end: 1159
                             spawnProjectile(getLocation(player), Location.getRandomLocation(getLocation(player), 5, true), 1158, 40, 0, 150, 250, 25)
                         }
                     }

@@ -1,5 +1,6 @@
 package content.global.skill.summoning.items
 
+import core.game.node.item.Item
 import org.rs.consts.Items
 
 /**
@@ -12,166 +13,169 @@ import org.rs.consts.Items
  * @param requiredLevel     The required summoning level to charge the headgear.
  */
 enum class EnchantedHeadgear(
-    val defaultItem: Int,
-    val enchantedItem: Int,
-    val chargedItem: Int,
+    val defaultItem: Item,
+    val enchantedItem: Item,
+    val chargedItem: Item,
     val scrollCapacity: Int,
     val requiredLevel: Int
 ) {
     ANTLERS(
-        defaultItem = Items.ANTLERS_12204,
-        enchantedItem = Items.ANTLERS_12204,
-        chargedItem = Items.ANTLERS_CHARGED_12206,
+        defaultItem = Item(Items.ANTLERS_12204),
+        enchantedItem = Item(Items.ANTLERS_12204),
+        chargedItem = Item(Items.ANTLERS_CHARGED_12206),
         scrollCapacity = 40,
         requiredLevel = 10
     ),
     ADAMANT_FULL_HELM(
-        defaultItem = Items.ADAMANT_FULL_HELM_1161,
-        enchantedItem = Items.ADAMANT_FULL_HELM_E_12658,
-        chargedItem = Items.ADAMANT_FULL_HELM_CHARGED_12659,
+        defaultItem = Item(Items.ADAMANT_FULL_HELM_1161),
+        enchantedItem = Item(Items.ADAMANT_FULL_HELM_E_12658),
+        chargedItem = Item(Items.ADAMANT_FULL_HELM_CHARGED_12659),
         scrollCapacity = 50,
         requiredLevel = 20
     ),
     SLAYER_HELMET(
-        defaultItem = Items.SLAYER_HELMET_13263,
-        enchantedItem = Items.SLAYER_HELMET_E_14636,
-        chargedItem = Items.SLAYER_HELMET_CHARGED_14637,
+        defaultItem = Item(Items.SLAYER_HELMET_13263),
+        enchantedItem = Item(Items.SLAYER_HELMET_E_14636),
+        chargedItem = Item(Items.SLAYER_HELMET_CHARGED_14637),
         scrollCapacity = 50,
         requiredLevel = 20
     ),
     SNAKESKIN_BANDANA(
-        defaultItem = Items.SNAKESKIN_BANDANA_6326,
-        enchantedItem = Items.SNAKESKIN_BANDANA_E_12660,
-        chargedItem = Items.SNAKESKIN_BANDANA_CHARGED_12661,
+        defaultItem = Item(Items.SNAKESKIN_BANDANA_6326),
+        enchantedItem = Item(Items.SNAKESKIN_BANDANA_E_12660),
+        chargedItem = Item(Items.SNAKESKIN_BANDANA_CHARGED_12661),
         scrollCapacity = 50,
         requiredLevel = 20
     ),
     LIZARD_SKULL(
-        defaultItem = Items.LIZARD_SKULL_12207,
-        enchantedItem = Items.LIZARD_SKULL_12207,
-        chargedItem = Items.LIZARD_SKULL_CHARGED_12209,
+        defaultItem = Item(Items.LIZARD_SKULL_12207),
+
+        enchantedItem = Item(Items.LIZARD_SKULL_12207),
+        chargedItem = Item(Items.LIZARD_SKULL_CHARGED_12209),
         scrollCapacity = 65,
         requiredLevel = 30
     ),
     SPLITBARK_HELM(
-        defaultItem = Items.SPLITBARK_HELM_3385,
-        enchantedItem = Items.SPLITBARK_HELM_E_12662,
-        chargedItem = Items.SPLITBARK_HELM_CHARGED_12663,
+        defaultItem = Item(Items.SPLITBARK_HELM_3385),
+        enchantedItem = Item(Items.SPLITBARK_HELM_E_12662),
+        chargedItem = Item(Items.SPLITBARK_HELM_CHARGED_12663),
         scrollCapacity = 50,
         requiredLevel = 30
     ),
     RUNE_FULL_HELM(
-        defaultItem = Items.RUNE_FULL_HELM_1163,
-        enchantedItem = Items.RUNE_FULL_HELM_E_12664,
-        chargedItem = Items.RUNE_FULL_HELM_CHARGED_12665,
+        defaultItem = Item(Items.RUNE_FULL_HELM_1163),
+        enchantedItem = Item(Items.RUNE_FULL_HELM_E_12664),
+        chargedItem = Item(Items.RUNE_FULL_HELM_CHARGED_12665),
         scrollCapacity = 60,
         requiredLevel = 30
     ),
     WARRIOR_HELM(
-        defaultItem = Items.WARRIOR_HELM_3753,
-        enchantedItem = Items.WARRIOR_HELM_E_12676,
-        chargedItem = Items.WARRIOR_HELM_CHARGED_12677,
+        defaultItem = Item(Items.WARRIOR_HELM_3753),
+        enchantedItem = Item(Items.WARRIOR_HELM_E_12676),
+        chargedItem = Item(Items.WARRIOR_HELM_CHARGED_12677),
         scrollCapacity = 70,
         requiredLevel = 35
     ),
     BERSERKER_HELM(
-        defaultItem = Items.BERSERKER_HELM_3751,
-        enchantedItem = Items.BERSERKER_HELM_E_12674,
-        chargedItem = Items.BERSERKER_HELM_CHARGED_12675,
+        defaultItem = Item(Items.BERSERKER_HELM_3751),
+        enchantedItem = Item(Items.BERSERKER_HELM_E_12674),
+        chargedItem = Item(Items.BERSERKER_HELM_CHARGED_12675),
         scrollCapacity = 70,
         requiredLevel = 35
     ),
     ARCHER_HELM(
-        defaultItem = Items.ARCHER_HELM_3749,
-        enchantedItem = Items.ARCHER_HELM_E_12672,
-        chargedItem = Items.ARCHER_HELM_CHARGED_12673,
+        defaultItem = Item(Items.ARCHER_HELM_3749),
+        enchantedItem = Item(Items.ARCHER_HELM_E_12672),
+        chargedItem = Item(Items.ARCHER_HELM_CHARGED_12673),
         scrollCapacity = 70,
         requiredLevel = 35
     ),
     FARSEER_HELM(
-        defaultItem = Items.FARSEER_HELM_3755,
-        enchantedItem = Items.FARSEER_HELM_E_12678,
-        chargedItem = Items.FARSEER_HELM_CHARGED_12679,
+        defaultItem = Item(Items.FARSEER_HELM_3755),
+        enchantedItem = Item(Items.FARSEER_HELM_E_12678),
+        chargedItem = Item(Items.FARSEER_HELM_CHARGED_12679),
         scrollCapacity = 70,
         requiredLevel = 35
     ),
     HELM_OF_NEITIZNOT(
-        defaultItem = Items.HELM_OF_NEITIZNOT_10828,
-        enchantedItem = Items.HELM_OF_NEITIZNOT_E_12680,
-        chargedItem = Items.HELM_OF_NEITIZNOT_CHARGED_12681,
+        defaultItem = Item(Items.HELM_OF_NEITIZNOT_10828),
+        enchantedItem = Item(Items.HELM_OF_NEITIZNOT_E_12680),
+        chargedItem = Item(Items.HELM_OF_NEITIZNOT_CHARGED_12681),
         scrollCapacity = 90,
         requiredLevel = 45
     ),
 
     FEATHER_HEADDRESS_0(
-        defaultItem = Items.FEATHER_HEADDRESS_12210,
-        enchantedItem = Items.FEATHER_HEADDRESS_12210,
-        chargedItem = Items.FEATHER_HEADDRESS_CHARGED_12212,
+        defaultItem = Item(Items.FEATHER_HEADDRESS_12210),
+        enchantedItem = Item(Items.FEATHER_HEADDRESS_12210),
+        chargedItem = Item(Items.FEATHER_HEADDRESS_CHARGED_12212),
         scrollCapacity = 150,
         requiredLevel = 50
     ),
     FEATHER_HEADDRESS_1(
-        defaultItem = Items.FEATHER_HEADDRESS_12222,
-        enchantedItem = Items.FEATHER_HEADDRESS_12222,
-        chargedItem = Items.FEATHER_HEADDRESS_CHARGED_12224,
+        defaultItem = Item(Items.FEATHER_HEADDRESS_12222),
+        enchantedItem = Item(Items.FEATHER_HEADDRESS_12222),
+        chargedItem = Item(Items.FEATHER_HEADDRESS_CHARGED_12224),
         scrollCapacity = 150,
         requiredLevel = 50
     ),
     FEATHER_HEADDRESS_2(
-        defaultItem = Items.FEATHER_HEADDRESS_12216,
-        enchantedItem = Items.FEATHER_HEADDRESS_12216,
-        chargedItem = Items.FEATHER_HEADDRESS_CHARGED_12218,
+        defaultItem = Item(Items.FEATHER_HEADDRESS_12216),
+        enchantedItem = Item(Items.FEATHER_HEADDRESS_12216),
+        chargedItem = Item(Items.FEATHER_HEADDRESS_CHARGED_12218),
         scrollCapacity = 150,
         requiredLevel = 50
     ),
     FEATHER_HEADDRESS_3(
-        defaultItem = Items.FEATHER_HEADDRESS_12219,
-        enchantedItem = Items.FEATHER_HEADDRESS_12219,
-        chargedItem = Items.FEATHER_HEADDRESS_CHARGED_12221,
+        defaultItem = Item(Items.FEATHER_HEADDRESS_12219),
+        enchantedItem = Item(Items.FEATHER_HEADDRESS_12219),
+        chargedItem = Item(Items.FEATHER_HEADDRESS_CHARGED_12221),
         scrollCapacity = 150,
         requiredLevel = 50
     ),
     FEATHER_HEADDRESS_4(
-        defaultItem = Items.FEATHER_HEADDRESS_12213,
-        enchantedItem = Items.FEATHER_HEADDRESS_12213,
-        chargedItem = Items.FEATHER_HEADDRESS_CHARGED_12215,
+        defaultItem = Item(Items.FEATHER_HEADDRESS_12213),
+        enchantedItem = Item(Items.FEATHER_HEADDRESS_12213),
+        chargedItem = Item(Items.FEATHER_HEADDRESS_CHARGED_12215),
         scrollCapacity = 150,
         requiredLevel = 50
     ),
     DRAGON_HELM(
-        defaultItem = Items.DRAGON_MED_HELM_1149,
-        enchantedItem = Items.DRAGON_MED_HELM_E_12666,
-        chargedItem = Items.DRAGON_MED_HELM_CHARGED_12667,
+        defaultItem = Item(Items.DRAGON_MED_HELM_1149),
+        enchantedItem = Item(Items.DRAGON_MED_HELM_E_12666),
+        chargedItem = Item(Items.DRAGON_MED_HELM_CHARGED_12667),
         scrollCapacity = 110,
         requiredLevel = 50
     ),
     LUNAR_HELM(
-        defaultItem = Items.LUNAR_HELM_9096,
-        enchantedItem = Items.LUNAR_HELM_E_12668,
-        chargedItem = Items.LUNAR_HELM_CHARGED_12669,
+        defaultItem = Item(Items.LUNAR_HELM_9096),
+        enchantedItem = Item(Items.LUNAR_HELM_E_12668),
+        chargedItem = Item(Items.LUNAR_HELM_CHARGED_12669),
         scrollCapacity = 110,
         requiredLevel = 55
     ),
     ARMADYL_HELM(
-        defaultItem = Items.ARMADYL_HELMET_11718,
-        enchantedItem = Items.ARMADYL_HELMET_E_12670,
-        chargedItem = Items.ARMADYL_HELMET_CHARGED_12671,
+        defaultItem = Item(Items.ARMADYL_HELMET_11718),
+        enchantedItem = Item(Items.ARMADYL_HELMET_E_12670),
+        chargedItem = Item(Items.ARMADYL_HELMET_CHARGED_12671),
         scrollCapacity = 120,
         requiredLevel = 60
     );
 
     companion object {
-
         val values = enumValues<EnchantedHeadgear>()
         val product = values.associateBy { it.defaultItem }
 
         /**
          * Get the enchanted gear.
-         * @param itemId The item id.
+         * @param item The item id.
          * @return The gear.
          */
-        fun forId(itemId: Int): EnchantedHeadgear? {
-            return product[itemId]
+        @JvmStatic
+        fun forItem(item: Item): EnchantedHeadgear? {
+            return EnchantedHeadgear.values().find { it.defaultItem.id == item.id }
         }
+
     }
+
 }

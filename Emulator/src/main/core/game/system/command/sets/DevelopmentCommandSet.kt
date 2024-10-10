@@ -2,8 +2,8 @@ package core.game.system.command.sets
 
 import org.rs.consts.Items
 import content.global.activity.jobs.JobManager
-import content.global.skill.construction.HouseLocation
 import content.minigame.tbwcleanup.changeSpawnChance
+import content.region.kandarin.baxtorian.handlers.barbariantraining.BarbarianTraining
 import core.api.*
 import core.cache.Cache
 import core.cache.def.impl.DataMap
@@ -50,6 +50,7 @@ class DevelopmentCommandSet : CommandSet(Privilege.ADMIN) {
         define(name = "buyhouse", privilege = Privilege.ADMIN, usage = "::buyhouse", description = "Allows you to buy house.") { player, _ ->
             player.houseManager.createNewHouseAt(content.global.skill.construction.HouseLocation.RIMMINGTON)
             sendMessage(player, RED + "The house has been bought.")
+            addItem(player, Items.COINS_995, 10000000)
         }
 
         /*
@@ -465,6 +466,20 @@ class DevelopmentCommandSet : CommandSet(Privilege.ADMIN) {
         define(name = "interface", privilege = Privilege.ADMIN, usage = "::interface <lt>Interface ID<gt>") { player, args ->
             val interfaceInt = args[1].toInt()
             openInterface(player, interfaceInt)
+        }
+
+        /*
+         * Command to complete barbarian fm training.
+         */
+
+        define(name = "barbfm", privilege = Privilege.ADMIN, usage = "::barbfm", description = "Completes barbarian fm training.") { player: Player, _: Array<String> ->
+            if(getAttribute(player, BarbarianTraining.FM_FULL, false)) {
+                removeAttribute(player, BarbarianTraining.FM_FULL)
+                notify(player, "Barbarian firemaking method:%R Disabled.")
+            } else {
+                setAttribute(player, BarbarianTraining.FM_FULL, true)
+                notify(player, "Barbarian firemaking method:%DP Enabled.")
+            }
         }
 
         /*

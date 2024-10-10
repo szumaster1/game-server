@@ -63,6 +63,7 @@ object DrillDemonUtils {
         for (i in 0 until tempList.size) {
             setVarbit(player, tempOffsetList[i], tempList[i], true)
         }
+        // sendGraphic(1844, object.id)
     }
 
     /**
