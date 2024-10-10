@@ -8,7 +8,7 @@ import core.cache.bzip2.BZip2Decompressor;
 import core.cache.gzip.GZipDecompressor;
 
 /**
- * A class holding the containers information.
+ * A class holding the container's information.
  * @author Dragonkk
  */
 public final class ContainersInformation {
@@ -39,14 +39,9 @@ public final class ContainersInformation {
     private FilesContainer[] containers;
 
     /**
-     * If files have to be named.
+     * If it has to be whirlpool.
      */
-    private boolean filesNamed;
-
-    /**
-     * If it has to be whirpool.
-     */
-    private boolean whirpool;
+    private boolean whirlpool;
 
     /**
      * The data.
@@ -150,8 +145,8 @@ public final class ContainersInformation {
         }
         revision = protocol < 6 ? 0 : buffer.getInt();
         int nameHash = buffer.get() & 0xFF;
-        filesNamed = (0x1 & nameHash) != 0;
-        whirpool = (0x2 & nameHash) != 0;
+        boolean filesNamed = (0x1 & nameHash) != 0;
+        whirlpool = (0x2 & nameHash) != 0;
         containersIndexes = new int[buffer.getShort() & 0xFFFF];
         int lastIndex = -1;
         for (int index = 0; index < containersIndexes.length; index++) {
@@ -170,7 +165,7 @@ public final class ContainersInformation {
             }
         }
         byte[][] filesHashes = null;
-        if (whirpool) {
+        if (whirlpool) {
             filesHashes = new byte[containers.length][];
             for (int index = 0; index < containersIndexes.length; index++) {
                 filesHashes[containersIndexes[index]] = new byte[64];
@@ -199,7 +194,7 @@ public final class ContainersInformation {
                 containers[containersIndexes[index]].getFiles()[containers[containersIndexes[index]].getFilesIndexes()[fileIndex]] = new Container();
             }
         }
-        if (whirpool) {
+        if (whirlpool) {
             for (int index = 0; index < containersIndexes.length; index++) {
                 for (int fileIndex = 0; fileIndex < containers[containersIndexes[index]].getFilesIndexes().length; fileIndex++) {
                     containers[containersIndexes[index]].getFiles()[containers[containersIndexes[index]].getFilesIndexes()[fileIndex]].setVersion(filesHashes[containersIndexes[index]][containers[containersIndexes[index]].getFilesIndexes()[fileIndex]]);
@@ -216,12 +211,12 @@ public final class ContainersInformation {
     }
 
     /**
-     * If is whirpool.
+     * If is whirlpool.
      *
-     * @return if is whirpool {@code true}.
+     * @return if is whirlpool {@code true}.
      */
-    public boolean isWhirpool() {
-        return whirpool;
+    public boolean isWhirlpool() {
+        return whirlpool;
     }
 
     /**

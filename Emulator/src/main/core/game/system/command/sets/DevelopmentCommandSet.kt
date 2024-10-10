@@ -195,7 +195,7 @@ class DevelopmentCommandSet : CommandSet(Privilege.ADMIN) {
             val dump = File("structs.txt")
             val writer = BufferedWriter(FileWriter(dump))
             val index = Cache.getIndexes()[2]
-            val containers = index.information.containers[26].filesIndexes
+            val containers = index!!.information!!.containers[26].filesIndexes
             for (fID in containers) {
                 val file = index.getFileData(26, fID)
                 if (file != null) {
@@ -215,13 +215,13 @@ class DevelopmentCommandSet : CommandSet(Privilege.ADMIN) {
 
         define(name = "dumpdatamaps", privilege = Privilege.ADMIN, usage = "::dumpdatamaps", description = "Dumps all the cache data maps to datamaps.txt") { _, _ ->
             val index = Cache.getIndexes()[17]
-            val containers = index.information.containersIndexes
+            val containers = index!!.information!!.containersIndexes
 
             val dump = File("datamaps.txt")
             val writer = BufferedWriter(FileWriter(dump))
 
             for (cID in containers) {
-                val fileIndexes = index.information.containers[cID].filesIndexes
+                val fileIndexes = index.information!!.containers[cID].filesIndexes
                 for (fID in fileIndexes) {
                     val file = index.getFileData(cID, fID)
                     if (file != null) {

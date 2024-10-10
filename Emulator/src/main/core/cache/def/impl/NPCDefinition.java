@@ -24,7 +24,7 @@ import static core.api.ContentAPIKt.getVarp;
  */
 
 /**
- * Represents an NPC's definitions.
+ * Represents an NPCs definitions.
  * @author Emperor
  */
 public final class NPCDefinition extends Definition<NPC> {

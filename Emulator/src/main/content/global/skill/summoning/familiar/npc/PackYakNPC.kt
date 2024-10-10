@@ -2,6 +2,8 @@ package content.global.skill.summoning.familiar.npc
 
 import content.global.skill.summoning.SummoningScroll
 import content.global.skill.summoning.familiar.BurdenBeast
+import content.global.skill.summoning.familiar.Familiar
+import content.global.skill.summoning.familiar.FamiliarSpecial
 import core.api.*
 import core.game.node.entity.combat.equipment.WeaponInterface
 import core.game.node.entity.player.Player
@@ -12,6 +14,7 @@ import core.game.system.config.ItemConfigParser
 import core.game.world.update.flag.context.Animation
 import core.game.world.update.flag.context.Graphic
 import core.plugin.Initializable
+import org.rs.consts.Graphics
 import org.rs.consts.NPCs
 
 /**
@@ -44,26 +47,21 @@ class PackYakNPC @JvmOverloads constructor(owner: Player? = null, id: Int = NPCs
         if (success) {
             success = removeItem(player, remove, Container.INVENTORY)
             if (!success) {
-                // Add worked, but remove failed. This should never happen (it by definition constitutes an item duplication).
+                /*
+                 * Add worked, but remove failed.
+                 * This should never happen (it by definition constitutes an item duplication).
+                 */
                 val recovered = removeItem(player, item, Container.BANK)
                 if (recovered) {
-                    log(
-                        player,
-                        LogType.DUPE_ALERT,
-                        "Successfully recovered from potential dupe attempt involving the winter storage scroll"
-                    )
+                    log(player, LogType.DUPE_ALERT, "Successfully recovered from potential dupe attempt involving the winter storage scroll")
                 } else {
-                    log(
-                        player,
-                        LogType.DUPE_ALERT,
-                        "Failed to recover from potentially successful dupe attempt involving the winter storage scroll"
-                    )
+                    log(player, LogType.DUPE_ALERT, "Failed to recover from potentially successful dupe attempt involving the winter storage scroll")
                 }
             }
         }
         if (success) {
             closeDialogue(player)
-            graphics(Graphic.create(1358))
+            graphics(Graphic.create(Graphics.LIGHT_BEAMS_IN_DIFFERENT_DIRECTIONS_1358))
             sendMessage(player, "The pack yak has sent an item to your bank.")
         } else {
             sendMessage(player, "The pack yak can't send that item to your bank.")
