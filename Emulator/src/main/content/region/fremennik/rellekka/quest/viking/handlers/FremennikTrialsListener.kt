@@ -24,6 +24,7 @@ import core.game.world.GameWorld.Pulser
 import core.game.world.map.Location
 import core.game.world.map.RegionManager
 import core.game.world.update.flag.context.Animation
+import org.rs.consts.Animations
 import org.rs.consts.Items
 import org.rs.consts.NPCs
 import org.rs.consts.QuestName
@@ -32,259 +33,192 @@ class FremennikTrialsListener : InteractionListener {
 
     override fun defineListeners() {
 
-        // Listener for talking to the fisherman NPC
+        /*
+         * Listener for talking to the fisherman NPC.
+         */
+
         on(FISHERMAN, IntType.NPC, "talk-to") { player, _ ->
             // Opens the dialogue with the Fremennik Fisherman
             openDialogue(player, FremennikFishermanDialogue())
             return@on true
         }
 
-        // Listener for using beer with the worker NPC
-        onUseWith(IntType.NPC,
-            BEER,
-            WORKER
-        ) { player, beer, _ ->
-            // Opens the Council Worker dialogue with the beer item
+        /*
+         * Handles using beer with the worker NPC.
+         */
+
+        onUseWith(IntType.NPC, BEER, WORKER) { player, beer, _ ->
             player.dialogueInterpreter.open(CouncilWorkerDialogue(0, true, beer.id), NPC(WORKER))
             return@onUseWith true
         }
 
-        // Listener for using fish with the fish altar
-        onUseWith(IntType.SCENERY,
-            FISH,
-            FISH_ALTAR
-        ) { player, fish, _ ->
-            // Checks if the player has a lyre in their inventory
+        /*
+         * Handles using specific fish id on the fish altar.
+         */
+
+        onUseWith(IntType.SCENERY, FISH, FISH_ALTAR) { player, fish, _ ->
             if (anyInInventory(player, Items.LYRE_3689, Items.ENCHANTED_LYRE_3690)) {
-                // Checks if the player has raw bass in their inventory
                 if(inInventory(player, Items.RAW_BASS_363)) {
-                    // Sends a dialogue if the item is not a bass
                     sendNPCDialogue(player, NPCs.FOSSEGRIMEN_1273, "That's not a bass, it's a very small shark.").also {
-                        // Submits a spirit pulse for the fish
-                        Pulser.submit(
-                            SpiritPulse(
-                                player,
-                                fish.id
-                            )
-                        )
+                        Pulser.submit(SpiritPulse(player, fish.id))
                     }
                 } else {
-                    // Submits a spirit pulse for the fish
-                    Pulser.submit(
-                        SpiritPulse(
-                            player,
-                            fish.id
-                        )
-                    )
+                    Pulser.submit(SpiritPulse(player, fish.id))
                 }
             } else {
-                // Checks if the player does not have a lyre
                 if(!anyInInventory(player, Items.LYRE_3689, Items.ENCHANTED_LYRE_3690)){
-                    // Sends a message indicating the player should have a lyre
                     sendMessage(player, "I should probably have my lyre with me.")
                 } else {
-                    // Sends a message indicating a greater offering is required
                     sendMessage(player, "Fossegrimen require a greater offering to enchant your lyre.")
                 }
             }
             return@onUseWith true
         }
 
-        // Listener for using a low alc keg with a keg
-        onUseWith(IntType.ITEM,
-            LOW_ALC_KEG,
-            KEG
-        ) { player, _, _ ->
-            // Checks if the keg has not been mixed yet
+        /*
+         * Handles using a low alc keg with a keg
+         */
+
+        onUseWith(IntType.ITEM, LOW_ALC_KEG, KEG) { player, _, _ ->
             if (!getAttribute(player, "fremtrials:keg-mixed", false)) {
-                // Checks if the player has a cherry bomb
                 if (getAttribute(player, "fremtrials:cherrybomb", false)) {
-                    // Removes the low alc keg from the player's inventory
-                    removeItem(player,
-                        LOW_ALC_KEG
-                    )
-                    // Sets the keg mixed attribute to true
+                    removeItem(player, LOW_ALC_KEG)
                     setAttribute(player, "/save:fremtrials:keg-mixed", true)
-                    // Sends a message about the cherry bomb going off
                     sendMessage(player, "The cherry bomb in the pipe goes off.")
-                    // Sends a chat message to local entities
                     RegionManager.getLocalEntitys(player).stream().forEach { e -> e.sendChat("What was THAT??") }
-                    // Sends a message about mixing the kegs
                     sendMessage(player, "You mix the kegs together.")
                 } else {
-                    // Sends a dialogue indicating the player cannot do this right now
                     player.dialogueInterpreter?.sendDialogue("I can't do this right now. I should create", "a distraction.")
                 }
             } else return@onUseWith false
             return@onUseWith true
         }
 
-        // Listener for using a tinderbox with a cherry bomb
-        onUseWith(IntType.ITEM,
-            TINDERBOX,
-            CHERRY_BOMB
-        ) { player, _, _ ->
-            // Checks if the cherry bomb is removed successfully
-            if (removeItem(player,
-                    CHERRY_BOMB
-                )) {
-                // Adds a lit bomb to the player's inventory
-                addItem(player,
-                    LIT_BOMB
-                )
-                // Sends a message indicating the object is lit
+        /*
+         * Handles using a tinderbox with a cherry bomb.
+         */
+
+        onUseWith(IntType.ITEM, TINDERBOX, CHERRY_BOMB) { player, _, _ ->
+            if (removeItem(player, CHERRY_BOMB)) {
+                addItem(player, LIT_BOMB)
                 sendMessage(player, "You light the strange object.")
             }
             return@onUseWith true
         }
 
-        // Listener for using a knife with a tree branch
-        onUseWith(IntType.ITEM,
-            KNIFE,
-            TREE_BRANCH
-        ) { player, _, _ ->
-            // Checks if the player has the required crafting level
+        /*
+         * Handles using a knife with a tree branch.
+         */
+
+        onUseWith(IntType.ITEM, KNIFE, TREE_BRANCH) { player, _, _ ->
             if (!player.skills.hasLevel(Skills.CRAFTING, 40)) {
-                // Sends a dialogue indicating the required crafting level
                 sendDialogue(player, "You need 40 crafting to do this!")
                 return@onUseWith true
             }
-            // Checks if the player has a knife in their inventory
-            if (inInventory(player,
-                    KNIFE
-                ))
-            // Submits a branch fletching pulse for the player
-                Pulser.submit(
-                    BranchFletchingPulse(
-                        player
-                    )
-                )
+            if (inInventory(player, KNIFE))
+                Pulser.submit(BranchFletchingPulse(player))
             else
-            // Sends a message indicating the player needs a knife
                 sendMessage(player, "You need a knife to do this.")
             return@onUseWith true
         }
 
-        // Listener for using stew ingredients with Lalli's stew
-        onUseWith(IntType.SCENERY,
-            STEW_INGREDIENT_IDS,
-            LALLIS_STEW
-        ) { player, stewIngredient, _ ->
-            // Checks the type of stew ingredient used
+        /*
+         * Handles using stew ingredients with Lalli's stew.
+         */
+
+        onUseWith(IntType.SCENERY, STEW_INGREDIENT_IDS, LALLIS_STEW) { player, stewIngredient, _ ->
             when (stewIngredient.id) {
                 Items.ONION_1957 -> {
-                    // Sends a dialogue indicating an onion was added
                     sendDialogue(player, "You added an onion to the stew")
-                    // Sets the onion added attribute to true
                     setAttribute(player, "/save:lalliStewOnionAdded", true)
-                    // Removes the onion from the player's inventory
                     removeItem(player, stewIngredient)
                 }
 
                 Items.POTATO_1942 -> {
-                    // Sends a dialogue indicating a potato was added
                     sendDialogue(player, "You added a potato to the stew")
-                    // Sets the potato added attribute to true
                     setAttribute(player, "/save:lalliStewPotatoAdded", true)
-                    // Removes the potato from the player's inventory
                     removeItem(player, stewIngredient)
                 }
 
                 Items.CABBAGE_1965 -> {
-                    // Sends a dialogue indicating a cabbage was added
                     sendDialogue(player, "You added a cabbage to the stew")
-                    // Sets the cabbage added attribute to true
                     setAttribute(player, "/save:lalliStewCabbageAdded", true)
-                    // Removes the cabbage from the player's inventory
                     removeItem(player, stewIngredient)
                 }
 
                 Items.PET_ROCK_3695 -> {
-                    // Sends a dialogue indicating a pet rock was added
                     sendDialogue(player, "You added your dear pet rock to the stew")
-                    // Sets the rock added attribute to true
                     setAttribute(player, "/save:lalliStewRockAdded", true)
-                    // Removes the pet rock from the player's inventory
                     removeItem(player, stewIngredient)
                 }
             }
             return@onUseWith true
         }
 
-        // Listener for using golden fleece with spinning wheel
-        onUseWith(IntType.SCENERY,
-            GOLDEN_FLEECE, *SPINNING_WHEEL_IDS
-        ) { player, _, _ ->
-            // Checks if the golden fleece is removed successfully
-            if (removeItem(player,
-                    GOLDEN_FLEECE
-                )) {
-                // Adds golden wool to the player's inventory
-                addItem(player,
-                    GOLDEN_WOOL
-                )
-                // Animates the spinning action
-                animate(player, 896)
-                // Sends a dialogue indicating the fleece was spun
+        /*
+         * Handles using golden fleece with spinning wheel.
+         */
+
+        onUseWith(IntType.SCENERY, GOLDEN_FLEECE, *SPINNING_WHEEL_IDS) { player, _, _ ->
+            if (removeItem(player, GOLDEN_FLEECE)) {
+                addItem(player, GOLDEN_WOOL)
+                animate(player, Animations.HUMAN_COOKING_RANGE_896)
                 sendDialogue(player, "You spin the Golden Fleece into a ball of Golden Wool")
             }
             return@onUseWith true
         }
 
-        // Listener for using unstrung lyre with golden wool
-        onUseWith(IntType.ITEM,
-            UNSTRUNG_LYRE,
-            GOLDEN_WOOL
-        ) { player, _, _ ->
-            // Checks if the player has the required fletching level
-            if (player.getSkills().getLevel(Skills.FLETCHING) >= 25) {
-                // Checks if both items are removed successfully
-                if (removeItem(player,
-                        GOLDEN_WOOL
-                    ) &&
-                    removeItem(player, Items.UNSTRUNG_LYRE_3688)
-                ) {
-                    // Animates the stringing action
-                    animate(player, 1248)
-                    // Adds the lyre to the player's inventory
-                    addItem(player, Items.LYRE_3689)
-                    // Sends a dialogue indicating the lyre was strung
-                    sendDialogue(player, "You string the Lyre with the Golden Wool.")
-                }
-            } else sendDialogue(player, "You need 25 fletching to do this!")
+        /*
+         * Handles using unstrung lyre with golden wool.
+         */
+
+        onUseWith(IntType.ITEM, UNSTRUNG_LYRE, GOLDEN_WOOL) { player, _, _ ->
+            if (player.getSkills().getLevel(Skills.FLETCHING) < 25) {
+                sendDialogue(player, "You need 25 fletching to do this!")
+                return@onUseWith false
+            }
+
+            if (removeItem(player, GOLDEN_WOOL) && removeItem(player, Items.UNSTRUNG_LYRE_3688)) {
+                animate(player, Animations.FLETCH_LOGS_1248)
+                addItem(player, Items.LYRE_3689)
+                sendDialogue(player, "You string the Lyre with the Golden Wool.")
+            }
             return@onUseWith true
         }
 
-        // Listener for opening the long hall backdoor
+        /*
+         * Handles opening the long hall backdoor and thorvald house.
+         */
+
         on(LONGHALL_BACKDOOR, IntType.SCENERY, "open") { player, node ->
-            // Checks if the player has enchanted their lyre
+            if(player.location == Location.create(2662, 3692, 0)){
+                DoorActionHandler.handleAutowalkDoor(player, node.asScenery())
+                return@on true
+            }
+
             when {
                 getAttribute(player, "LyreEnchanted", false) -> {
-                    // Sends a dialogue indicating permission to pass
-                    sendNPCDialogue(player, 1278, "Yeah you're good to go through. Olaf tells me you're some kind of outerlander bard here on tour. I doubt you're worse than Olaf is.")
-                    // Handles the door action
+                    sendNPCDialogue(player, NPCs.LONGHALL_BOUNCER_1278, "Yeah you're good to go through. Olaf tells me you're some kind of outerlander bard here on tour. I doubt you're worse than Olaf is.")
                     DoorActionHandler.handleAutowalkDoor(player, node.asScenery())
                 }
 
-                // Checks if the player has played the lyre concert
                 getAttribute(player, "lyreConcertPlayed", false) -> {
-                    // Handles the door action
                     DoorActionHandler.handleAutowalkDoor(player, node.asScenery())
                 }
 
-                // If neither condition is met, sends a message denying access
                 else -> {
-                    sendNPCDialogue(player, 1278, "I didn't give you permission to go backstage!")
+                    sendNPCDialogue(player, NPCs.LONGHALL_BOUNCER_1278, "I didn't give you permission to go backstage!")
                 }
             }
             return@on true
         }
 
-        // Listener for playing the lyre
+        /*
+         * Handles playing the lyre.
+         */
+
         on(LYRE_IDs, IntType.ITEM, "play") { player, lyre ->
-            // Checks if the player is on stage and has not played the concert
             if (getAttribute(player, "onStage", false) && !getAttribute(player, "lyreConcertPlayed", false)) {
-                // Submits a lyre concert pulse for the player
                 Pulser.submit(
                     LyreConcertPulse(
                         player,
@@ -292,149 +226,134 @@ class FremennikTrialsListener : InteractionListener {
                     )
                 )
             } else if (getQuestStage(player, QuestName.THE_FREMENNIK_TRIALS) < 20 || !isQuestComplete(player, QuestName.THE_FREMENNIK_TRIALS)) {
-                // Sends a message indicating the player lacks knowledge to play
                 sendMessage(player, "You lack the knowledge to play this.")
             } else if (LYRE_IDs.isLast(lyre.id)) {
-                // Sends a message indicating the lyre is out of charges
                 sendMessage(player, "Your lyre is out of charges!")
             } else if (hasTimerActive(player, "teleblock")) {
-                // Sends a message indicating a magical force is preventing teleportation
                 sendMessage(player, "A magical force has stopped you from teleporting.")
             } else {
-                // Checks if the lyre is removed successfully
                 if (removeItem(player, lyre.asItem())) {
-                    // Adds the next lyre to the player's inventory
                     addItem(player, LYRE_IDs.getNext(lyre.id))
-                    // Submits a lyre teleport pulse for the player
                     Pulser.submit(LyreTeleport(player))
                 }
             }
             return@on true
         }
 
-        // Handle the action when a player interacts with the PIPE scenery
+        /*
+         * Handle the action when a player interacts with the PIPE scenery
+         */
+
         on(PIPE, IntType.SCENERY, "put-inside") { player, _ ->
-            // Check if the player has a lit bomb in their inventory
-            if (inInventory(player,
-                    LIT_BOMB
-                )) {
-                // Notify the player that they have stuffed the lit object into the pipe
+            if (inInventory(player, LIT_BOMB)) {
                 sendMessage(player, "You stuff the lit object into the pipe.")
-                // Set an attribute indicating the player has completed a specific action
                 setAttribute(player, "/save:fremtrials:cherrybomb", true)
-                // Remove the lit bomb from the player's inventory
                 removeItem(player,
                     LIT_BOMB
                 )
             } else {
-                // Notify the player that they cannot put anything in the pipe
                 sendMessage(player, "What am I supposed to put in there? A shoe?")
             }
-            // Indicate that the event was handled successfully
             return@on true
         }
 
-        // Handle the action when a player interacts with a portal
+        /*
+         * Handles maze portals.
+         */
         on(PORTALIDs, IntType.SCENERY, "use") { player, portal ->
-            // Set the player's teleport location based on the portal ID
             player.properties?.teleportLocation = when (portal.id) {
-                2273 -> DestRoom(2639, 10012, 2645, 10018).getCenter() // Teleport to specific coordinates
-                2274 -> DestRoom(2650, 10034, 2656, 10040).getCenter() // Teleport to specific coordinates
-                2506 -> DestRoom(2662, 10023, 2669, 10029).getCenter() // Teleport to specific coordinates
-                2507 -> DestRoom(2626, 10023, 2633, 10029).getCenter() // Teleport to specific coordinates
-                2505 -> DestRoom(2650, 10001, 2656, 10007).getCenter() // Teleport to specific coordinates
-                2503 -> DestRoom(2662, 10012, 2668, 10018).getCenter() // Teleport to specific coordinates
+                2273 -> DestRoom(2639, 10012, 2645, 10018).getCenter()
+                2274 -> DestRoom(2650, 10034, 2656, 10040).getCenter()
+                2506 -> DestRoom(2662, 10023, 2669, 10029).getCenter()
+                2507 -> DestRoom(2626, 10023, 2633, 10029).getCenter()
+                2505 -> DestRoom(2650, 10001, 2656, 10007).getCenter()
+                2503 -> DestRoom(2662, 10012, 2668, 10018).getCenter()
                 2504 -> {
-                    // Set an attribute indicating the player has completed a maze
                     setAttribute(player, "/save:fremtrials:maze-complete", true)
-                    // Teleport to specific coordinates
                     DestRoom(2662, 10034, 2668, 10039).getCenter()
                 }
-                else -> getRandomLocation(player) // Teleport to a random location if no match
+                else -> getRandomLocation(player)
             }
-            // Indicate that the event was handled successfully
             return@on true
         }
 
-        // Handle the action when a player interacts with the SWENSEN_LADDER
+        /*
+         * Handle the action when a player interacts with the swensen ladders.
+         */
+
         on(SWENSEN_LADDER, IntType.SCENERY, "climb") { player, _ ->
-            // Check if the player has not accepted the Swensen quest
             if (!getAttribute(player, "fremtrials:swensen-accepted", false)) {
-                // Send a dialogue from the NPC indicating the player cannot proceed
                 sendNPCDialogue(player, 1283, "Where do you think you're going?", FacialExpression.ANGRY)
             }
-            // Indicate that the event was handled successfully
             return@on true
         }
 
-        // Handle the action when a player interacts with the THORVALD_LADDER
+        /*
+         * Handle the action when a player interacts with the thorvald ladder.
+         */
+
         on(THORVALD_LADDER, IntType.SCENERY, "climb-down") { player, _ ->
-            // Check if the player has completed the quest or voted for Thorvald
             if (isQuestComplete(player, QuestName.THE_FREMENNIK_TRIALS) || getAttribute(player, "fremtrials:thorvald-vote", false)) {
-                // Notify the player they have no reason to go back down
                 sendMessage(player, "You have no reason to go back down there.")
                 return@on true
             } else if (!getAttribute(player, "fremtrials:warrior-accepted", false)) {
-                // Send a dialogue from Thorvald warning the player
                 player.dialogueInterpreter?.sendDialogues(NPCs.THORVALD_THE_WARRIOR_1289, FacialExpression.ANGRY, "Outerlander... do not test my patience. I do not take", "kindly to people wandering in here and acting as though", "they own the place.")
                 return@on true
             } else if (hasEquippableItems(player)) {
-                // Send a dialogue from Thorvald about not entering with equipment
                 player.dialogueInterpreter?.sendDialogues(NPCs.THORVALD_THE_WARRIOR_1289, FacialExpression.ANGRY, "You may not enter the battleground with any armour", "or weaponry of any kind.")
-                // Add an action to inform the player about storing equipment
                 player.dialogueInterpreter.addAction { _, _ ->
                     player.dialogueInterpreter?.sendDialogues(NPCs.THORVALD_THE_WARRIOR_1289, FacialExpression.ANGRY, "If you need to place your equipment into your bank", "account, I recommend that you speak to the seer. He", "knows a spell that will do that for you.")
                 }
                 return@on true
             }
 
-            // Close the Koschei session if it exists
+            /*
+             * Close the Koschei session if it exists
+             */
+
             if (player.getExtension<Any?>(KoscheiSession::class.java) != null) {
                 KoscheiSession.getSession(player).close()
             }
-            // Handle the climbing action with animation and location
             ClimbActionHandler.climb(player, Animation(828), Location.create(2671, 10099, 2))
-            // Submit a pulse for the Koschei session
             Pulser.submit(KoscheiPulse(player))
-            // Indicate that the event was handled successfully
             return@on true
         }
 
-        // Handle the action when a player interacts with the THORVALD_LADDER_LOWER
+        /*
+         * Handle exit from thorvald basement.
+         */
+
         on(THORVALD_LADDER_LOWER, IntType.SCENERY, "climb-up") { player, _ ->
-            // Close the Koschei session if it exists
             if (player.getExtension<Any?>(KoscheiSession::class.java) != null) {
                 KoscheiSession.getSession(player).close()
             }
-            // Handle the climbing action with animation and location
-            ClimbActionHandler.climb(player, Animation(828), Location.create(2666, 3694, 0))
-            // Indicate that the event was handled successfully
+            ClimbActionHandler.climb(player, Animation(Animations.USE_LADDER_828), Location.create(2666, 3694, 0))
             return@on true
         }
 
-        // Handle the action when a player interacts with the SWAYING_TREE
+        /*
+         * Handle the action when a player interacts with the SWAYING_TREE
+         */
+
         on(SWAYING_TREE, IntType.SCENERY, "cut-branch") { player, node ->
-            // Start the woodcutting pulse for the player
             player.pulseManager.run(WoodcuttingPulse(player, node as Scenery))
-            // Indicate that the event was handled successfully
             return@on true
         }
 
-        // Handle the action when a player interacts with SHOPNPCS
+        /*
+         * Handle the interaction with shopkeepers around rellekka province.
+         */
+
         on(SHOPNPCS, IntType.NPC, "Trade") { player, npc ->
-            // Check if the player has completed the quest
             if (isQuestComplete(player, QuestName.THE_FREMENNIK_TRIALS)) {
-                // Open the NPC shop for the player
                 openNpcShop(player, npc.id)
             } else when (npc.id) {
-                // Send messages based on the NPC the player is interacting with
                 NPCs.THORA_THE_BARKEEP_1300 -> sendMessage(player, "Only Fremenniks may buy drinks here.")
                 NPCs.SKULGRIMEN_1303 -> sendMessage(player, "Only Fremenniks may purchase weapons and armour here.")
                 NPCs.SIGMUND_THE_MERCHANT_1282 -> sendMessage(player, "Only Fremenniks may trade with this merchant.")
                 NPCs.YRSA_1301 -> sendMessage(player, "Only Fremenniks may buy clothes here.")
                 NPCs.FISH_MONGER_1315 -> sendMessage(player, "Only Fremenniks may purchase fish here.")
             }
-            // Indicate that the event was handled successfully
             return@on true
         }
     }
@@ -743,7 +662,5 @@ class FremennikTrialsListener : InteractionListener {
         private val FISH = intArrayOf(Items.RAW_BASS_363, Items.RAW_SHARK_383, Items.RAW_SEA_TURTLE_395, Items.RAW_MANTA_RAY_389)
         private val STEW_INGREDIENT_IDS = intArrayOf(Items.POTATO_1942, Items.ONION_1957, Items.CABBAGE_1965, Items.PET_ROCK_3695)
         private val SHOPNPCS = intArrayOf(NPCs.YRSA_1301, NPCs.SKULGRIMEN_1303, NPCs.THORA_THE_BARKEEP_1300, NPCs.SIGMUND_THE_MERCHANT_1282, NPCs.FISH_MONGER_1315)
-
-
     }
 }
