@@ -1,21 +1,11 @@
 package content.region.kandarin.baxtorian.handlers.barbariantraining.firemaking
 
-import content.global.skill.firemaking.FireMakingPulse.getAsh
-import content.global.skill.firemaking.logs.Log.Companion.forId
 import content.global.skill.gather.SkillingTool
 import content.region.kandarin.baxtorian.handlers.barbariantraining.BarbarianTraining
 import core.api.*
 import org.rs.consts.Items
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
-import core.game.node.entity.skill.Skills
-import core.game.node.item.GroundItemManager
-import core.game.node.scenery.Scenery
-import core.game.node.scenery.SceneryBuilder
-import core.game.system.task.Pulse
-import core.game.world.GameWorld.Pulser
-import core.game.world.map.RegionManager.getObject
-import core.game.world.update.flag.context.Animation
 
 class BarbFiremakingListener : InteractionListener {
 
@@ -26,45 +16,16 @@ class BarbFiremakingListener : InteractionListener {
     }
 
     override fun defineListeners() {
-        onUseWith(IntType.ITEM, logs, *tools) { player, used, with ->
-            val tool = SkillingTool.getFiremakingTool(player)
-            val log = forId(used.id)
-
-            if (with.id in crystalEquipment) {
+        onUseWith(IntType.ITEM, tools, *logs) { player, used, with ->
+            if (used.id in crystalEquipment.indices) {
                 sendMessage(player, "The bow resists all attempts to light the fire. It seems that the sentient tools of the elves don't approve of you burning down forests.")
                 return@onUseWith false
             }
 
-            if (!getAttribute(player, BarbarianTraining.FM_BASE, false) || !getAttribute(player, BarbarianTraining.FM_FULL, false)) {
+            if (getAttribute(player, BarbarianTraining.FM_BASE, false) || getAttribute(player, BarbarianTraining.FM_FULL, false)) {
+                submitIndividualPulse(player, BarbFiremakingPulse(player, with.asItem(), null))
+            } else {
                 sendMessage(player, "In order to be able to lighting fires, Otto Godblessed must be talked to.")
-                return@onUseWith false
-            }
-
-            val ticks = animationDuration(Animation(tool!!.animation))
-
-            if (getObject(player.location) != null || player.zoneMonitor.isInZone("bank")) {
-                sendMessage(player, "You can't light a fire here.")
-                return@onUseWith false
-            }
-
-            visualize(player, tool.animation, 1844)
-
-            if (removeItem(player, used.asItem())) {
-                val ground = GroundItemManager.create(used.asItem(), player.location, player)
-                Pulser.submit(object : Pulse(ticks, player) {
-                    override fun pulse(): Boolean {
-                        if (!ground.isActive) {
-                            return true
-                        }
-                        val `object` = Scenery(log!!.fireId, player.location)
-                        player.moveStep()
-                        GroundItemManager.destroy(ground)
-                        rewardXP(player, Skills.FIREMAKING, log.xp)
-                        player.faceLocation(`object`.getFaceLocation(player.location))
-                        SceneryBuilder.add(`object`, log.life, getAsh(player, log, `object`))
-                        return true
-                    }
-                })
             }
             return@onUseWith true
         }

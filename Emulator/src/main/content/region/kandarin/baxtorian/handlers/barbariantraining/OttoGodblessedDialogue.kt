@@ -85,7 +85,7 @@ class OttoGodblessedDialogue(player: Player? = null) : Dialogue(player) {
                         "My mind is ready for your Firemaking wisdom, please instruct me."
                     }
                 )
-                setAttribute(player, "/save:${BarbarianTraining.BARBARIAN_TRAINING}", true)
+                setAttribute(player, BarbarianTraining.BARBARIAN_TRAINING, true)
                 stage = 14
             }
 
@@ -134,7 +134,7 @@ class OttoGodblessedDialogue(player: Player? = null) : Dialogue(player) {
             17 -> npc("For this process you will require a strung bow. You","use the bow to quickly rotate pieces of wood against one","another. As you rub the wood becomes hot, eventually","springing into flame.").also { stage++ }
             18 -> player("No more secret details?").also { stage++ }
             19 -> npc("The spirits will aid you, the power they supply will guide","your hands. Go and benefit from their guidance upon","an oaken log.").also {
-                setAttribute(player, "/save:${BarbarianTraining.FM_BASE}", true)
+                setAttribute(player, BarbarianTraining.FM_BASE, true)
                 stage = 20
             }
 
@@ -174,7 +174,7 @@ class OttoGodblessedDialogue(player: Player? = null) : Dialogue(player) {
             103 -> npc("You will know when you are ready, since inspiration will","fill your mind.").also { stage++ }
             104 -> player("So I can obtain new foods from these Fishing spots?").also { stage++ }
             105 -> npc("We do not use these fish quite as you might expect.","When you return from Fishing we can speak more of","this matter.").also {
-                setAttribute(player, "/save:${BarbarianTraining.FISHING_BASE}", true)
+                setAttribute(player, BarbarianTraining.FISHING_BASE, true)
                 stage = 20
             }
 
@@ -192,7 +192,7 @@ class OttoGodblessedDialogue(player: Player? = null) : Dialogue(player) {
             }
             111 -> player("What was it you needed again?").also { stage++ }
             112 -> npc("Bring me a lesser attack potion combined with fish roe.","There is more importance in this than you will ever","know.").also {
-                setAttribute(player, "/save:${BarbarianTraining.HERBLORE_BASE}", true)
+                setAttribute(player, BarbarianTraining.HERBLORE_BASE, true)
                 stage = 20
             }
             113 -> player("I feel I am missing some vital information about your","need for this potion, though I often have this suspicion.").also { stage++ }

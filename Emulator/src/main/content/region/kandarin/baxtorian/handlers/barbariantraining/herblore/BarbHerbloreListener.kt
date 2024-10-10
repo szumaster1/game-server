@@ -61,7 +61,7 @@ class BarbHerbloreListener : InteractionListener {
 
         if (getAttribute(player, BarbarianTraining.HERBLORE_BASE, false)) {
             removeAttribute(player, BarbarianTraining.HERBLORE_BASE)
-            setAttribute(player, "/save:${BarbarianTraining.HERBLORE_FULL}", true)
+            setAttribute(player, BarbarianTraining.HERBLORE_FULL, true)
             sendDialogueLines(player, "You feel you have learned more of barbarian ways. Otto might wish","to talk to you more.")
         }
 
