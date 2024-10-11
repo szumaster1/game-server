@@ -6,11 +6,11 @@ import org.rs.consts.Items
 /**
  * Represents various types of enchanted headgear.
  *
- * @param defaultItem          The item id to create an empty item id.
- * @param enchantedItem         The item id of the empty version of the headgear.
- * @param chargedItem       The item id of the charged version of the headgear.
- * @param scrollCapacity    The maximum amount of scrolls the headgear can hold.
- * @param requiredLevel     The required summoning level to charge the headgear.
+ * @param defaultItem The item id to create an empty item id.
+ * @param enchantedItem The item id of the empty version of the headgear.
+ * @param chargedItem The item id of the charged version of the headgear.
+ * @param scrollCapacity The maximum amount of scrolls the headgear can hold.
+ * @param requiredLevel The required summoning level to charge the headgear.
  */
 enum class EnchantedHeadgear(
     val defaultItem: Item,
