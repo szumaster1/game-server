@@ -7,56 +7,15 @@ import core.game.global.action.DoorActionHandler
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.interaction.QueueStrength
-import core.game.node.entity.npc.NPC
-import core.game.node.entity.skill.Skills
-import core.game.system.task.Pulse
 import core.game.world.map.Location
 import core.game.world.update.flag.context.Animation
 import org.rs.consts.Animations
 import org.rs.consts.Items
-import org.rs.consts.NPCs
 import org.rs.consts.Scenery
 
 class ZanarisListener : InteractionListener {
 
     override fun defineListeners() {
-
-        /*
-         * Special interaction for (Fungi) mushrooms.
-         */
-
-        on(intArrayOf(NPCs.FUNGI_3344, NPCs.FUNGI_3345), IntType.NPC, "pick") { player, node ->
-            val fungi = node as NPC
-            if (getStatLevel(player, Skills.SLAYER) < 57) {
-                sendMessage(player, "Zygomite is Slayer monster that require a Slayer level of 57 to kill.")
-                return@on true
-            }
-            lock(player, 1)
-            animate(player, FIRST_ANIMATION)
-            submitWorldPulse(object : Pulse() {
-                var counter = 0
-                override fun pulse(): Boolean {
-                    when (counter++) {
-                        0 -> {
-                            animate(
-                                entity = fungi,
-                                anim = SECOND_ANIMATION,
-                                /*
-                                gfx = if (fungi.id == NPCs.FUNGI_3344)
-                                    Graphics.MUSHROOM_DUDE_577 else Graphics.HUGE_MUSHROOM_DUDE_578
-                                */
-                            )
-                            transformNpc(fungi, fungi.id + 2, 500)
-                            fungi.impactHandler.disabledTicks = 1
-                            fungi.attack(player)
-                            return true
-                        }
-                    }
-                    return false
-                }
-            })
-            return@on true
-        }
 
         /*
          * Zanaris magic door interaction.
@@ -162,7 +121,6 @@ class ZanarisListener : InteractionListener {
         private val exitLocation = Location(2453, 4476, 0)
         private val magicDoorIDs = intArrayOf(12045, 12047)
         private val requiredItemIDs = intArrayOf(Items.RAW_CHICKEN_2138, Items.EGG_1944)
-        private const val SECOND_ANIMATION = 3322
         private const val TP_ANIMATION_A = Animations.DISAPPEAR_2755
         private const val TP_ANIMATION_B = Animations.APPEAR_2757
         private const val FIRST_ANIMATION = Animations.CLOSING_CHEST_3335

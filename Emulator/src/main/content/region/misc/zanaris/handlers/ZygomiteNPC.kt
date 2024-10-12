@@ -1,9 +1,6 @@
 package content.region.misc.zanaris.handlers
 
-import content.global.skill.slayer.Tasks
-import core.api.replaceSlot
-import core.api.sendMessage
-import core.api.toIntArray
+import core.api.*
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.Node
@@ -13,18 +10,63 @@ import core.game.node.entity.combat.ImpactHandler
 import core.game.node.entity.npc.NPC
 import core.game.node.entity.npc.NPCBehavior
 import core.game.node.entity.player.Player
+import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
+import core.game.system.task.Pulse
 import org.rs.consts.Items
+import org.rs.consts.NPCs
+import java.lang.Integer.max
 
 /**
- * Represents the Zygomite NPC.
+ * Represents the [Zygomite NPC](https://runescape.wiki/w/Mutated_zygomite?oldid=1560364)
  */
-class ZygomiteNPC : NPCBehavior(*Tasks.ZYGOMITES.npcs), InteractionListener {
-
-    private val fungicideSpray = (Items.FUNGICIDE_SPRAY_10_7421..Items.FUNGICIDE_SPRAY_0_7431).toIntArray()
+class ZygomiteNPC : NPCBehavior(3344, 3345, 3346, 3347), InteractionListener {
 
     override fun defineListeners() {
-        onUseWith(IntType.NPC, fungicideSpray, *ids, handler = ::handleFungicideSpray)
+        on(intArrayOf(NPCs.FUNGI_3344, NPCs.FUNGI_3345), IntType.NPC, "pick") { player, node ->
+            val fungi = node as NPC
+            if (getStatLevel(player, Skills.SLAYER) < 57) {
+                sendMessage(player, "Zygomite is Slayer monster that require a Slayer level of 57 to kill.")
+                return@on true
+            }
+            lock(player, 1)
+            animate(player, FIRST_ANIMATION)
+            submitWorldPulse(object : Pulse() {
+                var counter = 0
+                override fun pulse(): Boolean {
+                    when (counter++) {
+                        0 -> {
+                            animate(entity = fungi, anim = SECOND_ANIMATION)
+                            transformNpc(fungi, fungi.id + 2, 500)
+                            fungi.impactHandler.disabledTicks = 1
+                            fungi.attack(player)
+                            return true
+                        }
+                    }
+                    return false
+                }
+            })
+            return@on true
+        }
+
+        onUseWith(IntType.NPC, (7421..7431).toIntArray(), *ids, handler = ::handleFungicideSpray)
+    }
+
+    override fun beforeDamageReceived(self: NPC, attacker: Entity, state: BattleState) {
+        val lifepoints = self.skills.lifepoints
+        if (state.estimatedHit + max(state.secondaryHit, 0) > lifepoints - 1) {
+            state.estimatedHit = lifepoints - 1
+            state.secondaryHit = -1
+            setAttribute(self, "lock-damage", true)
+        }
+    }
+
+    override fun tick(self: NPC): Boolean {
+        if (getAttribute(self, "lock-damage", false)) {
+            self.properties.combatPulse.stop()
+            removeAttribute(self, "lock-damage")
+        }
+        return true
     }
 
     override fun onDeathFinished(self: NPC, killer: Entity) {
@@ -32,49 +74,25 @@ class ZygomiteNPC : NPCBehavior(*Tasks.ZYGOMITES.npcs), InteractionListener {
         self.reTransform()
     }
 
-    override fun beforeDamageReceived(self: NPC, attacker: Entity, state: BattleState) {
-        val lifepoints = self.getSkills().lifepoints
-        if (state.estimatedHit > -1) {
-            if (lifepoints - state.estimatedHit < 1) {
-                state.estimatedHit = 0
-                if (lifepoints > 1) {
-                    state.estimatedHit = lifepoints - 1
-                }
-            }
-        }
-        if (state.secondaryHit > -1) {
-            if (lifepoints - state.secondaryHit < 1) {
-                state.secondaryHit = 0
-                if (lifepoints > 1) {
-                    state.secondaryHit = lifepoints - 1
-                }
-            }
-        }
-        val totalHit = state.estimatedHit + state.secondaryHit
-        if (lifepoints - totalHit < 1) {
-            state.estimatedHit = 0
-            state.secondaryHit = 0
-        }
+    override fun shouldIgnoreMultiRestrictions(self: NPC, victim: Entity): Boolean {
+        return true
     }
 
     private fun handleFungicideSpray(player: Player, used: Node, with: Node): Boolean {
         if (with !is NPC) return false
-        if (used.id != Items.FUNGICIDE_SPRAY_0_7431) {
-            if (used.id in fungicideSpray) {
-                replaceSlot(player, used.asItem().slot, Item(used.id + 1))
-            } else {
-                sendMessage(player, "Nothing interesting happens.")
-            }
-        } else {
-            sendMessage(player, "Your fungicide spray is currently empty.")
-        }
-        if (with.getSkills().lifepoints > 7) {
+        if (used.id == Items.FUNGICIDE_SPRAY_0_7431) return false
+        if (with.skills.lifepoints >= 3)
             sendMessage(player, "The zygomite isn't weak enough to be affected by the fungicide.")
-        } else {
-            sendMessage(player, "The Zygomite is covered in fungicide. It bubbles away to nothing!")
+        else {
+            sendMessage(player, "The zygomite is covered in fungicide. It bubbles away to nothing!")
+            replaceSlot(player, used.asItem().slot, Item(used.id + 1))
             with.impactHandler.manualHit(player, with.getSkills().lifepoints, ImpactHandler.HitsplatType.NORMAL)
         }
         return true
     }
 
+    companion object {
+        private const val FIRST_ANIMATION = 3335
+        private const val SECOND_ANIMATION = 3322
+    }
 }
