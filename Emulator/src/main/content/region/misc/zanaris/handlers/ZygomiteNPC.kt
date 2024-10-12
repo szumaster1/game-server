@@ -86,7 +86,7 @@ class ZygomiteNPC : NPCBehavior(3344, 3345, 3346, 3347), InteractionListener {
         else {
             sendMessage(player, "The zygomite is covered in fungicide. It bubbles away to nothing!")
             replaceSlot(player, used.asItem().slot, Item(used.id + 1))
-            with.impactHandler.manualHit(player, with.getSkills().lifepoints, ImpactHandler.HitsplatType.NORMAL)
+            with.startDeath(player)
         }
         return true
     }
