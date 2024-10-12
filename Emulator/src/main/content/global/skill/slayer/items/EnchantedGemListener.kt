@@ -8,8 +8,10 @@ import core.game.dialogue.IfTopic
 import core.game.dialogue.Topic
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
+import core.game.node.entity.npc.NPC
 import core.tools.END_DIALOGUE
 import org.rs.consts.Items
+import org.rs.consts.NPCs
 
 /**
  * Handles the enchanted gem option.
@@ -27,8 +29,9 @@ class EnchantedGemDialogue : DialogueFile() {
     var firstRun = true
     override fun handle(componentID: Int, buttonID: Int) {
         npc = getSlayerMaster(player!!)
+        val expression = if(npc == NPC(NPCs.CHAELDAR_1598)) FacialExpression.OLD_NORMAL else FacialExpression.HALF_ASKING
         when(stage) {
-            0 -> npcl(FacialExpression.FRIENDLY, "Hello there ${player!!.username}, what can I help you with?").also { stage++ }
+            0 -> npcl(expression, "Hello there ${player!!.username}, what can I help you with?").also { stage++ }
             1 -> showTopics(
                 Topic(FacialExpression.ASKING, "How am I doing so far?", 100),
                 Topic(FacialExpression.HALF_ASKING, "Who are you?", 200),
@@ -40,12 +43,12 @@ class EnchantedGemDialogue : DialogueFile() {
             100 -> {
                 firstRun = false
                 if(!hasSlayerTask(player!!)) {
-                    npcl(FacialExpression.HALF_THINKING, "You need something new to hunt. Come and see me when you can and I'll give you a new task.").also { stage = 1 }
+                    npcl(expression, "You need something new to hunt. Come and see me when you can and I'll give you a new task.").also { stage = 1 }
                 } else {
                     if(getSlayerTask(player!!) == Tasks.JAD) {
-                        npcl(FacialExpression.FRIENDLY, "You're currently assigned to kill TzTok-Jad!")
+                        npcl(expression, "You're currently assigned to kill TzTok-Jad!")
                     } else {
-                        npcl(FacialExpression.FRIENDLY, "You're currently assigned to kill ${getSlayerTaskName(player!!)}s; only ${getSlayerTaskKillsRemaining(player!!)} more to go.")
+                        npcl(expression, "You're currently assigned to kill ${getSlayerTaskName(player!!)}s; only ${getSlayerTaskKillsRemaining(player!!)} more to go.")
                     }
                     setVarp(player!!, 2502, getSlayerTaskFlags(player!!) shr 4)
                     stage = 1
@@ -53,15 +56,15 @@ class EnchantedGemDialogue : DialogueFile() {
             }
             200 -> {
                 firstRun = false
-                npcl(FacialExpression.HAPPY, "My name's ${getSlayerMaster(player!!).name}, I'm the Slayer Master best able to train you.").also { stage = 1 }
+                npcl(expression, "My name's ${getSlayerMaster(player!!).name}, I'm the Slayer Master best able to train you.").also { stage = 1 }
             }
             300 -> {
                 firstRun = false
-                npcl(FacialExpression.HAPPY, "You'll find me in ${getSlayerMasterLocation(player!!)}, I'll be here when you need a new task.").also { stage = 1 }
+                npcl(expression, "You'll find me in ${getSlayerMasterLocation(player!!)}, I'll be here when you need a new task.").also { stage = 1 }
             }
             400 -> {
                 firstRun = false
-                npc(FacialExpression.FRIENDLY, *getSlayerTip(player!!))
+                npc(expression, *getSlayerTip(player!!))
                 stage++
             }
             401 -> player(FacialExpression.HAPPY, "Great, thanks!").also { stage = 1 }
