@@ -20,8 +20,8 @@ class NettleTeaListener : InteractionListener {
          */
 
         onUseWith(IntType.ITEM, Items.NETTLES_4241, Items.BOWL_OF_WATER_1921) { player, used, with ->
-            if (removeItem(player, used.asItem())) {
-                replaceSlot(player, with.asItem().slot, Item(Items.NETTLE_WATER_4237))
+            if (removeItem(player, with.asItem())) {
+                replaceSlot(player, used.asItem().slot, Item(Items.NETTLE_WATER_4237))
                 sendMessage(player, "You place the nettles into the bowl of water.")
             } else {
                 sendMessage(player, "Nothing interesting happens.")

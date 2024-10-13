@@ -183,11 +183,11 @@ open class StandardCookingPulse(open val player: Player, open val scenery: Scene
             return "You accidentally burn some " + food.name.replace("Raw ", "") + "."
         }
 
-        if (!burned && product.id == Items.NETTLE_WATER_4237) {
+        if (!burned && product.id == Items.NETTLE_TEA_4239) {
             return "You boil the water and make nettle tea."
         }
 
-        if (burned && product.id == Items.NETTLE_WATER_4237) {
+        if (burned && product.id == Items.NETTLE_TEA_4239) {
             return "You accidentally let the water boil over."
         }
 
