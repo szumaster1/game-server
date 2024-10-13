@@ -26,20 +26,11 @@ class SurvivalExpertDialogue(player: Player? = null) : Dialogue(player) {
 
         return when (tutStage) {
             4 -> {
-                showDialogue(
-                    "Hello there, newcomer. My name is Brynna. My job is",
-                    "to teach you a few survival tips and tricks. First off",
-                    "we're going to start with the most basic survival skill of",
-                    "all: making a fire."
-                )
+                showDialogue("Hello there, newcomer. My name is Brynna. My job is", "to teach you a few survival tips and tricks. First off", "we're going to start with the most basic survival skill of", "all: making a fire.")
                 true
             }
             11 -> {
-                showDialogue(
-                    "Well done! Next we need to get some food in our",
-                    "bellies. We'll need something to cook. There are shrimp",
-                    "in the pond there, so let's catch and cook some."
-                )
+                showDialogue("Well done! Next we need to get some food in our", "bellies. We'll need something to cook. There are shrimp", "in the pond there, so let's catch and cook some.")
                 true
             }
             5, 14, 15 -> {

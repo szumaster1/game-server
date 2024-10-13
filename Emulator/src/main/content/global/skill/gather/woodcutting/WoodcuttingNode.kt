@@ -880,7 +880,7 @@ enum class WoodcuttingNode {
 
         @JvmStatic
         fun forId(id: Int): WoodcuttingNode? {
-            return NODE_MAP[id] as WoodcuttingNode
+            return NODE_MAP[id]
         }
 
         fun isEmpty(id: Int): Boolean {

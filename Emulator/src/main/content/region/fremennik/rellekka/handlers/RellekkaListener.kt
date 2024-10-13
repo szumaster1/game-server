@@ -5,6 +5,7 @@ import content.region.fremennik.waterbirth.WaterbirthTravel
 import org.rs.consts.NPCs
 import org.rs.consts.Scenery
 import core.api.lock
+import core.api.replaceScenery
 import core.api.requireQuest
 import core.api.teleport
 import core.game.interaction.IntType

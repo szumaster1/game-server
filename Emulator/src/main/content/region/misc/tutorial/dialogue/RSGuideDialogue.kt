@@ -21,18 +21,18 @@ class RSGuideDialogue(player: Player? = null) : Dialogue(player) {
         val tutStage = player?.getAttribute("tutorial:stage", 0) ?: 0
         lockMovement(npc, 1000)
         if (tutStage == 39) {
-            npc(FacialExpression.NOD_YES, "Greetings! I see you are a new arrival to this land. My", "job is to welcome all new visitors. So welcome!")
+            npc(FacialExpression.NEUTRAL, "Greetings! I see you are a new arrival to this land. My", "job is to welcome all new visitors. So welcome!")
             stage = 0
             return true
         }
         if (tutStage == 2) {
-            npc(FacialExpression.NOD_YES, "I'm glad you're making progress!")
+            npc(FacialExpression.NEUTRAL, "I'm glad you're making progress!")
             stage = 6
             return true
         }
         if (tutStage < 2) {
             end()
-            npc(FacialExpression.NOD_YES, "You will notice a flashing icon of a spanner; please click", "on this to continue the tutorial.")
+            npc(FacialExpression.NEUTRAL, "You will notice a flashing icon of a spanner; please click", "on this to continue the tutorial.")
             return false
         }
         else {
@@ -44,17 +44,17 @@ class RSGuideDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun handle(interfaceId: Int, buttonId: Int): Boolean {
         when (stage) {
-            0 -> npc(FacialExpression.FRIENDLY, "You have already learned the first thing needed to", "succeed in this world: talking to other people!").also { stage++ }
-            1 -> npc(FacialExpression.NOD_YES, "You will find many inhabitants of this world have useful", "things to say to you. By clicking on them with your", "mouse you can talk to them.").also { stage++ }
-            2 -> npc(FacialExpression.FRIENDLY, "I would also suggest reading through some of the", "supporting information on the website. There you can", "find the Game Guide, which contain all the additional", "information you're ever likely to need. It also contains").also { stage++ }
-            3 -> npc(FacialExpression.NOD_YES, "maps and helpful tips to help you on your journey.").also { stage++ }
-            4 -> npc(FacialExpression.FRIENDLY, "You will notice a flashing icon of a spanner; please click", "on this to continue the tutorial.").also { stage++ }
+            0 -> npc(FacialExpression.NEUTRAL, "You have already learned the first thing needed to", "succeed in this world: talking to other people!").also { stage++ }
+            1 -> npc(FacialExpression.NEUTRAL, "You will find many inhabitants of this world have useful", "things to say to you. By clicking on them with your", "mouse you can talk to them.").also { stage++ }
+            2 -> npc(FacialExpression.NEUTRAL, "I would also suggest reading through some of the", "supporting information on the website. There you can", "find the Game Guide, which contain all the additional", "information you're ever likely to need. It also contains").also { stage++ }
+            3 -> npc(FacialExpression.NEUTRAL, "maps and helpful tips to help you on your journey.").also { stage++ }
+            4 -> npc(FacialExpression.NEUTRAL, "You will notice a flashing icon of a spanner; please click", "on this to continue the tutorial.").also { stage++ }
             5 -> {
                 end()
                 setAttribute(player, "tutorial:stage", 1)
                 TutorialStage.load(player, 1)
             }
-            6 -> npc(FacialExpression.NOD_YES, "To continue the tutorial go through that door over", "there and speak to your first instructor!").also { stage++ }
+            6 -> npc(FacialExpression.NEUTRAL, "To continue the tutorial go through that door over", "there and speak to your first instructor!").also { stage++ }
             7 -> {
                 end()
                 npc.unlock()

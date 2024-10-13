@@ -974,7 +974,7 @@
   {
     "id": "4312",
     "replaceId": "4140",
-    "fence": "false",
+    "fence": "true",
     "metal": "false"
   },
   {
@@ -1010,6 +1010,12 @@
   {
     "id": "4490",
     "replaceId": "4491",
+    "fence": "false",
+    "metal": "false"
+  },
+  {
+    "id": "4251",
+    "replaceId": "4250",
     "fence": "false",
     "metal": "false"
   },

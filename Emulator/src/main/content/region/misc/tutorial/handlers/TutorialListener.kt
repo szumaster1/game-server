@@ -39,10 +39,10 @@ class TutorialListener : InteractionListener {
         on(WOODEN_GATE, IntType.SCENERY, "open") { player, node ->
             if (getAttribute(player, "tutorial:stage", 0) != 16)
                 return@on true
-
+//
             setAttribute(player, "tutorial:stage", 17)
             TutorialStage.load(player, 17)
-            DoorActionHandler.handleAutowalkDoor(player, node as Scenery)
+            DoorActionHandler.autowalkFence(player, node as Scenery, node.asScenery().id, node.asScenery().id)
             return@on true
         }
 
