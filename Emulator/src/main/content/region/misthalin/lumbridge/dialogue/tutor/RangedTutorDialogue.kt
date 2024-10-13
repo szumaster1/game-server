@@ -58,7 +58,7 @@ class RangedTutorDialogue(player: Player? = null) : Dialogue(player) {
             if (player.inventory.add(BOW)) {
                 sendItemDialogue(player, BOW, "Nemarti gives you a Training Shortbow. It can only be used with Training Arrows.")
                 stage = 230
-                player.getSavedData().globalData.setTutorClaim(System.currentTimeMillis() + 1800000)
+                player.getSavedData().globalData.setTutorClaim(System.currentTimeMillis() + 1200000)
                 return true
             }
             return true
@@ -83,7 +83,7 @@ class RangedTutorDialogue(player: Player? = null) : Dialogue(player) {
                         "Nemarti gives you 25 training arrows. They can only be used with the Training Shortbow."
                     )
                     stage = 231
-                    player.getSavedData().globalData.setTutorClaim(System.currentTimeMillis() + 1800000)
+                    player.getSavedData().globalData.setTutorClaim(System.currentTimeMillis() + 1200000)
                     return true
                 }
             }

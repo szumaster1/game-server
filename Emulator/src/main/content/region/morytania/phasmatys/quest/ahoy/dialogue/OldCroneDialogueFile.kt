@@ -34,15 +34,15 @@ class OldCroneDialogueFile : DialogueFile() {
                 5 -> npc("I believe they grow wild in the Haunted Forest.").also { stage = END_DIALOGUE }
                 6 -> npc("Yes, but it's not in my special cup! I only ever drink", "from my special cup!").also { stage++ }
                 7 -> player("I see. Can I have this special cup, then?").also { stage++ }
-                8 -> sendItemDialogue(player!!, Items.PORCELAIN_CUP_4244, "The old crone gives you her special cup.").also { stage++ }
-                9 -> {
+                8 -> {
                     end()
+                    sendItemDialogue(player!!, Items.PORCELAIN_CUP_4244, "The old crone gives you her special cup.")
                     addItemOrDrop(player!!, Items.PORCELAIN_CUP_4244)
                 }
             }
 
             inInventory(player!!, Items.CUP_OF_TEA_4245) && questStage >= 3 -> when (stage) {
-                0 -> options("Here's a lovely cup of tea for you, in your own special cup.").also { stage++ }
+                0 -> player("Here's a lovely cup of tea for you, in your own special cup.").also { stage++ }
                 1 -> npc("Oh no, it hasn't got milk in it. I only drink", "tea with milk, I'm afraid.").also { stage++ }
                 2 -> {
                     end()

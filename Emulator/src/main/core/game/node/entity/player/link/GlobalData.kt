@@ -49,6 +49,7 @@ class GlobalData {
     private var lowAlchemyDelay: Long = 0
     private var minigameTeleportDelay: Long = 0
     private var silkSteal: Long = 0
+    private var teaSteal: Long = 0
     private var zafTime: Long = 0
     private var doubleExpDelay: Long = 0
     private var dropDelay: Long = 0
@@ -97,6 +98,7 @@ class GlobalData {
         luthasTask = data["luthasTask"] as Boolean
         karamjaBananas = data["karamjaBananas"].toString().toInt()
         silkSteal = data["silkSteal"].toString().toLong()
+        teaSteal = data["teaSteal"].toString().toLong()
         zafAmount = data["zafAmount"].toString().toInt()
         zafTime = data["zafTime"].toString().toLong()
         fritzGlass = data["fritzGlass"] as Boolean
@@ -444,6 +446,24 @@ class GlobalData {
      */
     fun setKaramjaBannanas(karamjaBannanas: Int) {
         this.karamjaBananas = karamjaBannanas
+    }
+
+    /**
+     * Get tea steal
+     *
+     * @return The amount of tea stolen
+     */
+    fun getTeaSteal(): Long {
+        return teaSteal
+    }
+
+    /**
+     * Set tea steal
+     *
+     * @param teaSteal The amount of silk to be set as stolen
+     */
+    fun setTeaSteal(teaSteal: Long) {
+        this.teaSteal = teaSteal
     }
 
     /**

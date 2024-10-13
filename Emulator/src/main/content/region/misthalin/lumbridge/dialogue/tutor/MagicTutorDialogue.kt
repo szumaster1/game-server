@@ -213,13 +213,13 @@ class MagicTutorDialogue(player: Player? = null) : Dialogue(player) {
             if (player.inventory.add(Item(558, 30))) {
                 player.packetDispatch.sendMessage("Mikasi gives you 30 mind runes.")
                 stage = 300
-                player.getSavedData().globalData.setTutorClaim(System.currentTimeMillis() + 1800000);
+                player.getSavedData().globalData.setTutorClaim(System.currentTimeMillis() + 1200000)
             }
         } else {
             if (player.inventory.add(Item(556, 30))) {
                 player.packetDispatch.sendMessage("Mikasi gives you 30 air runes.")
                 stage = 301
-                player.getSavedData().globalData.setTutorClaim(System.currentTimeMillis() + 1800000);
+                player.getSavedData().globalData.setTutorClaim(System.currentTimeMillis() + 1200000)
             }
         }
     }

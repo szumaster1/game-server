@@ -73,7 +73,10 @@ class ThievingStallPulse(player: Player?, node: Scenery?, private val stall: Sta
         val success = success()
         if (success) {
             if (stall == Stall.SILK_STALL) {
-                player.getSavedData().globalData.setSilkSteal(System.currentTimeMillis() + 1800000)
+                player.getSavedData().globalData.setSilkSteal(System.currentTimeMillis() + 1200000)
+            }
+            if (stall == Stall.TEA_STALL) {
+                player.getSavedData().globalData.setTeaSteal(System.currentTimeMillis() + 1200000)
             }
             if (node!!.isActive) {
                 SceneryBuilder.replace(node, node!!.transform(stall!!.getEmpty(node!!.id)), stall.delay)

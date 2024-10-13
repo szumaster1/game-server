@@ -301,7 +301,11 @@ class VarrockListener : InteractionListener {
 
         on(Scenery.LADDER_1749, IntType.SCENERY, "climb-down") { player, _ ->
             if (player.location.z == 2) {
-                ClimbActionHandler.climb(player, Animation(Animations.MULTI_USE_BEND_OVER_827), Location.create(3097, 3432, 1))
+                ClimbActionHandler.climb(
+                    player,
+                    Animation(Animations.MULTI_USE_BEND_OVER_827),
+                    Location.create(3097, 3432, 1)
+                )
             } else {
                 ClimbActionHandler.climb(
                     player,
@@ -406,7 +410,20 @@ class VarrockListener : InteractionListener {
             }
             return@on true
         }
+
+        /*
+         * Handles attempt to take the cup of tea from the table near tea seller.
+         */
+
+        on(Items.CUP_OF_TEA_712, IntType.GROUNDITEM, "take") { player, node ->
+            animate(player, Animations.HUMAN_MULTI_USE_832)
+            if (node.location == Location.create(3272, 3409, 0) || node.location == Location.create(3271, 3413, 0)) {
+                sendNPCDialogue(player, NPCs.TEA_SELLER_595, "Hey! Put that back! Those are for display only!", FacialExpression.ANNOYED)
+            }
+            return@on true
+        }
     }
+
 
     companion object {
         private var COUNTER = 0

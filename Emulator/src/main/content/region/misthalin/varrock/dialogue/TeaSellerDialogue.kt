@@ -2,10 +2,14 @@ package content.region.misthalin.varrock.dialogue
 
 import org.rs.consts.NPCs
 import core.api.openNpcShop
+import core.api.sendChat
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
+import core.game.system.task.Pulse
+import core.game.world.GameWorld.Pulser
+import core.game.world.map.RegionManager.getLocalNpcs
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
@@ -17,6 +21,31 @@ class TeaSellerDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
+        if (player.getSavedData().globalData.getTeaSteal() > System.currentTimeMillis()) {
+            end()
+            for (npc in getLocalNpcs(player.location, 8)) {
+                /*
+                 * It's not possible to get attacked by npc there.
+                 */
+                //if (!npc.properties.combatPulse.isAttacking && npc.id == 32) {
+                sendChat(npc, "Hey! Get your hands off there!")
+                //npc.attack(player)
+                break
+            }
+            Pulser.submit(object : Pulse(1) {
+                var count: Int = 0
+                override fun pulse(): Boolean {
+                    if (count == 0) sendChat(npc, "You're the one who stole something from me!")
+                    if (count == 2) {
+                        sendChat(npc,"Guards guards!")
+                        return true
+                    }
+                    count++
+                    return false
+                }
+            })
+            return false
+        }
         npc(FacialExpression.HALF_GUILTY, "Greetings! Are you in need of refreshment?")
         return true
     }

@@ -20,11 +20,9 @@ class NettleTeaListener : InteractionListener {
          */
 
         onUseWith(IntType.ITEM, Items.NETTLES_4241, Items.BOWL_OF_WATER_1921) { player, used, with ->
-            if (removeItem(player, with.asItem())) {
-                replaceSlot(player, used.asItem().slot, Item(Items.NETTLE_WATER_4237))
+            if(removeItem(player, Items.NETTLES_4241)) {
+                replaceSlot(player, with.asItem().slot, Item(Items.NETTLE_WATER_4237))
                 sendMessage(player, "You place the nettles into the bowl of water.")
-            } else {
-                sendMessage(player, "Nothing interesting happens.")
             }
             return@onUseWith true
         }
@@ -40,7 +38,7 @@ class NettleTeaListener : InteractionListener {
         }
 
         /*
-         * Handles the creation of milky nettle tea in a porcelain cup.
+         * Handles adding the milk to the nettle tea in a porcelain cup.
          * (Ghosts Ahoy quest - related interaction)
          */
 

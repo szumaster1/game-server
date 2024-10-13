@@ -363,6 +363,7 @@ class PlayerSaver(val player: Player) {
         globalData["luthasTask"] = player.savedData.globalData.isLuthasTask()
         globalData["karamjaBananas"] = player.savedData.globalData.getKaramjaBananas().toString()
         globalData["silkSteal"] = player.savedData.globalData.getSilkSteal().toString()
+        globalData["teaSteal"] = player.savedData.globalData.getSilkSteal().toString()
         globalData["zafAmount"] = player.savedData.globalData.getZaffAmount().toString()
         globalData["zafTime"] = player.savedData.globalData.getZafTime().toString()
         globalData["fritzGlass"] = player.savedData.globalData.isFritzGlass()
