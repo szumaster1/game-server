@@ -863,14 +863,27 @@ enum class Cookable(val cooked: Int, val raw: Int, val burnt: Int, val level: In
         lowRange = 78,
         highRange = 412
     ),
-
+    /**
+     * Bowl of hot water.
+     */
+    BOWL_OF_HOT_WATER(
+        cooked = 4456,
+        raw = 1921,
+        burnt = 4456,
+        level = 0,
+        experience = 0.0,
+        low = 78,
+        high = 412,
+        lowRange = 78,
+        highRange = 412
+    ),
     /**
      * Bowl Egg.
      */
     BOWL_EGG(
         cooked = 7078,
         raw = 7076,
-        burnt = 7090,
+        burnt = 4456,
         level = 13,
         experience = 50.0,
         low = 0,
@@ -923,7 +936,20 @@ enum class Cookable(val cooked: Int, val raw: Int, val burnt: Int, val level: In
         lowRange = 108,
         highRange = 472
     ),
-
+    /**
+     * Bowl of hot water.
+     */
+    CUP_OF_HOT_WATER(
+        cooked = 4460,
+        raw = 4458,
+        burnt = 1980,
+        level = 0,
+        experience = 0.0,
+        low = 0,
+        high = 0,
+        lowRange = 0,
+        highRange = 0
+    ),
     /**
      * Sweetcorn.
      */

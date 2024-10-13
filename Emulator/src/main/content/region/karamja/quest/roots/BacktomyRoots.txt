@@ -61,9 +61,9 @@ class BacktomyRoots : Quest("Back to my Roots", 143, 142, 1, Vars.VARBIT_QUEST_B
             )
             line++
             line(player, "I also need to have completed:", line++, false)
-            line(player, "!!One Small Favour.??", line++, isQuestComplete(player, "One Small Favour"))
-            line(player, "!!Tribal Totem.??", line++, isQuestComplete(player, "Tribal Totem"))
-            line(player, "!!The Hand in the Sand??", line++, isQuestComplete(player, "The Hand in the Sand"))
+            line(player, "!!One Small Favour??.", line++, isQuestComplete(player, "One Small Favour"))
+            line(player, "!!Tribal Totem??.", line++, isQuestComplete(player, "Tribal Totem"))
+            line(player, "!!The Hand in the Sand??.", line++, isQuestComplete(player, "The Hand in the Sand"))
             line(
                 player,
                 "!!A Fairy Tale Part 1 - Growing Pains.??",

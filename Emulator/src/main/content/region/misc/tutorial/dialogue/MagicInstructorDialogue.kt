@@ -57,6 +57,7 @@ class MagicInstructorDialogue(player: Player? = null) : Dialogue(player) {
         Item(Items.BODY_RUNE_559, 2)
     )
     private val STARTER_BANK = arrayOf(Item(Items.COINS_995, 25))
+    private val WELCOME_MESSAGE = arrayOf(*splitLines("Welcome to Lumbridge! To get more help, simply click on the Lumbridge Guide or one of the Tutors - these can be found by looking for the question mark icon on your minimap. If you find you are lost at any time, look for a signpost or use the Lumbridge Home Teleport spell.", 56))
 
     override fun open(vararg args: Any?): Boolean {
         npc = args[0] as NPC
@@ -170,7 +171,7 @@ class MagicInstructorDialogue(player: Player? = null) : Dialogue(player) {
                     player.inventory.add(*STARTER_PACK)
                     player.bank.add(*STARTER_BANK)
                     queueScript(player, 4, QueueStrength.WEAK) {
-                        player.dialogueInterpreter.sendDialogues("Welcome to Lumbridge! To get more help, simply click on the", "Lumbridge Guide or one of the Tutors - these can be found by", "looking for the question mark icon on your minimap. If you find you", "are lost at any time, look for a signpost or use the Lumbridge Home", "Teleport spell.")
+                        interpreter.sendDialogue(*WELCOME_MESSAGE)
                         return@queueScript stopExecuting(player)
                     }
 

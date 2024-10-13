@@ -19,7 +19,7 @@ class EmptyOptionListener : InteractionListener {
          */
 
         on(EmptyItem.emptyItemList.toIntArray(), IntType.ITEM, "empty", "empty bowl", "empty dish") { player, node ->
-            if (node.name.contains("brew") || node.name.contains("potion") || node.name.lowercase().contains("poison") || node.name.lowercase().contains("serum") || node.name.contains("cure") || node.name.contains("mix") || node.name.contains("balm") ) {
+            if (node.name.contains("brew") || node.name.contains("potion") || node.name.lowercase().contains("poison") || node.name.lowercase().contains("serum") || node.name.contains("cure") || node.name.contains("mix") || node.name.contains("balm") || !node.name.contains("herb mix") ) {
                 replaceSlot(player, node.asItem().slot, Item(EmptyItem.getEmpty(Items.POTION_195)!!), node.asItem())
                 playAudio(player, EmptyItem.getEmptyAudio(Items.POTION_195)!!)
                 return@on true
@@ -86,6 +86,7 @@ class EmptyOptionListener : InteractionListener {
         POTION(Items.POTION_195, Items.VIAL_229, "You empty the vial.", Sounds.LIQUID_2401),
         POT_OF_CORNFLOUR(Items.POT_OF_CORNFLOUR_7468, Items.EMPTY_POT_1931, "You empty the contents of the pot onto the floor."),
         POT_OF_FLOUR(Items.POT_OF_FLOUR_1933, Items.EMPTY_POT_1931, "You empty the contents of the pot onto the floor."),
+        RUINED_HERB_TEA(Items.RUINED_HERB_TEA_4462, Items.EMPTY_CUP_1980, "You empty the cup."),
         VIAL_OF_COCONUT(Items.COCONUT_MILK_5935, Items.VIAL_229, "You empty the vial.", Sounds.LIQUID_2401),
         VIAL_OF_WATER(Items.VIAL_OF_WATER_227, Items.VIAL_229, "You empty the vial.", Sounds.LIQUID_2401);
 

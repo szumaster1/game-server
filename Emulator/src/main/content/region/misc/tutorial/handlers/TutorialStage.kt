@@ -42,7 +42,7 @@ object TutorialStage {
         updateProgressBar(player)
         when (stage) {
             0 -> {
-                lock(player, 10)
+                player.lock()
                 setMinimapState(player, 2)
                 teleport(player, Location.create(3094, 3107, 0))
                 hideTabs(player, login)
@@ -60,6 +60,7 @@ object TutorialStage {
             }
 
             39 -> {
+                player.unlock()
                 setMinimapState(player, 0)
                 player.interfaceManager.removeTabs(0,1,2,3,4,5,6,7,8,9,10,11,12,13)
                 registerHintIcon(player, Repository.findNPC(NPCs.RUNESCAPE_GUIDE_945)!!)
