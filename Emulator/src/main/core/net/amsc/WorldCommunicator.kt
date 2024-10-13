@@ -29,7 +29,7 @@ object WorldCommunicator {
     /**
      * The I/O session.
      */
-    private lateinit var session: IoSession
+    private var session: IoSession? = this.getSession()
 
     /**
      * The world information.
@@ -145,7 +145,7 @@ object WorldCommunicator {
      *
      * @return the [session].
      */
-    fun getSession(): IoSession {
+    fun getSession(): IoSession? {
         return session
     }
 

@@ -28,7 +28,7 @@ object MSPacketRepository {
             buffer.put(2)
             buffer.put(it.ordinal)
         } ?: buffer.put(if (remove) 1 else 0)
-        WorldCommunicator.getSession().write(buffer)
+        WorldCommunicator.getSession()?.write(buffer)
     }
 
     /**
@@ -42,7 +42,7 @@ object MSPacketRepository {
         val buffer = IoBuffer(7, PacketHeader.BYTE)
         buffer.putString(player.name)
         buffer.putString(clanName)
-        WorldCommunicator.getSession().write(buffer)
+        WorldCommunicator.getSession()?.write(buffer)
     }
 
     /**
@@ -61,7 +61,7 @@ object MSPacketRepository {
         buffer.putString(player.name)
         buffer.put(type)
         rank?.let { buffer.put(it.ordinal) }
-        WorldCommunicator.getSession().write(buffer)
+        WorldCommunicator.getSession()?.write(buffer)
     }
 
     /**
@@ -75,7 +75,7 @@ object MSPacketRepository {
         val buffer = IoBuffer(9, PacketHeader.BYTE);
         buffer.putString(username)
         buffer.putString(name)
-        WorldCommunicator.getSession().write(buffer)
+        WorldCommunicator.getSession()?.write(buffer)
     }
 
     /**
@@ -93,7 +93,7 @@ object MSPacketRepository {
         buffer.put(publicSetting)
         buffer.put(privateSetting)
         buffer.put(tradeSetting)
-        WorldCommunicator.getSession().write(buffer)
+        WorldCommunicator.getSession()?.write(buffer)
             ?: player.sendMessage("Privacy settings unavailable at the moment. Please try again later.");
     }
 }
