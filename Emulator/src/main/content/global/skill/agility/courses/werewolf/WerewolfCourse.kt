@@ -141,7 +141,7 @@ class WerewolfCourse
         face(p, loc.transform(Direction.SOUTH))
         animate(p, Animations.WEREWOLF_AGILITY_ZIPLINE_1601)
         replaceScenery(n.asScenery(), 5142, 6)
-        sendMessage(p, "You bravely cling on to the death slide by your teeth")
+        sendMessage(p, "You bravely cling on to the death slide by your teeth.")
         GameWorld.Pulser.submit(object : Pulse() {
             override fun pulse(): Boolean {
                 sendChat(p, "WAAAAAARRRGGGHHHH!!!!!!", 4)

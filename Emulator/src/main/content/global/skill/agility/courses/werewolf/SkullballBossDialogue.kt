@@ -35,7 +35,7 @@ class SkullballBossDialogue(player: Player? = null) : Dialogue(player) {
             1 -> npcl(FacialExpression.CHILD_NORMAL, "The skullball comes out of one of these four spawnholes. Just kick the ball through the middle of each goal, through the skeleton's feet.").also { stage++ }
             2 -> npcl(FacialExpression.CHILD_NORMAL, "There are 10 goals, which you must complete in order, and one final goal.").also { stage++ }
             3 -> npcl(FacialExpression.CHILD_NORMAL, "An arrow will point to your ball, just in case lots of people are using the course at the same time as yourself.").also { stage++ }
-            4 -> npcl(FacialExpression.CHILD_NORMAL, "The better your time, the more agillity XP you will be awarded. The timer starts when you score your first goal.").also { stage = END_DIALOGUE }
+            4 -> npcl(FacialExpression.CHILD_NORMAL, "The better your time, the more agility XP you will be awarded. The timer starts when you score your first goal.").also { stage = END_DIALOGUE }
             5 -> when (buttonId) {
                 1 -> playerl(FacialExpression.HALF_ASKING, "What are the instructions for using the skullball course?").also { stage = 1 }
                 2 -> playerl(FacialExpression.HALF_GUILTY, "I seem to have lost my ball - can I have another one?").also { stage++ }
