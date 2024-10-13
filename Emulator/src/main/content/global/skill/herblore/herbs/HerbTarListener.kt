@@ -10,7 +10,7 @@ import core.game.interaction.InteractionListener
 import org.rs.consts.Components
 import org.rs.consts.Items
 
-class HerbloreTarListener : InteractionListener {
+class HerbTarListener : InteractionListener {
 
     val tar = Tar.values().map(Tar::ingredient).toIntArray()
 
