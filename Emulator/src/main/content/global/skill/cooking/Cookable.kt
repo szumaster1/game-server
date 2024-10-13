@@ -883,7 +883,7 @@ enum class Cookable(val cooked: Int, val raw: Int, val burnt: Int, val level: In
     BOWL_EGG(
         cooked = 7078,
         raw = 7076,
-        burnt = 4456,
+        burnt = 7090,
         level = 13,
         experience = 50.0,
         low = 0,
