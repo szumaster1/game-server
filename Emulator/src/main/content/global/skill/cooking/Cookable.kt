@@ -855,7 +855,7 @@ enum class Cookable(val cooked: Int, val raw: Int, val burnt: Int, val level: In
     BOWL_NETTLE(
         cooked = 4239,
         raw = 4237,
-        burnt = 4239,
+        burnt = 1923,
         level = 20,
         experience = 52.0,
         low = 78,
