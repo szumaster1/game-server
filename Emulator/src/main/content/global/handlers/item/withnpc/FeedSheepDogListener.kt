@@ -1,7 +1,7 @@
 package content.global.handlers.item.withnpc
 
-import content.global.skill.cooking.type.meat.Meat
-import content.global.skill.cooking.type.meat.MeatState
+import content.global.skill.cooking.meat.Meat
+import content.global.skill.cooking.meat.MeatState
 import content.global.skill.prayer.Bones
 import core.api.*
 import core.game.interaction.IntType

@@ -1,7 +1,7 @@
 package content.global.skill.cooking
 
-import content.global.skill.cooking.type.pie.PieCookingPulse
-import content.global.skill.cooking.type.pizza.PizzaCookingPulse
+import content.global.skill.cooking.pie.PieCookingPulse
+import content.global.skill.cooking.pizza.PizzaCookingPulse
 import core.api.amountInInventory
 import org.rs.consts.Items
 import core.api.sendMessage

@@ -1,6 +1,6 @@
 package content.region.fremennik.diary
 
-import content.global.skill.cooking.type.dairy.DairyChurnDialogue
+import content.global.skill.cooking.dairy.DairyChurnDialogue
 import content.global.travel.FairyRing
 import content.minigame.barbassault.dialogue.CaptainCainDialogue
 import content.region.fremennik.jatizso.dialogue.TowerGuardDialogue
