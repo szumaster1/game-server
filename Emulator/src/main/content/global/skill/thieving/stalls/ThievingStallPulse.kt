@@ -91,7 +91,7 @@ class ThievingStallPulse(player: Player?, node: Scenery?, private val stall: Sta
             if (stall == Stall.CANDLES) {
                 return true
             }
-            if(stall == Stall.FISH_STALL){
+            if(stall == Stall.FISH_STALL) {
                 finishDiaryTask(player, DiaryType.FREMENNIK, 1, 4)
             }
             player.packetDispatch.sendMessage("You steal " + (if (StringUtils.isPlusN(item.name)) "an" else "a") + " " + item.name.lowercase() + " from the " + stall.name.lowercase().replace('_', ' ') + ".")

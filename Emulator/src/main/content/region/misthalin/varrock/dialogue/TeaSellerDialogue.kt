@@ -24,12 +24,14 @@ class TeaSellerDialogue(player: Player? = null) : Dialogue(player) {
         if (player.getSavedData().globalData.getTeaSteal() > System.currentTimeMillis()) {
             end()
             for (npc in getLocalNpcs(player.location, 8)) {
-                /*
+                /**
                  * It's not possible to get attacked by npc there.
                  */
-                //if (!npc.properties.combatPulse.isAttacking && npc.id == 32) {
                 sendChat(npc, "Hey! Get your hands off there!")
-                //npc.attack(player)
+                /*
+                 * if (!npc.properties.combatPulse.isAttacking && npc.id == 32)
+                 * npc.attack(player)
+                 */
                 break
             }
             Pulser.submit(object : Pulse(1) {

@@ -228,6 +228,27 @@ public final class DialogueInterpreter {
     }
 
     /**
+     * Send dialogue component.
+     *
+     * @param messages the messages
+     * @return the component
+     */
+    public Component sendDialogues(String... messages) {
+        if (messages.length < 1 || messages.length > 5) {
+            return null;
+        }
+
+        for (int i = 0; i < messages.length; i++) {
+            if(messages.length > 5) throw new IllegalArgumentException("Invalid message length, should be between 1 and 5, and it is:" + messages[i]);
+            player.getPacketDispatch().sendString(messages[i], 219, i + 1);
+        }
+
+        player.getInterfaceManager().openChatbox(219);
+        return player.getInterfaceManager().getChatbox();
+
+    }
+
+    /**
      * Send plain message component.
      *
      * @param hideContinue the hide continue

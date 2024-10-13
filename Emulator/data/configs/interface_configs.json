@@ -360,6 +360,12 @@
     "tabIndex": "-1"
   },
   {
+    "id": "219",
+    "interfaceType": "7",
+    "walkable": "false",
+    "tabIndex": "-1"
+  },
+  {
     "id": "228",
     "interfaceType": "4",
     "walkable": "false",

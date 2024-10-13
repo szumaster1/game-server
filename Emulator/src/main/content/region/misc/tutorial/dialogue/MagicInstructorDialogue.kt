@@ -57,15 +57,15 @@ class MagicInstructorDialogue(player: Player? = null) : Dialogue(player) {
         Item(Items.BODY_RUNE_559, 2)
     )
     private val STARTER_BANK = arrayOf(Item(Items.COINS_995, 25))
-    private val WELCOME_MESSAGE = arrayOf(*splitLines("Welcome to Lumbridge! To get more help, simply click on the Lumbridge Guide or one of the Tutors - these can be found by looking for the question mark icon on your minimap. If you find you are lost at any time, look for a signpost or use the Lumbridge Home Teleport."))
 
     override fun open(vararg args: Any?): Boolean {
         npc = args[0] as NPC
         when (getAttribute(player, "tutorial:stage", 0)) {
             67 -> playerl(FacialExpression.FRIENDLY, "Hello.")
             69 -> npc(FacialExpression.FRIENDLY, "Good. This is a list of your spells. Currently you can", "only cast one offensive spell called Wind Strike. Let's", "try it out on one of those chickens.")
+
             70 -> {
-                if(!inInventory(player, Items.AIR_RUNE_556) && !inInventory(player, Items.MIND_RUNE_558)) {
+                if (!inInventory(player, Items.AIR_RUNE_556) && !inInventory(player, Items.MIND_RUNE_558)) {
                     if (freeSlots(player) == 0 || freeSlots(player) < 2) {
                         GroundItemManager.create(arrayOf(Item(Items.AIR_RUNE_556, 15), Item(Items.MIND_RUNE_558, 15)), player.location, player)
                     } else {
@@ -76,6 +76,7 @@ class MagicInstructorDialogue(player: Player? = null) : Dialogue(player) {
                     return false
                 }
             }
+
             71 -> npc(FacialExpression.FRIENDLY, "Well you're all finished here now. I'll give you a", "reasonable number of runes when you leave.")
 
             else -> return false
@@ -87,6 +88,7 @@ class MagicInstructorDialogue(player: Player? = null) : Dialogue(player) {
         when (getAttribute(player, "tutorial:stage", 0)) {
             67 -> when (stage++) {
                 0 -> npc(FacialExpression.FRIENDLY, "Good day, newcomer. My name is Terrova. I'm here", "to tell you about <col=08088A>Magic</col>. Let's start by opening your", "spell list.")
+
                 1 -> {
                     end()
                     setAttribute(player, "tutorial:stage", 68)
@@ -100,6 +102,7 @@ class MagicInstructorDialogue(player: Player? = null) : Dialogue(player) {
                     addItemOrDrop(player, Items.AIR_RUNE_556, 5)
                     addItemOrDrop(player, Items.MIND_RUNE_558, 5)
                 }
+
                 1 -> {
                     end()
                     setAttribute(player, "tutorial:stage", 70)
@@ -121,24 +124,27 @@ class MagicInstructorDialogue(player: Player? = null) : Dialogue(player) {
                 4 -> npc("holding a big staff with a question mark on the end. He", "also has a white beard and carries a rucksack full of", "scrolls. There are also tutors willing to teach you about", "the many skills you could learn.").also { stage++ }
                 5 -> {
                     openInterface(player, Components.DOUBLEOBJBOX_131).also {
-                        sendModelOnInterface(player, Components.DOUBLEOBJBOX_131,2, 7369, -1)
+                        sendModelOnInterface(player, Components.DOUBLEOBJBOX_131, 2, 7369, -1)
                         sendAngleOnInterface(player, Components.DOUBLEOBJBOX_131, 2, 1200, 500, 0)
                         sendString(player, "When you get to Lumbridge, look for this icon on your minimap. The Lumbridge Guide and the other tutors will be standing near one of these. The Lumbridge Guide should be standing slightly to the north-east of", Components.DOUBLEOBJBOX_131, 1)
                     }
                     stage++
                 }
+
                 6 -> {
                     openInterface(player, Components.DOUBLEOBJBOX_131).also {
-                        sendModelOnInterface(player, Components.DOUBLEOBJBOX_131,2, 7369, -1)
+                        sendModelOnInterface(player, Components.DOUBLEOBJBOX_131, 2, 7369, -1)
                         sendAngleOnInterface(player, Components.DOUBLEOBJBOX_131, 2, 1200, 500, 0)
                         sendString(player, "the castle's courtyard and the others you will find" + "scattered around lumbridge.", Components.DOUBLEOBJBOX_131, 1)
                     }
                     stage++
                 }
+
                 7 -> {
                     npc("If all else fails, visit the " + GameWorld.settings!!.name + " website for a whole", "chestload of information on quests skills and minigames", "as well as a very good starter's guide.")
                     stage++
                 }
+
                 8 -> {
                     /*
                      * "You have almost completed the tutorial!"
@@ -150,7 +156,11 @@ class MagicInstructorDialogue(player: Player? = null) : Dialogue(player) {
                     setAttribute(player, "/save:tutorial:complete", true)
                     setVarbit(player, 3756, 0)
                     setVarp(player, 281, 1000, true)
-                    teleport(player, Location.getRandomLocation(Location.create(3233, 3230),1,true), TeleportManager.TeleportType.NORMAL)
+                    teleport(
+                        player,
+                        Location.getRandomLocation(Location.create(3233, 3230), 1, true),
+                        TeleportManager.TeleportType.NORMAL
+                    )
                     closeOverlay(player)
                     player.inventory.clear()
                     player.bank.clear()
@@ -160,7 +170,7 @@ class MagicInstructorDialogue(player: Player? = null) : Dialogue(player) {
                     player.inventory.add(*STARTER_PACK)
                     player.bank.add(*STARTER_BANK)
                     queueScript(player, 4, QueueStrength.WEAK) {
-                        interpreter.sendDialogue(*WELCOME_MESSAGE)
+                        player.dialogueInterpreter.sendDialogues("Welcome to Lumbridge! To get more help, simply click on the", "Lumbridge Guide or one of the Tutors - these can be found by", "looking for the question mark icon on your minimap. If you find you", "are lost at any time, look for a signpost or use the Lumbridge Home", "Teleport spell.")
                         return@queueScript stopExecuting(player)
                     }
 
