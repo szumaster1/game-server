@@ -1,19 +1,17 @@
 package content.global.skill.combat.special;
 
+import core.game.node.entity.skill.Skills;
 import core.game.node.entity.Entity;
 import core.game.node.entity.combat.BattleState;
 import core.game.node.entity.combat.CombatStyle;
 import core.game.node.entity.combat.MeleeSwingHandler;
 import core.game.node.entity.impl.Animator.Priority;
 import core.game.node.entity.player.Player;
-import core.game.node.entity.skill.Skills;
 import core.game.world.update.flag.context.Animation;
 import core.game.world.update.flag.context.Graphic;
-import core.plugin.Initializable;
 import core.plugin.Plugin;
+import core.plugin.Initializable;
 import core.tools.RandomFunction;
-import org.rs.consts.Graphics;
-import org.rs.consts.Items;
 import org.rs.consts.Sounds;
 
 import static core.api.ContentAPIKt.playGlobalAudio;
@@ -38,7 +36,7 @@ public final class WarstrikeSpecialHandler extends MeleeSwingHandler implements 
     /**
      * The graphic.
      */
-    private static final Graphic GRAPHIC = new Graphic(Graphics.BANDOS_GODSWORD_SPECIAL_ATTACK_1223);
+    private static final Graphic GRAPHIC = new Graphic(1223);
 
     @Override
     public Object fireEvent(String identifier, Object... args) {
@@ -47,8 +45,8 @@ public final class WarstrikeSpecialHandler extends MeleeSwingHandler implements 
 
     @Override
     public Plugin<Object> newInstance(Object arg) throws Throwable {
-        CombatStyle.MELEE.getSwingHandler().register(Items.BANDOS_GODSWORD_11696, this);
-        CombatStyle.MELEE.getSwingHandler().register(Items.BANDOS_GODSWORD_13451, this);
+        CombatStyle.MELEE.getSwingHandler().register(11696, this);
+        CombatStyle.MELEE.getSwingHandler().register(13451, this);
         return this;
     }
 
@@ -59,8 +57,8 @@ public final class WarstrikeSpecialHandler extends MeleeSwingHandler implements 
         }
         state.setStyle(CombatStyle.MELEE);
         int hit = 0;
-        if (isAccurateImpact(entity, victim, CombatStyle.MELEE, 1.049, 0.98)) {
-            hit = RandomFunction.random(calculateHit(entity, victim, 1.1));
+        if (isAccurateImpact(entity, victim, CombatStyle.MELEE, 2.0, 1.0)) {
+            hit = RandomFunction.random((int) (calculateHit(entity, victim, 1.1) * 1.1) + 1);
         }
         state.setEstimatedHit(hit);
         if (victim instanceof Player) {
@@ -70,10 +68,10 @@ public final class WarstrikeSpecialHandler extends MeleeSwingHandler implements 
         if (left > 0) {
             left = -victim.getSkills().updateLevel(Skills.STRENGTH, -left, 0);
             if (left > 0) {
-                left = -victim.getSkills().updateLevel(Skills.ATTACK, -left, 0);
+                left = (int) -(victim.getSkills().getPrayerPoints() + left);
+                victim.getSkills().decrementPrayerPoints(left);
                 if (left > 0) {
-                    left = (int) -(victim.getSkills().getPrayerPoints() + left);
-                    victim.getSkills().decrementPrayerPoints(left);
+                    left = -victim.getSkills().updateLevel(Skills.ATTACK, -left, 0);
                     if (left > 0) {
                         left = -victim.getSkills().updateLevel(Skills.MAGIC, -left, 0);
                         if (left > 0)

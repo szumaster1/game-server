@@ -11,8 +11,6 @@ import core.game.world.update.flag.context.Graphic;
 import core.plugin.Initializable;
 import core.plugin.Plugin;
 import core.tools.RandomFunction;
-import org.rs.consts.Graphics;
-import org.rs.consts.Items;
 import org.rs.consts.Sounds;
 
 import static core.api.ContentAPIKt.playGlobalAudio;
@@ -37,7 +35,7 @@ public final class SliceAndDiceSpecialHandler extends MeleeSwingHandler implemen
     /**
      * The graphic.
      */
-    private static final Graphic GRAPHIC = new Graphic(Graphics.DRAGON_CLAW_SPECIAL_1950);
+    private static final Graphic GRAPHIC = new Graphic(1950);
 
     @Override
     public Object fireEvent(String identifier, Object... args) {
@@ -46,8 +44,8 @@ public final class SliceAndDiceSpecialHandler extends MeleeSwingHandler implemen
 
     @Override
     public Plugin<Object> newInstance(Object arg) throws Throwable {
-        CombatStyle.MELEE.getSwingHandler().register(Items.DRAGON_CLAWS_14484, this);
-        CombatStyle.MELEE.getSwingHandler().register(Items.DRAGON_CLAWS_14486, this);
+        CombatStyle.MELEE.getSwingHandler().register(14484, this);
+        CombatStyle.MELEE.getSwingHandler().register(14486, this);
         return this;
     }
 
@@ -57,24 +55,25 @@ public final class SliceAndDiceSpecialHandler extends MeleeSwingHandler implemen
             return -1;
         }
         int maximum = calculateHit(entity, victim, 1.0);
-        int[] hits = new int[]{0, 1};
-        int hit = getHit(entity, victim, maximum);
+        int[] hits;
+        int hit = getHit(entity, victim, maximum - 1, maximum / 2);
         if (hit > 0) {
-            hits = new int[]{hit, hit / 2, (hit / 2) / 2, (hit / 2) - ((hit / 2) / 2)};
+            hits = new int[]{hit, hit / 2, (hit / 2) / 2, (hit / 2) / 2 + 1};
         } else {
-            hit = getHit(entity, victim, maximum);
+            hit = getHit(entity, victim, maximum * 7 / 8, maximum * 3 / 8);
             if (hit > 0) {
-                hits = new int[]{0, hit, hit / 2, hit - (hit / 2)};
+                hits = new int[]{0, hit, hit / 2, hit / 2 + 1};
             } else {
-                hit = getHit(entity, victim, maximum);
+                hit = getHit(entity, victim, maximum * 3 / 4, maximum / 4);
                 if (hit > 0) {
-                    hits = new int[]{0, 0, hit / 2, (hit / 2) + 10};
+                    hits = new int[]{0, 0, hit, hit + 1};
                 } else {
-                    hit = getHit(entity, victim, (int) (maximum * 1.5));
+                    hit = getHit(entity, victim, maximum * 5 / 4, maximum / 4);
                     if (hit > 0) {
                         hits = new int[]{0, 0, 0, hit};
                     } else {
-                        hits = new int[]{0, RandomFunction.random(2)};
+                        hit = RandomFunction.random(2);
+                        hits = new int[]{0, 0, hit, hit};
                     }
                 }
             }
@@ -97,9 +96,9 @@ public final class SliceAndDiceSpecialHandler extends MeleeSwingHandler implemen
      * @param maximum The maximum hit.
      * @return The hit.
      */
-    private int getHit(Entity entity, Entity victim, int maximum) {
-        if (isAccurateImpact(entity, victim, CombatStyle.MELEE, 1.25, 0.98)) {
-            return RandomFunction.random(maximum);
+    private int getHit(Entity entity, Entity victim, int maximum, int minimum) {
+        if (isAccurateImpact(entity, victim, CombatStyle.MELEE)) {
+            return RandomFunction.random(minimum, maximum + 1);
         }
         return 0;
     }

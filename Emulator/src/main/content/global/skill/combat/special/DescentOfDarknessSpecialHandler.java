@@ -4,7 +4,6 @@ import core.cache.def.impl.ItemDefinition;
 import core.game.node.entity.Entity;
 import core.game.node.entity.combat.BattleState;
 import core.game.node.entity.combat.CombatStyle;
-import core.game.node.entity.combat.RangeSwingHandler;
 import core.game.node.entity.combat.equipment.Ammunition;
 import core.game.node.entity.combat.equipment.RangeWeapon;
 import core.game.node.entity.combat.equipment.Weapon;
@@ -15,6 +14,7 @@ import core.game.world.update.flag.context.Graphic;
 import core.plugin.Initializable;
 import core.plugin.Plugin;
 import core.tools.RandomFunction;
+import core.game.node.entity.combat.RangeSwingHandler;
 import org.rs.consts.Sounds;
 
 import static core.api.ContentAPIKt.playGlobalAudio;
@@ -29,7 +29,7 @@ public final class DescentOfDarknessSpecialHandler extends RangeSwingHandler imp
     /**
      * The special energy required.
      */
-    private static final int SPECIAL_ENERGY = 65;
+    private static final int SPECIAL_ENERGY = 55;
 
     /**
      * The descent of dragons projectile.
@@ -101,13 +101,13 @@ public final class DescentOfDarknessSpecialHandler extends RangeSwingHandler imp
         state.setMaximumHit(max);
         int hit = minDamage;
         if (isAccurateImpact(entity, victim, CombatStyle.RANGE, 1.15, 1.0)) {
-            hit += RandomFunction.random(max - minDamage);
+            hit += RandomFunction.random(max - minDamage + 1);
         }
         state.setEstimatedHit(hit);
         if (w.getType() == WeaponType.DOUBLE_SHOT) {
             hit = minDamage;
             if (isAccurateImpact(entity, victim, CombatStyle.RANGE, 1.15, 1.0)) {
-                hit += RandomFunction.random(max - minDamage);
+                hit += RandomFunction.random(max - minDamage + 1);
             }
             state.setSecondaryHit(hit);
         }

@@ -19,7 +19,7 @@ class EmptyOptionListener : InteractionListener {
          */
 
         on(EmptyItem.emptyItemList.toIntArray(), IntType.ITEM, "empty", "empty bowl", "empty dish") { player, node ->
-            if (node.name.contains("brew") || node.name.contains("potion") || node.name.lowercase().contains("poison") || node.name.lowercase().contains("serum") || node.name.contains("cure") || node.name.contains("mix") || node.name.contains("balm") || !node.name.contains("herb mix") ) {
+            if (node.name.contains("brew") || node.name.contains("potion") || node.name.lowercase().contains("poison") || node.name.lowercase().contains("serum") || node.name.contains("cure") || node.name.contains("mix") || node.name.contains("balm")) {
                 replaceSlot(player, node.asItem().slot, Item(EmptyItem.getEmpty(Items.POTION_195)!!), node.asItem())
                 playAudio(player, EmptyItem.getEmptyAudio(Items.POTION_195)!!)
                 return@on true
@@ -72,21 +72,10 @@ class EmptyOptionListener : InteractionListener {
         NETTLE_TEA_MILKY(Items.NETTLE_TEA_4240, Items.BOWL_1923, "You empty the contents of the bowl onto the floor.", Sounds.LIQUID_2401),
         NETTLE_TEA_PORCELAIN(Items.CUP_OF_TEA_4245, Items.PORCELAIN_CUP_4244, "You empty the cup."),
         NETTLE_TEA_MILKY_PORCELAIN(Items.CUP_OF_TEA_4246, Items.PORCELAIN_CUP_4244, "You empty the porcelain cup."),
-        HERB_TEA_0(Items.HERB_TEA_MIX_4464, Items.EMPTY_CUP_1980, "You empty the cup."),
-        HERB_TEA_1(Items.HERB_TEA_MIX_4466, Items.EMPTY_CUP_1980, "You empty the cup."),
-        HERB_TEA_2(Items.HERB_TEA_MIX_4468, Items.EMPTY_CUP_1980, "You empty the cup."),
-        HERB_TEA_3(Items.HERB_TEA_MIX_4470, Items.EMPTY_CUP_1980, "You empty the cup."),
-        HERB_TEA_4(Items.HERB_TEA_MIX_4472, Items.EMPTY_CUP_1980, "You empty the cup."),
-        HERB_TEA_5(Items.HERB_TEA_MIX_4474, Items.EMPTY_CUP_1980, "You empty the cup."),
-        HERB_TEA_6(Items.HERB_TEA_MIX_4476, Items.EMPTY_CUP_1980, "You empty the cup."),
-        HERB_TEA_7(Items.HERB_TEA_MIX_4478, Items.EMPTY_CUP_1980, "You empty the cup."),
-        HERB_TEA_8(Items.HERB_TEA_MIX_4480, Items.EMPTY_CUP_1980, "You empty the cup."),
-        HERB_TEA_9(Items.HERB_TEA_MIX_4482, Items.EMPTY_CUP_1980, "You empty the cup."),
         JUG_OF_WATER(Items.JUG_OF_WATER_1937, Items.JUG_1935, "You empty the contents of the jug onto the floor.", Sounds.LIQUID_2401),
         POTION(Items.POTION_195, Items.VIAL_229, "You empty the vial.", Sounds.LIQUID_2401),
         POT_OF_CORNFLOUR(Items.POT_OF_CORNFLOUR_7468, Items.EMPTY_POT_1931, "You empty the contents of the pot onto the floor."),
         POT_OF_FLOUR(Items.POT_OF_FLOUR_1933, Items.EMPTY_POT_1931, "You empty the contents of the pot onto the floor."),
-        RUINED_HERB_TEA(Items.RUINED_HERB_TEA_4462, Items.EMPTY_CUP_1980, "You empty the cup."),
         VIAL_OF_COCONUT(Items.COCONUT_MILK_5935, Items.VIAL_229, "You empty the vial.", Sounds.LIQUID_2401),
         VIAL_OF_WATER(Items.VIAL_OF_WATER_227, Items.VIAL_229, "You empty the vial.", Sounds.LIQUID_2401);
 

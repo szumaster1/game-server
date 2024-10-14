@@ -82,9 +82,9 @@ public final class Room {
      * Configures the room.
      */
     public void configure(HousingStyle style) {
-        this.hotspots = new Hotspot[properties.getHotspots().length];
+        this.hotspots = new Hotspot[properties.hotspots.length];
         for (int i = 0; i < hotspots.length; i++) {
-            hotspots[i] = properties.getHotspots()[i].copy();
+            hotspots[i] = properties.hotspots[i].copy();
         }
         decorate(style);
     }
@@ -97,7 +97,7 @@ public final class Room {
     public void decorate(HousingStyle style) {
         Region region = RegionManager.forId(style.getRegionId());
         Region.load(region, true);
-        chunk = region.getPlanes()[style.getPlane()].getRegionChunk(properties.getChunkX(), properties.getChunkY());
+        chunk = region.getPlanes()[style.getPlane()].getRegionChunk(properties.chunkX, properties.chunkY);
     }
 
     /**
@@ -368,12 +368,12 @@ public final class Room {
     public void updateProperties(Player player, RoomProperties properties) {
         this.properties = properties;
         decorate(player.getHouseManager().getStyle());
-        if (hotspots.length != properties.getHotspots().length) {
+        if (hotspots.length != properties.hotspots.length) {
             return;
         }
         for (int i = 0; i < hotspots.length; i++) {
             Hotspot h = hotspots[i];
-            Hotspot hs = hotspots[i] = properties.getHotspots()[i].copy();
+            Hotspot hs = hotspots[i] = properties.hotspots[i].copy();
             hs.setCurrentX(h.getCurrentX());
             hs.setCurrentY(h.getCurrentY());
             hs.setDecorationIndex(h.getDecorationIndex());

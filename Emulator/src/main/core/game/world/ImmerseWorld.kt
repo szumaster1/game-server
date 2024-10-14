@@ -34,12 +34,12 @@ class ImmerseWorld : StartupListener {
                     immerseSeersAndCatherby()
                     immerseLumbridgeDraynor()
                     immerseVarrock()
-                    immerseWilderness()
+                  //immerseWilderness()
                     immerseFishingGuild()
                     immerseAdventurer()
                     immerseFalador()
                     immerseSlayer()
-                    immerseGE()
+                  //immerseGE()
                 }
             }
         }
@@ -57,11 +57,11 @@ class ImmerseWorld : StartupListener {
             val lumbridge = Location.create(3221, 3219, 0)
             val tiers = listOf(CombatBotAssembler.Tier.LOW, CombatBotAssembler.Tier.MED)
             GeneralBotCreator(
-                botScript = core.game.bots.impl.Adventurer(CombatStyle.MELEE),
+                botScript = Adventurer(CombatStyle.MELEE),
                 bot = assembler.MeleeAdventurer(tier = tiers.random(), location = lumbridge)
             )
             GeneralBotCreator(
-                botScript = core.game.bots.impl.Adventurer(CombatStyle.RANGE),
+                botScript = Adventurer(CombatStyle.RANGE),
                 bot = assembler.RangeAdventurer(tier = tiers.random(), location = lumbridge)
             )
         }
@@ -251,6 +251,7 @@ class ImmerseWorld : StartupListener {
             )
         }
 
+        /*
         fun immerseWilderness() {
             val wilderness = Location.create(3092, 3493, 0)
 
@@ -264,6 +265,7 @@ class ImmerseWorld : StartupListener {
                 )
             }
         }
+         */
 
         fun immerseFalador() {
             GeneralBotCreator(
@@ -293,7 +295,7 @@ class ImmerseWorld : StartupListener {
             )
         }
 
-        private fun immerseGE() {
+        /*private fun immerseGE() {
             spawnDoubleMoneyBot(false)
         }
 
@@ -310,5 +312,6 @@ class ImmerseWorld : StartupListener {
                 )
             }
         }
+         */
     }
 }

@@ -3,9 +3,8 @@ package content.global.skill.construction.decoration.skillhall.dialogue
 import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC
-import core.tools.RandomFunction
-import core.tools.START_DIALOGUE
 import core.tools.END_DIALOGUE
+import core.tools.START_DIALOGUE
 import org.rs.consts.NPCs
 
 /**

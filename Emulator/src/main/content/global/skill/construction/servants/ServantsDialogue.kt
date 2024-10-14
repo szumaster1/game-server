@@ -4,7 +4,6 @@ import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC
 import core.game.world.GameWorld
-import core.tools.BLUE
 import core.tools.DARK_BLUE
 import org.rs.consts.NPCs
 

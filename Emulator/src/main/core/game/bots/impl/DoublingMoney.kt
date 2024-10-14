@@ -12,7 +12,6 @@ import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.request.trade.TradeModule
 import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
-import core.game.world.ImmerseWorld
 import core.game.world.map.Location
 import core.game.world.map.RegionManager
 import core.game.world.update.flag.EntityFlag
@@ -320,7 +319,7 @@ class DoublingMoney : Script() {
         sleepTime = 500
         AIRepository.PulseRepository.remove(bot!!.username.lowercase())
 
-        ImmerseWorld.spawnDoubleMoneyBot(true)
+        // ImmerseWorld.spawnDoubleMoneyBot(true)
     }
 
     override fun newInstance(): Script? {
@@ -334,7 +333,7 @@ class DoublingMoney : Script() {
     }
 
     companion object {
-        val startingLocs = arrayOf(
+        val startLocation = arrayOf(
             Location.create(3184, 3488, 0),
             Location.create(3167, 3461, 0),
             Location.create(3170, 3444, 0),

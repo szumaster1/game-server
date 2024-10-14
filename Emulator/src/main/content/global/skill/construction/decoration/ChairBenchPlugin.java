@@ -1,7 +1,7 @@
 package content.global.skill.construction.decoration;
 
-import core.cache.def.impl.SceneryDefinition;
 import content.global.skill.construction.Decoration;
+import core.cache.def.impl.SceneryDefinition;
 import core.game.interaction.OptionHandler;
 import core.game.node.Node;
 import core.game.node.entity.impl.ForceMovement;
@@ -75,7 +75,7 @@ public final class ChairBenchPlugin extends OptionHandler {
         }
         final int animation = animId;
         final int sitAnimation = sitAnimId;
-        ForceMovement.run(player, player.getLocation(), node.getLocation(), ForceMovement.WALK_ANIMATION, Animation.create(sitAnimation), object.getDirection().getOpposite(), ForceMovement.WALKING_SPEED, ForceMovement.WALKING_SPEED);
+        ForceMovement.run(player, player.getLocation(), node.getLocation(), ForceMovement.WALK_ANIMATION, Animation.create(sitAnimation), null, ForceMovement.WALKING_SPEED, ForceMovement.WALKING_SPEED);
         player.getLocks().lockInteractions(600000);
         player.getPulseManager().run(new Pulse(2) {
             @Override

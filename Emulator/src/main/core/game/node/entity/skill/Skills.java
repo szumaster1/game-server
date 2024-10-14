@@ -435,7 +435,7 @@ public final class Skills {
                 setLifepoints(staticLevels[i]);
             }
         }
-        experienceMultiplier = 5.0;
+        experienceMultiplier = 1.0;
         updateCombatLevel();
     }
 

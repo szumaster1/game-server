@@ -8,11 +8,9 @@ import core.game.node.entity.impl.Animator.Priority;
 import core.game.node.entity.player.Player;
 import core.game.world.update.flag.context.Animation;
 import core.game.world.update.flag.context.Graphic;
-import core.plugin.Initializable;
 import core.plugin.Plugin;
+import core.plugin.Initializable;
 import core.tools.RandomFunction;
-import org.rs.consts.Graphics;
-import org.rs.consts.Items;
 import org.rs.consts.Sounds;
 
 import static core.api.ContentAPIKt.playGlobalAudio;
@@ -37,7 +35,7 @@ public final class HealingBladeSpecialHandler extends MeleeSwingHandler implemen
     /**
      * The graphic.
      */
-    private static final Graphic GRAPHIC = new Graphic(Graphics.SARADOMIN_GODSWORD_SPECIAL_ATTACK_1220);
+    private static final Graphic GRAPHIC = new Graphic(1220);
 
     @Override
     public Object fireEvent(String identifier, Object... args) {
@@ -46,8 +44,8 @@ public final class HealingBladeSpecialHandler extends MeleeSwingHandler implemen
 
     @Override
     public Plugin<Object> newInstance(Object arg) throws Throwable {
-        CombatStyle.MELEE.getSwingHandler().register(Items.SARADOMIN_GODSWORD_11698, this);
-        CombatStyle.MELEE.getSwingHandler().register(Items.SARADOMIN_GODSWORD_13452, this);
+        CombatStyle.MELEE.getSwingHandler().register(11698, this);
+        CombatStyle.MELEE.getSwingHandler().register(13452, this);
         return this;
     }
 
@@ -58,20 +56,20 @@ public final class HealingBladeSpecialHandler extends MeleeSwingHandler implemen
         }
         state.setStyle(CombatStyle.MELEE);
         int hit = 0;
-        if (isAccurateImpact(entity, victim, CombatStyle.MELEE, 1.12, 0.98)) {
-            hit = RandomFunction.random(calculateHit(entity, victim, 1.005));
+        if (isAccurateImpact(entity, victim, CombatStyle.MELEE, 2.0, 1.0)) {
+            hit = RandomFunction.random(calculateHit(entity, victim, 1.1) + 1);
+            int healthRestore = hit / 2;
+            double prayerRestore = hit * 0.25;
+            if (healthRestore < 10) {
+                healthRestore = 10;
+            }
+            if (prayerRestore < 5) {
+                prayerRestore = 5;
+            }
+            entity.getSkills().heal(healthRestore);
+            entity.getSkills().incrementPrayerPoints(prayerRestore);
         }
         state.setEstimatedHit(hit);
-        int healthRestore = hit / 2;
-        double prayerRestore = hit * 0.25;
-        if (healthRestore < 10) {
-            healthRestore = 10;
-        }
-        if (prayerRestore < 5) {
-            prayerRestore = 5;
-        }
-        entity.getSkills().heal(healthRestore);
-        entity.getSkills().incrementPrayerPoints(prayerRestore);
         return 1;
     }
 

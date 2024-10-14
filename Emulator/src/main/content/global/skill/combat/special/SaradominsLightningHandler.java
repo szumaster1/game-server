@@ -8,11 +8,9 @@ import core.game.node.entity.impl.Animator.Priority;
 import core.game.node.entity.player.Player;
 import core.game.world.update.flag.context.Animation;
 import core.game.world.update.flag.context.Graphic;
-import core.plugin.Initializable;
 import core.plugin.Plugin;
+import core.plugin.Initializable;
 import core.tools.RandomFunction;
-import org.rs.consts.Graphics;
-import org.rs.consts.Items;
 import org.rs.consts.Sounds;
 
 import static core.api.ContentAPIKt.playGlobalAudio;
@@ -37,11 +35,11 @@ public final class SaradominsLightningHandler extends MeleeSwingHandler implemen
     /**
      * The graphic.
      */
-    private static final Graphic GRAPHIC = new Graphic(Graphics.SARADOMIN_SWORD_SPECIAL_ATTACK_PLAYER_1224);
+    private static final Graphic GRAPHIC = new Graphic(1224);
 
     @Override
     public Plugin<Object> newInstance(Object arg) throws Throwable {
-        CombatStyle.MELEE.getSwingHandler().register(Items.SARADOMIN_SWORD_11730, this);
+        CombatStyle.MELEE.getSwingHandler().register(11730, this);
         return this;
     }
 
@@ -54,9 +52,9 @@ public final class SaradominsLightningHandler extends MeleeSwingHandler implemen
         state.setStyle(CombatStyle.MAGIC);
         int hit = 0;
         int secondary = 0;
-        if (isAccurateImpact(entity, victim, CombatStyle.MELEE, 1.10, 0.98)) {
-            hit = RandomFunction.random(calculateHit(entity, victim, 1.1));
-            secondary = 5 + RandomFunction.RANDOM.nextInt(14);
+        if (isAccurateImpact(entity, victim, CombatStyle.MELEE, 1.10, 1.0)) {
+            hit = RandomFunction.random(calculateHit(entity, victim, 1.1) + 1);
+            secondary = 1 + RandomFunction.random(16);
         }
         state.setEstimatedHit(hit);
         state.setSecondaryHit(secondary);
