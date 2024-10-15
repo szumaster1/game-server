@@ -36,6 +36,7 @@ class RecruitmentDriveListener : InteractionListener, MapArea {
                 setMinimapState(p, 0)
                 p.inventory.clear()
                 p.equipment.clear()
+                p.interfaceManager.openDefaultTabs()
             }
         }
     }
@@ -437,8 +438,9 @@ class RecruitmentDriveListener : InteractionListener, MapArea {
                     endWithoutFade {
                         face(player, findLocalNPC(player, NPCs.SIR_TIFFY_CASHIEN_2290)!!)
                         fadeFromBlack()
-                        player.interfaceManager.restoreTabs()
                         player.unlock()
+                        player.interfaceManager.restoreTabs()
+                        player.interfaceManager.openDefaultTabs()
                     }
                 }
             }

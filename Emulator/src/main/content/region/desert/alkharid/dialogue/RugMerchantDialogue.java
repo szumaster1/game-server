@@ -369,6 +369,7 @@ public final class RugMerchantDialogue extends Dialogue {
                 public void stop() {
                     super.stop();
                     player.unlock();
+                    player.getInterfaceManager().openDefaultTabs();
                 }
 
             });
