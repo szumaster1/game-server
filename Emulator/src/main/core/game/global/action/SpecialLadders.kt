@@ -366,6 +366,14 @@ enum class SpecialLadders(private val ladderLoc: Location, private val destLoc: 
         ladderLoc = Location.create(2417, 3490, 0),
         destLoc = Location.create(2418, 3492, 1)
     ),
+    TREE_GNOME_STRONGHOLD_SPINNING_WHEEL_STAIRS_UP(
+        ladderLoc = Location.create(2488, 3407, 0),
+        destLoc = Location.create(2489, 3409, 1)
+    ),
+    TREE_GNOME_STRONGHOLD_GATE_STAIRS_UP(
+        ladderLoc = Location.create(2461, 3416, 0),
+        destLoc = Location.create(2460, 3417, 1)
+    ),
     WATERBIRTH_ISLAND_DUNGEON_SUBLEVEL_2_WALLASALKI_3_LADDER_DOWN(
         ladderLoc = Location.create(1799, 4387, 2),
         destLoc = Location.create(1799, 4388, 1)
