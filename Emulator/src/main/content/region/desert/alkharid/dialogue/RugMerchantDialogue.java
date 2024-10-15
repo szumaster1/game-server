@@ -347,7 +347,7 @@ public final class RugMerchantDialogue extends Dialogue {
                             playAudio(player, Sounds.CARPET_DESCEND_1195);
 
                             clearLogoutListener(player, "magic-carpet");
-
+                            player.getInterfaceManager().openDefaultTabs();
                             break;
                         case 902:
                             player.moveStep();
@@ -369,7 +369,6 @@ public final class RugMerchantDialogue extends Dialogue {
                 public void stop() {
                     super.stop();
                     player.unlock();
-                    player.getInterfaceManager().openDefaultTabs();
                 }
 
             });
