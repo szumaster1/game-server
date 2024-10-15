@@ -51,7 +51,7 @@ object LevelUp {
         }
 
         if (getStatLevel(player, slot) == 99 && !player.isArtificial) {
-            sendNews(player.username + " has just achieved level 99 " + Skills.SKILL_NAME[slot] + "!")
+            //sendNews(player.username + " has just achieved level 99 " + Skills.SKILL_NAME[slot] + "!")
             Skillcape.trim(player)
             unlockEmote(player, 39)
             Graphic.send(Graphic(GRAPHIC.random(), 0, 50), player.location)
@@ -65,7 +65,7 @@ object LevelUp {
 
         if (player.skills.getTotalLevel() == 2376) {
             Graphic.send(Graphic(GRAPHIC.random(), 0, 50), player.location)
-            sendNews(player.username + " has just achieved level 99 in all skills!")
+            //sendNews(player.username + " has just achieved level 99 in all skills!")
             sendMessage(player, DARK_RED + "Congratulations! Well done! You've reached the maximum Total level possible!")
         }
         setAttribute(player, "/save:levelup:$slot", true)

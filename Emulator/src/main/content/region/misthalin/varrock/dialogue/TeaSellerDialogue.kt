@@ -22,18 +22,6 @@ class TeaSellerDialogue(player: Player? = null) : Dialogue(player) {
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
         if (player.getSavedData().globalData.getTeaSteal() > System.currentTimeMillis()) {
-            end()
-            for (npc in getLocalNpcs(player.location, 8)) {
-                /**
-                 * It's not possible to get attacked by npc there.
-                 */
-                sendChat(npc, "Hey! Get your hands off there!")
-                /*
-                 * if (!npc.properties.combatPulse.isAttacking && npc.id == 32)
-                 * npc.attack(player)
-                 */
-                break
-            }
             Pulser.submit(object : Pulse(1) {
                 var count: Int = 0
                 override fun pulse(): Boolean {

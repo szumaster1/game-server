@@ -161,7 +161,7 @@ class PyreSitePlugin : OptionHandler() {
 
     private fun getRandomItem(player: Player): Item {
         if (RandomFunction.random(250) == 10) {
-            sendNews("${player.username} has just received a Dragon Full Helm from the Pyre Ship.")
+            //sendNews("${player.username} has just received a Dragon Full Helm from the Pyre Ship.")
             return DFH
         }
         return RandomFunction.getChanceItem(REWARDS)

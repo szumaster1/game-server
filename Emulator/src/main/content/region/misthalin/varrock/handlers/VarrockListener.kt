@@ -18,7 +18,10 @@ import core.game.interaction.QueueStrength
 import core.game.node.Node
 import core.game.node.entity.Entity
 import core.game.node.entity.skill.Skills
+import core.game.system.task.Pulse
+import core.game.world.GameWorld.Pulser
 import core.game.world.map.Location
+import core.game.world.map.RegionManager.getLocalNpcs
 import core.game.world.map.zone.MapZone
 import core.game.world.map.zone.ZoneBorders
 import core.game.world.update.flag.context.Animation
@@ -420,6 +423,31 @@ class VarrockListener : InteractionListener {
             if (node.location == Location.create(3272, 3409, 0) || node.location == Location.create(3271, 3413, 0)) {
                 sendNPCDialogue(player, NPCs.TEA_SELLER_595, "Hey! Put that back! Those are for display only!", FacialExpression.ANNOYED)
             }
+            return@on true
+        }
+
+        /*
+         * Handles trade for Tea seller.
+         */
+
+        on(NPCs.TEA_SELLER_595, IntType.NPC, "trade") { player, node ->
+            val npc = node.asNpc()
+            if (player.getSavedData().globalData.getTeaSteal() > System.currentTimeMillis()) {
+                Pulser.submit(object : Pulse(1) {
+                    var count: Int = 0
+                    override fun pulse(): Boolean {
+                        if (count == 0) sendChat(npc, "You're the one who stole something from me!")
+                        if (count == 2) {
+                            sendChat(npc,"Guards guards!")
+                            return true
+                        }
+                        count++
+                        return false
+                    }
+                })
+                return@on false
+            }
+            openNpcShop(player, NPCs.TEA_SELLER_595)
             return@on true
         }
     }

@@ -236,7 +236,7 @@ public final class Skills {
         this.experience[slot] += experienceAdd;
         if (this.experience[slot] >= 200000000) {
             if (!already200m && !player.isArtificial()) {
-                Repository.sendNews(entity.asPlayer().getUsername() + " has just reached 200m experience in " + SKILL_NAME[slot] + "!");
+                //Repository.sendNews(entity.asPlayer().getUsername() + " has just reached 200m experience in " + SKILL_NAME[slot] + "!");
             }
             this.experience[slot] = 200000000;
         }
