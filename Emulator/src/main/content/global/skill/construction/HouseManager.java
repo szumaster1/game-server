@@ -22,6 +22,7 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
+import org.rs.consts.Components;
 import org.rs.consts.Sounds;
 
 import java.awt.*;
@@ -207,6 +208,8 @@ public final class HouseManager {
             this.buildingMode = buildingMode;
             construct();
         }
+        setMinimapState(player, 2);
+        openInterface(player, Components.POH_HOUSE_LOADING_SCREEN_399);
         setAttribute(player, "poh_entry", HouseManager.this);
         player.lock(1);
         if (player.isAdmin())
