@@ -1,0 +1,5 @@
+::debug_iface
+::debug_iface_verbose
+::clear_iface_varps
+::npcdebug
+::varplog

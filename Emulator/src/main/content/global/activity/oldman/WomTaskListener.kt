@@ -28,6 +28,7 @@ class WomTaskListener : InteractionListener {
         // Listener for reading the old man's message
         on(OLD_MAN_MESSAGE, IntType.ITEM, "read") { player, node ->
             val letterContent = getAttribute(player, WomDeliveryLetter.LETTER_DELIVERY_ATTRIBUTE, -1)
+            // 384 1-16
             openInterface(player, Components.MESSAGESCROLL_220).also {
                 ScrollInterface.scrollSetup(player, Components.MESSAGESCROLL_220, WomDeliveryLetter.THE_ORACLE_LETTER_CONTENT)
             }
