@@ -22,6 +22,7 @@ class TeaSellerDialogue(player: Player? = null) : Dialogue(player) {
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
         if (player.getSavedData().globalData.getTeaSteal() > System.currentTimeMillis()) {
+            end()
             Pulser.submit(object : Pulse(1) {
                 var count: Int = 0
                 override fun pulse(): Boolean {
