@@ -80,6 +80,7 @@ enum class EnchantedJewellery(val options: Array<String>, val locations: Array<L
         Pulser.submit(object : Pulse(0) {
             private var count = 0
             private var location = getLocation(buttonID)
+
             override fun pulse(): Boolean {
                 when (count) {
                     0 -> {
@@ -93,19 +94,29 @@ enum class EnchantedJewellery(val options: Array<String>, val locations: Array<L
                     3 -> {
                         teleport(player, location)
                         resetAnimator(player)
-                        val jewelleryName = if(getItemName(item.id).contains("ring", true)) "ring's" else if(getItemName(item.id).contains("combat", true)) "bracelet's" else if(getItemName(item.id).contains("necklace", true)) "necklace's" else "amulet's"
+                        val jewelleryName = when {
+                            getItemName(item.id).contains("ring", true) -> "ring's"
+                            getItemName(item.id).contains("combat", true) -> "bracelet's"
+                            getItemName(item.id).contains("necklace", true) -> "necklace's"
+                            else -> "amulet's"
+                        }
                         val jewellery = nextJewellery.name.replace("[^\\d-]|-(?=\\D)".toRegex(), "")
                         if (isLastItemIndex(itemIndex)) {
                             if (isCrumble) crumbleJewellery(player, item, isEquipped)
                         } else {
                             replaceJewellery(player, item, nextJewellery, isEquipped)
                         }
-                        if (jewellery.isNotEmpty()) {
+                        val message = if (jewellery.isNotEmpty()) {
                             val number = Integer.parseInt(jewellery)
-                            sendMessage(player, "Your " + getJewelleryType(item) + " has " + Util.convert(number) + " uses left.")
+                            if (item.name.contains("slaying", true)) {
+                                "Your ring of Slaying reverts back into a regular enchanted gem."
+                            } else {
+                                "Your ${getJewelleryType(item)} has ${Util.convert(number)} uses left."
+                            }
                         } else {
-                            sendMessage(player, "You use your $jewelleryName last charge.")
+                            "You use your $jewelleryName last charge."
                         }
+                        sendMessage(player, message)
                         unlock(player)
                         player.dispatch(TeleportEvent(TeleportManager.TeleportType.NORMAL, TeleportMethod.JEWELRY, item, location))
                         return true
@@ -134,7 +145,6 @@ enum class EnchantedJewellery(val options: Array<String>, val locations: Array<L
         }
         if (isSlayerRing(item)) {
             addItem(player, Items.ENCHANTED_GEM_4155)
-            sendMessage(player, "Your ring of Slaying reverts back into a regular enchanted gem.")
         }
     }
 
