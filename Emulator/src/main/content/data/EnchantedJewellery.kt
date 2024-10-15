@@ -11,7 +11,6 @@ import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.TeleportManager
 import core.game.node.item.Item
 import core.game.system.task.Pulse
-import core.game.world.GameWorld.Pulser
 import core.game.world.map.Location
 import core.game.world.update.flag.context.Animation
 import core.game.world.update.flag.context.Graphic
@@ -77,7 +76,7 @@ enum class EnchantedJewellery(val options: Array<String>, val locations: Array<L
         if (!canTeleport(player, nextJewellery)) {
             return false
         }
-        Pulser.submit(object : Pulse(0) {
+        submitWorldPulse(object : Pulse(0) {
             private var count = 0
             private var location = getLocation(buttonID)
 
