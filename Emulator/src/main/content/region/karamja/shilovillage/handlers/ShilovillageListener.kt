@@ -1,11 +1,7 @@
 package content.region.karamja.shilovillage.handlers
 
-import org.rs.consts.Components
-import org.rs.consts.Items
-import org.rs.consts.NPCs
-import org.rs.consts.Scenery
 import content.region.karamja.shilovillage.dialogue.BlackPrismDialogue
-import content.region.karamja.shilovillage.dialogue.CartTravelDialogue
+import content.region.karamja.shilovillage.handlers.ShilovillageListener.Companion
 import core.api.*
 import core.game.dialogue.DialogueFile
 import core.game.global.action.DoorActionHandler
@@ -15,10 +11,9 @@ import core.game.interaction.QueueStrength
 import core.game.node.entity.npc.NPC
 import core.game.node.item.Item
 import core.game.system.task.Pulse
-import core.game.world.GameWorld
 import core.game.world.map.Location
-import core.game.world.update.flag.context.Animation
 import core.tools.END_DIALOGUE
+import org.rs.consts.*
 
 class ShilovillageListener : InteractionListener {
 
@@ -52,7 +47,7 @@ class ShilovillageListener : InteractionListener {
          * Broken cart interaction.
          */
 
-        on(BROKEN_CART, IntType.SCENERY, "look-at") { player, node ->
+        on(Scenery.BROKEN_CART_2216, IntType.SCENERY, "look-at") { player, node ->
             if (!hasRequirement(player, "Shilo Village")) return@on true
             var location = Location(0, 0)
             val playerloc = Location(player.location.x, player.location.y)
@@ -64,14 +59,16 @@ class ShilovillageListener : InteractionListener {
                 }
             }
 
-            player.lock()
-            player.animate(Animation(839))
+            lock(player, 1)
+            sendMessage(player, "You climb up onto the cart.")
+            sendMessage(player, "You nimbly jump from one side of the cart...")
             player.impactHandler.disabledTicks = 4
-            GameWorld.Pulser.submit(object : Pulse(1, player) {
+            submitWorldPulse(object : Pulse(1, player) {
                 override fun pulse(): Boolean {
-                    player.unlock()
-                    player.properties.teleportLocation = location
-                    player.animator.reset()
+                    unlock(player)
+                    teleport(player, location)
+                    sendMessage(player, "...to the other and climb down again.")
+                    resetAnimator(player)
                     return true
                 }
             })
@@ -79,31 +76,50 @@ class ShilovillageListener : InteractionListener {
         }
 
         /*
-         * Cart travel interactions.
+         * Handles cart travel from Brimhaven.
          */
 
-        on(BOARD, IntType.SCENERY, "board") { player, node ->
-            if (getUsedOption(player) == "talk-to") {
-                openDialogue(player, CartTravelDialogue(), if (node.id == 510) NPC(NPCs.HAJEDY_510) else NPC(NPCs.VIGROY_511))
-                return@on true
-            }
+        on(Scenery.TRAVEL_CART_2230, IntType.SCENERY, "board") { player, _ ->
+            openDialogue(player, CartTravelDialogue(), NPC(NPCs.HAJEDY_510))
+            return@on true
+        }
 
-            if (node.id == 2230 || node.id == 510) {
-                when (getUsedOption(player)) {
-                    "pay-fare" -> openDialogue(player, CartQuickPay(), NPC(NPCs.HAJEDY_510))
-                    "board" -> openDialogue(player, CartTravelDialogue(), NPC(NPCs.HAJEDY_510))
-                }
-                return@on true
-            }
+        on(NPCs.HAJEDY_510, IntType.NPC, "talk-to") { player, _ ->
+            openDialogue(player, CartTravelDialogue(), NPC(NPCs.HAJEDY_510))
+            return@on true
+        }
 
-            if (node.id == 2265 || node.id == 511) {
-                when (getUsedOption(player)) {
-                    "pay-fare" -> openDialogue(player, CartQuickPay(), NPC(NPCs.VIGROY_511))
-                    "board" -> openDialogue(player, CartTravelDialogue(), NPC(NPCs.VIGROY_511))
-                }
-                return@on true
-            }
+        on(Scenery.TRAVEL_CART_2230, IntType.SCENERY, "pay-fare") { player, _ ->
+            openDialogue(player, CartQuickPay(), NPC(NPCs.HAJEDY_510))
+            return@on true
+        }
 
+        on(NPCs.HAJEDY_510, IntType.NPC, "pay-fare") { player, _ ->
+            openDialogue(player, CartQuickPay(), NPC(NPCs.HAJEDY_510))
+            return@on true
+        }
+
+        /*
+         * Handles cart travel from Shilo Village.
+         */
+
+        on(Scenery.TRAVEL_CART_2265, IntType.SCENERY, "board") { player, _ ->
+            openDialogue(player, CartTravelDialogue(), NPC(NPCs.VIGROY_511))
+            return@on true
+        }
+
+        on(Scenery.TRAVEL_CART_2265, IntType.SCENERY, "pay-fare") { player, _ ->
+            openDialogue(player, CartQuickPay(), NPC(NPCs.VIGROY_511))
+            return@on true
+        }
+
+        on(NPCs.VIGROY_511, IntType.NPC, "talk-to") { player, npc ->
+            openDialogue(player, CartTravelDialogue(), npc)
+            return@on true
+        }
+
+        on(NPCs.VIGROY_511, IntType.NPC, "pay-fare") { player, npc ->
+            openDialogue(player, CartQuickPay(), npc)
             return@on true
         }
 
@@ -150,18 +166,48 @@ class ShilovillageListener : InteractionListener {
             }
             return@onUseWith true
         }
+
+        /*
+         * Handles wooden gate at Shillo Village.
+         */
+
+        on(WOODEN_GATE, IntType.SCENERY, "open") { player, node ->
+            if(player.location.x == 2867) {
+                DoorActionHandler.autowalkFence(player, node.asScenery(), 2262, 2261)
+                sendMessage(player, "You make your way out of Shilo Village.")
+            } else {
+                DoorActionHandler.autowalkFence(player, node.asScenery(), 2262, 2261)
+            }
+            return@on true
+        }
+
+        /*
+         * Handles Metal gate at Shilo Village.
+         */
+
+        on(METAL_GATE, IntType.SCENERY, "open") { player, node ->
+            if(player.location.x == 2874) {
+                DoorActionHandler.handleAutowalkDoor(player, node.asScenery())
+                sendMessage(player, "You open the gates and make you way back out of the village.")
+            } else {
+                DoorActionHandler.handleAutowalkDoor(player, node.asScenery())
+            }
+            return@on true
+        }
+
+
     }
 
     companion object {
         private const val YANNI = NPCs.YANNI_SALIKA_515
         private const val NOTES = Items.BERVIRIUS_NOTES_624
         private const val BLACKSMITH_DOOR = Scenery.BLACKSMITH_S_DOOR_2266
-        private const val BROKEN_CART = 2216
-        private val BOARD = intArrayOf(2265, 2230, 511, 510)
-        val ANTIQUE_ITEMS = intArrayOf(605, 606, 607, 608, 611, 616, 624, 4808)
+        private val WOODEN_GATE = intArrayOf(Scenery.WOODEN_GATE_2261, Scenery.WOODEN_GATE_2262)
+        private val METAL_GATE = intArrayOf(Scenery.METAL_GATE_2259, Scenery.METAL_GATE_2260)
+        val ANTIQUE_ITEMS = intArrayOf(Items.BONE_KEY_605, Items.STONE_PLAQUE_606, Items.TATTERED_SCROLL_607, Items.CRUMPLED_SCROLL_608, Items.LOCATING_CRYSTAL_611, Items.BEADS_OF_THE_DEAD_616, Items.BERVIRIUS_NOTES_624, Items.BLACK_PRISM_4808)
 
         /*
-         * Shilo cart interactions.
+         * Handles quick pay option for carts.
          */
 
         class CartQuickPay : DialogueFile() {
@@ -169,38 +215,50 @@ class ShilovillageListener : InteractionListener {
                 if (!hasRequirement(player!!, "Shilo Village", true)) return
                 val shilo = npc?.id == 510
                 when (stage) {
-                    0 -> {
-                        if (inInventory(player!!, Items.COINS_995, 10)) {
-                            sendDialogue(player!!, "You pay the fare and hand 10 gold coins to " + (npc?.name ?: "") + ".").also { stage++ }
-                        } else {
-                            sendMessage(player!!, "You don't have enough coins.").also { stage = END_DIALOGUE }
-                        }
+                    0 -> if (inInventory(player!!, Items.COINS_995, 10)) {
+                        sendDialogue(player!!, "You pay the fare and hand 10 gold coins to " + (npc?.name ?: "") + ".").also { stage++ }
+                    } else {
+                        sendMessage(player!!, "You don't have enough coins.").also { stage = END_DIALOGUE }
                     }
-
-                    1 -> {
-                        if (removeItem(player!!, Item(Items.COINS_995, 10))) {
-                            queueScript(player!!, 1, QueueStrength.SOFT) { stage: Int ->
-                                when (stage) {
-                                    0 -> {
-                                        closeOverlay(player!!)
-                                        openOverlay(player!!, Components.FADE_TO_BLACK_120)
-                                        return@queueScript keepRunning(player!!)
-                                    }
-
-                                    1 -> {
-                                        teleport(player!!, if (shilo) Location.create(2834, 2951, 0) else Location.create(2780, 3212, 0))
-                                        closeOverlay(player!!)
-                                        openOverlay(player!!, Components.FADE_FROM_BLACK_170)
-                                        sendDialogue(player!!, "You feel tired from the journey, but at least you didn't have to walk all that distance.")
-                                    }
-                                }
-                                return@queueScript stopExecuting(player!!)
-                            }
+                    1 -> if (removeItem(player!!, Item(Items.COINS_995, 10))) {
+                        closeDialogue(player!!)
+                        closeOverlay(player!!)
+                        openOverlay(player!!, Components.FADE_TO_BLACK_120)
+                        queueScript(player!!, 3, QueueStrength.SOFT) {
+                            teleport(player!!, if (shilo) Location.create(2834, 2951, 0) else Location.create(2780, 3212, 0))
+                            closeOverlay(player!!)
+                            openOverlay(player!!, Components.FADE_FROM_BLACK_170)
+                            sendDialogueLines(player!!, "You feel tired from the journey, but at least you didn't have to walk", "all that distance.")
+                            return@queueScript stopExecuting(player!!)
                         }
                         stage = END_DIALOGUE
                     }
                 }
             }
+        }
+    }
+}
+
+/**
+ * Represents the Cart travel dialogue.
+ */
+class CartTravelDialogue : DialogueFile() {
+
+    override fun handle(componentID: Int, buttonID: Int) {
+        if (!hasRequirement(player!!, QuestName.SHILO_VILLAGE)) return
+        val shilo = npc?.id == 510
+        when (stage) {
+            0 -> npcl("I am offering a cart ride to " + (if (shilo) "Shilo Village" else "Brimhaven") + " if you're interested? It will cost 10 gold coins. Is that Ok?").also { stage++ }
+            1 -> {
+                if (!inInventory(player!!, Items.COINS_995, 10)) {
+                    playerl("Sorry, I don't seem to have enough coins.").also { stage = END_DIALOGUE }
+                } else {
+                    playerl("Yes please, I'd like to go to " + (if (shilo) "Shilo Village" else "Brimhaven") + ".").also { stage++ }
+                }
+            }
+            2 -> npcl("Great! Just hop into the cart then and we'll go!").also { stage++ }
+            3 -> sendDialogue(player!!, "You hop into the cart and the driver urges the horses on. You take a taxing journey through the jungle to " + (if (shilo) "Shilo Village" else "Brimhaven") + ".").also { stage++ }
+            4 -> openDialogue(player!!, Companion.CartQuickPay(), npc!!)
         }
     }
 }

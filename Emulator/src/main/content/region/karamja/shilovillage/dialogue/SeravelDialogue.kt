@@ -1,5 +1,8 @@
 package content.region.karamja.shilovillage.dialogue
 
+import core.api.addItem
+import core.api.freeSlots
+import core.api.removeItem
 import org.rs.consts.Items
 import org.rs.consts.NPCs
 import core.game.dialogue.Dialogue
@@ -17,7 +20,7 @@ class SeravelDialogue(player: Player? = null): Dialogue(player) {
 
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
-        player("Hello.")
+        player("Hello")
         return true
     }
 
@@ -33,16 +36,15 @@ class SeravelDialogue(player: Player? = null): Dialogue(player) {
 
             10 -> {
                 end()
-                if (player.inventory.containsItem(Item(Items.COINS_995, 20))) {
-                    if (player.inventory.hasSpaceFor(Item(Items.SHIP_TICKET_621))) {
-                        npc("Great, nice doing business with you.")
-                        player.inventory.remove(Item(Items.COINS_995, 20))
-                        player.inventory.add(Item(Items.SHIP_TICKET_621))
-                    } else {
-                        npc("Sorry Bwana, you don't have enough space. Come back", "when you do!")
-                    }
-                } else {
+                if(freeSlots(player) == 0) {
+                    npc("Sorry Bwana, you don't have enough space. Come back", "when you do!")
+                    return true
+                }
+                if(!removeItem(player, Item(Items.COINS_995, 25))) {
                     npc("Sorry Bwana, you don't have enough money. Come back", "when you have 25 gold pieces.")
+                } else {
+                    npc("Great, nice doing business with you.")
+                    addItem(player, Items.SHIP_TICKET_621)
                 }
             }
 

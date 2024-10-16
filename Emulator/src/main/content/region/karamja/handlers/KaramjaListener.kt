@@ -109,7 +109,7 @@ class KaramjaListener : InteractionListener {
 
         on(Scenery.CLIMBING_ROPE_1764, IntType.SCENERY, "climb-up") { player, _ ->
             ClimbActionHandler.climb(player, ClimbActionHandler.CLIMB_UP, Location.create(2856, 3167, 0))
-            sendMessage(player, "You climb up the hanging rope...")
+            sendMessage(player, "You climb up the hanging rope.")
             sendMessageWithDelay(player, "You appear on the volcano rim.", 1)
             return@on true
         }
