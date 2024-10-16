@@ -187,9 +187,10 @@ open class StandardCookingPulse(open val player: Player, open val scenery: Scene
             return "You boil the water and make nettle tea."
         }
 
-        if (burned && product.id == Items.NETTLE_TEA_4239) {
+        if (burned && product.id == Items.NETTLE_TEA_4239 || product.id == Items.BOWL_OF_HOT_WATER_4456 || product.id == Items.CUP_OF_HOT_WATER_4460) {
             return "You accidentally let the water boil over."
         }
+
         if(!burned && (product.id == 4456 || product.id == 4460)) {
             return "You boil the water."
         }

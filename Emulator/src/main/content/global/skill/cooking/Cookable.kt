@@ -937,7 +937,7 @@ enum class Cookable(val cooked: Int, val raw: Int, val burnt: Int, val level: In
         highRange = 472
     ),
     /**
-     * Bowl of hot water.
+     * Cup of hot water.
      */
     CUP_OF_HOT_WATER(
         cooked = 4460,
