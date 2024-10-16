@@ -16,7 +16,7 @@ public class CSConfig implements OutgoingPacket<CSConfigContext> {
         buffer.putLEShort(context.getPlayer().getInterfaceManager().getPacketCount(1));
         buffer.putC((byte) context.value);
         buffer.putLEShortA(context.id);
-        buffer.cypherOpcode(context.getPlayer().getSession().getIsaacPair().getOutput());
+        buffer.cypherOpcode(context.getPlayer().getSession().getIsaacPair().output);
         context.getPlayer().getDetails().getSession().write(buffer);
     }
 
