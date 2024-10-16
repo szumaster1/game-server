@@ -58,7 +58,7 @@ public final class CommunicationMessage implements OutgoingPacket<MessageContext
         if (player.isArtificial()) {
             ((AIPlayer) player).handleIncomingChat(context);
         }
-        buffer.cypherOpcode(context.getPlayer().getSession().getIsaacPair().getOutput());
+        buffer.cypherOpcode(context.getPlayer().getSession().getIsaacPair().output);
         player.getSession().write(buffer);
     }
 

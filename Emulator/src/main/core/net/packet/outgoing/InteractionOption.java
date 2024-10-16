@@ -22,7 +22,7 @@ public final class InteractionOption implements OutgoingPacket<InteractionOption
         }
         buffer.put(context.index + 1);
         buffer.putString(context.name);
-        buffer.cypherOpcode(context.getPlayer().getSession().getIsaacPair().getOutput());
+        buffer.cypherOpcode(context.getPlayer().getSession().getIsaacPair().output);
         context.getPlayer().getSession().write(buffer);
     }
 
