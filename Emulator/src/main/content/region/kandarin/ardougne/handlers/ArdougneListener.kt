@@ -11,6 +11,7 @@ import core.game.dialogue.FacialExpression
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.entity.npc.NPC
+import core.game.node.entity.player.link.diary.DiaryType
 import core.game.node.item.Item
 import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
@@ -45,10 +46,11 @@ class ArdougneListener : InteractionListener {
          */
 
         on(NPCs.CAPTAIN_BARNABY_4974, IntType.NPC, "pay-fare") { player, _ ->
-            if (!removeItem(player, Item(Items.COINS_995, 30))) {
-                sendMessage(player, "You don't have enough coins.")
+            var amount = if(isDiaryComplete(player, DiaryType.KARAMJA, 0)) 15 else 30
+            if (!removeItem(player, Item(Items.COINS_995, amount))) {
+                sendMessage(player, "You can not afford that.")
             } else {
-                sendMessage(player, "You pay 30 coins and board the ship.")
+                sendMessage(player, "You pay $amount coins and board the ship.")
                 playJingle(player, 171)
                 Ship.ARDOUGNE_TO_BRIMHAVEN.sail(player)
             }
@@ -75,4 +77,5 @@ class ArdougneListener : InteractionListener {
         }
 
     }
+
 }

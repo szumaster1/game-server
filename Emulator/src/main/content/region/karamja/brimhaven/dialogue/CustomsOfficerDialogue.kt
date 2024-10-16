@@ -1,16 +1,14 @@
 package content.region.karamja.brimhaven.dialogue
 
 import content.global.travel.charter.Ship
-import core.api.amountInInventory
+import core.api.*
 import org.rs.consts.Items
 import org.rs.consts.NPCs
-import core.api.inInventory
-import core.api.removeItem
-import core.api.sendMessage
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
+import core.game.node.entity.player.link.diary.DiaryType
 import core.game.node.item.Item
 import core.game.world.map.Location
 import core.plugin.Initializable
@@ -30,7 +28,11 @@ class CustomsOfficerDialogue(player: Player? = null): Dialogue(player) {
                     npc("Aha, trying to smuggle rum are we?").also { stage = 900 }
                     return true
                 }
-                npc(FacialExpression.HALF_GUILTY, "Well you've got some odd stuff, but it's all legal. Now", "you need to pay a boarding charge of " + getPrice() + " coins.").also { stage = 121 }
+                if (isDiaryComplete(player!!, DiaryType.KARAMJA, 0)) {
+                    sendNPCDialogue(player, NPCs.CUSTOMS_OFFICER_380, "Hang on a sec, didn't you earn Karamja gloves? I thought I'd seen you helping around the island. You can go on half price, mate.").also { stage = 121 }
+                } else {
+                    npc(FacialExpression.HALF_GUILTY, "Well you've got some odd stuff, but it's all legal. Now", "you need to pay a boarding charge of 30 coins.").also { stage = 121 }
+                }
                 return true
             }
         }
@@ -39,6 +41,10 @@ class CustomsOfficerDialogue(player: Player? = null): Dialogue(player) {
     }
 
     override fun handle(interfaceId: Int, buttonId: Int): Boolean {
+        /*
+         * Discount when the player has completed easy karamja diary.
+         */
+        var amount = if (isDiaryComplete(player!!, DiaryType.KARAMJA, 0)) 15 else 30
         when (stage) {
             0 -> options("Can I journey on this ship?", "Does Karamja have unusual customs then?").also { stage++ }
             1 -> when (buttonId) {
@@ -61,12 +67,17 @@ class CustomsOfficerDialogue(player: Player? = null): Dialogue(player) {
                     npc("Aha, trying to smuggle rum are we?").also { stage = 900 }
                     return true
                 }
-                npc(FacialExpression.HALF_GUILTY, "Well you've got some odd stuff, but it's all legal. Now", "you need to pay a boarding charge of " + getPrice() + " coins.").also { stage++ }
+                npc(FacialExpression.HALF_GUILTY, "Well you've got some odd stuff, but it's all legal. Now", "you need to pay a boarding charge of 30 coins.").also { stage++ }
+            }
+            121 -> if (isDiaryComplete(player!!, DiaryType.KARAMJA, 0)) {
+                sendNPCDialogue(player, NPCs.CUSTOMS_OFFICER_380, "Hang on a sec, didn't you earn Karamja gloves? I thought I'd seen you helping around the island. You can go on half price, mate.").also { stage++ }
+            } else {
+                options("Ok.", "Oh, I'll not bother then.").also { stage = 123 }
             }
 
-            121 -> options("Ok.", "Oh, I'll not bother then.").also { stage = 122 }
+            122 -> options("Ok.", "Oh, I'll not bother then.").also { stage++ }
 
-            122 -> when (buttonId) {
+            123 -> when (buttonId) {
                 1 -> player(FacialExpression.HALF_GUILTY, "Ok.").also { stage = 210 }
                 2 -> player(FacialExpression.HALF_GUILTY, "Oh, I'll not bother then.").also { stage = END_DIALOGUE }
             }
@@ -74,25 +85,26 @@ class CustomsOfficerDialogue(player: Player? = null): Dialogue(player) {
             130 -> npc(FacialExpression.HALF_GUILTY, "You're not getting on this ship then.").also { stage = END_DIALOGUE }
 
             210 -> {
-                val coins = Item(995, getPrice())
-                if (!player.inventory.containsItem(coins)) {
-                    player("Sorry, I don't seem to have enough coins.").also { stage = END_DIALOGUE }
+                if (!inInventory(player, Items.COINS_995, amount)) {
+                    sendMessage(player!!, "You can not afford that.").also { stage = END_DIALOGUE }
                     return true
                 }
-                if (!player.inventory.remove(coins)) {
-                    player("Sorry, I don't seem to have enough coins.").also { stage = END_DIALOGUE }
+                if (!removeItem(player, Item(Items.COINS_995, amount))) {
+                    sendMessage(player!!, "You can not afford that.").also { stage = END_DIALOGUE }
                     return true
+                } else {
+                    end()
+                    var ship: Ship? = null
+                    if (player.location.getDistance(LOCATIONS[0]) < 40) {
+                        ship = Ship.BRIMHAVEN_TO_ARDOUGNE
+                    }
+                    if (player.location.getDistance(LOCATIONS[1]) < 40) {
+                        ship = Ship.MUSA_POINT_TO_PORT_SARIM
+                    }
+
+                    sendMessage(player, "You pay $amount coins and board the ship.")
+                    ship!!.sail(player)
                 }
-                end()
-                var ship: Ship? = null
-                if (player.location.getDistance(LOCATIONS[0]) < 40) {
-                    ship = Ship.BRIMHAVEN_TO_ARDOUGNE
-                }
-                if (player.location.getDistance(LOCATIONS[1]) < 40) {
-                    ship = Ship.MUSA_POINT_TO_PORT_SARIM
-                }
-                getPrice()
-                ship!!.sail(player)
             }
 
             900 -> player(FacialExpression.HALF_GUILTY, "Umm... it's for personal use?").also { stage = 901 }
@@ -108,23 +120,6 @@ class CustomsOfficerDialogue(player: Player? = null): Dialogue(player) {
             }
         }
         return true
-    }
-
-
-    /**
-     * Get price
-     *
-     * @return
-     */
-    fun getPrice(): Int {
-        if (player.achievementDiaryManager.karamjaGlove != -1) {
-            sendMessage(player, "The Captain's grin broadens as he recognises you as having earned Karamja gloves")
-            sendMessage(player, "and he lets you on half price - 15 coins.")
-            return 15
-        } else {
-            sendMessage(player, "You pay 30 coins and board the ship.")
-            return 30
-        }
     }
 
     override fun getIds(): IntArray {

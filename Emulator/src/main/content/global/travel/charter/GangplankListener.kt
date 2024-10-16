@@ -5,6 +5,7 @@ import core.game.global.action.ClimbActionHandler
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.interaction.QueueStrength
+import core.game.node.entity.impl.ForceMovement
 import core.game.node.entity.player.Player
 import core.game.world.map.Location
 import core.game.world.repository.Repository.findNPC
@@ -61,11 +62,7 @@ class GangplankListener : InteractionListener {
          */
 
         on(Scenery.GANGPLANK_11209, IntType.SCENERY, "cross") { player, _ ->
-            sendDialogueLines(
-                player,
-                "I don't think that whoever owns this ship will be happy",
-                "with me wandering all over it."
-            )
+            sendDialogueLines(player, "I don't think that whoever owns this ship will be happy", "with me wandering all over it.")
             return@on true
         }
 
@@ -75,7 +72,7 @@ class GangplankListener : InteractionListener {
 
         on(PLANK, IntType.SCENERY, "cross") { player, node ->
             lock(player, 1)
-            forceMove(player, player.location, node.location, 8, 60)
+            ForceMovement.run(player, player.location, node.location, ForceMovement.WALK_ANIMATION, ForceMovement.WALKING_SPEED)
             if (getUsedOption(player) == "cross") {
                 when (node.id) {
                     Scenery.GANGPLANK_2081 -> cross(player, KARAMJA[0])
