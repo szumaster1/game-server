@@ -24,7 +24,7 @@ class HydraNPC @JvmOverloads constructor(owner: Player? = null, id: Int = NPCs.H
         if (node is Scenery) {
             val farmingPatch = FarmingPatch.forObject(node)
             if (farmingPatch != null) {
-                val patch = farmingPatch.getPatchFor(owner)
+                val patch = farmingPatch.getPatchFor(owner, true)
                 patch.regrowIfTreeStump()
                 return true
             }

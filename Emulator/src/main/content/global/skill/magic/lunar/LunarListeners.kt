@@ -1,6 +1,5 @@
 package content.global.skill.magic.lunar
 
-
 import content.global.skill.cooking.Cookable
 import content.global.skill.farming.CompostBins
 import content.global.skill.farming.CompostType
@@ -24,9 +23,7 @@ import core.game.world.map.RegionManager
 import core.game.world.repository.Repository
 import core.game.world.update.flag.context.Animation
 import core.tools.RandomFunction
-import org.rs.consts.Components
-import org.rs.consts.Items
-import org.rs.consts.Sounds
+import org.rs.consts.*
 import kotlin.math.floor
 
 /**
@@ -404,10 +401,7 @@ class LunarListeners : content.global.skill.magic.SpellListener("lunar"), Comman
             return
         }
         if (patch.isDead) {
-            sendMessage(
-                player,
-                "It says 'Cure' not 'Resurrect'. Although death may arise from disease, it is not in itself a disease and hence cannot be cured. So there."
-            )
+            sendMessage(player, "It says 'Cure' not 'Resurrect'. Although death may arise from disease, it is not in itself a disease and hence cannot be cured. So there.")
             return
         }
         if (!patch.isDiseased) {
@@ -417,10 +411,11 @@ class LunarListeners : content.global.skill.magic.SpellListener("lunar"), Comman
 
         patch.cureDisease()
         removeRunes(player)
-        addXP(player, 60.0)
-        visualizeSpell(player, 4409, 748, 100, Sounds.LUNAR_CURE_GROUP_2882)
-        setDelay(player, false)
+        addXP(player,60.0)
+        visualizeSpell(player, Animations.LUNAR_CURE_PLANT_4409, 748, 100, Sounds.LUNAR_CURE_GROUP_2882)
+        setDelay(player,false)
     }
+
 
     /**
      * Function to examine a monster.

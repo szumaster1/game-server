@@ -207,7 +207,7 @@ class WoodcuttingPulse(private val player: Player, private val node: Scenery) : 
                 if (resource!!.isFarming) {
                     val fPatch = forObject(node.asScenery())
                     if (fPatch != null) {
-                        val patch = fPatch.getPatchFor(player)
+                        val patch = fPatch.getPatchFor(player, true)
                         patch.setCurrentState(patch.getCurrentState() + 1)
                     }
                     return true

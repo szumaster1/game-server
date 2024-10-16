@@ -193,10 +193,19 @@ public final class StrongholdPlugin extends MapZone implements Plugin<Object> {
         return super.interact(e, target, option);
     }
 
+    /**
+     * Handles a ladder in strong hold.
+     * @param player the player.
+     * @param destination the destination.
+     */
     private void ladder(final Player player, final Location destination) {
         ClimbActionHandler.climb(player, new Animation(828), destination);
     }
 
+    /**
+     * Handles a portal.
+     * @param player the player.
+     */
     private void handlePortal(final Player player, final Scenery object) {
         final int index = getPortalIndex(object.getId());
         if (!player.getSavedData().globalData.hasStrongholdReward(index + 1)) {
@@ -207,6 +216,11 @@ public final class StrongholdPlugin extends MapZone implements Plugin<Object> {
         }
     }
 
+    /**
+     * Handles a stronghold of security door.
+     * @param player the player.
+     * @param object the object.
+     */
     private static void handleDoor(final Player player, final Scenery object) {
         final boolean force = isForced(player, object);
         if (force || RandomFunction.random(40) < 2) {
@@ -216,6 +230,11 @@ public final class StrongholdPlugin extends MapZone implements Plugin<Object> {
         player.getDialogueInterpreter().open("strong-hold", object);
     }
 
+    /**
+     * Opens the door.
+     * @param player the player.
+     * @param object the object.
+     */
     private static void openDoor(final Player player, final Scenery object) {
         player.lock(3);
         player.animate(Animation.create(4282));
@@ -241,27 +260,53 @@ public final class StrongholdPlugin extends MapZone implements Plugin<Object> {
         });
     }
 
+    /**
+     * Opens the component.
+     * @param player the player.
+     * @param location the location.
+     */
     private void openComponent(Player player, Location location) {
         final Component component = new Component(579);
         component.setPlugin(new StrongholdComponentPlugin(location));
         player.getInterfaceManager().open(component);
     }
 
+    /**
+     * Flags a door as set or not.
+     * @param player the player.
+     * @param completed if completed.
+     */
     private static void flagDoor(Player player, boolean completed) {
         setAttribute(player, "/save:strong-hold:door", completed);
     }
 
+    /**
+     * Checks if the door is flagged.
+     * @param player the player.
+     * @return {@code True} if flagged.
+     */
     private static boolean isFlagged(final Player player) {
         return player.getAttribute("strong-hold:door", false);
     }
 
+    /**
+     * Checks if a door is forced to let you through.
+     * @param player the player.
+     * @param object the object.
+     * @return {@code True} if its forced.
+     */
     private static boolean isForced(final Player player, final Scenery object) {
-        if (player.getLocation().getX() == 1859 && player.getLocation().getY() == 5239 || player.getLocation().getX() == 1858 && player.getLocation().getY() == 5239) {
-            return false;
+        if (player.inCombat() || player.getProperties().getCombatPulse().isAttacking()) {
+            return true;
         }
-        return !isFlagged(player);
+        return isFlagged(player);
     }
 
+    /**
+     * Gets the portal index.
+     * @param id the id.
+     * @return the portal index.
+     */
     private int getPortalIndex(int id) {
         for (int i = 0; i < PORTALS.length; i++) {
             if ((int) PORTALS[i][0] == id) {
@@ -796,6 +841,11 @@ public final class StrongholdPlugin extends MapZone implements Plugin<Object> {
         }
 
 
+        /**
+         * Gets the npc id from the door name.
+         * @param name the name.
+         * @return the name.
+         */
         private int getNpcId(String name) {
             switch (name) {
                 case "Gate of War":
