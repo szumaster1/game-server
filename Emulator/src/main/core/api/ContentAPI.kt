@@ -844,6 +844,15 @@ fun resetFace(entity: Entity) {
     entity.face(null)
     entity.faceLocation(entity.location)
 }
+/**
+ * Causes the given entity to face the given location.
+ *
+ * @param entity the entity you wish to face location.
+ * @param location the location to face.
+ */
+fun faceLocation(entity: Entity, location : Location) {
+    entity.faceLocation(location)
+}
 
 /**
  * Opens the given interface for the given player.
