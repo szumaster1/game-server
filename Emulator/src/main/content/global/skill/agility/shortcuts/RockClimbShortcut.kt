@@ -4,6 +4,7 @@ import content.global.skill.agility.AgilityHandler
 import content.global.skill.agility.AgilityShortcut
 import core.api.getStatLevel
 import core.api.impact
+import core.api.sendChat
 import core.api.sendMessage
 import core.game.node.entity.combat.ImpactHandler
 import core.game.node.entity.impl.ForceMovement
@@ -48,19 +49,31 @@ class RockClimbShortcut :
         }
     }
 
+    /**
+     * Handles the Cairn isle climbing rocks shortcut.
+     *
+     * https://runescape.wiki/w/Cairn_Isle?oldid=1941076
+     * TODO: Found slide animation.
+     *
+     * @param player The player attempting to climb the shortcut.
+     * @param object The scenery id.
+     * @param scalingAnim the climbing animation.
+     */
     private fun handleClimbShortcut(player: Player, `object`: Scenery, scalingAnim: Animation) {
         val hitpoints = getStatLevel(player, Skills.HITPOINTS)
-        val result = (hitpoints * 5 / 100) + 1
+        val damage = hitpoints / 10.0
         val direction = if (player.location.x == 2795) Direction.WEST else Direction.EAST
         val fail = AgilityHandler.hasFailed(player, 1, 0.053)
-        val targetLocation = if(fail) `object`.location.transform(if (direction == Direction.WEST) 1 else 3, 0, 0) else `object`.location.transform(if (direction == Direction.WEST) -3 else 3, 0, 0)
+        val targetLocation = `object`.location.transform(if (direction == Direction.WEST) -3 else 3, 0, 0)
         if (getStatLevel(player, Skills.AGILITY) >= 15) {
             Pulser.submit(object : Pulse(0, player) {
                 override fun pulse(): Boolean {
                     if (fail) {
+                        sendChat(player, "Ouch")
                         sendMessage(player, "You fall and hurt yourself.")
-                        impact(player, result, ImpactHandler.HitsplatType.NORMAL)
-                        ForceMovement.run(player, `object`.location, targetLocation, scalingAnim, scalingAnim, Direction.WEST, 13).endAnimation = Animation.RESET
+                        impact(player, damage.toInt(), ImpactHandler.HitsplatType.NORMAL)
+                        impact(player, damage.toInt(), ImpactHandler.HitsplatType.NORMAL)
+                        ForceMovement.run(player, `object`.location, `object`.location.transform(1, 0, 0), scalingAnim, scalingAnim, Direction.WEST, 13).endAnimation = Animation.RESET
                     } else {
                         ForceMovement.run(player, `object`.location, targetLocation, scalingAnim, scalingAnim, Direction.WEST, 13).endAnimation = Animation.RESET
                     }
