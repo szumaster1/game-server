@@ -14,7 +14,7 @@ public final class SkillLevel implements OutgoingPacket<SkillContext> {
     @Override
     public void send(SkillContext context) {
         final IoBuffer buffer = new IoBuffer(38);
-        buffer.cypherOpcode(context.getPlayer().getSession().getIsaacPair().getOutput());
+        buffer.cypherOpcode(context.getPlayer().getSession().getIsaacPair().output);
         Skills skills = context.getPlayer().getSkills();
         if (context.skillId == Skills.PRAYER) {
             buffer.putA((int) Math.ceil(skills.getPrayerPoints()));
