@@ -49,11 +49,11 @@ class RockClimbShortcut :
     }
 
     private fun handleClimbShortcut(player: Player, `object`: Scenery, scalingAnim: Animation) {
-        val hitpoints = player.getSkills().lifepoints
+        val hitpoints = getStatLevel(player, Skills.HITPOINTS)
         val result = (hitpoints * 5 / 100) + 1
         val direction = if (player.location.x == 2795) Direction.WEST else Direction.EAST
         val fail = AgilityHandler.hasFailed(player, 1, 0.053)
-        val targetLocation = if(fail) `object`.location.transform(if (direction == Direction.WEST) 1 else -1, 0, 0) else `object`.location.transform(if (direction == Direction.WEST) -3 else 3, 0, 0)
+        val targetLocation = if(fail) `object`.location.transform(if (direction == Direction.WEST) 1 else 3, 0, 0) else `object`.location.transform(if (direction == Direction.WEST) -3 else 3, 0, 0)
         if (getStatLevel(player, Skills.AGILITY) >= 15) {
             Pulser.submit(object : Pulse(0, player) {
                 override fun pulse(): Boolean {
