@@ -8,9 +8,9 @@ import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC
 
 /**
- * Represents the King lathas dialogue file.
+ * Represents the King Lathas dialogue (Biohazard quest).
  */
-class KingLathasDialogueFile : DialogueFile() {
+class LathasDialogue : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {
         val questStage = getQuestStage(player!!, "Biohazard")

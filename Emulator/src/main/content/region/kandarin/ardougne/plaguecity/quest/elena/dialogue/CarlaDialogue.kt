@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Represents the Carla dialogue.
+ * Represents the Carla dialogue (Plague City quest).
  */
 @Initializable
 class CarlaDialogue(player: Player? = null) : Dialogue(player) {

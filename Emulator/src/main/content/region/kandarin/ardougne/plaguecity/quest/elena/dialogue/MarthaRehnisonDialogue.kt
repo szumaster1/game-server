@@ -11,7 +11,7 @@ import core.tools.END_DIALOGUE
 import org.rs.consts.QuestName
 
 /**
- * Represents the Martha rehnison dialogue.
+ * Represents the Martha Rehnison dialogue (Plague City quest).
  */
 @Initializable
 class MarthaRehnisonDialogue(player: Player? = null) : Dialogue(player) {

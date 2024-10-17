@@ -12,7 +12,7 @@ import core.tools.END_DIALOGUE
 import org.rs.consts.QuestName
 
 /**
- * Represents the Bravek dialogue.
+ * Represents the Bravek dialogue (Plague City quest).
  */
 @Initializable
 class BravekDialogue(player: Player? = null) : Dialogue(player) {

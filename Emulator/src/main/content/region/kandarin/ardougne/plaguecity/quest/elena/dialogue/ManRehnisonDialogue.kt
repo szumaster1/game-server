@@ -5,7 +5,7 @@ import core.game.dialogue.FacialExpression
 import core.tools.END_DIALOGUE
 
 /**
- * Represents the Man rehnison dialogue.
+ * Represents the Man rehnison dialogue (Plague City quest).
  */
 class ManRehnisonDialogue : DialogueFile() {
 

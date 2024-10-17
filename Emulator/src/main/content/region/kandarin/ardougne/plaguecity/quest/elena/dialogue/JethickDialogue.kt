@@ -12,7 +12,7 @@ import core.tools.END_DIALOGUE
 import org.rs.consts.QuestName
 
 /**
- * Represents the Jethick dialogue.
+ * Represents the Jethick dialogue (Plague City quest).
  */
 @Initializable
 class JethickDialogue(player: Player? = null) : Dialogue(player) {

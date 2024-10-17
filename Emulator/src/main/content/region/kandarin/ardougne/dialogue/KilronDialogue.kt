@@ -1,6 +1,6 @@
 package content.region.kandarin.ardougne.dialogue
 
-import content.region.kandarin.ardougne.quest.biohazard.dialogue.KilronDialogueFile
+import content.region.kandarin.ardougne.quest.biohazard.dialogue.KilronDialogue
 import org.rs.consts.NPCs
 import core.api.isQuestComplete
 import core.api.isQuestInProgress
@@ -33,7 +33,9 @@ class KilronDialogue(player: Player? = null) : Dialogue(player) {
         if (isQuestComplete(player, QuestName.PLAGUE_CITY) && isQuestComplete(player, QuestName.BIOHAZARD)) {
             npcl(FacialExpression.FRIENDLY, "Looks like you won't be needing the rope ladder any more, adventurer. I heard it was you who started the revolution and freed West Ardougne!").also { stage = END_DIALOGUE }
         } else if (isQuestInProgress(player, QuestName.BIOHAZARD, 1, 99)) {
-            end().also { openDialogue(player, KilronDialogueFile()) }
+            end().also { openDialogue(player,
+                KilronDialogue()
+            ) }
         } else {
             npc("Hello.").also { stage = END_DIALOGUE }
         }

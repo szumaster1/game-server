@@ -3,15 +3,15 @@ package content.region.kandarin.ardougne.quest.biohazard.dialogue
 import core.api.*
 import org.rs.consts.Items
 import org.rs.consts.NPCs
-import content.region.kandarin.ardougne.quest.biohazard.handlers.BiohazardUtils
+import content.region.kandarin.ardougne.quest.biohazard.BiohazardUtils
 import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC
 
 /**
- * Represents the Hops dialogue file.
+ * Represents the Hops dialogue (Biohazard quest).
  */
-class HopsDialogueFile : DialogueFile() {
+class HopsDialogue : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {
         npc = NPC(NPCs.HOPS_340)
@@ -71,9 +71,9 @@ class HopsDialogueFile : DialogueFile() {
 }
 
 /**
- * Represents the Hops varrock dialogue file.
+ * Represents the Hops dialogue at Varrock. (Biohazard quest).
  */
-class HopsVarrockDialogueFile : DialogueFile() {
+class HopsVarrockDialogue : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {
         npc = NPC(NPCs.HOPS_341)

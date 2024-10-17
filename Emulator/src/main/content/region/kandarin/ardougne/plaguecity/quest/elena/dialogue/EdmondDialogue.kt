@@ -3,8 +3,8 @@ package content.region.kandarin.ardougne.plaguecity.quest.elena.dialogue
 import core.api.*
 import org.rs.consts.Items
 import org.rs.consts.NPCs
-import content.region.kandarin.ardougne.plaguecity.quest.elena.handlers.PlagueCityListener
-import content.region.kandarin.ardougne.plaguecity.quest.elena.handlers.UndergroundCutscene
+import content.region.kandarin.ardougne.plaguecity.quest.elena.PlagueCityListener
+import content.region.kandarin.ardougne.plaguecity.quest.elena.UndergroundCutscene
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC
@@ -14,7 +14,7 @@ import core.tools.END_DIALOGUE
 import org.rs.consts.QuestName
 
 /**
- * Represents the Edmond dialogue.
+ * Represents the Edmond dialogue (Plague City quest).
  */
 @Initializable
 class EdmondDialogue(player: Player? = null) : Dialogue(player) {
@@ -39,7 +39,7 @@ class EdmondDialogue(player: Player? = null) : Dialogue(player) {
         when (getQuestStage(player!!, QuestName.PLAGUE_CITY)) {
             0 -> when (stage) {
                 1 -> npcl(FacialExpression.NEUTRAL, "Sorry, I can't stop to talk...").also { stage++ }
-                2 -> playerl(FacialExpression.FRIENDLY, "Why, what's wrong?").also { stage++ }
+                2 -> playerl(FacialExpression.HALF_ASKING, "Why, what's wrong?").also { stage++ }
                 3 -> npcl(FacialExpression.FRIENDLY, "I've got to find my daughter. I pray that she is still alive...").also { stage++ }
                 4 -> options("What's happened to her?", "Well, good luck finding her.").also { stage++ }
                 5 -> when (buttonID) {

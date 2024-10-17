@@ -10,7 +10,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Represents the Recruiter dialogue.
+ * Represents the Recruiter dialogue (Default dialogue).
  */
 @Initializable
 class RecruiterDialogue(player: Player? = null) : Dialogue(player) {

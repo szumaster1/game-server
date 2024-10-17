@@ -7,16 +7,17 @@ import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC
 import core.tools.END_DIALOGUE
+import org.rs.consts.QuestName
 
 /**
- * Represents the Guidor dialogue file.
+ * Represents the Guidor dialogue (Biohazard quest).
  */
-class GuidorDialogueFile : DialogueFile() {
+class GuidorDialogue : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {
         npc = NPC(NPCs.GUIDOR_343)
         when (stage) {
-            0 -> if (getQuestStage(player!!, "Biohazard") >= 16) {
+            0 -> if (getQuestStage(player!!, QuestName.BIOHAZARD) >= 16) {
                 player("Hello again Guidor.").also { stage = 100 }
             } else {
                 player("Hello, you must be Guidor. I understand that you are", "unwell.").also { stage++ }
@@ -78,7 +79,7 @@ class GuidorDialogueFile : DialogueFile() {
             24 -> npc(FacialExpression.THINKING, "The only question is... ... why?").also { stage++ }
             25 -> {
                 end()
-                setQuestStage(player!!, "Biohazard", 16)
+                setQuestStage(player!!, QuestName.BIOHAZARD, 16)
             }
             100 -> npc("Well, hello traveller. I still can't understand", "why they would lie about the plague.").also { stage++ }
             101 -> player("It's strange, anyway how are you doing?").also { stage++ }

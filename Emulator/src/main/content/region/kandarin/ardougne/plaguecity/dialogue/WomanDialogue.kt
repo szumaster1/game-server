@@ -7,7 +7,7 @@ import core.tools.RandomFunction
 import core.tools.START_DIALOGUE
 
 /**
- * Represents the Woman dialogue.
+ * Represents the Woman dialogue (Default dialogue).
  */
 class WomanDialogue : DialogueFile() {
 

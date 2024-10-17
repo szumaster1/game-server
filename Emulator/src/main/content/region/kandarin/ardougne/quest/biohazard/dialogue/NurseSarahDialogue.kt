@@ -4,17 +4,18 @@ import org.rs.consts.NPCs
 import core.api.getQuestStage
 import core.game.dialogue.DialogueFile
 import core.game.node.entity.npc.NPC
+import org.rs.consts.QuestName
 
 /**
- * Represents the Nurse sarah dialogue file.
+ * Represents the Nurse Sarah dialogue (Biohazard quest).
  */
-class NurseSarahDialogueFile : DialogueFile() {
+class NurseSarahDialogue : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {
         npc = NPC(NPCs.NURSE_SARAH_373)
         when (stage) {
             0 -> player("Hello nurse.").also { stage++ }
-            1 -> if (getQuestStage(player!!, "Biohazard") <= 6) {
+            1 -> if (getQuestStage(player!!, QuestName.BIOHAZARD) <= 6) {
                 npc("I don't know how much longer I can cope here.").also { stage = 4 }
             } else {
                 npc("Oh hello there. I'm afraid I can't stop and talk, a", "group of mourners have become ill with food poisoning. I need", "to go over and see what I can do.").also { stage++ }

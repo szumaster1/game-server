@@ -3,20 +3,21 @@ package content.region.kandarin.ardougne.quest.biohazard.dialogue
 import core.api.*
 import org.rs.consts.Items
 import org.rs.consts.NPCs
-import content.region.kandarin.ardougne.quest.biohazard.handlers.BiohazardUtils
+import content.region.kandarin.ardougne.quest.biohazard.BiohazardUtils
 import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression
 import core.game.dialogue.Topic
 import core.game.node.entity.npc.NPC
 import core.tools.END_DIALOGUE
+import org.rs.consts.QuestName
 
 /**
- * Represents the Elena dialogue file.
+ * Represents the Elena dialogue. (Biohazard quest)
  */
-class ElenaDialogueFile : DialogueFile() {
+class ElenaDialogue : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {
-        val questStage = getQuestStage(player!!, "Biohazard")
+        val questStage = getQuestStage(player!!, QuestName.BIOHAZARD)
         npc = NPC(NPCs.ELENA_3209)
         when {
             (questStage == 0) -> {
@@ -38,7 +39,7 @@ class ElenaDialogueFile : DialogueFile() {
                     11 -> npc(FacialExpression.FRIENDLY,"My father's friend Jerico is in communication with", "West Ardougne. He might be able to help us, he lives", "next to the chapel.").also { stage++ }
                     12 -> {
                         end()
-                        setQuestStage(player!!, "Biohazard", 1)
+                        setQuestStage(player!!, QuestName.BIOHAZARD, 1)
                     }
                 }
             }
@@ -166,7 +167,7 @@ class ElenaDialogueFile : DialogueFile() {
                     9 -> npc(FacialExpression.HALF_GUILTY,"You need to see the King of East Ardougne!").also { stage++ }
                     10 -> {
                         end()
-                        setQuestStage(player!!, "Biohazard", 99)
+                        setQuestStage(player!!, QuestName.BIOHAZARD, 99)
                     }
                 }
             }

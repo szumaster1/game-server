@@ -1,6 +1,6 @@
 package content.region.kandarin.quest.makinghistory.dialogue
 
-import content.region.kandarin.ardougne.quest.biohazard.dialogue.KingLathasDialogueFile
+import content.region.kandarin.ardougne.quest.biohazard.dialogue.LathasDialogue
 import content.region.kandarin.quest.makinghistory.handlers.MakingHistoryUtils
 import core.api.*
 import org.rs.consts.Items
@@ -17,12 +17,12 @@ import org.rs.consts.QuestName
  * Represents the King lathas dialogue.
  */
 @Initializable
-class KingLathasMHDialogue(player: Player? = null) : Dialogue(player) {
+class KingLathasDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any?): Boolean {
         npc = args[0] as NPC
         if (getQuestStage(player, "Biohazard") in 16..100) {
-            openDialogue(player, KingLathasDialogueFile())
+            openDialogue(player, LathasDialogue())
             return true
         } else if (getVarbit(player, MakingHistoryUtils.PROGRESS) == 3 && inInventory(player, Items.LETTER_6756)) {
             npcl(FacialExpression.FRIENDLY, "What would you like to talk about?").also { stage = 1 }

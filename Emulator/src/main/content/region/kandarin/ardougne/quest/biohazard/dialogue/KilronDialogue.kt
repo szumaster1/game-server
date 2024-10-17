@@ -7,14 +7,15 @@ import core.api.teleport
 import core.game.dialogue.DialogueFile
 import core.game.node.entity.npc.NPC
 import core.game.world.map.Location
+import org.rs.consts.QuestName
 
 /**
- * Represents the Kilron dialogue file.
+ * Represents the Kilron dialogue (Biohazard quest).
  */
-class KilronDialogueFile : DialogueFile() {
+class KilronDialogue : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {
-        val questStage = getQuestStage(player!!, "Biohazard")
+        val questStage = getQuestStage(player!!, QuestName.BIOHAZARD)
         npc = NPC(NPCs.KILRON_349)
         when {
             (questStage in 1..10) -> {

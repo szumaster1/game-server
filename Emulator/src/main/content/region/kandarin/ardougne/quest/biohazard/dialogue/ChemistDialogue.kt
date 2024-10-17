@@ -6,16 +6,17 @@ import org.rs.consts.NPCs
 import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC
+import org.rs.consts.QuestName
 
 /**
- * Represents the Chemist dialogue file.
+ * Represents the Chemist dialogue (Biohazard quest).
  */
-class ChemistDialogueFile : DialogueFile() {
+class ChemistDialogue : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {
         npc = NPC(NPCs.CHEMIST_367)
         when {
-            (getQuestStage(player!!, "Biohazard") in 10..15) -> {
+            (getQuestStage(player!!, QuestName.BIOHAZARD) in 10..15) -> {
                 when (stage) {
                     0 -> npc("Sorry, I'm afraid we're just closing now. You'll have to", "come back another time.").also { stage++ }
                     1 -> options("This can't wait, I'm carrying a plague sample.", "It's ok, I'm Elena's friend.").also { stage++ }

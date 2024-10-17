@@ -1,4 +1,4 @@
-package content.region.kandarin.ardougne.plaguecity.quest.elena.handlers
+package content.region.kandarin.ardougne.plaguecity.quest.elena
 
 import core.api.*
 import core.game.activity.Cutscene
@@ -6,6 +6,8 @@ import core.game.dialogue.FacialExpression
 import core.game.node.entity.player.Player
 import core.game.world.map.Direction
 import core.game.world.map.Location
+import org.rs.consts.Animations
+import org.rs.consts.NPCs
 import org.rs.consts.QuestName
 
 class UndergroundCutscene(player: Player) : Cutscene(player) {
@@ -109,7 +111,7 @@ class UndergroundCutscene(player: Player) : Cutscene(player) {
     }
 
     companion object {
-        private const val EDMOND = 714
-        private const val ROPE_PULL = 3187
+        private const val EDMOND = NPCs.EDMOND_714
+        private const val ROPE_PULL = Animations.REMOVING_SEWER_GRATE_PLAGUE_CITY_3187
     }
 }

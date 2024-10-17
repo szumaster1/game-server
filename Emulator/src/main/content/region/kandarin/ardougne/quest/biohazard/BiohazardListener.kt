@@ -1,5 +1,6 @@
-package content.region.kandarin.ardougne.quest.biohazard.handlers
+package content.region.kandarin.ardougne.quest.biohazard
 
+import content.global.skill.agility.AgilityHandler
 import org.rs.consts.*
 import content.region.kandarin.ardougne.quest.biohazard.dialogue.*
 import core.api.*
@@ -8,11 +9,11 @@ import core.game.dialogue.FacialExpression
 import core.game.global.action.DoorActionHandler
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
+import core.game.interaction.QueueStrength
 import core.game.node.entity.impl.Projectile
 import core.game.system.task.Pulse
 import core.game.world.map.Direction
 import core.game.world.map.Location
-import core.game.world.map.zone.ZoneBorders
 import core.game.world.update.flag.context.Animation
 import core.tools.END_DIALOGUE
 
@@ -27,7 +28,7 @@ class BiohazardListener : InteractionListener {
         on(NPCs.CHANCY_338, IntType.NPC, "talk-to") { player, _ ->
             if (getQuestStage(player, "Biohazard") in 1..100) {
                 if (getAttribute(player, BiohazardUtils.FIRST_VIAL_CORRECT, true)) {
-                    openDialogue(player, ChancyDialogueFile())
+                    openDialogue(player, ChancyDialogue())
                 } else {
                     sendNPCDialogue(player, NPCs.CHANCY_338, "Look, I've got your vial but I'm not taking two. I always like to play the percentages.")
                 }
@@ -44,7 +45,7 @@ class BiohazardListener : InteractionListener {
         on(NPCs.DA_VINCI_336, IntType.NPC, "talk-to") { player, _ ->
             if (getQuestStage(player, "Biohazard") in 1..100) {
                 if (getAttribute(player, BiohazardUtils.SECOND_VIAL_CORRECT, true)) {
-                        openDialogue(player, DaVinciDialogueFile())
+                        openDialogue(player, DaVinciDialogue())
                 } else {
                     sendNPCDialogue(player, NPCs.DA_VINCI_336, "Oh, it's you again. Please don't distract me now, I'm contemplating the sublime.")
                 }
@@ -61,7 +62,7 @@ class BiohazardListener : InteractionListener {
         on(NPCs.DA_VINCI_337, IntType.NPC, "talk-to") { player, _ ->
             if (getQuestStage(player, "Biohazard") in 1..100) {
                 if (getAttribute(player, BiohazardUtils.SECOND_VIAL_CORRECT, false)) {
-                    openDialogue(player, DaVinciVarrockDialogueFile())
+                    openDialogue(player, DaVinciVarrockDialogue())
                 }
             } else {
                 sendDialogue(player, "Da Vinci does not feel sufficiently moved to talk.")
@@ -88,7 +89,7 @@ class BiohazardListener : InteractionListener {
 
         on(NPCs.HOPS_341, IntType.NPC, "talk-to") { player, _ ->
             if (getAttribute(player, BiohazardUtils.THIRD_VIAL_CORRECT, false)) {
-                openDialogue(player, HopsVarrockDialogueFile())
+                openDialogue(player, HopsVarrockDialogue())
             } else {
                 sendDialogue(player, "Hops doesn't feel like talking.")
             }
@@ -100,7 +101,7 @@ class BiohazardListener : InteractionListener {
          */
 
         on(NPCs.GUIDOR_343, IntType.NPC, "talk-to") { player, _ ->
-            openDialogue(player, GuidorDialogueFile())
+            openDialogue(player, GuidorDialogue())
             return@on true
         }
 
@@ -219,13 +220,19 @@ class BiohazardListener : InteractionListener {
         }
 
         /*
-         * Squeeze-through the fence.
+         * Squeeze-through the fence behind the headquarters.
          */
 
         on(Scenery.FENCE_2068, IntType.SCENERY, "squeeze-through") { player, _ ->
-            val animation = Animation.create(3844)
-            forceMove(player, player.location,player.location.transform(if (player.location.x >= 2542) Direction.WEST else Direction.EAST, 1),0, animation.duration, null, animation.id)
-            sendMessage(player, "You squeeze through the fence.")
+            queueScript(player, 1, QueueStrength.SOFT) {
+                val newDirection = when {
+                    player.location.x < 2542 -> Direction.EAST
+                    player.location.x >= 2542 -> Direction.WEST
+                    else -> Direction.EAST
+                }
+                AgilityHandler.forceWalk(player, -1, player.location, player.location.transform(newDirection, 1), Animation(Animations.SIDE_STEP_TO_CRAWL_THROUGH_MCGRUBOR_S_WOODS_FENCE_3844), 5, 0.0, "You squeeze through the loose railing.")
+                return@queueScript stopExecuting(player)
+            }
             return@on true
         }
 
@@ -242,41 +249,40 @@ class BiohazardListener : InteractionListener {
         }
 
         /*
-         * Handles plague house doors.
+         * Handles Mourner headquarters doors.
          * https://i.imgur.com/ne76CXK.png
          */
 
         on(Scenery.DOOR_2036, IntType.SCENERY, "open") { player, node ->
-            if( player.location == Location.create(2551, 3321, 0) || player.location == Location.create(2551, 3327, 0)) {
-                DoorActionHandler.handleDoor(player, node.asScenery())
-                return@on true
-            }
+            if (inBorders(player, getRegionBorders(10035)) || inBorders(player, getRegionBorders(10036))) {
+                if (isQuestComplete(player, QuestName.BIOHAZARD) || getQuestStage(player, QuestName.BIOHAZARD) >= 7 || player.location.y in 3321..3327) {
+                    DoorActionHandler.handleAutowalkDoor(player, node.asScenery())
+                    return@on true
+                }
 
-            if(!inBorders(player, ZoneBorders.forRegion(10035)) || !inBorders(player, ZoneBorders.forRegion(10036))) {
-                DoorActionHandler.handleDoor(player, node.asScenery())
-                return@on true
-            }
+                if (getQuestStage(player, QuestName.BIOHAZARD) in 1..6) {
+                    sendMessage(player, "The door is locked. You can hear the mourners eating...")
+                    sendMessageWithDelay(player, "You need to distract them from their stew.", 1)
+                    return@on true
+                }
 
-            if(getQuestStage(player, "Biohazard") < 6) {
-                sendMessage(player, "The door is locked. You can hear the mourners eating...")
-                sendMessageWithDelay(player, "You need to distract them from their stew.", 1)
-                return@on false
-            }
-
-            if (!inEquipment(player, Items.DOCTORS_GOWN_430) && getQuestStage(player, "Biohazard") >= 6) {
-                openDialogue(player, object : DialogueFile() {
-                    override fun handle(componentID: Int, buttonID: Int) {
-                        when (stage) {
-                            0 -> sendNPCDialogue(player, NPCs.MOURNER_347, "Stay away from there.").also { stage++ }
-                            1 -> player("Why?").also { stage++ }
-                            2 -> sendNPCDialogue(player, NPCs.MOURNER_347, "Several mourners are ill with food poisoning, we're waiting for a doctor.").also { stage = END_DIALOGUE }
+                if (!inEquipment(player, Items.DOCTORS_GOWN_430) || getQuestStage(player, QuestName.BIOHAZARD) == 0) {
+                    openDialogue(player, object : DialogueFile() {
+                        override fun handle(componentID: Int, buttonID: Int) {
+                            when (stage) {
+                                0 -> sendNPCDialogue(player, NPCs.MOURNER_347, "Stay away from there.").also { stage++ }
+                                1 -> player("Why?").also { stage++ }
+                                2 -> sendNPCDialogue(player, NPCs.MOURNER_347, "Several mourners are ill with food poisoning, we're waiting for a doctor.").also { stage = END_DIALOGUE }
+                            }
                         }
-                    }
-                }, node)
+                    }, node)
+                } else {
+                    sendNPCDialogue(player, NPCs.MOURNER_347, "In you go dot.")
+                    setQuestStage(player, QuestName.BIOHAZARD, 7)
+                    DoorActionHandler.handleAutowalkDoor(player, node.asScenery())
+                }
             } else {
-                sendNPCDialogue(player, NPCs.MOURNER_347, "In you go dot.")
-                setQuestStage(player, "Biohazard", 7)
-                DoorActionHandler.handleAutowalkDoor(player, node.asScenery())
+                DoorActionHandler.handleDoor(player, node.asScenery())
             }
             return@on true
         }
@@ -305,11 +311,13 @@ class BiohazardListener : InteractionListener {
 
         on(Scenery.BOX_2063, IntType.SCENERY, "search") { player, _ ->
             sendMessage(player, "You search the box...")
-            if (!inEquipmentOrInventory(player, Items.DOCTORS_GOWN_430) && getQuestStage(player, "Biohazard") >= 6) {
+            if(getQuestStage(player, QuestName.BIOHAZARD) < 6) {
+                sendMessage(player, "but you find nothing of interest.")
+
+            }
+            if (!inEquipmentOrInventory(player, Items.DOCTORS_GOWN_430)) {
                 sendMessage(player, "and find a doctor's gown.")
                 addItemOrDrop(player, Items.DOCTORS_GOWN_430)
-            } else {
-                sendMessage(player, "but you find nothing of interest.")
             }
             return@on true
         }

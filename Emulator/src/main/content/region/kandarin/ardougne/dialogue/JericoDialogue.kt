@@ -1,6 +1,6 @@
 package content.region.kandarin.ardougne.dialogue
 
-import content.region.kandarin.ardougne.quest.biohazard.dialogue.JericoDialogueFile
+import content.region.kandarin.ardougne.quest.biohazard.dialogue.JericoDialogue
 import org.rs.consts.NPCs
 import core.api.isQuestInProgress
 import core.api.openDialogue
@@ -10,6 +10,7 @@ import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
+import org.rs.consts.QuestName
 
 /**
  * Represents the Jerico dialogue.
@@ -25,8 +26,9 @@ class JericoDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any?): Boolean {
         npc = args[0] as NPC
-        if (isQuestInProgress(player, "Biohazard", 1, 100)) {
-            end().also { openDialogue(player, JericoDialogueFile()) }
+        if (isQuestInProgress(player, QuestName.BIOHAZARD, 1, 100)) {
+            end()
+            openDialogue(player, JericoDialogue())
         } else {
             npcl(FacialExpression.SUSPICIOUS, "Hello.")
         }

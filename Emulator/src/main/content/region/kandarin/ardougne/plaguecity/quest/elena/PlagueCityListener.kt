@@ -1,12 +1,11 @@
-package content.region.kandarin.ardougne.plaguecity.quest.elena.handlers
+package content.region.kandarin.ardougne.plaguecity.quest.elena
 
 import core.api.*
 import org.rs.consts.*
 import content.region.kandarin.ardougne.plaguecity.dialogue.WomanDialogue
-import content.region.kandarin.ardougne.plaguecity.quest.elena.dialogue.ManRehnisonDialogue
 import content.region.kandarin.ardougne.plaguecity.quest.elena.dialogue.HeadMournerDialogue
-import content.region.kandarin.ardougne.plaguecity.quest.elena.dialogue.MournerOtherDialogue
-import content.region.kandarin.ardougne.plaguecity.quest.elena.dialogue.MournerPlagueCityDialogue
+import content.region.kandarin.ardougne.plaguecity.quest.elena.dialogue.ManRehnisonDialogue
+import content.region.kandarin.ardougne.plaguecity.quest.elena.dialogue.MournerWestDialogue
 import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression
 import core.game.global.action.DoorActionHandler
@@ -18,6 +17,7 @@ import core.game.node.entity.player.Player
 import core.game.system.task.Pulse
 import core.game.world.map.Direction
 import core.game.world.map.Location
+import core.game.world.map.RegionManager.getObject
 import core.tools.END_DIALOGUE
 
 /**
@@ -34,24 +34,19 @@ class PlagueCityListener : InteractionListener {
     }
 
     override fun defineListeners() {
+
+        /*
+         * Handles interaction with Billy.
+         */
+
         on(NPCs.BILLY_REHNISON_723, IntType.NPC, "talk-to") { player, _ ->
             sendMessage(player, "Billy isn't interested in talking.")
             return@on true
         }
 
-        on(NPCs.MOURNER_717, IntType.NPC, "talk-to") { player, _ ->
-            if (getQuestStage(player, QuestName.PLAGUE_CITY) >= 17) {
-                openDialogue(player, MournerOtherDialogue())
-            } else {
-                sendMessage(player, "He's busy.")
-            }
-            return@on true
-        }
-
-        on(NPCs.HEAD_MOURNER_716, IntType.NPC, "talk-to") { player, _ ->
-            openDialogue(player, HeadMournerDialogue())
-            return@on true
-        }
+        /*
+         * Handles man random dialogues at Plague City area.
+         */
 
         on(MANS, IntType.NPC, "talk-to") { player, _ ->
             if (inBorders(player, 2496, 3280, 2557, 3336)) {
@@ -60,12 +55,20 @@ class PlagueCityListener : InteractionListener {
             return@on true
         }
 
+        /*
+         * Handles woman random dialogues at Plague City area.
+         */
+
         on(WOMANS, IntType.NPC, "talk-to") { player, _ ->
             if (inBorders(player, 2496, 3280, 2557, 3336)) {
                 openDialogue(player, WomanDialogue())
             }
             return@on true
         }
+
+        /*
+         * Handles interaction with the main Plague City gate doors.
+         */
 
         on(intArrayOf(9738,9330), IntType.SCENERY, "open") { player, _ ->
             if (inBorders(player, 2556, 3298, 2557, 3301)) {
@@ -79,6 +82,10 @@ class PlagueCityListener : InteractionListener {
             return@on true
         }
 
+        /*
+         * Handles opening the manhole.
+         */
+
         on(Scenery.MANHOLE_2543, IntType.SCENERY, "open") { player, node ->
             if (isQuestInProgress(player, QuestName.BIOHAZARD, 1, 99)) {
                 sendMessage(player, "The trapdoor is bolted on the other side.")
@@ -91,6 +98,10 @@ class PlagueCityListener : InteractionListener {
             return@on true
         }
 
+        /*
+         * Handles interaction for cover of the manhole.
+         */
+
         on(Scenery.MANHOLE_COVER_2545, IntType.SCENERY, "close") { player, node ->
             removeScenery(node.asScenery())
             playAudio(player, Sounds.MANHOLE_CLOSE_74)
@@ -100,6 +111,10 @@ class PlagueCityListener : InteractionListener {
             sendMessage(player, "You close the manhole cover.")
             return@on true
         }
+
+        /*
+         * Handles exit from Plague City to sewers.
+         */
 
         on(Scenery.MANHOLE_2544, IntType.SCENERY, "climb-down") { player, _ ->
             if (isQuestInProgress(player, QuestName.BIOHAZARD, 1, 100)) {
@@ -115,17 +130,26 @@ class PlagueCityListener : InteractionListener {
             return@on true
         }
 
+        /*
+         * Handles interaction with Bravek doors.
+         */
+
         on(Scenery.DOOR_2528, IntType.SCENERY, "open") { player, node ->
             if (getQuestStage(player, QuestName.PLAGUE_CITY) >= 13) {
                 DoorActionHandler.handleAutowalkDoor(player, node.asScenery())
             } else {
                 sendNPCDialogue(player, NPCs.BRAVEK_711, "Go away, I'm busy! I'm... Umm... In a meeting!")
+                sendMessage(player, "The door won't open.")
             }
             return@on true
         }
 
+        /*
+         * Handles exit from sewers near the Edmond house.
+         */
+
         on(Scenery.MUD_PILE_2533, IntType.SCENERY, "climb") { player, _ ->
-            animate(player, 828)
+            animate(player, Animations.USE_LADDER_828)
             queueScript(player, 2, QueueStrength.SOFT) {
                 teleport(player, Location(2566, 3333, 0))
                 sendDialogue(player, "You climb up the mud pile.")
@@ -134,6 +158,10 @@ class PlagueCityListener : InteractionListener {
             return@on true
         }
 
+        /*
+         * Handles reading the scroll quest reward.
+         */
+
         on(Items.A_MAGIC_SCROLL_1505, IntType.ITEM, "read") { player, _ ->
             sendItemDialogue(player, Items.A_MAGIC_SCROLL_1505, "You memorise what is written on the scroll.")
             removeItem(player, Items.A_MAGIC_SCROLL_1505)
@@ -141,21 +169,56 @@ class PlagueCityListener : InteractionListener {
             return@on true
         }
 
+        /*
+         * Handles reading the Bravek notes.
+         */
+
         on(Items.A_SCRUFFY_NOTE_1508, IntType.ITEM, "read") { player, _ ->
             sendMessage(player, "You guess it really says something slightly different.")
             openInterface(player, Components.BLANK_SCROLL_222).also { scruffyNote(player) }
             return@on true
         }
 
+        /*
+         * Handles interaction for the east doors (to elena cell).
+         */
+
         on(Scenery.DOOR_35991, IntType.SCENERY, "open") { player, node ->
-            when {
+            if(getQuestStage(player, QuestName.PLAGUE_CITY) < 11) {
+                sendDialogueLines(player, "The door won't open.", "You notice a black cross on the door.")
+                return@on true
+            } else when {
                 getQuestStage(player, QuestName.PLAGUE_CITY) == 11 -> openDialogue(player, HeadMournerDialogue())
-                getQuestStage(player, QuestName.PLAGUE_CITY) == 16 -> openDialogue(player, MournerPlagueCityDialogue())
+                getQuestStage(player, QuestName.PLAGUE_CITY) == 16 -> openDialogue(player, MournerEastDoorDialogueExtension())
                 getQuestStage(player, QuestName.PLAGUE_CITY) > 16 -> DoorActionHandler.handleAutowalkDoor(player, node.asScenery())
-                else -> openDialogue(player, MournerPlagueCityDialogue())
+                else -> openDialogue(player, MournerWestDialogue())
             }
             return@on true
         }
+
+        /*
+         * Handles open interaction for Wardrobe.
+         */
+
+        on(Scenery.WARDROBE_2524, IntType.SCENERY, "open") { player, node ->
+            animate(player, Animations.OPEN_WARDROBE_545)
+            replaceScenery(node.asScenery(), node.id + 1, 80)
+            return@on true
+        }
+
+        /*
+         * Handles close interaction for Wardrobe.
+         */
+
+        on(Scenery.WARDROBE_2525, IntType.SCENERY, "close") { player, node ->
+            animate(player, Animations.CLOSE_WARDROBE_544)
+            replaceScenery(node.asScenery(), node.id - 1, 80)
+            return@on true
+        }
+
+        /*
+         * Handles recovery of gas mask by search wardrobe in Alrena house.
+         */
 
         on(Scenery.WARDROBE_2525, IntType.SCENERY, "search") { player, _ ->
             if (freeSlots(player) == 0 && !inEquipmentOrInventory(player, Items.GAS_MASK_1506)) {
@@ -168,6 +231,10 @@ class PlagueCityListener : InteractionListener {
             }
             return@on true
         }
+
+        /*
+         * Handles projected path.
+         */
 
         onUseWith(IntType.SCENERY, Items.BUCKET_OF_WATER_1929, Scenery.MUD_PATCH_11418) { player, _, _ ->
             if (getAttribute(player, BUCKET_USES_ATTRIBUTE, 0) in 0..2 && removeItem(player, Items.BUCKET_OF_WATER_1929)) {
@@ -189,7 +256,11 @@ class PlagueCityListener : InteractionListener {
             return@onUseWith true
         }
 
-        on(Scenery.DUG_HOLE_11417, IntType.SCENERY, "climb-down") { player, node ->
+        /*
+         * Handles entrance to sewers.
+         */
+
+        on(Scenery.DUG_HOLE_11417, IntType.SCENERY, "climb-down") { player, _ ->
             if(getQuestStage(player, "Biohazard") > 1){
                 sendMessage(player, "The ground's been filled in and packed hard.")
                 return@on true
@@ -206,6 +277,10 @@ class PlagueCityListener : InteractionListener {
             return@on true
         }
 
+        /*
+         * Handles open the grill.
+         */
+
         on(Scenery.GRILL_11423, IntType.SCENERY, "open") { player, _ ->
             if (getQuestStage(player,QuestName.PLAGUE_CITY) == 4) {
                 sendDialogue(player, "The grill is too secure. You can't pull it off alone.")
@@ -217,6 +292,10 @@ class PlagueCityListener : InteractionListener {
             }
             return@on true
         }
+
+        /*
+         * Handles exit from sewers through the pipe to Plague City.
+         */
 
         on(Scenery.PIPE_2542, IntType.SCENERY, "climb-up") { player, _ ->
             if (getQuestStage(player, QuestName.PLAGUE_CITY) >= 7 && inEquipment(player, Items.GAS_MASK_1506)) {
@@ -238,11 +317,18 @@ class PlagueCityListener : InteractionListener {
             return@on true
         }
 
+        /*
+         * Handles prevention of bypassing stages.
+         */
 
         onUseWith(IntType.SCENERY, Items.ROPE_954, Scenery.PIPE_2542) { player, _, _ ->
             sendPlayerDialogue(player, "Maybe I should try opening it first.")
             return@onUseWith true
         }
+
+        /*
+         * Handles use the rope on the grill to get outside the serwers to Plague City.
+         */
 
         onUseWith(IntType.SCENERY, Items.ROPE_954, Scenery.GRILL_11423) { player, _, _ ->
             lock(player, 5)
@@ -252,7 +338,7 @@ class PlagueCityListener : InteractionListener {
                 sendMessage(player, "Nothing interesting happens.")
             } else {
                 lock(player, 4)
-                player.pulseManager.run(object : Pulse(1) {
+                submitIndividualPulse(player, object : Pulse(1) {
                     var counter = 0
                     override fun pulse(): Boolean {
                         when (counter++) {
@@ -274,6 +360,10 @@ class PlagueCityListener : InteractionListener {
             }
             return@onUseWith true
         }
+
+        /*
+         * Handles opening the door lead to Ted Rehnison house.
+         */
 
         on(Scenery.DOOR_2537, IntType.SCENERY, "open") { player, node ->
             if (getQuestStage(player, QuestName.PLAGUE_CITY) >= 9) {
@@ -307,19 +397,27 @@ class PlagueCityListener : InteractionListener {
             return@on true
         }
 
+        /*
+         * Handles search option for elena cell door key.
+         */
+
         on(Scenery.BARREL_2530, IntType.SCENERY, "search") { player, _ ->
-            animate(player, 6840)
+            animate(player, Animations.SEARCHING_CRATES_6840)
             if (inInventory(player, Items.A_SMALL_KEY_1507) || freeSlots(player) == 0) {
                 sendMessage(player, "You don't find anything interesting.")
-            } else {
-                sendItemDialogue(player, Items.A_SMALL_KEY_1507, "You find a small key in the barrel.")
-                addItem(player, Items.A_SMALL_KEY_1507)
+                return@on true
             }
+            sendItemDialogue(player, Items.A_SMALL_KEY_1507, "You find a small key in the barrel.")
+            addItem(player, Items.A_SMALL_KEY_1507)
             return@on true
         }
 
-        on(intArrayOf(2522,2523), IntType.SCENERY, "walk-down", "walk-up") { player, node ->
-            if (node.id == 2522) {
+        /*
+         * Handles stairs to elena cell.
+         */
+
+        on(intArrayOf(Scenery.SPOOKY_STAIRS_2522, Scenery.SPOOKY_STAIRS_2523), IntType.SCENERY, "walk-down", "walk-up") { player, node ->
+            if (node.id == Scenery.SPOOKY_STAIRS_2522) {
                 sendMessage(player, "You walk down the stairs...")
                 teleport(player, Location(2537, 9671))
             } else {
@@ -328,6 +426,10 @@ class PlagueCityListener : InteractionListener {
             }
             return@on true
         }
+
+        /*
+         * Handles opening the elena cell door.
+         */
 
         onUseWith(IntType.SCENERY, Items.A_SMALL_KEY_1507, Scenery.DOOR_2526) { player, _, _ ->
             if (getQuestStage(player, QuestName.PLAGUE_CITY) >= 16) {
@@ -338,6 +440,10 @@ class PlagueCityListener : InteractionListener {
             }
             return@onUseWith true
         }
+
+        /*
+         * Handles interaction with East door.
+         */
 
         on(Scenery.DOOR_2526, IntType.SCENERY, "open") { player, node ->
             if (isQuestComplete(player, QuestName.PLAGUE_CITY) || player.location.x > 2539) {
@@ -368,8 +474,7 @@ class PlagueCityListener : InteractionListener {
     }
 
     private fun scruffyNote(player: Player) {
-        val scruffynotes =
-            arrayOf("Got a bncket of nnilk", "Tlen grind sorne lhoculate", "vnith a pestal and rnortar", "ald the grourd dlocolate to tho milt", "finales add 5cme snape gras5")
+        val scruffynotes = arrayOf("Got a bncket of nnilk", "Tlen grind sorne lhoculate", "vnith a pestal and rnortar", "ald the grourd dlocolate to tho milt", "finales add 5cme snape gras5")
         sendString(player, scruffynotes.joinToString("<br>"), Components.BLANK_SCROLL_222, 5)
     }
 
@@ -377,5 +482,41 @@ class PlagueCityListener : InteractionListener {
         setDest(IntType.SCENERY, intArrayOf(Scenery.GRILL_11423), "open") { _, _ -> return@setDest Location.create(2514, 9739, 0) }
         setDest(IntType.SCENERY, intArrayOf(Scenery.PIPE_2542), "climb-up") { _, _ -> return@setDest Location.create(2514, 9739, 0) }
         setDest(IntType.SCENERY, intArrayOf(Scenery.MANHOLE_2544), "climb-down") { _, _ -> return@setDest Location.create(2529, 3304, 0) }
+    }
+}
+
+class MournerEastDoorDialogueExtension : DialogueFile() {
+
+    /*
+     * Mourner east door gatekeepers interaction dialogue.
+     */
+
+    override fun handle(componentID: Int, buttonID: Int) {
+        npc = NPC(NPCs.MOURNER_3216)
+        when (stage) {
+            0 -> playerl(FacialExpression.FRIENDLY, "I have a warrant from Bravek to enter here.").also { stage++ }
+            1 -> npcl(FacialExpression.ANNOYED, "This is highly irregular. Please wait...").also { stage++ }
+            2 -> {
+                end()
+                stage = END_DIALOGUE
+                lock(player!!, 6)
+                lockInteractions(player!!, 6)
+                runTask(player!!, 2) {
+                    findLocalNPC(player!!, NPCs.MOURNER_717)!!.sendChat("Hay... I got someone here with a warrant from Bravek, what should we do?")
+                    findLocalNPC(player!!, NPCs.MOURNER_717)!!.faceLocation(location(2536, 3273, 0))
+                    runTask(player!!, 1) {
+                        findLocalNPC(player!!, NPCs.MOURNER_3216)!!.sendChat("Well you can't let them in...", 1)
+                        findLocalNPC(player!!, NPCs.MOURNER_3216)!!.faceLocation(location(2537, 3273, 0))
+                        runTask(player!!, 1) {
+                            DoorActionHandler.handleAutowalkDoor(player!!, getObject(location(2540, 3273, 0))!!.asScenery())
+                            runTask(player!!, 1) {
+                                setQuestStage(player!!, QuestName.PLAGUE_CITY, 17)
+                                sendDialogueLines(player!!, "You wait until the mourner's back is turned and sneak into the", "building.")
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 }

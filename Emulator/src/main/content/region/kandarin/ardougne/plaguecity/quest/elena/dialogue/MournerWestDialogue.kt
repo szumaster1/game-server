@@ -1,24 +1,21 @@
 package content.region.kandarin.ardougne.plaguecity.quest.elena.dialogue
 
 import core.api.*
-import org.rs.consts.NPCs
 import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression
-import core.game.global.action.DoorActionHandler
 import core.game.node.entity.npc.NPC
-import core.game.world.map.RegionManager.getObject
 import core.tools.END_DIALOGUE
+import org.rs.consts.NPCs
 import org.rs.consts.QuestName
 
 /**
- * Represents the Mourner plague city dialogue.
+ * Represents the Mourner plague city dialogue (Plague City quest).
  */
-class MournerPlagueCityDialogue : DialogueFile() {
+class MournerWestDialogue : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {
         npc = NPC(NPCs.MOURNER_3216)
         when (getQuestStage(player!!, QuestName.PLAGUE_CITY)) {
-
             in 0..5 -> when (stage) {
                 1 -> npcl(FacialExpression.NEUTRAL, "What are you up to with old man Edmond?").also { stage++ }
                 2 -> playerl(FacialExpression.FRIENDLY, "Nothing, we've just been chatting.").also { stage++ }
@@ -57,7 +54,7 @@ class MournerPlagueCityDialogue : DialogueFile() {
                 5 -> npcl(FacialExpression.FRIENDLY, "The plague of course...").also { stage = END_DIALOGUE }
             }
 
-            in 9..15 -> when (stage) {
+            in 9..16 -> when (stage) {
                 0 -> playerl(FacialExpression.FRIENDLY, "Hello there.").also { stage++ }
                 1 -> npcl(FacialExpression.NEUTRAL, "Can I help you?").also { stage++ }
                 2 -> playerl(FacialExpression.NEUTRAL, "What are you doing?").also { stage++ }
@@ -66,37 +63,6 @@ class MournerPlagueCityDialogue : DialogueFile() {
                 5 -> npcl(FacialExpression.FRIENDLY, "The plague of course. We can't risk cross contamination.").also { stage++ }
                 6 -> playerl(FacialExpression.FRIENDLY, "Ok then, see you around.").also { stage++ }
                 7 -> npcl(FacialExpression.FRIENDLY, "Maybe...").also { stage = END_DIALOGUE }
-            }
-
-            16 -> when (stage) {
-                0 -> if (inBorders(player!!, 2532, 3272, 2534, 3273)) {
-                    sendDialogueLines(player!!, "The door won't open.", "You notice a black cross on the door.").also { stage = END_DIALOGUE }
-                } else {
-                    playerl(FacialExpression.FRIENDLY, "I have a warrant from Bravek to enter here.").also { stage++ }
-                }
-
-                1 -> npcl(FacialExpression.ANNOYED, "This is highly irregular. Please wait...").also { stage++ }
-                2 -> {
-                    end()
-                    stage = END_DIALOGUE
-                    lock(player!!, 6)
-                    lockInteractions(player!!, 6)
-                    runTask(player!!, 2) {
-                        findLocalNPC(player!!, NPCs.MOURNER_717)!!.sendChat("Hay... I got someone here with a warrant from Bravek, what should we do?")
-                        findLocalNPC(player!!, NPCs.MOURNER_717)!!.faceLocation(location(2536, 3273, 0))
-                        runTask(player!!, 1) {
-                            findLocalNPC(player!!, NPCs.MOURNER_3216)!!.sendChat("Well you can't let them in...", 1)
-                            findLocalNPC(player!!, NPCs.MOURNER_3216)!!.faceLocation(location(2537, 3273, 0))
-                            runTask(player!!, 1) {
-                                DoorActionHandler.handleAutowalkDoor(player!!, getObject(location(2540, 3273, 0))!!.asScenery())
-                                runTask(player!!, 1) {
-                                    setQuestStage(player!!, QuestName.PLAGUE_CITY, 17)
-                                    sendDialogueLines(player!!, "You wait until the mourner's back is turned and sneak into the", "building.")
-                                }
-                            }
-                        }
-                    }
-                }
             }
 
             in 17..100 -> when (stage) {

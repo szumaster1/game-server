@@ -4,7 +4,7 @@ import core.api.*
 import org.rs.consts.Items
 import org.rs.consts.NPCs
 import content.region.asgarnia.falador.diary.dialogue.ChemistDiaryDialogue
-import content.region.kandarin.ardougne.quest.biohazard.dialogue.ChemistDialogueFile
+import content.region.kandarin.ardougne.quest.biohazard.dialogue.ChemistDialogue
 import core.game.dialogue.Dialogue
 import core.game.node.entity.player.Player
 import core.game.node.item.Item
@@ -42,7 +42,7 @@ class ChemistDialogue(player: Player? = null) : Dialogue(player) {
                 1 -> player("Hi, I need fuel for a lamp.").also { stage = 10 }
                 2 -> {
                     end()
-                    openDialogue(player, ChemistDialogueFile())
+                    openDialogue(player, ChemistDialogue())
                 }
                 3 -> player("I have a slightly odd question.").also { stage = 30 }
                 4 -> {

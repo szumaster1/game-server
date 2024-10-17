@@ -12,7 +12,7 @@ import core.tools.END_DIALOGUE
 import org.rs.consts.QuestName
 
 /**
- * Represents the Milli rehnison dialogue.
+ * Represents the Milli Rehnison dialogue (Plague City quest).
  */
 @Initializable
 class MilliRehnisonDialogue(player: Player? = null) : Dialogue(player) {

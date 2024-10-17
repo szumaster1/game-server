@@ -13,7 +13,7 @@ import core.tools.END_DIALOGUE
 import org.rs.consts.QuestName
 
 /**
- * Represents the Clerk dialogue.
+ * Represents the Clerk dialogue (Plague City quest).
  */
 @Initializable
 class ClerkDialogue(player: Player? = null) : Dialogue(player) {

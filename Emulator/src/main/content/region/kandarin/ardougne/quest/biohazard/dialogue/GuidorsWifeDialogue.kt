@@ -7,9 +7,9 @@ import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC
 
 /**
- * Represents the Guidors wife dialogue file.
+ * Represents the Guidors Wife dialogue (Biohazard quest).
  */
-class GuidorsWifeDialogueFile : DialogueFile() {
+class GuidorsWifeDialogue : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {
         npc = NPC(NPCs.GUIDORS_WIFE_342)

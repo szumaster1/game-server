@@ -11,7 +11,7 @@ import core.tools.END_DIALOGUE
 import org.rs.consts.QuestName
 
 /**
- * Represents the Ted rehnison dialogue.
+ * Represents the Ted Rehnison dialogue (Plague City quest).
  */
 @Initializable
 class TedRehnisonDialogue(player: Player? = null) : Dialogue(player) {

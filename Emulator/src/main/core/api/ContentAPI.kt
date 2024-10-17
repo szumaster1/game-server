@@ -2170,7 +2170,7 @@ fun sendItemDialogue(player: Player, item: Any, message: String) {
             throw java.lang.IllegalArgumentException("Expected an Item or an Int, got ${item::class.java.simpleName}.")
         }
     }
-    player.dialogueInterpreter.sendItemMessage(dialogueItem, *splitLines(message))
+    player.dialogueInterpreter.sendItemMessage(dialogueItem, message)
 }
 
 /**

@@ -3,23 +3,22 @@ package content.region.kandarin.ardougne.quest.biohazard.dialogue
 import core.api.*
 import org.rs.consts.Items
 import org.rs.consts.NPCs
+import content.region.kandarin.ardougne.quest.biohazard.BiohazardUtils
 import core.game.dialogue.DialogueFile
-import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC
-import content.region.kandarin.ardougne.quest.biohazard.handlers.BiohazardUtils
 
 /**
- * Represents the Chancy dialogue file.
+ * Represents the Da Vinci dialogue (Biohazard quest).
  */
-class ChancyDialogueFile : DialogueFile() {
+class DaVinciDialogue : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {
-        npc = NPC(NPCs.CHANCY_338)
+        npc = NPC(NPCs.DA_VINCI_336)
         when (stage) {
-            0 -> player("Hello, I've got a vial for you to take to Varrock.").also { stage++ }
-            1 -> npc(FacialExpression.SCARED, "Tssch... that chemist asks for a lot for the wages he", "pays.").also { stage++ }
-            2 -> player("Maybe you should ask him for more money.").also { stage++ }
-            3 -> npc("Nah... I just use my initiative here and there.").also { stage++ }
+            0 -> player("Hello, I hear you're an errand boy for the chemist.").also { stage++ }
+            1 -> npc("Well that's my job yes. But I don't necessarily define", "my identity in such black and white terms.").also { stage++ }
+            2 -> player("Good for you. Now can you take a vial to Varrock for", "me?").also { stage++ }
+            3 -> npc("Go on then.").also { stage++ }
             4 -> options("You give him the vial of ethenea...", "You give him the vial of liquid honey...", "You give him the vial of sulphuric broline...").also { stage++ }
             5 -> when (buttonID) {
                 1 -> {
@@ -28,7 +27,8 @@ class ChancyDialogueFile : DialogueFile() {
                         sendMessage(player!!, "You can't give him what you don't have.")
                     } else {
                         sendMessage(player!!, "You give him the vial of ethenea.")
-                        stage = 8
+                        player("Right. I'll see you later in the Dancing Donkey Inn.")
+                        stage++
                     }
                 }
 
@@ -38,8 +38,7 @@ class ChancyDialogueFile : DialogueFile() {
                         sendMessage(player!!, "You can't give him what you don't have.")
                     } else {
                         sendMessage(player!!, "You give him the vial of liquid honey.")
-                        player("Right. I'll see you later in the Dancing Donkey Inn.")
-                        stage++
+                        stage = 8
                     }
                 }
 
@@ -54,37 +53,37 @@ class ChancyDialogueFile : DialogueFile() {
                 }
             }
 
-            6 -> npc("Be Lucky!").also { stage++ }
+            6 -> npc("That's right.").also { stage++ }
             7 -> {
                 end()
-                setAttribute(player!!, BiohazardUtils.FIRST_VIAL_CORRECT, true)
+                setAttribute(player!!, BiohazardUtils.SECOND_VIAL_CORRECT, true)
             }
 
             8 -> {
                 end()
-                //setAttribute(player!!, BiohazardUtils.FIRST_VIAL_WRONG, true)
+                //setAttribute(player!!, BiohazardUtils.SECOND_VIAL_WRONG, true)
             }
         }
     }
 }
 
 /**
- * Represents the Chancy varrock dialogue file.
+ * Represents the Da vinci dialogue at varrock bar (Biohazard quest).
  */
-class ChancyVarrockDialogueFile : DialogueFile() {
+class DaVinciVarrockDialogue : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {
-        npc = NPC(NPCs.CHANCY_339)
+        npc = NPC(NPCs.DA_VINCI_337)
         when (stage) {
-            0 -> player("Hi, thanks for doing that.").also { stage++ }
-            1 -> npc("No problem.").also { stage++ }
-            2 -> npc("Next time give me something more valuable...", "I couldn't get anything for this on the blackmarket.").also { stage++ }
+            0 -> npc("Hello again. I hope your journey was as pleasant as", "mine.").also { stage++ }
+            1 -> player("Well, as they say, it's always sunny in Gielinor.").also { stage++ }
+            2 -> npc("Ok, here it is.").also { stage++ }
             3 -> {
                 end()
-                player("That was the idea.")
-                sendMessage(player!!, "He gives you the vial of liquid honey.")
-                addItemOrDrop(player!!, Items.LIQUID_HONEY_416)
-                removeAttribute(player!!, BiohazardUtils.FIRST_VIAL_CORRECT)
+                sendMessage(player!!, "He gives you the vial of ethenea.")
+                player("Thanks, you've been a big help.")
+                addItemOrDrop(player!!, Items.ETHENEA_415)
+                removeAttribute(player!!, BiohazardUtils.SECOND_VIAL_CORRECT)
             }
         }
     }

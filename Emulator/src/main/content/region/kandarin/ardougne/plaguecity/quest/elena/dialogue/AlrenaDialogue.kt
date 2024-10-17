@@ -3,7 +3,7 @@ package content.region.kandarin.ardougne.plaguecity.quest.elena.dialogue
 import core.api.*
 import org.rs.consts.Items
 import org.rs.consts.NPCs
-import content.region.kandarin.ardougne.plaguecity.quest.elena.handlers.PlagueCityListener
+import content.region.kandarin.ardougne.plaguecity.quest.elena.PlagueCityListener
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC
@@ -14,7 +14,7 @@ import core.tools.START_DIALOGUE
 import org.rs.consts.QuestName
 
 /**
- * Represents the Alrena dialogue.
+ * Represents the Alrena dialogue (Plague City quest).
  */
 @Initializable
 class AlrenaDialogue(player: Player? = null) : Dialogue(player) {

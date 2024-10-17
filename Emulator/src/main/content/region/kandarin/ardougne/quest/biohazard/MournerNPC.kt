@@ -1,4 +1,4 @@
-package content.region.kandarin.ardougne.quest.biohazard.handlers
+package content.region.kandarin.ardougne.quest.biohazard
 
 import core.api.*
 import org.rs.consts.Items

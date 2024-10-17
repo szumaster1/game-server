@@ -12,10 +12,10 @@ import core.tools.END_DIALOGUE
 import org.rs.consts.QuestName
 
 /**
- * Represents the Elena dialogue.
+ * Represents the Elena dialogue (Plague City quest).
  */
 @Initializable
-class ElenaDialogue(player: Player? = null) : Dialogue(player) {
+class ElenaPlagueCityDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any?): Boolean {
         npc = args[0] as NPC

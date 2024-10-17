@@ -5,14 +5,15 @@ import org.rs.consts.NPCs
 import core.game.dialogue.DialogueFile
 import core.game.node.entity.npc.NPC
 import core.tools.END_DIALOGUE
+import org.rs.consts.QuestName
 
 /**
- * Represents the Omart dialogue file.
+ * Represents the Omart dialogue (Biohazard quest).
  */
-class OmartDialogueFile : DialogueFile() {
+class OmartBiohazardDialogue : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {
-        val questStage = getQuestStage(player!!, "Biohazard")
+        val questStage = getQuestStage(player!!, QuestName.BIOHAZARD)
         npc = NPC(NPCs.OMART_350)
         when {
             (questStage in 2..3) -> {

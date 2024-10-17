@@ -1,7 +1,7 @@
 package content.region.misthalin.varrock.handlers
 
 import org.rs.consts.*
-import content.region.kandarin.ardougne.quest.biohazard.dialogue.GuidorsWifeDialogueFile
+import content.region.kandarin.ardougne.quest.biohazard.dialogue.GuidorsWifeDialogue
 import content.region.misc.keldagrim.handlers.MinecartTravel
 import content.region.misthalin.varrock.dialogue.KnockatDoorDialogue
 import content.region.misthalin.varrock.dialogue.SawmillOperatorDialogue
@@ -21,7 +21,6 @@ import core.game.node.entity.skill.Skills
 import core.game.system.task.Pulse
 import core.game.world.GameWorld.Pulser
 import core.game.world.map.Location
-import core.game.world.map.RegionManager.getLocalNpcs
 import core.game.world.map.zone.MapZone
 import core.game.world.map.zone.ZoneBorders
 import core.game.world.update.flag.context.Animation
@@ -86,7 +85,7 @@ class VarrockListener : InteractionListener {
 
         on(Scenery.BEDROOM_DOOR_2032, IntType.SCENERY, "open") { player, node ->
             if (!anyInEquipment(player, Items.PRIEST_GOWN_426, Items.PRIEST_GOWN_428) && getQuestStage(player, "Biohazard") >= 11) {
-                openDialogue(player, GuidorsWifeDialogueFile())
+                openDialogue(player, GuidorsWifeDialogue())
             } else if (inEquipment(player, Items.PRIEST_GOWN_426) && !inEquipment(player, Items.PRIEST_GOWN_428) && getQuestStage(player, "Biohazard") >= 11) {
                 DoorActionHandler.handleAutowalkDoor(player, node.asScenery())
                 if (player.location.x == 3282) sendMessage(player, "Guidor's wife allows you to go in.")

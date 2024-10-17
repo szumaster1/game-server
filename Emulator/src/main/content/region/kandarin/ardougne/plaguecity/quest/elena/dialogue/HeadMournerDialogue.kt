@@ -10,7 +10,7 @@ import core.tools.END_DIALOGUE
 import org.rs.consts.QuestName
 
 /**
- * Represents the Head mourner dialogue.
+ * Represents the Head Mourner dialogue (Plague City quest).
  */
 class HeadMournerDialogue : DialogueFile() {
 
@@ -53,7 +53,7 @@ class HeadMournerDialogue : DialogueFile() {
                     stage = END_DIALOGUE
                 }
             }
-            in 13..15 -> when (stage) {
+            in 13..16 -> when (stage) {
                 0 -> npcl(FacialExpression.FRIENDLY, "Hmmm, how did you get over here? You're not one of this rabble. Ah well, you'll have to stay. Can't risk you going back now.").also { stage++ }
                 1 -> options("I need clearance to enter a plague house.", "So what's a mourner?", "I haven't got the plague though...", "I'm looking for a woman named Elena.").also { stage++ }
                 2 -> when (buttonID) {
@@ -83,7 +83,7 @@ class HeadMournerDialogue : DialogueFile() {
                 17 -> playerl(FacialExpression.FRIENDLY, "Yes, I'm utterly crazy.").also { stage++ }
                 18 -> npcl(FacialExpression.FRIENDLY, "You're wasting my time, I have a lot of work to do!").also { stage = END_DIALOGUE }
             }
-            in 16..100 -> when (stage) {
+            in 17..100 -> when (stage) {
                 0 -> npcl(FacialExpression.FRIENDLY, "I'd stand away from there. That black cross means that house has been touched by the plague.").also { stage = END_DIALOGUE }
             }
         }
