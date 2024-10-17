@@ -57,7 +57,6 @@ class MagicInstructorDialogue(player: Player? = null) : Dialogue(player) {
         Item(Items.BODY_RUNE_559, 2)
     )
     private val STARTER_BANK = arrayOf(Item(Items.COINS_995, 25))
-    private val WELCOME_MESSAGE = arrayOf(*splitLines("Welcome to Lumbridge! To get more help, simply click on the Lumbridge Guide or one of the Tutors - these can be found by looking for the question mark icon on your minimap. If you find you are lost at any time, look for a signpost or use the Lumbridge Home Teleport spell.", 56))
 
     override fun open(vararg args: Any?): Boolean {
         npc = args[0] as NPC
@@ -157,11 +156,7 @@ class MagicInstructorDialogue(player: Player? = null) : Dialogue(player) {
                     setAttribute(player, "/save:tutorial:complete", true)
                     setVarbit(player, 3756, 0)
                     setVarp(player, 281, 1000, true)
-                    teleport(
-                        player,
-                        Location.getRandomLocation(Location.create(3233, 3230), 1, true),
-                        TeleportManager.TeleportType.NORMAL
-                    )
+                    teleport(player, Location.getRandomLocation(Location.create(3233, 3230, 0), 1, true), TeleportManager.TeleportType.NORMAL)
                     closeOverlay(player)
                     player.inventory.clear()
                     player.bank.clear()
@@ -171,7 +166,13 @@ class MagicInstructorDialogue(player: Player? = null) : Dialogue(player) {
                     player.inventory.add(*STARTER_PACK)
                     player.bank.add(*STARTER_BANK)
                     queueScript(player, 4, QueueStrength.WEAK) {
-                        interpreter.sendDialogue(*WELCOME_MESSAGE)
+                        player.dialogueInterpreter.sendDialogues(
+                            "Welcome to Lumbridge! To get more help, simply click on the",
+                            "Lumbridge Guide or one of the Tutors - these can be found by",
+                            "looking for the question mark icon on your minimap. If you find you",
+                            "are lost at any time, look for a signpost or use the Lumbridge Home",
+                            "Teleport spell."
+                        )
                         return@queueScript stopExecuting(player)
                     }
 

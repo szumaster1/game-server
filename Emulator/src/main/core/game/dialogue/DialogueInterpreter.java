@@ -240,10 +240,10 @@ public final class DialogueInterpreter {
 
         for (int i = 0; i < messages.length; i++) {
             if(messages.length > 5) throw new IllegalArgumentException("Invalid message length, should be between 1 and 5, and it is:" + messages[i]);
-            player.getPacketDispatch().sendString(messages[i], 219, i + 1);
+            player.getPacketDispatch().sendString(messages[i], 214, i + 1);
         }
 
-        player.getInterfaceManager().openChatbox(219);
+        player.getInterfaceManager().openChatbox(214);
         return player.getInterfaceManager().getChatbox();
 
     }
