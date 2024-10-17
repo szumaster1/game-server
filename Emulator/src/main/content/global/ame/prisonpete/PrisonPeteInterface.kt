@@ -1,5 +1,7 @@
 package content.global.ame.prisonpete
 
+import core.api.sendAnimationOnInterface
+import core.api.sendModelOnInterface
 import core.game.interaction.InterfaceListener
 import org.rs.consts.Components
 
@@ -8,12 +10,29 @@ import org.rs.consts.Components
  */
 class PrisonPeteInterface : InterfaceListener {
 
-    val PRISON_PETE_INTERFACE = Components.PRISONPETE_273
-    val BALLOON_ANIMATION_IDS = intArrayOf(3048, 3049, 3050, 3052)
+    private val modelIDs = intArrayOf(10734,10735,10736,10737).random()
+    private val animationIDs = intArrayOf(3048,3049,3050,3051,3052).random()
+    private val rotatingAnimation = 3047
 
     override fun defineInterfaceListeners() {
+        onOpen(Components.PRISONPETE_273) { player, _ ->
+            sendModelOnInterface(
+                player = player,
+                iface = 273,
+                child = 3,
+                model = modelIDs,
+                zoom = 230
+            )
+            sendAnimationOnInterface(
+                player = player,
+                anim = animationIDs,
+                iface = 273,
+                child = 3
+            )
+            return@onOpen true
+        }
 
-        on(PRISON_PETE_INTERFACE) { player, _, _, buttonID, _, _ ->
+        on(Components.PRISONPETE_273) { _, _, _, _, _, _ ->
             return@on true
         }
     }
