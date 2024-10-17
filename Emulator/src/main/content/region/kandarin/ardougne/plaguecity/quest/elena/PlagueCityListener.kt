@@ -202,7 +202,7 @@ class PlagueCityListener : InteractionListener {
 
         on(Scenery.WARDROBE_2524, IntType.SCENERY, "open") { player, node ->
             animate(player, Animations.OPEN_WARDROBE_545)
-            replaceScenery(node.asScenery(), node.id + 1, 80)
+            replaceScenery(node.asScenery(), node.id + 1, -1)
             return@on true
         }
 
@@ -212,7 +212,7 @@ class PlagueCityListener : InteractionListener {
 
         on(Scenery.WARDROBE_2525, IntType.SCENERY, "close") { player, node ->
             animate(player, Animations.CLOSE_WARDROBE_544)
-            replaceScenery(node.asScenery(), node.id - 1, 80)
+            replaceScenery(node.asScenery(), node.id - 1, -1)
             return@on true
         }
 

@@ -311,13 +311,11 @@ class BiohazardListener : InteractionListener {
 
         on(Scenery.BOX_2063, IntType.SCENERY, "search") { player, _ ->
             sendMessage(player, "You search the box...")
-            if(getQuestStage(player, QuestName.BIOHAZARD) < 6) {
-                sendMessage(player, "but you find nothing of interest.")
-
-            }
             if (!inEquipmentOrInventory(player, Items.DOCTORS_GOWN_430)) {
                 sendMessage(player, "and find a doctor's gown.")
                 addItemOrDrop(player, Items.DOCTORS_GOWN_430)
+            } else {
+                sendMessage(player, "but you find nothing of interest.")
             }
             return@on true
         }

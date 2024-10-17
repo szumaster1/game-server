@@ -34,8 +34,8 @@ class ExchangeCatListener : InteractionListener {
          * Handles using a kitten on the civilian.
          */
 
-        onUseWith(IntType.NPC, kittens, *civilians) { player, _, _ ->
-            sendNPCDialogue(player, civilians.size, "That kitten isn't big enough; come back when it's bigger.")
+        onUseWith(IntType.NPC, kittens, *civilians) { player, _, npc ->
+            sendNPCDialogue(player, npc.id, "That kitten isn't big enough; come back when it's bigger.")
             return@onUseWith true
         }
     }
