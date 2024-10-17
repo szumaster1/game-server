@@ -35,7 +35,7 @@ class TaverleyDungeonJumpShortcut : InteractionListener {
                         1 -> {
                             playAudio(player, Sounds.JUMP_2461)
                             player.animator.forceAnimation(Animation(Animations.JUMP_OBSTACLE_WEREWOLF_AGILITY_1603))
-                            if (AgilityHandler.hasFailed(player, 80, 0.1)) {
+                            if (AgilityHandler.hasFailed(player, 1, 0.1)) {
                                 playAudio(player, Sounds.FLOOR_SPIKES_1383)
                                 playAudio(player, Sounds.JUMP_BLADES_2464)
                                 animateScenery(node.asScenery(), 1111)

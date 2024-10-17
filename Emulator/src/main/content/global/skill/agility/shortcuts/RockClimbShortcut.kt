@@ -1,23 +1,29 @@
 package content.global.skill.agility.shortcuts
 
-import org.rs.consts.Animations
+import content.global.skill.agility.AgilityHandler
 import content.global.skill.agility.AgilityShortcut
 import core.api.getStatLevel
+import core.api.impact
 import core.api.sendMessage
+import core.game.node.entity.combat.ImpactHandler
 import core.game.node.entity.impl.ForceMovement
 import core.game.node.entity.player.Player
 import core.game.node.entity.skill.Skills
 import core.game.node.scenery.Scenery
+import core.game.system.task.Pulse
+import core.game.world.GameWorld.Pulser
 import core.game.world.map.Direction
 import core.game.world.map.Location
 import core.game.world.update.flag.context.Animation
 import core.plugin.Initializable
+import org.rs.consts.Animations
 
 /**
  * Represents the Rock climb shortcut.
  */
 @Initializable
-class RockClimbShortcut : AgilityShortcut(intArrayOf(9335, 9336, 2231, 26327, 26328, 26324, 26323, 19849, 9296, 9297), 1, 0.0, "climb") {
+class RockClimbShortcut :
+    AgilityShortcut(intArrayOf(9335, 9336, 2231, 26327, 26328, 26324, 26323, 19849, 9296, 9297), 1, 0.0, "climb") {
 
     override fun run(player: Player, `object`: Scenery, option: String, failed: Boolean) {
         val scalingAnim = Animation(Animations.CLIMBING_DOWN_WALL_740)
@@ -43,16 +49,42 @@ class RockClimbShortcut : AgilityShortcut(intArrayOf(9335, 9336, 2231, 26327, 26
     }
 
     private fun handleClimbShortcut(player: Player, `object`: Scenery, scalingAnim: Animation) {
-        val direction = if (player.location.x <= 2791) Direction.WEST else Direction.EAST
-        val targetLocation = `object`.location.transform(if (direction == Direction.WEST) 3 else -3, 0, 0)
-        ForceMovement.run(player, `object`.location, targetLocation, scalingAnim, scalingAnim, direction, 13).endAnimation = Animation.RESET
+        val hitpoints = player.getSkills().lifepoints
+        val result = (hitpoints * 5 / 100) + 1
+        val direction = if (player.location.x == 2795) Direction.WEST else Direction.EAST
+        val fail = AgilityHandler.hasFailed(player, 1, 0.053)
+        val targetLocation = if(fail) `object`.location.transform(if (direction == Direction.WEST) 1 else -1, 0, 0) else `object`.location.transform(if (direction == Direction.WEST) -3 else 3, 0, 0)
+        if (getStatLevel(player, Skills.AGILITY) >= 15) {
+            Pulser.submit(object : Pulse(0, player) {
+                override fun pulse(): Boolean {
+                    if (fail) {
+                        sendMessage(player, "You fall and hurt yourself.")
+                        impact(player, result, ImpactHandler.HitsplatType.NORMAL)
+                        ForceMovement.run(player, `object`.location, targetLocation, scalingAnim, scalingAnim, Direction.WEST, 13).endAnimation = Animation.RESET
+                    } else {
+                        ForceMovement.run(player, `object`.location, targetLocation, scalingAnim, scalingAnim, Direction.WEST, 13).endAnimation = Animation.RESET
+                    }
+                    return true
+                }
+            })
+        } else {
+            sendMessage(player, "You need an agility level of at least 15 to do this.")
+        }
     }
 
     private fun handleEaglesPeakShortcut(player: Player, scalingAnim: Animation) {
         if (getStatLevel(player, Skills.AGILITY) >= 25) {
             val targetLocation =
                 if (player.location.x <= 2322) Location.create(2324, 3497, 0) else Location.create(2322, 3502, 0)
-            ForceMovement.run(player, player.location, targetLocation, scalingAnim, scalingAnim, Direction.SOUTH, 13).endAnimation = Animation.RESET
+            ForceMovement.run(
+                player,
+                player.location,
+                targetLocation,
+                scalingAnim,
+                scalingAnim,
+                Direction.SOUTH,
+                13
+            ).endAnimation = Animation.RESET
         } else {
             sendMessage(player, "You need an agility level of at least 25 to do this.")
         }
@@ -67,7 +99,15 @@ class RockClimbShortcut : AgilityShortcut(intArrayOf(9335, 9336, 2231, 26327, 26
                 26323 -> Location.create(2927, 3761, 0)
                 else -> return
             }
-            ForceMovement.run(player, player.location, targetLocation, scalingAnim, scalingAnim, Direction.WEST, 13).endAnimation = Animation.RESET
+            ForceMovement.run(
+                player,
+                player.location,
+                targetLocation,
+                scalingAnim,
+                scalingAnim,
+                Direction.WEST,
+                13
+            ).endAnimation = Animation.RESET
         } else {
             sendMessage(player, "You need an agility level of at least 60 to do this.")
         }
@@ -80,13 +120,29 @@ class RockClimbShortcut : AgilityShortcut(intArrayOf(9335, 9336, 2231, 26327, 26
                 9296 -> Location.create(2344, 3294, 0)
                 else -> return
             }
-            ForceMovement.run(player, player.location, targetLocation, scalingAnim, scalingAnim, Direction.NORTH, 13).endAnimation = Animation.RESET
+            ForceMovement.run(
+                player,
+                player.location,
+                targetLocation,
+                scalingAnim,
+                scalingAnim,
+                Direction.NORTH,
+                13
+            ).endAnimation = Animation.RESET
         } else {
             sendMessage(player, "You need an agility level of at least $req to do this.")
         }
     }
 
     private fun movePlayer(player: Player, targetLocation: Location, animation: Animation) {
-        ForceMovement.run(player, player.location, targetLocation, animation, animation, Direction.WEST, 13).endAnimation = Animation.RESET
+        ForceMovement.run(
+            player,
+            player.location,
+            targetLocation,
+            animation,
+            animation,
+            Direction.WEST,
+            13
+        ).endAnimation = Animation.RESET
     }
 }
