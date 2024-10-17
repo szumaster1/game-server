@@ -23,7 +23,7 @@ import org.rs.consts.NPCs
 class ShoeStoreInterface : ComponentPlugin() {
     private val paymentCheck = "yrsa-paid"
     private val previousColor = "yrsa-previous"
-    private val pictureId = intArrayOf(3680, 3681, 3682, 3683, 3684, 3685)
+    private val pictureId = intArrayOf(Items.PICTURE_3680, Items.PICTURE_3681, Items.PICTURE_3682, Items.PICTURE_3683, Items.PICTURE_3684, Items.PICTURE_3685)
     private val selectButtonId = intArrayOf(15, 16, 17, 18, 19, 20)
     private val colorId = intArrayOf(0, 1, 2, 3, 4, 5)
     private val shopInterface = Components.YRSA_SHOE_STORE_200
@@ -104,6 +104,7 @@ class ShoeStoreInterface : ComponentPlugin() {
         when (button) {
             15, 16, 17, 18, 19, 20 -> subtractor += 15
         }
+        setVarp(player, 261, (button - 14))
         player.appearance.feet.changeColor(colorId[button - subtractor])
         syncAppearance(player)
     }
