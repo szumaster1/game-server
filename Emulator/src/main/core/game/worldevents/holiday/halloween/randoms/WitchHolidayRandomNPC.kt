@@ -30,7 +30,7 @@ class WitchHolidayRandomNPC : HolidayRandomEventNPC(NPCs.WITCH_611) {
                             this.face(player)
                             playGlobalAudio(this.location, Sounds.CONFUSE_CAST_AND_FIRE_119)
                             animate(this, Animations.CAST_SPELL_1978)
-                            spawnProjectile(this, player, 109)
+                            spawnProjectile(this, player, Graphics.CURSE_PROJECTILE_109)
                             return@queueScript delayScript(this, 2)
                         }
 

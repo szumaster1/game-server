@@ -7,6 +7,7 @@ import core.game.node.item.Item
 import core.plugin.type.XPGainPlugin
 import core.tools.RandomFunction
 import core.tools.colorize
+import org.rs.consts.Items
 
 /**
  * Candy reward plugin.
@@ -16,7 +17,7 @@ class CandyRewardPlugin : XPGainPlugin() {
 
     override fun run(player: Player, skill: Int, amount: Double) {
         val awardCandy = RandomFunction.random(1, 200) == 55
-        val candy = Item(14084)
+        val candy = Item(Items.WRAPPED_CANDY_14084)
 
         if (awardCandy) {
             if (!player.inventory.add(candy)) {

@@ -25,7 +25,7 @@ class ZombieHolidayRandomNPC : HolidayRandomEventNPC(NPCs.ZOMBIE_2714) {
         playGlobalAudio(this.location, Sounds.ZOMBIE_DEATH_922)
         playJingle(player, 314)
         sendMessage(player, "A zombie crawls out of the ground beneath you...")
-        animate(player, 7272)
+        animate(player, Animations.HUMAN_ZOMBIE_HAND_7272)
         queueScript(this, 2, QueueStrength.SOFT) { stage: Int ->
             when (stage) {
                 0 -> {

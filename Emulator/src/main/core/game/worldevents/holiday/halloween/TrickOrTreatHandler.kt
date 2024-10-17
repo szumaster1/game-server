@@ -3,9 +3,8 @@ package core.game.worldevents.holiday.halloween
 import core.ServerStore
 import core.ServerStore.Companion.getInt
 import core.ServerStore.Companion.getString
-import core.api.addItemOrDrop
+import core.api.*
 import org.rs.consts.Components
-import core.api.sendNPCDialogue
 import core.game.component.Component
 import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression
@@ -20,6 +19,9 @@ import core.game.world.update.flag.context.Animation
 import core.game.world.update.flag.context.Graphic
 import core.tools.END_DIALOGUE
 import core.tools.RandomFunction
+import org.rs.consts.Animations
+import org.rs.consts.Graphics
+import org.rs.consts.Items
 
 /**
  * Trick or treat handler.
@@ -49,8 +51,8 @@ class TrickOrTreatHandler : InteractionListener {
                         1 -> npcl(FacialExpression.FRIENDLY, "Very well, then, here you are my friend.").also { stage++ }
 
                         2 -> {
-                            player.dialogueInterpreter.sendItemMessage(14084, "They hand you a nicely-wrapped candy.")
-                            addItemOrDrop(player, 14084, 1)
+                            sendItemDialogue(player, Items.WRAPPED_CANDY_14084, "They hand you a nicely-wrapped candy.")
+                            addItemOrDrop(player, Items.WRAPPED_CANDY_14084, 1)
                             registerNpc(player, npc!!)
                             incrementDailyToT(player)
                             stage = END_DIALOGUE
@@ -61,23 +63,19 @@ class TrickOrTreatHandler : InteractionListener {
                             object : Pulse() {
                                 var counter = 0
                                 override fun pulse(): Boolean {
-                                    //gfx 1898
                                     when (counter++) {
-                                        0 -> npc!!.visualize(
-                                            Animation(1979),
-                                            Graphic(1898)
-                                        ).also { npc!!.faceLocation(player.location) }
+                                        0 -> visualize(npc!!, Animations.CAST_SPELL_1979, Graphics.DEATH_BLACK_SKULL_SWIRL_1898).also { faceLocation(npc!!, player.location) }
 
-                                        2 -> player.dialogueInterpreter.close()
-                                        5 -> player.interfaceManager.open(Component(Components.FADE_TO_BLACK_120))
-                                        8 -> player.properties.teleportLocation = Location.create(3106, 3382, 0)
+                                        2 -> closeDialogue(player)
+                                        5 -> openOverlay(player, Components.FADE_TO_BLACK_120)
+                                        8 -> teleport(player, Location.create(3106, 3382, 0))
                                         12 -> {
-                                            player.interfaceManager.close()
-                                            player.interfaceManager.open(Component(Components.FADE_FROM_BLACK_170))
+                                            closeOverlay(player)
+                                            openOverlay(player, Components.FADE_FROM_BLACK_170)
                                             registerNpc(player, npc!!)
                                         }
 
-                                        15 -> player.interfaceManager.close().also { player.unlock() }
+                                        15 -> closeOverlay(player).also { unlock(player) }
                                         16 -> return true
                                     }
                                     return false

@@ -9,6 +9,7 @@ import core.api.sendMessage
 import core.game.node.entity.npc.NPC
 import core.game.worldevents.holiday.HolidayRandomEventNPC
 import core.tools.RandomFunction
+import org.rs.consts.Animations
 
 /**
  * Ghost holiday random NPC.
@@ -19,7 +20,7 @@ class GhostHolidayRandomNPC : HolidayRandomEventNPC(NPCs.GHOST_2716) {
         super.init()
         this.isAggressive = false
         playGlobalAudio(this.location, Sounds.BIGGHOST_APPEAR_1595)
-        animate(player, 2836)
+        animate(player, Animations.HUMAN_SCARED_2836)
         sendChat(this, "WooooOOOooOOo")
         sendMessage(player, "The air suddenly gets colder...")
     }

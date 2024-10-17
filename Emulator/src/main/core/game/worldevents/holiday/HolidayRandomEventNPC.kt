@@ -66,40 +66,40 @@ abstract class HolidayRandomEventNPC(id: Int) : NPC(id) {
     }
 
     override fun tick() {
-        super.tick() // Call the superclass tick method
-        if (player.getAttribute<HolidayRandomEventNPC?>("holiday-npc", null) != this) { // Check if the NPC is still associated with the player
-            terminate() // Terminate if not associated
-            return // Exit the method
+        super.tick()
+        if (player.getAttribute<HolidayRandomEventNPC?>("holiday-npc", null) != this) {
+            terminate()
+            return
         }
-        if (!player.getAttribute("holidayrandom:pause", false)) { // Check if the timer is not paused
-            ticksLeft-- // Decrement the ticks left
+        if (!player.getAttribute("holidayrandom:pause", false)) {
+            ticksLeft--
         }
-        if (!pulseManager.hasPulseRunning() && !finalized) { // Check if no pulse is running and not finalized
-            follow() // Call follow method
+        if (!pulseManager.hasPulseRunning() && !finalized) {
+            follow()
         }
-        if (!player.isActive || !player.location.withinDistance(location, 10)) { // Check if the player is inactive or out of range
-            terminate() // Terminate the NPC
+        if (!player.isActive || !player.location.withinDistance(location, 10)) {
+            terminate()
         }
-        if (ticksLeft <= 0 && initialized) { // Check if time is up and initialized
-            terminate() // Terminate the NPC
-            initialized = false // Reset initialized flag
+        if (ticksLeft <= 0 && initialized) {
+            terminate()
+            initialized = false
         }
     }
 
     override fun init() {
-        initialized = true // Set initialized flag to true
-        finalized = false // Reset finalized flag
-        timerPaused = false // Reset timer paused flag
-        spawnLocation ?: terminate() // Terminate if spawn location is null
-        location = spawnLocation // Set NPC location to spawn location
-        player.setAttribute("holiday-npc", this) // Associate the NPC with the player
-        super.init() // Call the superclass init method
+        initialized = true
+        finalized = false
+        timerPaused = false
+        spawnLocation ?: terminate()
+        location = spawnLocation
+        player.setAttribute("holiday-npc", this)
+        super.init()
     }
 
     override fun clear() {
-        super.clear() // Call the superclass clear method
+        super.clear()
         if (player.getAttribute<HolidayRandomEventNPC?>("holiday-npc", null) == this) // Check if the NPC is associated with the player
-            player.removeAttribute("holiday-npc") // Remove the association
+            player.removeAttribute("holiday-npc")
     }
 
     /**

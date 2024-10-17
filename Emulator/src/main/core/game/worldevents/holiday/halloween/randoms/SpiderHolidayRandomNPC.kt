@@ -9,6 +9,7 @@ import core.game.node.entity.npc.NPC
 import core.game.world.update.flag.context.Animation
 import core.game.worldevents.holiday.HolidayRandomEventNPC
 import core.game.worldevents.holiday.HolidayRandoms
+import org.rs.consts.Animations
 
 /**
  * Represents the Spider holiday random NPC.
@@ -29,8 +30,8 @@ class SpiderHolidayRandomNPC : HolidayRandomEventNPC(NPCs.SPIDER_61) {
                 }
 
                 1 -> {
-                    if (player.location.withinDistance(this.location, 3)) {
-                        player.animate(Animation(4278))
+                    if (withinDistance(player, this.location, 3)) {
+                        animate(player, Animations.HUMAN_STOMP_4278)
                         playGlobalAudio(this.location, Sounds.UNARMED_KICK_2565)
                         sendMessage(player, "You stomp the spider.")
                         stomped = true

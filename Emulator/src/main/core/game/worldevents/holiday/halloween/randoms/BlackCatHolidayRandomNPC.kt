@@ -20,7 +20,7 @@ class BlackCatHolidayRandomNPC : HolidayRandomEventNPC(NPCs.BLACK_CAT_4607) {
         queueScript(this, 8, QueueStrength.SOFT) {
             playGlobalAudio(this.location, Sounds.CAT_ATTACK_333)
             sendChat("HISS")
-            if (player.location.withinDistance(this.location, 3)) {
+            if (withinDistance(player, this.location, 3)) {
                 this.face(player)
                 sendMessage(player, "The cat scratches you and runs away.")
                 val hit = if (player.skills.lifepoints < 5) 0 else 1

@@ -102,45 +102,20 @@ class GrimDialogue(player: Player? = null) : Dialogue(player) {
 
         if (!hasUnlocked && !hasEmote) {
             when (stage) {
-                104 -> player.dialogueInterpreter.sendOptions(title, "Staff of the Raven (40c)", "Trick Emote (10c)")
-                    .also { stage++ }
+                104 -> player.dialogueInterpreter.sendOptions(title, "Staff of the Raven (40c)", "Trick Emote (10c)").also { stage++ }
 
                 105 -> when (buttonId) {
-                    1 -> if (canPurchase(player, 40)) buyStaff(player) else npc(
-                        FacialExpression.NEUTRAL,
-                        "You can't afford that."
-                    )
-
-                    2 -> if (canPurchase(player, 10)) buyEmote(player) else npc(
-                        FacialExpression.NEUTRAL,
-                        "You can't afford that"
-                    )
+                    1 -> if (canPurchase(player, 40)) buyStaff(player) else npc(FacialExpression.NEUTRAL, "You can't afford that.")
+                    2 -> if (canPurchase(player, 10)) buyEmote(player) else npc(FacialExpression.NEUTRAL, "You can't afford that")
                 }
             }
         } else if (hasUnlocked && !hasEmote && !hasRecolor1 && !hasRecolor2) {
             when (stage) {
-                104 -> player.dialogueInterpreter.sendOptions(
-                    title,
-                    "Staff Purple Recolor (10c)",
-                    "Staff Orange Recolor (10c)",
-                    "Trick Emote (10c)"
-                ).also { stage++ }
-
+                104 -> player.dialogueInterpreter.sendOptions(title, "Staff Purple Recolor (10c)", "Staff Orange Recolor (10c)", "Trick Emote (10c)").also { stage++ }
                 105 -> when (buttonId) {
-                    1 -> if (canPurchase(player, 10)) buyRecolor1(player) else npc(
-                        FacialExpression.NEUTRAL,
-                        "You can't afford that."
-                    )
-
-                    2 -> if (canPurchase(player, 10)) buyRecolor2(player) else npc(
-                        FacialExpression.NEUTRAL,
-                        "You can't afford that."
-                    )
-
-                    3 -> if (canPurchase(player, 10)) buyEmote(player) else npc(
-                        FacialExpression.NEUTRAL,
-                        "You can't afford that."
-                    )
+                    1 -> if (canPurchase(player, 10)) buyRecolor1(player) else npc(FacialExpression.NEUTRAL, "You can't afford that.")
+                    2 -> if (canPurchase(player, 10)) buyRecolor2(player) else npc(FacialExpression.NEUTRAL, "You can't afford that.")
+                    3 -> if (canPurchase(player, 10)) buyEmote(player) else npc(FacialExpression.NEUTRAL, "You can't afford that.")
                 }
             }
         } else if (hasUnlocked && !hasEmote && hasRecolor1 && !hasRecolor2) {
@@ -149,87 +124,47 @@ class GrimDialogue(player: Player? = null) : Dialogue(player) {
                     .also { stage++ }
 
                 105 -> when (buttonId) {
-                    1 -> if (canPurchase(player, 10)) buyRecolor2(player) else npc(
-                        FacialExpression.NEUTRAL,
-                        "You can't afford that."
-                    )
-
-                    2 -> if (canPurchase(player, 10)) buyEmote(player) else npc(
-                        FacialExpression.NEUTRAL,
-                        "You can't afford that."
-                    )
+                    1 -> if (canPurchase(player, 10)) buyRecolor2(player) else npc(FacialExpression.NEUTRAL, "You can't afford that.")
+                    2 -> if (canPurchase(player, 10)) buyEmote(player) else npc(FacialExpression.NEUTRAL, "You can't afford that.")
                 }
             }
         } else if (hasUnlocked && !hasEmote && !hasRecolor1 && hasRecolor2) {
             when (stage) {
-                104 -> player.dialogueInterpreter.sendOptions(title, "Staff Purple Recolor (10c)", "Trick Emote (10c)")
-                    .also { stage++ }
-
+                104 -> player.dialogueInterpreter.sendOptions(title, "Staff Purple Recolor (10c)", "Trick Emote (10c)").also { stage++ }
                 105 -> when (buttonId) {
-                    1 -> if (canPurchase(player, 10)) buyRecolor1(player) else npc(
-                        FacialExpression.NEUTRAL,
-                        "You can't afford that."
-                    )
-
-                    2 -> if (canPurchase(player, 10)) buyEmote(player) else npc(
-                        FacialExpression.NEUTRAL,
-                        "You can't afford that."
-                    )
+                    1 -> if (canPurchase(player, 10)) buyRecolor1(player) else npc(FacialExpression.NEUTRAL, "You can't afford that.")
+                    2 -> if (canPurchase(player, 10)) buyEmote(player) else npc(FacialExpression.NEUTRAL, "You can't afford that.")
                 }
             }
         } else if (!hasUnlocked && hasEmote) {
             when (stage) {
                 104 -> player.dialogueInterpreter.sendOptions(title, "Staff of the Raven (40c)", "").also { stage++ }
                 105 -> when (buttonId) {
-                    1 -> if (canPurchase(player, 40)) buyStaff(player) else npc(
-                        FacialExpression.NEUTRAL,
-                        "You can't afford that."
-                    )
-
-                    2 -> npc(core.game.dialogue.FacialExpression.NEUTRAL, "Huhwuh").also { stage = 104 }
+                    1 -> if (canPurchase(player, 40)) buyStaff(player) else npc(FacialExpression.NEUTRAL, "You can't afford that.")
+                    2 -> npc(FacialExpression.NEUTRAL, "Huhwuh").also { stage = 104 }
                 }
             }
         } else if (hasUnlocked && hasEmote && !hasRecolor1 && !hasRecolor2) {
             when (stage) {
-                104 -> player.dialogueInterpreter.sendOptions(
-                    title,
-                    "Staff Purple Recolor (10c)",
-                    "Staff Orange Recolor (10c)"
-                ).also { stage++ }
-
+                104 -> player.dialogueInterpreter.sendOptions(title, "Staff Purple Recolor (10c)", "Staff Orange Recolor (10c)").also { stage++ }
                 105 -> when (buttonId) {
-                    1 -> if (canPurchase(player, 10)) buyRecolor1(player) else npc(
-                        FacialExpression.NEUTRAL,
-                        "You can't afford that."
-                    )
-
-                    2 -> if (canPurchase(player, 10)) buyRecolor2(player) else npc(
-                        FacialExpression.NEUTRAL,
-                        "You can't afford that."
-                    )
+                    1 -> if (canPurchase(player, 10)) buyRecolor1(player) else npc(FacialExpression.NEUTRAL, "You can't afford that.")
+                    2 -> if (canPurchase(player, 10)) buyRecolor2(player) else npc(FacialExpression.NEUTRAL, "You can't afford that.")
                 }
             }
         } else if (hasUnlocked && hasEmote && !hasRecolor1 && hasRecolor2) {
             when (stage) {
                 104 -> player.dialogueInterpreter.sendOptions(title, "Staff Purple Recolor (10c)", "").also { stage++ }
                 105 -> when (buttonId) {
-                    1 -> if (canPurchase(player, 10)) buyRecolor1(player) else npc(
-                        FacialExpression.NEUTRAL,
-                        "You can't afford that."
-                    )
-
-                    2 -> npc(core.game.dialogue.FacialExpression.NEUTRAL, "Huhwuh").also { stage = 104 }
+                    1 -> if (canPurchase(player, 10)) buyRecolor1(player) else npc(FacialExpression.NEUTRAL, "You can't afford that.")
+                    2 -> npc(FacialExpression.NEUTRAL, "Huhwuh").also { stage = 104 }
                 }
             }
         } else if (hasUnlocked && hasEmote && hasRecolor1 && !hasRecolor2) {
             when (stage) {
                 104 -> player.dialogueInterpreter.sendOptions(title, "Staff Orange Recolor (10c)", "").also { stage++ }
                 105 -> when (buttonId) {
-                    1 -> if (canPurchase(player, 10)) buyRecolor2(player) else npc(
-                        FacialExpression.NEUTRAL,
-                        "You can't afford that."
-                    )
-
+                    1 -> if (canPurchase(player, 10)) buyRecolor2(player) else npc(FacialExpression.NEUTRAL, "You can't afford that.")
                     2 -> npc(FacialExpression.NEUTRAL, "Huhwuh").also { stage = 104 }
                 }
             }
