@@ -455,8 +455,7 @@ public final class SlayerMasterDialogue extends Dialogue {
                     break;
                 }
                 if (SlayerMaster.hasSameTask(master, player)) {
-                    interpreter.sendDialogues(master.getNpc(), getExpression(master), "You're still hunting something. But let me check something...");
-                    stage = 847;
+                    interpreter.sendDialogues(master.getNpc(), getExpression(master), "You're still hunting " + SlayerManager.getInstance(player).getTaskName()+ ", you have ", SlayerManager.getInstance(player).getAmount() + " to go. Come back when you've finished your task.");
                 } else {
                     SlayerManager.getInstance(player).flags.setTaskStreak(0);
                     SlayerManager.getInstance(player).generate(master);
@@ -465,8 +464,8 @@ public final class SlayerMasterDialogue extends Dialogue {
                     } else {
                         interpreter.sendDialogues(master.getNpc(), getExpression(master), "Excellent, you're doing great. Your new task is to kill", SlayerManager.getInstance(player).getAmount() + " " + SlayerManager.getInstance(player).getTaskName() + "'s.");
                     }
-                    stage = 844;
                 }
+                stage = 844;
                 break;
             case 844:
                 options("Got any tips for me?", "Okay, great!");
