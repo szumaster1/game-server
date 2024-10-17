@@ -35,15 +35,20 @@ class MosLeHarmlessListener : InteractionListener {
          * Handes the Beret and Mask split.
          */
 
-        onUseWith(IntType.ITEM, BERET_AND_MASK, NPCs.PATCHY_4359) { player, used, _ ->
+        onUseWith(IntType.NPC, BERET_AND_MASK, NPCs.PATCHY_4359) { player, used, _ ->
             if (freeSlots(player) == 0 || freeSlots(player) < 2) {
-                sendNPCDialogueLines(player, NPCs.PATCHY_4359, FacialExpression.STRUGGLE, false, "YYe don't seem te have enough free space few the two items.", "Ye might want te visit the bank.")
+                sendNPCDialogueLines(player, NPCs.PATCHY_4359, FacialExpression.STRUGGLE, false, "Ye don't seem te have enough free space few the two items.", "Ye might want te visit the bank.")
                 return@onUseWith false
             }
+            if(used.id != BERET_AND_MASK) {
+                sendNPCDialogue(player, NPCs.PATCHY_4359, "Sorry, I can't do anythin' with that.", FacialExpression.STRUGGLE)
+                return@onUseWith false
+            }
+
             if (!removeItem(player, Items.BERET_AND_MASK_11282)) {
                 sendNPCDialogueLines(player, NPCs.PATCHY_4359, FacialExpression.SAD, false, "Sorry, I can't do anythin' with that.")
             } else {
-                addItemOrDrop(player, Items.BLACK_BERET_10694)
+                addItemOrDrop(player, Items.BLACK_BERET_2635)
                 addItemOrDrop(player, Items.MIME_MASK_3057)
             }
             return@onUseWith true

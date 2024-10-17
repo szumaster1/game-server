@@ -49,22 +49,16 @@ class PatchyDialogue(player: Player? = null) : Dialogue(player) {
             }
             14 -> npc("Now, do you want to be sewing items together or", "separating them?").also { stage++ }
             15 -> options("Sew together", "Separate").also { stage++ }
-            16 -> {
-                when (buttonId) {
-                    1 -> {
-                        end()
-                        openInterface(player, Components.SEW_INTERFACE_419)
-                        stage = END_DIALOGUE
-                    }
-
-                    2 -> {
-                        end()
-                        playerl(FacialExpression.NEUTRAL, "I need something separated.")
-                        stage = 17
-                    }
-                }
+            16 -> when (buttonId) {
+                1 -> playerl(FacialExpression.HAPPY, "I'd like something sewn together.").also { stage++ }
+                2 -> playerl(FacialExpression.NEUTRAL, "I need something separated.").also { stage = 19 }
             }
-            17 -> npc("Aye, aye. Just use yer item on me and I'll see", "if I can separate them.").also { stage = END_DIALOGUE }
+            17 -> npc("Aye, pick out what items ye be wantin' sewn together.").also { stage++ }
+            18 -> {
+                end()
+                openInterface(player, Components.SEW_INTERFACE_419)
+            }
+            19 -> npc("Aye, aye. Just use yer item on me and I'll see", "if I can separate them.").also { stage = END_DIALOGUE }
             100 -> npc("Fair enough. See you around!").also { stage = END_DIALOGUE }
         }
         return true

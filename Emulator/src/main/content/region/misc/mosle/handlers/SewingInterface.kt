@@ -79,6 +79,7 @@ class SewingInterface : InterfaceListener {
         removeItem(player, stock.secondItem, Container.INVENTORY)
         removeItem(player, Item(Items.COINS_995, 500), Container.INVENTORY)
         addItem(player, stock.product.id, 1)
+        sendMessage(player, "Your items have been combined!")
     }
 
     /**
