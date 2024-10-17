@@ -28,11 +28,7 @@ class CustomsOfficerDialogue(player: Player? = null): Dialogue(player) {
                     npc("Aha, trying to smuggle rum are we?").also { stage = 900 }
                     return true
                 }
-                if (isDiaryComplete(player!!, DiaryType.KARAMJA, 0)) {
-                    sendNPCDialogue(player, NPCs.CUSTOMS_OFFICER_380, "Hang on a sec, didn't you earn Karamja gloves? I thought I'd seen you helping around the island. You can go on half price, mate.").also { stage = 121 }
-                } else {
-                    npc(FacialExpression.HALF_GUILTY, "Well you've got some odd stuff, but it's all legal. Now", "you need to pay a boarding charge of 30 coins.").also { stage = 121 }
-                }
+                npc(FacialExpression.HALF_GUILTY, "Well you've got some odd stuff, but it's all legal. Now", "you need to pay a boarding charge of 30 coins.").also { stage = 121 }
                 return true
             }
         }

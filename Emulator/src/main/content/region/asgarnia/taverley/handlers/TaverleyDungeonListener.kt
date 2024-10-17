@@ -30,6 +30,15 @@ class TaverleyDungeonListener : InteractionListener {
         }
 
         /*
+         * Handles opening the gate scenery in Taverley dungeon.
+         */
+
+        onUseWith(IntType.SCENERY, Items.DUSTY_KEY_1590, Scenery.GATE_2623) { player, _, with ->
+            DoorActionHandler.handleAutowalkDoor(player, with.asScenery())
+            return@onUseWith true
+        }
+
+        /*
          * Handles armour suit spawn in Taverley dungeon.
          */
 

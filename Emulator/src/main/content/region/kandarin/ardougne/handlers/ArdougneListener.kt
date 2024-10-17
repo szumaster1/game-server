@@ -52,6 +52,7 @@ class ArdougneListener : InteractionListener {
             } else {
                 sendMessage(player, "You pay $amount coins and board the ship.")
                 playJingle(player, 171)
+                sendDialogue(player, "The ship arrives at Brimhaven.")
                 Ship.ARDOUGNE_TO_BRIMHAVEN.sail(player)
             }
             return@on true
