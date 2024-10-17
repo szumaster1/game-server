@@ -27,24 +27,26 @@ class CaptainShanksDialogue(player: Player? = null) : Dialogue(player) {
             npcl(FacialExpression.HALF_GUILTY, "Oh dear, this ship is in a terrible state. And I just can't get the items I need to repair it because Shilo village is overrun with zombies.")
             return true
         }
-        setTitle(player, 3)
         npcl(FacialExpression.HALF_ASKING, "Hello there shipmate! I sail to Khazard Port and to Port Sarim. Where are you bound?")
-        stage = if (!player.inventory.containsAtLeastOneItem(TICKET)) { -1 } else { 0 }
+        stage = if (!inInventory(player, Items.SHIP_TICKET_621)) { -1 } else { 0 }
         return true
     }
 
     override fun handle(interfaceId: Int, buttonId: Int): Boolean {
         when (stage) {
             -1 -> npc(FacialExpression.HALF_ASKING,"I see you don't have a ticket for the ship, my colleague","normally only sells them in Shilo village. But I could sell","you one for a small additional charge.").also { stage = 3 }
-            0 -> sendDialogueOptions(player, "Captain Shanks asks, 'Where are you bound?", "Khazard Port please.", "Port Sarim please.", "Nowhere just at the moment thanks.").also { stage++ }
+            0 -> {
+                setTitle(player, 3)
+                sendDialogueOptions(player, "Captain Shanks asks, 'Where are you bound?", "Khazard Port please.", "Port Sarim please.", "Nowhere just at the moment thanks.").also { stage++ }
+            }
             1 -> when (buttonId) {
                 1 -> {
                     player("Khazard Port please.")
-                    stage = if (!player.inventory.containsItem(TICKET)) { -1 } else { 10 }
+                    stage = if (!inInventory(player, Items.SHIP_TICKET_621)) { -1 } else { 10 }
                 }
                 2 -> {
                     player("Port Sarim please.")
-                    stage = if (!player.inventory.containsItem(TICKET)) { -1 } else { 20 }
+                    stage = if (!inInventory(player, Items.SHIP_TICKET_621)) { -1 } else { 20 }
                 }
                 3 -> player("Nowhere just at the moment thanks.").also { stage++ }
             }
@@ -62,10 +64,10 @@ class CaptainShanksDialogue(player: Player? = null) : Dialogue(player) {
                 2 -> player("No thanks, not just at the moment.").also { stage++ }
             }
             6 -> npcl(FacialExpression.HALF_GUILTY, "Very well me old shipmate, come back if you change your mind now.").also { stage = END_DIALOGUE }
-            7 -> if (!player.inventory.containsItem(coins)) {
+            7 -> if (!inInventory(player, coins!!.amount)) {
                 npcl(FacialExpression.HALF_GUILTY, "Sorry me old ship mate, but you seem to be financially challenged at the moment. Come back when your coffers are full!")
                 stage = END_DIALOGUE
-            } else if (!player.inventory.hasSpaceFor(Item(Items.SHIP_TICKET_621))) {
+            } else if (freeSlots(player) == 0) {
                 npcl(FacialExpression.HALF_GUILTY, "Sorry me old ship mate, it looks like you haven't got enough space for a ticket. Come back when you've got rid of some of that junk.")
                 stage = END_DIALOGUE
             } else {
@@ -82,14 +84,14 @@ class CaptainShanksDialogue(player: Player? = null) : Dialogue(player) {
             10 -> npcl(FacialExpression.HAPPY, "Very well then me old shipmate, I'll just take your ticket and then we'll set sail.").also { stage++ }
             11 -> {
                 end()
-                if (removeItem(player, TICKET)) {
+                if (removeItem(player, Items.SHIP_TICKET_621)) {
                     Ship.sail(player, Ship.CAIRN_ISLAND_TO_PORT_KHAZARD)
                 }
             }
             20 -> npcl(FacialExpression.HAPPY, "Very well then me old shipmate, I'll just take your ticket and then we'll set sail.").also { stage++ }
             21 -> {
                 end()
-                if (removeItem(player, TICKET)) {
+                if (removeItem(player, Items.SHIP_TICKET_621)) {
                     Ship.sail(player, Ship.PORT_SARIM)
                 }
             }
@@ -101,7 +103,4 @@ class CaptainShanksDialogue(player: Player? = null) : Dialogue(player) {
         return intArrayOf(NPCs.CAPTAIN_SHANKS_518)
     }
 
-    companion object {
-        private val TICKET = Item(Items.SHIP_TICKET_621)
-    }
 }
