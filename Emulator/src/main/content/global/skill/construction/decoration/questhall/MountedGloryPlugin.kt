@@ -41,14 +41,7 @@ class MountedGloryPlugin : OptionHandler() {
     override fun handle(player: Player, node: Node, option: String): Boolean {
         val interpreter = player.dialogueInterpreter
         setTitle(player, 5)
-        interpreter.sendOptions(
-            "Where would you like to teleport to?",
-            "Edgeville",
-            "Karamja",
-            "Draynor Village",
-            "Al-Kharid",
-            "Nowhere."
-        )
+        interpreter.sendOptions("Where would you like to teleport to?", "Edgeville", "Karamja", "Draynor Village", "Al Kharid", "Nowhere")
         interpreter.addAction { player, buttonId ->
             when (buttonId) {
                 2 -> teleport(player, Location.create(3087, 3495, 0))
