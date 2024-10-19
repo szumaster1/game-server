@@ -1,8 +1,8 @@
-### 2009scape
+#### 2009scape
 
 [![License][license-shield]][license-url] [![Fork][fork-shield]][fork-url] [![Release][play-release]][play-url]
 
-<details><summary>//_</summary>
+<details><summary>More information about project</summary>
 
 Fork of official repository for educational purposes & single-player experience but mostly for personal use.
 
