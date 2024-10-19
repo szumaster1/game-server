@@ -16,6 +16,7 @@ import core.game.node.item.Item
 import core.game.world.GameWorld
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
+import org.rs.consts.QuestName
 
 /**
  * Represents the Auguste dialogue.
@@ -36,7 +37,7 @@ class AugusteDialogue(player: Player? = null) : Dialogue(player) {
         val hasSapling = inInventory(player, Items.AUGUSTES_SAPLING_9932) && inBank(player, Items.AUGUSTES_SAPLING_9932)
         val hasGogglesAndCap = inInventory(player, Items.BOMBER_CAP_9945, Items.GNOME_GOGGLES_9472)
 
-        when (getQuestStage(player, "Enlightened Journey")) {
+        when (getQuestStage(player, QuestName.ENLIGHTENED_JOURNEY)) {
             0 -> when (stage) {
                 0 -> npc("Greetings! would you like to be my number one accomplice?", "I mean, assistant?").also { stage++ }
                 1 -> player("Who are you?").also { stage++ }
@@ -70,7 +71,7 @@ class AugusteDialogue(player: Player? = null) : Dialogue(player) {
                 19 -> {
                     end()
                     setVarbit(player, 2866, 1, true)
-                    setQuestStage(player, "Enlightened Journey", 1).also { stage++ }
+                    setQuestStage(player, QuestName.ENLIGHTENED_JOURNEY, 1).also { stage++ }
                     openInterface(player, Components.HOT_AIR_BALLOON_DIAGRAM_472)
                 }
             }
@@ -101,7 +102,7 @@ class AugusteDialogue(player: Player? = null) : Dialogue(player) {
                 17 -> npcl(FacialExpression.FRIENDLY, "You're the adventurer, you should know! Think of logical places, like, churches; they have tons of candles.").also { stage++ }
                 18 -> {
                     end()
-                    setQuestStage(player, "Enlightened Journey", 2)
+                    setQuestStage(player, QuestName.ENLIGHTENED_JOURNEY, 2)
                 }
             }
 
@@ -127,7 +128,7 @@ class AugusteDialogue(player: Player? = null) : Dialogue(player) {
                 8 -> npcl(FacialExpression.FRIENDLY, "Once you have done that let me know and we will begin our experiment.").also { stage++ }
                 9 -> {
                     end()
-                    setQuestStage(player, "Enlightened Journey", 3)
+                    setQuestStage(player, QuestName.ENLIGHTENED_JOURNEY, 3)
                 }
                 10 -> {
                     if (!hasCandle && !hasPapyrus && !hasWool && !hasPotatoes) {
@@ -243,7 +244,7 @@ class AugusteDialogue(player: Player? = null) : Dialogue(player) {
                 20 -> npcl(FacialExpression.FRIENDLY, "Here you go. Now be very careful not to lose it!").also { stage++ }
                 21 -> {
                     end()
-                    setQuestStage(player, "Enlightened Journey", 6)
+                    setQuestStage(player, QuestName.ENLIGHTENED_JOURNEY, 6)
                     addItemOrDrop(player, Items.AUGUSTES_SAPLING_9932)
                 }
             }
@@ -288,7 +289,7 @@ class AugusteDialogue(player: Player? = null) : Dialogue(player) {
                 }
                 11 -> if (hasBowl && getAttribute(player, "enlighted-journey-items", 0) == 3) {
                     npcl(FacialExpression.FRIENDLY, "Ah the bowl. This will be used to hold the fuel while it heats the air in the balloon.").also { stage = 3 }
-                    setQuestStage(player, "Enlightened Journey", 7)
+                    setQuestStage(player, QuestName.ENLIGHTENED_JOURNEY, 7)
                 } else {
                     npcl(FacialExpression.FRIENDLY, "I need a plain clay-fired bowl; they're quite ease to come by.").also { stage = 3 }
                 }
@@ -475,7 +476,7 @@ class AugusteDialogueFile : DialogueFile() {
             4 -> npcl(FacialExpression.FRIENDLY, "I will base my operations in Entrana. If you'd like to travel to new places, come see me there.").also { stage++ }
             5 -> {
                 end()
-                finishQuest(player!!, "Enlightened Journey")
+                finishQuest(player!!, QuestName.ENLIGHTENED_JOURNEY)
             }
         }
     }

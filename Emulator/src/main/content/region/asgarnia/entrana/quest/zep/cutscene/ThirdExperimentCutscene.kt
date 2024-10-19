@@ -8,6 +8,7 @@ import core.game.activity.Cutscene
 import core.game.dialogue.FacialExpression
 import core.game.node.entity.player.Player
 import core.game.world.map.Direction
+import org.rs.consts.QuestName
 
 /**
  * Represents the Third experiment cutscene.
@@ -42,7 +43,7 @@ class ThirdExperimentCutscene(player: Player) : Cutscene(player) {
 
             3 -> {
                 end()
-                setQuestStage(player, "Enlightened Journey", 9)
+                setQuestStage(player, QuestName.ENLIGHTENED_JOURNEY, 9)
                 player.musicPlayer.unlock(Music.FLOATING_FREE_206, true)
             }
         }

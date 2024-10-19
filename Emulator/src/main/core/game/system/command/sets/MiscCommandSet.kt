@@ -35,6 +35,7 @@ import core.tools.Log
 import core.tools.StringUtils
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
+import org.rs.consts.QuestName
 import java.awt.HeadlessException
 import java.awt.Toolkit
 import java.awt.datatransfer.StringSelection
@@ -70,7 +71,7 @@ class MiscCommandSet : CommandSet(Privilege.ADMIN) {
          */
 
         define(name = "balloon", privilege = Privilege.ADMIN, usage = "", description = "Toggle balloon travel.") { player, _ ->
-            finishQuest(player, "Enlightened Journey")
+            finishQuest(player, QuestName.ENLIGHTENED_JOURNEY)
         }
 
         define(name = "calc_accuracy", privilege = Privilege.ADMIN, usage = "::calc_accuracy <lt>NPC ID<gt>", description = "Calculates and prints your current chance to hit a given NPC.") { player, args ->

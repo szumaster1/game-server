@@ -1,20 +1,23 @@
-package content.region.asgarnia.entrana.quest.zep.cutscene.crash
+package content.region.asgarnia.entrana.quest.zep.cutscene
 
 import core.api.location
 import core.game.activity.Cutscene
 import core.game.node.entity.player.Player
 
 /**
- * Woodland cutscene.
+ * Sea cutscene.
  */
-class WoodlandCutscene(player: Player) : Cutscene(player) {
+class SeaCutscene(player: Player) : Cutscene(player) {
     override fun setup() {
         setExit(location(0, 0, 0))
         if (player.settings.isRunToggled) {
             player.settings.toggleRun()
         }
         loadRegion(7244)
-        // Location.create(1841, 4916, 0)
+        // Location.create(1803, 4890, 0)
+        // animate(player, 3489)
+        // animate(player, 3490)
+        // animate(player, 3481)
     }
 
     override fun runStage(stage: Int) {
@@ -26,3 +29,4 @@ class WoodlandCutscene(player: Player) : Cutscene(player) {
         }
     }
 }
+

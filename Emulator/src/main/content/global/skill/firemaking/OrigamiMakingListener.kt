@@ -10,6 +10,7 @@ import core.game.world.map.Location
 import core.game.world.update.flag.context.Animation
 import org.rs.consts.Animations
 import org.rs.consts.Items
+import org.rs.consts.QuestName
 import kotlin.math.min
 
 class OrigamiMakingListener : InteractionListener {
@@ -17,8 +18,8 @@ class OrigamiMakingListener : InteractionListener {
     override fun defineListeners() {
 
         onUseWith(IntType.ITEM, Items.PAPYRUS_970, Items.BALL_OF_WOOL_1759) { player, used, wool ->
-            if (getQuestStage(player, "Enlightened Journey") < 1) {
-                sendMessage(player, "You need start the Enlightened Journey quest in order to make this.")
+            if (getQuestStage(player, QuestName.ENLIGHTENED_JOURNEY) < 1) {
+                sendMessage(player, "You need start the ${QuestName.ENLIGHTENED_JOURNEY} quest in order to make this.")
                 return@onUseWith false
             }
             if (removeItem(player, used.asItem()) && removeItem(player, wool.asItem())) {

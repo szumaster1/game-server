@@ -12,6 +12,7 @@ import core.game.node.entity.impl.Projectile
 import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.game.world.map.Direction
+import org.rs.consts.QuestName
 
 /**
  * Represents the First experiment cutscene.
@@ -103,7 +104,7 @@ class FirstExperimentCutscene(player: Player) : Cutscene(player) {
 
             14 -> {
                 end()
-                setQuestStage(player, "Enlightened Journey", 4)
+                setQuestStage(player, QuestName.ENLIGHTENED_JOURNEY, 4)
             }
         }
     }

@@ -1,9 +1,6 @@
-package content.region.asgarnia.entrana.quest.zep.handlers
+package content.region.asgarnia.entrana.quest.zep
 
-import core.api.*
 import org.rs.consts.Components
-import core.game.component.Component
-import core.game.component.InterfaceType
 import core.game.interaction.InterfaceListener
 
 /**

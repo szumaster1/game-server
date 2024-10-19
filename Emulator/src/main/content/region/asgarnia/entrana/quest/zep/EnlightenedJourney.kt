@@ -8,12 +8,13 @@ import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.quest.Quest
 import core.game.node.entity.skill.Skills
 import core.plugin.Initializable
+import org.rs.consts.QuestName
 
 /**
  * Enlightened journey quest.
  */
 @Initializable
-class EnlightenedJourney : Quest("Enlightened Journey", 55, 54, 1, Vars.VARBIT_QUEST_ENLIGHTENED_JOURNEY_PROGRESS, 0, 1, 200) {
+class EnlightenedJourney : Quest(QuestName.ENLIGHTENED_JOURNEY, 55, 54, 1, Vars.VARBIT_QUEST_ENLIGHTENED_JOURNEY_PROGRESS, 0, 1, 200) {
 
     class SkillRequirement(val skill: Int?, val level: Int?)
 

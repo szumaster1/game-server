@@ -7,6 +7,7 @@ import core.game.activity.Cutscene
 import core.game.dialogue.FacialExpression
 import core.game.node.entity.player.Player
 import core.game.world.map.Direction
+import org.rs.consts.QuestName
 
 /**
  * Represents the Second experiment cutscene.
@@ -41,7 +42,7 @@ class SecondExperimentCutscene(player: Player) : Cutscene(player) {
 
             3 -> {
                 end()
-                setQuestStage(player, "Enlightened Journey", 5)
+                setQuestStage(player, QuestName.ENLIGHTENED_JOURNEY, 5)
             }
         }
     }
