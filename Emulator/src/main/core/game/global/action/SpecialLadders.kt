@@ -98,6 +98,14 @@ enum class SpecialLadders(private val ladderLoc: Location, private val destLoc: 
         ladderLoc = Location.create(2572, 9631, 0),
         destLoc = Location.create(2572, 3230, 0)
     ),
+    CREATURE_CREATIION_EXIT(
+        ladderLoc = Location.create(3038, 4375, 0),
+        destLoc = Location.create(2647, 3214, 0)
+    ),
+    CREATURE_CREATION_ENTER(
+        ladderLoc = Location.create(2647, 3213, 0),
+        Location.create(3038, 4376, 0)
+    ),
     DRAYNOR_SEWER_NORTHWEST_DOWN(
         ladderLoc = Location.create(3084, 3272, 0),
         destLoc = Location.create(3085, 9672, 0)
