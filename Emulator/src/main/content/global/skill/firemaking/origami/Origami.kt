@@ -1,4 +1,4 @@
-package content.global.skill.firemaking
+package content.global.skill.firemaking.origami
 
 import org.rs.consts.Graphics
 import org.rs.consts.Items
@@ -56,6 +56,11 @@ enum class Origami(
         @JvmStatic
         fun forId(itemId: Int): Origami? {
             return values().find { it.base == itemId }
+        }
+
+        @JvmStatic
+        fun forBalloon(used: Int): Origami? {
+            return values().find { it.product == used }
         }
     }
 }

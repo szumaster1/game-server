@@ -1,6 +1,5 @@
 package content.region.kandarin.baxtorian.handlers.barbariantraining.smithing
 
-import content.global.skill.firemaking.Origami
 import org.rs.consts.Items
 
 /**
@@ -64,16 +63,6 @@ enum class BarbarianWeapon(val requiredWood: Int, val requiredBar: Int, val spea
 
     companion object {
         val weaponMap: MutableMap<Int, BarbarianWeapon> = HashMap()
-
-        @JvmStatic
-        fun forId(itemId: Int): Origami? {
-            for (product in Origami.values()) {
-                if (product.base == itemId) {
-                    return product
-                }
-            }
-            return null
-        }
 
         fun getWeapon(id: Int): BarbarianWeapon? {
             return weaponMap[id]

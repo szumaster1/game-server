@@ -1,4 +1,4 @@
-package content.global.skill.firemaking
+package content.global.skill.firemaking.origami
 
 import core.api.*
 import core.game.interaction.IntType
@@ -6,6 +6,7 @@ import core.game.interaction.InteractionListener
 import core.game.interaction.QueueStrength
 import core.game.node.entity.impl.Projectile
 import core.game.node.entity.skill.Skills
+import core.game.world.map.Direction
 import core.game.world.map.Location
 import core.game.world.update.flag.context.Animation
 import org.rs.consts.Animations
@@ -13,7 +14,7 @@ import org.rs.consts.Items
 import org.rs.consts.QuestName
 import kotlin.math.min
 
-class OrigamiMakingListener : InteractionListener {
+class OrigamiCraftingListener : InteractionListener {
 
     override fun defineListeners() {
 
@@ -30,7 +31,11 @@ class OrigamiMakingListener : InteractionListener {
             return@onUseWith true
         }
 
-        onUseWith(IntType.ITEM, intArrayOf(Items.CANDLE_36, Items.BLACK_CANDLE_38), BALLOON_STRUCTURE) { player, used, with ->
+        onUseWith(
+            IntType.ITEM,
+            intArrayOf(Items.CANDLE_36, Items.BLACK_CANDLE_38),
+            BALLOON_STRUCTURE
+        ) { player, used, with ->
             if (removeItem(player, used.asItem()) && removeItem(player, with.asItem())) {
                 sendMessage(player, "You create the origami balloonIDs.")
                 rewardXP(player, Skills.CRAFTING, 35.0)
@@ -65,20 +70,14 @@ class OrigamiMakingListener : InteractionListener {
             return@onUseWith true
         }
 
-        onUseWith(IntType.ITEM, balloonIDs, Items.TINDERBOX_590) { player, used, _ ->
-            visualize(player, RELEASE_A_BALLOON_ANIMATION, Origami.forId(used.id))
-            if (removeItem(player, used.asItem())) {
-                queueScript(player, 1, QueueStrength.SOFT) {
-                    resetAnimator(player)
-                    sendMessage(player, "You light the origami balloonIDs.")
-                    rewardXP(player, Skills.FIREMAKING, 20.00)
-                    val animDuration = animationDuration(Animation(RELEASE_A_BALLOON_ANIMATION))
-                    lock(player, duration = animDuration)
-                    lockInteractions(player, duration = animDuration)
-                    visualize(player, RELEASE_A_BALLOON_ANIMATION, Origami.forId(used.id))
-                    spawnProjectile(Projectile.getLocation(player), Location.getRandomLocation(Projectile.getLocation(player), 5, true), it.plus(2), 0, 40, 20, 600, 0)
-                    return@queueScript stopExecuting(player)
-                }
+        onUseWith(IntType.ITEM, Items.TINDERBOX_590, *balloonIDs) { player, _, with ->
+            val gfx = Origami.forBalloon(with.id)
+
+            if (removeItem(player, with.asItem())) {
+                visualize(player, RELEASE_A_BALLOON_ANIMATION, gfx!!.graphic)
+                sendMessage(player, "You light the origami ${getItemName(with.id).lowercase()}.")
+                rewardXP(player, Skills.FIREMAKING, 20.00)
+                spawnProjectile(source = Projectile.getLocation(player), dest = player.location.transform(player.direction, 10), projectile = gfx.graphic + 2, startHeight = 0, endHeight = 0, delay = 6, speed = 1000, angle = 0)
             }
             return@onUseWith true
         }

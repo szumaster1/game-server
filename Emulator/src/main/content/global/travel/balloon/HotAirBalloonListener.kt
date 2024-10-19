@@ -2,7 +2,6 @@ package content.global.travel.balloon
 
 import core.api.*
 import core.cache.def.impl.ItemDefinition
-import core.game.component.Component
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.interaction.InterfaceListener
@@ -48,15 +47,33 @@ class HotAirBalloonListener : InterfaceListener, InteractionListener {
             if (inBorders(player, getRegionBorders(13110))) {
                 finishDiaryTask(player, DiaryType.VARROCK, 2, 17)
             }
+            animateInterface(player, Components.ZEP_BALLOON_MAP_469, flight.button, flight.flyAnim)
             sendMessage(player,"You board the balloon and fly to ${flight.areaName}.")
             submitWorldPulse(object : Pulse(1) {
                 private var count = 0
 
                 override fun pulse(): Boolean {
                     when (count++) {
-                        6 -> {
+                        0 -> {
+                            closeInterface(player)
+                            openInterface(player, Components.FADE_TO_BLACK_120)
+                        }
+                        3 -> {
+                            setMinimapState(player, 2)
+                            openInterface(player, Components.ZEP_BALLOON_MAP_469)
+                        }
+                        4 -> {
                             teleport(player, flight.flightDestination)
-                            sendPlainDialogue(player, true, "You arrive safely in ${flight.areaName}.")
+                            // Balloon fly
+                        }
+                        6 -> {
+                            closeInterface(player)
+                            setMinimapState(player, 0)
+                            openOverlay(player, Components.FADE_FROM_BLACK_170)
+                        }
+                        9 -> {
+                            closeAllInterfaces(player)
+                            sendPlainDialogue(player, false, "You arrive safely in ${flight.areaName}.")
                             unlock(player)
                             return true
                         }
@@ -67,12 +84,12 @@ class HotAirBalloonListener : InterfaceListener, InteractionListener {
         }
 
         enum class FlightDestination(val areaName: String, val flightDestination: Location, val flyAnim: Int, val button: Int, val logId: Int, val varbitId: Int, val requiredLevel: Int) {
-            CASTLE_WARS("Castle Wars", Location.create(2462, 3108, 0), 5141, 14, Items.YEW_LOGS_1515, Vars.VARBIT_QUEST_ENLIGHTENED_JOURNEY_CASTLE_WARS_BALLOON, 50),
+            CASTLE_WARS("Castle Wars", Location.create(2462, 3108, 0), 5140, 14, Items.YEW_LOGS_1515, Vars.VARBIT_QUEST_ENLIGHTENED_JOURNEY_CASTLE_WARS_BALLOON, 50),
             GRAND_TREE("Grand Tree", Location.create(2480, 3458, 0), 5141, 15, Items.MAGIC_LOGS_1513, Vars.VARBIT_QUEST_ENLIGHTENED_JOURNEY_GRAND_TREE_BALLOON, 60),
-            CRAFT_GUILD("Crafting Guild", Location.create(2924, 3303, 0), 5141, 16, Items.OAK_LOGS_1521, Vars.VARBIT_QUEST_ENLIGHTENED_JOURNEY_CRAFTING_GUILD_BALLOON, 30),
-            VARROCK("Varrock", Location.create(3298, 3481, 0), 5141, 19, Items.WILLOW_LOGS_1519, Vars.VARBIT_QUEST_ENLIGHTENED_JOURNEY_VARROCK_BALLOON, 40),
-            ENTRANA("Entrana", Location.create(2809, 3356, 0), 5141, 17, Items.LOGS_1511, Vars.VARBIT_QUEST_ENLIGHTENED_JOURNEY_ENTRANA_BALLOON, 20),
-            TAVERLEY("Taverley", Location.create(2940, 3420, 0), 5141, 18, Items.LOGS_1511, Vars.VARBIT_QUEST_ENLIGHTENED_JOURNEY_TAVERLEY_BALLOON, 20);
+            CRAFT_GUILD("Crafting Guild", Location.create(2924, 3303, 0), 5142, 16, Items.OAK_LOGS_1521, Vars.VARBIT_QUEST_ENLIGHTENED_JOURNEY_CRAFTING_GUILD_BALLOON, 30),
+            VARROCK("Varrock", Location.create(3298, 3481, 0), 5142, 19, Items.WILLOW_LOGS_1519, Vars.VARBIT_QUEST_ENLIGHTENED_JOURNEY_VARROCK_BALLOON, 40),
+            ENTRANA("Entrana", Location.create(2809, 3356, 0), 5142, 17, Items.LOGS_1511, Vars.VARBIT_QUEST_ENLIGHTENED_JOURNEY_ENTRANA_BALLOON, 20),
+            TAVERLEY("Taverley", Location.create(2940, 3420, 0), 5142, 18, Items.LOGS_1511, Vars.VARBIT_QUEST_ENLIGHTENED_JOURNEY_TAVERLEY_BALLOON, 20);
 
             companion object {
                 val flightMap = values().associateBy { it.button }
@@ -90,31 +107,21 @@ class HotAirBalloonListener : InterfaceListener, InteractionListener {
     }
 
     override fun defineInterfaceListeners() {
-        onOpen(Components.ZEP_BALLOON_MAP_469) { player: Player, _: Component ->
-            setMinimapState(player, 2)
-            return@onOpen true
-        }
-
-        onClose(Components.ZEP_BALLOON_MAP_469) { player: Player, _: Component ->
-            setMinimapState(player, 0)
-            return@onClose true
-        }
-
         on(Components.ZEP_BALLOON_MAP_469) { player, _, _, buttonID, _, _ ->
             val button = FlightDestination.flightMap[buttonID] ?: return@on true
-
-            if (buttonID == 17 && !ItemDefinition.canEnterEntrana(player)) {
-                sendDialogue(player, "You can't take flight with weapons and armour to Entrana.")
-                return@on true
-            }
 
             if (!hasLevelStat(player, Skills.FIREMAKING, button.requiredLevel)) {
                 sendDialogue(player, "You require a Firemaking level of ${button.requiredLevel} to travel to ${button.areaName}.")
                 return@on true
             }
 
-            if (!removeItem(player, Item(button.logId, 1))) {
+            if (!inInventory(player, button.logId, 1)) {
                 sendDialogue(player, "You need at least one ${getItemName(button.logId).lowercase().replace("s", "").trim()}.")
+                return@on true
+            }
+
+            if (buttonID == 17 && !ItemDefinition.canEnterEntrana(player)) {
+                sendDialogue(player, "You can't take flight with weapons and armour to Entrana.")
                 return@on true
             }
 
@@ -122,7 +129,10 @@ class HotAirBalloonListener : InterfaceListener, InteractionListener {
                 sendMessage(player, "You can't take a follower on a ride.")
                 return@on true
             }
-            handleFlight(player, button)
+
+            if(removeItem(player, Item(button.logId, 1))) {
+                handleFlight(player, button)
+            }
             return@on true
         }
     }
