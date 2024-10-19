@@ -1,6 +1,8 @@
 ### 2009scape
 
-[![License][license-shield]][license-url] [![Fork][fork-shield]][fork-url] [![Kotlin][kotlin-version]][kotlin-url] [![Java][java-version]][java-url] [![Release][play-release]][play-url] [![GitLab][gitlab-repo]][gitlab-url] [![License][github-repo]][github-url]
+[![License][license-shield]][license-url] [![Fork][fork-shield]][fork-url] [![Release][play-release]][play-url]
+
+<details><summary>//_</summary>
 
 Fork of official repository for educational purposes & single-player experience but mostly for personal use.
 
@@ -748,6 +750,8 @@ You'll need to edit default config `default xp rate` to `default xp rate = desir
 AGPL 3.0 license, The license applies to the entire repository, unless otherwise specified. Full license can be
 found [here](https://www.gnu.org/licenses/agpl-3.0.en.html).
 
+</details>
+
 [license-shield]: https://img.shields.io/badge/license-AGPL--3.0-informational
 
 [license-url]: https://www.gnu.org/licenses/agpl-3.0.en.html
@@ -759,19 +763,3 @@ found [here](https://www.gnu.org/licenses/agpl-3.0.en.html).
 [play-release]: https://img.shields.io/badge/singleplayer-release-blue
 
 [play-url]: https://github.com/szumaster1/game
-
-[kotlin-version]: https://img.shields.io/badge/kotlin-1.8.20-blue.svg?logo=kotlin
-
-[kotlin-url]: http://kotlinlang.org
-
-[java-version]: https://img.shields.io/badge/java-11-blue.svg?logo=openjdk
-
-[java-url]: https://adoptium.net/temurin/releases/?version=11
-
-[gitlab-repo]: https://img.shields.io/badge/emulator-src-blue.svg?logo=gitlab
-
-[gitlab-url]: https://gitlab.com/rs2emu/game-server
-
-[github-repo]: https://img.shields.io/badge/emulator-src-blue.svg?logo=github
-
-[github-url]: https://github.com/szumaster1/game-server
