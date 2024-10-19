@@ -9,12 +9,13 @@ import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.quest.Quest
 import core.game.node.entity.skill.Skills
 import core.plugin.Initializable
+import org.rs.consts.QuestName
 
 /**
  * Vampire slayer quest.
  */
 @Initializable
-class VampireSlayer: Quest("Vampire Slayer", 30, 29, 3, Vars.VARP_QUEST_VAMPIRE_SLAYER_PROGRESS, 0, 1, 3) {
+class VampireSlayer: Quest(QuestName.VAMPIRE_SLAYER, 30, 29, 3, Vars.VARP_QUEST_VAMPIRE_SLAYER_PROGRESS, 0, 1, 3) {
 
     /*
      * The people of Draynor village live in constant terror. Their numbers are dwindling,

@@ -64,14 +64,14 @@ class QuestTabInterface : InterfaceListener {
             }
 
             messageList.add(colorize("Quests Needed"))
-            messageList.addAll(questList.map { "Completion of $it." })
+            messageList.addAll(questList.map { "!!Completion of $it??." })
 
             messageList.add(" ")
             messageList.add(colorize("Skills Needed"))
 
             for ((skillId, level) in statMap) {
                 val name = Skills.SKILL_NAME[skillId]
-                messageList.add("$level $name")
+                messageList.add("!!$level $name??")
             }
 
             messageList.add(" ")
@@ -81,9 +81,9 @@ class QuestTabInterface : InterfaceListener {
             val (meetsQp, _) = totalQpRequirement.evaluate(player)
             isMet = isMet && meetsQp
 
-            if (isMet) messageList.add(colorize("Congratulations! You've earned this one."))
+            if (isMet) messageList.add(colorize("<col=FF0000>Congratulations! You've earned this one</col>."))
 
-            if (!meetsQp) messageList.add("A total of ${totalQpRequirement.amount} Quest Points.")
+            if (!meetsQp) messageList.add("!!A total of ${totalQpRequirement.amount} Quest Points??.")
 
             messageList.add("")
 

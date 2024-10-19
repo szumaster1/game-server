@@ -129,6 +129,7 @@ public class PriestInPerilOptionPlugin extends OptionHandler {
                     } else {
                         item = 36;
                     }
+                    player.getPacketDispatch().sendAngleOnInterface(272, 4, 512, 256, 0);
                     message = "Saradomin is the light that shines throughout our lives.";
                 }
                 if (id == 3499) {
@@ -137,6 +138,7 @@ public class PriestInPerilOptionPlugin extends OptionHandler {
                     } else {
                         item = 2944;
                     }
+                    player.getPacketDispatch().sendAngleOnInterface(272, 4, 512, 256, 0);
                     message = "Saradomin is the key that unlocks the mysteries of life.";
                 }
                 if (id == 3493) {
@@ -145,10 +147,13 @@ public class PriestInPerilOptionPlugin extends OptionHandler {
                     } else {
                         item = 590;
                     }
+                    player.getPacketDispatch().sendItemZoomOnInterface(item, 320, 272, 4);
+                    player.getPacketDispatch().sendAngleOnInterface(272, 4, 512, 256, 0);
                     message = "Saradomin is the spark that lights the fire in our hearts.";
                 }
                 player.getPacketDispatch().sendString(message, 272, 17);
-                player.getPacketDispatch().sendItemZoomOnInterface(item, 175, 272, 4);
+                player.getPacketDispatch().sendItemZoomOnInterface(item, 512, 272, 4);
+                player.getPacketDispatch().sendAngleOnInterface(272, 4, 512, 128, 0);
                 break;
             case "take-from":
                 player.getImpactHandler().handleImpact(player, 2, CombatStyle.MELEE);

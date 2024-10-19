@@ -8,6 +8,7 @@ import content.region.misthalin.draynor.handlers.DraynorUtils
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.entity.npc.NPC
+import org.rs.consts.QuestName
 
 /**
  * Represents the [VampireSlayerListener].
@@ -83,9 +84,9 @@ class VampireSlayerListener : InteractionListener {
          */
 
         on(DraynorUtils.openedCoffin, IntType.SCENERY, "search") { player, _ ->
-            if (isQuestComplete(player, "Vampire Slayer")) {
+            if (isQuestComplete(player, QuestName.VAMPIRE_SLAYER)) {
                 sendDialogue(player, "There's only a pillow in here..")
-            } else if (getQuestStage(player, "Vampire Slayer") == 30) {
+            } else if (getQuestStage(player, QuestName.VAMPIRE_SLAYER) == 30) {
                 animate(player, Animations.MULTI_USE_TAKE_832)
                 if (!inInventory(player, DraynorUtils.stake) && !inInventory(player, DraynorUtils.hammer)) {
                     sendMessage(player, "You must have a stake and hammer with you to kill the vampire.")

@@ -98,7 +98,7 @@ enum class BossKillCounter(val npc: IntArray, val bossName: String) {
             }
             val boss = BossKillCounter.forNPC(npcid) ?: return
             killer.getSavedData().globalData.getBossCounters()[boss.ordinal]++
-            killer.packetDispatch.sendMessage("Your " + StringUtils.formatDisplayName(boss.name) + " killcount is now: <col=ff0000>" + killer.getSavedData().globalData.getBossCounters()[boss.ordinal] + "</col>.")
+            killer.packetDispatch.sendMessage("Your " + StringUtils.formatDisplayName(boss.name) + " killcount is now: <col=FF0000>" + killer.getSavedData().globalData.getBossCounters()[boss.ordinal] + "</col>.")
         }
 
         /**

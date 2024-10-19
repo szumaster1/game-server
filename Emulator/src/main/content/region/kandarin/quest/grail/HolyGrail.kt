@@ -150,7 +150,7 @@ class HolyGrail : Quest(QuestName.HOLY_GRAIL, 76, 75, 1, 5, 0, 1, 10) {
             line(player, "gratitude he allowed me to take the Grail, which I took to", ln++, true)
             line(player, "King Arthur to prove my prowess as a Knight.", ln++, true)
             ln++
-            line(player, "<col=ff0000>QUEST COMPLETE!", ln, false)
+            line(player, "<col=FF0000>QUEST COMPLETE!", ln, false)
         }
     }
 

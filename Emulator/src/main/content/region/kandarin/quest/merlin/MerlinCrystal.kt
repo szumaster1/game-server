@@ -150,7 +150,7 @@ class MerlinCrystal : Quest(QuestName.MERLINS_CRYSTAL, 87, 86, 6, Vars.VARP_QUES
                 line(player, "Merlin from his prison when his other Knights had failed he", ln++, true)
                 line(player, "immediately made me a Knight of the Round Table", ln++, true)
                 ln++
-                line(player, "<col=ff0000>QUEST COMPLETE!", ln, false)
+                line(player, "<col=FF0000>QUEST COMPLETE!", ln, false)
             }
         }
     }

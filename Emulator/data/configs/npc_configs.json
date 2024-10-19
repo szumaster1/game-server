@@ -9577,7 +9577,7 @@
     "melee_animation": "422",
     "range_animation": "422",
     "attack_speed": "5",
-    "defence_animation": "404",
+    "defence_animation": "3333",
     "magic_animation": "422",
     "death_animation": "9055",
     "name": "Count Draynor",
