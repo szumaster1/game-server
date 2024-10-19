@@ -21294,5 +21294,9 @@
   {
     "examine": "Some arcane equipment.",
     "ids": "38331"
+  },
+  {
+    "examine": "A very nice altar.",
+    "ids": "21893"
   }
 ]

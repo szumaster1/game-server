@@ -53530,7 +53530,7 @@
     "attack_level": "1"
   },
   {
-    "examine": "Is it a frog",
+    "examine": "Is it a frog, or is it an eel?",
     "melee_animation": "5842",
     "range_animation": "0",
     "attack_speed": "5",
@@ -53549,6 +53549,7 @@
     "attack_level": "36"
   },
   {
+    "examine": "Does whatever a spider-sardine does.",
     "death_animation": "146",
     "name": "Spidine",
     "defence_level": "1",
@@ -53580,6 +53581,7 @@
     "attack_level": "45"
   },
   {
+    "examine": "A jubbly bird with claws.",
     "death_animation": "6801",
     "name": "Jubster",
     "defence_level": "1",
