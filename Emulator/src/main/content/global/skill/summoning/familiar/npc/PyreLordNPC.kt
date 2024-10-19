@@ -29,6 +29,7 @@ import core.game.world.update.flag.context.Graphic
 import core.plugin.Initializable
 import core.plugin.Plugin
 import core.plugin.PluginManager.definePlugin
+import org.rs.consts.Graphics
 
 /**
  * Pyre lord familiar.
@@ -57,7 +58,7 @@ class PyreLordNPC @JvmOverloads constructor(owner: Player? = null, id: Int = 737
         }
         owner.lock(1)
         animate(Animation.create(8081))
-        owner.graphics(Graphic.create(1463))
+        owner.graphics(Graphic.create(Graphics.RAINING_FLAMES_1463))
         open(owner)
         return true
     }

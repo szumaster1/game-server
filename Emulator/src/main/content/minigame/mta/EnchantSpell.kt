@@ -193,7 +193,7 @@ class EnchantSpell : MagicSpell {
             51, EnchantSpell(
                 68, 78.0, mapOf(
                     //Begin Jewelry Enchantment
-                    Items.DRAGONSTONE_RING_1645 to Item(14646),
+                    Items.DRAGONSTONE_RING_1645 to Item(Items.RING_OF_WEALTH_2572),
                     Items.DRAGON_NECKLACE_1664 to Item(Items.SKILLS_NECKLACE4_11105),
                     Items.DRAGONSTONE_AMMY_1702 to Item(Items.AMULET_OF_GLORY4_1712),
                     Items.DRAGON_BRACELET_11115 to Item(Items.COMBAT_BRACELET4_11118),

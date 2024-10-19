@@ -45,11 +45,7 @@ public final class ZoneMonitor {
         Items.COMBAT_BRACELET_11126,
         Items.COMBAT_BRACELET1_11124,
         Items.COMBAT_BRACELET2_11122,
-        Items.COMBAT_BRACELET3_11120,
-        Items.RING_OF_WEALTH_14638,
-        Items.RING_OF_WEALTH1_14640,
-        Items.RING_OF_WEALTH2_14642,
-        Items.RING_OF_WEALTH3_14644
+        Items.COMBAT_BRACELET3_11120
     );
 
     /**

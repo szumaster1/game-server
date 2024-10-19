@@ -30,7 +30,6 @@ enum class EnchantedJewellery(val options: Array<String>, val locations: Array<L
     DIGSITE_PENDANT(arrayOf(), arrayOf(Location.create(3342, 3445, 0)), true, Items.DIGSITE_PENDANT_5_11194, Items.DIGSITE_PENDANT_4_11193, Items.DIGSITE_PENDANT_3_11192, Items.DIGSITE_PENDANT_2_11191, Items.DIGSITE_PENDANT_1_11190),
     COMBAT_BRACELET(arrayOf("Champions' Guild.", "Monastery.", "Ranging Guild.", "Warriors' Guild.", "Nowhere."), arrayOf(Location.create(3191, 3365, 0), Location.create(3052, 3472, 0), Location.create(2657, 3439, 0), Location.create(2878, 3546, 0)), Items.COMBAT_BRACELET4_11118, Items.COMBAT_BRACELET3_11120, Items.COMBAT_BRACELET2_11122, Items.COMBAT_BRACELET1_11124, Items.COMBAT_BRACELET_11126),
     SKILLS_NECKLACE(arrayOf("Fishing Guild.", "Mining Guild.", "Crafting Guild.", "Cooking Guild.", "Nowhere."), arrayOf(Location.create(2611, 3392, 0), Location.create(3016, 3338, 0), Location.create(2933, 3290, 0), Location.create(3143, 3442, 0)), Items.SKILLS_NECKLACE4_11105, Items.SKILLS_NECKLACE3_11107, Items.SKILLS_NECKLACE2_11109, Items.SKILLS_NECKLACE1_11111, Items.SKILLS_NECKLACE_11113),
-    RING_OF_WEALTH(arrayOf("Grand Exchange.", "Nowhere."), arrayOf(Location.create(3163, 3464, 0)), Items.RING_OF_WEALTH4_14646, Items.RING_OF_WEALTH3_14644, Items.RING_OF_WEALTH2_14642, Items.RING_OF_WEALTH1_14640, Items.RING_OF_WEALTH_14638),
     RING_OF_LIFE(arrayOf(), arrayOf(Location.create(Configuration.HOME_LOCATION)), true, Items.RING_OF_LIFE_2570);
 
     val isCrumble: Boolean = crumble
@@ -206,7 +205,6 @@ enum class EnchantedJewellery(val options: Array<String>, val locations: Array<L
             this == AMULET_OF_GLORY -> "amulet of glory"
             this == AMULET_OF_GLORY_T -> "amulet of glory"
             this == RING_OF_SLAYING -> "ring of slaying"
-            this == RING_OF_WEALTH -> "ring of wealth"
             this == RING_OF_DUELING -> "ring of dueling"
             else -> item.name.split(" ")[0].lowercase()
         }

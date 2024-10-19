@@ -2,6 +2,7 @@ package content.region.asgarnia.burthope.handlers.heroguild
 
 import content.data.EnchantedJewellery
 import content.data.EnchantedJewellery.Companion.idMap
+import core.api.animate
 import org.rs.consts.Items
 import core.api.hasRequirement
 import core.cache.def.impl.SceneryDefinition
@@ -18,6 +19,8 @@ import core.game.world.update.flag.context.Animation
 import core.plugin.PluginManager.definePlugin
 import core.plugin.Initializable
 import core.plugin.Plugin
+import org.rs.consts.Animations
+import org.rs.consts.QuestName
 
 /**
  * Represents the Heroes guild plugin.
@@ -38,7 +41,7 @@ class HeroesGuildPlugin : OptionHandler() {
             "open" -> {
                 when (id) {
                     2624, 2625 -> {
-                        if (!hasRequirement(player, "Heroes' Quest")) return true
+                        if (!hasRequirement(player, QuestName.HEROES_QUEST)) return true
                         handleAutowalkDoor(player, (node as Scenery))
                     }
                 }
@@ -64,7 +67,7 @@ class HeroesGuildPlugin : OptionHandler() {
             val player = event.player
             checkNotNull(event.usedItem)
             val jewellery = idMap[event.usedItem.id]
-            if (!hasRequirement(player, "Heroes' Quest")) return true
+            if (!hasRequirement(player, QuestName.HEROES_QUEST)) return true
             if (jewellery == EnchantedJewellery.COMBAT_BRACELET || jewellery == EnchantedJewellery.SKILLS_NECKLACE) if (!hasRequirement(player, "Legend's Quest")
             ) return true
             if (jewellery == null && event.usedItem.id != 2572) {
@@ -82,7 +85,7 @@ class HeroesGuildPlugin : OptionHandler() {
                 familiar.animate(Animation.create(7882))
             }
             player.lock(1)
-            player.animate(Animation.create(832))
+            animate(player, Animations.MULTI_USE_TAKE_832)
             val rechargedItem = Item(jewellery!!.ids[0])
             player.inventory.replace(rechargedItem, event.usedItem.slot)
             val name = jewellery.getJewelleryName(rechargedItem)
@@ -120,10 +123,6 @@ class HeroesGuildPlugin : OptionHandler() {
                 Items.AMULET_OF_GLORYT2_10358,
                 Items.AMULET_OF_GLORYT1_10360,
                 Items.AMULET_OF_GLORYT_10362,
-                Items.RING_OF_WEALTH3_14644,
-                Items.RING_OF_WEALTH2_14642,
-                Items.RING_OF_WEALTH1_14640,
-                Items.RING_OF_WEALTH_14638,
                 Items.RING_OF_WEALTH_2572
             )
         }

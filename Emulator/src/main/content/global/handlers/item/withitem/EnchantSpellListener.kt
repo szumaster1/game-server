@@ -42,7 +42,7 @@ class EnchantSpellListener : InteractionListener {
     )
 
     private val LVL_5_ENCHANT = mapOf(
-        Items.DRAGONSTONE_RING_1645 to Items.RING_OF_WEALTH4_14646,
+        Items.DRAGONSTONE_RING_1645 to Items.RING_OF_WEALTH_2572,
         Items.DRAGON_NECKLACE_1664 to Items.SKILLS_NECKLACE4_11105,
         Items.DRAGONSTONE_AMMY_1702 to Items.AMULET_OF_GLORY4_1712,
         Items.DRAGON_BRACELET_11115 to Items.COMBAT_BRACELET4_11118
