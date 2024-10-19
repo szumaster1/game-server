@@ -14,11 +14,17 @@ class CreationObjectListener : InteractionListener {
 
     override fun defineListeners() {
 
-        on(Scenery.SYMBOL_OF_LIFE_21893, IntType.SCENERY, "inspect") { player, _ ->
-            sendDialogue(player, "You see some text scrolled above the altar on a symbol...")
-            addDialogueAction(player) { node, _ ->
-                handleInspection(player, node.location)
-                return@addDialogueAction
+        /*
+         * Handles interaction with all altars around basement.
+         */
+
+        on(Scenery.SYMBOL_OF_LIFE_21893, IntType.SCENERY, "inspect") { player, node ->
+            sendDialogueLines(player, "You see some text scrolled above the altar on a symbol...")
+            addDialogueAction(player) { _, button ->
+                if(button in 0..3) {
+                    handleInspection(player, node.location)
+                    return@addDialogueAction
+                }
             }
             return@on true
         }

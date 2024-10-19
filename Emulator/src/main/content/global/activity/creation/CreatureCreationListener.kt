@@ -2,11 +2,9 @@ package content.global.activity.creation
 
 import content.data.consumables.effects.NettleTeaEffect
 import core.api.*
-import core.game.consumable.Drink
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.item.Item
-import core.game.world.update.flag.context.Animation
 import org.rs.consts.*
 
 class CreatureCreationListener : InteractionListener {
@@ -65,16 +63,16 @@ class CreatureCreationListener : InteractionListener {
         on(SATCHEL_IDS, IntType.ITEM, "inspect", "empty") { player, node ->
             val option = getUsedOption(player)
             val itemsInSatchel = mapOf(
-                Items.CAKE_1891 to "one cake",
-                Items.BANANA_1963 to "one banana",
-                Items.SQUARE_SANDWICH_6965 to "one sandwich"
+                Items.CAKE_1891 to " one cake",
+                Items.BANANA_1963 to " one banana",
+                Items.SQUARE_SANDWICH_6965 to " one sandwich"
             )
             val contents = itemsInSatchel.filter { player.getAttribute("$SATCHEL:${it.key}", -1) == 1 }
 
             when (option) {
-                "inspect" -> sendItemDialogue(
-                    player, node.id, "The ${getItemName(node.id)}!<br>Containing: ${contents.values.joinToString()}"
-                        .ifEmpty { "empty" }
+                "inspect" ->
+                    player.dialogueInterpreter.sendItemMessage(node.id, "The ${getItemName(node.id)}!<br>(Containing:${contents.values.joinToString()})"
+                        .ifEmpty { "empty Empty!)" }
                 )
 
                 "empty" -> if (contents.isNotEmpty()) {
@@ -101,15 +99,23 @@ class CreatureCreationListener : InteractionListener {
                 "drink" -> {
                     if (cupsAmount > 0) {
                         lock(player, 1)
-                        drink.consume(Item(-1), player)
+                        animate(player, Animations.TEA_FLASK_TOWER_OF_LIFE_5827)
                         player.incrementAttribute(TEA_FLASK, -1)
+                        NettleTeaEffect().activate(player)
+                        sendMessage(player, "You take a drink from the flask...")
                         sendChat(player, "Ahh, tea is so refreshing.")
                     } else {
                         sendMessage(player, "The tea flask is empty.")
                     }
                 }
 
-                "look-in" -> sendItemDialogue(player, node.id, "The tea flask holds: $cupsAmount ${if (cupsAmount > 1) "cups" else "cup"} of tea.")
+                "look-in" -> {
+                    sendItemDialogue(
+                        player,
+                        node.id,
+                        "The tea flask holds: $cupsAmount ${if (cupsAmount > 1) "cups" else "cup"} of tea."
+                    )
+                }
             }
             return@on true
         }
@@ -158,12 +164,6 @@ class CreatureCreationListener : InteractionListener {
         val SATCHEL_IDS = intArrayOf(
             Items.PLAIN_SATCHEL_10877, Items.GREEN_SATCHEL_10878, Items.RED_SATCHEL_10879,
             Items.BLACK_SATCHEL_10880, Items.GOLD_SATCHEL_10881, Items.RUNE_SATCHEL_10882
-        )
-        val drink = Drink(
-            intArrayOf(-1),
-            NettleTeaEffect(),
-            Animation.create(Animations.TEA_FLASK_TOWER_OF_LIFE_5827),
-            "You take a drink from the flask..."
         )
     }
 }
