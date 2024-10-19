@@ -17,15 +17,14 @@ class CreationObjectListener : InteractionListener {
     override fun defineListeners() {
 
         /*
-         * Handles interaction with all altars around basement.
+         * Handles inspection with altar.
          */
 
         on(Scenery.SYMBOL_OF_LIFE_21893, IntType.SCENERY, "inspect") { player, node ->
             sendDialogueLines(player, "You see some text scrolled above the altar on a symbol...")
             addDialogueAction(player) { _, button ->
-                if(button in 0..3) {
+                if (button in 0..3) {
                     handleInspection(player, node.location)
-                    return@addDialogueAction
                 }
             }
             return@on true
@@ -44,10 +43,15 @@ class CreationObjectListener : InteractionListener {
     }
 
     private fun defineIngredientListeners(creatureIngredients: List<CreatureIngredient>) {
-        creatureIngredients.forEach { (location, item1, item2, creatureName) ->
-            onUseWith(IntType.SCENERY, intArrayOf(item1, item2), Scenery.SYMBOL_OF_LIFE_21893) { player, used, with ->
-                if (with.location == location) {
-                    handleIngredientUsage(player, used.asItem(), item1, item2, creatureName)
+        creatureIngredients.forEach { ingredient ->
+
+            /*
+             * Handles adding the ingredients.
+             */
+
+            onUseWith(IntType.SCENERY, intArrayOf(ingredient.item1, ingredient.item2), Scenery.SYMBOL_OF_LIFE_21893) { player, used, with ->
+                if (with.location == ingredient.location) {
+                    handleIngredientUsage(player, used.asItem(), ingredient)
                 }
                 return@onUseWith true
             }
@@ -57,80 +61,103 @@ class CreationObjectListener : InteractionListener {
              */
 
             on(Scenery.SYMBOL_OF_LIFE_21893, IntType.SCENERY, "activate") { player, node ->
-                val item1Placed = getAttribute(player, "$creatureName:$item1", false)
-                val item2Placed = getAttribute(player, "$creatureName:$item2", false)
+                val item1Placed = getAttribute(player, "${ingredient.creatureName}:${ingredient.item1}", false)
+                val item2Placed = getAttribute(player, "${ingredient.creatureName}:${ingredient.item2}", false)
 
-                animateScenery(node.asScenery(), 5844)
-                sendNPCDialogue(player, NPCs.HOMUNCULUS_5581, "You haveee materials need. Here goes!", FacialExpression.OLD_NORMAL)
-
-                if (item1Placed && item2Placed) {
-                    removeAttributes(player, item1Placed.toString(), item2Placed.toString())
-                    val npcLocationMap = mapOf(
-                        Location(3058, 4410, 0) to NPCs.NEWTROOST_5597,
-                        Location(3066, 4380, 0) to NPCs.JUBSTER_5596,
-                        Location(3034, 4361, 0) to NPCs.SWORDCHICK_5595,
-                        Location(3012, 4380, 0) to NPCs.FROGEEL_5593,
-                        Location(3018, 4410, 0) to NPCs.UNICOW_5603,
-                        Location(3043, 4361, 0) to NPCs.SPIDINE_5594
-                    )
-
-                    val npcLocation = npcLocationMap[location]
-                    if (npcLocation != null) {
-                        val npc = core.game.node.entity.npc.NPC.create(npcLocation,
-                            if (location == Location(3018, 4410, 0))
-                                Location.getRandomLocation(Location(3022, 4403, 0), 2, true)
-                            else
-                                Location.create(location.x - 1, location.y - 3, 0)
-                        )
-                        npc.init()
-                        npc.attack(player)
-                        npc.isRespawn = false
-                    } else {
-                        sendMessage(player, "Nothing interesting happens.")
+                if(item1Placed && item2Placed) {
+                    animateScenery(node.asScenery(), 5844)
+                    sendNPCDialogue(player, NPCs.HOMUNCULUS_5581, "You haveee materials need. Here goes!", FacialExpression.OLD_NORMAL)
+                    addDialogueAction(player) { _, button ->
+                        if (button >= 5) {
+                            removeAttributesForActivation(player, ingredient)
+                            spawnCreature(player, ingredient.location)
+                        } else {
+                            sendMessage(player, "Nothing interesting happens.")
+                        }
                     }
+                } else {
+                    sendDialogue(player, "You need all the materials necessary to activate this altar!")
                 }
                 return@on true
             }
         }
     }
 
-    private fun handleIngredientUsage(player: Player, used: Item, item1: Int, item2: Int, creatureName: String) {
-        val item1Placed = getAttribute(player, "$creatureName:$item1", false)
-        val item2Placed = getAttribute(player, "$creatureName:$item2", false)
+    private fun handleIngredientUsage(player: Player, used: Item, ingredient: CreatureIngredient) {
+        val item1Placed = getAttribute(player, "${ingredient.creatureName}:${ingredient.item1}", false)
+        val item2Placed = getAttribute(player, "${ingredient.creatureName}:${ingredient.item2}", false)
 
         if (item1Placed && item2Placed) {
             sendDialogue(player, "You have all the materials necessary to activate this altar!")
         } else {
-            placeItemOnAltar(player, used, item1, creatureName)
-            placeItemOnAltar(player, used, item2, creatureName)
+            placeItemOnAltar(player, used, ingredient)
         }
     }
 
-    private fun placeItemOnAltar(player: Player, used: Item, requiredItemId: Int, creatureName: String) {
-        if (used.id == requiredItemId && !getAttribute(player, "$creatureName:$requiredItemId", false)) {
-            lock(player, 1)
-            removeItem(player, requiredItemId)
-            animate(player, Animations.HUMAN_BURYING_BONES_827)
-            sendMessage(player, "You place the ${getItemName(used.id).lowercase()} on the altar.")
-            setAttribute(player, "/save:$creatureName:$requiredItemId", true)
-        } else if (used.id == requiredItemId) {
-            sendMessage(player, "You already placed the ${getItemName(used.id).lowercase()} on the altar!")
+    private fun placeItemOnAltar(player: Player, used: Item, ingredient: CreatureIngredient) {
+        val requiredItem = when (used.id) {
+            ingredient.item1 -> ingredient.item1
+            ingredient.item2 -> ingredient.item2
+            else -> null
+        }
+
+        requiredItem?.let {
+            if (!getAttribute(player, "${ingredient.creatureName}:$it", false)) {
+                lock(player, 1)
+                removeItem(player, it)
+                animate(player, Animations.HUMAN_BURYING_BONES_827)
+                sendDialogue(player, "You place the ${getItemName(it).lowercase()} on the altar.")
+                setAttribute(player, "/save:${ingredient.creatureName}:$it", true)
+                closeDialogue(player)
+            } else {
+                sendDialogue(player, "You already placed the ${getItemName(it).lowercase()} on the altar!")
+            }
+        }
+    }
+
+    private fun spawnCreature(player: Player, location: Location) {
+        val npcLocationMap = mapOf(
+            Location(3058, 4410, 0) to NPCs.NEWTROOST_5597,
+            Location(3066, 4380, 0) to NPCs.JUBSTER_5596,
+            Location(3034, 4361, 0) to NPCs.SWORDCHICK_5595,
+            Location(3012, 4380, 0) to NPCs.FROGEEL_5593,
+            Location(3018, 4410, 0) to NPCs.UNICOW_5603,
+            Location(3043, 4361, 0) to NPCs.SPIDINE_5594
+        )
+
+        val npcLocation = npcLocationMap[location]
+        npcLocation?.let {
+            val npc = core.game.node.entity.npc.NPC.create(
+                it,
+                if (location == Location(3018, 4410, 0))
+                    Location.getRandomLocation(Location(3022, 4403, 0), 2, true)
+                else
+                    Location.create(location.x - 1, location.y - 3, 0)
+            )
+            npc.init()
+            npc.attack(player)
+            npc.isRespawn = false
         }
     }
 
     private fun handleInspection(player: Player, location: Location) {
         val dialogueData = mapOf(
-            Location(3058, 4410, 0) to Pair(Pair(Items.FEATHER_314, Items.EYE_OF_NEWT_221), "Feather of chicken and eye of newt..."),
-            Location(3034, 4361, 0) to Pair(Pair(Items.RAW_SWORDFISH_371, Items.RAW_CHICKEN_2138), "Swordfish raw and chicken uncooked..."),
-            Location(3043, 4361, 0) to Pair(Pair(Items.RED_SPIDERS_EGGS_223, Items.RAW_SARDINE_327), "Red spider's eggs and a sardine raw..."),
-            Location(3018, 4410, 0) to Pair(Pair(Items.UNICORN_HORN_237, Items.COWHIDE_1739), "Horn of unicorn and hide of cow..."),
-            Location(3066, 4380, 0) to Pair(Pair(Items.RAW_JUBBLY_7566, Items.RAW_LOBSTER_377), "Raw meat of jubbly bird and a lobster raw..."),
-            Location(3012, 4380, 0) to Pair(Pair(Items.RAW_CAVE_EEL_5001, Items.GIANT_FROG_LEGS_4517), "Cave eel raw and giant frog legs...")
+            Location(3058, 4410, 0) to Pair(Items.FEATHER_314 to Items.EYE_OF_NEWT_221, "Feather of chicken and eye of newt..."),
+            Location(3034, 4361, 0) to Pair(Items.RAW_SWORDFISH_371 to Items.RAW_CHICKEN_2138, "Swordfish raw and chicken uncooked..."),
+            Location(3043, 4361, 0) to Pair(Items.RED_SPIDERS_EGGS_223 to Items.RAW_SARDINE_327, "Red spider's eggs and a sardine raw..."),
+            Location(3018, 4410, 0) to Pair(Items.UNICORN_HORN_237 to Items.COWHIDE_1739, "Horn of unicorn and hide of cow..."),
+            Location(3066, 4380, 0) to Pair(Items.RAW_JUBBLY_7566 to Items.RAW_LOBSTER_377, "Raw meat of jubbly bird and a lobster raw..."),
+            Location(3012, 4380, 0) to Pair(Items.RAW_CAVE_EEL_5001 to Items.GIANT_FROG_LEGS_4517, "Cave eel raw and giant frog legs...")
         )
 
         dialogueData[location]?.let { (items, dialogue) ->
             sendDoubleItemDialogue(player, items.first, items.second, dialogue)
         }
+    }
+
+    private fun removeAttributesForActivation(player: Player, ingredient: CreatureIngredient) {
+        removeAttribute(player, "${ingredient.creatureName}:${ingredient.item1}")
+        removeAttribute(player, "${ingredient.creatureName}:${ingredient.item2}")
     }
 
     data class CreatureIngredient(
@@ -139,5 +166,4 @@ class CreationObjectListener : InteractionListener {
         val item2: Int,
         val creatureName: String
     )
-
 }

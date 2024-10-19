@@ -42461,13 +42461,13 @@
     "main": [
       {
         "minAmount": "1",
-        "weight": "25.0",
+        "weight": "5.0",
         "id": "10877",
         "maxAmount": "1"
       },
       {
         "minAmount": "1",
-        "weight": "25.0",
+        "weight": "5.0",
         "id": "10859",
         "maxAmount": "1"
       },
@@ -42506,13 +42506,13 @@
     "main": [
       {
         "minAmount": "1",
-        "weight": "25.0",
+        "weight": "5.0",
         "id": "10879",
         "maxAmount": "1"
       },
       {
         "minAmount": "1",
-        "weight": "25.0",
+        "weight": "5.0",
         "id": "10859",
         "maxAmount": "1"
       }
@@ -42545,7 +42545,7 @@
     "main": [
       {
         "minAmount": "1",
-        "weight": "25.0",
+        "weight": "5.0",
         "id": "10859",
         "maxAmount": "1"
       },
@@ -42563,7 +42563,7 @@
       },
       {
         "minAmount": "1",
-        "weight": "50.0",
+        "weight": "5.0",
         "id": "10880",
         "maxAmount": "1"
       }
@@ -42590,13 +42590,13 @@
     "main": [
       {
         "minAmount": "1",
-        "weight": "25.0",
+        "weight": "5.0",
         "id": "10881",
         "maxAmount": "1"
       },
       {
         "minAmount": "1",
-        "weight": "25.0",
+        "weight": "5.0",
         "id": "10859",
         "maxAmount": "1"
       }
@@ -42629,13 +42629,13 @@
     "main": [
       {
         "minAmount": "1",
-        "weight": "25.0",
+        "weight": "5.0",
         "id": "10882",
         "maxAmount": "1"
       },
       {
         "minAmount": "1",
-        "weight": "50.0",
+        "weight": "5.0",
         "id": "10859",
         "maxAmount": "1"
       }
@@ -42662,13 +42662,13 @@
     "main": [
       {
         "minAmount": "1",
-        "weight": "50.0",
+        "weight": "5.0",
         "id": "10878",
         "maxAmount": "1"
       },
       {
         "minAmount": "1",
-        "weight": "25.0",
+        "weight": "5.0",
         "id": "10859",
         "maxAmount": "1"
       }
