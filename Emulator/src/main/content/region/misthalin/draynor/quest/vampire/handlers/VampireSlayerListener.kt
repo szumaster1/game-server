@@ -5,6 +5,7 @@ import content.region.misthalin.draynor.handlers.DraynorUtils
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.entity.npc.NPC
+import core.game.node.entity.player.link.quest.Quest
 import core.game.world.map.Direction
 import core.game.world.map.Location
 import org.rs.consts.*
@@ -57,13 +58,21 @@ class VampireSlayerListener : InteractionListener {
         }
 
         /*
-         * Listener for opening the coffin.
+         * Listener for opening the coffin & spawn the vampire.
          */
 
         on(DraynorUtils.coffin, IntType.SCENERY, "open") { player, node ->
+            if(isQuestComplete(player,QuestName.VAMPIRE_SLAYER)){
+                sendPlayerDialogue(player, "I should tell Morgan that I've killed the vampire!")
+                return@on true
+            }
+            if(getQuestStage(player,QuestName.VAMPIRE_SLAYER) != 30){
+                sendMessage(player, "The coffin is sealed shut.")
+                return@on true
+            }
             animate(player, Animations.MULTI_USE_TAKE_832)
             playAudio(player, Sounds.COFFIN_OPEN_54)
-            if(!isQuestComplete(player, QuestName.VAMPIRE_SLAYER) && getQuestStage(player, QuestName.VAMPIRE_SLAYER) == 30) {
+            if(getQuestStage(player, QuestName.VAMPIRE_SLAYER) == 30) {
                 replaceScenery(node.asScenery(), DraynorUtils.openedCoffin, 6)
                 runTask(player, 3) {
                     val o = player.getAttribute<NPC>("count", null)
@@ -85,8 +94,6 @@ class VampireSlayerListener : InteractionListener {
                         }
                     }
                 }
-            } else {
-                sendPlayerDialogue(player, "I should tell Morgan that I've killed the vampire!")
             }
             return@on true
         }
