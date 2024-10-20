@@ -1,5 +1,6 @@
 package content.region.asgarnia.goblinvillage.dialogue
 
+import core.api.isQuestComplete
 import org.rs.consts.NPCs
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression
@@ -8,6 +9,7 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 import core.tools.RandomFunction
+import org.rs.consts.QuestName
 
 /**
  * Represents the Goblin village dialogue.
@@ -17,18 +19,21 @@ class GoblinVillageDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
-        val rand = RandomFunction.random(5)
+        val rand = RandomFunction.random(4)
         when (rand) {
             0 -> {
                 end()
                 npc(FacialExpression.OLD_DEFAULT, "I kill you human!")
                 npc.attack(player)
             }
-            1 -> npc(FacialExpression.OLD_DEFAULT, "Go away smelly human!").also { stage = 7 }
+            1 -> npc(FacialExpression.OLD_DEFAULT, "Go away smelly human!").also { stage = 17 }
             2 -> npc(FacialExpression.OLD_DEFAULT, "Happy goblin new century!").also { stage = 0 }
-            3 -> npc(FacialExpression.OLD_DEFAULT, "What you doing here?").also { stage = 3 }
-            4 -> npc(FacialExpression.OLD_DEFAULT, "Brown armour best!").also { stage = 9 }
-            5 -> npc(FacialExpression.OLD_DEFAULT, "Go away smelly human!").also { stage = 7 }
+            3 -> npc(FacialExpression.OLD_DEFAULT, "What you doing here?").also { stage = 2 }
+            4 -> if (isQuestComplete(player, QuestName.GOBLIN_DIPLOMACY)) {
+                npc(FacialExpression.OLD_DEFAULT, "Brown armour best!").also { stage = 7 }
+            } else {
+                npc(FacialExpression.OLD_DEFAULT, "Go away smelly human!").also { stage = 17 }
+            }
         }
         return true
     }
@@ -38,34 +43,66 @@ class GoblinVillageDialogue(player: Player? = null) : Dialogue(player) {
             0 -> options("Happy new century!", "What is the goblin new century?").also { stage++ }
             1 -> when (buttonId) {
                 1 -> player(FacialExpression.HALF_GUILTY, "Happy new century!").also { stage = END_DIALOGUE }
-                2 -> player(FacialExpression.HALF_GUILTY, "What is the goblin new century?").also { stage++ }
+                2 -> player(FacialExpression.HALF_GUILTY, "What is the goblin new century?").also { stage = 10 }
             }
-            2 -> npc(FacialExpression.OLD_DEFAULT, "You tell human secrets!").also { stage = END_DIALOGUE }
-            3 -> options("I'm here to kill all you goblins!", "I'm just looking around.").also { stage++ }
-            4 -> when (buttonId) {
+            2 -> options("I'm here to kill all you goblins!", "I'm just looking around.").also { stage++ }
+            3 -> when (buttonId) {
                 1 -> player(FacialExpression.HALF_GUILTY, "I'm here to kill all you goblins!").also { stage++ }
-                2 -> player(FacialExpression.HALF_GUILTY, "I'm just looking around.").also { stage = 6 }
+                2 -> player(FacialExpression.HALF_GUILTY, "I'm just looking around.").also { stage = 5 }
             }
-            5 -> npc(FacialExpression.OLD_DEFAULT, "I kill you!").also {
-                end()
-                npc.attack(player)
+            4 -> npc(FacialExpression.OLD_DEFAULT, "I kill you!").also { end(); npc.attack(player) }
+            5 -> npc(FacialExpression.OLD_DEFAULT, "Me not sure that allowed. You have to check with", "generals.").also { stage = END_DIALOGUE }
+            6 -> npc(FacialExpression.OLD_DEFAULT, "I kill you human!").also { stage = 17 }
+            7 -> options("Err, okay.", "Why is brown best?").also { stage++ }
+            8 -> when (buttonId) {
+                1 -> player(FacialExpression.HALF_GUILTY, "Err, okay.").also { stage = END_DIALOGUE }
+                2 -> player(FacialExpression.THINKING, "Why is brown best?").also { stage++ }
             }
-            6 -> npc(FacialExpression.OLD_DEFAULT, "Me not sure that allowed. You have to check with", "generals.").also { stage = END_DIALOGUE }
-            7 -> npc(FacialExpression.OLD_DEFAULT, "What you call me?").also { stage++ }
-            8 -> npc(FacialExpression.OLD_DEFAULT, "I kill you human!").also {
-                end()
-                npc.attack(player)
+            9 -> npc(FacialExpression.OLD_DEFAULT, "General Wartface and General Bentnoze both say it is.", "And normally they never agree!").also { stage = 21 }
+            10 -> npcl(FacialExpression.OLD_DEFAULT, "Goblin century mark year of big battle on Plain of Mud. That when Big High War God give us commandments.").also { stage++ }
+            11 -> options("Who is the Big High War God?", "What are the goblin commandments?", "Where is the Plain of Mud?", "I need to go.").also { stage++ }
+            12 -> when (buttonId) {
+                1 -> playerl(FacialExpression.HALF_ASKING, "Who is the Big High War God?").also { stage++ }
+                2 -> playerl(FacialExpression.HALF_ASKING, "What are the goblin commandments?").also { stage = 18 }
+                3 -> playerl(FacialExpression.HALF_ASKING, "Where is the Plain of Mud?").also { stage = 20 }
+                4 -> end()
             }
-            9 -> options("Err or.", "Why is brown best?").also { stage++ }
-            10 -> when (buttonId) {
-                1 -> player(FacialExpression.HALF_GUILTY, "Err ok.").also { stage = END_DIALOGUE }
-                2 -> player(FacialExpression.HALF_GUILTY, "Why is brown best?").also { stage++ }
+            13 -> npcl(FacialExpression.OLD_DEFAULT, "Big High War God take goblins and make them strong! Without him, we small and weak and stupid.").also { stage++ }
+            14 -> npcl(FacialExpression.OLD_DEFAULT, "But thanks to Big High War God, we most powerful race in Gielinor!").also { stage++ }
+            15 -> playerl(FacialExpression.THINKING, "Umm... you're clearly not the most powerful race in Gielinor.").also { stage++ }
+            16 -> npcl(FacialExpression.OLD_DEFAULT, "Not to doubt word of Big High War God! I kill you!").also { stage++ }
+            17 -> {
+                end(); npc.attack(player)
             }
-            11 -> npc(FacialExpression.OLD_DEFAULT, "General Wartface and General Bentnoze both say it is.", "And normally they never agree!").also { stage = END_DIALOGUE }
+            18 -> npcl(FacialExpression.OLD_DEFAULT, "Slay enemies of Big High War God! Not show mercy! Not run from battle! Not doubt word of Big High War God!").also { stage++ }
+            19 -> npc(FacialExpression.OLD_DEFAULT, "Without commandments we not know right from wrong. We be like other races who not know war is good!").also { stage = 17 }
+            20 -> npcl(FacialExpression.OLD_DEFAULT, "That goblin secret! No human ever find Plain of Mud!").also { stage = 17 }
+            21 -> if (npc.id == NPCs.GOBLIN_4488 || npc.id == NPCs.GOBLIN_4489 || npc.id == NPCs.GOBLIN_4491 || npc.id == NPCs.GOBLIN_4492) {
+                player(FacialExpression.THINKING, "But you're still wearing green armour!").also { stage++ }
+            } else {
+                npcl(FacialExpression.OLD_DEFAULT, "But you're still wearing red armour!").also { stage += 2 }
+            }
+            22 -> npcl(FacialExpression.OLD_DEFAULT, "Um... my brown armour getting wash.").also { stage = END_DIALOGUE }
+            23 -> npcl(FacialExpression.OLD_DEFAULT, "It not red, it just red-ish brown!").also { stage = END_DIALOGUE }
         }
         return true
     }
+
     override fun getIds(): IntArray {
-        return intArrayOf(NPCs.GOBLIN_4483, NPCs.GOBLIN_4488, NPCs.GOBLIN_4489, NPCs.GOBLIN_4484, NPCs.GOBLIN_4491, NPCs.GOBLIN_4485, NPCs.GOBLIN_4486, NPCs.GOBLIN_4492, NPCs.GOBLIN_4487, NPCs.GOBLIN_4481, NPCs.GOBLIN_4479, NPCs.GOBLIN_4482, NPCs.GOBLIN_4480)
+        return intArrayOf(
+            NPCs.GOBLIN_4483,
+            NPCs.GOBLIN_4488,
+            NPCs.GOBLIN_4489,
+            NPCs.GOBLIN_4484,
+            NPCs.GOBLIN_4491,
+            NPCs.GOBLIN_4485,
+            NPCs.GOBLIN_4486,
+            NPCs.GOBLIN_4492,
+            NPCs.GOBLIN_4487,
+            NPCs.GOBLIN_4481,
+            NPCs.GOBLIN_4479,
+            NPCs.GOBLIN_4482,
+            NPCs.GOBLIN_4480
+        )
     }
 }
