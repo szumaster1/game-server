@@ -72,10 +72,12 @@ class VampireSlayerListener : InteractionListener {
                         vampire.isRespawn = false
                         vampire.setAttribute("player", player)
                         vampire.init()
+                        setAttribute(player, "vs-exit", true)
                         runTask(player, 5) {
                             teleport(vampire, Location(3078, 9774, 0))
                             vampire.animator.reset()
                             vampire.properties.combatPulse.attack(player)
+                            removeAttribute(player, "vs-exit")
                         }
                         setAttribute(player, "count", vampire)
                         if(inInventory(player, Items.STAKE_1549)) {
@@ -104,6 +106,10 @@ class VampireSlayerListener : InteractionListener {
          */
 
         on(DraynorUtils.stairsBasement, IntType.SCENERY, "walk-up") { player, _ ->
+            if(getAttribute(player, "vs-exit", false)) {
+                sendMessage(player, "You can't do that right now.")
+                return@on true
+            }
             player.properties.teleportLocation = DraynorUtils.groundFloor
             return@on true
         }
