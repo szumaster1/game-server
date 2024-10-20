@@ -10,7 +10,7 @@ class ElnockExchangeInterface : InterfaceListener {
             val values = intArrayOf(22, 25, 28, 31)
             for (i in ElnockExchange.values().indices) {
                 val e = ElnockExchange.values()[i]
-                sendItemZoomOnInterface(player, e.sendItem, 115, 540, values[i])
+                sendItemZoomOnInterface(player, Components.ELNOCK_EXCHANGE_540, values[i], e.sendItem)
             }
             return@onOpen true
         }

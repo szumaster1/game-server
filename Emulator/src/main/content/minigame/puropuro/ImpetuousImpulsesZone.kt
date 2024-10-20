@@ -7,14 +7,12 @@ import core.game.interaction.OptionHandler
 import core.game.node.Node
 import core.game.node.entity.Entity
 import core.game.node.entity.player.Player
-import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 import core.game.node.scenery.Scenery
 import core.game.node.scenery.SceneryBuilder
 import core.game.system.task.Pulse
 import core.game.world.GameWorld.Pulser
 import core.game.world.GameWorld.ticks
-import core.game.world.map.Direction
 import core.game.world.map.Location
 import core.game.world.map.RegionManager.getObject
 import core.game.world.map.zone.MapZone
@@ -32,7 +30,7 @@ import org.rs.consts.Items
  * Puro-puro plugin.
  */
 @Initializable
-class PuroPuroMinigame : MapZone("puro puro", true), Plugin<Any> {
+class ImpetuousImpulsesZone : MapZone("puro puro", true), Plugin<Any> {
     init {
         zoneType = ZoneType.SAFE.id
     }
@@ -75,51 +73,13 @@ class PuroPuroMinigame : MapZone("puro puro", true), Plugin<Any> {
     }
 
     override fun interact(e: Entity, target: Node, option: Option): Boolean {
-        if (e is Player) {
-            when (target.id) {
-                25016, 25029, 25019, 25018, 25020, 25021 -> {
-                    pushThrough(e, target as Scenery)
-                    return true
-                }
-            }
-        }
         return super.interact(e, target, option)
     }
-
-
-    private fun pushThrough(player: Player, `object`: Scenery) {
-        if (getStatLevel(player, Skills.HUNTER) < 17) {
-            sendMessage(player, "You need a Hunting level of at least 17 to enter the maze.")
-            return
-        }
-        if (hasImplingBox(player)) {
-            sendDialogue(player, "Something prevents you from entering. You think the portal is offended by your imp boxes. They are not popular on imp and impling planes.")
-            return
-        }
-        val dest = `object`.location.transform(Direction.getLogicalDirection(player.location, `object`.location), 1)
-        if (getObject(dest) != null) {
-            sendMessage(player, "An object on the other side is in your way.")
-            return
-        }
-        if (RandomFunction.random(2) == 0) {
-            sendMessage(player, "You use your strength to push through the wheat.")
-        } else {
-            sendMessage(player, "You use your strength to push through the wheat. It's hard work though.")
-        }
-        setAttribute(player, "cantMove", true)
-        forceMove(player, player.location, dest, 0, 265, null, 6595, null)
-    }
-
 
     private fun spawnWheat() {
         for (set in WHEAT) {
             set.init()
         }
-    }
-
-
-    private fun hasImplingBox(player: Player): Boolean {
-        return player.inventory.contains(10025, 1) || player.inventory.contains(10027, 1) || player.inventory.contains(10028, 1)
     }
 
     override fun configure() {
