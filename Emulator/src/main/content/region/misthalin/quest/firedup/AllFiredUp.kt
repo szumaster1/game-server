@@ -128,7 +128,7 @@ class AllFiredUp : Quest(QuestName.ALL_FIRED_UP, 157, 156, 1){
                 line(player, "fires simultaneously, he'll have further rewards for me.", line++, true)
                 line++
                 line++
-                line(player,"<col=FF0000>QUEST COMPLETE!QUEST COMPLETE!", line)
+                line(player,"<col=FF0000>QUEST COMPLETE!", line)
             }
         }
     }
