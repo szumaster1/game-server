@@ -1,6 +1,7 @@
 package content.region.desert.quest.golem.dialogue
 
 import core.api.finishQuest
+import core.api.isQuestComplete
 import core.api.setQuestStage
 import core.game.dialogue.Dialogue
 import core.game.dialogue.DialogueBuilder
@@ -9,6 +10,7 @@ import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
+import core.tools.END_DIALOGUE
 import org.rs.consts.NPCs
 import org.rs.consts.QuestName
 
@@ -20,11 +22,19 @@ class ClayGolemDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg objects: Any?): Boolean {
         npc = objects[0] as NPC
+        if(isQuestComplete(player, QuestName.THE_GOLEM)) {
+            npcl(FacialExpression.OLD_BOWS_HEAD_SAD, "Thank you for helping me. A golem can have no greater satisfaction than knowing that its task is complete.")
+            return true
+        }
         player.dialogueInterpreter.open(ClayGolemDialogueFile(), npc)
         return true
     }
 
     override fun handle(interfaceId: Int, buttonId: Int): Boolean {
+        when(stage) {
+            0 -> playerl(FacialExpression.HALF_ASKING, "But the whole city is destroyed! Doesn't that bother you?").also { stage++ }
+            1 -> npcl(FacialExpression.OLD_BOWS_HEAD_SAD, "I was never programmed to appreciate the city. My only purpose was the destruction of the demon, and that is achieved!").also { stage = END_DIALOGUE }
+        }
         return false
     }
 

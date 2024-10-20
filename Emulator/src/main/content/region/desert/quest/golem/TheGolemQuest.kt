@@ -1,9 +1,12 @@
 package content.region.desert.quest.golem
 
+import content.global.skill.thieving.pickpocketing.PickpocketListener
 import content.region.desert.quest.golem.dialogue.ClayGolemProgramDialogueFile
 import content.region.desert.quest.golem.dialogue.DISPLAY_CASE_TEXT
 import content.region.desert.quest.golem.dialogue.LETTER_LINES
 import core.api.*
+import core.api.utils.WeightBasedTable
+import core.api.utils.WeightedItem
 import core.game.global.action.ClimbActionHandler
 import core.game.global.action.SpecialLadders
 import core.game.interaction.IntType
@@ -455,21 +458,33 @@ class TheGolemListeners : InteractionListener {
         onUseWith(IntType.ITEM, 970, 4623) { player, _, _ -> return@onUseWith penOnPapyrus(player) }
         onUseWith(IntType.NPC, 4619, 1907) { player, _, _ -> return@onUseWith implementOnGolem(player) }
         onUseWith(IntType.NPC, 4624, 1907) { player, used, with -> return@onUseWith programOnGolem(player, used, with) }
-        on(NPCs.DESERT_PHOENIX_1911, IntType.NPC, "grab-feather") { player, _ ->
+        on(NPCs.DESERT_PHOENIX_1911, IntType.NPC, "grab-feather") { player, node ->
             if (getAttribute(player,"the-golem:varmen-notes-read", false)) {
                 lock(player, 1000)
+                val lootTable = PickpocketListener.pickpocketRoll(player, 90.0, 240.0, WeightBasedTable.create(
+                    WeightedItem(Items.PHOENIX_FEATHER_4621, 1, 1, 1.0, true)
+                ))
                 GameWorld.Pulser.submit(object : Pulse() {
                     var counter = 0
                     override fun pulse(): Boolean {
                         when (counter++) {
                             0 -> {
                                 sendMessage(player, "You attempt to grab the pheonix's tail-feather.")
-                                animate(player, Animation(881))
+                                animate(player, Animations.PICK_POCKET_881)
                             }
 
                             3 -> {
-                                sendMessage(player, "You grab a tail-feather.")
-                                player.inventory.add(Item(Items.PHOENIX_FEATHER_4621))
+                                if(lootTable == null) {
+                                    node.asNpc().face(player)
+                                    node.asNpc().animator.animate(Animation(6811))
+                                    sendMessage(player, "You fail to take the Desert Phoenix tail-feather.")
+                                    node.asNpc().face(null)
+                                } else {
+                                    lootTable.forEach {
+                                        player.inventory.add(it)
+                                        sendMessage(player, "You grab a tail-feather.")
+                                    }
+                                }
                                 unlock(player)
                                 return true
                             }
