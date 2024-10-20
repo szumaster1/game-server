@@ -2,8 +2,6 @@ package content.minigame.puropuro
 
 import content.global.skill.hunter.bnet.BNetTypes
 import core.api.*
-import org.rs.consts.Items
-import org.rs.consts.NPCs
 import core.game.node.entity.npc.NPC
 import core.game.node.entity.npc.NPCBehavior
 import core.game.node.entity.player.Player
@@ -14,6 +12,8 @@ import core.game.system.task.Pulse
 import core.game.world.map.RegionManager
 import core.game.world.map.zone.ZoneBorders
 import core.tools.RandomFunction
+import org.rs.consts.Items
+import org.rs.consts.NPCs
 
 /**
  * Imp defender NPC.

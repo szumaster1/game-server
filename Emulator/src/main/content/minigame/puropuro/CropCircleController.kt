@@ -1,13 +1,13 @@
 package content.minigame.puropuro
 
 import core.api.*
-import org.rs.consts.Sounds
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.TeleportManager.TeleportType
 import core.game.node.scenery.Scenery
 import core.game.world.map.Location
+import org.rs.consts.Sounds
 
 /**
  * Crop circle controller.

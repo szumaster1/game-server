@@ -1,11 +1,12 @@
 package content.minigame.puropuro.dialogue
 
-import org.rs.consts.NPCs
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression
+import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
+import org.rs.consts.NPCs
 
 /**
  * Represents the Wandering Impling dialogue.
@@ -14,6 +15,7 @@ import core.tools.END_DIALOGUE
 class WanderingImplingDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any): Boolean {
+        npc = args[0] as NPC
         player("Hello. So, what is this place?")
         return true
     }
