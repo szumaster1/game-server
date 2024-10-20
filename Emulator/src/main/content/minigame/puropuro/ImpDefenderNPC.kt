@@ -33,8 +33,7 @@ class ImpDefenderNPC : NPCBehavior(NPCs.IMP_DEFENDER_6074) {
 
         var players = RegionManager.getLocalPlayers(self, 2)
         for (player in players) {
-            var lowestTierImpling = BNetTypes.getImpling(player)
-            if (lowestTierImpling == null) continue
+            var lowestTierImpling = BNetTypes.getImpling(player) ?: continue
             var jarItem = lowestTierImpling.reward
             setAttribute(self, "capture-target", player)
             setAttribute(self, "capture-item", jarItem)
@@ -48,9 +47,12 @@ class ImpDefenderNPC : NPCBehavior(NPCs.IMP_DEFENDER_6074) {
 
     private class TryReleasePulse(val self: NPC) : Pulse() {
         companion object {
-            const val catchPlayerLow = 35.0 //      14% chance to avoid catch at level 1
-            const val catchPlayerHigh = 280.0 //    100% chance to avoid catch at level 90 (level 82 with imp repellent)
-            const val impRepellentBonus = 20.0 //   10% bonus if player has imp repellent
+            // 14% chance to avoid catch at level 1
+            const val catchPlayerLow = 35.0
+            // 100% chance to avoid catch at level 90 (level 82 with imp repellent)
+            const val catchPlayerHigh = 280.0
+            // 10% bonus if player has imp repellent
+            const val impRepellentBonus = 20.0
         }
 
         var counter = 0

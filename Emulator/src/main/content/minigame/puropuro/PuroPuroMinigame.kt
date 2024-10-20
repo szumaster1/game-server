@@ -2,7 +2,6 @@ package content.minigame.puropuro
 
 import core.api.*
 import core.cache.def.impl.ItemDefinition
-import core.game.component.Component
 import core.game.interaction.Option
 import core.game.interaction.OptionHandler
 import core.game.node.Node
@@ -22,13 +21,12 @@ import core.game.world.map.zone.MapZone
 import core.game.world.map.zone.ZoneBuilder
 import core.game.world.map.zone.ZoneType
 import core.game.world.update.flag.context.Animation
-import core.net.packet.PacketRepository
-import core.net.packet.context.MinimapStateContext
-import core.net.packet.outgoing.MinimapState
 import core.plugin.Initializable
 import core.plugin.Plugin
 import core.plugin.PluginManager.definePlugin
 import core.tools.RandomFunction
+import org.rs.consts.Components
+import org.rs.consts.Items
 
 /**
  * Puro-puro plugin.
@@ -54,7 +52,7 @@ class PuroPuroMinigame : MapZone("puro puro", true), Plugin<Any> {
     override fun enter(e: Entity): Boolean {
         if (e is Player) {
             val p = e.asPlayer()
-            PacketRepository.send(MinimapState::class.java, MinimapStateContext(p, 2))
+            setMinimapState(p, 2)
         }
         if (!PULSE.isRunning) {
             spawnWheat()
@@ -69,9 +67,8 @@ class PuroPuroMinigame : MapZone("puro puro", true), Plugin<Any> {
         if (e is Player) {
             val p = e.asPlayer()
             if (!logout) {
-                p.interfaceManager.close()
-                p.interfaceManager.closeOverlay()
-                PacketRepository.send(MinimapState::class.java, MinimapStateContext(p, 0))
+                setMinimapState(p, 0)
+                closeAllInterfaces(p)
             }
         }
         return super.leave(e, logout)
@@ -171,27 +168,27 @@ class PuroPuroMinigame : MapZone("puro puro", true), Plugin<Any> {
     inner class PuroOptionHandler : OptionHandler() {
         @Throws(Throwable::class)
         override fun newInstance(arg: Any?): Plugin<Any> {
-            ItemDefinition.forId(11273).handlers["option:toggle-view"] = this
-            ItemDefinition.forId(11258).handlers["option:butterfly-jar"] = this
-            ItemDefinition.forId(11258).handlers["option:impling-jar"] = this
-            ItemDefinition.forId(11258).handlers["option:check"] = this
+            ItemDefinition.forId(Items.IMPLING_SCROLL_11273).handlers["option:toggle-view"] = this
+            ItemDefinition.forId(Items.JAR_GENERATOR_11258).handlers["option:butterfly-jar"] = this
+            ItemDefinition.forId(Items.JAR_GENERATOR_11258).handlers["option:impling-jar"] = this
+            ItemDefinition.forId(Items.JAR_GENERATOR_11258).handlers["option:check"] = this
             return this
         }
 
         override fun handle(player: Player, node: Node, option: String): Boolean {
             when (node.id) {
-                11258 -> handleJarGenerator(player, node as Item, option)
-                11273 -> {
+                Items.JAR_GENERATOR_11258 -> handleJarGenerator(player, node as Item, option)
+                Items.IMPLING_SCROLL_11273 ->
+                {
                     if (!player.zoneMonitor.isInZone("puro puro")) {
-                        player.sendMessage("You can only use this in the Puro Puro Maze.")
+                        sendMessage(player, "You can only use this in the Puro Puro Maze.")
 
                     } else {
-                        if (player.interfaceManager.overlay != null) {
-                            player.interfaceManager.closeOverlay()
-
+                        if (player.interfaceManager.isOpened && player.interfaceManager.opened.id == Components.IMPLING_SCROLL_169){
+                            closeInterface(player)
+                        } else {
+                            openOverlay(player, Components.IMPLING_SCROLL_169)
                         }
-
-                        player.interfaceManager.openOverlay(Component(169))
                     }
                     return true
                 }
@@ -203,26 +200,26 @@ class PuroPuroMinigame : MapZone("puro puro", true), Plugin<Any> {
         private fun handleJarGenerator(player: Player, item: Item, option: String) {
             when (option) {
                 "butterfly-jar", "impling-jar" -> generate(player, item, option)
-                "check" -> player.sendMessage("Your jar generator has a charge percentage of " + getPercent(item) + ".")
+                "check" -> sendMessage(player, "Your jar generator has a charge percentage of " + getPercent(item) + ".")
             }
         }
 
 
         private fun generate(player: Player, item: Item, option: String) {
-            val jar = if (option == "butterfly-jar") Item(10012) else Item(11260)
+            val jar = if (option == "butterfly-jar") Item(Items.BUTTERFLY_JAR_10012) else Item(Items.IMPLING_JAR_11260)
             val percent = if (jar.id == 10012) 1 else 3
             if (!hasPercent(item, percent)) {
-                player.sendMessage("Your jar generator doesn't have enough charges to make another " + jar.name.lowercase() + ".")
+                sendMessage(player,"Your jar generator doesn't have enough charges to make another " + jar.name.lowercase() + ".")
                 return
             }
-            player.lock(5)
-            player.animate(Animation(6592))
-            player.inventory.add(jar)
+            lock(player,5)
+            animate(player, 6592)
+            addItem(player, jar.id)
             setPercent(item, percent)
-            player.sendMessage("Your jar generator generates a " + jar.name.lowercase() + ".")
+            sendMessage(player,"Your jar generator generates a " + jar.name.lowercase() + ".")
             if (getPercent(item) <= 0) {
-                player.inventory.remove(item)
-                player.sendMessage("Your jar generator runs out of charges.")
+                removeItem(player, item)
+                sendMessage(player,"Your jar generator runs out of charges.")
             }
         }
 
@@ -252,7 +249,6 @@ class PuroPuroMinigame : MapZone("puro puro", true), Plugin<Any> {
     }
 
     class WheatSet(private val rot: Int, vararg locations: Location) {
-
         val locations: Array<Location> = locations as Array<Location>
         private val scenery = arrayOfNulls<Scenery>(2)
         var nextWhilt: Int = 0
@@ -287,7 +283,7 @@ class PuroPuroMinigame : MapZone("puro puro", true), Plugin<Any> {
                             return true
                         }
                     })
-                    SceneryBuilder.add(`object`)
+                    addScenery(`object`)
                     continue
                 }
                 submitWorldPulse(object : Pulse() {
@@ -299,7 +295,7 @@ class PuroPuroMinigame : MapZone("puro puro", true), Plugin<Any> {
                             delay = animationDuration(Animation(6599))
                             return false
                         }
-                        SceneryBuilder.remove(`object`)
+                        removeScenery(`object`)
                         return true
                     }
                 })
