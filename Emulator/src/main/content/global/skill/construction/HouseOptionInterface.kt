@@ -1,5 +1,6 @@
 package content.global.skill.construction
 
+import core.api.openInterface
 import core.api.sendMessage
 import core.game.interaction.InterfaceListener
 import org.rs.consts.Components
@@ -11,7 +12,11 @@ class HouseOptionInterface : InterfaceListener {
         on(Components.POH_HOUSE_OPTIONS_398) { player, _, _, buttonID, _, _ ->
             when (buttonID) {
                 14 -> {
-                    player.houseManager.toggleBuildingMode(player, true)
+                    if(player.houseManager.isInHouse(player)){
+                        openInterface(player, Components.CWS_WARNING_5_563)
+                    } else {
+                        player.houseManager.toggleBuildingMode(player, true)
+                    }
                     return@on true
                 }
 

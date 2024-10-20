@@ -1,7 +1,7 @@
 package content.global.handlers.iface
 
-import core.api.playJingle
-import core.api.setAttribute
+import content.global.handlers.iface.ShoeStoreInterface.YrsaCloseEventDialogue
+import core.api.*
 import core.game.component.Component
 import core.game.component.ComponentDefinition
 import core.game.component.ComponentPlugin
@@ -9,6 +9,7 @@ import core.game.node.entity.player.Player
 import core.game.node.item.Item
 import core.plugin.Initializable
 import core.plugin.Plugin
+import org.rs.consts.Items
 
 private const val THESSALIA_MALE_COMPONENT = 591
 private const val THESSALIA_FEMALE_COMPONENT = 594
@@ -295,12 +296,16 @@ class ThessaliaInterface : ComponentPlugin() {
     }
 
     fun pay(player: Player) {
-        if (player.inventory.containsItem(COINS)) {
-            player.inventory.remove(COINS)
-            setAttribute(player, "thes-paid", true)
-            player.interfaceManager.close()
+        if (!player.houseManager.isInHouse(player)) {
+            if (!removeItem(player, COINS)) {
+                sendDialogue(player, "You can not afford that.")
+            } else {
+                setAttribute(player, "thes-paid", true)
+                closeInterface(player)
+            }
         } else {
-            player.dialogueInterpreter.sendDialogue("You cannot afford that.")
+            setAttribute(player, "thes-paid", true)
+            closeInterface(player)
         }
     }
 

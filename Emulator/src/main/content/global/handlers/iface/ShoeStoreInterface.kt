@@ -15,6 +15,7 @@ import core.tools.END_DIALOGUE
 import org.rs.consts.Components
 import org.rs.consts.Items
 import org.rs.consts.NPCs
+import org.rs.consts.Sounds
 
 /**
  * Represents the interface plugin to handle yrsa interfaces.
@@ -27,7 +28,6 @@ class ShoeStoreInterface : ComponentPlugin() {
     private val selectButtonId = intArrayOf(15, 16, 17, 18, 19, 20)
     private val colorId = intArrayOf(0, 1, 2, 3, 4, 5)
     private val shopInterface = Components.YRSA_SHOE_STORE_200
-    private val exitSound = 96
 
     override fun open(player: Player, component: Component?) {
         component ?: return
@@ -35,16 +35,21 @@ class ShoeStoreInterface : ComponentPlugin() {
 
         val originalColor = player.appearance.feet.color
         setAttribute(player, previousColor, originalColor)
-
+        playGlobalAudio(player.location, Sounds.WARDROBE_OPEN_96, 1)
         for (i in selectButtonId.indices.also {
             for (i in pictureId.indices) {
                 sendItemOnInterface(player, shopInterface, selectButtonId[i], pictureId[i])
+                if(!player.houseManager.isInHouse(player)) {
+                    sendString(player, "CONFIRM (500 GOLD)", Components.YRSA_SHOE_STORE_200,14)
+                } else {
+                    sendString(player, "CONFIRM (FREE)",Components.YRSA_SHOE_STORE_200,14)
+                }
             }
         }) player.toggleWardrobe(true)
 
         component.setCloseEvent { p, _ ->
             p.toggleWardrobe(false)
-            playGlobalAudio(player.location, exitSound, 1)
+            playGlobalAudio(player.location, Sounds.WARDROBE_CLOSE_95, 1)
             if (!getAttribute(player, paymentCheck, false)) {
                 p.appearance.feet.changeColor(getAttribute(p, previousColor, originalColor))
                 syncAppearance(p)
@@ -88,15 +93,19 @@ class ShoeStoreInterface : ComponentPlugin() {
             closeInterface(player)
         }
 
-        if (removeItem(player, Item(Items.COINS_995, 500))) {
+        if (!player.houseManager.isInHouse(player)) {
+            if (!removeItem(player, Item(Items.COINS_995, 500))) {
+                sendDialogue(player, "You can not afford that.")
+            } else {
+                setAttribute(player, paymentCheck, true)
+                closeInterface(player)
+                openDialogue(player, YrsaCloseEventDialogue())
+            }
+        } else {
             setAttribute(player, paymentCheck, true)
             closeInterface(player)
-            if (inBorders(player, 2622, 3672, 2626, 3676))
-                openDialogue(player, YrsaCloseEventDialogue())
-        } else {
-            sendDialogue(player, "You can not afford that.")
         }
-
+        setVarp(player, 261, 0)
     }
 
     private fun updateFeet(player: Player, button: Int) {

@@ -21009,7 +21009,7 @@
   },
   {
     "examine": "You can build a rug here.",
-    "ids": "15378,15387,15273,15274,15414,15415"
+    "ids": "15264,15265,15266,15379,15377,15378,15387,15273,15274,15414,15415"
   },
   {
     "examine": "You can mount a monster head here.",
@@ -21298,5 +21298,29 @@
   {
     "examine": "A very nice altar.",
     "ids": "21893"
+  },
+  {
+    "examine": "You can build a bed here.",
+    "ids": "15260"
+  },
+  {
+    "examine": "You can build a wardrobe here.",
+    "ids": "15261"
+  },
+  {
+    "examine": "You can build curtains here.",
+    "ids": "15263"
+  },
+  {
+    "examine": "You can build a fireplace here.",
+    "ids": "15267"
+  },
+  {
+    "examine": "You can build a clock here.",
+    "ids": "15268"
+  },
+  {
+    "examine": "You can build a stairs here.",
+    "ids": "15380,15390"
   }
 ]

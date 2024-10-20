@@ -9,17 +9,17 @@ import core.game.node.item.Item
 import core.game.node.scenery.Scenery
 import core.game.node.scenery.SceneryBuilder
 import core.game.world.update.flag.context.Animation
+import org.rs.consts.Animations
 import org.rs.consts.Items
 import org.rs.consts.Scenery as Object
 
 class FireplaceListener : InteractionListener {
 
-    private val animationId: Animation = Animation.create(3658)
-    private val fireplaceIds =
-        intArrayOf(Object.CLAY_FIREPLACE_13609, Object.LIMESTONE_FIREPLACE_13611, Object.MARBLE_FIREPLACE_13613)
+    private val animationId = Animations.TINDERBOX_3658
+    private val fireplaceSpaceFurniture = intArrayOf(Object.CLAY_FIREPLACE_13609, Object.LIMESTONE_FIREPLACE_13611, Object.MARBLE_FIREPLACE_13613)
 
     override fun defineListeners() {
-        on(fireplaceIds, IntType.SCENERY, "light") { player, node ->
+        on(fireplaceSpaceFurniture, IntType.SCENERY, "light") { player, node ->
             val n = node.asScenery()
 
             if (!anyInInventory(player, Items.LOGS_1511, Items.TINDERBOX_590)) {

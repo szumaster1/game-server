@@ -1,8 +1,6 @@
 package content.global.handlers.iface
 
-import core.api.sendAnimationOnInterface
-import core.api.sendPlayerOnInterface
-import core.api.setAttribute
+import core.api.*
 import core.game.component.Component
 import core.game.component.ComponentDefinition
 import core.game.component.ComponentPlugin
@@ -295,12 +293,16 @@ class HairdresserInterface : ComponentPlugin() {
     }
 
     fun pay(player: Player) {
-        if (player.inventory.containsItem(COINS)) {
-            player.inventory.remove(COINS)
-            setAttribute(player, "hairdresser-paid", true)
-            player.interfaceManager.close()
+        if (!player.houseManager.isInHouse(player)) {
+            if (!removeItem(player, COINS)) {
+                sendDialogue(player, "You can not afford that.")
+            } else {
+                setAttribute(player, "hairdresser-paid", true)
+                closeInterface(player)
+            }
         } else {
-            player.dialogueInterpreter.sendDialogue("You can not afford that.")
+            setAttribute(player, "hairdresser-paid", true)
+            closeInterface(player)
         }
     }
 
