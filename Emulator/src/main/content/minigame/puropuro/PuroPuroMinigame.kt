@@ -180,15 +180,14 @@ class PuroPuroMinigame : MapZone("puro puro", true), Plugin<Any> {
                 Items.JAR_GENERATOR_11258 -> handleJarGenerator(player, node as Item, option)
                 Items.IMPLING_SCROLL_11273 ->
                 {
-                    if (!player.zoneMonitor.isInZone("puro puro")) {
-                        sendMessage(player, "You can only use this in the Puro Puro Maze.")
-
+                    if (!inZone(player,"puro puro")) {
+                        sendMessage(player, "You can't do that while you're outside of minigame area.")
+                        return true
+                    }
+                    if (player.interfaceManager.overlay != null) {
+                        closeOverlay(player)
                     } else {
-                        if (player.interfaceManager.isOpened && player.interfaceManager.opened.id == Components.IMPLING_SCROLL_169){
-                            closeInterface(player)
-                        } else {
-                            openOverlay(player, Components.IMPLING_SCROLL_169)
-                        }
+                        openOverlay(player, Components.IMPLING_SCROLL_169)
                     }
                     return true
                 }
@@ -207,7 +206,7 @@ class PuroPuroMinigame : MapZone("puro puro", true), Plugin<Any> {
 
         private fun generate(player: Player, item: Item, option: String) {
             val jar = if (option == "butterfly-jar") Item(Items.BUTTERFLY_JAR_10012) else Item(Items.IMPLING_JAR_11260)
-            val percent = if (jar.id == 10012) 1 else 3
+            val percent = if (jar.id == Items.BUTTERFLY_JAR_10012) 1 else 3
             if (!hasPercent(item, percent)) {
                 sendMessage(player,"Your jar generator doesn't have enough charges to make another " + jar.name.lowercase() + ".")
                 return

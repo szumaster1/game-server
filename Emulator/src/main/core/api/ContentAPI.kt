@@ -1551,6 +1551,16 @@ fun inBorders(entity: Entity, swX: Int, swY: Int, neX: Int, neY: Int): Boolean {
 }
 
 /**
+ * Checks if the given entity is in a zone.
+ *
+ * @param name The name of the zone.
+ * @return true when it is
+ */
+fun inZone(entity: Entity, name: String) : Boolean {
+    return entity.zoneMonitor.isInZone(name)
+}
+
+/**
  * AHeals the given entity for the
  * given number of hitpoints.
  */
