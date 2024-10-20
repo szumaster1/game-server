@@ -1,17 +1,16 @@
 package content.region.misthalin.draynor.quest.vampire.handlers
 
-import org.rs.consts.Sounds
 import core.api.*
-import org.rs.consts.Animations
-import org.rs.consts.NPCs
 import content.region.misthalin.draynor.handlers.DraynorUtils
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.entity.npc.NPC
-import org.rs.consts.QuestName
+import core.game.world.map.Direction
+import core.game.world.map.Location
+import org.rs.consts.*
 
 /**
- * Represents the [VampireSlayerListener].
+ * Represents the Vampire slayer quest related interactions.
  */
 class VampireSlayerListener : InteractionListener {
 
@@ -64,45 +63,28 @@ class VampireSlayerListener : InteractionListener {
         on(DraynorUtils.coffin, IntType.SCENERY, "open") { player, node ->
             animate(player, Animations.MULTI_USE_TAKE_832)
             playAudio(player, Sounds.COFFIN_OPEN_54)
-            replaceScenery(node.asScenery(), DraynorUtils.openedCoffin, -1)
-            return@on true
-        }
-
-        /*
-         * Listener for closing the opened coffin.
-         */
-
-        on(DraynorUtils.openedCoffin, IntType.SCENERY, "close") { player, node ->
-            animate(player, Animations.MULTI_USE_TAKE_832)
-            playAudio(player, Sounds.COFFIN_CLOSE_53)
-            replaceScenery(node.asScenery(), DraynorUtils.coffin, -1)
-            return@on true
-        }
-
-        /*
-         * Listener for searching the opened coffin.
-         */
-
-        on(DraynorUtils.openedCoffin, IntType.SCENERY, "search") { player, _ ->
-            if (isQuestComplete(player, QuestName.VAMPIRE_SLAYER)) {
-                sendDialogue(player, "There's only a pillow in here..")
-            } else if (getQuestStage(player, QuestName.VAMPIRE_SLAYER) == 30) {
-                animate(player, Animations.MULTI_USE_TAKE_832)
-                if (!inInventory(player, DraynorUtils.stake) && !inInventory(player, DraynorUtils.hammer)) {
-                    sendMessage(player, "You must have a stake and hammer with you to kill the vampire.")
-                    return@on true
-                }
-                val o = player.getAttribute<NPC>("count", null)
-                if (o == null || !o.isActive) {
-                    runTask(player, 1) {
-                        val vampire = core.game.node.entity.npc.NPC.create(NPCs.COUNT_DRAYNOR_757, player.location)
+            if(!isQuestComplete(player, QuestName.VAMPIRE_SLAYER) && getQuestStage(player, QuestName.VAMPIRE_SLAYER) == 30) {
+                replaceScenery(node.asScenery(), DraynorUtils.openedCoffin, 6)
+                runTask(player, 3) {
+                    val o = player.getAttribute<NPC>("count", null)
+                    if (o == null || !o.isActive) {
+                        val vampire = core.game.node.entity.npc.NPC.create(NPCs.COUNT_DRAYNOR_757, Location.create(3078, 9775))
                         vampire.isRespawn = false
                         vampire.setAttribute("player", player)
                         vampire.init()
-                        vampire.properties.combatPulse.attack(player)
+                        runTask(player, 5) {
+                            teleport(vampire, Location(3078, 9774, 0))
+                            vampire.animator.reset()
+                            vampire.properties.combatPulse.attack(player)
+                        }
                         setAttribute(player, "count", vampire)
+                        if(inInventory(player, Items.STAKE_1549)) {
+                            sendMessage(player, "The vampire seems to weaken.")
+                        }
                     }
                 }
+            } else {
+                sendPlayerDialogue(player, "I should tell Morgan that I've killed the vampire!")
             }
             return@on true
         }

@@ -27,10 +27,10 @@ class Biohazard : Quest("Biohazard", 36, 35, 3, Vars.VARP_QUEST_BIOHAZARD_PROGRE
         player ?: return
 
         if (stage == 0) {
-            line(player, "I can start this quest by speaking to !!Elena?? who is in !!East??", line++, true)
-            line(player, "!!Ardougne??.", line++, true)
+            line(player, "I can start this quest by speaking to !!Elena?? who is in !!East??", line++)
+            line(player, "!!Ardougne??.", line++)
             line++
-            line(player, "Requirements:", line++, true)
+            line(player, "Requirements:", line++)
             line(player, "!!I need to complete ${QuestName.PLAGUE_CITY} before I can attempt this??", line++, isQuestComplete(player, QuestName.PLAGUE_CITY))
             line(player, "!!Quest??.", line++, isQuestComplete(player, QuestName.PLAGUE_CITY))
             line++

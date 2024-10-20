@@ -1,10 +1,7 @@
 package content.region.misthalin.draynor.quest.vampire.dialogue
 
+import core.api.*
 import org.rs.consts.NPCs
-import core.api.getQuestStage
-import core.api.inInventory
-import core.api.sendDialogue
-import core.api.setQuestStage
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC
@@ -14,6 +11,8 @@ import core.game.node.item.GroundItemManager
 import core.game.node.item.Item
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
+import org.rs.consts.Items
+import org.rs.consts.QuestName
 
 /**
  * Represents the Dr Harlow dialogue.
@@ -31,29 +30,31 @@ class DrHarlowDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun handle(interfaceId: Int, buttonId: Int): Boolean {
         when (stage) {
-            0 -> if (getQuestStage(player, "Vampire Slayer") == 10) {
+            0 -> if (getQuestStage(player, QuestName.VAMPIRE_SLAYER) == 10) {
                 options("No, you've had enough.", "Morgan needs your help!").also { stage = 1 }
-            } else if (getQuestStage(player, "Vampire Slayer") == 20) {
+            } else if (getQuestStage(player, QuestName.VAMPIRE_SLAYER) == 20) {
                 if (inInventory(player, 1917, 1)) {
                     player("Here you go.").also { stage = 20 }
                 } else {
                     player("I'll just go and buy one.").also { stage = END_DIALOGUE }
                 }
-            } else if (getQuestStage(player, "Vampire Slayer") == 30) {
-                if (!player.bank.contains(1549, 1) && !player.inventory.contains(1549, 1)) {
+            } else if (getQuestStage(player, QuestName.VAMPIRE_SLAYER) == 30) {
+                if (!inBank(player, Items.STAKE_1549) && !inInventory(player, Items.STAKE_1549)) {
                     if (!player.inventory.add(ITEMS[0])) {
                         val item = GroundItem(ITEMS[0], npc.location, player)
                         GroundItemManager.create(item)
                     }
-                    interpreter.sendItemMessage(1549, "Dr Harlow hands you a stake.")
+                    sendItemDialogue(player, Items.STAKE_1549, "Dr Harlow hands you a stake.")
                     stage = 27
                     return true
                 }
-                if (player.inventory.contains(1917, 1)) {
+                if (inInventory(player, Items.BEER_1917, 1)) {
                     player("Here you go.").also { stage = 20 }
                 } else {
                     player("I'll just go and buy one.").also { stage = END_DIALOGUE }
                 }
+            } else if(isQuestComplete(player, QuestName.VAMPIRE_SLAYER)){
+                npc("Oh, itsh you. What do you want?").also { stage = 30 }
             } else {
                 player("No, you've had enough.").also { stage = END_DIALOGUE }
             }
@@ -93,6 +94,8 @@ class DrHarlowDialogue(player: Player? = null) : Dialogue(player) {
             27 -> npc("You'll need a hammer as well, to drive it in properly,", "your everyday general store hammer will do. One last", "thing... It's wise to carry garlic with you, vampires are", "somewhat weakend if they can smell garlic. Morgan").also { stage++ }
             28 -> npc("alwys liked garlic, you should try his house. But", "remember, a vampire is still a dangerous foe!").also { stage++ }
             29 -> player("Thank you very much!").also { stage = END_DIALOGUE }
+            30 -> playerl(FacialExpression.HAPPY, "I successfully slayed the vampire! Morgan's village is now free of threat and all is well.").also { stage++ }
+            31 -> npcl(FacialExpression.DRUNK, "Well, that calls for a drink to celebrate! How 'bout yoush buy me one?").also { stage = END_DIALOGUE }
         }
         return true
     }

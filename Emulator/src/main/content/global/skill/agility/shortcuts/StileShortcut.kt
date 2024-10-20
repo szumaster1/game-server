@@ -1,9 +1,7 @@
 package content.global.skill.agility.shortcuts
 
-import core.api.animationCycles
-import core.api.forceMove
-import core.api.queueScript
-import core.api.stopExecuting
+import content.global.skill.agility.AgilityHandler
+import core.api.*
 import core.api.utils.Vector
 import core.game.activity.ActivityManager
 import core.game.interaction.IntType
@@ -12,6 +10,7 @@ import core.game.interaction.QueueStrength
 import core.game.node.entity.player.Player
 import core.game.world.map.Direction
 import core.game.world.map.Location
+import org.rs.consts.Animations
 
 /**
  * Represents the Stile shortcut.
@@ -28,8 +27,16 @@ class StileShortcut : InteractionListener {
             val endLoc = p.location.transform(direction, 2)
 
             p.walkingQueue.reset()
+
+            /*
+             * The basic stile cannot be failed.
+             * if (AgilityHandler.hasFailed(p, 1, 0.1)) {
+             *     animate(p, 1106)
+             * }
+             */
+
             p.walkingQueue.addPath(startLoc.x, startLoc.y)
-            forceMove(p, startLoc, endLoc, 0, animationCycles(839), direction, 839)
+            forceMove(p, startLoc, endLoc, 0, animationCycles(Animations.WALKING_OVER_STILE_OBSTACLE_10980), direction, Animations.WALKING_OVER_STILE_OBSTACLE_10980)
             queueScript(p, 5, QueueStrength.SOFT) { _ ->
                 val end = endLoc.transform(direction, 1)
                 p.walkingQueue.reset()

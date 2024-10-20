@@ -26,7 +26,7 @@ object DraynorUtils {
     const val cupBoard = Scenery.CUPBOARD_33502
     const val openedCupBoard = Scenery.CUPBOARD_33503
     const val coffin = Scenery.COFFIN_2614
-    const val openedCoffin = Scenery.COFFIN_2615
+    const val openedCoffin = Scenery.COFFIN_11208
     const val stairsUp = Scenery.STAIRS_32835
     const val stairsBasement = Scenery.STAIRS_32836
 
